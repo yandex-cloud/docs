@@ -35,7 +35,14 @@ filter | <p>A filter expression that filters resources listed in the response. C
       "name": "string",
       "description": "string",
       "labels": "object",
-      "spreadPlacementStrategy": {}
+
+      // `placementGroups[]` includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
+      "spreadPlacementStrategy": {},
+      "partitionPlacementStrategy": {
+        "partitions": "string"
+      },
+      // end of the list of possible fields`placementGroups[]`
+
     }
   ],
   "nextPageToken": "string"
@@ -52,5 +59,7 @@ placementGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestam
 placementGroups[].<br>name | **string**<br><p>Name of the placement group. The name is unique within the folder.</p> 
 placementGroups[].<br>description | **string**<br><p>Description of the placement group. 0-256 characters long.</p> 
 placementGroups[].<br>labels | **object**<br><p>Placement group labels as ``key:value`` pairs.</p> 
-placementGroups[].<br>spreadPlacementStrategy | **object**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains.
+placementGroups[].<br>spreadPlacementStrategy | **object**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. <br>`placementGroups[]` includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+placementGroups[].<br>partitionPlacementStrategy | **object** <br>`placementGroups[]` includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+placementGroups[].<br>partitionPlacementStrategy.<br>partitions | **string** (int64)<br><p>Acceptable values are 2 to 5, inclusive.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/PlacementGroup/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/PlacementGroup/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

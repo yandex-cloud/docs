@@ -18,7 +18,7 @@ export PATH=$PATH:/path/to/terraform
    Use one of the following methods:
 
    * [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and install it by following the [instructions](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-   * Install {{ TF }} using the [Chocolatey](https://chocolatey.org/install) package manager. To do this, run the command:
+   * Install {{ TF }} using the [Chocolatey](https://chocolatey.org/install) package manager and the command below:
 
       ```
       choco install terraform

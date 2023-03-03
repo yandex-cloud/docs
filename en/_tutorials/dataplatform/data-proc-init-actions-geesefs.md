@@ -83,7 +83,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Check {#check-availability} bucket availability.
 
-1. After the cluster status changes to **Alive**, [connect via SSH](../../data-proc/operations/connect.md#data-proc-ssh) to any of its hosts as the `ubuntu` user.
+1. After the cluster status changes to **Alive**, [connect](../../data-proc/operations/connect.md#data-proc-ssh) via SSH to any of its hosts as the `ubuntu` user.
 
 1. To make sure that the bucket has been mounted successfully, run the command:
 

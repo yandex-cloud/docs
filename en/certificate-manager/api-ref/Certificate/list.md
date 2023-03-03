@@ -10,7 +10,7 @@ Returns the list of certificates in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates
+GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates
 ```
  
 ## Query parameters {#query_params}
@@ -71,7 +71,8 @@ view | <p>The output type of the certificate.</p> <ul> <li>BASIC: Output basic i
 
         }
       ],
-      "deletionProtection": true
+      "deletionProtection": true,
+      "incompleteChain": true
     }
   ],
   "nextPageToken": "string"
@@ -114,4 +115,5 @@ certificates[].<br>challenges[].<br>httpChallenge | **object**<br>HTTP-file. <br
 certificates[].<br>challenges[].<br>httpChallenge.<br>url | **string**<br><p>Location of the HTTP file.</p> 
 certificates[].<br>challenges[].<br>httpChallenge.<br>content | **string**<br><p>Content of the HTTP file.</p> 
 certificates[].<br>deletionProtection | **boolean** (boolean)<br><p>Flag that protects deletion of the certificate</p> 
+certificates[].<br>incompleteChain | **boolean** (boolean)<br><p>Mark imported certificates without uploaded chain or with chain which not lead to root certificate</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified <a href="/docs/certificate-manager/api-ref/Certificate/list#query_params">pageSize</a>, use the ``next_page_token`` as the value for the <a href="/docs/certificate-manager/api-ref/Certificate/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/certificate-manager/api-ref/Certificate/list#responses">nextPageToken</a> to continue paging through the results.</p> 

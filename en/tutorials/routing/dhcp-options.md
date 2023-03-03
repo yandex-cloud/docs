@@ -1,0 +1,1 @@
+{% include [openvpn](../../_tutorials/routing/dhcp-options.md) %}

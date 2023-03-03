@@ -18,7 +18,7 @@ On the project editing page, you can change the project name and description, se
 
 1. Click **Save**.
 
-In the project settings, you can also select the [save state](../../concepts/save-state.md#auto-save) mode and enable the [early access mode](../../concepts/early-access.md).
+In the project settings, you can also select the [save state](../../concepts/save-state.md#auto-save) mode.
 
 #### See also {#see-also}
 

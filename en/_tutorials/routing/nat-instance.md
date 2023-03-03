@@ -84,13 +84,10 @@ You can also use the created route for other subnets in the same network, except
    ```
    ssh <NAT instance public IP>
    ```
-
 1. Use the NAT instance to connect to the test VM in the same subnet via SSH:
-
    ```
    ssh <VM internal IP>
    ```
-
 1. Make sure the VM is connected to the internet via the public IP address of the NAT instance. Enter the following command in the terminal:
 
    ```

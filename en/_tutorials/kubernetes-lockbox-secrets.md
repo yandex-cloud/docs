@@ -1,6 +1,6 @@
-[External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) lets you set up the synchronization of [{{ lockbox-name }}](../lockbox/) secrets with {{ managed-k8s-name }} cluster secrets.
+[External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) enables you to configure the synchronization of [{{ lockbox-name }}](../lockbox/)secrets with those of {{ managed-k8s-name }} clusters.
 
-There are [multiple integration schemes](https://external-secrets.io/latest/guides/multi-tenancy/) for {{ lockbox-name }} and {{ managed-k8s-name }}. The example below describes [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
+There are [several schemas for integrating](https://external-secrets.io/latest/guides/multi-tenancy/) {{ lockbox-name }} with {{ managed-k8s-name }}. The example below describes [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
 
 ![image](../_assets/managed-kubernetes/mks-lockbox-eso.svg)
 
@@ -13,6 +13,51 @@ To set up secret syncing:
 If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you begin {#before-you-begin}
+
+### Create an infrastructure {#create-infrastructure}
+
+{% list tabs %}
+
+- Manually
+
+   1. [Create a cloud network](../vpc/operations/network-create.md) and [subnet](../vpc/operations/subnet-create.md).
+   1. [Create a service account](../iam/operations/sa/create.md) named `eso-service-account`. You'll need it to work with the External Secrets Operator.
+   1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
+
+- Using {{ TF }}
+
+   1. If you don't have {{ TF }}, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
+      * [Network](../vpc/concepts/network.md#network).
+      * [Network](../vpc/concepts/network.md#network).
+      * [Security group](../vpc/concepts/security-groups.md) and [rules](../managed-kubernetes/operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
+         * Rules for service traffic.
+         * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
+      * {{ managed-k8s-name }} cluster.
+      * [Service account](../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
+   1. Specify the following in the configuration file:
+      * [Folder ID](../resource-manager/operations/folder/get-id.md).
+      * {{ k8s }} versions for the cluster and {{ managed-k8s-name }} node groups.
+      * {{ managed-k8s-name }} cluster CIDR.
+      * Name of the cluster service account.
+   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are errors in the configuration files, {{ TF }} will point to them.
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
+
+### Prepare the environment {#prepare-env}
 
 1. {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -45,46 +90,47 @@ If you no longer need these resources, [delete them](#clear-out).
 
 - Using {{ marketplace-full-name }}
 
-  To install [External Secrets Operator](/marketplace/products/yc/external-secrets) using {{ marketplace-name }}, [follow the instructions](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
+   To install [External Secrets Operator](/marketplace/products/yc/external-secrets) using {{ marketplace-name }}, [follow the instructions](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
 
 
 - Using Helm
 
-  1. [Install the Helm package manager](https://helm.sh/docs/intro/install/).
-  1. Add a Helm repository named `external-secrets`:
+   1. [Install the Helm package manager](https://helm.sh/docs/intro/install/).
 
-     ```bash
-     helm repo add external-secrets https://charts.external-secrets.io
-     ```
+   1. Add a Helm repository named `external-secrets`:
 
-  1. Install the External Secrets Operator in the {{ k8s }} cluster:
+      ```bash
+      helm repo add external-secrets https://charts.external-secrets.io
+      ```
 
-     ```bash
-     helm install external-secrets \
-       external-secrets/external-secrets \
-       --namespace external-secrets \
-       --create-namespace
-     ```
+   1. Install the External Secrets Operator in the {{ k8s }} cluster:
 
-     {% note info %}
+      ```bash
+      helm install external-secrets \
+        external-secrets/external-secrets \
+        --namespace external-secrets \
+        --create-namespace
+      ```
 
-     This command creates a new `external-secrets` namespace required for using the External Secrets Operator.
+      {% note info %}
 
-     {% endnote %}
+      This command creates a new `external-secrets` namespace required for using the External Secrets Operator.
 
-     Result:
+      {% endnote %}
 
-     ```text
-     NAME: external-secrets
-     LAST DEPLOYED: Sun Sep 19 11:20:58 2021
-     NAMESPACE: external-secrets
-     STATUS: deployed
-     REVISION: 1
-     TEST SUITE: None
-     NOTES:
-     external-secrets has been deployed successfully!
-     ...
-     ```
+      Command result:
+
+      ```text
+      NAME: external-secrets
+      LAST DEPLOYED: Sun Sep 19 11:20:58 2021
+      NAMESPACE: external-secrets
+      STATUS: deployed
+      REVISION: 1
+      TEST SUITE: None
+      NOTES:
+      external-secrets has been deployed successfully!
+      ...
+      ```
 
 {% endlist %}
 
@@ -93,15 +139,15 @@ If you no longer need these resources, [delete them](#clear-out).
 1. [Create a secret](../lockbox/operations/secret-create.md):
    * **Name**: `lockbox-secret`.
    * **Key/Value**:
-     * **Key**: `password`.
-     * **Value** → **Text**: `p@$$w0rd`.
+      * **Key**: `password`.
+      * **Value** → **Text**: `p@$$w0rd`.
 1. Get the secret ID:
 
    ```bash
    yc lockbox secret list
    ```
 
-   Result:
+   Command result:
 
    ```text
    +--------------------------------------------+----------------+------------+---------------------+----------------------+--------+
@@ -120,7 +166,7 @@ If you no longer need these resources, [delete them](#clear-out).
      --role lockbox.payloadViewer
    ```
 
-## Configure a {{ k8s }} {#configure-k8s}
+## Configure a {{ managed-k8s-name }} {#configure-k8s}
 
 1. Create a `ns` [namespace](../managed-kubernetes/concepts/index.md#namespace) to store External Secrets Operator objects in:
 
@@ -196,6 +242,30 @@ If you no longer need these resources, [delete them](#clear-out).
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
-1. [Delete a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you reserved a public static IP address for the cluster, [delete it](../vpc/operations/address-delete.md).
-1. [Delete](../lockbox/operations/secret-delete.md) `lockbox-secret`.
+
+{% list tabs %}
+
+- Manually
+
+   1. [Delete the {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+   1. If you reserved a public static IP address for the cluster, [delete it](../vpc/operations/address-delete.md).
+   1. [Delete](../lockbox/operations/secret-delete.md) `lockbox-secret`.
+
+- Using {{ TF }}
+
+   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+   1. Delete the `k8s-cluster.tf` configuration file.
+   1. Make sure the {{ TF }} configuration files are correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are errors in the configuration files, {{ TF }} will point to them.
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+      All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
+
+{% endlist %}

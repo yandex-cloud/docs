@@ -50,9 +50,11 @@
 * [{#T}](../../monitoring/operations/unified-agent/pull_prometheus.md).
 * [{#T}](../../monitoring/operations/unified-agent/haproxy.md).
 
+
 #### Можно ли поставлять в {{ monitoring-name }} метрики кластера {{ managed-k8s-full-name }}? {#collect-k8s}
 
 Да, для этого используйте приложение [Metrics Provider](/marketplace/products/yc/metric-provider). Чтобы установить его, [воспользуйтесь инструкцией](../../managed-kubernetes/operations/applications/metrics-provider.md).
+
 
 #### Как поставлять в {{ monitoring-name }} метрики сторонних приложений? {#collect-3rd-party}
 

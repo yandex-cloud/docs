@@ -138,15 +138,16 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 1. Get an SSL certificate:
 
    ```bash
-   mkdir --parents {{ crt-local-dir }} && \
-   wget "{{ crt-web-path }}" \
+   sudo mkdir --parents {{ crt-local-dir }} && \
+   sudo wget "{{ crt-web-path }}" \
        --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-   chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+   sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
    ```
 
 ## Connect the virtual machine to a database {#cluster-connect}
 
-1. [Configure security groups](../../managed-clickhouse/operations/connect.md#configuring-security-groups) for the cloud network to permit all the required traffic between the cluster and the VM.
+
+1. [Configure security groups](../../managed-clickhouse/operations/connect.md#configuring-security-groups) for the cloud network to permit all the required traffic between the cluster and the VM.
 1. [Connect](../../compute/operations/vm-connect/ssh.md).
 1. Run the ClickHouse CLI with the following parameters: specify the earlier saved parameters in place of `<host FQDN>`, `<database name>`, `<database username>`, and `<database user password>`.
 

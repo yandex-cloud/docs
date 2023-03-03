@@ -2,14 +2,14 @@
 
 To set up backups in {{ objstorage-name }} via [Acronis](https://www.acronis.com/en-us/products/backup/cloud-storage/) Backup Gateway:
 
-1. [Before you start](#before-you-begin)
+1. [Prepare your cloud](#before-you-begin)
 1. [Create a bucket](#create-bucket)
 1. [Configure Acronis Backup Gateway](#configure-acronis)
 1. [Test the backup procedure](#test-backup)
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -23,7 +23,7 @@ To configure backups, you will need a service account with access keys:
 
 The cost for backup and recovery includes:
 
-* Data storage fees (see [prices {{ objstorage-full-name }}](../../storage/pricing.md#prices-storage)).
+* Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 

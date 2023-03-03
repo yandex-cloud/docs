@@ -10,7 +10,7 @@ Sets access bindings for the key.
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.{{ api-host }}/kms/v1/keys/{resourceId}:setAccessBindings
+POST https://{{ api-host-kms }}/kms/v1/keys/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

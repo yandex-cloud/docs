@@ -31,7 +31,8 @@ databaseName | <p>Required. Name of the database to update. To get the name of t
       "name": "string",
       "version": "string"
     }
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 
@@ -43,6 +44,7 @@ updateMask | **string**<br><p>Field mask that specifies which fields of the Data
 extensions[] | **object**<br><p>PostgreSQL extensions that should be enabled for the database.</p> <p>If the field is sent, the list of enabled extensions is rewritten entirely. Therefore, to disable an active extension you should simply send the list omitting this extension.</p> 
 extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/cluster-extensions">listed in the Developer's Guide</a>.</p> 
 extensions[].<br>version | **string**<br><p>Version of the extension.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the database</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

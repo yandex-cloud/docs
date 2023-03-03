@@ -76,14 +76,10 @@ items:
                 href: api-ref/errors-handling.md
               - name: Troubleshooting
                 href: api-ref/support-headers.md
-              - name: Overview
-                href: vision/api-ref/index.md
-              - name: Vision
-                items:
-                  - name: Overview
-                    href: vision/api-ref/Vision/index.md
-                  - name: batchAnalyze
-                    href: vision/api-ref/Vision/batchAnalyze.md
+              - name: API Overview
+                href: api-ref/Vision/index.md
+              - name: batchAnalyze
+                href: api-ref/Vision/batchAnalyze.md
       - name: Classifier API
         items:
           - name: gRPC

@@ -1,31 +1,28 @@
-# Backup to {{ objstorage-full-name }} via Bacula on Centos 7
+# Backup to {{ objstorage-full-name }} via Bacula
 
-In these instructions, you'll learn how to create backups in {{ objstorage-full-name }} and recover data via [Bacula](https://www.bacula.org/) on CentOS 7 in the {{ yandex-cloud }} infrastructure.
+You can use {{ objstorage-full-name }} for VM backup and recovery via the [Bacula](https://www.bacula.org/) utility.
 
 Bacula consists of several components:
-
 * **Bacula Director**: Controls the backup and recovery process.
 * **File Daemon**: Provides access to backup files.
 * **Storage Daemon**: Reads and writes files to the hard disk.
-* **Catalog**: Maintains the file catalog used for backup. The catalog is stored in an SQL database.
+* **Catalog**: Maintains the file catalog used for backup. The catalog is stored in a [MariaDB](https://mariadb.com/kb/en/documentation/) database.
 * **Bacula Console**: A management console for interacting with Bacula Director.
 
-To back up and recover your data via Bacula:
-
-1. [Prepare your cloud](#before-you-begin).
+To set up backup and recovery via Bacula:
+1. [Before you start](#before-you-begin).
 1. [Create a VM](#create-vm).
+1. [Set up the AWS CLI](#configure-aws).
 1. [Install Bacula and additional components](#install-bacula).
 1. [Configure MariaDB](#configure-db).
-1. [Configure backup storage](#configure-storage).
+1. [Set up a storage](#configure-storage).
 1. [Configure Bacula components](#configure-bacula).
 1. [Create a backup](#run-backup).
-1. [Check the backup](#check-backup).
-1. [Run the recovery process](#run-restore).
-1. [Check the recovery](#check-restore).
+1. [Recover the files](#run-restore).
 
-If you no longer need the backup or recovered data, [delete all related resources](#clear-out).
+If you no longer need these resources, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -35,104 +32,91 @@ If you no longer need the backup or recovered data, [delete all related resource
 
 The cost for backup and recovery includes:
 
-* a fee for a continuously running vm (see [pricing {{ compute-full-name }}](../../compute/pricing)).
-* Data storage fees (see [prices {{ objstorage-full-name }}](../../storage/pricing)).
-* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing)).
+* A fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* A fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
+### Create a bucket {#create-bucket}
+
+To create a bucket for backups in {{ objstorage-name }}:
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
+   1. On the folder page, click **Create resource** and select **Bucket**.
+   1. In the **Name** field, enter a name for the bucket: `bacula-bucket`.
+   1. In the **Bucket access** field, select **Restricted**.
+   1. In the **Storage class** field, select **Cold**.
+   1. Click **Create bucket**.
+
+{% endlist %}
+
+### Create a service account {#create-service-account}
+
+[Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` [role](../../iam/concepts/access-control/roles.md).
+
+### Create static access keys {#create-access-key}
+
+[Create](../../iam/operations/sa/create-access-key.md) static access keys.
+
+Make sure to immediately save the ID `key_id` and secret key `secret`. You will not be able to get the key value again.
 
 ## Create a VM {#create-vm}
 
 To create a VM:
 
-1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+{% list tabs %}
 
-1. In the **Name** field, enter a name for the VM: `bacula-vm`.
+- Management console
 
-1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
+   1. In the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+   1. In the **Name** field, enter the VM name `bacula-vm`.
+   1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+   1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
+   1. Under **Computing resources**, select:
+      * **Platform**: Intel Cascade Lake.
+      * **Guaranteed vCPU share**: 20%.
+      * **vCPU**: 2.
+      * **RAM**: 2 GB.
+   1. Under **Network settings**, select the network and subnet to connect the VM to. If there aren't any networks, create one:
+      1. Select ![image](../../_assets/plus-sign.svg) **Create network**.
+      1. In the window that opens, enter the network name and folder to host the network.
+      1. (optional) To automatically create subnets, select the **Create subnets** option.
+      1. Click **Create**.
 
-1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
+         Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting ![image](../../_assets/plus-sign.svg)**Add subnet**.
+   1. Under **Public address**, keep **Auto** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+   1. Enter the VM access information:
+      * Enter the username in the **Login** field.
+      * In the **SSH key** field, paste the contents of the public key file.
 
-1. Under **Computing resources**, select:
-   * **Platform**: Intel Cascade Lake.
-   * **Guaranteed vCPU share**: 20%.
-   * **vCPU**: 2.
-   * **RAM**: 2 GB.
+         You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   1. Click **Create VM**.
+   1. Wait for the VM to change to the `RUNNING` status.
 
-1. In the **Network settings** section, select the network and subnet to connect the VM to. If you don't have a network or subnet, create them right on the VM creation page.
-
-1. In the **Public address** field, leave the **Auto** value to assign the virtual machine a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
-
-1. Specify data required for accessing the VM:
-   - Enter the username in the **Login** field.
-   - In the **SSH key** field, paste the contents of the public key file.
-
-      You need to create a key pair for the SSH connection yourself. See the [section about how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
-
-   {% note alert %}
-
-   The IP address and host name (FQDN) to connect to the VM are assigned on VM creation. If you selected **No address** in the **Public address** field, you won't be able to access the VM from the internet.
-
-   {% endnote %}
-
-1. Click **Create VM**.
-
-Creating the VM may take several minutes.
-
-When the VM is created, it is assigned a public IP address and hostname (FQDN). This data can be used for SSH access.
-
-## Create a bucket {#create-bucket}
-
-To create a bucket for backups in {{ objstorage-name }}:
-
-1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
-
-1. On the folder page, click **Create resource** and select **Bucket**.
-
-1. In the **Name** field, enter a name for the bucket: `bacula-bucket`.
-
-1. In the **Bucket access** field, select **Restricted**.
-
-1. In the **Storage class** field, select **Cold**.
-
-1. Click **Create bucket**.
-
-## Create a service account {#create-service-account}
-
-Create a [service account](../../iam/operations/sa/create.md) and [assign it](../../iam/operations/sa/assign-role-for-sa) the `editor` role.
-
-## Create static access keys {#create-access-key}
-
-Create [static access keys](../../iam/operations/sa/create-access-key.md).
-
-Make sure to immediately save the ID `key_id` and secret key `secret`. You will not be able to get the key value again.
-
+{% endlist %}
 
 ## Set up the AWS CLI {#configure-aws}
 
-After `bacula-vm` switches to `RUNNING`:
+To set up the AWS CLI utility on your `bacula-vm` instance:
 
-1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's public IP address.
+1. In the [management console]({{ link-console-main }}), go to the VM page and find out its public IP address.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
-
-   The recommended authentication method when connecting over SSH is using a key pair. Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
-
-1. Install the yum repository:
+   The recommended authentication method when connecting over SSH is using a key pair. Set up the generated key pair: the private key must match the public key sent to the VM.
+1. Update the packages installed in the system. For this, in the terminal, run:
 
    ```bash
-   sudo yum install epel-release -y
-   ```
-
-1. Install `pip`:
-
-   ```bash
-   sudo yum install python-pip -y
+   yum update -y
    ```
 
 1. Install the AWS CLI:
 
    ```bash
-   sudo pip install awscli --upgrade
+   yum install awscli -y
    ```
 
 1. Set up the AWS CLI:
@@ -141,20 +125,18 @@ After `bacula-vm` switches to `RUNNING`:
    sudo aws configure
    ```
 
-   The command will request parameter values:
-
-   * `AWS Access Key ID`: Enter the `key_id` that you received when [generating the static key](#create-access-key).
-   * `AWS Secret Access Key`: Enter the secret key `secret` that you received when [generating the static key](#create-access-key).
+   Specify the parameter values:
+   * `AWS Access Key ID`: The `key_id` that you received when [generating the static key](#create-access-key).
+   * `AWS Secret Access Key`: The `secret` key that you received when [generating the static key](#create-access-key).
    * `Default region name`: `{{ region-id }}`.
    * `Default output format`: `json`.
-
-1. Check that the `/root/.aws/credentials` file contains the correct `key_id` and `secret` values:
+1. Make sure that the `/root/.aws/credentials` file contains relevant values for `key_id` and `secret`:
 
    ```bash
    sudo cat /root/.aws/credentials
    ```
 
-1. Check that the `/root/.aws/config` file contains the correct `Default region name` and `Default output format` values:
+1. Make sure that the `/root/.aws/config` file contains relevant values for `Default region name` and `Default output format`:
 
    ```bash
    sudo cat /root/.aws/config
@@ -168,15 +150,16 @@ After `bacula-vm` switches to `RUNNING`:
    sudo yum install -y bacula-director bacula-storage bacula-console bacula-client
    ```
 
-1. Install MariaDB:
+1. Install [MariaDB](https://mariadb.com/kb/en/documentation/):
 
    ```bash
    sudo yum install -y mariadb-server
    ```
 
-1. Install `s3fs` to mount the bucket {{ objstorage-name }} on the server:
+1. Install the `s3fs` utility to mount the {{ objstorage-name }} bucket to the file system:
 
    ```bash
+   sudo yum install -y epel-release
    sudo yum install -y s3fs-fuse
    ```
 
@@ -214,7 +197,7 @@ After `bacula-vm` switches to `RUNNING`:
    /usr/libexec/bacula/make_mysql_tables -u bacula
    ```
 
-1. Configure the database security parameters:
+1. Secure your database:
 
    ```bash
    sudo mysql_secure_installation
@@ -223,10 +206,10 @@ After `bacula-vm` switches to `RUNNING`:
    For the following queries:
    * `Enter current password for root (enter for none)`: Press **Enter** to skip the field.
    * `Set root password? [Y/n]`: Enter `Y`, set the root password, and confirm it. You will need the password in the next step.
-   * `Remove anonymous users? [Y/n]`: Press **Enter** to accept the default value.
-   * `Disallow root login remotely? [Y/n]`: Press **Enter** to accept the default value.
-   * `Remove test database and access to it? [Y/n]`: Press **Enter** to accept the default value.
-   * `Reload privilege tables now? [Y/n]`: Press **Enter** to accept the default value.
+   * `Remove anonymous users? [Y/n]`: To accept the default value, press **Enter**.
+   * `Disallow root login remotely? [Y/n]`: To accept the default value, press **Enter**.
+   * `Remove test database and access to it? [Y/n]`: To accept the default value, press **Enter**.
+   * `Reload privilege tables now? [Y/n]`: To accept the default value, press **Enter**.
 
 1. Log in to the DB command line and enter the `root `password created in the previous step:
 
@@ -250,7 +233,7 @@ After `bacula-vm` switches to `RUNNING`:
 
    Enter `1` to select MySQL:
 
-   ```
+   ```bash
      Selection    Command
    -----------------------------------------------
       1           /usr/lib64/libbaccats-mysql.so
@@ -260,7 +243,7 @@ After `bacula-vm` switches to `RUNNING`:
    Enter to keep the current selection[+], or type selection number: 1
    ```
 
-## Configure backup storage {#configure-storage}
+## Set up the storage {#configure-storage}
 
 ### Prepare a backup folder {#prepare-folder}
 
@@ -270,7 +253,7 @@ After `bacula-vm` switches to `RUNNING`:
    sudo mkdir /tmp/bacula
    ```
 
-1. Configure access rights to `/tmp/bacula`:
+1. Set up access rights for the `/tmp/bacula` folder:
 
    ```bash
    sudo chown -R bacula:bacula /tmp/bacula
@@ -280,16 +263,18 @@ After `bacula-vm` switches to `RUNNING`:
 
 ### Mount the bucket to the file system {#mount-bucket}
 
-Mount the bucket to the file system to upload copied files to {{ objstorage-name }}:
-
-1. Mount the bucket using `s3fs`:
+1. Mount the bucket by the `s3fs` utility to upload backups to {{ objstorage-name }}:
 
    ```bash
-   sudo s3fs bacula-bucket /tmp/bacula -o url=https://{{ s3-storage-host }} -o use_path_request_style -o allow_other -o nonempty -o uid=133,gid=133,mp_umask=077
+   sudo s3fs bacula-bucket /tmp/bacula \
+     -o url=https://{{ s3-storage-host }} \
+     -o use_path_request_style \
+     -o allow_other \
+     -o nonempty \
+     -o uid=133,gid=133,mp_umask=077
    ```
 
    Where:
-
    * `bacula-bucket`: The name of the bucket in {{ objstorage-name }}.
    * `uid=133`: The ID of the `bacula` user from the `/etc/passwd` file.
    * `gid=133`: The ID of the `bacula` group from the `/etc/passwd` file.
@@ -302,13 +287,12 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
 
    Result:
 
-   ```
+   ```text
    drwx------.  2 bacula bacula        31 Sep 18 09:16 .
    drwxrwxrwt. 10 root   root         265 Sep 18 08:59 ..
    ```
 
 1. Check that the `bacula` user can create files in the `/tmp/bacula` folder:
-
    1. Temporarily enable the `bash` shell for the `bacula` user:
 
       ```bash
@@ -318,7 +302,7 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
    1. Create an arbitrary file in the `/tmp/bacula` folder:
 
       ```bash
-      sudo runuser -l bacula -c 'touch /tmp/bacula/test.test'
+      sudo runuser -l  bacula -c 'touch /tmp/bacula/test.test'
       ```
 
    1. Make sure that the file `test.test` was created in the `/tmp/bacula` folder:
@@ -327,12 +311,11 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
       sudo ls -la /tmp/bacula | grep test.test
       ```
 
-   1. On the folder page in the [management console]({{ link-console-main }}), open **{{ objstorage-short-name }}**. Make sure the file `test.test` is visible in the `bacula-bucket` bucket.
-
+   1. In the [management console]({{ link-console-main }}), on the folder page, select the **{{ objstorage-short-name }}** service and make sure that the `test.test` file is in the bucket `bacula-bucket`.
    1. Delete the test file:
 
       ```bash
-      sudo runuser -l bacula -c 'rm -f /tmp/bacula/test.test'
+      sudo runuser -l  bacula -c 'rm -f /tmp/bacula/test.test'
       ```
 
    1. Disable the `bash` shell for the `bacula` user:
@@ -351,12 +334,16 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
    sudo nano /etc/bacula/bacula-dir.conf
    ```
 
-1. In the `Director` configuration block, add the line `DirAddress = 127.0.0.1` to set up a connection with Bacula Director:
+1. To set up a connection to Bacula Director, go to the `Director` configuration section and add the line `DirAddress = 127.0.0.1`:
 
-   ```
-   Director {                            # define myself
+   ```text
+   ...
+   Director {                              # define myself
      Name = bacula-dir
-     DIRport = 9101                # where we listen for UA connections
+     DIRport = 9101                        # Specify the port (a positive integer) on which the Director daemon will listen for Bacula Console connections.
+                                           # This same port number must be specified in the Director resource of the Console configuration file.
+                                           # The default is 9101, so normally this directive need not be specified.
+                                           # This directive should not be used if you specify the DirAddresses (plural) directive.
      QueryFile = "/etc/bacula/query.sql"
      WorkingDirectory = "/var/spool/bacula"
      PidDirectory = "/var/run"
@@ -365,20 +352,24 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
      Messages = Daemon
      DirAddress = 127.0.0.1
    }    
+   ...
    ```
 
 1. For your convenience, rename the task `BackupClient1` to `BackupFiles`:
 
-   ```
+   ```text
+   ...
    Job {
      Name = "BackupFiles"
      JobDefs = "DefaultJob"
    }
+   ...
    ```
 
-1. In the `RestoreFiles` task configuration, add the line `Where = /tmp/bacula-restores` to make `/tmp/bacula-restores` a folder for restored files:
+1. To assign `/tmp/bacula-restores` as a folder for your recovered files, add the line `Where = /tmp/bacula-restores` to the `RestoreFiles` job configuration:
 
-   ```
+   ```text
+   ...
    Job {
      Name = "RestoreFiles"
      Type = Restore
@@ -389,14 +380,15 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
      Messages = Standard
      Where = /tmp/bacula-restores
    }
+   ...
    ```
 
 1. Under the `FileSet` configuration section named `Full Set` under `Include`:
-
    * Add the `compression = GZIP` line to the `Options` section to enable compression during backup.
    * Specify `File = /` to back up the entire file system.
 
-   ```
+   ```text
+   ...
    	FileSet {
    	  Name = "Full Set"
    	  Include {
@@ -415,27 +407,30 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
    		File = /.fsck
    	  }
    	}
+   ...
    ```
 
-1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's internal IP address.
+1. In the [management console]({{ link-console-main }}), go to the VM page and find out its private IP address.
+1. To set up an outbound connection to the Storage Daemon, in the `Storage` configuration section, enter the VM's internal IP address in the `Address` field:
 
-1. In the `Storage` configuration block, enter the internal IP address of the VM in the `Address` field to set up a connection with Storage Daemon:
-
-   ```
+   ```text
+   ...
    Storage {
      Name = File
    # Do not use "localhost" here
-     Address = <VM internal IP address> # N.B. Use a fully qualified name here
+     Address = <internal_IP_address_of_the_VM>  # N.B. Use a fully qualified name here
      SDPort = 9103
      Password = "@@SD_PASSWORD@@"
      Device = FileStorage
      Media Type = File
    }
+   ...
    ```
 
-1. To connect to the DB, in the `Catalog` configuration block, enter the database password `dbpassword = "bacula_db_password"` created when [configuring MariaDB](#configure-db):
+1. To connect to the DB, in the `Catalog` configuration section, specify the database password `dbpassword = "bacula_db_password"` that you created when [setting up MariaDB](#configure-db):
 
-   ```
+   ```text
+   ...
    # Generic catalog service
    Catalog {
      Name = MyCatalog
@@ -443,10 +438,10 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
    # dbdriver = "dbi:postgresql"; dbaddress = 127.0.0.1; dbport =
      dbname = "bacula"; dbuser = "bacula"; dbpassword = "bacula_db_password"
    }
+   ...
    ```
 
 1. Save the file.
-
 1. Check that the `bacula-dir.conf` file contains no syntax errors:
 
    ```bash
@@ -463,24 +458,28 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
    sudo nano /etc/bacula/bacula-sd.conf
    ```
 
-1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's internal IP address.
+1. To set up an outbound connection to the Storage Daemon, in the `Storage` configuration section, enter the VM's internal IP address in the `SDAddress` field:
 
-1. In the `Storage` configuration block, enter the internal IP address of the VM in the `SDAddress` field to set up a connection with Storage Daemon:
-
-   ```
-   Storage {                             # definition of myself
+   ```text
+   ...
+   Storage {                                      # definition of myself
      Name = BackupServer-sd
-     SDPort = 9103                  # Director's port
+     SDPort = 9103                                # Specifies port number on which the Storage daemon listens for Director connections. The default is 9103.
      WorkingDirectory = "/var/spool/bacula"
      Pid Directory = "/var/run/bacula"
      Maximum Concurrent Jobs = 20
-     SDAddress = <VM internal IP address>
+     SDAddress = <internal_IP_address_of_the_VM>         # This directive is optional, and if it is specified,
+                                                  # it will cause the Storage daemon server (for Director and File daemon connections) to bind to the specified IP-Address,
+                                                  # which is either a domain name or an IP address specified as a dotted quadruple.
+                                                  # If this directive is not specified, the Storage daemon will bind to any available address (the default).
    }
+   ...
    ```
 
 1. In the `Device` configuration block, specify the `Archive Device = /tmp/bacula` folder for backups:
 
-   ```
+   ```text
+   ...
    Device {
      Name = FileStorage
      Media Type = File
@@ -491,10 +490,10 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
      RemovableMedia = no;
      AlwaysOpen = no;
    }
+   ...
    ```
 
 1. Save the file.
-
 1. Check that the `bacula-sd.conf` file doesn't contain any syntax errors:
 
    ```bash
@@ -508,7 +507,6 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
 Bacula Director, Storage Daemon, and File Daemon use passwords for inter-component authentication.
 
 To set passwords for Bacula components:
-
 1. Generate passwords for Bacula Director, Storage Daemon, and File Daemon:
 
    ```bash
@@ -562,7 +560,7 @@ To set passwords for Bacula components:
    sudo bconsole
    ```
 
-1. Create a label to set up a backup profile:
+1. To set up a backup profile, create a label:
 
    ```bash
    label
@@ -574,7 +572,7 @@ To set passwords for Bacula components:
    Enter new Volume name: MyVolume
    ```
 
-1. Enter `2` to select the `File` pool:
+1. To select the `File` pool, enter `2`:
 
    ```bash
    Defined Pools:
@@ -587,10 +585,10 @@ To set passwords for Bacula components:
 1. Run the backup process:
 
    ```bash
-   run
+   run    
    ```
 
-   Select `1` to start the `BackupFiles` task:
+   To start the `BackupFiles` job, select `1`:
 
    ```bash
    A job name must be specified.
@@ -601,7 +599,7 @@ To set passwords for Bacula components:
    Select Job resource (1-3): 1
    ```
 
-   Enter `yes` to confirm the backup process launch:
+   To confirm the startup, enter `yes`:
 
    ```bash
    OK to run? (yes/mod/no): yes
@@ -615,7 +613,7 @@ To set passwords for Bacula components:
 
    Result if the backup is running:
 
-   ```
+   ```text
    Running Jobs:
    Console connected at 12-Sep-19 07:22
     JobId Level   Name                       Status
@@ -625,7 +623,7 @@ To set passwords for Bacula components:
 
    Result if the backup is complete:
 
-   ```
+   ```text
    Running Jobs:
    Console connected at 12-Sep-19 07:25
    No Jobs running.
@@ -634,7 +632,7 @@ To set passwords for Bacula components:
    Terminated Jobs:
     JobId  Level    Files      Bytes   Status   Finished        Name
    ====================================================================
-        2  Full     32,776    483.6 M  OK       12-Sep-19 07:24 BackupFiles    
+        2  Full     32,776    483.6 M  OK       12-Sep-19 07:24 BackupFiles
    ```
 
 1. Wait for the backup to complete and exit Bacula Console:
@@ -643,17 +641,23 @@ To set passwords for Bacula components:
    exit
    ```
 
-## Check the backup {#check-backup}
+### Check the backup {#check-backup}
 
 To make sure that the backup is complete:
 
-1. On the folder page in the [management console]({{ link-console-main }}), open **{{ objstorage-short-name }}**.
-1. Open the `bacula-bucket` bucket.
-1. Make sure it contains `MyVolume`.
+{% list tabs %}
 
-## Run the recovery process {#run-restore}
+- Management console
 
-1. Delete an arbitrary file, like the `ping` utility, to check the recovery:
+   1. In the [management console]({{ link-console-main }}), on the folder page, select **{{ objstorage-short-name }}**.
+   1. Open the `bacula-bucket` bucket.
+   1. Make sure it contains `MyVolume`.
+
+{% endlist %}
+
+## Recover the files {#run-restore}
+
+1. To check the recovery process, delete an arbitrary file, for example, the `ping` utility:
 
    ```bash
    sudo rm -f /bin/ping
@@ -667,7 +671,7 @@ To make sure that the backup is complete:
 
    Result:
 
-   ```bash
+   ```text
    bash: ping: command not found
    ```
 
@@ -683,9 +687,9 @@ To make sure that the backup is complete:
    restore all
    ```
 
-   Select `5` to start a recovery from the latest backup:
+   Enter `5` to start recovering from the latest backup:
 
-   ```
+   ```bash
    To select the JobIds, you have the following choices:
        1: List last 20 Jobs run
        2: List Jobs where a given File is saved
@@ -700,12 +704,12 @@ To make sure that the backup is complete:
        11: Enter a list of directories to restore for found JobIds
        12: Select full restore to a specified Job date
        13: Cancel
-   Select item: (1-13): 5
+   Select item:  (1-13): 5
    ```
 
-   Enter `done` to confirm the full recovery:
+   To confirm full recovery, enter `done`:
 
-   ```
+   ```bash
    You are now entering file selection mode where you add (mark) and
    remove (unmark) files to be restored. No files are initially added, unless
    you used the "all" keyword on the command line.
@@ -715,21 +719,21 @@ To make sure that the backup is complete:
    done
    ```
 
-   Enter `yes` to confirm the recovery process launch:
+   To confirm the recovery startup, enter `yes`:
 
-   ```
+   ```bash
    OK to run? (yes/mod/no): yes
    ```
 
 1. Check the recovery status:
 
-   ```
+   ```bash
    status director
    ```
 
-   Result if the recovery is running:
+   Here's the result if the recovery is in progress:
 
-   ```
+   ```text
    Running Jobs:
    Console connected at 12-Sep-19 07:25
     JobId Level   Name                       Status
@@ -737,9 +741,9 @@ To make sure that the backup is complete:
         3         RestoreFiles.2019-09-12_07.27.42_05 is running
    ```
 
-   Result if the recovery is complete:
+   Here's the result if the recovery is complete:
 
-   ```
+   ```text
    Terminated Jobs:
     JobId  Level    Files      Bytes   Status   Finished        Name
    ====================================================================
@@ -753,7 +757,7 @@ To make sure that the backup is complete:
    exit
    ```
 
-## Check the recovery {#check-restore}
+### Check the recovered files {#check-restore}
 
 1. Make sure that the `/tmp/bacula-restores` folder now contains the recovered data:
 
@@ -763,7 +767,7 @@ To make sure that the backup is complete:
 
    Result:
 
-   ```bash
+   ```text
    total 16
    dr-xr-xr-x. 15 root   root    201 Sep 12 07:09 .
    drwx------.  4 bacula bacula   35 Sep 12 07:09 ..
@@ -794,7 +798,7 @@ To make sure that the backup is complete:
 
    Result:
 
-   ```bash
+   ```text
    -rwxr-xr-x 1 root root 66176 Aug  4  2017 /tmp/bacula-restores/bin/ping
    ```
 
@@ -812,7 +816,7 @@ To make sure that the backup is complete:
 
    Result:
 
-   ```bash
+   ```text
    PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
    64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.016 ms
 
@@ -821,8 +825,7 @@ To make sure that the backup is complete:
    rtt min/avg/max/mdev = 0.016/0.016/0.016/0.000 ms
    ```
 
-
-1. Delete a copy of recovered files to free up disk space:
+1. To free up disk space, delete the copy of the recovered files:
 
    ```bash
    sudo rm -rfd /tmp/bacula-restores/*
@@ -830,10 +833,9 @@ To make sure that the backup is complete:
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for data storage, delete the [VM](../../compute/operations/vm-control/vm-delete.md) and [bucket {{ objstorage-name }}](../../storage/operations/buckets/delete).
+To stop paying for the resources created:
 
-If you reserved a static public IP address specifically for this VM:
-
-1. Open the **{{ vpc-short-name }}** in your folder.
-2. Go to the **IP addresses** tab.
-3. Find the required address, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
+1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the {{ objstorage-name }} bucket:
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket {{ objstorage-name }}.
+1. [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.

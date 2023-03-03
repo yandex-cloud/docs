@@ -76,14 +76,10 @@ items:
                 href: api-ref/errors-handling.md
               - name: Диагностика ошибок
                 href: api-ref/support-headers.md
-              - name: Обзор
-                href: api-ref/index.md
-              - name: Vision
-                items:
-                  - name: Обзор
-                    href: api-ref/Vision/index.md
-                  - name: batchAnalyze
-                    href: api-ref/Vision/batchAnalyze.md
+              - name: Обзор API (англ.)
+                href: api-ref/Vision/index.md
+              - name: batchAnalyze (англ.)
+                href: api-ref/Vision/batchAnalyze.md
       - name: Classifier API (англ.)
         items:
           - name: gRPC

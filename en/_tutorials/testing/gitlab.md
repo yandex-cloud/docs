@@ -44,18 +44,18 @@ The cost for maintaining a {{ GL }} server includes:
    * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
    * Specify the necessary number of vCPUs and amount of RAM.
 
-     For {{ GL }} to run properly, specify the following configuration:
-     * **Platform**: Intel Ice Lake.
-     * **Guaranteed vCPU share**: 100%.
-     * **vCPU**: 4.
-     * **RAM**: 8 GB.
+      For {{ GL }} to run properly, specify the following configuration:
+      * **Platform**: Intel Ice Lake.
+      * **Guaranteed vCPU share**: 100%.
+      * **vCPU**: 4.
+      * **RAM**: 8 GB.
 1. Under **Network settings**:
    * Select the **Network** and **Subnet** to connect the VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
    * Under **Public address**, keep **Auto** to assign your VM a random [external IP address](../../vpc/operations/subnet-create.md) from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 1. Under **Access**, specify the information required to access the VM:
    * In the **Login** field, enter your preferred login for the user to create on the VM.
    * In the **SSH key** field, paste your public SSH key. You need to create a key pair for the SSH connection yourself. See the [section about how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
-1. Click **Create VM**.
+1. Click **Create VM**.
 1. Wait about five minutes for the VM to be created and for all its services to start. After all of the services fully launch, {{ GL }} will become available through its web interface in the browser.
 
 ## Configure {{ GL }} {#confgure-gitlab}

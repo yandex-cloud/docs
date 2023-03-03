@@ -50,7 +50,8 @@ A set of methods for managing certificates.
 
     }
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "incompleteChain": true
 }
 ```
  
@@ -88,6 +89,7 @@ challenges[].<br>httpChallenge | **object** <br>`challenges[]` includes only one
 challenges[].<br>httpChallenge.<br>url | **string**<br><p>Location of the HTTP file.</p> 
 challenges[].<br>httpChallenge.<br>content | **string**<br><p>Content of the HTTP file.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Flag that protects deletion of the certificate</p> 
+incompleteChain | **boolean** (boolean)<br><p>Mark imported certificates without uploaded chain or with chain which not lead to root certificate</p> 
 
 ## Methods {#methods}
 Method | Description

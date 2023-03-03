@@ -10,7 +10,7 @@ To get the list of available certificates, make a [list](/docs/certificate-manag
  
 ## HTTP request {#https-request}
 ```
-GET https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/{certificateId}
+GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}
 ```
  
 ## Path parameters {#path_params}
@@ -72,7 +72,8 @@ view | <p>The output type of the certificate.</p> <ul> <li>BASIC: Output basic i
 
     }
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "incompleteChain": true
 }
 ```
 A certificate. For details about the concept, see [documentation](docs/certificate-manager/concepts/).
@@ -111,3 +112,4 @@ challenges[].<br>httpChallenge | **object**<br>HTTP-file. <br>`challenges[]` inc
 challenges[].<br>httpChallenge.<br>url | **string**<br><p>Location of the HTTP file.</p> 
 challenges[].<br>httpChallenge.<br>content | **string**<br><p>Content of the HTTP file.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Flag that protects deletion of the certificate</p> 
+incompleteChain | **boolean** (boolean)<br><p>Mark imported certificates without uploaded chain or with chain which not lead to root certificate</p> 

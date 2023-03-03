@@ -196,7 +196,7 @@
     Процесс генерации ключа приведен ниже. Поле `passphrase` оставьте пустым.  
 
     ```
-    [yc-user@ftp-server ~]$ sudo runuser -l fuser -c 'ssh-keygen -t ed25519'      
+    [yc-user@ftp-server ~]$ sudo runuser -l fuser -c 'ssh-keygen -t ed25519'
     Generating public/private ed25519 key pair.
     Enter file in which to save the key (/home/fuser/.ssh/id_ed25519): 
     Created directory '/home/fuser/.ssh'.

@@ -31,7 +31,7 @@
 
 ## Создайте и загрузите образ ВМ или пакеты для {{ managed-k8s-name }} {#create-image}
 
-В {{ marketplace-short-name }} можно размещать образы ВМ из публичных образов {{ yandex-cloud }} и приложения для {{ managed-k8s-name }}.  Требования к образам и приложениям и рекомендации по их созданию описаны в разделах:
+В {{ marketplace-short-name }} можно размещать образы ВМ из публичных образов {{ yandex-cloud }} и приложения для {{ managed-k8s-name }}. Требования к образам и приложениям и рекомендации по их созданию описаны в разделах:
 * [{#T}](operations/create-image.md)
 * [{#T}](operations/create-container.md)
 

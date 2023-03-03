@@ -101,7 +101,7 @@ versions[].<br>logGroupId | **string**<br><p>ID of the log group for the version
 versions[].<br>environment | **object**<br><p>Environment settings for the version.</p> 
 versions[].<br>connectivity | **object**<br><p>Network access. If specified the version will be attached to specified network/subnet(s).</p> <p>Version connectivity specification.</p> 
 versions[].<br>connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
-versions[].<br>connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
+versions[].<br>connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> <p>The string length in characters for each value must be greater than 0.</p> 
 versions[].<br>namedServiceAccounts | **object**<br><p>Additional service accounts to be used by the version.</p> 
 versions[].<br>secrets[] | **object**<br><p>Yandex Lockbox secrets to be used by the version.</p> 
 versions[].<br>secrets[].<br>id | **string**<br><p>ID of Yandex Lockbox secret.</p> 

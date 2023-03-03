@@ -121,7 +121,7 @@
 1. В разделе **Расширенные настройки** задайте:
    * **Каталог** — `data-folder`.
    * **Сервисный аккаунт** — `sa-for-data-proc`.
-   * **Подсеть** — подсеть зоны доступности `{{region-id}}-a` в каталоге `data-folder`.
+   * **Подсеть** — подсеть зоны доступности `{{ region-id }}-a` в каталоге `data-folder`.
 
      {% include [subnet-create](../../_includes/subnet-create.md) %}
 

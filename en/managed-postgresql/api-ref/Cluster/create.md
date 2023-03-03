@@ -529,7 +529,10 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_11_1C": {
       "maxConnections": "integer",
@@ -667,7 +670,10 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_12": {
       "maxConnections": "integer",
@@ -805,7 +811,10 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_12_1C": {
       "maxConnections": "integer",
@@ -945,7 +954,10 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_13": {
       "maxConnections": "integer",
@@ -1095,7 +1107,10 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_13_1C": {
       "maxConnections": "integer",
@@ -1246,7 +1261,10 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_14": {
       "maxConnections": "integer",
@@ -1401,7 +1419,10 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_14_1C": {
       "maxConnections": "integer",
@@ -1557,7 +1578,10 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_15": {
       "maxConnections": "integer",
@@ -1706,7 +1730,10 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "pgQualstatsResolveOids": true,
       "pgQualstatsSampleRate": "number",
       "maxStackDepth": "integer",
-      "enableGroupByReordering": true
+      "enableGroupByReordering": true,
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     // end of the list of possible fields`configSpec`
 
@@ -1723,7 +1750,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
           "version": "string"
         }
       ],
-      "templateDb": "string"
+      "templateDb": "string",
+      "deletionProtection": true
     }
   ],
   "userSpecs": [
@@ -1753,7 +1781,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "login": true,
       "grants": [
         "string"
-      ]
+      ],
+      "deletionProtection": true
     }
   ],
   "hostSpecs": [
@@ -3097,6 +3126,9 @@ configSpec.<br>postgresqlConfig_11.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a PostgreSQL 11 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_11_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>sharedBuffers | **integer** (int64)
@@ -3232,6 +3264,9 @@ configSpec.<br>postgresqlConfig_11_1C.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12 | **object**<br>Configuration for a PostgreSQL 12 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_12.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>sharedBuffers | **integer** (int64)
@@ -3367,6 +3402,9 @@ configSpec.<br>postgresqlConfig_12.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a PostgreSQL 12 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_12_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>sharedBuffers | **integer** (int64)
@@ -3504,6 +3542,9 @@ configSpec.<br>postgresqlConfig_12_1C.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13 | **object**<br>Configuration for a PostgreSQL 13 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_13.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>sharedBuffers | **integer** (int64)
@@ -3651,6 +3692,9 @@ configSpec.<br>postgresqlConfig_13.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C | **object**<br>Configuration for a PostgreSQL 13 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_13_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>sharedBuffers | **integer** (int64)
@@ -3799,6 +3843,9 @@ configSpec.<br>postgresqlConfig_13_1C.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14 | **object**<br>Configuration for a PostgreSQL 14 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_14.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>sharedBuffers | **integer** (int64)
@@ -3951,6 +3998,9 @@ configSpec.<br>postgresqlConfig_14.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C | **object**<br>Configuration for a PostgreSQL 14 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_14_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>sharedBuffers | **integer** (int64)
@@ -4104,6 +4154,9 @@ configSpec.<br>postgresqlConfig_14_1C.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15 | **object**<br>Configuration for a PostgreSQL 15 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_15.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>sharedBuffers | **integer** (int64)
@@ -4250,6 +4303,9 @@ configSpec.<br>postgresqlConfig_15.<br>pgQualstatsResolveOids | **boolean** (boo
 configSpec.<br>postgresqlConfig_15.<br>pgQualstatsSampleRate | **number** (double)
 configSpec.<br>postgresqlConfig_15.<br>maxStackDepth | **integer** (int64)<br><p>Acceptable values are 65536 to 134217728, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>enableGroupByReordering | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_15.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 databaseSpecs[] | **object**<br><p>Required. Descriptions of databases to be created in the PostgreSQL cluster.</p> 
 databaseSpecs[].<br>name | **string**<br><p>Required. Name of the PostgreSQL database. 1-63 characters long.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 databaseSpecs[].<br>owner | **string**<br><p>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a <a href="/docs/managed-postgresql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
@@ -4259,6 +4315,7 @@ databaseSpecs[].<br>extensions[] | **object**<br><p>PostgreSQL extensions to be 
 databaseSpecs[].<br>extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/cluster-extensions">listed in the Developer's Guide</a>.</p> 
 databaseSpecs[].<br>extensions[].<br>version | **string**<br><p>Version of the extension.</p> 
 databaseSpecs[].<br>templateDb | **string**<br><p>Name of the PostgreSQL database template.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+databaseSpecs[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the database</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
 userSpecs[] | **object**<br><p>Required. Descriptions of database users to be created in the PostgreSQL cluster.</p> 
 userSpecs[].<br>name | **string**<br><p>Required. Name of the PostgreSQL user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
 userSpecs[].<br>password | **string**<br><p>Required. Password of the PostgreSQL user.</p> <p>The string length in characters must be 8-128.</p> 
@@ -4280,6 +4337,7 @@ userSpecs[].<br>settings.<br>idleInTransactionSessionTimeout | **integer** (int6
 userSpecs[].<br>settings.<br>statementTimeout | **integer** (int64)<br><p>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server.</p> <p>If ``log_min_error_statement`` is set to ERROR or lower, the statement that timed out will also be logged.</p> <p>Value of ``0`` (default) disables the timeout</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-client.html">PostgreSQL documentation</a></p> 
 userSpecs[].<br>login | **boolean** (boolean)<br><p>This flag defines whether the user can login to a PostgreSQL database.</p> <p>Default value: ``true`` (login is allowed).</p> 
 userSpecs[].<br>grants[] | **string**<br><p>A set of roles and privileges that are granted to the user.</p> <p>For more information, see <a href="/docs/managed-postgresql/operations/grant">the documentation</a>.</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+userSpecs[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the user</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
 hostSpecs[] | **object**<br><p>Required. Individual configurations for hosts that should be created for the PostgreSQL cluster.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field <a href="/docs/managed-postgresql/api-ref/Cluster#representation">Cluster.networkId</a>.</p> <p>The maximum string length in characters is 50.</p> 

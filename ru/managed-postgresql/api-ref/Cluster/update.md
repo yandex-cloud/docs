@@ -533,7 +533,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_11_1C": {
       "maxConnections": "integer",
@@ -671,7 +674,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_12": {
       "maxConnections": "integer",
@@ -809,7 +815,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_12_1C": {
       "maxConnections": "integer",
@@ -949,7 +958,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_13": {
       "maxConnections": "integer",
@@ -1099,7 +1111,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_13_1C": {
       "maxConnections": "integer",
@@ -1250,7 +1265,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_14": {
       "maxConnections": "integer",
@@ -1405,7 +1423,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_14_1C": {
       "maxConnections": "integer",
@@ -1561,7 +1582,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     "postgresqlConfig_15": {
       "maxConnections": "integer",
@@ -1710,7 +1734,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "pgQualstatsResolveOids": true,
       "pgQualstatsSampleRate": "number",
       "maxStackDepth": "integer",
-      "enableGroupByReordering": true
+      "enableGroupByReordering": true,
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number"
     },
     // end of the list of possible fields`configSpec`
 
@@ -2232,6 +2259,9 @@ configSpec.<br>postgresqlConfig_11.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a PostgreSQL 11 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_11_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>sharedBuffers | **integer** (int64)
@@ -2367,6 +2397,9 @@ configSpec.<br>postgresqlConfig_11_1C.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12 | **object**<br>Configuration for a PostgreSQL 12 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_12.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>sharedBuffers | **integer** (int64)
@@ -2502,6 +2535,9 @@ configSpec.<br>postgresqlConfig_12.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a PostgreSQL 12 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_12_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>sharedBuffers | **integer** (int64)
@@ -2639,6 +2675,9 @@ configSpec.<br>postgresqlConfig_12_1C.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13 | **object**<br>Configuration for a PostgreSQL 13 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_13.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>sharedBuffers | **integer** (int64)
@@ -2786,6 +2825,9 @@ configSpec.<br>postgresqlConfig_13.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C | **object**<br>Configuration for a PostgreSQL 13 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_13_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>sharedBuffers | **integer** (int64)
@@ -2934,6 +2976,9 @@ configSpec.<br>postgresqlConfig_13_1C.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14 | **object**<br>Configuration for a PostgreSQL 14 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_14.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>sharedBuffers | **integer** (int64)
@@ -3086,6 +3131,9 @@ configSpec.<br>postgresqlConfig_14.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C | **object**<br>Configuration for a PostgreSQL 14 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_14_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>sharedBuffers | **integer** (int64)
@@ -3239,6 +3287,9 @@ configSpec.<br>postgresqlConfig_14_1C.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15 | **object**<br>Configuration for a PostgreSQL 15 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`<br>
 configSpec.<br>postgresqlConfig_15.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>sharedBuffers | **integer** (int64)
@@ -3385,6 +3436,9 @@ configSpec.<br>postgresqlConfig_15.<br>pgQualstatsResolveOids | **boolean** (boo
 configSpec.<br>postgresqlConfig_15.<br>pgQualstatsSampleRate | **number** (double)
 configSpec.<br>postgresqlConfig_15.<br>maxStackDepth | **integer** (int64)<br><p>Acceptable values are 65536 to 134217728, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>enableGroupByReordering | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_15.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 name | **string**<br><p>New name for the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 maintenanceWindow | **object**<br><p>New maintenance window settings for the cluster.</p> <p>A maintenance window settings.</p> 
 maintenanceWindow.<br>anytime | **object**<br>Maintenance operation can be scheduled anytime. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>

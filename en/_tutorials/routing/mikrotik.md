@@ -10,9 +10,10 @@ In {{ yandex-cloud }}, you can deploy a virtual Mikrotik Cloud Hosted Router fro
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 
 ### Required paid resources {#paid-resources}
 
@@ -27,12 +28,13 @@ The cost of using a virtual router and test VM includes:
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md));
 
+
 ## Create a VM with Mikrotik Cloud Hosted Router {#create-router}
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, like `mikrotik-router`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
-1. Under **Images from {{ marketplace-name }}**, click **Select** and select the [Cloud Hosted Router](/marketplace/products/f2etgh9qd7e7h47jrvr4) image.
+1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select the [Cloud Hosted Router](/marketplace/products/yc/cloud-hosted-router) image.
 1. Under **Computing resources**:
    - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
    - Specify the number of vCPUs and amount of RAM:
@@ -68,7 +70,7 @@ Create a test VM in the subnet that hosts the router, to test connectivity betwe
 1. On the [management console]({{ link-console-main }}) folder page, click **Create resource** and select **Virtual machine**.
 1. In the **Name** field, enter the VM name: `test-vm`.
 1. Choose the same [Availability zone](../../overview/concepts/geo-scope.md) that the `mikrotik-router` is in.
-1. Under **Images from {{ marketplace-name }}** , select the **Ubuntu** image.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab and select [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) as your image.
 1. Under **Computing resources**:
    - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
    - Specify the necessary number of vCPUs and amount of RAM.

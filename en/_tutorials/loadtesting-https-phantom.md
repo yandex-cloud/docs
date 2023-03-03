@@ -12,7 +12,7 @@ To perform load testing:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
@@ -42,14 +42,13 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure a network {#network-setup}
 
-[Enable](../vpc/operations/enable-nat.md) NAT to the internet on the subnet where the test target is and the agent will be located. This ensures the agent has access to {{ load-testing-name }}.
+[Create and configure a NAT gateway](../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. This ensures the agent has access to {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 
 1. Set up the test agent's security group:
 
    {% include [security-groups-agent](../_includes/load-testing/security-groups-agent.md) %}
-
 1. Set up the test target's security group:
 
    {% include [security-groups-target](../_includes/load-testing/security-groups-target.md) %}
@@ -91,8 +90,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
       1. Under **Load generator settings**:
          * In the **Load generator** field, select **PHANTOM**.
          * In the **Target address** field, specify the address of the service to test: `172.17.0.10`.
-         * In the **Target port** field, set `443` (default HTTPS port).
-             Allow using a secure connection.
+         * In the **Target port** field, set `443` (default HTTPS port). Allow using a secure connection.
          * In the **Testing threads** field, specify `5000`.
 
             This means that the load generator can simultaneously process 5000 operations: create 5000 connections or wait for 5000 responses from the service at the same time.
@@ -124,6 +122,8 @@ For a service whose subnet and security group differ from the agent's ones, [cre
             * Autostop criteria: `90%,60s`.
 
                This means a test will be stopped if 90% of testing threads are used for 60 seconds, which indicates a testing issue.
+
+               [Learn more about autostop](../load-testing/concepts/auto-stop.md).
       1. Under **Test information**, specify the name, description, and number of the test version. This will make the report easier to read.
 
    - Config
@@ -158,6 +158,8 @@ For a service whose subnet and security group differ from the agent's ones, [cre
            ver: '0.5.5'
            api_address: loadtesting.{{ api-host }}:443
          ```
+
+         [Learn more about autostop](../load-testing/concepts/auto-stop.md).
 
          {% note tip %}
 

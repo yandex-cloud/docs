@@ -4,6 +4,4 @@ The `{{ roles-data-transfer-private-admin }}` role enables you to create, activa
 
 If you wish to prevent users from creating or activating transfers that transmit data over the internet, revoke the `{{ roles-data-transfer-admin }}` role and assign the `{{ roles-data-transfer-private-admin }}` role.
 
-This role includes the `data-transfer.editor` role.
-
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}

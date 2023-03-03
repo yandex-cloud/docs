@@ -185,7 +185,7 @@ If you are running Fluent Bit version below 1.9 that comes with the `td-agent-bi
        Name  kinesis_streams
        Match *
        region ru-central-1
-       stream /<регион>/<folder ID>/<database ID>/<data stream ID>
+       stream /<region>/<folder ID>/<database ID>/<data stream ID>
        endpoint https://yds.serverless.yandexcloud.net
    ```
    Where:
