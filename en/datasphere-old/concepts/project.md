@@ -8,7 +8,7 @@ A _notebook_ is an `*.ipynb` file that you are working with in the {{ jlab }} No
 
 Projects store the state of the interpreter, variables, installed packages, and much more. When you reopen your project, the notebook loads in the state you last saved it in.
 
-You can upload small amounts of data (up to 100 MB) to your {{ ml-platform-name }} project over the interface. If you want to [upload](../operations/index.md#data-source) larger amounts of data, use your network storages or databases. For larger data volumes, it's also convenient to use [datasets](dataset.md) that are available in [early access mode](../early-access/index.md).
+You can upload small amounts of data (up to 100 MB) to your {{ ml-platform-name }} project over the interface. If you want to [upload](../operations/index.md#data-source) larger amounts of data, use your network storages or databases. For larger data volumes, it's also convenient to use [datasets](dataset.md).
 
 {{ ml-platform-name }} provides {{ ml-project-size }} of free storage for each project. If, when a cell is running, the amount of data exceeds the allocated storage, the cell is stopped. You can [expand](../operations/projects/storage-resize.md) your primary storage. Additional space will have to be paid for separately. For more information about the main storage expansion costs, see [{#T}](../pricing.md).
 

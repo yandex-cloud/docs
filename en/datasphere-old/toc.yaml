@@ -117,8 +117,6 @@ items:
         when: product == "yandex-cloud"
       - name: Background operations
         href: concepts/async.md
-      - name: Special background operations
-        href: concepts/repeat.md
       - name: Datasets
         href: concepts/dataset.md
       - name: Private data storage
@@ -138,12 +136,6 @@ items:
         when: product == "cloud-il"
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Early access
-    items:
-      - name: Overview
-        href: early-access/index.md
-      - name: Special background operations
-        href: early-access/repeat.md
   - name: Practical guidelines
     items:
       - name: All tutorials

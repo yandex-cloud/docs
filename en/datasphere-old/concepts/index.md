@@ -18,7 +18,7 @@ If you're missing a package, you can [install it](../operations/projects/install
 
 ### Automatic maintenance of computing resources {#auto-service}
 
-The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated. If you use [early access](../early-access/index.md) features, the amount of vCPU and memory usage is shown directly in the notebook interface.
+The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated. 
 
 ### Saving states at shutdown {#save-state}
 
@@ -47,10 +47,6 @@ To share your results:
 ## Current service limits {#known-restrictions}
 
 For more information about service limits, see [{#T}](limits.md).
-
-## Early access mode {#early-access}
-
-Try out new {{ ml-platform-name }} features before they are released in [early access mode](../early-access/index.md) and tell us what you think about them.
 
 ## Contacting support from the service {#support}
 

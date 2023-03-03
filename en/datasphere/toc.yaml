@@ -128,8 +128,6 @@ items:
             href: concepts/save-state.md
           - name: List of pre-installed software
             href: concepts/preinstalled-packages.md
-          - name: Early access mode
-            href: concepts/early-access.md
       - name: Computing and model training
         items:
           - name: Available commands
@@ -138,8 +136,6 @@ items:
             href: concepts/pragma.md
           - name: Background operations
             href: concepts/async.md
-          - name: "EA: Special background cells"
-            href: concepts/repeat.md
           - name: Computing on Apache Spark™ clusters
             href: concepts/data-proc.md
             when: product == "yandex-cloud"

@@ -32,8 +32,6 @@ Yes. If you close the notebook tab, current computations will continue running a
 
 Running notebooks have access to the project storage and can edit files. To avoid conflicts between notebooks accessing the same files during computations, {{ ml-platform-name }} prevents you from starting multiple notebooks at the same time.
 
-However, you can parallelize [special background operations](../early-access/repeat.md#parallel) that have read-only access to storage.
-
 #### How do I specify the configuration type for my project? {#instance-type}
 
 Project cells in {{ ml-platform-name }} run with the minimum [resource configuration](../concepts/configurations.md): **c1.4** (4 vCPUs). You can [change configurations](../operations/projects/control-compute-resources.md#config) while using your notebook. The state of the interpreter, variables, and computation results will be saved.

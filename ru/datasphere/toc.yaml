@@ -128,8 +128,6 @@ items:
             href: concepts/save-state.md
           - name: Список предустановленного ПО
             href: concepts/preinstalled-packages.md
-          - name: Режим раннего доступа
-            href: concepts/early-access.md
       - name: Вычисления и обучение моделей
         items:
           - name: Доступные команды
@@ -138,8 +136,6 @@ items:
             href: concepts/pragma.md
           - name: Фоновые операции
             href: concepts/async.md
-          - name: EA — Специальные фоновые ячейки
-            href: concepts/repeat.md
           - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
             when: product == "yandex-cloud"
