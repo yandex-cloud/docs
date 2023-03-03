@@ -2,13 +2,13 @@
 
 Вид ограничения | Значение
 --- | ---
-Количество [проектов](../datasphere/concepts/project.md) в [сообществе](../datasphere/concepts/community.md) | 10
+Количество [проектов](../datasphere/concepts/project.md) в [сообществе](../datasphere/concepts/community.md) | 50
 Суммарный объем [датасетов](../datasphere/concepts/dataset.md) в сообществе | 1024 ГБ
 Количество датасетов в сообществе | 10
 Количество Docker-образов в сообществе | 3
 Объем [хранилища](../datasphere/concepts/project.md#storage) проекта (можно [увеличить в проекте](../datasphere/operations/projects/storage-resize.md)) | 10 ГБ
 Количество сообществ, привязанных к одному [платежному аккаунту](../billing/concepts/billing-account.md) | 100
-Количество сообществ в одной [организации](../organization/) | 100
+Количество сообществ в одной [организации](../organization/) | 10
 **Ограничения на использование ВМ** |
 c1.32 | 0
 c1.80 | 0
