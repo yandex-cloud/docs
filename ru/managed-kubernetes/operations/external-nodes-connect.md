@@ -149,7 +149,9 @@ kubectl -n system create secret generic <имя секрета> --from-file=ssh-
     ips:
     ...
     provisionBySsh:
-      sshKeySecret: <имя секрета>
+      sshKeySecret:
+        name: <имя секрета>
+        namespace: system
   ```
 
 {% endlist %}

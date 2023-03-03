@@ -149,7 +149,9 @@ In the `NodeGroup` resource specification, include the name of the relevant secr
     ips:
     ...
     provisionBySsh:
-      sshKeySecret: <secret name>
+      sshKeySecret:
+        name: <secret name>
+        namespace: system
   ```
 
 {% endlist %}
