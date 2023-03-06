@@ -2288,7 +2288,7 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     Gateway:
-      description: A Gateway resource. For more information, see [Gateway](/docs/vpc/concepts/gateway).
+      description: A Gateway resource. For more information, see [Gateway](/docs/vpc/concepts/gateways).
       type: object
       allOf:
       - type: object
@@ -3001,7 +3001,7 @@ components:
             description: Next hop gateway id
             type: string
     Subnet:
-      description: A Subnet resource. For more information, see [Subnets](/docs/vpc/concepts/subnets).
+      description: A Subnet resource. For more information, see [Subnets](/docs/vpc/concepts/network#subnet).
       type: object
       properties:
         id:

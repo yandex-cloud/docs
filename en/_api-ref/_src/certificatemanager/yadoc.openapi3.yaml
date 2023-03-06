@@ -471,7 +471,7 @@ components:
         accessBinding:
           $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     Certificate:
-      description: A certificate. For details about the concept, see [documentation](docs/certificate-manager/concepts/).
+      description: A certificate. For details about the concept, see [documentation](/docs/certificate-manager/concepts/).
       type: object
       properties:
         id:

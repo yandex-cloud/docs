@@ -1627,7 +1627,7 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     Image:
-      description: An Image resource. For more information, see [Docker image](/docs/cloud/container-registry/docker-image).
+      description: An Image resource. For more information, see [Docker image](/docs/container-registry/concepts/docker-image).
       type: object
       properties:
         id:
@@ -2062,7 +2062,7 @@ components:
       - ACTIVE
       - DELETING
     Repository:
-      description: A Repository resource. For more information, see [Repository](/docs/cloud/container-registry/repository).
+      description: A Repository resource. For more information, see [Repository](/docs/container-registry/concepts/repository).
       type: object
       properties:
         name:

@@ -1449,7 +1449,7 @@ components:
           type: string
     TargetGroup:
       description: A TargetGroup resource. For more information, see [Target groups
-        and resources](/docs/network-load-balancer/target-resources).
+        and resources](/docs/network-load-balancer/concepts/target-resources).
       type: object
       properties:
         id:

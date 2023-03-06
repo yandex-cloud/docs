@@ -27,7 +27,7 @@ repositoryName | <p>Required. Name of the Repository resource to return.</p> <p>
   "id": "string"
 }
 ```
-A Repository resource. For more information, see [Repository](/docs/cloud/container-registry/repository).
+A Repository resource. For more information, see [Repository](/docs/container-registry/concepts/repository).
  
 Field | Description
 --- | ---

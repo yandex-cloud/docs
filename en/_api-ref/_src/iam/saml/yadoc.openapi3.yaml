@@ -737,7 +737,7 @@ components:
     Federation:
       description: |-
         A federation.
-        For more information, see [SAML-compatible identity federations](/docs/iam/concepts/users/identity-federations).
+        For more information, see [SAML-compatible identity federations](/docs/iam/concepts/federations).
       type: object
       properties:
         id:
@@ -983,7 +983,7 @@ components:
     SamlUserAccount:
       description: |-
         A SAML federated user.
-        For more information, see [federations](/docs/iam/concepts/users/saml-federations).
+        For more information, see [federations](/docs/iam/concepts/federations).
       type: object
       properties:
         federationId:

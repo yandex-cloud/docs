@@ -75,7 +75,7 @@ view | <p>The output type of the certificate.</p> <ul> <li>BASIC: Output basic i
   "incompleteChain": true
 }
 ```
-A certificate. For details about the concept, see [documentation](docs/certificate-manager/concepts/).
+A certificate. For details about the concept, see [documentation](/docs/certificate-manager/concepts/).
  
 Field | Description
 --- | ---

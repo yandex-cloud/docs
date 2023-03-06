@@ -1164,7 +1164,7 @@ components:
         healthCheckSpecs:
           description: |-
             Required.
-            Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check).
+            Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check).
 
             The minimum number of elements is 1.
           type: array
@@ -2699,13 +2699,13 @@ components:
           type: string
     HealthChecksSpec_in_CreateInstanceGroupRequest_healthChecksSpec:
       description: Health checking specification. For more information, see [Health
-        check](/docs/load-balancer/concepts/health-check).
+        check](/docs/network-load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
           description: |-
             Required.
-            Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check).
+            Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check).
 
             The minimum number of elements is 1.
           type: array
@@ -3022,7 +3022,7 @@ components:
         healthCheckSpecs:
           description: |-
             Required.
-            Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check).
+            Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check).
 
             The minimum number of elements is 1.
           type: array
@@ -3192,7 +3192,7 @@ components:
             $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
     TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec:
       description: Specification of the target group that the instance group will
-        be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources).
+        be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources).
       type: object
       properties:
         name:
@@ -3682,13 +3682,13 @@ components:
             $ref: '#/components/schemas/AllocationPolicyZone'
     HealthChecksSpec_in_UpdateInstanceGroupRequest_healthChecksSpec:
       description: Health checking specification. For more information, see [Health
-        check](/docs/load-balancer/concepts/health-check).
+        check](/docs/network-load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
           description: |-
             Required.
-            Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check).
+            Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check).
 
             The minimum number of elements is 1.
           type: array

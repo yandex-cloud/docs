@@ -51,7 +51,7 @@ imageId | <p>Required. ID of the Docker image resource to return.</p> <p>To get 
   "createdAt": "string"
 }
 ```
-An Image resource. For more information, see [Docker image](/docs/cloud/container-registry/docker-image).
+An Image resource. For more information, see [Docker image](/docs/container-registry/concepts/docker-image).
  
 Field | Description
 --- | ---

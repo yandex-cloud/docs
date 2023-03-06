@@ -31,7 +31,7 @@ owner | **string**<br><p>Name of the user assigned as the owner of the database.
 lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> 
 lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> 
 extensions[] | **object**<br><p>PostgreSQL extensions enabled for the database.</p> 
-extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/cluster-extensions">listed in the Developer's Guide</a>.</p> 
+extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/extensions/cluster-extensions">listed in the Developer's Guide</a>.</p> 
 extensions[].<br>version | **string**<br><p>Version of the extension.</p> 
 templateDb | **string**<br><p>Name of the database template.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the database</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
