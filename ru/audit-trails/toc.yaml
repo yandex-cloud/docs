@@ -61,6 +61,9 @@ items:
           - name: Загрузка аудитных логов в {{ mes-full-name }}
             href: tutorials/trails-logs-elasticsearch.md
             when: product == "yandex-cloud"
+          - name: Загрузка аудитных логов в {{ mos-full-name }}
+            href: tutorials/trails-logs-opensearch.md
+            when: product == "yandex-cloud"
           - name: Загрузка аудитных логов в MaxPatrol SIEM
             href: tutorials/maxpatrol.md
             when: product == "yandex-cloud"

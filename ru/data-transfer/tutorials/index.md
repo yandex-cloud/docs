@@ -1,5 +1,6 @@
 # Практические руководства {{ data-transfer-name }}
 
+
 ## Миграция данных
 
 * [{#T}](mkf-to-mkf.md)
@@ -26,6 +27,9 @@
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](cdc-mpg.md)
 * [{#T}](mpg-to-objstorage.md)
+{% if product == "yandex-cloud" and audience == "external" %}
+* [{#T}](trails-to-os.md)
+{% endif %}
 
 ## Асинхронная репликация данных
 

@@ -9,6 +9,7 @@
 
 В настоящее время подготовлены решения для следующих SIEM:
 * [{{ mes-full-name }}](../tutorials/trails-logs-elasticsearch.md).
+* [{{ mos-full-name }}](../tutorials/trails-logs-opensearch.md).
 * [ArcSight](../tutorials/export-logs-to-arcsight.md).
 * [Splunk](../tutorials/export-logs-to-splunk.md).
 * [MaxPatrol SIEM](../tutorials/maxpatrol.md).

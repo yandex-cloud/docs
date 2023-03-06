@@ -35,6 +35,9 @@ items:
     items:
       - name: Миграция данных из {{ ES }}
         href: tutorials/migration-to-opensearch.md
+      - name: Загрузка логов из {{ at-name }}
+        href: tutorials/trails-to-opensearch.md
+        when: product == "yandex-cloud" and audience == "external"
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

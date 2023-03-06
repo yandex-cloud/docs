@@ -142,6 +142,9 @@ items:
             href: tutorials/cdc-mpg.md
           - name: Поставка данных из {{ mpg-full-name }} в {{ objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
+          - name: Поставка логов из {{ at-full-name }} в {{ mos-full-name }}
+            href: tutorials/trails-to-os.md
+            when: product == "yandex-cloud" and audience == "external"
       - name: Асинхронная репликация данных
         items:
           - name: Асинхронная репликация данных из {{ mmy-full-name }} в {{ mch-full-name }}
