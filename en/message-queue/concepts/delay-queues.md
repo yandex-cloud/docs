@@ -12,6 +12,6 @@ Delay queues are similar to [visibility timeouts](visibility-timeout.md). The di
 
 ## Delivery delay on individual messages {#delay-messages}
 
-Individual messages can be hidden immediately after they are added to a queue. This is set using the `DelaySeconds` parameter of the [SendMessage](../api-ref/message/SendMessage.md) method. A hidden message can't be consumed from the queue during the specified time. The maximum time a message can be hidden is 15 minutes. FIFO queues don't support per-message delays.
+Individual messages can be hidden immediately after they are added to a queue. This is set using the `DelaySeconds` parameter of the [SendMessage](../api-ref/message/SendMessage.md) method. A hidden message cannot be consumed from the queue during the specified time. The maximum time a message can be hidden is 15 minutes. FIFO queues do not support per-message delays.
 
-The per-message delay overrides the general queue delay.
+The per-message delay has a higher priority than the delay set on an entire queue. For example, if a message with a 10-minute delivery delay is added to a queue that has a 5-minute delay set, this message is hidden for 10 minutes.

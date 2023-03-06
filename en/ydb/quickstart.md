@@ -14,10 +14,10 @@ You can also work with a {{ ydb-full-name }} DB through:
 * [AWS SDK](docapi/tools/aws-sdk/index.md).
 * [AWS CLI](docapi/tools/aws-cli/index.md).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-1. If you don't have a folder yet, create one:
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you do not have an account yet.
+1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
@@ -37,24 +37,24 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Click **Create database**.
-   1. Enter the **Name** of the DB. Naming requirements:
+  1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
+  1. In the list of services, select **{{ ydb-name }}**.
+  1. Click **Create database**.
+  1. Enter the **Name** of the DB. The naming requirements are as follows:
 
-      {% include [name-format](../_includes/name-format.md) %}
+     {% include [name-format](../_includes/name-format.md) %}
 
-   1. Under **Database type**, select the **Serverless** option.
+  1. Under **Database type**, select the **Serverless** option.
 
       You can leave the default parameters for the DB being created and [change](operations/manage-databases.md#update-db-serverless) them later. For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
-   1. Click **Create database**.
+  1. Click **Create database**.
 
    Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
 - YC CLI
 
-   1. {% include [cli-install](../_includes/cli-install.md) %}
-   1. Create a database:
+  1. {% include [cli-install](../_includes/cli-install.md) %}
+  1. Create a database:
 
       ```bash
       yc ydb database create <name> --serverless
@@ -89,15 +89,15 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       ```
 
       A database with default parameters is created. You can [change](operations/manage-databases.md#update-db-serverless) its parameters later. For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
-   1. Check the status of the created database:
+  1. Check the status of the created database:
 
-      ```bash
-      yc ydb database get <name>
-      ```
+     ```bash
+     yc ydb database get <name>
+     ```
 
-      Where `name` is the name of the new DB.
+     Where `name` is the name of the new DB.
 
-      When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
+     When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
 {% endlist %}
 
@@ -107,27 +107,27 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Click **Create database**.
-   1. Enter the **Name** of the DB. Naming requirements:
+  1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
+  1. In the list of services, select **{{ ydb-name }}**.
+  1. Click **Create database**.
+  1. Enter the **Name** of the DB. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
-   1. Under **Database type**, select the **Dedicated** option.
-   1. Under **Computing resources**, select the type and amount of [computing resources](concepts/index.md#resource-presets).
-   1. Under **Storage groups**, select the disk type and number of [storage groups](concepts/index.md#storage-groups) that determines the total amount of storage.
-   1. Under **Network**, configure network settings:
-      1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to run queries against the DB both from the {{ yandex-cloud }} network and the internet.
+  1. Under **Database type**, select the **Dedicated** option.
+  1. Under **Computing resources**, select the type and amount of [computing resources](concepts/index.md#resource-presets).
+  1. Under **Storage groups**, select the disk type and number of [storage groups](concepts/index.md#storage-groups) that determines the total amount of storage.
+  1. Under **Network**, configure network settings:
+     1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to run queries against the DB both from the {{ yandex-cloud }} network and the internet.
 
          {% include [traffic_metering](_includes/traffic_metering.md) %}
 
-      1. Select an existing network from the **Cloud network** list or create a new one:
+     1. Select an existing network from the **Cloud network** list or create a new one:
          1. Click **Create new**.
          1. In the window that opens, enter a **Name** for the new network.
          1. (optional) Select the **Create subnets** option. Subnets in each availability zone will be created automatically.
          1. Click **Create**.
-      1. Under **Subnets**, select a network or create a new one for each [availability zone](../overview/concepts/geo-scope.md):
+     1. Under **Subnets**, select a network or create a new one for each [availability zone](../overview/concepts/geo-scope.md):
          1. Click **Create new**.
          1. In the window that opens, enter a **Name** for the new subnet.
          1. (optional) Enter a **Description** of the subnet.
@@ -135,17 +135,17 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
          1. Specify the subnet address in [**CIDR**]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Бесклассовая_адресация){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing){% endif %} format.
          1. Click **Create**.
 
-      You can't change the settings of the **Network** section after the database is created.
-   1. Click **Create database**.
+      You cannot change the settings of the **Network** section after the database is created.
+  1. Click **Create database**.
 
-      Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
+     Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
 - YC CLI
 
-   1. {% include [cli-install](../_includes/cli-install.md) %}
+  1. {% include [cli-install](../_includes/cli-install.md) %}
 
-   1. If necessary, create a cloud [network](../vpc/operations/network-create.md) and [subnets](../vpc/operations/subnet-create.md) for each [availability zone](../overview/concepts/geo-scope.md).
-   1. Create a database:
+  1. Create a cloud [network](../vpc/operations/network-create.md) and [subnets](../vpc/operations/subnet-create.md) for each [availability zone](../overview/concepts/geo-scope.md), if required.
+  1. Create a database:
 
       ```bash
       yc ydb database create <name> \
@@ -159,11 +159,11 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
       Where:
 
-      * `--resource-preset STR`: Configuration of the node computing resources. Possible values are listed in the "Configuration name" column of the [Computing resources](concepts/index.md#resource-presets) table on the page with database information.
-      * `--storage STR`: Media type and number of storage groups in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
-      * `--public-ip`: Flag indicating that public IP addresses are assigned. Without it, you cannot connect to the DB you created, from the internet.
-      * `--network-name STR`: Name of the cloud network to create the DB in. You can specify the `default` network.
-      * `--async`: Asynchronous DB creation flag.
+      * `--resource-preset STR`: The configuration of node computing resources. Possible values are listed in the "Configuration name" column of the [Computing resources](concepts/index.md#resource-presets) table on the page with information about databases.
+      * `--storage STR`: The media type and number of storage groups in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
+      * `--public-ip`: Flag indicating that public IP addresses are assigned. Without it, you cannot connect to the database you created from the internet.
+      * `--network-name STR`: Name of the cloud network to create the database in. You can specify the network as `default`.
+      * `--async`: The asynchronous DB creation flag.
 
       For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
 
@@ -221,15 +221,15 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       monitoring_config: {}
       ```
 
-   1. Check the status of the created database:
+  1. Check the status of the created database:
 
       ```bash
       yc ydb database get <name>
       ```
 
-      Where `name` is the name of the new DB.
+     Where `name` is the name of the new DB.
 
-      When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
+     When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
 {% endlist %}
 
@@ -239,70 +239,70 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the desired bucket is located.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Select the previously created database.
-   1. Go to the **Navigation** tab.
-   1. Click **SQL query** and enter the query text.
+  1. In the [management console]({{ link-console-main }}), select the folder where the desired bucket is located.
+  1. In the list of services, select **{{ ydb-name }}**.
+  1. Select the previously created database.
+  1. Go to the **Navigation** tab.
+  1. Click **SQL query** and enter the query text.
 
-      ```yql
-      SELECT 1;
-      ```
+     ```yql
+     SELECT 1;
+     ```
 
-   1. Click **Run**.
+  1. Click **Run**.
 
       See the query result below:
 
-      ```text
-      # column0
-      0 1
-      ```
+     ```text
+     # column0
+     0 1
+     ```
 
 - {{ ydb-short-name }} CLI
 
-   1. {% include [cli-install](../_includes/cli-install.md) %}
+  1. {% include [cli-install](../_includes/cli-install.md) %}
 
-   1. To manage your DBs from the command line, [install]({% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/install){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/install){% endif %}) the {{ ydb-short-name }} CLI.
-   1. To authenticate the {{ ydb-short-name }} CLI in {{ yandex-cloud }}, get an [IAM token](../iam/concepts/authorization/iam-token.md) and export it to the following environment variable:
+  1. To manage your DBs from the command line, [install]({% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/install){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/install){% endif %}) the {{ ydb-short-name }} CLI.
+  1. To authenticate the {{ ydb-short-name }} CLI in {{ yandex-cloud }}, get an [IAM token](../iam/concepts/authorization/iam-token.md) and export it to the following environment variable:
 
-      ```bash
-      export IAM_TOKEN=`yc iam create-token`
-      ```
+     ```bash
+     export IAM_TOKEN=`yc iam create-token`
+     ```
 
-   1. Get the DB endpoint and path:
+  1. Get the DB endpoint and path:
 
-      ```bash
-      yc ydb database get ydb-prod
-      ```
+     ```bash
+     yc ydb database get ydb-prod
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      ...
-      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
-      ...
-      ```
+     ```text
+     ...
+     endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
+     ...
+     ```
 
-      Here, part of the `{{ ydb.ep-serverless }}` string contains the endpoint and `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` specifies the DB path.
+     Here, part of the `{{ ydb.ep-serverless }}` string contains the endpoint and `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` specifies the DB path.
 
-   1. Make a query to the previously created DB using the resulting endpoint value and DB path:
+  1. Make a query to the previously created DB using the resulting endpoint value and DB path:
 
-      ```bash
-      ydb \
-        --endpoint {{ ydb.ep-serverless }} \
-        --database /{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2 \
-        yql -s "SELECT 1;"
-      ```
+     ```bash
+     ydb \
+       --endpoint {{ ydb.ep-serverless }} \
+       --database /{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2 \
+       yql -s "SELECT 1;"
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      ┌─────────┐
-      | column0 |
-      ├─────────┤
-      | 1       |
-      └─────────┘
-      ```
+     ```text
+     ┌─────────┐
+     | column0 |
+     ├─────────┤
+     | 1       |
+     └─────────┘
+     ```
 
 {% endlist %}
 
