@@ -1,4 +1,11 @@
+---
+title: "Service Level for {{ speechkit-full-name }}. Expired on March 6, 2023"
+noIndex: true
+---
+
 # Service Level for {{ speechkit-full-name }}
+
+*This is an old version of the document, which expired on March 6, 2023. The current version is available at: <https://nebius.com/il/docs/legal/sla-levels/speechkit>.*
 
 This document defines Service Level of {{ speechkit-full-name }} ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
@@ -9,7 +16,7 @@ This document defines Service Level of {{ speechkit-full-name }} ("Service") and
 
 Availability
 
-| Service Uptime Percentage in Reporting Period | Compensation, % of Service Fee of Service used in Accrual |
+| Service Uptime Percentage in Accrual Period | Compensation, % of Service Fee of Service used in Accrual |
 | --- | --- |
 | < 99.90%-99.00% | 10.0% |
 | < 99.00%-95.00% | 15.0% |
@@ -27,8 +34,6 @@ Availability
 
 ________________________________________
 
-Publication date: 06.03.2023
-
-*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/speechkit-20230220>*
+Publication date: 20.02.2023
 
 *Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/speechkit-20221110>*

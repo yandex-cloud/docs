@@ -1,4 +1,11 @@
+---
+title: "Service Level for {{ container-registry-full-name }}. Expired on March 6, 2023"
+noIndex: true
+---
+
 # Service Level for {{ container-registry-full-name }}
+
+*This is an old version of the document, which expired on March 6, 2023. The current version is available at: <https://nebius.com/il/docs/legal/sla-levels/container-registry>.*
 
 This document defines Service Level of {{ container-registry-full-name }} ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
@@ -9,7 +16,7 @@ This document defines Service Level of {{ container-registry-full-name }} ("Serv
 
 Service Availability
 
-| Service Uptime Percentage in Reporting Period | Compensation, % of Service Fee for Service in Reporting Period |
+| Service Uptime Percentage in Accrual Period | Compensation, % of Service Fee for Service in Accrual Period |
 | --- | --- |
 | < 99.95%-98.00% | 10.0% |
 | < 98.00%-90.00% | 15.0% |
@@ -26,8 +33,6 @@ ________________________________________
 
 Web address: <https://nebius.com/il/docs/legal/sla-levels/container-registry>
 
-Publication date: 06.03.2023
-
-*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/container-registry-20230220>*
+Publication date: 20.02.2023
 
 *Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/container-registry-20221110>*

@@ -143,6 +143,9 @@ items:
     href: archive/dpa-20221110.md
   - name: Service Level Agreement
     href: sla.md
+  - name: Service Level Agreement (published 20.02.2023)
+    hidden: true
+    href: archive/sla-20230220.md
   - name: Service Level Agreement (published 10.11.2022)
     hidden: true
     href: archive/sla-20221110.md
@@ -155,21 +158,33 @@ items:
         href: archive/sla-levels/index-20221110.md
       - name: Application Load Balancer
         href: sla-levels/application-load-balancer.md
+      - name: Application Load Balancer (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/application-load-balancer-20230220.md
       - name: Application Load Balancer (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/application-load-balancer-20221110.md
       - name: Cloud DNS
         href: sla-levels/dns.md
+      - name: Cloud DNS (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/dns-20230220.md
       - name: Cloud DNS (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/dns-20221110.md
       - name: Compute Cloud
         href: sla-levels/compute.md
+      - name: Compute Cloud (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/compute-20230220.md
       - name: Compute Cloud (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/compute-20221110.md
       - name: Container Registry
         href: sla-levels/container-registry.md
+      - name: Container Registry (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/container-registry-20230220.md
       - name: Container Registry (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/container-registry-20221110.md
@@ -180,6 +195,9 @@ items:
         href: archive/sla-levels/kms-20221110.md
       - name: Managed databases
         href: sla-levels/mdb.md
+      - name: Managed databases (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/mdb-20230220.md
       - name: Managed databases (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/mdb-20221110.md
@@ -190,36 +208,57 @@ items:
         href: archive/sla-levels/managed-kafka-20221110.md
       - name: Managed Service for Kubernetes
         href: sla-levels/managed-kubernetes.md
+      - name: Managed Service for Kubernetes (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/managed-kubernetes-20230220.md
       - name: Managed Service for Kubernetes (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/managed-kubernetes-20221110.md
       - name: Message Queue
         href: sla-levels/message-queue.md
+      - name: Message Queue (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/message-queue-20230220.md
       - name: Message Queue (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/message-queue-20221110.md
       - name: Monitoring
         href: sla-levels/monitoring.md
+      - name: Monitoring (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/monitoring-20230220.md
       - name: Monitoring (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/monitoring-20221110.md
       - name: Network Load Balancer
         href: sla-levels/network-load-balancer.md
+      - name: Network Load Balancer (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/network-load-balancer-20230220.md
       - name: Network Load Balancer (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/network-load-balancer-20221110.md
       - name: Object Storage
         href: sla-levels/storage.md
+      - name: Object Storage (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/storage-20230220.md
       - name: Object Storage (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/storage-20221110.md
       - name: SpeechKit
         href: sla-levels/speechkit.md
+      - name: SpeechKit (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/speechkit-20230220.md
       - name: SpeechKit (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/speechkit-20221110.md
       - name: Virtual Private Cloud
         href: sla-levels/vpc.md
+      - name: Virtual Private Cloud (published 20.02.2023)
+        hidden: true
+        href: archive/sla-levels/vpc-20230220.md
       - name: Virtual Private Cloud (published 10.11.2022)
         hidden: true
         href: archive/sla-levels/vpc-20221110.md

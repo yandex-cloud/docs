@@ -1,4 +1,11 @@
+---
+title: "Service Level for {{ network-load-balancer-full-name }}. Expired on March 6, 2023"
+noIndex: true
+---
+
 # Service Level for {{ network-load-balancer-full-name }}
+
+*This is an old version of the document, which expired on March 6, 2023. The current version is available at: <https://nebius.com/il/docs/legal/sla-levels/network-load-balancer>.*
 
 This document defines Service Level of Network Load Balancer ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
@@ -10,7 +17,7 @@ This document defines Service Level of Network Load Balancer ("Service") and is 
 
 Availability per a unit of Network Load Balancer
 
-| Service Uptime Percentage in Reporting Period | Compensation, % of Service Fee of Service used in Accrual |
+| Service Uptime Percentage in Accrual Period | Compensation, % of Service Fee of Service used in Accrual |
 | --- | --- |
 | < 99.00 % - 95.00% |	10.0% |
 | less than 95.00%	| 25.0% |
@@ -24,8 +31,6 @@ Loss of external connectiveness due to issues on the part of Nebius in case when
 
 ________________________________________
 
-Publication date: 06.03.2023 
-
-*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/network-load-balancer-20230220>*
+Publication date: 20.02.2023 
 
 *Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/network-load-balancer-20221110>*

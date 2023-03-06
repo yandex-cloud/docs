@@ -1,4 +1,11 @@
+---
+title: "Service Level for {{ alb-full-name }}. Expired on March 6, 2023"
+noIndex: true
+---
+
 # Service Level for {{ alb-full-name }}
+
+*This is an old version of the document, which expired on March 6, 2023. The current version is available at: <https://nebius.com/il/docs/legal/sla-levels/application-load-balancer>.*
 
 This document defines the Service Level for {{ alb-full-name }} ("the Service") and is an integral part of the Nebius Platform Services User Agreement ("Agreement") and the SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
@@ -9,7 +16,7 @@ Compensation Amount:
 
 Availability per a unity of {{ alb-full-name }}:
 
-| Service Uptime Percentage in Reporting Period | Compensation, % of Service Fee of Service used in Reporting Period |
+| Service Uptime Percentage in Accrual Period | Compensation, % of Service Fee of Service used in Accrual Period |
 | --- | --- |
 | < 99.99%-99.5% | 10.0% |
 | < 99.5%-95.00% | 50.0% |
@@ -34,8 +41,6 @@ ________________________________________
 
 Web address: <https://nebius.com/il/docs/legal/sla-levels/application-load-balancer>
 
-Publication date: 06.03.2023
-
-*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/application-load-balancer-20230220>*
+Publication date: 20.02.2023
 
 *Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/application-load-balancer-20221110>*

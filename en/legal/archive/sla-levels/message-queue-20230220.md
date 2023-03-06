@@ -1,3 +1,10 @@
+---
+title: "Service Level for {{ message-queue-full-name }}. Expired on March 6, 2023"
+noIndex: true
+---
+
+*This is an old version of the document, which expired on March 6, 2023. The current version is available at: <https://nebius.com/il/docs/legal/sla-levels/message-queue>.*
+
 # Service Level for {{ message-queue-full-name }}
 
 This document defines the Service Level of {{ message-queue-full-name }} ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
@@ -9,7 +16,7 @@ This document defines the Service Level of {{ message-queue-full-name }} ("Servi
 
 Service Availability
 
-| Service Uptime Percentage in Reporting Period | Compensation, % of Service Fee for Service in Reporting Period |
+| Service Uptime Percentage in Accrual Period | Compensation, % of Service Fee for Service in Accrual Period |
 | --- | --- |
 | < 99.90%-95.00% | 10.0% |
 | less than 95.00% | 25.0% |
@@ -28,8 +35,6 @@ ________________________________________
 
 Web address: <https://nebius.com/il/docs/legal/sla-levels/message-queue>
 
-Publication date: 06.03.2023
-
-*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/message-queue-20230220>*
+Publication date: 20.02.2023
 
 *Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/message-queue-20221110>*

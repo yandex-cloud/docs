@@ -1,5 +1,11 @@
+---
+title: "Service Level for {{ managed-k8s-full-name }}. Expired on March 6, 2023"
+noIndex: true
+---
+
 # Service Level for {{ managed-k8s-full-name }}
 
+*This is an old version of the document, which expired on March 6, 2023. The current version is available at: <https://nebius.com/il/docs/legal/sla-levels/managed-kubernetes>.*
 
 This document defines Service Level of {{ managed-k8s-full-name }} ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
@@ -10,7 +16,7 @@ This document defines Service Level of {{ managed-k8s-full-name }} ("Service") a
 
 Service Availability
 
-| Uptime Percentage in the Reporting Period | Compensation, % of Service Fee of Service used in Reporting Period |
+| Uptime Percentage in the Reporting Period | Compensation, % of Service Fee of Service used in Accrual Period |
 | --- | --- |
 | < 99.90%-95.00% | 10.0% |
 | less than 95.00% | 25.0% |
@@ -36,8 +42,6 @@ ________________________________________
 
 Web address: <https://nebius.com/il/docs/legal/sla-levels/managed-kubernetes>
 
-Publication date: 06.03.2023
-
-*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/managed-kubernetes-20230220>*
+Publication date: 20.02.2023
 
 *Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/managed-kubernetes-20221110>*
