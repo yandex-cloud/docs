@@ -15,7 +15,7 @@
 - CLI
 
 	{% include [cli-install](../cli-install.md) %}
-    
+
     {% include [default-catalogue](../default-catalogue.md) %}
 
 	Чтобы создать контейнер, выполните команду:
@@ -74,7 +74,7 @@
        folder_id = "<идентификатор каталога>"
        zone      = "{{ region-id }}-a"
      }
-     
+
      resource "yandex_serverless_container" "test-container" {
         name               = "<имя контейнера>"
         memory             = <объем памяти>
@@ -97,7 +97,7 @@
        folder_id = "<идентификатор каталога>"
        zone      = "{{ region-id }}-a"
      }
-     
+
      resource "yandex_serverless_container" "test-container" {
         name               = "<имя контейнера>"
         memory             = <объем памяти>

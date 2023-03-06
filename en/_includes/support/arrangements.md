@@ -1,1 +1,1 @@
-{{ yandex-cloud }} provides extended technical support Sunday-Thursday from 10:00 until 19:00. We aim to respond to your message or request within four hours.
+Technical Support is happy to respond to your requests from 10:00 to 19:00 on weekdays. Our engineers do their best to handle emails and requests as fast as possible with the target response time of no more than 4 hours.

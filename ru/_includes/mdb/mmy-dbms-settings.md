@@ -381,7 +381,7 @@
 - **Log slow rate type**{#setting-log-slow-rate-type} {{ tag-all }}
 
   Задает тип записей лога медленных запросов для настройки [Log slow rate limit](#setting-log-slow-rate-limit):
-  
+
   * `query` — на уровне запроса;
   * `session` — на уровне сессии.
 
@@ -486,7 +486,7 @@
 - **Mdb preserve binlog bytes**{#setting-mdb-preserve-binlog-bytes} {{ tag-all }}
 
   Размер бинарных логов (в байтах) для хранения на хостах кластера.
-  
+
   Минимальное значение — `1073741824` (1 ГБайт), максимальное значение — `107374182400` (100 ГБайт), по умолчанию — `1073741824` (1 ГБайт).
 
 - **Mdb priority choice max lag**{#setting-mdb-priority-choice-max-lag} {{ tag-all }}

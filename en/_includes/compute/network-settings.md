@@ -1,7 +1,7 @@
 * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
-   If you don't have a network, click **Create network** to create one:
+   If you do not have a network, click **Create network** to create one:
 
-   * In the window that opens, enter the network name and folder to host the network.
+   * In the window that will show up, enter the network name and specify the folder to host the network.
    * (optional) To automatically create subnets, select the **Create subnets** option.
    * Click **Create**.
    Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Add subnet**.
@@ -20,4 +20,4 @@
    * Specify the zone, FQDN, and TTL for the record. When setting the FQDN, you can select **Detect automatically** for the zone.
       You can add multiple records to [internal DNS zones](../../dns/concepts/dns-zone.md). For more information, see [Cloud DNS integration with Compute Cloud](../../dns/concepts/compute-integration.md).
 
-* Select [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
+* Select [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no such field, the virtual machine will be enabled for all incoming and outgoing traffic).

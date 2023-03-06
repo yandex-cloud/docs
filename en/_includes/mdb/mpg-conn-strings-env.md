@@ -9,7 +9,7 @@
   * Go: `1.13.8`.
   * Ruby: `2.7.0p0`.
   * unixODBC: `2.3.6`.
-* {% if product == "yandex-cloud" %}{{ yandex-cloud }} virtual machine{% endif %}{% if product == "cloud-il" %}Machine{% endif %} running Windows Server 2019 Datacenter:
+* {% if product == "yandex-cloud" %}Virtual machine in {{ yandex-cloud }}{% endif %}{% if product == "cloud-il" %}Machine{% endif %} running Windows Server 2019 Datacenter:
   * PostgreSQL: `13`.
   * PowerShell: ` 5.1.17763.1490 Desktop`.
   * .NET 5

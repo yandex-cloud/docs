@@ -29,11 +29,11 @@ C помощью {{ kms-short-name }} вы можете шифровать и р
     * `--plaintext-file` – входной файл с открытым текстом.
     * `--aad-context-file` – (опционально) входной файл с [AAD-контекстом](../../kms/concepts/encryption.md#add-context).
     * `--ciphertext-file` – выходной файл с шифртекстом.
-    
+
 - API 
 
     Воспользуйтесь методом [encrypt](../../kms/api-ref/SymmetricCrypto/encrypt) для ресурса `SymmetricCrypto`.
-    
+
 {% endlist %}
 
 ## Расшифруйте данные {#decryption}
@@ -43,7 +43,7 @@ C помощью {{ kms-short-name }} вы можете шифровать и р
 - CLI
 
     Команда расшифрует шифртекст, переданный в файле `--ciphertext-file`, и запишет полученный открытый текст в файл `--plaintext-file`:
-    
+
     ```
     yc kms symmetric-crypto decrypt \
       --id abj76v82ficsmn446ri7 \
@@ -58,11 +58,11 @@ C помощью {{ kms-short-name }} вы можете шифровать и р
     * `--ciphertext-file` – входной файл с открытым текстом.
     * `--aad-context-file` – (опционально) входной файл с [AAD-контекстом](../../kms/concepts/encryption.md#add-context).
     * `--plaintext-file` – выходной файл с шифртекстом.
-    
+
 - API 
 
     Воспользуйтесь методом [decrypt](../../kms/api-ref/SymmetricCrypto/decrypt) для ресурса `SymmetricCrypto`.
-    
+
 {% endlist %}
 
 ## Перешифруйте данные  {#reencrypt}
@@ -72,7 +72,7 @@ C помощью {{ kms-short-name }} вы можете шифровать и р
 - CLI
 
     Команда заново зашифрует шифртекст, переданный в файле `--source-ciphertext-file`, другим ключом или другой версией ключа, и запишет полученный шифртекст в файл `--ciphertext-file`:
-    
+
     ```
     yc kms symmetric-crypto re-encrypt \
       --id abj76v82ficsmn446ri7 \

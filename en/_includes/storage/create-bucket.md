@@ -10,7 +10,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
    1. On the bucket creation page:
       1. Enter the bucket name, following the [naming guidelines](../../storage/concepts/bucket.md#naming).
 
-         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
+         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to{{ objstorage-name }} .
 
       1. If necessary, limit the maximum bucket size.
 
@@ -19,6 +19,61 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
       1. Selected the type of [access](../../storage/concepts/bucket.md#bucket-access).
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
       1. Click **Create bucket** to complete the operation.
+
+- {{ yandex-cloud }} CLI
+
+   {% include [cli-install](../cli-install.md) %}
+
+   {% include [default-catalogue](../default-catalogue.md) %}
+
+   1. View a description of the CLI command to create a bucket:
+
+      ```bash
+      yc storage bucket create --help
+      ```
+
+   1. Create a bucket in the default folder:
+
+      ```bash
+      yc storage bucket create \
+        --name <bucket_name> \
+        --default-storage-class <storage_class> \
+        --max-size <maximum_bucket_size> \
+        --public-read \
+        --public-list \
+        --public-config-read
+      ```
+
+      Where:
+
+      * `--name`: Bucket name. For more information, see [Bucket naming rules](../../storage/concepts/bucket.md#naming).
+
+         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload](../../storage/operations/hosting/certificate.md) your own security certificate to {{ objstorage-name }}.
+      * `--default-storage-class`: [Storage class](../../storage/concepts/storage-class.md). Possible values:
+         * `standard`: Standard storage.
+         * `cold`: Cold storage.
+         * `ice`: Ice storage.
+      * `--max_size`: Maximum bucket size (bytes). `0`: No limit.
+      * `--public-read`: Flag to enable public read access to bucket objects.
+      * `--public-list`: Flag to enable public access to view the list of bucket objects.
+      * `--public-config-read`: Flag to enable public read access to the bucket configuration.
+
+      The `name` parameter is required. Other parameters are optional. By default, the `--max-size` parameter is set to `0` and public access to the bucket is disabled.
+
+      Result:
+
+      ```yaml
+      name: first-bucket
+      folder_id: b1gmit33ngp6cv2mhjmo
+      anonymous_access_flags:
+        read: false
+        list: false
+      default_storage_class: STANDARD
+      versioning: VERSIONING_DISABLED
+      max_size: "53687091200"
+      acl: {}
+      created_at: "2022-12-16T14:05:12.196007Z"
+      ```
 
 - {{ TF }}
 
@@ -67,12 +122,11 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       ```
       provider "yandex" {
-        endpoint         = "{{ api-host }}:443"
-        token            = "<IAM token>"
-        cloud_id         = "<cloud_ID>"
-        folder_id        = "<folder_ID>"
-        zone             = "{{ region-id }}-a"
-        storage_endpoint = "{{ s3-storage-host }}"
+        endpoint  = "{{ api-host }}:443"
+        token     = "<IAM token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_iam_service_account" "sa" {
@@ -111,7 +165,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -119,7 +173,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

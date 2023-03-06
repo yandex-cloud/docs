@@ -1,4 +1,4 @@
-To configure {{ GL }} and enable Continuous Integration (CI), create a new project and enter the CI login credentials.
+To configure {{ GL }} and enable {% if lang == "ru" %}[Continuous Integration](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}Continuous Integration{% endif %} (CI), create a new project and enter the CI authorization parameters:
 
 {% list tabs %}
 
@@ -16,10 +16,9 @@ To configure {{ GL }} and enable Continuous Integration (CI), create a new proje
 
 - VM instance with a {{ GL }} image
 
-  To configure {{ GL }} and enable Continuous Integration (CI), create a new project and enter the CI login credentials:
-  1. On the {{ compute-full-name }} page, select the created VM and copy its public IP.
-  1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-  1. Get the {{ GL }} administrator password using the VM command:
+  1. On the {{ compute-full-name }} page, select the created [VM](../../compute/concepts/vm.md) and copy its [public IP](../../vpc/concepts/address.md#public-addresses).
+  1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+  1. Get the {{ GL }} administrator password using this VM command:
 
      ```bash
      sudo cat /etc/gitlab/initial_root_password

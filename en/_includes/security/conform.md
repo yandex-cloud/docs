@@ -1,7 +1,6 @@
 # Compliance
 
 {% if product == "yandex-cloud" %}
-
 ## Russian Federal law No. 152-FZ "On personal data" {#law}
 
 In {{ yandex-cloud }}, measures were implemented to protect personal data pursuant to Resolution No. 1119 and FSTEC Order No. 21 regarding requirements for 1st-level protection (UZ-1).

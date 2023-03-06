@@ -84,7 +84,7 @@
        folder_id = "<идентификатор каталога>"
        zone      = "{{ region-id }}-a"
      }
-     
+
      resource "yandex_serverless_container" "test-container" {
         name               = "<имя контейнера>"
         memory             = <объем памяти>
@@ -107,7 +107,7 @@
        folder_id = "<идентификатор каталога>"
        zone      = "{{ region-id }}-a"
      }
-     
+
      resource "yandex_serverless_container" "test-container" {
         name               = "<имя контейнера>"
         memory             = <объем памяти>

@@ -2,18 +2,20 @@
 
 {% note info %}
 
-Please note that your service account in {{ k8s }} is different from your [{{ iam-full-name }} service account](../../iam/concepts/users/service-accounts.md). For more information, see the [{{ managed-k8s-name }} documentation](../../managed-kubernetes/concepts/index.md#service-accounts).
+The [{{ k8s }} service account](../../managed-kubernetes/concepts/index.md#service-accounts) is different from the [{{ iam-full-name }} service account](../../iam/concepts/users/service-accounts.md).
 
 {% endnote %}
 
 To get the {{ k8s }} service account token:
-1. Configure the local environment to work with the created {{ k8s }} cluster.
+1. Configure the local environment to work with the created [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
 
    ```bash
    {{ yc-k8s }} cluster get-credentials <cluster ID or name> --external
    ```
 
 1. Save the specification for creating a {{ k8s }} service account to a YAML file named `gitlab-admin-service-account.yaml`:
+
+   {% cut "gitlab-admin-service-account.yaml" %}
 
    ```yaml
    ---
@@ -36,6 +38,8 @@ To get the {{ k8s }} service account token:
      name: gitlab-admin
      namespace: kube-system
    ```
+
+   {% endcut %}
 
 1. Create a service account:
 

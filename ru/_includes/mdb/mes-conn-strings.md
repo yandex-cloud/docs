@@ -3,7 +3,7 @@
 - Kibana
 
   {% if audience == "internal" %}
-  
+
   1. Скачайте и установите [сертификат]({{ crt-web-path }}) в браузер.
   1. Интерфейс вашего инстанса Kibana доступен по ссылке `https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}`. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
   1. Введите имя пользователя и пароль.
@@ -35,9 +35,9 @@
      ```bash
      sudo cp ~/.elasticsearch/root.crt /etc/nginx/root.crt
      ```
- 
+
   1. Измените файл конфигурации по умолчанию для NGINX, например, так:
-  
+
      `/etc/nginx/sites-available/default`
      ```nginx
      upstream es-datanodes {
@@ -45,7 +45,7 @@
         ...
         server <FQDN хоста N с ролью Data Node>:443;
      }
-     
+
      server {
         listen 443 ssl;
 
@@ -55,24 +55,24 @@
         server_name _;
 
         location / {
-     
+
             proxy_pass https://es-datanodes;
-            
+
             proxy_ssl_trusted_certificate /etc/nginx/root.crt;
             proxy_ssl_session_reuse on;
         }
      }
      ```
-   
+
      Также можно использовать директиву `proxy_pass` со специальным FQDN:
      ```nginx
      proxy_pass https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }};
      ```
-   
+
      {% note warning %}
-   
+
      В этом примере конфигурационного файла используется самоподписанный сертификат `snakeoil` из пакета `ssl-cert`. Использовать этот сертификат в реальном кластере небезопасно. Вместо самоподписанного сертификата укажите путь к вашим публичным и приватным ключам SSL-сертификата в директивах `ssl_certificate` и `ssl_certificate_key`.   
-   
+
      {% endnote %}
 
   1. Перезапустите NGINX:
@@ -84,22 +84,22 @@
   1. Добавьте сертификат, указанный в директиве `ssl_certificate`, в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
 
   1. Перейдите в браузере по адресу `https://<публичный IP-адрес ВМ>`.
-  
+
   1. Введите имя пользователя и пароль.
 
   {% include [kibana-api](mes-kibana-api.md) %}
-  
+
   {% endif %}
 
 - Bash
 
-  **Пример команды для подключения с использованием SSL-соединения :**
+  **Пример команды для подключения с использованием SSL-соединения:**
 
   {% include [default-connstring](./mes/default-connstring.md) %}
 
 - PowerShell
 
-  **Пример команды для подключения с использованием SSL-соединения :**
+  **Пример команды для подключения с использованием SSL-соединения:**
 
   ```powershell
    curl `
@@ -111,9 +111,9 @@
    В открывшемся окне введите пароль пользователя.
 
 - Python
-  
+
   **Перед подключением установите зависимости:**
-  
+
   ```bash
   sudo apt update && sudo apt install --yes python3 python3-pip && \
   pip3 install elasticsearch==7.17.2
@@ -149,20 +149,20 @@
   ```
 
   **Подключение:**
-  
+
   ```bash
   python3 connect.py
   ```
-  
+
 - Go
 
   **Перед подключением установите зависимости:**
-  
+
   ```bash
   sudo apt update && sudo apt install --yes golang git && \
   go get github.com/elastic/go-elasticsearch
   ```
-  
+
   **Пример кода для подключения с использованием SSL-соединения:**
 
   `connect.go`
@@ -214,11 +214,11 @@
         }
   }
   ```
-  
+
   В отличие от других способов подключения, в этом коде необходимо указывать полный путь к сертификату `CA.pem` для {{ ES }} в переменной `ES_CA`.
-  
+
   **Подключение:**
-  
+
   ```bash
   go run connect.go
   ```

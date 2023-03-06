@@ -3,7 +3,7 @@
 Common labels for all {{ mmg-full-name }} service metrics:
 
 | Label | Value |
-| ----- | ----- |
+----|----
 | service | Service ID: `managed-mongodb` |
 | resource_type | Resource type: `cluster` |
 | resource_id | Cluster ID |

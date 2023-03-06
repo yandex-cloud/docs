@@ -1,3 +1,35 @@
+{% if audience == "draft" %}
+
+* **Background common pool size**{#setting-background-common-pool-size} {{ tag-con }} {{ tag-api }}
+
+   The number of threads for executing common background operations, such as cleaning up the file system, in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables.
+
+   The default value is `8`.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_common_pool_size).
+
+{% endif %}
+
+* **Background fetches pool size**{#setting-background-fetches-pool-size} {{ tag-con }} {{ tag-api }}
+
+   The number of threads for executing background fetch operations in [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) tables.
+
+   The default value is `8`.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+
+{% if audience == "draft" %}
+
+* **Background message broker schedule pool size**{#setting-background-message-broker-schedule-pool-size} {{ tag-con }} {{ tag-api }}
+
+   The number of threads for executing background message translation operations. This setting applies when launching {{ CH }} and cannot be changed later.
+
+   The default value is `16`.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/settings/settings/#background_message_broker_schedule_pool_size).
+
+{% endif %}
+
 * **Background pool size**{#setting-background-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
    The number of threads for executing background merge and [mutation]({{ ch.docs }}/sql-reference/statements/alter/#mutations) operations in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables.
@@ -8,11 +40,15 @@
 
    The number of threads for background jobs. Used for replicated tables, streams in {{ KF }}, and updating a record's IP address in the internal DNS cache.
 
-   Defaults to `128`.
+   The default value is `128`.
+
+* **Default database**{#setting-default-database} {{ tag-con }} {{ tag-api }}
+
+   This parameter determines the default database. To learn how to get a list of cluster databases, see [Managing databases](../../managed-clickhouse/operations/databases#list-db).
 
 * **Geobase uri**{#setting-geobase-uri} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-   Address of archive containing the [user geobase](../../managed-clickhouse/concepts/dictionaries.md#internal-dicts) in {{ objstorage-name }}.
+   Address of the archive containing the [user geobase](../../managed-clickhouse/concepts/dictionaries.md#internal-dicts) in {{ objstorage-name }}.
 
 * **Keep alive timeout**{#setting-keep-alive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -33,7 +69,7 @@
 
 * **Mark cache size**{#setting-mark-cache-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-   Approximate mark cache size (bytes) used by the engines of the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table family. The cache is shared by a cluster host. Memory is allocated as needed.
+   Approximate size (in bytes) of the mark cache used by the table engines in the [MergeTree]({{ ch.docs }}//engines/table-engines/mergetree-family/mergetree/) family. The cache is shared by a cluster host. Memory is allocated as needed.
 
    The selected setting value is not a hard limit. {{ CH }} can use a little more or less memory for this cache.
 
@@ -53,13 +89,13 @@
 
 * **Max partition size to drop**{#setting-max-partition-size-to-drop} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-   Maximum [partition]({{ ch.docs }}/operations/table_engines/custom_partitioning_key/) size (bytes) for the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family, at which a table can be deleted using a `DROP TABLE` query. You can use the setting to protect tables with real data from inadvertent deletion because these tables will normally be larger than test ones.
+   Maximum [partition]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key) size (in bytes) for the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family, at which a table can be deleted using the `DROP TABLE` query. You can use this setting to protect tables with real data from occasional deletes, as these tables will normally be larger than the test ones.
 
    The default is `53687091200` (50 GB). When the value is `0`, you can delete tables of any size.
 
 * **Max table size to drop**{#setting-max-table-size-to-drop} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-   Maximum size (bytes) of a table in the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family that can be deleted using a `DROP TABLE` query. You can use the setting to protect tables with real data from inadvertent deletion because these tables will normally be larger than test ones.
+   Maximum size (in bytes) of a table in the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family that you can delete using the `DROP TABLE` query. You can use this setting to protect tables with real data from occasional deletes, as these tables will normally be larger than the test ones.
 
    The default is `53687091200` (50 GB). When the value is `0`, you can delete tables of any size.
 
@@ -80,6 +116,18 @@
    Time (in milliseconds) between making an entry in the `system.metric_log` table and its deletion. The value must be a multiple of 1000.
 
    The default is `2592000000` (30 days). When the value is `0`, records are stored indefinitely.
+
+* **Min bytes for wide part**{#setting-min-bytes-for-wide-part} {{ tag-con }} {{ tag-api }}
+
+   Minimum number of bytes in a data part that can be stored in `Wide` format. You can set it along with the **Min rows for wide part** parameter.
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
+
+* **Min rows for wide part**{#setting-min-rows-for-wide-part} {{ tag-con }} {{ tag-api }}
+
+   Minimum number of rows in a data part that can be stored in `Wide` format. You can set it along with the **Min bytes for wide part** parameter.
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
 
 * **Part log retention size**{#setting-part-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -133,7 +181,7 @@
 
 * **Text log level**{#setting-text-log-level} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-   Event logging level in the [system.text_log]({{ ch.docs }}/operations/system-tables/text_log) table. At each next level, the log will contain complete information from the previous one:
+   The level of event logging in the [system.text_log]({{ ch.docs }}/operations/system-tables/text_log) table. At each next level, the log will contain complete information from the previous one:
    1. `ERROR`: Information about errors in the DBMS.
    1. `WARNING`: Information about events that may cause errors in the DBMS.
    1. `INFORMATION`: Confirmation and information about events that don't lead to errors in the DBMS.
@@ -160,6 +208,14 @@
 
    For more information, see the documentation for [{{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone).
 
+* **Total memory profiler step**{#setting-total-memory-profiler-step} {{ tag-con }} {{ tag-api }}
+
+   Sets the amount of RAM (in bytes) for a stack trace at each memory allocation step. Data is stored in the `system.trace_log` housekeeping table. The `query_id` value is an empty string.
+
+   The default value is `4194304`.
+
+   For more information, see the documentation for [{{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
+
 * **Trace log enabled**{#setting-trace-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
    Determines whether stack traces collected by the query profiler will be logged. Stack traces are saved to the `system.trace_log` table.
@@ -176,29 +232,42 @@
 
    Time (in milliseconds) between the making of an entry in the `system.trace_log` table and its deletion. The value must be a multiple of 1000.
 
-   The default is `2592000000` (30 days). When the value is `0`, records are stored indefinitely.
+   The default value is `2592000000` (30 days). If you set it at `0`, the records will be stored for an unlimited period of time.
+
+* **TTL only drop parts**{#setting-ttl-only-drop-parts} {{ tag-con }} {{ tag-api }}
+
+   Fully delete data parts from [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables if the time-to-live of all rows in the part has expired.
+
+   If the setting is disabled, {{ CH }} will delete the rows depending on their TTL. If enabled, it will delete the entire data part when the TTL of all its rows expires.
+
+   Possible values:
+
+   * `0`: Disabled (default).
+   * `1`: Enabled.
+
+   For more information, see the documentation for [{{ CH }}]({{ ch.docs }}/operations/settings/settings/#ttl_only_drop_parts).
 
 * **Uncompressed cache size**{#setting-uncompressed-cache-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-   Cache size (bytes) for uncompressed data used by table engines in the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family.
+   Cache size (in bytes) for uncompressed data used by the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table engines.
 
-   The default is `8589934592` (8 GB).
+   The default value is `8589934592` (8 GB).
 
 * **Compression**{#setting-compression} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Data compression rules for tables in the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family. For each rule, specify:
+   Rules for compressing data in the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For each rule, you need to specify:
 
    * **Method**: Compression method. There are two methods available: [LZ4](https://lz4.github.io/lz4/) and [zstd](https://facebook.github.io/zstd/).
-   * **Min part size** is the minimum [data chunk]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) size (bytes).
-   * **Min part size ratio** is the ratio of the smallest table chunk to the overall table size. {{ CH }} will apply the rule only to those tables that have a ratio that is greater than or equal to **Min part size ratio**.
+   * **Min part size**: Minimum size (in bytes) of a [data part]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/).
+   * **Min part size ratio**: Ratio of the smallest table chunk to the overall table size. {{ CH }} will apply the rule only to those tables that have a ratio that is greater than or equal to **Min part size ratio**.
 
-   You can add several compression rules. {{ CH }} will check **Min part size** and **Min part size ratio** and apply the rules to tables that meet both conditions. If multiple rules can be applied to the same table, {{ CH }} applies the first one. If none of the rules are applicable, {{ CH }} uses the [LZ4](https://lz4.github.io/lz4/) compression method.
+   You can add multiple compression rules. {{ CH }} will check **Min part size** and **Min part size ratio** and apply the rules to tables that meet both conditions. If multiple rules can be applied to the same table, {{ CH }} applies the first one. If none of the rules are applicable, {{ CH }} uses the [LZ4](https://lz4.github.io/lz4/) compression method.
 
-   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server_settings/settings/#compression).
+   For more information, see the documentation for [{{ CH }}]({{ ch.docs }}/operations/settings/settings).
 
 * **Graphite rollup**{#setting-graphite-rollup} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   [GraphiteMergeTree]({{ ch.docs }}/operations/table_engines/graphitemergetree/) engine configurations for [Graphite](http://graphite.readthedocs.io/en/latest/index.html) data decimation and aggregation/rollup:
+   [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree) engine configurations for thinning and aggregating/averaging (rollup) [Graphite](http://graphite.readthedocs.io/en/latest/index.html) data:
    * **Name**: Configuration name.
    * **Patterns**: Set of thinning rules. A rule applies if the metric name matches the **Regexp** parameter value and the age of the data matches the **Retention** parameter group value.
       * **Function**: Aggregation function name.
@@ -209,7 +278,7 @@
 
    You can set up multiple configurations and use them for different tables.
 
-   For more information about Graphite support, see the documentation for [{{ CH }}]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/).
+   To learn more about Graphite support, see the documentation for [{{ CH }}]({{ ch.docs }}//engines/table-engines/mergetree-family/graphitemergetree/).
 
 * **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -277,9 +346,10 @@
 
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds).
 
-* **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+* **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
    Global authentication settings for [{{ RMQ }} integration]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/):
 
-   * **Password**: Password of an {{ RMQ }} account.
-   * **Username**: Username of an {{ RMQ }} account.
+   * **Password**: {{ RMQ }} account password.
+   * **Username**: {{ RMQ }} account username.
+   * **Vhost**: {{ RMQ }} virtual host address.

@@ -3,7 +3,7 @@
 Common labels for all {{ mrd-full-name }} service metrics:
 
 | Label | Value |
-| ----- | ----- |
+----|----
 | service | Service ID: `managed-redis` |
 | resource_type | Resource type: `cluster` |
 | resource_id | Cluster ID |
@@ -89,7 +89,7 @@ The load on processor cores.
 
 ### Service metrics {#managed-redis-metrics}
 | Name<br/>Type, units | Description |
-| ----- | ----- |
+| ----- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if a cluster is available for writes, `0` if not. |
 | `redis_aof_last_cow_size`<br/>`DGAUGE`, bytes | Amount of data copied when creating an AOF file with the [COW (Copy-on-write)]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Копирование_при_записи){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Copy-on-write){% endif %} mechanism used. |

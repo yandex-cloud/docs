@@ -314,13 +314,13 @@ Lists parameter names.
 Parameters listed in an alias are synced by value, meaning that the value will always be the same for all parameters and it will be updated simultaneously.
 
 For example:
-* selector А sets the `car` parameter
+* selector A sets the `car` parameter
 * selector B sets the `machine` parameter
 * a chart accepts the `machine` parameter
 
 Only the chart and selector B are linked by default.
 If you set an alias like `["car", "machine"]`, the `car` and `machine` parameters will be synced.
-In this case, if selector A updates the `car` parameter, the chart and selector В will get the `machine` parameter equal to the `car` parameter.
-Likewise, if selector B updates the `machine` parameter, the chart will get the `machine` parameter and selector А will get the `car` parameter whose value is equal to the `machine` parameter.
+In this case, if selector A updates the `car` parameter, the chart and selector B will get the `machine` parameter equal to the `car` parameter.
+Likewise, if selector B updates the `machine` parameter, the chart will get the `machine` parameter and selector A will get the `car` parameter whose value is equal to the `machine` parameter.
 
 **Note**: Currently, `aliases` must only have a single `default` property where aliases will be listed.

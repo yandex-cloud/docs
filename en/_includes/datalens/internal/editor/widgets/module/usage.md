@@ -4,9 +4,9 @@
 
 You can use the module in any tab.
 
-Clicking the dotted module path lets you:
+Clicking the dotted module path allows you to:
 * `CMD + click`: Open the module source code in a new tab in the editor.
-* `ALT + CMD + клик`: Show the module documentation.
+* `ALT + CMD + click`: View the module documentation.
 
 ### Example {#example}
 

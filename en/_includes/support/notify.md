@@ -1,10 +1,10 @@
 # Notifications from {{ yandex-cloud }}
 
-{{ yandex-cloud }} technical support notifies you of events that affect all {{ yandex-cloud }} users or your account specifically. To additionally receive notifications about your resources, [subscribe](../../resource-manager/operations/index.md) to **Incident notifications**.
+{{ yandex-cloud }} technical support notifies you of events that affect all {{ yandex-cloud }} users or your account specifically. To additionally receive notifications about your resources, subscribe to **Service notifications** in your [cloud](../../resource-manager/operations/cloud/notify.md) or [folder](../../resource-manager/operations/folder/notify.md).
 
-You can receive notifications for the entire cloud or individual folders. By default, all cloud owners (users with the `resource-manager.clouds.owner` role) are notified of incidents in the cloud. You can add cloud notification recipients in [Incident notifications]({{ link-cloud-notifications }}).
+You can receive notifications for the entire cloud or individual folders. By default, notifications about upcoming maintenance and notifications from services in the cloud are sent to all cloud owners (users with the `resource-manager.clouds.owner` role). You can add cloud notification recipients in [Service notifications]({{ link-cloud-notifications }}).
 
-Folder owners do not receive any notifications by default. You can add notification recipients in the [folder settings](../../resource-manager/operations/folder/notify.md).
+By default, folder owners do not receive any notifications. However, users related to the folder parent resources are subscribed to folder notifications. You can add notification recipients in the [folder settings](../../resource-manager/operations/folder/notify.md).
 
 {% note info %}
 
@@ -35,7 +35,7 @@ You can add users with a [{% if product == "yandex-cloud" %}Yandex{% endif %}{% 
 
 Some {{ yandex-cloud }} maintenance operations may affect the performance or availability of your resources. Technical support sends notification of such work 3 calendar days in advance by email, indicating:
 
-* Date and time of maintenance.
+* The date and time of maintenance.
 * Category of maintenance.
 * {{ yandex-cloud }} services affected.
 * Description of relevant changes to the services.
@@ -47,5 +47,4 @@ If a failure in {{ yandex-cloud }} could affect the security or availability of 
 
 ## Information security incident
 
-If an event in the {{ yandex-cloud }} infrastructure causes your data to be compromised, technical support notifies you by email within 24 hours after the damage is detected. The email is sent to the cloud owner, the Data Protection Officer (DPO) if this role is assigned for your cloud, and the users added in [Incident notifications]({{ link-cloud-notifications }}).
-
+If an event in the {{ yandex-cloud }} infrastructure causes your data to be compromised, technical support notifies you by email within 24 hours after the damage is detected. The email is sent to the cloud owner, the Data Protection Officer (DPO) if this role is assigned for your cloud, and the users added in [Service notifications]({{ link-cloud-notifications }}).

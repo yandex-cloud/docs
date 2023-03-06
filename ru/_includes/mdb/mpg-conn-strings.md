@@ -67,7 +67,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
   ```csharp
   using Npgsql;
-  
+
   namespace ConsoleApp
   {
       class Program
@@ -457,7 +457,7 @@ npm install pg
         connectionString:
             "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/<имя БД>"
     };
-    
+
     const conn = new pg.Client(config);
 
     conn.connect((err) => {
@@ -830,7 +830,7 @@ pip3 install psycopg2-binary
             user="<имя пользователя>",
             password="<пароль пользователя>"
         )
-        
+
         res <- dbSendQuery(conn, "SELECT VERSION();")
         dbFetch(res)
         dbClearResult(res)
