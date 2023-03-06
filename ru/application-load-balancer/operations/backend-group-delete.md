@@ -1,5 +1,11 @@
 # Удалить группу бэкендов
 
+{% note warning %}
+
+{% include [backend-group-deletion-restriction](../../_includes/application-load-balancer/backend-group-deletion-restriction.md) %}
+
+{% endnote %}
+
 Чтобы удалить группу бэкендов:
 
 {% list tabs %}
