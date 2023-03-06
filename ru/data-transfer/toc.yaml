@@ -68,6 +68,8 @@ items:
                 href: operations/endpoint/target/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md
+              - name: ElasticSearch
+                href: operations/endpoint/target/elasticsearch.md
               - name: Greenplum®
                 href: operations/endpoint/target/greenplum.md
               - name: Logbroker
@@ -82,6 +84,8 @@ items:
                 href: operations/endpoint/target/mysql.md
               - name: Object Storage
                 href: operations/endpoint/target/object-storage.md
+              - name: OpenSearch
+                href: operations/endpoint/target/opensearch.md
               - name: PostgreSQL
                 href: operations/endpoint/target/postgresql.md
               - name: "{{ ydb-full-name }}"

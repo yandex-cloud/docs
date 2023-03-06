@@ -43,6 +43,7 @@
         * Приемники:
             * [{{ KF }}](target/kafka.md)
             * [{{ CH }}](target/clickhouse.md)
+            * [{{ ES }}](target/elasticsearch.md)
             * [{{ GP }}](target/greenplum.md)
 {% if audience == "internal" %}
             * [{{ logbroker-name }}](target/logbroker.md)
@@ -51,6 +52,7 @@
             * [{{ MG }}](target/mongodb.md)
             * [{{ MY }}](target/mysql.md)
             * [{{ objstorage-name }}](target/object-storage.md)
+            * [{{ OS }}](target/opensearch.md)
             * [{{ PG }}](target/postgresql.md)
 {% if product == "yandex-cloud" and audience == "external" %}
             * [{{ ydb-name }}](target/yandex-database.md)
