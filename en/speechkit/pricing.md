@@ -94,7 +94,7 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 
 {% endif %}
 
-#### Brand Voice {#brand-voice}
+### {{ brand-voice-name }} {#brand-voice}
 
 {% if region == "ru"%}
 
@@ -114,25 +114,6 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 
 {% endif %}
 
-### Hosting Brand Voice models {#hosting-brand-voice}
-
-{% if region == "ru"%}
-
-{% include [rub.md](../_pricing/speechkit/rub-hosting.md) %}
-
-{% endif %}
-
-{% if region == "kz"%}
-
-{% include [kzt.md](../_pricing/speechkit/kzt-hosting.md) %}
-
-{% endif %}
-
-{% if region == "int"%}
-
-{% include [usd.md](../_pricing/speechkit/usd-hosting.md) %}
-
-{% endif %}
 
 ### Speech recognition {#prices-stt}
 

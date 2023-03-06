@@ -106,6 +106,9 @@ default:
   speechkit-name: SpeechKit
   speechkit-pro-name: SpeechKit Pro
   brand-voice-name: SpeechKit Brand Voice
+  brand-voice-core-name: SpeechKit Brand Voice Self Service
+  brand-voice-premium-name: SpeechKit Brand Voice Premium
+  brand-voice-cc-name: SpeechKit Brand Voice Call Center
   sk-hybrid-name: SpeechKit Hybrid
   network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
@@ -200,6 +203,9 @@ default:
   forms-short-name: Forms
   wiki-short-name: Wiki
   speechkit-pro-short-name: SpeechKit Pro
+  brand-voice-core: Brand Voice Self Service
+  brand-voice-premium: Brand Voice Premium
+  brand-voice-cc: Brand Voice Call Center
   cdn-short-name: Cloud CDN
   cloud-desktop-short-name: Cloud Desktop
   backup-short-name: Cloud Backup
@@ -715,6 +721,7 @@ default:
   stt-streaming-audioLength: 5 минут
   tts-v3-time: 24 секунды
   tts-v3-count: 250 символов
+  tts-cc-quality: 8 кГц
   ya-client-app: https://oauth.yandex.ru/client/new
   ya-oauth: https://oauth.yandex.ru/verification_code
   taas-name: Training as a Service
