@@ -114,7 +114,6 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 
 {% endif %}
 
-
 ### Speech recognition {#prices-stt}
 
 {% if region == "ru"%}

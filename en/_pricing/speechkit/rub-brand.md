@@ -1,4 +1,4 @@
-| Service | Cost per request, including VAT |
+| Service | Cost per unit, including VAT |
 | ----- | ----- |
 | Hosting of {{ brand-voice-core-name }} model | Contact us |
 | Hosting of {{ brand-voice-premium-name }} model | Contact us |
