@@ -61,7 +61,7 @@
 
 - API
 
-   You can create a container revision by the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) API method.
+   You can create a container revision using the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) API method.
 
 - {{ TF }}
 
@@ -98,7 +98,7 @@
 
       For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, switch to the folder where you created the configuration file.
       1. Run the check using the command:
@@ -107,7 +107,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of resources being created or updated and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of resources being created or updated and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
 
    1. If the configuration doesn't contain any errors, run the command:

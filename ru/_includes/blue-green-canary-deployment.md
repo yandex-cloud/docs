@@ -79,17 +79,17 @@
 - CLI
 
   {% include [cli-install](cli-install.md) %}
-  
+
   {% include [default-catalogue](default-catalogue.md) %}
 
   1. Создайте сеть `canary-network`:
-  
+
      ```bash
      yc vpc network create canary-network
      ```
-     
+
      Результат:
-       
+
      ```
      id: enptrcle5q3d3ktd33hj
      folder_id: b1g9hv2loamqfnbul7d9
@@ -97,22 +97,22 @@
      name: canary-network
      default_security_group_id: enpbsnnop4akg7ng70ll
      ```
-     
+
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/network/create.md).
-     
+
   1. Создайте подсети во всех зонах доступности:
-  
+
      * В `{{ region-id }}-a`:
-     
+
        ```
        yc vpc subnet create canary-subnet-{{ region-id }}-a \
          --zone {{ region-id }}-a \
          --network-name canary-network \
          --range 10.1.0.0/16
        ```
-     
+
        Результат:
-      
+
        ``` 
        id: e9bnnssj8sc8mjhat9qk
        folder_id: b1g9hv2loamqfnbul7d9
@@ -123,18 +123,18 @@
        v4_cidr_blocks:
        - 10.1.0.0/16
        ```
-     
+
      * В `{{ region-id }}-b`:
-     
+
        ```
        yc vpc subnet create canary-subnet-{{ region-id }}-b \
          --zone {{ region-id }}-b \
          --network-name canary-network \
          --range 10.2.0.0/16
        ```
-     
+
        Результат:
-      
+
        ``` 
        id: e2lghukd9iqo4haidjbt
        folder_id: b1g9hv2loamqfnbul7d9
@@ -145,18 +145,18 @@
        v4_cidr_blocks:
        - 10.2.0.0/16
        ```
-     
+
      * В `{{ region-id }}-c`:
-     
+
        ```
        yc vpc subnet create canary-subnet-{{ region-id }}-c \
          --zone {{ region-id }}-c \
          --network-name canary-network \
          --range 10.3.0.0/16
        ```
-     
+
        Результат:
-      
+
        ``` 
        id: b0c3pte4o2kn4v12o05p
        folder_id: b1g9hv2loamqfnbul7d9
@@ -167,15 +167,15 @@
        v4_cidr_blocks:
        - 10.3.0.0/16
        ```
-       
+
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  
+
   1. Опишите в конфигурационном файле параметры сети `canary-network` и ее подсетей `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-c`:
-  
+
      ```
      resource "yandex_vpc_network" "canary-network" {
        name = "canary-network"
@@ -187,14 +187,14 @@
        network_id     = "${yandex_vpc_network.canary-network.id}"
        v4_cidr_blocks = ["10.1.0.0/16"]
      }
-     
+
      resource "yandex_vpc_subnet" "canary-subnet-b" {
        name           = "canary-subnet-{{ region-id }}-b"
        zone           = "{{ region-id }}-b"
        network_id     = "${yandex_vpc_network.canary-network.id}"
        v4_cidr_blocks = ["10.2.0.0/16"]
      }
-     
+
      resource "yandex_vpc_subnet" "canary-subnet-c" {
        name           = "canary-subnet-{{ region-id }}-c"
        zone           = "{{ region-id }}-c"
@@ -202,9 +202,9 @@
        v4_cidr_blocks = ["10.3.0.0/16"]
      }
      ```
-     
+
      Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) в документации провайдера {{ TF }}.
-     
+
   1. Проверьте корректность конфигурационных файлов.
 
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -217,7 +217,7 @@
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
-  
+
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```bash
@@ -244,60 +244,60 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ objstorage-name }}**.
   1. Создайте бакет `canary-bucket-blue`:
-  
+
      1. Нажмите кнопку **Создать бакет**.
      1. Укажите **Имя** бакета: `canary-bucket-blue`.
      1. В полях **Доступ на чтение объектов** и **Доступ к списку объектов** выберите **Публичный**.
      1. Нажмите кнопку **Создать бакет**.
-     
+
   1. Таким же образом создайте бакет `canary-bucket-green`.
-  
+
 - AWS CLI
 
   1. Создайте бакет `canary-bucket-blue`:
-  
+
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3 mb s3://canary-bucket-blue
      ```
-     
+
      Результат:
-     
+
      ```
      make_bucket: s3://canary-bucket-blue
      ```
-     
+
   1. Включите публичный доступ к чтению объектов и их списка:
-  
+
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3api put-bucket-acl \
        --bucket canary-bucket-blue \
        --acl public-read
      ```
-     
+
   1. Аналогично создайте бакет `canary-bucket-green` и включите публичный доступ к нему.
 
 - {{ TF }}
 
   1. Добавьте в конфигурационный файл параметры бакетов `canary-bucket-blue` и `canary-bucket-green`:
-  
+
      ```
      ...
-     
+
      resource "yandex_storage_bucket" "canary-bucket-blue" {
        bucket = "canary-bucket-blue"
        acl    = "public-read"
      }
-     
+
      resource "yandex_storage_bucket" "canary-bucket-green" {
        bucket = "canary-bucket-green"
        acl    = "public-read"
      }
      ```
-     
+
      Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-link }}/storage_bucket) провайдера {{ TF }}.
-     
+
   1. Проверьте корректность конфигурационных файлов.
 
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -310,7 +310,7 @@
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
-  
+
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```bash
@@ -344,7 +344,7 @@
    ```
 
    {% endcut %}
-   
+
    {% cut "Пример файла index.html версии 2" %}
 
    ```html
@@ -364,7 +364,7 @@
 1. Загрузите файлы в бакеты:
 
    {% list tabs %}
-   
+
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
@@ -372,80 +372,80 @@
      1. В списке бакетов выберите `canary-bucket-blue`.
      1. Нажмите кнопку **Загрузить** и выберите для загрузки файл `index.html` версии 1.
      1. Таким же образом загрузите в бакет `canary-bucket-green` файл `index.html` версии 2.
-     
+
    - AWS CLI
-   
+
      1. Загрузите в бакет `canary-bucket-blue` файл `index.html` версии 1:
-     
+
         ```bash
         aws --endpoint-url https://{{ s3-storage-host }} \
           s3 cp v1/index.html s3://canary-bucket-blue/index.html
         ```
-        
+
         Результат:
-        
+
         ```
         upload: v1/index.html to s3://canary-bucket-blue/index.html
         ```
-        
+
      1. Загрузите в бакет `canary-bucket-green` файл `index.html` версии 2:
-     
+
         ```bash
         aws --endpoint-url https://{{ s3-storage-host }} \
           s3 cp v2/index.html s3://canary-bucket-green/index.html
         ```
-        
+
         Результат:
-        
+
         ```
         upload: v2/index.html to s3://canary-bucket-green/index.html
         ```
 
    - {{ TF }}
-   
+
      1. Добавьте в конфигурационный файл параметры файлов `v1/index.html` и `v2/index.html`, загружаемых в бакеты `canary-bucket-blue` и `canary-bucket-green` соответственно:
-     
+
         ```
         ...
-        
+
         resource "yandex_storage_object" "canary-bucket-blue-index" {
           bucket = "canary-bucket-blue"
           key    = "index.html"
           source = "v1/index.html"
         }
-        
+
         resource "yandex_storage_bucket" "canary-bucket-green-index" {
           bucket = "canary-bucket-green"
           key    = "index.html"
           source = "v2/index.html"
         }
         ```
-        
+
         Подробнее о ресурсе `yandex_storage_object` см. в [документации]({{ tf-provider-link }}/storage_object) провайдера {{ TF }}.
-        
+
      1. Проверьте корректность конфигурационных файлов.
 
         1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
         1. Выполните проверку с помощью команды:
-   
+
            ```bash
            terraform plan
            ```
-   
+
         Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-   
+
      1. Разверните облачные ресурсы.
-     
+
         1. Если в конфигурации нет ошибок, выполните команду:
-   
+
            ```bash
            terraform apply
            ```
-   
+
         1. Подтвердите создание ресурсов.
 
    - API
-   
+
      Используйте метод REST API [upload](../storage/s3/api-ref/object/upload.md).
 
    {% endlist %}
@@ -468,26 +468,26 @@
   1. Укажите **Имя** группы: `canary-sg`.
   1. Выберите **Сеть** `canary-network`.
   1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
-   
+
      | Направление<br/>трафика | Описание | Диапазон<br/>портов | Протокол | Тип источника /<br/>назначения | Источник /<br/>назначение |
      | --- | --- | --- | --- | --- | --- |
      | Исходящий | any | Весь | Любой | CIDR | 0.0.0.0/0 |
      | Входящий | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
      | Входящий | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
      | Входящий | healthchecks | 30080 | TCP | Проверки состояния балансировщика | — |
-      
+
      1. Перейдите на вкладку **Исходящий трафик** или **Входящий трафик**.
      1. Нажмите кнопку **Добавить правило**.
      1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
      1. В поле **Протокол** укажите нужный протокол или оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
      1. В поле **Назначение** или **Источник** выберите назначение правила:
-      
+
         * **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
         * **Группа безопасности** — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
         * **Проверки состояния балансировщика** — правило, которое позволяет L7-балансировщику проверять состояние ВМ.
 
      1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
-   
+
   1. Нажмите кнопку **Сохранить**.
 
 - CLI
@@ -502,9 +502,9 @@
     --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
     --rule direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks
   ```
-  
+
   Результат:
-  
+
   ```
   id: enpd133ngcnrgc8475cc
   folder_id: b1g9hv2loamqfnbul7d9
@@ -555,24 +555,24 @@
 - {{ TF }}
 
   1. Добавьте в конфигурационный файл параметры группы безопасности `canary-sg`:
-  
+
      ```
      resource "yandex_vpc_security_group" "canary-sg" {
        name       = "canary-sg"
        network_id = yandex_vpc_network.canary-network.id
-     
+
        egress {
          protocol       = "ANY"
          port           = "ANY"
          v4_cidr_blocks = ["0.0.0.0/0"]
        }
-     
+
        ingress {
          protocol       = "TCP"
          port           = 80
          v4_cidr_blocks = ["0.0.0.0/0"]
        }
-     
+
        ingress {
          protocol       = "TCP"
          port           = 443
@@ -588,7 +588,7 @@
      ```
 
      Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_security_group).
-     
+
   1. Проверьте корректность конфигурационных файлов.
 
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -601,7 +601,7 @@
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
-  
+
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```bash
@@ -613,19 +613,19 @@
 - API
 
   Используйте вызов gRPC API [SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create) или метод REST API [create](../vpc/api-ref/SecurityGroup/create.md).
-  
+
   Чтобы добавить правило для проверок состояния балансировщика, используйте параметр `loadbalancer_healthchecks` в поле [SecurityGroupRuleSpec.target.predefined_target](../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec) для gRPC API или в поле [predefinedTarget](../vpc/api-ref/SecurityGroup/create.md#body_params) для REST API.
-     
+
 {% endlist %}
 
 ## Создайте группы бэкендов в {{ alb-name }} {#create-l7backend}
 
 {% list tabs %}
-   
+
 - Консоль управления
-   
+
   1. Создайте группу бэкендов `canary-bg-production` с бэкендами `canary-backend-blue` и `canary-backend-green`:
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ alb-name }}** и перейдите на вкладку **Группы бэкендов**.
      1. Нажмите кнопку **Создать группу бэкендов**.
@@ -644,7 +644,7 @@
 - API
 
   Используйте вызов gRPC API [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) или метод REST API [create](../application-load-balancer/api-ref/BackendGroup/create.md).
-     
+
 {% endlist %} 
 
 ## Создайте HTTP-роутер и виртуальные хосты {#create-route-hosts}
@@ -660,7 +660,7 @@
   1. Нажмите кнопку **Создать HTTP-роутер**.
   1. Введите имя роутера: `canary-router`.
   1. Создайте виртуальный хост `canary-vh-production`:
-  
+
      1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост**.
      1. Введите имя хоста: `canary-vh-production`.
      1. Укажите значение **Authority**: `cdn.yandexcloud.example`
@@ -670,56 +670,56 @@
      1. В списке **Методы HTTP** выберите **GET**.
      1. В поле **Действие** оставьте **Маршрутизация**.
      1. В списке **Группа бэкендов** выберите `canary-bg-production`.
-  
+
   1. Аналогично создайте виртуальный хост `canary-vh-staging` со следующими параметрами:
-     
+
      * **Authority** — `cdn-staging.yandexcloud.example`.
      * **Имя** маршрута — `canary-route-staging`.
      * **Группа бэкендов** — `canary-bg-staging`.
      * Остальные параметры — как у `canary-vh-production`.
-     
+
   1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать**.
-  
+
 - CLI
 
   1. Создайте HTTP-роутер `canary-router`:
-  
+
      ```bash
      yc alb http-router create canary-router
      ```
-     
+
      Результат:
-     
+
      ```
      id: ds7qd0vj01djuu3c6f8q
      name: canary-router
      folder_id: b1g9hv2loamqfnbul7d9
      created_at: "2021-11-03T10:31:41.027649223Z"
      ```
-     
+
      Подробнее о команде `yc alb http-router create` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
 
   1. Создайте виртуальный хост `canary-vh-production`:
-  
+
      ```bash
      yc alb virtual-host create canary-vh-production \
        --http-router-name canary-router \
        --authority cdn.yandexcloud.example
      ```
-     
+
      Результат:
-     
+
      ```
      done (1s)
      name: canary-vh-production
      authority:
      - cdn.yandexcloud.example
      ```
-     
+
      Подробнее о команде `yc alb virtual-host create` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
-     
+
   1. Создайте маршрут `canary-route-production` в виртуальном хосте `canary-vh-production`:
-  
+
      ```bash
      yc alb virtual-host append-http-route canary-route-production \
        --http-router-name canary-router \
@@ -727,9 +727,9 @@
        --prefix-path-match "/" \
        --backend-group-name canary-bg-production
      ```
-     
+
      Результат:
-     
+
      ```
      done (1s)
      name: canary-vh-production
@@ -744,28 +744,28 @@
          route:
            backend_group_id: ds7pbm5fj2v09ptnn29p
      ```
-     
+
      Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
-     
+
   1. Создайте виртуальный хост `canary-vh-staging`:
-  
+
      ```bash
      yc alb virtual-host create canary-vh-staging \
        --http-router-name canary-router \
        --authority cdn-staging.yandexcloud.example
      ```
-     
+
      Результат:
-     
+
      ```
      done (1s)
      name: canary-vh-staging
      authority:
      - cdn-staging.yandexcloud.example
      ```
-     
+
   1. Создайте маршрут `canary-route-staging` в виртуальном хосте `canary-vh-staging`:
-  
+
      ```bash
      yc alb virtual-host append-http-route canary-route-staging \
        --http-router-name canary-router \
@@ -773,9 +773,9 @@
        --prefix-path-match "/" \
        --backend-group-name canary-bg-staging
      ```
-     
+
      Результат:
-     
+
      ```
      done (1s)
      name: canary-vh-staging
@@ -794,19 +794,19 @@
 - {{ TF }}
 
   1. Добавьте в конфигурационный файл параметры HTTP-роутера `canary-router`, его виртуальных хостов и маршрутов:
-  
+
      ```
      ...
-     
+
      resource "yandex_alb_http_router" "canary-router" {
        name = "canary-router"
      }
-     
+
      resource "yandex_alb_virtual_host" "canary-vh-production" {
        name           = "canary-vh-production"
        http_router_id = ${yandex_alb_http_router.canary-router.id}
        authority      = "cdn.yandexcloud.example"
-       
+
        route {
          name = "canary-route-production"
          http_route {
@@ -816,12 +816,12 @@
          }
        }  
      }
-     
+
      resource "yandex_alb_virtual_host" "canary-vh-staging" {
        name           = "canary-vh-staging"
        http_router_id = ${yandex_alb_http_router.canary-router.id}
        authority      = "cdn-staging.yandexcloud.example"
-       
+
        route {
          name = "canary-route-staging"
          http_route {
@@ -832,9 +832,9 @@
        }  
      }
      ```
-     
+
      Подробнее см. в описаниях ресурсов [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) в документации провайдера {{ TF }}.
-     
+
   1. Проверьте корректность конфигурационных файлов.
 
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -847,7 +847,7 @@
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
-  
+
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```bash
@@ -860,7 +860,7 @@
 
   1. Создайте HTTP-роутер `canary-router` с помощью вызова gRPC API [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create) или метода REST API [create](../application-load-balancer/api-ref/HttpRouter/create.md).
   1. Создайте виртуальные хосты `canary-vh-production` и `canary-vh-staging`, привязанные к роутеру, и их маршруты с помощью вызова gRPC API [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) или метода REST API [create](../application-load-balancer/api-ref/VirtualHost/create.md).
-           
+
 {% endlist %}
 
 ## Создайте L7-балансировщик {#create-balancer}
@@ -874,31 +874,31 @@
   1. Нажмите кнопку **Создать L7-балансировщик**.
   1. Введите имя балансировщика: `canary-balancer`.
   1. В блоке **Сетевые настройки**:
-  
+
      1. Выберите **Сеть** `canary-network`.
      1. Выберите **Группу безопасности** `canary-sg`. Если этого поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик.
-      
+
   1. В блоке **Размещение** выберите три подсети для узлов балансировщика — `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-c` — и включите передачу трафика в эти подсети.
   1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. Задайте настройки обработчика:
-  
+
      1. Введите имя обработчика: `canary-listener`.
      1. В блоке **Настройки публичного IP-адреса** включите передачу трафика.
      1. Укажите порт `80`.
      1. В поле **Назначить IP-адрес** выберите **Автоматически**.
-      
+
   1. В поле **HTTP-роутер** выберите `canary-router`.
   1. Нажмите кнопку **Создать**.
-  
+
 - CLI
 
   1. Получите идентификаторы подсетей сети `canary-network`:
-  
+
      ```bash
      yc vpc network list-subnets canary-network
      ```
-     
+
      Результат:
-     
+
      ```
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
@@ -908,25 +908,25 @@
      | b0c3pte4o2kn4v12o05p | canary-subnet-{{ region-id }}-a | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-a | [10.3.0.0/16] |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      ```
-     
+
      Подробнее о команде `yc vpc network list-subnets` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/network/list-subnets.md).
 
   1. Получите идентификатор группы безопасности `canary-sg`:
-  
+
      ```bash
      yc vpc security-group get canary-sg | grep "^id"
      ```
-     
+
      Результат:
-     
+
      ```
      id: enpd133ngcnrgc8475cc
      ```
-     
+
      Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/security-group/get.md).
-  
+
   1. Создайте балансировщик `canary-balancer`:
-  
+
      ```bash
      yc alb load-balancer create canary-balancer \
        --network-name canary-network \
@@ -935,9 +935,9 @@
        --location zone={{ region-id }}-b,subnet-id=<идентификатор подсети canary-subnet-{{ region-id }}-b> \
        --location zone={{ region-id }}-c,subnet-id=<идентификатор подсети canary-subnet-{{ region-id }}-c>
      ```
-     
+
      Результат:
-     
+
      ```
      done (3m0s)
      id: ds77q7v39b4ubg8ta2n4
@@ -959,11 +959,11 @@
      - enpd133ngcnrgc8475cc
      created_at: "2021-11-03T10:55:49.134935148Z"
      ```
-     
+
      Подробнее о команде `yc alb load-balancer create` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
-     
+
   1. Добавьте к балансировщику обработчик:
-  
+
      ```bash
      yc alb load-balancer add-listener \
        --name canary-balancer \
@@ -971,9 +971,9 @@
        --external-ipv4-endpoint port=80 \
        --http-router-name canary-router
      ```
-     
+
      Результат:
-     
+
      ```
      done (43s)
      id: ds77q7v39b4ubg8ta2n4
@@ -1006,38 +1006,38 @@
      - enpd133ngcnrgc8475cc
      created_at: "2021-11-03T10:55:49.134935148Z"
      ```
-     
+
      Подробнее о команде `yc alb load-balancer add-listener` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
 - {{ TF }}
 
   1. Добавьте в конфигурационный файл параметры L7-балансировщика `canary-balancer`:
-  
+
      ```
      ...
-     
+
      resource "yandex_alb_load_balancer" "canary-balancer" {
        name               = "canary-balancer"
        network_id         = ${yandex_vpc_network.canary-network.id}
        security_group_ids = [ ${yandex_vpc_security_group.canary-sg.id} ]
-     
+
        allocation_policy {
          location {
            zone_id   = "{{ region-id }}-a"
            subnet_id = ${yandex_vpc_subnet.canary-subnet-{{ region-id }}-a.id}
          }
-     
+
          location {
            zone_id   = "{{ region-id }}-b"
            subnet_id = ${yandex_vpc_subnet.canary-subnet-{{ region-id }}-b.id}
          }
-     
+
          location {
            zone_id   = "{{ region-id }}-c"
            subnet_id = ${yandex_vpc_subnet.canary-subnet-{{ region-id }}-c.id}
          }
        }
-     
+
        listener {
          name = "canary-listener"
          endpoint {
@@ -1055,9 +1055,9 @@
        }
      }
      ```
-     
+
      Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации]({{ tf-provider-link }}/alb_load_balancer) провайдера {{ TF }}.
-     
+
   1. Проверьте корректность конфигурационных файлов.
 
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -1070,7 +1070,7 @@
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
-  
+
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```bash
@@ -1082,7 +1082,7 @@
 - API
 
   Используйте вызов gRPC API [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) или метод REST API [create](../application-load-balancer/api-ref/LoadBalancer/create.md).
-          
+
 {% endlist %}
 
 ## Создайте CDN-ресурс {#create-cdn-resource}
@@ -1095,7 +1095,7 @@
   1. В списке сервисов выберите **{{ cdn-name }}**.
   1. Если CDN-провайдер ещё не активирован, нажмите кнопку **Подключиться к провайдеру**.
   1. Создайте CDN-ресурс:
-  
+
      1. На вкладке **CDN-ресурсы** нажмите кнопку **Создать ресурс**.
      1. Задайте основные параметры CDN-ресурса следующим образом:
 
@@ -1158,7 +1158,7 @@
 
 
   1. Скопируйте идентификатор группы источников `origin_group_id` из предыдущего шага и создайте CDN-ресурс, выполнив команду:
-  
+
       ```bash
       yc cdn resource create \
         --cname cdn.yandexcloud.example \
@@ -1199,9 +1199,9 @@
          backup = false
         }
       }
-      
+
       resource "yandex_cdn_resource" "my_resource" {
-      
+
           cname               = "cdn.yandexcloud.example"
           active              = true
           origin_protocol     = "http"
@@ -1213,7 +1213,7 @@
               ignore_cookie          = true
               ignore_query_params    = false
           }
-      
+
       }
       ```
 
@@ -1245,7 +1245,7 @@
 - API
 
   Используйте вызов gRPC API [ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create) или метод REST API [create](../cdn/api-ref/Resource/create.md).
-  
+
 {% endlist %}
 
 ## Настройте DNS для сервиса {#configure-dns}
@@ -1257,7 +1257,7 @@
 1. Получите доменное имя CDN-балансировщика:
 
    {% list tabs %}
-   
+
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
@@ -1274,15 +1274,15 @@
    cdn CNAME cl-....edgecdn.ru
    cdn-staging CNAME cl-....edgecdn.ru 
    ```
-   
+
    Если вы пользуетесь {{ dns-name }}, настройте запись по следующей инструкции:
-   
+
    {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
-   
+
    {% list tabs %}
-   
+
    - Консоль управления 
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ dns-name }}**.
      1. Если у вас нет публичной зоны DNS, создайте ее:
 
@@ -1291,7 +1291,7 @@
         1. Выберите **Тип** зоны — **Публичная**.
         1. Укажите **Имя** зоны: `canary-dns-zone`.
         1. Нажмите кнопку **Создать**.
-      
+
      1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example`:
 
         1. В списке зон нажмите на зону `canary-dns-zone`.
@@ -1300,22 +1300,22 @@
         1. Выберите **Тип** записи — **CNAME**.
         1. В поле **Значение** вставьте скопированное значение вида `cl-....edgecdn.ru`.
         1. Нажмите кнопку **Создать**.
-        
+
      1. Аналогично создайте в той же зоне CNAME-запись для `cdn-staging.yandexcloud.example`. В поле **Имя** укажите `cdn-staging`.
-     
+
    - CLI
-   
+
      1. Если у вас нет публичной зоны DNS, создайте ее:
-     
+
         ```bash
         yc dns zone create \
           --name canary-dns-zone \
           --zone yandexcloud.example. \
           --public-visibility
         ```
-        
+
         Результат:
-        
+
         ```
         id: dns4rq4tadddth4h20qm
         folder_id: b1g9hv2loamqfnbul7d9
@@ -1324,40 +1324,40 @@
         zone: yandexcloud.example.
         public_visibility: {}
         ```
-        
+
         Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../cli/cli-ref/managed-services/dns/zone/create.md).
-        
+
      1. Создайте в зоне CNAME-записи для `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example` со скопированным значением вида `cl-....edgecdn.ru`:
-     
+
         ```bash
         yc dns zone add-records \
           --name canary-dns-zone \
           --record "cdn CNAME cl-....edgecdn.ru" \
           --record "cdn-staging CNAME cl-....edgecdn.ru"
         ```
-        
+
         Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../cli/cli-ref/managed-services/dns/zone/add-records.md).
-   
+
    - {{ TF }}
-   
+
      1. Добавьте в конфигурационный файл параметры DNS-зоны `canary-dns-zone` и CNAME-записей в ней:
-     
+
         ```
         ...
-        
+
         resource "yandex_dns_zone" "canary-dns-zone" {
           zone   = "yandexcloud.example."
           name   = "canary-dns-zone"
           public = true
         }
-        
+
         resource "yandex_dns_recordset" "canary-recordset-production" {
           zone_id = ${yandex_dns_zone.canary-dns-zone.id}
           name    = "cdn"
           type    = "CNAME"
           data    = ["<скопированное значение вида cl-....edgecdn.ru>"]
         }
-        
+
         resource "yandex_dns_recordset" "canary-recordset-staging" {
           zone_id = ${yandex_dns_zone.canary-dns-zone.id}
           name    = "cdn-staging"
@@ -1365,24 +1365,24 @@
           data    = ["<скопированное значение вида cl-....edgecdn.ru>"]
         }
         ```
-        
+
         Подробнее см. в описаниях ресурсов [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) и [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) в документации провайдера {{ TF }}.
-        
+
      1. Проверьте корректность конфигурационных файлов.
 
         1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
         1. Выполните проверку с помощью команды:
-   
+
            ```bash
            terraform plan
            ```
-   
+
         Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-   
+
      1. Разверните облачные ресурсы.
 
         1. Если в конфигурации нет ошибок, выполните команду:
-   
+
            ```bash
            terraform apply
            ```
@@ -1390,12 +1390,12 @@
         1. Подтвердите создание ресурсов.
 
    - API
-    
+
      1. Создайте DNS-зону `canary-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../dns/api-ref/DnsZone/create.md).
      1. Добавьте в зону CNAME-записи `cdn` и `cdn-staging` со скопированным значением вида `cl-....edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md).
-        
+
    {% endlist %}
-   
+
    {% endcut %}
 
 {% include [after-creation-tip-tutorials](cdn/after-creation-tip-tutorials.md) %}
@@ -1410,9 +1410,9 @@
 1. Удалите из кеша CDN-ресурса файл `index.html`:
 
    {% list tabs %}
-   
+
    - Консоль управления
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ cdn-name }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
@@ -1421,17 +1421,17 @@
      1. Выберите тип очистки — **Выборочная**.
      1. Укажите путь к загруженному файлу: `/index.html`.
      1. Нажмите кнопку **Очистить кеш**.
-     
+
    - CLI
-   
+
      1. Получите идентификатор созданного CDN-ресурса:
-     
+
         ```bash
         yc cdn resource list
         ```
-     
+
         Результат:
-     
+
         ```
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         |          ID          |          CNAME           |           CREATED AT           |           UPDATED AT           | ACTIVE |                  OPTIONS                  |
@@ -1455,34 +1455,34 @@
         ```
 
         Подробнее о команде `yc cdn resource list` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/resource/list.md).
-        
+
      1. Удалите файл из кеша:
-     
+
         ```bash
         yc cdn cache purge \
           --resource-id <идентификатор CDN-ресурса> \
           --path "/index.html"
         ```
-        
+
         Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/cache/purge.md).
 
    - API
-   
+
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
-     
+
    {% endlist %}
 
 1. Откройте в браузере адрес `https://cdn-staging.yandexcloud.example/index.html`. Вы должны увидеть страницу с указанием на версию 2.
 
 ### Канареечное развертывание версии 2 {#canary-v2}
-   
+
 1. Отключите кеширование CDN-ресурса и удалите из кеша файл `index.html`:
 
    {% list tabs %}
-   
+
    - Консоль управления
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ cdn-name }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
@@ -1490,20 +1490,20 @@
      1. Нажмите кнопку **Редактировать**.
      1. Отключите опцию **Кеширование в CDN**.
      1. Нажмите кнопку **Сохранить**.
-     
+
    - API
-   
+
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Отключите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md). 
-     
+
    {% endlist %}
 
 1. Удалите из кеша файл `index.html`:
 
    {% list tabs %}
-   
+
    - Консоль управления
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ cdn-name }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
@@ -1512,17 +1512,17 @@
      1. Выберите тип очистки — **Выборочная**.
      1. Укажите путь к загруженному файлу: `/index.html`.
      1. Нажмите кнопку **Очистить кеш**.
-     
+
    - CLI
-   
+
      1. Получите идентификатор созданного CDN-ресурса:
-     
+
         ```bash
         yc cdn resource list
         ```
-     
+
         Результат:
-     
+
         ```
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         |          ID          |          CNAME           |           CREATED AT           |           UPDATED AT           | ACTIVE |                  OPTIONS                  |
@@ -1544,28 +1544,28 @@
         |                      |                          |                                |                                |        | value:"OPTIONS"}                          |
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         ```
-        
+
      1. Удалите файл из кеша:
-     
+
         ```bash
         yc cdn cache purge \
           --resource-id <идентификатор CDN-ресурса> \
           --path "/index.html"
         ```
-     
+
    - API
-   
+
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
-     
+
    {% endlist %}
 
 1. Настройте группу бэкендов `canary-bg-production` так, чтобы 20% трафика доменного имени `cdn.yandexcloud.example` приходилось на бэкенд `canary-backend-green` с версией 2:
 
    {% list tabs %}
-   
+
    - Консоль управления
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ alb-name }}** и перейдите на вкладку **Группы бэкендов**.
      1. В списке групп бэкендов выберите `canary-bg-production`.
@@ -1577,20 +1577,20 @@
 
      1. Аналогично для бэкенда `canary-backend-green` установите вес 20 вместо 0.
      1. Нажмите кнопку **Сохранить**.
-     
+
    - CLI
-   
+
      1. Для бэкенда `canary-backend-blue` установите вес 80 вместо 100:
-     
+
         ```bash
         yc alb backend-group update-http-backend \
           --backend-group-name canary-bg-production \
           --name canary-backend-blue \
           --weight 80
         ```
-        
+
         Результат:
-        
+
         ```
         done (1s)
         id: ds7l9puc18c9b40cd359
@@ -1604,20 +1604,20 @@
               bucket: canary-bucket-blue
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
-        
+
         Подробнее о команде `yc alb backend-group update-http-backend` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/backend-group/update-http-backend.md).
-        
+
      1. Для бэкенда `canary-backend-green` установите вес 20 вместо 0:
-     
+
         ```bash
         yc alb backend-group update-http-backend \
           --backend-group-name canary-bg-production \
           --name canary-backend-green \
           --weight 20
         ```
-        
+
         Результат:
-        
+
         ```
         done (1s)
         id: ds7l9puc18c9b40cd359
@@ -1631,13 +1631,13 @@
               bucket: canary-bucket-green
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
-   
+
    - API
-   
+
      Используйте вызов gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) или метод REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md).
-           
+
    {% endlist %}
-   
+
 1. Несколько раз откройте в браузере адрес `https://cdn.yandexcloud.example/index.html`. Примерно в 20% случаев вы должны увидеть страницу с указанием на версию 2, в остальных случаях — на версию 1.
 1. Аналогично шагам 1–2 настройте и проверьте следующие распределения трафика между бэкендами:
 
@@ -1648,9 +1648,9 @@
 1. Снова включите кеширование:
 
    {% list tabs %}
-   
+
    - Консоль управления
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ cdn-name }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
@@ -1658,22 +1658,22 @@
      1. Нажмите кнопку **Редактировать**.
      1. Включите опцию **Кеширование в CDN**.
      1. Нажмите кнопку **Сохранить**.
-     
+
    - API
-   
+
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Включите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md).
-     
+
    {% endlist %}
-   
+
 ### Сине-зеленое развертывание для отката к версии 1 {#blue-green-v1-rollback}
 
 1. Отключите кеширование CDN-ресурса и удалите из кеша файл `index.html`:
 
    {% list tabs %}
-   
+
    - Консоль управления
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ cdn-name }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
@@ -1681,20 +1681,20 @@
      1. Нажмите кнопку **Редактировать**.
      1. Отключите опцию **Кеширование в CDN**.
      1. Нажмите кнопку **Сохранить**.
-     
+
    - API
-   
+
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Отключите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md). 
-     
+
    {% endlist %}
 
 1. Удалите из кеша файл `index.html`:
 
    {% list tabs %}
-   
+
    - Консоль управления
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ cdn-name }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
@@ -1703,17 +1703,17 @@
      1. Выберите тип очистки — **Выборочная**.
      1. Укажите путь к загруженному файлу: `/index.html`.
      1. Нажмите кнопку **Очистить кеш**.
-     
+
    - CLI
-   
+
      1. Получите идентификатор созданного CDN-ресурса:
-     
+
         ```bash
         yc cdn resource list
         ```
-     
+
         Результат:
-     
+
         ```
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         |          ID          |          CNAME           |           CREATED AT           |           UPDATED AT           | ACTIVE |                  OPTIONS                  |
@@ -1735,28 +1735,28 @@
         |                      |                          |                                |                                |        | value:"OPTIONS"}                          |
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         ```
-        
+
      1. Удалите файл из кеша:
-     
+
         ```bash
         yc cdn cache purge \
           --resource-id <идентификатор CDN-ресурса> \
           --path "/index.html"
         ```
-     
+
    - API
-   
+
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
-     
+
    {% endlist %}
 
 1. Перенаправьте весь трафик доменного имени `cdn.yandexcloud.example` обратно на бэкенд `canary-backend-blue` с версией 1:
 
    {% list tabs %}
-   
+
    - Консоль управления
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ alb-name }}** и перейдите на вкладку **Группы бэкендов**.
      1. В списке групп бэкендов выберите `canary-bg-production`.
@@ -1765,23 +1765,23 @@
         1. В блоке **Бэкенды** найдите бэкенд `canary-backend-blue` и нажмите кнопку ![Три точки](../_assets/horizontal-ellipsis.svg) → **Редактировать**.
         1. В поле **Вес** укажите `100`.
         1. Нажмите кнопку **Сохранить**.
-        
+
      1. Аналогично для бэкенда `canary-bucket-green` установите вес 0 вместо 100.
      1. Нажмите кнопку **Сохранить**.
 
    - CLI
-   
+
      1. Для бэкенда `canary-backend-blue` установите вес 100 вместо 0:
-     
+
         ```bash
         yc alb backend-group update-http-backend \
           --backend-group-name canary-bg-production \
           --name canary-backend-blue \
           --weight 100
         ```
-        
+
         Результат:
-        
+
         ```
         done (1s)
         id: ds7l9puc18c9b40cd359
@@ -1795,18 +1795,18 @@
               bucket: canary-bucket-blue
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
-        
+
      1. Для бэкенда `canary-backend-green` установите вес 0 вместо 100:
-     
+
         ```bash
         yc alb backend-group update-http-backend \
           --backend-group-name canary-bg-production \
           --name canary-backend-green \
           --weight 0
         ```
-        
+
         Результат:
-        
+
         ```
         done (1s)
         id: ds7l9puc18c9b40cd359
@@ -1820,21 +1820,21 @@
               bucket: canary-bucket-green
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
-        
+
    - API
-   
+
      Используйте вызов gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) или метод REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md).   
-   
+
    {% endlist %}
-   
+
 1. Несколько раз откройте в браузере адрес `https://cdn.yandexcloud.example/index.html`. Во всех случаях вы должны увидеть страницу с указанием на версию 1.
 1. Аналогично шагам 1–2 переключите весь трафик доменного имени `cdn-staging.yandexcloud.example` на бэкенд `canary-backend-green` с версией 2 и проверьте переключение в браузере.
 1. Снова включите кеширование:
 
    {% list tabs %}
-   
+
    - Консоль управления
-   
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ cdn-name }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
@@ -1842,12 +1842,12 @@
      1. Нажмите кнопку **Редактировать**.
      1. Включите опцию **Кеширование в CDN**.
      1. Нажмите кнопку **Сохранить**.
-     
+
    - API
-   
+
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Включите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md).
-     
+
    {% endlist %}
 
 ## Как удалить созданные ресурсы {#clear-out}

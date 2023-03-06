@@ -40,9 +40,9 @@ Some steps don't support certain tools:
    * [Create a {{ alb-name }} backend group with buckets as backends](#create-l7backend).
    * Get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
    * Disable and enable caching of a CDN resource when [running a health check and testing version switching](#check).
-* Currently, you can't get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
+* Currently, you cannot get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -205,7 +205,7 @@ To create a network and subnets:
 
       Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -214,7 +214,7 @@ To create a network and subnets:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -298,7 +298,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
       For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -307,7 +307,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -423,7 +423,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
          For more information about the `yandex_storage_object` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_object).
 
-      1. Make sure that the configuration files are correct.
+      1. Make sure that the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run the check using the command:
@@ -432,7 +432,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy the cloud resources.
 
@@ -474,7 +474,7 @@ To create security groups:
       | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
       | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
       | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-      | Incoming | healthchecks | 30080 | TCP | CIDR | 198.18.235.0/24<br/>198.18.248.0/24 |
+      | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
 
       1. Go to the **Outgoing traffic** or **Incoming traffic** tab.
       1. Click **Add rule**.
@@ -484,6 +484,7 @@ To create security groups:
 
          * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
          * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
+         * **Load balancer's health checks** is a rule that allows an L7 load balancer to check the health of VMs.
 
       1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -499,7 +500,7 @@ To create security groups:
      --rule direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0] \
      --rule direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
      --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
-     --rule direction=ingress,port=30080,protocol=tcp,v4-cidrs=[198.18.235.0/24,198.18.248.0/24]
+     --rule direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks
    ```
 
    Result:
@@ -546,10 +547,7 @@ To create security groups:
        to_port: "30080"
      protocol_name: TCP
      protocol_number: "6"
-     cidr_blocks:
-       v4_cidr_blocks:
-       - 198.18.235.0/24
-       - 198.18.248.0/24
+     predefined_target: loadbalancer_healthchecks
    ```
 
    For more information about the `yc vpc security-group create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/security-group/create.md).
@@ -561,7 +559,7 @@ To create security groups:
       ```
       resource "yandex_vpc_security_group" "canary-sg" {
         name       = "canary-sg"
-        network_id = "${yandex_vpc_network.canary-network.id}"
+        network_id = yandex_vpc_network.canary-network.id
 
         egress {
           protocol       = "ANY"
@@ -582,16 +580,16 @@ To create security groups:
         }
 
         ingress {
-          protocol       = "TCP"
-          port           = 30080
-          v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
+          protocol          = "TCP"
+          port              = 30080
+          predefined_target = "loadbalancer_healthchecks"
         }
       }
       ```
 
-      For more information about the `yandex_vpc_security_group` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/vpc_security_group).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -600,7 +598,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -615,6 +613,8 @@ To create security groups:
 - API
 
    Use the [SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call or the [create](../vpc/api-ref/SecurityGroup/create.md) REST API method.
+
+   To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../vpc/api-ref/SecurityGroup/create.md#body_params) field for the REST API.
 
 {% endlist %}
 
@@ -835,7 +835,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       Learn more in the description of the [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -844,7 +844,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -876,9 +876,9 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
    1. Under **Network settings**:
 
       1. Select the `canary-network` **Network**.
-      1. Select the `canary-sg` **security group**. If this field is omitted, any incoming and outgoing traffic is allowed for the load balancer.
+      1. Select the `canary-sg` **Security group**. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
 
-   1. Under **Allocation**, select three subnets for the load balancer nodes: `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-c`, then enable traffic to these subnets.
+   1. Under **Allocation**, select three subnets for the load balancer nodes: `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-c`, then enable traffic for these subnets.
    1. Click **Add listener** under **Listeners**. Set the listener settings:
 
       1. Enter the listener name: `canary-listener`.
@@ -1058,7 +1058,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       For more information about the `yandex_alb_load_balancer` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/alb_load_balancer).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -1067,7 +1067,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -1219,7 +1219,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -1228,7 +1228,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -1368,7 +1368,7 @@ To configure DNS:
 
          Learn more in the description of the [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) resources in the {{ TF }} provider documentation.
 
-      1. Make sure that the configuration files are correct.
+      1. Make sure that the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run the check using the command:
@@ -1377,7 +1377,7 @@ To configure DNS:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy the cloud resources.
 

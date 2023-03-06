@@ -1,5 +1,5 @@
 **The Linux examples were tested in the following environment:**
-* Virtual machine in {{ yandex-cloud }} running Ubuntu 20.04 LTS.
+* {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS.
 * Bash: `5.0.16`.
 * Python: `3.8.2`; pip3: `20.0.2`.
 * PHP: `7.4.3`.

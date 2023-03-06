@@ -49,7 +49,7 @@ deletion_protection | **[google.protobuf.BoolValue](https://developers.google.co
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/cluster-extensions). 
+name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). 
 version | **string**<br>Version of the extension. 
 
 
@@ -94,7 +94,7 @@ deletion_protection | **[google.protobuf.BoolValue](https://developers.google.co
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/cluster-extensions). 
+name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). 
 version | **string**<br>Version of the extension. 
 
 
@@ -133,7 +133,7 @@ deletion_protection | **[google.protobuf.BoolValue](https://developers.google.co
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/cluster-extensions). 
+name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). 
 version | **string**<br>Version of the extension. 
 
 
@@ -201,7 +201,7 @@ deletion_protection | **[google.protobuf.BoolValue](https://developers.google.co
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/cluster-extensions). 
+name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). 
 version | **string**<br>Version of the extension. 
 
 

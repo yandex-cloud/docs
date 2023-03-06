@@ -320,7 +320,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -337,7 +337,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -702,7 +702,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec1)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec1)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -719,7 +719,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -807,7 +807,7 @@ scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Required. [Scaling policy](/d
 deploy_policy | **[DeployPolicy](#DeployPolicy2)**<br>Required. Deployment policy of the instance group. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy2)**<br>Required. Allocation policy of the instance group by zones and regions. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec2)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). <br>If specified, a Network Load Balancer target group containing all instances from the instance group will be created and attributed to the instance group. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 variables[] | **[Variable](#Variable2)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
@@ -1029,7 +1029,7 @@ zone_id | **string**<br>Required. ID of the availability zone where the instance
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec2)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec2)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -1046,7 +1046,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -1510,7 +1510,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec3)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec3)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -1527,7 +1527,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -1615,7 +1615,7 @@ instance_template | **[InstanceTemplate](#InstanceTemplate4)**<br>Required. Inst
 scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Required. [Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group. 
 deploy_policy | **[DeployPolicy](#DeployPolicy4)**<br>Required. Deployment policy of the instance group. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy4)**<br>Required. Allocation policy of the instance group by zones and regions. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec4)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 variables[] | **[Variable](#Variable4)**<br> 
@@ -1838,7 +1838,7 @@ zone_id | **string**<br>Required. ID of the availability zone where the instance
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -1874,7 +1874,7 @@ path | **string**<br>URL path to set for health checking requests.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec4)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec4)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -2319,7 +2319,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec5)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec5)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -2336,7 +2336,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec5)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec5)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -2716,7 +2716,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec6)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec6)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -2733,7 +2733,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -3113,7 +3113,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec7)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec7)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -3130,7 +3130,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -3630,7 +3630,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec8)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec8)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -3647,7 +3647,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -4028,7 +4028,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec9)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec9)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -4045,7 +4045,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -4658,7 +4658,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec10)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec10)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -4675,7 +4675,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -5055,7 +5055,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec11)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec11)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
@@ -5072,7 +5072,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 

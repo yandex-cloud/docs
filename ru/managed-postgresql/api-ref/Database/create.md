@@ -49,7 +49,7 @@ databaseSpec.<br>owner | **string**<br><p>Required. Name of the user to be assig
 databaseSpec.<br>lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> <p>Value must match the regular expression ``\|[a-zA-Z_]+.UTF-8\|C``.</p> 
 databaseSpec.<br>lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> <p>Value must match the regular expression ``\|[a-zA-Z_]+.UTF-8\|C``.</p> 
 databaseSpec.<br>extensions[] | **object**<br><p>PostgreSQL extensions to be enabled for the database.</p> 
-databaseSpec.<br>extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/cluster-extensions">listed in the Developer's Guide</a>.</p> 
+databaseSpec.<br>extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/extensions/cluster-extensions">listed in the Developer's Guide</a>.</p> 
 databaseSpec.<br>extensions[].<br>version | **string**<br><p>Version of the extension.</p> 
 databaseSpec.<br>templateDb | **string**<br><p>Name of the PostgreSQL database template.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 databaseSpec.<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the database</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 

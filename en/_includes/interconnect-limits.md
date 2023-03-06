@@ -1,12 +1,12 @@
 #### Quotas {#interconnect-quotas}
 
 | Type of limit | Value |
-| ----- | ----- |
-| Number of private connections on a single trunk link | 2 |
+----- | -----
+| The number of private connections per trunk connection | 2 |
+| The number of public connections per trunk connection | 1 |
 
 #### Limits {#interconnect-limits}
 
 | Type of limit | Value |
-| ----- | ----- |
-| The maximum number of prefixes that can be accepted by a cloud | 500 |
-
+----- | -----
+| Maximum number of prefixes announced over BGP per private connection | 500 |

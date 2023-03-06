@@ -110,7 +110,7 @@ FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` Points to the least lagging [replic
 **Specifics:**
 
 * When connecting to this FQDN, only read operations are allowed.
-* If there are no active replicas in a cluster, you can't connect to this FQDN: the corresponding DNS CNAME record will point to a null object (`null`).
+* If there are no active replicas in the cluster, this FQDN will point to the current master host.
 
 An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
 

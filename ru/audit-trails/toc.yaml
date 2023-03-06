@@ -52,6 +52,8 @@ items:
         items:
           - name: Загрузка аудитных логов в {{ mes-full-name }}
             href: tutorials/trails-logs-elasticsearch.md
+          - name: Загрузка аудитных логов в {{ mos-full-name }}
+            href: tutorials/trails-logs-opensearch.md
           - name: Загрузка аудитных логов в MaxPatrol SIEM
             href: tutorials/maxpatrol.md
           - name: Загрузка аудитных логов в SIEM Splunk

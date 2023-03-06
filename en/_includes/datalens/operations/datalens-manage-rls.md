@@ -3,15 +3,15 @@
 - In the dataset
 
   1. Open the dataset.
-  1. On the right of the row, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) and select **Permissions**.
-  1. Enter the value of the field and users in the specified format and click **Save**.
+  1. On the right side of the row, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) and select **Access rights**.
+  1. Enter the value for the field and users in the specified format and click **Save**.
 
       ```yaml
       'value_1': user_1, user_2
       'value_2': user_3
       ```
 
-      For example, to configure access to the `first-company` value for the `Company name` field:
+      For example, to configure access to the `first-company` value for the `Company name` field, add the following:
 
       
       ```yaml
@@ -23,10 +23,10 @@
 
 - In the source
 
-  1. Add to the source a field that will store user IDs and be used for filtering. You can add this field to a new table and join it using the `JOIN` operator.
+  1. Add a field that will store user IDs and be used for filtering, to the source . You can add this field to a new table and join it using the `JOIN` operator.
   1. Add the field to the dataset.
   1. Open the dataset.
-  1. On the right of the row, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) and select **Permissions**.
+  1. On the right side of the row, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) and select **Access rights**.
   1. In the permission settings, add `userid:userid` to the field and click **Save**.
   1. Save the dataset.
 
@@ -35,7 +35,7 @@
   Let's create a dashboard based on sales data by four regions (West, East, North, and South). Regional managers should only have access to their own data, and the company's chief executive to all data.
 
   1\. Let's define user IDs.
-  2\. In the source, create an additional table named `MANAGER_ID` with the region related to the user ID. If multiple regions are available for the same ID, then list all unique pairs:
+  2\. In the source, create an additional table named `MANAGER_ID` with the region related to the user ID. If multiple regions are available for the same ID, list all unique pairs:
 
   | REGION | MANAGER_NAME | MANAGER_ID |
   |--------|--------------|-------------------|
