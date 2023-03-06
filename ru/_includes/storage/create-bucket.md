@@ -84,6 +84,15 @@
      {% if product == "yandex-cloud" %}
 
      ```
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+       required_version = ">= 0.13"
+     }
+
      provider "yandex" {
        token     = "<IAM-_или_OAuth-токен>"
        cloud_id  = "<идентификатор_облака>"
