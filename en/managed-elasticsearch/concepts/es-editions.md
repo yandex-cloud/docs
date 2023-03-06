@@ -2,7 +2,7 @@
 
 {% note info %}
 
-As of June 13, 2022, the `Gold` edition in {{ mes-name }} clusters is no longer supported. You cannot create a new cluster with this edition or switch to it from `Basic` or `Platinum`. On July 6, 2022, the `Gold` edition of all clusters will be automatically upgraded to `Platinum`.
+As of June 13, 2022, the `Gold` edition in {{ mes-name }} clusters is no longer supported. You cannot create a new cluster with this edition or switch to it from `Basic` or `Platinum`. On July 6, 2022, all `Gold` edition clusters were automatically upgraded to `Platinum`.
 
 {% endnote %}
 

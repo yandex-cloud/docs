@@ -334,7 +334,7 @@ spark-app
     sbt clean && sbt compile && sbt assembly
     ```
 
-Файл будет доступен по следующему пути: `./target/scala-2.11/spark-app-assembly-0.1.0-SNAPSHOT.jar`
+Файл будет доступен по следующему пути: `./target/scala-2.11/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
 
 #### Загрузите JAR-файл в {{ objstorage-name }} {#scala-upload}
 

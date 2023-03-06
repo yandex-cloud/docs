@@ -1,6 +1,8 @@
 # Writing data to {{ objstorage-full-name }}
 
-Example of writing `JSON` data to {{ objstorage-full-name }}
+In {{ yq-full-name }}, to write data to {{ objstorage-full-name }} buckets, you can use [connections](#connection-write) or [bindings](#bindings-write).
+
+Example of writing `JSON` data using bindings:
 
 ```sql
 INSERT INTO bindings.`my_binding`
@@ -10,11 +12,11 @@ FROM
     $data;
 ```
 
-For a list of supported formats and data compression algorithms, see [Write formats](formats.md#write).
+For a list of supported formats and data compression algorithms, see [{#T}](#write-formats).
 
-## Writing data using connections
+## Writing data using connections {#connection-write}
 
-Data is written using SQL statements and generally looks like this:
+It is convenient to write data using connections for prototyping and initial setup of data write operations. Before writing data to a bucket, create a [connection](object-storage.md#create_connection) to {{ objstorage-short-name }} and use the following SQL statement:
 
 ```sql
 INSERT INTO `<connection_name>`.`<bucket_path>`
@@ -25,23 +27,18 @@ INSERT INTO `<connection_name>`.`<bucket_path>`
     )
     <expression>
 FROM
-   <query>
+    <query>
 ```
 
 Where:
 
-- `connection_name` is the name of connection to {{objstorage-full-name}}.
-- `bucket_path` is the path to the bucket that will store data.
-- `query` is the {{ yq-full-name }} data source query.
+* `connection_name`: Name of the connection to {{ objstorage-short-name }}.
+* `bucket_path`: Path within the bucket to write data to.
+* `query`: {{ yq-name }} data source query.
 
-It's convenient to write data using connections for prototyping and initial setup of data write operations.
+### Example {#connection-write-example}
 
-Before writing data to {{objstorage-full-name}} buckets, create a [connection](object-storage.md) to {{objstorage-full-name}}.
-
-
-### Example
-
-Sample query to write data to {{ yds-full-name }} using connections
+Sample query to write data to {{ objstorage-short-name }} using connections:
 
 ```sql
 INSERT INTO `connection`.`test/`
@@ -55,16 +52,12 @@ SELECT
 
 Where:
 
-|Field|Type|Description|
-|--|---|---|
-|`connection`| |Name of connection to {{ objstorage-full-name }}|
-|`test/`| |Path within the {{objstorage-full-name}} bucket to write data to|
+* `connection`: Name of {{ objstorage-short-name }} connection.
+* `test/`: Path within the bucket to write data to.
 
+## Writing data using bindings {#bindings-write}
 
-
-## Writing data using data bindings
-
-Data is written using SQL statements and generally looks like this:
+If you need to make data writes on a regular basis, it is handy to use bindings. This helps avoid entering all the details of handling this data in each query. Before writing data to a bucket, create a [data binding](object-storage-binding.md) in {{ objstorage-short-name }} and use the following SQL statement:
 
 ```sql
 INSERT INTO bindings.`<binding_name>`
@@ -75,22 +68,17 @@ INSERT INTO bindings.`<binding_name>`
     )
     <expression>
 FROM
-   <query>
+    <query>
 ```
 
 Where:
 
-- `binding_name` is the name of binding to {{objstorage-full-name}} data.
-- `query` is the {{ yq-full-name }} data source query.
+* `binding_name`: Name of binding to {{ objstorage-short-name }} data.
+* `query`: {{ yq-name }} data source query.
 
-It's convenient to write data using bindings for regular processes with no need to specify all details of operations with this data.
+### Example {#bindings-write-example}
 
-Before writing data to {{objstorage-full-name}} buckets, create a [binding](object-storage-binding.md) to {{objstorage-full-name}} data.
-
-
-### Example
-
-Sample query to write data to {{ yds-full-name }} using bindings
+Sample query to write data to {{ objstorage-short-name }} using bindings:
 
 ```sql
 INSERT INTO bindings.`test`
@@ -100,11 +88,9 @@ SELECT
 
 Where:
 
-|Field|Type|Description|
-|--|---|---|
-|bindings| |Keyword indicating that a data write is being performed using bindings|
-|`test`| |Name of binding to data in {{ objstorage-full-name }}|
+* `bindings`: Keyword indicating that a data write is being performed using bindings.
+* `test`: Name of the binding to {{ objstorage-short-name }} data.
 
-## Supported write formats
+## Supported write formats {#write-formats}
 
 {% include [!](../_includes/supported-objstorage-write-formats.md) %}

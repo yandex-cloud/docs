@@ -6,3 +6,5 @@
 
 * [Вручную](../operations/target-group-create.md). В этом случае при изменении внутреннего IP-адреса ВМ, например при ее переносе в другую подсеть, целевую группу нужно обновить самостоятельно — удалить и заново добавить в нее измененную ВМ.
 * [Через {{ ig-name }}](../../compute/operations/instance-groups/create-with-load-balancer.md). При изменении конфигурации ВМ {{ ig-name }} будет автоматически поддерживать актуальность IP-адресов машин в целевой группе. Если целевая группа подключена к группе бэкендов, {{ ig-name }} будет следить и за результатами проверок состояния, которые отправляет L7-балансировщик.
+
+{% include [target-group-deletion-restriction](../../_includes/application-load-balancer/target-group-deletion-restriction.md) %}

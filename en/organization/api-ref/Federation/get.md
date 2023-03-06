@@ -42,7 +42,7 @@ federationId | <p>ID of the federation to return. To get the federation ID, make
 }
 ```
 A federation.
-For more information, see [SAML-compatible identity federations](/docs/iam/concepts/users/identity-federations).
+For more information, see [SAML-compatible identity federations](/docs/iam/concepts/federations).
  
 Field | Description
 --- | ---

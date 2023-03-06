@@ -1,6 +1,6 @@
 # CORS in {{ cdn-name }}
 
-{{ cdn-full-name }} supports cross-domain requests through [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) (cross-origin resource sharing).
+{{ cdn-full-name }} [supports cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) through CORS (cross-origin resource sharing).
 
 In the resource settings, you can:
 

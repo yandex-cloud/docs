@@ -1,9 +1,11 @@
-# Using {{ brand-voice-name }} Adaptive
+# Synthesize speech with a pattern using API v3
 
-To synthesize a phrase using a trained [{{ brand-voice-name }} Adaptive](index.md#adaptive) speech synthesis model:
+Pattern-based synthesis is only available for [{{ brand-voice-name }}](../brand-voice/index.md) voices. To get started with pattern-based synthesis, [fill out the form](#contact-form).
 
-1. [Prepare an audio recording template](#prepare-fragment).
-1. [Send data to the {{ brand-voice-name }} API](#send-to-api).
+To synthesize a phrase based on a template:
+
+1. [Prepare an audio recording template](#prepare-template).
+1. [Send data to API v3](#send-to-api)
 
 ## Getting started {#before-you-begin}
 
@@ -17,7 +19,7 @@ To synthesize a phrase using a trained [{{ brand-voice-name }} Adaptive](index.m
 1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-tts }}` role, or higher, to the service account, which will allow it to work with {{ speechkit-name }} in the folder it was created in.
 1. [Get](../../../iam/operations/iam-token/create-for-sa.md) an IAM token for the service account.
 
-## Prepare an audio recording template {#prepare-fragment}
+## Prepare an audio recording template {#prepare-template}
 
 {% note warning %}
 
@@ -25,34 +27,34 @@ A template consists of a pattern phrase audio recording and its text with markup
 
 {% endnote %}
 
-Examples of fixed phrases:
->Hello, I am calling from the MedCity clinic.
+Examples of fixed phrases: 
+> Hello, I am calling from the MedCity clinic.
 >
->This is 'Junk It Out', a construction waste management company.
+> This is 'Junk It Out', a construction waste management company.
 >
 
 To prepare a template:
 
-* Make an audio recording of your pattern phrase. Be sure the speaker's voice is the same as the one used for audio recordings during training.
-* Mark up the text of the pattern phrase following the [requirements](./income-data-format.md#text-requirements) and enclose the variable parts in `{}` (curly brackets).
+* Make an audio recording of your pattern phrase.
+* Mark up the text of the pattern phrase following the [requirements](../templates.md#requirements) and enclose the variable parts in `{}` (curly brackets).
 
    Sample markups:
-   >You have an appointment with doctor {Smith} on {March twenty} at {twelve pm}.
+   > You have an appointment with doctor {Smith} on {March twenty} at {twelve pm}.
    >
-   >This is to remind you that a garbage truck will arrive at your place {tomorrow} at {two pm}.
+   > This is to remind you that a garbage truck will arrive at your place {tomorrow} at {two pm}.
    >
 
 * For each variable part, set its start time and duration in the audio recording (in milliseconds).
 
-{% note warning %}
+{% note info %}
 
-A phrase to synthesize should not be longer than 24 seconds (the API limit), including the variable part. Optimal perception is achieved if a phrase is up to 16 seconds long as in a regular conversation.
+A phrase to synthesize should not be longer than {{ tts-v3-time }} (the API limit), including the variable part. Optimal perception is achieved if a phrase is up to 16 seconds long as in a regular conversation.
 
 The pattern cannot be longer than 250 characters of normalized text.
 
 {% endnote %}
 
-## Send data to the API {#send-to-api}
+## Send data to the {#send-to-api} API
 
 Create a client app to send your data to the API:
 
@@ -108,7 +110,7 @@ Create a client app to send your data to the API:
       import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
       def synthesize(iam_token, bytes_array) -> pydub.AudioSegment:
-          template = '<pattern phrase with markup>'
+          template = '<pattern_phrase_with_markup>'
           # Example: 'This is to remind you that your kid has an appointment for {treatment name} treatment session tomorrow at {time}.'
           request = tts_pb2.UtteranceSynthesisRequest(
               output_audio_spec=tts_pb2.AudioFormatOptions(
@@ -122,9 +124,9 @@ Create a client app to send your data to the API:
                               variables = [
                                   # The number of tts_pb2.TextVariable() list items depends on the number of template variables.
                                   tts_pb2.TextVariable(
-                                      variable_name = '<template variable name>',
+                                      variable_name = '<variable_name_in_the_pattern>',
                                       # Example: '{time}'
-                                      variable_value ='<text for synthesis>'
+                                      variable_value ='<text_for_synthesis>'
                                       # Example: 'eight thirty'
                                   )
                               ]
@@ -133,7 +135,7 @@ Create a client app to send your data to the API:
                  tts_pb2.Hints(
                       audio_template = tts_pb2.AudioTemplate(
                           audio = tts_pb2.AudioContent(
-                              # Source audio for the template
+                              # Source audio for the pattern
                               content = bytes_array,
                               audio_spec = tts_pb2.AudioFormatOptions(
                                   container_audio = tts_pb2.ContainerAudio(
@@ -144,18 +146,18 @@ Create a client app to send your data to the API:
                           text_template = tts_pb2.TextTemplate(
                               text_template = template,
                               variables = [
-                                  # The number of tts_pb2.TextVariable() list variables depends on the number of template variables.
+                                  # Number of variables in the tts_pb2.TextVariable() list is the same as in the pattern.
                                   tts_pb2.TextVariable(
-                                      variable_name = '< template variable name>',
-                                      variable_value ='<text of the phrase's variable part in the template audio file>'
+                                      variable_name = '<variable_name_in_the_pattern>',
+                                      variable_value ='<text_of_the_variable_part_for_pattern_audio_file>'
                                   )
                               ]
                           ),
                           variables = [
-                              # The number of tts_pb2.AudioVariable() list variables is set by the template.
+                              # The number of variables in the tts_pb2.AudioVariable() list is the same as in the pattern.
                               tts_pb2.AudioVariable(
-                                  variable_name = '<template variable name>',
-                                  # Duration of the phrase variable part in the template audio (ms).
+                                  variable_name = '<name_of_variable_in_pattern>',
+                                  # Duration of the variable phrase part in the pattern audio (ms).
                                   variable_length_ms = 1740,
                                   # Start of the phrase variable part in the template audio (ms).
                                   variable_start_ms = 1620
@@ -163,23 +165,27 @@ Create a client app to send your data to the API:
                           ]
                       )
                   ),
-                  tts_pb2.Hints(
-                      voice = '{{{ brand-voice-name }} Adaptive model ID}'
-                  )
+                 # Do not provide this parameter if you use {{ brand-voice-cc-name }}
+                 tts_pb2.Hints(
+                    voice = '<your_voice_ID>'
+                 )
               ]
           )
 
-          # Establish a server connection.
+          # Establish connection with the server.
           cred = grpc.ssl_channel_credentials()
           channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
           stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
           # Send data for synthesis.
           it = stub.UtteranceSynthesis(request, metadata=(
-              ('authorization', f'Bearer {iam_token}')
+              ('authorization', f'Bearer {iam_token}'),
+              Special endpoint for {{ brand-voice-cc-name }}
+              # Do not use this parameter with your voice ID
+              ('x-node-alias', 'speechkit.tts.zsl')
           ))
 
-          # Process the server responses and write the result to a file.
+          # Process server responses and save the result to a file.
           try:
               audio = io.BytesIO()
               for response in it:

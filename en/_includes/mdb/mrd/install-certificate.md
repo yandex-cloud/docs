@@ -5,4 +5,4 @@ wget "{{ crt-web-path }}" \
 chmod 0655 ~/.redis/{{ crt-local-file }}
 ```
 
-To use the graphical IDE, [download the certificate]({{ crt-web-path }}) and specify the path to it in the connection settings.
+To use graphical IDEs, [download a certificate]({{ crt-web-path }}) and specify the path to it in the connection settings.

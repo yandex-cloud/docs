@@ -111,15 +111,15 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       ```go
       package main
-      
+
       import (
       	"context"
       	"fmt"
       	"os"
-      
+
       	"github.com/jackc/pgx/v4"
       )
-      
+
       const (
       	host     = "c-<идентификатор кластера>.rw.{{ dns-zone }}"
       	port     = {{ port-mgp }}
@@ -127,35 +127,35 @@ go mod init example && go get github.com/jackc/pgx/v4
       	password = "<пароль пользователя>"
       	dbname   = "postgres"
       )
-      
+
       func main() {
-      
+
       	connstring := fmt.Sprintf(
       		"host=%s port=%d dbname=%s user=%s password=%s target_session_attrs=read-write",
       		host, port, dbname, user, password)
-      
+
       	connConfig, err := pgx.ParseConfig(connstring)
       	if err != nil {
       		fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
       		os.Exit(1)
       	}
-      
+
       	conn, err := pgx.ConnectConfig(context.Background(), connConfig)
       	if err != nil {
       		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
       		os.Exit(1)
       	}
-      
+
       	defer conn.Close(context.Background())
-      
+
       	var version string
-      
+
       	err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
       	if err != nil {
       		fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
       		os.Exit(1)
       	}
-      
+
       	fmt.Println(version)
       }
       ```
@@ -174,7 +174,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       ```go
       package main
-      
+
       import (
       	"context"
       	"crypto/tls"
@@ -182,10 +182,10 @@ go mod init example && go get github.com/jackc/pgx/v4
       	"fmt"
       	"io/ioutil"
       	"os"
-      
+
       	"github.com/jackc/pgx/v4"
       )
-      
+
       const (
       	host     = "c-<идентификатор кластера>.rw.{{ dns-zone }}"
       	port     = {{ port-mgp }}
@@ -194,50 +194,50 @@ go mod init example && go get github.com/jackc/pgx/v4
       	dbname   = "postgres"
       	ca       = "/home/<домашняя директория>/.postgresql/root.crt"
       )
-      
+
       func main() {
-      
+
       	rootCertPool := x509.NewCertPool()
       	pem, err := ioutil.ReadFile(ca)
       	if err != nil {
       		panic(err)
       	}
-      
+
       	if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
       		panic("Failed to append PEM.")
       	}
-      
+
       	connstring := fmt.Sprintf(
       		"host=%s port=%d dbname=%s user=%s password=%s sslmode=verify-full target_session_attrs=read-write",
       		host, port, dbname, user, password)
-      
+
       	connConfig, err := pgx.ParseConfig(connstring)
       	if err != nil {
       		fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
       		os.Exit(1)
       	}
-      
+
       	connConfig.TLSConfig = &tls.Config{
       		RootCAs:            rootCertPool,
       		InsecureSkipVerify: true,
       	}
-      
+
       	conn, err := pgx.ConnectConfig(context.Background(), connConfig)
       	if err != nil {
       		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
       		os.Exit(1)
       	}
-      
+
       	defer conn.Close(context.Background())
-      
+
       	var version string
-      
+
       	err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
       	if err != nil {
       		fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
       		os.Exit(1)
       	}
-      
+
       	fmt.Println(version)
       }
       ```
@@ -357,24 +357,24 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       ```java
       package com.example;
-      
+
       import java.sql.*;
-      
+
       public class App {
         public static void main(String[] args) {
           String DB_URL  = "jdbc:postgresql://c-<идентификатор кластера>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER = "<имя пользователя>";
           String DB_PASS = "<пароль пользователя>";
-      
+
           try {
             Class.forName("org.postgresql.Driver");
-      
+
             Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             ResultSet q = conn.createStatement().executeQuery("SELECT version()");
             if (q.next()) {
               System.out.println(q.getString(1));
             }
-      
+
             conn.close();
           } catch (Exception ex) {
             ex.printStackTrace();
@@ -456,7 +456,7 @@ npm install pg
         connectionString:
             "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres"
     };
-    
+
     const conn = new pg.Client(config);
 
     conn.connect((err) => {

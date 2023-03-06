@@ -33,10 +33,12 @@
         * Приемники:
             * [{{ KF }}](target/kafka.md)
             * [{{ CH }}](target/clickhouse.md)
+            * [{{ ES }}](target/elasticsearch.md)
             * [{{ GP }}](target/greenplum.md)
             * [{{ MG }}](target/mongodb.md)
             * [{{ MY }}](target/mysql.md)
             * [{{ objstorage-name }}](target/object-storage.md)
+            * [{{ OS }}](target/opensearch.md)
             * [{{ PG }}](target/postgresql.md)
             * [{{ ydb-name }}](target/yandex-database.md)
     1. Нажмите кнопку **Создать**.

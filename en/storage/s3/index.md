@@ -57,6 +57,6 @@ URLs can taken one of the following forms:
 
 ## CORS requests {#cors-requests}
 
-Cross-domain requests are available for all API methods used for object management.
+[Cross-domain requests](../concepts/cors.md) are available for all API methods used for object management.
 
 To check permissions, CORS sends the [options](api-ref/object/options.md) preflight request to a resource. {{ objstorage-name }} allows you to skip the preflight request when sending cross-domain requests to resources. In this case, your request's [headers](api-ref/object/options.md#request-headers) must be the same as those of the preflight request.

@@ -5,6 +5,12 @@ description: "Чтобы удалить целевую группу, в конс
 
 # Удалить целевую группу {{ alb-name }}
 
+{% note warning %}
+
+{% include [target-group-deletion-restriction](../../_includes/application-load-balancer/target-group-deletion-restriction.md) %}
+
+{% endnote %}
+
 Чтобы удалить целевую группу:
 
 {% list tabs %}

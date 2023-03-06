@@ -76,18 +76,10 @@ editable: false
 
 
 
-#### Brand Voice {#brand-voice}
+### {{ brand-voice-name }} {#brand-voice}
 
 
 {% include [rub.md](../_pricing/speechkit/rub-brand.md) %}
-
-
-
-
-### Хостинг моделей Brand Voice {#hosting-brand-voice}
-
-
-{% include [rub.md](../_pricing/speechkit/rub-hosting.md) %}
 
 
 

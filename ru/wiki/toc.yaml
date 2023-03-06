@@ -159,6 +159,8 @@ items:
     href: pricing.md
   - name: История изменений
     items:
+      - name: Февраль 2023
+        href: changelogs/2302.md
       - name: Январь 2023
         href: changelogs/2213.md
       - name: Декабрь 2022

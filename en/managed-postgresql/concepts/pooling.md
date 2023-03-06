@@ -13,9 +13,9 @@ Odyssey supports three modes of connection management:
 * Session (default):
 
 
-In this mode, the client connection is established at the first query to the database and maintained until the client terminates the session. This connection can then be used by another or the same client. This approach helps wait out the moment of establishing multiple client connections to the DBMS (for example, when starting applications that access databases).
+    In this mode, the client connection is established at the first query to the database and maintained until the client terminates the session. This connection can then be used by another or the same client. This approach helps wait out the moment of establishing multiple client connections to the DBMS (for example, when starting applications that access databases).
 
-This mode is supported by all [{{ PG }} clients](supported-clients.md), but it is less efficient than transaction mode.
+    This mode is supported by all [{{ PG }} clients](supported-clients.md), but it is less efficient than transaction mode.
 
 * Transaction:
 
@@ -29,7 +29,7 @@ This mode is supported by all [{{ PG }} clients](supported-clients.md), but it i
 
    {% note info %}
 
-   Prepared statements in {{ mpg-name }} are created using the DBMS driver functionality. You can't create a prepared statement with a `PREPARE` SQL query.
+   Prepared statements in {{ mpg-name }} are created using the DBMS driver functionality. Creating prepared statements with a `PREPARE` SQL query is not supported.
 
    {% endnote %}
 

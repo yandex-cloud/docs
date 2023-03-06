@@ -1,9 +1,9 @@
-## {{ mmy-full-name }} {#managed-mysql}
+## Service: {{ mmy-full-name }} {#managed-mysql}
 
 Common labels for all {{ mmy-full-name }} service metrics:
 
 | Label | Value |
-| ----- | ----- |
+----|----
 | service | Service ID: `managed-mysql` |
 | resource_type | Resource type: `cluster` |
 | resource_id | Cluster ID |

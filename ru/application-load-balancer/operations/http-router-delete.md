@@ -1,5 +1,11 @@
 # Удалить HTTP-роутер
 
+{% note warning %}
+
+{% include [http-router-deletion-restriction](../../_includes/application-load-balancer/http-router-deletion-restriction.md) %}
+
+{% endnote %}
+
 Чтобы удалить HTTP-роутер:
 
 {% list tabs %}

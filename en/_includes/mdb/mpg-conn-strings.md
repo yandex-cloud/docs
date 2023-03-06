@@ -1,10 +1,10 @@
 ### 1C:Enterprise {#1c}
 
-If the cluster uses a {{ PG }} version optimized to work with <q>1С:Enterprise</q>, specify in the settings:
+If the cluster uses a {{ PG }} version optimized to work with <q>1C:Enterprise</q>, specify in the settings:
 
 * **Secure connection**: Disabled.
 * **DBMS type**: `PostgreSQL`.
-* **Database server**: `с-<cluster ID>.rw.{{ dns-zone }} port={{ port-mpg }}`.
+* **Database server**: `c-<cluster ID>.rw.{{ dns-zone }} port={{ port-mpg }}`.
 * **Database name**: `<DB name>`.
 * **Database user**: `<username>`.
 * **User password**: `<password>`.
@@ -15,7 +15,7 @@ If the cluster uses a {{ PG }} version optimized to work with <q>1С:Enterprise<
 Before connecting, install the dependencies:
 
 ```bash
-sudo apt update && sudo apt install -y postgresql-client
+sudo apt update && sudo apt install --yes postgresql-client
 ```
 
 {% list tabs %}
@@ -26,11 +26,11 @@ sudo apt update && sudo apt install -y postgresql-client
 
       ```bash
       psql "host=c-<cluster ID>.rw.{{ dns-zone }} \
-          port=6432 \
-          sslmode=disable \
-          dbname=<DB name> \
-          user=<user name> \
-          target_session_attrs=read-write"
+            port=6432 \
+            sslmode=disable \
+            dbname=<DB name> \
+            user=<username> \
+            target_session_attrs=read-write"
       ```
 
       After running the command, enter the user password to complete the connection procedure.
@@ -67,7 +67,7 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
 
    ```csharp
    using Npgsql;
-   
+
    namespace ConsoleApp
    {
        class Program
@@ -80,10 +80,10 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
                var username   = "<username>";
                var password   = "<user password>";
                var connString = $"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=VerifyFull;";
-   
+
                await using var conn = new NpgsqlConnection(connString);
                await conn.OpenAsync();
-   
+
                await using (var cmd = new NpgsqlCommand("SELECT VERSION();", conn))
                await using (var reader = await cmd.ExecuteReaderAsync())
                {
@@ -104,7 +104,7 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
 Before connecting, install the dependencies:
 
 ```bash
-sudo apt update && sudo apt install -y golang git && \
+sudo apt update && sudo apt install --yes golang git && \
 go mod init example && go get github.com/jackc/pgx/v4
 ```
 
@@ -118,15 +118,15 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       ```go
       package main
-      
+
       import (
           "context"
           "fmt"
           "os"
-      
+
           "github.com/jackc/pgx/v4"
       )
-      
+
       const (
         host     = "c-<cluster ID>.rw.{{ dns-zone }}"
         port     = 6432
@@ -134,35 +134,35 @@ go mod init example && go get github.com/jackc/pgx/v4
         password = "<user password>"
         dbname   = "<DB name>"
       )
-      
+
       func main() {
-      
+
           connstring := fmt.Sprintf(
               "host=%s port=%d dbname=%s user=%s password=%s target_session_attrs=read-write",
               host, port, dbname, user, password)
-      
+
           connConfig, err := pgx.ParseConfig(connstring)
           if err != nil {
               fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
               os.Exit(1)
           }
-      
+
           conn, err := pgx.ConnectConfig(context.Background(), connConfig)
           if err != nil {
               fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
               os.Exit(1)
           }
-      
+
           defer conn.Close(context.Background())
-      
+
           var version string
-      
+
           err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
           if err != nil {
               fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
               os.Exit(1)
           }
-      
+
           fmt.Println(version)
       }
       ```
@@ -181,7 +181,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       ```go
       package main
-      
+
       import (
           "context"
           "crypto/tls"
@@ -189,10 +189,10 @@ go mod init example && go get github.com/jackc/pgx/v4
           "fmt"
           "io/ioutil"
           "os"
-      
+
           "github.com/jackc/pgx/v4"
       )
-      
+
       const (
         host     = "c-<cluster ID>.rw.{{ dns-zone }}"
         port     = 6432
@@ -201,50 +201,50 @@ go mod init example && go get github.com/jackc/pgx/v4
         dbname   = "<DB name>"
         ca       = "/home/<home directory>/.postgresql/root.crt"
       )
-      
+
       func main() {
-      
+
           rootCertPool := x509.NewCertPool()
           pem, err := ioutil.ReadFile(ca)
           if err != nil {
               panic(err)
           }
-      
+
           if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
               panic("Failed to append PEM.")
           }
-      
+
           connstring := fmt.Sprintf(
               "host=%s port=%d dbname=%s user=%s password=%s sslmode=verify-full target_session_attrs=read-write",
               host, port, dbname, user, password)
-      
+
           connConfig, err := pgx.ParseConfig(connstring)
           if err != nil {
               fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
               os.Exit(1)
           }
-      
+
           connConfig.TLSConfig = &tls.Config{
               RootCAs:            rootCertPool,
               InsecureSkipVerify: true,
           }
-      
+
           conn, err := pgx.ConnectConfig(context.Background(), connConfig)
           if err != nil {
               fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
               os.Exit(1)
           }
-      
+
           defer conn.Close(context.Background())
-      
+
           var version string
-      
+
           err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
           if err != nil {
               fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
               os.Exit(1)
           }
-      
+
           fmt.Println(version)
       }
       ```
@@ -266,7 +266,7 @@ Before connecting:
 1. Install the dependencies:
 
    ```bash
-   sudo apt update && sudo apt install -y default-jdk maven
+   sudo apt update && sudo apt install --yes default-jdk maven
    ```
 
 1. Create a folder for the Maven project:
@@ -284,7 +284,7 @@ Before connecting:
    <project xmlns="http://maven.apache.org/POM/4.0.0"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-   
+
      <modelVersion>4.0.0</modelVersion>
      <groupId>com.example</groupId>
      <artifactId>app</artifactId>
@@ -364,22 +364,22 @@ Before connecting:
 
       ```java
       package com.example;
-      
+
       import java.sql.*;
-      
+
       public class App {
         public static void main(String[] args) {
           String DB_URL     = "jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:6432/<DB name>?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user password>";
-      
+
           try {
             Class.forName("org.postgresql.Driver");
-      
+
             Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             ResultSet q = conn.createStatement().executeQuery("SELECT version()");
             if(q.next()) {System.out.println(q.getString(1));}
-      
+
             conn.close();
           }
           catch(Exception ex) {ex.printStackTrace();}
@@ -402,22 +402,22 @@ Before connecting:
 
       ```java
       package com.example;
-      
+
       import java.sql.*;
-      
+
       public class App {
         public static void main(String[] args) {
           String DB_URL     = "jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:6432/<DB name>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user password>";
-      
+
           try {
             Class.forName("org.postgresql.Driver");
-      
+
             Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             ResultSet q = conn.createStatement().executeQuery("SELECT version()");
             if(q.next()) {System.out.println(q.getString(1));}
-      
+
             conn.close();
           }
           catch(Exception ex) {ex.printStackTrace();}
@@ -439,7 +439,7 @@ Before connecting:
 Before connecting, install the dependencies:
 
 ```bash
-sudo apt update && sudo apt install -y nodejs npm && \
+sudo apt update && sudo apt install --yes nodejs npm && \
 npm install pg
 ```
 
@@ -452,14 +452,14 @@ npm install pg
    ```javascript
    "use strict";
    const pg = require("pg");
-   
+
    const config = {
        connectionString:
            "postgres://<username>:<user password>@c-<cluster ID>.rw.{{ dns-zone }}:6432/<DB name>"
    };
-   
+
    const conn = new pg.Client(config);
-   
+
    conn.connect((err) => {
        if (err) throw err;
    });
@@ -478,7 +478,7 @@ npm install pg
    "use strict";
    const fs = require("fs");
    const pg = require("pg");
-   
+
    const config = {
        connectionString:
            "postgres://<username>:<user password>@c-<cluster ID>.rw.{{ dns-zone }}:6432/<DB name>",
@@ -489,9 +489,9 @@ npm install pg
                .toString(),
        },
    };
-   
+
    const conn = new pg.Client(config);
-   
+
    conn.connect((err) => {
        if (err) throw err;
    });
@@ -519,7 +519,7 @@ node app.js
 Before connecting, install the dependencies:
 
 ```bash
-sudo apt update && sudo apt install -y unixodbc odbc-postgresql
+sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 ```
 
 The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`.
@@ -584,7 +584,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
 Before connecting, install the dependencies:
 
 ```bash
-sudo apt update && sudo apt install -y php php-pgsql
+sudo apt update && sudo apt install --yes php php-pgsql
 ```
 
 {% list tabs %}
@@ -606,11 +606,11 @@ sudo apt update && sudo apt install -y php php-pgsql
             password=<user password>
             target_session_attrs=read-write
         ");
-      
+
       $q = pg_query($conn, "SELECT version()");
       $result = pg_fetch_row($q);
       echo $result[0];
-      
+
       pg_close($conn);
       ?>
       ```
@@ -638,11 +638,11 @@ sudo apt update && sudo apt install -y php php-pgsql
             password=<user password>
             target_session_attrs=read-write
         ");
-      
+
       $q = pg_query($conn, "SELECT version()");
       $result = pg_fetch_row($q);
       echo $result[0];
-      
+
       pg_close($conn);
       ?>
       ```
@@ -687,7 +687,7 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
       SELECT version();
       ```
 
-- Connecting with SSL
+- Connecting via SSL
 
    1. Set the environment variables for the connection:
 
@@ -734,7 +734,7 @@ pip3 install psycopg2-binary
 
       ```python
       import psycopg2
-      
+
       conn = psycopg2.connect("""
           host=c-<cluster ID>.rw.{{ dns-zone }}
           port=6432
@@ -744,12 +744,12 @@ pip3 install psycopg2-binary
           password=<user password>
           target_session_attrs=read-write
       """)
-      
+
       q = conn.cursor()
       q.execute('SELECT version()')
-      
+
       print(q.fetchone())
-      
+
       conn.close()
       ```
 
@@ -767,7 +767,7 @@ pip3 install psycopg2-binary
 
       ```python
       import psycopg2
-      
+
       conn = psycopg2.connect("""
           host=c-<cluster ID>.rw.{{ dns-zone }}
           port=6432
@@ -777,12 +777,12 @@ pip3 install psycopg2-binary
           password=<user password>
           target_session_attrs=read-write
       """)
-      
+
       q = conn.cursor()
       q.execute('SELECT version()')
-      
+
       print(q.fetchone())
-      
+
       conn.close()
       ```
 
@@ -818,11 +818,11 @@ Before connecting:
 
    1. Code example:
 
-      `connect.R`
+      `connect.r`
 
       ```R
       library(DBI)
-      
+
       conn <- dbConnect(RPostgres::Postgres(),
           dbname="<DB name>",
           host="c-<cluster ID>.rw.{{ dns-zone }}",
@@ -830,11 +830,11 @@ Before connecting:
           user="<username>",
           password="<user password>"
       )
-      
+
       res <- dbSendQuery(conn, "SELECT VERSION();")
       dbFetch(res)
       dbClearResult(res)
-      
+
       dbDisconnect(conn)
       ```
 
@@ -848,11 +848,11 @@ Before connecting:
 
    1. Code example:
 
-      `connect.R`
+      `connect.r`
 
       ```R
       library(DBI)
-      
+
       conn <- dbConnect(RPostgres::Postgres(),
           dbname="<DB name>",
           host="c-<cluster ID>.rw.{{ dns-zone }}",
@@ -861,11 +861,11 @@ Before connecting:
           user="<username>",
           password="<user password>"
       )
-      
+
       res <- dbSendQuery(conn, "SELECT VERSION();")
       dbFetch(res)
       dbClearResult(res)
-      
+
       dbDisconnect(conn)
       ```
 
@@ -882,7 +882,7 @@ Before connecting:
 Before connecting, install the dependencies:
 
 ```bash
-sudo apt update && sudo apt install -y ruby ruby-pg
+sudo apt update && sudo apt install --yes ruby ruby-pg
 ```
 
 {% list tabs %}
@@ -895,7 +895,7 @@ sudo apt update && sudo apt install -y ruby ruby-pg
 
       ```ruby
       require "pg"
-      
+
       conn = PG.connect("
               host=c-<cluster ID>.rw.{{ dns-zone }}
               port=6432
@@ -905,10 +905,10 @@ sudo apt update && sudo apt install -y ruby ruby-pg
               target_session_attrs=read-write
               sslmode=disable
       ")
-      
+
       q = conn.exec("SELECT version()")
       puts q.getvalue 0, 0
-      
+
       conn.close()
       ```
 
@@ -926,7 +926,7 @@ sudo apt update && sudo apt install -y ruby ruby-pg
 
       ```ruby
       require "pg"
-      
+
       conn = PG.connect("
               host=c-<cluster ID>.rw.{{ dns-zone }}
               port=6432
@@ -936,10 +936,10 @@ sudo apt update && sudo apt install -y ruby ruby-pg
               target_session_attrs=read-write
               sslmode=verify-full
       ")
-      
+
       q = conn.exec("SELECT version()")
       puts q.getvalue 0, 0
-      
+
       conn.close()
       ```
 

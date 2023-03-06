@@ -1,7 +1,7 @@
 ## Create a {{ GLR }} {#runners}
 
-To run build jobs on a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), create a [{{ GLR }}](https://docs.gitlab.com/runner/install/kubernetes.html).
-1. Connect a Helm repository containing the {{ GL }} Runner distribution:
+To run build tasks in the [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), create a [{{ GLR }}](https://docs.gitlab.com/runner/install/kubernetes.html).
+1. Connect a Helm repository containing the {{ GLR }} distribution.
 
    ```bash
    helm repo add gitlab https://charts.gitlab.io
@@ -17,7 +17,10 @@ To run build jobs on a [{{ managed-k8s-full-name }} cluster](../../managed-kuber
    1. Save the `URL` and the `registration token` values as you will need them in the next step.
 1. Create a file called `values.yaml` with the {{ GLR }} settings:
 
+   {% cut "values.yaml" %}
+
    ```yaml
+   ---
    imagePullPolicy: IfNotPresent
    gitlabUrl: <Public IP of the VM or the {{ mgl-name }} instance FQDN>
    runnerRegistrationToken: "<registration token>"
@@ -42,18 +45,20 @@ To run build jobs on a [{{ managed-k8s-full-name }} cluster](../../managed-kuber
            privileged = true
    ```
 
+   {% endcut %}
+
 1. Install {{ GLR }} using the following command:
 
    ```bash
    helm install --namespace default gitlab-runner -f values.yaml gitlab/gitlab-runner
    ```
 
-1. Make sure that the {{ GLR }} pod status has changed to `Running`:
+1. Wait for the {{ GLR }} status to change to `Running`:
 
    ```bash
    kubectl get pods -n default | grep gitlab-runner
    ```
 
-Now you can run automated builds inside your {{ k8s }} cluster.
+Now you can run automated builds inside your [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 For more information about installing and running {{ GLR }}, see the [{{ GL }} documentation](https://docs.gitlab.com/runner/install/).

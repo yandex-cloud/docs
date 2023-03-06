@@ -5,7 +5,6 @@ Since projects run on different {{ yandex-cloud }} platforms with different comp
 {% endnote %}
 
 
-
 | Name | Number of vCPUs | Number of GPUs | RAM, GB |
 ---- | ---- | ---- | ----
 **Configurations with vCPU on the [Intel Ice Lake platform](../../../compute/concepts/performance-levels.md)**
@@ -23,5 +22,5 @@ Since projects run on different {{ yandex-cloud }} platforms with different comp
 **g2.2** (available upon request to technical support) | 56 | 2 | 238
 **g2.4** (available upon request to technical support) | 112 | 4 | 476
 **g2.8** (available upon request to technical support) | 224 | 8 | 952
-
+
 

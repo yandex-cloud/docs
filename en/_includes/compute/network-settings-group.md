@@ -1,7 +1,7 @@
 * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
-   If you don't have a network, click **Create network** to create one:
+   If you do not have a network, click **Create network** to create one:
 
-   * In the window that opens, enter the network name and folder to host the network.
+   * In the window that will show up, enter the network name and specify the folder to host the network.
    * (optional) To automatically create subnets, select the **Create subnets** option.
    * Click **Create**.
    Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Create subnet**.

@@ -33,7 +33,7 @@ gatewayId | <p>Required. ID of the Gateway resource to return.</p> <p>To get Gat
   "sharedEgressGateway": {}
 }
 ```
-A Gateway resource. For more information, see [Gateway](/docs/vpc/concepts/gateway).
+A Gateway resource. For more information, see [Gateway](/docs/vpc/concepts/gateways).
  
 Field | Description
 --- | ---

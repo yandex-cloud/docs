@@ -9,7 +9,7 @@
    1. (Optional) Enter a description of the instance.
 1. Under **Configuration**:
    1. Select the instance type.
-   1. Specify the [subnet](../../vpc/concepts/network.md#subnet) where the instance will be hosted.
+   1. Specify the [subnet](../../vpc/concepts/network.md#subnet) where the instance will be hosted. For the time being, {{ yandex-cloud }} technical restrictions do not allow selecting a subnet with an address range of `192.168.0.0/24`.
 
       {% note warning %}
 
@@ -23,8 +23,9 @@
       The domain name must be unique throughout {{ yandex-cloud }}.
       * Its length must be between 5 and 50 characters.
       * It may contain lowercase Latin letters, numbers, and hyphens.
-      * It must not begin or end with a dash character.
+      * It must not start or end with a dash character.
    1. Set up the retention period for automatic backups (in days).
+
 1. In the **Administrator Data** block specify:
    * **Email**: The email address of the {{ GL }} instance administrator. This mailbox will receive an email with a link for creating a password.
    * **Login**: The administrator's login.

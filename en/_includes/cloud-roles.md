@@ -17,3 +17,7 @@
 ### resource-manager.viewer {#viewer}
 
 {% include [roles-resource-manager-viewer](roles-resource-manager-viewer.md) %}
+
+### resource-manager.auditor {#auditor}
+
+{% include [roles-resource-manager-auditor](roles-resource-manager-auditor.md) %}

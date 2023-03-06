@@ -95,7 +95,7 @@ For more information, see [{#T}](../../managed-mongodb/concepts/maintenance.md).
 
 #### Which version of {{ MG }} does {{ mmg-short-name }} use? {#dbms-version}
 
-{{ mmg-short-name }} supports {{ MG }} versions 4.2, 4.4, and 5.0. Enterprise [Edition](../../managed-mongodb/concepts/editions.md) is supported for versions 4.4 and 5.0.
+{{ mmg-short-name }} supports {{ MG }} versions 4.2, 4.4, 5.0, and 6.0. Enterprise [Edition](../../managed-mongodb/concepts/editions.md) is supported for versions 4.4, 5.0, and 6.0.
 
 
 #### What happens when a new DBMS version is released? {#new-version}

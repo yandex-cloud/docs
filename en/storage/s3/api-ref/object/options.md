@@ -1,6 +1,6 @@
 # options method
 
-Checks whether a CORS request to an object can be made.
+Checks whether a [CORS request](../../../concepts/cors.md) to an object can be made.
 
 ## Request {#request}
 

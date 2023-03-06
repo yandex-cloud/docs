@@ -25,13 +25,9 @@
       * Enter the required number of **vCPUs**, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of **RAM**.
       * {% include [include](specify-preemptible-vm.md) %}
    * Under **Network settings**:
-      * Select a [cloud network](../../vpc/concepts/network.md#network) from the list or enter a cloud network ID. If you don't have a network, click **Create a new network** to create one:
-         * In the window that opens, enter a name for the new network and choose the **Subnet in the zone** to connect the instance to. Each network should have a minimum of one [subnet](../../vpc/concepts/network.md#subnet) (if there are no subnets, [create one](../../vpc/operations/subnet-create.md)).
-      * In the **Public IP** field, choose a method for assigning an IP address:
-         * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-         * **No address**: Don't assign a public IP address.
-      * Select [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
-      * (optional) Create a record for the VM in the [DNS zone](../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section and specify the zone, FQDN, and TTL for the record. For more information, see [Cloud DNS integration with Compute Cloud](../../dns/concepts/compute-integration.md).
+
+      {% include [network-settings-group](../../_includes/compute/network-settings-group.md) %}
+
    * Under **Access**, specify the information required to access the instance:
       * Specify a **Service account** to be linked to the instance.
       * If you selected a Linux image, fill out **Login** and **SSH key**. As the key, use the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file contents.

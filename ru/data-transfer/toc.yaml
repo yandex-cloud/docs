@@ -52,6 +52,8 @@ items:
                 href: operations/endpoint/target/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md
+              - name: ElasticSearch
+                href: operations/endpoint/target/elasticsearch.md
               - name: Greenplum®
                 href: operations/endpoint/target/greenplum.md
               - name: MongoDB
@@ -60,6 +62,8 @@ items:
                 href: operations/endpoint/target/mysql.md
               - name: Object Storage
                 href: operations/endpoint/target/object-storage.md
+              - name: OpenSearch
+                href: operations/endpoint/target/opensearch.md
               - name: PostgreSQL
                 href: operations/endpoint/target/postgresql.md
               - name: '{{ ydb-full-name }}'
@@ -112,6 +116,8 @@ items:
               Поставка данных из {{ mpg-full-name }} в {{ objstorage-full-name
               }}
             href: tutorials/mpg-to-objstorage.md
+          - name: Поставка логов из {{ at-full-name }} в {{ mos-full-name }}
+            href: tutorials/trails-to-os.md
       - name: Асинхронная репликация данных
         items:
           - name: >-

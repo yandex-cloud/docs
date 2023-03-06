@@ -117,7 +117,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
@@ -131,7 +131,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    To create a cluster:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * Database cluster: Description of the cluster and its hosts.
 
@@ -143,7 +143,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       
       
@@ -211,7 +211,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -221,7 +221,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
@@ -282,7 +282,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With a single `{{ host-class }}` class host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
-   * With one `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
+   * With one `db1` database, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
    * With protection against accidental cluster deletion.
 
 
@@ -325,7 +325,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
-   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
    * In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.

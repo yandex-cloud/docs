@@ -1,6 +1,5 @@
-- To add an image to the prompt, click ![](../../_assets/forms/add-picture.png).
+- To add an image to the question text, click ![](../../_assets/forms/add-picture.png).
 
-- To add a comment or hint to the prompt, click **+ Add comment**. The comment is displayed in a small font.
+- To add a comment or hint to a question, click ![](../../_assets/forms/svg/add.svg) **Add comment**. The comment text is displayed with a smaller font size.
 
-- To format the text of your prompt or comment, use [Markdown](../../forms/appearance.md#section_pzm_m1j_j3b).
-
+- To format the question or comment text, use [Markdown markup](../../forms/appearance.md#section_pzm_m1j_j3b).

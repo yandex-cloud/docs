@@ -48,6 +48,7 @@ Replicas that have the replication source set manually cannot:
 * Become the master when the master host is changed automatically or [manually](../operations/update.md#start-manual-failover) (regardless of the [priority](#selecting-the-master) value).
 * Automatically switch to a new replication source when the current replication source fails.
 * Participate in quorum replication.
+* Be selected as the [least lagging](../operations/connect.md#fqdn-replica) replicas when using a special FQDN.
 
 ## Selecting a master host {#selecting-the-master}
 

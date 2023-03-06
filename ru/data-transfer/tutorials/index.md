@@ -1,5 +1,6 @@
 # Практические руководства {{ data-transfer-name }}
 
+
 ## Миграция данных
 
 * [{#T}](mkf-to-mkf.md)
@@ -20,6 +21,7 @@
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](cdc-mpg.md)
 * [{#T}](mpg-to-objstorage.md)
+* [{#T}](trails-to-os.md)
 
 ## Асинхронная репликация данных
 

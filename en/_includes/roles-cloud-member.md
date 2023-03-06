@@ -4,8 +4,7 @@ This role alone doesn't give you the right to perform any operations and is only
 How the role can be combined with other roles depends on whether a cloud belongs to an organization or not.
 
 
-#### For a cloud in an organization {#cloud-inside-org}
-
+**For a cloud in an organization**
 
 The role is useful if the user needs access to {{ yandex-cloud }} resources not only via the CLI, API, and {{ TF }}, but also via the management console.
 
@@ -13,12 +12,12 @@ The role is useful if the user needs access to {{ yandex-cloud }} resources not 
 
 * For an organization or cloud:
 
-   * `resource-manager.admin`
-   * `resource-manager.editor`
-   * `resource-manager.viewer`
-   * `admin`
-   * `editor`
-   * `viewer`
+   * `resource-manager.admin`.
+   * `resource-manager.editor`.
+   * `resource-manager.viewer`.
+   * `admin`.
+   * `editor`.
+   * `viewer`.
 
 * For a cloud:
 
@@ -36,6 +35,7 @@ To avoid giving the user additional rights, use `resource-manager.clouds.member`
 > --- | --- | ---
 > | `vpc.admin` | Organization | To manage networks, routes, IP addresses and other {{ vpc-name }} resources via the CLI, API, and {{ TF }} in all clouds of the organization |
 > | `resource-manager.clouds.member` | All clouds of the organization | To work with {{ vpc-name }} in the management console, view general information about the clouds |
+>
 
 {% note info %}
 
@@ -44,7 +44,7 @@ If there are multiple clouds in the organization and they are created and delete
 {% endnote %}
 
 
-#### For a cloud without an organization {#cloud-outside-org}
+**For a cloud without an organization**
 
 A role everyone requires to access cloud resources, except for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../iam/concepts/users/service-accounts.md).
 

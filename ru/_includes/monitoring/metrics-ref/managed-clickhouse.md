@@ -376,7 +376,7 @@ shard | Идентификатор шарда
 
 | Имя<br/>Тип| 
 | ----- | 
-| `ch_system_query_log_insert_requests_inc`<br/>`DGAUGE` |  | 
+| `ch_system_query_log_insert_requests_inc`<br/>`DGAUGE` | | 
 | `ch_system_query_log_read_bytes_inc`<br/>`DGAUGE` | | 
 | `ch_system_query_log_read_rows_inc`<br/>`DGAUGE` | |  
 | `ch_system_query_log_requests_inc`<br/>`DGAUGE` | |  

@@ -3,7 +3,7 @@
 Common labels for all {{ mgp-full-name }} service metrics:
 
 | Label | Value |
-| ----- | ----- |
+----|----
 | service | Service ID: `managed-greenplum` |
 | resource_type | Resource type: `cluster` |
 | resource_id | Cluster name |

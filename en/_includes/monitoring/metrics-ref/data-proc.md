@@ -1,9 +1,9 @@
-## {{ dataproc-full-name }} {#data-proc}
+## Service: {{ dataproc-full-name }} {#data-proc}
 
 Common labels for all {{ dataproc-full-name }} service metrics:
 
 | Label | Value |
-| ----- | ----- |
+----|----
 | service | Service ID: `data-proc` |
 | resource_type | Resource type: `cluster` |
 | resource_id | Cluster ID |
@@ -36,7 +36,7 @@ Common labels for all {{ dataproc-full-name }} service metrics:
 | ----- | ----- |
 | `yarn.cluster.activeNodes`<br/>`DGAUGE`, pcs | Number of active nodes |
 | `yarn.cluster.allocatedMB`<br/>`DGAUGE`, MB | Allocated memory. |
-| `yarn.cluster.allocatedVirtualCores`<br/>`DGAUGE`, pcs | Number of allocated virtual nodes. |
+| `yarn.cluster.allocatedVirtualCores`<br/>`DGAUGE`, pcs | Number of allocated virtual cores. |
 | `yarn.cluster.appsCompleted`<br/>`DGAUGE`, pcs | Apps that completed successfully. |
 | `yarn.cluster.appsFailed`<br/>`DGAUGE`, pcs | Apps that failed. |
 | `yarn.cluster.appsKilled`<br/>`DGAUGE`, pcs | Apps killed. |

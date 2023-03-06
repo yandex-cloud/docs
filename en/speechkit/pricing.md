@@ -76,20 +76,12 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 {% include [usd.md](../_pricing/speechkit/usd-tts.md) %}
 
 
-#### Brand Voice {#brand-voice}
+### {{ brand-voice-name }} {#brand-voice}
 
 
 
 
 {% include [usd.md](../_pricing/speechkit/usd-brand.md) %}
-
-
-### Hosting Brand Voice models {#hosting-brand-voice}
-
-
-
-
-{% include [usd.md](../_pricing/speechkit/usd-hosting.md) %}
 
 
 ### Speech recognition {#prices-stt}
