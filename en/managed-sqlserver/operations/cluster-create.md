@@ -192,7 +192,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
    To create a cluster:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * Database cluster: Description of the cluster and its hosts.
 
@@ -200,7 +200,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
@@ -280,7 +280,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
+      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 

@@ -68,6 +68,10 @@ For more information, see [{#T}](../concepts/index.md).
 
          {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+      * **Connection pooler**: Operation mode and parameters of the [connection pooler](../concepts/pooling.md):
+
+         {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
+
    1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
 
    1. Specify the master host parameters on the **Master** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#master).
@@ -313,7 +317,7 @@ For more information, see [{#T}](../concepts/index.md).
 
    1. Create a configuration file with a description of the cluster and its hosts.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       {% if audience != "internal" %}
 

@@ -147,7 +147,7 @@ To get information about the backup of a previously deleted cluster:
 
 Point-in-Time Recovery (PITR) technology lets you restore the state of a cluster or an individual database to any point in time between the oldest full backup and archiving the most recent transaction log. For more information, see [{#T}](../concepts/backup.md).
 
-For example, if a backup operation completed at 12:00:00 UTC on August 10, 2020, the current date is August 15, 2020 at 19:00:00 UTC, and the latest transaction log was saved at 18:50:00 UTC on August 15, 2020, you can restore the cluster to any of its states from 12:00:01 UTC on August 10, 2020  through 18:50:00 UTC on August 15, 2020.
+For example, if a backup operation completed at 12:00:00 UTC on August 10, 2020, the current date is August 15, 2020 at 19:00:00 UTC, and the latest transaction log was saved at 18:50:00 UTC on August 15, 2020, you can restore the cluster to any of its states from 12:00:01 UTC on August 10, 2020 through 18:50:00 UTC on August 15, 2020.
 
 When restoring to the current state, the new cluster or database will indicate:
 
@@ -241,11 +241,11 @@ For a new cluster, you need to set up all [its parameters required at creation](
       * `--backup-id`: [backup](../concepts/backup.md) ID
       * `--time`: Point in time to which you need to restore a {{ MS }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format.
       * `--name`: The cluster name.
-      * `--sqlserver-version`: The {{ MS }} version.
+      * `--sqlserver-version`: {{ MS }} version.
       * `--environment`: Environment:
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ MS}} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-      * `--network-name`: The [name of the network](../../vpc/concepts/network.md#network).
+         * `PRESTABLE`: For testing, including the {{ MS }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `--network-name`: [Name of the network](../../vpc/concepts/network.md#network).
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It is required if the selected availability zone includes 2 or more subnets.

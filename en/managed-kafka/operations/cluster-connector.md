@@ -688,9 +688,9 @@ To pause a connector:
       * `snappy`: The [snappy](https://github.com/google/snappy) codec.
       * `zstd`: The [zstd](https://facebook.github.io/zstd/) codec.
 
-      You can't change this parameter after creating the cluster.
+      You cannot change this parameter after creating the cluster.
 
-   * (Optional) **Max records per file**: The maximum number of records that can be written to a single file in S3-compatible storage.
+   * (Optional) **Max records per file**: Maximum number of records that can be written to a single file in an {% if lang == "ru" and audience != "internal" %}[S3-compatible storage](../../glossary/s3.md){% else %}S3-compatible storage{% endif %}.
    * Under **S3 connection**, specify the storage connection parameters:
       * **Bucket name**: Storage bucket name.
       * **Endpoint**: Endpoint for storage access (to find out from storage provider).

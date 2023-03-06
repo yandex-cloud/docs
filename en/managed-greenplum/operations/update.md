@@ -85,6 +85,10 @@ After creating a cluster, you can:
 
          {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+      * **Connection pooler**: Operation mode and parameters of the [connection pooler](../concepts/pooling.md):
+
+         {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
+
    1. Click **Save**.
 
 - CLI
@@ -131,7 +135,7 @@ After creating a cluster, you can:
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 

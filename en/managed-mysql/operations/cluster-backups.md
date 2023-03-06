@@ -271,6 +271,7 @@ For a new cluster, you should set all the parameters that are required at creati
          {% else %}
 
          * `local-ssd`.
+         * `local-hdd`.
 
          {% endif %}
 
