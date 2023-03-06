@@ -32,7 +32,7 @@ If you have followed all the recommendations, but the image fails to start up, o
 
 #### Should I use swap? {#swap-use}
 
-Avoid using swap in cloud systems whenever possible because the disk subsystem can become a "bottleneck" for the entire guest system.  [Network disk limits](../../compute/concepts/limits.md#compute-limits-disks) are too low to use the disk as a RAM "extension".
+Avoid using swap in cloud systems whenever possible because the disk subsystem can become a bottleneck for the entire guest system. [Network disk limits](../../compute/concepts/limits.md#compute-limits-disks) are too low to use the disk as a RAM extension.
 
 Instead of swap, you can use the `zram-config` utility. It allows you to organize a kind of swap inside the RAM itself thanks to compression, which is ten times faster than IO with a disk. Keep in mind that with a high load on IO and/or vCPUs, the use of `zram-config` may negatively affect `iowait` and, consequently, the operation of the network, disks, and vCPUs.
 
@@ -78,7 +78,7 @@ This approach to quotas doesn't affect pricing: snapshots are charged according 
 1. Grant rights in your cloud to a user from another cloud:
    * Role for the cloud: `resource-manager.clouds.member`.
    * Role for the folder: `viewer` or `compute.images.user`.
-      
+
 
    See the instructions [{#T}](../../iam/operations/roles/grant.md).
 1. Create an image from your snapshot under **Disk snapshots** or from the disk itself under **Disks**.
@@ -91,7 +91,7 @@ A user in another cloud must:
    ```
 
 1. When creating a VM, specify this image as a boot disk.
-   
+
 
 #### How do I attach a new disk to a VM? {#attach-disk-to-vm}
 

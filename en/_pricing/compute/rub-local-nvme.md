@@ -1,3 +1,3 @@
-| Type | Cost of 1 GB per month, including VAT |
+| Type | Cost per GB per hour, including VAT |
 | --- | --- |
-| Local disk (SSD) | ₽8.8 |
+| Local disk (SSD) | {{ sku|RUB|compute.hostgroup.localssd.v1|string }} |

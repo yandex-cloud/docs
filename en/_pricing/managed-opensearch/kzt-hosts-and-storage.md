@@ -50,6 +50,6 @@
 | Non-replicated SSD storage | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.opensearch|month|string }} |
 | SSD network storage | {{ sku|KZT|mdb.cluster.network-nvme.opensearch|month|string }} |
 | Local SSD storage | {{ sku|KZT|mdb.cluster.local-nvme.opensearch|month|string }} |
-| Backups beyond the storage size | ₽1.92 |
+| Backups beyond the storage size | ₸9.6000 |
 
 {% endif %}

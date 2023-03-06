@@ -1,3 +1,3 @@
-| Type | Cost of 1 GB per month, including VAT |
+| Type | Cost per GB per hour, including VAT |
 | --- | --- |
-| Local disk (SSD) | ₸44 |
+| Local disk (SSD) | {{ sku|KZT|compute.hostgroup.localssd.v1|string }} |
