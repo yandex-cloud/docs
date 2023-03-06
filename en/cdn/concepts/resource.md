@@ -28,9 +28,9 @@ When creating a resource, you must enter at least one domain name. The first nam
 For the resource to run properly, you must have:
 
 * Rights to all the domain names you entered.
-* Access to DNS settings for domain names.
+* Access to {% if lang == "ru" and audience != "internal" %}[DNS](../../glossary/dns.md){% else %}DNS{% endif %} settings for domain names.
 
-   For each name, in the settings of your DNS hosting, create a CNAME record linking this name with the domain name of the CDN load balancer, in the format `cl-<random characters>.edgecdn.ru`. It's displayed when creating a resource and also in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
+   For each name, in the settings of your DNS hosting, create a CNAME record linking this name with the domain name of the CDN load balancer, in the `cl-<random characters>.edgecdn.ru` format. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
 
    ```
    cdn.example.com. CNAME cl-4sne12sd.edgecdn.ru

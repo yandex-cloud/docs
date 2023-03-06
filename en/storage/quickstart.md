@@ -4,9 +4,9 @@
 
 In {{ objstorage-name }} terms, files and folders are called [objects](concepts/object.md). All objects are stored in [buckets](concepts/bucket.md). The service has a flat storage structure for bucket objects, but GUI-based tools let you use Object Storage as a hierarchical file system.
 
-The Object Storage API is partially compatible with the AWS S3 API, so you can use [tools](tools/index.md) designed to work with S3.
+The Object Storage API is partially compatible with the AWS S3 API, so you can use the [tools](tools/index.md) designed to work with {% if lang == "ru" and audience != "internal" %}[S3](../glossary/s3.md){% else %}S3{% endif %}.
 
-In this section, you'll learn how to:
+In this section, you will learn how to:
 
 1. [Create buckets](#the-first-bucket) for storing data.
 1. [Upload files to buckets](#upload-files).

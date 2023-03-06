@@ -1,6 +1,6 @@
 # CORS in {{ objstorage-name }}
 
-{{ objstorage-full-name }} supports [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to bucket objects.
+{{ objstorage-full-name }} supports [CORS requests]{% if lang == "ru" and audience != "internal" %}(../../glossary/cors.md){% else %}(https://en.wikipedia.org/wiki/Cross-origin_resource_sharing){% endif %} to objects in a bucket.
 
 To manage the CORS configuration for each bucket, you can use:
 

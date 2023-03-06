@@ -63,7 +63,49 @@ GeeseFS does not support the following:
 
 ## Installation {#installation}
 
-To install GeeseFS, follow the [instructions](https://github.com/yandex-cloud/geesefs#installation) in the project repository.
+{% list tabs %}
+
+- Linux
+
+   1. Install the utilities required by FUSE. For example:
+
+      * Debian, Ubuntu:
+
+         ```bash
+         sudo apt-get install fuse fuse3
+         ```
+
+      * CentOS:
+
+         ```bash
+         sudo yum install fuse fuse3
+         ```
+
+   1. Download and install GeeseFS:
+
+      ```bash
+      wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-linux-amd64
+      chmod a+x geesefs-linus-amd64
+      sudo cp geesefs-linux-amd64 /usr/bin/geesefs
+      ```
+
+- MacOS
+
+   1. Install the [macFUSE](https://osxfuse.github.io/) package. For more information, see the [installation guide](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) in the macFUSE repository on GitHub.
+   1. Download and install GeeseFS:
+
+      ```bash
+      platform='arm64'
+      if [[ $(uname -m) == 'x86_64' ]]; then platform='amd64'; fi
+      wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-mac-$platform
+      chmod a+x geesefs-mac-$platform
+      sudo cp geesefs-mac-$platform /usr/bin/geesefs
+      ```
+
+{% endlist %}
+
+You can also build GeeseFS yourself using its source code. For more information, see the [guide](https://github.com/yandex-cloud/geesefs#installation) in the GeeseFS repository on GitHub.
+
 
 ## Authentication {#authentication}
 

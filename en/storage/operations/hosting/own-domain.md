@@ -6,15 +6,15 @@ To support your own domain:
 
 - Name a bucket the same as your domain.
 
-- In {% if audience != "internal" %}[{{ dns-name }}](../../../dns/operations/resource-record-create.md){% else %}{{ dns-name }}{% endif %}, create a record:
+- On your {% if lang == "ru" and audience != "internal" %}[DNS server](../../../glossary/dns.md#dns-server){% else %}DNS server{% endif %}, for example, in {% if audience != "internal" %}[{{ dns-full-name }}](../../../dns/operations/resource-record-create.md){% else %}{{ dns-full-name }}{% endif %}, create a resource record to link your domain name to the bucket. We recommend using {% if audience != "internal" %}[ANAME records](../../../dns/concepts/resource-record.md#aname){% else %}ANAME records{% endif %} in {{ dns-name }}:
 
    ```
    example.com ANAME example.com.{{ s3-web-host }}
    ```
 
-   We recommend using {% if audience != "internal" %}[ANAME records](../../../dns/concepts/resource-record.md#aname){% else %}ANAME records{% endif %} in {{ dns-name }} when hosting an {{ objstorage-name }} website. These records allow second-level domains to be used for hosting and, unlike CNAME records, do not restrict the use of other record types in the same zone with them.
+   ANAME records allow second-level domains to be used for hosting and, unlike CNAME records, do not restrict the use of other record types in the same zone with them.
 
-   If necessary, you can use CNAME records on external DNS servers. In this case, use at least third-level domains for hosting in Object Storage. This is due to the way CNAME records are processed on DNS hostings. For more information, see section 2.4 of [RCF 1912](https://www.ietf.org/rfc/rfc1912.txt).
+   If you create a CNAME record for your bucket on a third-party DNS server, make sure your domain name belongs to at least a third-level domain. This is related to how CNAME records are processed on DNS hosting. For more information, see section 2.4 of [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
 
 {% note info %}
 

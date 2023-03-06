@@ -38,7 +38,7 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 ----- | ----- | -----
 | 301 | `PermanentRedirect` | The specified bucket should always be accessed using the address returned in the response. |
 | 307 | `Redirect` | The specified bucket should temporarily be accessed using the address returned in the response. |
-| 307 | `TemporaryRedirect` | Redirect while the DNS is being updated. |
+| 307 | `TemporaryRedirect` | Redirect while the {% if lang == "ru" and audience != "internal" %}[DNS](../../../glossary/dns.md){% else %}DNS{% endif %} is being updated. |
 | 400 | `BadDigest` | The hash passed in the `Content-MD5` header doesn't match the one calculated on the {{ objstorage-name }} side. |
 | 400 | `CloudTotalAliveSizeQuotaExceed` | After uploading the object, the [quota](../../concepts/limits.md) will be exceeded. [Request a quota increase]({{ link-console-quotas }}) or delete unnecessary objects and then upload the object again. |
 | 400 | `CredentialsNotSupported` | Credentials are not supported. |

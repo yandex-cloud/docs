@@ -9,9 +9,9 @@ Configure content sharing via a CDN using a {{ objstorage-name }} bucket as an e
 
 ## Before you begin {#before-you-begin}
 
-1. Make sure that you have a domain name and can access the DNS settings on the site of the company that provides DNS hosting to you. This is usually the company that registered your domain.
+1. Make sure you have a domain name and can access the {% if lang == "ru" and audience != "internal" %}[DNS](../glossary/dns.md){% else %}DNS{% endif %} settings on the website of your DNS hosting provider. This is usually the company that registered your domain.
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-1. If you don't have a folder yet, create one:
+1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
