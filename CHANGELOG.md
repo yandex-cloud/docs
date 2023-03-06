@@ -1,3 +1,13 @@
+Release 06.03.2023 
+
+* Application Load Balancer: added information about deleting resources connected to each other. 
+* Data Transfer: documented new target endpoints for Elasticsearch and OpenSearch. 
+* Data Transfer: added a scenario on uploading Audit Trails logs into Managed Service for OpenSearch. 
+* Managed Service for OpenSearch: added a step-by-step instruction for cluster monitoring. 
+* SpeechKit: added information for new SpeechKit Brand Voice products. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 03.03.2023
 
 * DataSphere: added API v2 reference.
