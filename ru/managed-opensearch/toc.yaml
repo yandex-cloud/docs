@@ -31,6 +31,8 @@ items:
         href: operations/cluster-logs.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+      - name: Мониторинг состояния кластера и хостов
+        href: operations/monitoring.md
   - name: Практические руководства
     items:
       - name: Миграция данных из {{ ES }}
