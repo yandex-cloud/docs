@@ -269,6 +269,9 @@ items:
     href: archive/tsr-20221110.md
   - name: Privacy Policy
     href: privacy.md
+  - name: Privacy Policy (published 20.02.2023)
+    hidden: true
+    href: archive/privacy-20230220.md  
   - name: Privacy Policy (published 10.11.2022)
     hidden: true
     href: archive/privacy-20221110.md
