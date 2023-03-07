@@ -1429,7 +1429,6 @@ tags:
 - name: LogGroup
   description: A set of methods for managing log groups.
 - name: LogIngestion
-  description: A set of methods for writing to log groups. To make a request use `ingester.logging.yandexcloud.net`.
+  description: A set of methods for writing to log groups.
 - name: LogReading
-  description: A set of methods for reading from log groups. To make a request use
-    `reader.logging.yandexcloud.net`.
+  description: A set of methods for reading from log groups.

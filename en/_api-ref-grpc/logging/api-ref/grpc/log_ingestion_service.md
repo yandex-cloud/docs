@@ -4,7 +4,7 @@ editable: false
 
 # Cloud Logging Service, gRPC: LogIngestionService
 
-A set of methods for writing to log groups. To make a request use `ingester.logging.yandexcloud.net`.
+A set of methods for writing to log groups.
 
 | Call | Description |
 | --- | --- |

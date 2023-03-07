@@ -996,7 +996,7 @@ components:
           description: |-
             Amount of memory available to the revision, specified in bytes.
 
-            Acceptable values are 134217728 to 8589934592, inclusive.
+            Acceptable values are 134217728 to 4294967296, inclusive.
           type: string
           format: int64
         cores:
@@ -1347,7 +1347,7 @@ components:
           description: |-
             Amount of memory available to the revision, specified in bytes.
 
-            Acceptable values are 134217728 to 8589934592, inclusive.
+            Acceptable values are 134217728 to 4294967296, inclusive.
           type: string
           format: int64
         cores:
@@ -1570,7 +1570,7 @@ components:
           description: |-
             Amount of memory available to the revision, specified in bytes.
 
-            Acceptable values are 134217728 to 8589934592, inclusive.
+            Acceptable values are 134217728 to 4294967296, inclusive.
           type: string
           format: int64
         cores:

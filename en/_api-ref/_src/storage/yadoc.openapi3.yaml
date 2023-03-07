@@ -1176,8 +1176,8 @@ components:
     UpdateBucketRequest:
       type: object
       properties:
-        fieldMask:
-          $ref: '#/components/schemas/FieldMask_in_UpdateBucketRequest_fieldMask'
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateBucketRequest_updateMask'
         anonymousAccessFlags:
           $ref: '#/components/schemas/AnonymousAccessFlags_in_UpdateBucketRequest_anonymousAccessFlags'
         defaultStorageClass:
@@ -1710,10 +1710,11 @@ components:
             description: Number of years for locking
             type: string
             format: int64
-    FieldMask_in_UpdateBucketRequest_fieldMask:
+    FieldMask_in_UpdateBucketRequest_updateMask:
       description: |-
         Required.
-        Field mask that specifies which attributes of the bucket should be updated.
+        Update mask that specifies which attributes of the bucket should be updated.
+        Use * for full update.
 
         A comma-separated names off ALL fields to be updated.
         Only the specified fields will be changed. The others will be left untouched.
