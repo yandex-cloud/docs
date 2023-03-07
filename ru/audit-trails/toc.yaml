@@ -12,6 +12,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Обработка ошибок
+        href: operations/error.md
       - name: Загрузка аудитных логов в {{ cloud-logging-name }}
         when: product == "yandex-cloud"
         items: 
