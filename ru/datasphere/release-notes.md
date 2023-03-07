@@ -1,4 +1,4 @@
-# Релизы {{ ml-platform-full-name }}
+# История изменений в {{ ml-platform-full-name }}
 
 Здесь будет опубликована информация об изменениях в сервисе {{ ml-platform-full-name }}.
 

@@ -104,7 +104,13 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
 
    1. In the configuration file, describe the bucket parameters:
 
-     
+      * `access_key`: The ID of the static access key.
+      * `secret_key`: The value of the secret access key.
+      * `bucket`: The name of the created bucket (`ycprojektblue-storage`).
+
+      Example configuration file structure:
+
+      
       ```
       provider "yandex" {
         token     = "<OAuth>"
@@ -129,12 +135,6 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
 
 
 
-     Where:
-
-     * `access_key`: The ID of the static access key.
-     * `secret_key`: The value of the secret access key.
-     * `bucket`: The name of the created bucket (`ycprojektblue-storage`).
-
    1. Make sure that the configuration files are correct:
 
       1. In the command line, go to the directory where you created the configuration file.
@@ -144,7 +144,7 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays the parameters of the bucket being created. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays the parameters of the bucket being created. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the bucket:
 
@@ -180,7 +180,7 @@ You need to check that, when user requests are made, files are downloaded from t
    </BucketLoggingStatus>
    ```
 
-   Where `TargetBucket` is the name of the bucket to write logs to (`ycprojektblue-logs`).
+   Where `TargetBucket` is the name of the bucket to write logs to `ycprojektblue-logs`.
 
 {% endlist %}
 
@@ -217,6 +217,12 @@ You need to check that, when user requests are made, files are downloaded from t
 
    1. Add the parameters of the object to upload to the configuration file you created in the [bucket creation step](#create-buckets):
 
+      * `bucket`: The name of the bucket to add the object to `ycprojektblue-storage`.
+      * `key`: The name of the object in the bucket `ycgame-update-v1.1.exe`. Required parameter.
+      * `source`: A relative or absolute path to the file that you upload as an object.
+
+      Example configuration file structure:
+
       ```
       ...
 
@@ -229,22 +235,16 @@ You need to check that, when user requests are made, files are downloaded from t
       }
       ```
 
-      Where:
+   1. Make sure that the configuration files are valid.
 
-      * `bucket`: The name of the bucket to add the object to (`ycprojektblue-storage`).
-      * `key`: The name of the object in the bucket (`ycgame-update-v1.1.exe`). Required parameter.
-      * `source`: A relative or absolute path to the file that you upload as an object.
-
-   1. Make sure that the configuration files are correct.
-
-      1. Using the command line, change to the directory with the configuration file.
+      1. In the command line, go to the directory with the configuration file.
       1. Run the check using the command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -374,7 +374,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
       For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -383,7 +383,7 @@ You need to check that, when user requests are made, files are downloaded from t
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. This is a test step. No resources are created. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. This is a test step. No resources are created. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -418,7 +418,7 @@ You need to check that, when user requests are made, files are downloaded from t
    {% endlist %}
 
 1. Go to your domain's DNS settings on the site of your DNS hosting provider.
-1. Edit the CNAME record for `cdn` so that it points to the previously copied URL on the `.edgecdn.ru` domain, for example:
+1. Edit the CNAME record for `cdn` so that it points to the previously copied URL on the `.edgecdn.ru` domain. For example:
 
    ```http
    cdn CNAME cl-.....6bb.edgecdn.ru.
@@ -559,7 +559,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
 ## Test the CDN {#check-cdn-working}
 
-1. Wait for the DNS records to be updated and the file to be preloaded to CDN servers.
+1. Wait until the DNS records are updated (this may take a few hours) and the file is prefetched to the CDN servers.
 1. Download the file at the new URL:
 
    ```

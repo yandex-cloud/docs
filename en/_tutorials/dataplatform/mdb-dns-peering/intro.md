@@ -25,4 +25,3 @@ The following is an example where:
 1. You use these VMs to test cluster availability.
 1. You create a DNS zone called `vpc-peering-zone` and perform migration.
 1. You test cluster availability from these VMs again.
-

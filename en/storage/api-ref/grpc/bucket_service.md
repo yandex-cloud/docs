@@ -692,7 +692,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the bucket to update. <br>The name cannot be updated. <br>To get the bucket name, make a [BucketService.List](#List) request. 
-field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Required. Field mask that specifies which attributes of the bucket should be updated. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Required. Update mask that specifies which attributes of the bucket should be updated. Use * for full update. 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags3)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
 default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 max_size | **int64**<br>Maximum size of the bucket, in bytes. For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). 

@@ -92,7 +92,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect.md#connection-string).
 
-   * [clickhouse-client]({{ ch.docs }}/interfaces/cli/) — to connect to the database in the {{ mch-name }} cluster.
+   * [clickhouse-client]({{ ch.docs }}/interfaces/cli/): to connect to the database in the {{ mch-name }} cluster.
 
       1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
@@ -189,7 +189,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <topic name>:9091 \
+      -b <FQDN broker host>:9091 \
       -t <topic name> \
       -k key \
       -X security.protocol=SASL_SSL \
@@ -219,7 +219,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
       * (optional) **Advanced settings** → **Conversions rules**:
 
          * **Data format**: `JSON`.
-         * **Data schema** — `JSON specification`:
+         * **Data schema**: `JSON specification`:
 
             Create and upload the `json_schema.json` file in JSON format:
 
@@ -334,7 +334,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <topic name>:9091 \
+      -b <FQDN broker host>:9091 \
       -t <topic name> \
       -k key \
       -X security.protocol=SASL_SSL \

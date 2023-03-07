@@ -4,7 +4,7 @@ description: "Joomla is a website management system written in PHP and JavaScrip
 keywords:
   - joomla
   - CMS Joomla
-  - postresql
+  - PostgreSQL
   - joomla installation
   - joomla setup
   - joomla website hosting
@@ -15,7 +15,7 @@ keywords:
 This tutorial will teach you to deploy websites powered by Joomla CMS and using the {{ PG }} database management system in a {{ yandex-cloud }} infrastructure.
 
 To set up a static website on Joomla:
-1. [Create a VM for Joomla](#create-vm)
+1. [Create a VM for Joomla](#create-vm).
 1. [Create a PostgreSQL database cluster](#create-cluster).
 1. [Install Joomla and additional components](#install).
 1. [Configure the Apache2 web server](#configure-apache2).

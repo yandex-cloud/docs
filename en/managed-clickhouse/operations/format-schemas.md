@@ -2,7 +2,7 @@
 
 {% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
-Examples of working with the Cap'n Proto and Protobuf formats when inserting data into a cluster are given in [{#T}](insert.md).
+Examples of working with the Cap'n Proto and Protobuf formats when inserting data into a cluster are given in [{#T}](../tutorials/insert.md).
 
 ## Before connecting the format schema {#prereq}
 
@@ -32,7 +32,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Data format schemas** tab.
    1. Click **Add schema**.
    1. In the **Add schema** dialog box, fill out the form by completing the **URL** field with the previously generated link to the format schema file.
@@ -79,7 +79,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
         format_schema {
           name = "<schema name>"
           type = "<schema type: FORMAT_SCHEMA_TYPE_CAPNPROTO or FORMAT_SCHEMA_TYPE_PROTOBUF>"
-          uri = "<link to data format schema file in {{ objstorage-full-name }}>"
+          uri  = "<link to data format schema file in {{ objstorage-full-name }}>"
         }
       }
       ```
@@ -88,7 +88,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -123,7 +123,7 @@ To update the contents of a schema that is already connected to the cluster:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Data format schemas** tab.
    1. Select the schema, click ![image](../../_assets/options.svg), and select **Edit**.
 
@@ -157,7 +157,7 @@ To update the contents of a schema that is already connected to the cluster:
         format_schema {
           name = "<schema name>"
           type = "<schema type>"
-          uri = "<new link to the schema file in {{ objstorage-full-name }}>"
+          uri  = "<new link to the schema file in {{ objstorage-full-name }}>"
         }
       }
       ```
@@ -166,7 +166,7 @@ To update the contents of a schema that is already connected to the cluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -201,7 +201,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Data format schemas** tab.
    1. Select the appropriate schema, click ![image](../../_assets/options.svg), and select **Delete**.
 
@@ -232,7 +232,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -255,7 +255,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Data format schemas** tab.
 
 - CLI

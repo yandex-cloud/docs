@@ -76,7 +76,8 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
          ```bash
          yc resource-manager folder add-access-binding example-folder \
            --service-account-name vm-scale-scheduled-sa \
-           --role compute.admin
+           --role compute.admin \
+           --folder-name example-folder
          ```
 
       * `iam.serviceAccounts.user` to link the service account to instances in the group:
@@ -84,15 +85,14 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
          ```bash
          yc resource-manager folder add-access-binding example-folder \
            --service-account-name vm-scale-scheduled-sa \
-           --role iam.serviceAccounts.user
+           --role iam.serviceAccounts.user \
+           --folder-name example-folder
          ```
-
-      * `serverless.functions.invoker` to invoke the {{ sf-name }} function:
-
          ```bash
          yc resource-manager folder add-access-binding example-folder \
            --service-account-name vm-scale-scheduled-sa \
-           --role serverless.functions.invoker
+           --role serverless.functions.invoker \
+           --folder-name example-folder
          ```
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
@@ -634,13 +634,13 @@ To set up scaling for your instance group using {{ TF }}:
 
    - Ready-made archive
 
-      1. Create a directory for files:
+      1. Create a directory for files.
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/vm-scale-scheduled-terraform.zip) (2 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `vm-scale-scheduled.tf` configuration file and the `vm-scale-scheduled-function.zip` archive with the {{ sf-name }} function code.
 
    - Creating files manually
 
-      1. Create a directory for files:
+      1. Create a directory for files.
       1. In the directory, create:
 
          * A configuration file named `vm-scale-scheduled.tf`:

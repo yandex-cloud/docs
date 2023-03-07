@@ -11,7 +11,7 @@
 
 - Консоль управления
 
-    {% include [Data Streams UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-data-streams.md) %}
+    {% include [Data Streams UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-data-streams-source.md) %}
 
 {% endlist %}
 

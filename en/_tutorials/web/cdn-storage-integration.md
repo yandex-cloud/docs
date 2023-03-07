@@ -196,7 +196,7 @@ To create a network and subnets:
 
       Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -220,7 +220,7 @@ To create a network and subnets:
 - API
 
    1. Create the `example-network` network using the gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) call or the REST API [create](../../vpc/api-ref/Network/create.md) method.
-   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c` subnets in the three availability zones by calling the gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../../vpc/api-ref/Subnet/create.md) method.
+   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` and `example-subnet-{{ region-id }}-c` in the three availability zones by calling the gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../../vpc/api-ref/Subnet/create.md) method.
 
 {% endlist %}
 
@@ -281,7 +281,7 @@ Create a bucket named `example-bucket`:
 
       For more information about the `yandex_storage_bucket` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_bucket).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -370,7 +370,7 @@ Create a bucket named `example-bucket`:
 
          For more information about the `yandex_storage_object` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_object).
 
-      1. Make sure that the configuration files are correct.
+      1. Make sure that the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run the check using the command:
@@ -507,25 +507,25 @@ To create security groups:
       resource "yandex_vpc_security_group" "example-sg" {
         name       = "example-sg"
         network_id = yandex_vpc_network.example-network.id
-      
+
         egress {
           protocol       = "ANY"
           port           = "ANY"
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol       = "TCP"
           port           = 80
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol       = "TCP"
           port           = 443
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol          = "TCP"
           port              = 30080
@@ -536,7 +536,7 @@ To create security groups:
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -692,16 +692,16 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       ```
       ...
-      
+
       resource "yandex_alb_http_router" "example-router" {
         name = "example-router"
       }
-      
+
       resource "yandex_alb_virtual_host" "example-vh" {
         name           = "example-vh"
         http_router_id = ${yandex_alb_http_router.example-router.id}
         authority      = "cdn.yandexcloud.example"
-      
+
         route {
           name = "example-route"
           http_route {
@@ -715,7 +715,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       Learn more in the description of the [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -895,29 +895,29 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       ```
       ...
-      
+
       resource "yandex_alb_load_balancer" "example-balancer" {
         name               = "example-balancer"
         network_id         = ${yandex_vpc_network.example-network.id}
         security_group_ids = [ ${yandex_vpc_security_group.example-sg.id} ]
-      
+
         allocation_policy {
           location {
             zone_id   = "{{ region-id }}-a"
             subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-a.id}
           }
-      
+
           location {
             zone_id   = "{{ region-id }}-b"
             subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-b.id}
           }
-      
+
           location {
             zone_id   = "{{ region-id }}-c"
             subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-c.id}
           }
         }
-      
+
         listener {
           name = "example-listener"
           endpoint {
@@ -938,7 +938,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       For more information about the `yandex_alb_load_balancer` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/alb_load_balancer).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -1060,7 +1060,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
    1. Add parameters of CDN resources to the configuration file:
       ```hcl
       ...
-      
+
       resource "yandex_cdn_origin_group" "my_group" {
         name     = "example-origin-group"
         use_next = true
@@ -1069,9 +1069,9 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          backup = false
         }
       }
-      
+
       resource "yandex_cdn_resource" "my_resource" {
-      
+
           cname               = "cdn.yandexcloud.example"
           active              = true
           origin_protocol     = "http"
@@ -1082,13 +1082,13 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
               ignore_cookie          = true
               ignore_query_params    = false
           }
-      
+
       }
       ```
 
       For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -1209,13 +1209,13 @@ To configure DNS:
 
          ```
          ...
-         
+
          resource "yandex_dns_zone" "example-dns-zone" {
            zone   = "yandexcloud.example."
            name   = "example-dns-zone"
            public = true
          }
-         
+
          resource "yandex_dns_recordset" "example-recordset" {
            zone_id = ${yandex_dns_zone.example-dns-zone.id}
            name    = "cdn"
@@ -1226,7 +1226,7 @@ To configure DNS:
 
          Learn more in the description of the [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) resources in the {{ TF }} provider documentation.
 
-      1. Make sure that the configuration files are correct.
+      1. Make sure that the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run the check using the command:

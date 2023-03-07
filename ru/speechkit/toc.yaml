@@ -115,7 +115,7 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Релизы
+  - name: История изменений
     items:
       - name: Релизы распознавания
         href: release-notes-stt.md

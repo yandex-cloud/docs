@@ -27,15 +27,13 @@ If you no longer need these resources, [delete them](#clear-out).
 
 
 
-
-
 ### Required paid resources {#paid-resources}
 
 The cost of maintaining your {{ CH }} database for Graphite includes:
 * A payment for the cluster's computing resources, the amount of storage and backups (see [{{ mch-full-name }} pricing](../../managed-clickhouse/pricing.md)).
 * A payment for a running VM to manage a database (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-
-
+
+
 
 ## Create a cluster {#cluster-create}
 
@@ -146,8 +144,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
 ## Connect the virtual machine to a database {#cluster-connect}
 
-
-1. [Configure security groups](../../managed-clickhouse/operations/connect.md#configuring-security-groups) for the cloud network to permit all the required traffic between the cluster and the VM.
+1. [Configure security groups](../../managed-clickhouse/operations/connect.md#configuring-security-groups) for the cloud network to permit all the required traffic between the cluster and the VM.
 1. [Connect](../../compute/operations/vm-connect/ssh.md).
 1. Run the ClickHouse CLI with the following parameters: specify the earlier saved parameters in place of `<host FQDN>`, `<database name>`, `<database username>`, and `<database user password>`.
 

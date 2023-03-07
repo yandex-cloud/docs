@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
       - name: All instructions
         href: operations/index.md
@@ -53,12 +53,14 @@ items:
         href: operations/cluster-delete.md
       - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All use cases
         href: tutorials/index.md
       - name: Adding data to the database
-        href: operations/insert.md
+        href: tutorials/insert.md
+      - name: Migrating data to ClickHouse
+        href: tutorials/data-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
       - name: Using hybrid storage

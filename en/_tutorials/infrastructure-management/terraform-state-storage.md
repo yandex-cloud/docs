@@ -1,6 +1,6 @@
 # Uploading {{ TF }} states to Object Storage
 
-The instructions describe the steps to load a {{ TF }} state to [{{ objstorage-full-name }}](../../storage/).
+The instructions describe the steps for uploading a {{ TF }} state to [{{ objstorage-full-name }}](../../storage/).
 
 A {{ TF }} state describes the current deployed infrastructure and is stored in files with the `.tfstate` extension. The state file is created after the infrastructure is deployed and can be immediately uploaded to {{ objstorage-name }}. The uploaded state file is updated as the infrastructure you created changes.
 
@@ -8,7 +8,7 @@ In this example, the saved state lets other users get the ID of one of the creat
 
 To configure {{ TF }} state storage in {{ objstorage-name }} and use it to create new resources:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Required paid resources](#paid-resources).
 1. [Install {{ TF }}](#install-terraform).
 1. [Create a {{ TF }} configuration file](#configure-terraform).
@@ -24,7 +24,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {{ TF }} and its providers are distributed under the [Mozilla Public License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -41,7 +41,7 @@ In this scenario, you create three VMs with public IP addresses, a virtual netwo
 
 The cost of supporting this infrastructure includes:
 
-* Data storage fees (see [prices {{ objstorage-full-name }}](../../storage/pricing.md#prices-storage)).
+* Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
@@ -108,7 +108,7 @@ To read more about the state storage backend, see the [{{ TF }} site](https://ww
 
 ## Deploy the configuration {#deploy}
 
-In this example, two VMs are created: `terraform1` and `terraform2`. They will be connected to `subnet-1` in the `{{ region-id }}-a` availability zone. The subnet will be in the `network-1` cloud network.
+In this example, two VMs are created: `terraform1` and `terraform2`. They will be connected to `subnet-1` in the `{{ region-id }}-a` availability zone. The subnet be in the `network-1` cloud network.
 
 The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of RAM for `terraform1` and 2 cores and 4 GB of RAM for `terraform2`. The machines will automatically get public IP addresses and private IP addresses from the range `192.168.10.0/24` in `subnet-1`. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
 
@@ -128,7 +128,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
        bucket     = "<bucket name>"
        region     = "{{ region-id }}"
        key        = "<path to the state file in the bucket>/<state file name>.tfstate"
-       access_key = "<static key ID>"
+       access_key = "<ID of the static key>"
        secret_key = "<secret key>"
 
        skip_region_validation      = true
@@ -143,6 +143,10 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
      zone      = "{{ region-id }}-a"
    }
 
+   resource "yandex_compute_image" "ubuntu_2004" {
+     source_family = "ubuntu-2004-lts"
+   }
+
    resource "yandex_compute_instance" "vm-1" {
      name = "terraform1"
 
@@ -153,7 +157,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
 
      boot_disk {
        initialize_params {
-         image_id = "fd87va5cc00gaq2f5qfb"
+         image_id = yandex_compute_image.ubuntu_2004.id
        }
      }
 
@@ -163,7 +167,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
      }
    }
 
@@ -177,7 +181,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
 
      boot_disk {
        initialize_params {
-         image_id = "fd87va5cc00gaq2f5qfb"
+         image_id = yandex_compute_image.ubuntu_2004.id
        }
      }
 
@@ -187,7 +191,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
      }
    }
 
@@ -239,7 +243,7 @@ Make sure that the state file is uploaded to {{ objstorage-name }}:
 
 ## Retrieve the state from the backend {#retrieve-state}
 
-You can request the {{ TF }} state saved in {{ objstorage-name }} from another configuration to expand the infrastructure you created.
+You can request the {{ objstorage-name }} state saved in {{ TF }} from another configuration to expand the infrastructure you created.
 
 Create another configuration and use the saved state to create another VM in one of the existing subnets:
 
@@ -258,8 +262,8 @@ Create another configuration and use the saved state to create another VM in one
 
    provider "yandex" {
      token     = "<OAuth or static key of the service account>"
-     cloud_id  = "<cloud ID>"
-     folder_id = "<folder ID>"
+     cloud_id  = "cloud-id"
+     folder_id = "folder-id"
      zone      = "{{ region-id }}-a"
    }
 
@@ -268,9 +272,9 @@ Create another configuration and use the saved state to create another VM in one
      config = {
        endpoint   = "{{ s3-storage-host }}"
        bucket     = "<bucket name>"
-       region     = "{{ region-id }}-a"
-       key        = "<path to the state file in the bucket>/<state file name>.tfstate"
-       access_key = "<static key ID>"
+       region     = "{{ region-id }}"
+       key        = "<path to state file in the bucket>/<name of the state file>.tfstate"
+       access_key = "<ID of the static key>"
        secret_key = "<secret key>"
 
        skip_region_validation      = true
@@ -298,7 +302,7 @@ Create another configuration and use the saved state to create another VM in one
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
      }
    }
    ```
