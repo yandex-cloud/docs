@@ -191,7 +191,7 @@ items:
     href: pricing.md
   - name: Публичные материалы
     href: public-talks.md
-  - name: Релизы
+  - name: История изменений
     href: release-notes.md
     when: product == "yandex-cloud"
   - name: Вопросы и ответы

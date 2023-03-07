@@ -172,7 +172,7 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Релизы
+  - name: История изменений 
     when: product == "yandex-cloud"
     items:
       - name: Релизы распознавания
