@@ -91,7 +91,7 @@ Software Product Owner/Owner
 
 Publication date: 10.11.2022
 
-Web address: <https://cloudil.co.il/docs/legal/marketplace-terms>
+Web address: [https://cloudil.co.il/docs/legal/marketplace-terms](https://nebius.com/il/docs/legal/marketplace-terms)
 
 *Previous version of the document: <https://nebius.com/il/docs/legal/archive/marketplace-terms-20220614>*
 

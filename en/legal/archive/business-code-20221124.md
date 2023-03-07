@@ -289,4 +289,4 @@ The Ethics Committee may review this Сode as required. All Cloud.IL Systems emp
 
 Publication date: 24.11.2022
 
-Web address: <https://cloudil.co.il/docs/legal/business-code>
+Web address: [https://cloudil.co.il/docs/legal/business-code](https://nebius.com/il/docs/legal/business-code)

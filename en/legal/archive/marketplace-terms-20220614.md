@@ -6,7 +6,7 @@ noIndex: true
 
 # Terms of Use of CloudIL Marketplace
 
-*This is an old version of the document, which expired on November 10, 2022. The current version is available at: <https://cloudil.co.il/docs/legal/marketplace-terms>.*
+*This is an old version of the document, which expired on November 10, 2022. The current version is available at: [https://cloudil.co.il/docs/legal/marketplace-terms](https://nebius.com/il/docs/legal/marketplace-terms).*
 
 This document contains specific Terms of Use of CloudIL Marketplace (the "Service" and/or the "Marketplace") and is an integral part of CloudIL Platform Terms of Use ("Agreement"). Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement.
 

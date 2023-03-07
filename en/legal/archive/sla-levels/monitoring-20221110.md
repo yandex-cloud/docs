@@ -7,7 +7,7 @@ noIndex: true
 
 *This is an old version of the document, which expired on February 20, 2023. The current version is available at: <https://nebius.com/il/docs/legal/sla-levels/monitoring>.*
 
-This document defines the Service Level of {{ monitoring-full-name }} ("Service") and is an integral part of CloudIL Services Agreement ("Agreement") and SLA available at: <https://cloudil.co.il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document defines the Service Level of {{ monitoring-full-name }} ("Service") and is an integral part of CloudIL Services Agreement ("Agreement") and SLA available at: [https://cloudil.co.il/docs/legal/sla](https://nebius.com/il/docs/legal/sla). Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 | Service Level | 99.90% |
 | --- | --- |
@@ -34,6 +34,6 @@ ________________________________________
 
 **Cloud.IL Systems LTD**
 
-Web address: <https://cloudil.co.il/docs/legal/sla-levels/monitoring>
+Web address: [https://cloudil.co.il/docs/legal/sla-levels/monitoring](https://nebius.com/il/docs/legal/sla-levels/monitoring)
 
 Publication date: 10.11.2022

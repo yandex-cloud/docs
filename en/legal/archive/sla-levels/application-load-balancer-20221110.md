@@ -7,7 +7,7 @@ noIndex: true
 
 *This is an old version of the document, which expired on February 20, 2023. The current version is available at: <https://nebius.com/il/docs/legal/sla-levels/application-load-balancer>.*
 
-This document defines the Service Level for {{ alb-full-name }} ("the Service") and is an integral part of the CloudIL Platform Services User Agreement ("Agreement") and the SLA available at: <https://cloudil.co.il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document defines the Service Level for {{ alb-full-name }} ("the Service") and is an integral part of the CloudIL Platform Services User Agreement ("Agreement") and the SLA available at: [https://cloudil.co.il/docs/legal/sla](https://nebius.com/il/docs/legal/sla). Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 | Service Level | 99.99% |
 | --- | --- |
@@ -28,7 +28,7 @@ Loss of external connectivity with the {{ alb-full-name }} or receiving an {{ al
 
 * the {{ alb-full-name }} is launched in 3 Availability Zones;
 * all cloud resources of the Platform located in the Target Group connected to a single {{ alb-full-name }} unit are in a working mode^1^ and ready to receive traffic from {{ alb-full-name }} according to the protocols specified in the {{ alb-full-name }} settings;
-* in the subnets, where the {{ alb-full-name }} is launched, there is enough address space for the required number of LCUs, established by the technical requirements on Site: <https://cloudil.co.il/docs/application-load-balancer/concepts/application-load-balancer#subnets-sizes>;
+* in the subnets, where the {{ alb-full-name }} is launched, there is enough address space for the required number of LCUs, established by the technical requirements on Site: [https://cloudil.co.il/docs/application-load-balancer/concepts/application-load-balancer#subnets-sizes](https://nebius.com/il/docs/application-load-balancer/concepts/application-load-balancer#subnets-sizes);
 * cloud resources in Target groups are ready to process requests at the time configured in the {{ alb-full-name }}.
 
 ^1^ The working mode of Platform's cloud resources means the "Healthy" mode specified in the technical documentation of the Service.
@@ -39,6 +39,6 @@ ________________________________________
 
 **Cloud.IL Systems LTD**
 
-Web address: <https://cloudil.co.il/docs/legal/sla-levels/application-load-balancer>
+Web address: [https://cloudil.co.il/docs/legal/sla-levels/application-load-balancer](https://nebius.com/il/docs/legal/sla-levels/application-load-balancer)
 
 Publication date: 10.11.2022

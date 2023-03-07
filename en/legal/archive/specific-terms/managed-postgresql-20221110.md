@@ -7,7 +7,7 @@ noIndex: true
 
 *This is an old version of the document, which expired on February 20, 2023. The current version is available at: <https://nebius.com/il/docs/legal/specific-terms/managed-postgresql>.*
 
-This document contains specific Terms of Use of {{ mpg-full-name }} ("the Service") and is an integral part of CloudIL Services Agreement ("Agreement") and Service Terms set forth at <https://cloudil.co.il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document contains specific Terms of Use of {{ mpg-full-name }} ("the Service") and is an integral part of CloudIL Services Agreement ("Agreement") and Service Terms set forth at [https://cloudil.co.il/docs/legal/service-terms](https://nebius.com/il/docs/legal/service-terms). Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 ## 1. Functional Features of the Service {#features}
 
@@ -53,6 +53,6 @@ ________________________________________
 
 **Cloud.IL Systems LTD**
 
-Web address: <https://cloudil.co.il/docs/legal/specific-terms/managed-postgresql>
+Web address: [https://cloudil.co.il/docs/legal/specific-terms/managed-postgresql](https://nebius.com/il/docs/legal/specific-terms/managed-postgresql)
 
 Publication date: 10.11.2022

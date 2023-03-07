@@ -184,4 +184,4 @@ You can send your questions about the contents of the Code to Procurement depart
 
 Publication date: 24.11.2022
 
-Web address: <https://cloudil.co.il/docs/legal/supplier-code>
+Web address: [https://cloudil.co.il/docs/legal/supplier-code](https://nebius.com/il/docs/legal/supplier-code)

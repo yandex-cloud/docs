@@ -135,8 +135,8 @@ CloudIL collects personal data from the Data Subject directly. However, in certa
 
 ## 12. Changes to this Policy
 
-CloudIL may change this Policy from time to time at its sole discretion. If so, we may notify the Data Subjects about these changes by an appropriate method. If there is no explicit notification, the Data Subjects may always review the up-to-date version of this Policy located at <https://cloudil.co.il/docs/legal/hr-privacy>.
+CloudIL may change this Policy from time to time at its sole discretion. If so, we may notify the Data Subjects about these changes by an appropriate method. If there is no explicit notification, the Data Subjects may always review the up-to-date version of this Policy located at [https://cloudil.co.il/docs/legal/hr-privacy](https://nebius.com/il/docs/legal/hr-privacy).
  
 Publication date: 19.01.2023
 
-Web address: <https://cloudil.co.il/docs/legal/hr-privacy>
+Web address: [https://cloudil.co.il/docs/legal/hr-privacy](https://nebius.com/il/docs/legal/hr-privacy)

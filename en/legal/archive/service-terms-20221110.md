@@ -16,7 +16,7 @@ This CloudIL Service Terms ("Service Terms") constitutes terms of use of certain
 
 1.1. Description of Services and Service's Documentation are available on Site and/or in Management Console. Customer must comply with Documentation applicable to Services.
 
-1.2. CloudIL may make new Services available to Customer. Terms of use of new Services will be posted online at the URL specified at: <https://cloudil.co.il/docs/legal/specific-terms> and become effective once posted.
+1.2. CloudIL may make new Services available to Customer. Terms of use of new Services will be posted online at the URL specified at: [https://cloudil.co.il/docs/legal/specific-terms](https://nebius.com/il/docs/legal/specific-terms) and become effective once posted.
 
 1.3. CloudIL may terminate any certain Services provided subject to prior notification of Customer at least thirty (30) calendar days prior to the termination.
 
@@ -79,12 +79,12 @@ This CloudIL Service Terms ("Service Terms") constitutes terms of use of certain
 
 ## TERMS OF USE OF SPECIFIC SERVICES
 
-List of available Services and URLs to Terms of their use are posted at: <https://cloudil.co.il/docs/legal/specific-terms>
+List of available Services and URLs to Terms of their use are posted at: [https://cloudil.co.il/docs/legal/specific-terms](https://nebius.com/il/docs/legal/specific-terms)
 
 ________________________________________
 
 **Cloud.IL Systems LTD**
 
-Web address: <https://cloudil.co.il/docs/legal/service-terms>
+Web address: [https://cloudil.co.il/docs/legal/service-terms](https://nebius.com/il/docs/legal/service-terms)
 
 Publication date: 10.11.2022

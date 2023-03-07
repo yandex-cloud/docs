@@ -6,7 +6,7 @@ noIndex: true
 
 # Terms of Use of CloudIL Marketplace
 
-*This is an old version of the document, which expired on June 14, 2022. The current version is available at: <https://cloudil.co.il/docs/legal/marketplace-terms>.*
+*This is an old version of the document, which expired on June 14, 2022. The current version is available at: [https://cloudil.co.il/docs/legal/marketplace-terms](https://nebius.com/il/docs/legal/marketplace-terms).*
 
 Date of publication: 20.05.2022
 
