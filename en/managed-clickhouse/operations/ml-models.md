@@ -38,7 +38,7 @@
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
 
 - CLI
@@ -69,7 +69,7 @@
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
 
 - CLI
@@ -112,7 +112,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
    1. Select the cluster:
 
-      1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+      1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
       1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
       1. Click **Add model**.
 
@@ -164,7 +164,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -189,7 +189,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
 To apply the model to data stored in a {{ CH }} cluster:
 
-1. Connect to the cluster [using the {{ CH }} CLI](../../managed-clickhouse/operations/connect.md#cli) or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
+1. Connect to the cluster [using the {{ CH }} CLI client](../../managed-clickhouse/operations/connect.md#cli){% if product == "yandex-cloud" %} or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console{% endif %}.
 1. Execute an SQL query like:
 
    ```
@@ -228,7 +228,7 @@ To update the contents of a model that is already connected to the cluster:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
    1. Select the appropriate model, click ![image](../../_assets/dots.svg), and select **Edit**.
 
@@ -271,7 +271,7 @@ To update the contents of a model that is already connected to the cluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -312,7 +312,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
    1. Select the appropriate model, click ![image](../../_assets/dots.svg), and select **Delete**.
 
@@ -343,7 +343,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -386,10 +386,10 @@ To upload data to {{ CH }} and test the model:
 
 {% else %}
 
-1. Download the [data file](https://storage.yandexcloud.net/doc-files/managed-clickhouse/train.csv) to analyze:
+1. Download a [data file](https://storage.yandexcloud.net/managed-clickhouse/train.csv) for analysis:
 
    ```bash
-   wget https://storage.yandexcloud.net/doc-files/managed-clickhouse/train.csv
+   wget https://storage.yandexcloud.net/managed-clickhouse/train.csv
    ```
 
 {% endif %}
@@ -425,7 +425,7 @@ To upload data to {{ CH }} and test the model:
    * **URL**: `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`.
 
 1. Test the model:
-   1. Connect to the cluster [using the {{ CH }} CLI](../../managed-clickhouse/operations/connect.md#cli) or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
+   1. Connect to the cluster [using the {{ CH }} CLI client](../../managed-clickhouse/operations/connect.md#cli){% if product == "yandex-cloud" %} or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console{% endif %}.
    1. Test the model using queries:
       * Predicted values for first 10 rows of the `ACTION` column:
 

@@ -63,9 +63,13 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
    {% if audience != "internal" %}
 
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+   1. Under **Network settings**, select:
+      * Cloud network for the cluster.
+      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
    {% endif %}
 
@@ -103,7 +107,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       yc vpc subnet list
       ```
 
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
    {% endif %}
 
@@ -125,13 +129,12 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
          --resource-preset <host class> \
          --user name=<username>,password=<user password> \
-         --database name=<database name>,owner=<name of the database owner> \
+         --database name=<database name>,owner=<database owner name> \
          --disk-size <storage size, GB> \
          --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --security-group-ids <list of security group IDs> \
-         --connection-pooling-mode=<connection manager operating mode> \
-         --deletion-protection=<cluster deletion protection: true or false> \
-         --serverless-access
+         --connection-pooling-mode=<connection manager mode> \
+         --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
@@ -149,8 +152,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          --resource-preset <host class> \
          --user name=<username>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
-         --disk-size <storage size, GB> \
-         --serverless-access=<true or false>
+         --disk-size <storage size, GB>
       ```
 
       {% endif %}
@@ -171,10 +173,6 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-      {% else %}
-
-      To allow access to the cluster from {{ sf-full-name }}, pass the `--serverless-access` parameter.
-
       {% endif %}
       {% endif %}
 
@@ -194,7 +192,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
    To create a cluster:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * Database cluster: Description of the cluster and its hosts.
 
@@ -208,7 +206,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       {% if product == "yandex-cloud" %}
 
@@ -453,10 +451,14 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
    * Cluster configuration, in the `configSpec` parameter.
-   * Configuration of the cluster's hosts, in one or more `hostSpecs` parameters.
+   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+
    {% if audience != "internal" %}
-   * IDs of [security groups](../concepts/network.md#security-groups), in the parameter `securityGroupIds`.
+
+   * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+
    {% endif %}
+
    * Database configuration, in one or more `databaseSpecs` parameters.
    * User settings, in one or more `userSpecs` parameters.
 
@@ -466,10 +468,6 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    {% if audience != "internal" %}
 
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
-
-   {% else %}
-
-   To allow cluster access from {{ sf-full-name }}, pass `true` for the `configSpec.access.serverless` parameter.
 
    {% endif %}
    {% endif %}
@@ -573,9 +571,13 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
+
    {% if audience != "internal" %}
+
    * In the new security group `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
+
    {% endif %}
+
    * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.

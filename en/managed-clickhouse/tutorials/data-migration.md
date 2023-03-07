@@ -119,7 +119,7 @@ To migrate data, start a ZooKeeper node.
 ## Create a {{ mch-name }} cluster {#create-cluster}
 
 Make sure that the computing capacity and storage size of the cluster are appropriate for the environment
-where the existing databases are deployed and [create a cluster](cluster-create.md).
+where the existing databases are deployed and [create a cluster](../operations/cluster-create.md).
 
 
 ## Create a task for clickhouse-copier {#copier-task}

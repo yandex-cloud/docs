@@ -60,7 +60,7 @@ description: "Из статьи вы узнаете, как подключить
 * [Создавать датасеты](../../datalens/concepts/dataset/index.md) с данными кластера, используя это подключение.
 * Визуализировать датасеты с помощью [чартов](../../datalens/concepts/chart/index.md) и [дашбордов](../../datalens/concepts/dashboard.md).
 
-{% if audience != "internal" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 См. также: [пример визуализации данных из {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
 

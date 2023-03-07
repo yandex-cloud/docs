@@ -7,7 +7,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
       - name: All instructions
         href: operations/index.md
@@ -22,13 +22,13 @@ items:
         href: operations/cluster-stop.md
       - name: SQL queries in the management console
         href: operations/web-sql-query.md
+        when: product == "yandex-cloud"
       - name: Updating the PostgreSQL version
         href: operations/cluster-version-update.md
       - name: Changing cluster and database settings
         href: operations/update.md
       - name: Connecting to DataLens
         href: operations/datalens-connect.md
-        when: product == "yandex-cloud"
       - name: Managing PostgreSQL hosts
         href: operations/hosts.md
       - name: Managing databases
@@ -69,7 +69,8 @@ items:
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: >-
-          Delivering data to {{ mkf-full-name }} using {{ data-transfer-full-name }}
+          Delivering data to {{ mkf-full-name }} using
+          {{ data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
       - name: Delivering data to {{ ydb-full-name }} using {{ data-transfer-full-name }}
         href: tutorials/data-transfer-ydb.md

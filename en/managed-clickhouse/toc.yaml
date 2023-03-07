@@ -7,7 +7,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
       - name: All instructions
         href: operations/index.md
@@ -25,6 +25,7 @@ items:
         href: operations/cluster-stop.md
       - name: SQL queries in the management console
         href: operations/web-sql-query.md
+        when: product == "yandex-cloud"
       - name: Changing cluster and database settings
         href: operations/update.md
       - name: Setting up access to ObjectStorage
@@ -39,7 +40,6 @@ items:
         href: operations/format-schemas.md
       - name: Connecting to DataLens
         href: operations/datalens-connect.md
-        when: product == "yandex-cloud"
       - name: Changing ClickHouse versions
         href: operations/cluster-version-update.md
       - name: Managing ZooKeeper hosts
@@ -62,15 +62,14 @@ items:
         href: operations/cluster-delete.md
       - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All use cases
         href: tutorials/index.md
       - name: Adding data to the database
-        href: operations/insert.md
-      - name: Migrating ClickHouse data
-        when: content != "noshow"
-        href: operations/data-migration.md
+        href: tutorials/insert.md
+      - name: Migrating data to ClickHouse
+        href: tutorials/data-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
       - name: Using hybrid storage

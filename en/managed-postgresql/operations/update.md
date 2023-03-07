@@ -127,7 +127,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -215,7 +215,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -314,7 +314,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -360,6 +360,8 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Run the command with a list of settings to update:
 
+      {% if product == "yandex-cloud" %}
+
       ```bash
       {{ yc-mdb-pg }} cluster update <cluster ID or name> \
           --backup-window-start <backup start time> \
@@ -376,27 +378,46 @@ You can change the DBMS settings of the hosts in your cluster.
                                    `statements-sampling-interval=<statement sampling interval, seconds>
       ```
 
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```bash
+      {{ yc-mdb-pg }} cluster update <cluster ID or name> \
+          --backup-window-start <backup start time> \
+          --datalens-access=<true or false> \
+          --maintenance-window type=<maintenance type: anytime or weekly>,`
+                              `day=<day of week for weekly>,`
+                              `hour=<hour for weekly> \
+          --deletion-protection=<cluster deletion protection: true or false> \
+          --connection-pooling-mode=<connection manager mode> \
+          --performance-diagnostics enabled=<true or false>,`
+                                   `sessions-sampling-interval=<session sampling interval, seconds>,`
+                                   `statements-sampling-interval=<statement sampling interval, seconds>
+      ```
+
+      {% endif %}
+
    You can change the following settings:
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   {% if product == "yandex-cloud" %}* `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
+   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
    {% if product == "yandex-cloud" %}
+
+   * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
+
    {% if audience != "internal" %}
 
-   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
-
-   {% else %}
-
-   * `--serverless-access`: Enables cluster access from {{ sf-full-name }}. Default value: `false`.
+   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }} documentation](../../functions/operations/database-connection.md).
 
    {% endif %}
+
    {% endif %}
 
    * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md): `SESSION`, `TRANSACTION`, or `STATEMENT`.
@@ -436,6 +457,8 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
+   {% if product == "yandex-cloud" %}
+
    1. To allow access from {{ datalens-full-name }} and [execution of SQL queries from the management console](web-sql-query.md), change the values of the appropriate fields in the `config.access` block:
 
       ```hcl
@@ -444,12 +467,32 @@ You can change the DBMS settings of the hosts in your cluster.
         config {
           access {
             data_lens = <access from DataLens: true or false>
-            web_sql   = <execution of SQL queries from management console: true or false>
+            web_sql   = <executing SQL queries from the management console: true or false>
             ...
         }
         ...
       }
       ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   1. To allow access from {{ datalens-full-name }}, change the values of the appropriate fields in the `config.access` block:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        config {
+          access {
+            data_lens = <access from DataLens: true or false>
+            ...
+        }
+        ...
+      }
+      ```
+
+   {% endif %}
 
    1. To change the [connection pooler mode](../concepts/pooling.md), add the `config.pooler_config` section to the {{ mpg-name }} cluster description:
 
@@ -485,7 +528,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -496,7 +539,7 @@ You can change the DBMS settings of the hosts in your cluster.
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
+   * Settings for access from other services {% if product == "yandex-cloud" %} and access to SQL queries from the management console {% endif %} in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
@@ -512,10 +555,6 @@ You can change the DBMS settings of the hosts in your cluster.
    {% if audience != "internal" %}
 
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
-
-   {% else %}
-
-   To allow cluster access from {{ sf-full-name }}, pass `true` for the `configSpec.access.serverless` parameter.
 
    {% endif %}
    {% endif %}
@@ -558,7 +597,7 @@ To switch the master:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run the command:
+   Run this command:
 
    ```bash
    {{ yc-mdb-pg }} cluster start-failover <cluster ID or name> \
@@ -588,7 +627,7 @@ To switch the master:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -707,7 +746,7 @@ After the cluster is moved, it will continue using the cloud network from the so
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -727,7 +766,7 @@ After the cluster is moved, it will continue using the cloud network from the so
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster (the functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage).
 
 {% endnote %}
 

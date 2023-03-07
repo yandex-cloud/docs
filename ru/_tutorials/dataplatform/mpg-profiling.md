@@ -14,7 +14,13 @@
 ## Перед началом работы {#before-start}
 
 1. Выберите базы данных для диагностики.
-1. [Разрешите доступ к базам из консоли управления](../../managed-postgresql/operations/web-sql-query.md#sql-cluster-access).
+
+{% if product == "yandex-cloud" %}
+
+1. [Разрешите доступ к базам из консоли управления](../../managed-postgresql/operations/update.md#change-additional-settings).
+
+{% endif %}
+
 1. [Активируйте сбор статистики](../../managed-postgresql/operations/performance-diagnostics.md#activate-stats-collector) о сессиях и запросах.
 1. [Включите модуль `auto_explain`](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) для расширенного логирования планов выполнения запросов.
 1. Чтобы в лог производительности попадало больше запросов, [в настройках СУБД](../../managed-postgresql/operations/update.md#change-postgresql-config) уменьшите значение [параметра `log_min_duration_statement`](../../managed-postgresql/concepts/settings-list.md#setting-log-min-duration-statement).
@@ -50,6 +56,8 @@ WHERE state != 'idle' ORDER BY 1 DESC;
 
     [Создайте](https://www.postgresql.org/docs/current/sql-createindex.html) или [обновите](https://www.postgresql.org/docs/current/sql-reindex.html) необходимые индексы.
 
+    {% if product == "yandex-cloud" %}
+
     {% note tip %}
 
     Чтобы визуализировать планы выполнения найденных запросов, используйте вкладку **SQL** на странице управления кластером.
@@ -57,6 +65,8 @@ WHERE state != 'idle' ORDER BY 1 DESC;
     Подробнее см. в разделе [{#T}](../../managed-postgresql/operations/web-sql-query.md).
 
     {% endnote %}
+
+    {% endif %}
 
 * Обновить статистику с помощью команды [`ANALYZE`](https://www.postgresql.org/docs/current/sql-analyze.html).
 

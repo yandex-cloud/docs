@@ -60,7 +60,7 @@ Once the connection is created, you can:
 * [Create datasets](../../datalens/concepts/dataset/index.md) with cluster data using the connection.
 * Visualize the datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
-{% if audience != "internal" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 See an [example of data visualization from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
 
