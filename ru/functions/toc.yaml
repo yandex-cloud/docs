@@ -24,6 +24,12 @@ items:
             href: quickstart/create-function/bash-function-quickstart.md
           - name: Java
             href: quickstart/create-function/java-function-quickstart.md
+      - name: Создание триггера
+        items:
+          - name: Обзор
+            href: quickstart/create-trigger/index.md
+          - name: Таймер
+            href: quickstart/create-trigger/timer-quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
