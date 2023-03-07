@@ -20,7 +20,8 @@ default:
   #Другое
   login-example: login@yandex.ru
   yandex-domain: yandex.ru
-  link-keycloak-example: http://keycloak.example.com:8080/auth/realms/master
+  link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
+  link-keycloak-example: http://keycloak.example.com:8080/realms/master
 
   #Внешние ссылки
   #link-saml: https://ru.wikipedia.org/wiki/SAML  в общем presets
