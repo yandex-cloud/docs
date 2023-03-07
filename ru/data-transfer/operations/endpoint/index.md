@@ -33,7 +33,9 @@
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
+ {% if audience == "external" %}
             * [{{ yds-full-name }}](source/data-streams.md)
+ {% endif %}
 {% if product == "yandex-cloud" and audience == "external" %}
             * [{{ ydb-full-name }}](source/ydb.md)
 {% endif %}
@@ -54,8 +56,11 @@
             * [{{ objstorage-name }}](target/object-storage.md)
             * [{{ OS }}](target/opensearch.md)
             * [{{ PG }}](target/postgresql.md)
+{% if audience == "external" %}
+            * [{{ yds-full-name }}](target/data-streams.md)
+{% endif %}
 {% if product == "yandex-cloud" and audience == "external" %}
-            * [{{ ydb-name }}](target/yandex-database.md)
+            * [{{ ydb-full-name }}](target/yandex-database.md)
 {% endif %}
 {% if audience == "internal" %}
             * [{{ yt-name }}](target/yt.md)
@@ -210,7 +215,9 @@
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
+{% if audience == "external" %}
             * [{{ yds-full-name }}](source/data-streams.md)
+{% endif %}
 {% if product == "yandex-cloud" and audience == "external" %}
             * [{{ ydb-full-name }}](source/ydb.md)
 {% endif %} 
@@ -229,8 +236,11 @@
             * [{{ MY }}](target/mysql.md)
             * [{{ objstorage-name }}](target/object-storage.md)
             * [{{ PG }}](target/postgresql.md)
+{% if audience == "external" %}
+            * [{{ yds-full-name }}](target/data-streams.md)
+{% endif %}
 {% if product == "yandex-cloud" and audience == "external" %}
-            * [{{ ydb-name }}](target/yandex-database.md)
+            * [{{ ydb-full-name }}](target/yandex-database.md)
 {% endif %}
 {% if audience == "internal" %}
             * [{{ yt-name }}](target/yt.md)

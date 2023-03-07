@@ -2,4 +2,4 @@
 
 * **Поток** — укажите имя потока, ассоциированного с базой данных.
 
-* {% include [Field Service Account](../../fields/yds/ui/service-account.md) %}
+* {% include [Field Service Account](../../fields/yds/ui/service-account-source.md) %}

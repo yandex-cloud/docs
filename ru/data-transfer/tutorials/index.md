@@ -43,7 +43,7 @@
 {% endif %}
 {% if audience == "draft" %}* [{#T}](metrika-to-clickhouse.md){% endif %}
 
-{% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" and audience == "external"%}
 ## Сохранение потока данных
 * [{#T}](yds-to-clickhouse.md)
 * [{#T}](yds-to-objstorage.md)
