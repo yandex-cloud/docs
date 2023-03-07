@@ -6,19 +6,27 @@
 
    Automatic cluster backups are stored for a specified number of days whereas manually created ones are stored indefinitely. After a cluster is deleted, all backups persist for 7 days.
 
-- {% include [Maintenance window](../console/maintenance-window.md) %}
+- **Maintenance window**: [Maintenance time](../../../managed-postgresql/concepts/maintenance.md) settings:
+
+   {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
 - **{{ datalens-name }} access:** Allows you to analyze cluster data in [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
+
 - **Access from management console**: Enables you to run SQL queries against cluster databases from the {{ yandex-cloud }} management console.
 
+
 - {% include [datatransfer access](../console/datatransfer-access.md) %}
+
 
 
 - **Access from Serverless**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../../functions/concepts/index.md). For more detail on setting up access, see the [{{ sf-name }}](../../../functions/operations/database-connection.md).
 
 
-- **Statistics sampling**: Option enables use of [{#T}](../../../managed-postgresql/operations/performance-diagnostics.md) in a cluster. This feature is in the [Preview](../../../overview/concepts/launch-stages.md) stage.
+
+- **Statistics sampling**: Option enables use of [{#T}](../../../managed-postgresql/operations/performance-diagnostics.md) in a cluster. If this option is enabled, also set the **Sessions sampling interval** and **Statements sampling interval** using the sliders. Both are measured in seconds.
+
+   This feature is in the [Preview](../../../overview/concepts/launch-stages.md) stage.
 
 - **Autofailover**: Enable this option so that when the master host changes, the replication source for every replica host is automatically switched over to the new master host. For more information, see [{#T}](../../../managed-postgresql/concepts/replication.md).
 

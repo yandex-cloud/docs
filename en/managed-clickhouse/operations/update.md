@@ -26,7 +26,7 @@ After creating a cluster, you can:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    
    1. Under **Service settings**, select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
@@ -52,7 +52,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. To change the {{ CH }} host class, select the platform, VM type, and the desired host class under **Resources**.
    1. To change the {{ ZK }} host class, select the platform, VM type, and the desired {{ ZK }} host class under **{{ ZK }} host class**.
@@ -129,7 +129,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -168,7 +168,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
    To increase a cluster's storage size:
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Storage size**, specify the required value.
    1. Click **Save changes**.
@@ -228,7 +228,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -316,7 +316,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -348,7 +348,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Change the [{{ CH }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**:
    1. Click **Save changes**.
@@ -446,7 +446,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -475,7 +475,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Service settings**, change the additional cluster settings:
 
@@ -499,42 +499,50 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    1. Run the command with a list of settings to update:
 
+      
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster ID or name> \
          --backup-window-start <backup start time> \
          --datalens-access=<true or false> \
-         --maintenance-window type=<maintenance-window type: anytime or weekly>,`
-                             `day=<day of the week for the weekly type>,`
-                             `hour=<hour of the day for the weekly type> \
-         --metrika-access=<true or false> \
-         --websql-access=<true or false> \
-         --serverless-access=<true or false> \
          --datatransfer-access=<true or false> \
-         --deletion-protection=<cluster deletion protection: true or false>
+         --deletion-protection=<cluster deletion protection: true or false> \
+         --maintenance-window type=<maintenance type: anytime or weekly>,`
+                             `day=<day of week for weekly>,`
+                             `hour=<hour for weekly> \
+         --metrika-access=<true or false> \
+         --serverless-access=<true or false> \
+         --websql-access=<true or false>
       ```
+
+
 
    You can change the following settings:
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
+   
    * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+
+   * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
+
+
+   * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+   
+   
    * `--metrika-access`: Enables [data import from AppMetrika to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). Default value: `false`.
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
-      
-   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
+
+   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }} documentation](../../functions/operations/database-connection.md).
 
 
-   * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
-
-   * {% include [deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
-
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -557,17 +565,17 @@ For more information, see [{#T}](../concepts/memory-management.md).
       }
       ```
 
+   
    1. To allow access from other services and [execution of SQL queries from the management console](web-sql-query.md), change the values of the appropriate fields in the `access` block:
 
-      
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
         ...
         access {
-          data_lens  = <Access from DataLens: true or false>
-          metrika    = <Access from Yandex.Metrica and AppMetrica: true or false>
-          serverless = <Access from Cloud Functions: true or false>
-          web_sql    = <Run SQL queries from the management console: true or false>
+          data_lens  = <access from DataLens: true or false>
+          metrika    = <access from Metrica and AppMetrika: true or false>
+          serverless = <access from Cloud Functions: true or false>
+          web_sql    = <executing SQL queries from the management console: true or false>
         }
         ...
       }
@@ -586,13 +594,13 @@ For more information, see [{#T}](../concepts/memory-management.md).
       }
       ```
 
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -604,25 +612,25 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access parameter`.
+   * The cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+      * Settings for access from other services  and access to SQL queries from the management console  in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-
-      
+   
+   
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 
-   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
+   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
 {% endlist %}
 
@@ -677,7 +685,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Network settings**, select security groups for cluster network traffic.
 
@@ -721,7 +729,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -743,7 +751,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster (the functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage).
 
 {% endnote %}
 

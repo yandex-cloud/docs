@@ -12,18 +12,31 @@
 
 1. [Проверка аутентификации](#test-auth).
 
-## Перед началом {#before-you-begin}
+## Подготовка к работе {#before-you-begin}
 
 Чтобы воспользоваться инструкциями в этом разделе, вам понадобятся:
 
 1. Платформа [Docker](/blog/posts/2022/03/docker-containers). Если у вас не установлен Docker, [установите его](https://docs.docker.com/get-docker/). Убедитесь, что Docker Engine запущен.
 
-1. Локальный IdP-сервер [Keycloak](https://www.keycloak.org/). Чтобы установить Keycloak, выполните команды:
-   ```bash
-   git clone https://github.com/keycloak/keycloak-containers.git
-   cd ./keycloak-containers/docker-compose-examples
-   docker-compose -f keycloak-postgres.yml up
-   ```
+1. Локальный IdP-сервер [Keycloak](https://www.keycloak.org/). Чтобы установить и запустить Keycloak, выполните команды:
+
+    {% list tabs %}
+
+    - Keycloak 20 в режиме разработчика
+
+      ```bash
+      docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=Pa55w0rd quay.io/keycloak/keycloak:latest start-dev
+      ```
+
+    - Keycloak 19
+
+      ```bash
+      git clone https://github.com/keycloak/keycloak-containers.git
+      cd ./keycloak-containers/docker-compose-examples
+      docker-compose -f keycloak-postgres.yml up
+      ```
+
+    {% endlist %}
 
     {% note info %}
 
@@ -33,7 +46,20 @@
 
 1. Действующий сертификат, который используется для подписи в службе Keycloak. Чтобы его получить: 
 
-    1. Войдите в аккаунт администратора Keycloak по адресу: `http://keycloak.example.com:8080/auth/admin`. Вместо `keycloak.example.com` должен быть указан адрес вашего локального сервера, например: `http://localhost:8080/auth/admin`.
+    1. Войдите в аккаунт администратора Keycloak по адресу:
+
+        {% list tabs %}
+
+        - Keycloak 17 или новее
+
+          `http://keycloak.example.com:8080/admin`. Вместо `keycloak.example.com` должен быть указан адрес вашего локального сервера, например: `http://localhost:8080/admin`.
+
+        - Keycloak 16 и предшествующих версий
+
+          `http://keycloak.example.com:8080/auth/admin`. Вместо `keycloak.example.com` должен быть указан адрес вашего локального сервера, например: `http://localhost:8080/auth/admin`.
+
+        {% endlist %}
+
         Параметры входа по умолчанию:
         * **User name or email** : `admin`.
         * **Password** : `Pa55w0rd`.
@@ -44,13 +70,25 @@
 
     1. Сохраните сертификат в текстовом файле с расширением `.cer` в следующем формате: 
 
-    ```
-    -----BEGIN CERTIFICATE-----
-    <значение X509Certificate>
-    -----END CERTIFICATE-----
-    ```
-    
-    Вы также можете получить сертификат по прямой ссылке: `http://keycloak.example.com:8080/auth/realms/master/protocol/saml/descriptor`. Значение сертификата хранится в теге `<ds:X509Certificate>...</ds:X509Certificate>`.
+        ```
+        -----BEGIN CERTIFICATE-----
+        <значение X509Certificate>
+        -----END CERTIFICATE-----
+        ```
+
+    Вы также можете получить сертификат по прямой ссылке:
+
+    {% list tabs %}
+
+    - Keycloak 17 или новее
+
+      `http://keycloak.example.com:8080/realms/master/protocol/saml/descriptor`. Значение сертификата хранится в теге `<ds:X509Certificate>...</ds:X509Certificate>`.
+
+    - Keycloak 16 и предшествующих версий
+
+      `http://keycloak.example.com:8080/auth/realms/master/protocol/saml/descriptor`. Значение сертификата хранится в теге `<ds:X509Certificate>...</ds:X509Certificate>`.
+
+    {% endlist %}
 
 ## Создание и настройка федерации в {{org-full-name}} {#yc-settings}
 
@@ -72,23 +110,59 @@
 
   1. В поле **Время жизни cookie** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
 
-  1. В поле **IdP Issuer** вставьте ссылку вида: `http://<хост>:8080/auth/realms/master`
+  1. В поле **IdP Issuer** вставьте ссылку вида: 
 
-     Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например: 
+     - Keycloak 17 или новее
 
-     ```
-     {{ link-keycloak-example }}
-     ```
+       ```
+       http://<хост>:8080/realms/master
+       ```
 
-  1. В поле **Ссылка на страницу для входа в IdP** вставьте ссылку вида: `http://<хост>:8080/auth/realms/master/protocol/saml`
+       Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
-     Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
+       ```
+       {{ link-keycloak-example }}
+       ```
 
-     ```
-     {{ link-keycloak-example }}/protocol/saml
-     ```
+     - Keycloak 16 и предшествующих версий
 
-  1. Включите опцию **Автоматически создавать пользователей**, чтобы пользователь после аутентификации автоматически добавлялся в организацию. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../add-account.md#add-user-sso).
+       ```
+       http://<хост>:8080/auth/realms/master
+       ```
+
+       Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
+
+       ```
+       {{ link-keycloak-example-old }}
+       ```
+
+  1. В поле **Ссылка на страницу для входа в IdP** вставьте ссылку вида:
+
+     - Keycloak 17 или новее
+
+       ```
+       http://<хост>:8080/realms/master/protocol/saml
+       ```
+
+       Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
+
+       ```
+       {{ link-keycloak-example }}/protocol/saml
+       ```
+
+     - Keycloak 16 и предшествующих версий
+
+       ```
+       http://<хост>:8080/auth/realms/master/protocol/saml
+       ```
+
+       Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
+
+       ```
+       {{ link-keycloak-example-old }}/protocol/saml
+       ```
+
+  1. Включите опцию **Автоматически создавать пользователей**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../add-account.md#add-user-sso).
 
   1. Чтобы все запросы аутентификации от {{ yandex-cloud}} содержали цифровую подпись, включите опцию **Подписывать запросы аутентификации**. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}. Скачать сертификат можно в поле **Подписывать запросы аутентификации** сразу после сохранения федерации.
 
@@ -96,19 +170,34 @@
 
 - CLI
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    1. Посмотрите описание команды создания федерации:
+  1. Посмотрите описание команды создания федерации:
 
+     ```
+     yc organization-manager federation saml create --help
+     ```
+
+  1. Создайте федерацию:
+
+      - Keycloak 17 или новее
+
+        ```bash
+        yc organization-manager federation saml create --name my-federation \
+            --organization-id <ID организации> \
+            --auto-create-account-on-login \
+            --encrypted-assertions \
+            --cookie-max-age 12h \
+            --issuer "http://<хост>:8080/realms/master" \
+            --sso-binding POST \
+            --sso-url "http://<хост>:8080/realms/master/protocol/saml"       
         ```
-        yc organization-manager federation saml create --help
-        ```
 
-    1. Создайте федерацию:
+      - Keycloak 16 и предшествующих версий
 
-       ```bash
+        ```bash
         yc organization-manager federation saml create --name my-federation \
             --organization-id <ID организации> \
             --auto-create-account-on-login \
@@ -117,49 +206,105 @@
             --issuer "http://<хост>:8080/auth/realms/master" \
             --sso-binding POST \
             --sso-url "http://<хост>:8080/auth/realms/master/protocol/saml"       
-       ```
+        ```
 
         Где:
 
         * `name` — имя федерации. Имя должно быть уникальным в каталоге.
 
-        * `organization-id` — идентификатор организации. 
+        * `organization-id` — идентификатор организации.
 
         * `auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
 
-            Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
-        
+          Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
+
         * `encrypted-assertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
 
         * `cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
 
-        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация: `http://<хост>:8080/auth/realms/master`
+        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация:
+
+          - Keycloak 17 или новее
+
+            ```
+            http://<хост>:8080/realms/master
+            ```
 
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
-			
+
             ```
             {{ link-keycloak-example }}
             ```
 
-        * `sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации: `http://<хост>:8080/auth/realms/master/protocol/saml`
+          - Keycloak 16 и предшествующих версий
+
+            ```
+            http://<хост>:8080/auth/realms/master
+            ```
 
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
-			
+
             ```
-            {{ link-keycloak-example }}/protocol/saml
+            {{ link-keycloak-example-old }}
             ```
+
+        * `sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации:
+
+            - Keycloak 17 или новее
+
+              ```
+              http://<хост>:8080/realms/master/protocol/saml
+              ```
+
+              Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
+
+              ```
+              {{ link-keycloak-example }}/protocol/saml
+              ```
+
+            - Keycloak 16 и предшествующих версий
+
+              ```
+              http://<хост>:8080/auth/realms/master/protocol/saml
+              ```
+
+              Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
+
+              ```
+              {{ link-keycloak-example-old }}/protocol/saml
+              ```
 
         * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
 - API
 
-    1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы будете создавать федерацию.
+  1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы будете создавать федерацию.
 
-    1. Создайте файл с телом запроса, например `body.json`:
+  1. Создайте файл с телом запроса, например `body.json`:
 
-       ```json
-       {
+      - Keycloak 17 или новее
+
+        ```json
+        {
+          "folderId": "<ID каталога>",
+          "name": "my-federation",
+          "organizationId": "<ID организации>",
+          "autoCreateAccountOnLogin": true,
+          "cookieMaxAge":"43200s",
+          "issuer": "http://<хост>:8080/realms/master",
+          "ssoUrl": "http://<хост>:8080/realms/master/protocol/saml",
+          "securitySettings": {
+              "encryptedAssertions": true
+              },
+          "ssoBinding": "POST"
+        }       
+        ```
+
+      - Keycloak 16 и предшествующих версий
+
+        ```json
+        {
           "folderId": "<ID каталога>",
           "name": "my-federation",
           "organizationId": "<ID организации>",
@@ -172,7 +317,8 @@
               },
           "ssoBinding": "POST"
         }       
-       ```
+        ```
+
         Где:
 
         * `folderId` — идентификатор каталога.
@@ -181,34 +327,72 @@
 
         * `organizationId` — идентификатор организации. 
 
-        * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
+        * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере.
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
 
-            Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
+          Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
 
         * `cookieMaxAge` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
 
-        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация: `http://<хост>:8080/auth/realms/master`
-        
+        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация:
+
+          - Keycloak 17 или новее
+
+            ```
+            http://<хост>:8080/realms/master
+            ```
+
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
-			
+
             ```
             {{ link-keycloak-example }}
             ```
 
-        * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации: `http://<хост>:8080/auth/realms/master/protocol/saml`
+          - Keycloak 16 и предшествующих версий
+
+            ```
+            http://<хост>:8080/auth/realms/master
+            ```
+
+            Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. 
+
+            Например:
+
+            ```
+            {{ link-keycloak-example-old }}
+            ```
+
+        * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации:
+
+          - Keycloak 17 или новее
+
+            ```
+            http://<хост>:8080/realms/master/protocol/saml
+            ```
 
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
-			
+
             ```
             {{ link-keycloak-example }}/protocol/saml
+            ```
+
+          - Keycloak 16 и предшествующих версий
+
+            ```
+            http://<хост>:8080/auth/realms/master/protocol/saml
+            ```
+
+            Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
+
+            ```
+            {{ link-keycloak-example-old }}/protocol/saml
             ```
 
         * `encryptedAssertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
 
         * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
-    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
+  1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
 - {{ TF }}
 
@@ -216,77 +400,136 @@
 
   1. В конфигурационном файле опишите параметры федерации:
 
-        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-        * `description` — описание федерации.
-        * `organization_id` — идентификатор организации. 
-        * `labels` — набор пар меток ключ/значение, которые присвоены федерации.
-        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация: `http://<хост>:8080/auth/realms/master`
-        
-            Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его идентификатор. Например:
-			
-            ```
-            {{ link-keycloak-example }}
-            ```  
+      * `name` — имя федерации. Имя должно быть уникальным в каталоге.
+      * `description` — описание федерации.
+      * `organization_id` — идентификатор организации. 
+      * `labels` — набор пар меток ключ/значение, которые присвоены федерации.
+      * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация: 
 
-        * `sso_binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
-        * `sso_url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации: `http://<хост>:8080/auth/realms/master/protocol/saml`
+        - Keycloak 17 или новее
 
-            Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
-			
-            ```
-            {{ link-keycloak-example }}/protocol/saml
-            ```  
-            
+          ```
+          http://<хост>:8080/realms/master
+          ```
 
-        * `cookie_max_age` — время в секундах, в течение которого браузер не должен требовать у пользователя повторной аутентификации. Значение по умолчанию `8 часов`. 
-        * `auto_create_account_on_login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
+          Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его идентификатор. Например:
+
+          ```
+          {{ link-keycloak-example }}
+          ```
+
+        - Keycloak 16 и предшествующих версий
+
+          ```
+          http://<хост>:8080/auth/realms/master
+          ```
+
+          Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его идентификатор. Например:
+
+          ```
+          {{ link-keycloak-example-old }}
+          ``` 
+
+      * `sso_binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+      * `sso_url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации: 
+
+        - Keycloak 17 или новее
+
+          ```
+          http://<хост>:8080/realms/master/protocol/saml
+          ```
+
+          Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. 
+
+          Например:
+
+          ```
+          {{ link-keycloak-example }}/protocol/saml
+          ```  
+
+        - Keycloak 16 и предшествующих версий
+
+          ```
+          http://<хост>:8080/auth/realms/master/protocol/saml
+          ```
+
+          Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. 
+
+          Например:
+
+          ```
+          {{ link-keycloak-example-old }}/protocol/saml
+          ```
+
+      * `cookie_max_age` — время в секундах, в течение которого браузер не должен требовать у пользователя повторной аутентификации. Значение по умолчанию `8 часов`. 
+      * `auto_create_account_on_login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
 
-            Если  опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
-        * `case_insensitive_name_ids` — зависимость имен пользователей от регистра.
-           Если опция включена, идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
-        * `security_settings` — настройки безопасности федерации: 
-          * `encrypted_assertions` — подписывать запросы аутентификации. 
-            Если включить опцию, то все запросы аутентификации от {{yandex-cloud}} будут содержать цифровую подпись. Вам потребуется скачать и установить сертификат {{yandex-cloud}}.
+        Если  опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
+      * `case_insensitive_name_ids` — зависимость имен пользователей от регистра.
+        Если опция включена, идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
+      * `security_settings` — настройки безопасности федерации: 
+      * `encrypted_assertions` — подписывать запросы аутентификации. 
+        Если включить опцию, то все запросы аутентификации от {{yandex-cloud}} будут содержать цифровую подпись. Вам потребуется скачать и установить сертификат {{yandex-cloud}}.
 
-     Пример структуры конфигурационного файла:
+      {% cut "Пример структуры конфигурационного файла" %}
 
-     ```
-     resource "yandex_organizationmanager_saml_federation" federation {
-      name            = "my-federation"
-      organization_id = "<ID организации>"
-      auto_create_account_on_login = "true"
-      issuer          = "http://<хост>:8080/auth/realms/master"      
-      sso_url         = "http://<хост>:8080/auth/realms/master/protocol/saml"
-      sso_binding     = "POST"
-      security_settings {
-         encrypted_assertions = "true"
-         }
-     }
-     ```
+      - Keycloak 17 или новее
+
+        ```
+        resource "yandex_organizationmanager_saml_federation" federation {
+        name            = "my-federation"
+        organization_id = "<ID организации>"
+        auto_create_account_on_login = "true"
+        issuer          = "http://<хост>:8080/auth/realms/master"
+        sso_url         = "http://<хост>:8080/auth/realms/master/protocol/saml"
+        sso_binding     = "POST"
+        security_settings {
+            encrypted_assertions = "true"
+            }
+        }
+        ```
+
+      - Keycloak 16 и предшествующих версий
+
+        ```
+        resource "yandex_organizationmanager_saml_federation" federation {
+        name            = "my-federation"
+        organization_id = "<ID организации>"
+        auto_create_account_on_login = "true"
+        issuer          = "http://<хост>:8080/realms/master"
+        sso_url         = "http://<хост>:8080/realms/master/protocol/saml"
+        sso_binding     = "POST"
+        security_settings {
+            encrypted_assertions = "true"
+            }
+        }
+        ```
+
+      {% endcut %}
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+      1. Выполните проверку с помощью команды:
 
         ```
-        $ terraform plan
+        terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+        Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Создайте федерацию.
 
-     1. Если в конфигурации нет ошибок, выполните команду:
+      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```
-        $ terraform apply
+        terraform apply
         ```
 
-     1. Подтвердите создание федерации.
+      1. Подтвердите создание федерации.
 
-     После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [Федерации]({{link-org-federations}}).
+  После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [Федерации]({{link-org-federations}}).
 
 {% endlist %}
 
@@ -308,9 +551,9 @@
 
   1. Выберите способ добавления сертификата:
 
-      * Чтобы добавить сертификат в виде файла, нажмите **Выбрать файл** и укажите путь к нему.
+     * Чтобы добавить сертификат в виде файла, нажмите **Выбрать файл** и укажите путь к нему.
 
-      * Чтобы вставить скопированное содержимое сертификата, выберите способ **Текст** и вставьте содержимое.
+     * Чтобы вставить скопированное содержимое сертификата, выберите способ **Текст** и вставьте содержимое.
 
   1. Нажмите кнопку **Добавить**.
 
@@ -322,42 +565,42 @@
 
   1. Посмотрите описание команды добавления сертификата:
 
-      ```
-      yc organization-manager federation saml certificate create --help
-      ```
+     ```
+     yc organization-manager federation saml certificate create --help
+     ```
 
   1. Добавьте сертификат для федерации, указав путь к файлу сертификата:
-  
-      ```
-      yc organization-manager federation saml certificate create \
-        --federation-id <ID федерации> \
-        --name "my-certificate" \
-        --certificate-file certificate.cer
-      ```
+
+     ```
+     yc organization-manager federation saml certificate create \
+       --federation-id <ID федерации> \
+       --name "my-certificate" \
+       --certificate-file certificate.cer
+     ```
 
 - API
 
   Воспользуйтесь методом [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/index.md):
   1. Сформируйте тело запроса. В свойстве `data` укажите содержимое сертификата:
 
-      ```json
-      {
-        "federationId": "<ID федерации>",
-        "name": "my-certificate",
-        "data": "-----BEGIN CERTIFICATE..."
-      }
-      ```
+     ```json
+     {
+       "federationId": "<ID федерации>",
+       "name": "my-certificate",
+       "data": "-----BEGIN CERTIFICATE..."
+     }
+     ```
 
   1. Отправьте запрос на добавление сертификата:
 
-      ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \
-          "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
-      ```
+     ```bash
+     $ export IAM_TOKEN=CggaATEVAgA...
+     $ curl -X POST \
+         -H "Content-Type: application/json" \
+         -H "Authorization: Bearer ${IAM_TOKEN}" \
+         -d '@body.json' \
+         "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
+     ```
 
 {% endlist %}
 
@@ -375,66 +618,135 @@
 
 1. Скопируйте идентификатор федерации:
 
-    1. На панели слева выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. На панели слева выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
-    1. Скопируйте идентификатор федерации, для которой вы настраиваете доступ.
+   1. Скопируйте идентификатор федерации, для которой вы настраиваете доступ.
 
 1. Сформируйте ссылку с помощью полученного идентификатора:
 
-    `https://{{ auth-host }}/federations/<ID федерации>`    
+   `{{ link-console-main }}/federations/<ID федерации>`    
 
 ## Создание и настройка SAML-приложения в Keycloak {#keycloak-settings}
 
 В роли поставщика удостоверений (IdP) выступает SAML-приложение в Keycloak. Чтобы создать и настроить SAML-приложение:
 
-1. Войдите в аккаунт администратора Keycloak по адресу `http://keycloak.example.com:8080/auth/admin`. Вместо `keycloak.example.com` должен быть указан адрес вашего локального сервера, например: `http://localhost:8080/auth/admin`. 
+1. Войдите в аккаунт администратора Keycloak по адресу:
 
-    Параметры входа по умолчанию:
+   {% list tabs %}
+
+   - Keycloak 17 или новее
+
+     `http://keycloak.example.com:8080/admin`. Вместо `keycloak.example.com` должен быть указан адрес вашего локального сервера, например: `http://localhost:8080/admin`.
+
+   - Keycloak 16 и предшествующих версий
+
+     `http://keycloak.example.com:8080/auth/admin`. Вместо `keycloak.example.com` должен быть указан адрес вашего локального сервера, например: `http://localhost:8080/auth/admin`.
+
+   {% endlist %}
+
+   Параметры входа по умолчанию:
     * **User name or email** : `admin`.
     * **Password** : `Pa55w0rd`.
 
 1. Создайте SAML-приложение:
 
-    1. На панели слева выберите **Clients**. Нажмите кнопку **Create**.
+    {% list tabs %}
 
-    1. В поле **Client ID** введите полученную ранее [ссылку для входа в консоль](#get-link).
+    - Keycloak 19 или новее
 
-    1. В поле **Client Protocol** выберите вариант **saml**.
+      1. На панели слева выберите **Clients**. Нажмите кнопку **Create client**.
 
-    1. Нажмите **Save**.
+      1. В поле **Client ID** введите полученную ранее [ссылку для входа в консоль](#get-link).
+
+      1. В поле **Client type** выберите вариант **saml**.
+
+      1. Нажмите **Save**.
+
+    - Keycloak 18 и предшествующих версий
+
+      1. На панели слева выберите **Clients**. Нажмите кнопку **Create**.
+
+      1. В поле **Client ID** введите полученную ранее [ссылку для входа в консоль](#get-link).
+
+      1. В поле **Client Protocol** выберите вариант **saml**.
+
+      1. Нажмите **Save**.
+
+    {% endlist %}
 
 1. Настройте параметры SAML-приложения на вкладке **Settings**:
 
     1. Введите полученную ранее [ссылку для входа в консоль](#get-link) в полях:
-        * **Valid Redirect URIs**;
-        * **Base URL**;
-        * **IDP Initiated SSO Relay State**.
+
+       {% list tabs %}
+
+       - Keycloak версии 19 или новее
+
+         * **Home URL**;
+         * **Valid Redirect URIs**;
+         * **IDP Initiated SSO Relay State**.
+
+       - Keycloak 18 и предшествующих версий
+
+         * **Valid Redirect URIs**;
+         * **Base URL**;
+         * **IDP Initiated SSO Relay State**.
+
+       {% endlist %}
 
     1. Включите опции:
-        * **Include AuthnStatement**;
-        * **Sign Assertions**;
-        * **Force POST Binding**;
-        * **Front Channel Logout**.
+       * **Include AuthnStatement**;
+       * **Sign Assertions**;
+       * **Force POST Binding**;
+       * **Front Channel Logout**.
 
     1. В поле **Signature Algorithm** выберите **RSA_SHA256**.
 
     1. В поле **SAML Signature Key Name** выберите **CERT_SUBJECT**.
 
-    1. В качестве **Name ID Format** выберите подходящий вариант из списка. Чтобы выбранный вариант передавался вне зависимости от настроек {{org-full-name}}, включите опцию **Force Name ID format**.
+    1. В качестве **Name ID Format** выберите подходящий вариант из списка. Чтобы выбранный вариант передавался вне зависимости от настроек {{ org-full-name }}, включите опцию **Force Name ID format**.
 
     1. Нажмите кнопку **Save**.
 
 1. Если при [создании федерации](#create-federation) в {{org-full-name}} вы включили опцию **Подписывать запросы аутентификации**, настройте в SAML-приложении проверку цифровой подписи:
-    
-    1. В настройках SAML-приложения включите опции **Encrypt Assertions** и **Client Signature Required** и сохраните приложение, чтобы обновить доступные вкладки.
-    
-    1. На вкладке **Keys** SAML-приложения в разделе **Signing Key** нажмите кнопку **Import**.
-    
-    1. В поле **Archive Format** выберите **Certificate PEM**.
-    {#signature}
-    1. Нажмите кнопку **Select file** и выберите сертификат для подписи запросов аутентификации. Сертификат доступен на странице сведений о федерации в {{org-full-name}} в поле **Подписывать запросы аутентификации**.
 
-    1. Нажмите **Import**.
+    {% list tabs %}
+
+    - Keycloak 19 или новее
+
+      1. На вкладке **Keys** SAML-приложения включите опции **Encrypt Assertions**, опция **Client Signature Required** должна быть выключена.
+
+      1. Для опций **Client Signature Required** нужно выбрать метод **Import**.
+
+      1. В поле **Archive Format** выберите **Certificate PEM**. (возможно понадобится сначала сначала сгенерировать сертификаты, чтобы после нажаться кнопки **Import key** стал доступен вариант **Certificate PEM**)
+      {#signature}
+      1. Нажмите кнопку **Browse** и выберите сертификат для подписи запросов аутентификации. Сертификат доступен на странице сведений о федерации в {{org-full-name}} в поле **Подписывать запросы аутентификации**.
+
+      1. Нажмите **Confirm**.
+
+    - Keycloak 18 и предшествующих версий
+
+      1. В настройках SAML-приложения включите опции **Encrypt Assertions** и **Client Signature Required** и сохраните приложение, чтобы обновить доступные вкладки.
+
+      1. На вкладке **Keys** SAML-приложения в разделе **Signing Key** нажмите кнопку **Import**.
+
+      1. В поле **Archive Format** выберите **Certificate PEM**.
+      {#signature}
+      1. Нажмите кнопку **Select file** и выберите сертификат для подписи запросов аутентификации. Сертификат доступен на странице сведений о федерации в {{org-full-name}} в поле **Подписывать запросы аутентификации**.
+
+      1. Нажмите **Import**.
+
+    {% endlist %}
+
+1. На вкладке **Keys** SAML-приложения включите опции **Encrypt Assertions** и **Client Signature Required**.
+
+1. Для обоих опций выберите метод **Import**.
+
+1. В поле **Archive Format** выберите **Certificate PEM**. (возможно понадобится сначала сначала сгенерировать сертификаты, чтобы после нажаться кнопки **Import key** стал доступен вариант **Certificate PEM**)
+{#signature}
+1. Нажмите кнопку **Browse** и выберите сертификат для подписи запросов аутентификации. Сертификат доступен на странице сведений о федерации в {{org-full-name}} в поле **Подписывать запросы аутентификации**.
+
+1. Нажмите **Confirm**.
 
 1. Добавьте пользователей:
 
@@ -444,7 +756,7 @@
 
     1. Нажмите кнопку **Save**.
 
-    1. На вкладке **Credentials** задайте пароль и нажмите **Set Password**.
+    1. На вкладке **Credentials** нажмите **Set Password** и задайте пароль.
 
 ## Добавление пользователей в {{org-full-name}} {#add-users}
 
@@ -480,28 +792,27 @@
 
   1. Посмотрите описание команды добавления пользователей:
 
-      ```
-      yc organization-manager federation saml add-user-accounts --help
-      ```
+     ```
+     yc organization-manager federation saml add-user-accounts --help
+     ```
 
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
-      ```
-      yc organization-manager federation saml add-user-accounts --id <ID федерации> \
-        --name-ids=alice@example.com,bob@example.com,charlie@example.com
-      ```
+     ```
+     yc organization-manager federation saml add-user-accounts --id <ID федерации> \
+       --name-ids=alice@example.com,bob@example.com,charlie@example.com
+     ```
 
-      Где:
+     Где:
 
-      * `id` — идентификатор федерации.
-
-      * `name-ids` — Name ID пользователей.
+     * `id` — идентификатор федерации.
+     * `name-ids` — Name ID пользователей.
 
 - API
 
   Чтобы добавить пользователей федерации в облако:
 
-  1.  Сформируйте файл с телом запроса, например `body.json`. В теле запроса укажите массив Name ID пользователей, которых необходимо добавить:
+  1. Сформируйте файл с телом запроса, например `body.json`. В теле запроса укажите массив Name ID пользователей, которых необходимо добавить:
 
       ```json
       {
@@ -512,7 +823,8 @@
         ]
       }
       ```
-  1.  Отправьте запрос, указав в параметрах идентификатор федерации:
+
+  1. Отправьте запрос, указав в параметрах идентификатор федерации:
 
       ```bash
       $ curl -X POST \
@@ -540,23 +852,47 @@
 
     1. Перейдите на вкладку **Mappers** и выберите **role list**.
 
-    1. Включите опцию **Single Role Attribute**. 
+    1. Включите опцию **Single Role Attribute**.
 
-1. Настройте атрибуты, которые будут передаваться в {{ yandex-cloud }}: 
+1. Настройте атрибуты, которые будут передаваться в {{ yandex-cloud }}:
 
-    1. На панели слева выберите **Clients** и откройте настройки вашего SAML-приложения.
+    {% list tabs %}
 
-    1. На вкладке **Mappers** нажмите кнопку **Add Builtins**.
+    - Keycloak 19 или новее
 
-    1. Отметьте атрибуты в списке и нажмите кнопку **Add selected**. В Keycloak по умолчанию доступны атрибуты пользователя:
-        * `X500 email` — адрес электронной почты;
-        * `X500 surname` — фамилия;
-        * `X500 givenName` — имя;
-        * `role list` — перечень ролей.
+      1. На панели слева выберите **Client** и откройте настройки вашего SAML-приложения → **role_list**.
 
-    1. Вы можете создать дополнительные атрибуты для пользователей, например номер телефона. Для этого нажмите **Create**, в поле **Mapper Type** выберите опцию **User Attribute** и введите параметры атрибута.
+      1. На вкладке **Client Scopes** выберите напротив пункта **role_list** значение **optional** и нажмите на строку с одноименным названием вашего клиента
 
-    1. Настройте синхронизацию атрибутов Keycloak и {{ org-full-name }}: откройте атрибут и измените значение **SAML Attribute Name**.  Значения  **SAML Attribute Name**, которые поддерживаются в {{ org-full-name }}, приведены ниже.
+      1. В открывшемся окне нажмите кнопку **Add predefined mappers**.
+
+      1. Отметьте атрибуты в списке и нажмите кнопку **Add**. В Keycloak по умолчанию доступны атрибуты пользователя:
+          * `X500 email` — адрес электронной почты;
+          * `X500 surname` — фамилия;
+          * `X500 givenName` — имя;
+          * `role list` — перечень ролей.
+
+      1. Вы можете создать дополнительные атрибуты для пользователей, например номер телефона. Для этого нажмите **Add mappers** -> **By configuration** -> **User Property**, в таблице **Configure a new mapper** выберите пункт **User Attribute** и введите параметры атрибута.
+
+      1. Настройте синхронизацию атрибутов Keycloak и {{ org-full-name }}: откройте атрибут и измените значение **SAML Attribute Name**. Значения  **SAML Attribute Name**, которые поддерживаются в {{ org-full-name }}, приведены ниже.
+
+    - Keycloak 18 и предшествующих версий
+
+      1. На панели слева выберите **Clients** и откройте настройки вашего SAML-приложения.
+
+      1. На вкладке **Mappers** нажмите кнопку **Add Builtins**.
+
+      1. Отметьте атрибуты в списке и нажмите кнопку **Add selected**. В Keycloak по умолчанию доступны атрибуты пользователя:
+          * `X500 email` — адрес электронной почты;
+          * `X500 surname` — фамилия;
+          * `X500 givenName` — имя;
+          * `role list` — перечень ролей.
+
+      1. Вы можете создать дополнительные атрибуты для пользователей, например номер телефона. Для этого нажмите **Create**, в поле **Mapper Type** выберите опцию **User Attribute** и введите параметры атрибута.
+
+      1. Настройте синхронизацию атрибутов Keycloak и {{ org-full-name }}: откройте атрибут и измените значение **SAML Attribute Name**. Значения **SAML Attribute Name**, которые поддерживаются в {{ org-full-name }}, приведены ниже.
+
+   {% endlist %}
 
 1. Если вы создали дополнительные атрибуты, добавьте их в параметры пользователя:
 
@@ -573,7 +909,7 @@
         {% endnote %}
 
     1. Нажмите **Add** и затем **Save**.
-    
+
 Данные пользователя | Комментарий | SAML Attribute Name
 ------------------- | ----------- | -------------------
 Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример:&nbsp;`ivanov@example.com` | `email`

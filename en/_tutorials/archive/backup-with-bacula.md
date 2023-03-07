@@ -27,7 +27,6 @@ If you no longer need these resources, [delete them](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Required paid resources {#paid-resources}
 
 The cost for backup and recovery includes:
@@ -35,7 +34,7 @@ The cost for backup and recovery includes:
 * A fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+
 
 ### Create a bucket {#create-bucket}
 
@@ -94,7 +93,7 @@ To create a VM:
       * In the **SSH key** field, paste the contents of the public key file.
 
          You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-   1. Click **Create VM**.
+   1. Click **Create VM**.
    1. Wait for the VM to change to the `RUNNING` status.
 
 {% endlist %}

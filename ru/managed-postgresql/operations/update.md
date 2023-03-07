@@ -364,9 +364,7 @@
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    
     * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).
-
 
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
 

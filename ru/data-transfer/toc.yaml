@@ -66,6 +66,8 @@ items:
                 href: operations/endpoint/target/opensearch.md
               - name: PostgreSQL
                 href: operations/endpoint/target/postgresql.md
+              - name: '{{ yds-full-name }}'
+                href: operations/endpoint/target/data-streams.md
               - name: '{{ ydb-full-name }}'
                 href: operations/endpoint/target/yandex-database.md
       - name: Управление трансфером

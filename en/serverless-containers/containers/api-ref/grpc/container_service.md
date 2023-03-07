@@ -277,7 +277,7 @@ log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the cont
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 8589934592, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br>Specifies baseline performance for a core in percent. Acceptable values are 0 to 100, inclusive.
 
@@ -528,7 +528,7 @@ args[] | **string**<br>Arguments that will override CMD of an image. <br>Argumen
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 8589934592, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br>Specifies baseline performance for a core in percent. Acceptable values are 0 to 100, inclusive.
 
@@ -655,7 +655,7 @@ args[] | **string**<br>Arguments that will override CMD of an image. <br>Argumen
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 8589934592, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br>Specifies baseline performance for a core in percent. Acceptable values are 0 to 100, inclusive.
 

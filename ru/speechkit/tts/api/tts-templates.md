@@ -110,7 +110,7 @@
           import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
           def synthesize(iam_token, bytes_array) -> pydub.AudioSegment:
-              template = '<шаблонная_фраза_с_разметкой>'
+              template = "<шаблонная_фраза_с_разметкой>"
               # Пример: 'Напоминаю, что завтра в {time}, ваш ребенок записан на процедуру {procedure}.'
               request = tts_pb2.UtteranceSynthesisRequest(
                   output_audio_spec=tts_pb2.AudioFormatOptions(
@@ -124,9 +124,9 @@
                                   variables = [
                                       # Количество элементов tts_pb2.TextVariable() списка определяется количеством переменных в шаблоне.
                                       tts_pb2.TextVariable(
-                                          variable_name = '<имя_переменной_в_template>',
+                                          variable_name = "<имя_переменной_в_template>",
                                           # Пример: '{time}'
-                                          variable_value ='<текст_для_синтеза>'
+                                          variable_value = "<текст_для_синтеза>"
                                           # Пример: 'восемь часов тридцать минут'
                                       )
                                   ]
@@ -148,28 +148,30 @@
                                   variables = [
                                       # Количество переменных tts_pb2.TextVariable() списка определяется количеством переменных в шаблоне.
                                       tts_pb2.TextVariable(
-                                          variable_name = '<имя_переменной_в_template>',
-                                          variable_value ='<текст_переменной_части_фразы_в_звуковом_файле_шаблона>'
+                                          variable_name = "<имя_переменной_в_template>",
+                                          variable_value = "<текст_переменной_части_фразы_в_звуковом_файле_шаблона>"
                                       )
                                   ]
                               ),
                               variables = [
                                   # Количество переменных tts_pb2.AudioVariable() в списке определяется шаблоном.
                                   tts_pb2.AudioVariable(
-                                      variable_name = '<имя_переменной_в_template>',
+                                      variable_name = "<имя_переменной_в_template>",
                                       # Длина переменной части фразы в аудио шаблона (в миллисекундах).
-                                      variable_length_ms = 1740,
+                                      variable_length_ms = <длина_переменной>,
                                       # Начало переменной части фразы в аудио шаблона (в миллисекундах).
-                                      variable_start_ms = 1620
+                                      variable_start_ms = <время_начала_переменной>
                                   )
                               ]
                           )
                       ),
                      # Не передавайте этот параметр, если вы используете {{ brand-voice-cc-name }}
                      tts_pb2.Hints(
-                        voice = '<идентификатор_вашего_голоса>'
+                        voice = "<идентификатор_вашего_голоса>"
                      )
-                  ]
+
+                  ],
+                  model = "zsl"
               )
     
               # Установить соединение с сервером.
@@ -179,10 +181,7 @@
 
               # Отправить данные для синтеза.
               it = stub.UtteranceSynthesis(request, metadata=(
-                  ('authorization', f'Bearer {iam_token}'),
-                  # Специальный параметр запроса к модели {{ brand-voice-cc-name }}
-                  # Не используйте этот параметр вместе с идентификатором голоса  
-                  ('x-node-alias', 'speechkit.tts.zsl')
+                  ("authorization", f"Bearer {iam_token}")
               ))
 
               # Обработать ответы сервера и записать результат в файл.

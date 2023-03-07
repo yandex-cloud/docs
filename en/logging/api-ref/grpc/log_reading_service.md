@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/logging/api-ref/grpc/log_reading_service.md
 
 # Cloud Logging Service, gRPC: LogReadingService
 
-A set of methods for reading from log groups. To make a request use `reader.logging.yandexcloud.net`.
+A set of methods for reading from log groups.
 
 | Call | Description |
 | --- | --- |

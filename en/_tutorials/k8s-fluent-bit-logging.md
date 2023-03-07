@@ -29,15 +29,10 @@ To set up transfer of logs:
 
 {% list tabs %}
 
-- Using {{ marketplace-full-name }}
+- Using {{ yandex-cloud }}
 
-  1. Install Fluent Bit using {{ marketplace-name }} as described in the [instructions](../managed-kubernetes/operations/applications/fluentbit.md#install-fb-marketplace).
-  1. [Check transmission of {{ k8s }} cluster logs](../logging/operations/read-logs.md) to {{ cloud-logging-name }}.
-
-- Using a Helm chart
-
-  1. Install Fluent Bit using a Helm chart as described in the [instructions](../managed-kubernetes/operations/applications/fluentbit.md#install-fb-helm).
-  1. [Check transmission of {{ k8s }} cluster logs](../logging/operations/read-logs.md) to {{ cloud-logging-name }}.
+   1. Install Fluent Bit by following the [instructions](../managed-kubernetes/operations/applications/fluentbit.md).
+   1. [Check transmission of {{ k8s }} cluster logs](../logging/operations/read-logs.md) to {{ cloud-logging-name }}.
 
 - Manually
 

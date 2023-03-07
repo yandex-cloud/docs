@@ -14,7 +14,11 @@ Here are some tips for diagnosing and fixing these issues.
 ## Before you begin {#before-start}
 
 1. Select databases to troubleshoot.
-1. [Enable database access in the management console](../../managed-postgresql/operations/web-sql-query.md#sql-cluster-access).
+
+
+1. [Enable database access in the management console](../../managed-postgresql/operations/update.md#change-additional-settings).
+
+
 1. [Activate statistics collection](../../managed-postgresql/operations/performance-diagnostics.md#activate-stats-collector) about sessions and queries.
 1. [Enable the `auto_explain` module](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) for extended query execution plan logging.
 1. If you want more queries to appear in the performance log, reduce the value of the [`log_min_duration_statement` parameter](../../managed-postgresql/concepts/settings-list.md#setting-log-min-duration-statement) in the [DB settings](../../managed-postgresql/operations/update.md#change-postgresql-config).
@@ -50,6 +54,7 @@ There are several ways to optimize problematic queries:
 
    [Create](https://www.postgresql.org/docs/current/sql-createindex.html) or [update](https://www.postgresql.org/docs/current/sql-reindex.html) appropriate indexes.
 
+   
    {% note tip %}
 
    To visualize the execution plans of the available queries, use the **SQL** tab on the cluster management page.
@@ -57,6 +62,7 @@ There are several ways to optimize problematic queries:
    For more information, see [{#T}](../../managed-postgresql/operations/web-sql-query.md).
 
    {% endnote %}
+
 
 * Update statistics using the [`ANALYZE`](https://www.postgresql.org/docs/current/sql-analyze.html) command.
 

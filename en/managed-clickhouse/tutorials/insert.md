@@ -41,7 +41,7 @@ To insert user data in the Cap'n Proto and Protobuf formats into the `db1.users`
 
    To learn more about supported data types, see the documentation for [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3), and [{{ CH }}]({{ ch.docs }}/sql-reference/data-types/).
 
-1. [Connect to the cluster](connect.md) and create the `db1.users` table of the desired type, if you haven't created it yet:
+1. [Connect to the cluster](../operations/connect.md) and create the `db1.users` table of the desired type, if you haven't created it yet:
 
    ```sql
    CREATE TABLE IF NOT EXISTS db1.users (id UInt64, name String)
@@ -97,7 +97,7 @@ pip3 install protobuf varint pycapnp
 1. [Upload the file](../../storage/operations/objects/upload.md) to {{ objstorage-name }} and [get a link](../../storage/operations/objects/link-for-download.md) to it.
 
 
-1. [Connect the format schema](format-schemas.md#add-format-schema) to the `chcluster` cluster:
+1. [Connect the format schema](../operations/format-schemas.md#add-format-schema) to the `chcluster` cluster:
    - For the Cap'n Proto format schema (`user.capnp` file), set the name `schema-capnproto`.
    - For the Protobuf format schema, (`user.protobuf` file), set the name `schema-protobuf`.
 
@@ -278,7 +278,7 @@ To prepare scripts:
 
    {% endlist %}
 
-1. [Connect to the cluster](connect.md) and make sure that the data was successfully inserted by running the `SELECT` query:
+1. [Connect to the cluster](../operations/connect.md) and make sure that the data was successfully inserted by running the `SELECT` query:
 
    {% list tabs %}
 

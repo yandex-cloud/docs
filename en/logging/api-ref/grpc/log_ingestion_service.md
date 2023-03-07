@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/logging/api-ref/grpc/log_ingestion_service.md
 
 # Cloud Logging Service, gRPC: LogIngestionService
 
-A set of methods for writing to log groups. To make a request use `ingester.logging.yandexcloud.net`.
+A set of methods for writing to log groups.
 
 | Call | Description |
 | --- | --- |

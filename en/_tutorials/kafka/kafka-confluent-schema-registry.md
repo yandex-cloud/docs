@@ -24,11 +24,11 @@ To use [Confluent Schema Registry](https://docs.confluent.io/platform/current/sc
 
 1. In the VM security group, [add a rule](../../vpc/operations/security-group-add-rule.md) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
 
-
     * **Port range**: `8081`.
     * **Protocol**: `TCP`.
     * **Source type**: `CIDR`.
     * **CIDR blocks**: `0.0.0.0/0` or address ranges of the subnets where the producer and consumer run.
+
 
 ## Create a topic for notifications about changes in data format schemas {#create-schemas-topic}
 

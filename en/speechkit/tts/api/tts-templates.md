@@ -124,9 +124,9 @@ Create a client app to send your data to the API:
                               variables = [
                                   # The number of tts_pb2.TextVariable() list items depends on the number of template variables.
                                   tts_pb2.TextVariable(
-                                      variable_name = '<variable_name_in_the_pattern>',
+                                      variable_name = "<variable_name_in_the_pattern>",
                                       # Example: '{time}'
-                                      variable_value ='<text_for_synthesis>'
+                                      variable_value ="<text_for_synthesis>"
                                       # Example: 'eight thirty'
                                   )
                               ]
@@ -148,8 +148,8 @@ Create a client app to send your data to the API:
                               variables = [
                                   # Number of variables in the tts_pb2.TextVariable() list is the same as in the pattern.
                                   tts_pb2.TextVariable(
-                                      variable_name = '<variable_name_in_the_pattern>',
-                                      variable_value ='<text_of_the_variable_part_for_pattern_audio_file>'
+                                      variable_name = "<variable_name_in_the_pattern>",
+                                      variable_value ="<text_of_the_variable_part_for_pattern_audio_file>"
                                   )
                               ]
                           ),
@@ -158,31 +158,29 @@ Create a client app to send your data to the API:
                               tts_pb2.AudioVariable(
                                   variable_name = '<name_of_variable_in_pattern>',
                                   # Duration of the variable phrase part in the pattern audio (ms).
-                                  variable_length_ms = 1740,
+                                  variable_length_ms = <length_of_variable>,
                                   # Start of the phrase variable part in the template audio (ms).
-                                  variable_start_ms = 1620
+                                  variable_start_ms = <start_time>
                               )
                           ]
                       )
                   ),
                  # Do not provide this parameter if you use {{ brand-voice-cc-name }}
                  tts_pb2.Hints(
-                    voice = '<your_voice_ID>'
+                    voice = "<your_voice_ID>"
                  )
-              ]
+              ],
+              model = "zsl"
           )
 
           # Establish connection with the server.
           cred = grpc.ssl_channel_credentials()
-          channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
+          channel = grpc.secure_channel("{{ api-host-sk-tts }}", cred)
           stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
           # Send data for synthesis.
           it = stub.UtteranceSynthesis(request, metadata=(
-              ('authorization', f'Bearer {iam_token}'),
-              Special endpoint for {{ brand-voice-cc-name }}
-              # Do not use this parameter with your voice ID
-              ('x-node-alias', 'speechkit.tts.zsl')
+              ("authorization", f"Bearer {iam_token}"),
           ))
 
           # Process server responses and save the result to a file.

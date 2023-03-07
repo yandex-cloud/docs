@@ -4,10 +4,14 @@ You can connect to {{ mch-short-name }} cluster hosts:
 
 {% include [cluster-connect-note](../../_includes/mdb/mch/cluster-connect-note.md) %}
 
-Using encryption via ports `{{ port-mch-cli }}` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `{{ port-mch-http }}` for the [HTTP interface]({{ ch.docs }}/interfaces/http/) or without encryption via ports `9000` and `8123`, respectively.
+
+You can connect to a cluster both using encryption via ports `{{ port-mch-cli }}` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `{{ port-mch-http }}` for the [HTTP interface]({{ ch.docs }}/interfaces/http/) and without encryption via ports `9000` and `8123`, respectively.
+
 
 
 ## Configuring security groups {#configuring-security-groups}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -95,7 +99,7 @@ To use an encrypted connection, get an SSL certificate.
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
-   1. Confirm that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
+   1. Confirm that that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
 
    The certificate is saved to the `$HOME\.clickhouse\{{ crt-local-file }}` file.
 
@@ -152,6 +156,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% endlist %}
 
+
 ## Connecting to a cluster from your browser {#browser-connection}
 
 There are two ways to run SQL queries from your browser:
@@ -160,7 +165,7 @@ There are two ways to run SQL queries from your browser:
 
 * [Built-in SQL editor](#inline-editor).
 
-When connecting from the browser, SQL queries are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session have no impact. For example, `USE` or `SET`.
+When connecting from the browser, SQL queries are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session (for example, `USE` or `SET`) have no impact.
 
 ### Management console {#console}
 
@@ -173,6 +178,8 @@ To allow connections, activate the **Access from management console** option whe
 For more information, see [{#T}](web-sql-query.md).
 
 ### Built-in SQL editor {#inline-editor}
+
+
 
 To connect to a cluster host from the built-in SQL editor, specify the following in the browser address bar:
 
@@ -188,6 +195,7 @@ To connect to a cluster by [selecting an available host automatically](#auto), u
 * `https://<shard name>.c-<cluster ID>.rw.{{ dns-zone }}:8443/play` to connect to the available [shard](../concepts/sharding.md) host.
 
 To make a query to the database, specify the username and password in the upper-right corner.
+
 
 ## Sample connection strings {#connection-string}
 
