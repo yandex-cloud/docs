@@ -95,7 +95,7 @@ To create a VM:
       * In the **SSH key** field, paste the contents of the public key file.
 
          You will need to create a key pair for the {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-   1. Click **Create VM**.
+   1. Click **Create VM**.
    1. Wait for the VM to change to the `RUNNING` status.
 
 {% endlist %}

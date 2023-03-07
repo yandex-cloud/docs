@@ -1,4 +1,4 @@
-# Replicating {{ objstorage-name }} logs using Fluent Bit
+# Replicating logs to {{ objstorage-name }} using Fluent Bit
 
 Data aggregators enable you to transmit data (for example, logs) from the [VM instances](../compute/concepts/vm.md) to the log monitoring and data storage services.
 
@@ -36,7 +36,7 @@ The cost of data storage support includes:
 
 ## Configure the environment {#setup}
 
-1. [Create a service account](../iam/operations/sa/create.md), for example, `logs-sa`, assigned the `editor` role for the folder.
+1. [Create a service account](../iam/operations/sa/create.md), such as `logs-sa`, assigned the `editor` role for the folder.
 1. [Create a static access key](../iam/operations/sa/create-access-key.md) for the service account. Save the ID and private key. You'll need them to log in to AWS.
 1. [Create a VM](../compute/operations/vm-create/create-linux-vm.md) from a public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image. Under **Access**, specify the service account that you created in the previous step.
 1. [Connect to the VM](../compute/operations/vm-connect/ssh.md#vm-connect) via {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
@@ -193,7 +193,7 @@ If you are running Fluent Bit version below 1.9 that comes with the `td-agent-bi
    * `data-stream`: {{ yds-name }} data stream ID.
       > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logs-stream` if:
       > * `logs-stream` is the name of the stream.
-      > * `{{ region-id }}` — region;
+      > * `{{ region-id }}`: Region.
       > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
       > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
 

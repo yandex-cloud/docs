@@ -78,6 +78,7 @@ To run the script, install the following in the local environment:
          * **Service account for resources**: Select the service account with the `{{ roles-editor }}` role you created previously.
          * **Service account for nodes**: Select the service account with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` roles that you created previously.
          * **{{ k8s }} version**: Select **1.21** or higher.
+
          * **Public address**: `Auto`.
 
          Save the cluster ID: you'll need it in the next steps.

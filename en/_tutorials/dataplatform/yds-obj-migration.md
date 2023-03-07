@@ -91,7 +91,7 @@ Prepare the infrastructure:
       * (optional) **Advanced settings** → **Conversions rules**:
 
          * **Data format**: `JSON`.
-         * **Data schema** — `JSON specification`:
+         * **Data schema**: `JSON specification`:
 
             Create and upload the `json_schema.json` file in JSON format:
 

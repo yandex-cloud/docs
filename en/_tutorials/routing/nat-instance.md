@@ -72,7 +72,7 @@ Create a route table and add to it a [static route](../../vpc/concepts/static-ro
 
 To use static routes, link the route table to the subnet where the VMs are located (in the example, it's `private-subnet`). To do this:
 
-1. On the line with the test VM, click ![image](../../_assets/options.svg).
+1. In the line with the test VM, click ![image](../../_assets/options.svg).
 1. In the menu that opens, select **Link route table**.
 1. In the window that opens, select the `nat-instance-route` table from the list.
 1. Click **Link**.

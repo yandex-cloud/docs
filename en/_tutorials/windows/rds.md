@@ -146,7 +146,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    1. Under **Network settings**, click **Add network** and select `my-network`. Select the `my-subnet-a` subnet. Under **Public address**, select **Automatically**.
    1. Under **Access**, specify the data required to access the VM:
       - In the **Password** field, enter your password.
-   1. Click **Create VM**.
+   1. Click **Create VM**.
 
 - CLI
 

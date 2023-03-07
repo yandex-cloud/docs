@@ -54,7 +54,7 @@ For a service hosted in a subnet and security group other than those of the agen
 
 ### Configure a network {#network-setup}
 
-[Enable](../vpc/operations/enable-nat.md) NAT to the internet in the subnet where the test target is located and the agent will be placed. This ensures that the agent has access to {{ load-testing-name }}.
+[Create and configure a NAT gateway](../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. This ensures the agent has access to {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 

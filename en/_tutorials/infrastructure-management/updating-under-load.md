@@ -211,7 +211,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
            type: LINUX
          ```
 
-      1. Save the specification of the instance group with the network load balancer to the file `specification.yaml`:
+      1. Save the specification of the instance group with network load balancer to the file `specification.yaml`:
 
          {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
 

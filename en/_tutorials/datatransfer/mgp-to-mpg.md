@@ -16,7 +16,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 * Manually
 
-   1. {% if product == "yandex-cloud" %}[Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster){% else %}Create a {{ mgp-full-name }} source cluster{% endif %} of any suitable configuration with the `gp-user` admin username and hosts in the public domain.
+   1. {% if product == "yandex-cloud" %}[Create a source {{ mgp-full-name }} cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster){% else %}Create a source {{ mgp-full-name }} cluster{% endif %} of any suitable configuration with the `gp-user` admin username and hosts in the public domain.
 
    1. [Create a {{ mpg-full-name }} target cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) in any applicable configuration with publicly available hosts. When creating a cluster, specify:
 
@@ -72,7 +72,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 ## Set up the transfer {#prepare-transfer}
 
-1. {% if product == "yandex-cloud" %}[Create a source endpoint](../../data-transfer/operations/endpoint/source/greenplum.md){% else %}Create a source endpoint{% endif %} of the `{{ GP }}` type and specify the cluster connection parameters in it:
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/greenplum.md) of the `{{ GP }}` type and specify the cluster connection parameters in it:
 
    * **Connection type**: `Managed Service for Greenplum cluster`.
    * **Cluster**: `<{{ GP }} source cluster name>` from the drop-down list.
@@ -97,7 +97,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy }}_ type that will use the created endpoints.
 
-      Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, under **Transfer parameters**, in the **Copy** field select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
+      Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, in the **Transfer parameters** **Copy** field, select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
 
       {% note warning %}
 
@@ -164,7 +164,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 ## Check the copy function upon re-activation {#example-check-copy}
 
-1. In the [target endpoint parameters](../../data-transfer/operations/endpoint/target/postgresql#additional-settings) select either a `DROP` or a `TRUNCATE` cleanup policy.
+1. In the [target endpoint parameters](../../data-transfer/operations/endpoint/target/postgresql#additional-settings), select either a `DROP` or a `TRUNCATE` cleanup policy.
 1. {% if product == "yandex-cloud" %}[Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md){% else %}Connect to the {{ mgp-name }} cluster{% endif %}.
 1. Delete the row with the `41` ID and edit the row with the `42` ID in the `x_tab` table:
 
@@ -213,24 +213,24 @@ If you no longer need these resources, delete them:
 
       {% endif %}
 
-   * Using {{ TF }}
+      * Using {{ TF }}
 
-      If you created your resources using {{ TF }}:
+         If you created your resources using {{ TF }}:
 
-      1. In the terminal window, change to the directory containing the infrastructure plan.
-      1. Delete the `greenplum-postgresql.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+         1. In the terminal window, change to the directory containing the infrastructure plan.
+         1. Delete the `greenplum-postgresql.tf` configuration file.
+         1. Make sure the {{ TF }} configuration files are correct using the command:
 
-         ```bash
-         terraform validate
-         ```
+            ```bash
+            terraform validate
+            ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+            If there are errors in the configuration files, {{ TF }} will point to them.
 
-      1. Confirm the update of resources.
+         1. Confirm the update of resources.
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         All the resources described in the `greenplum-postgresql.tf` configuration file will be deleted.
+            All the resources described in the `greenplum-postgresql.tf` configuration file will be deleted.
 
    {% endlist %}

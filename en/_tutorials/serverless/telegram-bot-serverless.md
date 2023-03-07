@@ -134,7 +134,7 @@ Create and configure an [API Gateway](../../api-gateway/concepts/index.md).
         /sayhello.png:
           get:
             x-yc-apigateway-integration:
-              type: object-storage
+              type: object_storage
               bucket: <bucket name>
               object: sayhello.png
               presigned_redirect: false
@@ -212,10 +212,10 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
       * Runtime environment: `nodejs12`.
       * Entry point: `index.handler`.
       * Timeout: `5 seconds`.
-  1. Add the `BOT_TOKEN` variable to the environment. In the **Value** field, specify the Telegram bot token.
-  1. Click **Create version**.
-  1. Make sure that the function is [public](../../functions/operations/function/function-public.md). To do this, go to the **Overview** page and, under **General information**, switch the **Public function** option to on.
-  1. Save your function ID. You will need it later.
+   1. Add the `BOT_TOKEN` variable to the environment. In the **Value** field, specify the Telegram bot token.
+   1. Click **Create version**.
+   1. Make sure that the function is [public](../../functions/operations/function/function-public.md). To do this, go to the **Overview** page and, under **General information**, switch the **Public function** option to on.
+   1. Save your function ID. You will need it later.
 
 {% endlist %}
 
@@ -234,7 +234,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
         /fshtb-function:
           post:
             x-yc-apigateway-integration:
-              type: cloud-functions
+              type: cloud_functions
               function_id: <function ID>
             operationId: fshtb-function
       ```
