@@ -1,3 +1,14 @@
+Release 07.03.2023 
+
+* Audit Trails: added info on error mitigation. 
+* Cloud Functions: added quickstart for triggers. 
+* Cloud Organization: updated Keycloak manual. 
+* Data Transfer: updated requirements to the Oracle source endpoint. 
+* Data Transfer: added description for the YDS target settings. 
+* Serverless Containers: added new limit. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 06.03.2023 
 
 * Application Load Balancer: added information about deleting resources connected to each other. 
