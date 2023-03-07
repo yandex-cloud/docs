@@ -4,6 +4,6 @@
 
 Поддерживаются следующие клиенты:
 
-- [mongo](https://docs.mongodb.com/manual/mongo/);
+- [mongodb shell](https://www.mongodb.com/products/shell);
 - [драйвер для Python](https://docs.mongodb.com/ecosystem/drivers/python/);
 - [драйвер для Java](http://mongodb.github.io/mongo-java-driver/).
