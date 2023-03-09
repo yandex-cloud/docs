@@ -223,7 +223,7 @@ To deploy an infrastructure to host a fault-tolerant load-balanced site in a VM 
    - Ready-made archive
 
       1. Create a directory for files:
-      1. Download the [archive](https://{{ s3-storage-host }}/www.example.com/doc-files/load-balancer.zip) (1 KB).
+      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/load-balancer.zip) (2 KB).
       1. Unpack the archive to the directory. As a result, the`load-balancer.tf` configuration file will be added to it.
 
    - Creating files manually

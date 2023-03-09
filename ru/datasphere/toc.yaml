@@ -159,6 +159,8 @@ items:
         href: tutorials/node-from-cell.md
       - name: Развертывание сервиса на основе Docker-образа
         href: tutorials/node-from-docker.md
+      - name: Генерация изображения с помощью модели Stable Diffusion
+        href: tutorials/stable-diffusion.md
       - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
         href: tutorials/data-from-metrica-yc-visualization.md
   - name: Справочник API
