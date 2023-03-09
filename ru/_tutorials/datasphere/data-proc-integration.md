@@ -25,6 +25,8 @@
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
+{% include [intro](../../_includes/datasphere/federation-disclaimer.md) %}
+
 ### Создайте каталог и сеть {#create-folder}
 
 Создайте каталог, в котором будет работать ваш кластер {{ dataproc-name }}.
