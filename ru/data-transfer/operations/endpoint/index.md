@@ -19,6 +19,7 @@
             * Airbyte®:
                 * [AWS CloudTrail](source/aws-cloudtrail.md)
                 * [BigQuery](source/bigquery.md)
+                * [MS SQL Server](source/mssql.md)
                 * [S3](source/s3.md)
             * [{{ KF }}](source/kafka.md)
             * [{{ CH }}](source/clickhouse.md)
@@ -201,6 +202,7 @@
             * Airbyte®:
                 * [AWS CloudTrail](source/aws-cloudtrail.md)
                 * [BigQuery](source/bigquery.md)
+                * [MS SQL Server](source/mssql.md)
                 * [S3](source/s3.md)
             * [{{ KF }}](source/kafka.md)
             * [{{ CH }}](source/clickhouse.md)

@@ -43,6 +43,8 @@ items:
               - name: "{{ metrika-endpoint }}"
                 stage: preview
                 href: operations/endpoint/source/metrika.md
+              - name: Microsoft SQL Server
+                href: operations/endpoint/source/mssql.md
               - name: MongoDB
                 href: operations/endpoint/source/mongodb.md
               - name: MySQL
