@@ -41044,6 +41044,7 @@ default:
         prefix: Префикс
         save: Сохранить
         shared-with-project-resources: Доступные
+        spaces: Сообщества
       new-alias:
         field:
           label-nodes: Ноды и распределение нагрузки
@@ -41065,6 +41066,8 @@ default:
         project-card:
           create-resource: Создать ресурс
         project-resources: Ресурсы проекта
+      projects:
+        create-project: Создать проект
       resources:
         dataset: Датасет
         node: Нода

@@ -41035,6 +41035,7 @@ default:
         prefix: Prefix
         save: Save
         shared-with-project-resources: Shared
+        spaces: Communities
       new-alias:
         field:
           label-nodes: Nodes and load balancing
@@ -41056,6 +41057,8 @@ default:
         project-card:
           create-resource: Create resource
         project-resources: Project resources
+      projects:
+        create-project: Create project
       resources:
         dataset: Dataset
         node: Node

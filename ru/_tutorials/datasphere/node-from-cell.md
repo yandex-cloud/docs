@@ -31,6 +31,8 @@
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
+{% include [intro](../../_includes/datasphere/federation-disclaimer.md) %}
+
 ### Создайте каталог {#create-folder}
 
 Создайте каталог, в котором ваш сервис будет хранить логи.
