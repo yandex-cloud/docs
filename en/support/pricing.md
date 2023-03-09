@@ -6,7 +6,7 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-{{ yandex-cloud }} technical support is free of charge.
+{{ yandex-cloud }} technical support is provided free of charge.
 
 {% endif %}
 
@@ -16,7 +16,9 @@ editable: false
 
 The cost depends on the selected service plan. For a table of all service plans and their features, see [{#T}](overview.md).
 
-The basic service plan is provided to all {{ yandex-cloud }} users free of charge. For other service plans, the price is calculated based on resources consumed for the current reporting period (calendar month). To calculate the cost of using the service, use our [calculator](/prices#calculator) or see the calculation methods in the sections below.
+The selected service plan applies to a billing account and [can only be changed](overview#change-service-plan) by the billing account owner.
+
+The basic service plan is provided to all {{ yandex-cloud }} users free of charge. For other service plans, the price is calculated based on the resources consumed for the current reporting period (calendar month). To calculate the cost of using the service, use our [calculator](/prices#calculator) or see the calculation methods in the sections below.
 
 
 {% note info %}

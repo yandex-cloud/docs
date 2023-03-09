@@ -40,12 +40,12 @@ If there is a problem with your infrastructure's production environment, specify
 
 The expected support specialist response time is shown in the table below. A dash in a table cell means the corresponding communication channel is not available for the selected service plan.
 
-| Channel | Basic                                           | Standard | Business | Premium |
---- |-------------------------------------------------| --- | --- | ---
-| | For personal and research projects              | For development and pilot projects | For professional projects | For professional projects with advanced requirements for fault tolerance
+Channel                                    |                        Basic                                          | Standard | Business | Premium
+-------------------------------------------|-----------------------------------------------| --- | --- | ---
+| | For personal and research projects | For development and pilot projects | For professional projects | For business projects with stringent fault tolerance requirements. |
 | Request in console | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 8 hours<br>Critical: 2 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
-| Chat | -                                               | 15 minutes | 5 minutes | Immediate |
-| Phone | -                                               | - | On additional request | On additional request |
+ Chat                                      |                           -                                             | 15 minutes | 5 minutes | Immediate 
+ Phone                                     |                           -                                             | - | On additional request | On additional request 
 
 {% endif %}
 
