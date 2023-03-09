@@ -1,3 +1,11 @@
+Release 09.03.2023 
+
+* DataSphere: added tutorial for running Stable Diffusion model in DataSphere. 
+* Managed Service for PostgreSQL: added a section to the Q&A (how to solve an SSL-specific error). 
+* SpeechKit: added information for TTS and STT releaes. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 07.03.2023 
 
 * Audit Trails: added info on error mitigation. 
