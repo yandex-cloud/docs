@@ -33,6 +33,14 @@ default:
   #Ссылки на справку на yandex.ru/support
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
 
+  #Ограничения атрибутов в SamlResponse
+  saml-limit-last-name: 64 символа
+  saml-limit-first-name: 64 символа
+  saml-limit-display-name: 64 символа
+  saml-limit-email:  256 символов
+  saml-limit-phone: 64 символа
+  saml-limit-thumbnail-photo: 204800 символов
+
 cloud-il:
   service-name: Cloud Organization
   link-org-users: https://org.il.nebius.com/users
