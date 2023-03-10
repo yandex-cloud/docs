@@ -14,8 +14,8 @@ provider "yandex" {
 }
 
 variable "folder_id" {
-  description = "Yandex Cloud Folder ID where resources will be created"
-  default     = "<folder_id>"
+  description = "ID of the Yandex Cloud folder where resources will be created"
+  default     = "<folder_ID>"
 }
 
 resource "yandex_iam_service_account" "ig-sa" {
@@ -45,7 +45,7 @@ resource "yandex_compute_instance_group" "ig-1" {
     boot_disk {
       mode = "READ_WRITE"
       initialize_params {
-        image_id = "<image_id>"
+        image_id = "<image_ID>"
         type     = "network-hdd"
         size     = 3
       }
@@ -58,7 +58,7 @@ resource "yandex_compute_instance_group" "ig-1" {
     }
 
     metadata = {
-      user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${file("<path_to_open_SSH_key>")}"
+      user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${file("<path_to_public_SSH_key>")}"
     }
   }
 

@@ -394,12 +394,18 @@
 Данные пользователя | Комментарий | Атрибуты приложений
 ------------------- | ----------- | -------------------
 Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать адрес электронной почты. | Поле **Идентификатор названия** в настройках поставщика услуг
-Фамилия | Отображается в сервисах {{yandex-cloud}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
-Имя | Отображается в сервисах {{yandex-cloud}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-Полное имя | Отображается в сервисах {{yandex-cloud}}.<br>Пример: Иван Иванов | Атрибут недоступен
-Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример:&nbsp;`ivanov@example.com` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: +71234567890 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
-Аватар | Отображается в сервисах {{yandex-cloud}}. | Атрибут недоступен
+Фамилия | Отображается в сервисах {{yandex-cloud}}.<br> Ограничение значения по длине: {{saml-limit-last-name}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+Имя | Отображается в сервисах {{yandex-cloud}}.<br> Ограничение значения по длине: {{saml-limit-first-name}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+Полное имя | Отображается в сервисах {{yandex-cloud}}.<br>Пример: Иван Иванов.<br> Ограничение значения по длине: {{saml-limit-display-name}}. | Атрибут недоступен
+Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример:&nbsp;`ivanov@example.com`.<br> Ограничение значения по длине: {{saml-limit-email}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: +71234567890.<br> Ограничение значения по длине: {{saml-limit-phone}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
+Аватар | Отображается в сервисах {{yandex-cloud}}.<br> Ограничение значения по длине: {{saml-limit-thumbnail-photo}}. | Атрибут недоступен
+
+{% note warning %}
+
+Значение атрибута `thumbnailPhoto`, превышающее ограничение по длине, игнорируется. Если значение другого атрибута превышает ограничения, то часть значения, выходящая за пределы ограничения, отбрасывается.
+
+{% endnote %}
 
 >Пример сопоставления атрибутов:
 >

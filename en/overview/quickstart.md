@@ -20,7 +20,7 @@ A billing account is required even if you plan to use only free services. When y
 
    * Enter your first, last, and middle name.
 
-   * Link your bank card. Enter the bank card details: the 16-digit number, expiration date, and CVV (on the back of the card).
+   * Link your bank card. Specify your card details: 16-digit number, expiration date, and CVV (see it on the back side of your card).
 
       {% include [payment-card-types](../_includes/billing/payment-card-types.md) %}
 
@@ -46,7 +46,7 @@ A billing account is required even if you plan to use only free services. When y
 
       {% include [contacts-note](../_includes/billing/contacts-note.md) %}
 
-   * If you select the **Bank card** payment method, link your corporate bank card: Enter the bank card details: the 16-digit number, expiration date, and CVV (on the back of the card). Confirm that the card is corporate and you are authorized to use it.
+   * If you select the **Bank card** payment method, link your corporate bank card. Specify your card details: 16-digit number, expiration date, and CVV (see it on the back side of your card). Confirm the card is a corporate one and you are authorized to use it.
 
       {% include [payment-card-types](../_includes/billing/payment-card-types.md) %}
 

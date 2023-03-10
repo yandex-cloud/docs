@@ -15,8 +15,8 @@ The settings described below are only applicable to backends of the **Target gro
 
    * For an `HTTP` backend group:
 
-      * **HTTP/2**: The option to use HTTP/2 when routing requests to the backend of an `HTTP` backend group. By default, the protocol version is 1.1. Backend groups of the `gRPC` type only support HTTP/2 connections.
-      * **Protocol**: The backend connection protocol: `HTTP` (without encryption) or `HTTPS` (with TLS encryption). For `HTTPS`, specify:
+      * **HTTP/2**: Option to use HTTP/2 when routing requests to the backend of an `HTTP` backend group. By default, the protocol version is 1.1. Backend groups of the `gRPC` type only support HTTP/2 connections.
+      * **Protocol**: Backend connection protocol: `HTTP` (without encryption) or `HTTPS` (with TLS encryption). For `HTTPS`, specify:
 
          * **SNI**. Host domain name for Server Name Indication, an extension to the TLS protocol.
          * **Trusted CA certificate**. Specify a certificate from the certificate authority that the load balancer will trust when establishing a secure connection with backend endpoints. X.509 certificates in PEM format are supported.

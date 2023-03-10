@@ -50,7 +50,7 @@ To create a {{ PG }} connection:
 
       - **Hostname**. Select the host name from the list of hosts available in the {{ PG }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
       - **Port**. Specify the {{ PG }} connection port. The default port is 6432.
-      - **Database name**. Specify the name of the database to connect to.
+      - **Path to database**. Specify the name of the database to connect to.
       - **Username**. Specify the username for the {{ PG }} connection.
       - **Password**. Enter the password for the user.
       - **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
@@ -62,7 +62,7 @@ To create a {{ PG }} connection:
 
       - **Hostname**. Specify the path to a master host or a {{ PG }} master host IP address. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
       - **Port**. Specify the {{ PG }} connection port. The default port is 6432.
-      - **Database name**. Specify the name of the database to connect to.
+      - **Path to database**. Specify the name of the database to connect to.
       - **Username**. Specify the username for the {{ PG }} connection.
       - **Password**. Enter the password for the user.
       - **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).

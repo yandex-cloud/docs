@@ -22,7 +22,7 @@ To create an Oracle Database connection:
    - **Connection name**. Specify a name for the connection. You can set any name.
    - **Hostname or IP**. Specify the path to the master host or the IP address of the Oracle Database master host. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
    - **Port**. Specify the Oracle Database connection port.
-   - **Database name**. Specify the Service Name or SID of the database to connect to.
+   - **Path to database**. Specify the Service Name or SID of the database to connect to.
    - **Username**. Specify the username for the Oracle Database connection.
    - **Password**. Enter the password for the specified user.
    - **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).

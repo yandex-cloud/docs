@@ -5,7 +5,7 @@
 * OggOpus
 * MP3
 
-#### LPCM {#LPCM}
+#### LPCM {#lpcm}
 
 [Linear pulse-code modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation) without a WAV header.
 

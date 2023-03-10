@@ -33,5 +33,5 @@
 
 * [AWS CloudTrail](../../data-transfer/operations/endpoint/source/aws-cloudtrail.md)
 * [BigQuery](../../data-transfer/operations/endpoint/source/bigquery.md)
-* [Microsoft SQL Server](https://docs.airbyte.com/integrations/sources/mssql)
+* [Microsoft SQL Server](../../data-transfer/operations/endpoint/source/mssql.md)
 * [S3](../../data-transfer/operations/endpoint/source/s3.md)

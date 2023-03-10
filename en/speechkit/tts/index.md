@@ -18,7 +18,7 @@ The service is available at `{{ api-host-sk-tts }}`.
 | Specification | REST | gRPC |
 | Selecting voice | `voice` parameter | `hint: voice` parameter |
 | Selecting language | Depends on the voice </br>`lang` parameter | Depends on the voice, not specified explicitly in the request |
-| Specifying mode | Depends on the voice </br>`emotion` parameter | Depends on the voice </br>`hint: role` parameter |
+| Specifying role | Depends on the voice </br>`emotion` parameter | Depends on the voice </br>`hint: role` parameter |
 | [Controlling pronunciation](#markup) | SSML </br> TTS | TTS |
 | [Pronunciation speed](#speed) | `speed` parameter | `hint: speed` parameter |
 | [Adjusting volume](#volume) | No | `loudness_normalization_type` parameter |
@@ -37,9 +37,9 @@ If no voice suits your business, {{ speechkit-name }} can create a unique one sp
 
 {{ speechkit-name }} can synthesize speech in different languages. Each voice is designed to synthesize speech in a specific language. Voices can also read text in a <q>foreign</q> language, but the quality of the synthesized speech will be poorer in this case: <q>the speaker</q> will pronounce the text with an accent, and there may be errors in word synthesis.
 
-### Mode {#role}
+### Role {#role}
 
-The synthesized speech will sound different, depending on the selected mode. Mode is the manner of pronunciation for the same speaker. Different sets of modes are available for different voices. Attempting to use a mode that the selected voice does not have will cause a service error.
+The synthesized speech will sound differently depending on the selected role. Role is a manner of pronunciation for the same speaker. Different sets of roles are available for different voices. Attempting to use a role the selected voice does not have will cause a service error.
 
 ## Controlling pronunciation {#markup}
 

@@ -400,12 +400,18 @@
 Данные пользователя | Комментарий | Элементы SAML-сообщения
 ------------------- | ----------- | ----------------------
 Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать User Principal Name (UPN) или адрес электронной почты. | `<NameID>`
-Фамилия | Отображается в сервисах {{yandex-cloud}}. | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
-Имя | Отображается в сервисах {{yandex-cloud}}. | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
-Полное имя | Отображается в сервисах {{yandex-cloud}}.<br>Пример: Иван Иванов | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
-Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример:&nbsp;`ivanov@example.com` | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`
-Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: +71234567890 | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
-Аватар | Отображается в сервисах {{yandex-cloud}}.<br>Изображение передается в кодировке Base64. [Пример](#avatar-example) | `<Attribute>`  с параметром<br>`Name="thumbnailPhoto"`
+Фамилия | Отображается в сервисах {{yandex-cloud}}.<br> Ограничение значения по длине: {{saml-limit-last-name}}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
+Имя | Отображается в сервисах {{yandex-cloud}}.<br> Ограничение значения по длине: {{saml-limit-first-name}}. | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
+Полное имя | Отображается в сервисах {{yandex-cloud}}.<br>Пример: Иван Иванов.<br> Ограничение значения по длине: {{saml-limit-display-name}}. | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
+Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример:&nbsp;`ivanov@example.com`.<br> Ограничение значения по длине: {{saml-limit-email}}. | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`
+Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: +71234567890.<br> Ограничение значения по длине: {{saml-limit-phone}}. | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
+Аватар | Отображается в сервисах {{yandex-cloud}}.<br>Изображение передается в кодировке Base64. [Пример](#avatar-example).<br> Ограничение значения по длине: {{saml-limit-thumbnail-photo}}. | `<Attribute>`  с параметром<br>`Name="thumbnailPhoto"`
+
+{% note warning %}
+
+Значение атрибута `thumbnailPhoto`, превышающее ограничение по длине, игнорируется. Если значение другого атрибута превышает ограничения, то часть значения, выходящая за пределы ограничения, отбрасывается.
+
+{% endnote %}
 
 ### Пример изображения в кодировке Base64 {#avatar-example}
 
