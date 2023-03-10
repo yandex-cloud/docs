@@ -280,6 +280,13 @@ val a: Int = 1
 Чтобы разместить изображение в виджете, воспользуйтесь любым сервисом Яндекса. Например, загрузите изображение в [Jing](https://jing.yandex-team.ru/).
 {% endif %}
 
+{% note info %}
+
+* Загрузка изображений из сторонних хранилищ не поддерживается.
+* Поддерживаются только [ссылки на объекты](../../storage/concepts/object.md#object-url) вида `https://storage.yandexcloud.net/<bucket>/<key>`.
+
+{% endnote %}
+
 Для загрузки изображения в виджет:
 {% if audience != "internal" %}
 1. Откройте [консоль]({{ link-console-main }}) и в меню слева выберите **{{ objstorage-short-name }}**.
