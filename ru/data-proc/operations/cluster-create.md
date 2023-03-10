@@ -118,7 +118,7 @@
       {% endnote %}
 
   1. Включите опцию **UI Proxy**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
-  
+
   1. Логи кластера сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
 
       Для работы этой функции [назначьте сервисному аккаунту кластера](../../iam/operations/roles/grant.md#access-to-sa) роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
@@ -171,7 +171,7 @@
 
     Чтобы создать кластер:
 
-    
+
     1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
         ```bash
@@ -189,7 +189,7 @@
 
     1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
-        
+
         ```bash
         {{ yc-dp }} cluster create <имя кластера> \
            --bucket=<имя бакета> \
@@ -309,7 +309,7 @@
 
             {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
-    
+
     1. Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
         ```bash
@@ -345,7 +345,7 @@
 
     1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
-    
+
     1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
@@ -376,7 +376,7 @@
          description = "<описание сервисного аккаунта>"
        }
 
-       resource "yandex_resourcemanager_folder_iam_binding" "dataproc" {
+       resource "yandex_resourcemanager_folder_iam_member" "dataproc" {
          folder_id = "<идентификатор каталога>"
          role      = "mdb.dataproc.agent"
          members   = [
@@ -384,7 +384,7 @@
          ]
        }
 
-       resource "yandex_resourcemanager_folder_iam_binding" "bucket-creator" {
+       resource "yandex_resourcemanager_folder_iam_member" "bucket-creator" {
          folder_id = "<идентификатор каталога>"
          role      = "editor"
          members   = [
@@ -398,7 +398,7 @@
 
        resource "yandex_storage_bucket" "<имя бакета в {{ TF }}>" {
          depends_on = [
-           yandex_resourcemanager_folder_iam_binding.bucket-creator
+           yandex_resourcemanager_folder_iam_member.bucket-creator
          ]
 
          bucket     = "<имя бакета>"
@@ -558,7 +558,7 @@
 
     Чтобы назначить публичный IP-адрес всем хостам подкластера, передайте значение `true` в параметре `configSpec.subclustersSpec.assignPublicIp`.
 
-    
+
     Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
     {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
