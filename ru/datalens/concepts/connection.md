@@ -31,7 +31,7 @@ _Подключение_ содержит информацию о парамет
 
 {% note warning %}
 
-* Доступ из {{ datalens-short-name }} к источникам во внешней сети по умолчанию закрыт. Чтобы получить доступ, закажите его через [Puncher](https://puncher.yandex-team.ru/?create_protocol=tcp&create_sources=_DL_INT_BACK_PROD_NETS_&create_until=persistent) от `_DL_INT_BACK_PROD_NETS_ ` к источнику и пройдите согласование в СИБ.
+* Доступ из {{ datalens-short-name }} к источникам во внешней сети, кроме Google Sheets, по умолчанию закрыт. Чтобы получить доступ, закажите его через [Puncher](https://puncher.yandex-team.ru/?create_protocol=tcp&create_sources=_DL_INT_BACK_PROD_NETS_&create_until=persistent) от `_DL_INT_BACK_PROD_NETS_ ` к источнику и пройдите согласование в СИБ.
 * Сетевой доступ от {{ datalens-short-name }} к вашему источнику может быть закрыт и во внутренней сети Яндекса. В этом случае также необходимо заказать доступ через [Puncher](https://puncher.yandex-team.ru/?create_protocol=tcp&create_sources=_DL_INT_BACK_PROD_NETS_&create_until=persistent) от `_DL_INT_BACK_PROD_NETS_ ` к источнику.
 
 {% endnote %}
