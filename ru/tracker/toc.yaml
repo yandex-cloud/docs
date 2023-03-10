@@ -245,6 +245,8 @@ items:
       href: user/create-filter.md
     - name: Язык запросов
       href: user/query-filter.md
+    - name: Диаграмма Ганта для фильтра задач
+      href: manager/gantt-search.md
 - name: Уведомления и подписки
   items:
     - name: Обзор
