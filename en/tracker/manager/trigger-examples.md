@@ -435,7 +435,7 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
 1. Specify the request parameters. In the **Request body** field, set the parameters of a new sub-issue.
     To substitute the values from the original issue, use [variables](../user/vars.md):
 
-   # |
+   #|
    || **Field** | **Content** ||  
    || Method | POST ||
    || Address | `{{ host }}/{{ ver }}/issues` ||

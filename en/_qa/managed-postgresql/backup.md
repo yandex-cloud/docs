@@ -21,3 +21,17 @@ Follow the instructions in [Migrating databases](../../managed-postgresql/tutori
 #### How do I import data to a {{ PG }} database cluster in {{ mpg-short-name }}? {#migrate}
 
 Use the `pg_dump` built-in tool to migrate data to a {{ PG }} cluster in {{ mpg-short-name }}.
+
+#### Why can a data transfer through creating and restoring a logical dump fail with an error? {#backup-error}
+
+[Restoring a logical dump](../../managed-postgresql/tutorials/data-migration.md#backup) may fail with one of the following errors:
+
+* `ERROR:  role "<source username>" does not exist`
+* `ERROR:  must be member of role "<source username>"`
+
+The errors occur because the target cluster does not have the user (or the privileges of the user) who created the logical dump in the source cluster.
+
+To resolve the errors:
+
+1. In the target cluster, [add a user](../../managed-postgresql/operations/cluster-users.md#adduser) with access to the migrated database and the same name as the user who created the logical dump in the source cluster.
+1. Use this user to [restore the logical dump](../../managed-postgresql/tutorials/data-migration.md#restore) or [grant their privileges](../../managed-postgresql/operations/grant.md#grant-privilege) to the user who is restoring the logical dump.

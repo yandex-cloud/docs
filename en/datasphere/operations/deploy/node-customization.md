@@ -21,6 +21,6 @@
    * `<cloud_registry_path>`: {{ container-registry-name }} registry path.
    * `<tag>`: Docker image [tag](../../../container-registry/concepts/docker-image.md#version).
 
-   During the uploading, specify the username and choose a secret with a password. For authorization in {{ container-registry-name }}, enter the token type `json_key` as the username, and enter the secret as the password.
+   During the uploading, specify the username and choose a secret with a password. For authorization in {{ container-registry-name }}, provide the `json_key` token type as username and enter the secret as password.
 
 1. In the [node](../../concepts/deploy/index.md#node) creation form, specify the path to the image in the `{{ registry }}/<cloud_registry_path>:<tag>` format.

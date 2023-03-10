@@ -21,10 +21,10 @@ Starting April 17, 2023, the free {{ ya-360 }} version will be disabled and the 
 ||
 || **Employee accounts** | Accounts on Yandex or your enterprise domain. | Accounts on Yandex and domains delegated to {{ ya-360 }}. ||
 || **Single Sign-On (SSO)** | Supported. [Learn more]({{ link-ya-360-sso }}) | Supported. [Learn more](../organization/add-federation.md) ||
-|| **Organizations per user** | Domain users may only belong to a single organization. | A user may belong to multiple organizations. ||
-|| **Connecting a domain** | You can [create](https://yandex.ru/support/business/domains/add-domain.html) a domain for an organization. | You cannot create a domain. ||
+|| **Organizations per user on the {{ ya-360 }} domain** | Users with domain accounts may only belong to the organization this domain is connected for. | Users with domain accounts may belong to any organization. ||
+|| **Connecting a domain** | You can [connect](https://yandex.ru/support/business/domains/add-domain.html) a domain for an organization. | You cannot connect a domain. ||
 || **Groups** | Support for [hierarchy-based divisions]({{ link-ya-360-units }}) and [one-level groups](link-ya-360-groups). | You can only set up [one-level groups](../organization/manage-groups.md) of users. ||
-|| **Organization administrator privileges** | The {{ ya-360 }} administrator becomes an administrator in {{ tracker-name }}. | To make the {{ org-full-name }} administrator an administrator in {{ tracker-name }}, grant them an additional role. ||
+|| **Organization administrator privileges** | The {{ ya-360 }} administrator becomes an administrator in {{ tracker-name }}. | Starting March 2023, {{ org-full-name }} administrators will also be administrators in {{ tracker-name }}. You will also be able to appoint administrators by [granting](../organization/roles.md) them the `tracker.admin` role. ||
 || **Additional features** | [{{ ya-360 }}]({{ link-ya-360-services }}) services | [{{ yandex-cloud }}]({{ link-cloud-services }}) services ||
 |#
 

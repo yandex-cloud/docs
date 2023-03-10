@@ -19,7 +19,7 @@ items:
         href: operations/web-sql-query.md
       - name: Изменение настроек кластера и базы данных
         href: operations/update.md
-      - name: Настройка доступа к ObjectStorage
+      - name: Настройка доступа к {{ objstorage-name }}
         href: operations/s3-access.md
       - name: Подключение внешних словарей
         href: operations/dictionaries.md
@@ -29,13 +29,13 @@ items:
         href: operations/ml-models.md
       - name: Управление схемами формата данных
         href: operations/format-schemas.md
-      - name: Подключение к DataLens
+      - name: Подключение к {{ datalens-name }}
         href: operations/datalens-connect.md
-      - name: Изменение версии ClickHouse
+      - name: Изменение версии {{ CH }}
         href: operations/cluster-version-update.md
-      - name: Управление хостами ZooKeeper
+      - name: Управление хостами {{ ZK }}
         href: operations/zk-hosts.md
-      - name: Управление хостами ClickHouse
+      - name: Управление хостами {{ CH }}
         href: operations/hosts.md
       - name: Управление базами данных
         href: operations/databases.md
@@ -59,13 +59,13 @@ items:
         href: tutorials/index.md
       - name: Добавление данных в БД
         href: tutorials/insert.md
-      - name: Миграция данных в ClickHouse
+      - name: Миграция данных в {{ mch-name }}
         href: tutorials/data-migration.md
       - name: Шардирование таблиц
         href: tutorials/sharding.md
       - name: Использование гибридного хранилища
         href: tutorials/hybrid-storage.md
-      - name: Получение данных из Managed Service for Apache Kafka®
+      - name: Получение данных из {{ mkf-name }}
         href: tutorials/fetch-data-from-mkf.md
       - name: Получение данных из RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
@@ -75,17 +75,19 @@ items:
           Настройка {{ dns-full-name }} для доступа к кластеру из других
           облачных сетей
         href: tutorials/dns-peering.md
-      - name: Анализ логов Object Storage при помощи DataLens
+      - name: >-
+          Анализ логов {{ objstorage-full-name }} при помощи {{
+          datalens-full-name }}
         href: tutorials/storage-logs-analysis.md
       - name: Настройка {{ mch-name }} для Graphite
         href: tutorials/clickhouse-for-graphite.md
       - name: Сохранение потока данных {{ yds-full-name }} в {{ mch-name }}
         href: tutorials/yds-to-clickhouse.md
-      - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+      - name: Миграция базы данных из Google BigQuery
         href: tutorials/bigquery-to-clickhouse.md
       - name: >-
-          Поставка данных из {{ mkf-full-name }} с помощью {{
-          data-transfer-full-name }}
+          Поставка данных из {{ mkf-name }} с помощью {{ data-transfer-full-name
+          }}
         href: tutorials/mkf-to-mch-migration.md
   - name: Концепции
     items:
@@ -119,11 +121,11 @@ items:
         href: concepts/maintenance.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
-      - name: Управление памятью в {{ mch-name }}
+      - name: Управление памятью
         href: concepts/memory-management.md
-      - name: Политика работы с версиями ClickHouse
+      - name: Политика работы с версиями {{ CH }}
         href: concepts/update-policy.md
-      - name: Настройки ClickHouse
+      - name: Настройки {{ CH }}
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
@@ -333,7 +335,7 @@ items:
     items:
       - name: Общие вопросы
         href: qa/general.md
-      - name: Вопросы о ClickHouse
+      - name: Вопросы о {{ CH }}
         href: qa/clickhouse.md
       - name: Подключение
         href: qa/connection.md

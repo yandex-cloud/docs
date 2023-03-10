@@ -1,21 +1,21 @@
 # Миграция данных в {{ mch-name }}
 
-Чтобы перенести вашу базу данных в сервис {{ mch-name }}, нужно непосредственно перенести данные, закрыть старую базу данных на запись и перенести нагрузку на кластер БД в {{ yandex-cloud }}.
+Чтобы перенести вашу базу данных в {{ mch-name }}, нужно непосредственно перенести данные, закрыть старую базу данных на запись и перенести нагрузку на кластер БД в {{ yandex-cloud }}.
 
-Перенести данные в кластер {{ mch-name }} можно с помощью [Apache ZooKeeper](http://zookeeper.apache.org) и стандартной утилиты [clickhouse-copier]({{ ch.docs }}/operations/utils/clickhouse-copier/).
+Перенести данные в кластер {{ mch-name }} можно с помощью [Apache {{ ZK }}](http://zookeeper.apache.org) и стандартной утилиты [clickhouse-copier]({{ ch.docs }}/operations/utils/clickhouse-copier/).
 
-Переносить данные на промежуточную виртуальную машину в Compute Cloud нужно, если:
+Переносить данные на промежуточную виртуальную машину в {{ compute-name }} нужно, если:
 
 * К кластеру {{ mch-name }} нет доступа из интернета.
-* Сетевое оборудование или соединение с {{ CH }}-кластером в {{ yandex-cloud }} не обладают достаточной надежностью.
+* Сетевое оборудование или соединение с кластером {{ CH }} в {{ yandex-cloud }} не обладают достаточной надежностью.
 * Нет среды, в которой можно запустить `clickhouse-copier`.
 
 Этапы миграции:
 1. [Подготовьтесь к миграции](#prepare).
-1. [Установите Zookeeper](#zookeeper-install).
+1. [Установите {{ ZK }}](#zookeeper-install).
 1. [Создайте кластер {{ mch-name }}](#create-cluster).
 1. [Создайте задачу](#copier-task) для `clickhouse-copier`.
-1. [Добавьте задачу](#zookeeper-task) для `clickhouse-copier` в Zookeeper.
+1. [Добавьте задачу](#zookeeper-task) для `clickhouse-copier` в {{ ZK }}.
 1. [Запустите](#copier-run) `clickhouse-copier`.
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -27,7 +27,7 @@
     * Версии {{ CH }} в обоих кластерах должны совпадать.
     * Версия `clickhouse-copier` должна быть не ниже версии {{ CH }} в кластере
     {{ mch-name }}.
-    * Версия ZooKeeper — не ниже 3.5.
+    * Версия {{ ZK }} — не ниже 3.5.
 
 1. Проверьте, что кластер-источник готов к миграции:
 
@@ -42,9 +42,9 @@
     * Вычислительную мощность ВМ стоит выбирать исходя из объема переносимых данных.
 
 
-## Установите Zookeeper {#zookeeper-install}
+## Установите {{ ZK }} {#zookeeper-install}
 
-Чтобы скопировать данные, достаточно запустить один узел ZooKeeper.
+Чтобы скопировать данные, достаточно запустить один узел {{ ZK }}.
 
 1. Установите Java Runtime Environment:
 
@@ -52,39 +52,40 @@
     sudo apt-get install default-jre
     ```
 
-1. Добавьте пользователя, от имени которого будет запускаться Zookeeper:
+1. Добавьте пользователя, от имени которого будет запускаться {{ ZK }}:
 
-    ```
+    ```bash
     sudo adduser hadoop
     ```
 
-1. Создайте каталоги для данных ZooKeeper:
+1. Создайте каталоги для данных {{ ZK }}:
 
     ```bash
-    sudo mkdir -p /var/data/zookeeper
+    sudo mkdir -p /var/data/zookeeper && \
     sudo chown -R hadoop:hadoop /var/data
     ```
 
-1. Установите ZooKeeper в режиме одного узла:
+1. Установите {{ ZK }} в режиме одного узла:
 
     1. Скачайте последнюю стабильную версию (latest stable) дистрибутива. Подробную информацию можно узнать на [странице с релизами](https://zookeeper.apache.org/releases.html).
 
         ```bash
-        cd /opt
-        sudo wget https://downloads.apache.org/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz
-        sudo mkdir zookeeper
-        sudo tar -C /opt/zookeeper -xvf apache-zookeeper-3.6.2-bin.tar.gz --strip-components 1
+        cd /opt && \
+        sudo wget https://downloads.apache.org/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz && \
+        sudo mkdir zookeeper && \
+        sudo tar -C /opt/zookeeper -xvf apache-zookeeper-3.6.2-bin.tar.gz --strip-components 1 && \
         sudo chown hadoop:hadoop -R zookeeper
         ```
-    1. Переключитесь на созданного ранее пользователя для запуска ZooKeeper:
 
-        ```
+    1. Переключитесь на созданного ранее пользователя для запуска {{ ZK }}:
+
+        ```bash
         su hadoop
         ```
 
     1. Создайте файл `zoo.cfg`:
 
-        ```
+        ```bash
         nano /opt/zookeeper/conf/zoo.cfg
         ```
         
@@ -96,21 +97,21 @@
         clientPort=2181
         ```
 
-    1. Мастер-узел должен иметь уникальный идентификатор. Чтобы задать его, создайте файл  `myid`.
+    1. Мастер-узел должен иметь уникальный идентификатор. Чтобы задать его, создайте файл `myid`.
     
-       ```
+       ```bash
        nano /var/data/zookeeper/myid
        ```
        
        Укажите уникальный идентификатор в качестве содержимого, (например, «1»).
 
-1. Запустить ZooKeeper для отладки можно так:
+1. Запустить {{ ZK }} для отладки можно так:
 
     ```bash
     bash /opt/zookeeper/bin/zkServer.sh start-foreground
     ```
 
-1. Чтобы запустить ZooKeeper в обычном режиме:
+1. Чтобы запустить {{ ZK }} в обычном режиме:
 
     ```bash
     bash /opt/zookeeper/bin/zkServer.sh start
@@ -125,19 +126,19 @@
 
 ## Создайте задачу для clickhouse-copier {#copier-task}
 
-Чтобы запустить `clickhouse-copier` с помощью ZooKeeper, нужно подготовить:
+Чтобы запустить `clickhouse-copier` с помощью {{ ZK }}, нужно подготовить:
 
-* конфигурационный файл для Zookeeper (`config.xml`);
+* конфигурационный файл для {{ ZK }} (`config.xml`);
 * файл описания задачи (`cp-task.xml`).
 
 Инструкция по использованию `clickhouse-copier` приведена в [документации ClickHouse]({{ ch.docs }}/operations/utils/clickhouse-copier/).
 
 
-### Подготовьте конфигурационный файл ZooKeeper {#zookeeper-config}
+### Подготовьте конфигурационный файл {{ ZK }} {#zookeeper-config}
 
 В конфигурационном файле (`config.xml`) нужно указать:
 
-* В элементе `<zookeeper>` — адрес хоста, на котором установлен ZooKeeper.
+* В элементе `<zookeeper>` — адрес хоста, на котором установлен {{ ZK }}.
 * В элементе `<caConfig>` — путь к сертификату для подключения к {{ mch-name }}.
 
 Скачать сертификат можно по адресу [{{ crt-web-path }}]({{ crt-web-path }}).
@@ -254,17 +255,16 @@
 ```
 
 
-## Добавьте задачу для clickhouse-copier в Zookeeper {#zookeeper-task}
+## Добавьте задачу для clickhouse-copier в {{ ZK }} {#zookeeper-task}
 
-Чтобы добавить задачу в ZooKeeper, выполните следующие команды:
+Чтобы добавить задачу в {{ ZK }}, выполните следующие команды:
 
 ```bash
-/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/description
-/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/task_active_workers
-/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml
-
-fc=$(cat ./cp-task.xml)
-/opt/zookeeper/bin/zkCli.sh -server localhost:2181 create /cp-task.xml ""
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/description && \
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/task_active_workers && \
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml && \
+fc=$(cat ./cp-task.xml) && \
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 create /cp-task.xml "" && \
 /opt/zookeeper/bin/zkCli.sh -server localhost:2181 create /cp-task.xml/description "$fc"
 ```
 
@@ -281,7 +281,7 @@ fc=$(cat ./cp-task.xml)
 добавьте флаг `--daemon`):
 
 ```bash
-clickhouse-copier
+clickhouse-copier \
   --config ./config.xml \
   --task-path ./cp-task.xml \
   --base-dir ./clickhouse \

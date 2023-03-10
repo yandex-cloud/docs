@@ -41,7 +41,7 @@ To create a Greenplum connection:
 
       * **Hostname**. Select the host name from the list of hosts available in the Greenplum cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
       * **Port**. Specify the Greenplum connection port. The default port is 5432.
-      * **Database name**. Specify the name of the database to connect to.
+      * **Path to database**. Specify the name of the database to connect to.
       * **Username**. Specify the username for the Greenplum connection.
       * **Password**. Enter the password for the user.
       * **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
@@ -53,7 +53,7 @@ To create a Greenplum connection:
 
       * **Hostname**. Specify the path to the master host or the IP address of the Greenplum master host. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
       * **Port**. Specify the Greenplum connection port. The default port is 5432.
-      * **Database name**. Specify the name of the database to connect to.
+      * **Path to database**. Specify the name of the database to connect to.
       * **Username**. Specify the username for the Greenplum connection.
       * **Password**. Enter the password for the user.
       * **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).

@@ -29,6 +29,18 @@
 
 1. Создайте [кластер {{ CH }}](../../../managed-clickhouse/operations/cluster-create.md) в облаке. 
    1. В кластере добавьте пользователя БД `datalens` с параметром [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
+   
+      {% note info %}
+      
+      Если кластер переведен под управление SQL, то создать пользователя можно командой:
+      ```sql
+      CREATE USER IF NOT EXISTS <имя_пользователя> ON CLUSTER <имя_кластера>
+          IDENTIFIED WITH plaintext_password by '<пароль_пользователя>'
+          SETTINGS readonly = 2;
+      ```
+      
+      {% endnote %}
+
    1. В настройках включите **Доступ из {{ datalens-short-name }}** и **Управление базами данных через SQL**.
 1. Передайте пароль и список хостов кластера в {{ datalens-short-name }}.
 1. Сгенерируйте пару RSA-2048 ключей. Передайте открытый ключ и версию ключа в {{ datalens-short-name }}.

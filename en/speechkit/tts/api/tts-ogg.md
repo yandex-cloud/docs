@@ -131,7 +131,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
          with open(args.output, "wb") as f:
              for audio_content in synthesize(args.folder_id, args.token, args.text):
-                 f.write(audio_content)   
+                 f.write(audio_content)
       ```
 
    Where:

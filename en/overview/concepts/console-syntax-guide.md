@@ -8,7 +8,7 @@
 
 - WLS
 
-   [Windows Subsystem for Linux](https://ru.wikipedia.org/wiki/Windows_Subsystem_for_Linux) is available for Windows 10 or higher.
+   [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) is available for Windows 10 or higher.
 
    1. To check if WSL is installed on your PC, run the following command in cmd or PowerShell:
 
@@ -63,7 +63,7 @@ If the code execution fails:
 1. Check if the Bash command has an equivalent in your terminal. For example, in PowerShell, run:
 
    ```powershell
-   alias  
+   alias
    ```
 
    This outputs a list of all aliases defined in the system settings:
@@ -101,7 +101,7 @@ If the code execution fails:
    |-------|------|------|-------|
    | List files in a directory | `ls -s` | `dir` | `dir`, `ls`, `Get-ChildItem` |
    | List files in a directory and sub-directories | `ls -R` | `tree` | `ls`, `Get-ChildItem` |
-   | Create a file  | `touch` | `copy nul > ` | `New-Item` |
+   | Create a file | `touch` | `copy nul > ` | `New-Item` |
    | Rename a file | `mv` | `ren` | `ren`, `Rename-Item` |
    | Copy a file | `cp` | `copy` | `copy`, `Copy-Item` |
    | Move a file | `mv` | `move` | `move`, `Move-Item` |
@@ -125,5 +125,5 @@ If the code execution fails:
 ### Check the names of system variables and auxiliary syntax {#replace-analogs}
 
 1. Check the names of environment variables. For example, instead of the `USER` environment variable used in Linux, the `USERNAME` variable is used in Windows.
-1. If your code contains comparison, selection, or loop statements, change the syntax to meet the requirements of your command shell.  To learn more about the difference between the Bash and PowerShell auxiliary syntax, see [Bash vs PowerShell Cheat Sheet](https://blog.ironmansoftware.com/daily-powershell/bash-powershell-cheatsheet).
+1. If your code contains comparison, selection, or loop statements, change the syntax to meet the requirements of your command shell. To learn more about the difference between the Bash and PowerShell auxiliary syntax, see [Bash vs PowerShell Cheat Sheet](https://blog.ironmansoftware.com/daily-powershell/bash-powershell-cheatsheet).
 

@@ -1,4 +1,4 @@
-# Example use for streaming the recognition API v2
+# Example use of streaming recognition with API v2
 
 The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v2](streaming-api.md).
 
@@ -36,7 +36,7 @@ To follow the examples in this section:
          pip install grpcio-tools
          ```
 
-      1. Go to the directory hosting the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/)repository, create an `output` directory, and generate the client interface code there:
+      1. Go to the directory hosting the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/) repository, create an `output` directory, and generate the client interface code there:
 
          ```bash
          cd cloudapi
