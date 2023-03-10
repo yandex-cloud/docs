@@ -120,7 +120,7 @@
       {% endnote %}
 
   1. Включите опцию **UI Proxy**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
-
+  {% if product == "yandex-cloud" %}
   1. Логи кластера сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
 
       Для работы этой функции {% if audience != "internal" %}[назначьте сервисному аккаунту кластера](../../iam/operations/roles/grant.md#access-to-sa){% else %}назначьте сервисному аккаунту кластера{% endif %} роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
@@ -174,6 +174,7 @@
 
     Чтобы создать кластер:
 
+    {% if audience != "internal" %}
 
     1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
@@ -193,6 +194,7 @@
 
     1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
+        {% if product == "yandex-cloud" %}
 
         ```bash
         {{ yc-dp }} cluster create <имя кластера> \
@@ -348,6 +350,8 @@
             {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
 
+    {% if product == "yandex-cloud" %}
+
     1. Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
         ```bash
@@ -386,6 +390,7 @@
 
     1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
+    {% if audience != "internal" %}
 
     1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -600,8 +605,9 @@
 
     Чтобы назначить публичный IP-адрес всем хостам подкластера, передайте значение `true` в параметре `configSpec.subclustersSpec.assignPublicIp`.
 
+    {% if product == "yandex-cloud" %}
 
-    Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
+    Чтобы создать кластер, размещенный на {% if audience != "internal" %}[группах выделенных хостов](../../compute/concepts/dedicated-host.md){% else %}группах выделенных хостов{% endif %}, передайте список их идентификаторов в параметре `hostGroupIds`.
 
     {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
 

@@ -12,6 +12,7 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 
+  {% if product == "yandex-cloud" %}
 
   1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
 
@@ -219,6 +220,7 @@
 
   {% cut "Конфигурационный файл для кластера:" %}
 
+  {% if product == "yandex-cloud" %}
 
   ```hcl
   locals {
@@ -542,6 +544,7 @@
 
   {% cut "Конфигурационный файл для кластера:" %}
 
+  {% if product == "yandex-cloud" %}
 
   ```hcl
   locals {
@@ -880,6 +883,7 @@
   }
   ```
 
+  {% endif %}
 
   {% endcut %}
 
