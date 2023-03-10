@@ -40,11 +40,11 @@ items:
       href: concepts/unified-processing.md
   - name: Пошаговые инструкции
     items:
-      - name: Работа с соединениями
+      - name: Управление соединениями
         href: operations/connection.md
-      - name: Работа с привязками к данным
+      - name: Управление привязками
         href: operations/binding.md
-      - name: Работа с запросами
+      - name: Управление запросами
         href: operations/query.md
   - name: Источники и приемники данных
     items:
