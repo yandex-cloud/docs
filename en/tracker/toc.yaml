@@ -333,6 +333,8 @@ items:
           href: user/delete-template.md
         - name: Using shared templates
           href: user/share-template.md
+    - name: Workflow templates
+      href: manager/create-work-process.md
     - name: Variables
       href: user/vars.md
     - name: Using a form as a template for creating issues
@@ -440,6 +442,8 @@ items:
 - name: Revision history
   when: audience == "external"
   items:
+    - name: January 2023
+      href: changelogs/2301.md
     - name: December 2022
       href: changelogs/2212.md
     - name: November 2022

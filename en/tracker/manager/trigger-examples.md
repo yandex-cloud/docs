@@ -475,16 +475,16 @@ To single out issue completion stages, use [checklists](../user/checklist.md). U
 1. Specify the request parameters. In the **Request body** field, set the checklist item parameters:
 
 
-   # |
-   || **Field** | **Content** ||  
-   || Method | POST ||
-   || Address | `{{ link-tracker }}v2/issues/not_var{{issue.key}}/checklistItems` ||
-   || Authorization method | OAuth 2.0 ||
-   || Token | [How to get a token](../concepts/access.md#section_about_OAauth) ||
-   || Authorization header | Authorization ||
-   || Token type | OAuth ||
-   || Content type | application/json ||
-   || Request body |
+    #|
+    || **Field** | **Content** ||  
+    || Method | POST ||
+    || Address | `{{ link-tracker }}v2/issues/not_var{{issue.key}}/checklistItems` ||
+    || Authorization method | OAuth 2.0 ||
+    || Token | [How to get a token](../concepts/access.md#section_about_OAauth) ||
+    || Authorization header | Authorization ||
+    || Token type | OAuth ||
+    || Content type | application/json ||
+    || Request body |
 
    > Example: Adding three items to a checklist with the issue reporter being the item assignee.
    > ```json
@@ -528,7 +528,7 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
 1. Specify the request parameters. In the **Request body** field, set the parameters of a new sub-issue.
     To substitute the values from the original issue, use [variables](../user/vars.md):
 
-   # |
+   #|
    || **Field** | **Content** ||  
    || Method | POST ||
    || Address | `{{ host }}/{{ ver }}/issues` ||

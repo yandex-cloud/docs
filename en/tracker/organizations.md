@@ -28,15 +28,17 @@ Unless you switch to the paid service plan, the following changes take effect st
 
 Starting March 2023, {{ org-full-name }} will support user group management in {{ tracker-name }}.
 
+{{ org-full-name }} administrators will also be administrators in {{ tracker-name }} (the `organization-manager.admin` and `organization-manager.organizations.owner` [roles](../organization/roles.md#admin)). You will be able to appoint an administrator by [granting](../organization/roles.md) a user the `tracker.admin` role.
+
 {{ org-full-name }} will remain free of charge.
 
 ### For {{ tracker-name }}
 
 The {{ tracker-name }} interface will allow you to choose which organization to use.
 
-## What should I do on March 17, 2023? {#what-to-do}
+## What should I do on April 17, 2023? {#what-to-do}
 
-If it is important to you that the organization management service remains free of charge, enable the {{ org-full-name }} organization in the {{ tracker-name }} interface and disable {{ ya-360 }}. We will send an email with detailed instructions to {{ tracker-name }} administrators in advance.
+If it is important to you that the organization management service remains free of charge, enable the {{ org-full-name }} organization in the {{ tracker-name }} interface and disable {{ ya-360 }}. We will send an email with detailed instructions to {{ tracker-name }} administrators in March 2023.
 
 If you need to use the {{ ya-360 }} features, switch to the paid service plan.
 

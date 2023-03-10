@@ -42,11 +42,13 @@ default:
   link-balance-invoices: https://balance.yandex.com/invoices.xml
   link-ya-360: https://admin.yandex.ru/?lang=en
   link-ya-360-domains: https://admin.yandex.ru/domains/?lang=en
-  link-ya-360-tariffs: https://360.yandex.com/business/tariff/?lang=en
-  link-ya-360-units: https://yandex.ru/support/business/units.html
-  link-ya-360-sso: https://yandex.ru/support/business/sso.html
-  link-ya-360-services: https://yandex.ru/support/business/services.html
-  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
+  link-ya-360-units: https://yandex.com/support/business/units.html
+  link-ya-360-sso: https://yandex.com/support/business/sso.html
+  link-ya-360-tariffs: https://360.yandex.ru/business/tariff/?lang=en
+  link-ya-360-services: https://yandex.com/support/business/services.html
+  link-ya-360-delete: https://yandex.com/support/business/delete-organisation.html
+  link-ya-360-notfree: https://yandex.com/support/business/payment/disable-free-version.html
+  link-ya-360-groups: https://yandex.com/support/business/projects.html
 
   #Ссылки на справку на yandex.ru/support
   #И на справку Организации, пока она в Preview

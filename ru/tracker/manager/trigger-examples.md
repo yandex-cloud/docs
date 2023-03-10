@@ -536,9 +536,9 @@
     #|
     || **Поле** | **Содержание** ||  
     || Метод | POST ||
-    || Адрес | `{{ host }}/{{ ver }}/issues` || 
+    || Адрес | `{{ host }}/{{ ver }}/issues` ||
     || Способ авторизации | OAuth 2.0 ||
-    || Токен | [Руководство по получению токена](../concepts/access.md#section_about_OAauth) || 
+    || Токен | [Руководство по получению токена](../concepts/access.md#section_about_OAauth) ||
     || Заголовок авторизации | Authorization ||
     || Тип токена | OAuth ||
     || Тип содержимого | application/json ||
