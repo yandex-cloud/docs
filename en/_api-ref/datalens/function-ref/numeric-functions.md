@@ -97,11 +97,28 @@ Divides `number_1` by `number_2`. The result is rounded down to the nearest inte
 
 
 
+## [DIV_SAFE](DIV_SAFE.md)
+
+**Syntax:**`DIV_SAFE( numerator, denominator [ , fallback_value ] )`
+
+Divides `numerator` by `denominator`. Returns `fallback_value` if division by zero occurs. If the number `fallback_value` is omitted, it is assumed to be `NULL`.
+The result is rounded down to the nearest integer.
+
+
+
 ## [EXP](EXP.md)
 
 **Syntax:**`EXP( number )`
 
 Returns the result of raising the number 'e' to the power of `number`.
+
+
+
+## [FDIV_SAFE](FDIV_SAFE.md)
+
+**Syntax:**`FDIV_SAFE( numerator, denominator [ , fallback_value ] )`
+
+Divides `numerator` by `denominator`. Returns `fallback_value` if division by zero occurs. If the number `fallback_value` is omitted, it is assumed to be `NULL`.
 
 
 
@@ -149,7 +166,7 @@ Depending on the specified data type, it returns:
 
 **Syntax:**`LN( number )`
 
-Returns the natural logarithm of the number `number`. Returns 'NULL' if the number is less than or equal to 0.
+Returns the natural logarithm of the number `number`. Returns `NULL` if the number is less than or equal to 0.
 
 
 
@@ -157,7 +174,7 @@ Returns the natural logarithm of the number `number`. Returns 'NULL' if the numb
 
 **Syntax:**`LOG( value, base )`
 
-Returns the logarithm of `value` to base `base`. Returns 'NULL' if the number `value` is less than or equal to 0.
+Returns the logarithm of `value` to base `base`. Returns `NULL` if the number `value` is less than or equal to 0.
 
 
 
@@ -165,7 +182,7 @@ Returns the logarithm of `value` to base `base`. Returns 'NULL' if the number `v
 
 **Syntax:**`LOG10( number )`
 
-Returns the logarithm of the number `number` to base 10. Returns 'NULL' if the number is less than or equal to 0.
+Returns the logarithm of the number `number` to base 10. Returns `NULL` if the number is less than or equal to 0.
 
 
 

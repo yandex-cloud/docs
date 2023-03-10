@@ -163,8 +163,12 @@ items:
         href: function-ref/DEGREES.md
       - name: DIV
         href: function-ref/DIV.md
+      - name: DIV_SAFE
+        href: function-ref/DIV_SAFE.md
       - name: EXP
         href: function-ref/EXP.md
+      - name: FDIV_SAFE
+        href: function-ref/FDIV_SAFE.md
       - name: FLOOR
         href: function-ref/FLOOR.md
       - name: GREATEST

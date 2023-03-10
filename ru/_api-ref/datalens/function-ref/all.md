@@ -781,6 +781,15 @@ END`<br/>или<br/>`IF(
 
 
 
+## [DIV_SAFE](DIV_SAFE.md)
+
+**Синтаксис:**`DIV_SAFE( numerator, denominator [ , fallback_value ] )`
+
+Возвращает результат деления `numerator` на `denominator`. В случае деления на ноль возвращает `fallback_value`. Если число `fallback_value` не указано, возвращает `NULL`.
+Результат будет округлен до целого числа.
+
+
+
 ## [ENDSWITH](ENDSWITH.md)
 
 **Синтаксис:**`ENDSWITH( string, substring )`
@@ -794,6 +803,14 @@ END`<br/>или<br/>`IF(
 **Синтаксис:**`EXP( number )`
 
 Возвращает результата возведения числа `e` в степень `number`.
+
+
+
+## [FDIV_SAFE](FDIV_SAFE.md)
+
+**Синтаксис:**`FDIV_SAFE( numerator, denominator [ , fallback_value ] )`
+
+Возвращает результат деления `numerator` на `denominator`. В случае деления на ноль возвращает `fallback_value`. Если число `fallback_value` не указано, возвращает `NULL`.
 
 
 
