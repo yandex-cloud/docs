@@ -1,4 +1,4 @@
-| Service | Cost of 1 GB per month |
+| Service | Cost per 1 GB per month |
 |-------------------------------------------------------|-------------------------------------------------------------|
 | Storage based on network HDDs | {{ sku|USD|mdb.cluster.network-hdd.mongodb|month|string }} |
 | Storage based on non-replicated SSDs<sup>*</sup> | $0.070512 |
