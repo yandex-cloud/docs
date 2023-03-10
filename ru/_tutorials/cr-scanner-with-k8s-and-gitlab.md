@@ -25,9 +25,9 @@
 
 - Вручную
 
-  1. [Создайте сервисные аккаунты](../iam/operations/sa/create.md):
+  1. [Создайте сервисные аккаунты](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) им роли:
      * [Сервисный аккаунт](../iam/concepts/users/service-accounts.md) для ресурсов с ролью [{{ roles-editor }}](../resource-manager/security/index.md#roles-list) на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#kubernetes-cluster). От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
-     * Сервисный аккаунт для [узлов](../managed-kubernetes/concepts/index.md#node-group) с ролью [{{ roles-cr-puller }}](../container-registry/security/index.md#service-roles) на каталог с [реестром](../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+     * Сервисный аккаунт для [узлов](../managed-kubernetes/concepts/index.md#node-group) с [ролями](../container-registry/security/index.md#service-roles) `{{ roles-cr-puller }}` и `{{ roles-cr-pusher }}` на каталог с [реестром](../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
   1. [Создайте кластер {{ managed-k8s-name }} ](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
@@ -126,8 +126,8 @@
       CMD echo "Hello"
       ```
 
-    1. Напишите комментарий к коммиту в поле **Commit message**: `Dockerfile for test application`.
-    1. Нажмите кнопку **Commit changes**.
+   1. Напишите комментарий к коммиту в поле **Commit message**: `Dockerfile for test application`.
+   1. Нажмите кнопку **Commit changes**.
 1. Добавьте в проект манифест ресурсов кластера {{ managed-k8s-name }}:
    1. Выберите раздел **Repository** → **Files**.
    1. Нажмите кнопку **+** и в выпадающем меню выберите пункт **New file**.
@@ -284,10 +284,9 @@
 
 После сохранения файла конфигурации `.gitlab-ci.yml` запустится сценарий сборки. Чтобы проверить результаты его выполнения, на панели слева в {{ GL }} выберите в выпадающем меню пункт **CI/CD** → **Pipelines**. Сканирование уязвимостей происходит на втором этапе `test`.
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
-
 1. [Удалите инстанс {{ mgl-name }}](../managed-gitlab/operations/instance/instance-delete.md) или [созданную ВМ с образом {{ GL }}](../compute/operations/vm-control/vm-delete.md).
 1. [Удалите все Docker-образы](../container-registry/operations/docker-image/docker-image-delete.md) из реестра {{ container-registry-name }}.
 
