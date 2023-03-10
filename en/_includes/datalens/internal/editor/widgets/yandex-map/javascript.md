@@ -10,11 +10,11 @@ As a result of executing the JavaScript tab, data required for rendering (a set 
 
 * **`ChartEditor.getLoadedData()`**: Returns an object with data requested in the URLs tab.
 
-* **`ChartEditor.updateHighchartsConfig(config)`**: Extends the definition of the [Yandex Maps](ymap.md) tab output with the `config` object.
+* **`ChartEditor.updateHighchartsConfig(config)`**: Extends the definition of the [Yandex Maps](ymap.md) tab output with the `config` object.
 
 ### Simple geo objects {#simple-objects}
 
-Description from the [Yandex Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geometry).
+Description from the [Yandex Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geometry).
 The following custom parameters are available for all the geo objects listed below:
 ```js
 {
@@ -33,7 +33,7 @@ The following custom parameters are available for all the geo objects listed bel
 }
 ```
 
-* 
+*
    ### Label {#label}
 
    [Available parameters](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Placemark-docpage#Placemark__constructor-summary) descriptions.
@@ -89,7 +89,7 @@ The following custom parameters are available for all the geo objects listed bel
    }];
    ```
 
-* 
+*
    ### Polyline {#polyline}
 
    [Available parameters](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Polyline-docpage#Polyline__constructor-summary) descriptions.
@@ -117,7 +117,7 @@ The following custom parameters are available for all the geo objects listed bel
    }];
    ```
 
-* 
+*
    ### Rectangle {#rectangle}
 
    [Available parameters](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Rectangle-docpage#Rectangle__constructor-summary) descriptions.
@@ -138,7 +138,7 @@ The following custom parameters are available for all the geo objects listed bel
    }];
    ```
 
-* 
+*
    ### Polygon {#polygon}
 
    [Available parameters](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Polygon-docpage#Polygon__constructor-summary) descriptions.
@@ -162,7 +162,7 @@ The following custom parameters are available for all the geo objects listed bel
    }];
    ```
 
-* 
+*
    ### Circle {#circle}
 
    [Available parameters](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Circle-docpage#Circle__constructor-summary) descriptions.
@@ -189,7 +189,7 @@ The following custom parameters are available for all the geo objects listed bel
 
 ### Simple geo object collections {#object-collections}
 
-Description from the [Yandex Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geoobject_collections).
+Description from the [Yandex Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geoobject_collections).
 
 #### Example {#object-collections-example}
 
@@ -237,7 +237,7 @@ module.exports = [{
 
 ### Clusters {#clusters}
 
-Description from the [Yandex Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__clusters).
+Description from the [Yandex Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__clusters).
 
 #### Example {#clusters-example}
 
@@ -288,7 +288,7 @@ module.exports = [{
 
 ### Maps {#maps}
 
-* 
+*
    ### Areas {#areas}
 
    [Available parameters](https://a.yandex-team.ru/arcadia/data-ui/ymaps-polygonmap/README.md) descriptions.
@@ -417,7 +417,7 @@ module.exports = [{
    ];
    ```
 
-* 
+*
    ### Grid {#grid}
 
    [Available parameters](https://a.yandex-team.ru/arcadia/data-ui/ymaps-gridmap/README.md) descriptions.
@@ -467,7 +467,7 @@ module.exports = [{
    }];
    ```
 
-* 
+*
    ### Heat map {#heatmap}
 
    [Available parameters](https://github.com/yandex/mapsapi-heatmap/blob/84946349b7b54bf20ea630e7077da09ee7c85dfb/README.md#heatmap-constructor) descriptions.

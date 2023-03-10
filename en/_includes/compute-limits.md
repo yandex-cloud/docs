@@ -53,7 +53,7 @@
 
 {% endif %}
 
-^1^ To increase [quotas]({{ link-console-quotas }}) for {% if product == "yandex-cloud" %}file storage, {% endif %}virtual machines with GPUs, deployment-optimized images,{% if product == "yandex-cloud" %} or dedicated hosts,{% endif %} please contact [technical support]({{ link-console-support }}).
+^1^ To increase [quotas]({{ link-console-quotas }}) for {% if product == "yandex-cloud" %}file storage, {% endif %}virtual machines with GPUs, deployment-optimized images{% if product == "yandex-cloud" %}, or dedicated hosts{% endif %}, please contact [technical support]({{ link-console-support }}).
 
 #### VM limits {#compute-limits-vm}
 
@@ -103,15 +103,35 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
 
 ^3^ When starting a VM, a maximum of 14 devices, including the boot disk and a NIC, can be connected to it. Other devices must be connected to a running VM. Please note that, if you restart a VM with more than 14 devices connected, it won't be able to load and run.
 
-#### VM limits on operations with non-replicated disks {#compute-limits-vm-nonrepl}
+#### VM limits on operations with disks {#compute-limits-vm-disks}
 
-| Type of limit | Value |
---- | ---
-| Total number of non-replicated SSDs per placement group | 8 |
-| Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 10,000 |
-| Maximum^4^ IOPS per VM | 100,000 |
-| Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
-| Maximum^5^ bandwidth per VM | 1 GB/s |
+{% list tabs %}
+
+- Network SSD
+
+   | Type of limit | Value |
+   --- | ---
+   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 3500 |
+   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 45 MB/s |
+
+- Network HDD
+
+   | Type of limit | Value |
+   --- | ---
+   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 3500 |
+   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 45 MB/s |
+
+- Non-replicated SSD
+
+   | Type of limit | Value |
+   --- | ---
+   | Total number of non-replicated SSDs per placement group | 8 |
+   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 10000 |
+   | Maximum^4^ IOPS per VM | 100000 |
+   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
+   | Maximum^5^ bandwidth per VM | 1 GB/s |
+
+{% endlist %}
 
 #### Disk{% if product == "yandex-cloud" %} and file storage{% endif %} limits {#compute-limits-disks}
 

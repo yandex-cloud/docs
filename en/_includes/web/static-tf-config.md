@@ -42,7 +42,6 @@ resource "yandex_storage_bucket" "test" {
   secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
   bucket     = "www.example.com"
   acl        = "public-read"
-  
   website {
     index_document = "index.html"
     error_document = "error.html"
@@ -102,10 +101,11 @@ terraform {
 }
 
 provider "yandex" {
-  endpoint  = "api.cloudil.com:443"
-  token     = local.token
-  cloud_id  = local.cloud_id
-  folder_id = local.folder_id
+  endpoint         = "{{ api-host }}"
+  token            = local.token
+  cloud_id         = local.cloud_id
+  folder_id        = local.folder_id
+  storage_endpoint = "{{ s3-storage-host }}"
 }
 
 resource "yandex_iam_service_account" "sa" {

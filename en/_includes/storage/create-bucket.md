@@ -122,11 +122,12 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       ```
       provider "yandex" {
-        endpoint  = "{{ api-host }}:443"
-        token     = "<IAM token>"
-        cloud_id  = "<cloud_ID>"
-        folder_id = "<folder_ID>"
-        zone      = "{{ region-id }}-a"
+        endpoint         = "{{ api-host }}:443"
+        token            = "<IAM token>"
+        cloud_id         = "<cloud_ID>"
+        folder_id        = "<folder_ID>"
+        zone             = "{{ region-id }}-a"
+        storage_endpoint = "{{ s3-storage-host }}"
       }
 
       resource "yandex_iam_service_account" "sa" {

@@ -16,7 +16,7 @@ provider "yandex" {
 
 variable "folder_id" {
   description = "ID of the folder where resources will be created"
-  default     = "<folder_id>"
+  default     = "<folder_ID>"
 }
 
 resource "yandex_iam_service_account" "ig-sa" {
@@ -81,10 +81,10 @@ resource "yandex_vpc_security_group" "alb-sg" {
   }
 
   ingress {
-    protocol       = "TCP"
-    description    = "healthchecks"
-    v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
-    port           = 30080
+    protocol          = "TCP"
+    description       = "healthchecks"
+    predefined_target = "loadbalancer_healthchecks"
+    port              = 30080
   }
 }
 
@@ -141,7 +141,7 @@ resource "yandex_compute_instance_group" "alb-vm-group" {
     }
 
     metadata = {
-      user-data = "#cloud-config\nusers:\n  - name: <username\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${file("<path_to_public_SSH_key>")}"
+      user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${file("<path_to_public_SSH_key>")}"
     }
   }
 
@@ -336,10 +336,10 @@ resource "yandex_vpc_security_group" "alb-sg" {
   }
 
   ingress {
-    protocol       = "TCP"
-    description    = "healthchecks"
-    v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
-    port           = 30080
+    protocol          = "TCP"
+    description       = "healthchecks"
+    predefined_target = "loadbalancer_healthchecks"
+    port              = 30080
   }
 }
 

@@ -1,0 +1,1 @@
+_Serverless_: Services that enable data storage and application development without creating {% if lang == "ru" and audience != "internal" %}[VMs](../../glossary/vm.md){% else %}VMs{% endif %}.
