@@ -44,7 +44,8 @@ pageToken | <p>Page token. To get the next page of results, Set <a href="/docs/m
           "version": "string"
         }
       ],
-      "templateDb": "string"
+      "templateDb": "string",
+      "deletionProtection": true
     }
   ],
   "nextPageToken": "string"
@@ -61,7 +62,8 @@ databases[].<br>owner | **string**<br><p>Name of the user assigned as the owner 
 databases[].<br>lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> 
 databases[].<br>lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> 
 databases[].<br>extensions[] | **object**<br><p>PostgreSQL extensions enabled for the database.</p> 
-databases[].<br>extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/cluster-extensions">listed in the Developer's Guide</a>.</p> 
+databases[].<br>extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/extensions/cluster-extensions">listed in the Developer's Guide</a>.</p> 
 databases[].<br>extensions[].<br>version | **string**<br><p>Version of the extension.</p> 
 databases[].<br>templateDb | **string**<br><p>Name of the database template.</p> 
+databases[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the database</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-postgresql/api-ref/Database/list#query_params">pageSize</a>, use the <a href="/docs/managed-postgresql/api-ref/Database/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-postgresql/api-ref/Database/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-postgresql/api-ref/Database/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -101,6 +101,9 @@ To use the attached disk:
 
       ```bash
       sudo blkid
+      ```
+      Result:
+      ```text
       /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
       /dev/vdb2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
       ...
@@ -125,8 +128,12 @@ To use the attached disk:
 
       ```bash
       sudo blkid
+      ```
+      Result:
+      ```text
       /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
       /dev/vdb2: UUID="ea004485-07fb-4128-b20d-e408db1e8ae8" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+      ...
       ```
 
       {% include [include](../../../_includes/compute/duplicated-uuid-note.md) %}
@@ -154,7 +161,7 @@ To partition and mount an empty disk yourself:
 
       Result:
 
-      ```bash
+      ```text
       NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
       vda    252:0    0  13G  0 disk
       ├─vda1 252:1    0   1M  0 part
@@ -162,7 +169,7 @@ To partition and mount an empty disk yourself:
       vdb    252:16   0   1G  0 disk
       ```
 
-      An empty disk is usually labeled /dev/vdb.
+      An empty disk is usually labeled `/dev/vdb`.
 
    1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) using the `cfdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), the `fdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or the `parted` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
 
@@ -180,7 +187,7 @@ To partition and mount an empty disk yourself:
    1. Leave default values for the numbers of the first and last sectors of the partition: press **Enter** twice.
    1. Make sure that the partition has been created. To do this, press the **P** key to display a list of the disk's partitions. An example partition:
 
-      ```bash
+      ```text
       Device     Boot Start      End  Sectors Size Id Type
       /dev/vdb1        2048 41943039 41940992  20G 83 Linux
       ```
@@ -214,7 +221,7 @@ To partition and mount an empty disk yourself:
 
       Result:
 
-      ```bash
+      ```text
       /dev/vdb1: UUID="397f9660-e740-40bf-8e59-ecb88958b50e" TYPE="ext4" PARTUUID="e34d0d32-01"
       ```
 
@@ -227,7 +234,7 @@ To partition and mount an empty disk yourself:
 
       1. Append the following line to the file putting your disk ID in the `UUID` parameter as follows:
 
-         ```
+         ```text
          UUID=397f9660-e740-40bf-8e59-ecb88958b50e /mnt/vdb1 ext4 defaults 0 2
          ```
 
@@ -240,7 +247,7 @@ To partition and mount an empty disk yourself:
 
       Result:
 
-      ```bash
+      ```text
       Filesystem     1K-blocks    Used Available Use% Mounted on
       udev              989424       0    989424   0% /dev
       tmpfs             203524     816    202708   1% /run
@@ -252,21 +259,5 @@ To partition and mount an empty disk yourself:
       /dev/vdb1         523260    3080    520180   1% /mnt/vdb1
       ```
 
-- Windows
-
-   1. Run the **Computer Management** tool as an administrator.
-
-   1. Under **Storage**, select **Disk Management**.
-
-      {% note info %}
-
-      When you attach a disk to a running VM, it might not appear in the list. In this case, restart the OS and repeat steps 1 and 2. After that, right-click on the empty disk and select **In the network**.
-
-      {% endnote %}
-
-   1. Initialize the disk. To do this, right-click on the empty disk and select **Initialize Disk**. This opens the **Initialize Disk** dialog.
-   1. Select your [partition style]({{ ms.docs }}/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) and click **OK**.
-   1. Create partitions on the disk. To do this, right-click on the empty disk and select **New Simple Volume**.
-   1. Use the **New Simple Volume Wizard** to set the partition size, [select a letter]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter) for the disk, and specify the file system.
 
 {% endlist %}

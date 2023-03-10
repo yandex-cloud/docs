@@ -27,7 +27,7 @@ The available properties are listed in the official documentation for the compon
 | `core` | `/etc/hadoop/conf/core-site.xml` | [Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml) |
 | `hdfs` | `/etc/hadoop/conf/hdfs-site.xml` | [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml) |
 | `yarn` | `/etc/hadoop/conf/yarn-site.xml` | [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-common/yarn-default.xml) |
-| `MapReduce` | `/etc/hadoop/conf/mapred-site.xml` | [mapreduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml) |
+| `mapreduce` | `/etc/hadoop/conf/mapred-site.xml` | [mapreduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml) |
 | `capacity-scheduler` | `/etc/hadoop/capacity-scheduler.xml` | [CapacityScheduler](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) |
 | `resource-type` | `/etc/hadoop/conf/resource-types.xml` | [ResourceTypes](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceModel.html) |
 | `node-resources` | `/etc/hadoop/conf/node-resources.xml` | [NodeResources](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceModel.html) |
@@ -42,19 +42,30 @@ The available properties are listed in the official documentation for the compon
 
 Settings for running the jobs are specified in special properties:
 
-* `dataproc:version`: The version of the dataproc-agent that runs jobs, passes the property of a cluster state, and proxies the UI. Used for debugging. Default value: `latest`.
-* `dataproc:max-concurrent-jobs`: The number of concurrent jobs. Default value: `auto` (calculated based on the `min-free-memory-to-enqueue-new-job` and `job-memory-footprint` properties).
-* `dataproc:min-free-memory-to-enqueue-new-job`: The minimum size of free memory to run the job (in bytes). Default value: `1073741824` (1 GB).
-* `dataproc:job-memory-footprint`: The memory size to run the job on the cluster's master host, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
+* `dataproc:version`: Version of the `dataproc-agent` that runs jobs, sends the property of a cluster state, and proxies the UI. Used for debugging. Default value: `latest`.
+* `dataproc:max-concurrent-jobs`: Number of concurrent jobs. Default value: `auto` (calculated based on the `min-free-memory-to-enqueue-new-job` and `job-memory-footprint` properties).
+* `dataproc:min-free-memory-to-enqueue-new-job`: Minimum size of free memory to run the job (in bytes). Default value: `1073741824` (1 GB).
+* `dataproc:job-memory-footprint`: Memory size to run the job on the cluster's master host, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
 
-## JVM settings for Spark applications set in {{ dataproc-name }} by default
+## JVM settings for Spark applications set in {{ dataproc-name }} by default {#jvm-settings-for-spark}
 
 In general cases, the following default settings are applied on the {{ dataproc-name }} clusters to improve JVM performance:
 
-- **spark.driver.extraJavaOptions**
-   `-XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:MaxHeapFreeRatio=70 -XX:+CMSClassUnloadingEnabled -XX:OnOutOfMemoryError='kill -9 %p'`
-- **spark.executor.extraJavaOptions**
-   `-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:MaxHeapFreeRatio=70 -XX:+CMSClassUnloadingEnabled -XX:OnOutOfMemoryError='kill -9 %p'`
+* **spark.driver.extraJavaOptions**:
+   * `-XX:+UseConcMarkSweepGC`
+   * `-XX:CMSInitiatingOccupancyFraction=70`
+   * `-XX:MaxHeapFreeRatio=70`
+   * `-XX:+CMSClassUnloadingEnabled`
+   * `-XX:OnOutOfMemoryError='kill -9 %p'`
+* **spark.executor.extraJavaOptions**:
+   * `-verbose:gc`
+   * `-XX:+PrintGCDetails`
+   * `-XX:+PrintGCDateStamps`
+   * `-XX:+UseConcMarkSweepGC`
+   * `-XX:CMSInitiatingOccupancyFraction=70`
+   * `-XX:MaxHeapFreeRatio=70`
+   * `-XX:+CMSClassUnloadingEnabled`
+   * `-XX:OnOutOfMemoryError='kill -9 %p'`
 
 {% note info %}
 

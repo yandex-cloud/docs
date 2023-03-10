@@ -7,6 +7,8 @@ description: "You can create backups and restore clusters from existing MySQL ba
 
 You can create backups and restore clusters from existing backups, including point-in-time recovery. For more information, see [{#T}](../concepts/backup.md).
 
+{{ mmy-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window).
+
 ## Getting a list of backups {#list-backups}
 
 {% list tabs %}
@@ -218,7 +220,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Where:
 
-      * `--backup-id`: [backup](../concepts/backup.md) ID.
+      * `--backup-id`: [Backup](../concepts/backup.md) ID.
       * `--time`: Point in time to which you need to restore a {{ MY }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format.
       * `--name`: The cluster name.
       * `--environment`: Environment:

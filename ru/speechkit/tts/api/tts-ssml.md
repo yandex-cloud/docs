@@ -9,7 +9,7 @@
 
 Считывание текстового файла выполняется с помощью утилиты [cat](https://ru.wikipedia.org/wiki/Cat).
 
-Аутентификация происходит от имени аккаунта на Яндексе или федеративного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Если вы используете сервисный аккаунт, передавать в запросе идентификатор каталога не нужно. Подробнее об аутентификации в API {{speechkit-name}} см. [{#T}](../../concepts/auth.md).
+Аутентификация происходит от имени аккаунта на Яндексе или федеративного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Если вы используете сервисный аккаунт, передавать в запросе идентификатор каталога не нужно. Подробнее об аутентификации в API {{ speechkit-name }} см. [{#T}](../../concepts/auth.md).
 
 {% list tabs %}
 
@@ -28,7 +28,7 @@
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        --data-urlencode "ssml=`cat text.xml`" \
        -d "lang=ru-RU&voice=jane&folderId=${FOLDER_ID}" \
-       "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+       "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
      ```
 
      Где:

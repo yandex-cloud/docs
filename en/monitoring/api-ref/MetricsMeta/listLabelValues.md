@@ -2,14 +2,14 @@
 editable: false
 ---
 
-# Method listLabelValues
+# listLabelValues method
 Returns a list of values for the specified label key.
 
 
 
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/labels/{labelKey}/values
+GET https://monitoring.{{ api-host }}/monitoring/v2/metrics/labels/{labelKey}/values
 ```
 
 ## Path parameters {#path_params}

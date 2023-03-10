@@ -52,6 +52,12 @@ links:
   - title: S3
     description: Cервис для хранения больших объемов цифровых данных
     href: s3
+  - title: SLA
+    description: Соглашение об уровне обслуживания (SLA)
+    href: sla
   - title: QoS
     description: Оптимизация сетевого трафика
     href: qos
+  - title: Снапшот
+    description: Полный снимок текущего состояния виртуальной машины
+    href: snapshot

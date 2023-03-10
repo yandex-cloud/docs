@@ -3,7 +3,7 @@
 {% note info %}
 
 - {{ CH }} connections only run over the HTTP interface.
-- All the data requests are executed with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify), section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
+- All the data requests are executed with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify) section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
 
 {% endnote %}
 
@@ -11,13 +11,13 @@
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
 
 
-## Connecting to ClickHouse {#clickhouse-connection}
+## Connecting to {{ CH }} {#clickhouse-connection}
 
 To create a {{ CH }} connection:
 
 
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
 1. Click **Create connection**.
@@ -55,8 +55,8 @@ To create a {{ CH }} connection:
          {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
 
       - **Password**. Enter the password for the user.
-      - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-      - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+      - **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      - **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
       - **HTTPS**. Be sure that the secure connection option is enabled.
 
    - Specify manually
@@ -74,9 +74,9 @@ To create a {{ CH }} connection:
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
 
-## Specifics for ClickHouse connections {#ch-connection-specify}
+## Specifics for {{ CH }} connections {#ch-connection-specify}
 
-You can create datasets on top of views that contain a JOIN in {{ CH }}. To do this, make sure a view is created with the `join_use_nulls` option enabled. We recommend that you set `join_use_nulls = 1` in the `SETTINGS` section:
+In {{ CH }}, you can create a dataset on top of a `VIEW` that contains a `JOIN`. To do this, make sure a view is created with the `join_use_nulls` option enabled. We recommend that you set `join_use_nulls = 1` in the `SETTINGS` section:
 
 ```sql
 CREATE VIEW ... (

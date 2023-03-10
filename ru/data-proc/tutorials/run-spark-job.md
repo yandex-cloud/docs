@@ -47,7 +47,7 @@ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
    ```bash
    /usr/bin/pyspark
    ```
-   
+
    Количество ядер и процессов выполнения задач (executor) ограничено только конфигурацией вашего кластера {{ dataproc-name }}.
 
 1. Построчно введите следующий код:
@@ -56,7 +56,7 @@ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
    sql = SQLContext(sc)
    df = sql.read.parquet("s3a://yc-mdb-examples/dataproc/example01/set01")
    ```
-   
+
    Последняя строка — чтение данных из публичного бакета с набором данных для примера. После выполнения этой строки в текущей сессии будет доступен организованный набор данных (DataFrame) `df` с прочитанными данными.
 
 1. Чтобы увидеть схему полученного DataFrame, выполните команду:
@@ -66,7 +66,7 @@ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
    ```
 
    В терминале будет выведен список столбцов с их типами.
-   
+
 1. Рассчитайте статистику перелетов по месяцам и найдите первую десятку городов по количеству вылетов:
 
    * Количество перелетов по месяцам:
@@ -74,7 +74,7 @@ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
      ```python
      df.groupBy("Month").count().orderBy("Month").show()
      ```
-     
+
    * Первая десятка городов по количеству вылетов:
 
      ```python
@@ -88,37 +88,37 @@ Spark Submit позволяет запускать заранее написан
 {% list tabs %}
 
 - PySpark Submit
-  
+
   1. На мастер-хосте создайте файл `month_stat.py` со следующим кодом:
-  
+
      ```python
      import sys
-     
+
      from pyspark import SparkContext, SparkConf
      from pyspark.sql import SQLContext
-     
+
      def main():
          conf = SparkConf().setAppName("Month Stat - Python")
          conf.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
          sc = SparkContext(conf=conf)
-     
+
          sql = SQLContext(sc)
          df = sql.read.parquet("s3a://yc-mdb-examples/dataproc/example01/set01")
          defaultFS = sc._jsc.hadoopConfiguration().get("fs.defaultFS")
          month_stat = df.groupBy("Month").count()
          month_stat.repartition(1).write.format("csv").save(defaultFS+"/tmp/month_stat")
-     
+
      if __name__ == "__main__":
              main()
      ```
-     
+
   1. Запустите приложение:
-  
+
      ```bash
      /usr/bin/spark-submit month_stat.py
      ```
   1. Результат работы приложения будет выгружен в HDFS. Список получившихся файлов можно вывести командой:
-  
+
      ```bash
      hdfs dfs -ls /tmp/month_stat
      ```
@@ -126,21 +126,21 @@ Spark Submit позволяет запускать заранее написан
 - Spark Submit
 
   В примере рассматривается сборка и запуск приложения на языке программирования [Scala](https://scala-lang.org). Для сборки приложений используется [sbt](https://scala-lang.org/download/), стандартная утилита сборки Scala.
-  
+
   Чтобы создать и запустить Spark-приложение:
   1. Выполните команду `scala -version` на управляющем хосте, чтобы узнать необходимую версию Scala.
-   
+
      Следите за тем, чтобы версия Scala соответствовала версиям библиотек, которые развернуты в кластере {{ dataproc-name }}, и библиотек, которые используются в приложении. Набор библиотек по умолчанию можно найти в каталоге `/usr/lib/spark/jars` на хосте-мастере {{ dataproc-name }}.
   1. Создайте папку, например `spark-app`.
   1. В созданную папку добавьте файл с путем `./src/main/scala/app.scala`.
   1. Скопируйте следующий код в файл `app.scala`:
-   
+
       ```scala
       package com.yandex.cloud.dataproc.scala
-      
+
       import org.apache.spark.{SparkConf, SparkContext}
       import org.apache.spark.sql.SQLContext
-      
+
         object Main {
           def main(args: Array[String]) {
             val conf = new SparkConf().setAppName("Month Stat - Scala App")
@@ -151,37 +151,37 @@ Spark Submit позволяет запускать заранее написан
             val month_stat = df.groupBy("Month").count()
             val defaultFS = sc.hadoopConfiguration.get("fs.defaultFS")
             month_stat.repartition(1).write.format("csv").save(defaultFS+"/tmp/month_stat")
-      
+
             sc.stop()
           }
         }
       ```
 
   1. В папке `spark-app` создайте файл `build.sbt` со следующей конфигурацией:
-  
+
       ```scala
       scalaVersion  := "2.11.6"
-      
+
       libraryDependencies ++= Seq(
           "org.apache.spark" %% "spark-core" % "2.2.3" % "provided",
           "org.apache.spark" %% "spark-sql" % "2.2.3" % "provided"
       )
       ```
-      
+
      {% note info %}
-     
+
      Версия Scala и библиотек может измениться с обновлениями компонентов {{ dataproc-name }}.
-     
+
      {% endnote %}
-     
+
   1. Скомпилируйте и соберите jar-файл:
-  
+
       ```bash
       sbt compile && sbt package
       ```
 
   1. Запустите получившееся приложение:
-  
+
       ```bash
       /usr/bin/spark-submit \
           --class com.yandex.cloud.dataproc.scala.Main \
@@ -189,7 +189,7 @@ Spark Submit позволяет запускать заранее написан
       ```
 
   1. Результат работы приложения будет выгружен в HDFS. Список получившихся файлов можно вывести командой:
-  
+
       ```bash
       hdfs dfs -ls /tmp/month_stat
       ```
@@ -200,18 +200,18 @@ Spark Submit позволяет запускать заранее написан
 ## Завершение работы приложения {#yarn-kill}
 
 По умолчанию ресурсы запускаемого приложения управляются компонентом YARN. Если приложение необходимо завершить или убрать из очереди, используйте утилиту `yarn`:
-  
+
 1. Выведите список приложений:
-  
+
    ```bash
    yarn application -list
    ```
 1. Завершите ненужное приложение:
-  
+
    ```bash
    yarn application -kill <application_id>
    ```
-  
+
 Более подробно с командами YARN можно ознакомиться на странице [YARN Commands](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YarnCommands.html).
 
 ## Запуск заданий (jobs) с помощью CLI {{ yandex-cloud }} {#run-cli-jobs}
@@ -220,9 +220,9 @@ Spark Submit позволяет запускать заранее написан
 
 {% include [cli-job-intro](../../_includes/data-proc/cli-job-intro.md) %}
 
-Результат расчета приложение сохраняет либо с помощью компонента HDFS в кластере {{ dataproc-name }}, либо в указанный вами бакет {{objstorage-name}}.
+Результат расчета приложение сохраняет либо с помощью компонента HDFS в кластере {{ dataproc-name }}, либо в указанный вами бакет {{ objstorage-name }}.
 
-Служебная и отладочная информация сохраняется в бакете {{objstorage-name}}, который был указан при создании кластера {{ dataproc-name }}. Для каждого задания агент {{ dataproc-name }} создает отдельную папку с путем вида `dataproc/clusters/<идентификатор кластера>/jobs/<идентификатор задачи>`. Перед первым запуском следует назначить права `WRITE` на бакет для сервисного аккаунта, под которым будут запускаться задания.
+Служебная и отладочная информация сохраняется в бакете {{ objstorage-name }}, который был указан при создании кластера {{ dataproc-name }}. Для каждого задания агент {{ dataproc-name }} создает отдельную папку с путем вида `dataproc/clusters/<идентификатор кластера>/jobs/<идентификатор задачи>`. Перед первым запуском следует назначить права `WRITE` на бакет для сервисного аккаунта, под которым будут запускаться задания.
 
 Ниже приведены два варианта приложения — для Scala и Python.
 
@@ -231,7 +231,7 @@ Spark Submit позволяет запускать заранее написан
 Основные шаги:
 
 1. Соберите Scala-приложение в единый JAR-файл с помощью [SBT](https://www.scala-sbt.org/index.html).
-2. Загрузите JAR-файл в бакет {{objstorage-name}}, к которому есть доступ у сервисного аккаунта кластера.
+2. Загрузите JAR-файл в бакет {{ objstorage-name }}, к которому есть доступ у сервисного аккаунта кластера.
 3. Запустите задание в кластере {{ dataproc-name }}.
 
 #### Соберите Scala-приложение {#scala-build}
@@ -266,13 +266,13 @@ spark-app
 
     ```scala
     scalaVersion  := "2.11.12"
-    
+
     libraryDependencies ++= Seq(
         "org.apache.spark" %% "spark-core" % "2.4.4",
         "org.apache.spark" %% "spark-sql" % "2.4.4",
-    
+
     )
-    
+
     assemblyMergeStrategy in assembly := {
       case PathList("org","aopalliance", xs @ _*) => MergeStrategy.last
       case PathList("javax", "inject", xs @ _*) => MergeStrategy.last
@@ -299,10 +299,10 @@ spark-app
 
     ```scala
     package com.yandex.cloud.dataproc.scala
-    
+
     import org.apache.spark.{SparkConf, SparkContext}
     import org.apache.spark.sql.SQLContext
-    
+
       object Main {
         def main(args: Array[String]) {
           if (args.length != 2){ //проверяем аргумент
@@ -323,7 +323,7 @@ spark-app
           } else {
             monthStat.repartition(1).write.format("csv").save(defaultFS + "/" + outDir + jobId)
           }
-    
+
           sc.stop()
         }
       }
@@ -334,11 +334,11 @@ spark-app
     sbt clean && sbt compile && sbt assembly
     ```
 
-Файл будет доступен по следующему пути: `./target/scala-2.11/spark-app-assembly-0.1.0-SNAPSHOT.jar`
+Файл будет доступен по следующему пути: `./target/scala-2.11/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
 
-#### Загрузите JAR-файл в {{objstorage-name}} {#scala-upload}
+#### Загрузите JAR-файл в {{ objstorage-name }} {#scala-upload}
 
-Чтобы Spark имел доступ к собранному JAR-файлу, загрузите файл в бакет {{objstorage-name}}, к которому есть доступ у сервисного аккаунта кластера {{ dataproc-name }}. Загрузить файл можно с помощью [s3cmd](../../storage/tools/s3cmd.md):
+Чтобы Spark имел доступ к собранному JAR-файлу, загрузите файл в бакет {{ objstorage-name }}, к которому есть доступ у сервисного аккаунта кластера {{ dataproc-name }}. Загрузить файл можно с помощью [s3cmd](../../storage/tools/s3cmd.md):
 
 ```bash
 s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
@@ -351,11 +351,11 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
 
 Чтобы Data Proc Agent смог забрать задачу из подсети пользователя, необходимо настроить [NAT-шлюз](../../vpc/concepts/gateways.md). О том, как это сделать, читайте в разделе [{#T}](./configure-network.md).
 
-Ниже приведены два шаблона команды CLI для запуска Spark-задания — с выводом результата в {{objstorage-name}} и в HDFS.
+Ниже приведены два шаблона команды CLI для запуска Spark-задания — с выводом результата в {{ objstorage-name }} и в HDFS.
 
 {% list tabs %}
 
-- {{objstorage-name}}
+- {{ objstorage-name }}
 
   ```bash
   {{ yc-dp }} job create-spark \
@@ -366,7 +366,7 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
      --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
      --args="s3a://<ваш бакет>/jobs_results/"
   ```
-  
+
 - HDFS
 
   CSV-файл с результатом создается в папке `/tmp/jobs/<идентификатор задачи>/` в HDFS.
@@ -380,9 +380,9 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
      --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
      --args="tmp/jobs/"
   ```
-  
+
   Пример сообщения об успешном запуске задачи:
-  
+
   ```text
   done (1m2s)
   id: {your_job_id}
@@ -404,7 +404,7 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
 Основные шаги:
 
 1. Подготовьте код Python-приложения.
-2. Загрузите файл с кодом в бакет {{objstorage-name}}, к которому есть доступ у сервисного аккаунта кластера.
+2. Загрузите файл с кодом в бакет {{ objstorage-name }}, к которому есть доступ у сервисного аккаунта кластера.
 3. Запустите задачу в кластере {{ dataproc-name }}.
 
 Версия Python-приложения должна совпадать с версией, доступной из образа. Проверить версию можно на странице [{#T}](../concepts/environment.md). Для версии образа 2.0 следует использовать Python 3.8.10.
@@ -415,19 +415,19 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
 
     ```python
     import sys
-    
+
     from pyspark import SparkContext, SparkConf
     from pyspark.sql import SQLContext
-    
+
     def main():
-    
+
         if len(sys.argv) != 3:
             print('Usage job.py <input_dir> <output_dir>')
             sys.exit(1)
-    
+
         in_dir = sys.argv[1]
         out_dir = sys.argv[2]
-    
+
         conf = SparkConf().setAppName('Month Stat - Python')
         sc = SparkContext(conf=conf)
         sql = SQLContext(sc)
@@ -439,21 +439,20 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
         else:
             default_fs = sc._jsc.hadoopConfiguration().get('fs.defaultFS')
             month_stat.repartition(1).write.format('csv').save(default_fs + out_dir + job_id)
-    
-    
+
+
     if __name__ == '__main__':
         main()
     ```
 
-1. Чтобы PySpark имел доступ к вашему коду, загрузите файл `job.py` в бакет {{objstorage-name}}, к которому есть доступ у сервисного аккаунта кластера {{ dataproc-name }}. Загрузить файл можно с помощью [s3cmd](../../storage/tools/s3cmd.md):
+1. Чтобы PySpark имел доступ к вашему коду, загрузите файл `job.py` в бакет {{ objstorage-name }}, к которому есть доступ у сервисного аккаунта кластера {{ dataproc-name }}. Загрузить файл можно с помощью [s3cmd](../../storage/tools/s3cmd.md):
 
     ```bash
     s3cmd put ./job.py s3://<ваш бакет>/bin/
     ```
 
 1. Запустите команду CLI с записью результата:
- 
-   * В бакет {{objstorage-name}}:
+   * В бакет {{ objstorage-name }}:
 
       ```bash
       {{ yc-dp }} job create-pyspark \
@@ -474,7 +473,7 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
          --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
          --args="tmp/jobs/"
       ```
-    
+
      CSV-файл с результатом создается в папке `/tmp/jobs/<идентификатор задачи>/` в HDFS.
 
 1. Чтобы посмотреть логи задачи:

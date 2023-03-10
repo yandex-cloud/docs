@@ -4,14 +4,14 @@
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create an API gateway.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. In the list of services, select **{{ api-gw-name }}**.
    1. Click **Create API gateway**.
    1. In the **Name** field, enter `numbers`.
    1. (optional) In the **Description** field, enter a description.
    1. In the **Specification** section, add a specification:
 
-      ```
+      ```yaml
       openapi: "3.0.0"
       info:
         version: 1.0.0
@@ -51,7 +51,7 @@
    To create an API gateway:
    1. Save the following specification to a file named `hello-world.yaml`:
 
-      ```
+      ```yaml
       openapi: "3.0.0"
       info:
         version: 1.0.0
@@ -84,9 +84,9 @@
               content:
                 'text/plain': "Hello, {user}!\n"
       ```
-   1. Run the command:
+   1. Run the following command:
 
-      ```
+      ```bash
       yc serverless api-gateway create --name hello-world --spec=hello-world.yaml --description "hello world"
       ```
 
@@ -98,7 +98,7 @@
 
       Result:
 
-      ```
+      ```text
       done (29s)
       id: d5dug9gkmu187iojcrtr
       folder_id: b1g55tflru0ek7omtfu0
@@ -114,16 +114,16 @@
 
    You can create an API gateway using the [create](../apigateway/api-ref/ApiGateway/create.md) API method.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-   You can create an API gateway using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) by [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

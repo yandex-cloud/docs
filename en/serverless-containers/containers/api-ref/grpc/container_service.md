@@ -270,13 +270,14 @@ secrets[] | **[Secret](#Secret)**<br>Yandex Lockbox secrets to be used by the re
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy)**<br>Policy for scaling instances of the revision. 
+log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the container. 
 
 
 ### Resources {#Resources}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 8589934592, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br>Specifies baseline performance for a core in percent. Acceptable values are 0 to 100, inclusive.
 
@@ -322,7 +323,7 @@ reference | **oneof:** `environment_variable`<br>
 Field | Description
 --- | ---
 network_id | **string**<br>Network the revision will have access to. 
-subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. 
+subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. The string length in characters for each value must be greater than 0.
 
 
 ### ProvisionPolicy {#ProvisionPolicy}
@@ -338,6 +339,17 @@ Field | Description
 --- | ---
 zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
+
+
+### LogOptions {#LogOptions}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from container disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ### Operation {#Operation3}
@@ -381,6 +393,7 @@ secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the r
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
+log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the container. 
 
 
 ### Image {#Image}
@@ -482,6 +495,7 @@ secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the r
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
+log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the container. 
 
 
 ### Image {#Image1}
@@ -514,7 +528,7 @@ args[] | **string**<br>Arguments that will override CMD of an image. <br>Argumen
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 8589934592, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br>Specifies baseline performance for a core in percent. Acceptable values are 0 to 100, inclusive.
 
@@ -535,7 +549,7 @@ reference | **oneof:** `environment_variable`<br>
 Field | Description
 --- | ---
 network_id | **string**<br>Network the revision will have access to. 
-subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. 
+subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. The string length in characters for each value must be greater than 0.
 
 
 ### ProvisionPolicy {#ProvisionPolicy1}
@@ -551,6 +565,17 @@ Field | Description
 --- | ---
 zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
+
+
+### LogOptions {#LogOptions1}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from container disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## ListRevisions {#ListRevisions}
@@ -597,6 +622,7 @@ secrets[] | **[Secret](#Secret2)**<br>Yandex Lockbox secrets to be used by the r
 connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy2)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy2)**<br>Policy for scaling instances of the revision. 
+log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the container. 
 
 
 ### Image {#Image2}
@@ -629,7 +655,7 @@ args[] | **string**<br>Arguments that will override CMD of an image. <br>Argumen
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 8589934592, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br>Specifies baseline performance for a core in percent. Acceptable values are 0 to 100, inclusive.
 
@@ -650,7 +676,7 @@ reference | **oneof:** `environment_variable`<br>
 Field | Description
 --- | ---
 network_id | **string**<br>Network the revision will have access to. 
-subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. 
+subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. The string length in characters for each value must be greater than 0.
 
 
 ### ProvisionPolicy {#ProvisionPolicy2}
@@ -666,6 +692,17 @@ Field | Description
 --- | ---
 zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
+
+
+### LogOptions {#LogOptions2}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from container disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## ListOperations {#ListOperations}

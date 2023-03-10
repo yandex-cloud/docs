@@ -1,4 +1,9 @@
-# Creating a PostgreSQL connection
+---
+title: "Instructions for creating a {{ PG }} connection in {{ datalens-full-name }}"
+description: "In this tutorial, you'll learn how to connect to {{ PG }} in {{ datalens-full-name }}."
+---
+
+# Creating a {{ PG }} connection
 
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
@@ -10,7 +15,7 @@ To create a {{ PG }} connection:
 
 
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
 1. Click **Create connection**.
@@ -48,8 +53,8 @@ To create a {{ PG }} connection:
       - **Database name**. Specify the name of the database to connect to.
       - **Username**. Specify the username for the {{ PG }} connection.
       - **Password**. Enter the password for the user.
-      - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-      - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+      - **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      - **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    - Specify manually
 
@@ -60,8 +65,8 @@ To create a {{ PG }} connection:
       - **Database name**. Specify the name of the database to connect to.
       - **Username**. Specify the username for the {{ PG }} connection.
       - **Password**. Enter the password for the user.
-      - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-      - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+      - **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      - **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    {% endlist %}
 

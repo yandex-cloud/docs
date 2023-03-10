@@ -33,7 +33,7 @@
 
 ## Подготовьте ресурсы {#create-resources}
 
-1. [Скачайте](https://storage.yandexcloud.net/doc-files/video-converting.zip) архив с файлами, необходимыми для создания видеоконвертера.
+1. [Скачайте](https://{{ s3-storage-host }}/doc-files/video-converting.zip) архив с файлами, необходимыми для создания видеоконвертера.
 1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт с именем `ffmpeg-sa` и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему следующие роли:
 
    * `ymq.reader`;
@@ -267,7 +267,7 @@
 Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
 
 1. [Удалите](../message-queue/operations/message-queue-delete-queue.md) очередь `converter-queue`.
-1. [Удалите](../ydb/operations/manage-database.md#delete-db) базу данных.
+1. [Удалите](../ydb/operations/manage-databases.md#delete-db) базу данных.
 1. [Удалите](../storage/operations/objects/delete.md) все объекты из бакета `converter-bucket`.
 1. [Удалите](../storage/operations/buckets/delete.md) бакет `converter-bucket`.
 1. [Удалите](../functions/operations/function/function-delete.md) функции `ffmpeg-api` и `ffmpeg-converter`.

@@ -8,7 +8,8 @@ default:
   link-passport: https://passport.yandex.com/
   login-example: login@yandex.com
   yandex-domain: yandex.com
-  link-keycloak-example: http://keycloak.example.com:8080/auth/realms/master
+  link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
+  link-keycloak-example: http://keycloak.example.com:8080/realms/master
   link-base64: https://en.wikipedia.org/wiki/Base64
   link-adfs-add-claim: https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/add-a-claim-description
   link-adfs: https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services

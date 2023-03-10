@@ -80,6 +80,16 @@ filter | <p>A filter expression that filters resources listed in the response.</
       "scalingPolicy": {
         "zoneInstancesLimit": "string",
         "zoneRequestsLimit": "string"
+      },
+      "logOptions": {
+        "disabled": true,
+        "minLevel": "string",
+
+        // `revisions[].logOptions` includes only one of the fields `logGroupId`, `folderId`
+        "logGroupId": "string",
+        "folderId": "string",
+        // end of the list of possible fields`revisions[].logOptions`
+
       }
     }
   ],
@@ -105,7 +115,7 @@ revisions[].<br>image.<br>args.<br>args[] | **string**<br><p>Arguments that will
 revisions[].<br>image.<br>environment | **object**<br><p>Additional environment for the container.</p> <p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
 revisions[].<br>image.<br>workingDir | **string**<br><p>Override for the image's WORKDIR.</p> 
 revisions[].<br>resources | **object**<br><p>Resources allocated to the revision.</p> <p>Resources allocated to a revision.</p> 
-revisions[].<br>resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the revision, specified in bytes.</p> <p>Acceptable values are 134217728 to 8589934592, inclusive.</p> 
+revisions[].<br>resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the revision, specified in bytes.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
 revisions[].<br>resources.<br>cores | **string** (int64)<br><p>Number of cores available to the revision.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 revisions[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Specifies baseline performance for a core in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 revisions[].<br>executionTimeout | **string**<br><p>Timeout for the execution of the revision.</p> <p>If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code.</p> 
@@ -119,10 +129,15 @@ revisions[].<br>secrets[].<br>key | **string**<br><p>Key in secret's payload, wh
 revisions[].<br>secrets[].<br>environmentVariable | **string**<br><p>Environment variable in which secret's value is delivered.</p> 
 revisions[].<br>connectivity | **object**<br><p>Network access. If specified the revision will be attached to specified network/subnet(s).</p> <p>Revision connectivity specification.</p> 
 revisions[].<br>connectivity.<br>networkId | **string**<br><p>Network the revision will have access to.</p> 
-revisions[].<br>connectivity.<br>subnetIds[] | **string**<br><p>The list of subnets (from the same network) the revision can be attached to.</p> <p>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.</p> 
+revisions[].<br>connectivity.<br>subnetIds[] | **string**<br><p>The list of subnets (from the same network) the revision can be attached to.</p> <p>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.</p> <p>The string length in characters for each value must be greater than 0.</p> 
 revisions[].<br>provisionPolicy | **object**<br><p>Policy for provisioning instances of the revision.</p> <p>The policy is only applied when the revision is ACTIVE.</p> 
 revisions[].<br>provisionPolicy.<br>minInstances | **string** (int64)<br><p>Minimum number of guaranteed provisioned container instances for all zones in total.</p> 
 revisions[].<br>scalingPolicy | **object**<br><p>Policy for scaling instances of the revision.</p> 
 revisions[].<br>scalingPolicy.<br>zoneInstancesLimit | **string** (int64)<br><p>Upper limit for instance count in each zone. 0 means no limit.</p> 
 revisions[].<br>scalingPolicy.<br>zoneRequestsLimit | **string** (int64)<br><p>Upper limit of requests count in each zone. 0 means no limit.</p> 
+revisions[].<br>logOptions | **object**<br><p>Options for logging from the container.</p> 
+revisions[].<br>logOptions.<br>disabled | **boolean** (boolean)<br><p>Is logging from container disabled.</p> 
+revisions[].<br>logOptions.<br>minLevel | **string**<br>Minimum log entry level.  See [LogLevel.Level] for details.<br><ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
+revisions[].<br>logOptions.<br>logGroupId | **string** <br>`revisions[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to log group resolved by ID.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
+revisions[].<br>logOptions.<br>folderId | **string** <br>`revisions[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/serverless/containers/api-ref/Container/listRevisions#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/serverless/containers/api-ref/Container/listRevisions#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

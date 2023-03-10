@@ -112,7 +112,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -121,7 +121,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -186,7 +186,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    resource "yandex_vpc_address" "usergate-addr" {
    name = "usergate-addr"
    external_ipv4_address {
-     zone_id = "ru-central1-b"
+     zone_id = "{{ region-id }}-b"
      }
    }
    ```
@@ -321,7 +321,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       To learn more, see the [yandex_compute_instance]({{ tf-provider-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory with the configuration file.
       1. Run the check using the command:
@@ -330,7 +330,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -441,7 +441,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
    1. (optional) Add a description of a route table.
    1. Select the `usergate-network` network.
    1. Click **Add route**.
-   1. In the window that opens, enter the prefix for the target subnet (`0.0.0.0`), then select `0` in the dropdown list.
+   1. In the window that opens, enter the prefix for the target subnet (`0.0.0.0`) and select `0` from the dropdown list.
    1. Specify **next hop**, that is, the internal IP address of the UserGate `usergate-firewall` VM.
    1. Click **Add**.
    1. Click **Create route table**.
@@ -577,7 +577,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
       For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_route_table).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -586,7 +586,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

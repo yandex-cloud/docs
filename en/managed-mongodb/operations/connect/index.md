@@ -58,7 +58,7 @@ Settings of rules depend on the connection method you select:
 
    [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from any IP on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
 
-   * **Port range**: 
+   * **Port range**:
       * `{{ port-mmg }}` for a non-sharded cluster.
       * `{{ port-mmg-sharded }}` for a sharded cluster.
    * **Protocol**: `TCP`.
@@ -67,16 +67,16 @@ Settings of rules depend on the connection method you select:
 
 - With a VM in Yandex.Cloud
 
-   1. [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from the security group the VM belongs to on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic in these groups:
+   1. [Configure all security group](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from the security group where your VM is located on port `{{ port-mmg }}` for an unsharded cluster and on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic in these groups:
 
-      * **Port range**: 
+      * **Port range**:
          * `{{ port-mmg }}` for a non-sharded cluster.
          * `{{ port-mmg-sharded }}` for a sharded cluster.
       * **Protocol**: `TCP`.
       * **Source**: `Security group`.
       * **Security group**: Security group where the VM is located. If it is the same as the group being configured, specify **Self** (`Self`).
 
-   1. [Configure the security group](../../../vpc/operations/security-group-add-rule.md) the VM belongs to enable connections to the VM and to allow traffic between the VM and the cluster hosts.
+   1. [Configure the security group](../../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
       Example of rules for a VM:
 

@@ -7,17 +7,17 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 * **Bucket**: The name of the [bucket](../../../../storage/concepts/bucket.md) to upload source data to.
 
-* **Service account**: The [service account](../../../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role that will be used to access [{{ yds-full-name }}](../../../../data-streams/).
+* **Service account**: [Service account](../../../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role that will be used to access [{{ yds-full-name }}](../../../../data-streams/).
 
 
-* **Serialization format**: The format that data will be written to the bucket in (`JSON`, `CSV`, or `Raw`).
+* **Output format**: Format the data will be written to the bucket in (`JSON`, `CSV`, or `Raw`).
 
-* **Encoding format**: Compression of output data (`GZIP` or `UNCOMPRESSED`).
+* **Compression format**: Compression of output data (`GZIP` or `UNCOMPRESSED`).
 
-* **Folder name**: The name of the folder to store files. Supports the data layout pattern by date, such as `2006/01/02/<folder name>`.
+* **Folder name**: Name of the folder to store files in. Supports the data layout pattern by date, such as `2006/01/02/<folder name>`.
 
 ## Advanced settings {#additional-settings}
 
-* **Buffer size**: The size of files that data will be split into.
+* **Buffer size**: Size of files the data will be split into.
 
-* **Flush interval**: The time after which the file will be written, regardless of its size.
+* **Write interval**: Time after which the file will be written, regardless of its size.

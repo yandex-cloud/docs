@@ -58,6 +58,14 @@ Where:
 
 [Triggers](concepts/trigger/index.md) can be used free of charge. You can create and use triggers within the available [quotas and limits](concepts/limits.md).
 
+## Alice skills
+
+{{ sf-name }} functions used for Alice skills aren't rated and don't consume your [free amount of services](../billing/concepts/serverless-free-tier.md#sf), if:
+* The function is called by the [Yandex Dialogs platform](https://yandex.ru/dev/dialogs/).
+* The Alice's skill was created by the [instructions](https://yandex.ru/dev/dialogs/alice/doc/deploy-ycloud-function.html#deploy-ycloud-function__register).
+
+However, if the function uses other {{ yandex-cloud }} resources, they are billed. For example, if the function makes requests to the {{ message-queue-name }} queue, the requests are billed according to the [pricing](../message-queue/pricing.md#requests-to-queues).
+
 ## Pricing {#prices}
 
 ### Invoking a function {#invoke}

@@ -41,7 +41,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    1. Under **Storage size**:
 
       
-      * Select the [storage type](../concepts/storage.md).
+      * Select the [disk type](../concepts/storage.md).
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -51,16 +51,22 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    1. Under **Database**, specify the database attributes:
 
       * Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
-      * Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
-      * User password (from 8 to 128 characters).
+      * Username and password of the database owner. By default, the new user is assigned 50 connections to each host in the cluster.
+
+         {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
       * Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual database level.
 
          {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
    
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+   1. Under **Network settings**, select:
+      * Cloud network for the cluster.
+      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
 
    1. Under **Hosts**, select the parameters for the database hosts created with the cluster. If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
@@ -96,7 +102,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       yc vpc subnet list
       ```
 
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
    1. View a description of the CLI's create cluster command:
@@ -116,13 +122,12 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
          --resource-preset <host class> \
          --user name=<username>,password=<user password> \
-         --database name=<database name>,owner=<name of the database owner> \
+         --database name=<database name>,owner=<database owner name> \
          --disk-size <storage size, GB> \
          --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --security-group-ids <list of security group IDs> \
-         --connection-pooling-mode=<connection manager operating mode> \
-         --deletion-protection=<cluster deletion protection: true or false> \
-         --serverless-access
+         --connection-pooling-mode=<connection manager mode> \
+         --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
@@ -155,7 +160,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
    To create a cluster:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * Database cluster: Description of the cluster and its hosts.
 
@@ -169,7 +174,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       
       
@@ -275,8 +280,12 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
    * Cluster configuration, in the `configSpec` parameter.
-   * Configuration of the cluster's hosts, in one or more `hostSpecs` parameters.
-      * IDs of [security groups](../concepts/network.md#security-groups), in the parameter `securityGroupIds`.
+   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+
+   
+   * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+
+
    * Database configuration, in one or more `databaseSpecs` parameters.
    * User settings, in one or more `userSpecs` parameters.
 
@@ -353,7 +362,11 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
-      * In the new security group `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
+
+   
+   * In the new security group `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
+
+
    * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.

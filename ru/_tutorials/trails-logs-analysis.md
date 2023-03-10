@@ -526,7 +526,7 @@
 
   ```sql
   select * from trail_data.trail_logs_stream
-  where event_type = 'yandex.cloud.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<название_каталога>'
+  where event_type = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<название_каталога>'
   ```
 
 * Какие действия совершал конкретный пользователь за период времени (требуется указать Name ID пользователя и дату):
@@ -540,7 +540,7 @@
 
   ```sql
   select * from trail_data.trail_logs_stream
-  where event_type = 'yandex.cloud.audit.iam.CreateAccessKey' or event_type = 'yandex.cloud.audit.iam.CreateKey' or event_type = 'yandex.cloud.audit.iam.CreateApiKey'
+  where event_type = '{{ at-event-prefix }}.audit.iam.CreateAccessKey' or event_type = '{{ at-event-prefix }}.audit.iam.CreateKey' or event_type = '{{ at-event-prefix }}.audit.iam.CreateApiKey'
   ```
 
 Все интересные события собраны в [решении](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/_use_cases_and_searches/Use-casesANDsearches_RU.pdf).
@@ -618,7 +618,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 * [удалите кластер](../managed-postgresql/operations/cluster-delete.md) `trail-logs`;
 * [удалите поток данных](../data-streams/operations/manage-streams.md#delete-data-stream) `trail-logs-stream`;

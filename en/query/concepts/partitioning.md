@@ -1,6 +1,6 @@
 # Data partitioning
 
-{{ objstorage-full-name }} lets you store very large amounts of data. Queries may only affect some of this data. If you describe the markup rules for the structure of your data storage in {{yq-full-name}}, then you don't even need to read data that isn't required for a query from {{ objstorage-full-name }}. This makes query execution much faster without compromising the accuracy of results.
+{{ objstorage-full-name }} lets you store very large amounts of data. Queries may only affect some of this data. If you describe the markup rules for the structure of your data storage in {{ yq-full-name }}, then you don't even need to read data that isn't required for a query from {{ objstorage-full-name }}. This makes query execution much faster without affecting the results.
 
 For example, data is stored in the following structure of folders:
 
@@ -61,7 +61,7 @@ WHERE
     AND month=02
 ```
 
-when executing a query from {{ objstorage-full-name }}, instead of reading all the data, only data for February 2021 is read. This will greatly reduce the amount of data and speed up data processing while the results of both queries will be identical.
+when executing a query from {{ objstorage-full-name }}, instead of reading all the data, only data for February 2021 is read. This will greatly reduce the amount of data to handle and speed up data processing while the results of both queries will be identical.
 
 {% note info %}
 
@@ -86,7 +86,7 @@ WITH
 ```
 
 
-The `partitioned_by` parameter lists data schema columns used to partition data stored in {{ objstorage-full-name }}. The order of specifying fields in the partitioned_by parameter determines the nesting of {{objstorage-full-name}} folders.
+The `partitioned_by` parameter lists data schema columns used to partition data stored in {{ objstorage-full-name }}. The order of specifying fields in the partitioned_by parameter determines the nesting of {{ objstorage-full-name }} folders.
 
 For example, `partitioned_by=(year, month)` defines the folder structure
 
@@ -104,7 +104,7 @@ And `partitioned_by=(month, year)` defines a different folder structure
 ```
 month=01
     year=2021
-    year=2022    
+    year=2022
 month=02
     year=2021
 month=03
@@ -129,7 +129,7 @@ This format looks as follows:
 ```
 month=01
     year=2021
-    year=2022    
+    year=2022
 month=02
     year=2021
 month=03
@@ -138,7 +138,7 @@ month=03
 
 {% note warning %}
 
-The basic partitioning mode in {{yq-full-name}} only supports Hive format.
+The basic partitioning mode in {{ yq-full-name }} only supports Hive format.
 
 {% endnote %}
 

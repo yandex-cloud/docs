@@ -15,7 +15,7 @@ Outgoing traffic is charged the same as for other {{ yandex-cloud }} services, s
 
 ### Incoming and outgoing traffic {#prices-traffic}
 
-You are charged for traffic to the IP address and port specified as the network load balancer's listener. Any other traffic directed to the load balancer is not accepted and is not charged.
+You are charged for traffic coming to the IP address and port specified as the network load balancer's listener. Any other traffic directed to the load balancer is not accepted and is not charged.
 
 
 
@@ -30,7 +30,7 @@ You are charged for traffic to the IP address and port specified as the network 
 
 You are charged for network load balancers if they have a listener and a non-empty target group attached.
 
-If a load balancer has no target groups attached but has a listener, then the public IP address of the listener is charged as an [inactive public IP address](../vpc/pricing.md#prices-public-ip).
+If a network load balancer has no target groups attached but has a listener, then the public IP address of the listener is charged as an [inactive public IP address](../vpc/pricing.md#prices-public-ip).
 
 
 

@@ -34,7 +34,7 @@
 
       Если ни одной сети нет, [создайте ее](../../../vpc/operations/network-create.md).
 
-  1. Выберите один из [публичных образов](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} (например, [CentOS 7](/marketplace/products/yc/centos-7)).
+  1. Выберите один из публичных образов {{ marketplace-name }} (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
@@ -89,7 +89,7 @@
           `memory` | Количество памяти (RAM).
           `cores` | Количество ядер процессора (vCPU).
           `mode` | Режим доступа к диску.</br>- `READ_ONLY` — доступ на чтение.</br>- `READ_WRITE` — доступ на чтение и запись.
-          `image_id` | Идентификатор публичного образа.
+          `image_id` | Идентификатор публичного образа. Его можно посмотреть в [консоли управления]({{ link-console-main }}) при создании ВМ или в [{{ marketplace-name }}](/marketplace) на странице образа в блоке **Идентификаторы продукта**.
           `type_id` | Тип диска.
           `size` | Размер диска.
           `network_id` | Идентификатор сети `default-net`.
@@ -281,7 +281,7 @@
           ----- | -----
           `platform_id` | [Платформа](../../concepts/vm-platforms.md).
           `resources` | Количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-          `boot_disk` | Настройки загрузочного диска. Укажите: </br> - Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md). </br> - Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
+          `boot_disk` | Настройки загрузочного диска. Укажите: </br> - Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).</br> - Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
           `network_interface` | Настройка сети. Укажите идентификаторы сети и подсети.
           `metadata` | В метаданных необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) на виртуальную машину. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
 

@@ -270,7 +270,7 @@ provider "yandex" {
    data "terraform_remote_state" "vpc" {
      backend = "s3"
      config = {
-       endpoint   = "storage.yandexcloud.net"
+       endpoint   = "{{ s3-storage-host }}"
        bucket     = "<имя бакета>"
        region     = "{{ region-id }}"
        key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"

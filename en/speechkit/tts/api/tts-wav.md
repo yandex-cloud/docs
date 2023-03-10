@@ -9,7 +9,7 @@ The example uses the following synthesis parameters:
 
 Conversion and recording the result in WAV are performed using the [SoX](http://sox.sourceforge.net/) utility.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. For more information about authentication in the {{speechkit-name}} API, see [{#T}](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
 
 1. Synthesize a file in LPCM format:
 
@@ -21,9 +21,9 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
       ```bash
       read -r -d '' TEXT << EOM
-      > I'm Yandex Speech+Kit.
-      > I can turn any text into speech.
-      > Now y+ou can, too!
+      > Я Яндекс Спичк+ит.
+      > Я могу превратить любой текст в речь.
+      > Теперь и в+ы — можете!
       EOM
       export FOLDER_ID=<folder ID>
       export IAM_TOKEN=<IAM token>
@@ -32,7 +32,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
        -o speech.raw \
        --data-urlencode "text=${TEXT}" \
        -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
-       https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+       https://tts.{{ api-host }}/speech/v1/tts:synthesize
       ```
 
       Where:
@@ -74,7 +74,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
             var values = new Dictionary<string, string>
             {
-              { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!" },
+              { "text", "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!" },
               { "lang", "ru-RU" },
               { "voice", "filipp" },
               { "folderId", folderId },
@@ -82,7 +82,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
               { "sampleRateHertz", "48000" }
             };
             var content = new FormUrlEncodedContent(values);
-            var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+            var response = await client.PostAsync("https://tts.{{ api-host }}/speech/v1/tts:synthesize", content);
             var responseBytes = await response.Content.ReadAsByteArrayAsync();
             File.WriteAllBytes("speech.raw", responseBytes);
           }
@@ -109,7 +109,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
          import requests
 
          def synthesize(folder_id, iam_token, text):
-             url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+             url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
              headers = {
                  'Authorization': 'Bearer ' + iam_token,
              }
@@ -160,7 +160,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
            --token ${IAM_TOKEN}
            --folder_id ${FOLDER_ID}
            --output speech.raw
-           --text "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!
+           --text "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!"
          ```
 
          Where:
@@ -180,10 +180,10 @@ The Yandex account or federated account are authenticated using an [IAM token](.
       $token = '<IAM token>'; # Specify an IAM token.
       $folderId = "<folder ID>"; # Specify a folder ID.
 
-      $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+      $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
       $headers = ['Authorization: Bearer ' . $token];
       $post = array(
-          'text' => "I'm Yandex Sp+eech kit. I can turn any text into speech. Now y+ou can, too!",
+          'text' => "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!",
           'folderId' => $folderId,
           'lang' => 'ru-RU',
           'voice' => 'filipp',

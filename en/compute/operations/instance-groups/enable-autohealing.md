@@ -47,6 +47,7 @@ This section describes how to set up application health check for an existing gr
       ```
       {{ yc-compute-ig }} update --help
       ```
+
    1. Get a list of instance groups in the default folder:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}

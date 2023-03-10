@@ -23,10 +23,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для сценария входят:
-* Плата за использование хранилища (см. [тарифы {{objstorage-full-name}}](../../storage/pricing.md)).
-* Плата за обращения к базе данных (см. [тарифы {{ydb-name}}](../../ydb/pricing/serverless.md)).
-* Плата за вызовы функции (см. [тарифы {{sf-name}}](../../functions/pricing.md)).
-* Плата за запросы к API-шлюзу (см. [тарифы {{api-gw-name}}](../../api-gateway/pricing.md)).
+* Плата за использование хранилища (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+* Плата за обращения к базе данных (см. [тарифы {{ ydb-name }}](../../ydb/pricing/serverless.md)).
+* Плата за вызовы функции (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
+* Плата за запросы к API-шлюзу (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
 
 
 ## Настройте хостинг страницы сокращателя {#object-storage}
@@ -326,7 +326,7 @@
   1. Добавьте переменные окружения:
      * `endpoint` — введите строку, сформированную из протокола и эндпоинта базы данных.
 
-       Например, если протокол `grpcs`, а эндпоинт `ydb.serverless.yandexcloud.net:2135`, введите `grpcs://ydb.serverless.yandexcloud.net:2135`.
+       Например, если протокол `grpcs`, а эндпоинт `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, введите `{{ ydb.ep-serverless }}`.
      * `database` — введите сохраненное ранее значение поля **База данных**.
      * `USE_METADATA_CREDENTIALS` — введите `1`.
   1. В верхней правой части блока **Редактор** нажмите кнопку **Создать версию**.

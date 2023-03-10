@@ -184,7 +184,7 @@
             job_name: '[example][pandora][step]'
             job_dsc: 'example'
             ver: '0.5.5'
-            api_address: loadtesting.api.cloud.yandex.net:443
+            api_address: loadtesting.{{ api-host }}:443
           ```
 
           При увеличении нагрузки ожидается, что в какой-то момент тестируемая система начнет деградировать. Дальнейшее повышение нагрузки приведет к увеличению времени ответа или росту количества ошибок.

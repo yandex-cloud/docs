@@ -26,7 +26,20 @@ editable: false
 
 ### Использование хостов БД {#rules-hosts-uptime}
 
-Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами. Поддерживаемые конфигурации ресурсов приведены в разделе [{#T}](concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
+
+
+В зависимости от [типа хоста](concepts/index.md) стоимость вычисляется по-разному:
+
+* Стандартные хосты
+
+  Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
+
+* Выделенные хосты
+
+  Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
+
+Поддерживаемые конфигурации ресурсов приведены в разделе [{#T}](concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
+
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ MY }} не может выполнять свои основные функции, не тарифицируется.
 
@@ -72,27 +85,49 @@ editable: false
 Все цены указаны с включением НДС.
 
 
+Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
+
+От типа хостов также зависит цена на хранилище на локальных SSD-дисках (`local-ssd`).
+
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
+{% list tabs %}
 
-{% include [rub-host.md](../_pricing/managed-mysql/rub-host.md) %}
+- Стандартные хосты
 
+     {% include [RUB: standard hosts](../_pricing/managed-mysql/rub-hosts-standard.md) %} 
 
+- Выделенные хосты
 
+    Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
+
+     {% include [RUB: dedicated hosts](../_pricing/managed-mysql/rub-hosts-dedicated.md) %} 
+
+{% endlist %}
 
 
 
 ### Хранилище и резервные копии {#prices-storage}
 
 
+{% list tabs %}
 
-{% include [rub-storage.md](../_pricing/managed-mysql/rub-storage.md) %}
+- Стандартные хосты
 
+    {% include [local-ssd для Ice Lake только по запросу](../_includes/ice-lake-local-ssd-note.md) %}
 
+     {% include [rub-storage-standard.md](../_pricing/managed-mysql/rub-storage-standard.md) %} 
 
+- Выделенные хосты
+
+    Стоимость начисляется из двух компонентов: [цены за хранилище {{ compute-full-name }}](../compute/pricing.md#prices) и цены {{ mmy-name }} на него. Все цены указаны за 1 ГБ в месяц.
+
+     {% include [rub-storage-dedicated.md](../_pricing/managed-mysql/rub-storage-dedicated.md) %} 
+
+{% endlist %}
 
 
 

@@ -8,7 +8,7 @@
 
 1. [Установите QEMU](https://www.qemu.org/download/).
 1. [Установите Packer](../tutorials/infrastructure-management/packer-quickstart#install-packer).
-1. Загрузите архив с [конфигурациями для Packer](https://storage.yandexcloud.net/packer-recipies/windows-packer.zip) и распакуйте его в нужную папку, например `windows-packer`.
+1. Загрузите архив с [конфигурациями для Packer](https://{{ s3-storage-host }}/packer-recipies/windows-packer.zip) и распакуйте его в нужную папку, например `windows-packer`.
 1. Загрузите [образ с драйверами](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso) и откройте его. Переместите папки `NetKVM`, `vioserial` и `viostor` в папку `windows-packer/drivers`. Папки содержат драйверы для разных ОС — обязательно используйте драйверы для вашей.
 1. Выберите подходящую для вашего продукта Microsoft конфигурацию для Packer и внесите следующие изменения в ее конфигурационный файл:
    1. Укажите в параметре `iso_url` путь к вашему дистрибутиву. 
@@ -50,7 +50,7 @@
 - Bash
 
   ```bash
-  curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.api.cloud.yandex.net/compute/v1/images -d '{"folderId": "<ID вашего каталога>", "name": "<название образа>", "description": "<описание образа>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<ссылка на образ в Object Storage>"}'
+  curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID вашего каталога>", "name": "<название образа>", "description": "<описание образа>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<ссылка на образ в Object Storage>"}'
   ```
 
 - PowerShell
@@ -91,7 +91,7 @@
 
     Invoke-WebRequest `
       -Method POST `
-      -URI https://compute.api.cloud.yandex.net/compute/v1/images `
+      -URI https://compute.{{ api-host }}/compute/v1/images `
       -header @{ "Authorization" = "Bearer $(& yc iam create-token)" } `
       -ContentType 'Application/json' `
       -body $body

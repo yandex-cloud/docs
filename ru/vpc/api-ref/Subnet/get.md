@@ -50,7 +50,7 @@ subnetId | <p>Required. ID of the Subnet resource to return. To get the subnet I
   }
 }
 ```
-A Subnet resource. For more information, see [Subnets](/docs/vpc/concepts/subnets).
+A Subnet resource. For more information, see [Subnets](/docs/vpc/concepts/network#subnet).
  
 Field | Description
 --- | ---

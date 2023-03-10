@@ -4,15 +4,15 @@ The {{ datalens-short-name }} Marketplace is a platform that includes ready-made
 
 {% note info %}
 
-{{ datalens-short-name }} {{ marketplace-short-name }} is available at a [special page in {{ datalens-short-name }}](https://datalens.yandex.com/marketplace/) and the [Yandex {{ marketplace-name }}](https://cloud.yandex.com/marketplace?tab=datalens) page under the **Data analysis** tab.
+{{ datalens-short-name }} {{ marketplace-short-name }} is available at a [special page in {{ datalens-short-name }}]({{ link-datalens-main }}/marketplace/) and the [Yandex {{ marketplace-name }}](/marketplace?tab=datalens) page under the **Data analysis** tab.
 
 {% endnote %}
 
 ## Product {#product}
 
-A _product _is an object prepared for running in {{ datalens-short-name }}. Products may contain drivers for new [connections](connection.md), data for analysis as well as various [chart ](chart/index.md)and [dashboard](dashboard.md) templates.
+A _product_ is an object prepared for running in {{ datalens-short-name }}. Products may contain drivers for new [connections](connection.md), data for analysis as well as various [chart](chart/index.md) and [dashboard](dashboard.md) templates.
 
-Products are provided by _publishers_. {{ marketplace-short-name }} publishers are companies (such as, Yandex). Publishers post their products to the {{ marketplace-short-name }} and set a [price ](#pricing)for them. Publishers can also update and upgrade their products.
+Products are provided by _publishers_. {{ marketplace-short-name }} publishers are companies (such as, Yandex). Publishers post their products to the {{ marketplace-short-name }} and set a [price](#pricing) for them. Publishers can also update and upgrade their products.
 
 {% note warning %}
 
@@ -38,7 +38,7 @@ You can access {{ marketplace-short-name }} products as:
 * **Templates**: The dashboard templates that you can use with your data. To do this, replace the connection used for the template.
 
 If you are a publisher and wish to offer a new product for the following categories:
-* Datasets, Geo layers, or Templates: on the[{{ marketplace-short-name }}](https://cloud.yandex.com/marketplace?tab=datalens)  home page, click **Offer product** and complete an application.
+* Datasets, Geo layers, or Templates: on the [{{ marketplace-short-name }}](https://cloud.yandex.com/marketplace?tab=datalens) home page, click **Offer product** and complete an application.
 * Connectors: go to the instructions [{#T}](../operations/marketplace/create-connector-for-partners.md).
 
 ### Pricing {#pricing}
@@ -65,7 +65,7 @@ As an example, let's say you bought a data subscription for one city (Moscow) an
 | Date | Event |
 ---- | -----
 | **3.10.2020** | You purchased the data for Moscow. {{ datalens-short-name }} debits the applicable amount right away. The next payment date is ** 3.11.2020**. |
-| **5.10.2020** | You purchased the data for Saint Petersburg. {{ datalens-short-name }}  debits the applicable amount right away. The next payment date is **5.11.2020**. |
+| **5.10.2020** | You purchased the data for Saint Petersburg. {{ datalens-short-name }} debits the applicable amount right away. The next payment date is **5.11.2020**. |
 | **15.10.2020** | You canceled the subscription for the Moscow data. {{ datalens-short-name }} considers this data as paid, so you can access the data until **3.11.2020**. |
 | **3.11.2020** | {{ datalens-short-name }} will not renew your subscription to Moscow data. The data for this city will no longer be available to you. |
 | **5.11.2020** | {{ datalens-short-name }} will renew your subscription to Saint Petersburg data and debit the applicable amount right away. |

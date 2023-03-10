@@ -136,13 +136,13 @@ If there is no unusual load on a cluster's resources, and queries still take too
        --cluster-id <cluster ID>
    ```
 
-1. For table-level locks, run the following query:
+1. To view table-level locks, run the following query:
 
    ```sql
    SELECT * FROM sys.schema_table_lock_waits
    ```
 
-1. For row-level locks, run the following query:
+1. To view row-level locks, run the following query:
 
    ```sql
    SELECT * FROM sys.innodb_lock_waits

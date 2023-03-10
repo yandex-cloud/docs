@@ -10,7 +10,7 @@ The _{{ yandex-cloud }} command-line interface (CLI)_ provides downloadable soft
 
 ## Creating a profile {#initialize}
 
-{% include notitle [create-profile](../_includes/cli/create-profile.md) %}
+{% include notitle [create profile CLI](../_includes/cli/create-profile.md) %}
 
 
 ## Examples of commands {#example}
@@ -87,15 +87,25 @@ The following steps describe how to create a cloud network, subnet, and virtual 
       yc compute instance get my-yc-instance
       ```
       In the command result, find the address of the VM in the `one_to_one_nat` section:
+
+      
       ```yaml
       one_to_one_nat:
           address: 130.193.32.90
           ip_version: IPV4
       ```
+
+
+      
    1. Connect to the virtual machine over SSH on behalf of the `yc-user` user, using the private key:
+
+      
       ```bash
       ssh yc-user@130.193.32.90
       ```
+
+
+
 1. Delete the `my-yc-instance` VM, the `my-yc-subnet-a` subnet, and the `my-yc-network` network:
    ```bash
    yc compute instance delete my-yc-instance

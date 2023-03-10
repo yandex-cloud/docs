@@ -115,7 +115,11 @@ description: "Как получить логи моей работы в серв
 
 {% include [add-two-indicators](../../_qa/datalens/add-two-indicators.md) %}
 
+{% include [add-columns-signatures](../../_qa/datalens/add-columns-signatures.md) %}
+
 {% include [create-grouped-column-chart](../../_qa/datalens/create-grouped-column-chart.md) %}
+
+{% include [add-column-grouped](../../_qa/datalens/add-column-grouped.md) %}
 
 {% include [number-of-indicators-in-color-section](../../_qa/datalens/number-of-indicators-in-color-section.md) %}
 
@@ -173,7 +177,7 @@ description: "Как получить логи моей работы в серв
 
 {{ datalens-short-name }} представлен только в виде облачного сервиса. Также хотим отметить:
 
-* {{ datalens-short-name }} — это сервис {{ yandex-cloud }}, который соответствует ФЗ-152 и индустриальным стандартам безопасности. Подробнее в разделе [Безопасность {{ yandex-cloud }}](https://cloud.yandex.ru/security).
+* {{ datalens-short-name }} — это сервис {{ yandex-cloud }}, который соответствует ФЗ-152 и индустриальным стандартам безопасности. Подробнее в разделе [Безопасность {{ yandex-cloud }}](/security).
 
 * Для {{ datalens-short-name }} можно [настроить федерацию учетных записей](../../organization/quick-start.md).
 
@@ -205,6 +209,6 @@ description: "Как получить логи моей работы в серв
 * Максимально точное описание проблемы и порядок ваших действий.
 * Изображения, GIF или видео.
 
-Предложения и пожелания по работе сервиса можно оставлять в [Сообществе пользователей {{ yandex-cloud }}](https://cloud.yandex.ru/features?serviceId=23).
+Предложения и пожелания по работе сервиса можно оставлять в [сообществе пользователей {{ yandex-cloud }}](/features?serviceId=23).
 
 Чтобы следить за новостями и обсуждать лучшие практики использования сервиса, присоединяйтесь к сообществу [DataLens](https://t.me/YandexDataLens) в Telegram.

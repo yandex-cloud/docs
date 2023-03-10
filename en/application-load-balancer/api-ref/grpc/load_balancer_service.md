@@ -57,7 +57,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy)**<br>Locality settin
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy)**<br>Scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -129,6 +129,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options}
@@ -206,8 +207,8 @@ disable_traffic | **bool**<br>Disables the load balancer node in the specified a
 
 Field | Description
 --- | ---
-min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
-max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each availability zone. <br>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. <br>The minimum value is 2. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all availability zones. <br>If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of [AllocationPolicy.locations](#AllocationPolicy1). <br>If the value is 0, there is no upper limit. Acceptable values are 0 to 1000, inclusive.
 
 
 ### LogOptions {#LogOptions}
@@ -270,7 +271,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy1)**<br>Locality setti
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy1)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy1)**<br>Scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions1)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -342,6 +343,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options1)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options1}
@@ -419,8 +421,8 @@ disable_traffic | **bool**<br>Disables the load balancer node in the specified a
 
 Field | Description
 --- | ---
-min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
-max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each availability zone. <br>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. <br>The minimum value is 2. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all availability zones. <br>If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of [AllocationPolicy.locations](#AllocationPolicy2). <br>If the value is 0, there is no upper limit. Acceptable values are 0 to 1000, inclusive.
 
 
 ### LogOptions {#LogOptions1}
@@ -465,7 +467,7 @@ network_id | **string**<br>Required. ID of the network that the application load
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy2)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy2)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy2)**<br>Scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions2)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -537,6 +539,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options2)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options2}
@@ -614,8 +617,8 @@ disable_traffic | **bool**<br>Disables the load balancer node in the specified a
 
 Field | Description
 --- | ---
-min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
-max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each availability zone. <br>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. <br>The minimum value is 2. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all availability zones. <br>If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of [AllocationPolicy.locations](#AllocationPolicy3). <br>If the value is 0, there is no upper limit. Acceptable values are 0 to 1000, inclusive.
 
 
 ### LogOptions {#LogOptions2}
@@ -677,7 +680,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy3)**<br>Locality setti
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy3)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy3)**<br>Scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions3)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -755,7 +758,7 @@ labels | **map<string,string>**<br>New application load balancer labels as `key:
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>New listeners for the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). <br>Existing list of listeners is completely replaced by the specified list, so if you just want to add, update, or remove a listener, make a [LoadBalancerService.AddListener](#AddListener) request, a [LoadBalancerService.UpdateListener](#UpdateListener) request, or a [LoadBalancerService.RemoveListener](#RemoveListener) request. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy3)**<br>New locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). <br>Existing locality settings are completely replaced by the specified settings, so if you just want to add or remove an allocation policy: <ol><li>Get the current settings with a [LoadBalancerService.Get](#Get) request. </li><li>Add or remove a policy in this set. </li><li>Send the new set in this field.</li></ol> 
 security_group_ids[] | **string**<br>ID's of new security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). <br>Existing list of security groups is completely replaced by the specified list, so if you just want to add or remove an allocation policy: <ol><li>Get the current set of security groups with a [LoadBalancerService.Get](#Get) request. </li><li>Add or remove a group in this set. </li><li>Send the new set in this field.</li></ol> 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy3)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy3)**<br>New scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions3)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -827,6 +830,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options3)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options3}
@@ -904,8 +908,8 @@ disable_traffic | **bool**<br>Disables the load balancer node in the specified a
 
 Field | Description
 --- | ---
-min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
-max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each availability zone. <br>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. <br>The minimum value is 2. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all availability zones. <br>If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of [AllocationPolicy.locations](#AllocationPolicy4). <br>If the value is 0, there is no upper limit. Acceptable values are 0 to 1000, inclusive.
 
 
 ### LogOptions {#LogOptions3}
@@ -967,7 +971,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy4)**<br>Locality setti
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy4)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy4)**<br>Scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions4)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -1120,7 +1124,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy4)**<br>Locality setti
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy4)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy4)**<br>Scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions4)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -1192,6 +1196,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options4)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options4}
@@ -1269,8 +1274,8 @@ disable_traffic | **bool**<br>Disables the load balancer node in the specified a
 
 Field | Description
 --- | ---
-min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
-max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each availability zone. <br>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. <br>The minimum value is 2. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all availability zones. <br>If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of [AllocationPolicy.locations](#AllocationPolicy5). <br>If the value is 0, there is no upper limit. Acceptable values are 0 to 1000, inclusive.
 
 
 ### LogOptions {#LogOptions4}
@@ -1349,7 +1354,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy5)**<br>Locality setti
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy5)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy5)**<br>Scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions5)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -1421,6 +1426,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options5)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options5}
@@ -1498,8 +1504,8 @@ disable_traffic | **bool**<br>Disables the load balancer node in the specified a
 
 Field | Description
 --- | ---
-min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
-max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each availability zone. <br>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. <br>The minimum value is 2. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all availability zones. <br>If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of [AllocationPolicy.locations](#AllocationPolicy6). <br>If the value is 0, there is no upper limit. Acceptable values are 0 to 1000, inclusive.
 
 
 ### LogOptions {#LogOptions5}
@@ -1607,6 +1613,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options6)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options6}
@@ -1705,7 +1712,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy6)**<br>Locality setti
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy6)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy6)**<br>Scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions6)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -1781,8 +1788,8 @@ disable_traffic | **bool**<br>Disables the load balancer node in the specified a
 
 Field | Description
 --- | ---
-min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
-max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each availability zone. <br>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. <br>The minimum value is 2. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all availability zones. <br>If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of [AllocationPolicy.locations](#AllocationPolicy7). <br>If the value is 0, there is no upper limit. Acceptable values are 0 to 1000, inclusive.
 
 
 ### LogOptions {#LogOptions6}
@@ -1863,7 +1870,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy7)**<br>Locality setti
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy7)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy7)**<br>Scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions7)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -1935,6 +1942,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options7)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options7}
@@ -2012,8 +2020,8 @@ disable_traffic | **bool**<br>Disables the load balancer node in the specified a
 
 Field | Description
 --- | ---
-min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
-max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each availability zone. <br>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. <br>The minimum value is 2. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all availability zones. <br>If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of [AllocationPolicy.locations](#AllocationPolicy8). <br>If the value is 0, there is no upper limit. Acceptable values are 0 to 1000, inclusive.
 
 
 ### LogOptions {#LogOptions7}
@@ -2122,6 +2130,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options8)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options8}
@@ -2220,7 +2229,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy8)**<br>Locality setti
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy8)**<br>Autoscale settings of the application load balancer. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy8)**<br>Scaling settings of the application load balancer. <br>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). 
 log_options | **[LogOptions](#LogOptions8)**<br>Cloud logging settings of the application load balancer. 
 
 
@@ -2296,8 +2305,8 @@ disable_traffic | **bool**<br>Disables the load balancer node in the specified a
 
 Field | Description
 --- | ---
-min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
-max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each availability zone. <br>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. <br>The minimum value is 2. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all availability zones. <br>If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of [AllocationPolicy.locations](#AllocationPolicy9). <br>If the value is 0, there is no upper limit. Acceptable values are 0 to 1000, inclusive.
 
 
 ### LogOptions {#LogOptions8}
@@ -2358,6 +2367,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options9)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options9}
@@ -2439,6 +2449,7 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options10)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options10}

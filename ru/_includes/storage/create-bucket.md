@@ -27,7 +27,7 @@
   {% include [default-catalogue](../default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для создания бакета:
-  
+
       ```bash
       yc storage bucket create --help
       ```
@@ -81,8 +81,17 @@
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-          
+     
      ```
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+       required_version = ">= 0.13"
+     }
+
      provider "yandex" {
        token     = "<IAM-_или_OAuth-токен>"
        cloud_id  = "<идентификатор_облака>"
@@ -116,9 +125,9 @@
      ```
 
 
-     
+
      Где:
-     
+
      * `yandex_iam_service_account` — описание сервисного аккаунта, который создаст бакет и будет работать с ним:
        * `name` — имя сервисного аккаунта.
      * `yandex_storage_bucket` — описание бакета:

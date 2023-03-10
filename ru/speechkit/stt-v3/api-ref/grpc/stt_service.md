@@ -81,6 +81,7 @@ Field | Description
 text_normalization | enum **TextNormalization**<br>Normalization <ul><li>`TEXT_NORMALIZATION_ENABLED`: Enable normalization</li><li>`TEXT_NORMALIZATION_DISABLED`: Disable normalization</li></ul>
 profanity_filter | **bool**<br>Profanity filter (default: false). 
 literature_text | **bool**<br>Rewrite text in literature style (default: false). 
+phone_formatting_mode | enum **PhoneFormattingMode**<br>Define phone formatting mode <ul><li>`PHONE_FORMATTING_MODE_DISABLED`: Disable phone formatting</li></ul>
 
 
 ### LanguageRestrictionOptions {#LanguageRestrictionOptions}

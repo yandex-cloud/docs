@@ -6,7 +6,7 @@
 
 Для примера рассмотрим поставку метрик тестового приложения на Python.
 
-## Пример поставки метрик пользовательского приложения { #example }
+## Пример поставки метрик пользовательского приложения {#example}
 
 Описанная методика может также применяться для поставки метрик любых пользовательских приложений, использующих [клиентские библиотеки Prometheus](https://prometheus.io/docs/instrumenting/clientlibs/).
 
@@ -141,7 +141,7 @@
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
-      cr.yandex/yc/unified-agent
+      {{ registry }}/yc/unified-agent
       ```
 
        Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).

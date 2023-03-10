@@ -19,7 +19,11 @@
         * Имя пользователя — `pg-user`.
         * Пароль — `<пароль источника>`.
 
-    1. Убедитесь, что [группа безопасности кластера](../../managed-postgresql/operations/connect.md#configuring-security-groups) настроена правильно и допускает подключение к нему.
+    
+    1. Если вы используете [группы безопасности](../../managed-postgresql/operations/connect.md#configuring-security-groups) в кластере, убедитесь, что они настроены правильно и допускают подключение к нему.
+
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 
     1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md).
 
@@ -103,7 +107,7 @@
         * **Пользователь** — `pg-user`.
         * **Пароль** — `<пароль пользователя>`.
 
-    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy }}]_, использующий созданные эндпоинты.
+    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy }}_, использующий созданные эндпоинты.
 
 * С помощью {{ TF }}
 
@@ -146,7 +150,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 * Убедитесь, что трансфер находится в статусе _{{ dt-status-finished }}_.
 * [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).

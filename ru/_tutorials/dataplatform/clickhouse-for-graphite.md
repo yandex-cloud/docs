@@ -30,8 +30,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки БД {{ CH }} для Graphite входит:
-* плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](../../managed-clickhouse/pricing));
-* плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](../../compute/pricing)).
+* плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](../../managed-clickhouse/pricing.md));
+* плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 
 
@@ -131,9 +131,7 @@
 
 1. Загрузите файл конфигурации для `clickhouse-client`:
 
-    ```bash
-    mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
-    ```
+    {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
 1. Получите SSL-сертификат:
 
@@ -146,7 +144,10 @@
 
 ## Подключите виртуальную машину к базе данных {#cluster-connect}
 
-1. [Настройте группы безопасности](../../managed-clickhouse/operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
+1. Если вы используете группы безопасности для облачной сети, [настройте их](../../managed-clickhouse/operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
+
+    {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md). 
 1. Запустите ClickHouse CLI со следующими параметрами: вместо `<FQDN хоста>`, `<имя БД>`, `<имя пользователя БД>` и `<пароль пользователя БД>` укажите ранее сохраненные параметры.
 
@@ -220,6 +221,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 * [Удалите кластер {{ CH }}](../../managed-clickhouse/operations/cluster-delete.md).
 * [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md).

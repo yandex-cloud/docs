@@ -6,7 +6,7 @@ You can connect to {{ mmy-short-name }} cluster hosts:
 
 {% note warning %}
 
-If only some of a cluster's hosts have public access configured, automatically changing the master may result in the master not being accessible from the internet.
+If only some of a cluster's hosts have public access configured, [automatically changing the master](../concepts/replication.md#master-failover) may result in the master not being accessible from the internet.
 
 {% endnote %}
 
@@ -102,6 +102,12 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 Just like usual FQDNs, which can be requested with a [list of cluster hosts](./hosts.md#list), {{ mmy-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
 
+{% note warning %}
+
+If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master host or the least lagging replica, they can't be connected to from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+
+{% endnote %}
+
 ### Current master {#fqdn-master}
 
 A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` Always points to the current cluster master host. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
@@ -127,7 +133,7 @@ FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` Points to the least lagging [replic
 **Specifics:**
 
 * When connecting to this FQDN, only read operations are allowed.
-* If there are no active replicas in a cluster, you can't connect to this FQDN: the corresponding DNS CNAME record will point to a null object (`null`).
+* If there are no active replicas in a cluster, you cannot connect to this FQDN, as the respective DNS CNAME record will point to a `null` object.
 
 An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
 
@@ -145,7 +151,9 @@ mysql --host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
+
+{% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
 {% list tabs %}
 
@@ -179,7 +187,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          * **Username**, **Password**: DB username and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **CA certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
          1. Under **Advanced**:
             1. Enable **Require SSL**.
             1. Enable **Verify server certificate**.

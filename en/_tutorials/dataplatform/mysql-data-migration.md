@@ -59,7 +59,7 @@ Create the necessary resources:
 
       * [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
 
-   1. (Optional) [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) on [Ubuntu 20.04 LTS](https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
+   1. (Optional) [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
 
       * **Disks and file storage** → **Size**: Sufficient to store both archived and unarchived dumps.
 
@@ -223,7 +223,7 @@ Create the necessary resources:
 
 ### (Optional) Uploading a dump to a virtual machine in {{ yandex-cloud }} {#vm-load}
 
-1. [Connect to an intermediate virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to an intermediate virtual machine over SSH.
 
 1. Copy the archive containing the database dump to the intermediate virtual machine using the `scp` utility, for instance:
 

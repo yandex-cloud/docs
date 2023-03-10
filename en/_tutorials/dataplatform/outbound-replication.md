@@ -51,7 +51,7 @@ For logical replication to work properly, both the source and the target must ha
 
 ## Configure the user to manage replication on the source cluster {#configure-user}
 
-{{ PG }} uses the publish-subscribe model for logical replication: the target cluster *subscribes* to the source cluster's *publication* to transfer data. To successfully subscribe to a publication, make sure the {{ mpg-name }} source cluster is accessed on behalf of the user who is assigned the logical replication  management role. To configure this user:
+{{ PG }} uses the publish-subscribe model for logical replication: the target cluster *subscribes* to the source cluster's *publication* to transfer data. To successfully subscribe to a publication, make sure the {{ mpg-name }} source cluster is accessed on behalf of the user who is assigned the logical replication management role. To configure this user:
 1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser).
 1. [Assign the role](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` to this user.
 1. [Connect to the database](../../managed-postgresql/operations/connect.md) that you want to migrate as the **database owner**.

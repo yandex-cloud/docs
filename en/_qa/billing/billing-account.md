@@ -1,8 +1,8 @@
 # Questions about the billing account
 
-#### Getting a billing account ID. {#account-id}
+#### How do I get the billing account ID? {#account-id}
 
-To get a billing account's ID:
+To get your billing account ID:
 
 {% include [billing-account-id](../../_includes/billing/billing-account-id.md) %}
 
@@ -33,7 +33,7 @@ You can't change a billing account type once it's created, but you can [create a
 
 #### How do I enable the billing threshold? {#credit}
 
-[The billing threshold](../../billing/concepts/billing-threshold.md) is enabled automatically after the [paid version is activated](../../billing/operations/activate-commercial.md) and the first reporting period ends.
+The [billing threshold](../../billing/concepts/billing-threshold.md) is enabled automatically after the [paid version is activated](../../billing/operations/activate-commercial.md) and the first reporting period ends.
 
 
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}

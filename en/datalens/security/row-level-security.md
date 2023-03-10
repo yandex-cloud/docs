@@ -50,7 +50,7 @@ Values and users can be defined using wildcard characters:
 ```
 
 
-* The `value_1` value is available to all users
+* `Value_1` is available to all users
 
    ```yaml
    'value_1': *
@@ -100,7 +100,6 @@ To avoid this, you can transfer the logic of access control at the row level to 
 
    
    To view your ID, follow [this link]({{ link-console-access-management }}). If you need another user's ID, ask them to open this link and pass the ID to you.
-   
 
 
 1. For each row of source data, specify the ID of the user who is allowed to access this row. If multiple users should have access to the same row, you can move the access control logic to a separate table and [join](../concepts/dataset/settings.md#multi-table) it to the main table at the dataset level.

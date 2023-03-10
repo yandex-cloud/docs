@@ -64,10 +64,8 @@ description: "Use this tutorial to create a Linux VM."
       * `zone`: Availability zone that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected subnet.
       * `image-family`: An [image family](../../concepts/image.md#family), such as `centos-7`. This option lets you install the latest version of the operating system from the specified family.
-      * `nat-ip-version=ipv4`: Public IP. To create a VM without a public IP, disable the parameter.
+      * `nat-ip-version=ipv4`: Public IP. To create a VM without a public IP, disable a parameter.
       * `ssh-key`: Path to the public SSH key. The user `yc-user` will be automatically created on the VM for this key.
-
-
 
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
@@ -160,9 +158,8 @@ description: "Use this tutorial to create a Linux VM."
       * `metadata`: In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and disk size. The disk size must not be below the minimum value specified in the image details.
       * `networkInterfaceSpecs`: Network setting.
-      * `subnetId`: ID of the selected subnet.
-      * `primaryV4AddressSpec`: IP address to be assigned to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, please specify:
-            
+         * `subnetId`: ID of the selected subnet.
+         * `primaryV4AddressSpec`: IP address to be assigned to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, please specify:
             ```
             "primaryV4AddressSpec": {
                 "oneToOneNatSpec": {
@@ -194,36 +191,36 @@ description: "Use this tutorial to create a Linux VM."
 
       ```
       resource "yandex_compute_instance" "vm-1" {
-
+      
         name        = "linux-vm"
         platform_id = "standard-v3"
         zone        = "<availability zone>"
-
+      
         resources {
           cores  = "<number of vCPU cores>"
           memory = "<RAM amount, GB>"
         }
-
+      
         boot_disk {
           initialize_params {
             image_id = "<image ID>"
           }
         }
-
+      
         network_interface {
           subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
           nat       = true
         }
-
+      
         metadata = {
           ssh-keys = "<username>:<SSH key contents>"
         }
       }
-
+      
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
-
+      
       resource "yandex_vpc_subnet" "subnet-1" {
         name           = "subnet1"
         zone           = "<availability zone>"
@@ -251,9 +248,9 @@ description: "Use this tutorial to create a Linux VM."
 
       {% endnote %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:

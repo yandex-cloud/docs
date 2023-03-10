@@ -4,6 +4,4 @@
 
 Если вы хотите запретить пользователям создавать или активировать трансферы, передающие данные через интернет, отзовите роль `{{ roles-data-transfer-admin }}` и назначьте роль `{{ roles-data-transfer-private-admin }}`.
 
-Эта роль включает в себя роль `data-transfer.editor`.
-
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}

@@ -1,3 +1,8 @@
+---
+title: "How to create a log group in {{ cloud-logging-name }}"
+description: "In this tutorial, you will learn how to create a log group in {{ cloud-logging-name }}."
+---
+
 # Creating a log group
 
 {% note info %}
@@ -37,19 +42,19 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    Where:
    * `--name`: Name of the log group.
-   * `--retention-period`: Log group record retention period. Optional.
+   * `--retention-period`: Log group record retention period. This is an optional parameter.
 
       {% include [retention-period](../../_includes/logging/retention-period.md) %}
 
       {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-   * `data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID. Optional. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
+   * `data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID. This is an optional parameter. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-      >For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
-      >* `aws_stream`: Stream name.
-      >* `{{ region-id }}`: Availability zone.
-      >* `aoeu1kuk2dhtaupdb1es`: Folder ID.
-      >* `cc8029jgtuabequtgtbv`: {{ ydb-full-name }} database ID.
+      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
+      > * `aws_stream`: Stream name.
+      > * `{{ region-id }}`: Availability zone.
+      > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
+      > * `cc8029jgtuabequtgtbv`: {{ ydb-full-name }} database ID.
 
    Result:
 
@@ -73,23 +78,23 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Name of the log group. Optional. Name format:
+      * `name`: Name of the log group. This is an optional parameter. Name format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Optional. By default, the value specified in the provider settings is used.
+      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
-      * `retention_period`: Record retention period in the log group. Optional.
+      * `retention_period`: Record retention period in the log group. This is an optional parameter.
 
          {% include [retention-period](../../_includes/logging/retention-period.md) %}
 
          {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       
       ```hcl
@@ -111,20 +116,20 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -132,7 +137,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
 
       ```
       yc logging group list

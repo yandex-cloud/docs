@@ -1,6 +1,6 @@
 # Auto Unseal in Hashicorp Vault
 
-A [Hashicorp Vault](https://www.vaultproject.io/) build with [{{ kms-name }}](../index.yaml) support is available as a [VM image](/marketplace/products/yc/vault-yckms) in {{ marketplace-name }} and a Docker image.
+A [Hashicorp Vault](https://www.vaultproject.io/) build with [{{ kms-name }}](../) support is available as a [VM image](/marketplace/products/yc/vault-yckms) in {{ marketplace-name }} and a Docker image.
 
 The build will enable you to use {{ kms-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) mechanism.
 
@@ -9,7 +9,7 @@ This build differs from its [official](https://hub.docker.com/_/vault) version b
 To download the most recent Docker image, use the command below:
 
 ```bash
-docker pull cr.yandex/yc/vault
+docker pull {{ registry }}/yc/vault
 ```
 
 ## Before you start { #before-you-begin }
@@ -109,7 +109,7 @@ The environment variable values take precedence over the values from the configu
    ...
    seal "yandexcloudkms" {
      kms_key_id = "<ID of the KMS key>"
-     oauth_token = "<user's OAuth token>"  
+     oauth_token = "<user's OAuth token>"
    }
    ...
    ```

@@ -12,7 +12,7 @@
 
 1. Убедитесь, что вы авторизованы в {{ tracker-name }} как [администратор](role-model.md).
 
-1. {% include [path to the repository](../_includes/tracker/repository-path.md) %}.
+1. {% include [path to the repository](../_includes/tracker/repository-path.md) %} 
 
 1. Выберите сервис, в котором расположен репозиторий, и укажите данные для подключения:
 

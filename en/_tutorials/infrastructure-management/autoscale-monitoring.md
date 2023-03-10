@@ -1,6 +1,6 @@
 # Automatically scaling an instance group for handling messages from a queue in {{ message-queue-full-name }}
 
-This use case describes integration between {{ compute-full-name }}, [{{ message-queue-full-name }}](https://cloud.yandex.com/en/services/message-queue), and [{{ monitoring-full-name }}](https://cloud.yandex.com/en/services/monitoring).
+This use case describes integration between {{ compute-full-name }}, [{{ message-queue-full-name }}](/services/message-queue), and [{{ monitoring-full-name }}](/services/monitoring).
 
 In this use case, an [instance group](../../compute/concepts/instance-groups/index.md) is created. All instances in the group handle messages from the same {{ message-queue-name }} queue (for example, they receive messages and delete them after a while). The number of enqueued messages is registered in a {{ monitoring-name }} metric, and the instance group is [automatically scaled](../../compute/concepts/instance-groups/scale.md#auto-scale) based on this metric.
 

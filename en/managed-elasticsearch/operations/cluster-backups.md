@@ -15,6 +15,8 @@ keywords:
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
+{{ mes-name }} also creates automatic hourly backups.
+
 ### Getting a list of backups {#list-backups}
 
 {% list tabs %}
@@ -242,7 +244,7 @@ When creating a new cluster, set all required parameters.
 
          * `type`: [Host role](../concepts/hosts-roles.md).
 
-      * `--datanode-resource-preset`: [Host class](../concepts/instance-types.md#available-flavors) with the Data node role.
+      * `--datanode-resource-preset`: [Class of hosts](../concepts/instance-types.md#available-flavors) with the Data node role.
       * `--datanode-disk-size`: Storage size in gigabytes for hosts with the Data node role.
       * `--datanode-disk-type`: [Disk type](../concepts/storage.md) for hosts with the Data node role:
 
@@ -253,7 +255,7 @@ When creating a new cluster, set all required parameters.
          * `network-ssd-nonreplicated`
 
 
-      * `--masternode-resource-preset`: [Host class](../concepts/instance-types.md#available-flavors) with the Master node role.
+      * `--masternode-resource-preset`: [Class of hosts](../concepts/instance-types.md#available-flavors) with the Master node role.
       * `--masternode-disk-size`: Storage size in gigabytes for hosts with the Master node role.
       * `--masternode-disk-type`: [Disk type](../concepts/storage.md) for hosts with the Master node role. Only `network-ssd` are available.
 

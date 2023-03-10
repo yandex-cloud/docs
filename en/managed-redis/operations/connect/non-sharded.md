@@ -22,7 +22,13 @@ You can connect to a non-sharded Redis cluster:
 
 ## Special FQDNs {#special-fqdns}
 
-{{ mrd-name }} provides special FQDNs that can be used instead of regular [host FQDNs](../hosts.md#list) to connect to non-sharded clusters.
+{{ mrd-name }} provides special FQDNs that can be used instead of regular [host FQDNs](./../hosts.md#list) to connect to non-sharded clusters.
+
+{% note warning %}
+
+If, when the [master host is changed automatically](../../concepts/replication.md#master-failover), a host with no public access becomes a new master host, you will not be able to connect to it from the internet. To avoid this, [enable public access](../hosts.md#update) for all cluster hosts.
+
+{% endnote %}
 
 ### Current master {#fqdn-master}
 
@@ -44,7 +50,9 @@ redis-cli -h c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
 
 {% include [IDE environment settings](../../../_includes/mdb/mrd/ide-envs.md) %}
 
-You can only use graphical IDEs to connect to cluster hosts through an SSL tunnel using a [created VM](./index.md#connect). Before connecting [prepare a certificate](./index.md#get-ssl-cert).
+You can only use graphical IDEs to connect to cluster hosts through an SSL tunnel using a [created VM](./index.md#connect). Before connecting, [prepare a certificate](./index.md#get-ssl-cert).
+
+{% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
 {% list tabs %}
 
@@ -56,7 +64,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
    1. Create a new DB connection:
       1. In the **Database** menu, select **New connection**.
-      1. Select the **{{ RD }}** database from the list.
+      1. Select **{{ RD }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
          * **Host**: FQDN of the master host or a [special FQDN](./non-sharded.md#special-fqdns) always pointing to the current master host.
@@ -72,10 +80,10 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
             * **Passphrase**: Password of the private key.
       1. On the **SSL** tab:
          1. Enable the **Use SSL** and **Skip hostname validation** settings.
-         1. Under **Method**:
-            1. Enable the **Set of certificates** setting.
-            1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](./index.md#get-ssl-cert).
-   1. Click **Test Connection ...** to test a DB connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+         1. Under **Parameters**:
+            1. Select **Method**: **Set of certificates**.
+            1. In the **Root certificate** field, specify the path to the saved [SSL certificate](./index.md#get-ssl-cert) file.
+   1. Click **Test connection ...** to test a DB connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}

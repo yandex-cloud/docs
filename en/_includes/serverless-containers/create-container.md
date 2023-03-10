@@ -21,18 +21,18 @@
    To create a container, run the command:
 
    ```
-   	yc serverless container create --name <container_name>
+   yc serverless container create --name <container_name>
    ```
 
    Result:
 
    ```
-   	id: bba3fva6ka5g********
-   	folder_id: b1gqvft7kjk3********
-   	created_at: "2021-07-09T14:49:00.891Z"
-   	name: my-beta-container
-   	url: https://bba3fva6ka5g********.containers.yandexcloud.net/
-   	status: ACTIVE
+   id: bba3fva6ka5g********
+   folder_id: b1gqvft7kjk3********
+   created_at: "2021-07-09T14:49:00.891Z"
+   name: my-beta-container
+   url: https://bba3fva6ka5g********.containers.yandexcloud.net/
+   status: ACTIVE
    ```
 
 - API
@@ -88,7 +88,7 @@
 
       For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -97,7 +97,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

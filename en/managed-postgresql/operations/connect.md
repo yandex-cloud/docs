@@ -4,9 +4,9 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 
 {% include [cluster-connect-note](../../_includes/mdb/mpg/cluster-connect-note.md) %}
 
-{% note info %}
+{% note warning %}
 
-If your cluster has public access configured for certain hosts only, an [automatic master switch](../concepts/replication.md#replication-auto) may make the master inaccessible over the internet.
+If only some of a cluster's hosts have public access configured, [automatically changing the master](../concepts/replication.md#replication-auto) may result in the master not being accessible from the internet.
 
 {% endnote %}
 
@@ -47,11 +47,11 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you connect to the VM over SSH.
+         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
-         * Protocol: ``Any``.
+         * Protocol: `Any`.
          * Source type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
@@ -73,6 +73,12 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 ## Special FQDNs {#special-fqdns}
 
 Just like usual FQDNs, which can be requested with a [list of cluster hosts](hosts.md#list), {{ mpg-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
+
+{% note warning %}
+
+If, when the [master host is changed automatically](../concepts/replication.md#replication-auto), a host with no public access becomes a new master host or the least lagging replica, they can't be connected to from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+
+{% endnote %}
 
 ### Current master {#fqdn-master}
 
@@ -104,7 +110,7 @@ FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` Points to the least lagging [replic
 **Specifics:**
 
 * When connecting to this FQDN, only read operations are allowed.
-* If there are no active replicas in a cluster, you can't connect to this FQDN: the corresponding DNS CNAME record will point to a null object (`null`).
+* If there are no active replicas in the cluster, this FQDN will point to the current master host.
 
 An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
 
@@ -158,7 +164,9 @@ To upgrade the library version used by the `psql` utility:
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
+
+{% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
 {% list tabs %}
 
@@ -195,12 +203,12 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
          * **Host**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
-         * **Port**: `{{ port-mpg}}`.
+         * **Port**: `{{ port-mpg }}`.
          * **Database**: Name of the DB to connect to.
          * Under **Authentication**, specify the DB user's name and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **CA certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 

@@ -129,6 +129,10 @@
       ...
       ```
 
+- API
+
+  Чтобы создать подсеть, воспользуйтесь методом REST API [create](../api-ref/Subnet/create.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../api-ref/grpc/subnet_service.md#Create).
+
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}

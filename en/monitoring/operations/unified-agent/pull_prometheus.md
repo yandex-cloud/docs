@@ -129,7 +129,7 @@ You can also use this method to deliver metrics from any custom applications tha
          - /etc/yandex/unified_agent/conf.d/*.yml
       ```
 
-      Where `$FOLDER_ID` is the ID of the folder you want to write metrics.
+      Where `$FOLDER_ID` is the ID of the folder to write metrics to.
 
    1. Install {{unified-agent-short-name}} on your VM by running the following command in the home folder:
 
@@ -141,7 +141,7 @@ You can also use this method to deliver metrics from any custom applications tha
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
-      cr.yandex/yc/unified-agent
+      {{ registry }}/yc/unified-agent
       ```
 
       You can find more ways to install the agent in [{#T}](../../concepts/data-collection/unified-agent/installation.md).
@@ -157,6 +157,6 @@ You can also use this method to deliver metrics from any custom applications tha
 
 #### What's next {#what-is-next}
 
-- [Review {{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
+- [Read about {{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
 - [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
 - [Read the {{ unified-agent-short-name }} operating instructions](../../concepts/data-collection/unified-agent/best-practices.md)

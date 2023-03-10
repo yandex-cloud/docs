@@ -66,6 +66,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disk
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -160,6 +161,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy}
 
 Field | Description
@@ -171,7 +179,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy}
@@ -236,6 +244,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk1)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk1)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem1)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface1)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings1)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -330,6 +339,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings1}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy1}
 
 Field | Description
@@ -341,7 +357,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy1}
@@ -393,6 +409,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings2)**<br>Network settings. 
+gpu_settings | **[GpuSettings](#GpuSettings2)**<br>GPU settings. 
 placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br>Placement policy configuration. 
 
 
@@ -515,7 +532,14 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+
+
+### GpuSettings {#GpuSettings2}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
 
 
 ### PlacementPolicy {#PlacementPolicy2}
@@ -579,6 +603,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk2)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk2)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem2)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface2)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings3)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -716,7 +741,7 @@ aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy3}
@@ -787,6 +812,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk3)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk3)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem3)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface3)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings3)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -869,6 +895,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### GpuSettings {#GpuSettings3}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
 
 
 ## Delete {#Delete}
@@ -974,6 +1007,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk4)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk4)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem4)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface4)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings4)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -1068,6 +1102,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings4}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy4}
 
 Field | Description
@@ -1079,7 +1120,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy4}
@@ -1221,6 +1262,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk5)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk5)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem5)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface5)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings5)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -1315,6 +1357,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings5}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy5}
 
 Field | Description
@@ -1326,7 +1375,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy5}
@@ -1483,6 +1532,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk6)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk6)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem6)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface6)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings6)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy6)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -1577,6 +1627,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings6}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy6}
 
 Field | Description
@@ -1588,7 +1645,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy6}
@@ -1673,6 +1730,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk7)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk7)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem7)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface7)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings7)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy7)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -1767,6 +1825,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings7}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy7}
 
 Field | Description
@@ -1778,7 +1843,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy7}
@@ -1870,6 +1935,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk8)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk8)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem8)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface8)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings8)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy8)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -1964,6 +2030,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings8}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy8}
 
 Field | Description
@@ -1975,7 +2048,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy8}
@@ -2060,6 +2133,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk9)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk9)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem9)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface9)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings9)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy9)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -2154,6 +2228,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings9}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy9}
 
 Field | Description
@@ -2165,7 +2246,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy9}
@@ -2268,6 +2349,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk10)**<br>Array of secondary di
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk10)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem10)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface10)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings10)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy10)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -2362,6 +2444,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings10}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy10}
 
 Field | Description
@@ -2373,7 +2462,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy10}
@@ -2456,6 +2545,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk11)**<br>Array of secondary di
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk11)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem11)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface11)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings11)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy11)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -2550,6 +2640,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings11}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy11}
 
 Field | Description
@@ -2561,7 +2658,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy11}
@@ -2677,6 +2774,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk12)**<br>Array of secondary di
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk12)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem12)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface12)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings12)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy12)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -2771,6 +2869,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings12}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy12}
 
 Field | Description
@@ -2782,7 +2887,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy12}
@@ -2905,6 +3010,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk13)**<br>Array of secondary di
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk13)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem13)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface13)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings13)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy13)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -2999,6 +3105,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### GpuSettings {#GpuSettings13}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
 ### SchedulingPolicy {#SchedulingPolicy13}
 
 Field | Description
@@ -3010,7 +3123,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy13}

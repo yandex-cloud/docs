@@ -2,21 +2,39 @@
 
 CDN servers retrieve the content requested by clients from _origins_.
 
+When creating a resource, an origin or an [origin group](#groups) is specified for it. After creating a resource, in the resource settings, you can replace an origin with another origin or a resource group with another resource group.
+
+
+## Origin type {#types}
+
 As origins, you can use:
 
-* A server with a domain name linked to it. For example, if the server's domain name is `files.example.com`, to get the `/static/common.css` file, CDN servers will try to access `files.example.com/static/common.css` on the server.
 * [Bucket](../../storage/concepts/bucket.md) from {{ objstorage-full-name }}, for example, configured as a [static site hosting](../../storage/concepts/hosting.md).
 * [L7 network load balancer](../../application-load-balancer/concepts/application-load-balancer.md) from {{ alb-full-name }}. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
+* Your own server or another resource available by domain name. For example, if the origin is a server with the `files.example.com` domain name, to get the `/static/common.css` file, CDN servers will try to access `files.example.com/static/common.css` on the server.
+
+
+## Static website hosting in a source bucket {#bucket-website-hosting}
+
+You can publish your static website through {{ cdn-name }} if its files are stored in a bucket in {{ objstorage-name }}.
+
+To make sure your website is displayed correctly, e.g., so that when entering `https://<domain_name>/`, the website homepage would open rather than the list of objects, configure your bucket in {{ objstorage-name }} and the origin in {{ cdn-name }} as follows:
+
+1. Create your website homepage, such as `index.html`, and [upload it](../../storage/operations/objects/upload.md) to the bucket.
+1. [Configure static website hosting](../../storage/operations/hosting/setup.md#hosting) in your bucket. In the settings, specify the homepage you uploaded in the previous step.
+1. [Configure the origin](#instructions) in the CDN resource or in an origin group by specifying the bucket and enabling its use as your static website hosting. After that, the CDN server will try to access the bucket by the `<bucket_name>.{{ s3-web-host }}` domain name.
+
+
+## Origin response time {#timeout}
 
 An origin must respond to the CDN server's request within 5 seconds. If no response was received during this time, the CDN server responds to the client with the `504 Gateway Timeout` HTTP status code.
 
-When creating a resource, an origin or an [origin group](#groups) is specified for it. After creating a resource, in the resource settings, you can replace an origin with another origin or a resource group with another resource group.
+To reduce both the load of CDN servers on origins and the response time, you can enable [origin shielding](origins-shielding.md) for a resource.
 
-To reduce the load of CDN servers on origins, you can enable [origin shielding](origins-shielding.md) for a resource.
 
 ## Origin groups {#groups}
 
-To distribute the load between origins hosting the same content, you can combine them into an _origin group_.
+To distribute the load between origins hosting the same content, you can combine them into an origin _group_.
 
 Origins in the group can be active or backup. Requests from CDN servers are distributed among active origins in a circular manner.
 
@@ -30,6 +48,10 @@ If you publish content in two or more buckets, combine them into a group of L7 l
 
 {% endnote %}
 
-#### See also {#see-also}
+## How to configure origins {#instructions}
 
-* [Instructions for operations with origins](../operations/index.md#origin-groups).
+See these guides:
+
+* Configuring an origin or origin group while [creating a resource](../operations/resources/create-resource.md).
+* [Editing the basic settings of a resource](../operations/resources/configure-basics.md), including changing an origin or origin group to a different one.
+* [Managing origin groups](../operations/index.md#origin-groups): creating, updating, connecting them to a resource, and deleting them.

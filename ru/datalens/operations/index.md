@@ -12,6 +12,7 @@
 - [{#T}](connection/create-oracle.md)
 - [{#T}](connection/create-ydb.md)
 - [{#T}](connection/create-greenplum.md)
+- [{#T}](connection/create-prometheus.md) 
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-appmetrica.md)
 - [{#T}](connection/create-cloud-billing.md)

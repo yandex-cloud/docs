@@ -24,7 +24,7 @@ name | <p>Required. Name of the bucket to update.</p> <p>The name cannot be upda
  
 ```json 
 {
-  "fieldMask": "string",
+  "updateMask": "string",
   "anonymousAccessFlags": {
     "read": true,
     "list": true,
@@ -79,7 +79,9 @@ name | <p>Required. Name of the bucket to update.</p> <p>The name cannot be upda
       "id": "string",
       "enabled": true,
       "filter": {
-        "prefix": "string"
+        "prefix": "string",
+        "objectSizeGreaterThan": "integer",
+        "objectSizeLessThan": "integer"
       },
       "expiration": {
         "date": "string",
@@ -122,14 +124,26 @@ name | <p>Required. Name of the bucket to update.</p> <p>The name cannot be upda
       "key": "string",
       "value": "string"
     }
-  ]
+  ],
+  "objectLock": {
+    "status": "string",
+    "defaultRetention": {
+      "mode": "string",
+
+      // `objectLock.defaultRetention` includes only one of the fields `days`, `years`
+      "days": "string",
+      "years": "string",
+      // end of the list of possible fields`objectLock.defaultRetention`
+
+    }
+  }
 }
 ```
 
  
 Field | Description
 --- | ---
-fieldMask | **string**<br><p>Required. Field mask that specifies which attributes of the bucket should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+updateMask | **string**<br><p>Required. Update mask that specifies which attributes of the bucket should be updated. Use * for full update.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 anonymousAccessFlags | **object**<br><p>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see <a href="/docs/storage/concepts/bucket#bucket-access">documentation</a>.</p> 
 anonymousAccessFlags.<br>read | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to read objects in the bucket is enabled.</p> 
 anonymousAccessFlags.<br>list | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to the list of objects in the bucket is enabled.</p> 
@@ -165,6 +179,8 @@ lifecycleRules[].<br>id | **string**<br><p>ID of the rule. Provided by the clien
 lifecycleRules[].<br>enabled | **boolean** (boolean)<br><p>Indicates whether the rule is in effect.</p> 
 lifecycleRules[].<br>filter | **object**<br><p>Filter that identifies the objects to which the rule applies.</p> <p>If not specified, the rule applies to all objects in the bucket.</p> 
 lifecycleRules[].<br>filter.<br>prefix | **string**<br><p>Key prefix that the object must have in order for the rule to apply.</p> 
+lifecycleRules[].<br>filter.<br>objectSizeGreaterThan | **integer** (int64)<br><p>Size that the object must be greater.</p> 
+lifecycleRules[].<br>filter.<br>objectSizeLessThan | **integer** (int64)<br><p>Size that the object must be less t.</p> 
 lifecycleRules[].<br>expiration | **object**<br><p>Expiration rule.</p> <p>The expiration of an object is described as follows.</p> <p>For the unversioned bucket (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_DISABLED``), the object is deleted and cannot be recovered.</p> <p>For the bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``), the current version of the object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes the current version of the object.</p> <p>For the bucket with versioning suspended (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_SUSPENDED``), the current version of the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a delete marker becomes the current version of the object.</p> 
 lifecycleRules[].<br>expiration.<br>date | **string** (date-time)<br><p>Specific date of object expiration.</p> <p>The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire immediately.</p> <p>Exactly one of ``date``, ``days``, and ``expiredObjectDeleteMarker`` fields can be specified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 lifecycleRules[].<br>expiration.<br>days | **integer** (int64)<br><p>Time period, in number of days from the creation or modification of the object, after which an object expires.</p> <p>Exactly one of ``days``, ``date``, and ``expiredObjectDeleteMarker`` fields can be specified.</p> 
@@ -186,9 +202,15 @@ acl.<br>grants[] | **object**<br><p>List of permissions granted and the grantees
 acl.<br>grants[].<br>permission | **string**<br><p>Required. Permission granted by the grant.</p> <ul> <li> <p>PERMISSION_FULL_CONTROL: Allows grantee the ``PERMISSION_WRITE``, ``PERMISSION_WRITE_ACP``, ``PERMISSION_READ``, and ``PERMISSION_READ_ACP`` on the bucket.</p> <p>Maps to ``x-amz-grant-full-control`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> </li> <li> <p>PERMISSION_WRITE: Allows grantee to create new objects in the bucket. For the bucket and object owners of existing objects, also allows deletions and overwrites of those objects.</p> <p>Maps to ``x-amz-grant-write`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> </li> <li> <p>PERMISSION_WRITE_ACP: Allows grantee to write the ACL for the bucket.</p> <p>Maps to ``x-amz-grant-write-acp`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> </li> <li> <p>PERMISSION_READ: Allows grantee to list the objects in the bucket.</p> <p>Maps to ``x-amz-grant-read`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> </li> <li> <p>PERMISSION_READ_ACP: Allows grantee to read the bucket ACL</p> <p>Maps to ``x-amz-grant-read-acp`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> </li> </ul> 
 acl.<br>grants[].<br>grantType | **string**<br><p>Required. The grantee type for the grant.</p> <ul> <li> <p>GRANT_TYPE_ACCOUNT: A grantee is an <a href="/docs/iam/concepts/#accounts">account on the platform</a>.</p> <p>For this grantee type, you need to specify the user ID in <a href="/docs/storage/api-ref/Bucket#representation">Bucket.acl.grants.granteeId</a> field. To get user ID, see <a href="/docs/iam/operations/users/get">instruction</a>.</p> <p>Maps to using ``id="*"`` value for ``x-amz-grant-*`` header (<a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API).</p> </li> <li> <p>GRANT_TYPE_ALL_AUTHENTICATED_USERS: Grantees are all authenticated users, both from your clouds and other users' clouds. Access permission to this group allows any account on the platform to access the resource via a signed (authenticated) request.</p> <p>Maps to using ``uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"`` value for ``x-amz-grant-*`` header (<a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API).</p> </li> <li> <p>GRANT_TYPE_ALL_USERS: Grantees are all internet users. Access permission to this group allows anyone in the world access to the resource via signed (authenticated) or unsigned (anonymous) requests.</p> <p>Maps to using ``uri="http://acs.amazonaws.com/groups/global/AllUsers"`` value for ``x-amz-grant-*`` header (<a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API).</p> </li> </ul> 
 acl.<br>grants[].<br>granteeId | **string**<br><p>ID of the account who is a grantee. Required when the ``grantType`` is ``GRANT_TYPE_ACCOUNT``.</p> 
-tags[] | **object**<br><p>List of object tag for the bucket. TODO: documentation details.</p> 
+tags[] | **object**<br><p>List of object tag for the bucket.</p> 
 tags[].<br>key | **string**
 tags[].<br>value | **string**
+objectLock | **object**<br><p>Configuration for object lock on the bucket. For details about the concept, see <a href="/docs/storage/concepts/object-lock">documentation</a>.</p> <p>A resource for Object Lock configuration of a bucket. For details about the concept, see <a href="/docs/storage/concepts/object-lock">documentation</a>.</p> 
+objectLock.<br>status | **string**<br><p>Activity status of the object lock settings on the bucket</p> 
+objectLock.<br>defaultRetention | **object**<br><p>Default lock configuration for added objects</p> 
+objectLock.<br>defaultRetention.<br>mode | **string**<br><p>Lock type</p> 
+objectLock.<br>defaultRetention.<br>days | **string** (int64) <br>`objectLock.defaultRetention` includes only one of the fields `days`, `years`<br><br><p>Number of days for locking</p> 
+objectLock.<br>defaultRetention.<br>years | **string** (int64) <br>`objectLock.defaultRetention` includes only one of the fields `days`, `years`<br><br><p>Number of years for locking</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

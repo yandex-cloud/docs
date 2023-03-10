@@ -82,10 +82,10 @@ items:
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
       - name: >-
-          Using initialization scripts to configure GeeseFS in {{
+          Using initialization actions to configure GeeseFS in {{
           dataproc-full-name }}
         href: tutorials/data-proc-init-actions-geesefs.md
-      - name: Mounting a bucket as a disk on Windows
+      - name: Connecting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
       - name: >-
           Migrating data from {{ yds-full-name }} using {{

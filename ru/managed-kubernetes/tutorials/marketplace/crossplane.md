@@ -74,7 +74,7 @@
 1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. [Установите Crossplane в кластер {{ k8s }}](../../operations/applications/crossplane.md).
-1. [Включите NAT в интернет для подсети узлов кластера {{ k8s }}](../../../vpc/operations/enable-nat.md).
+1. [Настройте NAT-шлюз для подсети узлов кластера {{ k8s }}](../../../vpc/operations/create-nat-gateway.md).
 
 ## Создайте ресурсы с помощью Crossplane {#create-crossplane-res}
 
@@ -187,7 +187,8 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. Удалите `crossplane-vm`:
 
    ```bash

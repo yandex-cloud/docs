@@ -159,7 +159,7 @@ Create the necessary resources:
 Use the `pg_dump` utility to create a file with the database schema to be applied in the target cluster.
 
 ```bash
-pg_dump -h <IP address or FQDN of source cluster’s master host> \
+pg_dump -h <IP address or FQDN of source cluster's master host> \
         -U <username> \
         -p <port> \
         --schema-only \
@@ -176,7 +176,7 @@ This export command skips all data associated with privileges and roles to avoid
 Using the `pg_restore` utility, restore the database schema in the target cluster:
 
 ```bash
-pg_restore -h <IP address or FQDN of target cluster’s master host> \
+pg_restore -h <IP address or FQDN of target cluster's master host> \
            -U <username> \
            -p {{ port-mpg }} \
            -Fd -v \
@@ -233,7 +233,7 @@ To complete synchronization of the source cluster and the target cluster:
 1. Create a dump with {{ PG }}-sequences in the source cluster:
 
    ```bash
-   pg_dump -h <IP address or FQDN of source cluster’s master host> \
+   pg_dump -h <IP address or FQDN of source cluster's master host> \
            -U <username> \
            -p <port> \
            -d <DB name> \
@@ -247,7 +247,7 @@ To complete synchronization of the source cluster and the target cluster:
 1. Restore the dump with sequences in the target cluster:
 
    ```bash
-   psql -h <IP address or FQDN of target cluster’s master host> \
+   psql -h <IP address or FQDN of target cluster's master host> \
         -U <username> \
         -p {{ port-mpg }} \
         -d <DB name> \
@@ -323,7 +323,7 @@ Create the necessary resources:
       * The {{ PG }} version must be the same as the version in the source cluster.
       * When creating a cluster, specify the same database name as in the source cluster.
       * Enable the same [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md) as in the source cluster.
-   1. (Optional) [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) on [Ubuntu 20.04 LTS](https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
+   1. (Optional) [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
 
       * **Disks and file storage** → **Size**: Sufficient to store both archived and unarchived dumps.
 
@@ -386,7 +386,7 @@ Create the necessary resources:
 1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by passing the number of available CPU cores in the `-j` argument:
 
    ```bash
-   pg_dump -h <IP address or FQDN of source cluster’s master host> \
+   pg_dump -h <IP address or FQDN of source cluster's master host> \
            -U <username> \
            -j <number of processor cores> \
            -Fd -d <DB name> \
@@ -461,7 +461,7 @@ That is, to restore a dump of {{ PG }} 10, {{ PG }} 11, {{ PG }} 12, {{ PG }} 13
 If you only need to restore a single schema, add the `-n <schema name>` flag (without it, the command only runs on behalf of the database owner). Best practice is to restore data with the `--single-transaction` flag to avoid an inconsistent state of the database if an error occurs:
 
 ```bash
-pg_restore -h <IP address or FQDN of target cluster’s master host> \
+pg_restore -h <IP address or FQDN of target cluster's master host> \
            -U <username>
            -d <DB name> \
            -p {{ port-mpg }} \

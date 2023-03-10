@@ -4,7 +4,7 @@ To create a connection to a file:
 
 
 
-1. Go to the [connections page](https://datalens.yandex.com/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
 1. Click **Create connection**.
@@ -26,7 +26,7 @@ To create a connection to a file:
 
 1. In the top part of the screen, select the file upload parameters:
 
-   * **Encoding**. Specify the data encoding of the file. Available values: `utf-8`, `windows-1251`, and `utf-8-sig`.
+   * **Encoding**. Specify the data encoding of the file. The values you can use are `utf-8`, `utf-16`, `windows-1251`, and `utf-8-sig`.
    * **Delimiter**. Specify the delimiter that is used in the CSV file. Available values: `Comma`, `Semicolon`, and `Tabulation character`.
    * **Column header**. Select the title option. If you choose **Yes**, then {{ datalens-short-name }} uses the first row of data as the heading.
 

@@ -20,3 +20,11 @@ Use {{ monitoring-name }} to:
 The {{ monitoring-name }} service collects and stores metrics as [time series](https://en.wikipedia.org/wiki/Time_series). The service uses labels to identify and describe the time series characteristics. Labels indicate the resource that the metric belongs to, describe the meaning of metric, and so forth. For more information, see [{#T}](data-model.md).
 
 {{ monitoring-name }} displays metrics on charts. You can place a large number of interrelated charts on dashboards. For more information, see [{#T}](visualization/index.md).
+
+
+## Delivering {{ managed-k8s-full-name }} cluster metrics {#metrics-provider}
+
+{{ monitoring-name }} enables you to export [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) object metrics. The provider converts a request to get external metrics from a {{ managed-k8s-name }} cluster object to the format required by {{ monitoring-name }} and also performs the reverse conversion: from {{ monitoring-name }} to a cluster object.
+
+To export metrics, use [Metrics Provider](/marketplace/products/yc/metric-provider). To install it, [follow this guide](../../managed-kubernetes/operations/applications/metrics-provider.md).
+

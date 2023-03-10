@@ -12,6 +12,8 @@ Enter a field name.
 
 {% include [question](../../_includes/forms/question.md) %}
 
+{% include [question-default-value](../../_includes/forms/question-default-value.md) %}
+
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 
 ### Validation {#validate}

@@ -13,11 +13,11 @@ To deploy a project:
 
 ## Prepare the environment {#prepare}
 
-1. [Download the archive](https://storage.yandexcloud.net/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
+1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you don't have any. For convenience, you can use a separate folder named `alice-skill`.
 1. Install and initialize the following software programs:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
-   * [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/getting_started/cli).
+   * [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/reference/ydb-cli/install).
    * [Bash command interpreter](http://www.gnu.org/software/bash/).
    * [AWS CLI](../../storage/tools/aws-cli.md).
    * [jq](https://stedolan.github.io/jq/download/).
@@ -33,7 +33,7 @@ To deploy a project:
 1. [Create a bucket](../../storage/operations/buckets/create.md) named `frontend-statics` in {{ objstorage-full-name }}.
 1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **ID** and **Service domain** field values from the **General information** section to use them in the configuration.
 1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the **Endpoint** and **Database** fields under **Connection**. You will need them when setting up your project.
-1. [Create an app](https://oauth.yandex.com/) in Yandex OAuth:
+1. [Create an app](https://oauth.yandex.com/) in Yandex OAuth:
    1. Go to the [service website](https://oauth.yandex.com/) and log in.
    1. Click **Create new client**.
    1. Select the desired name for the client app and upload an icon.

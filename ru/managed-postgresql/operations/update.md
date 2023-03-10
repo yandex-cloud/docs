@@ -341,6 +341,7 @@
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
+        
         ```bash
         {{ yc-mdb-pg }} cluster update <идентификатор или имя кластера> \
             --backup-window-start <время начала резервного копирования> \
@@ -357,6 +358,8 @@
                                      `statements-sampling-interval=<интервал сбора запросов (в секундах)>
         ```
 
+
+
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
@@ -367,9 +370,12 @@
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+    
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
-        
+    
+    
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
 
 
     * `--connection-pooling-mode` — указывает [режим работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
@@ -401,14 +407,15 @@
         ...
         config {
           backup_window_start {
-            hours   = <Час начала резервного копирования>
-            minutes = <Минута начала резервного копирования>
+            hours   = <час начала резервного копирования>
+            minutes = <минута начала резервного копирования>
           }
           ...
         }
       }
       ```
 
+  
   1. Чтобы разрешить доступ из {{ datalens-full-name }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), измените значения соответствующих полей в блоке `config.access`:
 
       ```hcl
@@ -416,13 +423,15 @@
         ...
         config {
           access {
-            data_lens = <Доступ из DataLens: true или false>
-            web_sql   = <Выполнение SQL-запросов из консоли управления: true или false>
+            data_lens = <доступ из DataLens: true или false>
+            web_sql   = <выполнение SQL-запросов из консоли управления: true или false>
             ...
         }
         ...
       }
       ```
+
+
 
   1. Чтобы изменить [режим работы менеджера соединений](../concepts/pooling.md), добавьте к описанию кластера {{ mpg-name }} блок `config.pooler_config`:
 
@@ -469,7 +478,7 @@
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
+    * Настройки доступа из других сервисов  и к SQL-запросам из консоли управления  в параметре `configSpec.access`.
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
     * [Режим работы менеджера соединений](../concepts/pooling.md) в параметре `configSpec.poolerConfig.poolingMode`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
@@ -481,15 +490,15 @@
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-    
+        
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 
-  Чтобы активировать [сбор статистики](./performance-diagnostics.md#activate-stats-collector):
+    Чтобы активировать [сбор статистики](./performance-diagnostics.md#activate-stats-collector):
 
-  {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
+    {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
-  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
 {% endlist %}
 
@@ -691,7 +700,7 @@
 
 {% note warning %}
 
-Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
+Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру (функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md)).
 
 {% endnote %}
 

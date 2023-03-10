@@ -28,6 +28,7 @@
         --output sa-key.json
       ```
 
+
 ## Installation using {{ marketplace-full-name }} {#install-alb-marketplace}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
@@ -42,11 +43,12 @@
    * **Secret Key**: Paste the contents of the `sa-key.json` file.
 1. Click **Install**.
 
+
 ## Installation using a Helm chart {#install-alb-helm}
 
-1. {% include [helm-install](../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Helm Install](../../_includes/managed-kubernetes/helm-install.md) %}
 
-1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [Kubectl Install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Install the `jq` [utility](https://stedolan.github.io/jq/) for JSON filtering:
 

@@ -1,6 +1,6 @@
 ---
-title: "Yandex Cloud Logging. FAQ"
-description: "How can I get the logs of my work in the Yandex Cloud Logging service? Answers to this and other questions in this article."
+title: "{{ cloud-logging-full-name }}. Questions and answers"
+description: "How do I get the logs of my activity in {{ cloud-logging-full-name }}? Find the answer to this and other questions in this article."
 ---
 
 # General questions about {{ cloud-logging-name }}

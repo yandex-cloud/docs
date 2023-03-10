@@ -4,7 +4,7 @@ _Speech synthesis_ in {{ speechkit-full-name }} lets you convert any text to spe
 
 {{ speechkit-name }} voice models use deep neural network technology. When synthesizing speech, the model pays attention to many details in the original voice. The model evaluates the entire text, not individual sentences, before starting the synthesis. This enables the synthesized voice to sound clear and natural, without electronic distortion, and reproduce appropriate intonations of a real person's speech.
 
-Service is available at `{{ api-host-sk-tts }}`.
+The service is available at `{{ api-host-sk-tts }}`.
 
 
 ## Synthesis options {#features}
@@ -83,7 +83,7 @@ For a full list of available formats and their characteristics, see [{#T}](../fo
 #### See also {#see-also}
 
 
-* Try synthesizing speech using demo on the [service page](https://cloud.yandex.com/services/speechkit#demo).
+* Try synthesizing speech using demo on the [service page](/services/speechkit#demo).
 * Review the parameters of the [API v1](request.md) method and [API v3](../tts-v3/api-ref/grpc/) requests.
 * See examples of using the {{ speechkit-name }} API:
    * [{#T}](api/tts-ogg.md)

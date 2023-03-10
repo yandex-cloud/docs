@@ -128,9 +128,11 @@ SETTINGS index_granularity = 8192
 
 1. Загрузите тестовый датасет:
 
+   
    ```bash
-   curl https://clickhouse-datasets.{{ s3-objstorage-host }}/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
+
 
 1. Вставьте данные из этого датасета в {{ CH }} с помощью `clickhouse-client`:
 
@@ -242,11 +244,13 @@ LIMIT 10
 
 ## Удалите созданные ресурсы {#clear-out}
 
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 {% list tabs %}
 
 - Вручную
 
-    Если созданные ресурсы вам больше не нужны, [удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+    [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
 
 - С помощью {{ TF }}
 

@@ -45,16 +45,16 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
 
    1. **Metric**: Set the metric parameters:
 
-      * Cloud
-      * Folder
-      * **{{ mpg-name }}** service
-      * {{ mpg-name }} cluster ID
+      * Cloud.
+      * Folder.
+      * **{{ mpg-name }}** service.
+      * {{ mpg-name }} cluster ID.
 
          You can get the cluster ID [with a list of clusters in a folder](../operations/cluster-list.md#list-clusters).
 
-      * `disk.free_bytes` label
+      * `disk.free_bytes` label.
 
-   1. **Trigger condition**: Set the `Less than or equal` to condition for the size of free disk space to trigger the alert:
+   1. **Trigger condition**: Set the `Less than or equal` to condition for the percentage of free disk space to trigger the alert:
 
       * 95% of the storage size for `Alarm`.
       * 90% of the storage size for `Warning`.

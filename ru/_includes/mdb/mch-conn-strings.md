@@ -6,8 +6,8 @@
 
     ```bash
     sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
-    echo "deb https://repo.{{ ch-domain }}/deb/stable/ main/" | sudo tee \
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+    echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
     /etc/apt/sources.list.d/clickhouse.list
     ```
 
@@ -19,13 +19,10 @@
 
 1. Загрузите файл конфигурации для `clickhouse-client`:
 
-    ```bash
-    mkdir --parents ~/.clickhouse-client && \
-    wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" \
-    --output-document ~/.clickhouse-client/config.xml
-    ```
+    {% include [ClickHouse client config](mch/client-config.md) %}
 
 {% list tabs %}
+
 
 * Подключение без SSL
 
@@ -36,6 +33,7 @@
                       --port 9000 \
                       --ask-password
     ```
+
 
 * Подключение с SSL
 
@@ -51,6 +49,7 @@
 
 {% list tabs %}
 
+
 * Подключение без SSL
 
     ```bash
@@ -58,6 +57,7 @@
          --header "X-ClickHouse-Key: <пароль пользователя БД>" \
          'http://<FQDN любого хоста {{ CH }}>:8123/?database=<имя БД>&query=SELECT%20version()'
     ```
+
 
 * Подключение с SSL
 
@@ -79,6 +79,7 @@ sudo apt update && sudo apt install --yes golang git
 ```
 
 {% list tabs %}
+
 
 * Подключение без SSL
 
@@ -125,6 +126,7 @@ sudo apt update && sudo apt install --yes golang git
         fmt.Println(string(data))
     }
     ```
+
 
 * Подключение с SSL
 
@@ -299,6 +301,7 @@ go run connect.go
 
 {% list tabs %}
 
+
 * Подключение без SSL
 
     `src/java/com/example/App.java`
@@ -330,6 +333,7 @@ go run connect.go
       }
     }
     ```
+
 
 * Подключение с SSL
 
@@ -384,6 +388,7 @@ npm install querystring
 
 {% list tabs %}
 
+
 * Подключение без SSL
 
     `app.js`
@@ -422,6 +427,7 @@ npm install querystring
 
     rs.end();
     ```
+
 
 * Подключение с SSL
 
@@ -526,6 +532,7 @@ node app.js
 
 {% list tabs %}
 
+
 * Подключение без SSL
 
     `/etc/odbc.ini`
@@ -540,6 +547,7 @@ node app.js
     Port = 8123
     Proto = http
     ```
+
 
 * Подключение с SSL
 
@@ -593,6 +601,7 @@ isql -v ClickHouse
 
 {% list tabs %}
 
+
 * Подключение без SSL
 
     `connect.php`
@@ -622,6 +631,7 @@ isql -v ClickHouse
         print_r($rs);
     ?>
     ```
+
 
 * Подключение с SSL
 
@@ -671,6 +681,7 @@ php connect.php
 
 {% list tabs %}
 
+
 * Подключение без SSL
 
     ```powershell
@@ -679,6 +690,7 @@ php connect.php
         -H "X-ClickHouse-Key: <пароль пользователя БД>" `
         'http://<FQDN любого хоста {{ CH }}>:8123/?database=<имя БД>&query=SELECT+version()'
     ```
+
 
 * Подключение с SSL
 
@@ -702,6 +714,7 @@ pip3 install clickhouse-driver
 
 {% list tabs %}
 
+
 * Подключение без SSL
 
     `connect.py`
@@ -716,6 +729,7 @@ pip3 install clickhouse-driver
 
     print(client.execute('SELECT version()'))
     ```
+
 
 * Подключение с SSL
 
@@ -754,6 +768,7 @@ pip3 install requests
 
 {% list tabs %}
 
+
 * Подключение без SSL
 
     `connect.py`
@@ -774,6 +789,7 @@ pip3 install requests
     response.raise_for_status()
     print(response.text)
     ```
+
 
 * Подключение с SSL
 
@@ -815,6 +831,7 @@ sudo apt update && sudo apt install --yes ruby
 
 {% list tabs %}
 
+
 * Подключение без SSL
 
     `connect.rb`
@@ -843,6 +860,7 @@ sudo apt update && sudo apt install --yes ruby
     rs = conn.request(req)
     puts rs.body
     ```
+
 
 * Подключение с SSL
 

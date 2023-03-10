@@ -31,6 +31,14 @@ items:
         href: operations/cluster-logs.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+      - name: Мониторинг состояния кластера и хостов
+        href: operations/monitoring.md
+  - name: Практические руководства
+    items:
+      - name: Миграция данных из {{ ES }}
+        href: tutorials/migration-to-opensearch.md
+      - name: Загрузка логов из {{ at-name }}
+        href: tutorials/trails-to-opensearch.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -111,6 +119,8 @@ items:
                 href: api-ref/Cluster/deleteOpenSearchNodeGroup.md
               - name: get
                 href: api-ref/Cluster/get.md
+              - name: getAuthSettings
+                href: api-ref/Cluster/getAuthSettings.md
               - name: list
                 href: api-ref/Cluster/list.md
               - name: listBackups
@@ -135,6 +145,8 @@ items:
                 href: api-ref/Cluster/streamLogs.md
               - name: update
                 href: api-ref/Cluster/update.md
+              - name: updateAuthSettings
+                href: api-ref/Cluster/updateAuthSettings.md
               - name: updateDashboardsNodeGroup
                 href: api-ref/Cluster/updateDashboardsNodeGroup.md
               - name: updateOpenSearchNodeGroup

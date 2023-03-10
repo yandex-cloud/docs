@@ -3,7 +3,7 @@
 #### How can I voice long texts? {#long-texts}
 
 To voice a large text, break it into parts in any way convenient for you.
-[The limit](../../speechkit/concepts/limits.md#speechkit-limits) on the size of a speech synthesis request is 5000 characters.
+The [limit](../../speechkit/concepts/limits.md#speechkit-limits) on the size of a speech synthesis request is 5000 characters.
 
 #### How do I set up stress and pronunciation? {#tts-stress-pronunciation}
 
@@ -11,7 +11,7 @@ To adjust the pronunciation of individual words and text in general, use [SSML](
 
 #### Is it possible to test premium voices? {#premium-voices}
 
-You can try voices named **Alena** and **Filipp** on the [service page](https://cloud.yandex.com/services/speechkit#demo).
+You can try voices named **Alena** and **Filipp** on the [service page](/services/speechkit#demo).
 
 For more information about pricing for premium voices, see the [documentation](../../speechkit/pricing.md#prices).
 
@@ -31,7 +31,7 @@ If voices in the voiced text are different, check what voice is specified in the
 
 #### SSML error saying «Error during parsing XML» {#ssml-err}
 
-Make sure you don't use SSML in the `text` parameter. If you specify text in SSML format, use [the appropriate parameter](../../speechkit/tts/request.md#body_params).
+Make sure you do not use SSML in the `text` parameter. If you specify text in SSML format, use the [appropriate parameter](../../speechkit/tts/request.md#body_params).
 
 #### How do I add a pause in text? {#add-pause}
 
@@ -39,9 +39,9 @@ To set a pause in your text, add a sil tag. Specify the pause duration in millis
 
 #### A cURL request doesn't work in Windows PowerShell {#curl-powershell}
 
-In Windows PowerShell, `curl` is, by default, an alias for an [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest) system call. To repeat the [example from the documentation](../../speechkit/tts/request.md#ssml), use the code:
+In Windows PowerShell `curl` is, by default, an alias for an [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest) system call. To repeat the [example from the documentation](../../speechkit/tts/request.md#ssml), use the code:
 
-`Invoke-WebRequest -Method 'Post' -H @{'Authorization' = 'Bearer your_token'} -Body "lang=ru-RU&folderId= your_folder_id&ssml=$([System.Net.WebUtility]::UrlEncode($(Get-Content -Path C:\curl\new.xml)))" -OutFile C:\curl\output.ogg "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize"`
+`Invoke-WebRequest -Method 'Post' -H @{'Authorization' = 'Bearer your_token'} -Body "lang=ru-RU&folderId= your_folder_id&ssml=$([System.Net.WebUtility]::UrlEncode($(Get-Content -Path C:\curl\new.xml)))" -OutFile C:\curl\output.ogg "https://tts.{{ api-host }}/speech/v1/tts:synthesize"`
 
 #### Premium voices start stuttering on long texts {#premium-stutter}
 

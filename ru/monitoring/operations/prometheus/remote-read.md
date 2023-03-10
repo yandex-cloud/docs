@@ -14,23 +14,23 @@
        bearer_token: '<api_key>'
        # Или через файл (рекомендуется):
        # bearer_token_file: '<имя файла с api_key>'
-   
-       # По умолчанию данные запрашиваются только для тех временных диапазонов, 
+
+       # По умолчанию данные запрашиваются только для тех временных диапазонов,
        # которые отсутствуют в локальном хранилище Prometheus (старше чем Storage retention).
        # Если вы хотите запрашивать данные всегда, что имеет смысл, если чтение и запись
-       # выполняются с разных экземпляров Prometheus, включите следующую опцию: 
+       # выполняются с разных экземпляров Prometheus, включите следующую опцию:
        # [ read_recent: true ]
-   
+
        # Если вы хотите читать только часть метрик через Remote API, укажите их метки:
        # required_matchers:
-       # [ <labelname>: <labelvalue> ... ] 
+       # [ <labelname>: <labelvalue> ... ]
    ```
 5. Перезапустите {{ prometheus-name }} или перезагрузите конфигурацию.   
 
 ## Примеры ошибок
 
 * Превышен лимит запросов на чтение
-  >```remote_read: remote server https://monitoring.api.cloud.yandex.net/workspaces/monb1piptmdo916sceer/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo916sceer","code":429}```
+  >```remote_read: remote server https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo916sceer","code":429}```
 
 ## Метрики {{ prometheus-name }}
 

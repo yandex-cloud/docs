@@ -28,14 +28,15 @@
      ```
 
   1. Подготовьте [пару ключей](../vm-connect/ssh.md#creating-ssh-keys) (открытый и закрытый) для SSH-доступа на ВМ.
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md).
+  1. Выберите один из публичных образов.
 
      {% include [gpu-images](../../../_includes/gpu-images.md) %}
 
      {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
   1. Создайте ВМ в каталоге по умолчанию:
-
+  
+     
      ```bash
      yc compute instance create \
        --name gpu-instance \
@@ -48,6 +49,8 @@
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
+     
+     
 
      Где:
 
@@ -64,7 +67,8 @@
      * `memory` – [размер RAM](../../concepts/gpus.md).
      * `gpus` – [количество GPU](../../concepts/gpus.md).
      * `preemptible` – если нужно сделать ВМ [прерываемой](../../concepts/preemptible-vm.md).
-     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) с CUDA драйверами.
+     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
+     * `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) с драйверами CUDA.
      * `nat-ip-version=ipv4` – публичный IP. Чтобы создать ВМ без публичного IP, исключите параметр.
 
      Получите описание созданной ВМ:
@@ -112,7 +116,7 @@
 
        boot_disk {
          initialize_params {
-           image_id = "fdv4f5kv5cvf3ohu4flt"
+           image_id = "<идентификатор образа>"
          }
        }
 

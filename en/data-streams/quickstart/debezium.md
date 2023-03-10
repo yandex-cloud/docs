@@ -1,36 +1,35 @@
-# Handling the Debezium change stream
 
-[Debezium](https://debezium.io) is a service for capturing changes in databases (Change Data Capture) and sending them to other systems for processing. Using {{yds-full-name}}, you can capture these changes and send them to {{sf-name}}.
+# Processing CDC Debezium streams
 
-The architecture of the solution is shown below:
+[Debezium](https://debezium.io) is a change data capture service for streaming DB changes to other systems for processing. With {{ yds-full-name }}, you can capture these changes and send them to {{ sf-name }}.
+
+Below is the architecture of the solution:
 ![debezium](../../_assets/data-streams/debezium.png)
 
 ## Setup {#setup}
+To get a data stream:
+1. [Create a {{ yds-full-name }} stream](#create_stream).
+1. [Set parameters for a connection](#credentials) to {{ yds-full-name }}.
+1. [Set up and start](#debezium_server) the Debezium Server.
+1. [Set up a trigger](#sftrigger) in {{ sf-name }} for processing data.
 
-To get a data stream, you need:
+### Creating a stream {#create_stream}
 
-1. [Create a data stream](#create_stream) {{yds-full-name}}.
-1. [Configure connection details](#credentials) for {{yds-full-name}}
-1. [Configure and run](#debezium_server) Debezium Server.
-1. [Configure the trigger](#sftrigger) in {{sf-name}} for data processing.
+Create a {{ yds-full-name }} stream named `debezium`. For detailed information about creating streams, see the [{{ yds-full-name }} documentation](../../data-streams/operations/manage-streams.md).
 
-### Create a data stream {#create_stream}
-
-Create a data stream named `debezium`. The procedure for creating a data stream is described in detail in [{{yds-full-name}} documentation](../../data-streams/operations/manage-streams.md).
-
-### Configure {{yds-full-name}} connection details {#credentials}
+### Setting {{ yds-full-name }} connection parameters {#credentials}
 
 {% include [create-environment](../../_includes/data-streams/create-environment.md) %}
 
-### Configuring Debezium Server {#debezium_server}
+### Setting up the Debezium Server {#debezium_server}
 
 {% include [debezium-setup](../../_includes/data-streams/debezium-setup.md) %}
 
-## Configure the trigger in {{sf-name}} {#sftrigger}
+## Setting up a trigger in {{ sf-name }} {#sftrigger}
 
-Create a trigger in {{sf-name}} to the data stream {{yds-full-name}} the `debezium` that was created above.
+Create a trigger in {{ sf-name }} to the {{ yds-full-name }} `debezium` stream you created earlier.
 
-The procedure for creating a trigger is described in detail in [{{sf-name}} documentation](../../functions/concepts/trigger/data-streams-trigger.md).
+For detailed information about creating triggers, see the [{{ sf-name }} documentation](../../functions/concepts/trigger/data-streams-trigger.md).
 
-Notifications about all changes in the database will be sent to the {{sf-name}} trigger. In the trigger code, you can process these changes by implementing any necessary software processing.
+{{ sf-name }} will send notifications about any DB changes to the trigger. In the trigger code, you can handle these changes by implementing any required software processing.
 

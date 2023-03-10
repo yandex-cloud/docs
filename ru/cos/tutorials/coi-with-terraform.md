@@ -44,6 +44,15 @@
 
    Где `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
 
+   Если вы используете [Docker Compose спецификацию](../concepts/coi-specifications.md#compose-spec), то ключ `docker-container-declaration` в `metadata` необходимо заменить на ключ `docker-compose`:
+
+   ```
+   metadata = {
+     docker-compose = file("${path.module}/docker-compose.yaml")
+     user-data = file("${path.module}/cloud_config.yaml")
+   }
+   ```
+
 1. Создайте файл спецификации облака `cloud_config.yaml` в директории `~/cloud-terraform`. Опишите спецификацию:
 
    ```yaml
@@ -64,7 +73,7 @@
    ```yaml
    spec:
      containers:
-     - image: cr.yandex/yc/demo/coi:v1
+     - image: {{ registry }}/yc/demo/coi:v1
        securityContext:
          privileged: false
        stdin: false

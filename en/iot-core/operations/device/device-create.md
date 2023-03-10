@@ -71,7 +71,7 @@
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% note info %}
 
@@ -93,39 +93,39 @@
         * `passwords`: List of passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
         * `certificates`: List of certificates for authorization using [certificates](../../concepts/authorization.md#certs).
 
-      Example configuration file structure:
+      Sample resource structure in the configuration file:
 
       ```
       resource "yandex_iot_core_device" "my_device" {
         registry_id = "<registry ID>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
-      
+
         aliases = {
           "some-alias1/subtopic" = "$devices/{id}/events/somesubtopic",
           "some-alias2/subtopic" = "$devices/{id}/events/aaa/bbb",
         }
-      
+
         passwords = [
           "<password>",
         ]
-      
+
         certificates = [
           file("<path to certificate file>")
         ]
       }
       ```
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

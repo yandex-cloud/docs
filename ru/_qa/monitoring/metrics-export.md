@@ -10,7 +10,7 @@
 
 {{ monitoring-name }} не имеет доступа к гостевым ОС, поэтому такой метрики нет.
 
-Вы можете самостоятельно настроить сбор пользовательских метрик [через API](../../monitoring/operations/metric/add.md), а для Linux-совместимых ОС — с помощью [агента для поставки системных метрик](../../monitoring/operations/unified-agent/linux_metrics.md). Агент позволяет собирать статистику использования большинства системных ресурсов: процессор, память, сеть, диск.
+Вы можете самостоятельно настроить сбор пользовательских метрик [](../../monitoring/operations/metric/add.md), а для Linux-совместимых ОС — с помощью [агента для поставки системных метрик](../../monitoring/operations/unified-agent/linux_metrics.md). Агент позволяет собирать статистику использования большинства системных ресурсов: процессор, память, сеть, диск.
 
 #### Как собирать свои метрики из приложения? {#collect-1st-party}
 
@@ -22,27 +22,27 @@
 
 - Go
 
-  [Клиентская библиотека Prometheus для Go](https://github.com/prometheus/client_golang)
+  [Клиентская библиотека Prometheus для Go](https://github.com/prometheus/client_golang).
 
 - Python
 
-  [Клиентская библиотека Prometheus для Python](https://github.com/prometheus/client_python)
+  [Клиентская библиотека Prometheus для Python](https://github.com/prometheus/client_python).
 
 - PHP
 
-  [Клиентская библиотека Prometheus для PHP](https://github.com/promphp/prometheus_client_php)
+  [Клиентская библиотека Prometheus для PHP](https://github.com/promphp/prometheus_client_php).
 
 - Java
 
-  [Клиентская библиотека Prometheus для Java](https://github.com/prometheus/client_java)
+  [Клиентская библиотека Prometheus для Java](https://github.com/prometheus/client_java).
 
 - Node.js
 
-  [Клиентская библиотека Prometheus для Node.js](https://github.com/siimon/prom-client)
+  [Клиентская библиотека Prometheus для Node.js](https://github.com/siimon/prom-client).
 
 - C++
 
-  [Клиентская библиотека Prometheus для C++](https://github.com/jupp0r/prometheus-cpp)
+  [Клиентская библиотека Prometheus для C++](https://github.com/jupp0r/prometheus-cpp).
 
 {% endlist %}
 
@@ -50,15 +50,21 @@
 * [{#T}](../../monitoring/operations/unified-agent/pull_prometheus.md).
 * [{#T}](../../monitoring/operations/unified-agent/haproxy.md).
 
+
+#### Можно ли поставлять в {{ monitoring-name }} метрики кластера {{ managed-k8s-full-name }}? {#collect-k8s}
+
+Да, для этого используйте приложение [Metrics Provider](/marketplace/products/yc/metric-provider). Чтобы установить его, [воспользуйтесь инструкцией](../../managed-kubernetes/operations/applications/metrics-provider.md).
+
+
 #### Как поставлять в {{ monitoring-name }} метрики сторонних приложений? {#collect-3rd-party}
 
-Для поставки в {{ monitoring-name }} метрик сторонних приложений используется {{ unified-agent-full-name }}, в котором сконфигурирован вход `metrics_pull`. {{ unified-agent-full-name }} периодически опрашивает напрямую стороннее приложение, если оно поддерживает метрики в формате {{ prometheus-name }}, или специальное приложение-экспортер, реализующее интеграцию с {{ prometheus-name }}.
+Для поставки в {{ monitoring-name }} метрик сторонних приложений используется {{ unified-agent-short-name }}, в котором сконфигурирован вход `metrics_pull`. {{ unified-agent-short-name }} периодически опрашивает напрямую стороннее приложение, если оно поддерживает метрики в формате {{ prometheus-name }}, или специальное приложение-экспортер, реализующее интеграцию с {{ prometheus-name }}.
 
 В разделе [{#T}](../../monitoring/operations/unified-agent/haproxy.md) приведен пример настройки поставки метрик HAProxy.
 
 #### Как поставлять метрики с хостов вне {{ yandex-cloud }}? {#collect-external}
 
-Настройте [авторизованные ключи сервисных аккаунтов](../../monitoring/operations/unified-agent/non-yc.md) для передачи метрик в {{ monitoring-name }} через {{ unified-agent-full-name }}.
+Настройте [авторизованные ключи сервисных аккаунтов](../../monitoring/operations/unified-agent/non-yc.md) для передачи метрик в {{ monitoring-name }} через {{ unified-agent-short-name }}.
 
 Используйте эту методику и для отправки метрик с ВМ {{ yandex-cloud }} без привязанного сервисного аккаунта.
 

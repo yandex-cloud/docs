@@ -15,7 +15,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% note info %}
 
-As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For more information, see [{#T}](cluster-version-update.md#version-supported).
+As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. For more information, see [{#T}](cluster-version-update.md#version-supported).
 
 {% endnote %}
 
@@ -24,7 +24,6 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For m
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a DB cluster in.
-
    1. Select **{{ mrd-name }}**.
    1. Click **Create cluster**.
    1. Under **Basic parameters**:
@@ -160,7 +159,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For m
 
    To create a cluster:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here if necessary.
 
@@ -243,7 +242,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For m
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
@@ -318,7 +317,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
    * A single `{{ host-class }}` class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-         * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
+      * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.

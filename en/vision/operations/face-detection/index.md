@@ -1,10 +1,10 @@
 # Detecting faces in images
 
-_Face detection is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Face detection is currently at the [Preview stage](../../../overview/concepts/launch-stages.md)._
 
 To detect faces in a photo, use the [Face Detection](../../concepts/face-detection/index.md).
 
-To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
+To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
 
 ## Examples {#examples}
 
@@ -22,7 +22,7 @@ To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) me
 
    {% note info %}
 
-   Need an image? [Download a sample](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+   Need an image? [Download a sample](https://{{ s3-storage-host }}/vision/face-detection-sample.jpg).
 
    {% endnote %}
 1. Encode the file as Base64:

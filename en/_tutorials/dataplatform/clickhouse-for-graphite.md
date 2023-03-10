@@ -27,15 +27,13 @@ If you no longer need these resources, [delete them](#clear-out).
 
 
 
-
-
 ### Required paid resources {#paid-resources}
 
 The cost of maintaining your {{ CH }} database for Graphite includes:
 * A payment for the cluster's computing resources, the amount of storage and backups (see [{{ mch-full-name }} pricing](../../managed-clickhouse/pricing.md)).
 * A payment for a running VM to manage a database (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-
-
+
+
 
 ## Create a cluster {#cluster-create}
 
@@ -133,17 +131,15 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
 1. Download the configuration file for `clickhouse-client`:
 
-   ```bash
-   mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
-   ```
+   {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
 1. Get an SSL certificate:
 
    ```bash
-   mkdir --parents {{ crt-local-dir }} && \
-   wget "{{ crt-web-path }}" \
+   sudo mkdir --parents {{ crt-local-dir }} && \
+   sudo wget "{{ crt-web-path }}" \
        --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-   chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+   sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
    ```
 
 ## Connect the virtual machine to a database {#cluster-connect}

@@ -1,6 +1,6 @@
 * **Add HTTP CORS header**{#setting-add-http-cors-header} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Включает заголовок CORS в HTTP-ответы.
+  Включает заголовок [CORS](../../glossary/cors.md) в HTTP-ответы.
 
   По умолчанию заголовок CORS не включается в HTTP-ответы.
 
@@ -130,7 +130,7 @@
 * **Connect timeout with failover ms**{#setting-connect-timeout-with-failover-ms} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
   Время ожидания соединения (в миллисекундах) с удаленным сервером для движка таблиц `Distributed`, если кластер использует шардирование и репликацию.
-  
+
   Если установить соединение с сервером не удалось, будут предприняты попытки установить соединение с его репликами.
 
   Значение по умолчанию — `50`.
@@ -809,7 +809,7 @@
 * **Min execution speed**{#setting-min-execution-speed} {{ tag-all }}
 
   Минимальная скорость выполнения запроса (в строках в секунду).
-  
+
   При выполнении запросов {{ CH }} обрабатывает данные блоками (batches). Если блок обрабатывается дольше времени, заданного настройкой [timeout_before_checking_execution_speed]({{ ch.docs }}/operations/settings/query-complexity/#timeout-before-checking-execution-speed), проверяется скорость выполнения запроса. Если эта скорость ниже указанной в значении настройки, генерируется исключение.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
@@ -819,7 +819,7 @@
 * **Min execution speed bytes**{#setting-min-execution-speed-bytes} {{ tag-all }}
 
   Минимальная скорость выполнения запроса (в байтах в секунду).
-  
+
   При выполнении запросов {{ CH }} обрабатывает данные блоками (batches). Если блок обрабатывается дольше времени, заданного настройкой [timeout_before_checking_execution_speed]({{ ch.docs }}/operations/settings/query-complexity/#timeout-before-checking-execution-speed), проверяется скорость выполнения запроса. Если эта скорость ниже указанной в значении настройки, генерируется исключение.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
@@ -905,7 +905,7 @@
   * `0` — не ждать.
   * `1` — ждать выполнения только у себя (значение по умолчанию).
   * `2` — ждать всех.
-  
+
   Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/#synchronicity-of-alter-queries).
 
 * **Result overflow mode**{#setting-result-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}

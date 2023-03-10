@@ -237,7 +237,7 @@
 
 1. Отредактируйте файл `.env`:
 
-   * `ENDPOINT` — строка вида <протокол>://<значение поля **Эндпоинт** из блока **Соединение**>. Например, если протокол `grpcs`, а эндпоинт `ydb.serverless.yandexcloud.net:2135`, введите `grpcs://ydb.serverless.yandexcloud.net:2135`.
+   * `ENDPOINT` — строка вида <протокол>://<значение поля **Эндпоинт** из блока **Соединение**>. Например, если протокол `grpcs`, а эндпоинт `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, введите `{{ ydb.ep-serverless }}`.
    * `DATABASE` — значение поля **Размещение базы данных** из блока **Соединение**.
    * `FUNCTION_NAME` — имя функции: `func-test-ydb`.
    * `FOLDER_ID` — идентификатор каталога.
@@ -283,5 +283,5 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-* [удалите базу данных](../ydb/operations/manage-database.md#delete-db);
+* [удалите базу данных](../ydb/operations/manage-databases.md#delete-db);
 * [удалите функцию](../functions/operations/function/function-delete.md).

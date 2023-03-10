@@ -56,22 +56,21 @@ To send data from your form to a web service via the API, use HTTP requests:
 >
 > Create a request to the [{{ tracker-name }} API](../tracker/about-api.md) by filling out the form as follows:
 >
-> * **URL**: `https://api.tracker.yandex.net/v2/projects`.
-> * **Request method**: `POST`.
-> * **Request body** is project parameters in JSON format:
+>* **URL**: `https://api.tracker.yandex.net/v2/projects`.
+>* **Request method**: `POST`.
+>* **Request body** is project parameters in JSON format:
 >
->    ```json
->    
->        {
->           "name": "Project name",
->           "queues": "<queue key>"
->        }
+>   ```json
+>
+>       {
+>          "name": "Project name",
+>          "queues": "<queue key>"
+>       }
 >    ```
 >
-> * **Headers**:
->    `Authorization` — `OAuth <your OAuth token>`;
->    >    `X-Org-ID` — `<organization ID>`.
->    
+>* **Headers**:
+>  `Authorization` — `OAuth <your OAuth token>`;
+>     `X-Org-ID` — `<organization ID>`.
 >
 > ![](../_assets/forms/request-example-new.png)
 
@@ -129,7 +128,11 @@ Any other errors cause the integration to fail.
 
 ## Troubleshooting {#filters}
 
-### Two HTTP requests are sent per response in the form
+### Two HTTP requests are sent per response in the form {#duplicated-requests}
 
 In some cases, the HTTP request module doesn't wait for the external service to respond that the request is accepted. If so, the request is sent again and the service receives a duplicate request with the same data. If you want to track the uniqueness of HTTP requests, use the `x-delivery-id` header value.
 
+
+### 400 Client Error: Bad request {#error-400}
+
+If the integration failed with <q>400 Client Error: Bad request</q>, check the URL and the request body for typos, such as odd line breaks, non-breaking spaces, and escaped characters. The request body must be in JSON format.

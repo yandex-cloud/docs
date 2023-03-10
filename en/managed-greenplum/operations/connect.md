@@ -23,7 +23,7 @@ Settings of rules depend on the connection method you select:
 
    {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 
-- With a VM in Yandex Cloud
+- With a VM in {{ yandex-cloud }}
 
    1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 
@@ -80,7 +80,9 @@ To use an SSL connection, get a certificate:
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to a publicly accessible cluster. Before connecting, [prepare an SSL certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to a public cluster using SSL certificates.
+
+{% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
 {% list tabs %}
 
@@ -120,7 +122,7 @@ You can only use graphical IDEs to connect to a publicly accessible cluster. Bef
          * Under **Authentication**, specify the DB user's name and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **CA certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 

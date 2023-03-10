@@ -1,8 +1,9 @@
+---
+title: "How to delete a trigger in {{ serverless-containers-full-name }}"
+description: "In this tutorial, you will learn how to delete a trigger in {{ serverless-containers-full-name }}."
+---
+
 # Deleting a trigger in {{ serverless-containers-name }}
-
-{% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
-
-## Deleting a trigger {#delete}
 
 {% list tabs %}
 
@@ -20,6 +21,8 @@
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
 
    Delete the trigger:
 

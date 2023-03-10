@@ -70,6 +70,7 @@ filter | <p>A filter expression that filters application load balancers listed i
           "http": {
             "handler": {
               "httpRouterId": "string",
+              "rewriteRequestId": true,
 
               // `loadBalancers[].listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`
               "http2Options": {
@@ -92,6 +93,7 @@ filter | <p>A filter expression that filters application load balancers listed i
               // `loadBalancers[].listeners[].tls.defaultHandler` includes only one of the fields `httpHandler`, `streamHandler`
               "httpHandler": {
                 "httpRouterId": "string",
+                "rewriteRequestId": true,
 
                 // `loadBalancers[].listeners[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`
                 "http2Options": {
@@ -121,6 +123,7 @@ filter | <p>A filter expression that filters application load balancers listed i
                   // `loadBalancers[].listeners[].tls.sniHandlers[].handler` includes only one of the fields `httpHandler`, `streamHandler`
                   "httpHandler": {
                     "httpRouterId": "string",
+                    "rewriteRequestId": true,
 
                     // `loadBalancers[].listeners[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`
                     "http2Options": {
@@ -217,6 +220,7 @@ loadBalancers[].<br>listeners[].<br>endpoints[].<br>ports[] | **string** (int64)
 loadBalancers[].<br>listeners[].<br>http | **object**<br>Unencrypted HTTP listener settings. <br>`loadBalancers[].listeners[]` includes only one of the fields `http`, `tls`, `stream`<br>
 loadBalancers[].<br>listeners[].<br>http.<br>handler | **object**<br><p>Settings for handling HTTP requests.</p> <p>Only one of ``handler`` and ``redirects`` can be specified.</p> <p>An HTTP handler resource.</p> 
 loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>httpRouterId | **string**<br><p>ID of the HTTP router processing requests. For details about the concept, see <a href="/docs/application-load-balancer/concepts/http-router">documentation</a>.</p> <p>To get the list of all available HTTP routers, make a <a href="/docs/application-load-balancer/api-ref/HttpRouter/list">list</a> request.</p> 
+loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>rewriteRequestId | **boolean** (boolean)<br><p>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.</p> 
 loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>http2Options | **object**<br>HTTP/2 settings.  If specified, incoming HTTP/2 requests are supported by the listener. <br>`loadBalancers[].listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br>
 loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br><p>Maximum number of concurrent HTTP/2 streams in a connection.</p> 
 loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>allowHttp10 | **boolean** (boolean) <br>`loadBalancers[].listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.</p> 
@@ -227,6 +231,7 @@ loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler | **object**<br><p>Re
 loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>certificateIds[] | **string**<br><p>Required. ID's of the TLS server certificates from <a href="/docs/certificate-manager/">Certificate Manager</a>.</p> <p>RSA and ECDSA certificates are supported, and only the first certificate of each type is used.</p> <p>Must contain at least one element.</p> 
 loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler | **object**<br>HTTP handler. <br>`loadBalancers[].listeners[].tls.defaultHandler` includes only one of the fields `httpHandler`, `streamHandler`<br>
 loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>httpRouterId | **string**<br><p>ID of the HTTP router processing requests. For details about the concept, see <a href="/docs/application-load-balancer/concepts/http-router">documentation</a>.</p> <p>To get the list of all available HTTP routers, make a <a href="/docs/application-load-balancer/api-ref/HttpRouter/list">list</a> request.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>rewriteRequestId | **boolean** (boolean)<br><p>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.</p> 
 loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options | **object**<br>HTTP/2 settings.  If specified, incoming HTTP/2 requests are supported by the listener. <br>`loadBalancers[].listeners[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br>
 loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br><p>Maximum number of concurrent HTTP/2 streams in a connection.</p> 
 loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`loadBalancers[].listeners[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.</p> 
@@ -239,6 +244,7 @@ loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler | **object
 loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>certificateIds[] | **string**<br><p>Required. ID's of the TLS server certificates from <a href="/docs/certificate-manager/">Certificate Manager</a>.</p> <p>RSA and ECDSA certificates are supported, and only the first certificate of each type is used.</p> <p>Must contain at least one element.</p> 
 loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler | **object**<br>HTTP handler. <br>`loadBalancers[].listeners[].tls.sniHandlers[].handler` includes only one of the fields `httpHandler`, `streamHandler`<br>
 loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>httpRouterId | **string**<br><p>ID of the HTTP router processing requests. For details about the concept, see <a href="/docs/application-load-balancer/concepts/http-router">documentation</a>.</p> <p>To get the list of all available HTTP routers, make a <a href="/docs/application-load-balancer/api-ref/HttpRouter/list">list</a> request.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>rewriteRequestId | **boolean** (boolean)<br><p>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.</p> 
 loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options | **object**<br>HTTP/2 settings.  If specified, incoming HTTP/2 requests are supported by the listener. <br>`loadBalancers[].listeners[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br>
 loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br><p>Maximum number of concurrent HTTP/2 streams in a connection.</p> 
 loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`loadBalancers[].listeners[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.</p> 
@@ -255,9 +261,9 @@ loadBalancers[].<br>allocationPolicy.<br>locations[].<br>disableTraffic | **bool
 loadBalancers[].<br>logGroupId | **string**<br><p>ID of the log group that stores access logs of the application load balancer.</p> <p>The logs can be accessed using a Cloud Functions <a href="/docs/functions/operations/trigger/cloudlogs-trigger-create">trigger for Cloud Logs</a>.</p> 
 loadBalancers[].<br>securityGroupIds[] | **string**<br><p>ID's of the security groups attributed to the application load balancer.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/application-load-balancer#security-groups">documentation</a>.</p> 
 loadBalancers[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-loadBalancers[].<br>autoScalePolicy | **object**<br><p>Autoscale settings of the application load balancer.</p> 
-loadBalancers[].<br>autoScalePolicy.<br>minZoneSize | **string** (int64)<br><p>Lower limit for the number of resource units in each zone.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-loadBalancers[].<br>autoScalePolicy.<br>maxSize | **string** (int64)<br><p>Upper limit for the total number of resource units across all zones.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+loadBalancers[].<br>autoScalePolicy | **object**<br><p>Scaling settings of the application load balancer.</p> <p>The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called <em>resource units</em>. The group is scaled automatically based on incoming load and within limitations specified in these settings.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling">documentation</a>.</p> <p>A resource for scaling settings of an application load balancer.</p> 
+loadBalancers[].<br>autoScalePolicy.<br>minZoneSize | **string** (int64)<br><p>Lower limit for the number of resource units in each availability zone.</p> <p>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly.</p> <p>The minimum value is 2.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+loadBalancers[].<br>autoScalePolicy.<br>maxSize | **string** (int64)<br><p>Upper limit for the total number of resource units across all availability zones.</p> <p>If a positive value is specified, it must be at least ``minZoneSize`` multiplied by the size of ``locations``.</p> <p>If the value is 0, there is no upper limit.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
 loadBalancers[].<br>logOptions | **object**<br><p>Cloud logging settings of the application load balancer.</p> 
 loadBalancers[].<br>logOptions.<br>logGroupId | **string**<br><p>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located.</p> 
 loadBalancers[].<br>logOptions.<br>discardRules[] | **object**<br><p>ordered list of rules, first matching rule applies</p> 

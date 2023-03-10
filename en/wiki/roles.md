@@ -1,9 +1,8 @@
 # Roles and access rights in {{ wiki-name }}
 
 
-
 {{ wiki-full-name }} is a [service](../organization/manage-services.md) that can be [enabled](./enable-wiki.md) for your organization in {{ yandex-cloud }}.
-
+
 
 Each {{ org-full-name }} employee has the right to create and edit {{ wiki-name }} pages. Access rights for a page or cluster can be configured by its [author](./page-management/access-setup.md).
 

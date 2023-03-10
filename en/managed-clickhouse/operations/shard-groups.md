@@ -19,7 +19,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    To get a list of shard groups in a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} shard-groups list \
       --cluster-name=<cluster name>
    ```
@@ -52,7 +52,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    To view detailed information about a shard group in a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} shard-groups get \
       --cluster-name=<cluster name> \
       --name=<shard group name>
@@ -87,7 +87,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    To create a shard group in a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} shard-groups create \
       --cluster-name=<cluster name> \
       --name=<shard group name> \
@@ -104,7 +104,6 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Add a `shard_group` description block to the {{ mch-name }} cluster description.
 
       ```hcl
@@ -163,7 +162,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    To change a shard group in a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} shard-groups update \
       --cluster-name=<cluster name> \
       --name=<shard group name> \
@@ -184,8 +183,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
-   1. In the {{ mch-name }} cluster description, change the `shard_group` block to the required shard group.
+   1. In the {{ mch-name }} cluster description, change the `shard_group` block to the required shard group:
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
@@ -265,14 +263,12 @@ Tables created on the deleted group are kept, but they are disabled and attempts
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Delete the `shard_group` block describing the required group from the {{ mch-name }} cluster description.
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the deletion of resources.
+   1. Type the word `yes`, then press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

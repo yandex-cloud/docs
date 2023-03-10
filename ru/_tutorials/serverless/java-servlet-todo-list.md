@@ -26,7 +26,7 @@
 
 ## Подготовьте окружение {#prepare}
 
-1. [Скачайте](https://storage.yandexcloud.net/doc-files/servlet.zip) архив с файлами проекта.
+1. [Скачайте](https://{{ s3-storage-host }}/doc-files/servlet.zip) архив с файлами проекта.
 1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant.md#access-to-sa) ему роли `viewer` и `editor` на ваш каталог.
 
 ## Создайте бакет {{ objstorage-name }} {#create-bucket}
@@ -352,6 +352,6 @@
 
 Чтобы перестать платить за созданные ресурсы:
 * [Удалите бакет](../../storage/operations/buckets/delete.md).
-* [Удалите базу данных](../../ydb/operations/manage-database.md#delete-db).
+* [Удалите базу данных](../../ydb/operations/manage-databases.md#delete-db).
 * [Удалите функции](../../functions/operations/function/function-delete.md).
 * [Удалите API-шлюз](../../api-gateway/operations/api-gw-delete.md).

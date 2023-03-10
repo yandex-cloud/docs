@@ -1,6 +1,6 @@
 ---
 title: "SQL queries in {{ mch-name }}"
-description: "{{ mch-name }} allows you to visualize the data structure on your {{ CH }} cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log into the management console, open the page of the required cluster and go to the SQL tab."
+description: "{{ mch-name }} allows you to visualize the data structure in your {{ CH }} cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the management console, open the cluster page you need, and go to the SQL tab."
 ---
 
 # SQL queries in Managed Service for ClickHouse
@@ -8,6 +8,8 @@ description: "{{ mch-name }} allows you to visualize the data structure on your 
 {{ mch-name }} allows you to visualize the data structure in your ClickHouse cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **SQL** tab.
 
 See a reference list of supported queries in the [ClickHouse documentation]({{ ch.docs }}/sql-reference/statements/select/).
+
+{% include [web-sql-warning](../../_includes/mdb/mch/note-web-sql-console.md) %}
 
 ## Access to the cluster from the management console {#sql-cluster-access}
 
@@ -47,3 +49,4 @@ In addition, keep the following in mind:
 * The management console will only display the first 1000 rows of results, even if there is actually more data.
 * When a cluster query takes more than 10 minutes to complete, the management console will report an error as a result, even if the query was eventually processed successfully.
 * If your cluster has multiple {{ CH }} hosts, queries from the management console are sent to a random one. Keep this in mind if you are going to modify data. For example, the `CREATE TABLE db1.newtable` query creates a table on one host only. To avoid this, use a [distributed query]({{ ch.docs }}/sql-reference/statements/create/table), putting your cluster name inside the curly brackets: `CREATE TABLE db1.newtable ON CLUSTER '{cluster}'`.
+* SQL queries in the management console are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session have no impact. For example, `USE` or `SET`.

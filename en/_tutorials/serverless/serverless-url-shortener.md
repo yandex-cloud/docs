@@ -23,10 +23,10 @@ If you no longer need these resources, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources for the script includes:
-* A fee for using the storage (see [pricing for {{objstorage-full-name}}](../../storage/pricing.md)).
-* A fee for accessing the database (see [pricing for {{ydb-name}}](../../ydb/pricing/serverless.md)).
-* A fee for function calls (see [pricing for {{sf-name}}](../../functions/pricing.md)).
-* A fee for requests to the API gateway (see [pricing for {{api-gw-name}}](../../api-gateway/pricing.md)).
+* A fee for using the storage (see [pricing{{ objstorage-full-name }}](../../storage/pricing.md)).
+* A fee for accessing the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
+* 0A fee for function calls (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* A fee for requests to the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 
 ## Set up hosting for the URL shortener page {#object-storage}
@@ -326,7 +326,7 @@ To create and set up a URL shortening function:
    1. Add environment variables:
       * `endpoint`: Enter a string that is generated from the database protocol and endpoint.
 
-         For example, if the protocol is `grpcs` and the endpoint is `ydb.serverless.yandexcloud.net:2135`, enter `grpcs://ydb.serverless.yandexcloud.net:2135`.
+         For example, if the protocol is `grpcs` and the endpoint is `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, enter `{{ ydb.ep-serverless }}`.
       * `database`: Enter the previously saved **Database** field value.
       * `USE_METADATA_CREDENTIALS`: Enter `1`.
    1. In the upper-right part of the **Editor** section, click **Create version**.

@@ -6,8 +6,8 @@
 
 Решение, которое описано ниже, работает по следующей схеме:
 1. На рабочей ВМ запущен Fluent Bit как [systemd](https://ru.wikipedia.org/wiki/Systemd)-модуль.
-1. Fluent Bit собирает логи в соответствии с настройками конфигурации и отправляет их в поток {{ yds-name }} по протоколу [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/).
-1. В рабочем каталоге настроен трансфер {{ data-transfer-name }}, который забирает данные из потока и сохраняет в бакет {{ objstorage-name }}.
+1. Fluent Bit собирает логи в соответствии с настройками конфигурации и отправляет их в [поток](../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} по протоколу [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/).
+1. В рабочем каталоге настроен [трансфер](../data-transfer/concepts/#transfer) {{ data-transfer-name }}, который забирает данные из потока и сохраняет в [бакет](../storage/concepts/bucket.md) {{ objstorage-name }}.
 
 Чтобы настроить репликацию логов:
 
@@ -30,9 +30,9 @@
 
 В стоимость поддержки хранения данных входит:
 
-* плата за обслуживание потока данных (см. [тарифы {{ yds-name }}](../data-streams/pricing.md));
-* плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-name }}](../data-transfer/pricing.md));
-* плата за хранение данных (см. [тарифы {{ objstorage-name }}](../storage/pricing.md)).
+* плата за обслуживание потока данных (см. [тарифы {{ yds-full-name }}](../data-streams/pricing.md));
+* плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-full-name }}](../data-transfer/pricing.md));
+* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../storage/pricing.md)).
 
 ## Настройте окружение {#setup}
 
@@ -52,75 +52,11 @@
     * `AWS Secret Access Key [None]:` — [секретный ключ](../iam/concepts/authorization/access-key.md) сервисного аккаунта.
     * `Default region name [None]:` — регион `{{ region-id }}`.
 
-## Создайте бакет {#create-bucket}
+{% include [create-bucket](_tutorials_includes/create-bucket.md) %}
 
-{% list tabs %}
+{% include [create-stream](_tutorials_includes/create-stream.md) %}
 
-- Консоль управления
-
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../storage/concepts/bucket.md).
-    1. Выберите сервис **{{ objstorage-name }}**.
-    1. Нажмите кнопку **Создать бакет**.
-    1. Введите имя бакета, например `logs-bucket`.
-    1. В поле **Класс хранилища** выберите `Холодное`.
-    1. Нажмите кнопку **Создать бакет**.
-  
-{% endlist %}
-
-## Создайте поток данных {#create-stream}
-
-{% list tabs %}
-
-- Консоль управления
-
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [поток данных](../data-streams/concepts/glossary#stream-concepts).
-    1. Выберите сервис **{{ yds-name }}**.
-    1. Нажмите кнопку **Создать поток**.
-    1. Укажите существующую [бессерверную](../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных {{ ydb-short-name }} или [создайте](../ydb/quickstart.md#serverless) новую. Если вы создали новую базу данных, нажмите кнопку ![refresh-button](../_assets/data-streams/refresh-button.svg) **Обновить**, чтобы обновить список баз.
-    1. Введите имя потока данных, например `logs-stream`.
-    1. Нажмите кнопку **Создать**.
-
-    Дождитесь запуска потока данных. Когда поток станет готов к использованию, его статус изменится с `CREATING` на `ACTIVE`.
-
-{% endlist %}
-
-## Создайте трансфер {#create-transfer}
-
-{% list tabs %}
-
-- Консоль управления
-
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [трансфер](../data-transfer/concepts/index.md#transfer).
-    1. Выберите сервис **{{ data-transfer-name }}**.
-    1. Создайте эндпоинт-источник:
-        1. Нажмите кнопку **Создать эндпоинт**.
-        1. В поле **Направление** выберите `Источник`.
-        1. Введите имя эндпоинта, например `logs-source`.
-        1. В списке **Тип базы данных** выберите `{{ yds-full-name }}`.
-        1. Выберите базу данных для источника.
-        1. Введите имя созданного ранее потока данных `logs-stream`.
-        1. Выберите созданный ранее сервисный аккаунт `logs-sa`.
-        1. Нажмите кнопку **Создать**.
-    1. Создайте эндпоинт-приемник:
-        1. Нажмите кнопку **Создать эндпоинт**.
-        1. В поле **Направление** выберите `Приемник`.
-        1. Введите имя эндпоинта, например `logs-receiver`.
-        1. В списке **Тип базы данных** выберите `{{ objstorage-name }}`.
-        1. Введите имя созданного ранее бакета `logs-bucket`.
-        1. Выберите созданный ранее сервисный аккаунт `logs-sa`.
-        1. Нажмите кнопку **Создать**.
-    1. Создайте трансфер:
-        1. На панели слева выберите ![image](../_assets/data-transfer/transfer.svg) **Трансферы**.
-        1. Нажмите кнопку **Создать трансфер**.
-        1. Введите имя трансфера, например `logs-transfer`.
-        1. Выберите созданный ранее эндпоинт-источник `logs-source`.
-        1. Выберите созданный ранее эндпоинт-приемник `logs-receiver`.
-        1. Нажмите кнопку **Создать**.
-        1. Нажмите на значок ![ellipsis](../_assets/horizontal-ellipsis.svg) рядом с именем созданного трансфера и выберите **Активировать**.
-
-    Дождитесь активации трансфера. Когда трансфер станет готов к использованию, его статус сменится с {{ dt-status-creation }} на {{ dt-status-repl }}.
-
-{% endlist %}
+{% include [create-transfer](_tutorials_includes/create-transfer.md) %}
 
 ## Установите Fluent Bit {#install-fluent-bit}
 
@@ -185,7 +121,7 @@
         Name  kinesis_streams
         Match *
         region ru-central-1
-        stream /<регион>/<идентификатор_каталога>/<идентификатор_базы_дфнных>/<имя_потока_данных>
+        stream /<регион>/<идентификатор_каталога>/<идентификатор_базы_данных>/<имя_потока_данных>
         endpoint https://yds.serverless.yandexcloud.net
     ```
     Где:
@@ -235,30 +171,14 @@
     Sep 08 16:51:19 ycl-20 fluent-bit[3450]: [2022/09/08 16:51:19] [ info] [output:stdout:stdout.0] worker #0 started
     ```
 
-## Проверьте отправку и получение данных {#check-ingestion}
-
-{% list tabs %}
-
-- Консоль управления
-
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали поток данных, трансфер и бакет.
-    1. Выберите сервис **{{ yds-name }}**.
-    1. Выберите поток данных `logs-stream`.
-    1. Перейдите на вкладку **Мониторинг** и посмотрите графики активности потока.
-    1. Выберите сервис **{{ data-transfer-name }}**.
-    1. Выберите трансфер `logs-transfer`.
-    1. Перейдите на вкладку **Мониторинг** и посмотрите графики активности трансфера.
-    1. Выберите сервис **{{ objstorage-name }}**.
-    1. Выберите бакет `logs-bucket`.
-    1. Проверьте, что в бакете появились объекты. Скачайте и посмотрите полученные файлы с логами.
-
-{% endlist %}
+{% include [check-ingestion](_tutorials_includes/check-ingestion.md) %}
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 1. [Удалите трансфер](../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../data-transfer/operations/endpoint/index.md#delete).
 1. [Удалите поток данных](../data-streams/operations/manage-streams.md#delete-data-stream).
+1. [Удалите объекты в бакете](../storage/operations/objects/delete.md).
 1. [Удалите бакет](../storage/operations/buckets/delete.md).

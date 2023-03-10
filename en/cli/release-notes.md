@@ -2,6 +2,80 @@
 
 ## Current version {#latest-release}
 
+## Version 0.102.0 (09/02/23) {#version0.102.0}
+
+### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ ig-name }} {#instance-groups}
+Fixed the `update` `instance-group` issue that occurred when specifying the `name`.
+
+
+##### {{ alb-name }} {#alb}
+Added support for command line arguments to search for matches by regular expression (`--regex-path-match` and `--regex-fqmn-match`). They are used in a similar way to `exact` and `prefix`:
+* `yc alb virtual-host insert-http-route --regex-path-match my_cool_regex`
+* `yc alb virtual-host insert-grpc-route --regex-fqmn-match my_cool_regex`
+
+Added the `--rewrite-request-id` flag, which handles overwriting the `x-request-id` header with a new value, to the following commands:
+* `yc application-load-balancer load-balancer add-listener`
+* `yc application-load-balancer load-balancer update-listener`
+* `yc application-load-balancer load-balancer add-sni`
+* `yc application-load-balancer load-balancer update-sni`
+
+
+#### Managed database services {#managed-db}
+
+**{{ mpg-name }}**
+Added new parameters for the `yc managed-postgresql user create` and `yc managed-postgresql user update` commands:
+* `--statement-timeout`: Allows you to set `statement_timeout` in milliseconds for the specified user.
+* `--idle-in-transaction-session-timeout`: Allows you to set `idle_in_transaction_session_timeout` in milliseconds for the specified user.
+* `--wal-sender-timeout`: Allows you to set `wal_sender_timeout` in milliseconds for the specified user.
+
+## Previous releases {#previous-releases}
+
+### Version 0.101.0 as of 16/01/23 {#version0.101.0}
+
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+
+##### {{ managed-k8s-name }} {#managed-kubernetes}
+
+Added the `--master-logging` parameter to the `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands to set up logging with the following properties:
+
+* `enabled`: Flag indicating the logs will be sent to {{ cloud-logging-name }}.
+* `log-group-id`: ID of the [log group](../logging/concepts/log-group.md) to send the logs to.
+* `folder-id`: ID of the folder to send the logs to. The logs will be sent to the log group of the default folder.
+* `kube-apiserver-enabled`: Flag indicating the `kube-apiserver` logs will be sent to {{ cloud-logging-name }}.
+* `cluster-autoscaler-enabled`: Flag indicaing the `cluster-autoscaler` logs will be sent to {{ cloud-logging-name }}.
+* `events-enabled`: Flag indicating the {{ k8s }} events will be sent to {{ cloud-logging-name }}.
+
+If log sending is enabled but neither the `log-group-id` nor the `folder-id` is specified, the logs will be sent to the default log group of the cluster folder. You cannot set both the `log-group-id` and `folder-id` at the same time.
+
+
+
+##### {{ network-load-balancer-name }} {#network-load-balancer}
+
+Added the `--deletion-protection` flag to the `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update` commands to protect a load balancer against accidental deletion.
+
+
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+Added the following parameters to the `yc serverless container revision deploy` command:
+
+* `--no-logging`: Flag that disables logging from containers.
+* `--log-group-id` and `--log-group-name`: ID and name of the [log group](../logging/concepts/log-group.md) to send the logs to.
+* `--log-folder-id` and `--log-folder-name`: ID and name of the folder to send the logs to. The logs will be sent to the log group of the default folder.
+* `--min-log-level`: Minimum logging level.
+
+
+
+##### {{ vpc-name }} {#vpc}
+
+Added the `--deletion-protection` flag to the `yc vpc address create` and `yc vpc address update` commands to protect a static public IP address against accidental deletion.
+
+
+
 ### Version 0.100.0 (27.12.22) {#version0.100.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -27,8 +101,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 * Added the `yc managed-greenplum cluster list-backups` command to view backups of a cluster.
 * Added the `--assign-public-ip` flag to the `yc managed-greenplum update` command to assign or revoke a cluster's public IP address.
 
-
-## Previous releases {#previous-releases}
 
 ### Version 0.99.0 (01.12.22) {#version0.99.0}
 
@@ -359,7 +431,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 **{{ mpg-name }}**
 
-* The `yc managed-postgresql database create`, `yc managed-postgresql database list`, and `yc managed-postgresql database get` commands.
+* Commands `yc managed-postgresql database create`, `yc managed-postgresql database list`, and `yc managed-postgresql database get`.
 
    Added support for templates when creating a database using `--template-db string`.
 

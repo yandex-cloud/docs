@@ -57,7 +57,7 @@
 
 - CLI
 
-  Чтобы подготовить спецификацию [Docker-контейнера](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers), создайте файл `container-spec-ports.yaml` и заполните его следующими данными:
+  Чтобы подготовить спецификацию [Docker-контейнера](/blog/posts/2022/03/docker-containers), создайте файл `container-spec-ports.yaml` и заполните его следующими данными:
 
   ```yaml
   spec:
@@ -159,7 +159,7 @@
   ```bash
   yc compute instance create \
     --name coi-vm-with-sp \
-    --zone ru-central1-c \
+    --zone {{ region-id }}-c \
     --network-interface subnet-name=<имя подсети>,nat-ip-version=ipv4 \
     --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
     --create-boot-disk image-id=$IMAGE_ID

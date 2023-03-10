@@ -8,7 +8,13 @@
 
 ## Подключить диск {#attach}
 
-Чтобы подключить диск к ВМ:
+{% note info %}
+
+Подключить локальный диск к ВМ на [выделенном хосте](../../concepts/dedicated-host.md) можно только при ее создании. Подробнее см. в [инструкциях](../index.md#dedicated-host).
+
+{% endnote %}
+
+Чтобы подключить сетевой диск к ВМ:
 
 {% list tabs %}
 
@@ -152,76 +158,85 @@
 
 - Linux
 
-  1. Проверьте, подключен ли диск как устройство и узнайте его путь в системе:
+  1. Подключитесь к ВМ [по SSH](../vm-connect/ssh.md).
+  1. Проверьте, подключен ли диск как устройство, и узнайте его путь в системе:
 
      ```bash
-     lsblk
+     ls -la /dev/disk/by-id
      ```
 
      Результат:
 
      ```text
-     NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-     vda    252:0    0  13G  0 disk
-     ├─vda1 252:1    0   1M  0 part
-     └─vda2 252:2    0  13G  0 part /
-     vdb    252:16   0   1G  0 disk
+     total 0
+     drwxr-xr-x 2 root root 140 Jan 16 12:09 .
+     drwxr-xr-x 6 root root 120 Jan 13 13:51 ..
+     lrwxrwxrwx 1 root root   9 Jan 16 12:09 virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc
+     lrwxrwxrwx 1 root root   9 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0 -> ../../vdb
+     lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0-part1 -> ../../vdb1
+     lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0-part2 -> ../../vdb2
+     lrwxrwxrwx 1 root root   9 Jan 13 13:51 virtio-nvme-disk-0 -> ../../vda
      ```
 
-     Обычно пустой диск имеет метку вида `/dev/vdb`.
+     Где:
+ 
+     * Сетевым дискам соответствуют ссылки вида `virtio-<ID_диска>`. Например, запись `virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc` означает, что неразмеченный диск с ID `fhm1dn62tm5dnaspeh8n` имеет метку `/dev/vdc`.
+     * Локальным дискам на [выделенных хостах](../../concepts/dedicated-host.md) соответствуют ссылки вида `virtio-nvme-disk-<номер_диска>` (если вы подключали диски к ВМ при ее создании). Диски нумеруются с нуля. Например, запись `virtio-nvme-disk-0 -> ../../vda` означает, что первый (нулевой) локальный диск имеет метку `/dev/vda`.
 
   1. Разметьте диск. Для этого создайте на нем [разделы](https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux) с помощью [утилиты](https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2) `cfdisk`, [утилиты](https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man) `fdisk` или [утилиты](https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man) `parted`.
 
-  1. Для примера создадим разделы с помощью команды `fdisk`. Используйте команду `sudo` или выполняйте команды от имени пользователя `root`: для этого выполните команду `sudo su -`.
+     Для примера создадим разделы с помощью `fdisk`. Используйте команду `sudo` или выполняйте команды от имени пользователя `root`: для этого выполните команду `sudo su -`.
+ 
+     1. Запустите утилиту:
      
-     ```bash
-     sudo fdisk /dev/vdb
-     ```
+        ```bash
+        sudo fdisk /dev/vdc
+        ```
+   
+        Вы попадете в меню программы `fdisk`. Чтобы получить список доступных команд, нажмите клавишу **M**.
 
-     Вы попадете в меню программы `fdisk`. Чтобы получить список доступных команд, нажмите клавишу **M**.
-
-  1. Создайте новый раздел — нажмите **N**. 
-  1. Укажите, что раздел будет основным — нажмите **P**. 
-  1. Появится предложение выбрать номер раздела. Нажмите **Enter**, чтобы создать первый раздел. 
-  1. Номера первого и последнего секторов раздела оставьте по умолчанию — два раза нажмите **Enter**.
-  1. Убедитесь, что раздел успешно создан. Для этого нажмите клавишу **P** и выведите список разделов диска. Пример созданного раздела:
-
-     ```text
-     Device     Boot Start      End  Sectors Size Id Type
-     /dev/vdb1        2048 41943039 41940992  20G 83 Linux
-     ```
-
-  1. Для сохранения внесенных изменений нажмите клавишу **W**.
+     1. Создайте новый раздел — нажмите **N**. 
+     1. Укажите, что раздел будет основным — нажмите **P**. 
+     1. Появится предложение выбрать номер раздела. Нажмите **Enter**, чтобы создать первый раздел. 
+     1. Номера первого и последнего секторов раздела оставьте по умолчанию — два раза нажмите **Enter**.
+     1. Убедитесь, что раздел успешно создан. Для этого нажмите клавишу **P** и выведите список разделов диска. Пример созданного раздела:
+   
+        ```text
+        Device     Boot Start      End  Sectors Size Id Type
+        /dev/vdc1        2048 41943039 41940992  20G 83 Linux
+        ```
+   
+     1. Для сохранения внесенных изменений нажмите клавишу **W**.
      
   1. Отформатируйте диск в нужную файловую систему, например, с помощью [утилиты](https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0) `mkfs`. Например, чтобы отформатировать раздел в ext4 введите команду:
 
      ```bash
-     sudo mkfs.ext4 /dev/vdb1
+     sudo mkfs.ext4 /dev/vdc1
      ```
 
-  1. Смонтируйте разделы диска с помощью [утилиты](https://www.opennet.ru/man.shtml?topic=mount&category=8&russian=0) `mount`. Для того, чтобы монтировать раздел `vdb1` в папку `/mnt/vdb1` выполните:
+  1. Смонтируйте разделы диска с помощью [утилиты](https://www.opennet.ru/man.shtml?topic=mount&category=8&russian=0) `mount`. Чтобы смонтировать раздел `vdc1` в папку `/mnt/vdc1`, выполните следующую команду:
 
      ```bash
-     sudo mkdir /mnt/vdb1
-     sudo mount /dev/vdb1 /mnt/vdb1
+     sudo mkdir /mnt/vdc1
+     sudo mount /dev/vdc1 /mnt/vdc1
      ```
    
-  1. Настройте разрешения на чтение и запись на диске с помощью [утилиты](https://www.opennet.ru/man.shtml?topic=chmod&russian=0&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man) `chmod`. Например, для предоставления доступа на запись к диску всем пользователям, выполните команду:
+  1. Настройте разрешения на чтение и запись на диске с помощью [утилиты](https://www.opennet.ru/man.shtml?topic=chmod&russian=0&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man) `chmod`. Например, чтобы разрешить запись на диск всем пользователям, выполните следующую команду:
 
      ```bash
-     sudo chmod a+w /mnt/vdb1
+     sudo chmod a+w /mnt/vdc1
      ```   
 
   1. Получите идентификатор (`UUID`) диска с помощью [утилиты](https://www.opennet.ru/man.shtml?topic=blkid&russian=0&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man) `blkid`:
 
      ```bash
-     sudo blkid /dev/vdb1
+     sudo blkid /dev/vdc1
      ```     
 
      Результат:
 
      ```text
-     /dev/vdb1: UUID="397f9660-e740-40bf-8e59-ecb88958b50e" TYPE="ext4" PARTUUID="e34d0d32-01"
+     /dev/vdc1: UUID="397f9660-e740-40bf-8e59-ecb88958b50e" TYPE="ext4" PARTUUID="e34d0d32-01"
      ```
   
   1. Чтобы настроить автоматическое монтирование раздела после перезапуска ВМ:
@@ -234,7 +249,7 @@
       1. Допишите в файл следующую строку, указав в параметре `UUID` идентификатор вашего диска, например:
 
           ```text
-          UUID=397f9660-e740-40bf-8e59-ecb88958b50e /mnt/vdb1 ext4 defaults 0 2
+          UUID=397f9660-e740-40bf-8e59-ecb88958b50e /mnt/vdc1 ext4 defaults 0 2
           ```
 
       1. Сохраните изменения в файле.
@@ -250,12 +265,12 @@
      Filesystem     1K-blocks    Used Available Use% Mounted on
      udev              989424       0    989424   0% /dev
      tmpfs             203524     816    202708   1% /run
-     /dev/vda2       13354932 2754792  10015688  22% /
+     /dev/vdb2       13354932 2754792  10015688  22% /
      tmpfs            1017608       0   1017608   0% /dev/shm
      tmpfs               5120       0      5120   0% /run/lock
      tmpfs            1017608       0   1017608   0% /sys/fs/cgroup
      tmpfs             203520       0    203520   0% /run/user/1000
-     /dev/vdb1         523260    3080    520180   1% /mnt/vdb1
+     /dev/vdb1         523260    3080    520180   1% /mnt/vdc1
      ```
 
 

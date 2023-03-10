@@ -1,11 +1,5 @@
 # Создание пространства имен в кластере {{ k8s }}
 
-{% note info %}
-
-Создание [пространства имен](../../concepts/index.md#namespace) в кластере {{ k8s }} с помощью консоли управления находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Чтобы создать пространство имен в кластере {{ managed-k8s-name }}:
 
 {% list tabs %}

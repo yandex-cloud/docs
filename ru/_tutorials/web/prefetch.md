@@ -27,7 +27,7 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Убедитесь, что у вас есть доменное имя и доступ к настройкам DNS на сайте компании, которая предоставляет вам услуги DNS-хостинга. Обычно это компания-регистратор вашего домена.
+Убедитесь, что у вас есть доменное имя и доступ к настройкам [DNS](../../glossary/dns.md) на сайте компании, которая предоставляет вам услуги DNS-хостинга. Обычно это компания-регистратор вашего домена.
 
 
 ### Необходимые платные ресурсы {#paid-resources}
@@ -292,7 +292,7 @@
           * В поле **Переадресация клиентов** выберите **С HTTP на HTTPS**.
           * Выберите опцию **Доступ конечных пользователей к контенту**.
           * В поле **Тип сертификата** выберите **Let's Encrypt®**, чтобы автоматически выпустить сертификат для доменного имени `cdn.ycprojektblue.example` после создания CDN-ресурса.
-          * В поле **Заголовок Host** выберите **Свое значение**. В поле **Значение заголовка** укажите доменное имя источника, `ycprojektblue-storage.storage.yandexcloud.net`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
+          * В поле **Заголовок Host** выберите **Свое значение**. В поле **Значение заголовка** укажите доменное имя источника, `ycprojektblue-storage.{{ s3-storage-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
 
      1. Нажмите кнопку **Создать**.
      
@@ -321,11 +321,11 @@
      ```
      yc cdn resource create \
        --cname cdn.ycprojectblue.example \
-       --origin-bucket-source ycprojektblue-storage.storage.yandexcloud.net \
+       --origin-bucket-source ycprojektblue-storage.{{ s3-storage-host }} \
        --origin-bucket-name ycprojektblue-storage \
        --origin-protocol https \
        --lets-encrypt-gcore-ssl-cert \
-       --host-header ycprojektblue-storage.storage.yandexcloud.net \
+       --host-header ycprojektblue-storage.{{ s3-storage-host }} \
        --redirect-http-to-https
      ```
 
@@ -353,7 +353,7 @@
        name     = "updates-origin-group"
        use_next = true
        origin {
-         source = "ycprojektblue-storage.storage.yandexcloud.net"
+         source = "ycprojektblue-storage.{{ s3-storage-host }}"
        }
      }
      
@@ -364,7 +364,7 @@
        origin_group_id     = yandex_cdn_origin_group.my_group.id
        options {
          redirect_https_to_http = true
-         custom_host_header     = "ycprojektblue-storage.storage.yandexcloud.net"
+         custom_host_header     = "ycprojektblue-storage.{{ s3-storage-host }}"
        }
        ssl_certificate {
          type = "lets_encrypt_gcore"
@@ -498,10 +498,10 @@
         +----------------------------+------+-------+--------------------------------+
         |            NAME            | TTL  | TYPE  |              DATA              |
         +----------------------------+------+-------+--------------------------------+
-        | ycprojektblue.example.     | 3600 | NS    | ns1.yandexcloud.net.           |
-        |                            |      |       | ns2.yandexcloud.net.           |
-        | ycprojektblue.example.     | 3600 | SOA   | ns1.yandexcloud.net.           |
-        |                            |      |       | mx.cloud.yandex.net. 1 10800   |
+        | ycprojektblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}.           |
+        |                            |      |       | ns2.{{ dns-ns-host-sld }}.           |
+        | ycprojektblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.           |
+        |                            |      |       | {{ dns-mx-host }}. 1 10800   |
         |                            |      |       | 900 604800 86400               |
         | cdn.ycprojektblue.example. |  600 | CNAME | cl-.....6bb.edgecdn.ru.           |
         +----------------------------+------+-------+--------------------------------+

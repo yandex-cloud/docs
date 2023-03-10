@@ -1,7 +1,7 @@
-[{{ GL }}](https://about.gitlab.com/) — инструмент [непрерывной интеграции (Continuous integration, CI)](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd).
+[{{ GL }}](https://about.gitlab.com/) — инструмент [непрерывной интеграции (Continuous integration, CI)](/blog/posts/2022/10/ci-cd).
 
 В этом руководстве описаны:
-* Сборка приложения в [Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers).
+* Сборка приложения в [Docker-контейнер](/blog/posts/2022/03/docker-containers).
 * Развертывание приложения из контейнера в [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) через {{ GL }} с помощью инструментов {{ yandex-cloud }}.
 
 После каждого коммита в {{ GL }}:
@@ -208,7 +208,8 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. [Удалите созданные Docker-образы](../../container-registry/operations/docker-image/docker-image-delete.md).
 1. Удалите кластер {{ managed-k8s-name }} и реестр {{ container-registry-name }}:
 

@@ -27,19 +27,15 @@ items:
         href: web/wordpress-transfer.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
+      - name: Setting up a virtual hosting
+        href: web/virtual-hosting.md
+      - name: Creating a load balancer with DDoS protection
+        href: web/alb-with-ddos-protection.md
       - name: Publishing game updates
         href: web/prefetch.md
       - name: >-
           Integrating an L7 load balancer with the {{ cdn-name }} and {{
           objstorage-name }}
-        href: web/cdn-storage-integration.md
-      - name: Setting up a virtual hosting
-        href: web/virtual-hosting.md
-      - name: Creating a load balancer with DDoS protection
-        href: web/alb-with-ddos-protection.md
-      - name: >-
-          Integrating an L7 load balancer with the {{ cdn-short-name }} and {{
-          objstorage-short-name }}
         href: web/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: web/blue-green-canary-deployment.md
@@ -71,7 +67,7 @@ items:
         href: archive/backup-with-bacula.md
       - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: archive/object-storage-veritas.md
-      - name: Digitizing archives in {{ vision-full-name }}
+      - name: Digitizing image archives in {{ vision-full-name }}
         href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment
     items:
@@ -87,12 +83,14 @@ items:
         href: testing/iot-emulation.md
       - name: Load testing of the gRPC service
         href: testing/loadtesting-grpc.md
-      - name: Deploying and load testing a gRPC service with scaling
+      - name: Deploying and load testing gRPC with scaling
         href: testing/loadtesting-grpc-autoscaling.md
       - name: Using Phantom to run a fixed-load HTTPS test
         href: testing/loadtesting-https-phantom.md
       - name: Using Pandora to run a step-load HTTPS test
         href: testing/loadtesting-https-pandora.md
+      - name: Load testing using multiple agents
+        href: testing/loadtesting-multiply.md
   - name: Performing infrastructure management
     items:
       - name: All tutorials
@@ -121,6 +119,8 @@ items:
         href: infrastructure-management/ntp.md
       - name: Running instance groups with auto scaling
         href: infrastructure-management/vm-autoscale.md
+      - name: Automatically scaling an instance group on a schedule
+        href: infrastructure-management/vm-scale-scheduled.md
       - name: >-
           Automatically scaling an instance group for handling messages from a
           queue
@@ -154,9 +154,25 @@ items:
       - name: All tutorials
         href: dataplatform/index.md
       - name: >-
+          Migrating databases from a third-party {{ KF }} cluster to {{
+          mkf-full-name }}
+        href: dataplatform/kafka-connector.md
+      - name: >-
+          Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mmy.md
+      - name: >-
           Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using
           {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mpg.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} to {{ mch-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mkf-mch.md
+      - name: >-
+          Moving data between {{ mkf-full-name }} clusters using {{
+          data-transfer-full-name }}
+        href: dataplatform/data-transfer-mkf.md
       - name: >-
           Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }} using
           {{ data-transfer-full-name }}
@@ -185,21 +201,23 @@ items:
         href: dataplatform/dp-mch-data-exchange.md
       - name: Configuring {{ mch-full-name }} for Graphite
         href: dataplatform/clickhouse-for-graphite.md
-      - name: Getting data from {{ mkf-full-name }} to {{ mch-full-name }}
+      - name: Fetching data from {{ mkf-full-name }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-mkf.md
       - name: Fetching data from {{ RMQ }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
+      - name: Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
+        href: dataplatform/yds-to-clickhouse.md
       - name: Using hybrid storage in {{ mch-full-name }}
         href: dataplatform/clickhouse-hybrid-storage.md
-      - name: Sharding tables {{ mch-full-name }}
+      - name: Sharding {{ mch-full-name }} tables
         href: dataplatform/clickhouse-sharding.md
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database
           clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
       - name: >-
-          Configuring {{ dns-full-name }} for {{ mch-full-name }} cluster access
-          from other cloud networks
+          Configuring {{ dns-full-name }} for accessing {{ mch-full-name }}
+          clusters from other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
       - name: >-
           Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }}
@@ -217,19 +235,21 @@ items:
           Migrating data from a third-party {{ ES }} cluster to {{ mes-full-name
           }} using the Reindex API
         href: dataplatform/migration-via-reindex-api.md
-      - name: Migrating collections from {{ MG }} to {{ mmg-name }}
+      - name: >-
+          Migrating collections from a third-party {{ MG }} cluster to {{
+          mmg-full-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
-      - name: Migrating data to {{ mmg-name }}
+      - name: Migrating data to {{ mmg-full-name }}
         href: dataplatform/mongodb-data-migration.md
-      - name: Sharding collections {{ MG }}
+      - name: Sharding {{ MG }} collections
         href: dataplatform/mongodb-sharding.md
-      - name: Performance analysis and tuning of {{ MG }}
+      - name: '{{ MG }} performance analysis and tuning'
         href: dataplatform/mongodb-profiling.md
       - name: >-
           Migrating databases from a third-party {{ MY }} cluster to a {{
           mmy-full-name }} cluster
         href: dataplatform/mysql-data-migration.md
-      - name: Performance analysis and tuning of {{ mmy-name }}
+      - name: '{{ mmy-name }} performance analysis and tuning'
         href: dataplatform/profiling-mmy.md
       - name: >-
           Syncing data from a third-party {{ MY }} cluster to {{ mmy-full-name
@@ -249,7 +269,7 @@ items:
         href: dataplatform/mmy-objs-migration.md
       - name: Creating a {{ PG }} cluster for 1C
         href: dataplatform/1c-postgresql.md
-      - name: Performance analysis and tuning in {{ mpg-name }}
+      - name: '{{ mpg-name }} performance analysis and tuning'
         href: dataplatform/mpg-profiling.md
       - name: >-
           Migrating databases from third-party {{ PG }} cluster to {{
@@ -261,6 +281,14 @@ items:
           Delivering data from {{ mpg-full-name }} to {{ ydb-full-name }} using
           {{ data-transfer-full-name }}
         href: dataplatform/mpg-ydb-replication.md
+      - name: >-
+          Migrating databases from {{ mpg-full-name }} to {{
+          objstorage-full-name }}
+        href: dataplatform/mpg-to-objstorage.md
+      - name: Migrating databases from {{ GP }} to {{ CH }}
+        href: dataplatform/greenplum-to-clickhouse.md
+      - name: Migrating databases from {{ GP }} to {{ PG }}
+        href: dataplatform/greenplum-to-postgresql.md
       - name: >-
           Migrating databases from a third-party {{ RD }} cluster to {{
           mrd-full-name }}
@@ -287,9 +315,13 @@ items:
     items:
       - name: All tutorials
         href: routing/index.md
+      - name: Architecture and protection of a basic internet service
+        href: routing/web-service.md
+      - name: DHCP settings for working with a corporate DNS server
+        href: routing/dhcp-options.md
       - name: Routing through a NAT instance
         href: routing/nat-instance.md
-      - name: Creating a VPN tunnel
+      - name: Creating an IPSec VPN tunnel
         href: routing/ipsec-vpn.md
       - name: Installing a Cisco CSR1000v virtual router
         href: routing/cisco.md
@@ -297,6 +329,8 @@ items:
         href: routing/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: routing/openvpn.md
+      - name: Creating and configuring a UserGate gateway in proxy server mode
+        href: routing/usergate-proxy.md
       - name: Creating and configuring a UserGate gateway in firewall mode
         href: routing/usergate-firewall.md
       - name: Configuring networks for {{ dataproc-full-name }}
@@ -311,7 +345,7 @@ items:
         href: datalens/data-from-csv-to-public-visualization.md
       - name: Analyzing a store chain's sales based on data from a {{ CH }} DB
         href: datalens/data-from-ch-visualization.md
-      - name: Analyzing open data on road accidents in Russia
+      - name: Analyzing public data on road accidents in Russia
         href: datalens/data-from-csv-geo-visualization.md
       - name: >-
           Analyzing sales and locations of pizzerias based on data from {{ CH }}

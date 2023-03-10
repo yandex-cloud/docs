@@ -1,13 +1,10 @@
 # Пошаговые инструкции для {{ mch-name }}
 
 - [{#T}](cluster-list.md)
-
-
 - [{#T}](cluster-create.md)
 - [{#T}](connect.md)
 - [{#T}](cluster-stop.md)
 - [{#T}](web-sql-query.md)
-- [{#T}](insert.md)
 - [{#T}](update.md)
 - [{#T}](s3-access.md)
 - [{#T}](dictionaries.md)

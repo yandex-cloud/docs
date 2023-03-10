@@ -61,9 +61,9 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
        --ssh-key ssh-key.pub \
        --service-account-name my-robot \
        --public-ip \
-       --platform standard-v3
+       --platform standard-v3 \
        --container-name=my-app \
-       --container-image=cr.yandex/mirror/ubuntu:16.04 \
+       --container-image={{ registry }}/mirror/ubuntu:16.04 \
        --container-command=sleep \
        --container-arg="1000" \
        --container-env=KEY1=VAL1,KEY2=VAL2 \
@@ -120,7 +120,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
          - sleep
          args:
          - 100000
-         image: cr.yandex/mirror/ubuntu:20.04
+         image: {{ registry }}/mirror/ubuntu:20.04
          name: my-container
          securityContext:
          privileged: true

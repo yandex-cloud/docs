@@ -53,6 +53,8 @@ items:
             href: operations/applications/jaeger.md
           - name: Installing Kyverno & Kyverno Policies
             href: operations/applications/kyverno.md
+          - name: Installing Loki
+            href: operations/applications/loki.md
           - name: Installing Metrics Provider
             href: operations/applications/metrics-provider.md
           - name: Installing NodeLocal DNS
@@ -126,6 +128,8 @@ items:
         href: tutorials/new-kubernetes-project.md
       - name: Integration with {{ container-registry-name }}
         href: tutorials/container-registry.md
+      - name: Signing and verifying {{ container-registry-name }} Docker images
+        href: tutorials/sign-cr-with-cosign.md
       - name: Running workloads with GPUs
         href: tutorials/running-pod-gpu.md
       - name: Installing an NGINX Ingress controller with Let's Encrypt®
@@ -174,6 +178,8 @@ items:
             href: tutorials/alb-ingress-controller.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
+          - name: Setting up Kyverno & Kyverno Policies
+            href: tutorials/marketplace/kyverno.md
           - name: Using {{ MP }} to stream metrics
             href: tutorials/marketplace/metrics-provider.md
   - name: Concepts

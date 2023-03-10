@@ -1,5 +1,5 @@
 ---
-title: "What is message queues?"
+title: "What are message queues?"
 description: "Message queues enable messaging between components of distributed applications. Messages can be sent to queues using the API or any of the supported tools. Enqueued messages are read by consumers, i.e., applications configured to receive messages from particular queues. Once a message is processed, the consumer deletes it from the queue."
 ---
 

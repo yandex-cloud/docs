@@ -4,7 +4,7 @@ A {{ mch-name }} cluster can get data from {{ RMQ }} in real time. {{ mch-name }
 
 To set up data delivery from {{ RMQ }} to {{ mch-name }}:
 
-1. [Set up integration with {{ RMQ }} for the {{ mch-name}} cluster](#configure-mch-for-rmq).
+1. [Set up integration with {{ RMQ }} for the {{ mch-name }} cluster](#configure-mch-for-rmq).
 1. [In the {{ mch-name }} cluster, create a table on the {{ RMQ }} engine](#create-rmq-table).
 1. [Send the test data to the {{ RMQ }} queue](#send-sample-data-to-rmq).
 1. [Check that the test data is present in the {{ mch-name }} cluster table](#fetch-sample-data).
@@ -19,21 +19,21 @@ If you no longer need these resources, [delete them](#clear-out).
 
 - Manually
 
-   1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with the `db1` database. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts when creating it.
+   1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any configuration with the `db1` database. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts when creating it.
 
       {% note info %}
 
-      You can set up {{ RMQ }} integration when creating a cluster. In this use case, integration will be configured [later](#configure-mch-for-rmq).
+      You can set up {{ RMQ }} integration when creating a cluster. In this article, integration will be configured [later](#configure-mch-for-rmq).
 
       {% endnote %}
 
-   1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) for {{ RMQ }}. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access when creating it.
+   1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md)for{{ RMQ }}. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access when creating it.
 
 - Using {{ TF }}
 
    1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the configuration file [clickhouse-cluster-and-vm-for-rabbitmq.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-cluster-and-vm-for-rabbitmq.tf) to the same working directory.
+   1. Download the [clickhouse-cluster-and-vm-for-rabbitmq.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-cluster-and-vm-for-rabbitmq.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -46,8 +46,8 @@ If you no longer need these resources, [delete them](#clear-out).
    1. Specify in `clickhouse-cluster-and-vm-for-rabbitmq.tf`:
 
       * Username and password that will be used to access a {{ mch-name }} cluster.
-      * ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) based on Ubuntu without GPU for a virtual machine. For example, `fd879gb88170to70d38a` for Ubuntu 20.04 LTS.
-      * Username and path to the file with a [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
+      * The ID of the public Ubuntu [image](../../compute/operations/images-with-pre-installed-software/get-list.md) without GPU for the VM. For example, `fd879gb88170to70d38a` for Ubuntu 20.04 LTS.
+      * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file to use to access to the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
 
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
 
@@ -69,7 +69,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ### Configure additional settings {#additional-settings}
 
-1. [Connect to a virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to a virtual machine over SSH.
 
    1. Install {{ RMQ }}:
 
@@ -83,14 +83,14 @@ If you no longer need these resources, [delete them](#clear-out).
       sudo rabbitmqctl add_user <username> <password>
       ```
 
-   1. Grant the permissions to connect to the server to this user:
+   1. Grant this user permissions to connect to the server:
 
       ```bash
       sudo rabbitmqctl set_permissions -p / <username> ".*" ".*" ".*" && \
       sudo rabbitmqctl set_topic_permissions -p / <username> amq.topic "cars" "cars"
       ```
 
-1. Install the `amqp-publish` and `amqp-declare-queue` utilities to work with {{ RMQ }} and [jq](https://stedolan.github.io/jq/) for piped processing of JSON files:
+1. Install the `amqp-publish` and `amqp-declare-queue` utilities to work with {{ RMQ }} and [jq](https://stedolan.github.io/jq/) for stream processing JSON files:
 
    ```bash
    sudo apt update && sudo apt install amqp-tools --yes && sudo apt-get install jq --yes
@@ -106,7 +106,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. Install the `clickhouse-client` utility to connect to the database in the {{ mch-name }} cluster.
 
-   1. Add the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
+   1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
       ```bash
       sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -123,11 +123,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. Download the configuration file for `clickhouse-client`:
 
-      ```bash
-      mkdir --parents ~/.clickhouse-client && \
-      wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
-      --output-document ~/.clickhouse-client/config.xml
-      ```
+      {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
    Check that you can use `clickhouse-client` [to connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect.md#connection-string).
 
@@ -137,11 +133,11 @@ If you no longer need these resources, [delete them](#clear-out).
 
 - Manually
 
-   In the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config), specify the username and password for authentication {{ RMQ }} in **DBMS settings** → **Rabbitmq**.
+   In the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config), specify the username and password for {{ RMQ }}authentication in **DBMS settings** → **Rabbitmq**.
 
 - Using {{ TF }}
 
-   Add to the cluster description the `clickhouse.config.rabbitmq` block with the username and password for {{ RMQ }} authentication:
+   Add the `clickhouse.config.rabbitmq` block with the username and password for {{ RMQ }} authentication to the cluster description:
 
    ```hcl
    resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
@@ -163,7 +159,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## In the {{ mch-name }} cluster, create a table on the {{ RMQ }} engine {#create-rmq-table}
 
-As an example in {{ RMQ }}, let's input the JSON data from the car sensors to the `cars` queue at an `exchange` in {{ RMQ }}:
+As an example in {{ RMQ }}, let's input JSON data from the car sensors to the `cars` queue at the `exchange` exchange in {{ RMQ }}:
 
 * String ID of the device, `device_id`.
 * Date and time when the data was generated, `datetime`, in `YYYY-MM-DD HH:MM:SS` format.
@@ -184,9 +180,9 @@ This data will be transmitted as {{ RMQ }} messages. Each message will contain a
 {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-A {{ mch-name }} cluster will insert data into a table in [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow). It converts strings from {{ RMQ }} messages to the appropriate column values.
+The {{ mch-name }} cluster will insert data into a table in [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow) which converts strings from {{ RMQ }} messages to the appropriate column values.
 
-Create in the {{ mch-name }} cluster a table to accept data received from {{ RMQ }}:
+Create a table in the {{ mch-name }} cluster to accept data from {{ RMQ }}:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
 
@@ -205,13 +201,13 @@ Create in the {{ mch-name }} cluster a table to accept data received from {{ RMQ
        fuel_level Nullable(Float32)
    ) ENGINE = RabbitMQ
    SETTINGS
-       rabbitmq_host_port = '<Internal IP address of a VM with RabbitMQ>:5672',
+       rabbitmq_host_port = '<Internal IP address of VM with RabbitMQ>:5672',
        rabbitmq_routing_key_list = 'cars',
        rabbitmq_exchange_name = 'exchange',
        rabbitmq_format = 'JSONEachRow';
    ```
 
-This table will be automatically filled with messages read from the `cars` queue at the `exchange` of {{ RMQ }}. When reading the data, {{ mch-name }} uses the [provided authentication credentials](#configure-mch-for-rmq).
+This table will be automatically filled with messages read from the `cars` queue at the `exchange` of {{ RMQ }}. When reading the data, {{ mch-name }} uses the [authentication credentials provided earlier](#configure-mch-for-rmq).
 
 ## Send the test data to the {{ RMQ }} queue {#send-sample-data-to-rmq}
 
@@ -321,8 +317,8 @@ The query will return a table with data sent to {{ RMQ }}.
 
    If you no longer need these resources, delete them:
 
-   * [Delete a {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
-   * [Delete a virtual machine](../../compute/operations/vm-control/vm-delete.md).
+   * [Delete the {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+   * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
 - Using {{ TF }}
@@ -330,7 +326,7 @@ The query will return a table with data sent to {{ RMQ }}.
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
    1. In the terminal window, change to the directory containing the infrastructure plan.
-   1. Delete the configuration file `clickhouse-cluster-and-vm-for-rabbitmq.tf`.
+   1. Delete the `clickhouse-cluster-and-vm-for-rabbitmq.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using the command:
 
       ```bash
@@ -343,6 +339,6 @@ The query will return a table with data sent to {{ RMQ }}.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      All resources described in the configuration file `clickhouse-cluster-and-vm-for-rabbitmq.tf` will be deleted.
+      All resources described in the `clickhouse-cluster-and-vm-for-rabbitmq.tf` configuration file will be deleted.
 
 {% endlist %}

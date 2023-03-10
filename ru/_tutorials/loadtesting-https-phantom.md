@@ -156,7 +156,7 @@
             job_name: '[example][phantom][const]'
             job_dsc: 'example'
             ver: '0.5.5'
-            api_address: loadtesting.api.cloud.yandex.net:443
+            api_address: loadtesting.{{ api-host }}:443
           ```
 
           [Подробнее об автостопе](../load-testing/concepts/auto-stop.md).

@@ -1,17 +1,17 @@
 {% list tabs %}
 
-- Rate for 1 month
+- Cost per month
 
-  Master type | Rate for 1 month, without VAT
-  --- | ---
-  Zonal | {{ sku|USD|mk8s.master.zonal.small|month|string }}
-  Regional | {{ sku|USD|mk8s.master.regional.small|month|string }}
+   | Master type | Cost per month, without VAT |
+   --- | ---
+   | Zonal | {{ sku|USD|mk8s.master.zonal.small|month|string }} |
+   | Regional | {{ sku|USD|mk8s.master.regional.small|month|string }} |
 
-- Rate for 1 hour
+- Cost per hour
 
-  Master type | Rate for 1 hour, without VAT
-  --- | ---
-  Zonal | {{ sku|USD|mk8s.master.zonal.small|string }}
-  Regional | {{ sku|USD|mk8s.master.regional.small|string }}
+   | Master type | Cost per hour, without VAT |
+   --- | ---
+   | Zonal | {{ sku|USD|mk8s.master.zonal.small|string }} |
+   | Regional | {{ sku|USD|mk8s.master.regional.small|string }} |
 
 {% endlist %}

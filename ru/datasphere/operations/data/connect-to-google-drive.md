@@ -15,16 +15,18 @@
 1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого из файла на Google Drive:
 
     ```python
-    import os
-    from cloud_ml.storage.api import Storage
-    client_secret = {os.environ['<имя_секрета>']}
-    gdrive = Storage.gdrive(client_secret)
-    gdrive.get('<идентификатор_файла_Google_Drive>', '<путь_к_файлу_в_проекте_{{ ml-platform-name }}>')
+    # %pip install gdown if needed
+
+    import gdown
+
+    gdrive_file_id = '<идентификатор_файла_Google_Drive>'
+    dst_path = '<путь_к_файлу_в_проекте_{{ ml-platform-name }}>'
+
+    gdown.download(id=gdrive_file_id, output=dst_path)
     ```
 
     Где:
 
-    * `<имя_секрета>` — имя секрета, в котором хранится содержимое файла `client_secret.json`.
     * `<идентификатор_файла_Google_Drive>` — [идентификатор файла Google Drive](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics), содержимое которого нужно загрузить в {{ ml-platform-name }}.
     * `<путь_к_файлу_в_проекте_{{ ml-platform-name }}>` — путь к файлу в проекте {{ ml-platform-name }}, в который загружаются данные.
 
@@ -35,57 +37,19 @@
 1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого из каталога на Google Drive:
 
     ```python
-    import os
-    from cloud_ml.storage.api import Storage
-    client_secret = {os.environ['<имя_секрета>']}
-    gdrive = Storage.gdrive(client_secret)
-    gdrive.get_dir('<идентификатор_каталога_Google_Drive>', '<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>')
+    # %pip install gdown if needed
+
+    import gdown
+
+    gdrive_folder_id = '<идентификатор_каталога_Google_Drive>'
+    dst_path = '<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>'
+
+    gdown.download_folder(id=gdrive_folder_id, output=dst_path)
     ```
 
     Где:
 
-    * `<имя_секрета>` — имя секрета, в котором хранится содержимое файла `client_secret.json`.
     * `<идентификатор_каталога_Google_Drive>` — [идентификатор каталога Google Drive](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics), содержимое которого нужно загрузить в {{ ml-platform-name }}.
     * `<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>` — путь к каталогу в проекте {{ ml-platform-name }}, в который загружаются данные.
-
-1. Запустите ячейку.
-
-## Загрузить содержимое из файла проекта {{ ml-platform-name }} в файл на Google Drive {#put-file}
-
-1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого файла проекта {{ ml-platform-name }} в Google Drive:
-
-    ```python
-    import os
-    from cloud_ml.storage.api import Storage
-    client_secret = {os.environ['<имя_секрета>']}
-    gdrive = Storage.gdrive(client_secret)
-    gdrive.put('<путь_к_файлу_в_проекте_{{ ml-platform-name }}>', '<идентификатор_файла_Google_Drive>')
-    ```
-
-    Где:
-
-    * `<имя_секрета>` — имя секрета, в котором хранится содержимое файла `client_secret.json`.
-    * `<путь_к_файлу_в_проекте_{{ ml-platform-name }}>` — путь к файлу в проекте {{ ml-platform-name }}, содержимое которого нужно загрузить в Google Drive.
-    * `<идентификатор_файла_Google_Drive>` — [идентификатор файла Google Drive](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics), в который загружаются данные.
-
-1. Запустите ячейку.
-
-## Загрузить содержимое из каталога проекта {{ ml-platform-name }} в каталог на Google Drive {#put-dir}
-
-1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого каталога проекта {{ ml-platform-name }} в Google Drive:
-
-    ```python
-    import os
-    from cloud_ml.storage.api import Storage
-    client_secret = {os.environ['<имя_секрета>']}
-    gdrive = Storage.gdrive(client_secret)
-    gdrive.put_dir('<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>', '<идентификатор_файла_Google_Drive>')
-    ```
-
-    Где:
-
-    * `<имя_секрета>` — имя секрета, в котором хранится содержимое файла `client_secret.json`.
-    * `<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>` — путь к каталогу в проекте {{ ml-platform-name }}, содержимое которого нужно загрузить в Google Drive.
-    * `<идентификатор_каталога_Google_Drive>` — [идентификатор каталога Google Drive](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics), в который загружаются данные.
 
 1. Запустите ячейку.

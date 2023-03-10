@@ -1,4 +1,4 @@
-# Performance testing
+# Testing speech recognition performance
 
 To test the performance of your {{ sk-hybrid-name }} installation's speech recognition service, use a [container with a testing utility](#test-order-asr). The utility runs synthetic tests using a prepared set of audio files.
 
@@ -30,7 +30,7 @@ INFO: 2021-09-22 13:48:25.677 +0000 load_test.cpp:119 q=0.99: 200ms
 1. Download the container with tests:
 
    ```bash
-   docker pull cr.yandex/${REGISTRY_ID}/stt-tools
+   docker pull {{ registry }}/${REGISTRY_ID}/stt-tools
    ```
 
 1. Run the `stt-tools` container:
@@ -42,6 +42,8 @@ INFO: 2021-09-22 13:48:25.677 +0000 load_test.cpp:119 q=0.99: 200ms
       --env CONNECTIONS=10 \
       stt-tools
    ```
+
+   Where:
 
    * `ENVOY_HOST`: The IP address of the speech recognition service. If you run tests and the speech recognition service on the same server, enter `0.0.0.0`.
    * `ENVOY_PORT`: The port of the speech recognition service (`8080` by default).

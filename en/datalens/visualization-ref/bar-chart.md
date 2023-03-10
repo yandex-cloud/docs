@@ -20,7 +20,7 @@ This chart displays the values of one or more measures by each category, using h
 
 ## Types of bar charts {#types}
 
-* [With grouping](#groupped)
+* [Grouped](#groupped)
 * [Stacked](#stacked)
 
 ### With grouping {#groupped}
@@ -121,13 +121,13 @@ To display an Y-axis grouped bar chart:
 
    - One measure
 
-     1. Check if there is a dimension in the **Colors** section.
-     1. Duplicate this dimension in the **Y** section. The sequence of dimensions affects the grouping order.
+      1. Check if there is a dimension in the **Colors** section.
+      1. Duplicate this dimension in the **Y** section. The sequence of dimensions affects the grouping order.
 
    - Two or more measures
 
-     1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Colors** section.
-     1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Y** section. The sequence of dimensions affects the grouping order.
+      1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Colors** section.
+      1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Y** section. The sequence of dimensions affects the grouping order.
 
    {% endlist %}
 
@@ -142,19 +142,19 @@ To color columns in a chart based on the value of a measure:
 
    - One measure
 
-     Copy the measure from the **X** section to the **Colors** section.
+      Copy the measure from the **X** section to the **Colors** section.
 
-     Columns in the chart will take on colors as a function of the measure values.
+      Columns in the chart will take on colors as a function of the measure values.
 
-     ![image](../../_assets/datalens/operations/chart/bar-colors-1.png)
+      ![image](../../_assets/datalens/operations/chart/bar-colors-1.png)
 
    - Two or more measures
 
-     Drag the [Measure Values](../concepts/chart/measure-values.md) measure to the **Colors** section.
+      Drag the [Measure Values](../concepts/chart/measure-values.md) measure to the **Colors** section.
 
-     The columns on the chart will take on colors depending on the values of all the measures listed in section **X**.
+      The columns on the chart will take on colors depending on the values of all the measures listed in section **X**.
 
-     ![image](../../_assets/datalens/operations/chart/bar-colors-2.png)
+      ![image](../../_assets/datalens/operations/chart/bar-colors-2.png)
 
    {% endlist %}
 

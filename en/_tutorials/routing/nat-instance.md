@@ -70,7 +70,7 @@ Create a route table and add to it a [static route](../../vpc/concepts/static-ro
 
 To use static routes, link the route table to the subnet where the VMs are located (in the example, it's `private-subnet`). To do this:
 
-1. On the line with the test VM, click ![image](../../_assets/options.svg).
+1. In the line with the test VM, click ![image](../../_assets/options.svg).
 1. In the menu that opens, select **Link route table**.
 1. In the window that opens, select the `nat-instance-route` table from the list.
 1. Click **Link**.
@@ -84,13 +84,10 @@ You can also use the created route for other subnets in the same network, except
    ```
    ssh <NAT instance public IP>
    ```
-
 1. Use the NAT instance to connect to the test VM in the same subnet via SSH:
-
    ```
    ssh <VM internal IP>
    ```
-
 1. Make sure the VM is connected to the internet via the public IP address of the NAT instance. Enter the following command in the terminal:
 
    ```

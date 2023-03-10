@@ -25,15 +25,25 @@ Users can also request permissions on their own via the request form. For more i
 
 ## User roles {#users-roles}
 
-Roles enable you define user permissions in a {{ datalens-short-name }} instance:
-
-* `{{ roles-datalens-instances-user }}` — A {{ datalens-short-name }} user with permissions to create, read, and update objects based on [object permissions](#permissions).
-* `{{ roles-datalens-instances-admin }}`— The {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. An administrator has `{{ roles-datalens-instances-user }}` permissions. They have access to [{{ datalens-short-name }}]({{ link-datalens-settings }}) settings.
+Roles enable you define user permissions in a {{ datalens-short-name }} instance.
 
 User roles are assigned:
-
 * To a {{ datalens-short-name }} instance at the enterprise level: using the [organization's](../concepts/organizations.md) service.
 * To a {{ datalens-short-name }} instance at the cloud folder level: via the {{ yandex-cloud }} [console]({{ link-console-main }}).
+
+{% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
+
+{% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
+
+{% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
+
+{% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
+
+{% note info %}
+
+The `{{ roles-datalens-instances-user }}` and `{{ roles-datalens-instances-admin }}` roles also provide the permission to view folders in the cloud. Instead of them, we recommend using the `{{ roles-datalens-creator }}` and `{{ roles-datalens-admin }}` roles, respectively.
+
+{% endnote %}
 
 ## Adding a user {#add-new-user}
 
@@ -51,22 +61,22 @@ To add a user and grant them access to {{ datalens-short-name }}:
 
 - To a cloud
 
-   1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
-   1. On the **Users and roles** page, click **Add user** in the upper-right corner.
-   1. Enter the user's Yandex email address.
-   1. Click **Add**. When a new user is added to the cloud, they're automatically assigned the cloud member role: [`resource-manager.clouds.member`](../../iam/concepts/access-control/roles.md#member).
+  1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
+  1. On the **Users and roles** page, click **Add user** in the upper-right corner.
+  1. Enter the user's Yandex email address.
+  1. Click **Add**. When a new user is added to the cloud, they're automatically assigned the cloud member role: [`resource-manager.clouds.member`](../../iam/concepts/access-control/roles.md#member).
 
-      {% note info %}
+     {% note info %}
 
-      It may take several hours before the username of the added user appears in the form for granting permissions.
+     It may take several hours before the username of the added user appears in the form for granting permissions.
 
-      {% endnote %}
+     {% endnote %}
 
-   1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-   1. To add a cloud role, click ![image](../../_assets/plus-sign.svg) in the **Roles for cloud <cloud name>** section.
+  1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+  1. To add a cloud role, click ![image](../../_assets/plus-sign.svg) in the **Roles for cloud <cloud name>** section.
 
-      To add a role for a folder, select the folder and click **Assign role** in the **Roles for folders** section.
-   1. Choose `{{ roles-datalens-instances-user }}` or `{{ roles-datalens-instances-admin }}` from the list.
+     To add a role for a folder, select the folder and click **Assign role** in the **Roles for folders** section.
+  1. Choose `{{ roles-datalens-instances-user }}` or `{{ roles-datalens-instances-admin }}` from the list.
 
 {% endlist %}
 
@@ -84,53 +94,53 @@ To add federated users to an organization and grant them access to {{ datalens-s
 
    - Management console
 
-      1. Make sure you are authorized in {{ yandex-cloud }} as an administrator or owner of the organization (your user holds the `admin` or `owner` role for the organization). In the top left-hand corner, click ![image](../../_assets/datalens/all-services.svg) and select **Resources and management** → **Manage organization services** or click the [link](https://org.cloud.yandex.ru/users).
-      1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
-      1. Select the identity federation to add users from.
-      1. List the Name IDs of users, separating them with line breaks.
-      1. Click **Add**. This will give the users access to the organization.
+     1. Make sure you are authorized in {{ yandex-cloud }} as an administrator or owner of the organization (your user holds the `admin` or `owner` role for the organization). In the top left-hand corner, click ![image](../../_assets/datalens/all-services.svg) and select **Resources and management** → **Manage organization services** or click the [link]({{ link-org-users }}).
+     1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+     1. Select the identity federation to add users from.
+     1. List the Name IDs of users, separating them with line breaks.
+     1. Click **Add**. This will give the users access to the organization.
 
    - CLI
 
-      {% include [cli-install](../../_includes/cli-install.md) %}
+     {% include [cli-install](../../_includes/cli-install.md) %}
 
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      1. View a description of the add user command:
+     1. View a description of the add user command:
 
-         ```
-         yc organization-manager federation saml add-user-accounts --help
-         ```
+        ```
+        yc organization-manager federation saml add-user-accounts --help
+        ```
 
-      1. Add users by listing their Name IDs separated by a comma:
+     1. Add users by listing their Name IDs separated by a comma:
 
-         ```
-         yc organization-manager federation saml add-user-accounts --name my-federation \
-           --name-ids=alice@example.com,bob@example.com,charlie@example.com
-         ```
+        ```
+        yc organization-manager federation saml add-user-accounts --name my-federation \
+          --name-ids=alice@example.com,bob@example.com,charlie@example.com
+        ```
 
    - API
 
-      1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
+     1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
 
-         ```json
-         {
-           "nameIds": [
-             "alice@example.com",
-             "bob@example.com",
-             "charlie@example.com"
-           ]
-         }
-         ```
-      1. Send the request by specifying the Federation ID in the parameters:
+        ```json
+        {
+          "nameIds": [
+            "alice@example.com",
+            "bob@example.com",
+            "charlie@example.com"
+          ]
+        }
+        ```
+     1. Send the request by specifying the Federation ID in the parameters:
 
-         ```bash
-         $ curl -X POST \
-           -H "Content-Type: application/json" \
-           -H "Authorization: Bearer <IAM token>" \
-           -d '@body.json' \
-           https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
-         ```
+        ```bash
+        $ curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer <IAM token>" \
+          -d '@body.json' \
+          https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
+        ```
 
    {% endlist %}
 
@@ -247,7 +257,7 @@ The `{{ permission-admin }}` permission includes everything included in the `{{ 
 | **Dashboard** |
 | View dashboards | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Editing dashboards | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Delete dashboards | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| Deleting dashboards | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | Edit permissions | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | Grant public access | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 

@@ -29,10 +29,14 @@
 
     1. [Создайте кластер-приемник {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md). Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
-    1. Настройте группы безопасности кластеров, чтобы к ним можно было подключаться из интернета:
+    
+    1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 
 * С помощью {{ TF }}
 
@@ -111,11 +115,7 @@
 
         1. Загрузите файл конфигурации для `clickhouse-client`:
 
-            ```bash
-            mkdir --parents ~/.clickhouse-client && \
-            wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
-                --output-document ~/.clickhouse-client/config.xml
-            ```
+            {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
         Убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string).
 
@@ -366,7 +366,7 @@
 
 {% endnote %}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.

@@ -25,7 +25,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
               }
           },
           "audio": {
-              "uri": "https://storage.yandexcloud.net/speechkit/speech.ogg"
+              "uri": "https://{{ s3-storage-host }}/speechkit/speech.ogg"
           }
       }
       ```
@@ -45,7 +45,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
           https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
       ```
 
-      Where the `IAM_TOKEN` is an [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
+      Where `IAM_TOKEN` is an [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
 
       Result:
 
@@ -108,7 +108,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
       # Specify your API key and link to the audio file in Object Storage.
       key = '<IAM token>'
-      filelink = 'https://storage.yandexcloud.net/speechkit/speech.ogg'
+      filelink = 'https://{{ s3-storage-host }}/speechkit/speech.ogg'
 
       POST = "https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize"
 

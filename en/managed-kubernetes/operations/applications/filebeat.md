@@ -20,13 +20,13 @@
    * **Application name**: Enter an application name such as `filebeat`.
    * **{{ ES }} username**: Enter the login Filebeat will use to connect to the {{ mes-name }} cluster.
    * **{{ ES }} connection password**: Enter the account password for the {{ mes-name }} cluster.
-   * **{{ ES }} FQDN**: Enter the {{ mes-name }} cluster URL and port, such as `https://c-c9q07rjo9c11q4e1p0om.rw.mdb.yandexcloud.net:9200`. For more information about connecting to a cluster, see the [service documentation](../../../managed-elasticsearch/operations/cluster-connect.md).
+   * **{{ ES }} FQDN**: Enter the {{ mes-name }} cluster URL and port, such as `https://c-c9q07rjo9c11q4e1p0om.rw.{{ dns-zone }}:9200`. For more information about connecting to a cluster, see the [service documentation](../../../managed-elasticsearch/operations/cluster-connect.md).
 1. Click **Install**.
 1. [Connect to the Kibana web interface](../../../managed-elasticsearch/quickstart.md#connect-kibana) and make sure that {{ k8s }} cluster events are coming in.
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Helm installation](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Filebeat, run the following command:
 
@@ -36,15 +36,15 @@
      --version 7.16.3-4 \
      --untar && \
    helm install \
-     --namespace filebeat \
+     --namespace <namespace> \
      --create-namespace \
      --set app.url='<{{ mes-name }} cluster URL and port>' \
      --set app.username='<{{ ES }} cluster username>' \
      --set app.password='<{{ ES }} cluster user password>' \
-     filebeat ./filebeat
+     filebeat ./filebeat/
    ```
 
-   This command will also create the `filebeat` namespace Filebeat requires to run.
+   This command also creates a new namespace required for Filebeat.
 1. Make sure the Filebeat pod has changed its status to `Running`:
 
    ```bash

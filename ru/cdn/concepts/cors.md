@@ -1,6 +1,6 @@
 # CORS в {{ cdn-name }}
 
-{{ cdn-full-name }} поддерживает кросс-доменные запросы по механизму [CORS](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing) (cross-origin resource sharing).
+{{ cdn-full-name }} поддерживает [кросс-доменные запросы](../../glossary/cors.md) по механизму CORS (cross-origin resource sharing).
 
 В настройках ресурса вы можете:
 

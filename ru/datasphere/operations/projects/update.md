@@ -11,14 +11,14 @@
    * [Каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию для хранения логов работы [нод](../../concepts/deploy/index.md#node).
    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого будут создаваться коннекторы S3 или кластеры Data Proc. Сервисный аккаунт должен иметь необходимые [роли](../../../iam/concepts/access-control/roles).
    * [Подсеть](../../../vpc/concepts/network#subnet), если она нужна для связи с другими сервисами {{ yandex-cloud }}. Вместе с подсетью обязательно укажите сервисный аккаунт с минимальной ролью `{{ roles-vpc-user }}`.
-     
+
      {% include [subnet-create](../../../_includes/subnet-create.md) %}
-     
+
    * [Группу безопасности](../../../vpc/concepts/security-groups.md), если они используются в вашей организации.
 
 1. Нажмите кнопку **Сохранить**.
 
-В настройках проекта вы также можете выбрать режим [сохранения состояния](../../concepts/save-state.md#auto-save) и включить [режим раннего доступа](../../concepts/early-access.md).
+В настройках проекта вы также можете выбрать режим [сохранения состояния](../../concepts/save-state.md#auto-save).
 
 #### См. также {#see-also}
 

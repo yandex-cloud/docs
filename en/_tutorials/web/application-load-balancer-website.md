@@ -64,7 +64,7 @@ To create security groups for the load balancer and an instance group:
          | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
          | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
          | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | CIDR | 198.18.235.0/24<br/>198.18.248.0/24 |
+         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
 
          1. Select the **Outgoing traffic** or **Incoming traffic** tab.
          1. Click **Add rule**.
@@ -73,6 +73,7 @@ To create security groups for the load balancer and an instance group:
          1. In the **Purpose** or **Source** field, select the purpose of the rule:
             * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
             * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
+            * **Load balancer health checks** is a rule that allows a load balancer to check the health of VMs.
          1. Click **Save**. Repeat the steps to create all rules from the table.
       1. Click **Save**.
 
@@ -103,7 +104,7 @@ To create an instance group with the minimum configuration:
    1. Open the **Instance groups** tab and click **Create group**.
    1. Under **Basic parameters**:
       * Name the instance group like `alb-vm-group`.
-      * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account.  All operations in {{ ig-name }} are performed on behalf of the service account.
+      * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
    1. Under **Allocation**, select three availability zones (`{{ region-id }}-a`, `{{ region-id }}-b` and `{{ region-id }}-c`) to ensure fault tolerance of your hosting.
    1. Under **Instance template**, click **Define** and set up the configuration for a basic instance:
       * Under **Basic parameters**, enter the template **Description**:
@@ -123,7 +124,7 @@ To create an instance group with the minimum configuration:
       * Under **Access**, specify the data required to access the VM:
          * In the **Service account** field, select the service account to link the VM to.
          * Enter the username in the **Login** field.
-         * In the **SSH key** field, paste the contents of the public key file.  
+         * In the **SSH key** field, paste the contents of the public key file.
             To establish an SSH connection, you need to create a key pair. For more information, see [Connecting to a Linux VM via SSH](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
       * Click **Save**.
 
@@ -145,7 +146,7 @@ It may take several minutes to create an instance group. Once all VMs change the
 
 ## Upload the website files {#upload-files}
 
-To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from the [archive](https://storage.yandexcloud.net/doc-files/index.html.zip).
+To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from the [archive](https://{{ s3-storage-host }}/doc-files/index.html.zip).
 
 Do the following for each VM instance in the [created group](#create-vms):
 

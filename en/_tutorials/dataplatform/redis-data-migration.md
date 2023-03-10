@@ -17,6 +17,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
    * Your {{ mmy-name }} cluster is not accessible from the internet.
    * Your hardware or connection to the cluster in {{ yandex-cloud }} is not very reliable.
+
 1. [Restore the dump on the target cluster](#restore-dump).
 1. [Make sure the dump is fully restored](#check-data).
 
@@ -32,7 +33,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. [Create a {{ mrd-name }} cluster](../../managed-redis/operations/cluster-create.md) with any suitable configuration. To connect to a cluster from a user's local machine rather than a {{ yandex-cloud }} cloud network, enable TLS support and public host access when creating your cluster.
 
-   1. (Optional) [Create an intermediate virtual machine running Linux](../../compute/operations/vm-create/create-linux-vm.md) in {{ compute-full-name }} on the same network as the {{ mrd-name }} cluster using the following configuration:
+   1. (Optional) [Create an intermediate Linux virtual machine](../../compute/operations/vm-create/create-linux-vm.md) in {{ compute-full-name }} on the same network as the {{ mrd-name }} cluster using the following configuration:
 
       * Under **Image/boot disk selection**, select **Operating systems** → `Ubuntu 20.04`.
       * Under **Network settings**:
@@ -60,13 +61,14 @@ If you no longer need these resources, [delete them](#clear-out).
          * {{ mrd-name }} cluster with public internet access.
          * (Optional) Virtual machine with public internet access.
 
+
       1. Specify the following in the configuration file:
 
          * Password to access the {{ mrd-name }} cluster.
          * (Optional) Virtual machine parameters:
 
             * Public virtual machine [image](../../compute/operations/images-with-pre-installed-software/get-list) ID. For example, for [Ubuntu 20.04 LTS](https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts).
-            * Login and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to use for access to the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
+            * Login and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
       1. Run the `terraform init` command in the directory with the configuration files. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using the command:

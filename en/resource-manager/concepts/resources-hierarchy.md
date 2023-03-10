@@ -1,6 +1,6 @@
 ---
 title: "{{ yandex-cloud }} resource hierarchy"
-description: "All {{ yandex-cloud }} resources, such as VMs, disks, or networks, are placed in folders. Each folder belongs to a single cloud, which in turn belongs to an organization."
+description: "All {{ yandex-cloud }} resources, such as VMs, disks, or networks, are placed in folders. Each folder belongs to a single cloud, while clouds belong to organizations."
 ---
 
 # {{ yandex-cloud }} resource hierarchy
@@ -31,7 +31,7 @@ Within your organization, you can configure resource access rights at the follow
 A new user (organization member) is not granted access to resources within organization clouds by default. The access rights must be granted to them explicitly by assigning the respective role for a resource or a folder, the resource's cloud or organization.
 
 
-## Resources {{ resmgr-full-name }} {#rm-resources}
+## {{ resmgr-full-name }} resources {#rm-resources}
 
 
 ### Cloud {#cloud}
@@ -85,7 +85,7 @@ Resource access rights are inherited:
 
 > For example, for an organization named `myorganization` with the following hierarchy:
 >
-> * `mycloud` cloud:
+> * `Mycloud` cloud:
 >    * `Robots` folder:
 >       * `Alice` service account.
 >       * `Bob` service account.

@@ -102,43 +102,80 @@
   ```python
   #pragma dataset init <имя_датасета> --size 1Gb
 
-  from cloud_ml.storage.api import Storage
-  s3 = Storage.s3(access_key=<ключ_доступа>, secret_key=<секретный_ключ>])
-  s3.get('bucket/<путь_к_хранилищу>/file.txt', '/home/jupyter/mnt/datasets/<имя_датасета>/<путь>/file.txt')
+  import os
+  import boto3
+
+  S3_CREDS = {
+      "aws_access_key_id": os.environ['<секрет_с_ID_ключа_доступа>'],
+      "aws_secret_access_key": os.environ['<секрет_с_секретным_ключом>']
+  }
+  bucket_name = "<имя_бакета>"
+
+  source_path = ''
+  target_path = '/home/jupyter/mnt/datasets/<имя_датасета>/'
+
+  s3r = boto3.resource(service_name='s3', endpoint_url='https://storage.yandexcloud.net', **S3_CREDS)
+  bucket = s3r.Bucket(bucket_name)
+
+  for obj in bucket.objects.filter(Prefix=source_path):
+      if not os.path.relpath(obj.key, source_path).startswith('../'):
+          os.makedirs(os.path.join(target_path, os.path.dirname(obj.key)), exist_ok=True)
+          if obj.key[-1] != '/':
+              bucket.download_file(obj.key, os.path.join(target_path, obj.key))
   ```
 
   Где:
-  * `access_key` — идентификатор [статического ключа доступа](../../../iam/concepts/authorization/access-key.md), [сгенерированный](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта проекта;
-  * `secret_key` — секретный ключ, сгенерированный для того же сервисного аккаунта.
 
-  {% include [use secrets](../../../_includes/datasphere/use-secrets.md) %}
-  
+  * `aws_access_key_id` — идентификатор [статического ключа доступа](../../../iam/concepts/authorization/access-key.md), [сгенерированный](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта проекта.
+  * `aws_secret_access_key` — секретный ключ, сгенерированный для того же сервисного аккаунта.
+
 - Яндекс Диск
 
-  Для подключения к Яндекс Диску вам понадобится идентификатор приложения (`ClientID`) и секретный ключ (`Client secret`). Чтобы их получить:
+  Инициализируйте датасет в ячейке с кодом:
 
-  {% include [oauth-token](../../../_includes/datasphere/token-for-ya-disk.md) %}
+  ```python
+  #pragma dataset init <имя_датасета> --size 8Gb
 
-  1. [В интерфейсе {{ ml-platform-name }}]({{ link-datasphere-main }}) [создайте секреты](secrets.md#create), содержащие сгенерированные значения идентификатора приложения и секретного ключа.
+  import requests
+  from urllib.parse import urlencode
+  from io import BytesIO
+  from zipfile import ZipFile
+
+  base_url = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?'
+  public_key = '<URL_папки_на_Яндекс_Диске>'
+
+  final_url = base_url + urlencode(dict(public_key=public_key))
+  response = requests.get(final_url)
+  download_url = response.json()['href']
+  response = requests.get(download_url)
+
+  dist_path = '/home/jupyter/mnt/datasets/<имя_датасета>/'
+  zipfile = ZipFile(BytesIO(response.content))
+  zipfile.extractall(path=dist_path)
+  ```
+
+- Google Drive
+
+  1. Установите пакет [gdown](https://pypi.org/project/gdown/):
+
+     ```python
+     %pip install gdown
+     ```
+
   1. Инициализируйте датасет в ячейке с кодом:
 
      ```python
      #pragma dataset init <имя_датасета> --size 1Gb
 
-     from cloud_ml.storage.api import Storage
+     import gdown
 
-     disk = Storage.ya_disk(application_id=os.environ[<секрет_с_ClientID>], application_secret=[<секрет_с_Client secret>])
+     gdrive_folder_id = '<ID_папки_Google_Drive>'
+     dst_path = '/home/jupyter/mnt/datasets/<имя_датасета>/'
 
-     # downloading contents of the remote file into the local one
-     disk.get('<путь_в_Яндекс_Диске>/file.txt', '/home/jupyter/mnt/datasets/<имя_датасета>/<путь>/file.txt')
+     gdown.download_folder(id=gdrive_folder_id, output=dst_path, use_cookies=False)
      ```
 
-    {% note info %}
-
-    При первом подключении {{ ml-platform-name }} к Яндекс Диску потребуется перейти на страницу авторизации Яндекс ID и скопировать код подтверждения в поле **Enter the confirmation code** ноутбука.
-
-    {% endnote %}
-
+     Где `gdrive_folder_id` — идентификатор папки Google Drive, который содержится в адресе после `https://drive.google.com/drive/folders/`. Например, в URL `https://drive.google.com/drive/folders/exampleId` идентификатор папки — `exampleId`.
 
 {% endlist %}
 
@@ -149,8 +186,8 @@
 Чтобы активировать датасет:
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **Ресурсы проекта** нажмите ![dataset](../../../_assets/datasphere/dataset.svg)**Датасет**.
-1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/options.svg) и выберите **Применить**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/datasphere/dataset.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset}}**.
+1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.activate}}**.
 
 ## Посмотреть список датасетов, доступных в проекте {#list}
 
@@ -158,7 +195,7 @@
 
 - Интерфейс {{ ml-platform-name }}
 
-  Откройте страницу проекта в блоке **Ресурсы проекта** → ![dataset](../../../_assets/datasphere/dataset.svg) **Датасет** и перейдите на вкладку **Доступные**.
+  На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset}}**. Затем перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
 
 - Код в ноутбуке
 
@@ -177,9 +214,9 @@
 Подробнее о ролях, действующих в {{ ml-platform-name }}, см. в разделе [{#T}](../../security/index.md).
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **Ресурсы проекта** нажмите ![dataset](../../../_assets/datasphere/dataset.svg)**Датасет**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. Выберите нужный датасет в списке.
-1. Перейдите на вкладку **Доступ**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
 1. Включите опцию видимости напротив названия сообщества, с которым нужно поделиться датасетом.
 
 ## Удалить датасет {#delete}
@@ -196,13 +233,13 @@
 
 - Интерфейс {{ ml-platform-name }}
 
-  1. На странице проекта в блоке **Ресурсы проекта** нажмите ![dataset](../../../_assets/datasphere/dataset.svg)**Датасет**.
-  1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/options.svg) и выберите **Удалить**.
-  
+  1. На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+  1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+
 - Код в ноутбуке
 
   Чтобы удалить датасет `<имя_датасета>`, выполните ячейку с кодом:
-  
+
   ```bash
   #pragma dataset delete <имя_датасета>
   ```

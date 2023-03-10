@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on deleting authorized keys in {{ iam-full-name }}"
-description: "In this tutorial, you will learn how to delete authorized keys in {{ iam-full-name }}."
+title: "How to delete authorized keys in {{ iam-full-name }}"
+description: "In this tutorial, you'll learn how to delete authorized keys in {{ iam-full-name }} via the management console, CLI, and API."
 ---
 
 # Deleting authorized keys

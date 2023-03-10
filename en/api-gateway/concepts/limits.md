@@ -9,4 +9,6 @@ description: "{{ api-gw-name }} has limits and quotas for the number of API gate
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [functions-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}

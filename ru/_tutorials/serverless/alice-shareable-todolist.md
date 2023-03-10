@@ -16,11 +16,11 @@
 
 ## Подготовьте окружение {#prepare}
 
-1. [Скачайте архив](https://storage.yandexcloud.net/doc-files/alice-shareable-todolist.zip) с файлами проекта или клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) с помощью Git.
+1. [Скачайте архив](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) с файлами проекта или клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) с помощью Git.
 1. [Создайте каталог](../../resource-manager/operations/folder/create.md), если его еще нет. Для удобства можно использовать отдельный каталог с именем `alice-skill`.
 1. Установите и инициализируйте следующие программы:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
-   * [{{ ydb-short-name }} CLI](https://ydb.tech/ru/docs/getting_started/cli).
+   * [{{ ydb-short-name }} CLI](https://ydb.tech/ru/docs/reference/ydb-cli/install).
    * [Командный интерпретатор Bash](http://www.gnu.org/software/bash/).
    * [AWS CLI](../../storage/tools/aws-cli.md).
    * [jq](https://stedolan.github.io/jq/download/).

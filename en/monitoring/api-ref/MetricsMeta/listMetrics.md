@@ -2,14 +2,14 @@
 editable: false
 ---
 
-# Method listMetrics
+# listMetrics method
 Returns a list of metrics.
 
 
 
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics
+GET https://monitoring.{{ api-host }}/monitoring/v2/metrics
 ```
 
 ## Query parameters {#query_params}

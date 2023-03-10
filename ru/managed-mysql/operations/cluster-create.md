@@ -48,7 +48,11 @@
           {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
   
-  1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configure-security-groups) для того, чтобы можно было подключаться к кластеру.
+  1. В блоке **Сетевые настройки** выберите:
+      * Облачную сеть для размещения кластера.
+      * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+
+          {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером. Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
@@ -73,25 +77,25 @@
 
   Чтобы создать кластер:
 
+  
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
-     ```
+     ```bash
      yc vpc subnet list
      ```
 
-     
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
 
 
   1. Посмотрите описание команды CLI для создания кластера:
 
-     ```
+     ```bash
      {{ yc-mdb-my }} cluster create --help
      ```
 
   1. Укажите параметры кластера в команде создания:
-  
+
      
      
      ```bash
@@ -106,14 +110,30 @@
        --database name=<имя базы данных> \
        --disk-size <размер хранилища в гигабайтах> \
        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-       --security-group-ids <список идентификаторов групп безопасности> \
-       --deletion-protection=<защита от удаления кластера: true или false> \
-       --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false>
+       --security-group-ids <список идентификаторов групп безопасности>
      ```
 
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-  
-  
+
+
+
+
+     При необходимости задайте дополнительные настройки кластера:
+
+     
+     ```bash
+     {{ yc-mdb-my }} cluster create \
+       ...
+       --backup-window-start <время начала резервного копирования> \
+       --backup-retain-period-days=<срок хранения автоматических резервных копий, дней> \
+       --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false> \
+       --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                           `day=<день недели для типа weekly>,`
+                           `hour=<час дня для типа weekly> \
+       --websql-access=<запросы из консоли управления: true или false> \
+       --deletion-protection=<защита от удаления кластера: true или false>
+     ```
+
 
 
      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -123,7 +143,7 @@
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
-  
+
   
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -212,11 +232,34 @@
 
      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
+     * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
-     
-     1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+     * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
+     * Чтобы задать время начала резервного копирования, добавьте к описанию кластера {{ mmy-name }} блок `backup_window_start`:
+
+        ```hcl
+        resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+          ...
+          backup_window_start {
+            hours   = <час начала резервного копирования>
+            minutes = <минута начала резервного копирования>
+          }
+          ...
+        }
+        ```
+
+     * Чтобы задать срок хранения резервных копий, укажите в описании кластера параметр `backup_retain_period_days`:
+
+        ```hcl
+          resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+            ...
+            backup_retain_period_days = <срок хранения автоматических резервных копий (в днях)>
+            ...
+          }
+        ```
+
+        Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmy }}).
 
@@ -242,13 +285,13 @@
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
     * Идентификатор сети в параметре `networkId`.
-        * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+    * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+
+    При необходимости передайте время начала резервного копирования в параметре `configSpec.backupWindowStart` и срок хранения автоматических резервных копий (в днях) в параметре `configSpec.backupRetainPeriodDays`. Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
 
     {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
-    
     {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
-
 
 {% endlist %}
 

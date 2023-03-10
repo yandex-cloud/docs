@@ -172,7 +172,7 @@ Select automatic update mode for the cluster and set the update schedule:
        }
        ```
 
-  1. Make sure that the configuration files are correct.
+  1. Make sure that the configuration files are valid.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -274,7 +274,7 @@ If necessary, update the {{ k8s }} cluster version manually. Only the next minor
      }
      ```
 
-  1. Make sure that the configuration files are correct.
+  1. Make sure that the configuration files are valid.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -369,7 +369,6 @@ Select automatic update mode for the node group and set the desired update sched
     {% note info %}
 
     The `--daily-maintenance-window` and `--weekly-maintenance-window` arguments require the `--auto-upgrade` argument with the `true` value.
-
     The update schedule will not be created if you set `--auto-upgrade=false`.
 
     {% endnote %}
@@ -459,9 +458,9 @@ Select automatic update mode for the node group and set the desired update sched
        }
        ```
 
-  1. Make sure that the configuration files are correct.
+  1. Make sure that the configuration files are valid.
 
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
   1. Confirm the update of resources.
 
@@ -579,7 +578,7 @@ Update the cluster version before updating the node group.
      }
      ```
 
-  1. Make sure that the configuration files are correct.
+  1. Make sure that the configuration files are valid.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

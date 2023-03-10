@@ -2,7 +2,7 @@
 
 Packer enables you to create [virtual machine disk images](../../compute/concepts/image.md) with parameters specified in a configuration file. Below, we describe how to create a disk image using Packer.
 
-In this scenario, Packer will create and launch a virtual machine with [Debian 9](/marketplace/products/yc/debian-9) from {{ marketplace-name }} and nginx web server. Then, it will delete the VM and create an image of its boot disk. After that, the disk will also be deleted.
+In this scenario, Packer will create and launch a virtual machine with [Debian 11](/marketplace/products/yc/debian-11) from {{ marketplace-name }} and nginx web server. Then, it will delete the VM and create an image of its boot disk. After that, the disk will also be deleted.
 
 To create an image:
 
@@ -19,7 +19,7 @@ If you no longer need a created image, [delete it](#clear-out).
 
 * Install the {{ yandex-cloud }} [command-line interface](../../cli/quickstart.md#install).
 * [Create](../../vpc/quickstart.md) a cloud network with a single subnet in your folder.
-   * [Get](../../iam/concepts/authorization/oauth-token.md) an OAuth token.
+* [Get](../../iam/concepts/authorization/oauth-token.md) an OAuth token. 
 
 
 ### Required paid resources {#paid-resources}

@@ -4,39 +4,34 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
-## 01.09.2022 {#01.09.2022}
+## IV квартал 2022 {#q4-2022}
+
+* Состояние хоста на странице **Хосты** в консоли управления теперь меняется на `READ-ONLY`, если хост недоступен для записи. {{ tag-con }}
+* Добавлена возможность [переместить кластер](operations/update.md#move-cluster) в другой каталог с помощью {{ TF }}.
+* Добавлены новые настройки СУБД:
+
+  * `Backup retain period days`;
+  * [Lock wait timeout](./concepts/settings-list.md#setting-lock-wait-timeout);
+  * [Max prepared stmt count](./concepts/settings-list.md#setting-max-prepared-stmt-count);
+  * [Optimizer search depth](./concepts/settings-list.md#setting-optimizer-search-depth);
+  * [Optimizer switch](./concepts/settings-list.md#setting-optimizer-switch).
+
+## III квартал 2022 {#q3-2022}
 
 * Добавлены графики `Free space` на вкладке [мониторинга кластера](operations/monitoring.md#monitoring-cluster) и `Inode usage` на странице [мониторинга хостов](operations/monitoring.md#monitoring-hosts). {{ tag-con }}
+* Добавлена настройка [Binlog transaction dependency tracking](concepts/settings-list.md#setting-binlog-transaction-dependency-tracking).
 
-## 01.08.2022 {#01.08.2022}
-
-* Добавлена настройка `binlog_transaction_dependency_tracking`.
-
-## 01.07.2022 {#01.07.2022}
+## II квартал 2022 {#q2-2022}
 
 * В конфигурационных файлах {{ TF }} упразднены секции `database` и `user`, добавлены новые ресурсы `yandex_mdb_mysql_database` и `yandex_mdb_mysql_user`. {{ tag-tf }}
-
-## 01.06.2022 {#01.06.2022}
-
-* Добавлена настройка `innodb_compression_level`.
+* Добавлена настройка [Innodb compression level](concepts/settings-list.md#setting-innodb-compression-level).
 * Ускорен процесс восстановления реплики из резервной копии за счет использования инструмента WAL-G с последующей синхронизацией данных с мастера.
-
-## 01.05.2022 {#01.05.2022}
-
 * Исправлено отображение длинных запросов на вкладке **Диагностика производительности**. {{ tag-con }}
 
-## 20.04.2022 {#20.04.2022}
+## I квартал 2022 {#q1-2022}
 
-* Добавлена возможность изменения настройки `max_sp_recursion_depth`, которая отвечает за максимальное число рекурсивных вызовов хранимой процедуры. Значение по умолчанию — `0`, что означает полный запрет на рекурсивные вызовы. Максимальное значение — `255`. {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
+* Добавлена возможность изменения настроек [Innodb strict mode](concepts/settings-list.md#setting-strict-mode), [Max digest length](concepts/settings-list.md#setting-max-digest-length) и [Max sp recursion depth](concepts/settings-list.md#setting-max-sp-recursion-depth).  {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 * Добавлена секция диагностики производительности кластера {{ MY }} в {{ TF }}. {{ tag-tf }}
-
-## 13.04.2022 {#13.04.2022}
-
 * Добавлено управление настройками сервиса диагностики производительности. {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
-* Доработан механизм переключения мастера: теперь переключение невозможно на значительно отставшую реплику или в случае отсутствия кворума. Максимальное отставание реплики задается настройкой `mdb_priority_choice_max_lag`.
-
-## 01.04.2022 {#01.04.2022}
-
-* Добавлена возможность изменения настройки `innodb_strict_mode`. 
-* Добавлена возможность изменения настройки `max_digest_length`. Настройка применяется с рестартом кластера.
+* Доработан механизм переключения мастера: теперь переключение невозможно на значительно отставшую реплику или в случае отсутствия кворума. Максимальное отставание реплики задается настройкой [Mdb priority choice max lag](concepts/settings-list.md#setting-mdb-priority-choice-max-lag).
 * Добавлена возможность задавать приоритет выбора мастер-хоста в случае смены мастера. {{ tag-con }} {{ tag-cli }}

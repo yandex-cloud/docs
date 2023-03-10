@@ -1,6 +1,6 @@
 ---
 title: "Methods of running {{ ydb-full-name }} over HTTP API"
-description: "{{ ydb-full-name }} HTTP API provides the following methods: Working with tables (CreateTable, DeleteTable, DescribeTable, ListTables). Working with items (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
+description: "The {{ ydb-full-name }} HTTP API provides the following methods. Working with tables (CreateTable, DeleteTable, DescribeTable, ListTables). Working with items (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
 sourcePath: overlay/docapi/api-ref/index.md
 ---
 

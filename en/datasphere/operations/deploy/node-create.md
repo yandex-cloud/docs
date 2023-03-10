@@ -29,7 +29,7 @@ If your project uses packages and libraries that are not included in the [list o
    1. In the window that appears, enter the checkpoint name and click **Pin**.
 1. Create a node:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-   1. In the upper-right corner, click **Create resource**. In the window that appears, select **Node**.
+   1. In the upper-right corner, click **Create resource**. In the window that opens, select **Node**.
    1. Specify the basic node parameters:
       * **Type**: Resource that a node is based on (**Cell** or **Docker image**).
       * **Name**: Node name.
@@ -48,7 +48,7 @@ If your project uses packages and libraries that are not included in the [list o
 
       - Docker image
 
-         * Under **Docker image**, specify the path to an image inside your project. Click **Show additional parameters** and set the following:
+         * Under **Docker image**, specify the path to the image in {{container-registry-name}}. Click **Show additional parameters** and set the following:
             * **Username**: `json_key`.
             * **Password secret**: [Secret](../../concepts/secrets.md) with a password for your container registry. See [{#T}](node-customization.md).
          * Under **Endpoint**:
@@ -72,8 +72,8 @@ If your project uses packages and libraries that are not included in the [list o
       {% endlist %}
 
    1. Under **Folder**, select the folder to create new resources in.
-   1. Under **Maintenance**, select the instance [configuration](../../concepts/configurations.md), the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
-   1. Under **ACL**, click ![Add](../../../_assets/plus.svg) **Add ACL** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
+   1. Under **Maintenance**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
+   1. Under **Access control list (ACL)**, click ![Add](../../../_assets/plus.svg) **Add ACL** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
    1. Click **Create**.
 
 To view all created nodes:
@@ -82,11 +82,11 @@ To view all created nodes:
 
 ## Examples {#examples}
 
-### Deploying a random number generator node {#randomizer}
+### Deploying a random number generator node from a cell {#randomizer}
 
 Let's look at an example of creating an API endpoint that takes a number range as its input and returns a random integer.
 
-1. [Create a project](../../quickstart.md#create-project) in **{{ ml-platform-name }}** and open it.
+1. [Create a project](../projects/create.md) in **{{ ml-platform-name }}** and open it.
 1. Create a notebook by selecting **File** → **New** → **Notebook** from the menu.
 1. Declare the input parameters and do not override them in the service code. To do this, create a cell with the following code:
 
@@ -128,7 +128,7 @@ Let's look at an example of creating an API endpoint that takes a number range a
    1. In the window that appears, enter a name for the checkpoint, such as `randomizer-checkpoint`, and click **Pin**.
 1. Create a node:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-   1. In the upper-right corner, click **Create resource**. In the window that appears, select **Node**.
+   1. In the upper-right corner, click **Create resource**. In the window that opens, select **Node**.
    1. Specify the node parameters:
       * **Type**: **Cell**.
       * **Name**: Node name like `randomizer-node`.
@@ -148,7 +148,7 @@ Let's look at an example of creating an API endpoint that takes a number range a
 1. Get the node ID:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
    1. Under **Resources**, select **Node**.
-   1. Select the created node and copy its ID (it is in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx`).
+   1. Select the created node and copy its ID (it is in the format `xxxxxxxxxxxxxxxxxxxx`).
 1. [Get an IAM token](../../../iam/operations/iam-token/create.md) used for authentication in the API.
 1. Install the [cURL](https://curl.se/) utility for sending REST API requests.
 1. Start a terminal and select a POST request to the API of the service you created. Such as:
@@ -188,10 +188,11 @@ Let's look at an example of creating an API endpoint that takes a number range a
    For details, see [{#T}](node-api.md).
 1. Edit the `left_bound` and the `right_bound` request parameters. Send several API requests and make sure that random numbers from the specified range are returned.
 
-#### What's next {#what-is-next}
+#### See also {#see-also}
 
 * [{#T}](node-customization.md)
 * [{#T}](node-api.md)
 * [{#T}](node-update.md)
 * [{#T}](node-delete.md)
 * [{#T}](alias-create.md)
+* [{#T}](../../tutorials/node-from-docker.md)

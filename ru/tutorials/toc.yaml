@@ -10,26 +10,28 @@ items:
       - name: Сайт на LAMP- или LEMP-стеке
         href: web/lamp-lemp.md
       - name: >-
-          Отказоустойчивый сайт с балансировкой нагрузки через {{
+          Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
           network-load-balancer-name }}
         href: web/load-balancer-website.md
-      - name: Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-name }}
+      - name: >-
+          Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-name
+          }}
         href: web/application-load-balancer-website.md
       - name: Сайт на базе Joomla с БД {{ PG }}
         href: web/joomla-postgresql.md
-      - name: Сайт на WordPress
+      - name: Создание сайта на WordPress
         href: web/wordpress.md
       - name: Сайт на WordPress с БД {{ MY }}
         href: web/wordpress-mysql.md
       - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
         href: web/wordpress-transfer.md
-      - name: Веб-сайт на базе 1С-Битрикс
+      - name: Сайт на базе 1С-Битрикс
         href: web/bitrix-website.md
       - name: Организация виртуального хостинга
         href: web/virtual-hosting.md
       - name: Создание балансировщика с защитой от DDoS
         href: web/alb-with-ddos-protection.md
-      - name: Публикация обновлений для игр
+      - name: Публикация обновлений для игр с помощью {{ cdn-name }}
         href: web/prefetch.md
       - name: Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}
         href: web/cdn-storage-integration.md
@@ -43,7 +45,7 @@ items:
         href: internet-store/index.md
       - name: Интернет-магазин на 1С-Битрикс
         href: internet-store/bitrix-shop.md
-      - name: Интернет-магазин на Opencart
+      - name: Интернет-магазин на OpenCart
         href: internet-store/opencart.md
   - name: Архив данных
     items:
@@ -67,17 +69,17 @@ items:
           Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup
           Exec
         href: archive/object-storage-veritas.md
-      - name: Распознавание архива изображений в {{ vision-full-name }}
+      - name: Распознавание архива изображений в {{ vision-name }}
         href: archive/archive-from-vision-to-object-storage.md
   - name: Тестовая среда
     items:
       - name: Все руководства
         href: testing/index.md
-      - name: Тестирование приложений с помощью GitLab
+      - name: Тестирование приложений с помощью {{ GL }}
         href: testing/gitlab.md
-      - name: Создание тестовых ВМ через GitLab CI
+      - name: Создание тестовых ВМ через {{ GL }} CI
         href: testing/ci-for-snapshots.md
-      - name: Высокопроизводительные вычисления на прерываемых виртуальных машинах
+      - name: Высокопроизводительные вычисления на прерываемых ВМ
         href: testing/hpc-on-preemptible.md
       - name: Эмуляция множества IoT-устройств
         href: testing/iot-emulation.md
@@ -93,13 +95,15 @@ items:
         href: testing/loadtesting-https-pandora.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: testing/loadtesting-multiply.md
+      - name: Миграция результатов нагрузочного тестирования из OverLoad
+        href: testing/loadtesting-overload-migration.md
   - name: Управление инфраструктурой
     items:
       - name: Все руководства
         href: infrastructure-management/index.md
-      - name: Начало работы с Terraform
+      - name: Начало работы с {{ TF }}
         href: infrastructure-management/terraform-quickstart.md
-      - name: Загрузка состояний Terraform в {{ objstorage-name }}
+      - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
         href: infrastructure-management/terraform-state-storage.md
       - name: Начало работы с Packer
         href: infrastructure-management/packer-quickstart.md
@@ -107,11 +111,11 @@ items:
           Сборка образа ВМ с набором инфраструктурных инструментов с помощью
           Packer
         href: infrastructure-management/packer-custom-image.md
-      - name: Автоматизация сборки образов ВМ с помощью Jenkins
+      - name: Автоматизация сборки образов с помощью Jenkins и Packer
         href: infrastructure-management/jenkins.md
       - name: >-
-          Непрерывное развертывание контейнеризованных приложений с помощью
-          GitLab
+          Непрерывное развертывание контейнеризованных приложений с помощью {{
+          GL }}
         href: infrastructure-management/gitlab-containers.md
       - name: >-
           Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
@@ -121,17 +125,19 @@ items:
         href: infrastructure-management/hystax-migration.md
       - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
-      - name: Настройка синхронизации времени NTP
+      - name: Настройка синхронизации часов с помощью NTP
         href: infrastructure-management/ntp.md
-      - name: Работа с группой ВМ с автоматическим масштабированием
+      - name: Работа с группой ВМ с автомасштабированием
         href: infrastructure-management/vm-autoscale.md
-      - name: Автомасштабирование группы ВМ по расписанию
+      - name: Масштабирование группы ВМ по расписанию
         href: infrastructure-management/vm-scale-scheduled.md
-      - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
+      - name: >-
+          Автомасштабирование группы ВМ для обработки сообщений из очереди {{
+          message-queue-name }}
         href: infrastructure-management/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
         href: infrastructure-management/updating-under-load.md
-      - name: Передача логов с ВМ в Yandex Cloud Logging
+      - name: Передача логов с ВМ в {{ cloud-logging-name }}
         href: infrastructure-management/vm-fluent-bit-logging.md
       - name: Резервное копирование ВМ с помощью Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
@@ -141,9 +147,9 @@ items:
         href: infrastructure-management/sap.md
       - name: Настройка локального кеширующего DNS-резолвера
         href: infrastructure-management/local-dns-cache.md
-      - name: "Миграция DNS-зон из Яндекс\_360"
+      - name: Миграция DNS-зон из Яндекс 360 в {{ dns-name }}
         href: infrastructure-management/connect-migration.md
-      - name: Интеграция с корпоративным сервисом DNS
+      - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
         href: infrastructure-management/dns-integration.md
       - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
         href: infrastructure-management/cert-manager-webhook.md
@@ -157,147 +163,156 @@ items:
     items:
       - name: Все руководства
         href: dataplatform/index.md
-      - name: >-
-          Миграция базы данных из стороннего кластера {{ KF }} в {{
-          mkf-full-name }}
+      - name: Миграция БД из стороннего кластера {{ KF }} в {{ mkf-name }}
         href: dataplatform/kafka-connector.md
       - name: >-
-          Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-mmy.md
       - name: >-
-          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-mpg.md
       - name: >-
-          Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mch.md
       - name: >-
-          Перенос данных между кластерами {{ mkf-full-name }} с помощью {{
-          data-transfer-full-name }}
+          Перенос данных между кластерами {{ mkf-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Поставка данных из {{ mkf-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/mkf-ydb-stream.md
-      - name: >-
-          Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью
-          Debezium
+      - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
         href: dataplatform/debezium-mmy.md
-      - name: >-
-          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью
-          Debezium
+      - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью Debezium
         href: dataplatform/debezium-mpg.md
-      - name: Настройка Kafka Connect для работы с кластером {{ mkf-full-name }}
+      - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
         href: dataplatform/kafka-connect.md
-      - name: Управление схемами данных в {{ mkf-full-name }}
+      - name: Управление схемами данных в {{ mkf-name }}
         href: dataplatform/schema-registry-overview.md
-      - name: Использование {{ mkf-msr }} с {{ mkf-full-name }}
+      - name: Использование {{ mkf-msr }} с {{ mkf-name }}
         href: dataplatform/managed-schema-registry.md
-      - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
+      - name: Использование Confluent Schema Registry с {{ mkf-name }}
         href: dataplatform/confluent-schema-registry.md
       - name: >-
-          Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{
-          data-transfer-full-name }}
+          Поставка данных из {{ mmy-full-name }} в {{ mch-full-name }} с помощью
+          {{ data-transfer-name }}
         href: dataplatform/mysql-to-clickhouse.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
-      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+      - name: Обмен данными между {{ mch-name }} и {{ dataproc-name }}
         href: dataplatform/dp-mch-data-exchange.md
-      - name: Настройка {{ mch-full-name }} для Graphite
+      - name: Настройка {{ mch-name }} для Graphite
         href: dataplatform/clickhouse-for-graphite.md
-      - name: Получение данных из {{ mkf-full-name }} в {{ mch-full-name }}
+      - name: Получение данных из {{ mkf-name }} в {{ mch-name }}
         href: dataplatform/fetch-data-from-mkf.md
-      - name: Получение данных из {{ RMQ }} в {{ mch-full-name }}
+      - name: >-
+          Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/data-transfer-mkf-mch.md
+      - name: Получение данных из {{ RMQ }} в {{ mch-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
-      - name: Сохранение потока данных {{ yds-full-name }} в {{ mch-full-name }}
+      - name: Сохранение потока данных {{ yds-name }} в {{ mch-name }}
         href: dataplatform/yds-to-clickhouse.md
-      - name: Использование гибридного хранилища в {{ mch-full-name }}
+      - name: >-
+          Асинхронная репликация данных из {{ metrika }} в {{ CH }} с помощью {{
+          data-transfer-full-name }}
+        stage: preview
+        href: dataplatform/metrika-to-clickhouse.md
+      - name: Использование гибридного хранилища в {{ mch-name }}
         href: dataplatform/clickhouse-hybrid-storage.md
-      - name: Шардирование таблиц {{ mch-full-name }}
+      - name: Шардирование таблиц {{ mch-name }}
         href: dataplatform/clickhouse-sharding.md
       - name: >-
-          Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз
+          Настройка {{ dns-name }} для доступа к кластерам управляемых баз
           данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
       - name: >-
-          Настройка {{ dns-full-name }} для доступа к кластеру {{ mch-full-name
-          }} из других облачных сетей
+          Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
+          других облачных сетей
         href: dataplatform/clickhouse-dns-peering.md
-      - name: >-
-          Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с
-          помощью Sqoop
+      - name: Обмен данными между {{ mch-name }} и {{ dataproc-name }}
+        href: dataplatform/dp-mch-data-exchange.md
+      - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mmy.md
-      - name: >-
-          Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с
-          помощью Sqoop
+      - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mpg.md
       - name: >-
           Использование скриптов инициализации для настройки GeeseFS в {{
-          dataproc-full-name }}
+          dataproc-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
       - name: >-
-          Миграция данных из стороннего кластера {{ ES }} в {{ mes-full-name }}
-          с помощью Reindex API
+          Миграция данных из стороннего кластера {{ ES }} в {{ mes-name }} с
+          помощью Reindex API
         href: dataplatform/migration-via-reindex-api.md
-      - name: >-
-          Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-full-name
-          }}
+      - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
-      - name: Миграция данных в {{ mmg-full-name }}
+      - name: Миграция данных в {{ mmg-name }}
         href: dataplatform/mongodb-data-migration.md
       - name: Шардирование коллекций {{ MG }}
         href: dataplatform/mongodb-sharding.md
       - name: Анализ производительности и оптимизация {{ MG }}
         href: dataplatform/mongodb-profiling.md
-      - name: >-
-          Миграция базы данных из стороннего кластера {{ MY }} в кластер {{
-          mmy-full-name }}
+      - name: Миграция БД из стороннего кластера {{ MY }} в кластер {{ mmy-name }}
         href: dataplatform/mysql-data-migration.md
       - name: Анализ производительности и оптимизация {{ mmy-name }}
         href: dataplatform/profiling-mmy.md
       - name: >-
-          Синхронизация данных из стороннего кластера {{ MY }} в {{
-          mmy-full-name }} с помощью {{ data-transfer-full-name }}
+          Синхронизация данных из стороннего кластера {{ MY }} в {{ mmy-name }}
+          с помощью {{ data-transfer-name }}
         href: dataplatform/sync-mysql.md
-      - name: >-
-          Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY
-          }}
+      - name: Миграция БД из {{ mmy-name }} в сторонний кластер {{ MY }}
         href: dataplatform/mmy-to-mysql-migration.md
       - name: >-
-          Миграция базы данных из {{ mmy-full-name }} в {{ ydb-full-name }} с
-          помощью {{ data-transfer-full-name }}
-        href: dataplatform/mmy-ydb-migration.md
-      - name: >-
-          Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
-          }} с помощью {{ data-transfer-full-name }}
+          Миграция БД из {{ mmy-name }} в {{ objstorage-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/mmy-objs-migration.md
-      - name: Создание кластера {{ PG }} для 1С
+      - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
+        href: dataplatform/sqoop-mmy.md
+      - name: >-
+          Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/./data-transfer-mmy.md
+      - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
+        href: dataplatform/./debezium-mmy.md
+      - name: >-
+          Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/mmy-ydb-migration.md
+      - name: Миграция данных из {{ ES }} в {{ mos-name }}
+        href: dataplatform/elasticsearch-to-opensearch.md
+      - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}
         href: dataplatform/mpg-profiling.md
-      - name: >-
-          Миграция базы данных из стороннего кластера {{ PG }} в кластер {{
-          mpg-full-name }}
-        href: dataplatform/postgresql-data-migration.md
-      - name: Миграция базы данных из {{ mpg-name }}
+      - name: Миграция БД из {{ mpg-name }}
         href: dataplatform/outbound-replication.md
+      - name: Миграция БД из стороннего кластера {{ PG }} в {{ mpg-name }}
+        href: dataplatform/postgresql-data-migration.md
+      - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
+        href: dataplatform/rdbms-to-clickhouse.md
       - name: >-
-          Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/./data-transfer-mpg.md
+      - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью Debezium
+        href: dataplatform/./debezium-mpg.md
+      - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
+        href: dataplatform/sqoop-mpg.md
+      - name: >-
+          Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
-      - name: >-
-          Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name
-          }}
+      - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
-      - name: Миграция базы данных из {{ GP }} в {{ CH }}
+      - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
-      - name: Миграция базы данных из {{ GP }} в {{ PG }}
+      - name: Миграция БД из {{ GP }} в {{ PG }}
         href: dataplatform/greenplum-to-postgresql.md
-      - name: >-
-          Миграция базы данных из стороннего кластера {{ RD }} в {{
-          mrd-full-name }}
+      - name: Миграция БД из стороннего кластера {{ RD }} в {{ mrd-name }}
         href: dataplatform/redis-data-migration.md
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
         href: dataplatform/redis-as-php-sessions-storage.md
@@ -339,23 +354,23 @@ items:
         href: routing/usergate-proxy.md
       - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
         href: routing/usergate-firewall.md
-      - name: Настройка сети для {{ dataproc-full-name }}
+      - name: Настройка сети для {{ dataproc-name }}
         href: routing/dataproc-nat-instance.md
   - name: Визуализация и анализ данных
     items:
       - name: Все руководства
         href: datalens/index.md
-      - name: Визуализация данных из CSV-файла
+      - name: Визуализация данных из файла
         href: datalens/data-from-csv-visualization.md
       - name: Создание и публикация диаграммы с картой Москвы из CSV-файла
         href: datalens/data-from-csv-to-public-visualization.md
-      - name: Анализ продаж сети магазинов из БД ClickHouse
+      - name: Анализ продаж сети магазинов из БД {{ CH }}
         href: datalens/data-from-ch-visualization.md
       - name: Анализ открытых данных ДТП на дорогах России
         href: datalens/data-from-csv-geo-visualization.md
       - name: >-
           Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и {{
-          marketplace-short-name }}
+          marketplace-name }}
         href: datalens/data-from-ch-to-geolayers-visualization.md
       - name: Веб-аналитика с подключением к Яндекс Метрике
         href: datalens/data-from-metrica-visualization.md
@@ -363,9 +378,9 @@ items:
         href: datalens/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica
         href: datalens/data-from-appmetrica-visualization.md
-      - name: "Анализ статистики подкастов Яндекс\_Музыки (для авторов подкастов)"
+      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
         href: datalens/data-from-podcasts.md
-      - name: Визуализация данных с помощью SQL-чарта
+      - name: Визуализация данных с помощью QL-чарта
         href: datalens/data-from-ch-to-sql-chart.md
       - name: Анализ customer journey мобильного приложения на данных AppMetrica
         href: datalens/data-from-appmetrica-yc-visualization.md

@@ -20,7 +20,7 @@
    * **Название приложения** — укажите название приложения, например `filebeat`.
    * **Имя пользователя {{ ES }}** — введите имя учетной записи, под которой Filebeat будет подключаться к кластеру {{ mes-name }}.
    * **Пароль для подключения к {{ ES }}** — введите пароль для учетной записи в кластере {{ mes-name }}.
-   * **FQDN сервиса {{ ES }}** — укажите URL и порт для кластера {{ mes-name }}, например `https://c-c9q07rjo9c11q4e1p0om.rw.mdb.yandexcloud.net:9200`. Подробнее о подключении к кластеру см. в [документации сервиса](../../../managed-elasticsearch/operations/cluster-connect.md).
+   * **FQDN сервиса {{ ES }}** — укажите URL и порт для кластера {{ mes-name }}, например `https://c-c9q07rjo9c11q4e1p0om.rw.{{ dns-zone }}:9200`. Подробнее о подключении к кластеру см. в [документации сервиса](../../../managed-elasticsearch/operations/cluster-connect.md).
 1. Нажмите кнопку **Установить**.
 1. [Подключитесь к веб-интерфейсу Kibana](../../../managed-elasticsearch/quickstart.md#connect-kibana) и убедитесь, что события кластера {{ k8s }} начали поступать.
 
@@ -41,7 +41,7 @@
      --set app.url='<URL и порт кластера {{ mes-name }}>' \
      --set app.username='<имя пользователя в кластере {{ ES }}>' \
      --set app.password='<пароль пользователя в кластере {{ ES }}>' \
-     filebeat ./filebeat
+     filebeat ./filebeat/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/filebeat#docker-images).

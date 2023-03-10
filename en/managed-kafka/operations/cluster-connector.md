@@ -307,7 +307,7 @@ You can:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To update a [MirrorMaker](#settings-mm2) connector:
+   To edit a [MirrorMaker](#settings-mm2) connector:
 
    1. View a description of the CLI command to edit a connector:
 
@@ -688,9 +688,9 @@ To pause a connector:
       * `snappy`: The [snappy](https://github.com/google/snappy) codec.
       * `zstd`: The [zstd](https://facebook.github.io/zstd/) codec.
 
-      You can't change this parameter after creating the cluster.
+      You cannot change this parameter after creating the cluster.
 
-   * (Optional) **Max records per file**: The maximum number of records that can be written to a single file in S3-compatible storage.
+   * (Optional) **Max records per file**: Maximum number of records that can be written to a single file in an S3-compatible storage.
    * Under **S3 connection**, specify the storage connection parameters:
       * **Bucket name**: Storage bucket name.
       * **Endpoint**: Endpoint for storage access (to find out from storage provider).
@@ -732,9 +732,12 @@ To pause a connector:
 
    * `--file-max-records`: The maximum number of records that can be written to a single file in S3-compatible storage.
    * `--bucket-name`: The name of the bucket in S3-compatible storage to write data to.
-   * `--storage-endpoint`: Endpoint for storage access (to find out from storage provider). Example: `storage.yandexcloud.net`.
+   * `--storage-endpoint`: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.
    * `--region`: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
-      * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+
+   
+   * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+
 
 * {{ TF }}
 
@@ -761,8 +764,11 @@ To pause a connector:
       * **bucket_name**: The name of the bucket to write data to.
       * **external_s3**: External S3-compatible storage connection parameters:
 
-         * **endpoint**: Endpoint for storage access (to find out from storage provider). Example: `storage.yandexcloud.net`.
+         * **endpoint**: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.
          * **region**: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
-                  * **access_key_id**, **secret_access_key**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+
+         
+         * **access_key_id**, **secret_access_key**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+
 
 {% endlist %}

@@ -28,17 +28,20 @@
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
-            * [{{ yds-full-name }}](source/data-streams.md)
+             * [{{ yds-full-name }}](source/data-streams.md)
             * [{{ ydb-full-name }}](source/ydb.md)
         * Приемники:
             * [{{ KF }}](target/kafka.md)
             * [{{ CH }}](target/clickhouse.md)
+            * [{{ ES }}](target/elasticsearch.md)
             * [{{ GP }}](target/greenplum.md)
             * [{{ MG }}](target/mongodb.md)
             * [{{ MY }}](target/mysql.md)
             * [{{ objstorage-name }}](target/object-storage.md)
+            * [{{ OS }}](target/opensearch.md)
             * [{{ PG }}](target/postgresql.md)
-            * [{{ ydb-name }}](target/yandex-database.md)
+            * [{{ yds-full-name }}](target/data-streams.md)
+            * [{{ ydb-full-name }}](target/yandex-database.md)
     1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -167,7 +170,8 @@
             * [{{ MY }}](target/mysql.md)
             * [{{ objstorage-name }}](target/object-storage.md)
             * [{{ PG }}](target/postgresql.md)
-            * [{{ ydb-name }}](target/yandex-database.md)
+            * [{{ yds-full-name }}](target/data-streams.md)
+            * [{{ ydb-full-name }}](target/yandex-database.md)
     1. Нажмите кнопку **Применить**.
 
 - {{ TF }}

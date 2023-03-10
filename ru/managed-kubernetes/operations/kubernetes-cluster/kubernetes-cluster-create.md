@@ -213,8 +213,8 @@
   * С новым сервисным аккаунтом `myaccount`, имеющим права `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.viewer`.
   * С ключом шифрования {{ kms-name }} `kms-key`.
   * В новой группе безопасности `k8s-public-services`, разрешающей [подключение к сервисам из интернета](../connect/security-groups.md#rules-nodes).
-
-  Для этого установите Terraform (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+  
+  Для этого установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
   {% cut "Конфигурационный файл для кластера:" %}
 
@@ -386,7 +386,7 @@
   * С ключом шифрования {{ kms-name }} `kms-key`.
   * В новой группе безопасности `k8s-main-sg`, содержащей [правила для служебного трафика](../connect/security-groups.md#rules-internal).
 
-  Для этого установите Terraform (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+  Для этого установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
   {% cut "Конфигурационный файл для кластера:" %}
 

@@ -1,4 +1,4 @@
-# Creating a trigger for {{ message-queue-short-name }} that passes messages to the {{ serverless-containers-name }} container.
+# Creating a trigger for {{ message-queue-name }} that sends messages to a {{ serverless-containers-name }} container
 
 Create a [trigger for a {{ message-queue-short-name }} message queue](../concepts/trigger/ymq-trigger.md) and process the messages using the {{ serverless-containers-name }} [container](../concepts/container.md).
 
@@ -100,8 +100,8 @@ To create a trigger, you need:
    * `--invoke-container-id`: Container ID.
    * `--queue-service-account-name`: Service account with rights to read messages from the queue.
    * `--invoke-container-service-account-id`: Service account with rights to invoke the container.
-   * `--batch-size`: Message batch size. Optional. Values can be from 1 to 10. The default is 1.
-   * `--batch-cutoff`: Maximum waiting time. Optional. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. At the same time, the number of messages does not exceed `batch-size`.
+   * `--batch-size`: Message batch size. This is an optional parameter. Values can be from 1 to 10. The default is 1.
+   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. At the same time, the number of messages does not exceed `batch-size`.
 
    Result:
 
@@ -149,4 +149,4 @@ To create a trigger, you need:
 
 ## See also {#see-also}
 
-* [Trigger for {{ message-queue-name }} that passes messages to the {{ sf-name }} function](../../functions/operations/trigger/ymq-trigger-create.md).
+* Trigger for [{{ message-queue-name }} that sends messages to the {{ sf-name }} function](../../functions/operations/trigger/ymq-trigger-create.md).

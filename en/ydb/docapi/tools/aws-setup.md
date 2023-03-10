@@ -5,8 +5,8 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
 To access the database via the Document API in AWS DynamoDB-compatible mode, you can use AWS tools:
 
-* [AWS CLI](https://aws.amazon.com/cli/): The AWS command line interface.
-* [AWS SDK](https://aws.amazon.com/tools/#sdk): The software development kit.
+* [AWS CLI](https://aws.amazon.com/cli/) is the AWS command line interface.
+* [AWS SDK](https://aws.amazon.com/tools/#sdk) includes development tools.
 
 {% include [doc-tables-only.md](../../_includes/doc-tables-only.md) %}
 
@@ -124,11 +124,11 @@ To use the AWS tools, follow these steps:
    ```
 
    As a result, the files `~/.aws/credentials` and `~/.aws/config` will be created (`C:\Users\USERNAME\.aws\credentials` and `C:\Users\USERNAME\.aws\config` on Windows).
-1. Check that the settings are correct by running the table listing command against the [created](../../operations/manage-database.md#create-db) DB. As the `--endpoint` value, specify the Document API endpoint available on the **Overview** tab of your database in the [management console]({{ link-console-main }}).
+1. Check that the settings are correct by running the table listing command against the [created](../../operations/manage-databases.md) DB. As the `--endpoint` value, specify the Document API endpoint available on the **Overview** tab of your database in the [management console]({{ link-console-main }}).
 
    ```bash
    aws dynamodb list-tables \
-   --endpoint {{ aws-ep }}
+   --endpoint {{ ydb.aws-ep }}
    ```
 
    Result:

@@ -8,7 +8,7 @@ This section provides a list of voices available in the service and their charac
    * Supported API version.
 
 
-You can listen to voice samples on the [SpeechKit page](https://cloud.yandex.com/services/speechkit).
+You can listen to voice samples on the [SpeechKit page](/services/speechkit).
 
 
 ## Supported voices {#premium}
@@ -19,15 +19,15 @@ The table lists the properties of the supported voices that use deep neural netw
 |---------| ---- | ---- | -- |--------|---|
 | `de-DE` | German | `lea` | F | — | v1, v3 |
 | `en-US` | English | `john` | M | — | v1, v3 |
-| `he-IL` | Hebrew | | F | (default) modern — `modern` </br> classic — `classic` |  v3 |
+| `he-IL` | Hebrew | `naomi` | F | (default) modern — `modern` </br> classic — `classic` |  v3 |
 | `kk-KK` | Kazakh | `amira` | F | — | v1, v3 |
 | `kk-KK` | Kazakh | `madi` | M | — | v1, v3 |
-| `ru-RU` |  Russian | `alena` </br> (default) | F | (default) neutral — `neutral` </br> happy — `good` </br> | v1, v3 |
+| `ru-RU` | Russian | `alena` </br> (default) | F | (default) neutral — `neutral` </br> happy — `good` </br> | v1, v3 |
 | `ru-RU` | Russian | `filipp` | M | — | v1, v3 |
 | `ru-RU` | Russian | `ermil` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
 | `ru-RU` | Russian | `jane`  | F | (default) neutral — `neutral` </br> happy — `good` </br> angry — `evil` | v1, v3 |
 | `ru-RU` | Russian | `madirus` | M | — | v1, v3 |
-| `ru-RU` | Russian | `omazh` | F  | (default) neutral — `neutral` </br> angry — `evil` | v1, v3 |
+| `ru-RU` | Russian | `omazh` | F | (default) neutral — `neutral` </br> angry — `evil` | v1, v3 |
 | `ru-RU` | Russian | `zahar` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
 | `uz-UZ` | Uzbek | `nigora` | F | — | v1, v3 |
 

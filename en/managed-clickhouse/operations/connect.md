@@ -4,10 +4,14 @@ You can connect to {{ mch-short-name }} cluster hosts:
 
 {% include [cluster-connect-note](../../_includes/mdb/mch/cluster-connect-note.md) %}
 
-Using encryption via ports `{{ port-mch-cli }}` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `{{ port-mch-http }}` for the [HTTP interface]({{ ch.docs }}/interfaces/http/) or without encryption via ports `9000` and `8123`, respectively.
+
+You can connect to a cluster both using encryption via ports `{{ port-mch-cli }}` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `{{ port-mch-http }}` for the [HTTP interface]({{ ch.docs }}/interfaces/http/) and without encryption via ports `9000` and `8123`, respectively.
+
 
 
 ## Configuring security groups {#configuring-security-groups}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -51,7 +55,7 @@ Settings of rules depend on the connection method you select:
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
-         * Protocol: ``Any``.
+         * Protocol: `Any`.
          * Source type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
@@ -95,7 +99,7 @@ To use an encrypted connection, get an SSL certificate.
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
-   1. Confirm that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
+   1. Confirm that that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
 
    The certificate is saved to the `$HOME\.clickhouse\{{ crt-local-file }}` file.
 
@@ -110,11 +114,7 @@ To use an encrypted connection, get an SSL certificate.
 
 You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
 
-{% note warning %}
-
-To avoid connection errors, [save the certificate]({{ crt-web-path }}) to a local folder that doesn't require administrator rights.
-
-{% endnote %}
+{% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
 {% list tabs %}
 
@@ -151,14 +151,51 @@ To avoid connection errors, [save the certificate]({{ crt-web-path }}) to a loca
          1. Specify the [SSL connection](#get-ssl-cert) parameters in the driver property list:
             * `ssl:true`.
             * `sslrootcert:<path to the saved SSL certificate file>`.
-      1. On the **SSL** tab:
-         1. Enable **Use SSL**.
-         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
-         1. Make sure that **SSL mode** is set to **STRICT** in the drop-down list.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
+
+
+## Connecting to a cluster from your browser {#browser-connection}
+
+There are two ways to run SQL queries from your browser:
+
+* [Management console](#console).
+
+* [Built-in SQL editor](#inline-editor).
+
+When connecting from the browser, SQL queries are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session (for example, `USE` or `SET`) have no impact.
+
+### Management console {#console}
+
+{% include [web-sql-warning](../../_includes/mdb/mch/note-web-sql-console.md) %}
+
+To connect to a {{ mch-name }} cluster, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **SQL** tab.
+
+To allow connections, activate the **Access from management console** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).
+
+For more information, see [{#T}](web-sql-query.md).
+
+### Built-in SQL editor {#inline-editor}
+
+
+
+To connect to a cluster host from the built-in SQL editor, specify the following in the browser address bar:
+
+```text
+https://<FQDN of any {{ CH }} host>:8443/play
+```
+
+You can only connect to publicly accessible cluster hosts.
+
+To connect to a cluster by [selecting an available host automatically](#auto), use the following URL:
+
+* `https://c-<cluster ID>.rw.{{ dns-zone }}:8443/play` to connect to the available cluster host.
+* `https://<shard name>.c-<cluster ID>.rw.{{ dns-zone }}:8443/play` to connect to the available [shard](../concepts/sharding.md) host.
+
+To make a query to the database, specify the username and password in the upper-right corner.
+
 
 ## Sample connection strings {#connection-string}
 
@@ -187,3 +224,9 @@ If you don't want to manually connect to another host in case the current one be
 * `<shard name>.c-<cluster ID>.rw.{{ dns-zone }}` to connect to an available host in a [shard](../concepts/sharding.md).
 
 If the host that this address points to becomes unavailable, there may be a slight delay before the address starts pointing to another available host.
+
+{% note warning %}
+
+If, under [cluster maintenance](../concepts/maintenance.md#maintenance-order), a special FQDN points to a host with no public access enabled, the cluster can't be connected to from the internet. To avoid this, [enable public access](hosts.md#update) for all cluster hosts.
+
+{% endnote %}

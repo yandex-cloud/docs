@@ -347,7 +347,7 @@ Obtain and save this link:
 
 1. Generate a link using this ID:
 
-   `{{ link-console-main }}/federations/<federation ID>`
+   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Setting up Single Sign-On (SSO) {#sso-settings}
 
@@ -411,6 +411,8 @@ Once you've created a federation and received a link to log in to the console, c
 If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), federated users must be manually added to your organization.
 
 To do this, you will need user Name IDs. They are returned by the IdP server along with a response confirming successful authentication.
+
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
 
 {% list tabs %}
 

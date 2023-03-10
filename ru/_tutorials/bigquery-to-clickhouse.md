@@ -76,7 +76,7 @@
 
     [s3]
       calling_format=boto.s3.connection.OrdinaryCallingFormat
-      host=storage.yandexcloud.net
+      host={{ s3-storage-host }}
     ```
 
     Где:
@@ -187,7 +187,7 @@
 
 ## Настройте отображение данных из {{ objstorage-full-name }} в кластере {{ mch-name }} {#create-view}
 
-1. Чтобы создать представление импортированных данных, [подключитесь к базе данных кластера {{ mch-name }}](https://cloud.yandex.ru/docs/managed-clickhouse/operations/connect) и выполните SQL-запрос:
+1. Чтобы создать представление импортированных данных, [подключитесь к базе данных кластера {{ mch-name }}](../managed-clickhouse/operations/connect.md) и выполните SQL-запрос:
 
     ```sql
     CREATE view db1.v$google_top_rising_terms on cluster on cluster '{cluster}' AS
@@ -203,7 +203,7 @@
     refresh_date
     FROM s3Cluster(
       '<идентификатор кластера>',
-      'https://storage.yandexcloud.net/<имя бакета {{ objstorage-name }}>/top_terms-*',
+      'https://{{ s3-storage-host }}/<имя бакета {{ objstorage-name }}>/top_terms-*',
       'Parquet',
       'rank Int32,
       country_name String,
@@ -246,6 +246,8 @@
 Использование заданного запроса в поисковой системе будет проанализировано, результат будет выведен в виде столбчатой диаграммы по странам.
 
 ## Удалите созданные ресурсы {#clear-out}
+
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 1. [Удалите кластер {{ mch-name }}](../managed-clickhouse/operations/cluster-delete.md).
 1. [Удалите все объекты бакета {{ objstorage-name }}](../storage/operations/objects/delete-all.md) и затем [удалите сам бакет](../storage/operations/buckets/delete.md).

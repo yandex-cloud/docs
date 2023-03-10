@@ -82,7 +82,7 @@ The cost of resources for the integration includes:
       * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
          ```bash
-         curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+         curl https://{{ s3-storage-host }}{{ yc-install-path}} | bash
          exec -l $SHELL
          yc version
          ```
@@ -149,7 +149,7 @@ The cost of resources for the integration includes:
       * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
          ```bash
-         curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+         curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
          exec -l $SHELL
          yc version
          ```
@@ -283,8 +283,8 @@ To prepare configuration files for {{ TF }}:
      zone        = "{{ region-id }}-a"
    }
    module "crud-api" {
-     source = "github.com/yandex-cloud-examples/yc-serverless-ydb-api"
-
+     source = "https://github.com/yandex-cloud-examples/yc-serverless-ydb-api"
+   
      folder_id                 = local.folder_id
      api_name                  = "movies-api"
      database_name             = "movies-db"

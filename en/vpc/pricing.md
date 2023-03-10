@@ -78,7 +78,7 @@ All prices are shown without VAT.
 
 
 
-## Pricing for {{ ddos-protection-full-name }}  {#prices-ddos-protection}
+## {{ ddos-protection-full-name }} pricing {#prices-ddos-protection}
 
 
 All prices are shown without VAT.

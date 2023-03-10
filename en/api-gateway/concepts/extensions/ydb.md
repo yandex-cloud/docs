@@ -34,7 +34,7 @@ If an object in JSON format emerges for the `UpdateItem` operation, the [Attribu
 
 ## Extension specification {#spec}
 
-Example of the REST API service that enables you to create, obtain, update, and delete movie entities:
+Here is an example of the REST API service that enables you to create, obtain, update, and delete movie entities:
 
 ```yaml
 openapi: 3.0.0
@@ -50,7 +50,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: Scan
-        database: /ru-central1/b3g1emj917**********/etn1f5fa8f**********
+        database: /{{ region-id }}/b3g1emj917**********/etn1f5fa8f**********
         table_name: movie
         limit: '{limit}'
         exclusive_start_key: '{"id": "{from}"}'
@@ -93,7 +93,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: PutItem
-        database: /ru-central1/b1g1emj927**********/etn1f4fa4f**********
+        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
         table_name: movie
       operationId: createMovie
       requestBody:
@@ -122,7 +122,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: DeleteItem
-        database: /ru-central1/b1g1emj927**********/etn1f4fa4f**********
+        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
         table_name: movie
         key: '{"id": "{movieId}"}'
       operationId: deleteMovieById
@@ -153,7 +153,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: GetItem
-        database: /ru-central1/b1g1emj927**********/etn1f4fa4f**********
+        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
         table_name: movie
         key: '{"id": "{movieId}"}'
       operationId: getMovieById
@@ -184,7 +184,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: UpdateItem
-        database: /ru-central1/b1g1emj927**********/etn1f4fa4f**********
+        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
         table_name: movie
         key: '{"id": "{movieId}"}'
       operationId: updateMovieById

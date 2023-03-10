@@ -82,7 +82,7 @@
                 http_headers:
                   'Content-Type': "text/plain"
                 content:
-                  'text/plain': "Hello, {user}!\n" 
+                  'text/plain': "Hello, {user}!\n"
         ```
     1. Выполните команду:
 
@@ -122,8 +122,8 @@
 
   {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 
-- Yandex.Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-  Создать API-шлюз можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+  Создать API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

@@ -1,4 +1,4 @@
-The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer the cluster logs from [VM instances](../compute/concepts/vm.md) to [{{ cloud-logging-full-name }}](../logging/). The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
+The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer the cluster logs from [VM instances](../compute/concepts/vm.md) created based on a {{ coi }} to [{{ cloud-logging-full-name }}](../logging/). The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
 
 To configure log transfer from a VM instance created from the {{ coi }} image:
 
@@ -7,7 +7,7 @@ To configure log transfer from a VM instance created from the {{ coi }} image:
 1. [Configure Fluent Bit](#fluent-bit).
 1. [Create a VM from a {{ coi }}](#create-vm).
 
-## Before you start
+## Before you begin
 
 1. [Create a service account](../iam/operations/sa/create.md) with the `logging.writer` and `container-registry.images.puller` roles for the folder.
 1. [Create a registry](../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
@@ -113,13 +113,13 @@ if __name__ == '__main__':
 
    ```bash
    docker build . \
-     -t cr.yandex/<registry_ID>/coi:logs
+     -t {{ registry }}/<registry_ID>/coi:logs
    ```
 
 1. [Log in](../container-registry/operations/authentication.md) to the registry and upload a Docker image:
 
    ```bash
-   docker push cr.yandex/<registry_ID>/coi:logs
+   docker push {{ registry }}/<registry_ID>/coi:logs
    ```
 
 ## Configure Fluent Bit {#fluent-bit}
@@ -137,7 +137,7 @@ if __name__ == '__main__':
    services:
      logs:
        container_name: logs-app
-       image: <URL_of_Docker_image>
+       image: <Docker_image_URL>
        restart: always
        depends_on:
          - fluentbit
@@ -152,7 +152,7 @@ if __name__ == '__main__':
 
      fluentbit:
        container_name: fluentbit
-       image: cr.yandex/yc/fluent-bit-plugin-yandex:v1.0.3-fluent-bit-1.8.6
+       image: {{ registry }}/yc/fluent-bit-plugin-yandex:v1.0.3-fluent-bit-1.8.6
        ports:
          - 24224:24224
          - 24224:24224/udp
@@ -213,7 +213,7 @@ if __name__ == '__main__':
        shell: /bin/bash
        sudo: [ 'ALL=(ALL) NOPASSWD:ALL' ]
        ssh-authorized-keys:
-         - ssh-rsa AAAA
+         - ssh-ed25519 AAAA
    ```
 
    The `SERVICE` section displays Fluent Bit settings. [Learn more about the settings](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).

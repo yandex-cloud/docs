@@ -7,4 +7,6 @@ description: "Различные сценарии использования {{ 
 
 * [{#T}](data-proc-integration.md)
 * [{#T}](data-from-metrica-yc-visualization.md)
+* [{#T}](node-from-cell.md)
 * [{#T}](node-from-docker.md)
+* [{#T}](stable-diffusion.md)

@@ -79,7 +79,7 @@
    
          containers:
            - name: grpc-app
-             image: cr.yandex/crp6a9o7k9q5rrtt2hoq/grpc-test-server
+             image: {{ registry }}/crp6a9o7k9q5rrtt2hoq/grpc-test-server
              resources:
                requests:
                  memory: "256Mi"
@@ -113,7 +113,7 @@
 
 ## Подготовьте домен {#prepare-domain}
 
-1. [Создайте](../../dns/operations/zone-create-public.md) публичную зону DNS и делегируйте домен.
+1. [Создайте](../../dns/operations/zone-create-public.md) публичную зону [DNS](../../glossary/dns.md) и делегируйте домен.
 
    {% note info %}
 
@@ -168,6 +168,9 @@
    Где:
 
    * `ingress.alb.yc.io/subnets` — список идентификаторов подсетей через запятую.
+   * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. 
+
+     При значении `auto` Ingress-контроллер получит публичный IP-адрес автоматически. При удалении Ingress-контроллера IP-адрес также будет удален из облака.
    * `ingress.alb.yc.io/security-groups` — идентификатор группы безопасности, созданной при [подготовке облака к работе](#prepare-cloud). Если в вашем облаке не включены группы безопасности, удалите эту аннотацию.
    * `secretName` — указание на TLS-сертификат из {{certificate-manager-full-name}} в формате `yc-certmgr-cert-id-<идентификатор сертификата>`.
    * `hosts`, `host`  — доменное имя, которому соответствует TLS-сертификат.
@@ -315,7 +318,7 @@
      job_name: '[pandora][grpc][tls]'
      job_dsc: ''
      ver: ''
-     api_address: loadtesting.api.cloud.yandex.net:443
+     api_address: loadtesting.{{ api-host }}:443
    ```
 
    Где:
@@ -340,7 +343,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 1. Если вы настраивали CNAME-записи в {{ dns-name }}, [удалите](../../dns/operations/zone-delete.md) зону DNS.
 1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик.

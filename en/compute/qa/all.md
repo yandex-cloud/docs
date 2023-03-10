@@ -22,7 +22,7 @@
 
 ## Instance groups {#instance-groups}
 
-{% include notitle [disks](../../_qa/compute/instance-groups.md) %}
+{% include notitle [instance-groups](../../_qa/compute/instance-groups.md) %}
 
 ## Monitoring resource usage {#monitoring}
 

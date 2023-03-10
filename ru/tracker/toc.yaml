@@ -79,6 +79,8 @@ items:
         href: glossary.md
       - name: Роли и права доступа
         href: role-model.md
+      - name: Управление организациями в {{ tracker-name }}
+        href: cloud-vs-360.md
   - name: Настроить очередь
     items:
       - name: Обзор
@@ -311,6 +313,8 @@ items:
             href: user/delete-template.md
           - name: Использовать общие шаблоны
             href: user/share-template.md
+      - name: Шаблоны рабочих процессов
+        href: manager/create-work-process.md
       - name: Переменные
         href: user/vars.md
       - name: Использовать форму как шаблон для создания задач
@@ -617,10 +621,14 @@ items:
         href: faq.md
       - name: Оплата
         href: payment.md
+      - name: '{{ ya-360 }} становится платным'
+        href: organizations.md
   - name: История изменений
     items:
+      - name: Январь 2023
+        href: changelogs/2301.md
       - name: Декабрь 2022
-        href: changelogs/2212.md
+        href: changelogs/index.md
       - name: Ноябрь 2022
         href: changelogs/2211.md
       - name: Октябрь 2022

@@ -1,4 +1,4 @@
-# Making a VM's public IP address static
+# Converting a VM's public IP address to static
 
 A _static IP address_ is a permanent IP address that does not change when a VM is stopped.
 

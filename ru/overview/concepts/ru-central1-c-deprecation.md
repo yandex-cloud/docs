@@ -15,4 +15,6 @@
     * Выделенные хосты {{ compute-name }} на платформе Intel Ice Lake.
     * Хосты баз данных {{ mgp-name }}.
 
-Подробнее о планах по развитию зон доступности и возможностях миграции см. [пост в блоге {{ yandex-cloud }}](https://cloud.yandex.ru/blog/posts/2022/03/az-deprecation-notice).
+
+Подробнее о планах по развитию зон доступности и возможностях миграции см. [пост в блоге {{ yandex-cloud }}](/blog/posts/2022/03/az-deprecation-notice).
+ 

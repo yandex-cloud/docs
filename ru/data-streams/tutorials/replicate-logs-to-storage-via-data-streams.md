@@ -1,0 +1,1 @@
+{% include [replicate-logs-to-storage-via-data-streams](../../_tutorials/replicate-logs-to-storage-via-data-streams.md) %}

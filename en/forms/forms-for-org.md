@@ -20,6 +20,11 @@ Users of organizations registered on {{ yandex-cloud }} enjoy advanced features 
 
    If you're registered in several organizations, you can see which organization each of the forms belongs to in the list of forms.
 
+{% note info %}
+
+You cannot open a form for business on the [personal form management page]({{ link-forms-admin }}).
+
+{% endnote %}
 
 ## Features {{ forms-full-name }} for business {#business-features}
 

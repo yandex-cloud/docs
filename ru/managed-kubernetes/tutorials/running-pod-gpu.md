@@ -55,7 +55,7 @@
    kubectl describe pod cuda-vector-add
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Name:         cuda-vector-add
@@ -73,7 +73,7 @@
    kubectl logs -f cuda-vector-add
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    [Vector addition of 50000 elements]
@@ -86,6 +86,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).

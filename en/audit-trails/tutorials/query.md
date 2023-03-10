@@ -55,7 +55,7 @@ Create a service account named `trail-sa`:
 
 - Management console
 
-   1. In the [management console]({{link-console-main}}), go to the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), go to `example-folder`.
    1. Go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the **Name**: `trail-sa`.
@@ -166,7 +166,7 @@ A connection must be created only the first time a trail is connected to {{ yq-s
    1. Select the `logsyq` trail.
    1. Click **Process in {{ yq-short-name }}**.
    1. Create a connection.
-      * Select **Service account**: `bucket-yq-sa`.
+      * Select the **Service account** `bucket-yq-sa`.
       * For the other parameters, leave the default settings.
    1. Click **Create**.
    1. In the window with data binding options, click **Create**.
@@ -201,7 +201,7 @@ Execute event queries to bind `audit-trails-logsyq-object_storage`:
       ```SQL
       SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
       WHERE
-          JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.resourcemanager.DeleteFolder'
+          JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder'
           and JSON_VALUE(data, "$.details.folder_name") = '<folder_ID>'
           LIMIT 100;
       ```
@@ -216,7 +216,7 @@ Execute event queries to bind `audit-trails-logsyq-object_storage`:
       ```SQL
       SELECT * FROM bindings.`<audit-trails-logsyq-object_storage>`
       WHERE
-          JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.compute.UpdateInstance'
+          JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.compute.UpdateInstance'
           and JSON_VALUE(data, "$.details.metadata_serial_port_enable") = '1'
           LIMIT <number_of_records>;
       ```
@@ -231,8 +231,8 @@ Execute event queries to bind `audit-trails-logsyq-object_storage`:
       ```SQL
       SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
       WHERE
-          (JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.storage.BucketAclUpdate'
-          or JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.storage.BucketPolicyUpdate')
+          (JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.storage.BucketAclUpdate'
+          or JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.storage.BucketPolicyUpdate')
           LIMIT <number_of_records>;
       ```
 

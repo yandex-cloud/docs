@@ -1,6 +1,6 @@
 # Создание ВМ с {{ coi }}
 
-Создайте виртуальную машину из образа [{{ coi }}](../concepts/index.md) и запустите на ней [Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers).
+Создайте виртуальную машину из образа [{{ coi }}](../concepts/index.md) и запустите на ней [Docker-контейнер](/blog/posts/2022/03/docker-containers).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -60,9 +60,9 @@
        --ssh-key ssh-key.pub \
        --service-account-name my-robot \
        --public-ip \
-       --platform standard-v3
+       --platform standard-v3 \
        --container-name=my-app \
-       --container-image=cr.yandex/mirror/ubuntu:16.04 \
+       --container-image={{ registry }}/mirror/ubuntu:16.04 \
        --container-command=sleep \
        --container-arg="1000" \
        --container-env=KEY1=VAL1,KEY2=VAL2 \
@@ -120,7 +120,7 @@
          - sleep
          args:
          - 100000
-         image: cr.yandex/mirror/ubuntu:20.04
+         image: {{ registry }}/mirror/ubuntu:20.04
          name: my-container
          securityContext:
           privileged: true

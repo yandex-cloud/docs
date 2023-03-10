@@ -5,7 +5,7 @@
 To create a Yandex Metrica connection:
 
 
-1. Go to the [connections page](https://datalens.yandex.com/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
 1. Click **Create connection**.
@@ -23,7 +23,7 @@ To create a Yandex Metrica connection:
 {% include [datalens-metrica-note](../../../_includes/datalens/datalens-metrica-note.md) %}
 
 
-Connections to the Yandex Metrica API do not support [materialization](../../concepts/dataset/settings.md#materialization) and [public access](../../concepts/datalens-public.md) to the objects created based on it. To share a dashboard or chart created based on this connection, use one of the following methods:
+Connections to the Yandex Metrica API do not support [public access](../../concepts/datalens-public.md) to the objects created based on it. To share a dashboard or chart created based on this connection, use one of the following methods:
 
 {% include [datalens-metrica-appmetrica-share](../../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 

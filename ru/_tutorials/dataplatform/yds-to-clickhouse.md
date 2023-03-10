@@ -18,7 +18,7 @@
 
 * Вручную
 
-    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#create-db) любой подходящей конфигурации.
+    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db) любой подходящей конфигурации.
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -245,7 +245,7 @@
 
 {% endnote %}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. Удалите ресурсы в зависимости от способа их создания:
@@ -255,7 +255,7 @@
    * Вручную
 
        * [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
-       * [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db).
+       * [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
        * [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
 
    * С помощью {{ TF }}

@@ -97,16 +97,16 @@
          name: secret-ref
        solvers:
          - dns01:
-           webhook:
-             config:
-               # The ID of the folder where dns-zone located in
-               folder: <идентификатор каталога>
-               # This is the secret used to access the service account
-               serviceAccountSecretRef:
-                 name: cert-manager-secret
-                 key: iamkey.json
-             groupName: acme.cloud.yandex.com
-             solverName: yandex-cloud-dns
+             webhook:
+               config:
+                 # The ID of the folder where dns-zone located in
+                 folder: <идентификатор каталога>
+                 # This is the secret used to access the service account
+                 serviceAccountSecretRef:
+                   name: cert-manager-secret
+                   key: iamkey.json
+               groupName: acme.cloud.yandex.com
+               solverName: yandex-cloud-dns
    ```
 
 1. Создайте файл `certificate.yaml`:
@@ -151,7 +151,8 @@ example-com  True   example-com-secret  24h
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Удалите публичную доменную зону](../../dns/operations/zone-delete.md).
 1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).

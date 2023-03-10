@@ -66,7 +66,7 @@ There are two ways to migrate topics from a {{ KF }} _source cluster_ to a {{ mk
       * Source cluster broker host FQDNs.
       * Source and target cluster aliases.
       * Filter template for the topics to be transferred.
-      * {{ KF }} version.
+      * The {{ KF }} version (2.8 or lower).
 
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using the command:
@@ -156,7 +156,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. Create a source cluster user named `admin-source` that is authorized to manage topics via the Admin API.
 
-1. [Connect to a virtual machine over SSH](../compute/operations/vm-connect/ssh.md).
+1. [Connect](../compute/operations/vm-connect/ssh.md) to a virtual machine over SSH.
 
    1. Install the JDK:
 

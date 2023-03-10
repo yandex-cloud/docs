@@ -1,3 +1,8 @@
+---
+title: "How to delete a log group in {{ cloud-logging-name }}"
+description: "In this tutorial, you will learn how to delete a log group in {{ cloud-logging-name }}."
+---
+
 # Deleting a group
 
 {% note info %}
@@ -12,7 +17,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to delete a [log group](../concepts/log-group.md).
    1. Select **{{ cloud-logging-name }}**.
-   1. In your log group's line, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+   1. In the log group's line, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
    1. In the window that opens, click **Delete**.
 
 - CLI
@@ -48,7 +53,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a log group created with {{ TF }}:
 
@@ -81,13 +86,13 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

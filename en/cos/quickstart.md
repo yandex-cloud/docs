@@ -4,7 +4,7 @@ Create a VM from a [{{ coi }}](concepts/index.md) and run a Docker container on 
 
 ## Before you begin {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
+If the required Docker image is pushed to {{ container-registry-name }}, create a [service account](../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
 
 ## Create a VM with a Docker container from a {{ coi }} image {#create-vm}
 
@@ -51,7 +51,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
        --platform standard-v3 \
        --public-ip \
        --container-name=my-app \
-       --container-image=cr.yandex/mirror/ubuntu:16.04 \
+       --container-image={{ registry }}/mirror/ubuntu:16.04 \
        --container-command=sleep \
        --container-arg="1000" \
        --container-env=KEY1=VAL1,KEY2=VAL2 \

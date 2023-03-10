@@ -1,6 +1,6 @@
 # Managing machine learning models
 
-{{ mch-short-name }} lets you analyze data by applying [CatBoost](https://catboost.ai/) machine learning models without additional tools. To apply a model, add it to your cluster and call it in an SQL query using the built-in [`modelEvaluate()`]({{ ch.docs }}/query_language/functions/other_functions/#function-modelevaluate) function. After running this query, you get model predictions for each row of input data. For more information about machine learning in {{ CH }}, see the [documentation]({{ ch.docs }}/guides/apply_catboost_model/).
+{{ mch-short-name }} lets you analyze data by applying [CatBoost](https://catboost.ai/) machine learning models without additional tools. To apply a model, connect to a cluster and access it in a SQL query using the built-in [`modelEvaluate()`]({{ ch.docs }}/sql-reference/functions/other-functions#function-modelevaluate) function. After running this query, you get model predictions for each row of input data. For more information about machine learning in {{ CH }}, see the [documentation]({{ ch.docs }}/guides/apply-catboost-model).
 
 ## Before adding a model {#prereq}
 
@@ -11,7 +11,7 @@
 
 1. Configure access to the model file using one of the following methods:
 
-   * Use a [service account](../../iam/concepts/users/service-accounts.md) (recommended). This method lets you access the file without entering account information.
+   * Use a [service account](../../iam/concepts/users/service-accounts.md) (recommended). This method enables you to access the file without entering account information.
 
       1\. [Connect a service account to a cluster](s3-access.md#connect-service-account).
       2\. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
@@ -28,7 +28,7 @@
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
 
 - CLI
@@ -59,7 +59,7 @@
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
 
 - CLI
@@ -102,7 +102,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
    1. Select the cluster:
 
-      1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+      1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
       1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
       1. Click **Add model**.
 
@@ -154,13 +154,13 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -179,7 +179,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
 To apply the model to data stored in a {{ CH }} cluster:
 
-1. Connect to the cluster [using the {{ CH }} CLI](../../managed-clickhouse/operations/connect.md#cli) or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
+1. Connect to the cluster [using the {{ CH }} CLI client](../../managed-clickhouse/operations/connect.md#cli) or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
 1. Execute an SQL query like:
 
    ```
@@ -210,7 +210,7 @@ To update the contents of a model that is already connected to the cluster:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
    1. Select the appropriate model, click ![image](../../_assets/dots.svg), and select **Edit**.
 
@@ -244,7 +244,7 @@ To update the contents of a model that is already connected to the cluster:
         ml_model {
           name = "<model name>"
           type = "ML_MODEL_TYPE_CATBOOST"
-          uri = "<new link to model file in {{ objstorage-full-name }}>"
+          uri  = "<new link to model file in {{ objstorage-full-name }}>"
         }
       }
       ```
@@ -253,26 +253,24 @@ To update the contents of a model that is already connected to the cluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
    Use the [update](../api-ref/MlModel/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * The model name in the `mlModelName` parameter.
    * The new link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
-   You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the model name with a [list of models in the cluster](#list).
-
-   {% include [updateMask note](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -290,7 +288,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
    1. Select the appropriate model, click ![image](../../_assets/dots.svg), and select **Delete**.
 
@@ -321,13 +319,13 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -346,17 +344,21 @@ If you don't have a suitable data set or model to process it, you can test machi
 
 {% note info %}
 
-In this example, we'll use public data from the [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). The model is trained to predict values in the `ACTION` column. The same data and model are used in the examples provided in the [{{ CH }} documentation]({{ ch.docs }}/guides/apply_catboost_model/) and on [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
+In this example, we'll use public data from the [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). The model is trained to predict values in the `ACTION` column. The same data and model are used in the examples provided in the [{{ CH }} documentation]({{ ch.docs }}/guides/apply-catboost-model) and on [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
 
 {% endnote %}
 
 To upload data to {{ CH }} and test the model:
 
-1. Install the [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) and set up a cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
-1. Download a [data file](https://{{ s3-storage-host }}/managed-clickhouse/train.csv) for analysis:
+1. Install the [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) and configure your cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
+
+
+1. Download the [data file](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) to analyze:
+
    ```bash
-   wget https://storage.yandexcloud.net/managed-clickhouse/train.csv
+   wget https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv
    ```
+
 
 1. Create a table for the data:
 
@@ -386,10 +388,10 @@ To upload data to {{ CH }} and test the model:
 1. In the [management console]({{ link-console-main }}), add the test model:
    * **Type**: `ML_MODEL_TYPE_CATBOOST`.
    * **Name**: `ml_test`.
-   * **URL**: `https://storage.yandexcloud.net/managed-clickhouse/catboost_model.bin`.
+   * **URL**: `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`.
 
 1. Test the model:
-   1. Connect to the cluster [using the {{ CH }} CLI](../../managed-clickhouse/operations/connect.md#cli) or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
+   1. Connect to the cluster [using the {{ CH }} CLI client](../../managed-clickhouse/operations/connect.md#cli) or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
    1. Test the model using queries:
       * Predicted values for first 10 rows of the `ACTION` column:
 

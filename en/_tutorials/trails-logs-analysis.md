@@ -118,7 +118,7 @@ The infrastructure support cost includes:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -307,7 +307,7 @@ The infrastructure support cost includes:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -504,7 +504,7 @@ Using transfer, data is migrated between the source service (a stream) and the t
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -528,7 +528,7 @@ You can run queries to the `trail_data` database to search for security events o
 
    ```sql
    select * from trail_data.trail_logs_stream
-   where event_type = 'yandex.cloud.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<folder_name>'
+   where event_type = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<folder_name>'
    ```
 
 * What actions did a specific user perform over a period of time (name ID and date are required):
@@ -542,7 +542,7 @@ You can run queries to the `trail_data` database to search for security events o
 
    ```sql
    select * from trail_data.trail_logs_stream
-   where event_type = 'yandex.cloud.audit.iam.CreateAccessKey' or event_type = 'yandex.cloud.audit.iam.CreateKey' or event_type = 'yandex.cloud.audit.iam.CreateApiKey'
+   where event_type = '{{ at-event-prefix }}.audit.iam.CreateAccessKey' or event_type = '{{ at-event-prefix }}.audit.iam.CreateKey' or event_type = '{{ at-event-prefix }}.audit.iam.CreateApiKey'
    ```
 
 All events of interest are collected in the [solution](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/_use_cases_and_searches/Use-casesANDsearches_RU.pdf).

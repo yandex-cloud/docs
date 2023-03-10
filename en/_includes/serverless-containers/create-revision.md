@@ -17,14 +17,14 @@
    To create a container revision, run the command:
 
    ```
-   	yc serverless container revision deploy \
-   	  --container-name <container_name> \
-   	  --image <Docker_image_URL> \
-   	  --cores 1 \
-   	  --memory 1GB \
-   	  --concurrency 1 \
-   	  --execution-timeout 30s \
-   	  --service-account-id <service_account_ID>
+   yc serverless container revision deploy \
+     --container-name <container_name> \
+     --image <Docker_image_URL> \
+     --cores 1 \
+     --memory 1GB \
+     --concurrency 1 \
+     --execution-timeout 30s \
+     --service-account-id <service_account_ID>
    ```
 
    Where:
@@ -45,23 +45,23 @@
    Result:
 
    ```
-   	id: bbajn5q2d74c********
-   	container_id: bba3fva6ka5g********
-   	created_at: "2021-07-09T15:04:55.135Z"
-   	image:
-   	  image_url: cr.yandex/crpd3cicopk7********/test-container:latest
-   	  image_digest: sha256:de8e1dce7ceceeafaae122f7670084a1119c961cd9ea1795eae92bd********
-   	resources:
-   	  memory: "1073741824"
-   	  cores: "1"
-   	execution_timeout: 3s
-   	service_account_id: ajeqnasj95o7********
-   	status: ACTIVE
+   id: bbajn5q2d74c********
+   container_id: bba3fva6ka5g********
+   created_at: "2021-07-09T15:04:55.135Z"
+   image:
+     image_url: {{ registry }}/crpd3cicopk7********/test-container:latest
+     image_digest: sha256:de8e1dce7ceceeafaae122f7670084a1119c961cd9ea1795eae92bd********
+   resources:
+     memory: "1073741824"
+     cores: "1"
+   execution_timeout: 3s
+   service_account_id: ajeqnasj95o7********
+   status: ACTIVE
    ```
 
 - API
 
-   You can create a container revision by the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) API method.
+   You can create a container revision using the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) API method.
 
 - {{ TF }}
 
@@ -98,7 +98,7 @@
 
       For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, switch to the folder where you created the configuration file.
       1. Run the check using the command:
@@ -107,7 +107,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of resources being created or updated and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of resources being created or updated and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
 
    1. If the configuration doesn't contain any errors, run the command:

@@ -95,7 +95,9 @@ folderId | <p>Required. ID of the folder to list buckets in.</p> <p>To get the f
           "id": "string",
           "enabled": true,
           "filter": {
-            "prefix": "string"
+            "prefix": "string",
+            "objectSizeGreaterThan": "integer",
+            "objectSizeLessThan": "integer"
           },
           "expiration": {
             "date": "string",
@@ -128,7 +130,19 @@ folderId | <p>Required. ID of the folder to list buckets in.</p> <p>To get the f
           "key": "string",
           "value": "string"
         }
-      ]
+      ],
+      "objectLock": {
+        "status": "string",
+        "defaultRetention": {
+          "mode": "string",
+
+          // `buckets[].objectLock.defaultRetention` includes only one of the fields `days`, `years`
+          "days": "string",
+          "years": "string",
+          // end of the list of possible fields`buckets[].objectLock.defaultRetention`
+
+        }
+      }
     }
   ]
 }
@@ -183,6 +197,8 @@ buckets[].<br>lifecycleRules[].<br>id | **string**<br><p>ID of the rule. Provide
 buckets[].<br>lifecycleRules[].<br>enabled | **boolean** (boolean)<br><p>Indicates whether the rule is in effect.</p> 
 buckets[].<br>lifecycleRules[].<br>filter | **object**<br><p>Filter that identifies the objects to which the rule applies.</p> <p>If not specified, the rule applies to all objects in the bucket.</p> 
 buckets[].<br>lifecycleRules[].<br>filter.<br>prefix | **string**<br><p>Key prefix that the object must have in order for the rule to apply.</p> 
+buckets[].<br>lifecycleRules[].<br>filter.<br>objectSizeGreaterThan | **integer** (int64)<br><p>Size that the object must be greater.</p> 
+buckets[].<br>lifecycleRules[].<br>filter.<br>objectSizeLessThan | **integer** (int64)<br><p>Size that the object must be less t.</p> 
 buckets[].<br>lifecycleRules[].<br>expiration | **object**<br><p>Expiration rule.</p> <p>The expiration of an object is described as follows.</p> <p>For the unversioned bucket (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_DISABLED``), the object is deleted and cannot be recovered.</p> <p>For the bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``), the current version of the object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes the current version of the object.</p> <p>For the bucket with versioning suspended (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_SUSPENDED``), the current version of the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a delete marker becomes the current version of the object.</p> 
 buckets[].<br>lifecycleRules[].<br>expiration.<br>date | **string** (date-time)<br><p>Specific date of object expiration.</p> <p>The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire immediately.</p> <p>Exactly one of ``date``, ``days``, and ``expiredObjectDeleteMarker`` fields can be specified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 buckets[].<br>lifecycleRules[].<br>expiration.<br>days | **integer** (int64)<br><p>Time period, in number of days from the creation or modification of the object, after which an object expires.</p> <p>Exactly one of ``days``, ``date``, and ``expiredObjectDeleteMarker`` fields can be specified.</p> 
@@ -198,6 +214,12 @@ buckets[].<br>lifecycleRules[].<br>noncurrentExpiration.<br>noncurrentDays | **i
 buckets[].<br>lifecycleRules[].<br>noncurrentTransitions[] | **object**<br><p>List of transition rules for non-current versions of objects in a bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``) or suspended (``VERSIONING_SUSPENDED``).</p> <p>At transition, the non-current version of the object is transitioned to the specified storage class.</p> 
 buckets[].<br>lifecycleRules[].<br>noncurrentTransitions[].<br>noncurrentDays | **integer** (int64)<br><p>Time period, in number of days since the version of an object was classified as non-current, after which the version is transitioned.</p> 
 buckets[].<br>lifecycleRules[].<br>noncurrentTransitions[].<br>storageClass | **string**<br><p>Required. Storage class to which a non-current version of an object is transitioned from standard storage.</p> <p>The only supported class is cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed.</p> 
-buckets[].<br>tags[] | **object**<br><p>List of object tag for the bucket. TODO: documentation details.</p> 
+buckets[].<br>tags[] | **object**<br><p>List of object tag for the bucket.</p> 
 buckets[].<br>tags[].<br>key | **string**
 buckets[].<br>tags[].<br>value | **string**
+buckets[].<br>objectLock | **object**<br><p>Configuration for object lock on the bucket. For details about the concept, see <a href="/docs/storage/concepts/object-lock">documentation</a>.</p> <p>A resource for Object Lock configuration of a bucket. For details about the concept, see <a href="/docs/storage/concepts/object-lock">documentation</a>.</p> 
+buckets[].<br>objectLock.<br>status | **string**<br><p>Activity status of the object lock settings on the bucket</p> 
+buckets[].<br>objectLock.<br>defaultRetention | **object**<br><p>Default lock configuration for added objects</p> 
+buckets[].<br>objectLock.<br>defaultRetention.<br>mode | **string**<br><p>Lock type</p> 
+buckets[].<br>objectLock.<br>defaultRetention.<br>days | **string** (int64) <br>`buckets[].objectLock.defaultRetention` includes only one of the fields `days`, `years`<br><br><p>Number of days for locking</p> 
+buckets[].<br>objectLock.<br>defaultRetention.<br>years | **string** (int64) <br>`buckets[].objectLock.defaultRetention` includes only one of the fields `days`, `years`<br><br><p>Number of years for locking</p> 

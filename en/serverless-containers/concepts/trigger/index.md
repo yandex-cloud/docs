@@ -1,6 +1,6 @@
 ---
 title: "Triggers. Overview"
-description: "Triggers are the criteria that automatically invoke a container when met. Triggers enable you to automate your work with other Yandex Cloud services, such as Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core."
+description: "Triggers are the criteria that automatically invoke a container when met. Triggers enable you to automate your work with other {{ yandex-cloud }} services, such as Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core."
 ---
 
 # Triggers in {{ serverless-containers-name }} Overview
@@ -22,7 +22,7 @@ The following types of triggers are available in {{ serverless-containers-name }
 
 ## Specifics of container invocations by triggers {#invoke}
 
-Triggers invoke containers based on preset [quotas and limits](../limits.md).
+Triggers invoke a container based on preset [quotas and limits](../limits.md).
 
 Before the trigger passes messages to a container, it changes their format. Each trigger has a specific message format. Read more about this in the trigger description.
 

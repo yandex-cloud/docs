@@ -159,6 +159,8 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon and select **Change password**.
    1. Set a new password and click **Edit**.
 
+   {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+
 - CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -172,6 +174,8 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
        --cluster-name=<cluster name>
        --password=<new password>
    ```
+
+   {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
@@ -195,6 +199,8 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
       }
       ```
 
+      {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -210,13 +216,14 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
    * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username, in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
    * New user password, in the `password` parameter.
+
+      {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+
    * List of user configuration fields to be changed (in this case, `password`), in the `updateMask` parameter.
 
    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
-
-{% include [password-limits](../../_includes/mdb/mms/note-info-password-limits.md) %}
 
 ## Changing user settings {#update-settings}
 

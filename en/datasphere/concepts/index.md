@@ -10,7 +10,7 @@
 
 ### Ready-to-use development environment {#ready-to-use}
 
-You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
+You do not need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
 The VM already has the {{ jlab }}Lab development environment and pre-installed packages for data analysis and machine learning (TensorFlow, Keras, NumPy, and others) on it, and you can start using them immediately. Full list of [pre-installed packages](preinstalled-packages.md).
 
@@ -44,13 +44,13 @@ Resource access permissions and scope are managed using new roles. For more info
 
 You no longer have to re-enter data every time you need to connect to any object storage. To store all details, the **S3 connector** resource is now available. It lets you [connect and disconnect](../operations/data/connect-to-s3.md) a bucket directly in the {{ ml-platform-name }} interface.
 
-Another new type of resource is [Checkpoints](secrets.md) that store the interpreter state and variable values. You can use them to create nodes and [share them](../operations/projects/checkpoints.md#share) in communities via a direct link.
+Another new type of resource is [Checkpoints](secrets.md) that store the interpreter state and variable values. You can use them to create [nodes](deploy/index.md#node) and [share them](../operations/projects/checkpoints.md#share) in communities via a direct link.
 
 ### Seamless use of running services {#deployment}
 
 The new resources have greatly enriched the tools for deploying and [using services](deploy/index.md).
 
-Aliases let you balance the load across multiple running nodes and publish new versions without having to stop a running service. You can [create an alias](../operations/deploy/alias-create.md) in the {{ ml-platform-name }} interface.
+[Aliases](deploy/index.md#alias) let you balance the load across multiple running nodes and publish new versions without having to stop a running service. You can [create an alias](../operations/deploy/alias-create.md) in the {{ ml-platform-name }} interface.
 
 You can now [create](../operations/deploy/node-create.md) nodes from both Python code cells and ready-made Docker images built outside {{ ml-platform-name }}. On the node page in the {{ ml-platform-name }} interface, you can track the monitoring charts and logs of deployed instances. You can also change the configuration of computing resources and send test requests to the deployed service API.
 

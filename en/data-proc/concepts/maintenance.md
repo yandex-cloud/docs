@@ -1,4 +1,4 @@
-# {{ dataproc-name }} maintenance 
+# {{ dataproc-name }} maintenance
 
 Maintenance means:
 

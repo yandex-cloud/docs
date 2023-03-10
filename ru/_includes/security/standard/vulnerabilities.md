@@ -4,7 +4,7 @@
 
 {{ yandex-cloud }} отвечает за управление уязвимостями и обновлениями безопасности в управляемых сервисах. Клиент отвечает за управление уязвимостями и обновлениями безопасности для всех остальных компонентов системы.
 
-Пример разделения ответственности за управление уязвимостями и обновлениями безопасности см. в разделе **Requirement 5** [матрицы разделения ответственности PCI DSS](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
+Пример разделения ответственности за управление уязвимостями и обновлениями безопасности см. в разделе **Requirement 5** [матрицы разделения ответственности PCI DSS](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
 
 #### 6.1 Для образов контейнеров используется сканер уязвимостей {#vulnerability-scanning}
 
@@ -33,7 +33,7 @@
 
 Пример бесплатного сканера, который работает в виде агента на хостах: [Wazuh](https://documentation.wazuh.com/current/user-manual/capabilities/vulnerability-detection/how_it_works.html). Wazuh может также использоваться в качестве системы обнаружения вторжений (host-based intrusion detection system — IDS).
 
-Вы также можете воспользоваться [решением](https://cloud.yandex.ru/marketplace/products/scanfactory/scanfactory) из {{ marketplace-name }}.
+Вы также можете воспользоваться [решением](/marketplace/products/scanfactory/scanfactory) из {{ marketplace-name }}.
 
 {% list tabs %}
 
@@ -75,7 +75,7 @@
 
 ##### Managed WAF {#managed-waf}
 
-Клиент получает облачный WAF как услугу у {{ yandex-cloud }}. Предоставляется доступ в личный кабинет, возможность просмотра статистики и управления. Для подключения услуги и получения детальной информации обратитесь к своему менеджеру, [отдел продаж](https://cloud.yandex.ru/#contact-form) или в [службу поддержки]({{link-console-support}}?section=contact). Услуга оказывается в партнерстве с Qrator.
+Клиент получает облачный WAF как услугу у {{ yandex-cloud }}. Предоставляется доступ в личный кабинет, возможность просмотра статистики и управления. Для подключения услуги и получения детальной информации обратитесь к своему менеджеру, [отдел продаж](/#contact-form) или в [службу поддержки]({{link-console-support}}?section=contact). Услуга оказывается в партнерстве с Qrator.
 
 [Решение: Установка уязвимого веб-приложения (DVWA) в {{ yandex-cloud }} с помощью {{ TF }} для тестирования Managed WAF](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
 

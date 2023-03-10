@@ -11,7 +11,7 @@ It allows you to manage the following objects:
 To work with {{ container-registry-name }}, internet access is required.
 
 Internet access can be provided in the following ways:
-* Assign a VM a [public IP address](../../vpc/concepts/address.md#public-addresses).
+* Assigning a VM a [public IP address](../../vpc/concepts/address.md#public-addresses).
 * [Configuring a VM as a NAT instance](../../tutorials/routing/nat-instance.md).
 * [Enabling egress NAT](../../vpc/operations/enable-nat.md).
 

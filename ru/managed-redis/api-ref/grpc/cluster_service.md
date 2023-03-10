@@ -73,6 +73,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring}
@@ -191,6 +192,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring1}
@@ -289,6 +291,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | **[Cluster.PersistenceMode](#Cluster2)**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -379,6 +382,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring2}
@@ -458,6 +462,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New mainten
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | **[Cluster.PersistenceMode](#Cluster3)**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -558,6 +563,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring3}
@@ -695,6 +701,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring4}
@@ -829,6 +836,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring5}
@@ -966,6 +974,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring6}
@@ -1100,6 +1109,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring7}
@@ -1198,6 +1208,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>TLS port and functionality on\off 
 persistence_mode | **[Cluster.PersistenceMode](#Cluster8)**<br>Persistence mode 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -1289,6 +1300,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring8}
@@ -1410,6 +1422,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring9}
@@ -1546,6 +1559,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring10}
@@ -2185,6 +2199,7 @@ security_group_ids[] | **string**<br>User security groups
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
 ### Monitoring {#Monitoring11}

@@ -1,10 +1,10 @@
 # Configuration
 
-This section describes how to configure {{unified-agent-full-name}}. Before getting started, we recommend reading through the [basic concepts](../../index.md) used in agent configuration.
+This section describes how to configure {{ unified-agent-full-name }}. Before getting started, we recommend reading through the [basic concepts](../../index.md) used in agent configuration.
 
 ## Configuration files {#files}
 
-{{unified-agent-short-name}} is configured using YAML files with the following sections:
+{{ unified-agent-short-name }} is configured using YAML files with the following sections:
 
 - routes: The definition of [delivery routes](index.md#routes).
 - channels: The definition of [named channels](index.md#channels).
@@ -18,7 +18,7 @@ To use your configuration file, pass its path in the command line parameter `--c
 ```bash
 /usr/bin/unified_agent --config /etc/yandex/unified_agent/config.yml
 ```
-When you use the {{unified-agent-short-name}} deb package distribution, the basic configuration file `/etc/yandex/unified_agent/config.yml` is automatically set and passed to the `--config` parameter.
+When you use the {{ unified-agent-short-name }} deb package distribution, the basic configuration file `/etc/yandex/unified_agent/config.yml` is automatically set and passed to the `--config` parameter.
 
 We recommend adding your custom configuration to a separate file in the directory `/etc/yandex/unified_agent/conf.d`. Files from that directory are imported from the main configuration file using the `import` directive in alphabetical order. The import mechanism is described in the [{#T}](#import) chapter of this section.
 
@@ -41,7 +41,7 @@ We don't recommend using `import` in nested files to simplify configuration.
 
 {% endnote %}
 
-If the {{unified-agent-short-name}} configuration import loops, it terminates with an error. You can find the error details in the agent logs. The maximum recursion depth is 100. If an imported file contains errors, a full path to the original with the erroneous node is output.
+If the {{ unified-agent-short-name }} configuration import loops, it terminates with an error. You can find the error details in the agent logs. The maximum recursion depth is 100. If an imported file contains errors, a full path to the original with the erroneous node is output.
 
 ## Output and validation of the final configuration {#validation}
 
@@ -60,11 +60,11 @@ yaml-cpp: error at line 10, column 3: unrecognized field [statos_port]
 
 ## Configuration directives {#configuration_sections}
 
-Below are the configuration sections and parameters of different {{unified-agent-short-name}} components. For optional parameters, the values given in the examples are the default.
+Below are the configuration sections and parameters of different {{ unified-agent-short-name }} components. For optional parameters, the values given in the examples are the default.
 
 ### Status section {#status}
 
-This section contains the {{unified-agent-short-name}} status viewing configuration.
+This section contains the {{ unified-agent-short-name }} status viewing configuration.
 
 ```yaml
 status: # optional
@@ -383,7 +383,7 @@ flow_control: # optional
 
 #### Agent_metrics input {#agent_metrics_input}
 
-The input collects health metrics for {{unified-agent-full-name}}.
+The input collects health metrics for {{ unified-agent-full-name }}.
 
 Parameter descriptions:
 
@@ -440,7 +440,7 @@ Parameter descriptions:
           h2: v2
 
         # Names of HTTP response headers to be saved to the message metadata.
-        capture_response_headers: [] # optional, not set by default
+        capture_response_headers: []  # optional, not set by default
 
         # HTTP method to use in the request.
         # Acceptable values: GET, POST.
@@ -463,7 +463,7 @@ If the agent is running in a Docker container, pass the paths to procfs, sysfs, 
     -v /data:/data \
     -e PROC_DIRECTORY=/ua_proc \
     -e FOLDER_ID=a1bs... \
-    cr.yandex/yc/unified-agent
+    {{ registry }}/yc/unified-agent
 ```
 
 {% endnote %}
@@ -550,7 +550,7 @@ Parameter descriptions:
         # If the metadata key is not found at the message level (in the message section), the key is searched for in the session metadata.
         # If the key is not found at the session level, the default value `({_host|default_host})` is used. If no default value is set, an empty string is used.
         # Below are some template examples.
-        message: # optional, not set by default
+        message:  # optional, not set by default
             # Output example: 'Nov 27 21:03:24 test-host test-app:test_payload'.
             # The timestamp uses the strftime format (http://man7.org/linux/man-pages/man3/strftime.3.html).
             # In this example, the value _app test-app: has a colon at the end, which is a typical result of parsing a syslog message.
@@ -658,11 +658,11 @@ Parameter descriptions:
 
     config:
         # The session metadata in the key:value format.
-        session: # optional
+        session:  # optional
             a: b
 
         # The message metadata in the key:value format.
-        message: # optional
+        message:  # optional
             c: d
             e: f
 
@@ -684,7 +684,7 @@ Parameter descriptions:
     config:
       # Restrict the filter only to the metrics that satisfy this condition.
       # A description of the syntax can be found at https://cloud.yandex.ru/docs/monitoring/concepts/querying#selectors
-      match: "{name=gauge-*}" # optional parameter, not specified by default, filter applies to all metrics
+      match: "{name=gauge-*}"  # optional parameter, not specified by default, filter applies to all metrics
 
       # Description of label transformations as "label name: expression".
       # Label name: label that is being assigned a new value.
@@ -718,29 +718,29 @@ We don't recommend using the file storage along with the file system mount optio
 Parameter descriptions:
 
 ```yaml
-storages: # optional
+storages:  # optional
   # A storage based on a file system.
 
   # A storage name. You can use this name to reference the storage from pipes using storage_ref.
   # You can only reference storages once.
 - name: main # required
   # Plugin name. For now, only the fs plugin for binary storages in the file system is supported.
-  plugin: fs # required
+  plugin: fs  # required
 
   config:
     # Directory with the storage data.
     # Subdirectories for partitions are created here.
-    directory: ./data/storage # required
+    directory: ./data/storage  # required
 
     # The maximum partition size.
     # By default, the storage has just one partition named default.
     # A new partition is only created if the user explicitly requested this by specifying the partition name in the _partition key of the session metadata.
     # In the core use cases, there is only one partition. This parameter can therefore be considered a limit imposed on the total storage size.
-    max_partition_size: 10mb # required
+    max_partition_size: 10mb  # required
 
     # The directory that stores auxiliary information for the storage.
     # Default value: .state inside directory
-    state_directory: {directory} / .state # optional, default value is .state inside directory
+    state_directory: {directory} / .state  # optional, default value is .state inside directory
 
     # The maximum size of a segment (one file) within a partition.
     # The default value is one-tenth of the partition size.
@@ -757,7 +757,7 @@ storages: # optional
 
     # The buffer size for calling syscall read.
     # By default, it's equal to block_flush_size.
-    read_buffer_size: {block_flush_size} # optional, equal to block_flush_size by default
+    read_buffer_size: {block_flush_size}  # optional, equal to block_flush_size by default
 
     # Time to store the session information.
     # As soon as the incoming session is closed, the storage stops storing information about the session.
@@ -769,7 +769,7 @@ storages: # optional
     # The partition is deleted after the specified time if:
     # * All its data is written to outputs and confirmation is received.
     # * There are no active sessions that write data to this partition.
-    partition_retention_time: 1h # optional, the default value is 1h
+    partition_retention_time: 1h  # optional, the default value is 1h
 
     # Check frequency for session_retention_time and partition_retention_time.
     retention_check_period: 1m # optional, default value is 1m
@@ -848,10 +848,10 @@ Parameter descriptions:
 
             # Name of the file to write messages to.
             # To output data to the console, specify /dev/stdout.
-            file_name: out.txt # optional, not set by default
+            file_name: out.txt  # optional, not set by default
 
             # Directory name. If specified, the data for each session is written to a separate file in this directory with a name equal to the session ID.
-            directory: output_directory # optional, not set by default
+            directory: output_directory  # optional, not set by default
 
             # Message separator used in the file, for example, \n.
             delimiter: null # required
@@ -865,7 +865,7 @@ Contains no parameters.
 
 #### Yc_metrics output {#yc_metrics_output}
 
-An output used for writing metrics in the {{monitoring-full-name}} API.
+An output used for writing metrics in the {{ monitoring-full-name }} API.
 
 Parameter descriptions:
 
@@ -875,9 +875,9 @@ Parameter descriptions:
         plugin: yc_metrics
         config:
         # The URL to send metrics to.
-        url: https://monitoring.{{ api-host }}/monitoring/v2/data/write # optional, the default value is https://monitoring.{{ api-host }}/monitoring/v2/data/write
+        url: https://monitoring.{{ api-host }}/monitoring/v2/data/write  # optional, the default value is https://monitoring.{{ api-host }}/monitoring/v2/data/write
 
-        folder_id: b1ge2vt0gml6ce48qcks # required, the folder ID
+        folder_id: b1ge2vt0gml6ce48qcks  # required, the folder ID
 
         # IAM authentication settings.
         iam: # required
@@ -891,7 +891,7 @@ Parameter descriptions:
         # The name of the file containing the JWT parameters in the format returned by the `yc iam key create` command.
                 file: "jwt_params.json" # required
 
-                endpoint: iam.{{ api-host }} # optional, the default value is iam.{{ api-host }}
+                endpoint: iam.{{ api-host }}  # optional, the default value is iam.{{ api-host }}
 
                 refresh_period: 1h # optional, the default value is 1h
 
@@ -932,9 +932,9 @@ Parameter descriptions:
         plugin: yc_logs
        config:
         # The URL to send metrics to.
-        url: https://monitoring.{{ api-host }}/monitoring/v2/data/write # optional, the default value is https://monitoring.{{ api-host }}/monitoring/v2/data/write
+        url: https://monitoring.{{ api-host }}/monitoring/v2/data/write  # optional, the default value is https://monitoring.{{ api-host }}/monitoring/v2/data/write
 
-        folder_id: b1ge2vt0gml6ce48qcks # required, the folder ID
+        folder_id: b1ge2vt0gml6ce48qcks  # required, the folder ID
 
         # IAM authentication settings.
         iam: # required
@@ -948,7 +948,7 @@ Parameter descriptions:
         # The name of the file containing the JWT parameters in the format returned by the `yc iam key create` command.
                 file: "jwt_params.json" # required
 
-                endpoint: iam.{{ api-host }} # optional, the default value is iam.{{ api-host }}
+                endpoint: iam.{{ api-host }}  # optional, the default value is iam.{{ api-host }}
 
                 refresh_period: 1h # optional, the default value is 1h
 

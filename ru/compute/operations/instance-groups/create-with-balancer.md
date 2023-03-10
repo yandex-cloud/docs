@@ -93,7 +93,7 @@
 
       Если ни одной сети нет, [создайте ее](../../../vpc/operations/network-create.md).
 
-  1. Выберите один из [публичных образов](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} (например, [CentOS 7](/marketplace/products/yc/centos-7)).
+  1. Выберите один из публичных образов {{ marketplace-name }} (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
@@ -148,7 +148,7 @@
           `memory` | Количество памяти (RAM).
           `cores` | Количество ядер процессора (vCPU).
           `mode` | Режим доступа к диску.</br> - `READ_ONLY` — доступ на чтение.</br>- `READ_WRITE` — доступ на чтение и запись.
-          `image_id` | Идентификатор публичного образа.
+          `image_id` | Идентификатор публичного образа. Его можно посмотреть в [консоли управления]({{ link-console-main }}) при создании ВМ или в [{{ marketplace-name }}](/marketplace) на странице образа в блоке **Идентификаторы продукта**.
           `type_id` | Тип диска.
           `size` | Размер диска.
           `network_id` | Идентификатор сети `default-net`.

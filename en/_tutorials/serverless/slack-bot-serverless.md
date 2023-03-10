@@ -5,7 +5,7 @@ In this use case, you'll learn how to use serverless technologies to create a Sl
 
 ## Prepare the environment {#start}
 
-1. [Download](https://storage.yandexcloud.net/doc-files/slackbot.zip) the file archive needed to create the bot.
+1. [Download](https://{{ s3-storage-host }}/doc-files/slackbot.zip) the file archive needed to create the bot.
 1. If you don't have a folder, [create](../../resource-manager/operations/folder/create.md) one.
 1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `editor` role for your folder.
 

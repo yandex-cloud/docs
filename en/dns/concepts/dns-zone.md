@@ -22,8 +22,8 @@ For instance, the `example.com.` parent zone is in a folder named `my-folder`. I
 Domain names in public zones are available from the internet. If you have a registered domain, you can delegate it. To do this, specify the addresses of {{ yandex-cloud }} name servers in the `NS` records of your registrar:
 
 
-* `ns1.yandexcloud.net.`
-* `ns2.yandexcloud.net.`
+* `ns1.{{ dns-ns-host-sld }}.`
+* `ns2.{{ dns-ns-host-sld }}.`
 
 
 
@@ -45,7 +45,7 @@ We recommend [using caching resolvers](../tutorials/local-dns-cache.md), such as
 
 ## Internal zones {#private-zones}
 
-Domain names from internal zones can only be used in the [{{ vpc-name }}](../../vpc/) ({{ vpc-short-name }}) networks specified when creating a zone. Within internal zones, you can use the entire namespace in the subnets of the selected network, including `internal.` and `.`.
+Domain names from internal zones can only be used in the [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within internal zones, you can use the entire namespace in the subnets of the selected network, including `internal.` and `.`.
 
 {% note warning %}
 

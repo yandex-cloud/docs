@@ -27,6 +27,8 @@ items:
         href: tts/index.md
       - name: Список голосов
         href: tts/voices.md
+      - name: Синтез по шаблонам
+        href: tts/templates.md
       - name: Разметка текста
         items:
           - name: TTS-разметка
@@ -36,11 +38,7 @@ items:
           - name: Список поддерживаемых фонем в SSML
             href: tts/supported-phonemes.md
       - name: '{{ brand-voice-name }}'
-        items:
-          - name: О технологии {{ brand-voice-name }}
-            href: tts/brand-voice/index.md
-          - name: Формат входных данных Brand Voice Adaptive
-            href: tts/brand-voice/income-data-format.md
+        href: tts/brand-voice/index.md
   - name: Форматы аудио
     href: formats.md
   - name: Интеграция телефонии
@@ -97,11 +95,13 @@ items:
         items:
           - name: Синтез API v3
             href: tts/api/tts-examples-v3.md
-          - name: Синтезировать речь в формате WAV — API v1
+          - name: Синтез по шаблонам
+            href: tts/api/tts-templates.md
+          - name: Синтез речи в формате WAV — API v1
             href: tts/api/tts-wav.md
-          - name: Синтезировать речь в формате OggOpus — API v1
+          - name: Синтез речи в формате OggOpus — API v1
             href: tts/api/tts-ogg.md
-          - name: Синтезировать SSML-текст — API v1
+          - name: Синтез из текста SSML — API v1
             href: tts/api/tts-ssml.md
   - name: SpeechKit Hybrid
     items:
@@ -115,7 +115,7 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Релизы
+  - name: История изменений
     items:
       - name: Релизы распознавания
         href: release-notes-stt.md

@@ -27,9 +27,12 @@
       * Пароль — `<пароль приемника>`.
 
   
-  1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
+  1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
+
      * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
      * [{{ mpg-name }}](../managed-postgresql/operations/connect.md#configuring-security-groups).
+
+     {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
   1. [Выдайте роль](../managed-postgresql/operations/grant#grant-privilege) `mdb_replication` пользователю `pg-user` в кластере {{ mpg-name }}.
@@ -202,7 +205,7 @@ WHERE __data_transfer_delete_time == 0;
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 * Убедитесь, что трансфер находится в статусе {{ dt-status-finished }} и [удалите](../data-transfer/operations/transfer.md#delete) его.
 * Удалите эндпоинты и кластеры:

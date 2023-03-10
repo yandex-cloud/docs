@@ -9,14 +9,14 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/labels
+GET https://monitoring.{{ api-host }}/monitoring/v2/metrics/labels
 ```
  
 ## Query-параметры {#query_params}
  
 Параметр | Описание
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога, которому принадлежит метрика.  Максимальная длина строки в символах — 50.
+folderId | Обязательное поле. Идентификатор каталога, которому принадлежит метрика. Максимальная длина строки в символах — 50.
 selectors | Селекторы метрики для поиска по меткам.
  
 ## Ответ {#responses}

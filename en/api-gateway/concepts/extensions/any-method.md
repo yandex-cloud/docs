@@ -6,13 +6,14 @@ The `x-yc-apigateway-any-method` extension defines operations performed by any H
 
 The table below lists the parameters specific to API gateways of Yandex API Gateway. Read more about other parameters in the [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification).
 
-Parameter | Type | Description
----- | ---- | ----
-`x-yc-apigateway-integration` | [x-yc-apigateway-integration](./index.md#integration) | The entry point for integrating the API gateway with other services.
+| Parameter | Type | Description |
+----|----|----
+| `x-yc-apigateway-integration` | [x-yc-apigateway-integration](./index.md#integration) | The entry point for integrating the API gateway with other services. |
+
 
 ## Extension specification {#spec}
 
-Sample specification:
+Example specification:
 
 ```yaml
 /example/{ID}:
@@ -34,4 +35,3 @@ Sample specification:
         tag: "$latest"
         service_account_id: ajehfe56hhlsd4n93q1
 ```
-

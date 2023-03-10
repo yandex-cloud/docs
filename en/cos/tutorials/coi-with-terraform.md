@@ -4,7 +4,7 @@ To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/v
 
 ## Before you start {#before-begin}
 
-If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). In this use case, a configuration file named `example.tf` and located in the `~/yandex-cloud-terraform` directory is used.
+If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). In this use case, a configuration file named `example.tf` and located in the `~/cloud-terraform` directory is used.
 
 ## Creating and running a VM from a {{ coi }} {#creating-vm}
 
@@ -44,7 +44,16 @@ If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} pro
 
    Where `subnet_id` is the [subnet](../../vpc/concepts/network.md#subnet) IDs.
 
-1. Create a cloud specification file named `cloud_config.yaml` in the `~/yandex-cloud-terraform` directory. Describe the specification:
+   If you use [Docker Compose specification](../concepts/coi-specifications.md#compose-spec), then you should replace `docker-container-declaration` with `docker-compose` in `metadata` block:
+
+   ```
+   metadata = {
+     docker-compose = file("${path.module}/docker-compose.yaml")
+     user-data = file("${path.module}/cloud_config.yaml")
+   }
+   ```
+
+1. Create a cloud specification file named `cloud_config.yaml` in the `~/cloud-terraform` directory. Describe the specification:
 
    ```yaml
    #cloud-config
@@ -59,19 +68,19 @@ If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} pro
 
    Where `ssh_authorized_keys` is the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-1. Create a specification file {{ coi }} named `declaration.yaml` in the `~/yandex-cloud-terraform` directory. Describe the specification:
+1. Create a specification file {{ coi }} named `declaration.yaml` in the `~/cloud-terraform` directory. Describe the specification:
 
    ```yaml
    spec:
      containers:
-     - image: cr.yandex/yc/demo/coi:v1
+     - image: {{ registry }}/yc/demo/coi:v1
        securityContext:
          privileged: false
        stdin: false
        tty: false
    ```
 
-1. Create a file named `output.tf` in the `~/yandex-cloud-terraform` directory to output the VM's [public IP address](../../vpc/concepts/address.md#public-addresses):
+1. Create a file named `output.tf` in the `~/cloud-terraform` directory to output the VM's [public IP address](../../vpc/concepts/address.md#public-addresses):
 
    ```
    output "external_ip" {
@@ -89,10 +98,10 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
   1. Make sure that the configuration files are correct.
 
-     1. In the command line, go to the `~/yandex-cloud-terraform` directory with the configuration files:
+     1. In the command line, go to the `~/cloud-terraform` directory with the configuration files:
 
         ```bash
-        cd /Users/<username>/yandex-cloud-terraform
+        cd /Users/<username>/cloud-terraform
         ```
 
      1. Run the check using the command:
@@ -220,7 +229,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
 ### Create instance group configuration files {#create-config-group}
 
-1. Save a configuration file named `example.tf` to the `~/yandex-cloud-terraform` directory:
+1. Save a configuration file named `example.tf` to the `~/cloud-terraform` directory:
 
    
    ```hcl
@@ -291,7 +300,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
 1. Use the `cloud_config.yaml` and `declaration.yaml` files from the [Create VM configuration files](#create-config-vm) section.
 
-1. Create a file named `output.tf` in the `~/yandex-cloud-terraform` directory to output the public IPs of each VM instance in the group:
+1. Create a file named `output.tf` in the `~/cloud-terraform` directory to output the public IPs of each VM instance in the group:
 
    ```
    output "external_ip" {
@@ -309,10 +318,10 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
   1. Make sure that the configuration files are correct.
 
-     1. In the command line, go to the `~/yandex-cloud-terraform` directory with the configuration files:
+     1. In the command line, go to the `~/cloud-terraform` directory with the configuration files:
 
         ```bash
-        cd /Users/<username>/yandex-cloud-terraform
+        cd /Users/<username>/cloud-terraform
         ```
 
      1. Run the check using the command:

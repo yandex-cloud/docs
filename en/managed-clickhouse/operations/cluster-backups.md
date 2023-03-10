@@ -115,7 +115,6 @@ For a new cluster, you should set all the parameters that are required at creati
    1. To restore an individual shard, pass the ID of a single backup:
 
       
-
       ```bash
       {{ yc-mdb-ch }} cluster restore \
          --backup-id=<backup ID> \
@@ -123,13 +122,13 @@ For a new cluster, you should set all the parameters that are required at creati
          --environment=<environment: PRESTABLE or PRODUCTION> \
          --network-name=<network name> \
          --host type=<host type: clickhouse or zookeeper>,`
-               `zone-id=<availbility zone>,`
+               `zone-id=<availability zone>,`
                `subnet-id=<subnet ID> \
          --clickhouse-disk-size=<storage size in GB> \
          --clickhouse-disk-type=<disk type> \
          --clickhouse-resource-preset=<host class>
       ```
-
+
 
       Where:
 
@@ -149,9 +148,8 @@ For a new cluster, you should set all the parameters that are required at creati
 
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
-      * `--disk-type`: The [type of disk](../concepts/storage.md):
+      * `--disk-type`: [Disk type](../concepts/storage.md):
          
-
          * `network-hdd`
          * `network-ssd`
          * `local-ssd`
@@ -162,7 +160,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```bash
       {{ yc-mdb-ch }} cluster restore \
-         --backup-id=<list of backup IDs for all shards> \
+         --backup-id=<list of IDs of backups of all shards> \
          ...
       ```
 

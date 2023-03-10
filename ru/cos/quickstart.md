@@ -1,6 +1,6 @@
 # Создание ВМ с {{ coi }}
 
-Создайте виртуальную машину из образа [{{ coi }}](concepts/index.md) и запустите на ней [Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers).
+Создайте виртуальную машину из образа [{{ coi }}](concepts/index.md) и запустите на ней [Docker-контейнер](/blog/posts/2022/03/docker-containers).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -51,7 +51,7 @@
        --platform standard-v3 \
        --public-ip \
        --container-name=my-app \
-       --container-image=cr.yandex/mirror/ubuntu:16.04 \
+       --container-image={{ registry }}/mirror/ubuntu:16.04 \
        --container-command=sleep \
        --container-arg="1000" \
        --container-env=KEY1=VAL1,KEY2=VAL2 \

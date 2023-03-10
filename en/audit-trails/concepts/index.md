@@ -41,6 +41,7 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 * {{ resmgr-full-name }}
 * {{ vpc-full-name }}
 * {{ ydb-full-name }}
+* {{ yq-full-name }}
 
 The following events are logged:
 

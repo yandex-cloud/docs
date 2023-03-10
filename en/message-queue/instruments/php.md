@@ -1,10 +1,10 @@
 # Example of using {{ message-queue-full-name }} on PHP
 
-Using the [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/), you can manage {{ message-queue-name }}message queues and send and receive messages.
+Using the [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/), you can manage message queues and send and receive messages in {{ message-queue-name }}.
 
 ## Installation {#install}
 
-Install the AWS SDK for PHP [by following the instructions](https://aws.amazon.com/sdk-for-php/) on the official site.
+Install the AWS SDK for PHP by following the [instructions](https://aws.amazon.com/sdk-for-php/) on the official site.
 ```
 composer require aws/aws-sdk-php-resources
 ```
@@ -24,7 +24,7 @@ export AWS_SECRET_ACCESS_KEY="<secret key>"
 In this example:
 
 1. A connection with {{ message-queue-name }} is established.
-1. A message queue is created with the name `mq_php_sdk_example`.
+1. A message queue is created with the `mq_php_sdk_example` name.
 1. A message with the text `test-message` is sent to the queue.
 1. The message is read from the queue and displayed in the terminal.
 1. The message queue is deleted.

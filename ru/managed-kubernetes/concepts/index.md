@@ -22,7 +22,7 @@ description: "Основная сущность, которой оперируе
 Предоставить доступ в интернет можно следующими способами:
 * Назначить каждому узлу в группе [публичный IP адрес](../../vpc/concepts/address.md#public-addresses).
 * [Настроить виртуальную машину в качестве NAT-инстанса](../../tutorials/routing/nat-instance.md).
-* [Включить функцию NAT в интернет](../../vpc/operations/enable-nat.md).
+* [Настроить NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
 
 {% endnote %}
 

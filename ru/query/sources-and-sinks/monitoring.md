@@ -17,20 +17,20 @@ SELECT
 FROM $query;
 ```
 
-При [потоковой обработке данных](../concepts/stream-processing.md) 
-{{ yq-full-name }} может отправлять в {{ monitoring-name }} результаты исполнения запроса в виде метрик и их меток. 
+При [потоковой обработке данных](../concepts/stream-processing.md) {{ yq-full-name }} может отправлять в {{ monitoring-name }} результаты исполнения запроса в виде метрик и их меток. 
 
-## Настройка подключения 
+## Настройка соединения
+
 Для отправки метрик в {{ monitoring-name }} необходимо:
 1. Перейти в интерфейс {{ yq-full-name }} в раздел **Connections** и нажать кнопку **Create**.
-1. В открывшемся окне в поле **Name** указать название подключения к {{ monitoring-name }}.
+1. В открывшемся окне в поле **Name** указать название соединения с {{ monitoring-name }}.
 1. В выпадающем поле **Type** выбрать **Monitoring**.
-1. В поле **Service account** выбрать сервисный аккаунт, который будет использоваться для записи метрик, или создать новый, выдав ему права [`monitoring.editor`](../../monitoring/security/index.md). 
-1. Создать подключение, нажав кнопку **Create**.
+1. В поле **Service account** выбрать сервисный аккаунт, который будет использоваться для записи метрик, или создать новый, выдав ему права [`monitoring.editor`](../../monitoring/security/index.md).
+1. Создать соединение, нажав кнопку **Create**.
 
 ## Модель данных
 
-Запись метрик в {{ monitoring-name }} выполняется с помощью SQL-выражения 
+Запись метрик в {{ monitoring-name }} выполняется с помощью SQL-выражения
 
 ```sql
 INSERT INTO 
@@ -43,13 +43,13 @@ FROM
 
 Где:
 
-- `monitoring_connection_name` — название подключения к {{ monitoring-name }}, созданного в предыдущем пункте.
+- `monitoring_connection_name` — название соединения с {{ monitoring-name }}, созданного в предыдущем пункте.
 - `fields` — список полей, содержащих временную отметку, метрики и их метки.
 - `query` — запрос-источник данных {{ yq-full-name }}.
 
 {% note info %}
 
-При записи метрик необходимо использовать конструкцию `INSERT INTO  <monitoring_connection_name>.custom`, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в {{ monitoring-name }} для записи пользовательских метрик.
+При записи метрик необходимо использовать конструкцию `INSERT INTO <monitoring_connection_name>.custom`, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в {{ monitoring-name }} для записи пользовательских метрик.
 
 {% endnote %}
 
@@ -89,7 +89,7 @@ FROM $query;
 
 |Поле|Тип|Описание|
 |--|---|---|
-|`monitoring`| |Название подключения к {{ monitoring-name }}|
+|`monitoring`| |Название соединения с {{ monitoring-name }}|
 |`$query`| |Источник данных в SQL-запросе, может быть подзапросом языка YQL, в том числе [подключением](../quickstart/streaming-example.md) к источнику данных|
 |`my_timestamp`| Метка времени| Источник данных — столбец `my_timestamp` в потоке-источнике данных `stream`|
 |`exception_count`|Метрика| Источник данных — столбец `exception_count` в потоке-источнике данных `stream`|
@@ -98,4 +98,3 @@ FROM $query;
 
 Пример результата работы запроса в {{ monitoring-name }}.
 ![](../../_assets/query/monitoring-example.png)
-

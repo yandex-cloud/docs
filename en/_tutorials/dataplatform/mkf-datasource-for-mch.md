@@ -46,7 +46,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       * Network.
       * Subnet.
-            * Default security group and rules required to connect to the clusters from the internet.
+      * Default security group and rules required to connect to the clusters from the internet.
       * A {{ mkf-name }} cluster with a description of one topic and two users on whose behalf the producer and consumer will connect to the topic, respectively. To create multiple topics or clusters, duplicate blocks with their description and specify new unique names. Users in different clusters may have the same names.
       * A {{ mch-name }} cluster with a single shard and a database named `db1`.
 
@@ -85,7 +85,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect.md#connection-string).
 
-   - [clickhouse-client]({{ ch.docs }}/interfaces/cli/) to connect to the database in the {{ mch-name }} cluster.
+   - [clickhouse-client]({{ ch.docs }}/interfaces/cli/): to connect to the database in the {{ mch-name }} cluster.
 
       1. Connect the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
@@ -104,10 +104,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       1. Download the configuration file for `clickhouse-client`:
 
-         ```bash
-         mkdir --parents ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
-             --output-document ~/.clickhouse-client/config.xml
-         ```
+         {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
       Check that you can use it to [connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect.md#connection-string).
 
@@ -290,7 +287,7 @@ To learn more about creating a table on the `Kafka` engine, see the [{{ CH }} do
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <topic name>:9091 \
+      -b <FQDN broker host>:9091 \
       -t <topic name> \
       -k key \
       -X security.protocol=SASL_SSL \

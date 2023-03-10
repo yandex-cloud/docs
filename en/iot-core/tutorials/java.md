@@ -350,4 +350,3 @@ Where:
 
 * The `disconnect` method terminates the server connection.
 * The `close` method releases `MqttClient` class resources.
-

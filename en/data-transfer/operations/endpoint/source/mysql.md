@@ -32,7 +32,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-source.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -86,7 +86,7 @@ For OnPremise, all fields are filled in manually.
 
    {% include [On premise MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-source.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -127,20 +127,25 @@ For OnPremise, all fields are filled in manually.
 
 - Management console
 
-   * **Included tables**: Data is only transferred from listed tables. It is set using regular expressions.
+   * **List of included tables**: Data is only transferred from the listed tables. It is set using regular expressions.
 
-   * **Excluded tables**: Data from these blacklisted tables is not transferred. It is set using regular expressions.
+      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * **Transfer schema**: lets you select the DB schema elements to be transferred when activating or deactivating a transfer.
+   * **List of excluded tables**: Data from these listed tables is not transferred. It is set using regular expressions.
 
-   * **Time zone for connecting to the database**: specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. The server's local time zone is used by default.
+   * **Schema migration**, lets you select the DB schema elements to be transferred when activating or deactivating a transfer.
 
+   * **DB time zone**, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. The server's local time zone is used by default.
+
+   * **DB for service tables**: A database for dummy tables (`__tm_keeper` and ` __tm_gtid_keeper`). By default, this is the source database the data is transferred from.
 
 - CLI
 
-   * `--include-table-regex`: List of included tables. Data is only transferred from listed tables. It is set using regular expressions.
+   * `--include-table-regex`: List of included tables. If this is on, the data will only be transferred from the tables in this list. It is set using regular expressions.
 
-   * `--exclude-table-regex`: Blacklist of tables. Data from blacklisted tables isn't transferred. It is set using regular expressions.
+      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
+   * `--exclude-table-regex`: Blacklist of tables. Data from tables on this list will not be transferred. It is set using regular expressions.
 
    * `--timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
@@ -150,9 +155,13 @@ For OnPremise, all fields are filled in manually.
 
 - {{ TF }}
 
-   * `include_table_regex`: List of included tables. Data is only transferred from listed tables. It is set using regular expressions.
+   * `include_table_regex`: List of included tables. If set, data is only transferred from the tables in this list. It is set using regular expressions.
 
-   * `exclude_table_regex`: List of excluded tables. Data from tables on this list will not be transmitted. It is set using regular expressions.
+      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
+      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
+   * `exclude_table_regex`: List of excluded tables. Data from tables on this list will not be transferred. It is set using regular expressions.
 
    * `timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
@@ -170,9 +179,11 @@ For OnPremise, all fields are filled in manually.
 
 - API
 
-   * `includeTablesRegex`: List of included tables. Data is only transferred from listed tables. It is set using regular expressions.
+   * `includeTablesRegex`: List of included tables. If this is on, the data will only be transferred from the tables in this list. It is set using regular expressions.
 
-   * `excludeTablesRegex`: Blacklist of tables. Data from blacklisted tables isn't transferred. It is set using regular expressions.
+      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
+   * `excludeTablesRegex`: Blacklist of tables. Data from tables on this list will not be transferred. It is set using regular expressions.
 
    * `timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 

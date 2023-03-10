@@ -37,7 +37,7 @@
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
 * **Client-side encryption (если требуется)**: используйте шифрование данных с помощью ключей {{ kms-name }}, см. [обзор способов шифрования](../../kms/tutorials/encrypt/index.md).
 * **Защита ключей {{ kms-name }}**: выдавайте только гранулярные доступы к отдельным ключам {{ kms-name }} — роль `kms.keys.encrypterDecrypter`; используйте [ротацию ключей](../../kms/concepts/version.md).
-* **Управление секретами**: используйте сервисы управления секретами, такие как [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер cr.yandex/yc/vault -->
+* **Управление секретами**: используйте сервисы управления секретами, такие как [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер {{ registry }}/yc/vault -->
 
 ## Безопасная конфигурация {#secure-configuration}
 
@@ -82,7 +82,7 @@
   ![](../../_assets/overview/solution-library-icon.svg)[Use cases и важные события безопасности в аудитных логах](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
 * **Реагирование на {{ at-name }} с {{ sf-name }}**:
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: уведомления и реагирование на события ИБ {{ at-name }} с помощью {{ cloud-logging-full-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
-* **Регулярный аудит состояния**: используйте [{{ yandex-cloud }} CLI](../../cli/) для запросов к текущему состоянию облачной инфраструктуры либо партнерское решение [Cloud Advisor](https://cloud.yandex.ru/blog/posts/2021/03/cloud-advisor-review).
+* **Регулярный аудит состояния**: используйте [{{ yandex-cloud }} CLI](../../cli/) для запросов к текущему состоянию облачной инфраструктуры либо партнерское решение [Cloud Advisor](/blog/posts/2021/03/cloud-advisor-review).
 
 ## Физическая безопасность {#physical-security}
 
@@ -90,7 +90,7 @@
 
 ## Резервное копирование {#backup}
 
-* **Регулярные резервные копии**: настройте создание снимков дисков по расписанию с {{ sf-name }}, см. [руководство](https://cloud.yandex.ru/blog/posts/2020/01/snapshot-triggers).
+* **Регулярные резервные копии**: настройте создание снимков дисков по расписанию с {{ sf-name }}, см. [руководство](/blog/posts/2020/01/snapshot-triggers).
 
 ## Управление бюджетами {#budget-management}
 
@@ -105,7 +105,7 @@
 ### Шифрование данных и управление ключами/секретами {#kubernetes-data-encryption}
 
 * **Server-side шифрование**: включите шифрование секретов в etcd, см. [руководство](../../kms/tutorials/k8s.md). Делайте это всегда, вне зависимости от того, будете ли вы использовать сервисы управления секретами.
-* **Управление секретами**: используйте [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер `cr.yandex/yc/vault` -->
+* **Управление секретами**: используйте [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер `{{ registry }}/yc/vault` -->
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: управление секретами с SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
 
 ### Сетевая безопасность {#kubernetes-network-security}

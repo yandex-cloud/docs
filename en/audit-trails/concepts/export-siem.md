@@ -4,7 +4,7 @@ You can export audit log files to SIEM systems.
 
 The {{ yandex-cloud }} team has prepared a set of solutions for exporting audit logs into several SIEM systems. You can find solution files in the respective sections of the [{{ yandex-cloud }} Security Solution Library repository](https://github.com/yandex-cloud/yc-solution-library-for-security/).
 
-[{{ yandex-cloud }} Security Solution Library](https://cloud.yandex.ru/solutions/security-solution-library) is a public repo on GitHub with a set of examples and recommendations on how to build a secure infrastructure in {{ yandex-cloud }}.
+[{{ yandex-cloud }} Security Solution Library](/solutions/security-solution-library) is a public repo on GitHub with a set of examples and recommendations on how to build a secure infrastructure in {{ yandex-cloud }}.
 
 As of today, solutions have been prepared for the following SIEM systems:
 * [{{ mes-full-name }}](../tutorials/trails-logs-elasticsearch.md).

@@ -93,7 +93,7 @@ A node connection to a {{ managed-k8s-name }} cluster is complete when new nodes
 - Management console
 
   1. Go to the details of the relevant node group.
-  1. Select the **Nodes** tab.
+  1. Click **Nodes manager**.
 
 - CLI
 
@@ -149,7 +149,9 @@ In the `NodeGroup` resource specification, include the name of the relevant secr
     ips:
     ...
     provisionBySsh:
-      sshKeySecret: <secret name>
+      sshKeySecret:
+        name: <secret name>
+        namespace: system
   ```
 
 {% endlist %}

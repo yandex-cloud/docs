@@ -24,10 +24,10 @@ You can get DB connection parameters in the {{ yandex-cloud }} management consol
 
       * The DB endpoint is specified under **Connection** in the **Endpoint** line:
 
-         > For example, the endpoint for a DB in Serverless mode is `{{ ep-serverless }}` and in Dedicated mode is `{{ ep-dedicated }}`.
+         > For example, the endpoint for a DB in Serverless mode is `{{ ydb.ep-serverless }}` and in Dedicated mode is `{{ ydb.ep-dedicated }}`.
       * The DB path is specified under **Connection** in the **Database** line.
 
-         > Sample DB path: `{{ path-serverless }}`.
+         > Sample DB path: `{{ ydb.path-serverless }}`.
 
 - YC CLI
 
@@ -44,20 +44,20 @@ You can get DB connection parameters in the {{ yandex-cloud }} management consol
       +----------------------+----------------+-------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+---------+
       |          ID          |      NAME      | DESCRIPTION |                                                           ENDPOINT                                                            |     CREATED AT      | STATUS  |
       +----------------------+----------------+-------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+---------+
-      | {{ id-serverless }} | {{ name-serverless }} |             | {{ ep-serverless }}/?database={{ path-serverless }}                  | 2022-05-29 21:10:35 | RUNNING |
-      | {{ id-dedicated }} | {{ name-dedicated }}  |             | {{ ep-dedicated }}/?database={{ path-dedicated }} | 2022-05-31 10:10:12 | RUNNING |
+      | {{ ydb.id-serverless }} | {{ ydb.name-serverless }} |             | {{ ydb.ep-serverless }}/?database={{ ydb.path-serverless }}                  | 2022-05-29 21:10:35 | RUNNING |
+      | {{ ydb.id-dedicated }} | {{ ydb.name-dedicated }}  |             | {{ ydb.ep-dedicated }}/?database={{ ydb.path-dedicated }} | 2022-05-31 10:10:12 | RUNNING |
       +----------------------+----------------+-------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+---------+
       ```
 
       DB connection parameters are specified in the `ENDPOINT` column.
 
       > For example, for a Serverless database:
-      > * Endpoint: `{{ ep-serverless }}`.
-      > * Path: `{{ path-serverless }}`.
+      > * Endpoint: `{{ ydb.ep-serverless }}`.
+      > * Path: `{{ ydb.path-serverless }}`.
       >
       > For a Dedicated database:
-      > * Endpoint: `{{ ep-dedicated }}`.
-      > * Path: `{{ path-dedicated }}`.
+      > * Endpoint: `{{ ydb.ep-dedicated }}`.
+      > * Path: `{{ ydb.path-dedicated }}`.
 
 {% endlist %}
 
@@ -79,12 +79,12 @@ Set up the selected mode:
 
    Get an OAuth token by sending a [request]({{ link-cloud-oauth }}) and save it to a file. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your OAuth token in the `--yc-token-file` parameter.
 
-   To avoid entering this parameter every time you run commands, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/en/docs/reference/ydb-cli/profile/create).
+   To avoid entering it every time you run commands, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/en/docs/reference/ydb-cli/profile/create).
 
    Check that the connection is correct by requesting user information:
 
    ```bash
-   {{ ydb-cli }} \
+   {{ ydb.cli }} \
      --endpoint <endpoint> \
      --database <name> \
      --yc-token-file <path> \
@@ -98,9 +98,9 @@ Set up the selected mode:
    > Command example:
    >
    > ```bash
-   > {{ ydb-cli }} \
-   >  --endpoint {{ ep-serverless }} \
-   >  --database {{ path-serverless }} \
+   > {{ ydb.cli }} \
+   >  --endpoint {{ ydb.ep-serverless }} \
+   >  --database {{ ydb.path-serverless }} \
    >  --yc-token-file oauth-token.txt \
    >  discovery whoami
    > ```
@@ -123,11 +123,11 @@ Set up the selected mode:
    1. Save the received token to a file.
    1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your IAM token in the `--iam-token-file` parameter.
 
-      To avoid entering this parameter every time you run commands, save the IAM token value to the `IAM_TOKEN` environment variable or [set up of a {{ ydb-short-name }} CLI profile](https://ydb.tech/en/docs/reference/ydb-cli/profile/create).
+      To avoid entering it every time you run commands, save the IAM token value to the `IAM_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/en/docs/reference/ydb-cli/profile/create).
    1. Check that the connection is correct by requesting user information:
 
       ```bash
-      {{ ydb-cli }} \
+      {{ ydb.cli }} \
         --endpoint <endpoint> \
         --database <name> \
         --iam-token-file <path> \
@@ -141,9 +141,9 @@ Set up the selected mode:
       > Command example:
       >
       > ```bash
-      > {{ ydb-cli }} \
-      >  --endpoint {{ ep-serverless }} \
-      >  --database {{ path-serverless }} \
+      > {{ ydb.cli }} \
+      >  --endpoint {{ ydb.ep-serverless }} \
+      >  --database {{ ydb.path-serverless }} \
       >  --iam-token-file iam-token.txt \
       >  discovery whoami
       > ```
@@ -171,12 +171,12 @@ Set up the selected mode:
 
    1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your service account's authorized access key in the `--sa-key-file` parameter.
 
-      To avoid entering this parameter every time you run commands, save the file path to the `SA_KEY_FILE` environment variable or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/en/docs/reference/ydb-cli/profile/create).
+      To avoid entering it every time you run commands, save the file path to the `SA_KEY_FILE` environment variable or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/en/docs/reference/ydb-cli/profile/create).
 
    1. Check that the connection is correct by requesting user information:
 
       ```bash
-      {{ ydb-cli }} \
+      {{ ydb.cli }} \
         --endpoint <endpoint> \
         --database <name> \
         --sa-key-file <path>\
@@ -190,9 +190,9 @@ Set up the selected mode:
       Command example:
 
       > ```bash
-      > {{ ydb-cli }} \
-      >  --endpoint {{ ep-serverless }} \
-      >  --database {{ path-serverless }} \
+      > {{ ydb.cli }} \
+      >  --endpoint {{ ydb.ep-serverless }} \
+      >  --database {{ ydb.path-serverless }} \
       >  --sa-key-file sa-key-file.txt \
       >  discovery whoami
       > ```
@@ -207,12 +207,12 @@ Set up the selected mode:
 
    When running a {{ ydb-short-name }} CLI command from a {{ yandex-cloud }} VM, specify the `--use-metadata-credentials` parameter. The {{ ydb-short-name }} CLI will get an IAM token via the metadata service.
 
-   To avoid entering this parameter every time you run a command, set the `USE_METADATA_CREDENTIALS` environment variable to `1` or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/en/docs/reference/ydb-cli/profile/create).
+   To avoid entering it every time you run commands, set the `USE_METADATA_CREDENTIALS` environment variable to `1` or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/en/docs/reference/ydb-cli/profile/create).
 
    Check that the connection is correct by requesting user information:
 
    ```bash
-   {{ ydb-cli }} \
+   {{ ydb.cli }} \
      --endpoint <endpoint> \
      --database <name> \
      --use-metadata-credentials \
@@ -226,9 +226,9 @@ Set up the selected mode:
    > Command example:
    >
    > ```bash
-   > {{ ydb-cli }} \
-   >  --endpoint {{ ep-serverless }} \
-   >  --database {{ path-serverless }} \
+   > {{ ydb.cli }} \
+   >  --endpoint {{ ydb.ep-serverless }} \
+   >  --database {{ ydb.path-serverless }} \
    >  --use-metadata-credentials \
    >  discovery whoami
    > ```

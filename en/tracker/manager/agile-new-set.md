@@ -1,80 +1,77 @@
-# Configuring boards
+# Setting up a board
 
 
+## Configuring columns {#cols}
 
-## Setting up columns {#cols}
-
-Issue cards are arranged into columns based on their status. Set up board columns to view specific statuses and move issues between them.
+Issue cards are distributed across columns according to their statuses. Set up the board's columns to see relevant statuses and move issues between them.
 
 ### Adding a column {#add-cols}
 
-To add a column to an issue board:
+To add a column on the issue board:
 
-1. Click **Add column** on the board page.
+1. On the board page, click **Add column**.
 
-1. Add the parameters for the new column:
+1. Enter the parameters of the new column:
 
-    * Set one or more statuses in **Column statuses**. To do this, start typing a status name and select a value from the list that appears.
+   * In the **Column statuses** field, enter one or more statuses. For this, start entering the status name, then select its value from the list.
 
-    * Enter your column name.
+   * Enter a name for the column.
 
 1. Click **Add**.
 
-1. To view the list of statuses left unused on the board, click ![](../../_assets/tracker/svg/unused-status.svg) next to the rightmost column. Add the desired statuses to the board: on the status card, click ![](../../_assets/tracker/svg/actions.svg), then **Create column** or **Add to column**.
+1. To view a list of statuses that aren't used on the board, click ![](../../_assets/tracker/svg/unused-status.svg) next to the rightmost column. Add relevant statuses to the board: in the status card, click ![](../../_assets/tracker/svg/actions.svg), then click **Create column** or **Add to column**.
 
    {% note info %}
 
-   If your board has issues whose statuses are not linked to columns, they will not be displayed on the board.
+   If the board includes the issues with statuses not linked to any columns, such issues won't be shown on the board.
 
    {% endnote %}
 
-1. To add a text note to display under the column name, hover over the column and click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **Add note**.
+1. To add a note with the text to be shown under the name of the column, hover over the column, then click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **Add note**.
 
-### Editing columns {#edit-cols}
+### Editing a column {#edit-cols}
 
-You can change column parameters and their position on the board.
+You can change the column's parameters and its position on the board.
 
-* To change a column's name or statuses, hover over the column and click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-edit.svg) **Edit**.
+* To change the column name or statuses, hover over the column and click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-edit.svg) **Edit**.
 
-* To change a column's position on the board, drag it to the desired spot.
+* To reposition the column on the board, drag it around the board.
 
-* To edit the text note displayed under the column name, hover over the column and click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **Edit note**.
+* To edit the note with the text shown under the column name, hover over the column, then click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **Edit note**.
 
-### Deleting columns {#delete-cols}
+### Deleting a column {#delete-cols}
 
-To remove a column from the board, hover over the column and click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Remove**.
+To delete a column from the board, hover over the column, then click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Delete**.
 
-If the removed column had any issues associated with it, they are moved to the **Unused statuses** section. To view these issues, click ![](../../_assets/tracker/svg/unused-status.svg) next to the rightmost column and then click the status name.
+If the deleted column contained issues, they will be moved to **Unused statuses**. To view such issues, next to the rightmost column, click ![](../../_assets/tracker/svg/unused-status.svg), then click the status name.
 
 ## Configuring cards {#cards}
 
-You can customize the appearance of issue cards so that only relevant parameters are displayed on the board. You can also use this feature to quickly find issues with specific tags and components.
+Customize the layout of issue cards to see only relevant parameters on the board or quickly find issues with specific tags and components.
 
-By default, the issue card only displays values for the key, name, assignee, and some others fields. To configure field display for issue cards, do the following:
+By default, the issue card displays the values of such fields as the key, name, assignee, and some others. To set up the fields to be displayed on the issue card:
 
-1. In the upper-right corner of the board page, click ![](../../_assets/tracker/svg/icon-card.svg) **Select card fields**.
+1. In the upper-right corner of the board page, click ![](../../_assets/tracker/svg/icon-card.svg) **Select fields to display on the card**.
 
-1. Select the issue fields to display on the card. You can add new fields or remove any configured fields, except for the issue name (the **Issue** field).
+1. Select the issue fields to be shown on the card. You can add or remove any field, except for the issue name (the **Issue** field) that can't be removed.
 
 1. Click **Apply**.
 
-1. To color-code specific tags and components, do the following:
+1. To highlight certain tags or issue components with colors:
 
-   1. Configure your card so that it shows the **Tags** or **Components** field.
+   1. Set up the card to show the fields **Tags** or **Components**.
 
-   2. Click the name of a tag or component on the issue card and select a color.
+   2. On the issue card, click the name of the tag or component and select its color.
 
-   The selected tag or component will be highlighted with the color on all cards.
+   Such a tag or component will be highlighted by color on all cards.
 
 ## Deleting a board {#delete-board}
 
-You can delete boards that you don't need. This will leave all its issues intact in {{ tracker-name }}. If you delete a project board, all its associated issues will be stored in the [project issue list](project-list.md).
+You can delete boards that you don't need. All the issues present on the board will be saved to {{ tracker-name }}. If you delete a project board, its issues will be saved to the [project's issue list](project-list.md).
 
 1. Open the board.
 
 1. In the upper-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **Delete board**.
 
 
-
 1. Confirm the deletion.
-

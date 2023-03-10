@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.12.2022 {#01.12.2022}
+
+* You can now run SQL queries from your browser using a [built-in SQL editor](./operations/connect.md#inline-editor).
+
 ## 01.08.2022 {#01.08.2022}
 
 * Made the following parameters optional for the `{{ yc-mdb-ch }} cluster restore` command:

@@ -1,6 +1,6 @@
 # Установка и запуск {{ unified-agent-full-name }}
 
-## Список поддерживаемых операционных систем { #supported-os }
+## Список поддерживаемых операционных систем {#supported-os}
 
 Работа {{unified-agent-short-name}} поддерживается на следующих операционных системах:
 
@@ -10,7 +10,7 @@
 - Fedora 32 или старше;
 - Fedora CoreOS.
 
-## Подготовка к установке { #before-you-begin }
+## Подготовка к установке {#before-you-begin}
 
 Перед установкой {{unified-agent-full-name}} выполните следующие шаги:
 
@@ -26,7 +26,7 @@
    - Если агент установлен на виртуальную машину в {{ yandex-cloud }}, [привяжите созданный сервисный аккаунт](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине. В этом случае агент будет автоматически получать IAM-токен сервисного аккаунта из сервиса-метаданных.
    - Если агент установлен на хосте вне {{ yandex-cloud }}, [создайте авторизованный ключ](../../../../iam/operations/authorized-key/create.md) для сервисного аккаунта. Подробнее про поставку метрик с хостов вне {{ yandex-cloud }} читайте в разделе [{#T}](../../../operations/unified-agent/non-yc.md).
 
-## Установка { #setup }
+## Установка {#setup}
 
 Установите {{unified-agent-short-name}} одним из способов:
 
@@ -34,7 +34,7 @@
 
 - Docker-образ
 
-  {{unified-agent-short-name}} распространяется в виде Docker-образа. Образ опубликован в репозитории `cr.yandex/yc` с названием `unified_agent` и тегом `latest`. Образ содержит бинарный файл с агентом и конфигурационный файл, настраивающий агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) в {{monitoring-full-name}}.
+  {{unified-agent-short-name}} распространяется в виде Docker-образа. Образ опубликован в репозитории `{{ registry }}/yc` с названием `unified_agent` и тегом `latest`. Образ содержит бинарный файл с агентом и конфигурационный файл, настраивающий агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) в {{monitoring-full-name}}.
 
   {% note warning %}
 
@@ -53,7 +53,7 @@
       -v /proc:/ua_proc \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
-      cr.yandex/yc/unified-agent
+      {{ registry }}/yc/unified-agent
   ```
 
   Где `FOLDER_ID` – идентификатор каталога, куда будут записываться метрики.
@@ -69,7 +69,7 @@
       --entrypoint="" \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
-      cr.yandex/yc/unified-agent
+      {{ registry }}/yc/unified-agent
   ```
 
   Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
@@ -81,7 +81,7 @@
   Чтобы скачать последнюю версию агента в виде deb-пакета выполните команду:
 
   ```bash
-  ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl -s -O https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+  ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
   ```
 
   Поддерживаемые значения параметра `ubuntu_name`:
@@ -92,7 +92,7 @@
 
   Чтобы узнать все доступные версии агента выполните команду:
   ```(bash)
-  curl -s https://storage.yandexcloud.net/yc-unified-agent/all-versions
+  curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
   ```
 
   Чтобы установить deb-пакет, выполните команду:
@@ -124,12 +124,12 @@
   Чтобы скачать последнюю версию агента в виде бинарного файла, выполните команду:
 
   ```bash
-  ua_version=$(curl -s https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl -s -O https://storage.yandexcloud.net/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
+  ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
   ```
 
   Чтобы узнать все доступные версии агента выполните команду:
   ```(bash)
-  curl -s https://storage.yandexcloud.net/yc-unified-agent/all-versions
+  curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
   ```
 
   После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
@@ -142,6 +142,7 @@
 
   Где `--config` – путь до конфигурационного файла.
 
+
 - При создании ВМ
 
   Вы можете установить агент при создании виртуальной машины в [консоли управления]({{ link-console-main }}). Для этого в блоке **Мониторинг** включите опцию **Агент сбора метрик**. Агент автоматически установится с файлом конфигурации по умолчанию, который будет отправлять [базовые метрики виртуальной машины](./configuration.md#linux_metrics_input), а также [метрики здоровья агента](./configuration.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
@@ -151,16 +152,17 @@
   Чтобы установить агент при создании виртуальной машины через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
 
   ```
-  #cloud-config\nruncmd:\n  - wget -O - https://monitoring.api.cloud.yandex.net/monitoring/v2/unifiedAgent/config/install.sh | bash"
+  #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash"
   ```
 
   Для корректной установки агента и отправки метрик у созданной виртуальной машины должен быть доступ в интернет. 
 
   Обновление и поддержка агента выполняется самостоятельно.
+  
 
 {% endlist %}
 
-## Параметры запуска Docker-контейнера с {{ unified-agent-short-name }} { #configure-docker }
+## Параметры запуска Docker-контейнера с {{ unified-agent-short-name }} {#configure-docker}
 
 Если вы устанавливаете {{unified-agent-short-name}} при помощи Docker, вы можете сконфигурировать агент с помощью переменных окружения. Так вам не потребуется редактировать файл конфигурации, расположенный в `/etc/yandex/unified_agent/config.yml`. Список переменных окружения перечислен в таблице ниже.
 

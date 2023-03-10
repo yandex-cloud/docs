@@ -59,7 +59,7 @@
 
         * [Режим SQL](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) должен быть таким же, как и в кластере-источнике.
 
-    1. (Опционально) [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) на базе [Ubuntu 20.04 LTS](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts) со следующими параметрами:
+    1. (Опционально) [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) на базе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) со следующими параметрами:
 
         * **Диски и файловые хранилища** → **Размер** — достаточный для хранения распакованного и нераспакованного дампов.
 
@@ -70,7 +70,11 @@
             * **Подсеть** — выберите подсеть в той же облачной сети, в которой размещен кластер-приемник.
             * **Публичный адрес** — выберите `Автоматически` или один адрес из списка зарезервированных IP-адресов.
 
-    1. [Настройте группы безопасности](../../managed-mysql/operations/connect.md#configure-security-groups) промежуточной виртуальной машины и кластера {{ mmy-name }}.
+    
+    1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера {{ mmy-name }}, [настройте их](../../managed-mysql/operations/connect.md#configure-security-groups).
+
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 
 * С помощью Terraform
 
@@ -97,8 +101,8 @@
 
         * (опционально) параметры виртуальной машины:
 
-            * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts).
-            * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
+            * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+            * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
     1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -310,11 +314,11 @@
 
 ### Удаление созданных ресурсов {#clear-out}
 
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 {% list tabs %}
 
 * Вручную
-
-    Если созданные ресурсы вам больше не нужны, удалите их:
 
     * [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
     * Если вы создавали промежуточную виртуальную машину, [удалите ее](../../compute/operations/vm-control/vm-delete.md).

@@ -12,6 +12,10 @@
   1. Выберите срок удаления облака, после которого оно будет удалено. Выберите один из возможных периодов или **Удалить сейчас**. Срок удаления облака по умолчанию — 7 дней.
   1. Нажмите **Удалить**.
 
+- API
+
+  Чтобы удалить облако, воспользуйтесь вызовом gRPC API [CloudService/Delete](../../api-ref/grpc/cloud_service.md#Delete). 
+
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

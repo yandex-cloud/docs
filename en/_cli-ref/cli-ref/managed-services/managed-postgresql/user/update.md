@@ -30,6 +30,9 @@ Syntax:
 |`--default-transaction-isolation`|<b>`string`</b><br/>Default transaction isolation. Values: 'transaction-isolation-read-uncommitted', 'transaction-isolation-read-committed', 'transaction-isolation-repeatable-read', 'transaction-isolation-serializable'|
 |`--synchronous-commit`|<b>`string`</b><br/>Synchronous commit. Values: 'synchronous-commit-on', 'synchronous-commit-off', 'synchronous-commit-local', 'synchronous-commit-remote-write', 'synchronous-commit-remote-apply'|
 |`--log-statement`|<b>`string`</b><br/>Log statement. Values: 'log-statement-none', 'log-statement-ddl', 'log-statement-mod', 'log-statement-all'|
+|`--statement-timeout`|<b>`int`</b><br/>Statement timeout in milliseconds.|
+|`--idle-in-transaction-session-timeout`|<b>`int`</b><br/>Idle in transaction session timeout in milliseconds.|
+|`--wal-sender-timeout`|<b>`int`</b><br/>WAL sender timeout in milliseconds.|
 
 #### Global Flags
 

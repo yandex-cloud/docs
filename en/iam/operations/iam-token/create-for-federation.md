@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Lifetime of an [IAM token](../../../iam/concepts/authorization/iam-token.md) cannot exceed {{ iam-token-lifetime }} and is limited by the cookie lifetime for the [federation](../../../organization/add-federation.md).
+The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime cannot exceed {{ iam-token-lifetime }} and is limited by the cookie lifetime for the [federation](../../../organization/add-federation.md).
 
 {% endnote %}
 
@@ -10,9 +10,9 @@ Lifetime of an [IAM token](../../../iam/concepts/authorization/iam-token.md) can
 
 - CLI
 
-  1. [Authenticate with the CLI as a federated user](../../../cli/operations/authentication/federated-user.md).
+   1. [Authenticate with the CLI as a federated user](../../../cli/operations/authentication/federated-user.md).
 
-  1. Get an IAM token:
+   1. Get an IAM token:
 
       ```bash
       yc iam create-token
@@ -27,4 +27,3 @@ Lifetime of an [IAM token](../../../iam/concepts/authorization/iam-token.md) can
 ### Using an IAM token obtained via the CLI {#use-cli}
 
 {% include [include](../../../_includes/iam/iam-token-usage-examples.md) %}
-

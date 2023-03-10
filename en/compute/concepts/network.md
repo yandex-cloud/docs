@@ -18,7 +18,7 @@ You can specify the internal IP address at which the VM will be accessible after
 
 {% note info %}
 
-Only IPv4 addresses are currently supported. Yandex Compute Cloud VMs and DB hosts provide access to and from the internet via public IP addresses only.
+Only IPv4 addresses are currently supported. {{ compute-full-name }} VMs and DB hosts provide access to and from the internet via public IP addresses only.
 
 {% endnote %}
 

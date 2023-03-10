@@ -2,7 +2,7 @@
 
 Для поставки в {{ monitoring-full-name }} метрик с хостов, расположенных за пределами {{ yandex-cloud }}, используются [авторизованные ключи](../../../iam/concepts/authorization/key.md) сервисных аккаунтов. Описанная методика может также применяться для отправки метрик с виртуальных машин {{ yandex-cloud }} без привязанного сервисного аккаунта.
 
-## Поставка метрик с использованием авторизованного ключа { #example }
+## Поставка метрик с использованием авторизованного ключа {#example}
 
 Чтобы настроить {{unified-agent-full-name}} для поставки метрик с использованием авторизованного ключа, выполните следующие шаги:
 
@@ -106,7 +106,7 @@
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
-      cr.yandex/yc/unified-agent
+      {{ registry }}/yc/unified-agent
       ```
 
        Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).

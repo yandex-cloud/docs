@@ -8,7 +8,7 @@ keywords:
 
 # Определение качества изображения
 
-_Классификация изображений сейчас находится на [стадии Preview](/docs/overview/concepts/launch-stages)._
+_Классификация изображений сейчас находится на [стадии Preview](../../../overview/concepts/launch-stages.md)._
 
 Чтобы оценить качество изображения, воспользуйтесь возможностью [Классификация изображений](../../concepts/classification/index.md).
 
@@ -30,7 +30,7 @@ _Классификация изображений сейчас находитс
 
    {% note info %}
 
-   Нужно изображение? [Скачайте пример](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+   Нужно изображение? [Скачайте пример](https://{{ s3-storage-host }}/vision/face-detection-sample.jpg).
 
    {% endnote %}
 

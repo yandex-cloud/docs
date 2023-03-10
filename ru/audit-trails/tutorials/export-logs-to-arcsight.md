@@ -110,7 +110,7 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{link-console-main}}) перейдите в каталог `example-folder`.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
   1. Перейдите на вкладку **Сервисные аккаунты**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта в соответствии с [правилами именования](../../_includes/name-format.md), например, `sa-arcsight`.
@@ -328,7 +328,7 @@
 1. Смонтируйте бакет:
 
    ```bash
-   s3fs arcsight-bucket ${HOME}/mybucket -o passwd_file=${HOME}/.passwd-s3fs -o url=https://storage.yandexcloud.net -o use_path_request_style
+   s3fs arcsight-bucket ${HOME}/mybucket -o passwd_file=${HOME}/.passwd-s3fs -o url=https://{{ s3-storage-host }} -o use_path_request_style
    ```
 
 1. Проверьте, что бакет смонтирован:
@@ -363,6 +363,8 @@
    ![image](../../_assets/audit-trails/tutorials/arcsight-events.png)
 
 ## Как удалить созданные ресурсы {#clear-out}
+
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет {{ objstorage-name }}.
 1. [Удалите](../../kms/operations/key.md#delete) ключ {{ kms-name }}.

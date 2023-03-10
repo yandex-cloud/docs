@@ -8,14 +8,14 @@
 To create a connection, you'll need a [service account](../../../iam/concepts/users/service-accounts.md) with the **ydb.viewer** [role](../../../iam/operations/sa/assign-role-for-sa.md) (or **viewer**).
 
 
-To write subqueries in datasets and queries in SQL charts, use [YQL syntax](https://ydb.tech/en/docs/yql/reference/syntax/).
+To write subqueries in datasets and queries in QL charts, use [YQL syntax](https://ydb.tech/en/docs/yql/reference/syntax/).
 
 {% endnote %}
 
 To create a {{ ydb-name }} connection:
 
 
-1. Go to the [connections page](https://datalens.yandex.com/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
 1. Click **Create connection**.

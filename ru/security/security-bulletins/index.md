@@ -2,6 +2,16 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [22.02.2023 — CVE-2022-3602, CVE-2022-3786 — OpenSSL Security release v.3.0.7](../../_includes/security/security-bulletins/cve-2022-3786-openssl.md) %}
+
+
+{% include [07.02.2023 — CVE-2022-3411-4138-3759 — CVE-2023-0518 - GitLab-1581-1576-1567](../../_includes/security/security-bulletins/cve-2022-3411-4138-3759-cve-2023-0518-GitLab-1581-1576-1567.md) %}
+
+
+
+{% include [02.02.2022 — CVE-2022-41903-23521 - GitLab-1575-1566-1559](../../_includes/security/security-bulletins/cve-2022-41903-23521-GitLab-1575-1566-1559.md) %}
+
+
 
 {% include [26.12.2022 — CVE-2022-47940 - KSMBD FS/KSMBD/SMB2PDU.C SMB2_WRITE](../../_includes/security/security-bulletins/cve-2022-47940-KSMBD-FS-KSMBD-SMB2PDU-C-SMB2_WRITE.md) %}
 
@@ -226,7 +236,6 @@ Log4j 1.x не поддерживает [Lookups](https://logging.apache.org/log
 Hystax Acura Controller: для UDP-порта 12201 в направлении ingress разрешите трафик только для списка IP-адресов источника, которые принадлежат агентам репликации.
 
 Если в вашей инфраструктуре Hystax Acura Controller установлен за балансировщиком нагрузки, примените указанное выше правило фаервола на соответствующий балансировщик.
-
 ## 12.11.2021 — CVE-2021-22205 — удаленное выполнение кода через уязвимость в {{ GL }}
 
 ### Описание

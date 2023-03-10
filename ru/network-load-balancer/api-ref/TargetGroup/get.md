@@ -39,7 +39,7 @@ targetGroupId | <p>Required. ID of the TargetGroup resource to return. To get th
   ]
 }
 ```
-A TargetGroup resource. For more information, see [Target groups and resources](/docs/network-load-balancer/target-resources).
+A TargetGroup resource. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources).
  
 Field | Description
 --- | ---

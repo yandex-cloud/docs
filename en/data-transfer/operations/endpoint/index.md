@@ -88,7 +88,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Create a configuration file with a description of your endpoint.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
@@ -209,6 +209,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    You can view the endpoint parameters in the settings section for the appropriate data source or target.
 
 {% endlist %}
+
+Editing the endpoint settings of a transfer with the {{ dt-type-repl }} type and the {{ dt-status-repl }} status will result in restarting the transfer.
 
 ## Deleting an endpoint {#delete}
 

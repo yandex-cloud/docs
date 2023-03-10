@@ -39,7 +39,7 @@
               }
           },
           "audio": {
-              "uri": "https://storage.yandexcloud.net/speechkit/speech.pcm"
+              "uri": "https://{{ s3-storage-host }}/speechkit/speech.pcm"
           }
       }
       ```
@@ -86,7 +86,7 @@
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
           https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
       ```
-      
+
       Результат:
 
       ```bash

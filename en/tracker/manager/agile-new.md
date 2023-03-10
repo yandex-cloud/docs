@@ -12,7 +12,7 @@ The updated boards look and work quite differently compared to their previous ve
 
 * New issue boards are integrated into the [beta version of projects](../user/personal.md#sec_beta) in the updated {{ tracker-name }} interface.
 
-* New issue boards support agile development tools: [issue backlogs](backlog.md) and [sprints](create-agile-sprint.md). Support for planning poker and burn down charts will be added in a while.
+* New issue boards support [agile development]({{ link-wiki-agile-en }}) tools: [issue backlogs](backlog.md) and [sprints](create-agile-sprint.md). Support for planning poker and burn down charts will be added in a while.
 
 * New boards currently don't let you add issues automatically by filters. If you need this feature, you can set up a [trigger](trigger-examples.md#board) that will automatically add issues to the issue board.
 

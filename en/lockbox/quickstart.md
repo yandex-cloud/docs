@@ -37,19 +37,19 @@ You can use this logic in scripts, services, and applications where you need to 
    1. [Get an IAM token](../iam/operations/iam-token/create.md) required for authentication and save it to the variable:
 
       ```
-      export IAM_TOKEN=`yc iam create-token`
+      export IAM_TOKEN=$(yc iam create-token)
       ```
 
       You can also get an IAM token for your service account from inside the VM that the token is linked to. To do this, send a request to the [metadata service](../compute/operations/vm-info/get-info.md#request-examples). An example with the [jq](https://stedolan.github.io/jq/) utility:
 
       ```
-      export IAM_TOKEN=`curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token`
+      export IAM_TOKEN=$(curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
       ```
 
    1. Run the query:
 
       ```
       curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
-      https://payload.lockbox.{{ api-host }}/lockbox/v1/secrets/<secret ID>/payload
+      https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<secret ID>/payload
       ```
 {% endlist %}

@@ -5,6 +5,7 @@ description: "В этом разделе описан язык запросов 
 
 # Язык запросов в {{ monitoring-name }}
 
+
 В этом разделе описан язык запросов {{monitoring-full-name}}. Он используется для преобразования метрик при настройке [дашбордов](./visualization/dashboard.md) и [алертов](./alerting.md), а также в API-методе [MetricsData.read](../api-ref/MetricsData/read.md).
 
 
@@ -450,3 +451,5 @@ _Селектор_ состоит из имени метки, оператора
 **drop_empty_series**(*source: timeseries_vector*): *timeseries_vector*
 
 Отбрасывает временные ряды, в которых в заданном временном диапазоне либо нет точек, либо все точки со значением `NaN`.
+
+

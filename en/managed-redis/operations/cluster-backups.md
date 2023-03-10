@@ -7,6 +7,8 @@ description: "You can create backups and restore clusters from existing {{ RD }}
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
+{{ mrd-name }} also creates automatic daily backups. You can [set the backup start time](#set-backup-window):
+
 ## Restoring clusters from backups {#restore}
 
 When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps.
@@ -86,7 +88,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
       * In the `PRODUCTION` environment.
       * In the `default` network.
       * With a single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch63` subnet in the `{{ region-id }}-a` availability zone with public access and a replica priority of `50`.
-      * With network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+      * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
 
 {% endlist %}
 

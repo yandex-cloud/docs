@@ -24,10 +24,12 @@
         * **Имя базы данных** — `db1`.
 
     
-    1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
+    1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
+
         * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
         * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
 * С помощью {{ TF }}
@@ -184,7 +186,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 * Убедитесь, что трансфер находится в статусе {{ dt-status-finished }} и [удалите](../../data-transfer/operations/transfer.md#delete) его.
 * [Удалите эндпоинт-источник и эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
@@ -194,10 +196,8 @@
 
     * Вручную
 
-        
         * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
         * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
-
 
       * С помощью {{ TF }}
 

@@ -72,7 +72,10 @@
     
      {% endnote %}
 
-  1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+  1. Откройте список ролей пользователя:
+  
+      {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+  
   1. Для добавления роли на облако нажмите значок ![image](../../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
 
      Для добавления роли на каталог, выберите каталог и нажмите **Назначить роль** в блоке **Роли в каталогах**.
@@ -94,7 +97,7 @@
 
    - Консоль управления
 
-     1. Убедитесь, что вы авторизованы в {{ yandex-cloud }} как администратор или владелец требуемой организации (у вашего пользователя есть роль `admin` или `owner` в ней). В верхнем левом углу нажмите ![image](../../_assets/datalens/all-services.svg) и выберите **Ресурсы и управление** → **Управление сервисами организации** или перейдите по [ссылке](https://org.cloud.yandex.ru/users).
+     1. Убедитесь, что вы авторизованы в {{ yandex-cloud }} как администратор или владелец требуемой организации (у вашего пользователя есть роль `admin` или `owner` в ней). В верхнем левом углу нажмите ![image](../../_assets/datalens/all-services.svg) и выберите **Ресурсы и управление** → **Управление сервисами организации** или перейдите по [ссылке]({{ link-org-users }}).
      1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите **Добавить федеративных пользователей**.
      1. Выберите федерацию, из которой необходимо добавить пользователей.
      1. Перечислите Name ID пользователей, разделяя их переносами строк.
@@ -139,14 +142,17 @@
            -H "Content-Type: application/json" \
            -H "Authorization: Bearer <IAM-токен>" \
            -d '@body.json' \
-           https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+           https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
          ```
 
    {% endlist %}
 
 1. Назначьте пользователям роли для доступа к сервису {{ datalens-short-name }}:
 
-     1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+     1. Откройте список ролей пользователя:
+     
+        {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+
      1. В окне **Настройка прав доступа** нажмите **![image](../../_assets/plus-sign.svg) Добавить роль**. Выберите роль `{{ roles-datalens-instances-user }}` из списка.
      1. Нажмите **Сохранить**. Пользователь получит доступ к сервису {{ datalens-short-name }}.
 
@@ -158,7 +164,10 @@
 
    {% include [include](../../_includes/iam/add-federated-users-instruction.md) %}
 
-1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+1. Откройте список ролей пользователя:
+
+    {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+
 1. Для добавления роли на облако нажмите значок ![image](../../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
 
    Для добавления роли на каталог, выберите каталог и нажмите **Назначить роль** в блоке **Роли в каталогах**.

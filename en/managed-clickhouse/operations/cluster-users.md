@@ -163,7 +163,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user password>';
       ```
 
-      {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+      {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
 
    For more information about creating users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/create/user/).
 
@@ -255,7 +255,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       ALTER USER <username> IDENTIFIED BY '<new password>';
       ```
 
-      {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+      {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
 
    For more information about changing users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
@@ -266,7 +266,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New password, in the `password` parameter.
 
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+      {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
    * List of user configuration fields to update (`password` in this case) in the `updateMask` parameter.
 
@@ -291,7 +291,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
     --admin-password <new admin account password>
    ```
 
-    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+   {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -341,7 +341,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       ALTER USER admin IDENTIFIED BY '<new password>';
       ```
 
-      {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+      {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
 
    To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
@@ -352,7 +352,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new password in the `configSpec.adminPassword` parameter.
 
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+      {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
    * List of user configuration fields to update (`configSpec.adminPassword` in this case) in the `updateMask` parameter.
 

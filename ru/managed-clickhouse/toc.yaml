@@ -58,7 +58,9 @@ items:
       - name: Все сценарии
         href: tutorials/index.md
       - name: Добавление данных в БД
-        href: operations/insert.md
+        href: tutorials/insert.md
+      - name: Миграция данных в ClickHouse
+        href: tutorials/data-migration.md
       - name: Шардирование таблиц
         href: tutorials/sharding.md
       - name: Использование гибридного хранилища
@@ -213,6 +215,8 @@ items:
                 href: api-ref/Cluster/list.md
               - name: listBackups
                 href: api-ref/Cluster/listBackups.md
+              - name: listExternalDictionaries
+                href: api-ref/Cluster/listExternalDictionaries.md
               - name: listHosts
                 href: api-ref/Cluster/listHosts.md
               - name: listLogs

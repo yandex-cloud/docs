@@ -1,4 +1,4 @@
-# Удаление контейнера
+# Удалить контейнер
 
 {% list tabs %}
 
@@ -47,7 +47,7 @@
        memory             = 256
        service_account_id = "ajec........34ova"
        image {
-           url = "cr.yandex/yc/test-image:v1"
+           url = "{{ registry }}/yc/test-image:v1"
        }
      }
      ...
@@ -83,7 +83,7 @@
   Проверить удаление контейнера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 
   ```
-  yc serverless container list 
+  yc serverless container list
   ```
 
 {% endlist %}

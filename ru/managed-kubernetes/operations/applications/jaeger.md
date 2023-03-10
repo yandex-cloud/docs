@@ -26,7 +26,7 @@
 
 ### Подготовка {{ ydb-name }} {#create-ydb}
 
-1. [Создайте базу данных](../../../ydb/operations/manage-database.md#create-db) подходящей вам конфигурации с [типом БД](../../../ydb/concepts/serverless-and-dedicated.md) `Dedicated`.
+1. [Создайте базу данных](../../../ydb/operations/manage-databases.md#create-db-dedicated) подходящей вам конфигурации с [типом БД](../../../ydb/concepts/serverless-and-dedicated.md) `Dedicated`.
 
    {% note warning %}
 
@@ -79,12 +79,12 @@
 ### Установка Jaeger {#install-jaeger}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-name }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
 1. В разделе **Доступные для установки приложения** выберите [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) и нажмите кнопку **Использовать**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
    * **Название приложения** — укажите название приложения.
-   * **{{ ydb-name }} эндпоинт** — укажите имя эндпоинта {{ ydb-name }}, например `lb.etnk1hv0jol3cu5pojp7.ydb.mdb.yandexcloud.net:2135`.
+   * **{{ ydb-name }} эндпоинт** — укажите имя эндпоинта {{ ydb-name }}, например `lb.etnk1hv0jol3cu5pojp7.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
    * **База данных** — укажите имя БД, например `/{{ region-id }}/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
    * **Директория в базе данных** — `jaeger`.
    * **Использовать сервис метаданных для аутентификации изнутри ВМ** — выберите эту опцию, если требуется аутентификация внутри виртуальной машины.

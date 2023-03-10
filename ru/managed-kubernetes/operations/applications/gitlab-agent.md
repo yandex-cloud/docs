@@ -10,7 +10,7 @@
 
 {% note info %}
 
-{{ GL }} Agent не исполняет конвейеры [CI/CD](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd). Для этой цели установите приложение [{{ GL }} Runner](/marketplace/products/yc/gitlab-runner).
+{{ GL }} Agent не исполняет конвейеры [CI/CD](/blog/posts/2022/10/ci-cd). Для этой цели установите приложение [{{ GL }} Runner](/marketplace/products/yc/gitlab-runner).
 
 {% endnote %}
 
@@ -70,7 +70,7 @@
      --create-namespace \
      --set config.kasAddress='wss://<имя вашего домена {{ GL }}>/-/kubernetes-agent/' \
      --set config.token='<токен доступа {{ GL }}>' \
-     gitlab-agent ./gitlab-agent
+     gitlab-agent ./gitlab-agent/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gitlab-agent#docker-images).

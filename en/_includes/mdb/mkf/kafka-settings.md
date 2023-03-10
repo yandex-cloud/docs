@@ -1,6 +1,6 @@
 * **Auto create topics enable** {{ tag-con }} {#settings-auto-create-topics}
 
-   Manages automatic creation of  topics.
+   Manages automatic creation of topics.
 
    Automatic topic creation is disabled by default (`false`).
 
@@ -179,7 +179,7 @@
 
    Size of the buffer for messages exchanged by brokers (in bytes).
 
-   The minimum value is `0` (unlimited size). Defaults to `1048576`. The setting value must be at least 12 bytes larger than the **Message max bytes** setting value that is set at the [cluster](#settings-topic-message-max-bytes) or [topic](../../../_includes/mdb//mkf/topic-settings.md#settings-message-max-bytes) level.
+   The minimum value is `0` (unlimited size). Defaults to `1048576`. The setting value must be at least 12 bytes larger than the **Message max bytes** setting value that is set at the cluster or topic level.
 
    This is a global cluster-level setting.
 

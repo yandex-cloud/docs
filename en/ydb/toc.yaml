@@ -7,12 +7,10 @@ items:
     items:
       - name: Overview
         href: operations/index.md
-      - name: Database management via the console {{ yandex-cloud }}
-        href: operations/manage-database.md
-      - name: Database management using the YC CLI
-        href: operations/yc-cli.md
       - name: Connecting to a database using the {{ ydb-short-name }} CLI
         href: operations/connection.md
+      - name: Managing databases
+        href: operations/manage-databases.md
       - name: Managing tables and directories
         href: operations/schema.md
       - name: Reading and writing data
@@ -37,6 +35,10 @@ items:
         href: tutorials/video-converting-queue.md
       - name: Developing a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
+      - name: >-
+          Migrating databases from {{ mmy-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mmy-ydb-migration.md
   - name: Concepts
     items:
       - name: Overview

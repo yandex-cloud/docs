@@ -1,6 +1,6 @@
 ---
 title: "Working with VMs Step-by-step instructions"
-description: "Step-by-step instructions on how to use and manage VMs in Yandex Cloud. In this article, you'll learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
+description: "Step-by-step instructions on how to use and manage VMs in {{ yandex-cloud }}. In this article, you'll learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
 ---
 
 # Step-by-step instructions for {{ compute-name }}
@@ -14,10 +14,12 @@ description: "Step-by-step instructions on how to use and manage VMs in Yandex C
 * [{#T}](vm-create/create-vm-with-gpu.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
+
 ## DSVM {#dsvm}
 
 * [{#T}](dsvm/index.md)
 * [{#T}](dsvm/quickstart.md)
+
 
 ## Placement groups {#placement-groups}
 
@@ -46,6 +48,7 @@ description: "Step-by-step instructions on how to use and manage VMs in Yandex C
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
 * [{#T}](vm-control/vm-change-folder.md)
+* [{#T}](vm-control/vm-change-cloud.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
 * [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
@@ -68,6 +71,7 @@ description: "Step-by-step instructions on how to use and manage VMs in Yandex C
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
 * [{#T}](disk-create/nonreplicated.md)
+* [{#T}](disk-create/from-snapshot.md)
 
 ## Disk management {#disk-control}
 

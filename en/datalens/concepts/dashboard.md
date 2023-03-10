@@ -9,13 +9,21 @@ _Dashboards_ are pages or sets of pages that contain widgets. They let you group
 You can create new dashboard pages using the **tab** element.
 
 
+
 ## Display modes {#display-modes}
 
 {{ datalens-short-name }} lets you display the dashboard in full-screen mode. This mode hides part of the interface elements and expands the widget area on the screen.
 
 By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. For more information, see [{#T}](../operations/dashboard/display-modes.md).
 
+## Description and message settings {#message-settings}
 
+You can [add a description](../operations/dashboard/add-description.md) to a dashboard. To view the description, click ![image](../../_assets/datalens/info.svg) in the upper-right corner of the screen.
+
+You can also set up additional information messages:
+
+* Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks ![image](../../_assets/datalens/question.svg) in the bottom left corner and selects **Create request**, they will see an additional message in the **Information** window.
+* Displayed if a [dashboard access error](../operations/dashboard/add-access-message.md) occurs. In this case, if the user has no dashboard view permission, they'll see the saved message.
 
 ## Versioning {#versioning}
 
@@ -91,9 +99,18 @@ For more information about charts, see [{#T}](chart/index.md).
 ### Selector {#selector}
 
 A filter that affects query results on its linked widgets. To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
-A selector can be linked to a chart or another selector.
- For more information, see [Link](#link).
+A selector can be linked to a chart or another selector. For more information, see [Link](#link).
 A selector works within a single dashboard tab.
+
+When adding a selector to a dashboard, consider how it affects chart filters:
+
+* On a dashboard with no selector, the chart is displayed with an internal set of filters, if any.
+* When adding a selector by a certain field to your dashboard, filters added at the chart level are no longer applied to the dashboard's chart.
+* If no value is selected in the selector (`No selected values`), the chart is displayed without filtering by this field even if there is a filter by this field at the chart level.
+
+To apply double filtering to a field (through a selector and chart filter), create a duplicate of this field in the chart. In this case, you can apply filtering to the duplicate within the chart and add a selector by the original field to the dashboard.
+
+Filters applied to charts using selectors are displayed in the **Dashboard filters** section. It's available if you open the chart to edit from the dashboard. To clear all the dashboard filters, click ![image](../../_assets/datalens/delete.svg) in the upper-left corner of the section.
 
 ### Text {#text}
 
@@ -117,11 +134,11 @@ The field used by the selector to filter on must be included in the dataset used
 The link type determines how values in selectors and charts are filtered. The type is set in the links window in the dashboard edit mode.  
 You can use the following types of links for a pair of widgets:
 
-* **Link**, for widgets that mutually affect each other.
-* **Incoming link**, when a widget is affected by a widget.
-* **Outgoing link**, when a widget affects another widget.
-* **Ignore**, for widgets that mutually ignore each other.
-* **No link**, for widgets from different datasets or widgets that can't be linked.
+* **Link**: for widgets that mutually affect each other.
+* **Incoming link**: when a widget is affected by a widget.
+* **Outgoing link**: when a widget affects another widget.
+* **Ignore**: for widgets that mutually ignore each other.
+* **No link**: for widgets from different datasets or widgets that can't be linked.
 
 {% note warning %}
 
@@ -136,7 +153,7 @@ Some widgets can't affect other widgets. Possible types of links between widgets
 | **Selector** | Link<br/>Incoming link<br/>Outgoing link<br/>Ignore | Outgoing link<br/>Ignore |
 | **Chart** | Incoming link<br/>Ignore | — |
 
-## An alias {#alias}
+## Alias {#alias}
 
 An alias is a link between fields of different datasets, which determines how widgets impact each other when you link them.
 
@@ -173,6 +190,62 @@ To share a dashboard containing Yandex Metrica or AppMetrica data, use one of th
 
 
 
+## Using parameters and limitations {#parameters}
+
+
+Parameters in {{ datalens-short-name }} allow you to use visualization features more flexibly and adapt the use of the same dashboards for different purposes.
+
+[Dashboard](#params-dash) parameters apply to all its charts.
+
+Using the parameters might be handy, for example, when you want to post a link to a dashboard with an applied filter in another dashboard table, on a {{ wiki-full-name }} page, or somewhere else.
+
+
+### Dashboard parameters {#params-dash}
+
+In the dashboard settings section, you can set the [parameters](../operations/dashboard/add-parameters.md) to use. For each parameter, specify a key and value. The saved dashboard parameters are inserted into all widgets (including charts and selectors) once they are uploaded. When opening this dashboard, its data will be filtered based on the specified parameter values.
+
+A parameter name must be the same as the name of the dataset field by which data is filtered.
+
+{% note info %}
+
+In some cases, you should use the field ID as the parameter name:
+
+* If the field name contains Cyrillic characters or consists of two words.
+* If you want to use the parameter value in a selector based on a dataset.
+
+If the field ID changes, you should also update the parameter name. For more information, see [this guide](../operations/chart/add-guid.md).
+
+{% endnote %}
+
+You can also specify parameter values in dashboard links. In this case, clicking a link will open the dashboard with a filter applied.
+
+The first address string parameter is separated from the dashboard path using `?` and the remaining parameters using `&`. For instance, `https://datalens.yandex.ru/test-dashboard?tab=test&OrderID=123456789` contains values for the `tab` and `OrderID` parameters.
+
+The parameter values specified in the link will take priority. For example, if the dashboard settings have the `region` parameter set to `RU` and the dashboard link indicates `?region=KZ`, the `KZ` value is inserted into widgets.
+
+
+### Parameter limitations {#params-restrictions}
+
+The following limitations apply when using parameters:
+
+* You can't use the following reserved keys:
+
+  * `tab`
+  * `state`
+  * `mode`
+  * `focus`
+  * `grid`
+  * `scale`
+  * `tz`
+  * `timezone`
+  * `date`
+  * `datetime`
+
+  Parameters with these keys are ignored and not saved.
+
+* Links can only use parameters that are set in the dashboard settings. Otherwise, they are ignored. For example, if a link contains `?product=Furniture`, but the dashboard settings have no `product` parameter (not even with a null value), this parameter is ignored.
+* Dashboard parameters are applied to widgets anyway. This may lead to errors in data requests.
+* Parameters can't be used when creating links. To create a link, you can add a manual selector with the appropriate parameter key, set links using this selector by the required parameters, and then delete it.
 
 
 ## Access management {#access-management}
@@ -190,8 +263,8 @@ The following limitations apply to auto-update:
 * Data is updated only for the tab opened in the browser.
 * The data is updated only for the current active tab, however:
 
-   * If the tab isn't selected as the current tab, it's not considered active and the data is not updated.
-   * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
+  * If the tab isn't selected as the current tab, it's not considered active and the data is not updated.
+  * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
 
 
 
@@ -232,4 +305,3 @@ The **Data sources** section displays information about the sources used in a ch
 * Link to source.
 * Request body in JSON format.
 * SQL query text sent to source (only if the SQL query is successful and its results are rendered in the chart).
-

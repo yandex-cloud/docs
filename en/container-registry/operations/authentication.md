@@ -96,7 +96,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
    yc iam key create --service-account-name default-sa -o key.json
    ```
 
-    Result:
+   Result:
 
    ```bash
    id: aje8a87g4e...

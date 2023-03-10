@@ -379,26 +379,26 @@ spec:
 
 Выполните GET-запрос к ресурсу по HTTPS, например командой:
 
-    ```bash
-    curl <имя_домена> -vv
-    ```
+```bash
+curl <имя_домена> -vv
+```
 
-    Пример результата:
+Пример результата:
 
-    ```text
-    *   Trying 51.250.64.86:443...
-    * Connected to <имя_домена> (51.250.64.86) port 443 (#0)
-    ...
-    * SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
-    * ALPN, server accepted to use h2
-    * Server certificate:
-    *  subject: CN=<имя_домена>
-    *  start date: Jul 13 14:31:55 2022 GMT
-    *  expire date: Oct 11 14:31:54 2022 GMT
-    *  subjectAltName: host "<имя_домена>" matched cert's "<имя_домена>"
-    ...
-    *  SSL certificate verify ok.
-    ```
+```text
+*   Trying 51.250.64.86:443...
+* Connected to <имя_домена> (51.250.64.86) port 443 (#0)
+...
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=<имя_домена>
+*  start date: Jul 13 14:31:55 2022 GMT
+*  expire date: Oct 11 14:31:54 2022 GMT
+*  subjectAltName: host "<имя_домена>" matched cert's "<имя_домена>"
+...
+*  SSL certificate verify ok.
+```
 
 Сертификат от Let's Encrypt<sup>®</sup> должен обновляться автоматически вслед за [обновлением сертификата](../certificate-manager/operations/managed/cert-update.md) в {{ certificate-manager-name }}.
 
@@ -406,7 +406,7 @@ spec:
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 1. [Удалите](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ k8s }}.
 1. [Удалите](../network-load-balancer/operations/load-balancer-delete.md) {{ network-load-balancer-short-name }}.

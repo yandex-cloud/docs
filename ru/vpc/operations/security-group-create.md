@@ -48,6 +48,10 @@
     * `protocol` — протокол передачи данных. Возможные значения: `tcp`, `udp`, `icmp`, `esp`, `ah`, `any`.
     * `v4-cidrs` — список CIDR IPv4 и масок подсетей, откуда или куда будет поступать трафик.
 
+- API
+
+  Воспользуйтесь методом REST API [create](../api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create).
+
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
@@ -60,8 +64,8 @@
      * `description` – опциональное описание группы безопасности.
      * `network_id` – идентификатор сети, которой будет назначена группа безопасности.
      * `ingress` и `egress` – параметры правил для входящего и исходящего трафика:
-       * `protocol` – протокол передачи трафика.
-       * `description` – опциональное описание правила. Возможные значения: `tcp`, `udp`, `icmp`, `esp`, `ah`, `any`.
+       * `protocol` – протокол передачи трафика. Возможные значения: `tcp`, `udp`, `icmp`, `esp`, `ah`, `any`.
+       * `description` – опциональное описание правила.
        * `v4_cidr_blocks` — список CIDR и масок подсетей, откуда или куда будет поступать трафик.
        * `port` – порт для трафика. 
        * `from-port` — первый порт из диапазона портов для трафика. 

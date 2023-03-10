@@ -49,7 +49,7 @@ If you still need to enter private information in the configuration, you should 
 * Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a {{ TF }} state to {{ objstorage-full-name }} (see [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)).
 * Use the [mechanism for transferring secrets to {{ TF }} via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in {{ kms-full-name }} features for [encrypting data in {{ TF }}](../../kms/tutorials/terraform-secret.md) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)).
 
-  For more information about {{ objstorage-name }} security, see [{{ objstorage-name }}](#object-storage) below.
+   For more information about {{ objstorage-name }} security, see [{{ objstorage-name }}](#object-storage) below.
 
 {% note warning %}
 
@@ -154,7 +154,7 @@ If you need cross-domain requests to objects in buckets, the client should confi
 
 We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to only allow connections to the DBMS from specific IP addresses. See the instructions in [{#T}](../../vpc/operations/security-group-create.md). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
 
-You shouldn't enable access to databases containing critical data from the management console, {{ datalens-name }}, or other services unless you have to. You may need access to the database from the management console to send SQL queries to the database and visualize the data structure, or access from {{ datalens-name }} to visualize and analyze data. For such access, use the {{ yandex-cloud }} service network with authentication and TLS encryption. You can enable and disable access from the management console, {{ datalens-name }}, or other services in the cluster settings or when creating it in the advanced settings section.
+Do not enable access to databases containing critical data from the management console, {{ datalens-name }}, or other services, unless explicitly required. You may need access to the database from the management console to send SQL queries to the database and visualize the data structure, or access from {{ datalens-name }} to visualize and analyze data. For such access, use the {{ yandex-cloud }} service network with authentication and TLS encryption. You can enable and disable access from the management console, {{ datalens-name }}, or other services in the cluster settings or when creating it in the advanced settings section.
 
 
 ## {{ sf-full-name }} and {{ api-gw-full-name }} {#cloud-functions-api-gateway}
@@ -210,11 +210,10 @@ When creating backups on demand in {{ objstorage-name }}, follow the recommendat
 
 We do not recommend that you use privileged containers to run loads that process untrusted user input. Privileged containers must be used for the purposes of administering VMs or other containers. We recommend that you use delete policies for automatically deleting outdated container images.
 
- We recommend using the image [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) integrated into {{ container-registry-full-name 
-}}. 
+We recommend using the image [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) integrated into {{ container-registry-full-name }}.
 
 ## {{ certificate-manager-full-name }} {#cert-manager}
 
-{{ certificate-manager-name }} lets you manage TLS certificates for {{ api-gw-name }} API gateways and websites and buckets in {{ objstorage-name }}. {{ alb-full-name }} is integrated with {{ certificate-manager-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-name }} to obtain your certificates and rotate them automatically.
+{{ certificate-manager-name }} allows you to manage TLS certificates for API gateways in the {{ api-gw-name }} service and for websites and buckets in {{ objstorage-name }}. {{ alb-full-name }} is integrated with {{ certificate-manager-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-name }} to obtain your certificates and rotate them automatically.
 
 When using TLS in your application, we recommend that you limit the list of your trusted root certificate authorities (root CA). When using certificate pinning, keep in mind that Let's Encrypt certificates are [valid for 90 days](https://letsencrypt.org/docs/faq/#what-is-the-lifetime-for-let-s-encrypt-certificates-for-how-long-are-they-valid).

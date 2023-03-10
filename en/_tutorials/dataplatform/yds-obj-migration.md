@@ -14,7 +14,7 @@ Prepare the infrastructure:
 
 * Manually
 
-   1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-database.md#create-db) in any suitable configuration.
+   1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
    1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
 
@@ -91,7 +91,7 @@ Prepare the infrastructure:
       * (optional) **Advanced settings** → **Conversions rules**:
 
          * **Data format**: `JSON`.
-         * **Data schema** — `JSON specification`:
+         * **Data schema**: `JSON specification`:
 
             Create and upload the `json_schema.json` file in JSON format:
 
@@ -242,7 +242,7 @@ Delete the other resources, depending on the method used to create them:
 
 * Manually
 
-   * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-database.md#delete-db).
+   * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
    * [Delete the bucket in {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
    * If you created service accounts when creating endpoints, [delete them](../../iam/operations/sa/delete.md).
 

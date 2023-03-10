@@ -2,9 +2,10 @@
 
 To create a {{ dataproc-name }} cluster, the user must be assigned the `editor` and `dataproc.agent` roles. For more information, see the [role description](../security/index.md#roles).
 
+
 ## Configure a network {#setup-network}
 
-In the subnet that the subcluster with master host will connect to, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
+In the subnet the subcluster with master host will connect to, [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
 
 ## Configure security groups {#change-security-groups}
 
@@ -20,18 +21,34 @@ Security groups must be created and configured before creating a cluster. If the
    * One rule for inbound and outbound service traffic:
 
       * Port range: `{{ port-any }}`.
-      * Protocol: ``Any``.
+      * Protocol: `Any`.
       * Source: `Security group`.
-      * Security group: `Self` (`Self`).
+      * Security group: `Self`.
 
-   * A separate rule for outgoing HTTPS traffic:
+   * A separate rule for outgoing HTTPS traffic. This will enable you to use [{{ objstorage-full-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and cluster [autoscaling](../concepts/autoscaling.md).
 
-      * Port range: `{{ port-https }}`.
-      * Protocol: `TCP`.
-      * Source type: `CIDR`.
-      * CIDR blocks: `0.0.0.0/0`.
+      You can set up this rule using one of the two methods:
 
-      This will enable you to use [{{ objstorage-full-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and cluster [autoscaling](../concepts/autoscaling.md).
+      {% list tabs %}
+
+      - To all addresses
+
+         * Port range: `{{ port-https }}`.
+         * Protocol: `TCP`.
+         * Source type: `CIDR`.
+         * CIDR blocks: `0.0.0.0/0`.
+
+      - To the addresses used by {{ yandex-cloud }}
+
+         * Port range: `{{ port-https }}`.
+         * Protocol: `TCP`.
+         * Source type: `CIDR`.
+         * CIDR blocks:
+            * `84.201.181.26/32`: Getting cluster state, running jobs, UI Proxy.
+            * `213.180.193.8/32`: Monitoring cluster status, autoscaling.
+            * `213.180.193.243/32`: Access to {{ objstorage-name }}.
+
+      {% endlist %}
 
 If you plan to use multiple security groups for a cluster, enable all traffic between these groups.
 
@@ -45,6 +62,7 @@ Security groups must be configured correctly for all subnets that will include c
 
 You can set up security groups for [connections to cluster hosts](connect.md) via an intermediate VM after creating a cluster.
 
+
 ## Create a cluster {#create}
 
 A cluster must include a subcluster with a master host and at least one subcluster for data storage or processing.
@@ -57,7 +75,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
    1. Click **Create resource** and select ![image](../../_assets/data-proc/data-proc.svg) **{{ dataproc-name }} cluster** from the drop-down list.
 
-   1. Name the cluster in the **Cluster name** field. Naming requirements:
+   1. Name the cluster in the **Cluster name** field. Naming conventions:
 
       * It must be unique within the folder.
 
@@ -313,7 +331,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       Where:
 
-      * `uri`: Link to the initialization script in the `https://` or `s3a://` scheme.
+      * `uri`: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
       * (Optional) `timeout`: Script execution timeout (in seconds). If your initialization script runs longer than this time, it will be terminated.
       * (Optional) `args`: Arguments, enclosed in square brackets and separated by commas, with which an initialization script must be executed.
 
@@ -544,7 +562,7 @@ A cluster must include a subcluster with a master host and at least one subclust
    {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
 
 
-   To use [initialization scripts](../concepts/init-action.md) for the initial configuration of cluster hosts, specify them in the `config_spec.hadoop.initialization_actions[]` parameter.
+   To configure cluster hosts using [initialization scripts](../concepts/init-action.md), specify them in one or more `configSpec.hadoop.initializationActions` parameters.
 
 {% endlist %}
 

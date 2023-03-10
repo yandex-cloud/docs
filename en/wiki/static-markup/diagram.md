@@ -3,7 +3,6 @@
 To add a diagram, chart, or graph to a page, you can use one of the supported text markup languages.
 
 
-
 ## Graphviz (DOT) {#graphviz}
 
 [Graphviz]({{ link-about-graphviz }}) is best suited for styling graphs and trees.
@@ -12,7 +11,7 @@ Sample markup:
 
 ```
 %%(graphviz neato)
- digraph A { 
+ digraph A {
  a -> b0
  a -> b3
  xb [label="hi",width=.1,style=invis]
@@ -26,7 +25,7 @@ Sample markup:
  {rank=same c0 -> xc -> c1 [style=invis]}
  b0 -> c2
  }
- %% 
+ %%
 ```
 
 {% cut "See the result" %}
@@ -37,7 +36,7 @@ Sample markup:
 
 Configure the appearance of a graph using optional parameters:
 
-* `dot`, `neato`, `circo`, `twopi`, `fdp`: The name of the utility to use to create graphs. The default value is `dot`.
+* `dot`, `neato`, `circo`, `twopi`, `fdp`: Name of the utility to use for creating graphs. The default value is `dot`.
 
 * `width`: The maximum graph width in pixels.
 
@@ -86,17 +85,17 @@ Sample markup:
    // normal edge and doted edge
    A -> B [label = "normal edge"];
    B --> C [label = "dotted edge"];
- 
+
    B <-- C [label = "return dotted edge"];
    A <- B [label = "return edge"];
- 
+
    // asynchronus edge
    A ->> B [label = "asynchronus edge"];
    B -->> C [label = "asynchronus dotted edge"];
- 
+
    B <<-- C [label = "return asynchronus doted edge"];
    A <<- B [label = "return asynchronus edge"];
- 
+
    // self referenced edge
    A -> A [label = "self reference edge"];
 }

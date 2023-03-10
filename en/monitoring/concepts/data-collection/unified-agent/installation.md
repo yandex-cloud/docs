@@ -1,4 +1,4 @@
-# Installing and running {{ unified-agent-full-name }}
+# Installation and startup {{ unified-agent-full-name }}
 
 ## List of supported operating systems {#supported-os}
 
@@ -34,7 +34,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
 - Docker image
 
-   {{unified-agent-short-name}} is distributed as a Docker image. The image is published in the `cr.yandex/yc` repository with the `unified_agent` name and `latest` tag. The image includes a binary file with the agent and a configuration file used to set up the agent for [Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md) in {{monitoring-full-name}}.
+   {{unified-agent-short-name}} is distributed as a Docker image. The image is published in the `{{ registry }}/yc` repository with the `unified_agent` name and `latest` tag. The image includes a binary file with the agent and a configuration file used to set up the agent for [Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md) in {{monitoring-full-name}}.
 
    {% note warning %}
 
@@ -53,10 +53,10 @@ Install {{unified-agent-short-name}} using one of the following methods:
        -v /proc:/ua_proc \
        -e PROC_DIRECTORY=/ua_proc \
        -e FOLDER_ID=a1bs... \
-       cr.yandex/yc/unified-agent
+       {{ registry }}/yc/unified-agent
    ```
 
-   Where `FOLDER_ID` is the ID of the folder the metrics are going to be written.
+   Where `FOLDER_ID` is the ID of the folder to write metrics to.
 
    To launch a container with its own configuration file, add `-v` to the container start command and specify the _full path_ to the configuration file. For example:
 
@@ -69,7 +69,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
        --entrypoint="" \
        -e PROC_DIRECTORY=/ua_proc \
        -e FOLDER_ID=a1bs... \
-       cr.yandex/yc/unified-agent
+       {{ registry }}/yc/unified-agent
    ```
 
    For more information about agent configuration, see [{#T}](./configuration.md).
@@ -81,18 +81,18 @@ Install {{unified-agent-short-name}} using one of the following methods:
    To download the latest version of the agent's deb package, run:
 
    ```bash
-   ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl -s -O https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+   ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
    ```
 
    Supported values for the `ubuntu_name` parameter:
-   - `ubuntu-14.04-trusty`;
-   - `ubuntu-16.04-xenial`;
-   - `ubuntu-18.04-bionic`;
+   - `ubuntu-14.04-trusty`.
+   - `ubuntu-16.04-xenial`.
+   - `ubuntu-18.04-bionic`.
    - `ubuntu-20.04-focal`.
 
    To find out all the available versions of the agent, run this command:
    ```(bash)
-   curl -s https://storage.yandexcloud.net/yc-unified-agent/all-versions
+   curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
    ```
 
    To install the deb package, run this command:
@@ -124,23 +124,24 @@ Install {{unified-agent-short-name}} using one of the following methods:
    To download the latest version of the agent's binary file, run:
 
    ```bash
-   ua_version=$(curl -s https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl -s -O https://storage.yandexcloud.net/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
+   ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
    ```
 
    To find out all the available versions of the agent, run this command:
    ```(bash)
-   curl -s https://storage.yandexcloud.net/yc-unified-agent/all-versions
+   curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
    ```
 
    Download the agent's executable file and then create a configuration file, for example, with the settings for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](./configuration.md).
 
-   To start the agent, run the command:
+   To run the agent, execute the command below:
 
    ```bash
    ./unified_agent --config unified_agent.yml
    ```
 
    Where `--config` is the path to the configuration file.
+
 
 - When creating a VM
 
@@ -151,12 +152,13 @@ Install {{unified-agent-short-name}} using one of the following methods:
    To install the agent while creating a VM in the CLI or API, add the following line to [user-defined metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`):
 
    ```
-   #cloud-config\nruncmd:\n  - wget -O - https://monitoring.api.cloud.yandex.net/monitoring/v2/unifiedAgent/config/install.sh | bash"
+   #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash"
    ```
 
    To install the agent and send metrics properly, make sure the created VM has access to the internet.
 
    You are responsible for updating and maintaining the agent.
+   
 
 {% endlist %}
 
@@ -175,6 +177,6 @@ If you install {{unified-agent-short-name}} using Docker, you can configure the 
 
 #### What's next {#what-is-next}
 
-- [Review {{ unified-agent-short-name }} concepts](./index.md)
+- Read about [{{ unified-agent-short-name }} concepts](./index.md)
 - [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md)
 - [Read the {{ unified-agent-short-name }} operating instructions](./best-practices.md)

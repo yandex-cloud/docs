@@ -11,5 +11,7 @@ editable: false
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [alb-limits](../../_includes/application-load-balancer/alb-limits.md) %}
 

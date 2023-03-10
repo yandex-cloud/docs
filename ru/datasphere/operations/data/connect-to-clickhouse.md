@@ -8,7 +8,7 @@
 1. [Настройте](../../../managed-clickhouse/operations/connect.md#configuring-security-groups) группы безопасности кластера.
 1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
-## Подключитесь к хосту {#connect-to-host}
+## Подключиться к хосту {#connect-to-host}
 
 Чтобы подключиться к хостам кластера {{ mch-short-name }}:
 
@@ -30,12 +30,12 @@
       ```python
       import requests
       url = 'https://{host}:8443/?database={db}&query={query}'.format(
-              host='<FQDN хоста ClickHouse>',
-              db='<имя БД>',
+              host='<FQDN_хоста_ClickHouse>',
+              db='<имя_БД>',
               query='SELECT version()')
       auth = {
-              'X-ClickHouse-User': '<имя пользователя БД>',
-              'X-ClickHouse-Key': '<пароль пользователя БД>',
+              'X-ClickHouse-User': '<имя_пользователя_БД>',
+              'X-ClickHouse-Key': '<пароль_пользователя_БД>',
           }
       cacert = '/home/jupyter/.clickhouse-client/root.crt'
       rs = requests.get(url, headers=auth, verify=cacert)
@@ -43,28 +43,29 @@
       print(rs.text)
       ```
 
-      В случае успешного подключения к кластеру и выполнения тестового запроса будет выведена версия {{ CH }}:
+      Если подключиться к кластеру удалось, в ответ на тестовый запрос будет выведена версия {{ CH }}:
 
+      ```text
+      22.3.17.13
       ```
-      21.3.13.9
-      ```
-    
+
     - С помощью библиотеки clickhouse-driver
 
       ```python
+      %pip install clickhouse-driver
       from clickhouse_driver import Client
-      client = Client(host='<FQDN хоста ClickHouse>', 
-                      user='<имя пользователя БД>', 
-                      password='<пароль пользователя БД>', 
-                      database='<имя БД>', 
+      client = Client(host='<FQDN_хоста_ClickHouse>',
+                      user='<имя_пользователя_БД>',
+                      password='<пароль_пользователя_БД>',
+                      database='<имя_БД>',
                       secure=True)
       client.execute('SELECT version()')
       ```
 
-      В случае успешного подключения к кластеру и выполнения тестового запроса будет выведена версия {{ CH }}:
+      Если подключиться к кластеру удалось, в ответ на тестовый запрос будет выведена версия {{ CH }}:
 
-      ```
-      [('21.3.13.9',)]
+      ```text
+      [('22.3.17.13',)]
       ```
 
     {% endlist %}

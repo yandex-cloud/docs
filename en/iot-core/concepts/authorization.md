@@ -1,23 +1,23 @@
-# Authorization
+# Authentication
 
-There are two authorization methods:
+There are two authentication methods:
 * [Using X.509 certificates](#certs).
 * [Using a username and password](#log-pass).
 
-You can use both X.509 certificates and passwords at the same time. Note that passwords have a higher priority than certificates. The table below describes different ways to use a certificate and password simultaneously during authorization.
+You can use both X.509 certificates and passwords at the same time. Note that passwords have a higher priority than certificates. The table below describes different ways to use a certificate and password simultaneously during authentication.
 
-| Certificate | Password | Authorization |
+| Certificate | Password | Authentication |
 |----|----|----|
-| Invalid | Invalid | Authorization fails. |
-| Invalid | Correct | Authorization is successful. |
-| Correct | Invalid | Authorization fails. |
-| Correct | Correct | Authorization using a username and password is successful. |
-| Correct, <br>but for a different device | Correct | Authorization is performed on behalf of the device whose ID is specified in the username. |
+| Invalid | Invalid | Authentication fails. |
+| Invalid | Correct | Authentication is successful. |
+| Correct | Invalid | Authentication fails. |
+| Correct | Correct | Authentication using a username and password is successful. |
+| Correct, <br>but for a different device | Correct | Authentication is performed on behalf of the device, the ID of which is specified in the username. |
 
 
-## Authorization using certificates {#certs}
+## Authentication using certificates {#certs}
 
-When logging in with X.509 certificates, private keys and certificates stored as .pem files are used. They are stored on a device or in a registry.
+When authenticating with X.509 certificates, private keys and certificates stored as .pem files are used. They are stored on a device or in a registry.
 * For a private key, you specify the path to the .pem file when sending messages or subscribing to receive messages.
 * You add the certificate to the device or registry and specify the path to the .pem file with the certificate when sending messages or subscribing to receive messages.
 
@@ -25,9 +25,9 @@ Each certificate must be unique. You can't add the same certificate to two diffe
 
 {% include [mqtt-note](../../_includes/iot-core/mqtt-note.md) %}
 
-## Authorization using a username and password {#log-pass}
+## Authenticating by username and password {#log-pass}
 
-When logging in with your username and password:
+When authenticating with your username and password:
 * The username is the ID of the device or registry.
 * The password is a combination of characters that you specify. You can also generate your password via the YC CLI.
    * Minimum password length is 14 characters.

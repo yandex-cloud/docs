@@ -3,10 +3,10 @@
 A _role_ is a set of user permissions to perform operations with {{ yandex-cloud }} resources.
 
 There are two types of roles:
-* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
-* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the role `{{ roles-image-user }}` lets you use images in the service {{ compute-full-name }}.
+* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}` , and `{{ roles-viewer }}`.
+* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the role `{{ roles-image-user }}` lets you use images in the {{ compute-full-name }} service.
 
-  A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
+   A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
 
 Currently, users aren't allowed to create new roles with a custom set of permissions.
 
@@ -23,6 +23,22 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 ### {{ roles-admin }} {#admin}
 
 {% include [roles-admin](../../../_includes/roles-admin.md) %}
+
+## A role for requesting a quota increase {#quota-roles}
+
+{% include [roles-quota-manager-requestOperator](../../../_includes/roles-quota-manager-requestOperator.md) %}
+
+
+## {{ api-gw-full-name }} {#api-gateway-roles}
+
+{% include [api-gateway-viewer](../../../_includes/roles-api-gateway-viewer.md) %}
+
+{% include [api-gateway-editor](../../../_includes/roles-api-gateway-editor.md) %}
+
+{% include [api-gateway-websocket-writer](../../../_includes/roles-api-gateway-websocket-writer.md) %}
+
+{% include [api-gateway-admin](../../../_includes/roles-api-gateway-admin.md) %}
+
 
 ## {{ alb-full-name }} {#alb-roles}
 
@@ -60,13 +76,15 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 ## {{ dns-full-name }} {#dns-roles}
 
+{% include [roles-dns-auditor](../../../_includes/iam/roles/dns-auditor.md) %}
+
 {% include [roles-dns-viewer](../../../_includes/iam/roles/dns-viewer.md) %}
 
 {% include [roles-dns-editor](../../../_includes/iam/roles/dns-editor.md) %}
 
 {% include [roles-dns-admin](../../../_includes/iam/roles/dns-admin.md) %}
 
-## {{ compute-name }} {#compute-roles}
+## {{ compute-full-name }} {#compute-roles}
 
 {% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
 
@@ -147,16 +165,34 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 ## {{ sf-full-name }} {#functions-roles}
 
-{% include [serverless.functions.invoker](../../../_includes/roles-functions-invoker.md) %}
+{% include [functions-roles-viewer](../../../_includes/roles-functions-viewer.md) %}
 
-{% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
+{% include [functions-roles-auditor](../../../_includes/roles-functions-auditor.md) %}
+
+{% include [functions-roles-invoker](../../../_includes/roles-functions-invoker.md) %}
+
+{% include [functions-roles-editor](../../../_includes/roles-functions-editor.md) %}
 
 {% include [functions-roles-mdbproxy](../../../_includes/roles-functions-mdbproxy.md) %}
+
+{% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
 
 
 ## {{ iam-full-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
+
+{% include [roles-sa-accessKeyAdmin](../../../_includes/roles-sa-accessKeyAdmin.md) %}
+
+{% include [roles-sa-apiKeyAdmin](../../../_includes/roles-sa-apiKeyAdmin.md) %}
+
+{% include [roles-sa-authorizedKeyAdmin](../../../_includes/roles-sa-authorizedKeyAdmin.md) %}
+
+{% include [roles-sa-keyAdmin](../../../_includes/roles-sa-keyAdmin.md) %}
+
+{% include [roles-sa-tokenCreator](../../../_includes/roles-sa-tokenCreator.md) %}
+
+{% include [roles-iam-auditor](../../../_includes/roles-iam-auditor.md) %}
 
 
 ## {{ iot-full-name }} {#iot-roles}
@@ -200,6 +236,16 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [elasticsearch-auditor](../../../_includes/iam/roles/elasticsearch-auditor.md) %}
 
+
+## {{ message-queue-full-name }} {#ymq-roles}
+
+{% include [roles-ymq-reader](../../../_includes/roles-ymq-reader.md) %}
+
+{% include [roles-ymq-writer](../../../_includes/roles-ymq-writer.md) %}
+
+{% include [roles-ymq-admin](../../../_includes/roles-ymq-admin.md) %}
+
+
 ## {{ monitoring-full-name }} {#monitoring-roles}
 
 {% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-viewer.md) %}
@@ -239,6 +285,8 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}
 
+{% include [serverless-containers-roles-auditor](../../../_includes/roles-serverless-containers-auditor.md) %}
+
 {% include [serverless-containers-roles-invoker](../../../_includes/roles-serverless-containers-invoker.md) %}
 
 {% include [serverless-containers-roles-editor](../../../_includes/roles-serverless-containers-editor.md) %}
@@ -260,6 +308,14 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
+## {{ translate-full-name }} {#translate-roles}
+
+{% include [roles-translate-user](../../../_includes/translate/roles-translate-user.md) %}
+
+## {{ vision-full-name }} {#vision-roles}
+
+{% include [roles-vision-user](../../../_includes/vision/roles-vision-user.md) %}
+
 ## {{ vpc-full-name }} {#vpc-roles}
 
 {% include [roles-vpc-viewer](../../../_includes/roles-vpc-viewer.md) %}
@@ -271,6 +327,8 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [roles-vpc-public-admin](../../../_includes/roles-vpc-public-admin.md) %}
 
 {% include [roles-vpc-gw-editor](../../../_includes/roles-vpc-gw-editor.md) %}
+
+{% include [roles-vpc-gw-user](../../../_includes/roles-vpc-gw-user.md) %}
 
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 

@@ -14,7 +14,7 @@ Example of a request to recognize the main double page spread of a passport in `
 
 ```json
 {
-    "folderId": "<folder_id>",
+    "folderId": "<folder_ID>",
     "analyze_specs": [{
         "content": "<recognition_object>",
         "features": [{
@@ -82,15 +82,20 @@ Example of the `entities` array returned in the service response:
           "text": "0702084625"
          },
          {
+          "name": "issued_by",
+          "text": "washington state department of licensing."
+         },
+         {
           "name": "issue_date",
-          "text": "10.05.2020"
+          "text": "10.05.2011"
          },
          {
           "name": "expiration_date",
-          "text": "10.05.2030"
+          "text": "-"
          }
         ]}
 ```
+
 List of fields in the `entities` array:
 
 * `passport`
@@ -102,6 +107,7 @@ List of fields in the `entities` array:
    * `birth_date`: Date of birth.
    * `birth_place`: Place of birth.
    * `number`: Passport number.
+   * `issued_by`: Authority that issued the document.
    * `issue_date`: Date of issue.
    * `subdivision`: Department code.
    * `expiration_date`: Date of expiration.

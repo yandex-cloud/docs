@@ -30,7 +30,7 @@
 `"yandexPassportOauthToken":"<OAuth-token>"`. Если вы используете cURL, выполните команду:
 
 ```bash
-curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
 ```
 
 Воспользуйтесь рекомендациями и примерами, приведенными на вкладке **API** инструкции: [Получение IAM-токена](../../iam/operations/iam-token/create.md).
@@ -59,5 +59,5 @@ curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.api.clou
 #### На каких условиях можно использовать результаты работы сервиса {{ speechkit-short-name }} {#result-restrictions}
 
 1. Мы не налагаем ограничений на использование результатов работы сервиса **{{ speechkit-short-name }}**. Вы можете использовать их по вашему усмотрению в рамках законодательства Российской Федерации.
-1. Вы можете свободно использовать [демо-стенд](https://cloud.yandex.ru/services/speechkit#demo). Обратите внимание, что он имеет ряд ограничений.
+1. Вы можете свободно использовать [демо-стенд](/services/speechkit#demo). Обратите внимание, что он имеет ряд ограничений.
 1. Сервис {{ speechkit-short-name }} предоставляется в виде программного API, предназначенного для использования в системах, требующих генерации или распознавания речи. Готового программного продукта в виде веб-интерфейса или запускаемого приложения в настоящее время нет.

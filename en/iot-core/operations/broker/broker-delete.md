@@ -1,3 +1,8 @@
+---
+title: "How to delete a broker in {{ iot-full-name }}"
+description: "In this tutorial, you will learn how to delete a broker in {{ iot-full-name }}."
+---
+
 # Deleting a broker
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
@@ -74,13 +79,13 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

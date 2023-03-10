@@ -9,7 +9,7 @@
 
 Преобразование и запись результата в формат WAV выполняются с помощью утилиты [SoX](http://sox.sourceforge.net/). 
 
-Аутентификация происходит от имени аккаунта на Яндексе или федеративного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Если вы используете сервисный аккаунт, передавать в запросе идентификатор каталога не нужно. Подробнее об аутентификации в API {{speechkit-name}} см. [{#T}](../../concepts/auth.md).
+Аутентификация происходит от имени аккаунта на Яндексе или федеративного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Если вы используете сервисный аккаунт, передавать в запросе идентификатор каталога не нужно. Подробнее об аутентификации в API {{ speechkit-name }} см. [{#T}](../../concepts/auth.md).
 
 1. Синтезируйте файл в формате LPCM:
 
@@ -32,7 +32,7 @@
       -o speech.raw \
       --data-urlencode "text=${TEXT}" \
       -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
-      https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+      https://tts.{{ api-host }}/speech/v1/tts:synthesize
      ```
 
      Где:
@@ -46,7 +46,7 @@
      * `sampleRateHertz` — частота дискретизации аудиофайла в формате [LPCM](../../formats.md#LPCM).
 
    - C#
-      
+
      Отправьте [запрос](../request.md) на преобразование текста в речь:
 
      ```c#
@@ -82,7 +82,7 @@
              { "sampleRateHertz", "48000" }
            };
            var content = new FormUrlEncodedContent(values);
-           var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+           var response = await client.PostAsync("https://tts.{{ api-host }}/speech/v1/tts:synthesize", content);
            var responseBytes = await response.Content.ReadAsByteArrayAsync();
            File.WriteAllBytes("speech.raw", responseBytes);
          }
@@ -109,7 +109,7 @@
        import requests
 
        def synthesize(folder_id, iam_token, text):
-           url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+           url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
            headers = {
                'Authorization': 'Bearer ' + iam_token,
            }
@@ -180,7 +180,7 @@
      $token = '<IAM-токен>'; # Укажите IAM-токен.
      $folderId = "<идентификатор каталога>"; # Укажите идентификатор каталога.
 
-     $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+     $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
      $headers = ['Authorization: Bearer ' . $token];
      $post = array(
          'text' => "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!",

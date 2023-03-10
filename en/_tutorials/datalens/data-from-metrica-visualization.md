@@ -6,14 +6,14 @@ One of the Yandex Metrica tags that you have access to will be used as the data 
 
 If no tags are available in your list, gain access to a tag or use the Yandex Metrica demo dashboard. It's automatically created when you create a {{ datalens-short-name }} instance.
 
-To visualize your data, [set up {{ datalens-short-name }}](#before-you-begin) follow these steps:
+To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
 1. [Create a connection and standard dashboard](#step1).
 1. [Edit the standard dashboard](#step2).
 1. [Edit the chart](#step3).
 
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
@@ -22,7 +22,7 @@ To visualize your data, [set up {{ datalens-short-name }}](#before-you-begin) fo
 
 {% note warning %}
 
-This step is available to users who have permission to any Yandex Metrica tag. If you don't have permission to a tag, open a ready-to-use dashboard named [**Yandex Metrica Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo%2FMetrica%20Live%2FMetrica%20Live%20Demo%20Dashboard) and proceed to step 2.
+This step is available to users who have permission to any Yandex Metrica tag. If you don't have permission to a tag, open a ready-to-use dashboard named [**Yandex Metrica Live Demo Dashboard**]({{ link-datalens-main }}/navigation?path=Demo%2FMetrica%20Live%2FMetrica%20Live%20Demo%20Dashboard) and proceed to step 2.
 
 {% endnote %}
 
@@ -37,22 +37,22 @@ This step is available to users who have permission to any Yandex Metrica tag. I
 
 1. Click **Get token**.
 
-   ![image](../../_assets/datalens/solution-03/04-metrica-creation1.png =570x380)
+   ![image](../../_assets/datalens/solution-03/04-metrica-creation1.png)
 
    If this is your first connection to a Yandex Metrica tag, grant the necessary permissions to the service.
 
 1. Select the tag from the drop-down list.
 
-   ![image](../../_assets/datalens/solution-03/05-metrica-creation2.png =570x380)
+   ![image](../../_assets/datalens/solution-03/05-metrica-creation2.png)
 
 1. Select the [accuracy](https://yandex.com/dev/metrika/doc/api2/api_v1/sampling-docpage/) level from the drop-down list.
 
-   ![image](../../_assets/datalens/solution-03/06-01-metrica-creation-accuracy.png =570x380)
+   ![image](../../_assets/datalens/solution-03/06-01-metrica-creation-accuracy.png)
 
 1. Enable **Automatically create a dashboard, charts, and a dataset on the connection**.
-1. Click **Create connection**.
+1. Click **Create connection**.
 
-   ![image](../../_assets/datalens/solution-03/06-metrica-creation3.png =570x380)
+   ![image](../../_assets/datalens/solution-03/06-metrica-creation3.png)
 
    When the connection is created, a folder containing the datasets, charts, and dashboard opens.
 
@@ -66,7 +66,7 @@ This step is available to users who have permission to any Yandex Metrica tag. I
 
 {% note warning %}
 
-If you don't have a Yandex Metrica tag and you skipped step 1, use the [**Yandex Metrica Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
+If you don't have a Yandex Metrica tag and you skipped step 1, use the [**Yandex Metrica Live Demo Dashboard**]({{ link-datalens-main }}/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
 
 {% endnote %}
 
@@ -84,7 +84,7 @@ You can change the standard [dashboard](../../datalens/concepts/dashboard.md) ho
 
    ![image](../../_assets/datalens/solution-03/11-replace-charts.png)
 
-1. Remove the **Percentage of visits by browser** and **Sessions, views, and users by browser charts**.
+1. Remove the **Percentage of visits by browser** and **Sessions, views, and users by browser** charts.
 
    ![image](../../_assets/datalens/solution-03/12-delete-charts2.png)
 

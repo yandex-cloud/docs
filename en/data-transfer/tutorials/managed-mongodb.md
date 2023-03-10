@@ -1,4 +1,4 @@
-# Migrating databases to {{ mmg-full-name }}
+# Migrating data to {{ mmg-full-name }}
 
 To migrate your database to {{ mmg-name }}, you need to directly transfer the data, acquire a write lock for the old database, and switch over the load to the database cluster in {{ yandex-cloud }}.
 

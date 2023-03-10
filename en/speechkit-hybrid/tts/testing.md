@@ -1,4 +1,4 @@
-# Performance testing
+# Testing speech synthesis performance
 
 To test the performance of your {{ sk-hybrid-name }} installation's speech synthesis service, use a [container with a testing utility](#test-order-synthesis). The utility runs synthetic tests using a prepared set of text files.
 
@@ -63,7 +63,7 @@ INFO: 2021-09-22 15:07:00.059 +0000 load_test.cpp:262 q=0.99: 505ms
 1. Download the container with tests:
 
    ```bash
-   docker pull cr.yandex/${REGISTRY_ID}/tts-tools
+   docker pull {{ registry }}/${REGISTRY_ID}/tts-tools
    ```
 
 2. Run the `tts-tools` container:

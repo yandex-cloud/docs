@@ -3,44 +3,6 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Tutorials
-    items:
-      - name: All practical guidelines
-        href: tutorials/index.md
-      - name: Working with jobs
-        items:
-          - name: Overview
-            href: tutorials/job-overview.md
-          - name: Working with Hive jobs
-            href: tutorials/hive-job-basics.md
-          - name: Working with MapReduce jobs
-            href: tutorials/mapreduce-job-basics.md
-          - name: Working with PySpark jobs
-            href: tutorials/pyspark-job-basics.md
-          - name: Working with Spark jobs
-            href: tutorials/spark-job-basics.md
-          - name: Running Apache Hive jobs
-            href: tutorials/how-to-use-hive.md
-          - name: Running Spark applications
-            href: tutorials/run-spark-job.md
-          - name: Running jobs from a remote host
-            href: tutorials/remote-run-job.md
-      - name: Configuring networks for {{ dataproc-name }}
-        href: tutorials/configure-network.md
-      - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
-        href: tutorials/copy-files-from-object-storage.md
-      - name: Exchanging data with {{ mch-full-name }}
-        href: tutorials/exchange-data-with-mch.md
-      - name: Importing data from {{ mmy-full-name }} clusters using Sqoop
-        href: tutorials/sqoop-mmy.md
-      - name: Importing data from {{ mpg-full-name }} clusters using Sqoop
-        href: tutorials/sqoop-mpg.md
-      - name: >-
-          "Using initialization scripts to configure GeeseFS in {{ dataproc-name
-          }}"
-        href: tutorials/geesefs-init-actions.md
-      - name: Integration with {{ ml-platform-full-name }}
-        href: tutorials/datasphere-integration.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -78,19 +40,57 @@ items:
         items:
           - name: What is {{ metastore-full-name }}?
             hidden: true
-            href: operations/index.md
+            href: operations/metastore/index.md
           - name: Creating a {{ metastore-name }} server
             hidden: true
-            href: operations/cluster-create.md
+            href: operations/metastore/cluster-create.md
           - name: Deleting a {{ metastore-name }} server
             hidden: true
-            href: operations/cluster-delete.md
+            href: operations/metastore/cluster-delete.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
       - name: Working with logs
         href: operations/logging.md
       - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Working with jobs
+        items:
+          - name: Overview
+            href: tutorials/job-overview.md
+          - name: Working with Hive jobs
+            href: tutorials/hive-job-basics.md
+          - name: Working with MapReduce jobs
+            href: tutorials/mapreduce-job-basics.md
+          - name: Working with PySpark jobs
+            href: tutorials/pyspark-job-basics.md
+          - name: Working with Spark jobs
+            href: tutorials/spark-job-basics.md
+          - name: Running Apache Hive jobs
+            href: tutorials/how-to-use-hive.md
+          - name: Running Spark applications
+            href: tutorials/run-spark-job.md
+          - name: Running jobs from a remote host
+            href: tutorials/remote-run-job.md
+      - name: Configuring networks for {{ dataproc-name }}
+        href: tutorials/configure-network.md
+      - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
+        href: tutorials/copy-files-from-object-storage.md
+      - name: Exchanging data with {{ mch-full-name }}
+        href: tutorials/exchange-data-with-mch.md
+      - name: Importing data from {{ mmy-full-name }} clusters using Sqoop
+        href: tutorials/sqoop-mmy.md
+      - name: Importing data from {{ mpg-full-name }} clusters using Sqoop
+        href: tutorials/sqoop-mpg.md
+      - name: >-
+          Using initialization scripts to configure GeeseFS in {{ dataproc-name
+          }}
+        href: tutorials/geesefs-init-actions.md
+      - name: Integration with {{ ml-platform-full-name }}
+        href: tutorials/datasphere-integration.md
   - name: Concepts
     items:
       - name: Relationships between service resources

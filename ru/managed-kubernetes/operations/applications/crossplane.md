@@ -44,7 +44,7 @@
      --namespace <пространство имен> \
      --create-namespace \
      --set-file providerJetYC.creds=key.json \
-     crossplane crossplane/.
+     crossplane ./crossplane/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/crossplane#docker-images).

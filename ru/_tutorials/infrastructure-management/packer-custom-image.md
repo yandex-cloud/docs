@@ -2,7 +2,7 @@
 
 {{ compute-full-name }} можно использовать для создания [образа дисков виртуальных машин](../../compute/concepts/image.md) с набором дополнительных инфраструктурных инструментов с помощью утилиты [Packer](https://www.packer.io/).
 
-Соберите с помощью утилиты Packer образ ВМ на основе [Ubuntu Linux 20.04 LTS]({{ link-cloud-marketplace }}/products/yc/ubuntu-20-04-lts) с заданными в конфигурационном файле параметрами. Добавьте в образ часто используемые при работе с {{ yandex-cloud }} инструменты:
+Соберите с помощью утилиты Packer образ ВМ на основе [Ubuntu Linux 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) с заданными в конфигурационном файле параметрами. Добавьте в образ часто используемые при работе с {{ yandex-cloud }} инструменты:
 * [{{ yandex-cloud }} CLI](../../cli/quickstart.md) версии 0.91.0 или выше.
 * [{{ TF }}](https://www.terraform.io/) версии 1.1.9.
 * [kubectl]({{ k8s-docs }}/reference/kubectl/) версии 1.23.
@@ -42,8 +42,10 @@
 
 1. Установите Packer:
     1. Скачайте дистрибутив Packer и установите его по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
-
-        Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала {{ yandex-cloud }}](https://hashicorp-releases.yandexcloud.net/packer/). 
+   
+        
+        Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала {{ yandex-cloud }}](https://hashicorp-releases.yandexcloud.net/packer/).
+   
 
     1. После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`. Для этого выполните команду: 
 
@@ -105,13 +107,14 @@
 
 ## Подготовьте конфигурацию образа {#prepare-image-config}
 
-1. Создайте конфигурационный файл в формате [HCL](https://github.com/hashicorp/hcl#readme), например `yc-toolbox.pkr.hcl`.
+1. Создайте конфигурационный файл в формате [HCL](https://github.com/hashicorp/hcl#readme), например `toolbox.pkr.hcl`.
 1. Опишите в конфигурационном файле параметры образа, который необходимо создать:
 
+    
     ```hcl
-    # YC Toolbox VM Image based on Ubuntu 20.04 LTS
+    # {{ yandex-cloud }} Toolbox VM Image based on Ubuntu 20.04 LTS
     #
-    # Yandex Packer provisioner docs:
+    # Provisioner docs:
     # https://www.packer.io/docs/builders/yandex
     #
 
@@ -183,8 +186,8 @@
           "echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections",
           "sudo apt-get install -y unzip python3-pip python3.8-venv",
 
-          # {{ yandex-cloud }} CLI tool (YC)
-          "curl -s -O https://storage.yandexcloud.net/yandexcloud-yc/install.sh",
+          # {{ yandex-cloud }} CLI tool
+          "curl -s -O https://{{ s3-storage-host }}{{ yc-install-path }}",
           "chmod u+x install.sh",
           "sudo ./install.sh -a -i /usr/local/ 2>/dev/null",
           "rm -rf install.sh",
@@ -269,6 +272,8 @@
       }
     }
     ```
+   
+
 
 ## Соберите образ {#create-image}
 

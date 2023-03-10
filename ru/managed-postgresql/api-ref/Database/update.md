@@ -31,7 +31,8 @@ databaseName | <p>Required. Name of the database to update. To get the name of t
       "name": "string",
       "version": "string"
     }
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 
@@ -41,8 +42,9 @@ Field | Description
 newDatabaseName | **string**<br><p>Optional. New name of the database.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 updateMask | **string**<br><p>Field mask that specifies which fields of the Database resource should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 extensions[] | **object**<br><p>PostgreSQL extensions that should be enabled for the database.</p> <p>If the field is sent, the list of enabled extensions is rewritten entirely. Therefore, to disable an active extension you should simply send the list omitting this extension.</p> 
-extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/cluster-extensions">listed in the Developer's Guide</a>.</p> 
+extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/extensions/cluster-extensions">listed in the Developer's Guide</a>.</p> 
 extensions[].<br>version | **string**<br><p>Version of the extension.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the database</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

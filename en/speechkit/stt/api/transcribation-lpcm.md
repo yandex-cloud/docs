@@ -39,7 +39,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
               }
           },
           "audio": {
-              "uri": "https://storage.yandexcloud.net/speechkit/speech.pcm"
+              "uri": "https://{{ s3-storage-host }}/speechkit/speech.pcm"
           }
       }
       ```
@@ -59,11 +59,11 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
       export IAM_TOKEN=<IAM token>
       curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d "@body.json'"\
+          -d "@body.json"\
           https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
       ```
 
-      Where the `IAM_TOKEN` is an [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
+      Where `IAM_TOKEN` is an [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
 
       Result:
 

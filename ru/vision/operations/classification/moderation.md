@@ -22,7 +22,7 @@ _Классификация изображений сейчас находитс
 
     {% note info %}
 
-    Нужно изображение? [Скачайте пример](https://storage.yandexcloud.net/vision/moderate-watermark.jpg).
+    Нужно изображение? [Скачайте пример](https://{{ s3-storage-host }}/vision/moderate-watermark.jpg).
 
     {% endnote %}
 1. Кодируйте файл в формат Base64:

@@ -132,7 +132,7 @@
     1. Укажите в файле `kafka-mirror-maker.tf`:
 
         * Пароль пользователя-администратора {{ mkf-name }}.
-        * Идентификатор публичного [образа](../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts).
+        * Идентификатор публичного [образа](../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
         * Логин и путь к файлу [открытого ключа](../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в используемом образе указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
     1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
@@ -297,11 +297,11 @@
 
 ### Удалите созданные ресурсы {#clear-out}
 
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 {% list tabs %}
 
 - Вручную
-
-    Если созданные ресурсы вам больше не нужны, удалите их:
 
     * [Удалите кластер {{ mkf-full-name }}](../managed-kafka/operations/cluster-delete.md).
     * [Удалите виртуальную машину](../compute/operations/vm-control/vm-delete.md).

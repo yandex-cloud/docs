@@ -1,4 +1,4 @@
-| Interface type | Ethernet | Bandwidth<br/> | Maximum<br/>distance | Average wavelength<br/>per channel |
+| Type of transceiver | Ethernet | Bandwidth<br/> | Maximum<br/>distance | Average wavelength<br/>per channel |
 | ----- | ----- | ----- | ----- | ----- |
 | 1000BASE‑LX10 | IEEE 802.3ah | 1 Gbps | 10 km | 1310 nm |
 | 10GBASE-LR | IEEE 802.3ae | 10 Gbps | 10 km | 1310 nm |

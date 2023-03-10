@@ -135,7 +135,7 @@
 
 ## Создайте группу ВМ с автоматическим масштабированием и сетевым балансировщиком нагрузки {#create-vm-group}
 
-1. Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит [Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers) с веб-сервером, который эмулирует нагрузку на сервис.
+1. Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит [Docker-контейнер](/blog/posts/2022/03/docker-containers) с веб-сервером, который эмулирует нагрузку на сервис.
 
    {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 
@@ -174,7 +174,7 @@
        docker-container-declaration: |-
          spec:
            containers:
-           - image: cr.yandex/yc/demo/web-app:v1
+           - image: {{ registry }}/yc/demo/web-app:v1
              securityContext:
                privileged: false
              tty: false
@@ -542,7 +542,7 @@
         network_id: enpabce123hde4ft1r3t
         zone_id: {{ region-id }}-a
         v4_cidr_blocks:
-        - 192.168.1.0/24         
+        - 192.168.1.0/24
         ```
 
      1. Удалите подсеть в зоне `{{ region-id }}-b`:

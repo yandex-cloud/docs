@@ -409,46 +409,43 @@ To update a movie record in the `Series` table:
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API endpoint>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API endpoint>",
       });
 
-      var docClient = new AWS.DynamoDB.DocumentClient()
+      const table = "Series";
+      const series_id = 3;
+      const title = "Supernatural";
 
-      var table = "Series";
+      console.log("Updating record...");
 
-      var series_id = 3;
-      var title = "Supernatural";
-
-      var params = {
+      dynamodb.send(new AWS.UpdateItemCommand({
         TableName:table,
-        Key:{
+        Key: marshall({
           "series_id": series_id,
           "title": title
         },
         UpdateExpression: "set info.release_date = :d, info.rating = :r",
-        ExpressionAttributeValues:{
+        ExpressionAttributeValues: marshall({
           ":d": "2005-09-13",
           ":r": 8
         },
         ReturnValues:"UPDATED_NEW"
-      };
-
-      console.log("Updating the record...");
-      docClient.update(params, function(err, data) {
-        if (err) {
-          console.error("Couldn't update the record. JSON error:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+        }))
+          .then(data => {
               console.log("Update successful:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
+          });
       ```
 
-      To update attributes of an existing record, use the `update` method. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
+      To update the attributes of an existing record, use the command `UpdateItemCommand`. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
 
       The `ReturnValues` parameter indicates to {{ ydb-short-name }} to return only updated attributes `UPDATED_NEW`.
 
@@ -534,7 +531,6 @@ To update a movie record in the `Series` table:
           },
           return_values: 'UPDATED_NEW'
         }
-
         puts "Updating the table '#{table_name}' with information about " \
           "'#{title} (#{series_id})'..."
 
@@ -587,7 +583,7 @@ To increase the `rating` atomic counter for a series:
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
         -DgroupId=com.mycompany.app \
-        -DartifactId=SeriesItemOps04
+        -DartifactId=SeriesItemOps03
       ```
 
       As a result of running the command, the `SeriesItemOps04` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
@@ -1002,7 +998,6 @@ To increase the `rating` atomic counter for a series:
       Each time the above code is run, the value of `rating` increases by one.
 
    1. Run the program:
-
       ```bash
       node SeriesItemOps04.js
       ```
@@ -1222,7 +1217,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps05.java` file, for example, using the nano editor:
+   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps04.java` file, for example, using the nano editor:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps05.java
@@ -1533,9 +1528,9 @@ To update a record in the `Series` table when the condition is satisfied:
 
       ```text
       Couldn't update record:
-      Error executing "UpdateItem" on "<Document API endpoint>"; AWS HTTP error: Client error: `POST <Document API endpoint>` resulted in a `400 Bad Request` response:
-      {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
-      ConditionalCheckFailedException (client): Condition not satisfied - {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
+      ...
+      ConditionalCheckFailedException (client): Condition not satisfied
+      ...
       ```
 
       Error completing the operation: the movie's rating is 9 and the condition checks the rating higher than 9.

@@ -30,14 +30,14 @@ If you no longer need these resources, [delete them](#clear-out).
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
       * **Cluster name**: `chcluster`.
-      * **Storage type**: Select the desired storage type.
+      * **Disk type**: Select the relevant disk type.
 
-         The storage type selected determines the minimum number of hosts per shard:
+         The disk type determines the minimum number of hosts per shard:
 
-         * Two hosts, if you select local SSD storage (`local-ssd`).
-         * Three hosts, if you select storage on non-replicated network drives (`network-ssd-nonreplicated`).
+         * Two hosts, if you select local SSD disks (`local-ssd`).
+         * Three hosts, if you select non-replicated SSD disks (`network-ssd-nonreplicated`).
 
-         Additional hosts for these storage types are required for fault tolerance.
+         Additional hosts for these disk types are required for fault tolerance.
 
          For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
@@ -56,15 +56,18 @@ If you no longer need these resources, [delete them](#clear-out).
 
       No shard groups are needed for [classic sharding](#shard-example).
 
+   
    1. [Configure security groups](../../managed-clickhouse/operations/connect.md#configuring-security-groups) for your cluster so you can connect to it online.
 
-- Using Terraform
+
+- Using {{ TF }}
 
    
    1. If you don't have {{ TF }} yet, set up and configure it according to the [instructions](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. In the same working directory, download the configuration file for one of the sharding examples described below:
 
+
+   1. In the same working directory, download the configuration file for one of the sharding examples described below:
 
       * [simple-sharding.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/simple-sharding.tf): Classic sharding.
       * [sharding-with-group.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/sharding-with-group.tf): Group-based sharding.
@@ -100,9 +103,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Create tables with data {#create-tables}
 
-For example, you need to enable sharding for the [table](https://{{ ch-domain }}/docs/en/getting-started/example-datasets/metrica/) named `hits_v1`. The text of the table creation query depends on the sharding approach that you selected.
+For example, you need to enable sharding for the [table]({{ ch.docs }}/getting-started/example-datasets/metrica/) named `hits_v1`. The text of the table creation query depends on the sharding approach that you selected.
 
-To find the table structure to be used in `<table structure>`, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/getting-started/tutorial/#create-tables).
+To find the table structure to be used in `<table structure>`, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#create-tables).
 
 When you enable sharding by any of the methods, you can send the `SELECT` and `INSERT` queries to the created distributed table, and they will be processed according to the specified configuration.
 
@@ -115,7 +118,7 @@ In this example, a distributed table that we create based on `hits_v1` uses all 
 Before operating a distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
-1. Create a table named `hits_v1` on the [MergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), which will be located on all cluster hosts:
+1. Create a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table named `hits_v1`, which will run on all cluster hosts:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <table structure> )
@@ -129,7 +132,7 @@ Before operating a distributed table:
 To create the `hits_v1_distributed` distributed table in the cluster:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
-1. Create a table on the [Distributed engine]({{ ch.docs }}/engines/table-engines/special/distributed/):
+1. Create a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine:
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER '{cluster}' AS tutorial.hits_v1
@@ -138,7 +141,7 @@ To create the `hits_v1_distributed` distributed table in the cluster:
 
    In this case, instead of explicitly specifying the table structure, you can use the `AS tutorial.hits_v1` expression because the `hits_v1_distributed` and `hits_v1` tables run on the same hosts in the cluster.
 
-   When creating a table on the [Distributed](https://{{ ch-domain }}/docs/en/engines/table-engines/special/distributed/) engine, use `chcluster` as the cluster ID. You can retrieve it with a [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+   When creating a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine, use `chcluster` as the cluster ID. You can retrieve it with a [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
    {% note tip %}
 
@@ -146,7 +149,7 @@ To create the `hits_v1_distributed` distributed table in the cluster:
 
    {% endnote %}
 
-### Sharding using shard groups {#shard-groups-example }
+### Sharding using shard groups {#shard-groups-example}
 
 In this example:
 
@@ -156,7 +159,7 @@ In this example:
 Before operating a distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
-1. Create a table named `hits_v1` on the [MergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), which will use all hosts of the `sgroup` shard group in the cluster:
+1. Create a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table named `hits_v1`, which will use all of the hosts of the `sgroup` shard group in the cluster:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <table structure> )
@@ -170,7 +173,7 @@ Before operating a distributed table:
 To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
-1. Create a table on the [Distributed engine]({{ ch.docs }}/engines/table-engines/special/distributed/):
+1. Create a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine:
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup AS tutorial.hits_v1
@@ -179,7 +182,7 @@ To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 
    In this case, instead of explicitly specifying the table structure, you can use the `AS tutorial.hits_v1` expression because the `hits_v1_distributed` and `hits_v1` tables use the same shard and run on the same hosts in the cluster.
 
-### Advanced sharding using shard groups {#shard-groups-example }
+### Advanced sharding using shard groups {#shard-groups-example}
 
 In this example:
 
@@ -190,7 +193,7 @@ In this example:
 Before operating a distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
-1. Create a table named `hits_v1` on the [ReplicatedMergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/), which will use all hosts of the `sgroup_data` shard group in the cluster:
+1. Create a [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) table named `hits_v1`, which will use all of the hosts of the `sgroup_data` shard group in the cluster:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <table structure> )
@@ -206,7 +209,7 @@ Before operating a distributed table:
 To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
-1. Create a table on the [Distributed engine]({{ ch.docs }}/engines/table-engines/special/distributed/):
+1. Create a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine:
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <table structure> )
@@ -215,15 +218,17 @@ To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 
    For example, you can find out the number of rows in the table because the `hits_v1_distributed` and `hits_v1` tables use different shards and run on different hosts.
 
-## Check that your tables are up and running {#sharding-test }
+## Check that your tables are up and running {#sharding-test}
 
 To check the health of the created distributed table named `tutorial.hits_v1_distributed`:
 
 1. Load the `hits_v1` test dataset:
 
+   
    ```bash
-   curl https://clickhouse-datasets.s3.yandex.net/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
+
 
 1. Complete the table with the test data:
 
@@ -247,7 +252,7 @@ To check the health of the created distributed table named `tutorial.hits_v1_dis
    SELECT count() FROM tutorial.hits_v1_distributed
    ```
 
-   Expected output:
+   Result:
 
    ```text
    8873898
@@ -262,7 +267,7 @@ To check the health of the created distributed table named `tutorial.hits_v1_dis
    1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
    1. If static public IP addresses were used for cluster access, release and [delete them](../../vpc/operations/address-delete.md).
 
-- Using Terraform
+- Using {{ TF }}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

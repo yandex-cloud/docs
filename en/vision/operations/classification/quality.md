@@ -7,11 +7,11 @@ keywords:
 
 # Assessing image quality
 
-_Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Image classification is currently in the [Preview stage](../../../overview/concepts/launch-stages.md)._
 
 To evaluate the quality of an image, use the [Image Classification](../../concepts/classification/index.md).
 
-In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [quality](../../concepts/classification/supported-models.md#quality) model.
+In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [quality](../../concepts/classification/supported-models.md#quality) model.
 
 ## Examples {#examples}
 
@@ -29,7 +29,7 @@ In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set t
 
    {% note info %}
 
-   Need an image? [Download a sample](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+   Need an image? [Download a sample](https://{{ s3-storage-host }}/vision/face-detection-sample.jpg).
 
    {% endnote %}
 

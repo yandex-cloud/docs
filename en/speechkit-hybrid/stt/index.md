@@ -4,7 +4,7 @@
 
 1. Install [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) on your server.
 
-1. [Authenticating](../../container-registry/operations/authentication) in Container Registry.
+1. [Get authenticated](../../container-registry/operations/authentication) in {{ container-registry-name }}.
 
 For the recommended hardware configuration, see [{#T}](../system-requirements.md).
 

@@ -44,6 +44,8 @@
 
 {% include [blocked-ip](../../_includes/data-transfer/troubles/network/blocked-ip.md) %}
 
+{% include [transfer-error](../../_includes/data-transfer/troubles/network/transfer-error.md) %}
+
 ## {{ CH }} {#clickhouse}
 
 {% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables.md) %}
@@ -65,6 +67,10 @@
 {% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables.md) %}
 
 {% include [aws-binlog-time](../../_includes/data-transfer/troubles/mysql/aws-binlog-time.md) %}
+
+{% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
+
+{% include [binlog-bytes](../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
 
 ## {{ PG }} {#postgresql}
 
@@ -95,6 +101,10 @@
 {% include [lock-replication](../../_includes/data-transfer/troubles/postgresql/lock-replication.md) %}
 
 {% include [excessive-wal](../../_includes/data-transfer/troubles/postgresql/excessive-wal.md) %}
+
+{% include [external-replication](../../_includes/data-transfer/troubles/postgresql/external-replication.md) %}
+
+{% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 
 ## {{ ydb-full-name }} {#ydb}

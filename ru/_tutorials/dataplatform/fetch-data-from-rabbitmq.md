@@ -4,7 +4,7 @@
 
 Чтобы настроить поставку данных из {{ RMQ }} в {{ mch-name }}:
 
-1. [Настройте интеграцию с {{ RMQ }} для кластера {{ mch-name}}](#configure-mch-for-rmq).
+1. [Настройте интеграцию с {{ RMQ }} для кластера {{ mch-name }}](#configure-mch-for-rmq).
 1. [Создайте в кластере {{ mch-name }} таблицу на движке {{ RMQ }}](#create-rmq-table).
 1. [Отправьте тестовые данные в очередь {{ RMQ }}](#send-sample-data-to-rmq).
 1. [Проверьте наличие тестовых данных в таблице кластера {{ mch-name }}](#fetch-sample-data).
@@ -123,11 +123,7 @@
 
     1. Загрузите файл конфигурации для `clickhouse-client`:
 
-        ```bash
-        mkdir --parents ~/.clickhouse-client && \
-        wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
-        --output-document ~/.clickhouse-client/config.xml
-        ```
+        {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
     Убедитесь, что можете с помощью `clickhouse-client` [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string).
 
@@ -315,11 +311,11 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 {% list tabs %}
 
 - Вручную
-
-    Если созданные ресурсы вам больше не нужны, удалите их:
 
     * [Удалите кластер {{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md).
     * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).

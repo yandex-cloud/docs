@@ -31,6 +31,8 @@
         * Выберите облачную сеть для размещения кластера.
         * В параметре **Группы безопасности** укажите [группу безопасности](../operations/connect.md#configuring-security-groups), которая содержит правила, разрешающие любой исходящий и входящий трафик по любому протоколу с любых IP-адресов.
 
+            {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
             {% note alert %}
 
             Для корректной работы кластера {{ mgp-name }} необходимо, чтобы хотя бы в одной из его групп безопасности были правила, разрешающие любой входящий и исходящий трафик с любых IP-адресов.
@@ -65,6 +67,10 @@
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+        * **Менеджер подключений** — режим работы и параметры [менеджера подключений](..//concepts/pooling.md):
+
+            {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
 
     1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 

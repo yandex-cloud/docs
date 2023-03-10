@@ -23,7 +23,7 @@ If you no longer need these resources, [delete them](#clear-out).
 The infrastructure costs for image recognition and data storage include:
 * A fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* A fee for using a dynamic or a static public IP (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md)).
+* A fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * A fee for using {{ vision-full-name }} (see [pricing for {{ vision-full-name }}](../../vision/pricing.md)).
 
 
@@ -77,7 +77,7 @@ To create an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) to
       * Enter the username in the **Login** field.
       * In the **SSH key** field, paste the contents of the public key file.
 
-         Create a key pair for the SSH connection by following [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+         You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    1. Click **Create VM**.
    1. Wait for the VM status to change to `Running` and save its public IP address: you'll need it for SSH connection.
 
@@ -276,7 +276,7 @@ To create an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) to
 
    {% note tip %}
 
-   Use the [sample image](https://storage.yandexcloud.net/vision/penguins_sample.jpg) of the penguin crossing road sign.
+   Use the [sample image](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) of the penguin crossing road sign.
 
    {% endnote %}
 

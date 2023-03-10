@@ -11,7 +11,7 @@ The old version remains available for decryption of ciphertext encrypted with it
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:rotate
+POST https://{{ api-host-kms }}/kms/v1/keys/{keyId}:rotate
 ```
  
 ## Path parameters {#path_params}

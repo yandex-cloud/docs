@@ -13,18 +13,16 @@ To configure page permissions:
 1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings** or click the button that specifies the page access mode (by default, **Available to all employees**).
 
    
-
    {% note tip %}
 
    If you are an administrator of your organization and you can't access the page, you can use a direct link to access the settings. To do this, add `.access` at the end of the page's URL.
 
    {% endnote %}
-
+
 
 1. Specify who the page will be available to:
 
-
-* **All employees**: To all employees of your organization.
+* **All employees**: To all employees of your organization.
 
 * **Only authors**: The page will only be available to its [authors](../roles.md) and the organization's administrator.
 
@@ -60,10 +58,9 @@ After any of the page authors approves your request, you'll get access to it.
 
 If the author of a page no longer works for the organization, you can also submit a request for access permissions. The request is forwarded to the organization administrator who will handle it.
 
-If the administrator doesn't have access to the page, they can [assign a new author](page-settings.md) for it.
+If the administrator doesn't have access to the page, they can [assign a new author](page-settings.md) for it.
 
 {% endnote %}
-
 
 
 ## Prohibiting page editing {#read-only}

@@ -7,7 +7,7 @@
 * [голос](../voices.md) — `filipp`;
 * остальные параметры оставлены по умолчанию.
 
-Аутентификация происходит от имени аккаунта на Яндексе или федеративного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Если вы используете сервисный аккаунт, передавать в запросе идентификатор каталога не нужно. Подробнее об аутентификации в API {{speechkit-name}} см. [{#T}](../../concepts/auth.md).
+Аутентификация происходит от имени аккаунта на Яндексе или федеративного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Если вы используете сервисный аккаунт, передавать в запросе идентификатор каталога не нужно. Подробнее об аутентификации в API {{ speechkit-name }} см. [{#T}](../../concepts/auth.md).
 
 {% list tabs %}
 
@@ -27,7 +27,7 @@
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     --data-urlencode "text=${TEXT}" \
     -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
-    "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+    "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
   ```
 
   Где:
@@ -75,7 +75,7 @@
           { "folderId", folderId }
         };
         var content = new FormUrlEncodedContent(values);
-        var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+        var response = await client.PostAsync("https://tts.{{ api-host }}/speech/v1/tts:synthesize", content);
         var responseBytes = await response.Content.ReadAsByteArrayAsync();
         File.WriteAllBytes("speech.ogg", responseBytes);
       }
@@ -102,7 +102,7 @@
      import requests
 
      def synthesize(folder_id, iam_token, text):
-        url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+        url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
         headers = {
             'Authorization': 'Bearer ' + iam_token,
         }
@@ -170,7 +170,7 @@
   $token = '<IAM-токен>'; # Укажите IAM-токен.
   $folderId = "<идентификатор каталога>"; # Укажите идентификатор каталога.
 
-  $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+  $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
   $headers = ['Authorization: Bearer ' . $token];
   $post = array(
       'text' => "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!",

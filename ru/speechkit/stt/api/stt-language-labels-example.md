@@ -42,7 +42,7 @@
             ```
 
         1. Перейдите в каталог со склонированным репозиторием {{ yandex-cloud }} API, создайте каталог `output` и сгенерируйте в нем код интерфейса клиента:
-    
+
             ```bash
             cd <путь_к_каталогу_cloudapi>
             mkdir output
@@ -57,11 +57,11 @@
                 yandex/cloud/ai/stt/v3/stt_service.proto \
                 yandex/cloud/ai/stt/v3/stt.proto
             ```
-  
+
             В результате в каталоге `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
-    
+
         1. Создайте файл в корне каталога `output`, например `test.py`, и добавьте в него следующий код:
-    
+
             ```python
             #coding=utf8
             import argparse
@@ -89,14 +89,14 @@
                             restriction_type=stt_pb2.LanguageRestrictionOptions.WHITELIST,
                             language_code=['auto']
                         ),
-                        # Выбрать модели распознавание — потоковое распознавание. 
+                        # Выбрать модели распознавание — потоковое распознавание.
                         audio_processing_type=stt_pb2.RecognitionModelOptions.REAL_TIME
                     )
                 )
 
                 # Отправить сообщение с настройками распознавания.
                 yield stt_pb2.StreamingRequest(session_options=recognize_options)
-    
+
                 # Прочитать аудиофайл и отправить его содержимое порциями.
                 with open(audio_file_name, 'rb') as f:
                     data = f.read(CHUNK_SIZE)
@@ -109,7 +109,7 @@
                 cred = grpc.ssl_channel_credentials()
                 channel = grpc.secure_channel('{{ api-host-sk-stt }}', cred)
                 stub = stt_service_pb2_grpc.RecognizerStub(channel)
-    
+
                 # Отправить данные для распознавания.
                 it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
                     ('authorization', f'Bearer {iam_token}'),

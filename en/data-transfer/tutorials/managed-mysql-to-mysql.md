@@ -1,4 +1,4 @@
-# Migrating databases from {{ mmy-full-name }} to {{ MY }}
+# Delivering data from {{ mmy-full-name }} to {{ MY }}
 
 To migrate a database deployed in a {{ mmy-full-name }} cluster to a third-party {{ MY }} cluster:
 

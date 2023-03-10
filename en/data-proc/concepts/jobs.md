@@ -4,10 +4,10 @@ In a {{ dataproc-name }} cluster, you can create and execute jobs. This allows y
 
 The following job types are supported:
 
-* [Hive](https://cwiki.apache.org/confluence/display/HIVE#Home-HiveDocumentation)
-* [MapReduce](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
-* [PySpark](https://spark.apache.org/docs/latest/api/python/index.html)
-* [Spark](https://spark.apache.org/docs/latest/)
+* [Hive](https://cwiki.apache.org/confluence/display/HIVE#Home-HiveDocumentation).
+* [MapReduce](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html).
+* [PySpark](https://spark.apache.org/docs/latest/api/python/index.html).
+* [Spark](https://spark.apache.org/docs/latest/).
 
 When creating a job, specify:
 
@@ -26,9 +26,9 @@ For successful job execution:
 
 * Grant access to the necessary {{ objstorage-name }} buckets for the cluster service account.
 
-    It's recommended to use at least two buckets:
-    * A bucket with read-only rights for storing source data and files necessary to run the job.
-    * A bucket with read and write rights for storing job execution results. Specify it when creating a cluster.
+   It's recommended to use at least two buckets:
+   * A bucket with read-only rights for storing source data and files necessary to run the job.
+   * A bucket with read and write rights for storing job execution results. Specify it when creating a cluster.
 
 * When creating a job, pass all the files necessary for its operation.
 
@@ -38,4 +38,3 @@ If there are enough computing resources in the cluster, several created jobs are
 ## Job logs {#logs}
 
 Job logs are saved in {{ cloud-logging-full-name }}. For more information, see [{#T}](../operations/logging.md).
-

@@ -2,7 +2,7 @@
 
 You can use {{ compute-full-name }} to create a [VM disk image](../../compute/concepts/image.md) with a set of additional infrastructure tools using [Packer](https://www.packer.io/).
 
-Use Packer to build a VM image based on [Ubuntu Linux 20.04 LTS]({{ link-cloud-marketplace }}/products/yc/ubuntu-20-04-lts) with the parameters specified in a configuration file. Add the following tools frequently used with {{ yandex-cloud }} to the image:
+Use Packer to build a VM image based on [Ubuntu Linux 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the parameters specified in a configuration file. Add the following tools frequently used with {{ yandex-cloud }} to the image:
 * [{{ yandex-cloud }} CLI](../../cli/quickstart.md) 0.91.0 or higher.
 * [{{ TF }}](https://www.terraform.io/) 1.1.9.
 * [kubectl]({{ k8s-docs }}/reference/kubectl/) 1.23.
@@ -28,7 +28,7 @@ To build an image and create a VM from it:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -42,8 +42,10 @@ The cost of building a VM image and creating a VM from it includes:
 
 1. Install Packer:
    1. Download a Packer distribution and install it by following the [instructions on the official website](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
-
+ 
+      
       You can also download a Packer distribution for your platform from a [{{ yandex-cloud }} mirror](https://hashicorp-releases.website.yandexcloud.net/packer/).
+ 
 
    1. When the download is complete, add the path to the folder with the executable to the `PATH` variable: To do this, run the command:
 
@@ -70,15 +72,15 @@ The cost of building a VM image and creating a VM from it includes:
          yc vpc subnet list
          ```
 
-         Output:
+         Result:
 
          ```bash
          +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
          |          ID          |         NAME         |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
          +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
-         | b0c29k6anelkik7jg5v1 | intro2-ru-central1-c | enp45glgitd6e44dn1fj |                | ru-central1-c | [10.130.0.0/24] |
-         | e2ltcj4urgpbsbaq9977 | intro2-ru-central1-b | enp45glgitd6e44dn1fj |                | ru-central1-b | [10.129.0.0/24] |
-         | e9bn57jvjnbujnmk3mba | intro2-ru-central1-a | enp45glgitd6e44dn1fj |                | ru-central1-a | [10.128.0.0/24] |
+         | b0c29k6anelkik7jg5v1 | intro2-{{ region-id }}-c | enp45glgitd6e44dn1fj |                | {{ region-id }}-c | [10.130.0.0/24] |
+         | e2ltcj4urgpbsbaq9977 | intro2-{{ region-id }}-b | enp45glgitd6e44dn1fj |                | {{ region-id }}-b | [10.129.0.0/24] |
+         | e9bn57jvjnbujnmk3mba | intro2-{{ region-id }}-a | enp45glgitd6e44dn1fj |                | {{ region-id }}-a | [10.128.0.0/24] |
          +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
          ```
 
@@ -91,12 +93,13 @@ The cost of building a VM image and creating a VM from it includes:
    ```bash
    export YC_FOLDER_ID=$(yc config get folder-id)
    export YC_ZONE="<availability_zone>"
-   export YC_SUBNET_ID="<subnet_ID"
+   export YC_SUBNET_ID="<subnet_ID>"
    export YC_TOKEN=$(yc iam create-token)
    ```
 
    Where:
-   * `YC_FOLDER_ID` is the ID of the folder that will host the auxiliary VM used for creating the image. Filled in automatically.
+
+   * `YC_FOLDER_ID` is the ID of the folder that will host the auxiliary VM used for creating the image. Filled in automatically. 
    * `YC_ZONE` is the ID of the availability zone that will host the auxiliary VM used for creating the image. Obtained earlier.
    * `YC_SUBET_ID` is the ID of the subnet that will host the auxiliary VM used for creating the image. Obtained earlier.
    * `YC_TOKEN` — [IAM token](../../iam/concepts/authorization/iam-token.md). Required for creating VM images, filled in automatically.
@@ -107,74 +110,75 @@ The cost of building a VM image and creating a VM from it includes:
 1. Create an [HCL](https://github.com/hashicorp/hcl#readme) configuration file, such as `yc-toolbox.pkr.hcl`.
 1. In the configuration file, describe the parameters of the image to create:
 
+   
    ```hcl
-   # YC Toolbox VM Image based on Ubuntu 20.04 LTS
+   # {{ yandex-cloud }} Toolbox VM Image based on Ubuntu 20.04 LTS
    #
-   # Yandex Packer provisioner docs:
+   # Provisioner docs:
    # https://www.packer.io/docs/builders/yandex
    #
-
+   
    variable "YC_FOLDER_ID" {
      type = string
      default = env("YC_FOLDER_ID")
    }
-
+   
    variable "YC_ZONE" {
      type = string
      default = env("YC_ZONE")
    }
-
+   
    variable "YC_SUBNET_ID" {
      type = string
      default = env("YC_SUBNET_ID")
    }
-
+   
    variable "TF_VER" {
      type = string
      default = "1.1.9"
    }
-
+   
    variable "KCTL_VER" {
      type = string
      default = "1.23.0"
    }
-
+   
    variable "HELM_VER" {
      type = string
      default = "3.9.0"
    }
-
+   
    variable "GRPCURL_VER" {
      type = string
      default = "1.8.6"
    }
-
+   
    variable "GOLANG_VER" {
      type = string
      default = "1.17.2"
    }
-
+   
    variable "PULUMI_VER" {
      type = string
      default = "3.33.2"
    }
-
+   
    source "yandex" "yc-toolbox" {
      folder_id           = "${var.YC_FOLDER_ID}"
      source_image_family = "ubuntu-2004-lts"
      ssh_username        = "ubuntu"
      use_ipv4_nat        = "true"
-      image_description   = "{{ yandex-cloud }} Ubuntu Toolbox image"
+     image_description   = "{{ yandex-cloud }} Ubuntu Toolbox image"
      image_family        = "my-images"
      image_name          = "yc-toolbox"
      subnet_id           = "${var.YC_SUBNET_ID}"
      disk_type           = "network-hdd"
      zone                = "${var.YC_ZONE}"
    }
-
+   
    build {
      sources = ["source.yandex.yc-toolbox"]
-
+   
      provisioner "shell" {
        inline = [
          # Global Ubuntu things
@@ -182,8 +186,8 @@ The cost of building a VM image and creating a VM from it includes:
          "echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections",
          "sudo apt-get install -y unzip python3-pip python3.8-venv",
 
-          # {{ yandex-cloud }} CLI tool (YC)
-         "curl -s -O https://storage.yandexcloud.net/yandexcloud-yc/install.sh",
+          # {{ yandex-cloud }} CLI tool
+         "curl -s -O https://{{ s3-storage-host }}{{ yc-install-path }}",
          "chmod u+x install.sh",
          "sudo ./install.sh -a -i /usr/local/ 2>/dev/null",
          "rm -rf install.sh",
@@ -210,7 +214,7 @@ The cost of building a VM image and creating a VM from it includes:
          #"sudo apt-get install -y terraform",
          #
          # Alternative Option
-          "curl -sL {{ terraform-mirror }}${var.TF_VER}/terraform_${var.TF_VER}_linux_amd64.zip -o terraform.zip",
+         "curl -sL {{ terraform-mirror }}${var.TF_VER}/terraform_${var.TF_VER}_linux_amd64.zip -o terraform.zip",
          "unzip terraform.zip",
          "sudo install -o root -g root -m 0755 terraform /usr/local/bin/terraform",
          "rm -rf terraform terraform.zip",
@@ -268,6 +272,8 @@ The cost of building a VM image and creating a VM from it includes:
      }
    }
    ```
+   
+
 
 ## Build the image {#create-image}
 
@@ -320,7 +326,7 @@ The cost of building a VM image and creating a VM from it includes:
       yc compute image list
       ```
 
-      Output:
+      Result:
 
       ```bash
       +----------------------+------------+-----------+----------------------+--------+
@@ -344,6 +350,7 @@ The cost of building a VM image and creating a VM from it includes:
    ```
 
    Where:
+
    * `VM_NAME` is the name of the new VM.
    * `YC_IMAGE_ID` is the ID of the image used for VM creation. Obtained earlier.
    * `YC_SUBNET_ID` is the ID of the subnet hosting the VM. Obtained earlier.
@@ -367,10 +374,11 @@ The cost of building a VM image and creating a VM from it includes:
         --memory=8G \
         --core-fraction=100 \
         --network-interface subnet-id=$YC_SUBNET_ID,ipv4-address=auto,nat-ip-version=ipv4 \
-        --ssh-key <path_to_SSH_key_public_part>
+        --ssh-key <path_to_public_portion_of_SSH_key>
       ```
 
       Where:
+
       * `name`: The name of the new VM.
       * `hostname`: The VM's host name.
       * `zone`: availability zone.
@@ -403,5 +411,5 @@ The cost of building a VM image and creating a VM from it includes:
 ## How to delete created resources {#clear-out}
 
 To stop paying for the resources created:
-* [delete a VM](../../compute/operations/vm-control/vm-delete.md).
+* [deleting a VM](../../compute/operations/vm-control/vm-delete.md).
 * [delete the image](../../compute/operations/image-control/delete.md).

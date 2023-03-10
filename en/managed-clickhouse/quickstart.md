@@ -16,7 +16,7 @@ To get started with the service:
 
 ## Before you begin {#before-you-begin}
 
-1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 
 1. If you don't have a folder yet, create one:
 
@@ -53,9 +53,7 @@ To get started with the service:
 
 1. Download the configuration file for `clickhouse-client`:
 
-   ```bash
-   mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
-   ```
+   {% include [ClickHouse client config](../_includes/mdb/mch/client-config.md) %}
 
 
 ## Create a cluster {#cluster-create}

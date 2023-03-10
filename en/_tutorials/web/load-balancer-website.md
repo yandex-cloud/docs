@@ -93,7 +93,7 @@ To create an instance group with a pre-installed web server:
 
 ## Upload the website files {#upload-files}
 
-To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from the [archive](https://storage.yandexcloud.net/doc-files/index.html.zip).
+To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from the [archive](https://{{ s3-storage-host }}/doc-files/index.html.zip).
 
 Do the following for each VM instance in the [created group](#create-vms):
 
@@ -223,7 +223,7 @@ To deploy an infrastructure to host a fault-tolerant load-balanced site in a VM 
    - Ready-made archive
 
       1. Create a directory for files:
-      1. Download the [archive](https://{{ s3-storage-host }}/www.example.com/doc-files/load-balancer.zip) (1 KB).
+      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/load-balancer.zip) (2 KB).
       1. Unpack the archive to the directory. As a result, the`load-balancer.tf` configuration file will be added to it.
 
    - Creating files manually
@@ -250,7 +250,7 @@ To deploy an infrastructure to host a fault-tolerant load-balanced site in a VM 
 
 1. In the `variable` section, enter the value for the `folder_id` variable, that is, the ID of the folder where the resources are created.
 
-1. Under `metadata`, enter the metadata for creating a VM instance, as well as the contents of the SSH key. Specify the key in the format `<any_name>:<SSH key contents>`. Regardless of the username specified, the key is assigned to the user set in the LAMP (LEMP) image configuration. In different images, these users differ. For more information, see [{#T}](../../compute/concepts/keys-processed-in-public-images).
+1. Under `metadata`, enter the metadata for creating a VM instance, as well as the contents of the SSH key. Specify the key in the format `<any_name>:<SSH key contents>`. Regardless of the username specified, the key is assigned to the user set in the LAMP (LEMP) image configuration. In different images, these users differ. For more information, see [{#T}](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
 
 1. Under `boot_disk`, specify the ID of a VM [image](../../compute/operations/images-with-pre-installed-software/get-list.md) with a relevant set of components:
 

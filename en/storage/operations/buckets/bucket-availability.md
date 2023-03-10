@@ -15,12 +15,75 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
    1. Select the type of access for bucket operations.
    1. Click **Save**.
 
+- {{ yandex-cloud }} CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command to update a bucket:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+   1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6cv2mhjmo | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+   1. Save the name of the bucket using the `NAME` column to enable public access to.
+   1. Allow public access to operations with the bucket:
+
+      ```bash
+      yc storage bucket update \
+        --name <bucket_name> \
+        --public-read \
+        --public-list \
+        --public-config-read
+      ```
+
+      Where:
+      * `--name`: Name of the bucket to enable public access to.
+      * `--public-read`: Flag to enable public read access to bucket objects.
+      * `--public-list`: Flag to enable public access to view the list of bucket objects.
+      * `--public-config-read`: Flag to enable public read access to the bucket configuration.
+
+      The `name` parameter is required. Other parameters are optional. By default, no public access to buckets is allowed.
+
+      Result:
+
+      ```yaml
+      name: first-bucket
+      folder_id: b1gmit33ngp6cv2mhjmo
+      anonymous_access_flags:
+        read: true
+        list: true
+        config_read: true
+      default_storage_class: STANDARD
+      versioning: VERSIONING_DISABLED
+      max_size: "53687091200"
+      acl: {}
+      created_at: "2022-12-16T13:58:18.933814Z"
+      ```
+
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To enable public access to bucket operations:

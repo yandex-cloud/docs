@@ -2,7 +2,7 @@
 
 This section describes how to create, edit, or delete tables and directories using the cloud management console.
 
-To create a table, you need a [database](create_manage_database#create-db.md).
+To create a table, you need a [database](../operations/).
 
 ## Creating a table {#create-table}
 
@@ -12,7 +12,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
 
 - {{ ydb-short-name }} table
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ydb-name }}**.
    1. Select the database to create a table in.
    1. Choose **Create** → **Table** on the right of the page.
    1. Configure the table settings:
@@ -39,7 +39,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
       * **Key bloom filter**: If enabled, applies the [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by a key. In some cases, it can speed up key reads.
    1. Click **Create table**.
 
-   To create {{ ydb-short-name }} tables, you can also use the[`CREATE TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/create_table) command from the [YQL](https://ydb.tech/en/docs/getting_started/yql) query language.
+   To create {{ ydb-short-name }} tables, you can also use the[`CREATE TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/create_table) command from the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
 
 - Document table
 
@@ -49,7 +49,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
 
    {% endnote %}
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ydb-name }}**.
    1. Select the database to create a table in.
    1. Choose **Create** → **Table** on the right of the page.
    1. Configure the table settings:
@@ -68,7 +68,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
 
 In the {{ ydb-short-name }} cloud console, you can add non-key columns to a table and change its automatic partitioning settings.
 
-1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ydb-name }}**.
 1. Select the database to update a table in.
 1. Locate the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **Change**.
 1. Add new columns to the table and specify their parameters:
@@ -89,16 +89,16 @@ To alter {{ ydb-short-name }} tables, you can also use the [`ALTER TABLE`](https
 
 ## Deleting tables {#drop-table}
 
-1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ydb-name }}**.
 1. Select the database to delete a table from.
 1. Locate the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **Delete**.
 1. Confirm the deletion.
 
-To drop {{ ydb-short-name }} tables, you can use the[`DROP TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/drop_table) command from the [YQL](https://ydb.tech/en/docs/getting_started/yql) query language.
+To drop {{ ydb-short-name }} tables, you can use the[`DROP TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/drop_table) command from the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
 
 ## Creating and deleting directories {#directories}
 
-1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ydb-name }}**.
 1. Select the database to create a directory in.
 1. Choose **Create** → **Directory** on the right of the page.
 1. Enter the directory name and click **Create directory**.

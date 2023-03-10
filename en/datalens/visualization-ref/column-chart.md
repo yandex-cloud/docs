@@ -19,7 +19,7 @@ Unlike line charts, this type of chart assumes that different periods are compar
 
 ## Types of column charts {#types}
 
-* [With grouping](#groupped)
+* [Grouped](#groupped)
 * [Stacked](#stacked)
 
 ### With grouping {#groupped}
@@ -68,6 +68,7 @@ Since the sum of all segments is equal to the total length of a column, when col
 | Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field. Affects the color of columns. [Measure Names](../concepts/chart/measure-values.md) is deleted by clicking the cross icon or removing measures from the Y-axis. |
 | Sorting | Dimension or measure. Affects the sorting of columns. Sorting only applies to dimensions used when building a chart. |
 | Signatures | Measure. Displays measure values on the chart. When using multiple measures for a signature, add [Measure Values](../concepts/chart/measure-values.md). |
+| Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25. |
 | Chart filters | Dimension or measure. Used as a filter. A filter can be overridden by a dashboard selector if the selector is based on the same field. |
 
 ## Creating a column chart {#create-diagram}
@@ -152,3 +153,10 @@ To color columns in a chart based on the value of a measure:
 * If each column is a category rather than a time value, consider sorting the columns in ascending or descending order of the measure. This will make your chart look better and more informative. Sorting may also be helpful inside each column's subcategories.
 * We recommend using a column chart to display changes to a measure or measures over time. In this case, be careful when sorting values on the X-axis, because the user usually expects to see changes over time on the X-axis.
 * When visualizing multiple measures, select colors carefully. They should be distinguishable and contrasting. We recommend using no more than 3-5 colors per chart. If you want to emphasize one certain measure above the others, highlight it in some bright color.
+* You can split a chart by dimension into a number of small charts that are convenient to compare to one another. To do this, drag a dimension from the dataset to the **Split** section.
+
+   {% cut "Chart example" %}
+
+   ![bar-chart-split](../../_assets/datalens/visualization-ref/bar-chart/bar-chart-split.png)
+
+   {% endcut %}

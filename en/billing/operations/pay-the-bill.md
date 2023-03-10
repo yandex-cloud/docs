@@ -23,8 +23,8 @@ To top up your personal account:
 
 Payment is processed in real time and completed within 15 minutes.
 
-
 ## Businesses and individual entrepreneurs {#legal-entities}
+
 
 To top up your personal account:
 1. In the top left-hand corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **Billing**.
@@ -36,7 +36,7 @@ To top up your personal account:
 
 - Bank card transfer
 
-   Enter a payment amount and click **Top up account**. Then enter your card information and click **Pay**.
+   Enter your payment amount and click **Top up account**. Then enter your card details and click **Pay**.
 
    {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
@@ -44,7 +44,7 @@ To top up your personal account:
 
 - Bank transfers (from a bank teller)
 
-   Enter a payment amount and click **Issue bank invoice**.
+   Enter your payment amount and click **Issue receipt**.
 
    The system will generate a payment invoice. Print the invoice and use it to make a payment in a bank or using a banking client system.
 

@@ -12,7 +12,7 @@ The example uses the following parameters:
 
 To use the API, you need the `grpcio-tools` package for Python and `grpc` for Node.js.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. Learn more about [authentication in the {{ speechkit-name }} API](../../concepts/auth.md).
 
 To follow the examples in this section:
 
@@ -22,7 +22,7 @@ To follow the examples in this section:
    git clone https://github.com/yandex-cloud/cloudapi
    ```
 
-1. Download a [sample](https://storage.yandexcloud.net/speechkit/speech.pcm) audio file for recognition.
+1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition.
 
 1. Create a client application:
 

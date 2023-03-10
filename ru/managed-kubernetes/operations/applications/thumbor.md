@@ -83,7 +83,7 @@
        --set security_key='<ключ безопасности для подписывания URL>' \
        --set root_path='<имя подкаталога в бакете>' \
        --set-file saAccessKeyFile='sa-key.json' \
-      thumbor ./thumbor
+      thumbor ./thumbor/
      ```
 
    {% endlist %}
@@ -126,6 +126,6 @@
 
 ## См. также {#see-also}
 
-* [Документация Thumbor](https://thumbor.readthedocs.io/en/latest/)
-* [Документация {{ objstorage-name }}](../../../storage/)
-* [Документация {{ network-load-balancer-name }}](../../../network-load-balancer/)
+* [Документация Thumbor](https://thumbor.readthedocs.io/en/latest/).
+* [Документация {{ objstorage-name }}](../../../storage/).
+* [Документация {{ network-load-balancer-name }}](../../../network-load-balancer/).

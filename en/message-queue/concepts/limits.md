@@ -11,4 +11,6 @@ editable: false
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [ymq-limits.md](../../_includes/message-queue/ymq-limits.md) %}

@@ -11,7 +11,7 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
 * The name of the product's Helm chart should follow the format:
 
    ```
-   cr.yandex/<registry-id>/<vendor-name>/<product-name>/<chart>
+   {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<chart>
    ```
 
    Where:
@@ -24,7 +24,7 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
 * The names of the product's docker images should follow the format:
 
    ```
-   cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
+   {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
    ```
 
    Where:
@@ -37,7 +37,7 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
 
 During publication, all the images included in a product are moved from the publisher's registry to the public `yc-marketplace` registry. The entire product hierarchy defined by the publisher is maintained in the process.
 
-> For example, the `cr.yandex/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` image will be published as `cr.yandex/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
+> For example, the `{{ registry }}/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` image will be published as `{{ registry }}/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
 
 For more information on working with the registry, see [{#T}](../../container-registry/operations/helm-chart/helm-chart-push.md) and [{#T}](../../container-registry/operations/docker-image/docker-image-push.md).
 
@@ -51,7 +51,7 @@ Generic pod specification without parameters:
 # pod spec
 spec:
   containers:
-  - image: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
+  - image: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
 A pod specification with the image name replaced by the YAML path variable described in `values.yaml`:
@@ -66,7 +66,7 @@ spec:
 ```yaml
 # values.yaml
 images:
-  pushgateway: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
+  pushgateway: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
 ## Manifest {#manifest}
@@ -79,7 +79,7 @@ The manifest uses YAML format and contains the following data:
 
    ```yaml
    helm_chart:
-     name: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<chart>
+     name: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<chart>
      tag: <tag>
    ```
 
@@ -106,7 +106,7 @@ The manifest uses YAML format and contains the following data:
       images:
         app:
           image:
-            registry: "cr.yandex"
+            registry: "{{ registry }}"
             name: "<registry-id>/<vendor-name>/<product-name>/<component-name>"
             tag: "<tag>"
       ```
@@ -125,7 +125,7 @@ The manifest uses YAML format and contains the following data:
         app:
           config:
             image:
-              name: "cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>"
+              name: "{{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>"
               tag: "<tag>"
       ```
 
@@ -141,10 +141,10 @@ The manifest uses YAML format and contains the following data:
       images:
         app:
           image:
-            name: "cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>"
+            name: "{{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>"
       ```
 
-1. `user_values`: Optional parameter. A list of product variables that the user can override while installing or modifying an already installed product via the {{ yandex-cloud }}  management console. Each variable is described by the required fields below:
+1. `user_values`: Optional parameter. It stands for a list of product variables the user can override while installing or modifying an already installed product via the {{ yandex-cloud }} management console. Each variable is described by the required fields below:
    * `name`: YAML Path of the variable from `values.yaml`.
    * `title`: Short variable description, can be either in Russian or English. The value must start with a capital letter.
 
@@ -240,7 +240,7 @@ The manifest uses YAML format and contains the following data:
                  - <integer_3>
          ```
 
-      * `service_account_aws_key_value`: [Static key](../../iam/concepts/authorization/access-key.md) of the service account used to access {{ objstorage-name }}. Passed in JSON format It may include the *Required* flag.
+      * `service_account_aws_key_value`: [Static key](../../iam/concepts/authorization/access-key.md) of the service account to access {{ objstorage-name }}. It is delivered in JSON format and may include the *Required* flag.
 
          ```yaml
          user_values:
@@ -303,7 +303,7 @@ The variable values specified by the user when installing the product in a Kuber
 ```yaml
 # Link to helm chart in publisher registry.
 helm_chart:
-  name: cr.yandex/{{ tf-cloud-id }}/Vendor/Product/chart
+  name: {{ registry }}/{{ tf-cloud-id }}/Vendor/Product/chart
   tag: 1.0-0
 
 # Required parameters.
@@ -396,7 +396,7 @@ podSecurityContext: {}
 ...
 app1:
   image:
-    registry: cr.yandex/{{ tf-cloud-id }}/
+    registry: {{ registry }}/{{ tf-cloud-id }}/
     name: service-images/application-1
     tag: 1.0
 app2:
@@ -404,12 +404,12 @@ app2:
   config:
     # image can be declared on any level
     image:
-      name: cr.yandex/{{ tf-cloud-id }}/service-images/application-2
+      name: {{ registry }}/{{ tf-cloud-id }}/service-images/application-2
       tag: 2.0
     pullPolicy: IfNotPresent
 another-whatever-key: # key name is not fixed
   subkey:
-    name: cr.yandex/{{ tf-cloud-id }}/service-images/application-3:3.0
+    name: {{ registry }}/{{ tf-cloud-id }}/service-images/application-3:3.0
 ...
 
 # values

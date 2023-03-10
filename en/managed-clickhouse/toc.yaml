@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
       - name: All instructions
         href: operations/index.md
@@ -53,12 +53,14 @@ items:
         href: operations/cluster-delete.md
       - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All use cases
         href: tutorials/index.md
       - name: Adding data to the database
-        href: operations/insert.md
+        href: tutorials/insert.md
+      - name: Migrating data to ClickHouse
+        href: tutorials/data-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
       - name: Using hybrid storage
@@ -79,6 +81,12 @@ items:
         href: tutorials/clickhouse-for-graphite.md
       - name: Saving a {{ yds-full-name }} data stream in {{ mch-name }}
         href: tutorials/yds-to-clickhouse.md
+      - name: Migrating databases from Google BigQuery to {{ mch-name }}
+        href: tutorials/bigquery-to-clickhouse.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-to-mch-migration.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -97,7 +105,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage types
+      - name: Disk types
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
@@ -207,6 +215,8 @@ items:
                 href: api-ref/Cluster/list.md
               - name: listBackups
                 href: api-ref/Cluster/listBackups.md
+              - name: listExternalDictionaries
+                href: api-ref/Cluster/listExternalDictionaries.md
               - name: listHosts
                 href: api-ref/Cluster/listHosts.md
               - name: listLogs

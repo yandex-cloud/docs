@@ -33,7 +33,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -91,7 +91,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
    {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -141,7 +141,11 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
 - Management console
 
-   * **List of included collections**: Data is only transferred from listed collections. All collections are transferred by default.
+   * **List of included collections**: Data is only transferred from the listed collections. All collections are transferred by default.
+
+      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
+
+      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 
    * **List of excluded collections**: Data is transferred from all collections except the specified ones.
 
@@ -150,6 +154,8 @@ The settings are given for the OnPremise use case when all fields are filled in 
    * `secondary_preferred_mode`: If there are replicas in the cluster, they will be used for data reads instead of the master host.
 
    * `collections`: Data is only transferred from listed collections. All collections are transferred by default.
+
+      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 
    * `excluded_collections`: Data is transferred from all collections except the specified ones.
 

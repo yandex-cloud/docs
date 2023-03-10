@@ -16,7 +16,9 @@ To create an L7 load balancer with DDoS protection:
 
 If you no longer need these resources, [delete them](#delete-resources).
 
-## Before you start {#before-begin}
+You can also deploy an infrastructure for a load balancer with DDoS protection via {{ TF }} using a [ready-made configuration file](#terraform).
+
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -79,6 +81,10 @@ To create a network:
 
       For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
 {% endlist %}
 
 ## Create security groups {#create-security-groups}
@@ -107,7 +113,7 @@ To create security groups:
          | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
          | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
          | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | CIDR | 198.18.235.0/24<br/>198.18.248.0/24 |
+         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
 
          1. Select the **Outgoing traffic** or **Incoming traffic** tab.
          1. Click **Add rule**.
@@ -117,6 +123,7 @@ To create security groups:
 
             * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
             * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
+            * **Load balancer health checks** is a rule that allows a load balancer to check the health of VMs.
 
          1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -139,7 +146,7 @@ To create security groups:
      --rule "direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0]" \
      --rule "direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
      --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-     --rule "direction=ingress,port=30080,protocol=tcp,v4-cidrs=[198.18.235.0/24,198.18.248.0/24]" \
+     --rule "direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks" \
      --network-name ddos-network
    ```
 
@@ -154,6 +161,10 @@ To create security groups:
    ```
 
    For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -221,7 +232,7 @@ To create an instance group:
       service_account_id: <service account ID>
       description: "DDoS alb scenario"
       instance_template:
-          platform_id: standard-v2
+          platform_id: standard-v3
           resources_spec:
               memory: 1g
               cores: 2
@@ -239,7 +250,7 @@ To create an instance group:
                   - <subnet ID in the {{ region-id }}-b zone>
                   - <subnet ID in the {{ region-id }}-c zone>
                 primary_v4_address_spec: {}
-                security_group_ids: 
+                security_group_ids:
                   - <ddos-sg-vms security group ID>
       deploy_policy:
           max_unavailable: 1
@@ -261,7 +272,7 @@ To create an instance group:
 
       ```bash
       yc compute instance-group create \
-         --file specification.yaml
+        --file specification.yaml
       ```
 
       Result:
@@ -321,6 +332,10 @@ To create an instance group:
 
       For more information about the `yc compute instance-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance-group/create.md).
 
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
 {% endlist %}
 
 ## Reserve a static public IP address {#reserve-ip}
@@ -342,6 +357,10 @@ To protect a load balancer against DDoS attacks, you need to reserve a static pu
    1. Select the availability zone where you want to reserve the address.
    1. Enable the **DDoS protection** option.
    1. Click **Reserve address**.
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -444,6 +463,10 @@ To create a backend group:
 
       For more information about the `yc alb backend-group add-http-backend` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/add-http-backend.md).
 
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
 {% endlist %}
 
 ## Create an HTTP router {#create-http-routers-sites}
@@ -531,6 +554,10 @@ To create an HTTP router and add a route to it:
 
       For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
 {% endlist %}
 
 ## Create a load balancer {#create-balancer}
@@ -581,6 +608,10 @@ To create a load balancer:
       ```
 
       For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -634,3 +665,70 @@ To shut down the hosting and stop paying for the created resources:
 
 1. [Delete](../../compute/operations/instance-groups/delete.md) the `ddos-group` instance group.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP address that you reserved.
+
+## How to create an infrastructure using {{ TF }} {#terraform}
+
+{% include [terraform-definition](../terraform-definition.md) %}
+
+To create an L7 load balancer with DDoS protection using {{ TF }}:
+
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+1. Prepare a file with the infrastructure description:
+
+   {% list tabs %}
+
+   - Ready-made archive
+
+      1. Create a directory for the file with the infrastructure description.
+      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/alb-with-ddos-protection.zip) (3 KB).
+      1. Unpack the archive to the directory. As a result, it should contain the `alb-with-ddos-protection.tf` configuration file and the `alb-with-ddos-protection.auto.tfvars` file with user data.
+
+   - Creating files manually
+
+      1. Create a directory for the file with the infrastructure description.
+      1. In the directory, create a configuration file named `alb-with-ddos-protection.tf`:
+
+         {% cut "Contents of the alb-with-ddos-protection.tf file" %}
+
+         {% include [alb-with-ddos-protection-tf-config](../../_includes/web/alb-with-ddos-protection-tf-config.md) %}
+
+         {% endcut %}
+
+      1. In the directory, create an `alb-with-ddos-protection.auto.tfvars` file with user data:
+
+         {% cut "Contents of the alb-with-ddos-protection.auto.tfvars file" %}
+
+         {% include [alb-with-ddos-protection-tf-variables](../../_includes/web/alb-with-ddos-protection-tf-variables.md) %}
+
+         {% endcut %}
+
+   {% endlist %}
+
+   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
+   For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+
+   * [yandex_iam_service_account]({{ tf-provider-link }}/iam_service_account)
+   * [yandex_resourcemanager_folder_iam_binding]({{ tf-provider-link }}/resourcemanager_folder_iam_binding)
+   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
+   * [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
+   * [yandex_compute_image]({{ tf-provider-link }}/compute_image)
+   * [yandex_compute_instance_group]({{ tf-provider-link }}/compute_instance_group)
+   * [yandex_vpc_address]({{ tf-provider-link }}/vpc_address)
+   * [yandex_alb_backend_group]({{ tf-provider-link }}/alb_backend_group)
+   * [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router)
+   * [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host)
+   * [yandex_alb_load_balancer]({{ tf-provider-link }}/alb_load_balancer)
+
+1. In the `alb-with-ddos-protection.auto.tfvars` file, set user-defined parameters:
+
+   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
+   * `vm_user`: VM username.
+   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
+1. Create resources:
+
+   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+1. [Test the load balancer](#test-work).

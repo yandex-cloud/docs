@@ -19,6 +19,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
 
+   The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. For more information, see [{#T}](../concepts/replication.md#zk).
+
    {% note alert %}
 
    
@@ -44,7 +46,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * For most clusters, it's recommended to select the latest LTS version.
       * If you plan to use hybrid storage in a cluster, it's recommended to select {{ mch-ck-version }} version or higher.
    1. If you are expecting to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up a service account to access data in a bucket, see [{#T}](s3-access.md).
-   1. Under **Storage size**:
+   1. Under **Resources**:
 
       * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
@@ -75,9 +77,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * Username and password.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+         {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-      * DB name. The database name can contain Latin letters, numbers and underscores. The maximum name length is 63 characters. It is forbidden to create a database named `default`.
+      * DB name. The database name may contain Latin letters, numbers, and underscores. The maximum name length is 63 characters. You can't create a database named `default`.
 
       * If necessary, enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster.
 
@@ -90,7 +92,12 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
    
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+   1. Under **Network settings**, select:
+
+      * Cloud network for the cluster.
+      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
    1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its number:
@@ -122,7 +129,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       yc vpc subnet list
       ```
 
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
    1. View a description of the CLI's create cluster command:
@@ -169,9 +176,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
-            ...
-            --enable-sql-user-management true \
-            --admin-password "<admin password>"
+           ...
+           --enable-sql-user-management true \
+           --admin-password "<admin password>"
          ```
 
       1. To enable [SQL database management](./databases.md#sql-database-management):
@@ -181,10 +188,10 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
-            ...
-            --enable-sql-user-management true \
-            --enable-sql-database-management true \
-            --admin-password "<admin password>"
+           ...
+           --enable-sql-user-management true \
+           --enable-sql-database-management true \
+           --admin-password "<admin password>"
          ```
 
       
@@ -200,38 +207,38 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
-            ...
-            --version "<{{ CH }} version: {{ mch-ck-version }} or higher>" \
-            --embedded-keeper true
+           ...
+           --version "<{{ CH }} version: {{ mch-ck-version }} or higher>" \
+           --embedded-keeper true
          ```
 
          {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
-         To get a list of available {{ CH }} versions, run the command:
+         To get a list of available {{ CH }} versions, run the following command:
 
          ```bash
          {{ yc-mdb-ch }} version list
          ```
 
-   1. To configure [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
+      1. To configure [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
 
-      * Set the `--cloud-storage` parameter to `true` to enable hybrid storage.
+         * Set the `--cloud-storage` parameter to `true` to enable hybrid storage.
 
-         {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+            {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
-      * Pass the hybrid storage settings in the respective parameters:
+         * Pass the hybrid storage settings in the respective parameters:
 
-         {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
+            {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
 
-      ```bash
-      {{ yc-mdb-ch }} cluster create \
-          ...
-          --cloud-storage=true \
-          --cloud-storage-data-cache=<true or false> \
-          --cloud-storage-data-cache-max-size=<memory size (in bytes)> \
-          --cloud-storage-move-factor=<free space ratio>
-          ...
-      ```
+         ```bash
+         {{ yc-mdb-ch }} cluster create \
+            ...
+            --cloud-storage=true \
+             --cloud-storage-data-cache=<true or false> \
+             --cloud-storage-data-cache-max-size=<memory size (in bytes)> \
+             --cloud-storage-move-factor=<free space ratio>
+           ...
+         ```
 
 - {{ TF }}
 
@@ -313,17 +320,17 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
+      
       1. To enable access from other services and [SQL query execution from the management console](web-sql-query.md), add an `access` block with the necessary settings:
 
-         
          ```hcl
          resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
            ...
            access {
-             datalens   = <Access from DataLens: true or false>
-             metrika    = <Access from Metrica and AppMetrika: true or false>
-             serverless = <Access from Cloud Functions: true or false>
-             web_sql    = <Executing SQL queries from the management console: true or false>
+             data_lens  = <access from DataLens: true or false>
+             metrika    = <access from Metrica and AppMetrika: true or false>
+             serverless = <access from Cloud Functions: true or false>
+             web_sql    = <executing SQL queries from the management console: true or false>
            }
            ...
          }
@@ -362,7 +369,10 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    * Cluster configuration, in the `configSpec` parameter.
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
    * Network ID, in the `networkId` parameter.
-      * Security group identifiers, in the `securityGroupIds` parameter.
+
+   
+   * Security group identifiers, in the `securityGroupIds` parameter.
+
 
    To allow [connection](connect.md) to cluster hosts from the internet, pass the `true` value in the `hostSpecs.assignPublicIp` parameter.
 
@@ -466,8 +476,8 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `PRESTABLE` environment.
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
-   * In a new cloud network named `cluster-net`.
-      * As part of a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+   * A new cloud network named `cluster-net`.
+      * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    * With a single `{{ host-class }}` class host on a new subnet named `cluster-subnet-{{ region-id }}-a`.
 
       Subnet parameters:
@@ -475,7 +485,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       * Network: `cluster-net`.
       * Availability zone: `{{ region-id }}-a`.
 
-   * 32 GB of network SSD storage (`{{ disk-type-example }}`).
+   * With 20 GB of local SSD storage (`{{ disk-type-example }}`).
    * Database name `db1`.
    * With a user named `user1` with the password `user1user1`.
 

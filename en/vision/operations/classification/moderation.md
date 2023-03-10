@@ -4,7 +4,7 @@ _Image classification is currently in the [Preview stage](/docs/overview/concept
 
 To determine whether an image matches properties such as <q>adult content</q>, <q>shocking content</q>, or <q>watermarks</q>, use the [Image Classification](../../concepts/classification/index.md).
 
-In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [moderation](../../concepts/classification/supported-models.md#moderation).
+In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [moderation](../../concepts/classification/supported-models.md#moderation).
 
 ## Examples {#examples}
 
@@ -22,7 +22,7 @@ In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set t
 
    {% note info %}
 
-   Need an image? [Download a sample](https://storage.yandexcloud.net/vision/moderate-watermark.jpg).
+   Need an image? [Download a sample](https://{{ s3-storage-host }}/vision/moderate-watermark.jpg).
 
    {% endnote %}
 1. Encode the file as Base64:
@@ -125,6 +125,6 @@ In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set t
 If an attempt to invoke a function ends with the `408 Request Timeout` error, try to fix the issue in one of the following ways:
 * Send the request again.
 * Reduce the image size.
-* Upload less images to [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md).
+* Upload less images to [batchAnalyze](../../api-ref/Vision/batchAnalyze.md).
 
 {% endnote %}

@@ -48,10 +48,10 @@
     1. В блоке **Базовые параметры**:
 
         * Введите имя и описание триггера.
-        * В поле **Тип** выберите **{{ message-queue-short-name}}**.
+        * В поле **Тип** выберите **{{ message-queue-short-name }}**.
         * В поле **Запускаемый ресурс** выберите **Функция**.
 
-    1. В блоке **Настройки {{ message-queue-short-name}}** выберите очередь сообщений и сервисный аккаунт с правами на чтение из нее.
+    1. В блоке **Настройки {{ message-queue-short-name }}** выберите очередь сообщений и сервисный аккаунт с правами на чтение из нее.
 
     1. (опционально) В блоке **Настройки группирования сообщений** укажите:
 
@@ -227,4 +227,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ message-queue-short-name}}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/ymq-trigger-create.md).
+* [Триггер для {{ message-queue-short-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/ymq-trigger-create.md).

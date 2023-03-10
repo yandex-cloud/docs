@@ -1,6 +1,5 @@
 # Compliance
 
-
 ## Russian Federal law No. 152-FZ "On personal data" {#law}
 
 In {{ yandex-cloud }}, measures were implemented to protect personal data pursuant to Resolution No. 1119 and FSTEC Order No. 21 regarding requirements for 1st-level protection (UZ-1).
@@ -9,10 +8,10 @@ When a client, acting as an operator, places personal data on {{ yandex-cloud }}
 
 For more information, see:
 
-* [Certificate of conformance](https://storage.yandexcloud.net/yc-compliance/conformance_ru_certificate.pdf).
-* [Statement of compliance of the Personal Data Protection System with the Requirements of Federal Law No. 152 "On Personal Data"](https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf).
+* [Certificate of conformance](https://{{ s3-storage-host }}/yc-compliance/conformance_ru_certificate.pdf).
+* [Statement of compliance of the Personal Data Protection System with the Requirements of Federal Law No. 152 "On Personal Data"](https://{{ s3-storage-host }}/yc-compliance/conformance_en_pdp.pdf).
 * [Data Processing Agreement](https://yandex.ru/legal/cloud_dpa/?lang=en).
-* [Customer actions to protect personal data](https://storage.yandexcloud.net/yc-compliance/recomendations/FZ-152-EN.pdf).
+* [Customer actions to protect personal data](https://{{ s3-storage-host }}/yc-compliance/recomendations/FZ-152-EN.pdf).
 
 ## GDPR (General Data Protection Regulation) {#gdpr}
 
@@ -34,7 +33,7 @@ ISO 27017 includes a set of practical information security recommendations for c
 
 ISO 27018 addresses the requirements for the security of personal data processed by cloud service providers. The standard sets out information security guidelines for protecting the personal information of clients. They supplement the requirements of the basic standard, ISO 27001.
 
-[ISO 27001/27017/27018 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO_27001_Certificate_TUV_AUSTRIA_SC_092022_EN.pdf).
+[ISO 27001/27017/27018 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/ISO_27001_Certificate_TUV_AUSTRIA_SC_092022_EN.pdf).
 
 
 
@@ -49,12 +48,12 @@ By ensuring that our cloud infrastructure meets PCI DSS requirements, we enable 
 
 For more information, see:
 
-* [PCI DSS certificate for {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_EN.pdf).
-* [PCI DSS certificate for the Yandex data center](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex.pdf).
-* [PCI DSS Attestation of Compliance (AOC) for {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_AOC.pdf).
-* [PCI DSS Attestation of Compliance (AOC) for the Yandex data center](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS%20_Yandex_Cloud_AOC_datacenter.pdf).
-* [Responsibility matrix](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
-* [Requirements and recommendations for building a PCI DSS](https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf).
+* [PCI DSS certificate for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_EN.pdf).
+* [PCI DSS certificate for the Yandex data center](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_Yandex.pdf).
+* [PCI DSS Attestation of Compliance (AOC) for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_AOC.pdf).
+* [PCI DSS Attestation of Compliance (AOC) for the Yandex data center](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS%20_Yandex_Cloud_AOC_datacenter.pdf).
+* [Responsibility matrix](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
+* [Requirements and recommendations for building a PCI DSS](https://{{ s3-storage-host }}/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf).
 
 ## PCI PIN Security {#pci-pin-security}
 
@@ -62,8 +61,8 @@ The payment card industry standard defines requirements for securely processing 
 
 For more information, see:
 
-* [PCI PIN AOC for {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_PIN_AOC_Yandex_Cloud.pdf).
-* [PCI PIN Security certificate for {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_PIN_Yandex_Cloud_2022.pdf).
+* [PCI PIN AOC for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_PIN_AOC_Yandex_Cloud.pdf).
+* [PCI PIN Security certificate for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_PIN_Yandex_Cloud_2022.pdf).
 
 ## PCI 3-D Secure (PCI 3DS) {#pci-3d-secure}
 
@@ -73,8 +72,8 @@ The PCI 3-D Secure (PCI 3DS) standard defines the requirements for infrastructur
 
 For more information, see:
 
-* [PCI 3-D AOC for {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_3DS_AOC_Yandex_Cloud.pdf).
-* [PCI 3DS certificate for {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_3DS_Yandex_Cloud_2022.pdf).
+* [PCI 3-D AOC for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_3DS_AOC_Yandex_Cloud.pdf).
+* [PCI 3DS certificate for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_3DS_Yandex_Cloud_2022.pdf).
 
 ## GOST R 57580.1-2017 {#gost}
 
@@ -82,14 +81,14 @@ GOST R 57580.1-2017 is the Russian national security standard for banking and fi
 
 Cloud services comply with this standard in order to enable organizations that are hosting their systems and applications in the cloud to meet the requirements of the Central Bank (defined in the Bank of Russia regulations 683-P and 684-P) and ensure compliance with the standard for their systems deployed in the cloud.
 
-The {{ yandex-cloud }} platform received a [statement of evaluation of compliance](https://storage.yandexcloud.net/yc-compliance/conformance_ru_finance.pdf) with the information security requirements established by the Bank of Russia regulations. The statement certifies that the information security management and control system of Yandex.Cloud, LLC was evaluated for compliance with the requirements of GOST R 57580.1-2017 for extended information security. At audit completion, the overall score was R=0.89 (the fourth level of compliance). According to GOST R 57580.2-2018, this means that the organizational and technical measures as part of the information protection system are implemented fully and continuously in accordance with global approaches (methods) established in the organization.
+The {{ yandex-cloud }} platform received a [statement of evaluation of compliance](https://{{ s3-storage-host }}/yc-compliance/conformance_ru_finance.pdf) with the information security requirements established by the Bank of Russia regulations. The statement certifies that the information security management and control system of Yandex.Cloud, LLC was evaluated for compliance with the requirements of GOST R 57580.1-2017 for extended information security. At audit completion, the overall score was R=0.89 (the fourth level of compliance). According to GOST R 57580.2-2018, this means that the organizational and technical measures as part of the information protection system are implemented fully and continuously in accordance with global approaches (methods) established in the organization.
 
 {{ yandex-cloud }} services can be used by systemically important financial institutions, financial institutions that provide payment infrastructure services for systemically important payment systems, and systemically important financial market utilities.
 
 For more information, see:
 
-* [Statement of Compliance](https://storage.yandexcloud.net/yc-compliance/conformance_ru_finance.pdf).
-* [Allocation of responsibilities to comply with GOST R 57580.1-2017 requirements](https://storage.yandexcloud.net/yc-compliance/RST_577580_Yandex.Cloud_responsibility_matrix.pdf).
+* [Statement of Compliance](https://{{ s3-storage-host }}/yc-compliance/conformance_ru_finance.pdf).
+* [Allocation of responsibilities to comply with GOST R 57580.1-2017 requirements](https://{{ s3-storage-host }}/yc-compliance/RST_577580_Yandex.Cloud_responsibility_matrix.pdf).
 
 ## Cloud Security Alliance {#csa}
 

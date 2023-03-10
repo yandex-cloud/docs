@@ -22,17 +22,15 @@ The {{ yandex-cloud }} experts developed and use access control policies. This e
 
 {{ yandex-cloud }} team members only have access to the resources they require to perform their duties (the need-to-know principle). Permissions are granted according to the principle of least privilege.
 
-Access rights to facilities, secure areas, server rooms, and network resources are approved by company executives. Hardware and network resource management interfaces are located in a dedicated network with highly restricted access. {{ yandex-cloud }} only provides access to source code to authorized employees according to the established security policy.
+Access rights to facilities, secure areas, server rooms, and network resources are approved by company executives. Hardware and network resource management interfaces are located in a dedicated network with highly restricted access. Yandex only provides access to source code to authorized employees according to the established security policy.
 
 ## Physical security {#physic-sec}
 
 {{ yandex-cloud }} takes the following measures to ensure physical security:
 
 * {{ yandex-cloud }} hardware resources are hosted in their privately owned data centers.
-* Access to data centers is strictly regulated. Guests and {{ yandex-cloud }} team members who don't permanently work there may only enter the premises if permission is granted ahead of time.
+* Access to data centers is strictly regulated. Guests and {{ yandex-cloud }} members who don't permanently work there may only enter the premises if permission is granted ahead of time.
 * Cloud service facilities (racks, lockers, diagnostic areas) are under continuous video surveillance.
-* Video camera recordings are stored on {{ yandex-cloud }} servers for at least three months and can be accessed whenever required.
-* The {{ yandex-cloud }} security team monitors access to secure areas and service racks.
 * Video camera recordings are stored on {{ yandex-cloud }} servers for at least three months and can be accessed whenever required.
 * The {{ yandex-cloud }} security team monitors access to secure areas and service racks.
 * {{ yandex-cloud }} customer data stored on disks must be encrypted.
@@ -44,10 +42,12 @@ Access rights to facilities, secure areas, server rooms, and network resources a
 The Security Development Lifecycle (SDLC) is an integral part of designing new and improving existing services. {{ yandex-cloud }} implements and continues to develop the key components of this process.
 
 * Training. Employees involved in the development of cloud services regularly do the following:
+
    * Attend mandatory training that is conducted annually for all specialists. All developers must pass theory and practice tests.
    * Familiarize themselves with the internal manual. It describes the basic SDLC principles, contains a list of possible vulnerabilities for different types of applications, and shows typical examples of vulnerable code and how to fix it. The manual also provides information on how to use vulnerability mitigation technologies. The regulations specify the minimum requirements for using cryptography when developing services and applications.
    * Continuously share knowledge with other experts. We regularly hold meetings to discuss in detail specific topics, new threats, and counteractions.
    * Participate in the annual Capture The Flag game. This is an opportunity to test the developers' knowledge in the field of information security. This training helps teams avoid mistakes when designing and developing real services.
+
 * Architecture planning. As required by the classic SDLC, before developing any product and changing the architecture of an existing service, we hold meetings with security experts to discuss possible threats and ways to attack the service. As a result of these meetings, the service acquires an "immune system". This, along with other measures for Defense in Depth, provides reliable protection of the service and data being processed.
 * Static and dynamic analysis. We use static code analysis systems to regularly scan the repository during the development process. We check the quality of code and its coverage using tests. Our teams also use dynamic analysis tools for sanity and fuzzy testing.
 * Final security analysis. Despite the name, this procedure is carried out more than once. It's performed before each major stage of a project, such as before the Preview release of a service. The final security analysis is in fact white-box penetration testing. To think through the most effective attack possible, test engineers have access to the documentation and test bench. They also cooperate with the development team. They test both the service itself and the environment it's running in. As a result, they assess the risks and audit the service's compliance with external requirements.
@@ -66,7 +66,7 @@ When vulnerabilities are detected in the components of the production environmen
 
 ## Internal and external audits, penetration tests {#audits}
 
-{{ yandex-cloud }} regularly conducts internal and external audits and penetration tests to check the efficiency of the existing processes for ensuring information security and improves them.
+Yandex regularly conducts internal and external audits and penetration tests to check the efficiency of the existing processes for ensuring information security and improves them.
 
 * The ISMS is subject to regular internal audits based on ISO 19011 recommendations.
 * As part of the internal audits, we check asset management, physical security, change management, IS incident management, monitoring, and other processes and groups of IS controls.
@@ -132,28 +132,26 @@ We regularly conduct tests to check the effectiveness of these plans. We analyze
 There are several levels of security for physical machines and service VMs.
 
 * The following types of firewalls are used at the network level:
-    * Packet filters at the boundaries of internal subnets.
-    * A simple packet filter at the Top-of-Rack switching level.
-    * A hardware firewall at the boundary of the {{ yandex-cloud }} infrastructure and {{ yandex-cloud }} infrastructure.
-    * A software firewall installed on all physical hosts and VMs.
+
+   * Packet filters at the boundaries of internal subnets.
+   * A simple packet filter at the Top-of-Rack switching level.
+   * A hardware firewall at the boundary of the  Yandex infrastructure and  {{ yandex-cloud }} infrastructure.
+   * A software firewall installed on all physical hosts and VMs.
 
 * The following additional security features are used:
-    * AppArmor and Seccomp create an isolation environment (sandbox) for applications. All VMs at the host OS level run under AppArmor.
-    * Osquery 4: An improved version of the Osquery framework that implements the Host-Based Intrusion Detection System functionality, collects telemetry data from the host, including AppArmor and Seccomp logs, enriches data, and sends it to the Security Information and Event Management (SIEM) system.
-    * Suspicious behavior monitoring and notification system.
+
+   * AppArmor and Seccomp create an isolation environment (sandbox) for applications. All VMs at the host OS level run under AppArmor.
+   * Osquery 4: An improved version of the Osquery framework that implements the Host-Based Intrusion Detection System functionality, collects telemetry data from the host, including AppArmor and Seccomp logs, enriches data, and sends it to the Security Information and Event Management (SIEM) system.
+   * Suspicious behavior monitoring and notification system.
 
 * Operating system configurations are described using code and stored in a repository. All configuration changes are subject to mandatory testing in test environments before being transferred to the production environment.
-
-* Administrators and developers' access to the production environment is controlled by a bastion host that logs user sessions. The logged session data is processed and sent to the SIEM system. {{ yandex-cloud }} information security department employees analyze this data on a regular basis.
-
+* Administrators and developers' access to the production environment is controlled by a bastion host that logs user sessions. The logged session data is processed and sent to the SIEM system. Information security {{ yandex-cloud }} department employees analyze this data on a regular basis.
 * SSH access to the cluster is enabled by hardware authentication devices that store employee authentication data. This reduces the risk of stealing employee credentials when they access the production environment.
-
 * All production environment packages are regularly checked for vulnerabilities and updated to the latest versions.
 
 ### Protection against supply chain attacks {#simply-chain-attacks}
 
-{{ yandex-cloud }} has a Research and Development (R&D) Department. It works on the design and production of the server hardware used by {{ yandex-cloud }}. All server hardware is tested before commissioning. Packages with code that are deployed to the production environment contain a cryptographic signature. A package manager checks it before installation. All third-party open-source software packages are re-signed before they're added to the company's package repository.
-
+ Yandex has a Research and Development (R&D) Department. It works on the design and production of the server hardware used by Yandex. All server hardware is tested before commissioning. Packages with code that are deployed to the production environment contain a cryptographic signature. A package manager checks it before installation. All third-party open-source software packages are re-signed before they're added to the company's package repository.
 
 Updates are released from special management servers that can only be accessed through the bastion host described above. The production environment update log is saved and analyzed by release engineers. All changes to applications or configurations are subject to mandatory verification.
 
@@ -209,13 +207,13 @@ The minimum used key length is 128 bits for symmetric encryption algorithms, and
 
 ### Deleting data {#delete-data}
 
-* Deleting resources via the API If a service receives a request to delete a resource via the API, the resource is immediately marked as deleted.
+* Deleting resources via the API. If a service receives a request to delete a resource via the API, the resource is immediately marked as deleted.
 
 * When a cloud is suspended automatically. After 60 days (or 7 days if the cloud is suspended for violation of the Terms of Use), {{ yandex-cloud }} may mark the resources for deletion.
 
-* When deleting a cloud. All folders and resources are immediately marked for deletion.
+* When a cloud is deleted. All of the folders and resources are immediately marked for deletion.
 
-* Upon termination of the contract. All clouds and resources are immediately marked for deletion.
+* When a contract is terminated. All of the clouds and resources are immediately marked for deletion.
 
 {% note info %}
 
@@ -225,12 +223,11 @@ A resource that's marked for deletion can't be restored. The data is actually de
 
 * Deleting logs of requests to resources Records of API requests to user resources are stored for one year. They are used for analyzing information security incidents and preventing fraud. Records are permanently deleted after one year.
 
-* When a billing account is deleted. At the user's request, the billing account is marked for deletion and within 72 hours, the user loses access to it. Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws. When these terms expire, the billing account is irrevocably deleted.
+* When a billing account is deleted. At the user's request, the billing account is marked for deletion and within 72 hours, the user loses access it. Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws. When these terms expire, the billing account is irrevocably deleted.
 
 ### Disclosing information to third parties {#data-disclosure}
 
 {{ yandex-cloud }} doesn't disclose information to third parties, except when required by applicable law or the provisions of the agreement. Whenever possible, {{ yandex-cloud }} redirects a third-party request to the customer.
-
 
 ## Protecting user information {#sec-user-info}
 

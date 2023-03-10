@@ -34,7 +34,7 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://cr.yandex/yc-marketplace/falco \
+   helm pull oci://{{ registry }}/yc-marketplace/falco \
      --version <версия Helm-чарта> \
      --untar && \
    helm install \

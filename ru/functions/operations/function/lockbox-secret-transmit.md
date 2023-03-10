@@ -1,6 +1,10 @@
 # Передать секреты {{ lockbox-name }} в функцию
 
-{% include [note-preview-pp](../../../_includes/note-preview-pp.md) %}
+{% note info %}
+
+{% include [preview-pp.md](../../../_includes/preview-pp.md) %}
+
+{% endnote %}
 
 [{{ lockbox-name }}](../../../lockbox/) — сервис для хранения секретов. Передать секрет {{ lockbox-name }} в функцию можно в [переменной окружения](../../concepts/runtime/environment-variables.md#env).
 
@@ -60,7 +64,7 @@
     * `--entrypoint` — точка входа, указывается в формате <имя файла с функцией>.<имя обработчика>.
     * `--memory` — объем RAM.
     * `--execution-timeout` — максимальное время выполнения функции до таймаута.
-    * `--service-account-id` — идентификатор версии функции, код которой вы хотите скопировать.
+    * `--source-version-id` — идентификатор версии функции, код которой вы хотите скопировать.
     * `--service-account-id` — идентификатор сервисного аккаунта, у которого есть роль `lockbox.payloadViewer`.
     * `--secret`:
         * `environment-variable` — имя переменной окружения, в которой будет храниться секрет;

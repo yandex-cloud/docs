@@ -8,8 +8,8 @@ To work with the API, you can use any tools that are compatible with Amazon SQS:
 
 When configuring tools, use the following parameters:
 
-* `AWS_ACCESS_KEY_ID` — the static key ID
-* `AWS_SECRET_ACCESS_KEY` — the secret key
+* `AWS_ACCESS_KEY_ID`: The static key ID.
+* `AWS_SECRET_ACCESS_KEY`: The secret key.
 * Region: `{{ region-id }}`.
 * Endpoint: `https://message-queue.{{ api-host }}`
 

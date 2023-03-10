@@ -1,3 +1,8 @@
+---
+title: "Instructions for creating an Oracle Database connection in {{ datalens-full-name }}"
+description: "In this tutorial, you'll learn how to connect to Oracle Database in {{ datalens-full-name }}."
+---
+
 # Creating an Oracle Database connection
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
@@ -7,7 +12,7 @@
 To create an Oracle Database connection:
 
 
-1. Go to the [connections page](https://datalens.yandex.com/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
 1. Click **Create connection**.
@@ -22,7 +27,6 @@ To create an Oracle Database connection:
    - **Password**. Enter the password for the specified user.
    - **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
    - **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
-
 1. Click **Create**. The connection appears in the list.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}

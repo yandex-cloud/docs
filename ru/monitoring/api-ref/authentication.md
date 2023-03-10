@@ -5,4 +5,7 @@ description: "Для выполнения операций через API {{ mon
 
 # Аутентификация в API {{ monitoring-name }}
 
+
 {% include notitle [auth](../../_includes/authentication.md) %}
+
+
