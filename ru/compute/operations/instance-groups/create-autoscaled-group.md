@@ -183,7 +183,7 @@
 
 - {{ TF }}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -193,12 +193,10 @@
        description = "service account to manage IG"
      }
 
-     resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "editor" {
        folder_id = "<идентификатор каталога>"
        role      = "editor"
-       members   = [
-         "serviceAccount:${yandex_iam_service_account.ig-sa.id}",
-       ]
+       member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
      resource "yandex_compute_instance_group" "ig-1" {
@@ -266,7 +264,7 @@
      Где:
 
      * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
-     * `yandex_resourcemanager_folder_iam_binding` — описание прав доступа к каталогу, которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять виртуальные машины в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+     * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к каталогу, которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять виртуальные машины в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
      * `yandex_compute_instance_group` — описание [группы виртуальных машин](../../concepts/index.md):
 
        * Общая информация о группе:
@@ -315,10 +313,10 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
-  
+
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```

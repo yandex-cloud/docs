@@ -29,7 +29,7 @@
   1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать**, чтобы задать конфигурацию базовой виртуальной машины:
       * В блоке **Базовые параметры** введите **Описание** шаблона.
       * В блоке **Выбор образа/загрузочного диска** выберите, какую систему развернуть на загрузочном диске ВМ.
-        
+
       * В блоке **Диски**:
           * Выберите [тип диска](../../concepts/disk.md#disks_types).
           * Укажите **Размер** диска.
@@ -242,7 +242,7 @@
       * С 2 vCPU и 2 ГБ RAM.
       * С сетевым HDD-диском объемом 32 ГБ.
       * С целевой группой `first-target-group`.
-  
+
   После этого вы можете добавить целевую группу `first-target-group` к [новой](../../../application-load-balancer/operations/backend-group-create.md) или [существующей группе бэкендов](../../../application-load-balancer/operations/backend-group-update.md) {{ alb-name }}, группу бэкендов — к [новому](../../../application-load-balancer/operations/http-router-create.md) или [существующему HTTP-роутеру](../../../application-load-balancer/operations/http-router-update.md), а роутер — к [новому](../../../application-load-balancer/operations/application-load-balancer-create.md) или [существующему L7-балансировщику](../../../application-load-balancer/operations/application-load-balancer-update.md).
 
 - API
@@ -251,7 +251,7 @@
 
 - {{ TF }}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -261,12 +261,10 @@
        description = "service account to manage IG"
      }
 
-     resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "editor" {
        folder_id = "<идентификатор каталога>"
        role      = "editor"
-       members   = [
-         "serviceAccount:${yandex_iam_service_account.ig-sa.id}",
-       ]
+       member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
      resource "yandex_compute_instance_group" "ig-1" {
@@ -333,7 +331,7 @@
      Где:
 
      * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
-     * `yandex_resourcemanager_folder_iam_binding` — описание прав доступа к каталогу, которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять виртуальные машины в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+     * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к каталогу, которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять виртуальные машины в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
      * `yandex_compute_instance_group` — описание [группы виртуальных машин](../../concepts/index.md):
 
        * Общая информация о группе:
@@ -361,7 +359,7 @@
           `deploy_policy` | [Политика развертывания](../../concepts/instance-groups/policies/deploy-policy.md) виртуальных машин в группе.
           `scale_policy` | [Политика масштабирования](../../concepts/instance-groups/policies/scale-policy.md) виртуальных машин в группе.
           `allocation_policy` | [Политика распределения](../../concepts/instance-groups/policies/allocation-policy.md) виртуальных машин по зонам и регионам.
-          
+
        * Целевая группа {{ alb-name }}:
 
           Поле | Описание
@@ -389,7 +387,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
