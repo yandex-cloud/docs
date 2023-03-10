@@ -1,1 +1,1 @@
-{% include [quotas](../_includes/internal/quotas.md) %}
+{% include [quotas](../../_includes/internal/quotas.md) %}
