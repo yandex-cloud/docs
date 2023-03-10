@@ -1,3 +1,14 @@
+Release 10.03.2023
+
+* Cloud Organization: added SAML attributes limitations.
+* DataLens: added recommendations on how to optimize your work with DataLens. 
+* Data Transfer: documented settings of the Yandex Data Streams target endpoint. 
+* Glossary: added a new term – Transcription. 
+* Tracker: added February changelogs. 
+* Tracker: updated descriptions for project and filter Gantt diagrams. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 09.03.2023 
 
 * DataSphere: added tutorial for running Stable Diffusion model in DataSphere. 
