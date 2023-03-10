@@ -45,7 +45,7 @@ To create a {{ ydb-name }} connection:
    * **OAuth token**. Click **Get token** or manually specify an OAuth token to use with {{ ydb-short-name }}.
    * **Hostname**. Specify the path to the {{ ydb-short-name }} host.
    * **Port**. Specify the {{ ydb-short-name }} connection port.
-   * **Database name**. Specify the name of the database to connect to.
+   * **Path to database**. Specify the name of the database to connect to.
 
    {% endif %}
 
