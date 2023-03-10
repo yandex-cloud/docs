@@ -89,6 +89,8 @@ items:
         href: concepts/dashboard.md
       - name: Объединение данных
         href: concepts/data-join.md
+      - name: Рекомендации по оптимизации
+        href: concepts/optimization_recommendations.md
       - name: "Использование Markdown в {{ datalens-name }}"
         href: concepts/markdown.md
       - name: "{{ datalens-name }} Public"
