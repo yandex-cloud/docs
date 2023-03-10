@@ -12,7 +12,6 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 
-  {% if product == "yandex-cloud" %}
 
   1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
 
@@ -147,8 +146,8 @@
      >  service_account_id      = yandex_iam_service_account.<имя сервисного аккаунта>.id
      >  node_service_account_id = yandex_iam_service_account.<имя сервисного аккаунта>.id
      >    depends_on = [
-     >      yandex_resourcemanager_folder_iam_binding.editor,
-     >      yandex_resourcemanager_folder_iam_binding.images-puller
+     >      yandex_resourcemanager_folder_iam_member.editor,
+     >      yandex_resourcemanager_folder_iam_member.images-puller
      >    ]
      > }
      >
@@ -165,22 +164,18 @@
      >  description = "<описание сервисного аккаунта>"
      >}
      >
-     >resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+     >resource "yandex_resourcemanager_folder_iam_member" "editor" {
      >  # Сервисному аккаунту назначается роль "editor".
      >  folder_id = "<идентификатор каталога>"
      >  role      = "editor"
-     >  members   = [
-     >    "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта>.id}"
-     >  ]
+     >  member    = "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта> id}"
      >}
      >
-     >resource "yandex_resourcemanager_folder_iam_binding" "images-puller" {
+     >resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
      >  # Сервисному аккаунту назначается роль "container-registry.images.puller".
      >  folder_id = "<идентификатор каталога>"
      >  role      = "container-registry.images.puller"
-     >  members   = [
-     >    "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта>.id}"
-     >  ]
+     >  member    = "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта>.id}"
      >}
      >```
 
@@ -224,7 +219,6 @@
 
   {% cut "Конфигурационный файл для кластера:" %}
 
-  {% if product == "yandex-cloud" %}
 
   ```hcl
   locals {
@@ -259,9 +253,9 @@
     service_account_id      = yandex_iam_service_account.myaccount.id
     node_service_account_id = yandex_iam_service_account.myaccount.id
     depends_on = [
-      yandex_resourcemanager_folder_iam_binding.k8s-clusters-agent,
-      yandex_resourcemanager_folder_iam_binding.vpc-public-admin,
-      yandex_resourcemanager_folder_iam_binding.images-puller
+      yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
+      yandex_resourcemanager_folder_iam_member.vpc-public-admin,
+      yandex_resourcemanager_folder_iam_member.images-puller
     ]
     kms_provider {
       key_id = yandex_kms_symmetric_key.kms-key.id
@@ -283,16 +277,14 @@
     description = "K8S zonal service account"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "k8s-clusters-agent" {
+  resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
     # Сервисному аккаунту назначается роль "k8s.clusters.agent".
     folder_id = local.folder_id
     role      = "k8s.clusters.agent"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "vpc-public-admin" {
+  resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
     # Сервисному аккаунту назначается роль "vpc.publicAdmin".
     folder_id = local.folder_id
     role      = "vpc.publicAdmin"
@@ -301,13 +293,11 @@
     ]
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "images-puller" {
+  resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
     # Сервисному аккаунту назначается роль "container-registry.images.puller".
     folder_id = local.folder_id
     role      = "container-registry.images.puller"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    members = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
@@ -552,7 +542,6 @@
 
   {% cut "Конфигурационный файл для кластера:" %}
 
-  {% if product == "yandex-cloud" %}
 
   ```hcl
   locals {
@@ -598,9 +587,9 @@
     service_account_id      = yandex_iam_service_account.myaccount.id
     node_service_account_id = yandex_iam_service_account.myaccount.id
     depends_on = [
-      yandex_resourcemanager_folder_iam_binding.k8s-clusters-agent,
-      yandex_resourcemanager_folder_iam_binding.vpc-public-admin,
-      yandex_resourcemanager_folder_iam_binding.images-puller
+      yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
+      yandex_resourcemanager_folder_iam_member.vpc-public-admin,
+      yandex_resourcemanager_folder_iam_member.images-puller
     ]
     kms_provider {
       key_id = yandex_kms_symmetric_key.kms-key.id
@@ -634,31 +623,25 @@
     description = "K8S regional service account"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "k8s-clusters-agent" {
+  resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
     # Сервисному аккаунту назначается роль "k8s.clusters.agent".
     folder_id = local.folder_id
     role      = "k8s.clusters.agent"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "vpc-public-admin" {
+  resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
     # Сервисному аккаунту назначается роль "vpc.publicAdmin".
     folder_id = local.folder_id
     role      = "vpc.publicAdmin"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "images-puller" {
+  resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
     # Сервисному аккаунту назначается роль "container-registry.images.puller".
     folder_id = local.folder_id
     role      = "container-registry.images.puller"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
@@ -897,8 +880,7 @@
   }
   ```
 
-  {% endif %}
- 
+
   {% endcut %}
 
 {% endlist %}

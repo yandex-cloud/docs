@@ -90,15 +90,13 @@
        name = "sa-trail-logs"
      }
 
-     resource "yandex_resourcemanager_folder_iam_binding" "sa-role-audit-viewer" {
+     resource "yandex_resourcemanager_folder_iam_member" "sa-role-audit-viewer" {
        folder_id   = "<идентификатор_каталога>"
        role        = "audit-trails.viewer"
-       members     = [
-         "serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>",
-       ]
+       member      = "serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>"
      }
 
-     resource "yandex_resourcemanager_folder_iam_binding" "sa-role-yds-editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "sa-role-yds-editor" {
        folder_id   = "<идентификатор_каталога>"
        role        = "yds.editor"
        members     = [
@@ -213,7 +211,7 @@
 
      1. В блоке **Базовые параметры** укажите имя кластера `trail-logs`.
      1. В блоке **Класс хоста** выберите тип виртуальной машины **burstable** и тип хоста **b2.nano**.
-     1. В блоке **База данных** укажите имя БД `trail_data`, имя пользователя `user` и пароль. Запомните имя БД.  
+     1. В блоке **База данных** укажите имя БД `trail_data`, имя пользователя `user` и пароль. Запомните имя БД.
      1. В блоке **Хосты** нажмите значок ![pencil](../_assets/pencil.svg). Включите опцию **Публичный доступ** и нажмите кнопку **Сохранить**.
      1. В блоке **Дополнительные настройки** включите опции:
 
@@ -320,7 +318,7 @@
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
 - API
-  
+
   Используйте метод REST API [create](../managed-clickhouse/api-ref/Cluster/create.md).
 
 {% endlist %}
@@ -387,11 +385,11 @@
   1. Укажите имя эндпоинта: `source-logs-stream`.
   1. В поле **Тип базы данных** выберите `{{ yds-full-name }}`.
   1. Настройте параметры эндпоинта:
-     
+
      * **База данных** — выберите базу данных, зарегистрированную для потока `trail-logs-stream`.
      * **Поток** — `trail-logs-stream`.
      * **Сервисный аккаунт** — `sa-trail-logs`.
-  
+
   1. Настройте правила конвертации:
 
      * **Формат данных** — `JSON`.
@@ -476,7 +474,7 @@
     --target-id <идентификатор_эндпоинта-приемника_target-logs-ch>
     --type increment-only
   ```
-  
+
   Подробнее о команде `yc datatransfer transfer create` см. в [справочнике CLI](../cli/cli-ref/managed-services/datatransfer/transfer/create.md).
 
 - {{ TF }}
@@ -524,22 +522,22 @@
 
 {% cut "Примеры запросов" %}
 
-* Найти, кто удалил каталог: 
+* Найти, кто удалил каталог:
 
   ```sql
   select * from trail_data.trail_logs_stream
   where event_type = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<название_каталога>'
   ```
 
-* Какие действия совершал конкретный пользователь за период времени (требуется указать Name ID пользователя и дату): 
-  
+* Какие действия совершал конкретный пользователь за период времени (требуется указать Name ID пользователя и дату):
+
   ```sql
-  select * from trail_data.trail_logs_stream 
+  select * from trail_data.trail_logs_stream
   where subject_name = '<Name_ID_пользователя>' and  event_time >= 2022-06-26
   ```
 
 * Срабатывание при создании ключей для сервисных аккаунтов:
-  
+
   ```sql
   select * from trail_data.trail_logs_stream
   where event_type = '{{ at-event-prefix }}.audit.iam.CreateAccessKey' or event_type = '{{ at-event-prefix }}.audit.iam.CreateKey' or event_type = '{{ at-event-prefix }}.audit.iam.CreateApiKey'
@@ -551,7 +549,7 @@
 
 ## Визуализируйте данные в {{ datalens-full-name }} {#datalens-visualization}
 
-Чтобы построить визуализации, нужно подключиться к БД {{ CH }}, в которую были перенесены логи, и создать датасет на основе ее данных. 
+Чтобы построить визуализации, нужно подключиться к БД {{ CH }}, в которую были перенесены логи, и создать датасет на основе ее данных.
 
 ### Создайте подключение {#create-connection}
 
@@ -561,7 +559,7 @@
 1. Выберите тип подключения **Выбрать в каталоге** и заполните настройки подключения:
 
    1. В поле **Кластер** выберите `trail-logs`.
-   1. В поле **Имя хоста** выберите хост {{ CH }} из выпадающего списка. 
+   1. В поле **Имя хоста** выберите хост {{ CH }} из выпадающего списка.
    1. Введите имя пользователя БД и пароль.
 
 1. Нажмите **Проверить подключение**.

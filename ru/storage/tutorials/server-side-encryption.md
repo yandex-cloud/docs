@@ -59,7 +59,6 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
-      {% if product == "yandex-cloud" %}
 
       ```
       locals {
@@ -95,12 +94,10 @@
         description = local.sa_desc
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
-        ]
+        member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
 
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
@@ -271,7 +268,6 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
-      {% if product == "yandex-cloud" %}
 
       ```
       locals {
@@ -310,12 +306,10 @@
         description = local.sa_desc
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
-        ]
+        member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
 
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
@@ -466,7 +460,6 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
-      {% if product == "yandex-cloud" %}
 
       ```
       locals {
@@ -505,12 +498,10 @@
         description = local.sa_desc
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
-        ]
+        members   = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
 
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
@@ -704,7 +695,6 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы отключить шифрование, удалите или закомментируйте блок `server_side_encryption_configuration` для ресурса `yandex_storage_bucket`:
 
-      {% if product == "yandex-cloud" %}
 
       ```
       locals {
@@ -743,12 +733,10 @@
         description = local.sa_desc
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
-        ]
+        member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
 
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {

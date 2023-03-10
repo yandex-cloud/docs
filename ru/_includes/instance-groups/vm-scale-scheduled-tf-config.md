@@ -26,28 +26,22 @@ resource "yandex_iam_service_account" "vm-scale-scheduled-sa" {
   name      = "vm-scale-scheduled-sa"
 }
 
-resource "yandex_resourcemanager_folder_iam_binding" "vm-scale-scheduled-sa-role-compute" {
+resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-compute" {
   folder_id = "<идентификатор_каталога>"
   role      = "compute.admin"
-  members   = [
-    "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
-  ]
+  member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 
-resource "yandex_resourcemanager_folder_iam_binding" "vm-scale-scheduled-sa-role-iam" {
+resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-iam" {
   folder_id = "<идентификатор_каталога>"
   role      = "iam.serviceAccounts.user"
-  members   = [
-    "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
-  ]
+  members   = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 
-resource "yandex_resourcemanager_folder_iam_binding" "vm-scale-scheduled-sa-role-functions" {
+resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-functions" {
   folder_id = "<идентификатор_каталога>"
   role      = "serverless.functions.invoker"
-  members   = [
-    "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
-  ]
+  members   = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 
 resource "yandex_vpc_network" "vm-scale-scheduled-network" {
@@ -126,8 +120,8 @@ resource "yandex_compute_instance_group" "vm-scale-scheduled-ig" {
   }
 
   depends_on = [
-    yandex_resourcemanager_folder_iam_binding.vm-scale-scheduled-sa-role-compute,
-    yandex_resourcemanager_folder_iam_binding.vm-scale-scheduled-sa-role-iam
+    yandex_resourcemanager_folder_iam_member.vm-scale-scheduled-sa-role-compute,
+    yandex_resourcemanager_folder_iam_member.vm-scale-scheduled-sa-role-iam
   ]
 }
 
@@ -152,7 +146,7 @@ resource "yandex_function" "vm-scale-scheduled-function" {
   }
 
   depends_on = [
-    yandex_resourcemanager_folder_iam_binding.vm-scale-scheduled-sa-role-functions
+    yandex_resourcemanager_folder_iam_member.vm-scale-scheduled-sa-role-functions
   ]
 }
 
@@ -168,7 +162,7 @@ resource "yandex_function_trigger" "vm-scale-scheduled-trigger" {
   }
 
   depends_on = [
-    yandex_resourcemanager_folder_iam_binding.vm-scale-scheduled-sa-role-functions
+    yandex_resourcemanager_folder_iam_member.vm-scale-scheduled-sa-role-functions
   ]
 }
 ```
