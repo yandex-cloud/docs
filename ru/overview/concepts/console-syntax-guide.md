@@ -8,7 +8,7 @@
 
 - WLS
 
-  [Windows Subsystem for Linux](https://ru.wikipedia.org/wiki/Windows_Subsystem_for_Linux) доступна в Windows 10 и старше.
+  [Windows Subsystem for Linux]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Windows_Subsystem_for_Linux){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux){% endif %} доступна в Windows 10 и старше.
 
   1. Проверьте, установлена ли подсистема WSL на вашем компьютере, выполнив в терминале cmd или PowerShell команду:
 

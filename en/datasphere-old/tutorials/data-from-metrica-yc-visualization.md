@@ -11,9 +11,7 @@ To visualize and explore data, [set up your cloud](#before-you-begin), then foll
 
 1. [Connect {{ CH }} and {{ ml-platform-short-name }}](#ch-datasphere-connection):
    1. [Connect {{ CH }}](#ch-connection).
-
    1. [Connect {{ ml-platform-short-name }}](#datasphere-connection).
-
    1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere).
 1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch):
    1. [Yandex Metrica Create an app and get an access token](#create-metrica-app-token).
@@ -34,7 +32,7 @@ To visualize and explore data, [set up your cloud](#before-you-begin), then foll
    1. [{{ ml-platform-short-name }}. Build funnels](#calculating-funnels-datasphere).
    1. [{{ datalens-short-name }}. Funnels by browser. Create a dataset](#calculating-browser-funnels-dataset).
    1. [{{ datalens-short-name }}. Funnels by browser. Create a chart](#calculating-browser-funnels-chart).
-   1. [{{ datalens-short-name }}. Funnels by browser. Add a chart to your dashboard](#add-browser-funnels-chart-on-dashboard}).
+   1. [{{ datalens-short-name }}. Funnels by browser. Add a chart to your dashboard](#add-browser-funnels-chart-on-dashboard).
    1. [{{ datalens-short-name }}. Funnels by browser. Set up a dashboard](#setting-browser-funnels-chart-on-dashboard).
 1. [Cohorts](#cohorts):
    1. [{{ ml-platform-short-name }}. Perform cohort analysis](#cohort-analysis).
@@ -237,7 +235,7 @@ Create another chart based on the pre-existing chart: a pivot table.
 
 ### 4.1 Create a dashboard {#creating-dashboard}
 
-1. Open the [{{ datalens-short-name }}](https://datalens.yandex.ru/) homepage and click **Create dashboard**.
+1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) homepage and click **Create dashboard**.
 1. Enter `ch_metrica_data` as the name of the dashboard and click **Create**.
 1. Add the first chart to the dashboard. To do this, in the upper-right corner, click **Add** → **Chart**.
    1. From the **Chart** drop-down list, select **ch_metrica_data_hits_area**.
@@ -296,7 +294,7 @@ In {{ CH }}, the table `metrica_data.funnels_by_bro` is created, where funnels b
 
 Create a new dataset based on the new table and the connection to {{ CH }}.
 
-1. Open the [{{ datalens-short-name }}](https://datalens.yandex.ru/) homepage and click **Create dataset**.
+1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) homepage and click **Create dataset**.
 1. Go to the **Connections** section and click **Add**.
 1. From the list of connections, select **metrica_analysis**.
 1. Drag the new table `metrica_data.funnels_by_bro` to the editing area.
@@ -323,7 +321,7 @@ Create a chart based on the dataset **ch_metrica_data_funnels_by_bro**.
 
 ### 5.4 {{ datalens-short-name }}. Funnels by browser. Add a chart to your dashboard {#add-browser-funnels-chart-on-dashboard}
 
-1. Go to the created dashboard (you can do it from the [dashboards](https://datalens.yandex.ru/dashboards) page).
+1. Go to the created dashboard (you can do it from the [dashboards]({{ link-datalens-main }}/dashboards) page).
 1. Add a new chart. In the upper-right corner, click **Edit**.
 1. Add the chart `ch_metrica_data_funnels_by_bro_table`. Enter **Funnels by browser** as the name and click **Add**.
 1. Place the new chart to the right of the existing two. Stretch the chart so that it matches the others vertically and reaches the right border of the page.
@@ -367,7 +365,7 @@ In {{ CH }}, the table `metrica_data.retention_users` is created, which contains
 
 Create a dataset based on the new table and the connection to {{ CH }}.
 
-1. Open the [{{ datalens-short-name }}](https://datalens.yandex.ru/) homepage and click **Create dataset**.
+1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) homepage and click **Create dataset**.
 1. In the **Connections** section, click **Add**.
 1. From the list of connections, select `metrica_analysis`.
 1. Drag the new table `metrica_data.retention_users` to the work area to connect to it.
@@ -411,7 +409,7 @@ Filter out incomplete weeks of June 29, 2020 and September 28, 2020.
 
 ### 6.4 {{ datalens-short-name }}. Create a chart with retention {#creating-chart-with-retention}
 
-Create a chart with retention based on the **ch_metrica_data_users_visits_cohorts_abs** chart. You can open the chart from the dashboard or find it in the [chart list](https://datalens.yandex.ru/widgets).
+Create a chart with retention based on the **ch_metrica_data_users_visits_cohorts_abs** chart. You can open the chart from the dashboard or find it in the [chart list]({{ link-datalens-main }}/widgets).
 
 1. Click **Save as**.
 1. Enter **ch_metrica_data_users_visits_cohorts_rel** as the name of the chart and click **Save**.
@@ -449,7 +447,7 @@ Now you have a chart with two switchable tabs.
 
 ### 6.6 {{ datalens-short-name }}. Create charts {#creating-chart}
 
-Create a new chart based on the chart **ch_metrica_data_users_visits_cohorts_abs**. You can open the chart from the dashboard or find it in the [chart list](https://datalens.yandex.ru/widgets).
+Create a new chart based on the chart **ch_metrica_data_users_visits_cohorts_abs**. You can open the chart from the dashboard or find it in the [chart list]({{ link-datalens-main }}/widgets).
 
 1. Click **Save as**.
 1. Enter **ch_metrica_data_users_revenue_cohorts_abs** as the name of the chart and click **Save**.

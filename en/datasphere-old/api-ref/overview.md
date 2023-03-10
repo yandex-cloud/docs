@@ -9,7 +9,7 @@ description: "Managing Yandex DataSphere resources using the API Basic methods f
 
 In {{ ml-platform-name }}, you can perform all basic operations on resources and notebooks using both the UI and API.
 
-The [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) uses a sets of [gRPC](grpc/index.md) or [REST](rest/index.md) methods for resource management. For more information about their implementation and interaction specifics, see the [{{ yandex-cloud }} API documentation](../../api-design-guide/concepts/standard-methods.md).
+The [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) uses sets of [gRPC](grpc/index.md) and [REST](rest/index.md) methods for resource management. For more information about their implementation and interaction specifics, see the [{{ yandex-cloud }} API documentation](../../api-design-guide/concepts/standard-methods.md).
 
 ## Working with projects {#project}
 
@@ -128,11 +128,11 @@ See more examples in the following step-by-step instructions:
 * [Setting up consumption limits for a project](../operations/projects/custom-limits.md)
 * [Setting up consumption limits for a folder](../operations/projects/set-ds-budget.md)
 
-For more information about the [ProjectService](grpc/project_service) and [FolderBudgetService](grpc/folder_budget_service.md) methods, see the API documentation.
+For more information about the [ProjectService](grpc/project_service.md) and [FolderBudgetService](grpc/folder_budget_service.md) methods, see the API documentation.
 
 In addition to the methods listed above, you can use other service methods for performing operations and managing nodes and tokens, such as:
 
-* [AppTokenService/Validate](grpc/app_token_service.md)
+* [AppTokenService/Validate](grpc/app_token_service)
 * [OperationService/Get](grpc/operation_service#Get)
 * [OperationService/Cancel](grpc/operation_service#Cancel)
-* [NodeService/Execute](grpc/app_token_service.md)
+* [NodeService/Execute](grpc/app_token_service)

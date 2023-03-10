@@ -25,4 +25,4 @@
 
    During the uploading, specify the username and choose a secret with a password.
 
-1. In the node creation form, specify the path to the image in the format `{{ registry }}/<cloud_registry_path>:<tag>`. For authorization in {{ container-registry-name }}, enter the token type `json_key` as the username, and enter the secret as the password.
+1. In the node creation form, specify the path to the image in the `{{ registry }}/<cloud_registry_path>:<tag>` format. For authorization in {{ container-registry-name }}, provide the `json_key` token type as username and enter the secret as password.

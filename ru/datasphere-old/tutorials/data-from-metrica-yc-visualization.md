@@ -32,7 +32,7 @@
     1. [{{ ml-platform-short-name }}. Постройте воронки](#calculating-funnels-datasphere).
     1. [{{ datalens-short-name }}. Воронки по браузерам. Создайте датасет](#calculating-browser-funnels-dataset).
     1. [{{ datalens-short-name }}. Воронки по браузерам. Создайте чарт](#calculating-browser-funnels-chart).
-    1. [{{ datalens-short-name }}. Воронки по браузерам. Добавьте чарт на дашборд](#add-browser-funnels-chart-on-dashboard}).
+    1. [{{ datalens-short-name }}. Воронки по браузерам. Добавьте чарт на дашборд](#add-browser-funnels-chart-on-dashboard).
     1. [{{ datalens-short-name }}. Воронки по браузерам. Настройте дашборд](#setting-browser-funnels-chart-on-dashboard).
 1. [Когорты](#cohorts):
     1. [{{ ml-platform-short-name }}. Проведите Когортный анализ](#cohort-analysis).
