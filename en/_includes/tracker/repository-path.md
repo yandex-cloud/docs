@@ -1,0 +1,1 @@
+On the left-hand panel, click ![](../../_assets/tracker/svg/still.svg) → select **Administration** → ![](../../_assets/tracker/svg/repositories.svg) **Repositories** → **Connect repository**.

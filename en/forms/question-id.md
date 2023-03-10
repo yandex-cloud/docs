@@ -21,7 +21,7 @@ To prefill the fields in a series of questions, configure [GET parameters](get-p
 
 * For the first instance of the series, which is displayed in the form by default, use `text_2643945__0`and `phone_2752014__0` question IDs.
 
-* For the second instance of the series, which can be added by clicking **more "series of questions"**), use `text_2643945__1` and `phone_2752014__1` question IDs.
+* For the second instance of the series, which can be added by clicking **more "series of questions"**, use `text_2643945__1` and `phone_2752014__1` question IDs.
 
 ![](../_assets/forms/code-series.png)
 
@@ -88,6 +88,5 @@ Let's see how to get IDs using Yandex&#160;Browser:
    * For the <q>Rate on scale</q> question type, the `name` parameter has the question ID and criterion ID.
       ![](../_assets/forms/answer-code.png)
 
-   * For the <q>Cities and countries</q>{% if audience == "internal" %}, <q>YT list</q>{% endif %}, or <q>Wiki</q> question type, first enter the desired response in the field, then you'll see its ID in the code.
+   * For the <q>Cities and countries</q>{% if audience == "internal" %}, <q>YT list</q>{% endif %}, or <q>Wiki</q> question type, first enter the desired response in the field, and then you will see its ID in the code.
       ![](../_assets/forms/cities-code.png)
-

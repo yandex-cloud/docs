@@ -49,7 +49,7 @@ To link a billing account:
 
    {% note info %}
 
-   Funds from the linked card can only be debited after you [activate the paid version](#activate) and start using the  services {{ yandex-cloud }}.
+   Funds from the linked card can only be debited after you [activate the paid version](#activate) and start using the {{ yandex-cloud }} services.
 
    {% endnote %}
 
