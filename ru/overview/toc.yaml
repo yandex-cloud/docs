@@ -53,7 +53,7 @@ items:
   - name: История изменений
     href: release-notes.md
     when: product == "yandex-cloud"
-  - name: Вопросы и ответы
+  - name: Решение проблем
     href: qa.md
   - name: Облачная терминология
     href: ../glossary/index.yaml

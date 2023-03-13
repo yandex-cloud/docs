@@ -81,7 +81,7 @@ links:
     description: ''
     href: sla
     when: product == "yandex-cloud"
-  - title: Вопросы и ответы
+  - title: Решение проблем
     description: ''
     href: qa
   - title: Облачная терминология
