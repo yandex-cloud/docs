@@ -38,7 +38,11 @@
         В этом файле описаны:
 
         * [сети](../vpc/concepts/network.md#network) и [подсети](../vpc/concepts/network.md#subnet) для размещения кластеров;
-                * [группы безопасности](../vpc/concepts/security-groups.md) для подключения к кластерам;
+
+        
+        * [группы безопасности](../vpc/concepts/security-groups.md) для подключения к кластерам;
+
+
         * кластер-источник {{ mgp-name }};
         * кластер-приемник {{ mch-name }}.
 

@@ -45,7 +45,7 @@ items:
     href: sla.md
   - name: История изменений
     href: release-notes.md
-  - name: Вопросы и ответы
+  - name: Решение проблем
     href: qa.md
   - name: Облачная терминология
     href: ../glossary/index.yaml
