@@ -7,7 +7,7 @@
   - [Ya Greenplum community](https://t.me/+LH8lxQAcFjEyZTJi)
   - [Ya Kafka community](https://t.me/+F1wKNMhim143MGFi)
   - [Ya MongoDB community](https://t.me/+wVQlU4LhaQ9jZTNi)
-  - [Ya MySQL community](https://t.me/+dHv6FDh_ZNEzY2Yy)
+  - [Ya MySQL community](https://t.me/+3heoydD-D2o3MGU6)
   - [Ya PostgreSQL community](https://t.me/+RLWpccewjnFiMmJi)
   - [Ya Redis community](https://t.me/+QqfWlHZU_xhkNTBi)
 
