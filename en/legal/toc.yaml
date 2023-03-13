@@ -5,6 +5,9 @@ href: index.yaml
 items:
   - name: Services Agreement
     href: agreement.md
+  - name: Services Agreement (published 20.02.2023)
+    hidden: true
+    href: archive/agreement-20230220.md
   - name: Services Agreement (published 10.11.2022)
     hidden: true
     href: archive/agreement-20221110.md
