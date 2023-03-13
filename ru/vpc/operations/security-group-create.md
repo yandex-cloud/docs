@@ -35,7 +35,7 @@
   ```
   yc vpc security-group create \
     --name test-sg-cli \
-    --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24] \
+    --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
     --network-id c645mh47vscba1d64tbs
   ```
 
