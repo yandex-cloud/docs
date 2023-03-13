@@ -16,7 +16,6 @@ description:
         href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
       - Lockbox — сервис для хранения секретов.
     when: product == "cloud-il"
-  - Yandex Lockbox — сервис для хранения секретов.
 meta:
   title:
     - text: Yandex Lockbox

@@ -12,7 +12,7 @@ To set up transfer of logs:
 
 1. [Create a service account](../iam/operations/sa/create.md), which is required for Fluent Bit.
    1. [Assign it the role](../iam/operations/sa/assign-role-for-sa.md) `logging.writer`.
-   1. Create an [authorized key](../iam/operations/sa/create-access-key.md) and save it to a file named `key.json`:
+   1. Create an [authorized key](../iam/operations/authorized-key/create.md) and save it to a file named `key.json`:
 
       ```bash
       yc iam key create \
