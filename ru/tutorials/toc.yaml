@@ -52,14 +52,23 @@ items:
       - name: Интернет-магазин на OpenCart
         href: internet-store/opencart.md
         when: product == "yandex-cloud"
-  - name: Архив данных
+  - name: Хранение и восстановление данных
     items:
       - name: Все руководства
         href: archive/index.md
+      - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
+        href: infrastructure-management/hystax-migration.md
+        when: product == "yandex-cloud"
+      - name: Защита от сбоев с помощью Hystax Acura
+        href: infrastructure-management/hystax-disaster-recovery.md
+        when: product == "yandex-cloud"
       - name: Однонодовый файловый сервер
         href: archive/single-node-file-server.md
       - name: Настройка SFTP-сервера на Centos 7
         href: archive/backup-and-archive-to-sftp.md
+      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
+        href: infrastructure-management/hystax-backup.md
+        when: product == "yandex-cloud"
       - name: Резервное копирование в {{ objstorage-name }} через Acronis
         href: archive/object-storage-acronis.md
       - name: Резервное копирование в {{ objstorage-name }} с помощью CloudBerry Desktop Backup
@@ -70,9 +79,8 @@ items:
         href: archive/backup-with-bacula.md
       - name: Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup Exec
         href: archive/object-storage-veritas.md
-      - name: Распознавание архива изображений в {{ vision-name }}
-        href: archive/archive-from-vision-to-object-storage.md
-        when: product == "yandex-cloud"
+      - name: Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-name }}
+        href: archive/kubernetes-backup.md
   - name: Тестовая среда
     items:
       - name: Все руководства
@@ -128,12 +136,6 @@ items:
           Создание кластера Windows-серверов «1С:Предприятия» с БД MS {{ MS }}
         href: infrastructure-management/1c-mssql-windows.md
         when: product == "cloud-il"
-      - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
-        href: infrastructure-management/hystax-migration.md
-        when: product == "yandex-cloud"
-      - name: Защита от сбоев с помощью Hystax Acura
-        href: infrastructure-management/hystax-disaster-recovery.md
-        when: product == "yandex-cloud"
       - name: Настройка синхронизации часов с помощью NTP
         href: infrastructure-management/ntp.md
       - name: Работа с группой ВМ с автомасштабированием
@@ -151,9 +153,7 @@ items:
       - name: Передача логов с ВМ в {{ cloud-logging-name }}
         href: infrastructure-management/vm-fluent-bit-logging.md
         when: product == "yandex-cloud"
-      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
-        href: infrastructure-management/hystax-backup.md
-        when: product == "yandex-cloud"
+      
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
         when: product == "yandex-cloud"
