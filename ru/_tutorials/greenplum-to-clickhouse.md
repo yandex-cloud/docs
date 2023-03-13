@@ -40,9 +40,13 @@
         В этом файле описаны:
 
         * {% if audience != "internal" %}[сети](../vpc/concepts/network.md#network){% else %}сети{% endif %} и {% if audience != "internal" %}[подсети](../vpc/concepts/network.md#subnet){% else %}подсети{% endif %} для размещения кластеров;
+
         {% if audience != "internal" %}
+
         * [группы безопасности](../vpc/concepts/security-groups.md) для подключения к кластерам;
+
         {% endif %}
+
         * кластер-источник {{ mgp-name }};
         * кластер-приемник {{ mch-name }}.
 
