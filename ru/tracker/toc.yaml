@@ -337,6 +337,7 @@ items:
           href: user/share-template.md
     - name: Шаблоны рабочих процессов
       href: manager/create-work-process.md
+      when: audience == "external"
     - name: Переменные
       href: user/vars.md
     - name: Использовать форму как шаблон для создания задач
