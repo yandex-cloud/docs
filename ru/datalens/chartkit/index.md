@@ -1,5 +1,11 @@
 # ChartKit
 
+{% note alert %}
+
+Библиотека заморожена. Используйте для рендеринга опенсорсную библиотеку, размещенную на [GitHub](https://github.com/gravity-ui/chartkit).
+
+{% endnote %}
+
 [![npm version](https://badger.yandex-team.ru/npm/@yandex-data-ui/chartkit/version.svg)](https://npm.yandex-team.ru/@yandex-data-ui/chartkit)
 
 Библиотека для рендеринга скриптов [Yandex Charts](https://charts.yandex-team.ru).
