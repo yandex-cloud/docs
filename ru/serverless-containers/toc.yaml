@@ -77,8 +77,12 @@ items:
                 href: operations/label-delete.md
           - name: Посмотреть графики мониторинга
             href: operations/monitoring.md
-          - name: Посмотреть логи
-            href: operations/logs.md
+          - name: Управлять логами
+            items:
+              - name: Посмотреть логи
+                href: operations/logs.md
+              - name: Записать логи
+                href: operations/logs-write.md
           - name: Удалить контейнер
             href: operations/delete.md
       - name: Получение информации о триггере

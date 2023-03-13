@@ -12,7 +12,7 @@
 
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md), необходимый для работы Fluent Bit.
    1. [Назначьте ему роль](../iam/operations/sa/assign-role-for-sa.md) `logging.writer`.
-   1. Создайте для него [авторизованный ключ](../iam/operations/sa/create-access-key.md) и сохраните его в файл `key.json`:
+   1. Создайте для него [авторизованный ключ](../iam/operations/authorized-key/create.md) и сохраните его в файл `key.json`:
 
       ```bash
       yc iam key create \
