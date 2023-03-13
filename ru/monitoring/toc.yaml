@@ -312,6 +312,8 @@ items:
         href: terraform-ref/shards.md
       - name: Быстрые ссылки
         href: terraform-ref/quick-links.md
+      - name: Экспорт состояния
+        href: terraform-ref/export.md
   - name: Справочник метрик
     when: audience == "external"
     href: metrics-ref/index.md
