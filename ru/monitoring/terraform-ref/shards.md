@@ -22,8 +22,7 @@ Monitoring shard
 - `state` (String) Shard state. INACTIVE/READ_ONLY/WRITE_ONLY/RW/ACTIVE. Default is RW
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

@@ -21,8 +21,7 @@ Monitoring sms channel
 - `phone` (String) Receiver phone number, example: +71234567890
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

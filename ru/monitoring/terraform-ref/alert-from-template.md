@@ -34,8 +34,7 @@ Monitoring alert from template
 - `text_thresholds` (Block List) Alert text thresholds (see [below for nested schema](#nestedblock--text_thresholds))
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
-<a id="nestedblock--channels"></a>
-### Nested Schema for `channels`
+### Nested Schema for `channels` {#nestedblock--channels}
 
 Required:
 
@@ -47,8 +46,7 @@ Optional:
 - `repeat_period_duration` (String) Channel repeat duration. Example: 5h0m30s
 
 
-<a id="nestedblock--double_parameters"></a>
-### Nested Schema for `double_parameters`
+### Nested Schema for `double_parameters` {#nestedblock--double_parameters}
 
 Required:
 
@@ -56,8 +54,7 @@ Required:
 - `value` (Number) Parameter value
 
 
-<a id="nestedblock--double_thresholds"></a>
-### Nested Schema for `double_thresholds`
+### Nested Schema for `double_thresholds` {#nestedblock--double_thresholds}
 
 Required:
 
@@ -65,8 +62,7 @@ Required:
 - `value` (Number) Threshold value
 
 
-<a id="nestedblock--integer_parameters"></a>
-### Nested Schema for `integer_parameters`
+### Nested Schema for `integer_parameters` {#nestedblock--integer_parameters}
 
 Required:
 
@@ -74,8 +70,7 @@ Required:
 - `value` (Number) Parameter value
 
 
-<a id="nestedblock--integer_thresholds"></a>
-### Nested Schema for `integer_thresholds`
+### Nested Schema for `integer_thresholds` {#nestedblock--integer_thresholds}
 
 Required:
 
@@ -83,8 +78,7 @@ Required:
 - `value` (Number) Threshold value
 
 
-<a id="nestedblock--label_list_parameters"></a>
-### Nested Schema for `label_list_parameters`
+### Nested Schema for `label_list_parameters` {#nestedblock--label_list_parameters}
 
 Required:
 
@@ -92,8 +86,7 @@ Required:
 - `value` (List of String) Parameter value
 
 
-<a id="nestedblock--label_list_thresholds"></a>
-### Nested Schema for `label_list_thresholds`
+### Nested Schema for `label_list_thresholds` {#nestedblock--label_list_thresholds}
 
 Required:
 
@@ -101,8 +94,7 @@ Required:
 - `value` (List of String) Threshold value
 
 
-<a id="nestedblock--text_list_parameters"></a>
-### Nested Schema for `text_list_parameters`
+### Nested Schema for `text_list_parameters` {#nestedblock--text_list_parameters}
 
 Required:
 
@@ -110,8 +102,7 @@ Required:
 - `value` (List of String) Parameter value
 
 
-<a id="nestedblock--text_list_thresholds"></a>
-### Nested Schema for `text_list_thresholds`
+### Nested Schema for `text_list_thresholds` {#nestedblock--text_list_thresholds}
 
 Required:
 
@@ -119,8 +110,7 @@ Required:
 - `value` (List of String) Threshold value
 
 
-<a id="nestedblock--text_parameters"></a>
-### Nested Schema for `text_parameters`
+### Nested Schema for `text_parameters` {#nestedblock--text_parameters}
 
 Required:
 
@@ -128,8 +118,7 @@ Required:
 - `value` (String) Parameter value
 
 
-<a id="nestedblock--text_thresholds"></a>
-### Nested Schema for `text_thresholds`
+### Nested Schema for `text_thresholds` {#nestedblock--text_thresholds}
 
 Required:
 
@@ -137,8 +126,7 @@ Required:
 - `value` (String) Threshold value
 
 
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+## Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

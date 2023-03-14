@@ -18,8 +18,7 @@ Monitoring project, can be created only in some monitoring installations
 - `settings` (Block List) Additional settings (see [below for nested schema](#nestedblock--settings))
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
-<a id="nestedblock--settings"></a>
-### Nested Schema for `settings`
+### Nested Schema for `settings` {#nestedblock--settings}
 
 Optional:
 
@@ -31,8 +30,7 @@ Optional:
 - `only_sensor_name_shards` (Boolean) Supports only metric name shards
 
 
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

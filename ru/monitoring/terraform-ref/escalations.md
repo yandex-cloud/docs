@@ -26,8 +26,7 @@ Monitoring escalation policy
 - `timezone` (String) Escalation timezone. Example: Europe/Moscow
 - `warden_config` (Block List) Escalation warden configuration (see [below for nested schema](#nestedblock--warden_config))
 
-<a id="nestedblock--steps"></a>
-### Nested Schema for `steps`
+### Nested Schema for `steps` {#nestedblock--steps}
 
 Optional:
 
@@ -42,16 +41,14 @@ Optional:
 - `webhook` (Block List) Escalation slack step (see [below for nested schema](#nestedblock--steps--webhook))
 - `yachat` (Block List) Escalation yachat step (see [below for nested schema](#nestedblock--steps--yachat))
 
-<a id="nestedblock--steps--email"></a>
-### Nested Schema for `steps.email`
+### Nested Schema for `steps.email` {#nestedblock--steps--email}
 
 Optional:
 
 - `email` (List of String) Generic mailing list
 - `recipients` (Block List) Target a particular staff user, or a group of user (see [below for nested schema](#nestedblock--steps--email--recipients))
 
-<a id="nestedblock--steps--email--recipients"></a>
-### Nested Schema for `steps.email.recipients`
+### Nested Schema for `steps.email.recipients` {#nestedblock--steps--email--recipients}
 
 Optional:
 
@@ -62,8 +59,7 @@ Optional:
 - `login` (String) Login of a known staff user, like "reimu"
 - `staff_group` (String) Send to a staff group, like "yandex_mnt_sa_runtime_mondev". It also includes all children groups, so sending to "yandex" will try (and fail) to send to every yandex employee, not just 3 people shown on staff
 
-<a id="nestedblock--steps--email--recipients--abc_duty"></a>
-### Nested Schema for `steps.email.recipients.staff_group`
+### Nested Schema for `steps.email.recipients.abc_duty` {#nestedblock--steps--email--recipients--abc_duty}
 
 Required:
 
@@ -74,18 +70,13 @@ Optional:
 
 - `kind` (String) duty kind, Primary/Backup/Both
 
-
-
-
-<a id="nestedblock--steps--phone"></a>
-### Nested Schema for `steps.phone`
+### Nested Schema for `steps.phone` {#nestedblock--steps--phone}
 
 Optional:
 
 - `recipients` (Block List) Target a particular staff user, or a group of user (see [below for nested schema](#nestedblock--steps--phone--recipients))
 
-<a id="nestedblock--steps--phone--recipients"></a>
-### Nested Schema for `steps.phone.recipients`
+### Nested Schema for `steps.phone.recipients` {#nestedblock--steps--phone--recipients}
 
 Optional:
 
@@ -96,8 +87,7 @@ Optional:
 - `login` (String) Login of a known staff user, like "reimu"
 - `staff_group` (String) Send to a staff group, like "yandex_mnt_sa_runtime_mondev". It also includes all children groups, so sending to "yandex" will try (and fail) to send to every yandex employee, not just 3 people shown on staff
 
-<a id="nestedblock--steps--phone--recipients--abc_duty"></a>
-### Nested Schema for `steps.phone.recipients.staff_group`
+### Nested Schema for `steps.phone.recipients.abc_duty` {#nestedblock--steps--phone--recipients--abc_duty}
 
 Required:
 
@@ -108,19 +98,14 @@ Optional:
 
 - `kind` (String) duty kind, Primary/Backup/Both
 
-
-
-
-<a id="nestedblock--steps--slack"></a>
-### Nested Schema for `steps.slack`
+### Nested Schema for `steps.slack` {#nestedblock--steps--slack}
 
 Optional:
 
 - `chat_id` (List of String) Send to a chat_id (string like "C012TEW2O4H")
 - `recipients` (Block List) Target a particular staff user, or a group of user (see [below for nested schema](#nestedblock--steps--slack--recipients))
 
-<a id="nestedblock--steps--slack--recipients"></a>
-### Nested Schema for `steps.slack.recipients`
+### Nested Schema for `steps.slack.recipients` {#nestedblock--steps--slack--recipients}
 
 Optional:
 
@@ -131,8 +116,7 @@ Optional:
 - `login` (String) Login of a known staff user, like "reimu"
 - `staff_group` (String) Send to a staff group, like "yandex_mnt_sa_runtime_mondev". It also includes all children groups, so sending to "yandex" will try (and fail) to send to every yandex employee, not just 3 people shown on staff
 
-<a id="nestedblock--steps--slack--recipients--abc_duty"></a>
-### Nested Schema for `steps.slack.recipients.staff_group`
+### Nested Schema for `steps.slack.recipients.abc_duty` {#nestedblock--steps--slack--recipients--abc_duty}
 
 Required:
 
@@ -143,18 +127,13 @@ Optional:
 
 - `kind` (String) duty kind, Primary/Backup/Both
 
-
-
-
-<a id="nestedblock--steps--sms"></a>
-### Nested Schema for `steps.sms`
+### Nested Schema for `steps.sms` {#nestedblock--steps--sms}
 
 Optional:
 
 - `recipients` (Block List) Recipient (see [below for nested schema](#nestedblock--steps--sms--recipients))
 
-<a id="nestedblock--steps--sms--recipients"></a>
-### Nested Schema for `steps.sms.recipients`
+### Nested Schema for `steps.sms.recipients` {#nestedblock--steps--sms--recipients}
 
 Optional:
 
@@ -165,8 +144,7 @@ Optional:
 - `login` (String) Login of a known staff user, like "reimu"
 - `staff_group` (String) Send to a staff group, like "yandex_mnt_sa_runtime_mondev". It also includes all children groups, so sending to "yandex" will try (and fail) to send to every yandex employee, not just 3 people shown on staff
 
-<a id="nestedblock--steps--sms--recipients--abc_duty"></a>
-### Nested Schema for `steps.sms.recipients.staff_group`
+### Nested Schema for `steps.sms.recipients.abc_duty` {#nestedblock--steps--sms--recipients--abc_duty}
 
 Required:
 
@@ -177,11 +155,7 @@ Optional:
 
 - `kind` (String) duty kind, Primary/Backup/Both
 
-
-
-
-<a id="nestedblock--steps--telegram"></a>
-### Nested Schema for `steps.telegram`
+### Nested Schema for `steps.telegram` {#nestedblock--steps--telegram}
 
 Optional:
 
@@ -190,8 +164,7 @@ Optional:
 - `project_chat` (List of String) Target a project group chat
 - `recipients` (Block List) Target a particular staff user, or a group of user (see [below for nested schema](#nestedblock--steps--telegram--recipients))
 
-<a id="nestedblock--steps--telegram--recipients"></a>
-### Nested Schema for `steps.telegram.recipients`
+### Nested Schema for `steps.telegram.recipients` {#nestedblock--steps--telegram--recipients}
 
 Optional:
 
@@ -202,8 +175,7 @@ Optional:
 - `login` (String) Login of a known staff user, like "reimu"
 - `staff_group` (String) Send to a staff group, like "yandex_mnt_sa_runtime_mondev". It also includes all children groups, so sending to "yandex" will try (and fail) to send to every yandex employee, not just 3 people shown on staff
 
-<a id="nestedblock--steps--telegram--recipients--abc_duty"></a>
-### Nested Schema for `steps.telegram.recipients.staff_group`
+### Nested Schema for `steps.telegram.recipients.abc_duty` {#nestedblock--steps--telegram--recipients--abc_duty}
 
 Required:
 
@@ -214,11 +186,7 @@ Optional:
 
 - `kind` (String) duty kind, Primary/Backup/Both
 
-
-
-
-<a id="nestedblock--steps--tracker"></a>
-### Nested Schema for `steps.tracker`
+### Nested Schema for `steps.tracker` {#nestedblock--steps--tracker}
 
 Required:
 
@@ -231,16 +199,14 @@ Optional:
 - `followers` (Block List) Additional followers that will be added to the ticket when it's created, up to 10 (see [below for nested schema](#nestedblock--steps--tracker--followers))
 - `priority` (String) Ticket priority (must exist in the queue)
 
-<a id="nestedblock--steps--tracker--assignee"></a>
-### Nested Schema for `steps.tracker.assignee`
+### Nested Schema for `steps.tracker.assignee` {#nestedblock--steps--tracker--assignee}
 
 Optional:
 
 - `abc_duty` (Block List) Send to a person currently on duty (see [below for nested schema](#nestedblock--steps--tracker--assignee--abc_duty))
 - `login` (String) Login of a known staff user, like "reimu"
 
-<a id="nestedblock--steps--tracker--assignee--abc_duty"></a>
-### Nested Schema for `steps.tracker.assignee.login`
+### Nested Schema for `steps.tracker.assignee.abc_duty` {#nestedblock--steps--tracker--assignee--abc_duty}
 
 Required:
 
@@ -251,18 +217,14 @@ Optional:
 
 - `kind` (String) duty kind, Primary/Backup/Both
 
-
-
-<a id="nestedblock--steps--tracker--followers"></a>
-### Nested Schema for `steps.tracker.followers`
+### Nested Schema for `steps.tracker.followers` {#nestedblock--steps--tracker--followers}
 
 Optional:
 
 - `abc_duty` (Block List) Send to a person currently on duty (see [below for nested schema](#nestedblock--steps--tracker--followers--abc_duty))
 - `login` (String) Login of a known staff user, like "reimu"
 
-<a id="nestedblock--steps--tracker--followers--abc_duty"></a>
-### Nested Schema for `steps.tracker.followers.login`
+### Nested Schema for `steps.tracker.followers.abc_duty` {#nestedblock--steps--tracker--followers--abc_duty}
 
 Required:
 
@@ -273,27 +235,20 @@ Optional:
 
 - `kind` (String) duty kind, Primary/Backup/Both
 
-
-
-
-<a id="nestedblock--steps--webhook"></a>
-### Nested Schema for `steps.webhook`
+### Nested Schema for `steps.webhook` {#nestedblock--steps--webhook}
 
 Optional:
 
 - `url` (String) Webhook URL
 
-
-<a id="nestedblock--steps--yachat"></a>
-### Nested Schema for `steps.yachat`
+### Nested Schema for `steps.yachat` {#nestedblock--steps--yachat}
 
 Optional:
 
 - `chat_name` (List of String) Target a group chat
 - `recipients` (Block List) Target a particular staff user, or a group of user (see [below for nested schema](#nestedblock--steps--yachat--recipients))
 
-<a id="nestedblock--steps--yachat--recipients"></a>
-### Nested Schema for `steps.yachat.recipients`
+### Nested Schema for `steps.yachat.recipients` {#nestedblock--steps--yachat--recipients}
 
 Optional:
 
@@ -304,8 +259,7 @@ Optional:
 - `login` (String) Login of a known staff user, like "reimu"
 - `staff_group` (String) Send to a staff group, like "yandex_mnt_sa_runtime_mondev". It also includes all children groups, so sending to "yandex" will try (and fail) to send to every yandex employee, not just 3 people shown on staff
 
-<a id="nestedblock--steps--yachat--recipients--abc_duty"></a>
-### Nested Schema for `steps.yachat.recipients.staff_group`
+### Nested Schema for `steps.yachat.recipients.abc_duty` {#nestedblock--steps--yachat--recipients--abc_duty}
 
 Required:
 
@@ -316,12 +270,7 @@ Optional:
 
 - `kind` (String) duty kind, Primary/Backup/Both
 
-
-
-
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 
@@ -330,9 +279,7 @@ Optional:
 - `read` (String)
 - `update` (String)
 
-
-<a id="nestedblock--warden_config"></a>
-### Nested Schema for `warden_config`
+### Nested Schema for `warden_config` {#nestedblock--warden_config}
 
 Required:
 

@@ -24,8 +24,7 @@ Monitoring push service
 - `store_only_aggregates` (Boolean) If true Solomon will not store all fetched raw data. Only configured aggregates (see tab 'Aggregation rules') will be stored
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
-<a id="nestedblock--aggregation_rules"></a>
-### Nested Schema for `aggregation_rules`
+### Nested Schema for `aggregation_rules` {#nestedblock--aggregation_rules}
 
 Required:
 
@@ -37,8 +36,7 @@ Optional:
 - `function` (String) Aggregation function (SUM/LAST)
 
 
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

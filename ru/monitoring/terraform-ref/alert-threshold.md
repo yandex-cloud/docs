@@ -29,8 +29,7 @@ Monitoring threshold alert
 - `status` (String) Alert status. Default value is ACTIVE
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
-<a id="nestedblock--predicate_rules"></a>
-### Nested Schema for `predicate_rules`
+### Nested Schema for `predicate_rules` {#nestedblock--predicate_rules}
 
 Required:
 
@@ -40,8 +39,7 @@ Required:
 - `threshold_type` (String) Type
 
 
-<a id="nestedblock--channels"></a>
-### Nested Schema for `channels`
+### Nested Schema for `channels` {#nestedblock--channels}
 
 Required:
 
@@ -53,8 +51,7 @@ Optional:
 - `repeat_period_duration` (String) Channel repeat duration. Example: 5h0m30s
 
 
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

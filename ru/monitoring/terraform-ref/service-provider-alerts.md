@@ -29,8 +29,7 @@ Monitoring service provider alerts
 - `text_parameters` (Block List) Alerts text parameters (see [below for nested schema](#nestedblock--text_parameters))
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
-<a id="nestedblock--channels"></a>
-### Nested Schema for `channels`
+### Nested Schema for `channels` {#nestedblock--channels}
 
 Optional:
 
@@ -38,27 +37,21 @@ Optional:
 - `notify_about_statuses` (List of String) Notify statuses: EVALUATION_STATUS_OK, EVALUATION_STATUS_WARN, EVALUATION_STATUS_ALARM, EVALUATION_STATUS_NO_DATA, EVALUATION_STATUS_ERROR
 - `repeat_period_duration` (String) Channel repeat duration, example: 10s
 
-
-<a id="nestedblock--double_parameters"></a>
-### Nested Schema for `double_parameters`
+### Nested Schema for `double_parameters` {#nestedblock--double_parameters}
 
 Optional:
 
 - `name` (String) Parameter name
 - `value` (Number) Parameter value
 
-
-<a id="nestedblock--integer_parameters"></a>
-### Nested Schema for `integer_parameters`
+### Nested Schema for `integer_parameters` {#nestedblock--integer_parameters}
 
 Optional:
 
 - `name` (String) Parameter name
 - `value` (Number) Parameter value
 
-
-<a id="nestedblock--label_list_parameters"></a>
-### Nested Schema for `label_list_parameters`
+### Nested Schema for `label_list_parameters` {#nestedblock--label_list_parameters}
 
 Optional:
 
@@ -66,8 +59,7 @@ Optional:
 - `value` (List of String) Parameter value
 
 
-<a id="nestedblock--templates"></a>
-### Nested Schema for `templates`
+### Nested Schema for `templates` {#nestedblock--templates}
 
 Optional:
 
@@ -84,8 +76,7 @@ Read-Only:
 
 - `created` (Boolean) Alert from template created, indicates that template group changed. Used for state
 
-<a id="nestedblock--templates--channels"></a>
-### Nested Schema for `templates.channels`
+### Nested Schema for `templates.channels` {#nestedblock--templates--channels}
 
 Optional:
 
@@ -93,73 +84,56 @@ Optional:
 - `notify_about_statuses` (List of String) Notify statuses: EVALUATION_STATUS_OK, EVALUATION_STATUS_WARN, EVALUATION_STATUS_ALARM, EVALUATION_STATUS_NO_DATA, EVALUATION_STATUS_ERROR
 - `repeat_period_duration` (String) Channel repeat duration, example: 10s
 
-
-<a id="nestedblock--templates--double_thresholds"></a>
-### Nested Schema for `templates.double_thresholds`
+### Nested Schema for `templates.double_thresholds` {#nestedblock--templates--double_thresholds}
 
 Optional:
 
 - `name` (String) Threshold name
 - `value` (Number) Threshold value
 
-
-<a id="nestedblock--templates--integer_thresholds"></a>
-### Nested Schema for `templates.integer_thresholds`
+### Nested Schema for `templates.integer_thresholds` {#nestedblock--templates--integer_thresholds}
 
 Optional:
 
 - `name` (String) Threshold name
 - `value` (Number) Threshold value
 
-
-<a id="nestedblock--templates--label_list_thresholds"></a>
-### Nested Schema for `templates.label_list_thresholds`
+### Nested Schema for `templates.label_list_thresholds` {#nestedblock--templates--label_list_thresholds}
 
 Optional:
 
 - `name` (String) Threshold name
 - `value` (List of String) Threshold value
 
-
-<a id="nestedblock--templates--text_list_thresholds"></a>
-### Nested Schema for `templates.text_list_thresholds`
+### Nested Schema for `templates.text_list_thresholds` {#nestedblock--templates--text_list_thresholds}
 
 Optional:
 
 - `name` (String) Threshold name
 - `value` (List of String) Threshold value
 
-
-<a id="nestedblock--templates--text_thresholds"></a>
-### Nested Schema for `templates.text_thresholds`
+### Nested Schema for `templates.text_thresholds` {#nestedblock--templates--text_thresholds}
 
 Optional:
 
 - `name` (String) Threshold name
 - `value` (String) Threshold value
 
-
-
-<a id="nestedblock--text_list_parameters"></a>
-### Nested Schema for `text_list_parameters`
+### Nested Schema for `text_list_parameters` {#nestedblock--text_list_parameters}
 
 Optional:
 
 - `name` (String) Parameter name
 - `value` (List of String) Parameter value
 
-
-<a id="nestedblock--text_parameters"></a>
-### Nested Schema for `text_parameters`
+### Nested Schema for `text_parameters` {#nestedblock--text_parameters}
 
 Optional:
 
 - `name` (String) Parameter name
 - `value` (String) Parameter value
 
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

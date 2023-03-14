@@ -24,16 +24,14 @@ Monitoring dashboard
 
 - `dashboard_id` (String) Dashboard ID
 
-<a id="nestedblock--parametrization"></a>
-### Nested Schema for `parametrization`
+### Nested Schema for `parametrization` {#nestedblock--parametrization}
 
 Optional:
 
 - `parameters` (Block List) Dashboard parameter (see [below for nested schema](#nestedblock--parametrization--parameters))
 - `selectors` (String) Predefined selectors
 
-<a id="nestedblock--parametrization--parameters"></a>
-### Nested Schema for `parametrization.parameters`
+### Nested Schema for `parametrization.parameters` {#nestedblock--parametrization--parameters}
 
 Required:
 
@@ -51,8 +49,7 @@ Optional:
 - `text_values` (Block List) Text parameter (see [below for nested schema](#nestedblock--parametrization--parameters--text_values))
 - `title` (String) UI-visible title of the parameter
 
-<a id="nestedblock--parametrization--parameters--custom"></a>
-### Nested Schema for `parametrization.parameters.custom`
+### Nested Schema for `parametrization.parameters.custom` {#nestedblock--parametrization--parameters--custom}
 
 Optional:
 
@@ -60,27 +57,21 @@ Optional:
 - `multiselectable` (Boolean) Specifies the multiselectable values of parameter
 - `values` (List of String) Parameter values
 
-
-<a id="nestedblock--parametrization--parameters--double_parameter"></a>
-### Nested Schema for `parametrization.parameters.double_parameter`
+### Nested Schema for `parametrization.parameters.double_parameter` {#nestedblock--parametrization--parameters--double_parameter}
 
 Optional:
 
 - `default_value` (Number) Default value
 - `unit_format` (String) Parameter unit
 
-
-<a id="nestedblock--parametrization--parameters--integer_parameter"></a>
-### Nested Schema for `parametrization.parameters.integer_parameter`
+### Nested Schema for `parametrization.parameters.integer_parameter` {#nestedblock--parametrization--parameters--integer_parameter}
 
 Optional:
 
 - `default_value` (Number) Default value
 - `unit_format` (String) Parameter unit
 
-
-<a id="nestedblock--parametrization--parameters--label_values"></a>
-### Nested Schema for `parametrization.parameters.label_values`
+### Nested Schema for `parametrization.parameters.label_values` {#nestedblock--parametrization--parameters--label_values}
 
 Required:
 
@@ -94,27 +85,19 @@ Optional:
 - `project_id` (String) Project ID
 - `selectors` (String) Required. Selectors to select metric label values
 
-
-<a id="nestedblock--parametrization--parameters--text"></a>
-### Nested Schema for `parametrization.parameters.text`
+### Nested Schema for `parametrization.parameters.text` {#nestedblock--parametrization--parameters--text}
 
 Optional:
 
 - `default_value` (String) Default value
 
-
-<a id="nestedblock--parametrization--parameters--text_values"></a>
-### Nested Schema for `parametrization.parameters.text_values`
+### Nested Schema for `parametrization.parameters.text_values` {#nestedblock--parametrization--parameters--text_values}
 
 Optional:
 
 - `default_values` (List of String) Default value
 
-
-
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 
@@ -123,9 +106,7 @@ Optional:
 - `read` (String)
 - `update` (String)
 
-
-<a id="nestedblock--widgets"></a>
-### Nested Schema for `widgets`
+### Nested Schema for `widgets` {#nestedblock--widgets}
 
 Optional:
 
@@ -136,8 +117,7 @@ Optional:
 - `text` (Block List) Text widget (see [below for nested schema](#nestedblock--widgets--text))
 - `title` (Block List) Title widget (see [below for nested schema](#nestedblock--widgets--title))
 
-<a id="nestedblock--widgets--alert"></a>
-### Nested Schema for `widgets.alert`
+### Nested Schema for `widgets.alert` {#nestedblock--widgets--alert}
 
 Required:
 
@@ -153,9 +133,7 @@ Optional:
 - `project_id` (String) Project ID
 - `title` (String) Widget title
 
-
-<a id="nestedblock--widgets--chart"></a>
-### Nested Schema for `widgets.chart`
+### Nested Schema for `widgets.chart` {#nestedblock--widgets--chart}
 
 Optional:
 
@@ -169,8 +147,7 @@ Optional:
 - `title` (String) Chart widget title
 - `visualization_settings` (Block List) Visualization settings (see [below for nested schema](#nestedblock--widgets--chart--visualization_settings))
 
-<a id="nestedblock--widgets--chart--name_hiding_settings"></a>
-### Nested Schema for `widgets.chart.name_hiding_settings`
+### Nested Schema for `widgets.chart.name_hiding_settings` {#nestedblock--widgets--chart--name_hiding_settings}
 
 Required:
 
@@ -182,15 +159,14 @@ Optional:
 
 
 <a id="nestedblock--widgets--chart--queries"></a>
-### Nested Schema for `widgets.chart.queries`
+### Nested Schema for `widgets.chart.queries` {#nestedblock--timeouts}
 
 Optional:
 
 - `downsampling` (Block List) Downsampling settings (see [below for nested schema](#nestedblock--widgets--chart--queries--downsampling))
 - `target` (Block List) Downsampling settings (see [below for nested schema](#nestedblock--widgets--chart--queries--target))
 
-<a id="nestedblock--widgets--chart--queries--downsampling"></a>
-### Nested Schema for `widgets.chart.queries.target`
+### Nested Schema for `widgets.chart.queries.downsampling` {#nestedblock--widgets--chart--queries--downsampling}
 
 Optional:
 
@@ -200,9 +176,7 @@ Optional:
 - `grid_interval` (Number) Time interval (grid) for downsampling in milliseconds. Points in the specified range are aggregated into one time point
 - `max_points` (Number) Maximum number of points to be returned
 
-
-<a id="nestedblock--widgets--chart--queries--target"></a>
-### Nested Schema for `widgets.chart.queries.target`
+### Nested Schema for `widgets.chart.queries.target` {#nestedblock--widgets--chart--queries--target}
 
 Optional:
 
@@ -210,10 +184,7 @@ Optional:
 - `query` (String) Required. Query
 - `text_mode` (Boolean) Text mode
 
-
-
-<a id="nestedblock--widgets--chart--series_overrides"></a>
-### Nested Schema for `widgets.chart.series_overrides`
+### Nested Schema for `widgets.chart.series_overrides` {#nestedblock--widgets--chart--series_overrides}
 
 Optional:
 
@@ -221,8 +192,7 @@ Optional:
 - `settings` (Block List) Override settings (see [below for nested schema](#nestedblock--widgets--chart--series_overrides--settings))
 - `target_index` (String) Target index
 
-<a id="nestedblock--widgets--chart--series_overrides--settings"></a>
-### Nested Schema for `widgets.chart.series_overrides.target_index`
+### Nested Schema for `widgets.chart.series_overrides.settings` {#nestedblock--widgets--chart--series_overrides--settings}
 
 Optional:
 
@@ -233,10 +203,7 @@ Optional:
 - `type` (String) Type
 - `yaxis_position` (String) Yaxis position
 
-
-
-<a id="nestedblock--widgets--chart--visualization_settings"></a>
-### Nested Schema for `widgets.chart.visualization_settings`
+### Nested Schema for `widgets.chart.visualization_settings` {#nestedblock--widgets--chart--visualization_settings}
 
 Optional:
 
@@ -250,8 +217,7 @@ Optional:
 - `type` (String) Visualization type
 - `yaxis_settings` (Block List) Y axis settings (see [below for nested schema](#nestedblock--widgets--chart--visualization_settings--yaxis_settings))
 
-<a id="nestedblock--widgets--chart--visualization_settings--color_scheme_settings"></a>
-### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings`
+### Nested Schema for `widgets.chart.visualization_settings.color_scheme_settings` {#nestedblock--widgets--chart--visualization_settings--color_scheme_settings}
 
 Optional:
 
@@ -259,12 +225,9 @@ Optional:
 - `gradient` (Block List) Gradient color scheme (see [below for nested schema](#nestedblock--widgets--chart--visualization_settings--yaxis_settings--gradient))
 - `standard` (Block List) Standard color scheme (see [below for nested schema](#nestedblock--widgets--chart--visualization_settings--yaxis_settings--standard))
 
-<a id="nestedblock--widgets--chart--visualization_settings--yaxis_settings--automatic"></a>
-### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings.automatic`
+### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings.automatic` {#nestedblock--widgets--chart--visualization_settings--yaxis_settings--automatic}
 
-
-<a id="nestedblock--widgets--chart--visualization_settings--yaxis_settings--gradient"></a>
-### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings.gradient`
+### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings.gradient` {#nestedblock--widgets--chart--visualization_settings--yaxis_settings--gradient}
 
 Optional:
 
@@ -273,14 +236,9 @@ Optional:
 - `violet_value` (String) Gradient violet_value
 - `yellow_value` (String) Gradient yellow value
 
+### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings.standard` {#nestedblock--widgets--chart--visualization_settings--yaxis_settings--standard}
 
-<a id="nestedblock--widgets--chart--visualization_settings--yaxis_settings--standard"></a>
-### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings.standard`
-
-
-
-<a id="nestedblock--widgets--chart--visualization_settings--heatmap_settings"></a>
-### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings`
+### Nested Schema for `widgets.chart.visualization_settings.heatmap_settings` {#nestedblock--widgets--chart--visualization_settings--heatmap_settings}
 
 Optional:
 
@@ -289,17 +247,14 @@ Optional:
 - `violet_value` (String) Heatmap violet_value
 - `yellow_value` (String) Heatmap yellow value
 
-
-<a id="nestedblock--widgets--chart--visualization_settings--yaxis_settings"></a>
-### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings`
+### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings` {#nestedblock--widgets--chart--visualization_settings--yaxis_settings}
 
 Optional:
 
 - `left` (Block List) Left Y axis settings (see [below for nested schema](#nestedblock--widgets--chart--visualization_settings--yaxis_settings--left))
 - `right` (Block List) Right Y axis settings (see [below for nested schema](#nestedblock--widgets--chart--visualization_settings--yaxis_settings--right))
 
-<a id="nestedblock--widgets--chart--visualization_settings--yaxis_settings--left"></a>
-### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings.left`
+### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings.left` {#nestedblock--widgets--chart--visualization_settings--yaxis_settings--left}
 
 Optional:
 
@@ -310,9 +265,7 @@ Optional:
 - `type` (String) Type
 - `unit_format` (String) Unit format
 
-
-<a id="nestedblock--widgets--chart--visualization_settings--yaxis_settings--right"></a>
-### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings.right`
+### Nested Schema for `widgets.chart.visualization_settings.yaxis_settings.right` {#nestedblock--widgets--chart--visualization_settings--yaxis_settings--right}
 
 Optional:
 
@@ -323,12 +276,7 @@ Optional:
 - `type` (String) Type
 - `unit_format` (String) Unit format
 
-
-
-
-
-<a id="nestedblock--widgets--iframe"></a>
-### Nested Schema for `widgets.iframe`
+### Nested Schema for `widgets.iframe` {#nestedblock--widgets--iframe}
 
 Required:
 
@@ -339,9 +287,7 @@ Optional:
 - `description` (String) Widget description in dashboard (not enabled in UI)
 - `title` (String) Widget title
 
-
-<a id="nestedblock--widgets--position"></a>
-### Nested Schema for `widgets.position`
+### Nested Schema for `widgets.position` {#nestedblock--widgets--position}
 
 Optional:
 
@@ -350,17 +296,13 @@ Optional:
 - `x` (Number) Required. X-axis top-left corner coordinate
 - `y` (Number) Required. Y-axis top-left corner coordinate
 
-
-<a id="nestedblock--widgets--text"></a>
-### Nested Schema for `widgets.text`
+### Nested Schema for `widgets.text` {#nestedblock--widgets--text}
 
 Optional:
 
 - `text` (String) Text
 
-
-<a id="nestedblock--widgets--title"></a>
-### Nested Schema for `widgets.title`
+### Nested Schema for `widgets.title` {#nestedblock--widgets--title}
 
 Required:
 

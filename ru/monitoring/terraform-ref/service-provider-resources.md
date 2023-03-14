@@ -21,8 +21,7 @@ Monitoring service provider resource
 - `severity` (String) Resource severity. SERVICE_PROVIDER_RESOURCE_SEVERITY_HIGHLY_CRITICAL is default
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

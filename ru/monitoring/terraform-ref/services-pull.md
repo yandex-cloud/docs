@@ -29,8 +29,7 @@ Monitoring pull service
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 - `tvm_destination_id` (String) TVM client id of your application that Solomon will contact to download metrics from
 
-<a id="nestedblock--aggregation_rules"></a>
-### Nested Schema for `aggregation_rules`
+### Nested Schema for `aggregation_rules` {#nestedblock--aggregation_rules}
 
 Required:
 
@@ -42,8 +41,7 @@ Optional:
 - `function` (String) Aggregation function (SUM/LAST)
 
 
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

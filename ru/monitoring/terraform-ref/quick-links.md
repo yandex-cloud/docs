@@ -14,16 +14,14 @@ Monitoring quick links
 - `items` (Block List) Quick link items (see [below for nested schema](#nestedblock--items))
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
-<a id="nestedblock--items"></a>
-### Nested Schema for `items`
+### Nested Schema for `items` {#nestedblock--items}
 
 Optional:
 
 - `folders` (Block List) Folders (see [below for nested schema](#nestedblock--items--folders))
 - `links` (Block List) Links (see [below for nested schema](#nestedblock--items--links))
 
-<a id="nestedblock--items--folders"></a>
-### Nested Schema for `items.folders`
+### Nested Schema for `items.folders` {#nestedblock--items--folders}
 
 Required:
 
@@ -33,19 +31,14 @@ Optional:
 
 - `items` (Block List) Folder items (see [below for nested schema](#nestedblock--items))
 
-
-<a id="nestedblock--items--links"></a>
-### Nested Schema for `items.links`
+### Nested Schema for `items.links` {#nestedblock--items--links}
 
 Required:
 
 - `title` (String) Link title
 - `url` (String) Link URL
 
-
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

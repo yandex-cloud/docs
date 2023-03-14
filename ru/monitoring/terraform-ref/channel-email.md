@@ -21,8 +21,7 @@ Monitoring email channel
 - `subject_template` (String) Notification subject template
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
-<a id="nestedblock--abc_recipients"></a>
-### Nested Schema for `abc_recipients`
+### Nested Schema for `abc_recipients` {#nestedblock--abc_recipients}
 
 Required:
 
@@ -33,8 +32,7 @@ Optional:
 - `role_scope_slug` (String) ABC role scope slug
 
 
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 

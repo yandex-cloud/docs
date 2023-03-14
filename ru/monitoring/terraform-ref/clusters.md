@@ -31,8 +31,7 @@ Monitoring cluster
 - `walle` (Block List) Cluster walle (see [below for nested schema](#nestedblock--walle))
 - `yp_clusters` (Block List) Cluster yp clusters (see [below for nested schema](#nestedblock--yp_clusters))
 
-<a id="nestedblock--cloud_dns"></a>
-### Nested Schema for `cloud_dns`
+### Nested Schema for `cloud_dns` {#nestedblock--cloud_dns}
 
 Required:
 
@@ -44,8 +43,7 @@ Optional:
 - `labels` (List of String) One or more optional labels that will be used in aggregation rules for metrics fetched from these hosts. Labels must be written in a 'key=value' format delimited by a space (e.g. 'env=prod dc=man')
 
 
-<a id="nestedblock--conductor_groups"></a>
-### Nested Schema for `conductor_groups`
+### Nested Schema for `conductor_groups` {#nestedblock--conductor_groups}
 
 Required:
 
@@ -56,8 +54,7 @@ Optional:
 - `labels` (List of String) One or more optional labels that will be used in aggregation rules for metrics fetched from these hosts. Labels must be written in a 'key=value' format delimited by a space (e.g. 'env=prod dc=man')
 
 
-<a id="nestedblock--conductor_tags"></a>
-### Nested Schema for `conductor_tags`
+### Nested Schema for `conductor_tags` {#nestedblock--conductor_tags}
 
 Required:
 
@@ -68,8 +65,7 @@ Optional:
 - `labels` (List of String) One or more optional labels that will be used in aggregation rules for metrics fetched from these hosts. Labels must be written in a 'key=value' format delimited by a space (e.g. 'env=prod dc=man')
 
 
-<a id="nestedblock--host_urls"></a>
-### Nested Schema for `host_urls`
+### Nested Schema for `host_urls` {#nestedblock--host_urls}
 
 Required:
 
@@ -81,8 +77,7 @@ Optional:
 - `labels` (List of String) One or more optional labels that will be used in aggregation rules for metrics fetched from these hosts. Labels must be written in a 'key=value' format delimited by a space (e.g. 'env=prod dc=man')
 
 
-<a id="nestedblock--hosts"></a>
-### Nested Schema for `hosts`
+### Nested Schema for `hosts` {#nestedblock--hosts}
 
 Required:
 
@@ -95,8 +90,7 @@ Optional:
 - `ranges` (String) One or more ranges deilimted by space to fill above pattern (e.g. '0-10 20-40')
 
 
-<a id="nestedblock--instance_groups"></a>
-### Nested Schema for `instance_groups`
+### Nested Schema for `instance_groups` {#nestedblock--instance_groups}
 
 Optional:
 
@@ -105,8 +99,7 @@ Optional:
 - `labels` (List of String) One or more optional labels that will be used in aggregation rules for metrics fetched from these hosts. Labels must be written in a 'key=value' format delimited by a space (e.g. 'env=prod dc=man')
 
 
-<a id="nestedblock--nanny_groups"></a>
-### Nested Schema for `nanny_groups`
+### Nested Schema for `nanny_groups` {#nestedblock--nanny_groups}
 
 Required:
 
@@ -121,8 +114,7 @@ Optional:
 - `use_fetched_port` (Boolean) Use service port as configured in Nanny service
 
 
-<a id="nestedblock--networks"></a>
-### Nested Schema for `networks`
+### Nested Schema for `networks` {#nestedblock--networks}
 
 Required:
 
@@ -134,8 +126,7 @@ Optional:
 - `port` (Number) Port which Solomon shoud use to fetch metrics (optional)
 
 
-<a id="nestedblock--qloud_groups"></a>
-### Nested Schema for `qloud_groups`
+### Nested Schema for `qloud_groups` {#nestedblock--qloud_groups}
 
 Optional:
 
@@ -147,8 +138,7 @@ Optional:
 - `project` (String) Qloud project
 
 
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
+### Nested Schema for `timeouts` {#nestedblock--timeouts}
 
 Optional:
 
@@ -158,8 +148,7 @@ Optional:
 - `update` (String)
 
 
-<a id="nestedblock--walle"></a>
-### Nested Schema for `walle`
+### Nested Schema for `walle` {#nestedblock--walle}
 
 Optional:
 
@@ -168,8 +157,7 @@ Optional:
 - `tags` (List of String) Space-separated list of wall-e tags
 
 
-<a id="nestedblock--yp_clusters"></a>
-### Nested Schema for `yp_clusters`
+### Nested Schema for `yp_clusters` {#nestedblock--yp_clusters}
 
 Required:
 
