@@ -102,6 +102,8 @@
 * Разработки программного кода.
 * Отладки вашего собственного программного обеспечения.
 
+{% include [end-of-life](../_includes/compute/end-of-life.md) %}
+
 {% if product == "yandex-cloud" %}
 
 ## Как изменить тарифный план {#change-service-plan}
