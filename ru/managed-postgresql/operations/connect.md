@@ -13,7 +13,7 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 

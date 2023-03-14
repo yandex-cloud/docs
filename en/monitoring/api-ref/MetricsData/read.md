@@ -1,8 +1,8 @@
 ---
 editable: false
 ---
-# read method
 
+# read method
 Returns data on metrics.
 
 

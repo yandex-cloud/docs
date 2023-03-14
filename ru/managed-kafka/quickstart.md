@@ -91,6 +91,8 @@
 
    {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
+    {% include [security-groups-note-services](../_includes/vpc/security-groups-note-services.md) %}
+
 
 1. Установите на ВМ SSL-сертификат:
 

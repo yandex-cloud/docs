@@ -20,4 +20,6 @@
     * Укажите зону, FQDN и время жизни записи. При указании FQDN для зоны доступна опция **Определять автоматически**.
       Вы можете добавить несколько записей во [внутренние зоны](../../dns/concepts/dns-zone.md) DNS. Подробнее см. [Интеграция Cloud DNS с Compute Cloud](../../dns/concepts/compute-integration.md).
 
-* Выберите [подходящие группы безопасности](../../vpc/concepts/security-groups.md) (если соответствующего поля нет, для виртуальной машины будет разрешен любой входящий и исходящий трафик).
+* Выберите [подходящие группы безопасности](../../vpc/concepts/security-groups.md).
+
+  {% include [security-groups-note-vm](../vpc/security-groups-note-vm.md) %}

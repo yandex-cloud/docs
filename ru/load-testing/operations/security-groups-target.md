@@ -1,5 +1,7 @@
 # Настройка групп безопасности цели тестирования
 
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
 {% include [security-groups-target](../../_includes/load-testing/security-groups-target.md) %}
 
 {% note info %}

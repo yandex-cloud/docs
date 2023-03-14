@@ -486,6 +486,8 @@
 
 ## Изменить группы безопасности {#change-sg-set}
 
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
 {% list tabs %}
 
 - Консоль управления

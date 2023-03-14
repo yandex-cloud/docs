@@ -45,22 +45,22 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
 
    Result:
 
-   ```
-   id: bbajn5q2d74c********
-   container_id: bba3fva6ka5g********
-   created_at: "2021-07-09T15:04:55.135Z"
-   image:
-     image_url: cr.yandex/crpd3cicopk7********/test-container:latest
-     image_digest: sha256:de8e1dce7ceceeafaae122f7670084a1119c961cd9ea1795eae92bd********
-   resources:
-     memory: "1073741824"
-     cores: "1"
-   execution_timeout: 3s
-   service_account_id: ajeqnasj95o7********
-   status: ACTIVE
-   provision_policy:
-     min_instances: "1"
-   ```
+    ```
+    id: bbajn5q2d74c********
+	container_id: bba3fva6ka5g********
+	created_at: "2021-07-09T15:04:55.135Z"
+	image:
+	  image_url: {{ registry }}/crpd3cicopk7********/test-container:latest
+	  image_digest: sha256:de8e1dce7ceceeafaae122f7670084a1119c961cd9ea1795eae92bd********
+	resources:
+	  memory: "1073741824"
+	  cores: "1"
+	execution_timeout: 3s
+	service_account_id: ajeqnasj95o7********
+	status: ACTIVE
+	provision_policy:
+	  min_instances: "1"
+    ```
 
 - API
 

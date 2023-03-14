@@ -93,7 +93,7 @@
 
 [Группы безопасности](../../../vpc/concepts/security-groups.md) виртуальной машины должны разрешать входящий трафик по протоколу TCP на порт 22.
   
-  {% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
+{% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
 
 Для подключения необходимо указать публичный адрес виртуальной машины. Публичный IP-адрес можно узнать в консоли управления в поле **Публичный IPv4** блока **Сеть** на странице виртуальной машины. Если вы создали машину только с внутренним адресом, [привяжите к ней публичный адрес](../vm-control/vm-attach-public-ip.md).
 

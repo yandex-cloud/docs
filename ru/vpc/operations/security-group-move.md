@@ -1,6 +1,6 @@
 # Переместить группу безопасности в другой каталог
 
-{% include [Preview](../../_includes/vpc/preview.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% list tabs %}
 

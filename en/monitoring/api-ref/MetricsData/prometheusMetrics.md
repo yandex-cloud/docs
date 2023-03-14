@@ -1,8 +1,8 @@
 ---
 editable: false
 ---
-# prometheusMetrics method
 
+# prometheusMetrics method
 Exports service metrics in [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/). All the metrics from the folder are exported.
 
 ## HTTP request {#https-request}

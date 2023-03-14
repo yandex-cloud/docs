@@ -50,7 +50,7 @@
         name   = "my first container with description"
         memory = 256
         image {
-           url = "cr.yandex/yc/test-image:v1"
+           url = "{{ registry }}/yc/test-image:v1"
         }
         labels = {
            label1 = "new-label"

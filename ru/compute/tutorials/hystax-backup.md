@@ -1,1 +1,1 @@
-{% include [hystax-backup](../../_tutorials/infrastructure-management/hystax-backup.md) %}
+{% include [hystax-backup](../../_tutorials/archive/hystax-backup.md) %}

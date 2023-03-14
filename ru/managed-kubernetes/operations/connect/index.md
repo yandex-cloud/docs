@@ -12,6 +12,8 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
+{% include [security-groups-note-services](../../../_includes/vpc/security-groups-note-services.md) %}
+
 [Группы безопасности](security-groups.md) могут препятствовать подключению к кластеру. Для управления кластером с помощью `kubectl` в группах безопасности должны быть настроены правила, разрешающие доступ к API {{ k8s }}. Пошаговые инструкции по настройке правил приведены в разделе [Правила для доступа к API {{ k8s }}](security-groups.md#rules-master).
 
 ## Подключение к кластеру {#kubectl-connect}

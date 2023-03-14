@@ -23,7 +23,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>New description for the node group.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>List of node group labels as key-value pairs.|
 |`--node-labels`|<b>`key=value[,key=value...]`</b><br/>List of node group NODE labels as key-value pairs.|
-|`--metadata`|<b>`key=value[,key=value...]`</b><br/>Metadata for instances in the node group.|
+|`--metadata`|<b>`key=value[,key=value...]`</b><br/>Metadata to add. Only SSH keys are supported as metadata.<br/>See for details https://cloud.yandex.ru/docs/managed-kubernetes/operations/node-connect-ssh|
 |`--metadata-from-file`|<b>`key=value[,key=value...]`</b><br/>Same as --metadata except that the value for the entry will be read from a local file.|
 |`--template-labels`|<b>`key=value[,key=value...]`</b><br/>New list of platform (not Kubernetes) labels for Compute Cloud instances in the node group as key-value pairs. Existing list of labels will be completely overwritten.<br/>No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression '[a-z][-_./\\@0-9a-z]*'.|
 |`--template-labels-from-file`|<b>`key=value[,key=value...]`</b><br/>Same as --template-labels except that the list of key-value pairs for the entry will be read from a local file.|

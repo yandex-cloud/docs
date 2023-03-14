@@ -47,7 +47,7 @@ This procedure can also be used to send metrics from any third-party application
 
 1. Install and configure {{unified-agent-full-name}}.
 
-   1. Create a file named **config.yml** in your home folder.
+   1. Create a file named **config.yml** in your home folder:
 
       **config.yml:**
       ```yaml

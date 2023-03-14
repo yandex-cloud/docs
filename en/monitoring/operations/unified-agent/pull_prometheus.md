@@ -72,7 +72,7 @@ You can also use this method to deliver metrics from any custom applications tha
 
 1. Install and configure {{unified-agent-full-name}}.
 
-   1. Create a file named **config.yml** in your home folder.
+   1. Create a file named **config.yml** in your home folder:
 
       **config.yml:**
       ```yaml

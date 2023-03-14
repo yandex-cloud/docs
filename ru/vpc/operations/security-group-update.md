@@ -1,6 +1,6 @@
 # Изменить имя и описание
 
-{% include [Preview](../../_includes/vpc/preview.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 После создания группы безопасности вы можете изменить ее имя и описание, а также [добавить](security-group-add-rule.md) или [удалить](security-group-delete-rule.md) правила.
 

@@ -22,9 +22,9 @@ If an object in JSON format emerges for the `UpdateItem` operation, the [Attribu
 
 | Parameter | Type | Required | Parameter<br/>placement | Description |
 ----|----|-----|----|----
-| `action` | `string` | Yes | No | Operation in progress. Possible values: `PutItem`, `GetItem`, `UpdateItem`, `DeleteItem`, or `Scan`. |
-| `database` | `string` | Yes | No | Relative path to the database. |
-| `service_account_id` | `string` | Yes | No | ID of the service account. Used for authorization when performing a database operation. If the parameter is omitted, the value of the `service_account_id` [top-level parameter](./index.md#top-level) is used. |
+`action` | `string` | Yes | No | Operation in progress. Possible values: `PutItem`, `GetItem`, `UpdateItem`, `DeleteItem`, or `Scan`.
+`database` | `string` | Yes | No | Relative path to the database.
+`service_account_id` | `string` | Yes | No | Service account ID. Used for authorization when performing a database operation. If this parameter is not specified, the value of the `service_account_id` [top-level parameter](./index.md#top-level) is used.
 | `table_name` | `string` | Yes | Yes | Name of the table with which the operation is performed. |
 | `key` | `string` | No | Yes | Primary key of the element with which the operation is performed. A set of attributes and their values in JSON format. You must specify all key attributes. Attribute values are automatically converted to objects of the [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) type. Used in the [GetItem](../../../ydb/docapi/api-ref/actions/getItem.md), [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md), and [DeleteItem](../../../ydb/docapi/api-ref/actions/deleteItem.md) operations. |
 | `update_expression` | `string` | No | Yes | Expression that specifies how and which attributes must be updated. Used in the [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md) operation. |

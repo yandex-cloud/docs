@@ -103,7 +103,7 @@ Before connecting, configure the `connOpts` connection parameters using the foll
 
 ```java
 String clientId = "YandexIoTCoreTestJavaClient"; 
-int keepAliveInterval = 60;      
+int keepAliveInterval = 60;
 MqttClient client = new MqttClient("ssl://mqtt.cloud.yandex.net:8883", clientId);
 
 // Installing an asynchronous event handler

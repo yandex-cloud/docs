@@ -100,9 +100,9 @@ If you already have a certificate, go directly to the second step.
 Before connecting, configure the connection parameters using the following code:
 
 ```java
-String clientId = "YandexIoTCoreAndroidTextClient";  
+String clientId = "YandexIoTCoreAndroidTextClient";
 int connectionTimeout = 60;
-int keepAliveInterval = 60;      
+int keepAliveInterval = 60;
 MqttAndroidClient mqttAndroidClient = new MqttAndroidClient(getApplicationContext(),"ssl://mqtt.cloud.yandex.net:8883", clientId);
 
 // Setting up the connection parameters.
@@ -183,7 +183,7 @@ private SSLSocketFactory getSocketFactory(final InputStream caCrtFile, final Inp
 Pass the `null` value as `devCert`. This only loads the certificate from the server certification authority:
 
 ```java
-// Load CA certificate    
+// Load CA certificate
 CertificateFactory cf = CertificateFactory.getInstance("X.509");
         X509Certificate caCert = (X509Certificate) cf.generateCertificate(caCrtFile);
 

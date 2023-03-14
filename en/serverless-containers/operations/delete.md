@@ -66,7 +66,7 @@
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
       ```
       terraform plan
       ```

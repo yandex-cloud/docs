@@ -37,7 +37,7 @@
 
 Вы можете задать [подходящие группы безопасности](../../../vpc/concepts/security-groups.md) в шаблоне или настроить их индивидуально для каждой виртуальной машины из группы.
 
-{% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
+{% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
 
 ## Метаданные {#metadata}
 

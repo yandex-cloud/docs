@@ -1,9 +1,9 @@
 ---
-title: "Instructions for operations with {{ iot-full-name }}"
-description: "In this article, you'll learn how to work with {{ iot-full-name }} in {{ yandex-cloud }}. Find out how to manage registries, devices, topic aliases, certificates, and passwords."
+title: "How to work with {{ iot-full-name }}"
+description: "In this article, you will learn how to work with {{ iot-full-name }} in {{ yandex-cloud }}. Find out how to manage registries, devices, topic aliases, certificates, and passwords."
 ---
 
-# Step-by-step instructions for {{ iot-name }}
+# Step-by-step guide for {{ iot-name }}
 
 * [{#T}](publish.md)
 * [{#T}](subscribe.md)
