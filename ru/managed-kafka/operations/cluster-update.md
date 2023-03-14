@@ -712,3 +712,81 @@
   * Идентификатор каталога назначения в параметре `destinationFolderId`.
 
 {% endlist %}
+
+{% if audience != "internal" %}
+
+## Изменить группы безопасности {#change-sg-set}
+
+{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mkf-name }}**.
+  1. В строке с нужным кластером нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg), затем **Изменить кластер**.
+  1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить список [групп безопасности](../concepts/network.md#security-groups) для кластера:
+
+  1. Посмотрите описание команды CLI для изменения кластера:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster update --help
+      ```
+
+  1. Укажите нужные группы безопасности в команде изменения кластера:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster update <имя кластера> \
+         --security-group-ids <список групп безопасности>
+      ```
+
+- {{ TF }}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените значение параметра `security_group_ids` в описании кластера:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          ...
+          security_group_ids = [ <список идентификаторов групп безопасности кластера> ]
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
+- API
+
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+  - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
+  - Список идентификаторов групп безопасности в параметре `securityGroupIds`.
+  - Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
+
+{% endif %}

@@ -67,7 +67,9 @@
 
         {% endnote %}
 
-     1. Выберите группы безопасности для сетевого трафика кластера.
+     1. Выберите [группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
+
+         {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 

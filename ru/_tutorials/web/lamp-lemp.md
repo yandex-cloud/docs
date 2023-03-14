@@ -53,7 +53,7 @@
 
 ## Создайте группы безопасности {#create-security-groups}
 
-{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 [Группы безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) содержат правила, которые разрешают обращаться к ВМ из интернета. В сценарии будет создана группа безопасности `sg-web`.
 

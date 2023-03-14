@@ -45,6 +45,8 @@
 
 {% if audience != "internal" %}
 
+{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
+
 Для работы с {{ mkf-msr }} требуется дополнительная [настройка групп безопасности](../operations/connect.md#configuring-security-groups).
 
 {% endif %}

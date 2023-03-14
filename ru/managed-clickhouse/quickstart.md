@@ -92,6 +92,9 @@ description: "В этой инструкции вы научитесь созд�
 
    {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
+   {% include [security-groups-note-services](../_includes/vpc/security-groups-note-services.md) %}
+
+
 {% endif %}
 
 1. Для подключения к серверу БД получите SSL-сертификат:

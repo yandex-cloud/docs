@@ -401,7 +401,7 @@
 
 ## Создайте группу безопасности {#create-security-group}
 
-{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% if audience != "internal" %}[Группы безопасности](../../vpc/concepts/security-groups.md){% else %}Группы безопасности{% endif %} содержат правила, которые разрешают L7-балансировщику получать входящий трафик и отправлять его на бакеты-бэкенды.
 

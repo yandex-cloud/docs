@@ -1,5 +1,7 @@
 # Настройка групп безопасности
 
+{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
+
 Для [групп безопасности](../../../vpc/concepts/security-groups.md) действует принцип «весь трафик, который не разрешен, запрещен». Чтобы кластер работал, необходимо [создать правила](../../../vpc/operations/security-group-add-rule.md) в его группах безопасности, разрешающие:
 * [Служебный трафик внутри кластера](#rules-internal).
 * [Подключение к сервисам из интернета](#rules-nodes).

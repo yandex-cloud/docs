@@ -80,6 +80,8 @@
 
        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
+      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
   {% endif %}
 
   1. В блоке **Хосты**:

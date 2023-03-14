@@ -43,7 +43,7 @@ spec: <GatewaySpec>
 
     * `gateway.alb.yc.io/security-groups` (`string`, обязательное)
 
-      {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
+      {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
     
       Список [групп безопасности](../../vpc/concepts/security-groups.md) {{ vpc-name }} для балансировщика. Идентификаторы групп перечисляются через запятую, например:
     

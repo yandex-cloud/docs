@@ -1,6 +1,8 @@
 # Создать группу безопасности
 
-{% include [Preview](../../_includes/vpc/preview.md) %}
+Группы безопасности находятся на {% if audience != "internal" %}[стадии Preview](../../overview/concepts/launch-stages.md){% else %}стадии Preview{% endif %}. Если они недоступны в вашей сети, для ресурсов будет разрешен весь входящий и исходящий трафик. Дополнительной настройки не требуется.
+
+Чтобы включить группы безопасности, [запросите в технической поддержке]({{ link-console-support }}/create-ticket) доступ к этой функции.
 
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 

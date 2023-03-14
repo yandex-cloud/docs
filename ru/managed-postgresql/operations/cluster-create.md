@@ -69,7 +69,11 @@
 
         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
-        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+      Группы безопасности находятся на {% if audience != "internal" %}[стадии Preview](../../overview/concepts/launch-stages.md){% else %}стадии Preview{% endif %}. Если они недоступны в вашей сети, для ресурсов будет разрешен весь входящий и исходящий трафик. Дополнительной настройки не требуется.
+
+      Чтобы включить группы безопасности, [запросите в технической поддержке]({{ link-console-support }}/create-ticket) доступ к этой функции.
+
+      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
   {% endif %}
 
