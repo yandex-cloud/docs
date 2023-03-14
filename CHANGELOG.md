@@ -1,3 +1,10 @@
+Release 14.03.2023 
+
+* Data Proc: added a scenario of using Data Proc to diagnose Spark SQL. 
+* Data Transfer: updated settings for the YDB endpoint (both source and target). 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 13.03.2023 
 
 * Monitoring: updated Compute Cloud metrics. 
