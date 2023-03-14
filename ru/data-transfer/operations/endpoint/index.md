@@ -37,7 +37,7 @@
  {% if audience == "external" %}
             * [{{ yds-full-name }}](source/data-streams.md)
  {% endif %}
-{% if product == "yandex-cloud" and audience == "external" %}
+{% if product == "yandex-cloud" %}
             * [{{ ydb-full-name }}](source/ydb.md)
 {% endif %}
 {% if audience == "internal" %}
@@ -60,7 +60,7 @@
 {% if audience == "external" %}
             * [{{ yds-full-name }}](target/data-streams.md)
 {% endif %}
-{% if product == "yandex-cloud" and audience == "external" %}
+{% if product == "yandex-cloud" %}
             * [{{ ydb-full-name }}](target/yandex-database.md)
 {% endif %}
 {% if audience == "internal" %}
@@ -220,7 +220,7 @@
 {% if audience == "external" %}
             * [{{ yds-full-name }}](source/data-streams.md)
 {% endif %}
-{% if product == "yandex-cloud" and audience == "external" %}
+{% if product == "yandex-cloud" %}
             * [{{ ydb-full-name }}](source/ydb.md)
 {% endif %} 
 {% if audience == "internal" %}
@@ -241,7 +241,7 @@
 {% if audience == "external" %}
             * [{{ yds-full-name }}](target/data-streams.md)
 {% endif %}
-{% if product == "yandex-cloud" and audience == "external" %}
+{% if product == "yandex-cloud" %}
             * [{{ ydb-full-name }}](target/yandex-database.md)
 {% endif %}
 {% if audience == "internal" %}

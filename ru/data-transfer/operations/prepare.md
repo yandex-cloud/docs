@@ -1127,7 +1127,7 @@
 
 ### Приемник {{ ydb-full-name }} {#target-ydb}
 
-{% if audience == "external" and product == "yandex-cloud" %}
+{% if product == "yandex-cloud" and audience == external%}
 
 [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `ydb.editor`.
 

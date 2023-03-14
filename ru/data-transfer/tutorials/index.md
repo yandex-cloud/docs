@@ -16,7 +16,7 @@
 ## Поставка данных
 
 * [{#T}](mkf-to-mch.md)
-{% if product == "yandex-cloud" and audience == "external" %}
+{% if product == "yandex-cloud" %}
 * [{#T}](mkf-to-ydb.md)
 {% endif %}
 {% if product == "yandex-cloud" %}
@@ -34,11 +34,11 @@
 ## Асинхронная репликация данных
 
 * [{#T}](mysql-to-clickhouse.md)
-{% if product == "yandex-cloud" and audience == "external" %}
+{% if product == "yandex-cloud" %}
 * [{#T}](managed-mysql-to-ydb.md)
 {% endif %}
 * [{#T}](rdbms-to-clickhouse.md)
-{% if product == "yandex-cloud" and audience == "external" %}
+{% if product == "yandex-cloud" %}
 * [{#T}](mpg-to-ydb.md)
 {% endif %}
 {% if audience == "draft" %}* [{#T}](metrika-to-clickhouse.md){% endif %}
