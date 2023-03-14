@@ -45,14 +45,16 @@ settings | **[EndpointSettings](#EndpointSettings)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target` or `mongo_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `kafka_target` or `mongo_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource)**<br> 
+&nbsp;&nbsp;kafka_source | **[endpoint.KafkaSource](#KafkaSource)**<br> 
 &nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource)**<br> 
 &nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource)**<br> 
 &nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget)**<br> 
 &nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget)**<br> 
 &nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget)**<br> 
+&nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget)**<br> 
 
 
@@ -60,12 +62,12 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickh
 
 Field | Description
 --- | ---
-connection | **[MysqlConnection](#MysqlConnection)**<br>Connection settings <br>Database connection settings 
+connection | **[MysqlConnection](#MysqlConnection)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source. 
 service_database | **string**<br>Database for service tables <br>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret)**<br>Password <br>Password for database access. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret)**<br>Password for database access. 
 include_tables_regex[] | **string**<br> 
 exclude_tables_regex[] | **string**<br> 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
@@ -77,8 +79,8 @@ object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferS
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for MySQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql)**<br>On-premise <br>Connection options for on-premise MySQL 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed Service for MySQL cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql)**<br>Connection options for on-premise MySQL 
 
 
 ### OnPremiseMysql {#OnPremiseMysql}
@@ -86,9 +88,9 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Default: 3306. 
-tls_mode | **[TLSMode](#TLSMode)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
+port | **int64**<br>Database port 
+tls_mode | **[TLSMode](#TLSMode)**<br>TLS settings for server connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
 
 
 ### TLSMode {#TLSMode}
@@ -112,32 +114,33 @@ ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certi
 Field | Description
 --- | ---
 value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
+&nbsp;&nbsp;raw | **string**<br>Raw secret value 
 
 
 ### MysqlObjectTransferSettings {#MysqlObjectTransferSettings}
 
 Field | Description
 --- | ---
-view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... 
-routine | enum **ObjectTransferStage**<br>Routines <br>CREATE PROCEDURE ...; CREATE FUNCTION ...; 
-trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... 
+view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+routine | enum **ObjectTransferStage**<br>Routines <br>CREATE PROCEDURE ...; CREATE FUNCTION ...; <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+tables | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 
 
 ### PostgresSource {#PostgresSource}
 
 Field | Description
 --- | ---
-connection | **[PostgresConnection](#PostgresConnection)**<br>Connection settings <br>Database connection settings 
+connection | **[PostgresConnection](#PostgresConnection)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret1)**<br>Password <br>Password for database access. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret1)**<br>Password for database access. 
 include_tables[] | **string**<br>Included tables <br>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns. 
 exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns. 
-slot_byte_lag_limit | **int64**<br>Maximum WAL size for the replication slot <br>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default. 
-service_schema | **string**<br>Database schema for service tables <br>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder). 
-object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
+slot_byte_lag_limit | **int64**<br>Maximum lag of replication slot (in bytes); after exceeding this limit replication will be aborted. 
+service_schema | **string**<br>Database schema for service tables (__consumer_keeper, __data_transfer_mole_finder). Default is public 
+object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings)**<br>Select database objects to be transferred during activation or deactivation. 
 
 
 ### PostgresConnection {#PostgresConnection}
@@ -145,8 +148,8 @@ object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTra
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for PostgreSQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed Service for PostgreSQL cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres)**<br>Connection options for on-premise PostgreSQL 
 
 
 ### OnPremisePostgres {#OnPremisePostgres}
@@ -154,32 +157,152 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Will be used if the cluster ID is not specified. Default: 6432. 
-tls_mode | **[TLSMode](#TLSMode1)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
+port | **int64**<br>Will be used if the cluster ID is not specified. 
+tls_mode | **[TLSMode](#TLSMode1)**<br>TLS settings for server connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
 
 
 ### PostgresObjectTransferSettings {#PostgresObjectTransferSettings}
 
 Field | Description
 --- | ---
-sequence | enum **ObjectTransferStage**<br>Sequences <br>CREATE SEQUENCE ... 
-sequence_owned_by | enum **ObjectTransferStage**<br>Owned sequences <br>CREATE SEQUENCE ... OWNED BY ... 
-table | enum **ObjectTransferStage**<br>Tables <br>CREATE TABLE ... 
-primary_key | enum **ObjectTransferStage**<br>Primary keys <br>ALTER TABLE ... ADD PRIMARY KEY ... 
-fk_constraint | enum **ObjectTransferStage**<br>Foreign keys <br>ALTER TABLE ... ADD FOREIGN KEY ... 
-default_values | enum **ObjectTransferStage**<br>Default values <br>ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ... 
-constraint | enum **ObjectTransferStage**<br>Constraints <br>ALTER TABLE ... ADD CONSTRAINT ... 
-index | enum **ObjectTransferStage**<br>Indexes <br>CREATE INDEX ... 
-view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... 
-function | enum **ObjectTransferStage**<br>Functions <br>CREATE FUNCTION ... 
-trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... 
-type | enum **ObjectTransferStage**<br>Types <br>CREATE TYPE ... 
-rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... 
-collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... 
-policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... 
-cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... 
-materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... 
+sequence | enum **ObjectTransferStage**<br>Sequences <br>CREATE SEQUENCE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+sequence_owned_by | enum **ObjectTransferStage**<br>Owned sequences <br>CREATE SEQUENCE ... OWNED BY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+sequence_set | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+table | enum **ObjectTransferStage**<br>Tables <br>CREATE TABLE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+primary_key | enum **ObjectTransferStage**<br>Primary keys <br>ALTER TABLE ... ADD PRIMARY KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+fk_constraint | enum **ObjectTransferStage**<br>Foreign keys <br>ALTER TABLE ... ADD FOREIGN KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+default_values | enum **ObjectTransferStage**<br>Default values <br>ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+constraint | enum **ObjectTransferStage**<br>Constraints <br>ALTER TABLE ... ADD CONSTRAINT ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+index | enum **ObjectTransferStage**<br>Indexes <br>CREATE INDEX ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+function | enum **ObjectTransferStage**<br>Functions <br>CREATE FUNCTION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+type | enum **ObjectTransferStage**<br>Types <br>CREATE TYPE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+
+
+### KafkaSource {#KafkaSource}
+
+Field | Description
+--- | ---
+connection | **[KafkaConnectionOptions](#KafkaConnectionOptions)**<br>Connection settings 
+auth | **[KafkaAuth](#KafkaAuth)**<br>Authentication settings 
+security_groups[] | **string**<br>Security groups 
+topic_name | **string**<br>Full source topic name 
+transformer | **[DataTransformationOptions](#DataTransformationOptions)**<br>Data transformation rules 
+parser | **[Parser](#Parser)**<br>Data parsing rules 
+
+
+### KafkaConnectionOptions {#KafkaConnectionOptions}
+
+Field | Description
+--- | ---
+connection | **oneof:** `cluster_id` or `on_premise`<br>
+&nbsp;&nbsp;cluster_id | **string**<br>Managed Service for Kafka cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremiseKafka](#OnPremiseKafka)**<br>Connection options for on-premise Kafka 
+
+
+### OnPremiseKafka {#OnPremiseKafka}
+
+Field | Description
+--- | ---
+broker_urls[] | **string**<br>Kafka broker URLs 
+tls_mode | **[TLSMode](#TLSMode1)**<br>TLS settings for broker connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+
+
+### KafkaAuth {#KafkaAuth}
+
+Field | Description
+--- | ---
+security | **oneof:** `sasl` or `no_auth`<br>
+&nbsp;&nbsp;sasl | **[KafkaSaslSecurity](#KafkaSaslSecurity)**<br>Authentication with SASL 
+&nbsp;&nbsp;no_auth | **[NoAuth](#NoAuth)**<br>No authentication 
+
+
+### KafkaSaslSecurity {#KafkaSaslSecurity}
+
+Field | Description
+--- | ---
+user | **string**<br>User name 
+password | **[Secret](#Secret1)**<br>Password for user 
+mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication 
+
+
+### NoAuth {#NoAuth}
+
+
+
+### DataTransformationOptions {#DataTransformationOptions}
+
+Field | Description
+--- | ---
+cloud_function | **string**<br>Cloud function 
+service_account_id | **string**<br>Service account 
+number_of_retries | **int64**<br>Number of retries 
+buffer_size | **string**<br>Buffer size for function 
+buffer_flush_interval | **string**<br>Flush interval 
+invocation_timeout | **string**<br>Invocation timeout 
+
+
+### Parser {#Parser}
+
+Field | Description
+--- | ---
+parser | **oneof:** `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser` or `tskv_parser`<br>
+&nbsp;&nbsp;json_parser | **[GenericParserCommon](#GenericParserCommon)**<br> 
+&nbsp;&nbsp;audit_trails_v1_parser | **[AuditTrailsV1Parser](#AuditTrailsV1Parser)**<br> 
+&nbsp;&nbsp;cloud_logging_parser | **[CloudLoggingParser](#CloudLoggingParser)**<br> 
+&nbsp;&nbsp;tskv_parser | **[GenericParserCommon](#GenericParserCommon)**<br> 
+
+
+### GenericParserCommon {#GenericParserCommon}
+
+Field | Description
+--- | ---
+data_schema | **[DataSchema](#DataSchema)**<br> 
+null_keys_allowed | **bool**<br>Allow null keys, if no - null keys will be putted to unparsed data 
+add_rest_column | **bool**<br>Will add _rest column for all unknown fields 
+
+
+### DataSchema {#DataSchema}
+
+Field | Description
+--- | ---
+schema | **oneof:** `fields` or `json_fields`<br>
+&nbsp;&nbsp;fields | **[FieldList](#FieldList)**<br> 
+&nbsp;&nbsp;json_fields | **string**<br> 
+
+
+### FieldList {#FieldList}
+
+Field | Description
+--- | ---
+fields[] | **[ColSchema](#ColSchema)**<br>Column schema 
+
+
+### ColSchema {#ColSchema}
+
+Field | Description
+--- | ---
+name | **string**<br> 
+type | enum **ColumnType**<br> 
+key | **bool**<br> 
+required | **bool**<br> 
+path | **string**<br> 
+
+
+### AuditTrailsV1Parser {#AuditTrailsV1Parser}
+
+
+
+### CloudLoggingParser {#CloudLoggingParser}
+
 
 
 ### MongoSource {#MongoSource}
@@ -189,9 +312,9 @@ Field | Description
 connection | **[MongoConnection](#MongoConnection)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
-collections[] | **[MongoCollection](#MongoCollection)**<br> 
-excluded_collections[] | **[MongoCollection](#MongoCollection)**<br> 
-secondary_preferred_mode | **bool**<br> 
+collections[] | **[MongoCollection](#MongoCollection)**<br>List of collections for replication. Empty list implies replication of all tables on the deployment. Allowed to use * as collection name. 
+excluded_collections[] | **[MongoCollection](#MongoCollection)**<br>List of forbidden collections for replication. Allowed to use * as collection name for forbid all collections of concrete schema. 
+secondary_preferred_mode | **bool**<br>Read mode for mongo client 
 
 
 ### MongoConnection {#MongoConnection}
@@ -209,9 +332,9 @@ Field | Description
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseMongo](#OnPremiseMongo)**<br> 
-user | **string**<br> 
-password | **[Secret](#Secret1)**<br> 
-auth_source | **string**<br> 
+user | **string**<br>User name 
+password | **[Secret](#Secret1)**<br>Password for user 
+auth_source | **string**<br>Database name associated with the credentials 
 
 
 ### OnPremiseMongo {#OnPremiseMongo}
@@ -239,8 +362,8 @@ Field | Description
 connection | **[ClickhouseConnection](#ClickhouseConnection)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
-include_tables[] | **string**<br> 
-exclude_tables[] | **string**<br> 
+include_tables[] | **string**<br>While list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
+exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 
 
 ### ClickhouseConnection {#ClickhouseConnection}
@@ -258,7 +381,7 @@ Field | Description
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse)**<br> 
-database | **string**<br> 
+database | **string**<br>Database 
 user | **string**<br> 
 password | **[Secret](#Secret1)**<br> 
 
@@ -285,15 +408,15 @@ hosts[] | **string**<br>
 
 Field | Description
 --- | ---
-connection | **[MysqlConnection](#MysqlConnection1)**<br>Connection settings <br>Database connection settings 
+connection | **[MysqlConnection](#MysqlConnection1)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table. 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret1)**<br>Password <br>Password for database access. 
-sql_mode | **string**<br>sql_mode <br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret1)**<br>Password for database access. 
+sql_mode | **string**<br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
 skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
-cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
@@ -301,12 +424,12 @@ service_database | **string**<br>Database schema for service table <br>Default: 
 
 Field | Description
 --- | ---
-connection | **[PostgresConnection](#PostgresConnection1)**<br>Connection settings <br>Database connection settings 
+connection | **[PostgresConnection](#PostgresConnection1)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret1)**<br>Password <br>Password for database access. 
-cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret1)**<br>Password for database access. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy for activate, reactivate and reupload processes. Default is truncate. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 
 
 ### ClickhouseTarget {#ClickhouseTarget}
@@ -317,7 +440,7 @@ connection | **[ClickhouseConnection](#ClickhouseConnection1)**<br>
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
 clickhouse_cluster_name | **string**<br> 
-alt_names[] | **[AltName](#AltName)**<br> 
+alt_names[] | **[AltName](#AltName)**<br>Alternative table names in target 
 sharding | **[ClickhouseSharding](#ClickhouseSharding)**<br> 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
 
@@ -326,8 +449,8 @@ cleanup_policy | enum **ClickhouseCleanupPolicy**<br>
 
 Field | Description
 --- | ---
-from_name | **string**<br>From table name 
-to_name | **string**<br>To table name 
+from_name | **string**<br>Source table name 
+to_name | **string**<br>Target table name 
 
 
 ### ClickhouseSharding {#ClickhouseSharding}
@@ -371,6 +494,33 @@ value | **oneof:** `string_value`<br>
 &nbsp;&nbsp;string_value | **string**<br> 
 
 
+### KafkaTarget {#KafkaTarget}
+
+Field | Description
+--- | ---
+connection | **[KafkaConnectionOptions](#KafkaConnectionOptions1)**<br>Connection settings 
+auth | **[KafkaAuth](#KafkaAuth1)**<br>Authentication settings 
+security_groups[] | **string**<br>Security groups 
+topic_settings | **[KafkaTargetTopicSettings](#KafkaTargetTopicSettings)**<br>Target topic settings 
+
+
+### KafkaTargetTopicSettings {#KafkaTargetTopicSettings}
+
+Field | Description
+--- | ---
+topic_settings | **oneof:** `topic` or `topic_prefix`<br>
+&nbsp;&nbsp;topic | **[KafkaTargetTopic](#KafkaTargetTopic)**<br>Full topic name 
+&nbsp;&nbsp;topic_prefix | **string**<br>Topic prefix <br>Analogue of the Debezium setting database.server.name. Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>. 
+
+
+### KafkaTargetTopic {#KafkaTargetTopic}
+
+Field | Description
+--- | ---
+topic_name | **string**<br>Topic name 
+save_tx_order | **bool**<br>Save transactions order Not to split events queue into separate per-table queues. 
+
+
 ### MongoTarget {#MongoTarget}
 
 Field | Description
@@ -378,8 +528,8 @@ Field | Description
 connection | **[MongoConnection](#MongoConnection1)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
-database | **string**<br> 
-cleanup_policy | enum **CleanupPolicy**<br> 
+database | **string**<br>Database name 
+cleanup_policy | enum **CleanupPolicy**<br> <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 
 
 ## List {#List}
@@ -393,16 +543,16 @@ cleanup_policy | enum **CleanupPolicy**<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Identifier of the folder containing the endpoints to be listed. 
-page_size | **int64**<br>The maximum number of endpoints to be sent in the response message. If the folder contains more endpoints than page_size, next_page_token will be included in the response message. Include it into the subsequent ListEndpointRequest to fetch the next page. Defaults to 100 if not specified. The maximum allowed value for this field is 500. 
-page_token | **string**<br>Opaque value identifying the endpoints page to be fetched. Should be empty in the first ListEndpointsRequest. Subsequent request should have this field filled with the next_page_token from the previous ListEndpointsResponse. 
+page_size | **int64**<br>The maximum number of endpoints to be sent in the response message. If the folder contains more endpoints than `page_size`, `next_page_token` will be included in the response message. Include it into the subsequent `ListEndpointRequest` to fetch the next page. Defaults to `100` if not specified. The maximum allowed value for this field is `500`. 
+page_token | **string**<br>Opaque value identifying the endpoints page to be fetched. Should be empty in the first `ListEndpointsRequest`. Subsequent requests should have this field filled with the `next_page_token` from the previous `ListEndpointsResponse`. 
 
 
 ### ListEndpointsResponse {#ListEndpointsResponse}
 
 Field | Description
 --- | ---
-endpoints[] | **[Endpoint](#Endpoint1)**<br>The list of endpoints. If there are more endpoints in the folder, then next_page_token is a non-empty string to be included into the subsequent ListEndpointsRequest to fetch the next endpoints page. 
-next_page_token | **string**<br>Opaque value identifying the next endpoints page. This field is empty if there are no more endpoints in the folder. Otherwise it is non-empty and should be included in the subsequent ListEndpointsRequest to fetch the next endpoints page. 
+endpoints[] | **[Endpoint](#Endpoint1)**<br>The list of endpoints. If there are more endpoints in the folder, then `next_page_token` is a non-empty string to be included into the subsequent `ListEndpointsRequest` to fetch the next endpoints page. 
+next_page_token | **string**<br>Opaque value identifying the next endpoints page. This field is empty if there are no more endpoints in the folder. Otherwise, it is non-empty and should be included in the subsequent `ListEndpointsRequest` to fetch the next endpoints page. 
 
 
 ### Endpoint {#Endpoint1}
@@ -421,14 +571,16 @@ settings | **[EndpointSettings](#EndpointSettings1)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target` or `mongo_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `kafka_target` or `mongo_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource1)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource1)**<br> 
+&nbsp;&nbsp;kafka_source | **[endpoint.KafkaSource](#KafkaSource1)**<br> 
 &nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource1)**<br> 
 &nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource1)**<br> 
 &nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget1)**<br> 
 &nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget1)**<br> 
 &nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget1)**<br> 
+&nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget1)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget1)**<br> 
 
 
@@ -436,12 +588,12 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickh
 
 Field | Description
 --- | ---
-connection | **[MysqlConnection](#MysqlConnection1)**<br>Connection settings <br>Database connection settings 
+connection | **[MysqlConnection](#MysqlConnection1)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source. 
 service_database | **string**<br>Database for service tables <br>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret1)**<br>Password <br>Password for database access. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret1)**<br>Password for database access. 
 include_tables_regex[] | **string**<br> 
 exclude_tables_regex[] | **string**<br> 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
@@ -453,8 +605,8 @@ object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferS
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for MySQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql1)**<br>On-premise <br>Connection options for on-premise MySQL 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed Service for MySQL cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql1)**<br>Connection options for on-premise MySQL 
 
 
 ### OnPremiseMysql {#OnPremiseMysql1}
@@ -462,9 +614,9 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Default: 3306. 
-tls_mode | **[TLSMode](#TLSMode1)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
+port | **int64**<br>Database port 
+tls_mode | **[TLSMode](#TLSMode1)**<br>TLS settings for server connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
 
 
 ### TLSMode {#TLSMode1}
@@ -488,32 +640,33 @@ ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certi
 Field | Description
 --- | ---
 value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
+&nbsp;&nbsp;raw | **string**<br>Raw secret value 
 
 
 ### MysqlObjectTransferSettings {#MysqlObjectTransferSettings1}
 
 Field | Description
 --- | ---
-view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... 
-routine | enum **ObjectTransferStage**<br>Routines <br>CREATE PROCEDURE ...; CREATE FUNCTION ...; 
-trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... 
+view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+routine | enum **ObjectTransferStage**<br>Routines <br>CREATE PROCEDURE ...; CREATE FUNCTION ...; <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+tables | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 
 
 ### PostgresSource {#PostgresSource1}
 
 Field | Description
 --- | ---
-connection | **[PostgresConnection](#PostgresConnection1)**<br>Connection settings <br>Database connection settings 
+connection | **[PostgresConnection](#PostgresConnection1)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret2)**<br>Password <br>Password for database access. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret2)**<br>Password for database access. 
 include_tables[] | **string**<br>Included tables <br>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns. 
 exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns. 
-slot_byte_lag_limit | **int64**<br>Maximum WAL size for the replication slot <br>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default. 
-service_schema | **string**<br>Database schema for service tables <br>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder). 
-object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings1)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
+slot_byte_lag_limit | **int64**<br>Maximum lag of replication slot (in bytes); after exceeding this limit replication will be aborted. 
+service_schema | **string**<br>Database schema for service tables (__consumer_keeper, __data_transfer_mole_finder). Default is public 
+object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings1)**<br>Select database objects to be transferred during activation or deactivation. 
 
 
 ### PostgresConnection {#PostgresConnection1}
@@ -521,8 +674,8 @@ object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTra
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for PostgreSQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres1)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed Service for PostgreSQL cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres1)**<br>Connection options for on-premise PostgreSQL 
 
 
 ### OnPremisePostgres {#OnPremisePostgres1}
@@ -530,32 +683,152 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Will be used if the cluster ID is not specified. Default: 6432. 
-tls_mode | **[TLSMode](#TLSMode2)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
+port | **int64**<br>Will be used if the cluster ID is not specified. 
+tls_mode | **[TLSMode](#TLSMode2)**<br>TLS settings for server connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
 
 
 ### PostgresObjectTransferSettings {#PostgresObjectTransferSettings1}
 
 Field | Description
 --- | ---
-sequence | enum **ObjectTransferStage**<br>Sequences <br>CREATE SEQUENCE ... 
-sequence_owned_by | enum **ObjectTransferStage**<br>Owned sequences <br>CREATE SEQUENCE ... OWNED BY ... 
-table | enum **ObjectTransferStage**<br>Tables <br>CREATE TABLE ... 
-primary_key | enum **ObjectTransferStage**<br>Primary keys <br>ALTER TABLE ... ADD PRIMARY KEY ... 
-fk_constraint | enum **ObjectTransferStage**<br>Foreign keys <br>ALTER TABLE ... ADD FOREIGN KEY ... 
-default_values | enum **ObjectTransferStage**<br>Default values <br>ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ... 
-constraint | enum **ObjectTransferStage**<br>Constraints <br>ALTER TABLE ... ADD CONSTRAINT ... 
-index | enum **ObjectTransferStage**<br>Indexes <br>CREATE INDEX ... 
-view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... 
-function | enum **ObjectTransferStage**<br>Functions <br>CREATE FUNCTION ... 
-trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... 
-type | enum **ObjectTransferStage**<br>Types <br>CREATE TYPE ... 
-rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... 
-collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... 
-policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... 
-cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... 
-materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... 
+sequence | enum **ObjectTransferStage**<br>Sequences <br>CREATE SEQUENCE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+sequence_owned_by | enum **ObjectTransferStage**<br>Owned sequences <br>CREATE SEQUENCE ... OWNED BY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+sequence_set | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+table | enum **ObjectTransferStage**<br>Tables <br>CREATE TABLE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+primary_key | enum **ObjectTransferStage**<br>Primary keys <br>ALTER TABLE ... ADD PRIMARY KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+fk_constraint | enum **ObjectTransferStage**<br>Foreign keys <br>ALTER TABLE ... ADD FOREIGN KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+default_values | enum **ObjectTransferStage**<br>Default values <br>ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+constraint | enum **ObjectTransferStage**<br>Constraints <br>ALTER TABLE ... ADD CONSTRAINT ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+index | enum **ObjectTransferStage**<br>Indexes <br>CREATE INDEX ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+function | enum **ObjectTransferStage**<br>Functions <br>CREATE FUNCTION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+type | enum **ObjectTransferStage**<br>Types <br>CREATE TYPE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+
+
+### KafkaSource {#KafkaSource1}
+
+Field | Description
+--- | ---
+connection | **[KafkaConnectionOptions](#KafkaConnectionOptions1)**<br>Connection settings 
+auth | **[KafkaAuth](#KafkaAuth1)**<br>Authentication settings 
+security_groups[] | **string**<br>Security groups 
+topic_name | **string**<br>Full source topic name 
+transformer | **[DataTransformationOptions](#DataTransformationOptions1)**<br>Data transformation rules 
+parser | **[Parser](#Parser1)**<br>Data parsing rules 
+
+
+### KafkaConnectionOptions {#KafkaConnectionOptions1}
+
+Field | Description
+--- | ---
+connection | **oneof:** `cluster_id` or `on_premise`<br>
+&nbsp;&nbsp;cluster_id | **string**<br>Managed Service for Kafka cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremiseKafka](#OnPremiseKafka1)**<br>Connection options for on-premise Kafka 
+
+
+### OnPremiseKafka {#OnPremiseKafka1}
+
+Field | Description
+--- | ---
+broker_urls[] | **string**<br>Kafka broker URLs 
+tls_mode | **[TLSMode](#TLSMode2)**<br>TLS settings for broker connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+
+
+### KafkaAuth {#KafkaAuth1}
+
+Field | Description
+--- | ---
+security | **oneof:** `sasl` or `no_auth`<br>
+&nbsp;&nbsp;sasl | **[KafkaSaslSecurity](#KafkaSaslSecurity1)**<br>Authentication with SASL 
+&nbsp;&nbsp;no_auth | **[NoAuth](#NoAuth1)**<br>No authentication 
+
+
+### KafkaSaslSecurity {#KafkaSaslSecurity1}
+
+Field | Description
+--- | ---
+user | **string**<br>User name 
+password | **[Secret](#Secret2)**<br>Password for user 
+mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication 
+
+
+### NoAuth {#NoAuth1}
+
+
+
+### DataTransformationOptions {#DataTransformationOptions1}
+
+Field | Description
+--- | ---
+cloud_function | **string**<br>Cloud function 
+service_account_id | **string**<br>Service account 
+number_of_retries | **int64**<br>Number of retries 
+buffer_size | **string**<br>Buffer size for function 
+buffer_flush_interval | **string**<br>Flush interval 
+invocation_timeout | **string**<br>Invocation timeout 
+
+
+### Parser {#Parser1}
+
+Field | Description
+--- | ---
+parser | **oneof:** `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser` or `tskv_parser`<br>
+&nbsp;&nbsp;json_parser | **[GenericParserCommon](#GenericParserCommon1)**<br> 
+&nbsp;&nbsp;audit_trails_v1_parser | **[AuditTrailsV1Parser](#AuditTrailsV1Parser1)**<br> 
+&nbsp;&nbsp;cloud_logging_parser | **[CloudLoggingParser](#CloudLoggingParser1)**<br> 
+&nbsp;&nbsp;tskv_parser | **[GenericParserCommon](#GenericParserCommon1)**<br> 
+
+
+### GenericParserCommon {#GenericParserCommon1}
+
+Field | Description
+--- | ---
+data_schema | **[DataSchema](#DataSchema1)**<br> 
+null_keys_allowed | **bool**<br>Allow null keys, if no - null keys will be putted to unparsed data 
+add_rest_column | **bool**<br>Will add _rest column for all unknown fields 
+
+
+### DataSchema {#DataSchema1}
+
+Field | Description
+--- | ---
+schema | **oneof:** `fields` or `json_fields`<br>
+&nbsp;&nbsp;fields | **[FieldList](#FieldList1)**<br> 
+&nbsp;&nbsp;json_fields | **string**<br> 
+
+
+### FieldList {#FieldList1}
+
+Field | Description
+--- | ---
+fields[] | **[ColSchema](#ColSchema1)**<br>Column schema 
+
+
+### ColSchema {#ColSchema1}
+
+Field | Description
+--- | ---
+name | **string**<br> 
+type | enum **ColumnType**<br> 
+key | **bool**<br> 
+required | **bool**<br> 
+path | **string**<br> 
+
+
+### AuditTrailsV1Parser {#AuditTrailsV1Parser1}
+
+
+
+### CloudLoggingParser {#CloudLoggingParser1}
+
 
 
 ### MongoSource {#MongoSource1}
@@ -565,9 +838,9 @@ Field | Description
 connection | **[MongoConnection](#MongoConnection1)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
-collections[] | **[MongoCollection](#MongoCollection1)**<br> 
-excluded_collections[] | **[MongoCollection](#MongoCollection1)**<br> 
-secondary_preferred_mode | **bool**<br> 
+collections[] | **[MongoCollection](#MongoCollection1)**<br>List of collections for replication. Empty list implies replication of all tables on the deployment. Allowed to use * as collection name. 
+excluded_collections[] | **[MongoCollection](#MongoCollection1)**<br>List of forbidden collections for replication. Allowed to use * as collection name for forbid all collections of concrete schema. 
+secondary_preferred_mode | **bool**<br>Read mode for mongo client 
 
 
 ### MongoConnection {#MongoConnection1}
@@ -585,9 +858,9 @@ Field | Description
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseMongo](#OnPremiseMongo1)**<br> 
-user | **string**<br> 
-password | **[Secret](#Secret2)**<br> 
-auth_source | **string**<br> 
+user | **string**<br>User name 
+password | **[Secret](#Secret2)**<br>Password for user 
+auth_source | **string**<br>Database name associated with the credentials 
 
 
 ### OnPremiseMongo {#OnPremiseMongo1}
@@ -615,8 +888,8 @@ Field | Description
 connection | **[ClickhouseConnection](#ClickhouseConnection1)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
-include_tables[] | **string**<br> 
-exclude_tables[] | **string**<br> 
+include_tables[] | **string**<br>While list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
+exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 
 
 ### ClickhouseConnection {#ClickhouseConnection1}
@@ -634,7 +907,7 @@ Field | Description
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse1)**<br> 
-database | **string**<br> 
+database | **string**<br>Database 
 user | **string**<br> 
 password | **[Secret](#Secret2)**<br> 
 
@@ -661,15 +934,15 @@ hosts[] | **string**<br>
 
 Field | Description
 --- | ---
-connection | **[MysqlConnection](#MysqlConnection2)**<br>Connection settings <br>Database connection settings 
+connection | **[MysqlConnection](#MysqlConnection2)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table. 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret2)**<br>Password <br>Password for database access. 
-sql_mode | **string**<br>sql_mode <br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret2)**<br>Password for database access. 
+sql_mode | **string**<br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
 skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
-cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
@@ -677,12 +950,12 @@ service_database | **string**<br>Database schema for service table <br>Default: 
 
 Field | Description
 --- | ---
-connection | **[PostgresConnection](#PostgresConnection2)**<br>Connection settings <br>Database connection settings 
+connection | **[PostgresConnection](#PostgresConnection2)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret2)**<br>Password <br>Password for database access. 
-cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret2)**<br>Password for database access. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy for activate, reactivate and reupload processes. Default is truncate. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 
 
 ### ClickhouseTarget {#ClickhouseTarget1}
@@ -693,7 +966,7 @@ connection | **[ClickhouseConnection](#ClickhouseConnection2)**<br>
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
 clickhouse_cluster_name | **string**<br> 
-alt_names[] | **[AltName](#AltName1)**<br> 
+alt_names[] | **[AltName](#AltName1)**<br>Alternative table names in target 
 sharding | **[ClickhouseSharding](#ClickhouseSharding1)**<br> 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
 
@@ -702,8 +975,8 @@ cleanup_policy | enum **ClickhouseCleanupPolicy**<br>
 
 Field | Description
 --- | ---
-from_name | **string**<br>From table name 
-to_name | **string**<br>To table name 
+from_name | **string**<br>Source table name 
+to_name | **string**<br>Target table name 
 
 
 ### ClickhouseSharding {#ClickhouseSharding1}
@@ -747,6 +1020,33 @@ value | **oneof:** `string_value`<br>
 &nbsp;&nbsp;string_value | **string**<br> 
 
 
+### KafkaTarget {#KafkaTarget1}
+
+Field | Description
+--- | ---
+connection | **[KafkaConnectionOptions](#KafkaConnectionOptions2)**<br>Connection settings 
+auth | **[KafkaAuth](#KafkaAuth2)**<br>Authentication settings 
+security_groups[] | **string**<br>Security groups 
+topic_settings | **[KafkaTargetTopicSettings](#KafkaTargetTopicSettings1)**<br>Target topic settings 
+
+
+### KafkaTargetTopicSettings {#KafkaTargetTopicSettings1}
+
+Field | Description
+--- | ---
+topic_settings | **oneof:** `topic` or `topic_prefix`<br>
+&nbsp;&nbsp;topic | **[KafkaTargetTopic](#KafkaTargetTopic1)**<br>Full topic name 
+&nbsp;&nbsp;topic_prefix | **string**<br>Topic prefix <br>Analogue of the Debezium setting database.server.name. Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>. 
+
+
+### KafkaTargetTopic {#KafkaTargetTopic1}
+
+Field | Description
+--- | ---
+topic_name | **string**<br>Topic name 
+save_tx_order | **bool**<br>Save transactions order Not to split events queue into separate per-table queues. 
+
+
 ### MongoTarget {#MongoTarget1}
 
 Field | Description
@@ -754,8 +1054,8 @@ Field | Description
 connection | **[MongoConnection](#MongoConnection2)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
-database | **string**<br> 
-cleanup_policy | enum **CleanupPolicy**<br> 
+database | **string**<br>Database name 
+cleanup_policy | enum **CleanupPolicy**<br> <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 
 
 ## Create {#Create}
@@ -779,14 +1079,16 @@ settings | **[EndpointSettings](#EndpointSettings2)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target` or `mongo_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `kafka_target` or `mongo_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource2)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource2)**<br> 
+&nbsp;&nbsp;kafka_source | **[endpoint.KafkaSource](#KafkaSource2)**<br> 
 &nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource2)**<br> 
 &nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource2)**<br> 
 &nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget2)**<br> 
 &nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget2)**<br> 
 &nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget2)**<br> 
+&nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget2)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget2)**<br> 
 
 
@@ -794,12 +1096,12 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickh
 
 Field | Description
 --- | ---
-connection | **[MysqlConnection](#MysqlConnection2)**<br>Connection settings <br>Database connection settings 
+connection | **[MysqlConnection](#MysqlConnection2)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source. 
 service_database | **string**<br>Database for service tables <br>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret2)**<br>Password <br>Password for database access. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret2)**<br>Password for database access. 
 include_tables_regex[] | **string**<br> 
 exclude_tables_regex[] | **string**<br> 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
@@ -811,8 +1113,8 @@ object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferS
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for MySQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql2)**<br>On-premise <br>Connection options for on-premise MySQL 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed Service for MySQL cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql2)**<br>Connection options for on-premise MySQL 
 
 
 ### OnPremiseMysql {#OnPremiseMysql2}
@@ -820,9 +1122,9 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Default: 3306. 
-tls_mode | **[TLSMode](#TLSMode2)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
+port | **int64**<br>Database port 
+tls_mode | **[TLSMode](#TLSMode2)**<br>TLS settings for server connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
 
 
 ### TLSMode {#TLSMode2}
@@ -846,32 +1148,33 @@ ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certi
 Field | Description
 --- | ---
 value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
+&nbsp;&nbsp;raw | **string**<br>Raw secret value 
 
 
 ### MysqlObjectTransferSettings {#MysqlObjectTransferSettings2}
 
 Field | Description
 --- | ---
-view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... 
-routine | enum **ObjectTransferStage**<br>Routines <br>CREATE PROCEDURE ...; CREATE FUNCTION ...; 
-trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... 
+view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+routine | enum **ObjectTransferStage**<br>Routines <br>CREATE PROCEDURE ...; CREATE FUNCTION ...; <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+tables | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 
 
 ### PostgresSource {#PostgresSource2}
 
 Field | Description
 --- | ---
-connection | **[PostgresConnection](#PostgresConnection2)**<br>Connection settings <br>Database connection settings 
+connection | **[PostgresConnection](#PostgresConnection2)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret3)**<br>Password <br>Password for database access. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret3)**<br>Password for database access. 
 include_tables[] | **string**<br>Included tables <br>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns. 
 exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns. 
-slot_byte_lag_limit | **int64**<br>Maximum WAL size for the replication slot <br>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default. 
-service_schema | **string**<br>Database schema for service tables <br>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder). 
-object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings2)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
+slot_byte_lag_limit | **int64**<br>Maximum lag of replication slot (in bytes); after exceeding this limit replication will be aborted. 
+service_schema | **string**<br>Database schema for service tables (__consumer_keeper, __data_transfer_mole_finder). Default is public 
+object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings2)**<br>Select database objects to be transferred during activation or deactivation. 
 
 
 ### PostgresConnection {#PostgresConnection2}
@@ -879,8 +1182,8 @@ object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTra
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for PostgreSQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres2)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed Service for PostgreSQL cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres2)**<br>Connection options for on-premise PostgreSQL 
 
 
 ### OnPremisePostgres {#OnPremisePostgres2}
@@ -888,32 +1191,152 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Will be used if the cluster ID is not specified. Default: 6432. 
-tls_mode | **[TLSMode](#TLSMode3)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
+port | **int64**<br>Will be used if the cluster ID is not specified. 
+tls_mode | **[TLSMode](#TLSMode3)**<br>TLS settings for server connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
 
 
 ### PostgresObjectTransferSettings {#PostgresObjectTransferSettings2}
 
 Field | Description
 --- | ---
-sequence | enum **ObjectTransferStage**<br>Sequences <br>CREATE SEQUENCE ... 
-sequence_owned_by | enum **ObjectTransferStage**<br>Owned sequences <br>CREATE SEQUENCE ... OWNED BY ... 
-table | enum **ObjectTransferStage**<br>Tables <br>CREATE TABLE ... 
-primary_key | enum **ObjectTransferStage**<br>Primary keys <br>ALTER TABLE ... ADD PRIMARY KEY ... 
-fk_constraint | enum **ObjectTransferStage**<br>Foreign keys <br>ALTER TABLE ... ADD FOREIGN KEY ... 
-default_values | enum **ObjectTransferStage**<br>Default values <br>ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ... 
-constraint | enum **ObjectTransferStage**<br>Constraints <br>ALTER TABLE ... ADD CONSTRAINT ... 
-index | enum **ObjectTransferStage**<br>Indexes <br>CREATE INDEX ... 
-view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... 
-function | enum **ObjectTransferStage**<br>Functions <br>CREATE FUNCTION ... 
-trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... 
-type | enum **ObjectTransferStage**<br>Types <br>CREATE TYPE ... 
-rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... 
-collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... 
-policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... 
-cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... 
-materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... 
+sequence | enum **ObjectTransferStage**<br>Sequences <br>CREATE SEQUENCE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+sequence_owned_by | enum **ObjectTransferStage**<br>Owned sequences <br>CREATE SEQUENCE ... OWNED BY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+sequence_set | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+table | enum **ObjectTransferStage**<br>Tables <br>CREATE TABLE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+primary_key | enum **ObjectTransferStage**<br>Primary keys <br>ALTER TABLE ... ADD PRIMARY KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+fk_constraint | enum **ObjectTransferStage**<br>Foreign keys <br>ALTER TABLE ... ADD FOREIGN KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+default_values | enum **ObjectTransferStage**<br>Default values <br>ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+constraint | enum **ObjectTransferStage**<br>Constraints <br>ALTER TABLE ... ADD CONSTRAINT ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+index | enum **ObjectTransferStage**<br>Indexes <br>CREATE INDEX ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+function | enum **ObjectTransferStage**<br>Functions <br>CREATE FUNCTION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+type | enum **ObjectTransferStage**<br>Types <br>CREATE TYPE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+
+
+### KafkaSource {#KafkaSource2}
+
+Field | Description
+--- | ---
+connection | **[KafkaConnectionOptions](#KafkaConnectionOptions2)**<br>Connection settings 
+auth | **[KafkaAuth](#KafkaAuth2)**<br>Authentication settings 
+security_groups[] | **string**<br>Security groups 
+topic_name | **string**<br>Full source topic name 
+transformer | **[DataTransformationOptions](#DataTransformationOptions2)**<br>Data transformation rules 
+parser | **[Parser](#Parser2)**<br>Data parsing rules 
+
+
+### KafkaConnectionOptions {#KafkaConnectionOptions2}
+
+Field | Description
+--- | ---
+connection | **oneof:** `cluster_id` or `on_premise`<br>
+&nbsp;&nbsp;cluster_id | **string**<br>Managed Service for Kafka cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremiseKafka](#OnPremiseKafka2)**<br>Connection options for on-premise Kafka 
+
+
+### OnPremiseKafka {#OnPremiseKafka2}
+
+Field | Description
+--- | ---
+broker_urls[] | **string**<br>Kafka broker URLs 
+tls_mode | **[TLSMode](#TLSMode3)**<br>TLS settings for broker connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+
+
+### KafkaAuth {#KafkaAuth2}
+
+Field | Description
+--- | ---
+security | **oneof:** `sasl` or `no_auth`<br>
+&nbsp;&nbsp;sasl | **[KafkaSaslSecurity](#KafkaSaslSecurity2)**<br>Authentication with SASL 
+&nbsp;&nbsp;no_auth | **[NoAuth](#NoAuth2)**<br>No authentication 
+
+
+### KafkaSaslSecurity {#KafkaSaslSecurity2}
+
+Field | Description
+--- | ---
+user | **string**<br>User name 
+password | **[Secret](#Secret3)**<br>Password for user 
+mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication 
+
+
+### NoAuth {#NoAuth2}
+
+
+
+### DataTransformationOptions {#DataTransformationOptions2}
+
+Field | Description
+--- | ---
+cloud_function | **string**<br>Cloud function 
+service_account_id | **string**<br>Service account 
+number_of_retries | **int64**<br>Number of retries 
+buffer_size | **string**<br>Buffer size for function 
+buffer_flush_interval | **string**<br>Flush interval 
+invocation_timeout | **string**<br>Invocation timeout 
+
+
+### Parser {#Parser2}
+
+Field | Description
+--- | ---
+parser | **oneof:** `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser` or `tskv_parser`<br>
+&nbsp;&nbsp;json_parser | **[GenericParserCommon](#GenericParserCommon2)**<br> 
+&nbsp;&nbsp;audit_trails_v1_parser | **[AuditTrailsV1Parser](#AuditTrailsV1Parser2)**<br> 
+&nbsp;&nbsp;cloud_logging_parser | **[CloudLoggingParser](#CloudLoggingParser2)**<br> 
+&nbsp;&nbsp;tskv_parser | **[GenericParserCommon](#GenericParserCommon2)**<br> 
+
+
+### GenericParserCommon {#GenericParserCommon2}
+
+Field | Description
+--- | ---
+data_schema | **[DataSchema](#DataSchema2)**<br> 
+null_keys_allowed | **bool**<br>Allow null keys, if no - null keys will be putted to unparsed data 
+add_rest_column | **bool**<br>Will add _rest column for all unknown fields 
+
+
+### DataSchema {#DataSchema2}
+
+Field | Description
+--- | ---
+schema | **oneof:** `fields` or `json_fields`<br>
+&nbsp;&nbsp;fields | **[FieldList](#FieldList2)**<br> 
+&nbsp;&nbsp;json_fields | **string**<br> 
+
+
+### FieldList {#FieldList2}
+
+Field | Description
+--- | ---
+fields[] | **[ColSchema](#ColSchema2)**<br>Column schema 
+
+
+### ColSchema {#ColSchema2}
+
+Field | Description
+--- | ---
+name | **string**<br> 
+type | enum **ColumnType**<br> 
+key | **bool**<br> 
+required | **bool**<br> 
+path | **string**<br> 
+
+
+### AuditTrailsV1Parser {#AuditTrailsV1Parser2}
+
+
+
+### CloudLoggingParser {#CloudLoggingParser2}
+
 
 
 ### MongoSource {#MongoSource2}
@@ -923,9 +1346,9 @@ Field | Description
 connection | **[MongoConnection](#MongoConnection2)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
-collections[] | **[MongoCollection](#MongoCollection2)**<br> 
-excluded_collections[] | **[MongoCollection](#MongoCollection2)**<br> 
-secondary_preferred_mode | **bool**<br> 
+collections[] | **[MongoCollection](#MongoCollection2)**<br>List of collections for replication. Empty list implies replication of all tables on the deployment. Allowed to use * as collection name. 
+excluded_collections[] | **[MongoCollection](#MongoCollection2)**<br>List of forbidden collections for replication. Allowed to use * as collection name for forbid all collections of concrete schema. 
+secondary_preferred_mode | **bool**<br>Read mode for mongo client 
 
 
 ### MongoConnection {#MongoConnection2}
@@ -943,9 +1366,9 @@ Field | Description
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseMongo](#OnPremiseMongo2)**<br> 
-user | **string**<br> 
-password | **[Secret](#Secret3)**<br> 
-auth_source | **string**<br> 
+user | **string**<br>User name 
+password | **[Secret](#Secret3)**<br>Password for user 
+auth_source | **string**<br>Database name associated with the credentials 
 
 
 ### OnPremiseMongo {#OnPremiseMongo2}
@@ -973,8 +1396,8 @@ Field | Description
 connection | **[ClickhouseConnection](#ClickhouseConnection2)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
-include_tables[] | **string**<br> 
-exclude_tables[] | **string**<br> 
+include_tables[] | **string**<br>While list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
+exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 
 
 ### ClickhouseConnection {#ClickhouseConnection2}
@@ -992,7 +1415,7 @@ Field | Description
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse2)**<br> 
-database | **string**<br> 
+database | **string**<br>Database 
 user | **string**<br> 
 password | **[Secret](#Secret3)**<br> 
 
@@ -1019,15 +1442,15 @@ hosts[] | **string**<br>
 
 Field | Description
 --- | ---
-connection | **[MysqlConnection](#MysqlConnection3)**<br>Connection settings <br>Database connection settings 
+connection | **[MysqlConnection](#MysqlConnection3)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table. 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret3)**<br>Password <br>Password for database access. 
-sql_mode | **string**<br>sql_mode <br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret3)**<br>Password for database access. 
+sql_mode | **string**<br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
 skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
-cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
@@ -1035,12 +1458,12 @@ service_database | **string**<br>Database schema for service table <br>Default: 
 
 Field | Description
 --- | ---
-connection | **[PostgresConnection](#PostgresConnection3)**<br>Connection settings <br>Database connection settings 
+connection | **[PostgresConnection](#PostgresConnection3)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret3)**<br>Password <br>Password for database access. 
-cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret3)**<br>Password for database access. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy for activate, reactivate and reupload processes. Default is truncate. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 
 
 ### ClickhouseTarget {#ClickhouseTarget2}
@@ -1051,7 +1474,7 @@ connection | **[ClickhouseConnection](#ClickhouseConnection3)**<br>
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
 clickhouse_cluster_name | **string**<br> 
-alt_names[] | **[AltName](#AltName2)**<br> 
+alt_names[] | **[AltName](#AltName2)**<br>Alternative table names in target 
 sharding | **[ClickhouseSharding](#ClickhouseSharding2)**<br> 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
 
@@ -1060,8 +1483,8 @@ cleanup_policy | enum **ClickhouseCleanupPolicy**<br>
 
 Field | Description
 --- | ---
-from_name | **string**<br>From table name 
-to_name | **string**<br>To table name 
+from_name | **string**<br>Source table name 
+to_name | **string**<br>Target table name 
 
 
 ### ClickhouseSharding {#ClickhouseSharding2}
@@ -1105,6 +1528,33 @@ value | **oneof:** `string_value`<br>
 &nbsp;&nbsp;string_value | **string**<br> 
 
 
+### KafkaTarget {#KafkaTarget2}
+
+Field | Description
+--- | ---
+connection | **[KafkaConnectionOptions](#KafkaConnectionOptions3)**<br>Connection settings 
+auth | **[KafkaAuth](#KafkaAuth3)**<br>Authentication settings 
+security_groups[] | **string**<br>Security groups 
+topic_settings | **[KafkaTargetTopicSettings](#KafkaTargetTopicSettings2)**<br>Target topic settings 
+
+
+### KafkaTargetTopicSettings {#KafkaTargetTopicSettings2}
+
+Field | Description
+--- | ---
+topic_settings | **oneof:** `topic` or `topic_prefix`<br>
+&nbsp;&nbsp;topic | **[KafkaTargetTopic](#KafkaTargetTopic2)**<br>Full topic name 
+&nbsp;&nbsp;topic_prefix | **string**<br>Topic prefix <br>Analogue of the Debezium setting database.server.name. Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>. 
+
+
+### KafkaTargetTopic {#KafkaTargetTopic2}
+
+Field | Description
+--- | ---
+topic_name | **string**<br>Topic name 
+save_tx_order | **bool**<br>Save transactions order Not to split events queue into separate per-table queues. 
+
+
 ### MongoTarget {#MongoTarget2}
 
 Field | Description
@@ -1112,8 +1562,8 @@ Field | Description
 connection | **[MongoConnection](#MongoConnection3)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
-database | **string**<br> 
-cleanup_policy | enum **CleanupPolicy**<br> 
+database | **string**<br>Database name 
+cleanup_policy | enum **CleanupPolicy**<br> <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 
 
 ### Operation {#Operation}
@@ -1147,21 +1597,23 @@ name | **string**<br>The new endpoint name. Must be unique within the folder.
 description | **string**<br>The new description for the endpoint. 
 labels | **map<string,string>**<br> 
 settings | **[EndpointSettings](#EndpointSettings3)**<br>The new endpoint name. Must be unique within the folder. 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask specifying endpoint fields to be updated. Semantics for this field is described here: https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask The only exception is that if the repeated field is specified in the mask, then the new value replaces the old one instead of being appended to the old one. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask specifying endpoint fields to be updated. Semantics for this field is described here: <https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask> The only exception: if the repeated field is specified in the mask, then the new value replaces the old one instead of being appended to the old one. 
 
 
 ### EndpointSettings {#EndpointSettings3}
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target` or `mongo_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `kafka_target` or `mongo_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource3)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource3)**<br> 
+&nbsp;&nbsp;kafka_source | **[endpoint.KafkaSource](#KafkaSource3)**<br> 
 &nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource3)**<br> 
 &nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource3)**<br> 
 &nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget3)**<br> 
 &nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget3)**<br> 
 &nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget3)**<br> 
+&nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget3)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget3)**<br> 
 
 
@@ -1169,12 +1621,12 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickh
 
 Field | Description
 --- | ---
-connection | **[MysqlConnection](#MysqlConnection3)**<br>Connection settings <br>Database connection settings 
+connection | **[MysqlConnection](#MysqlConnection3)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source. 
 service_database | **string**<br>Database for service tables <br>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret3)**<br>Password <br>Password for database access. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret3)**<br>Password for database access. 
 include_tables_regex[] | **string**<br> 
 exclude_tables_regex[] | **string**<br> 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
@@ -1186,8 +1638,8 @@ object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferS
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for MySQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql3)**<br>On-premise <br>Connection options for on-premise MySQL 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed Service for MySQL cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql3)**<br>Connection options for on-premise MySQL 
 
 
 ### OnPremiseMysql {#OnPremiseMysql3}
@@ -1195,9 +1647,9 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Default: 3306. 
-tls_mode | **[TLSMode](#TLSMode3)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
+port | **int64**<br>Database port 
+tls_mode | **[TLSMode](#TLSMode3)**<br>TLS settings for server connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
 
 
 ### TLSMode {#TLSMode3}
@@ -1221,32 +1673,33 @@ ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certi
 Field | Description
 --- | ---
 value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
+&nbsp;&nbsp;raw | **string**<br>Raw secret value 
 
 
 ### MysqlObjectTransferSettings {#MysqlObjectTransferSettings3}
 
 Field | Description
 --- | ---
-view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... 
-routine | enum **ObjectTransferStage**<br>Routines <br>CREATE PROCEDURE ...; CREATE FUNCTION ...; 
-trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... 
+view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+routine | enum **ObjectTransferStage**<br>Routines <br>CREATE PROCEDURE ...; CREATE FUNCTION ...; <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+tables | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 
 
 ### PostgresSource {#PostgresSource3}
 
 Field | Description
 --- | ---
-connection | **[PostgresConnection](#PostgresConnection3)**<br>Connection settings <br>Database connection settings 
+connection | **[PostgresConnection](#PostgresConnection3)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret4)**<br>Password <br>Password for database access. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret4)**<br>Password for database access. 
 include_tables[] | **string**<br>Included tables <br>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns. 
 exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns. 
-slot_byte_lag_limit | **int64**<br>Maximum WAL size for the replication slot <br>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default. 
-service_schema | **string**<br>Database schema for service tables <br>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder). 
-object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings3)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
+slot_byte_lag_limit | **int64**<br>Maximum lag of replication slot (in bytes); after exceeding this limit replication will be aborted. 
+service_schema | **string**<br>Database schema for service tables (__consumer_keeper, __data_transfer_mole_finder). Default is public 
+object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings3)**<br>Select database objects to be transferred during activation or deactivation. 
 
 
 ### PostgresConnection {#PostgresConnection3}
@@ -1254,8 +1707,8 @@ object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTra
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for PostgreSQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres3)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed Service for PostgreSQL cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres3)**<br>Connection options for on-premise PostgreSQL 
 
 
 ### OnPremisePostgres {#OnPremisePostgres3}
@@ -1263,32 +1716,152 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Will be used if the cluster ID is not specified. Default: 6432. 
-tls_mode | **[TLSMode](#TLSMode4)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
+port | **int64**<br>Will be used if the cluster ID is not specified. 
+tls_mode | **[TLSMode](#TLSMode4)**<br>TLS settings for server connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
 
 
 ### PostgresObjectTransferSettings {#PostgresObjectTransferSettings3}
 
 Field | Description
 --- | ---
-sequence | enum **ObjectTransferStage**<br>Sequences <br>CREATE SEQUENCE ... 
-sequence_owned_by | enum **ObjectTransferStage**<br>Owned sequences <br>CREATE SEQUENCE ... OWNED BY ... 
-table | enum **ObjectTransferStage**<br>Tables <br>CREATE TABLE ... 
-primary_key | enum **ObjectTransferStage**<br>Primary keys <br>ALTER TABLE ... ADD PRIMARY KEY ... 
-fk_constraint | enum **ObjectTransferStage**<br>Foreign keys <br>ALTER TABLE ... ADD FOREIGN KEY ... 
-default_values | enum **ObjectTransferStage**<br>Default values <br>ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ... 
-constraint | enum **ObjectTransferStage**<br>Constraints <br>ALTER TABLE ... ADD CONSTRAINT ... 
-index | enum **ObjectTransferStage**<br>Indexes <br>CREATE INDEX ... 
-view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... 
-function | enum **ObjectTransferStage**<br>Functions <br>CREATE FUNCTION ... 
-trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... 
-type | enum **ObjectTransferStage**<br>Types <br>CREATE TYPE ... 
-rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... 
-collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... 
-policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... 
-cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... 
-materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... 
+sequence | enum **ObjectTransferStage**<br>Sequences <br>CREATE SEQUENCE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+sequence_owned_by | enum **ObjectTransferStage**<br>Owned sequences <br>CREATE SEQUENCE ... OWNED BY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+sequence_set | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+table | enum **ObjectTransferStage**<br>Tables <br>CREATE TABLE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+primary_key | enum **ObjectTransferStage**<br>Primary keys <br>ALTER TABLE ... ADD PRIMARY KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+fk_constraint | enum **ObjectTransferStage**<br>Foreign keys <br>ALTER TABLE ... ADD FOREIGN KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+default_values | enum **ObjectTransferStage**<br>Default values <br>ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+constraint | enum **ObjectTransferStage**<br>Constraints <br>ALTER TABLE ... ADD CONSTRAINT ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+index | enum **ObjectTransferStage**<br>Indexes <br>CREATE INDEX ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+function | enum **ObjectTransferStage**<br>Functions <br>CREATE FUNCTION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+type | enum **ObjectTransferStage**<br>Types <br>CREATE TYPE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+
+
+### KafkaSource {#KafkaSource3}
+
+Field | Description
+--- | ---
+connection | **[KafkaConnectionOptions](#KafkaConnectionOptions3)**<br>Connection settings 
+auth | **[KafkaAuth](#KafkaAuth3)**<br>Authentication settings 
+security_groups[] | **string**<br>Security groups 
+topic_name | **string**<br>Full source topic name 
+transformer | **[DataTransformationOptions](#DataTransformationOptions3)**<br>Data transformation rules 
+parser | **[Parser](#Parser3)**<br>Data parsing rules 
+
+
+### KafkaConnectionOptions {#KafkaConnectionOptions3}
+
+Field | Description
+--- | ---
+connection | **oneof:** `cluster_id` or `on_premise`<br>
+&nbsp;&nbsp;cluster_id | **string**<br>Managed Service for Kafka cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremiseKafka](#OnPremiseKafka3)**<br>Connection options for on-premise Kafka 
+
+
+### OnPremiseKafka {#OnPremiseKafka3}
+
+Field | Description
+--- | ---
+broker_urls[] | **string**<br>Kafka broker URLs 
+tls_mode | **[TLSMode](#TLSMode4)**<br>TLS settings for broker connection. Disabled by default. 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+
+
+### KafkaAuth {#KafkaAuth3}
+
+Field | Description
+--- | ---
+security | **oneof:** `sasl` or `no_auth`<br>
+&nbsp;&nbsp;sasl | **[KafkaSaslSecurity](#KafkaSaslSecurity3)**<br>Authentication with SASL 
+&nbsp;&nbsp;no_auth | **[NoAuth](#NoAuth3)**<br>No authentication 
+
+
+### KafkaSaslSecurity {#KafkaSaslSecurity3}
+
+Field | Description
+--- | ---
+user | **string**<br>User name 
+password | **[Secret](#Secret4)**<br>Password for user 
+mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication 
+
+
+### NoAuth {#NoAuth3}
+
+
+
+### DataTransformationOptions {#DataTransformationOptions3}
+
+Field | Description
+--- | ---
+cloud_function | **string**<br>Cloud function 
+service_account_id | **string**<br>Service account 
+number_of_retries | **int64**<br>Number of retries 
+buffer_size | **string**<br>Buffer size for function 
+buffer_flush_interval | **string**<br>Flush interval 
+invocation_timeout | **string**<br>Invocation timeout 
+
+
+### Parser {#Parser3}
+
+Field | Description
+--- | ---
+parser | **oneof:** `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser` or `tskv_parser`<br>
+&nbsp;&nbsp;json_parser | **[GenericParserCommon](#GenericParserCommon3)**<br> 
+&nbsp;&nbsp;audit_trails_v1_parser | **[AuditTrailsV1Parser](#AuditTrailsV1Parser3)**<br> 
+&nbsp;&nbsp;cloud_logging_parser | **[CloudLoggingParser](#CloudLoggingParser3)**<br> 
+&nbsp;&nbsp;tskv_parser | **[GenericParserCommon](#GenericParserCommon3)**<br> 
+
+
+### GenericParserCommon {#GenericParserCommon3}
+
+Field | Description
+--- | ---
+data_schema | **[DataSchema](#DataSchema3)**<br> 
+null_keys_allowed | **bool**<br>Allow null keys, if no - null keys will be putted to unparsed data 
+add_rest_column | **bool**<br>Will add _rest column for all unknown fields 
+
+
+### DataSchema {#DataSchema3}
+
+Field | Description
+--- | ---
+schema | **oneof:** `fields` or `json_fields`<br>
+&nbsp;&nbsp;fields | **[FieldList](#FieldList3)**<br> 
+&nbsp;&nbsp;json_fields | **string**<br> 
+
+
+### FieldList {#FieldList3}
+
+Field | Description
+--- | ---
+fields[] | **[ColSchema](#ColSchema3)**<br>Column schema 
+
+
+### ColSchema {#ColSchema3}
+
+Field | Description
+--- | ---
+name | **string**<br> 
+type | enum **ColumnType**<br> 
+key | **bool**<br> 
+required | **bool**<br> 
+path | **string**<br> 
+
+
+### AuditTrailsV1Parser {#AuditTrailsV1Parser3}
+
+
+
+### CloudLoggingParser {#CloudLoggingParser3}
+
 
 
 ### MongoSource {#MongoSource3}
@@ -1298,9 +1871,9 @@ Field | Description
 connection | **[MongoConnection](#MongoConnection3)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
-collections[] | **[MongoCollection](#MongoCollection3)**<br> 
-excluded_collections[] | **[MongoCollection](#MongoCollection3)**<br> 
-secondary_preferred_mode | **bool**<br> 
+collections[] | **[MongoCollection](#MongoCollection3)**<br>List of collections for replication. Empty list implies replication of all tables on the deployment. Allowed to use * as collection name. 
+excluded_collections[] | **[MongoCollection](#MongoCollection3)**<br>List of forbidden collections for replication. Allowed to use * as collection name for forbid all collections of concrete schema. 
+secondary_preferred_mode | **bool**<br>Read mode for mongo client 
 
 
 ### MongoConnection {#MongoConnection3}
@@ -1318,9 +1891,9 @@ Field | Description
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseMongo](#OnPremiseMongo3)**<br> 
-user | **string**<br> 
-password | **[Secret](#Secret4)**<br> 
-auth_source | **string**<br> 
+user | **string**<br>User name 
+password | **[Secret](#Secret4)**<br>Password for user 
+auth_source | **string**<br>Database name associated with the credentials 
 
 
 ### OnPremiseMongo {#OnPremiseMongo3}
@@ -1348,8 +1921,8 @@ Field | Description
 connection | **[ClickhouseConnection](#ClickhouseConnection3)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
-include_tables[] | **string**<br> 
-exclude_tables[] | **string**<br> 
+include_tables[] | **string**<br>While list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
+exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 
 
 ### ClickhouseConnection {#ClickhouseConnection3}
@@ -1367,7 +1940,7 @@ Field | Description
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse3)**<br> 
-database | **string**<br> 
+database | **string**<br>Database 
 user | **string**<br> 
 password | **[Secret](#Secret4)**<br> 
 
@@ -1394,15 +1967,15 @@ hosts[] | **string**<br>
 
 Field | Description
 --- | ---
-connection | **[MysqlConnection](#MysqlConnection4)**<br>Connection settings <br>Database connection settings 
+connection | **[MysqlConnection](#MysqlConnection4)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table. 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret4)**<br>Password <br>Password for database access. 
-sql_mode | **string**<br>sql_mode <br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret4)**<br>Password for database access. 
+sql_mode | **string**<br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
 skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
-cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
@@ -1410,12 +1983,12 @@ service_database | **string**<br>Database schema for service table <br>Default: 
 
 Field | Description
 --- | ---
-connection | **[PostgresConnection](#PostgresConnection4)**<br>Connection settings <br>Database connection settings 
+connection | **[PostgresConnection](#PostgresConnection4)**<br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
-user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret4)**<br>Password <br>Password for database access. 
-cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
+user | **string**<br>User for database access. 
+password | **[Secret](#Secret4)**<br>Password for database access. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy for activate, reactivate and reupload processes. Default is truncate. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 
 
 ### ClickhouseTarget {#ClickhouseTarget3}
@@ -1426,7 +1999,7 @@ connection | **[ClickhouseConnection](#ClickhouseConnection4)**<br>
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
 clickhouse_cluster_name | **string**<br> 
-alt_names[] | **[AltName](#AltName3)**<br> 
+alt_names[] | **[AltName](#AltName3)**<br>Alternative table names in target 
 sharding | **[ClickhouseSharding](#ClickhouseSharding3)**<br> 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
 
@@ -1435,8 +2008,8 @@ cleanup_policy | enum **ClickhouseCleanupPolicy**<br>
 
 Field | Description
 --- | ---
-from_name | **string**<br>From table name 
-to_name | **string**<br>To table name 
+from_name | **string**<br>Source table name 
+to_name | **string**<br>Target table name 
 
 
 ### ClickhouseSharding {#ClickhouseSharding3}
@@ -1480,6 +2053,33 @@ value | **oneof:** `string_value`<br>
 &nbsp;&nbsp;string_value | **string**<br> 
 
 
+### KafkaTarget {#KafkaTarget3}
+
+Field | Description
+--- | ---
+connection | **[KafkaConnectionOptions](#KafkaConnectionOptions4)**<br>Connection settings 
+auth | **[KafkaAuth](#KafkaAuth4)**<br>Authentication settings 
+security_groups[] | **string**<br>Security groups 
+topic_settings | **[KafkaTargetTopicSettings](#KafkaTargetTopicSettings3)**<br>Target topic settings 
+
+
+### KafkaTargetTopicSettings {#KafkaTargetTopicSettings3}
+
+Field | Description
+--- | ---
+topic_settings | **oneof:** `topic` or `topic_prefix`<br>
+&nbsp;&nbsp;topic | **[KafkaTargetTopic](#KafkaTargetTopic3)**<br>Full topic name 
+&nbsp;&nbsp;topic_prefix | **string**<br>Topic prefix <br>Analogue of the Debezium setting database.server.name. Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>. 
+
+
+### KafkaTargetTopic {#KafkaTargetTopic3}
+
+Field | Description
+--- | ---
+topic_name | **string**<br>Topic name 
+save_tx_order | **bool**<br>Save transactions order Not to split events queue into separate per-table queues. 
+
+
 ### MongoTarget {#MongoTarget3}
 
 Field | Description
@@ -1487,8 +2087,8 @@ Field | Description
 connection | **[MongoConnection](#MongoConnection4)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
-database | **string**<br> 
-cleanup_policy | enum **CleanupPolicy**<br> 
+database | **string**<br>Database name 
+cleanup_policy | enum **CleanupPolicy**<br> <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 
 
 ### Operation {#Operation1}

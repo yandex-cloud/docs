@@ -1789,10 +1789,9 @@ components:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
           description: |-
-            The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+            The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
 
-            For example, you may use the metadata in order to provide your public SSH key to the node.
-            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+            For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh).
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
@@ -2401,10 +2400,9 @@ components:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
           description: |-
-            The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+            The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
 
-            For example, you may use the metadata in order to provide your public SSH key to the node.
-            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+            For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh).
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
@@ -2827,10 +2825,9 @@ components:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
           description: |-
-            The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+            The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
 
-            For example, you may use the metadata in order to provide your public SSH key to the node.
-            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+            For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh).
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
@@ -3217,10 +3214,9 @@ components:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
           description: |-
-            The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+            The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
 
-            For example, you may use the metadata in order to provide your public SSH key to the node.
-            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+            For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh).
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.

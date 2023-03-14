@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Cloud Backup API, REST: Agent.register
+# Cloud Backup Agent API, REST: Agent.register
 
  
 

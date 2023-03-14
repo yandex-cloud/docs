@@ -1,0 +1,2319 @@
+openapi: 3.0.0
+info:
+  title: Cloud Backup API
+  description: This API reference is organized around Cloud Backup resources. Actions
+    are performed by sending HTTP requests to resource URLs or making RPC calls. For
+    more information about API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://backup.api.cloud.yandex.net
+paths:
+  /backup/v1/backups:
+    get:
+      tags:
+      - Backup
+      summary: List backups using filters.
+      operationId: BackupList
+      parameters:
+      - name: computeInstanceId
+        in: query
+        description: List backups that belongs to specific Compute Instance.
+        schema:
+          type: string
+      - name: archive.archiveId
+        in: query
+        description: Required.
+        schema:
+          type: string
+      - name: archive.folderId
+        in: query
+        description: Required.
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: List backups that belongs to specific folder id.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBackupsResponse'
+      x-y-navtitle: list
+  /backup/v1/backups/{computeInstanceId}/archives:
+    get:
+      tags:
+      - Backup
+      summary: |-
+        List Acrhives that holds backups for specified folder_id or
+        specified compute_isntance_id.
+      operationId: BackupListArchives
+      parameters:
+      - name: computeInstanceId
+        in: path
+        description: List of archives of the specified compute_instance_id.
+        required: true
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: List of archives in specified folder.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListArchivesResponse'
+      x-y-navtitle: listArchives
+  /backup/v1/backups/{backupId}:startRecovery:
+    post:
+      tags:
+      - Backup
+      summary: Start recovery process of specified backup id to specific compute instance.
+      description: For details, see [recover](/docs/backup/operations/backup-vm/recover)
+      operationId: BackupStartRecovery
+      parameters:
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          Backup ID that will be applied to destination compute instance.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartRecoveryRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: startRecovery
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartRecoveryMetadata'
+      x-y-operation-response: Empty
+  /backup/v1/backups/{computeInstanceId}/{backupId}:
+    delete:
+      tags:
+      - Backup
+      summary: Delete specific backup.
+      operationId: BackupDelete
+      parameters:
+      - name: computeInstanceId
+        in: path
+        description: |-
+          Required.
+          Compute Instance ID of the Backup.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          Backup ID that should be deleted.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteBackupMetadata'
+      x-y-operation-response: Empty
+  /backup/v1/policies:
+    get:
+      tags:
+      - Policy
+      summary: List policies of specified folder.
+      operationId: PolicyList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: computeInstanceId
+        in: query
+        description: if specified, returns policies applicable to specified compute
+          instance.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPoliciesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Policy
+      summary: |-
+        Create a new policy.
+        For detailed information, please see [policy](/docs/backup/concepts/policy)
+      operationId: PolicyCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreatePolicyMetadata'
+      x-y-operation-response: '[Policy](/docs/backup/api-ref/Policy#representation)'
+  /backup/v1/policies/{policyId}:
+    get:
+      tags:
+      - Policy
+      summary: Get specific policy
+      operationId: PolicyGet
+      parameters:
+      - name: policyId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Policy'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Policy
+      summary: Delete specific policy.
+      operationId: PolicyDelete
+      parameters:
+      - name: policyId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeletePolicyMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Policy
+      summary: Update specific policy.
+      operationId: PolicyUpdate
+      parameters:
+      - name: policyId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdatePolicyMetadata'
+      x-y-operation-response: '[Policy](/docs/backup/api-ref/Policy#representation)'
+  /backup/v1/policies/{policyId}:apply:
+    post:
+      tags:
+      - Policy
+      summary: Apply policy to instance.
+      operationId: PolicyApply
+      parameters:
+      - name: policyId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplyPolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: apply
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ApplyPolicyMetadata'
+      x-y-operation-response: Empty
+  /backup/v1/policies/{policyId}/applications:
+    get:
+      tags:
+      - Policy
+      summary: List applied policies using filters.
+      operationId: PolicyListApplications
+      parameters:
+      - name: policyId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        schema:
+          type: string
+      - name: computeInstanceId
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApplicationsResponse'
+      x-y-navtitle: listApplications
+  /backup/v1/policies/{policyId}:execute:
+    post:
+      tags:
+      - Policy
+      summary: |-
+        Execute runs policy on specific Compute Instance that will create backup
+        of selected policy. In order to perform this action, policy should be
+        applied to the Compute Instance.
+      operationId: PolicyExecute
+      parameters:
+      - name: policyId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExecuteRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: execute
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ExecuteMetadata'
+      x-y-operation-response: Empty
+  /backup/v1/policies/{policyId}:revoke:
+    post:
+      tags:
+      - Policy
+      summary: Revoke policy from Instance.
+      operationId: PolicyRevoke
+      parameters:
+      - name: policyId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevokeRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: revoke
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RevokeMetadata'
+      x-y-operation-response: Empty
+  /backup/v1/providers/{name}:activate:
+    post:
+      tags:
+      - Provider
+      summary: Activate provider for specified client.
+      operationId: ProviderActivate
+      parameters:
+      - name: name
+        in: path
+        description: |-
+          Required.
+          Activate specific provider by name.
+          For more information, please see [activate-provider](/docs/backup/quickstart#activate-provider)
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivateProviderRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: activate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ActivateProviderMetadata'
+      x-y-operation-response: Empty
+  /backup/v1/providers:
+    get:
+      tags:
+      - Provider
+      summary: List activated providers for specified client.
+      operationId: ProviderListActivated
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListActivatedProvidersResponse'
+      x-y-navtitle: listActivated
+  /backup/v1/resources:
+    get:
+      tags:
+      - Resource
+      summary: List resources a.k.a. compute instances.
+      operationId: ResourceList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourcesResponse'
+      x-y-navtitle: list
+  /backup/v1/resources/{computeInstanceId}:
+    get:
+      tags:
+      - Resource
+      summary: Get specific compute instance.
+      operationId: ResourceGet
+      parameters:
+      - name: computeInstanceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetResourceResponse'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Resource
+      summary: |-
+        Delete specific compute instance from Cloud Backup. It does not deletes
+        Instance from Cloud Compute service.
+      operationId: ResourceDelete
+      parameters:
+      - name: computeInstanceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: resourceId
+        in: query
+        description: Required.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteResourceMetadata'
+      x-y-operation-response: Empty
+  /backup/v1/resources/{computeInstanceId}/tasks:
+    get:
+      tags:
+      - Resource
+      summary: List tasks of resources.
+      operationId: ResourceListTasks
+      parameters:
+      - name: computeInstanceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTasksResponse'
+      x-y-navtitle: listTasks
+components:
+  schemas:
+    ActivateProviderMetadata:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            Activate provider for Folder iD.
+
+            The maximum string length in characters is 50.
+          type: string
+    ActivateProviderRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            Activate provider for Folder iD.
+
+            The maximum string length in characters is 50.
+          type: string
+    ApplyPolicyMetadata:
+      type: object
+      properties:
+        policyId:
+          type: string
+        computeInstanceId:
+          type: string
+    ApplyPolicyRequest:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    Archive:
+      description: Archive is a container that holds backups of Instance.
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        vaultId:
+          type: string
+        attributes:
+          $ref: '#/components/schemas/ArchiveArchiveAttributes_in_Archive_attributes'
+        size:
+          type: string
+          format: int64
+        compressedDataSize:
+          type: string
+          format: int64
+        dataSize:
+          type: string
+          format: int64
+        originalDataSize:
+          type: string
+          format: int64
+        logicalSize:
+          type: string
+          format: int64
+        format:
+          $ref: '#/components/schemas/Format_in_Archive_format'
+        createdAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        updatedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        lastBackupCreatedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        lastSeenAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        protectedByPassword:
+          description: |-
+            If this field is true, it means that any of encryption algorithm
+            has been choosen.
+          type: boolean
+          format: boolean
+        encryptionAlgorithm:
+          $ref: '#/components/schemas/ArchiveEncryptionAlgorithm_in_Archive_encryptionAlgorithm'
+        fileName:
+          type: string
+        sourceKey:
+          type: string
+        sourceUsn:
+          type: string
+          format: int64
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArchiveAction'
+        centralizedPlanId:
+          type: string
+        backupPlanId:
+          type: string
+        backupPlanName:
+          type: string
+        description:
+          type: string
+        displayName:
+          type: string
+        computeInstanceId:
+          type: string
+        consistent:
+          type: boolean
+          format: boolean
+        markedForDeletion:
+          type: boolean
+          format: boolean
+        deletedImmutable:
+          type: boolean
+          format: boolean
+        deleted:
+          type: boolean
+          format: boolean
+        resourceId:
+          type: string
+    ArchiveAction:
+      type: string
+      enum:
+      - REFRESH
+      - DELETE_BY_AGENT
+    ArchiveArchiveAttributes:
+      type: object
+      properties:
+        aaib:
+          type: string
+        uri:
+          type: string
+    ArchiveEncryptionAlgorithm:
+      description: Encryption Algorithm for underlying backups.
+      type: string
+      enum:
+      - NONE
+      - AES128
+      - AES192
+      - AES256
+    Backup:
+      type: object
+      properties:
+        id:
+          type: string
+        vaultId:
+          type: string
+        archiveId:
+          type: string
+        createdAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        lastSeenAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        size:
+          type: string
+          format: int64
+        deduplicatedSize:
+          type: string
+          format: int64
+        backedUpDataSize:
+          type: string
+          format: int64
+        originalDataSize:
+          type: string
+          format: int64
+        attributes:
+          $ref: '#/components/schemas/BackupBackupAttributes_in_Backup_attributes'
+        computeInstanceId:
+          type: string
+        sourceKey:
+          type: string
+        sourceUsn:
+          type: string
+          format: int64
+        disks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Disk'
+        type:
+          $ref: '#/components/schemas/BackupType_in_Backup_type'
+        markedForDeletion:
+          type: boolean
+          format: boolean
+        notarized:
+          type: boolean
+          format: boolean
+        deletedImmutable:
+          type: boolean
+          format: boolean
+        validationStatus:
+          type: boolean
+          format: boolean
+        createdInNetworkIsolation:
+          type: boolean
+          format: boolean
+        deleted:
+          type: boolean
+          format: boolean
+        policyId:
+          type: string
+        resourceId:
+          type: string
+    BackupBackupAttributes:
+      type: object
+      properties:
+        streamName:
+          type: string
+        uri:
+          type: string
+    BackupType:
+      description: |-
+        Backup type
+        For detailed information, please see [backup types](/docs/backup/concepts/backup#types)
+      type: string
+      enum:
+      - FULL
+      - INCREMENTAL
+    CreatePolicyMetadata:
+      type: object
+      properties:
+        policyId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    CreatePolicyRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        settings:
+          $ref: '#/components/schemas/PolicySettings_in_CreatePolicyRequest_settings'
+    DeleteBackupMetadata:
+      type: object
+      properties:
+        computeInstanceId:
+          description: Compute Instance ID of the Backup.
+          type: string
+        backupId:
+          description: Backup ID that should be deleted.
+          type: string
+    DeletePolicyMetadata:
+      type: object
+      properties:
+        policyId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    DeleteResourceMetadata:
+      type: object
+      properties:
+        computeInstanceId:
+          description: Compute Instance ID of the Backup.
+          type: string
+    Disk:
+      type: object
+      properties:
+        deviceModel:
+          type: string
+        name:
+          type: string
+        size:
+          type: string
+          format: int64
+        volumes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Volume'
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    ExecuteMetadata:
+      type: object
+      properties:
+        policyId:
+          type: string
+        computeInstanceId:
+          type: string
+    ExecuteRequest:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    Format:
+      description: |-
+        Format of the backup in policy. For backup locations that can be browsed
+        with a file manager, the backup format detemines the number of files and
+        their extention.
+
+         - VERSION_11: A legacy backup format used in older versions. It's not recommended to use.
+         - VERSION_12: A new format recommende din most cases for fast backup and recovery.
+         - AUTO: Automatic version selection. Will be used version 12 unless the protection
+        plan (policy) appends backups to the ones created by earlier product
+        versions.
+      type: string
+      enum:
+      - VERSION_11
+      - VERSION_12
+      - AUTO
+    GetResourceResponse:
+      type: object
+      properties:
+        resource:
+          $ref: '#/components/schemas/Resource_in_GetResourceResponse_resource'
+    ListActivatedProvidersResponse:
+      type: object
+      properties:
+        folderId:
+          type: string
+        names:
+          type: array
+          items:
+            type: string
+    ListApplicationsResponse:
+      type: object
+      properties:
+        applications:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyApplication'
+    ListArchivesResponse:
+      type: object
+      properties:
+        archives:
+          type: array
+          items:
+            $ref: '#/components/schemas/Archive'
+    ListBackupsRequestArchiveParameters:
+      type: object
+      properties:
+        archiveId:
+          description: Required.
+          type: string
+        folderId:
+          description: Required.
+          type: string
+    ListBackupsResponse:
+      type: object
+      properties:
+        backups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+    ListPoliciesResponse:
+      type: object
+      properties:
+        policies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Policy'
+    ListResourcesResponse:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+        nextPageToken:
+          type: string
+    ListTasksResponse:
+      type: object
+      properties:
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        nextPageToken:
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: "The time when the Operation resource was last modified.\n\nString
+              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The
+              range of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+              i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+              in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Policy:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        createdAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        updatedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        enabled:
+          type: boolean
+          format: boolean
+        settings:
+          $ref: '#/components/schemas/PolicySettings_in_Policy_settings'
+        folderId:
+          type: string
+    PolicyApplication:
+      type: object
+      properties:
+        policyId:
+          type: string
+        computeInstanceId:
+          type: string
+        enabled:
+          type: boolean
+          format: boolean
+        status:
+          $ref: '#/components/schemas/PolicyApplicationStatus_in_PolicyApplication_status'
+        createdAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+    PolicyApplicationStatus:
+      description: |2-
+         - OK: Application is applied and everyhing is ok.
+         - RUNNING: Application is currently running.
+         - DISABLED: Application is disabled.
+      type: string
+      enum:
+      - OK
+      - RUNNING
+      - DISABLED
+    PolicySettings:
+      type: object
+      properties:
+        compression:
+          $ref: '#/components/schemas/PolicySettingsCompression_in_PolicySettings_compression'
+        format:
+          $ref: '#/components/schemas/Format_in_PolicySettings_format'
+        multiVolumeSnapshottingEnabled:
+          description: If true, snapshots of multiple volumes will be taken simultaneously.
+          type: boolean
+          format: boolean
+        preserveFileSecuritySettings:
+          description: If true, the file security settings will be preserved.
+          type: boolean
+          format: boolean
+        reattempts:
+          $ref: '#/components/schemas/PolicySettingsRetriesConfiguration_in_PolicySettings_reattempts'
+        silentModeEnabled:
+          description: If true, a user interaction will be avoided when possible.
+            Equals to false if value is not specified.
+          type: boolean
+          format: boolean
+        splitting:
+          $ref: '#/components/schemas/PolicySettingsSplitting_in_PolicySettings_splitting'
+        vmSnapshotReattempts:
+          $ref: '#/components/schemas/PolicySettingsRetriesConfiguration_in_PolicySettings_vmSnapshotReattempts'
+        vss:
+          $ref: '#/components/schemas/PolicySettingsVolumeShadowCopyServiceSettings_in_PolicySettings_vss'
+        archive:
+          $ref: '#/components/schemas/PolicySettingsArchiveProperties_in_PolicySettings_archive'
+        performanceWindow:
+          $ref: '#/components/schemas/PolicySettingsPerformanceWindow_in_PolicySettings_performanceWindow'
+        retention:
+          $ref: '#/components/schemas/PolicySettingsRetention_in_PolicySettings_retention'
+        scheduling:
+          $ref: '#/components/schemas/PolicySettingsScheduling_in_PolicySettings_scheduling'
+        cbt:
+          $ref: '#/components/schemas/PolicySettingsChangedBlockTracking_in_PolicySettings_cbt'
+        fastBackupEnabled:
+          description: If true, determines whether a file has changed by the file
+            size and timestamp. Otherwise, the entire file contents are compared to
+            those stored in the backup.
+          type: boolean
+          format: boolean
+        quiesceSnapshottingEnabled:
+          description: If true, a quiesced snapshot of the virtual machine will be
+            taken.
+          type: boolean
+          format: boolean
+    PolicySettingsArchiveProperties:
+      type: object
+      properties:
+        name:
+          description: |-
+            The name of the generated archive. The name may use the following variables: ``[Machine Name]``, ``[Plan ID]``, ``[Plan Name]``, ``[Unique ID]``, ``[Virtualization Server Type]``.
+            default value: '[Machine Name]-[Plan ID]-[Unique ID]A'
+          type: string
+    PolicySettingsChangedBlockTracking:
+      type: string
+      enum:
+      - USE_IF_ENABLED
+      - ENABLE_AND_USE
+      - DO_NOT_USE
+    PolicySettingsCompression:
+      description: Compression rate of the backups.
+      type: string
+      enum:
+      - NORMAL
+      - HIGH
+      - MAX
+      - "OFF"
+    PolicySettingsDay:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    PolicySettingsInterval:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/PolicySettingsIntervalType_in_PolicySettingsInterval_type'
+        count:
+          description: |-
+            The amount of value specified in interval.type.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    PolicySettingsIntervalType:
+      type: string
+      enum:
+      - SECONDS
+      - MINUTES
+      - HOURS
+      - DAYS
+      - WEEKS
+      - MONTHS
+    PolicySettingsPerformanceWindow:
+      type: object
+      properties:
+        enabled:
+          description: If true, the time windows will be enabled.
+          type: boolean
+          format: boolean
+    PolicySettingsRepeatePeriod:
+      type: string
+      enum:
+      - HOURLY
+      - DAILY
+      - WEEKLY
+      - MONTHLY
+    PolicySettingsRetention:
+      type: object
+      properties:
+        rules:
+          description: A list of retention rules.
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicySettingsRetentionRetentionRule'
+        afterBackup:
+          description: If true, retention rules will be applied after backup is finished.
+          type: boolean
+          format: boolean
+    PolicySettingsRetentionRetentionRule:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          backupSet:
+            description: A list of backup sets where rules are effective.
+            type: array
+            items:
+              $ref: '#/components/schemas/PolicySettingsRepeatePeriod'
+      - title: condition
+        type: object
+        maxProperties: 1
+        properties:
+          maxAge:
+            $ref: '#/components/schemas/PolicySettingsInterval'
+          maxCount:
+            type: string
+            format: int64
+    PolicySettingsRetriesConfiguration:
+      type: object
+      properties:
+        enabled:
+          description: If true, enables retry on errors.
+          type: boolean
+          format: boolean
+        interval:
+          $ref: '#/components/schemas/PolicySettingsInterval_in_PolicySettingsRetriesConfiguration_interval'
+        maxAttempts:
+          description: "Max number of retry attempts. Operation will be considered
+            as failed \nwhen max number of retry attempts is reached.\n\nValue must
+            be greater than 0."
+          type: string
+          format: int64
+    PolicySettingsScheduling:
+      type: object
+      properties:
+        backupSets:
+          description: |-
+            Required.
+            A list of schedules with backup sets that compose the whole scheme.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicySettingsSchedulingBackupSet'
+        enabled:
+          description: If true, the backup schedule will be enabled.
+          type: boolean
+          format: boolean
+        maxParallelBackups:
+          description: Max number of backup processes allowed to run in parallel.
+            Unlimited if not set.
+          type: string
+          format: int64
+        randMaxDelay:
+          $ref: '#/components/schemas/PolicySettingsInterval_in_PolicySettingsScheduling_randMaxDelay'
+        scheme:
+          $ref: '#/components/schemas/PolicySettingsSchedulingScheme_in_PolicySettingsScheduling_scheme'
+        weeklyBackupDay:
+          $ref: '#/components/schemas/PolicySettingsDay_in_PolicySettingsScheduling_weeklyBackupDay'
+    PolicySettingsSchedulingBackupSet:
+      type: object
+      allOf:
+      - title: setting
+        type: object
+        maxProperties: 1
+        properties:
+          time:
+            $ref: '#/components/schemas/PolicySettingsSchedulingBackupSetTime'
+          sinceLastExecTime:
+            $ref: '#/components/schemas/PolicySettingsSchedulingBackupSetSinceLastExecTime'
+    PolicySettingsSchedulingBackupSetSinceLastExecTime:
+      type: object
+      properties:
+        delay:
+          $ref: '#/components/schemas/PolicySettingsInterval_in_PolicySettingsSchedulingBackupSetSinceLastExecTime_delay'
+    PolicySettingsSchedulingBackupSetTime:
+      type: object
+      properties:
+        weekdays:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicySettingsDay'
+        repeatAt:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicySettingsTimeOfDay'
+        repeatEvery:
+          $ref: '#/components/schemas/PolicySettingsInterval_in_PolicySettingsSchedulingBackupSetTime_repeatEvery'
+        timeFrom:
+          $ref: '#/components/schemas/PolicySettingsTimeOfDay_in_PolicySettingsSchedulingBackupSetTime_timeFrom'
+        timeTo:
+          $ref: '#/components/schemas/PolicySettingsTimeOfDay_in_PolicySettingsSchedulingBackupSetTime_timeTo'
+        monthdays:
+          description: |-
+            1-31
+            Monthdays are days in month.
+            Allowed values are from 1 to 31.
+          type: array
+          items:
+            type: string
+            format: int64
+        includeLastDayOfMonth:
+          description: |-
+            If set to true, last day of month will activate
+            the policy
+          type: boolean
+          format: boolean
+        months:
+          description: Set of values. Allowed values form 1 to 12.
+          type: array
+          items:
+            type: string
+            format: int64
+        type:
+          $ref: '#/components/schemas/PolicySettingsRepeatePeriod_in_PolicySettingsSchedulingBackupSetTime_type'
+    PolicySettingsSchedulingScheme:
+      description: |-
+        Scheme of backups.
+
+         - CUSTOM: Custom will require to specify schedules for full, differential
+        and incremental backups additionally.
+      type: string
+      enum:
+      - SIMPLE
+      - ALWAYS_FULL
+      - ALWAYS_INCREMENTAL
+      - WEEKLY_INCREMENTAL
+      - WEEKLY_FULL_DAILY_INCREMENTAL
+      - CUSTOM
+      - CDP
+    PolicySettingsSplitting:
+      type: object
+      properties:
+        size:
+          description: The size of split backup file in bytes.
+          type: string
+          format: int64
+    PolicySettingsTimeOfDay:
+      type: object
+      properties:
+        hour:
+          type: string
+          format: int64
+        minute:
+          type: string
+          format: int64
+    PolicySettingsVolumeShadowCopyServiceSettings:
+      description: |-
+        Settings for Volume Shadow Copy Services which allows to notify
+        VSS-aware applications that backup is about to start. This will
+        ensure the consistent state of all data used by the applications.
+      type: object
+      properties:
+        enabled:
+          description: If true, the VSS will be enabled.
+          type: boolean
+          format: boolean
+        provider:
+          $ref: '#/components/schemas/PolicySettingsVolumeShadowCopyServiceSettingsVSSProvider_in_PolicySettingsVolumeShadowCopyServiceSettings_provider'
+    PolicySettingsVolumeShadowCopyServiceSettingsVSSProvider:
+      type: string
+      enum:
+      - NATIVE
+      - TARGET_SYSTEM_DEFINED
+    Progress:
+      type: object
+      properties:
+        current:
+          type: string
+          format: int64
+        total:
+          type: string
+          format: int64
+    Resource:
+      type: object
+      properties:
+        computeInstanceId:
+          type: string
+        createdAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        updatedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        online:
+          type: boolean
+          format: boolean
+        enabled:
+          type: boolean
+          format: boolean
+        status:
+          $ref: '#/components/schemas/ResourceStatus_in_Resource_status'
+        statusDetails:
+          description: |-
+            If status value is one of OTHER or FAILED,
+            detailed info might be stored here.
+          type: string
+        statusProgress:
+          description: |-
+            In case status is one of BACKUPING or RECOVERING,
+            progress value might be found here.
+          type: string
+          format: int64
+        lastBackupTime:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        nextBackupTime:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        resourceId:
+          description: Resource Identifier used to identify instance in backup service.
+          type: string
+        isActive:
+          description: |-
+            is_active shows whether current instance controls cloud backup resource.
+            If is_active is false it means instance is not able to manipulate
+            cloud backup resource.
+          type: boolean
+          format: boolean
+    ResourceStatus:
+      description: |2-
+         - IDLE: Instance is doing nothing right now.
+         - BACKUPING: Instance currently backing up itself.
+         - RECOVERING: Instance currently recovering itself.
+         - FAILED: Instance in failure state, check content of status_details field
+        for more information.
+         - OTHER: Unspecified state, check status_details field
+        for more information.
+      type: string
+      enum:
+      - IDLE
+      - BACKUPING
+      - RECOVERING
+      - FAILED
+      - OTHER
+    RevokeMetadata:
+      type: object
+      properties:
+        policyId:
+          type: string
+        computeInstanceId:
+          type: string
+    RevokeRequest:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    StartRecoveryMetadata:
+      type: object
+      properties:
+        progressPercentage:
+          description: Progress of the backup process.
+          type: number
+          format: double
+        srcBackupId:
+          description: Source Backup ID that will be applied.
+          type: string
+        dstComputeInstanceId:
+          description: Destination Compute Instance to which backup will be applied.
+          type: string
+    StartRecoveryRequest:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            Required.
+            Destination Compute Instance to which backup should be applied.
+
+            The maximum string length in characters is 50.
+          type: string
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          format: int64
+        cancellable:
+          description: |-
+            Shows whether the task is cancellable.
+            Note: task cancellation not suppported yet.
+          type: boolean
+          format: boolean
+        policyId:
+          type: string
+        type:
+          $ref: '#/components/schemas/TaskType_in_Task_type'
+        progress:
+          $ref: '#/components/schemas/Progress_in_Task_progress'
+        status:
+          $ref: '#/components/schemas/TaskStatus_in_Task_status'
+        enqueuedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        startedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        updatedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        completedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        computeInstanceId:
+          type: string
+    TaskStatus:
+      description: Status of task.
+      type: string
+      enum:
+      - ENQUEUED
+      - ASSIGNED
+      - STARTED
+      - PAUSED
+      - COMPLETED
+    TaskType:
+      type: string
+      enum:
+      - BACKUP
+      - RETENTION
+      - RECOVERY
+    UpdatePolicyMetadata:
+      type: object
+      properties:
+        policyId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    UpdatePolicyRequest:
+      type: object
+      properties:
+        settings:
+          $ref: '#/components/schemas/PolicySettings_in_UpdatePolicyRequest_settings'
+    Volume:
+      type: object
+      properties:
+        freeSpace:
+          type: string
+          format: int64
+        isBootable:
+          type: boolean
+          format: boolean
+        isSystem:
+          type: boolean
+          format: boolean
+        name:
+          type: string
+        size:
+          type: string
+          format: int64
+        mountStrid:
+          type: string
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    ArchiveArchiveAttributes_in_Archive_attributes:
+      type: object
+      properties:
+        aaib:
+          type: string
+        uri:
+          type: string
+    Format_in_Archive_format:
+      description: |-
+        Format of the backup in policy. For backup locations that can be browsed
+        with a file manager, the backup format detemines the number of files and
+        their extention.
+
+         - VERSION_11: A legacy backup format used in older versions. It's not recommended to use.
+         - VERSION_12: A new format recommende din most cases for fast backup and recovery.
+         - AUTO: Automatic version selection. Will be used version 12 unless the protection
+        plan (policy) appends backups to the ones created by earlier product
+        versions.
+      type: string
+      enum:
+      - VERSION_11
+      - VERSION_12
+      - AUTO
+    ArchiveEncryptionAlgorithm_in_Archive_encryptionAlgorithm:
+      description: Encryption Algorithm for underlying backups.
+      type: string
+      enum:
+      - NONE
+      - AES128
+      - AES192
+      - AES256
+    BackupBackupAttributes_in_Backup_attributes:
+      type: object
+      properties:
+        streamName:
+          type: string
+        uri:
+          type: string
+    BackupType_in_Backup_type:
+      description: |-
+        Backup type
+        For detailed information, please see [backup types](/docs/backup/concepts/backup#types)
+      type: string
+      enum:
+      - FULL
+      - INCREMENTAL
+    PolicySettings_in_CreatePolicyRequest_settings:
+      description: Required.
+      type: object
+      properties:
+        compression:
+          $ref: '#/components/schemas/PolicySettingsCompression_in_PolicySettings_compression'
+        format:
+          $ref: '#/components/schemas/Format_in_PolicySettings_format'
+        multiVolumeSnapshottingEnabled:
+          description: If true, snapshots of multiple volumes will be taken simultaneously.
+          type: boolean
+          format: boolean
+        preserveFileSecuritySettings:
+          description: If true, the file security settings will be preserved.
+          type: boolean
+          format: boolean
+        reattempts:
+          $ref: '#/components/schemas/PolicySettingsRetriesConfiguration_in_PolicySettings_reattempts'
+        silentModeEnabled:
+          description: If true, a user interaction will be avoided when possible.
+            Equals to false if value is not specified.
+          type: boolean
+          format: boolean
+        splitting:
+          $ref: '#/components/schemas/PolicySettingsSplitting_in_PolicySettings_splitting'
+        vmSnapshotReattempts:
+          $ref: '#/components/schemas/PolicySettingsRetriesConfiguration_in_PolicySettings_vmSnapshotReattempts'
+        vss:
+          $ref: '#/components/schemas/PolicySettingsVolumeShadowCopyServiceSettings_in_PolicySettings_vss'
+        archive:
+          $ref: '#/components/schemas/PolicySettingsArchiveProperties_in_PolicySettings_archive'
+        performanceWindow:
+          $ref: '#/components/schemas/PolicySettingsPerformanceWindow_in_PolicySettings_performanceWindow'
+        retention:
+          $ref: '#/components/schemas/PolicySettingsRetention_in_PolicySettings_retention'
+        scheduling:
+          $ref: '#/components/schemas/PolicySettingsScheduling_in_PolicySettings_scheduling'
+        cbt:
+          $ref: '#/components/schemas/PolicySettingsChangedBlockTracking_in_PolicySettings_cbt'
+        fastBackupEnabled:
+          description: If true, determines whether a file has changed by the file
+            size and timestamp. Otherwise, the entire file contents are compared to
+            those stored in the backup.
+          type: boolean
+          format: boolean
+        quiesceSnapshottingEnabled:
+          description: If true, a quiesced snapshot of the virtual machine will be
+            taken.
+          type: boolean
+          format: boolean
+    Resource_in_GetResourceResponse_resource:
+      type: object
+      properties:
+        computeInstanceId:
+          type: string
+        createdAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        updatedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        online:
+          type: boolean
+          format: boolean
+        enabled:
+          type: boolean
+          format: boolean
+        status:
+          $ref: '#/components/schemas/ResourceStatus_in_Resource_status'
+        statusDetails:
+          description: |-
+            If status value is one of OTHER or FAILED,
+            detailed info might be stored here.
+          type: string
+        statusProgress:
+          description: |-
+            In case status is one of BACKUPING or RECOVERING,
+            progress value might be found here.
+          type: string
+          format: int64
+        lastBackupTime:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        nextBackupTime:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        resourceId:
+          description: Resource Identifier used to identify instance in backup service.
+          type: string
+        isActive:
+          description: |-
+            is_active shows whether current instance controls cloud backup resource.
+            If is_active is false it means instance is not able to manipulate
+            cloud backup resource.
+          type: boolean
+          format: boolean
+    PolicySettings_in_Policy_settings:
+      type: object
+      properties:
+        compression:
+          $ref: '#/components/schemas/PolicySettingsCompression_in_PolicySettings_compression'
+        format:
+          $ref: '#/components/schemas/Format_in_PolicySettings_format'
+        multiVolumeSnapshottingEnabled:
+          description: If true, snapshots of multiple volumes will be taken simultaneously.
+          type: boolean
+          format: boolean
+        preserveFileSecuritySettings:
+          description: If true, the file security settings will be preserved.
+          type: boolean
+          format: boolean
+        reattempts:
+          $ref: '#/components/schemas/PolicySettingsRetriesConfiguration_in_PolicySettings_reattempts'
+        silentModeEnabled:
+          description: If true, a user interaction will be avoided when possible.
+            Equals to false if value is not specified.
+          type: boolean
+          format: boolean
+        splitting:
+          $ref: '#/components/schemas/PolicySettingsSplitting_in_PolicySettings_splitting'
+        vmSnapshotReattempts:
+          $ref: '#/components/schemas/PolicySettingsRetriesConfiguration_in_PolicySettings_vmSnapshotReattempts'
+        vss:
+          $ref: '#/components/schemas/PolicySettingsVolumeShadowCopyServiceSettings_in_PolicySettings_vss'
+        archive:
+          $ref: '#/components/schemas/PolicySettingsArchiveProperties_in_PolicySettings_archive'
+        performanceWindow:
+          $ref: '#/components/schemas/PolicySettingsPerformanceWindow_in_PolicySettings_performanceWindow'
+        retention:
+          $ref: '#/components/schemas/PolicySettingsRetention_in_PolicySettings_retention'
+        scheduling:
+          $ref: '#/components/schemas/PolicySettingsScheduling_in_PolicySettings_scheduling'
+        cbt:
+          $ref: '#/components/schemas/PolicySettingsChangedBlockTracking_in_PolicySettings_cbt'
+        fastBackupEnabled:
+          description: If true, determines whether a file has changed by the file
+            size and timestamp. Otherwise, the entire file contents are compared to
+            those stored in the backup.
+          type: boolean
+          format: boolean
+        quiesceSnapshottingEnabled:
+          description: If true, a quiesced snapshot of the virtual machine will be
+            taken.
+          type: boolean
+          format: boolean
+    PolicyApplicationStatus_in_PolicyApplication_status:
+      description: |2-
+         - OK: Application is applied and everyhing is ok.
+         - RUNNING: Application is currently running.
+         - DISABLED: Application is disabled.
+      type: string
+      enum:
+      - OK
+      - RUNNING
+      - DISABLED
+    PolicySettingsCompression_in_PolicySettings_compression:
+      description: |-
+        Required.
+        Archive compression level.
+
+        Compression rate of the backups.
+      type: string
+      enum:
+      - NORMAL
+      - HIGH
+      - MAX
+      - "OFF"
+    Format_in_PolicySettings_format:
+      description: |-
+        Required.
+        Format of the Acronis backup archive.
+
+        Format of the backup in policy. For backup locations that can be browsed
+        with a file manager, the backup format detemines the number of files and
+        their extention.
+
+         - VERSION_11: A legacy backup format used in older versions. It's not recommended to use.
+         - VERSION_12: A new format recommende din most cases for fast backup and recovery.
+         - AUTO: Automatic version selection. Will be used version 12 unless the protection
+        plan (policy) appends backups to the ones created by earlier product
+        versions.
+      type: string
+      enum:
+      - VERSION_11
+      - VERSION_12
+      - AUTO
+    PolicySettingsRetriesConfiguration_in_PolicySettings_reattempts:
+      description: |-
+        Required.
+        Configuration of retries on recoverable errors during the backup operations like reconnection to destination. No attempts to fix recoverable errors will be made if retry configuration is not set.
+      type: object
+      properties:
+        enabled:
+          description: If true, enables retry on errors.
+          type: boolean
+          format: boolean
+        interval:
+          $ref: '#/components/schemas/PolicySettingsInterval_in_PolicySettingsRetriesConfiguration_interval'
+        maxAttempts:
+          description: "Max number of retry attempts. Operation will be considered
+            as failed \nwhen max number of retry attempts is reached.\n\nValue must
+            be greater than 0."
+          type: string
+          format: int64
+    PolicySettingsSplitting_in_PolicySettings_splitting:
+      description: |-
+        Required.
+        Determines the size to split backups on. Splitting is not performed if value is not specified.
+      type: object
+      properties:
+        size:
+          description: The size of split backup file in bytes.
+          type: string
+          format: int64
+    PolicySettingsRetriesConfiguration_in_PolicySettings_vmSnapshotReattempts:
+      description: |-
+        Required.
+        Configuration of retries on errors during the creation of the virtual machine snapshot. No attempts to fix recoverable errors will be made if retry configuration is not set.
+      type: object
+      properties:
+        enabled:
+          description: If true, enables retry on errors.
+          type: boolean
+          format: boolean
+        interval:
+          $ref: '#/components/schemas/PolicySettingsInterval_in_PolicySettingsRetriesConfiguration_interval'
+        maxAttempts:
+          description: "Max number of retry attempts. Operation will be considered
+            as failed \nwhen max number of retry attempts is reached.\n\nValue must
+            be greater than 0."
+          type: string
+          format: int64
+    PolicySettingsVolumeShadowCopyServiceSettings_in_PolicySettings_vss:
+      description: |-
+        Required.
+        Settings for the Volume Shadow Copy Service (VSS) provider. If not set, no VSS provider is used.
+
+        Settings for Volume Shadow Copy Services which allows to notify
+        VSS-aware applications that backup is about to start. This will
+        ensure the consistent state of all data used by the applications.
+      type: object
+      properties:
+        enabled:
+          description: If true, the VSS will be enabled.
+          type: boolean
+          format: boolean
+        provider:
+          $ref: '#/components/schemas/PolicySettingsVolumeShadowCopyServiceSettingsVSSProvider_in_PolicySettingsVolumeShadowCopyServiceSettings_provider'
+    PolicySettingsArchiveProperties_in_PolicySettings_archive:
+      description: The archive properties.
+      type: object
+      properties:
+        name:
+          description: |-
+            The name of the generated archive. The name may use the following variables: ``[Machine Name]``, ``[Plan ID]``, ``[Plan Name]``, ``[Unique ID]``, ``[Virtualization Server Type]``.
+            default value: '[Machine Name]-[Plan ID]-[Unique ID]A'
+          type: string
+    PolicySettingsPerformanceWindow_in_PolicySettings_performanceWindow:
+      description: |-
+        Required.
+        Time windows for performance limitations of backup and storage maintenance operations.
+      type: object
+      properties:
+        enabled:
+          description: If true, the time windows will be enabled.
+          type: boolean
+          format: boolean
+    PolicySettingsRetention_in_PolicySettings_retention:
+      description: |-
+        Required.
+        Configuration of backup retention rules.
+      type: object
+      properties:
+        rules:
+          description: A list of retention rules.
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicySettingsRetentionRetentionRule'
+        afterBackup:
+          description: If true, retention rules will be applied after backup is finished.
+          type: boolean
+          format: boolean
+    PolicySettingsScheduling_in_PolicySettings_scheduling:
+      description: |-
+        Required.
+        Configuration of the backup schedule.
+      type: object
+      properties:
+        backupSets:
+          description: |-
+            Required.
+            A list of schedules with backup sets that compose the whole scheme.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicySettingsSchedulingBackupSet'
+        enabled:
+          description: If true, the backup schedule will be enabled.
+          type: boolean
+          format: boolean
+        maxParallelBackups:
+          description: Max number of backup processes allowed to run in parallel.
+            Unlimited if not set.
+          type: string
+          format: int64
+        randMaxDelay:
+          $ref: '#/components/schemas/PolicySettingsInterval_in_PolicySettingsScheduling_randMaxDelay'
+        scheme:
+          $ref: '#/components/schemas/PolicySettingsSchedulingScheme_in_PolicySettingsScheduling_scheme'
+        weeklyBackupDay:
+          $ref: '#/components/schemas/PolicySettingsDay_in_PolicySettingsScheduling_weeklyBackupDay'
+    PolicySettingsChangedBlockTracking_in_PolicySettings_cbt:
+      description: |-
+        Required.
+        A configuration of Changed Block Tracking (CBT).
+      type: string
+      enum:
+      - USE_IF_ENABLED
+      - ENABLE_AND_USE
+      - DO_NOT_USE
+    PolicySettingsIntervalType_in_PolicySettingsInterval_type:
+      description: |-
+        Required.
+        A type of the interval.
+      type: string
+      enum:
+      - SECONDS
+      - MINUTES
+      - HOURS
+      - DAYS
+      - WEEKS
+      - MONTHS
+    PolicySettingsInterval_in_PolicySettingsRetriesConfiguration_interval:
+      description: |-
+        Required.
+        An interval between retry attempts.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/PolicySettingsIntervalType_in_PolicySettingsInterval_type'
+        count:
+          description: |-
+            The amount of value specified in interval.type.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    PolicySettingsInterval_in_PolicySettingsScheduling_randMaxDelay:
+      description: |-
+        Required.
+        Configuration of the random delay between the execution of parallel tasks.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/PolicySettingsIntervalType_in_PolicySettingsInterval_type'
+        count:
+          description: |-
+            The amount of value specified in interval.type.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    PolicySettingsSchedulingScheme_in_PolicySettingsScheduling_scheme:
+      description: |-
+        Required.
+        A backup scheme. Available values: ``simple``, ``always_full``, ``always_incremental``, ``weekly_incremental``, ``weekly_full_daily_incremental``, ``custom``, ``cdp``.
+
+        Scheme of backups.
+
+         - CUSTOM: Custom will require to specify schedules for full, differential
+        and incremental backups additionally.
+      type: string
+      enum:
+      - SIMPLE
+      - ALWAYS_FULL
+      - ALWAYS_INCREMENTAL
+      - WEEKLY_INCREMENTAL
+      - WEEKLY_FULL_DAILY_INCREMENTAL
+      - CUSTOM
+      - CDP
+    PolicySettingsDay_in_PolicySettingsScheduling_weeklyBackupDay:
+      description: |-
+        Required.
+        A day of week to start weekly backups.
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    PolicySettingsInterval_in_PolicySettingsSchedulingBackupSetSinceLastExecTime_delay:
+      description: Required.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/PolicySettingsIntervalType_in_PolicySettingsInterval_type'
+        count:
+          description: |-
+            The amount of value specified in interval.type.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    PolicySettingsInterval_in_PolicySettingsSchedulingBackupSetTime_repeatEvery:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/PolicySettingsIntervalType_in_PolicySettingsInterval_type'
+        count:
+          description: |-
+            The amount of value specified in interval.type.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    PolicySettingsTimeOfDay_in_PolicySettingsSchedulingBackupSetTime_timeFrom:
+      type: object
+      properties:
+        hour:
+          type: string
+          format: int64
+        minute:
+          type: string
+          format: int64
+    PolicySettingsTimeOfDay_in_PolicySettingsSchedulingBackupSetTime_timeTo:
+      type: object
+      properties:
+        hour:
+          type: string
+          format: int64
+        minute:
+          type: string
+          format: int64
+    PolicySettingsRepeatePeriod_in_PolicySettingsSchedulingBackupSetTime_type:
+      description: Required.
+      type: string
+      enum:
+      - HOURLY
+      - DAILY
+      - WEEKLY
+      - MONTHLY
+    PolicySettingsVolumeShadowCopyServiceSettingsVSSProvider_in_PolicySettingsVolumeShadowCopyServiceSettings_provider:
+      description: |-
+        Required.
+        A type of VSS provider to use in backup.
+      type: string
+      enum:
+      - NATIVE
+      - TARGET_SYSTEM_DEFINED
+    ResourceStatus_in_Resource_status:
+      description: |2-
+         - IDLE: Instance is doing nothing right now.
+         - BACKUPING: Instance currently backing up itself.
+         - RECOVERING: Instance currently recovering itself.
+         - FAILED: Instance in failure state, check content of status_details field
+        for more information.
+         - OTHER: Unspecified state, check status_details field
+        for more information.
+      type: string
+      enum:
+      - IDLE
+      - BACKUPING
+      - RECOVERING
+      - FAILED
+      - OTHER
+    TaskType_in_Task_type:
+      type: string
+      enum:
+      - BACKUP
+      - RETENTION
+      - RECOVERY
+    Progress_in_Task_progress:
+      type: object
+      properties:
+        current:
+          type: string
+          format: int64
+        total:
+          type: string
+          format: int64
+    TaskStatus_in_Task_status:
+      description: Status of task.
+      type: string
+      enum:
+      - ENQUEUED
+      - ASSIGNED
+      - STARTED
+      - PAUSED
+      - COMPLETED
+    PolicySettings_in_UpdatePolicyRequest_settings:
+      description: Required.
+      type: object
+      properties:
+        compression:
+          $ref: '#/components/schemas/PolicySettingsCompression_in_PolicySettings_compression'
+        format:
+          $ref: '#/components/schemas/Format_in_PolicySettings_format'
+        multiVolumeSnapshottingEnabled:
+          description: If true, snapshots of multiple volumes will be taken simultaneously.
+          type: boolean
+          format: boolean
+        preserveFileSecuritySettings:
+          description: If true, the file security settings will be preserved.
+          type: boolean
+          format: boolean
+        reattempts:
+          $ref: '#/components/schemas/PolicySettingsRetriesConfiguration_in_PolicySettings_reattempts'
+        silentModeEnabled:
+          description: If true, a user interaction will be avoided when possible.
+            Equals to false if value is not specified.
+          type: boolean
+          format: boolean
+        splitting:
+          $ref: '#/components/schemas/PolicySettingsSplitting_in_PolicySettings_splitting'
+        vmSnapshotReattempts:
+          $ref: '#/components/schemas/PolicySettingsRetriesConfiguration_in_PolicySettings_vmSnapshotReattempts'
+        vss:
+          $ref: '#/components/schemas/PolicySettingsVolumeShadowCopyServiceSettings_in_PolicySettings_vss'
+        archive:
+          $ref: '#/components/schemas/PolicySettingsArchiveProperties_in_PolicySettings_archive'
+        performanceWindow:
+          $ref: '#/components/schemas/PolicySettingsPerformanceWindow_in_PolicySettings_performanceWindow'
+        retention:
+          $ref: '#/components/schemas/PolicySettingsRetention_in_PolicySettings_retention'
+        scheduling:
+          $ref: '#/components/schemas/PolicySettingsScheduling_in_PolicySettings_scheduling'
+        cbt:
+          $ref: '#/components/schemas/PolicySettingsChangedBlockTracking_in_PolicySettings_cbt'
+        fastBackupEnabled:
+          description: If true, determines whether a file has changed by the file
+            size and timestamp. Otherwise, the entire file contents are compared to
+            those stored in the backup.
+          type: boolean
+          format: boolean
+        quiesceSnapshottingEnabled:
+          description: If true, a quiesced snapshot of the virtual machine will be
+            taken.
+          type: boolean
+          format: boolean
+tags:
+- name: Backup
+  description: A set of methods for managing backups.
+- name: Policy
+- name: Provider
+- name: Resource

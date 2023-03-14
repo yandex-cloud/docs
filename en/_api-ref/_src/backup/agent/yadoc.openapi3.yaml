@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Cloud Backup API
+  title: Cloud Backup Agent API
   description: This API reference is organized around Cloud Backup resources. Actions
     are performed by sending HTTP requests to resource URLs or making RPC calls. For
     more information about API architecture, see [API Concepts](/docs/api-design-guide/).

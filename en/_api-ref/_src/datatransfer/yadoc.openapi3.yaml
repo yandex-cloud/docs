@@ -92,10 +92,12 @@ paths:
         in: query
         description: |-
           The maximum number of endpoints to be sent in the response message. If the
-          folder contains more endpoints than page_size, next_page_token will be included
-          in the response message. Include it into the subsequent ListEndpointRequest to
-          fetch the next page. Defaults to 100 if not specified. The maximum allowed value
-          for this field is 500.
+          folder contains more endpoints than `page_size`, `next_page_token` will be
+          included
+          in the response message. Include it into the subsequent `ListEndpointRequest` to
+          fetch the next page. Defaults to `100` if not specified. The maximum allowed
+          value
+          for this field is `500`.
         schema:
           type: string
           format: int64
@@ -103,8 +105,9 @@ paths:
         in: query
         description: |-
           Opaque value identifying the endpoints page to be fetched. Should be empty in
-          the first ListEndpointsRequest. Subsequent request should have this field filled
-          with the next_page_token from the previous ListEndpointsResponse.
+          the first `ListEndpointsRequest`. Subsequent requests should have this field
+          filled
+          with the `next_page_token` from the previous `ListEndpointsResponse`.
         schema:
           type: string
       responses:
@@ -243,10 +246,13 @@ paths:
         in: query
         description: |-
           The maximum number of transfers to be sent in the response message. If the
-          folder contains more transfers than page_size, next_page_token will be included
-          in the response message. Include it into the subsequent ListTransfersRequest to
-          fetch the next page. Defaults to 100 if not specified. The maximum allowed value
-          for this field is 500.
+          folder contains more transfers than `page_size`, `next_page_token` will be
+          included
+          in the response message. Include it into the subsequent `ListTransfersRequest`
+          to
+          fetch the next page. Defaults to `100` if not specified. The maximum allowed
+          value
+          for this field is `500`.
         schema:
           type: string
           format: int64
@@ -254,8 +260,9 @@ paths:
         in: query
         description: |-
           Opaque value identifying the transfers page to be fetched. Should be empty in
-          the first ListTransfersRequest. Subsequent request should have this field filled
-          with the next_page_token from the previous ListTransfersResponse.
+          the first `ListTransfersRequest`. Subsequent requests should have this field
+          filled
+          with the `next_page_token` from the previous `ListTransfersResponse`.
         schema:
           type: string
       responses:
@@ -336,12 +343,19 @@ components:
       type: object
       properties:
         fromName:
-          description: From table name
+          description: Source table name
           type: string
         toName:
-          description: To table name
+          description: Target table name
           type: string
+    AuditTrailsV1Parser:
+      type: object
+      properties: {}
     CleanupPolicy:
+      description: |2-
+         - DISABLED: Don't cleanup
+         - DROP: Drop
+         - TRUNCATE: Truncate
       type: string
       enum:
       - DISABLED
@@ -352,6 +366,7 @@ components:
       enum:
       - CLICKHOUSE_CLEANUP_POLICY_DISABLED
       - CLICKHOUSE_CLEANUP_POLICY_DROP
+      - CLICKHOUSE_CLEANUP_POLICY_TRUNCATE
     ClickhouseConnection:
       type: object
       allOf:
@@ -367,6 +382,7 @@ components:
       - type: object
         properties:
           database:
+            description: Database
             type: string
           user:
             type: string
@@ -435,10 +451,16 @@ components:
           items:
             type: string
         includeTables:
+          description: |-
+            While list of tables for replication. If none or empty list is presented - will
+            replicate all tables. Can contain * patterns.
           type: array
           items:
             type: string
         excludeTables:
+          description: |-
+            Exclude list of tables for replication. If none or empty list is presented -
+            will replicate all tables. Can contain * patterns.
           type: array
           items:
             type: string
@@ -456,6 +478,7 @@ components:
         clickhouseClusterName:
           type: string
         altNames:
+          description: Alternative table names in target
           type: array
           items:
             $ref: '#/components/schemas/AltName'
@@ -463,6 +486,41 @@ components:
           $ref: '#/components/schemas/ClickhouseSharding_in_ClickhouseTarget_sharding'
         cleanupPolicy:
           $ref: '#/components/schemas/ClickhouseCleanupPolicy_in_ClickhouseTarget_cleanupPolicy'
+    CloudLoggingParser:
+      type: object
+      properties: {}
+    ColSchema:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/ColumnType_in_ColSchema_type'
+        key:
+          type: boolean
+          format: boolean
+        required:
+          type: boolean
+          format: boolean
+        path:
+          type: string
+    ColumnType:
+      type: string
+      enum:
+      - INT64
+      - INT32
+      - INT16
+      - INT8
+      - UINT64
+      - UINT32
+      - UINT16
+      - UINT8
+      - DOUBLE
+      - BOOLEAN
+      - STRING
+      - UTF8
+      - ANY
+      - DATETIME
     ColumnValue:
       type: object
       allOf:
@@ -516,6 +574,39 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/TransferType_in_CreateTransferRequest_type'
+    DataSchema:
+      type: object
+      allOf:
+      - title: schema
+        type: object
+        maxProperties: 1
+        properties:
+          fields:
+            $ref: '#/components/schemas/FieldList'
+          jsonFields:
+            type: string
+    DataTransformationOptions:
+      type: object
+      properties:
+        cloudFunction:
+          description: Cloud function
+          type: string
+        serviceAccountId:
+          description: Service account
+          type: string
+        numberOfRetries:
+          description: Number of retries
+          type: string
+          format: int64
+        bufferSize:
+          description: Buffer size for function
+          type: string
+        bufferFlushInterval:
+          description: Flush interval
+          type: string
+        invocationTimeout:
+          description: Invocation timeout
+          type: string
     DeactivateTransferMetadata:
       type: object
       properties:
@@ -566,6 +657,8 @@ components:
             $ref: '#/components/schemas/MysqlSource'
           postgresSource:
             $ref: '#/components/schemas/PostgresSource'
+          kafkaSource:
+            $ref: '#/components/schemas/KafkaSource'
           mongoSource:
             $ref: '#/components/schemas/MongoSource'
           clickhouseSource:
@@ -576,8 +669,18 @@ components:
             $ref: '#/components/schemas/PostgresTarget'
           clickhouseTarget:
             $ref: '#/components/schemas/ClickhouseTarget'
+          kafkaTarget:
+            $ref: '#/components/schemas/KafkaTarget'
           mongoTarget:
             $ref: '#/components/schemas/MongoTarget'
+    FieldList:
+      type: object
+      properties:
+        fields:
+          description: Column schema
+          type: array
+          items:
+            $ref: '#/components/schemas/ColSchema'
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -589,22 +692,139 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    GenericParserCommon:
+      type: object
+      properties:
+        dataSchema:
+          $ref: '#/components/schemas/DataSchema_in_GenericParserCommon_dataSchema'
+        nullKeysAllowed:
+          description: Allow null keys, if no - null keys will be putted to unparsed
+            data
+          type: boolean
+          format: boolean
+        addRestColumn:
+          description: Will add _rest column for all unknown fields
+          type: boolean
+          format: boolean
+    KafkaAuth:
+      type: object
+      allOf:
+      - title: security
+        type: object
+        maxProperties: 1
+        properties:
+          sasl:
+            $ref: '#/components/schemas/KafkaSaslSecurity'
+            description: Authentication with SASL
+          noAuth:
+            $ref: '#/components/schemas/NoAuth'
+            description: No authentication
+    KafkaConnectionOptions:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          clusterId:
+            description: Managed Service for Kafka cluster ID
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremiseKafka'
+            description: Connection options for on-premise Kafka
+    KafkaMechanism:
+      type: string
+      enum:
+      - KAFKA_MECHANISM_SHA256
+      - KAFKA_MECHANISM_SHA512
+    KafkaSaslSecurity:
+      type: object
+      properties:
+        user:
+          description: User name
+          type: string
+        password:
+          $ref: '#/components/schemas/Secret_in_KafkaSaslSecurity_password'
+        mechanism:
+          $ref: '#/components/schemas/KafkaMechanism_in_KafkaSaslSecurity_mechanism'
+    KafkaSource:
+      type: object
+      properties:
+        connection:
+          $ref: '#/components/schemas/KafkaConnectionOptions_in_KafkaSource_connection'
+        auth:
+          $ref: '#/components/schemas/KafkaAuth_in_KafkaSource_auth'
+        securityGroups:
+          description: Security groups
+          type: array
+          items:
+            type: string
+        topicName:
+          description: Full source topic name
+          type: string
+        transformer:
+          $ref: '#/components/schemas/DataTransformationOptions_in_KafkaSource_transformer'
+        parser:
+          $ref: '#/components/schemas/Parser_in_KafkaSource_parser'
+    KafkaTarget:
+      type: object
+      properties:
+        connection:
+          $ref: '#/components/schemas/KafkaConnectionOptions_in_KafkaTarget_connection'
+        auth:
+          $ref: '#/components/schemas/KafkaAuth_in_KafkaTarget_auth'
+        securityGroups:
+          description: Security groups
+          type: array
+          items:
+            type: string
+        topicSettings:
+          $ref: '#/components/schemas/KafkaTargetTopicSettings_in_KafkaTarget_topicSettings'
+    KafkaTargetTopic:
+      type: object
+      properties:
+        topicName:
+          description: Topic name
+          type: string
+        saveTxOrder:
+          description: |-
+            Save transactions order
+            Not to split events queue into separate per-table queues.
+          type: boolean
+          format: boolean
+    KafkaTargetTopicSettings:
+      type: object
+      allOf:
+      - title: topic_settings
+        type: object
+        maxProperties: 1
+        properties:
+          topic:
+            $ref: '#/components/schemas/KafkaTargetTopic'
+            description: Full topic name
+          topicPrefix:
+            description: |-
+              Topic prefix
+
+              Analogue of the Debezium setting database.server.name.
+              Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>.
+            type: string
     ListEndpointsResponse:
       type: object
       properties:
         endpoints:
           description: |-
             The list of endpoints. If there are more endpoints in the folder, then
-            next_page_token is a non-empty string to be included into the subsequent
-            ListEndpointsRequest to fetch the next endpoints page.
+            `next_page_token` is a non-empty string to be included into the subsequent
+            `ListEndpointsRequest` to fetch the next endpoints page.
           type: array
           items:
             $ref: '#/components/schemas/Endpoint'
         nextPageToken:
           description: |-
             Opaque value identifying the next endpoints page. This field is empty if there
-            are no more endpoints in the folder. Otherwise it is non-empty and should be
-            included in the subsequent ListEndpointsRequest to fetch the next endpoints
+            are no more endpoints in the folder. Otherwise, it is non-empty and should be
+            included in the subsequent `ListEndpointsRequest` to fetch the next endpoints
             page.
           type: string
     ListTransfersResponse:
@@ -613,8 +833,8 @@ components:
         transfers:
           description: |-
             The list of transfers. If there are more transfers in the folder, then
-            next_page_token is a non-empty string to be included into the subsequent
-            ListTransfersRequest to fetch the next transfers page.
+            `next_page_token` is a non-empty string to be included into the subsequent
+            `ListTransfersRequest` to fetch the next transfers page.
           type: array
           items:
             $ref: '#/components/schemas/Transfer'
@@ -622,7 +842,7 @@ components:
           description: |-
             Opaque value identifying the next transfers page. This field is empty if there
             are no more transfers in the folder. Otherwise it is non-empty and should be
-            included in the subsequent ListTransfersRequest to fetch the next transfers
+            included in the subsequent `ListTransfersRequest` to fetch the next transfers
             page.
           type: string
     MongoCollection:
@@ -647,10 +867,13 @@ components:
       - type: object
         properties:
           user:
+            description: User name
             type: string
           password:
             $ref: '#/components/schemas/Secret'
+            description: Password for user
           authSource:
+            description: Database name associated with the credentials
             type: string
       - title: address
         type: object
@@ -673,14 +896,21 @@ components:
           items:
             type: string
         collections:
+          description: |-
+            List of collections for replication. Empty list implies replication of all
+            tables on the deployment. Allowed to use * as collection name.
           type: array
           items:
             $ref: '#/components/schemas/MongoCollection'
         excludedCollections:
+          description: |-
+            List of forbidden collections for replication. Allowed to use * as collection
+            name for forbid all collections of concrete schema.
           type: array
           items:
             $ref: '#/components/schemas/MongoCollection'
         secondaryPreferredMode:
+          description: Read mode for mongo client
           type: boolean
           format: boolean
     MongoTarget:
@@ -696,6 +926,7 @@ components:
           items:
             type: string
         database:
+          description: Database name
           type: string
         cleanupPolicy:
           $ref: '#/components/schemas/CleanupPolicy_in_MongoTarget_cleanupPolicy'
@@ -707,17 +938,11 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
-            description: |-
-              Managed cluster
-
-              Managed Service for MySQL cluster ID
+            description: Managed Service for MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
-            description: |-
-              On-premise
-
-              Connection options for on-premise MySQL
+            description: Connection options for on-premise MySQL
     MysqlObjectTransferSettings:
       type: object
       properties:
@@ -727,6 +952,8 @@ components:
           $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_routine'
         trigger:
           $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_trigger'
+        tables:
+          $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_tables'
     MysqlSource:
       type: object
       properties:
@@ -752,10 +979,7 @@ components:
             __tm_gtid_keeper).
           type: string
         user:
-          description: |-
-            Username
-
-            User for database access.
+          description: User for database access.
           type: string
         password:
           $ref: '#/components/schemas/Secret_in_MysqlSource_password'
@@ -795,18 +1019,12 @@ components:
             schema for service table.
           type: string
         user:
-          description: |-
-            Username
-
-            User for database access.
+          description: User for database access.
           type: string
         password:
           $ref: '#/components/schemas/Secret_in_MysqlTarget_password'
         sqlMode:
-          description: |-
-            sql_mode
-
-            Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION.
+          description: 'Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION.'
           type: string
         skipConstraintChecks:
           description: |-
@@ -832,7 +1050,15 @@ components:
 
             Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
           type: string
+    NoAuth:
+      description: No authentication
+      type: object
+      properties: {}
     ObjectTransferStage:
+      description: |2-
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -853,6 +1079,20 @@ components:
           format: int64
         tlsMode:
           $ref: '#/components/schemas/TLSMode_in_OnPremiseClickhouse_tlsMode'
+    OnPremiseKafka:
+      type: object
+      properties:
+        brokerUrls:
+          description: Kafka broker URLs
+          type: array
+          items:
+            type: string
+        tlsMode:
+          $ref: '#/components/schemas/TLSMode_in_OnPremiseKafka_tlsMode'
+        subnetId:
+          description: Network interface for endpoint. If none will assume public
+            ipv4
+          type: string
     OnPremiseMongo:
       type: object
       properties:
@@ -875,19 +1115,14 @@ components:
           items:
             type: string
         port:
-          description: |-
-            Database port
-
-            Default: 3306.
+          description: Database port
           type: string
           format: int64
         tlsMode:
           $ref: '#/components/schemas/TLSMode_in_OnPremiseMysql_tlsMode'
         subnetId:
-          description: |-
-            Network interface for endpoint
-
-            Default: public IPv4.
+          description: Network interface for endpoint. If none will assume public
+            ipv4
           type: string
     OnPremisePostgres:
       type: object
@@ -897,19 +1132,14 @@ components:
           items:
             type: string
         port:
-          description: |-
-            Database port
-
-            Will be used if the cluster ID is not specified. Default: 6432.
+          description: Will be used if the cluster ID is not specified.
           type: string
           format: int64
         tlsMode:
           $ref: '#/components/schemas/TLSMode_in_OnPremisePostgres_tlsMode'
         subnetId:
-          description: |-
-            Network interface for endpoint
-
-            Default: public IPv4.
+          description: Network interface for endpoint. If none will assume public
+            ipv4
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
@@ -974,6 +1204,21 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    Parser:
+      type: object
+      allOf:
+      - title: parser
+        type: object
+        maxProperties: 1
+        properties:
+          jsonParser:
+            $ref: '#/components/schemas/GenericParserCommon'
+          auditTrailsV1Parser:
+            $ref: '#/components/schemas/AuditTrailsV1Parser'
+          cloudLoggingParser:
+            $ref: '#/components/schemas/CloudLoggingParser'
+          tskvParser:
+            $ref: '#/components/schemas/GenericParserCommon'
     PostgresConnection:
       type: object
       allOf:
@@ -982,17 +1227,11 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
-            description: |-
-              Managed cluster
-
-              Managed Service for PostgreSQL cluster ID
+            description: Managed Service for PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
-            description: |-
-              On-premise
-
-              Connection options for on-premise PostgreSQL
+            description: Connection options for on-premise PostgreSQL
     PostgresObjectTransferSettings:
       type: object
       properties:
@@ -1000,6 +1239,8 @@ components:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_sequence'
         sequenceOwnedBy:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_sequenceOwnedBy'
+        sequenceSet:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_sequenceSet'
         table:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_table'
         primaryKey:
@@ -1014,6 +1255,8 @@ components:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_index'
         view:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_view'
+        materializedView:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_materializedView'
         function:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_function'
         trigger:
@@ -1028,8 +1271,6 @@ components:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_policy'
         cast:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_cast'
-        materializedView:
-          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_materializedView'
     PostgresSource:
       type: object
       properties:
@@ -1044,10 +1285,7 @@ components:
           description: Database name
           type: string
         user:
-          description: |-
-            Username
-
-            User for database access.
+          description: User for database access.
           type: string
         password:
           $ref: '#/components/schemas/Secret_in_PostgresSource_password'
@@ -1071,19 +1309,14 @@ components:
             type: string
         slotByteLagLimit:
           description: |-
-            Maximum WAL size for the replication slot
-
-            Maximum WAL size held by the replication slot. Exceeding this limit will result
-            in a replication failure and deletion of the replication slot. Unlimited by
-            default.
+            Maximum lag of replication slot (in bytes); after exceeding this limit
+            replication will be aborted.
           type: string
           format: int64
         serviceSchema:
           description: |-
-            Database schema for service tables
-
-            Default: public. Here created technical tables (__consumer_keeper,
-            __data_transfer_mole_finder).
+            Database schema for service tables (__consumer_keeper,
+            __data_transfer_mole_finder). Default is public
           type: string
         objectTransferSettings:
           $ref: '#/components/schemas/PostgresObjectTransferSettings_in_PostgresSource_objectTransferSettings'
@@ -1101,10 +1334,7 @@ components:
           description: Database name
           type: string
         user:
-          description: |-
-            Username
-
-            User for database access.
+          description: User for database access.
           type: string
         password:
           $ref: '#/components/schemas/Secret_in_PostgresTarget_password'
@@ -1118,7 +1348,7 @@ components:
         maxProperties: 1
         properties:
           raw:
-            description: Password
+            description: Raw secret value
             type: string
     Status:
       description: The error result of the operation in case of failure or cancellation.
@@ -1159,6 +1389,7 @@ components:
           enabled:
             $ref: '#/components/schemas/TLSConfig'
     Transfer:
+      description: Transfer core entity
       type: object
       properties:
         id:
@@ -1184,6 +1415,15 @@ components:
         warning:
           type: string
     TransferStatus:
+      description: |2-
+         - CREATING: Transfer does some work before running
+         - CREATED: Transfer created but not started by user
+         - RUNNING: Transfer currently doing replication work
+         - STOPPING: Transfer shutdown
+         - STOPPED: Transfer stopped by user
+         - ERROR: Transfer stopped by system
+         - SNAPSHOTTING: Transfer copy snapshot
+         - DONE: Transfer reach terminal phase
       type: string
       enum:
       - CREATING
@@ -1291,6 +1531,24 @@ components:
       enum:
       - CLICKHOUSE_CLEANUP_POLICY_DISABLED
       - CLICKHOUSE_CLEANUP_POLICY_DROP
+      - CLICKHOUSE_CLEANUP_POLICY_TRUNCATE
+    ColumnType_in_ColSchema_type:
+      type: string
+      enum:
+      - INT64
+      - INT32
+      - INT16
+      - INT8
+      - UINT64
+      - UINT32
+      - UINT16
+      - UINT8
+      - DOUBLE
+      - BOOLEAN
+      - STRING
+      - UTF8
+      - ANY
+      - DATETIME
     EndpointSettings_in_CreateEndpointRequest_settings:
       type: object
       allOf:
@@ -1302,6 +1560,8 @@ components:
             $ref: '#/components/schemas/MysqlSource'
           postgresSource:
             $ref: '#/components/schemas/PostgresSource'
+          kafkaSource:
+            $ref: '#/components/schemas/KafkaSource'
           mongoSource:
             $ref: '#/components/schemas/MongoSource'
           clickhouseSource:
@@ -1312,6 +1572,8 @@ components:
             $ref: '#/components/schemas/PostgresTarget'
           clickhouseTarget:
             $ref: '#/components/schemas/ClickhouseTarget'
+          kafkaTarget:
+            $ref: '#/components/schemas/KafkaTarget'
           mongoTarget:
             $ref: '#/components/schemas/MongoTarget'
     TransferType_in_CreateTransferRequest_type:
@@ -1335,6 +1597,8 @@ components:
             $ref: '#/components/schemas/MysqlSource'
           postgresSource:
             $ref: '#/components/schemas/PostgresSource'
+          kafkaSource:
+            $ref: '#/components/schemas/KafkaSource'
           mongoSource:
             $ref: '#/components/schemas/MongoSource'
           clickhouseSource:
@@ -1345,8 +1609,151 @@ components:
             $ref: '#/components/schemas/PostgresTarget'
           clickhouseTarget:
             $ref: '#/components/schemas/ClickhouseTarget'
+          kafkaTarget:
+            $ref: '#/components/schemas/KafkaTarget'
           mongoTarget:
             $ref: '#/components/schemas/MongoTarget'
+    DataSchema_in_GenericParserCommon_dataSchema:
+      type: object
+      allOf:
+      - title: schema
+        type: object
+        maxProperties: 1
+        properties:
+          fields:
+            $ref: '#/components/schemas/FieldList'
+          jsonFields:
+            type: string
+    Secret_in_KafkaSaslSecurity_password:
+      description: Password for user
+      type: object
+      allOf:
+      - title: value
+        type: object
+        maxProperties: 1
+        properties:
+          raw:
+            description: Raw secret value
+            type: string
+    KafkaMechanism_in_KafkaSaslSecurity_mechanism:
+      description: SASL mechanism for authentication
+      type: string
+      enum:
+      - KAFKA_MECHANISM_SHA256
+      - KAFKA_MECHANISM_SHA512
+    KafkaConnectionOptions_in_KafkaSource_connection:
+      description: Connection settings
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          clusterId:
+            description: Managed Service for Kafka cluster ID
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremiseKafka'
+            description: Connection options for on-premise Kafka
+    KafkaAuth_in_KafkaSource_auth:
+      description: Authentication settings
+      type: object
+      allOf:
+      - title: security
+        type: object
+        maxProperties: 1
+        properties:
+          sasl:
+            $ref: '#/components/schemas/KafkaSaslSecurity'
+            description: Authentication with SASL
+          noAuth:
+            $ref: '#/components/schemas/NoAuth'
+            description: No authentication
+    DataTransformationOptions_in_KafkaSource_transformer:
+      description: Data transformation rules
+      type: object
+      properties:
+        cloudFunction:
+          description: Cloud function
+          type: string
+        serviceAccountId:
+          description: Service account
+          type: string
+        numberOfRetries:
+          description: Number of retries
+          type: string
+          format: int64
+        bufferSize:
+          description: Buffer size for function
+          type: string
+        bufferFlushInterval:
+          description: Flush interval
+          type: string
+        invocationTimeout:
+          description: Invocation timeout
+          type: string
+    Parser_in_KafkaSource_parser:
+      description: Data parsing rules
+      type: object
+      allOf:
+      - title: parser
+        type: object
+        maxProperties: 1
+        properties:
+          jsonParser:
+            $ref: '#/components/schemas/GenericParserCommon'
+          auditTrailsV1Parser:
+            $ref: '#/components/schemas/AuditTrailsV1Parser'
+          cloudLoggingParser:
+            $ref: '#/components/schemas/CloudLoggingParser'
+          tskvParser:
+            $ref: '#/components/schemas/GenericParserCommon'
+    KafkaConnectionOptions_in_KafkaTarget_connection:
+      description: Connection settings
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          clusterId:
+            description: Managed Service for Kafka cluster ID
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremiseKafka'
+            description: Connection options for on-premise Kafka
+    KafkaAuth_in_KafkaTarget_auth:
+      description: Authentication settings
+      type: object
+      allOf:
+      - title: security
+        type: object
+        maxProperties: 1
+        properties:
+          sasl:
+            $ref: '#/components/schemas/KafkaSaslSecurity'
+            description: Authentication with SASL
+          noAuth:
+            $ref: '#/components/schemas/NoAuth'
+            description: No authentication
+    KafkaTargetTopicSettings_in_KafkaTarget_topicSettings:
+      description: Target topic settings
+      type: object
+      allOf:
+      - title: topic_settings
+        type: object
+        maxProperties: 1
+        properties:
+          topic:
+            $ref: '#/components/schemas/KafkaTargetTopic'
+            description: Full topic name
+          topicPrefix:
+            description: |-
+              Topic prefix
+
+              Analogue of the Debezium setting database.server.name.
+              Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>.
+            type: string
     MongoConnection_in_MongoSource_connection:
       type: object
       allOf:
@@ -1366,6 +1773,10 @@ components:
           connectionOptions:
             $ref: '#/components/schemas/MongoConnectionOptions'
     CleanupPolicy_in_MongoTarget_cleanupPolicy:
+      description: |2-
+         - DISABLED: Don't cleanup
+         - DROP: Drop
+         - TRUNCATE: Truncate
       type: string
       enum:
       - DISABLED
@@ -1376,6 +1787,10 @@ components:
         Views
 
         CREATE VIEW ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1386,6 +1801,10 @@ components:
         Routines
 
         CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1396,16 +1815,27 @@ components:
         Triggers
 
         CREATE TRIGGER ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_MysqlObjectTransferSettings_tables:
+      description: |2-
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     MysqlConnection_in_MysqlSource_connection:
-      description: |-
-        Connection settings
-
-        Database connection settings
+      description: Database connection settings
       type: object
       allOf:
       - title: connection
@@ -1413,22 +1843,13 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
-            description: |-
-              Managed cluster
-
-              Managed Service for MySQL cluster ID
+            description: Managed Service for MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
-            description: |-
-              On-premise
-
-              Connection options for on-premise MySQL
+            description: Connection options for on-premise MySQL
     Secret_in_MysqlSource_password:
-      description: |-
-        Password
-
-        Password for database access.
+      description: Password for database access.
       type: object
       allOf:
       - title: value
@@ -1436,7 +1857,7 @@ components:
         maxProperties: 1
         properties:
           raw:
-            description: Password
+            description: Raw secret value
             type: string
     MysqlObjectTransferSettings_in_MysqlSource_objectTransferSettings:
       description: |-
@@ -1451,11 +1872,10 @@ components:
           $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_routine'
         trigger:
           $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_trigger'
+        tables:
+          $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_tables'
     MysqlConnection_in_MysqlTarget_connection:
-      description: |-
-        Connection settings
-
-        Database connection settings
+      description: Database connection settings
       type: object
       allOf:
       - title: connection
@@ -1463,22 +1883,13 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
-            description: |-
-              Managed cluster
-
-              Managed Service for MySQL cluster ID
+            description: Managed Service for MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
-            description: |-
-              On-premise
-
-              Connection options for on-premise MySQL
+            description: Connection options for on-premise MySQL
     Secret_in_MysqlTarget_password:
-      description: |-
-        Password
-
-        Password for database access.
+      description: Password for database access.
       type: object
       allOf:
       - title: value
@@ -1486,7 +1897,7 @@ components:
         maxProperties: 1
         properties:
           raw:
-            description: Password
+            description: Raw secret value
             type: string
     CleanupPolicy_in_MysqlTarget_cleanupPolicy:
       description: |-
@@ -1494,12 +1905,28 @@ components:
 
         Cleanup policy for activate, reactivate and reupload processes. Default is
         DISABLED.
+
+         - DISABLED: Don't cleanup
+         - DROP: Drop
+         - TRUNCATE: Truncate
       type: string
       enum:
       - DISABLED
       - DROP
       - TRUNCATE
     TLSMode_in_OnPremiseClickhouse_tlsMode:
+      type: object
+      allOf:
+      - title: tls_mode
+        type: object
+        maxProperties: 1
+        properties:
+          disabled:
+            $ref: '#/components/schemas/Empty'
+          enabled:
+            $ref: '#/components/schemas/TLSConfig'
+    TLSMode_in_OnPremiseKafka_tlsMode:
+      description: TLS settings for broker connection. Disabled by default.
       type: object
       allOf:
       - title: tls_mode
@@ -1522,10 +1949,7 @@ components:
           enabled:
             $ref: '#/components/schemas/TLSConfig'
     TLSMode_in_OnPremiseMysql_tlsMode:
-      description: |-
-        TLS mode
-
-        TLS settings for server connection. Disabled by default.
+      description: TLS settings for server connection. Disabled by default.
       type: object
       allOf:
       - title: tls_mode
@@ -1537,10 +1961,7 @@ components:
           enabled:
             $ref: '#/components/schemas/TLSConfig'
     TLSMode_in_OnPremisePostgres_tlsMode:
-      description: |-
-        TLS mode
-
-        TLS settings for server connection. Disabled by default.
+      description: TLS settings for server connection. Disabled by default.
       type: object
       allOf:
       - title: tls_mode
@@ -1556,6 +1977,10 @@ components:
         Sequences
 
         CREATE SEQUENCE ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1566,6 +1991,20 @@ components:
         Owned sequences
 
         CREATE SEQUENCE ... OWNED BY ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_sequenceSet:
+      description: |2-
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1576,6 +2015,10 @@ components:
         Tables
 
         CREATE TABLE ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1586,6 +2029,10 @@ components:
         Primary keys
 
         ALTER TABLE ... ADD PRIMARY KEY ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1596,6 +2043,10 @@ components:
         Foreign keys
 
         ALTER TABLE ... ADD FOREIGN KEY ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1606,6 +2057,10 @@ components:
         Default values
 
         ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1616,6 +2071,10 @@ components:
         Constraints
 
         ALTER TABLE ... ADD CONSTRAINT ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1626,6 +2085,10 @@ components:
         Indexes
 
         CREATE INDEX ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1636,76 +2099,10 @@ components:
         Views
 
         CREATE VIEW ...
-      type: string
-      enum:
-      - BEFORE_DATA
-      - AFTER_DATA
-      - NEVER
-    ObjectTransferStage_in_PostgresObjectTransferSettings_function:
-      description: |-
-        Functions
 
-        CREATE FUNCTION ...
-      type: string
-      enum:
-      - BEFORE_DATA
-      - AFTER_DATA
-      - NEVER
-    ObjectTransferStage_in_PostgresObjectTransferSettings_trigger:
-      description: |-
-        Triggers
-
-        CREATE TRIGGER ...
-      type: string
-      enum:
-      - BEFORE_DATA
-      - AFTER_DATA
-      - NEVER
-    ObjectTransferStage_in_PostgresObjectTransferSettings_type:
-      description: |-
-        Types
-
-        CREATE TYPE ...
-      type: string
-      enum:
-      - BEFORE_DATA
-      - AFTER_DATA
-      - NEVER
-    ObjectTransferStage_in_PostgresObjectTransferSettings_rule:
-      description: |-
-        Rules
-
-        CREATE RULE ...
-      type: string
-      enum:
-      - BEFORE_DATA
-      - AFTER_DATA
-      - NEVER
-    ObjectTransferStage_in_PostgresObjectTransferSettings_collation:
-      description: |-
-        Collations
-
-        CREATE COLLATION ...
-      type: string
-      enum:
-      - BEFORE_DATA
-      - AFTER_DATA
-      - NEVER
-    ObjectTransferStage_in_PostgresObjectTransferSettings_policy:
-      description: |-
-        Policies
-
-        CREATE POLICY ...
-      type: string
-      enum:
-      - BEFORE_DATA
-      - AFTER_DATA
-      - NEVER
-    ObjectTransferStage_in_PostgresObjectTransferSettings_cast:
-      description: |-
-        Casts
-
-        CREATE CAST ...
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
@@ -1716,16 +2113,115 @@ components:
         Materialized views
 
         CREATE MATERIALIZED VIEW ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_function:
+      description: |-
+        Functions
+
+        CREATE FUNCTION ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_trigger:
+      description: |-
+        Triggers
+
+        CREATE TRIGGER ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_type:
+      description: |-
+        Types
+
+        CREATE TYPE ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_rule:
+      description: |-
+        Rules
+
+        CREATE RULE ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_collation:
+      description: |-
+        Collations
+
+        CREATE COLLATION ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_policy:
+      description: |-
+        Policies
+
+        CREATE POLICY ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_cast:
+      description: |-
+        Casts
+
+        CREATE CAST ...
+
+         - BEFORE_DATA: Before data transfer
+         - AFTER_DATA: After data transfer
+         - NEVER: Don't copy
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     PostgresConnection_in_PostgresSource_connection:
-      description: |-
-        Connection settings
-
-        Database connection settings
+      description: Database connection settings
       type: object
       allOf:
       - title: connection
@@ -1733,22 +2229,13 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
-            description: |-
-              Managed cluster
-
-              Managed Service for PostgreSQL cluster ID
+            description: Managed Service for PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
-            description: |-
-              On-premise
-
-              Connection options for on-premise PostgreSQL
+            description: Connection options for on-premise PostgreSQL
     Secret_in_PostgresSource_password:
-      description: |-
-        Password
-
-        Password for database access.
+      description: Password for database access.
       type: object
       allOf:
       - title: value
@@ -1756,19 +2243,19 @@ components:
         maxProperties: 1
         properties:
           raw:
-            description: Password
+            description: Raw secret value
             type: string
     PostgresObjectTransferSettings_in_PostgresSource_objectTransferSettings:
-      description: |-
-        Schema migration
-
-        Select database objects to be transferred during activation or deactivation.
+      description: Select database objects to be transferred during activation or
+        deactivation.
       type: object
       properties:
         sequence:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_sequence'
         sequenceOwnedBy:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_sequenceOwnedBy'
+        sequenceSet:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_sequenceSet'
         table:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_table'
         primaryKey:
@@ -1783,6 +2270,8 @@ components:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_index'
         view:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_view'
+        materializedView:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_materializedView'
         function:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_function'
         trigger:
@@ -1797,13 +2286,8 @@ components:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_policy'
         cast:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_cast'
-        materializedView:
-          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_materializedView'
     PostgresConnection_in_PostgresTarget_connection:
-      description: |-
-        Connection settings
-
-        Database connection settings
+      description: Database connection settings
       type: object
       allOf:
       - title: connection
@@ -1811,22 +2295,13 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
-            description: |-
-              Managed cluster
-
-              Managed Service for PostgreSQL cluster ID
+            description: Managed Service for PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
-            description: |-
-              On-premise
-
-              Connection options for on-premise PostgreSQL
+            description: Connection options for on-premise PostgreSQL
     Secret_in_PostgresTarget_password:
-      description: |-
-        Password
-
-        Password for database access.
+      description: Password for database access.
       type: object
       allOf:
       - title: value
@@ -1834,14 +2309,16 @@ components:
         maxProperties: 1
         properties:
           raw:
-            description: Password
+            description: Raw secret value
             type: string
     CleanupPolicy_in_PostgresTarget_cleanupPolicy:
       description: |-
-        Cleanup policy
-
         Cleanup policy for activate, reactivate and reupload processes. Default is
-        DISABLED.
+        truncate.
+
+         - DISABLED: Don't cleanup
+         - DROP: Drop
+         - TRUNCATE: Truncate
       type: string
       enum:
       - DISABLED
@@ -1882,6 +2359,15 @@ components:
         settings:
           $ref: '#/components/schemas/EndpointSettings_in_Endpoint_settings'
     TransferStatus_in_Transfer_status:
+      description: |2-
+         - CREATING: Transfer does some work before running
+         - CREATED: Transfer created but not started by user
+         - RUNNING: Transfer currently doing replication work
+         - STOPPING: Transfer shutdown
+         - STOPPED: Transfer stopped by user
+         - ERROR: Transfer stopped by system
+         - SNAPSHOTTING: Transfer copy snapshot
+         - DONE: Transfer reach terminal phase
       type: string
       enum:
       - CREATING
@@ -1914,6 +2400,8 @@ components:
             $ref: '#/components/schemas/MysqlSource'
           postgresSource:
             $ref: '#/components/schemas/PostgresSource'
+          kafkaSource:
+            $ref: '#/components/schemas/KafkaSource'
           mongoSource:
             $ref: '#/components/schemas/MongoSource'
           clickhouseSource:
@@ -1924,14 +2412,16 @@ components:
             $ref: '#/components/schemas/PostgresTarget'
           clickhouseTarget:
             $ref: '#/components/schemas/ClickhouseTarget'
+          kafkaTarget:
+            $ref: '#/components/schemas/KafkaTarget'
           mongoTarget:
             $ref: '#/components/schemas/MongoTarget'
     FieldMask_in_UpdateEndpointRequest_updateMask:
       description: |-
         Field mask specifying endpoint fields to be updated. Semantics for this field is
         described here:
-        https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask
-        The only exception is that if the repeated field is specified in the mask, then
+        <https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask>
+        The only exception: if the repeated field is specified in the mask, then
         the new value replaces the old one instead of being appended to the old one.
 
         A comma-separated names off ALL fields to be updated.
@@ -1947,8 +2437,8 @@ components:
       description: |-
         Field mask specifying transfer fields to be updated. Semantics for this field is
         described here:
-        https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask
-        The only exception is that if the repeated field is specified in the mask, then
+        <https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask>
+        The only exception: if the repeated field is specified in the mask, then
         the new value replaces the old one instead of being appended to the old one.
 
         A comma-separated names off ALL fields to be updated.

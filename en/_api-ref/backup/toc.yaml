@@ -1,0 +1,57 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: Backup
+    items:
+      - name: Overview
+        href: api-ref/Backup/index.md
+      - name: delete
+        href: api-ref/Backup/delete.md
+      - name: list
+        href: api-ref/Backup/list.md
+      - name: listArchives
+        href: api-ref/Backup/listArchives.md
+      - name: startRecovery
+        href: api-ref/Backup/startRecovery.md
+  - name: Policy
+    items:
+      - name: Overview
+        href: api-ref/Policy/index.md
+      - name: apply
+        href: api-ref/Policy/apply.md
+      - name: create
+        href: api-ref/Policy/create.md
+      - name: delete
+        href: api-ref/Policy/delete.md
+      - name: execute
+        href: api-ref/Policy/execute.md
+      - name: get
+        href: api-ref/Policy/get.md
+      - name: list
+        href: api-ref/Policy/list.md
+      - name: listApplications
+        href: api-ref/Policy/listApplications.md
+      - name: revoke
+        href: api-ref/Policy/revoke.md
+      - name: update
+        href: api-ref/Policy/update.md
+  - name: Provider
+    items:
+      - name: Overview
+        href: api-ref/Provider/index.md
+      - name: activate
+        href: api-ref/Provider/activate.md
+      - name: listActivated
+        href: api-ref/Provider/listActivated.md
+  - name: Resource
+    items:
+      - name: Overview
+        href: api-ref/Resource/index.md
+      - name: delete
+        href: api-ref/Resource/delete.md
+      - name: get
+        href: api-ref/Resource/get.md
+      - name: list
+        href: api-ref/Resource/list.md
+      - name: listTasks
+        href: api-ref/Resource/listTasks.md

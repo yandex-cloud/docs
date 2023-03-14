@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Cloud Backup API, REST: Agent methods
+# Cloud Backup Agent API, REST: Agent methods
 
 
 ## Methods {#methods}

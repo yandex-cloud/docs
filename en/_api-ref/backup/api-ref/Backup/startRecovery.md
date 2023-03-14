@@ -2,40 +2,34 @@
 editable: false
 ---
 
-# Data Transfer API, REST: Transfer.update
-
+# Cloud Backup API, REST: Backup.startRecovery
+Start recovery process of specified backup id to specific compute instance.
  
-
+For details, see [recover](/docs/backup/operations/backup-vm/recover)
  
 ## HTTP request {#https-request}
 ```
-PATCH https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
+POST https://backup.{{ api-host }}/backup/v1/backups/{backupId}:startRecovery
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-transferId | <p>Identifier of the transfer to be updated.</p> 
+backupId | <p>Required. Backup ID that will be applied to destination compute instance.</p> 
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "description": "string",
-  "labels": "object",
-  "name": "string",
-  "updateMask": "string"
+  "computeInstanceId": "string"
 }
 ```
 
  
 Field | Description
 --- | ---
-description | **string**<br><p>The new description for the transfer.</p> 
-labels | **object**
-name | **string**<br><p>The new transfer name. Must be unique within the folder.</p> 
-updateMask | **string**<br><p>Field mask specifying transfer fields to be updated. Semantics for this field is described here: <a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask">https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask</a> The only exception: if the repeated field is specified in the mask, then the new value replaces the old one instead of being appended to the old one.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+computeInstanceId | **string**<br><p>Required. Destination Compute Instance to which backup should be applied.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
