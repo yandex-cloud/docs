@@ -57,6 +57,10 @@ items:
       - name: Работа с логами
         href: operations/logging.md
         when: product == "yandex-cloud"
+      - name: Мониторинг состояния Spark-приложений
+        href: operations/spark-monitoring.md
+      - name: Диагностика и устранение проблем производительности Spark-приложений
+        href: operations/spark-diagnostics.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
   - name: Практические руководства
@@ -110,6 +114,8 @@ items:
         href: concepts/interfaces.md
       - name: Задания в {{ dataproc-name }}
         href: concepts/jobs.md
+      - name: Задания Spark
+        href: concepts/spark-sql.md
       - name: Автоматическое масштабирование
         href: concepts/autoscaling.md
       - name: Декомиссия подкластеров и хостов
