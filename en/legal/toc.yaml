@@ -45,9 +45,6 @@ items:
         href: archive/specific-terms/dns-20221110.md
       - name: Cloud Marketplace
         href: marketplace-terms.md
-      - name: Cloud Marketplace (published 20.02.2023)
-        hidden: true
-        href: archive/marketplace-terms-20230220.md
       - name: Cloud Marketplace (published 10.11.2022)
         hidden: true
         href: archive/marketplace-terms-20221110.md
