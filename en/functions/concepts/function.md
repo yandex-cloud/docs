@@ -8,7 +8,7 @@ Before writing your functions, review the [programming model](#programming-model
 
 ## Function versions {#version}
 
-_Version_ contains the function code, run parameters, and all necessary dependencies. You can work with different versions of the same function during different stages of development (for example, a version under development or alpha and beta versions). When making changes, new versions are always created with a [tag](#tag) (by default, `$latest`). It doesn't matter if you uploaded a completely new code or made only minor changes.
+_Version_ contains the function code, run parameters, and all required dependencies. You can work with different versions of the same function during different development stages, e.g., under development, alpha version, beta version, etc. When making changes, new versions are always created with the default `$latest` [tag](#tag). It does not matter whether you uploaded a completely new code or only made some minor changes.
 
 ### Code upload format {#upload}
 
@@ -17,7 +17,7 @@ To [create a version](../operations/function/version-manage.md), you can use the
 | Format | Management console | YC CLI |
 |----|----|----|
 | ZIP archive from your PC | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| ZIP archive from S3, specifying the bucket and object | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| ZIP archive from {% if lang == "ru" and audience != "internal" %}[S3](../../glossary/s3.md){% else %}S3{% endif %}, specifying the bucket and object | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Directory | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | File | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 

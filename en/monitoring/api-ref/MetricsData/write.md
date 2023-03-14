@@ -1,8 +1,8 @@
 ---
 editable: false
 ---
-# Write method
 
+# Write method
 Writes data about metrics.
 
 

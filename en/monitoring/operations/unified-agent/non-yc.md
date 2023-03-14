@@ -36,7 +36,7 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
 
 1. Install and configure {{unified-agent-full-name}}.
 
-   1. Create a file named **config.yml** in your home folder.
+   1. Create a file named **config.yml** in your home folder:
 
       **config.yml:**
       ```yaml
@@ -93,8 +93,8 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
 
       Where:
 
-      * `$FOLDER_ID`: ID of the folder you want to write metrics.
-      * `iam.jwt.file`: File name with the JWT parameters.
+      * `$FOLDER_ID`: ID of the folder you want to write metrics to.
+      * `iam.jwt.file`: Name of the file with JWT parameters.
 
    1. Install {{unified-agent-short-name}} on your VM by running the following command in the home folder:
 

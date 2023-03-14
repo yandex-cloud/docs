@@ -26,7 +26,7 @@ Prior to installing {{unified-agent-full-name}}, follow these steps:
    - If the agent is installed on a VM in {{ yandex-cloud }}, [link the service account you created](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM. In that case, the agent will automatically receive the service account's IAM token from the metadata service.
    - If the agent is installed on a host outside {{ yandex-cloud }}, [create an authorized key](../../../../iam/operations/authorized-key/create.md) for service accounts. For more information about delivering metrics from hosts outside {{ yandex-cloud }}, see [{#T}](../../../operations/unified-agent/non-yc.md).
 
-## Setup {#setup}
+## Installation {#setup}
 
 Install {{unified-agent-short-name}} using one of the following methods:
 
@@ -85,10 +85,10 @@ Install {{unified-agent-short-name}} using one of the following methods:
    ```
 
    Supported values for the `ubuntu_name` parameter:
-   - `ubuntu-14.04-trusty`.
-   - `ubuntu-16.04-xenial`.
-   - `ubuntu-18.04-bionic`.
-   - `ubuntu-20.04-focal`.
+    - `ubuntu-14.04-trusty`.
+    - `ubuntu-16.04-xenial`.
+    - `ubuntu-18.04-bionic`.
+    - `ubuntu-20.04-focal`.
 
    To find out all the available versions of the agent, run this command:
    ```(bash)
@@ -159,12 +159,12 @@ Install {{unified-agent-short-name}} using one of the following methods:
    To install the agent and send metrics properly, make sure the created VM has access to the internet.
 
    You are responsible for updating and maintaining the agent.
-   
+
 {% endif %}
 
 {% endlist %}
 
-## Parameters for launching a Docker container with {{ unified-agent-short-name }} {#configure-docker}
+## Parameters for running a Docker container with {{ unified-agent-short-name }} {#configure-docker}
 
 If you install {{unified-agent-short-name}} using Docker, you can configure the agent using environment variables. In that case, you won't need to edit the configuration file located at `/etc/yandex/unified_agent/config.yml`. The environment variables are listed in the table below.
 

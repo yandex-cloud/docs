@@ -302,7 +302,7 @@ An example of a delivery route that uses a named pipe:
       plugin: debug
 ```
 
-### Main_thread_pool section {#main_thread_pool}
+### main_thread_pool section {#main_thread_pool}
 This section contains a configuration for execution threads.
 
 Parameter descriptions:
@@ -313,7 +313,7 @@ main_thread_pool: # optional
   threads: 1 # optional, default value is 1
 ```
 
-### Agent_log section {#agent_log}
+### agent_log section {#agent_log}
 This section contains the agent's log settings. You can override the setting using command line parameters.
 
 Parameter descriptions:
@@ -338,16 +338,16 @@ Miscellaneous system settings.
 Parameter descriptions:
 
 ```yaml
-system: # optional
+system:  # optional
   # Prevents the agent's executable code from being paged from RAM to the swap area by using the mlock system call.
   # This can help you reduce delays, since there will be no major page faults due to swapping code from the disk.
-  lock_executable_in_memory: false # optional, default value is false
+  lock_executable_in_memory: false  # optional, default value is false
 
   # Set a limit on RAM taken up using the setrlimit system call.
   memory_limit: null # optional, not set by default
 ```
 
-### Flow_control section {#flow_control}
+### flow_control section {#flow_control}
 This section contains a configuration for session control. The settings let you configure various session limits and their behavior upon reaching the limits.
 
 You can use the flow_control section for inputs and storage references (storage_ref).
@@ -381,7 +381,7 @@ flow_control: # optional
 
 ### Inputs {#inputs}
 
-#### Agent_metrics input {#agent_metrics_input}
+#### agent_metrics input {#agent_metrics_input}
 
 The input collects health metrics for {{ unified-agent-full-name }}.
 
@@ -399,7 +399,7 @@ Parameter descriptions:
       namespace: null # optional, not set by default
 ```
 
-#### Metrics_pull input {#metrics_pull_input}
+#### metrics_pull input {#metrics_pull_input}
 
 The input polls the specified URL at preset intervals and parses the response for metrics in the specified format, for example, {{ prometheus-name }}.
 
@@ -447,7 +447,7 @@ Parameter descriptions:
         http_method: GET # optional, default value is GET
 ```
 
-#### Linux_metrics input {#linux_metrics_input}
+#### linux_metrics input {#linux_metrics_input}
 
 An input to collect system usage statistics (CPU, RAM, network, disk) for Linux-compatible operating systems. The input collects metric values from [procfs](https://ru.wikipedia.org/wiki/Procfs) and [sysfs](https://ru.wikipedia.org/wiki/Sysfs).
 
@@ -583,7 +583,7 @@ Parameter descriptions:
             - m2: v2
 ```
 
-#### Convert_metrics filter {#convert_metrics_filter}
+#### convert_metrics filter {#convert_metrics_filter}
 
 A filter for converting metrics between different formats. The format for input messages is taken from the session metadata with the key `_metrics_format` (if it exists) or from the message metadata with the same key (if it exists).
 
@@ -633,7 +633,7 @@ Parameter descriptions:
         common_time: null # optional, not set by default
 ```
 
-#### Filter_metrics filter {#filter_metrics_filter}
+#### filter_metrics filter {#filter_metrics_filter}
 
 The filter lets you decrease the set of passed metrics based on the label values.
 
@@ -785,7 +785,7 @@ storages:  # optional
     # The conditions are checked:
     # * When receiving confirmation from the output.
     # * When receiving new data.
-    # * Regularly, at an interval of retention_check_period.
+    # * Periodically, based on retention_check_period.
     #
     # The TrailingMessageAgeMs and TrailingSegmentAgeMs counters are supported at the partition level.
     # TrailingMessageAgeMs is determined by the timestamp of the first message of the oldest segment.
@@ -857,13 +857,13 @@ Parameter descriptions:
             delimiter: null # required
 ```
 
-#### Dev_null output {#dev_null_output}
+#### dev_null output {#dev_null_output}
 
 An empty debug output: disposes of incoming messages.
 
 Contains no parameters.
 
-#### Yc_metrics output {#yc_metrics_output}
+#### yc_metrics output {#yc_metrics_output}
 
 An output used for writing metrics in the {{ monitoring-full-name }} API.
 
