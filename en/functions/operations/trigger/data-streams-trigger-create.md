@@ -2,7 +2,7 @@
 
  Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md) that calls a [{{ sf-name }} function](../../concepts/function.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts). 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 To create a trigger, you need:
 
@@ -98,8 +98,8 @@ To create a trigger, you need:
       To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, the `database` parameter, such as `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
 
    * `--stream`: {{ yds-name }} data stream name.
-   * `--batch-size`: Message batch size. Optional. Valid values range from 1 B to 64 KB. The default is 1 B.
-   * `--batch-cutoff`: Maximum waiting time. Optional. Valid values range from 1 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data passed to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+   * `--batch-size`: Message batch size. This is an optional parameter. Valid values range from 1 B to 64 KB. The default is 1 B.
+   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Valid values range from 1 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data passed to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
    * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}

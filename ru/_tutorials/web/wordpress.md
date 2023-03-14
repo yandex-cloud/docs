@@ -28,7 +28,7 @@
 
 ## Создайте группу безопасности {#create-security-group}
 
-{% include [security-groups-note](../../compute/_includes_service/security-groups-note.md) %}
+{% include [security-groups-services](../../_includes/vpc/security-groups-note-services.md) %}
 
 Чтобы создать группу безопасности:
 

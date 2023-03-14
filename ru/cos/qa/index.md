@@ -28,3 +28,5 @@
 - Если нужны другие настройки сети для контейнеров, то можно сделать это, используя COI с [Docker Compose спецификацией](../tutorials/docker-compose.md#docker-compose). 
 - Если необходимо, чтобы порт контейнера был открыт на хосте, но при этом закрыт в интернет, то можно использовать [группы безопасности](../../vpc/concepts/security-groups.md).
 
+    {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
+

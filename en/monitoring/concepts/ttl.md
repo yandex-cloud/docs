@@ -6,7 +6,7 @@ Metrics that don't received new values for 30 days are considered expired and ar
 
 System metrics are automatically collected from all active {{ yandex-cloud }} resources. Metrics are no longer collected from a specific resource after it's deleted. Metric data of deleted resources is available for 30 days. After this period, metrics are automatically deleted.
 
-> For example, there is a VM in your folder. If you delete this VM on `August 1, 2020`, its metrics will be available in {{monitoring-full-name}} until `August 31, 2020`.
+> For example, let's assume there is a VM in your folder. If you delete this VM on `August 1, 2020`, its metrics will be available in {{monitoring-full-name}} until `August 31, 2020`.
 
 ## Custom metrics {#custom}
 

@@ -8,7 +8,7 @@ Before writing your functions, review the [programming model](#programming-model
 
 ## Function versions {#version}
 
-_Version_ contains the function code, run parameters, and all necessary dependencies. You can work with different versions of the same function during different stages of development (for example, a version under development or alpha and beta versions). When making changes, new versions are always created with a [tag](#tag) (by default, `$latest`). It doesn't matter if you uploaded a completely new code or made only minor changes.
+_Version_ contains the function code, run parameters, and all required dependencies. You can work with different versions of the same function during different development stages, e.g., under development, alpha version, beta version, etc. When making changes, new versions are always created with the default `$latest` [tag](#tag). It does not matter whether you uploaded a completely new code or only made some minor changes.
 
 ### Code upload format {#upload}
 

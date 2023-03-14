@@ -8,7 +8,7 @@
 |---|---|---|---|
 | Voice | Voice based on artist recordings | Voice based on artist recordings | Voice copy from the pattern |
 | Usage | Full-text synthesis. Pattern-based synthesis. | Full-text synthesis. Pattern-based synthesis. | Pattern-based synthesis. The variable part should not exceed 25% of the pattern. |
-| Emotions and roles | Coping emotions in pattern-based synthesis. </br>Developing additional [roles](../index.md{#role}). | Coping emotions in pattern-based synthesis. | Coping emotions in pattern-based synthesis. |
+| Emotions and roles | Coping emotions in pattern-based synthesis. </br>Developing additional [roles](../index.md#role). | Coping emotions in pattern-based synthesis. | Coping emotions in pattern-based synthesis. |
 | Sampling frequency in source audio recordings | 48 kHz | 48 kHz | {{ tts-cc-quality }} or higher. |
 | Sampling frequency in synthesized audio recordings | 22 kHz | 22 kHz | {{ tts-cc-quality }} |
 

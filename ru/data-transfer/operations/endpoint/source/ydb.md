@@ -1,8 +1,7 @@
 # Настройка эндпоинта-источника {{ ydb-name }}
 
-
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
-* Базу данных {{ ydb-full-name }} и [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) для доступа к ней.
+* Настройки подключения к базе данных {{ ydb-full-name }}. Эти параметры обязательные.
 * Список путей для переноса (таблицы, директории).
 
 ## Настройки {#settings}
@@ -11,7 +10,12 @@
 
 - Консоль управления
 
-  {% include [YDB UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-database.md) %}
+  * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/database-name.md) %}
+
+   
+  
+  * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/service-account.md) %}
+
 
   * **Список включенных путей** — добавьте пути к таблицам или директориям {{ ydb-name }}, которые необходимо перенести.
   
@@ -20,4 +24,3 @@
     Если ни одного пути не указано, будут перенесены все таблицы.
 
 {% endlist %}
-

@@ -69,7 +69,7 @@ items:
         href: tutorials/message-broker.md
       - name: Saving data to ClickHouse
         href: tutorials/send-to-clickhouse.md
-      - name: Replicating Object Storage logs using Fluent Bit
+      - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
         href: tutorials/replicate-logs-to-storage.md
       - name: >-
           Migrating data to {{ objstorage-full-name }} using {{

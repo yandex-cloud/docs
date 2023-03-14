@@ -4,7 +4,7 @@
 
 [Группы безопасности](../vpc/concepts/security-groups.md) виртуальной машины должны разрешать входящий трафик по протоколу TCP на порт 3389.
   
-  {% include [security-groups-note](../compute/_includes_service/security-groups-note.md) %}
+  {% include [security-groups-note-vm](vpc/security-groups-note-vm.md) %}
 
 Для подключения по протоколу RDP укажите публичный IP-адрес или FQDN ВМ. Доступ по FQDN возможен из другой ВМ {{ yandex-cloud }}, если она подключена к той же сети. IP-адрес и FQDN можно узнать в консоли управления, в блоке **Сеть** на странице ВМ.
 
