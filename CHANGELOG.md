@@ -1,3 +1,10 @@
+Release 13.03.2023 
+
+* Monitoring: updated Compute Cloud metrics. 
+* Serverless Containers: added information about structured logs. 
+* Tracker: updated description for working process templates. 
+* Fixes and improvements. 
+
 Release 10.03.2023
 
 * Cloud Organization: added SAML attributes limitations.
