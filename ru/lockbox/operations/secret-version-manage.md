@@ -2,11 +2,11 @@
 
 Управление версиями секрета позволяет:
 
-* [Создать новую версию](#create-version)
-* [Получить информацию о версии](#get-version)
-* [Создать версию на основе существующей](#create-version-based-on-other)
-* [Откатиться к определенной версии](#backup)
-* [Запланировать удаление версии](#set-deleting-time)
+* [Создать новую версию](#create-version).
+* [Получить информацию о версии](#get-version).
+* [Создать версию на основе существующей](#create-version-based-on-other).
+* [Откатиться к определенной версии](#backup).
+* [Запланировать удаление версии](#set-deleting-time).
 
 ## Создать новую версию {#create-version}
 
@@ -24,6 +24,10 @@
         * **Значение** — секретные данные в явном виде.
         Вы можете создать несколько пар ключей и значений в одной версии.
     1. Нажмите кнопку **Добавить версию**.
+
+- API
+
+  Чтобы создать новую версию секрета, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion).
 
 - {{ TF }}
 
@@ -120,6 +124,10 @@
     1. В разделе **Версии** будет показан список всех версий секрета и информация о них. 
     1. Нажмите на нужную версию, чтобы получить информацию о ее парах ключ — значение.
 
+- API
+
+  Чтобы получить информацию о версии, воспользуйтесь методом REST API [listVersions](../api-ref/Secret/listVersions.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListVersions](../api-ref/grpc/secret_service.md#ListVersions).
+
 {% endlist %}
 
 ## Создать версию на основе существующей {#create-version-based-on-other}
@@ -139,6 +147,10 @@
         * **Значение** — секретные данные в явном виде.
         Вы можете создать несколько пар ключей и значений в одной версии.
     1. Нажмите кнопку **Добавить версию**.
+
+- API
+
+  Чтобы создать версию на основе существующей, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion).
 
 {% endlist %}
 
@@ -170,5 +182,9 @@
     1. Выберите пункт **Запланировать удаление**.
     1. Введите время до удаления.
     1. Нажмите кнопку **Запланировать**.
+
+- API
+
+  Чтобы запланировать удаление версии, воспользуйтесь методом REST API [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ScheduleVersionDestruction](../api-ref/grpc/secret_service.md#ScheduleVersionDestruction).
 
 {% endlist %}
