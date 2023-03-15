@@ -16,10 +16,6 @@
 
 {% include notitle [disks](../../_qa/compute/disks.md) %}
 
-## Disaster recovery {#disaster-recovery}
-
-{% include notitle [disaster-recovery](../../_qa/compute/disaster-recovery.md) %}
-
 ## Instance groups {#instance-groups}
 
 {% include notitle [instance-groups](../../_qa/compute/instance-groups.md) %}

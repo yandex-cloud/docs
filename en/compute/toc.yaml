@@ -451,8 +451,6 @@ items:
         href: qa/connection.md
       - name: Disks, snapshots, and images
         href: qa/disks.md
-      - name: Disaster recovery
-        href: qa/disaster-recovery.md
       - name: Instance groups
         href: qa/instance-groups.md
       - name: Monitoring
