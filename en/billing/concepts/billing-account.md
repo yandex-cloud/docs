@@ -9,6 +9,8 @@ The relationship between clouds, billing accounts, personal accounts, and paymen
 
 ![image](../../_assets/billing/cloud-billing-account-svg.svg)
 
+{% include [account_scope.md](../_includes/account-scope.md) %}
+
 
 {% note info %}
 
@@ -38,7 +40,6 @@ To go to the list of billing accounts:
    * Intended for residents of Russia or Kazakhstan.
    * Resources are paid for using a [bank card](../payment/payment-methods-individual.md).
    * Funds for the resources consumed are debited automatically. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
-
 
 - Business account
 

@@ -16,10 +16,6 @@
 
 {% include notitle [disks](../../_qa/compute/disks.md) %}
 
-## Аварийное восстановление {#disaster-recovery}
-
-{% include notitle [disaster-recovery](../../_qa/compute/disaster-recovery.md) %}
-
 ## Группы виртуальных машин {#instance-groups}
 
 {% include notitle [instance-groups](../../_qa/compute/instance-groups.md) %}

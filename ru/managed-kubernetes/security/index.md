@@ -29,15 +29,15 @@ description: "Управление доступом в сервисе для р�
 
 #### {{ roles.k8s.cluster-api.viewer }} {#k8s-clusters-api-viewer}
 
-{% include notitle [k8s-cluster-api-viewer](../../_includes/roles-k8s-cluster-api-viewer.md) %}
+{% include notitle [k8s-cluster-api-viewer](../../_includes/iam/roles/k8s-cluster-api-viewer.md) %}
 
 #### {{ roles.k8s.cluster-api.editor }} {#k8s-clusters-api-editor}
 
-{% include notitle [k8s-cluster-api-editor](../../_includes/roles-k8s-cluster-api-editor.md) %}
+{% include notitle [k8s-cluster-api-editor](../../_includes/iam/roles/k8s-cluster-api-editor.md) %}
 
 #### {{ roles.k8s.cluster-api.cluster-admin }} {#k8s-clusters-api-cluster-admin}
 
-{% include notitle [k8s-cluster-api-cluster-admin](../../_includes/roles-k8s-cluster-api-cluster-admin.md) %}
+{% include notitle [k8s-cluster-api-cluster-admin](../../_includes/iam/roles/k8s-cluster-api-cluster-admin.md) %}
 
 Чтобы просмотреть права на ресурсы кластера {{ k8s }}, доступные для определенной роли, выполните команду:
 
@@ -59,23 +59,23 @@ kubectl describe clusterrole <роль в {{ k8s }} RBAC>
 
 #### {{ roles.k8s.tunnelClusters.agent }} {#k8s-tunnel-clusters-agent}
 
-{% include notitle [k8s-tunnel-clusters-agent](../../_includes/roles-k8s-tunnel-clusters-agent.md) %}
+{% include notitle [k8s-tunnel-clusters-agent](../../_includes/iam/roles/k8s-tunnel-clusters-agent.md) %}
 
 #### {{ roles.k8s.clusters.agent }} {#k8s-clusters-agent}
 
-{% include notitle [k8s-clusters-agent](../../_includes/roles-k8s-clusters-agent.md) %}
+{% include notitle [k8s-clusters-agent](../../_includes/iam/roles/k8s-clusters-agent.md) %}
 
 #### {{ roles.k8s.viewer }} {#k8s-viewer}
 
-{% include notitle [k8s-viewer](../../_includes/roles-k8s-viewer.md) %}
+{% include notitle [k8s-viewer](../../_includes/iam/roles/k8s-viewer.md) %}
 
 #### {{ roles.k8s.editor }} {#k8s-editor}
 
-{% include notitle [k8s-editor](../../_includes/roles-k8s-editor.md) %}
+{% include notitle [k8s-editor](../../_includes/iam/roles/k8s-editor.md) %}
 
 #### {{ roles.k8s.admin }} {#k8s-admin}
 
-{% include notitle [k8s-admin](../../_includes/roles-k8s-admin.md) %}
+{% include notitle [k8s-admin](../../_includes/iam/roles/k8s-admin.md) %}
 
 ### Примитивные роли {#primitive}
 

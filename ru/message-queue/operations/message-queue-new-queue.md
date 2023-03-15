@@ -53,3 +53,6 @@
   {% include [ymq-terraform](../_includes_service/mq-terraform.md) %}
 
 {% endlist %}
+
+
+При достижении лимита на максимальное количество очередей, возникает ошибка `Cannot create queue: Too many queues`. Для увеличения лимита обратитесь в [техническую поддержку]({{ link-console-support }}).

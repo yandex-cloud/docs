@@ -638,6 +638,7 @@ default:
   yds-short-name: Data Streams
   yds: yds
   ch-domain: clickhouse.com
+  captcha-mobile-site: https://captcha-api.yandex.ru/webview
   ch:
     docs: https://clickhouse.com/docs/ru
   gl:
@@ -817,10 +818,6 @@ default:
   port-mrd-tls: 6380
   port-mrd: 6379
   port-ssh: 22
-  alb-ingress-version: 0.1.12
-  alb-ingress-k8s-version: 1.19
-  alb-ingress-helm-version: 3.7.0
-  alb-gateway-api-version: 0.4.16
   objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
   objstorage-sftps-gateway-version: '1.0'
   __system:

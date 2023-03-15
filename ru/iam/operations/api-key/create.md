@@ -72,7 +72,7 @@
 - API
 
   1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
-  1. Создайте API-ключ с помощью метода [create](../../api-ref/ApiKey/create.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
+  1. Создайте API-ключ с помощью метода REST API [create](../../api-ref/ApiKey/create.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
 
       ```bash
       export SERVICEACCOUNT_ID=aje6o61dvog2h6g9a33s
@@ -83,6 +83,7 @@
         -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
         https://iam.{{ api-host }}/iam/v1/apiKeys
       ```
+      Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create).
 
 - {{ TF }}
 

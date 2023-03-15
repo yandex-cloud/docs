@@ -17,19 +17,11 @@
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-{% include [gitlab-viewer](../../_includes/roles-gitlab-viewer.md) %}
+{% include [gitlab-viewer](../../_includes/iam/roles/gitlab-viewer.md) %}
 
-{% include [gitlab-editor](../../_includes/roles-gitlab-editor.md) %}
+{% include [gitlab-editor](../../_includes/iam/roles/gitlab-editor.md) %}
 
-{% include [gitlab-admin](../../_includes/roles-gitlab-admin.md) %}
-
-### {{ roles-cloud-member }} {#resmgr-clouds-member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+{% include [gitlab-admin](../../_includes/iam/roles/gitlab-admin.md) %}
 
 ### {{ roles-viewer }} {#viewer}
 
@@ -43,11 +35,19 @@
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 
+### {{ roles-cloud-member }} {#member}
+
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
+
+### {{ roles-cloud-owner }} {#owner}
+
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
 ## Какие роли необходимы {#required-roles}
 
-Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `editor` или выше на каталог, в котором создаются проекты. Роль `viewer` позволит только просматривать список проектов и содержимое файлов, которые были загружены.
+Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `{{ roles.gitlab.editor }}` или выше на каталог, в котором создаются проекты. Роль `{{ roles.gitlab.viewer }}` позволит только просматривать список проектов и содержимое файлов, которые были загружены.
 
-Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `admin` вместо `editor`.
+Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.gitlab.admin }}` вместо `{{ roles.gitlab.editor }}`.
 
 
 ## Что дальше {#whats-next}

@@ -25,6 +25,21 @@ This section presents the revision history for {{ mpg-name }}.
 
 ## 01/08/2022 {#01.08.2022}
 
+   * Added support for the `SQL MERGE` command that allows performing an `INSERT`, `UPDATE`, or `DELETE` action depending on the conditions.
+   * You can now specify column lists and row filter conditions. This allows selective publication of table contents within logical replication publications.
+   * You can now specify [ICU]({{ pg.docs.org }}/15/locale.html#id-1.6.11.3.7) as default for databases.
+   * Performance improvements, in particular, for in-memory and on-disk sorting.
+
+   To learn how to update a cluster, see [{#T}](operations/cluster-version-update.md).
+
+   To learn more about new features and enhancements in {{ PG }} v15, see the [{{ PG }} documentation]({{ pg.docs.org }}/release/15.0/).
+
+* Added support for the [pgaudit](https://www.pgaudit.org/) and [pg_prewarm]({{ pg-docs }}/pgprewarm.html) extensions.
+* You can now restore a cluster from a backup in a folder different from the one where the backup was created. {{ tag-cli }}
+
+## Q3 2022 {#q3-2022}
+
+* Added the `Inode usage`, `Memory usage`, and `Free space` charts to the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab. {{ tag-con }}
 * {{ PG }} 10 is [no longer](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) supported. As of August 15, you can no longer create new clusters of this version, and an automatic cluster update is scheduled from September 1 as part of the maintenance window. For information about updating a cluster on your own, see [{#T}](operations/cluster-version-update.md).
 * You can now create a database from a template with the CLI and {{ TF }}. {{ tag-cli }} {{ tag-tf }}
 * Added support for the `pg_cron` [extension](operations/extensions/pg_cron.md).
@@ -32,10 +47,11 @@ This section presents the revision history for {{ mpg-name }}.
 
 ## 01/07/2022 {#01.07.2022}
 
+* [Updates](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) from versions 14.3, 13.7, 12.11, 11.16, and 10.21 were installed.
+* Clusters for 1C are available under versions 13 and 14. {{ tag-con }}
+* Added the ability to upgrade versions from 13 to 14.
 * Added the `mdb_monitor` role that includes the privileges of the [pg_monitor](https://www.postgresql.org/docs/10/default-roles.html) system role. For more information, see [Assigning {{ PG }} roles](concepts/roles.md#mdb-monitor).
 * In the {{ TF }} configuration files, the `database` and the `user` sections have been deprecated, and the `yandex_mdb_postgresql_database` and the `yandex_mdb_postgresql_user` resources have been added. {{ tag-tf }}
-* Added the ability to upgrade versions from 13 to 14.
-* Clusters for 1C are available under versions 13 and 14. {{ tag-con }}
 * [Odyssey 1.3](https://www.postgresql.org/about/news/odyssey-13-released-2476/) is now available with support for prepared statements in transaction pooling mode. You can use the `pool_reserve_prepared_statement` setting to activate a pool of prepared database statements where Odyssey will prepare session statements as needed.
 
 ## 01/06/2022 {#01.06.2022}

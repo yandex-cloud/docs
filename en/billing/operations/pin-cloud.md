@@ -6,7 +6,7 @@
 
 Before linking a cloud, make sure that the billing account has been activated (the `ACTIVE` or `TRIAL_ACTIVE` status) and that the user has the following roles:
 * [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) in the cloud.
-* `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access management](../security/index.md#role-list).
+* `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access control](../security/index.md#role-list).
 
 {% note info %}
 
@@ -31,7 +31,12 @@ To link a cloud or transfer an existing one:
 
 1. Click **Link** and the added cloud will appear on the list.
 
-1. If you transferred a cloud, pay any outstanding charges on the old account.
+1. If you migrated a cloud, pay any outstanding charges on the previous account.
+
+{% include [account_scope.md](../_includes/account-scope.md) %}
+
+If you are migrating a cloud because you want to stop using the old billing account, make sure the free Basic service plan is activated in it. Otherwise, even though it has no linked clouds remaining, you will continue to be charged for the paid service plan.
+
 
 
 

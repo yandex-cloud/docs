@@ -12,12 +12,12 @@ To set up data delivery from {{ mkf-name }} to ksqlDB:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration.
 
    * If the ksqlDB server is hosted on the internet, create a publicly accessible {{ mkf-name }} cluster.
-      
+   
    * If the ksqlDB server is hosted in {{ yandex-cloud }}, create a {{ mkf-name }} cluster on the same [cloud network](../../vpc/concepts/network.md) as ksqlDB.
 
 
@@ -220,7 +220,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
 
 * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
 * If you reserved a public static IP for your virtual machine, [delete it](../../vpc/operations/address-delete.md).

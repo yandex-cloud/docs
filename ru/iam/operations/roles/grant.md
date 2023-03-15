@@ -57,9 +57,10 @@
             --subject userAccount:aje6o61dvog2h6g9a33s
         ```
 
+
 - API
 
-    Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
+    Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
 
     1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
     1. [Получите идентификатор пользователя](../users/get.md).
@@ -213,7 +214,7 @@
 
         {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
 
-    Вы также можете назначать роли с помощью метода `setAccessBindings`.
+    Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings).
 
     {% note alert %}
 
@@ -307,7 +308,7 @@
 
 - API
 
-    Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
+    Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
 
     1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
     1. [Получите идентификатор пользователя](../users/get.md).

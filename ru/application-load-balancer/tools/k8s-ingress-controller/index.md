@@ -52,28 +52,13 @@ spec:
 
 ## Установка и требования {#install}
 
-Ingress-контроллер {{ alb-name }} поставляется в виде Helm-чарта. Для его установки требуются:
-* Менеджер пакетов [Helm](https://helm.sh/ru/) версии не ниже {{ alb-ingress-helm-version }} с [включенной поддержкой OCI](https://helm.sh/docs/topics/registries/).
+Для установки Ingress-контроллера {{ alb-name }} требуются:
+
 * Кластер {{ managed-k8s-name }}.
 * Группа узлов в кластере.
 * Пространство имен в кластере для хранения ключа [сервисного аккаунта](service-account.md).
 
-Чарт скачивается и устанавливается с помощью следующих команд:
-
-```bash
-export HELM_EXPERIMENTAL_OCI=1
-helm pull \
-  --version v{{ alb-ingress-version }} \
-  oci://{{ registry }}/yc/yc-alb-ingress-controller-chart
-helm install \
-  --namespace <имя пространства имен> \
-  --set folderId=<идентификатор каталога> \
-  --set clusterId=<идентификатор кластера> \
-  --set-file saKeySecretKey=<путь к файлу с ключом сервисного аккаунта> \
-  yc-alb-ingress-controller ./yc-alb-ingress-controller-chart-{{ alb-ingress-version }}.tgz
-```
-
-Подробнее см. в [полной инструкции по установке](../../operations/k8s-ingress-controller-install.md).
+Установить Ingress-контроллер можно по [инструкции](../../operations/k8s-ingress-controller-install.md).
 
 #### См. также {#see-also}
 

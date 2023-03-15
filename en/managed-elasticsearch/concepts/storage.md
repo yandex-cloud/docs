@@ -31,3 +31,4 @@ The number of hosts with the _Data node_ role that can be created together with 
 * With network HDD `network-hdd` or network SSD `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
 
 For more information about limits on the number of hosts per cluster, see [{#T}](./limits.md).
+

@@ -44,6 +44,10 @@ yc managed-clickhouse user update <имя пользователя> \
 
 [Измените настройки пользователя](../../managed-clickhouse/operations/cluster-users.md#update-settings) и задайте нужное значение параметру `Max memory usage`.
 
-#### Как изменить тип диска? {#disk-type}
+#### Можно ли изменить тип диска? {#disk-type}
 
-Чтобы изменить тип диска, [восстановите кластер](../../managed-clickhouse/operations/cluster-backups.md#restore) из резервной копии и при задании настроек нового кластера укажите нужный тип диска.
+Нет, тип диска можно выбрать только при создании кластера или [восстановлении кластера](../../managed-clickhouse/operations/cluster-backups.md#restore) из резервной копии.
+
+#### Можно ли изменить сеть и подсети? {#network}
+
+Нет, сеть и подсети хостов можно выбрать только при создании кластера или [восстановлении кластера](../../managed-clickhouse/operations/cluster-backups.md#restore) из резервной копии.

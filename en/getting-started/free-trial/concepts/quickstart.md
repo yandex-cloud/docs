@@ -16,6 +16,6 @@ You might also find these links useful:
 * [What restrictions apply during the trial period](limits.md)
 * [When does the trial period end](trial-ending.md)
 * [How do I upgrade to the paid version?](upgrade-to-paid.md)
-* [{{ yandex-cloud }} platform overview ](../../../overview/)
+* [{{ yandex-cloud }} platform overview](../../../overview/)
 * [{{ yandex-cloud }} documentation](/docs)
 

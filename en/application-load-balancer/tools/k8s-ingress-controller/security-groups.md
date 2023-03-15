@@ -31,7 +31,6 @@ Security group IDs are specified in:
 
 
 
-
 ## Example configuration {#example}
 
 Let us provide an example for the following conditions:
@@ -55,7 +54,7 @@ Then, you need to create the following rules in the security groups:
 
       | Port range | Protocol | Source type | Source | Description |
       --- | --- | --- | --- | ---
-      | All (`{{ port-any }}`) | TCP | Load balancer healthchecks | — | For a network load balancer |
+      | All (`{{ port-any }}`) | TCP | Load balancer health checks | — | For a network load balancer |
       | All (`{{ port-any }}`) | `Any` | Security group | `Self` | For traffic between [master](../../../managed-kubernetes/concepts/index.md#master) and nodes |
       | All (`{{ port-any }}`) | `Any` | CIDR | `10.96.0.0/16`[^\[C\]^](#example)<br>`10.112.0.0/16`[^\[S\]^](#example) | For traffic between [pods](../../../managed-kubernetes/concepts/index.md#pod) and [services](../../../managed-kubernetes/concepts/index.md#service) |
       | All (`{{ port-any }}`) | ICMP | CIDR | `10.0.0.0/8`<br>`192.168.0.0/16`<br>`172.16.0.0/12` | For functionality verification of nodes from subnets within {{ yandex-cloud }} |
@@ -127,6 +126,6 @@ Then, you need to create the following rules in the security groups:
       --- | --- | --- | --- | ---
       | `80` | TCP | CIDR | `0.0.0.0/0` | For receiving incoming HTTP traffic |
       | `443` | TCP | CIDR | `0.0.0.0/0` | For receiving outgoing HTTP traffic |
-      | `30080` | TCP | Load balancer healthchecks | — | For load balancer node status checks |
+      | `30080` | TCP | Load balancer health checks | — | For load balancer node status checks |
 
    {% endlist %}

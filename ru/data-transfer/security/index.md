@@ -22,19 +22,11 @@ description: "Управление доступом в сервисе по пе�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-{% include [data-transfer-viewer](../../_includes/roles-data-transfer-viewer.md) %}
+{% include [data-transfer-viewer](../../_includes/iam/roles/data-transfer-viewer.md) %}
 
-{% include [data-transfer-privateadmin](../../_includes/roles-data-transfer-privateadmin.md) %}
+{% include [data-transfer-privateadmin](../../_includes/iam/roles/data-transfer-privateadmin.md) %}
 
-{% include [data-transfer-admin](../../_includes/roles-data-transfer-admin.md) %}
-
-### {{ roles-cloud-member }} {#resmgr-clouds-member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+{% include [data-transfer-admin](../../_includes/iam/roles/data-transfer-admin.md) %}
 
 ### {{ roles-viewer }} {#viewer}
 
@@ -47,6 +39,14 @@ description: "Управление доступом в сервисе по пе�
 ### {{ roles-admin }} {#admin}
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
+
+### {{ roles-cloud-member }} {#member}
+
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
+
+### {{ roles-cloud-owner }} {#owner}
+
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
 ## Какие роли необходимы {#required-roles}
 

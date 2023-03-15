@@ -12,7 +12,7 @@ keywords:
 # Access management in {{ mgp-name }}
 
 
-In this section, you'll learn:
+In this section, you will learn:
 
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).
@@ -21,15 +21,15 @@ In this section, you'll learn:
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 To allow access to {{ mgp-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles for the folder or cloud hosting the resources.
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
-The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. A description of each role is given under the diagram.
+The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. You can find the description of each role under the chart.
 
 ![image](../../_assets/mdb/roles-managed-greenplum.svg)
 
@@ -85,16 +85,16 @@ The diagram shows which roles are available in the service and how they inherit 
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher to the folder where a cluster is created. The `viewer` role only enables you to view the cluster list.
+To use the service, you need the `{{ roles.mgp.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher to the folder where a cluster is created. The `{{ roles.mgp.viewer }}` role only enables you to view the cluster list.
 
-You can always assign a role with more permissions. For example, assign the `admin` role instead of `editor`.
+You can always assign a role with more permissions. For instance, you can assign `{{ roles.mgp.admin }}` instead of `{{ roles.mgp.editor }}`.
 
 ## What's next {#whats-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

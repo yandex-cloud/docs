@@ -26,25 +26,19 @@ description: "Управление доступом в сервисе созда
 
 ![image](../../_assets/mdb/roles-managed-kafka.svg)
 
-### {{ roles-mdb-admin }} {#mdb-admin}
+{% include [mkf-auditor](../../_includes/iam/roles/mkf-auditor.md) %}
 
-{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
+{% include [mkf-viewer](../../_includes/iam/roles/mkf-viewer.md) %}
 
-### {{ roles-mdb-viewer }} {#mdb-viewer}
+{% include [mkf-editor](../../_includes/iam/roles/mkf-editor.md) %}
 
-{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+{% include [mkf-admin](../../_includes/iam/roles/mkf-admin.md) %}
 
-### {{ roles-mdb-auditor }} {#mdb-auditor}
+{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
 
-{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
+{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
 
-### {{ roles-cloud-member }} {#resmgr-clouds-member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
 
 {% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
 
@@ -60,21 +54,13 @@ description: "Управление доступом в сервисе созда
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 
-### {{ roles.mkf.admin }} {#mkf-admin}
+### {{ roles-cloud-member }} {#member}
 
-{% include [roles-mkf-admin](../../_includes/roles-mkf-admin.md) %}
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles.mkf.auditor }} {#mkf-auditor}
+### {{ roles-cloud-owner }} {#owner}
 
-{% include [roles-mkf-auditor](../../_includes/roles-mkf-auditor.md) %}
-
-### {{ roles.mkf.editor }} {#mkf-editor}
-
-{% include [roles-mkf-editor](../../_includes/roles-mkf-editor.md) %}
-
-### {{ roles.mkf.viewer }} {#mkf-viewer}
-
-{% include [roles-mkf-viewer](../../_includes/roles-mkf-viewer.md) %}
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
 ## Какие роли необходимы {#required-roles}
 

@@ -163,7 +163,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
 
    Where:
-   * 720 is the number of hours in 30 days.
+   * 720: Number of hours in 30 days.
    * $0.149280 is the cost per hour of {{ KF }} broker host operation.
    * $0.060480 is the cost per hour of {{ ZK }} host operation.
    * $7.680000 is the cost of storage for {{ KF }} broker hosts.
@@ -176,7 +176,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mkf-name}} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mkf-name }} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 

@@ -6,7 +6,7 @@
 {% list tabs %}
 
 - CLI
-    
+
     Команда отобразит цепочку сертификатов и частный ключ и сохранит содержимое в файлы `--chain` и `--key` соответственно.
 
     * `--id` –  идентификатор сертификата, должен быть указан один из флагов: `--id` или `--name`.
@@ -23,9 +23,9 @@
     ```
 
 - API
-  
-  Чтобы получить содержимое сертификата, воспользуйтесь методом [getContent](../../certificate-manager/api-ref/CertificateContent/get.md) для ресурса [Certificate](../../certificate-manager/api-ref/Certificate/).
-  
+
+  Чтобы получить содержимое сертификата, воспользуйтесь методом REST API [get](../../certificate-manager/api-ref/CertificateContent/get.md) для ресурса [CertificateContent](../../certificate-manager/api-ref/CertificateContent/) или вызовом gRPC API [CertificateContentService/Get](../../certificate-manager/api-ref/grpc/certificate_content_service.md#Get).
+
 {% endlist %}
 
 {% note info %}

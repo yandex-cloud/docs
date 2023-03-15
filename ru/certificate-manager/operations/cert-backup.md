@@ -36,6 +36,11 @@ description: "Чтобы сделать резервное копировани�
         yc cm certificate list
         ```
 
+   - API
+
+     Чтобы получить идентификатор сертификата, воспользуйтесь методом REST API [list](../api-ref/Certificate/list.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/List](../api-ref/grpc/certificate_service.md#List).
+
+
    {% endlist %}
 
 1. Получите содержимое сертификата.
@@ -63,6 +68,10 @@ description: "Чтобы сделать резервное копировани�
           --key <путь к файлу для сохранения ключа>
         ...
         ```
+
+   - API
+
+     Чтобы получить содержимое сертификата, воспользуйтесь методом REST API [get](../api-ref/CertificateContent/get.md) для ресурса [CertificateContent](../api-ref/CertificateContent/) или вызовом gRPC API [CertificateContentService/Get](../api-ref/grpc/certificate_content_service.md#Get).
 
    {% endlist %}
 
@@ -122,6 +131,10 @@ description: "Чтобы сделать резервное копировани�
           --key <путь к файлу закрытого ключа>
         ...
         ```
+
+   - API
+
+     Чтобы импортировать сертификат, воспользуйтесь методом REST API [create](../api-ref/Certificate/create.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Create](../api-ref/grpc/certificate_service.md#Create).
 
    {% endlist %}
 

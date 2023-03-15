@@ -42,9 +42,9 @@
 
 - API
 
-  Чтобы создать ключ доступа, воспользуйтесь методом [create](../../api-ref/Key/create.md) для ресурса [Key](../../api-ref/Key/index.md).
+  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../api-ref/Key/create.md) для ресурса [Key](../../api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../api-ref/grpc/key_service.md#Create).
 
-  Пример запроса с помощью cURL:
+  Пример запроса с помощью cURL для метода REST API `create`:
 
   ```bash
   curl -X POST \

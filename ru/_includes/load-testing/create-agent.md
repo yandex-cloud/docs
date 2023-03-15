@@ -30,7 +30,10 @@
 
           {% note info %}
               
-          Процесс создания агента может остановиться на статусе `INITIALIZING_CONNECTION`, если у агента не будет [доступа](../../load-testing/operations/security-groups-agent.md) к `loadtesting.{{ api-host }}:443`, или у сервисного аккаунта, который назначен агенту, не будет необходимых [ролей](../../load-testing/operations/create-agent.md#infrastructure-prepare).   
+          Процесс создания агента может остановиться на статусе `INITIALIZING_CONNECTION`, если не выполнены условия:
+          * у агента есть [доступ](../../load-testing/operations/security-groups-agent.md) к `loadtesting.{{ api-host }}:443` и публичный IP-адрес;
+          * в целевой подсети [настроен](../../vpc/operations/create-nat-gateway.md) NAT-шлюз;
+          * у сервисного аккаунта, который назначен агенту, есть необходимые [роли](../../load-testing/operations/create-agent.md#infrastructure-prepare).   
                                   
           {% endnote %}
 

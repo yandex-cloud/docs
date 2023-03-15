@@ -30,6 +30,10 @@
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
+- API
+
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../api-ref/grpc/service_account_service.md#Create).
+
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -76,10 +80,6 @@
         ```bash
         yc iam service-account list
         ```
-
-- API
-
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md).
 
 {% endlist %}
 

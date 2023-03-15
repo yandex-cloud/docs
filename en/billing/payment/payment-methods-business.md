@@ -15,7 +15,7 @@ To have funds transferred, you should first receive a [payment invoice](../conce
 
 {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
-## Payment terms  {#limits}
+## Payment terms {#limits}
 
 Invoices must be paid before the deadline stipulated in the [agreement](../concepts/contract.md). How fast the funds will be credited to your personal account depends on the bank performing the transaction.
 

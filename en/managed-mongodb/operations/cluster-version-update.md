@@ -2,8 +2,7 @@
 
 You can upgrade a {{ mmg-name }} cluster within a single major version. Major version upgrades (such as 4 → 5) are not supported.
 
-You can only upgrade to a version that immediately follows the current one, such as version 4.0 to 4.2. Upgrades to higher versions are performed in steps. To upgrade {{ MG }} from version 4.0 to version 4.4, for instance, follow the steps: 4.0 → 4.2 → 4.4.
-
+You can only upgrade to a version that immediately follows the current one, such as, from 4.0 to 4.2. Upgrades to higher versions are performed in steps. For example, to upgrade {{ MG }} from 4.0 to 4.4, you will first need to upgrade to 4.2, and then, to 4.4.
 
 
 {% note alert %}
@@ -32,11 +31,11 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
    1. In the **Version** field, select a new version number.
    1. Click **Save changes**.
 
-   Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - CLI
 
-   1. Get a list of your {{ MG }} clusters using the command:
+   1. Get a list of your {{ MG }} clusters using this command:
 
       ```bash
       {{ yc-mdb-mg }} cluster list
@@ -55,9 +54,9 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
          --mongodb-version=<new version number>
       ```
 
-      When the upgrade starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+      When the upgrade starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
-   1. After the upgrade, all the MongoDB features that are not backward-compatible with the previous version are disabled. To remove this restriction, run the command:
+   1. After the upgrade, all MongoDB features that are not backward-compatible with the previous version will be disabled. To remove this restriction, run this command:
 
       ```bash
       {{ yc-mdb-mg }} cluster update <cluster ID or name> \
@@ -72,7 +71,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. To the {{ mmg-name }} cluster description, add the `version` field or change its value if it's already there:
+   1. To the {{ mmg-name }} cluster description, add the `version` field or change its value if it is already there:
 
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
@@ -97,15 +96,15 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
 - API
 
-   To upgrade to a new {{ MG }} version, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
+   To upgrade to a new {{ MG }} version, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * {{ MG }} version which you are upgrading to in the `configSpec.version` parameter.
-   * List of settings to update (`configSpec.version` in this case) in the `updateMask` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * {{ MG }} version which you are upgrading to, in the `configSpec.version` parameter.
+   * List of settings to update (in our case, `configSpec.version`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-   After the upgrade, all the MongoDB features that are not backward-compatible with the previous version are disabled. To remove this restriction, use the [update](../api-ref/Cluster/update.md) API method: pass the new version number in the request using the `configSpec.featureCompatibilityVersion` property.
+   After the upgrade, all MongoDB features that are not backward-compatible with the previous version will be disabled. To remove this restriction, use the [update](../api-ref/Cluster/update.md) API method and provide the new version number in the request using the `configSpec.featureCompatibilityVersion` property.
 
    Learn more about backward compatibility in the [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
@@ -113,13 +112,13 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
 ## Examples {#examples}
 
-Let's say you need to upgrade your cluster from version 4.0 to version 4.2.
+Let's assume you need to upgrade your cluster from version 4.0 to 4.2.
 
 {% list tabs %}
 
 - CLI
 
-   1. To find out the cluster ID, get a list of all the clusters in the folder:
+   1. To find out the cluster ID, get a list of all clusters in the folder:
 
       ```bash
       {{ yc-mdb-mg }} cluster list
@@ -131,7 +130,7 @@ Let's say you need to upgrade your cluster from version 4.0 to version 4.2.
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
-   1. To get information about the `c9qut3k64b2o9umqogr7` cluster, run the command:
+   1. To get information about the `c9qut3k64b2o9umqogr7` cluster, run this command:
 
       ```bash
       {{ yc-mdb-mg }} cluster get c9qut3k64b2o9umqogr7
@@ -150,14 +149,14 @@ Let's say you need to upgrade your cluster from version 4.0 to version 4.2.
           ...
       ```
 
-   1. To upgrade the cluster `c9qutgkd4b2o9umqog97` to version 4.2, run the command:
+   1. To upgrade the cluster `c9qutgkd4b2o9umqog97` to version 4.2, run this command:
 
       ```bash
       {{ yc-mdb-mg }} cluster update c9qutgkd4b2o9umqog97 \
           --mongodb-version=4.2
       ```
 
-   1. To enable all 4.2 features in the cluster `c9qutgkd4b2o9umqog97`, run the command:
+   1. To enable all 4.2 features in the cluster `c9qutgkd4b2o9umqog97`, run this command:
 
       ```bash
       {{ yc-mdb-mg }} cluster update c9qutgkd4b2o9umqog97 \

@@ -46,9 +46,9 @@ The following is charged:
 * Storage allocated for clusters.
 
    * You can only order local SSD storage (`local-ssd`) for clusters with two master hosts:
-      * For Intel Cascade Lake: In 100 GB increments.
+      * For Intel Cascade Lake: In 100 GB increments.
       * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
-   * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in increments of 93 GB for clusters with two master hosts.
+   * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in 93 GB increments for clusters with two master hosts.
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
@@ -60,6 +60,62 @@ The following is charged:
 
 The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+
+### Example of cluster cost calculation {#example}
+
+The cost of using a cluster with the following parameters for 30 days:
+
+* **Standard hosts**: 3 `s3-c8-m32` hosts: Intel Ice Lake, 8 × 100% vCPU, 32 GB RAM.
+* **Storage for standard hosts**: 100 GB of HDD network storage.
+* **Dedicated hosts**: 3 `s2.medium` hosts: Intel Cascade Lake, 8 × 100% vCPU, 32 GB RAM.
+* **Storage for dedicated hosts**: 50 GB of local SSD storage.
+
+Cost calculation for standard hosts:
+
+> 
+> 3 × (8×$0.017231 + 32×$0.004564) = $0.851688
+> 
+>
+> Total: $0.851688 is the cost per hour of standard host operation.
+
+Where:
+* 3: Number of standard hosts.
+* 8: Number of vCPUs.
+* $0.017231: Cost of using 100% vCPU per hour.
+* 32: Amount of RAM per standard host (in GB).
+* $0.004564: Cost of using 1GB of RAM on 100% vCPU per hour.
+
+Cost calculation for dedicated hosts:
+
+> 
+> 3 × (8×$0.009595 + 32×$0.002538) = $0.473928
+> 
+>
+> Total: $0.473928 is the cost per hour of dedicated host operation.
+
+Where:
+* 3: Number of dedicated hosts.
+* 8: Number of vCPUs.
+* $0.009595: Cost of using 100% vCPU per hour.
+* 32: Amount of RAM per dedicated host (in GB).
+* $0.002538: Cost of using 1GB of RAM on 100% vCPU per hour.
+
+Calculation for the storage cost and total cost:
+
+> 
+> 
+> (720 × $0.851688 + 100 × $0.104080) + (720 × $0.473928 + 50 × $0.104080) = $970.0555
+>
+> Total: $970.0555 is the cost of using the cluster for 30 days.
+
+Where:
+* 720: Number of hours in 30 days.
+* $0.851688: Cost per hour of standard host operation.
+* 100: Amount of HDD network storage (in GB) for standard hosts.
+* $0.104080: Cost of using 1 GB of network HDD storage per month.
+* $0.473928: Cost per hour of dedicated host operation.
+* 50: Amount of local SSD storage (in GB) for dedicated hosts.
+* $0.104080: Cost of using 1 GB of local SSD storage per month.
 
 ## Pricing {#prices}
 

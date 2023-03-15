@@ -14,6 +14,11 @@
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-s3-url.md) %}
 
+## Особенности {#features}
+
+* AWS SDK для .NET некорректно обрабатывает конфигурации для жизненных циклов, которые не содержат в себе описания правил (ID). Добавьте описания ко всем правилам жизненного цикла.
+* Для доступа к {{ objstorage-name }}, например при работе с классом `AmazonS3Config`, используйте адрес `{{ s3-dotnet-sdk-host }}`.
+
 ## Примеры кода {#net-sdk-examples}
 
 Чтобы подключиться к {{ objstorage-name }}, используйте код

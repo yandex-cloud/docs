@@ -1,11 +1,11 @@
 # Service resource fields
 
-The `Service` resource defines the [{{ k8s }} service](../../managed-kubernetes/concepts/index.md#service). For {{ alb-name }} tools for {{ managed-k8s-name }}, such as [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md), the services are backends that incoming traffic is distributed across.
+The `Service` resource defines the [{{ k8s }} service](../../managed-kubernetes/concepts/index.md#service). For {{ alb-name }} tools for {{ managed-k8s-name }}, such as [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md), the services are backends the incoming traffic is distributed across.
 
-For the Ingress controller, you can indicate the service to be used as a backend:
+For the Ingress controller, you can indicate the service to use as a backend:
 
 * Directly in the [`Ingress` resource](ingress.md).
-* Or as part of a backend group in the [`HttpBackendGroup` resource](http-backend-group.md).
+* As part of a backend group in the [`HttpBackendGroup` resource](http-backend-group.md).
 
 
 If the Gateway API is used, the services to be used as backends are specified in the [`HTTPRoute` resource](http-route.md).

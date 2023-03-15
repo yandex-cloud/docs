@@ -91,29 +91,12 @@ spec:
 ## Установка и требования {#install}
 
 Для установки Gateway API требуются:
+
 * Кластер {{ managed-k8s-name }}.
 * Группа узлов в кластере.
 * Пространство имен в кластере для хранения ключа [сервисного аккаунта](../k8s-ingress-controller/service-account.md).
 
-Установить Gateway API можно:
-* Как [продукт {{ marketplace-full-name }}](/marketplace/products/yc/gateway-api) через консоль управления.
-* Как чарт через менеджер пакетов [Helm](https://helm.sh/ru/) версии не ниже {{ alb-ingress-helm-version }} с [включенной поддержкой OCI](https://helm.sh/docs/topics/registries/). Чтобы скачать и установить чарт, выполните следующие команды:
-
-  ```bash
-  export HELM_EXPERIMENTAL_OCI=1 && \
-  helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api \
-    --version {{ alb-gateway-api-version }} \
-    --untar && \
-  helm install \
-    --namespace <пространство_имен> \
-    --set folderId=<идентификатор_каталога> \
-    --set networkId=<идентификатор_сети> \
-    --set subnetId=<идентификатор_подсети> \
-    --set-file saKeySecretKey=<путь_к_файлу_с_ключом_сервисного_аккаунта> \
-    yc-alb-gateway-api ./yc-alb-gateway-api-chart/
-   ```
-
-Подробнее о каждом способе см. в [полной инструкции по установке](../../operations/k8s-gateway-api-install.md).
+Установить Gateway API можно по [инструкции](../../operations/k8s-gateway-api-install.md).
 
 #### См. также {#see-also}
 

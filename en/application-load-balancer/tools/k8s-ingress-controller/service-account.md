@@ -1,6 +1,6 @@
 # Service account for {{ alb-name }} tools for {{ managed-k8s-name }}
 
-{{ alb-name }} tools for {{ managed-k8s-name }}, such as [Ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), deploy an infrastructure on behalf of a [service account](../../../iam/concepts/users/service-accounts.md). This account requires the following permissions:
+{{ alb-name }} tools for {{ managed-k8s-name }}, such as [Ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), deploy the infrastructure on behalf of a [service account](../../../iam/concepts/users/service-accounts.md). This account requires the following permissions:
 
 
 {% list tabs %}
@@ -28,7 +28,7 @@
 {% endlist %}
 
 
-An [authorized key](../../../iam/concepts/authorization/key.md) is used to authenticate the service account. The key must be specified in the `saKeySecretKey` value when installing a Helm chart with an Ingress controller or Gateway API. For instance, if you created the key via the [`yc iam key create` CLI command](../../../cli/cli-ref/managed-services/iam/key/create.md) and saved it to `sa-key.json`, the chart install command could look like this:
+An [authorized key](../../../iam/concepts/authorization/key.md) is used to authenticate the service account. The key must be specified in the `saKeySecretKey` value when installing a Helm chart with an Ingress controller or Gateway API. For instance, if you created the key via the [`yc iam key create` CLI command](../../../cli/cli-ref/managed-services/iam/key/create.md) and saved it to `sa-key.json`, the chart installation command may look like this:
 
 ```bash
 helm install \

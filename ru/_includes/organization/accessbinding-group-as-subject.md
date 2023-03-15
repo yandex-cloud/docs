@@ -51,7 +51,7 @@
 
 - API
 
-  Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
+  Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
 
   1. Выберите роль из списка в разделе [Роли](../../iam/concepts/access-control/roles.md).
 

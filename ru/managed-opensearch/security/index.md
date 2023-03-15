@@ -23,25 +23,19 @@
 
 ![image](../../_assets/mdb/roles-managed-opensearch.svg)
 
-### {{ roles-mdb-admin }} {#mdb-admin}
+{% include [mos-auditor](../../_includes/iam/roles/mos-auditor.md) %}
 
-{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
+{% include [mos-viewer](../../_includes/iam/roles/mos-viewer.md) %}
 
-### {{ roles-mdb-viewer }} {#mdb-viewer}
+{% include [mos-editor](../../_includes/iam/roles/mos-editor.md) %}
 
-{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+{% include [mos-admin](../../_includes/iam/roles/mos-admin.md) %}
 
-### {{ roles-mdb-auditor }} {#mdb-auditor}
+{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
 
-{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
+{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
 
-### {{ roles-cloud-member }} {#resmgr-clouds-member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
 
 {% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
 
@@ -57,21 +51,13 @@
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 
-### {{ roles.mos.admin }} {#mos-admin}
+### {{ roles-cloud-member }} {#member}
 
-{% include [roles-mos-admin](../../_includes/roles-mos-admin.md) %}
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles.mos.auditor }} {#mos-auditor}
+### {{ roles-cloud-owner }} {#owner}
 
-{% include [roles-mos-auditor](../../_includes/roles-mos-auditor.md) %}
-
-### {{ roles.mos.editor }} {#mos-editor}
-
-{% include [roles-mos-editor](../../_includes/roles-mos-editor.md) %}
-
-### {{ roles.mos.viewer }} {#mos-viewer}
-
-{% include [roles-mos-viewer](../../_includes/roles-mos-viewer.md) %}
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
 ## Какие роли необходимы {#required-roles}
 

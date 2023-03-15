@@ -31,7 +31,7 @@
 
   1. Посмотрите описание команды:
 
-     ``bash
+     ```bash
      yc certificate-manager certificate update --help
      ```
 
@@ -79,6 +79,6 @@
 
 - API
 
-  Чтобы обновить сертификат, воспользуйтесь методом [update](../../api-ref/Certificate/update.md) для ресурса [Certificate](../../api-ref/Certificate/).
+  Чтобы обновить сертификат, воспользуйтесь методом REST API [update](../../api-ref/Certificate/update.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update).
 
 {% endlist %}

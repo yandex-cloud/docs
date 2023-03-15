@@ -36,9 +36,9 @@ When the initial grant expires, the total unused amount is offset, and the acces
 
 ### About the documents {#documents}
 
-#### Is it safe to pay to {{ yandex-cloud }}? {#payment-security}
+#### Is it safe to pay in {{ yandex-cloud }}? {#payment-security}
 
-The {{ yandex-cloud }} platform meets the PCI DSS requirements, that's why it's safe to use the cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../../security/conform.md#pci-dss).
+The {{ yandex-cloud }} platform meets the PCI DSS requirements; this is why it is safe to use the cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../../security/conform.md#pci-dss).
 
 #### Where do I find my agreement with {{ yandex-cloud }}? {#offer}
 

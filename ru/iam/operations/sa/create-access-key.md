@@ -71,6 +71,10 @@
 
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 
+- API
+
+  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../api-ref/AccessKey/create.md) для ресурса [AccessKey](../../api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../api-ref/grpc/access_key_service.md#Create).
+
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -122,10 +126,6 @@
           ```bash
           yc iam access-key list --service-account-name=<имя_сервисного_аккаунта>
           ```
-
-- API
-
-  Чтобы создать ключ доступа, воспользуйтесь методом [create](../../api-ref/AccessKey/create.md) для ресурса [AccessKey](../../api-ref/AccessKey/index.md).
 
 {% endlist %}
 

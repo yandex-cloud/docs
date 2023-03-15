@@ -64,6 +64,10 @@
         * `service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md).
         * `role` — назначаемая [роль](../security/index.md#roles-list).
 
+- API
+
+  Чтобы настроить права доступа к секрету, воспользуйтесь методом REST API [setAccessBindings](../api-ref/Secret/setAccessBindings.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/SetAccessBindings](../api-ref/grpc/secret_service.md#SetAccessBindings).
+
 {% endlist %}
 
 {% note info %}

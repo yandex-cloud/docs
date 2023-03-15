@@ -32,7 +32,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
       * If the balance is positive, go back to step 5.
       * If the balance is negative, go to step 10.
 
-1. Your [personal account balance](../concepts/personal-account.md#balance) decreases as  {{ yandex-cloud }} service resources are consumed.
+1. Your [personal account balance](../concepts/personal-account.md#balance) decreases as {{ yandex-cloud }} service resources are consumed.
 
    1. Your personal account balance is checked throughout the reporting period.
 
