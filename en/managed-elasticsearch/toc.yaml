@@ -50,7 +50,6 @@ items:
         href: tutorials/migration-via-reindex-api.md
       - name: Migrating data to {{ mos-full-name }}
         href: tutorials/migration-to-opensearch.md
-        when: audience == "draft"
   - name: Concepts
     items:
       - name: Relationships between service resources

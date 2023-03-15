@@ -32,7 +32,6 @@ items:
       - name: Deleting clusters
         href: operations/cluster-delete.md
   - name: Tutorials
-    when: audience == "draft"
     items:
       - name: Migrating data from {{ ES }}
         href: tutorials/migration-to-opensearch.md

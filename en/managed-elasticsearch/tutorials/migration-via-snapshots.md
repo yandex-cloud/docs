@@ -78,9 +78,9 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
    1. Specify in the `mes-migration.tf` configuration file under `locals`:
       {% if audience != "internal" %}
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-         {% else %}
+      {% else %}
       * Folder ID.
-         {% endif %}
+      {% endif %}
       * [Password for the `admin` user](../operations/cluster-update.md#change-admin-password).
       * [Target cluster edition](../concepts/es-editions.md).
       * Target cluster version.
@@ -300,6 +300,8 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 1. If necessary, [disable the snapshot repository](https://www.elastic.co/guide/en/elasticsearch/reference/current/delete-snapshot-repo-api.html) on the side of the source and target clusters.
 
 ## Delete the resources you created {#clear-out}
+
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 

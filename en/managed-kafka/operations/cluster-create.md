@@ -69,7 +69,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       1. Select security groups to control the cluster's network traffic.
 
-      1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. You can't request public access after creating a cluster. For more information, see [{#T}](connect.md).
+      1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
    {% endif %}
 
@@ -225,7 +225,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    To create a cluster:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * {{ KF }} cluster: Description of a cluster and its hosts. If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
 
@@ -233,7 +233,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       {% if product == "yandex-cloud" %}
 
@@ -249,7 +249,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       }
 
       provider "yandex" {
-        token     = "<OAuth or static key of service account>"
+        token     = "<service account OAuth or static key>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -423,7 +423,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
+      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there and their settings are correct, using the [management console]({{ link-console-main }}).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 

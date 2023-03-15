@@ -214,7 +214,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    {% endif %}
 
    Where:
-   * 720 is the number of hours in 30 days.
+   * 720: Number of hours in 30 days.
    * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽18.6600{% endif %}{% if region == "int" %}$0.149280{% endif %}{% if region == "kz" %}₸93.3000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.9474{% endif %} is the cost per hour of {{ KF }} broker host operation.
    * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽7.5600{% endif %}{% if region == "int" %}$0.060480{% endif %}{% if region == "kz" %}₸37.8000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.3834{% endif %} is the cost per hour of {{ ZK }} host operation.
    * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽960.0000{% endif %}{% if region == "int" %}$7.680000{% endif %}{% if region == "kz" %}₸4800.0000{% endif %}{% endif %}{% if product == "cloud-il" %}₪43.2000{% endif %} is the cost of storage for {{ KF }} broker hosts.
@@ -228,7 +228,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mkf-name}} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mkf-name }} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 

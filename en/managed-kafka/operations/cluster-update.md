@@ -28,7 +28,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
-   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit cluster**.
    1. Enable **Manage topics via the API**.
    1. [Create an admin user](./cluster-accounts.md#create-user).
 
@@ -40,7 +40,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
    To enable topic management via the Admin API:
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update <cluster name or ID> --unmanaged-topics=true
@@ -93,7 +93,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
-   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit cluster**.
    1. Change the required settings:
       * To edit the [broker host](../concepts/brokers.md) class, select a new [**Host class**](../concepts/instance-types.md).
       * Edit the **Number of brokers in zone**.
@@ -196,7 +196,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
-   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit cluster**.
    1. Select a new [**Zookeeper host class**](../concepts/instance-types.md).
    1. Click **Save**.
 
@@ -221,7 +221,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
       {{ yc-mdb-kf }} cluster update --help
       ```
 
-   1. To change the {{ ZK }} host class, run the following command:
+   1. To change the {{ ZK }} host class, run this command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update <cluster ID or name> \
@@ -289,7 +289,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
-   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit cluster**.
    1. Edit the settings in the **Storage** section.
    1. Click **Save**.
 
@@ -377,6 +377,99 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
+## Updating security group and public access settings {#change-sg-set}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit cluster**.
+   1. Under **Network settings**, select security groups for cluster network traffic.
+   1. Enable or disable public access to a cluster via the **Public access** option.
+   1. Click **Save**.
+
+   [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
+
+   1. View a description of the CLI's update cluster command:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster update --help
+      ```
+
+   1. Specify the security groups and public access settings in the update cluster command:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster update <cluster name> \
+         --security-group-ids <security group list> \
+         --assign-public-ip=<cluster public access: true or false>
+      ```
+
+   [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
+
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+   1. Change the values of the `security_group_ids` and `assign_public_ip` parameters in the cluster description:
+
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+        ...
+        security_group_ids = [ <list of cluster security group IDs> ]
+        ...
+        config {
+          assign_public_ip = "<cluster public access: true or false>"
+          ...
+          }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
+- API
+
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   - The list of security group IDs in the `securityGroupIds` parameter.
+   - Public access settings, in the `configSpec.assignPublicIp` parameter.
+   - List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+   [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
+
+{% endlist %}
+
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endif %}
+
 ## Changing additional cluster settings {#change-additional-settings}
 
 {% list tabs %}
@@ -384,7 +477,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
-   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit cluster**.
    1. Change additional cluster settings:
 
       {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -420,7 +513,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
 
-        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
@@ -490,7 +583,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
-   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit cluster**.
    1. Under **Kafka Settings**, click **Configure**.
 
       For more information, see [{{ KF }} settings](../concepts/settings-list.md).
@@ -619,79 +712,3 @@ You can't change the disk type for {{ KF }} clusters after creation.
    * The ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
-
-{% if audience != "internal" %}
-
-## Changing security groups {#change-sg-set}
-
-{% list tabs %}
-
-- Management console
-
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
-   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
-   1. Under **Network settings**, select security groups for cluster network traffic.
-
-- CLI
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
-
-   1. View a description of the CLI's update cluster command:
-
-      ```bash
-      {{ yc-mdb-kf }} cluster update --help
-      ```
-
-   1. Specify the security groups in the update cluster command:
-
-      ```bash
-      {{ yc-mdb-kf }} cluster update <cluster name> \
-         --security-group-ids <security group list>
-      ```
-
-- {{ TF }}
-
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
-
-      For more information about creating this file, see [{#T}](cluster-create.md).
-
-   1. Change the value of the `security_group_ids` parameter in the cluster description:
-
-      ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-        ...
-        security_group_ids = ["<list of cluster security group IDs>"]
-      }
-      ```
-
-   1. Make sure the settings are correct.
-
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-   1. Confirm the update of resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
-
-- API
-
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-
-   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   - The list of security group IDs in the `securityGroupIds` parameter.
-   - List of settings to update in the `updateMask` parameter.
-
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-{% endlist %}
-
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
-
-{% endif %}

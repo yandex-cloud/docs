@@ -48,9 +48,9 @@ The following is charged:
 * Storage allocated for clusters.
 
    * You can only order local SSD storage (`local-ssd`) for clusters with two master hosts:
-      {% if product == "yandex-cloud" %}* For Intel Cascade Lake: In 100 GB increments.{% endif %}
+      {% if product == "yandex-cloud" %}* For Intel Cascade Lake: In 100 GB increments.{% endif %}
       * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
-   * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in increments of 93 GB for clusters with two master hosts.
+   * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in 93 GB increments for clusters with two master hosts.
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
@@ -77,6 +77,62 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 {% endnote %}
 
 {% endif %}
+
+### Example of cluster cost calculation {#example}
+
+The cost of using a cluster with the following parameters for 30 days:
+
+* **Standard hosts**: 3 `s3-c8-m32` hosts: Intel Ice Lake, 8 × 100% vCPU, 32 GB RAM.
+* **Storage for standard hosts**: 100 GB of HDD network storage.
+* **Dedicated hosts**: 3 `s2.medium` hosts: Intel Cascade Lake, 8 × 100% vCPU, 32 GB RAM.
+* **Storage for dedicated hosts**: 50 GB of local SSD storage.
+
+Cost calculation for standard hosts:
+
+> {% if region == "ru" %}3 × (8×₽2.1500 + 32×₽0.5700) = ₽106.3200{% endif %}
+> {% if region == "int" %}3 × (8×$0.017231 + 32×$0.004564) = $0.851688{% endif %}
+> {% if region == "kz" %}3 × (8×₸10.7500 + 32×₸2.8500) = ₸531.6000{% endif %}
+>
+> Total: {% if region == "ru" %}₽106.3200{% endif %}{% if region == "int" %}$0.851688{% endif %}{% if region == "kz" %}₸531.6000{% endif %} is the cost per hour of standard host operation.
+
+Where:
+* 3: Number of standard hosts.
+* 8: Number of vCPUs.
+* {% if region == "ru" %}₽2.1500{% endif %}{% if region == "int" %}$0.017231{% endif %}{% if region == "kz" %}₸10.7500{% endif %}: Cost of using 100% vCPU per hour.
+* 32: Amount of RAM per standard host (in GB).
+* {% if region == "ru" %}₽0.5700{% endif %}{% if region == "int" %}$0.004564{% endif %}{% if region == "kz" %}₸2.8500{% endif %}: Cost of using 1GB of RAM on 100% vCPU per hour.
+
+Cost calculation for dedicated hosts:
+
+> {% if region == "ru" %}3 × (8×₽1.2000 + 32×₽0.3100) = ₽58.5600{% endif %}
+> {% if region == "int" %}3 × (8×$0.009595 + 32×$0.002538) = $0.473928{% endif %}
+> {% if region == "kz" %}3 × (8×₸6.0000 + 32×₸1.5500) = ₸292.8000{% endif %}
+>
+> Total: {% if region == "ru" %}₽58.5600{% endif %}{% if region == "int" %}$0.473928{% endif %}{% if region == "kz" %}₸292.8000{% endif %} is the cost per hour of dedicated host operation.
+
+Where:
+* 3: Number of dedicated hosts.
+* 8: Number of vCPUs.
+* {% if region == "ru" %}₽1.2000{% endif %}{% if region == "int" %}$0.009595{% endif %}{% if region == "kz" %}₸6.0000{% endif %}: Cost of using 100% vCPU per hour.
+* 32: Amount of RAM per dedicated host (in GB).
+* {% if region == "ru" %}₽0.3100{% endif %}{% if region == "int" %}$0.002538{% endif %}{% if region == "kz" %}₸1.5500{% endif %}: Cost of using 1GB of RAM on 100% vCPU per hour.
+
+Calculation for the storage cost and total cost:
+
+> {% if region == "ru" %}(720 × ₽106.3200 + 100 × ₽3.2000) + (720 × ₽58.5600 + 50 × ₽13.0100) = ₽119684.1000{% endif %}
+> {% if region == "kz" %}(720 × ₸531.6000 + 100 × ₸16.0000) + (720 × ₸292.8000 + 50 × ₸65.0500) = ₸598420.5000{% endif %}
+> {% if region == "int" %}(720 × $0.851688 + 100 × $0.104080) + (720 × $0.473928 + 50 × $0.104080) = $970.0555{% endif %}
+>
+> Total: {% if region == "ru" %}₽119684.1000{% endif %}{% if region == "kz" %}₸598420.5000{% endif %}{% if region == "int" %}$970.0555{% endif %} is the cost of using the cluster for 30 days.
+
+Where:
+* 720: Number of hours in 30 days.
+* {% if region == "ru" %}₽106.3200{% endif %}{% if region == "kz" %}₸531.6000{% endif %}{% if region == "int" %}$0.851688{% endif %}: Cost per hour of standard host operation.
+* 100: Amount of HDD network storage (in GB) for standard hosts.
+* {% if region == "ru" %}₽3.2000{% endif %}{% if region == "kz" %}₸16.0000{% endif %}{% if region == "int" %}$0.104080{% endif %}: Cost of using 1 GB of network HDD storage per month.
+* {% if region == "ru" %}₽58.5600{% endif %}{% if region == "kz" %}₸292.8000{% endif %}{% if region == "int" %}$0.473928{% endif %}: Cost per hour of dedicated host operation.
+* 50: Amount of local SSD storage (in GB) for dedicated hosts.
+* {% if region == "ru" %}₽13.0100{% endif %}{% if region == "kz" %}₸65.0500{% endif %}{% if region == "int" %}$0.104080{% endif %}: Cost of using 1 GB of local SSD storage per month.
 
 ## Pricing {#prices}
 

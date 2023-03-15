@@ -45,7 +45,7 @@ Security groups must be created and configured before creating a cluster. If the
          * Protocol: `TCP`.
          * Source type: `CIDR`.
          * CIDR blocks:
-            * `84.201.181.26/32`: Getting cluster state, running jobs, UI Proxy.
+            * `84.201.181.26/32`: Getting cluster status, running jobs, UI Proxy.
             * `213.180.193.8/32`: Monitoring cluster status, autoscaling.
             * `213.180.193.243/32`: Access to {{ objstorage-name }}.
 

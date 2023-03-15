@@ -163,7 +163,7 @@ ksqlDB — это база данных, которая предназначен
 1. Отправьте файл `sample.json` в топик `locations` кластера {{ mkf-name }} с помощью `jq`  и `kafkacat`:
 
    ```bash
-   jq -rc . sample.json | kafkacat -P  \
+   jq -rc . sample.json | kafkacat -P \
       -b <FQDN брокера 1:9091, ..., FQDN брокера N:9091> \
       -t locations \
       -X security.protocol=SASL_SSL \
@@ -212,14 +212,14 @@ ksqlDB — это база данных, которая предназначен
 1. Проверьте сообщения в топике `locations` кластера {{ mkf-name }} с помощью `kafkacat` и пользователя `ksql`:
 
    ```bash
-   kafkacat -C  \
+   kafkacat -C \
     -b <FQDN брокера 1:9091, ..., FQDN брокера N:9091> \
     -t locations \
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
     -X sasl.password="<пароль пользователя ksql>" \
-    -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:   
+    -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
    ```
 
 1. Убедитесь, что в консоли отображаются сообщения, которые вы [записали в таблицу](#insert-data-to-ksqldb). 
