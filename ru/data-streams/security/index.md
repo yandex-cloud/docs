@@ -22,21 +22,15 @@
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ yds-name }}.
 
+{% include [yds-viewer](../../_includes/iam/roles/yds-viewer.md) %}
+
+{% include [yds-writer](../../_includes/iam/roles/yds-writer.md) %}
+
+{% include [yds-editor](../../_includes/iam/roles/yds-editor.md) %}
+
+{% include [yds-admin](../../_includes/iam/roles/yds-admin.md) %}
+
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
-
-### yds.viewer {#yds-viewer}
-
-Пользователь с ролью `yds.viewer` может читать данные из потоков данных {{ yds-name }} и просматривать их настройки. Помимо этого роль `yds.viewer` включает в себя все разрешения роли `ydb.viewer`.
-
-### yds.editor {#yds-editor}
-
-Роль `yds.writer` разрешает запись в потоки данных {{ yds-name }}.
-
-### yds.admin {#yds-admin}
-
-Пользователь с ролью `yds.admin` может управлять правами доступа к ресурсам, например разрешить другим пользователям создавать потоки данных {{ yds-name }} или просматривать информацию о них.
-
-Помимо этого роль `{{ roles-admin }}` включает в себя все разрешения роли `ydb.admin`.
 
 ### {{ roles-viewer }} {#viewer}
 

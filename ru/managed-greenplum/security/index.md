@@ -35,25 +35,19 @@ keywords:
 
 ![image](../../_assets/mdb/roles-managed-greenplum.svg)
 
-### {{ roles-mdb-admin }} {#mdb-admin}
+{% include [mgp-auditor](../../_includes/iam/roles/mgp-auditor.md) %}
 
-{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
+{% include [mgp-viewer](../../_includes/iam/roles/mgp-viewer.md) %}
 
-### {{ roles-mdb-viewer }} {#mdb-viewer}
+{% include [mgp-editor](../../_includes/iam/roles/mgp-editor.md) %}
 
-{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+{% include [mgp-admin](../../_includes/iam/roles/mgp-admin.md) %}
 
-### {{ roles-mdb-auditor }} {#mdb-auditor}
+{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
 
-{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
+{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
 
-### {{ roles-cloud-member }} {#resmgr-clouds-member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
 
 {% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
 
@@ -69,21 +63,13 @@ keywords:
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 
-### {{ roles.mgp.admin }} {#mgp-admin}
+### {{ roles-cloud-member }} {#member}
 
-{% include [roles-mgp-admin](../../_includes/roles-mgp-admin.md) %}
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles.mgp.auditor }} {#mgp-auditor}
+### {{ roles-cloud-owner }} {#owner}
 
-{% include [roles-mgp-auditor](../../_includes/roles-mgp-auditor.md) %}
-
-### {{ roles.mgp.editor }} {#mgp-editor}
-
-{% include [roles-mgp-editor](../../_includes/roles-mgp-editor.md) %}
-
-### {{ roles.mgp.viewer }} {#mgp-viewer}
-
-{% include [roles-mgp-viewer](../../_includes/roles-mgp-viewer.md) %}
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
 ## Какие роли необходимы {#required-roles}
 

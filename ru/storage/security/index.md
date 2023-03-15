@@ -24,35 +24,23 @@ description: "Управление доступом в сервисе, пред�
 
 ![service-roles-hierarchy](../../_assets/storage/service-roles-hierarchy.svg)
 
-### storage.admin {#storage-admin}
+{% include [storage-viewer](../../_includes/iam/roles/storage-viewer.md) %}
 
-{% include notitle [roles-storage-admin](../../_includes/roles-storage-admin.md) %}
+{% include [storage-config-viewer](../../_includes/iam/roles/storage-config-viewer.md) %}
 
-### storage.configViewer {#storage-config-viewer}
+{% include [storage-configurer](../../_includes/iam/roles/storage-configurer.md) %}
 
-{% include notitle [roles-storage-config-viewer](../../_includes/roles-storage-config-viewer.md) %}
+{% include [storage-uploader](../../_includes/iam/roles/storage-uploader.md) %}
 
-### storage.configurer {#storage-configurer}
+{% include [storage-editor](../../_includes/iam/roles/storage-editor.md) %}
 
-{% include notitle [roles-storage-configurer](../../_includes/roles-storage-configurer.md) %}
+{% include [storage-admin](../../_includes/iam/roles/storage-admin.md) %}
 
-### storage.editor {#storage-editor}
-
-{% include notitle [roles-storage-editor](../../_includes/roles-storage-editor.md) %}
-
-### storage.uploader {#storage-uploader}
-
-{% include notitle [roles-storage-uploader](../../_includes/roles-storage-uploader.md) %}
-
-### storage.viewer {#storage-viewer}
-
-{% include notitle [roles-storage-viewer](../../_includes/roles-storage-viewer.md) %}
-
-### {{ roles-cloud-member }} {#resmgr-clouds-member}
+### {{ roles-cloud-member }} {#member}
 
 {% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+### {{ roles-cloud-owner }} {#owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
