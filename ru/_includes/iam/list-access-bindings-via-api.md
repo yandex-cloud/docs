@@ -1,4 +1,4 @@
-Посмотрите, кому и какие роли назначены на ресурс с помощью метода `listAccessBindings`. Например, чтобы посмотреть роли на каталог `b1gvmob95yysaplct532`:
+Посмотрите, кому и какие роли назначены на ресурс с помощью метода REST API `listAccessBindings`. Например, чтобы посмотреть роли на каталог `b1gvmob95yysaplct532`:
 
 ```bash
 export FOLDER_ID=b1gvmob95yysaplct532

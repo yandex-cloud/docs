@@ -55,6 +55,10 @@
       
       {% include [name-format](../../../_includes/name-format.md) %}
 
+- API
+
+  Чтобы изменить сервисный аккаунт, воспользуйтесь методом REST API [update](../../api-ref/ServiceAccount/update.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Update](../../api-ref/grpc/service_account_service.md#Update).
+
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -102,9 +106,5 @@
      ```bash
      yc iam service-account list
      ```
-
-- API
-
-  Чтобы изменить сервисный аккаунт, воспользуйтесь методом [update](../../api-ref/ServiceAccount/update.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md).
 
 {% endlist %}

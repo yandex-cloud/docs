@@ -14,7 +14,7 @@ To get started with the service:
 * [Connect to the DB](#connect).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 
@@ -24,7 +24,7 @@ To get started with the service:
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
 
-   * To connect from inside {{ yandex-cloud }}, create a[ Linux](../compute/quickstart/quick-create-linux.md)-based VM in the same network as the DB cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based VM in the same network as the DB cluster.
 
    * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 

@@ -50,7 +50,7 @@
 - API
 
   1. [Узнайте идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором был создан сервисный аккаунт.
-  1. Получите информацию о сервисных аккаунтах в каталоге с помощью метода [list](../../api-ref/ServiceAccount/list.md):
+  1. Получите информацию о сервисных аккаунтах в каталоге с помощью метода REST API [list](../../api-ref/ServiceAccount/list.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md):
 
       ```bash
       export FOLDER_ID=b1gvmob95yysaplct532
@@ -70,5 +70,7 @@
        ]
       }
       ```
+
+     Информацию о сервисных аккаунтах в каталоге можно также получить с помощью вызова gRPC API [ServiceAccountService/List](../../api-ref/grpc/service_account_service.md#List).
 
 {% endlist %}

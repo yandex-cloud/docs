@@ -2,11 +2,11 @@
 
 When [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-mongod-config) a {{ mmg-name }} cluster, you can specify settings that pertain to {{ MG }}.
 
-The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, or {{ TF }}. The {{ tag-all }} label indicates that all of the above interfaces are supported.
+The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI or API.
 
 Depending on the selected interface, the same setting is represented differently. For example, **Max incoming connections** in the management console matches:
 
-* `max_incoming_connections` in gRPC, CLI, or {{ TF }}.
+* `max_incoming_connections` in gRPC or CLI.
 * `maxIncomingConnections` in the REST API.
 
 The following settings are only available for the {{ mmg-name }} cluster Enterprise version.

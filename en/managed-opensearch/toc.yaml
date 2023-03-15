@@ -31,6 +31,10 @@ items:
         href: operations/cluster-logs.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
+  - name: Tutorials
+    items:
+      - name: Migrating data from {{ ES }}
+        href: tutorials/migration-to-opensearch.md
   - name: Concepts
     items:
       - name: Relationships between service resources

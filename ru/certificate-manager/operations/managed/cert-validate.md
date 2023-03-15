@@ -85,9 +85,9 @@
         status: ISSUED
         ...
         ```
-       
+
 - API
-  
-    Для получения информации, необходимой для прохождения процедуры проверки прав на домены, воспользуйтесь методом [get](../../api-ref/Certificate/get.md) для ресурса [Certificate](../../api-ref/Certificate/) с флагом `view=FULL`.
-    
+
+    Для получения информации, необходимой для прохождения процедуры проверки прав на домены, воспользуйтесь методом REST API [get](../../api-ref/Certificate/get.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Get](../../api-ref/grpc/certificate_service.md#Get) с флагом `view=FULL`.
+
 {% endlist %}

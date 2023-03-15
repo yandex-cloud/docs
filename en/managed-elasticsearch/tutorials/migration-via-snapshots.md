@@ -271,6 +271,8 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 ## Delete the resources you created {#clear-out}
 
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 {% list tabs %}
 
 - Manually

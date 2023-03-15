@@ -19,7 +19,7 @@ To create an HTTP router and add a route to it:
    1. In the **HTTP methods** list, select `GET`.
    1. In the **Action** field, leave the `Routing` value.
    1. In the **Backend group**, select the backend group name from the same folder where you create the router.
-   1. Leave the other settings as they are and click **Create**.
+   1. Leave all other settings as they are and click **Create**.
 
 - CLI
 
@@ -32,7 +32,7 @@ To create an HTTP router and add a route to it:
       yc alb http-router create --help
       ```
 
-   1. Run the command:
+   1. Run the following command:
       ```
       yc alb http-router create <HTTP router name>
       ```
@@ -123,7 +123,7 @@ To create an HTTP router and add a route to it:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, specify the parameters of the HTTP router and virtual host:
 
@@ -169,20 +169,20 @@ To create an HTTP router and add a route to it:
 
       For more information about {{ TF }} resource parameters, see the provider documentation ([yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) and [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -190,7 +190,7 @@ To create an HTTP router and add a route to it:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc alb http-router get <HTTP router ID>

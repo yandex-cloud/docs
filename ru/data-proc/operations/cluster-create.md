@@ -216,8 +216,8 @@
                        `assign-public-ip=<публичный доступ к хостам подкластера: true или false> \
            --deletion-protection=<защита от удаления кластера: true или false> \
            --ui-proxy=<доступ к веб-интерфейсам компонентов: true или false> \
-           --security-group-ids=<список идентификаторов групп безопасности> \
-           --log-group-id=<идентификатор лог-группы>
+           --log-group-id=<идентификатор лог-группы> \
+           --security-group-ids=<список идентификаторов групп безопасности>
         ```
 
 
@@ -266,8 +266,8 @@
             {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `--ui-proxy` — доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
+        * `--log-group-id` — [идентификатор лог-группы](../concepts/logs.md).
         * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
-                * `--log-group-id` — [идентификатор лог-группы](../concepts/logs.md).
 
         Чтобы создать кластер, состоящих из нескольких подкластеров для хранения или обработки данных, передайте необходимое количество аргументов `--subcluster` в команде создания кластера:
 

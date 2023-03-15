@@ -452,7 +452,6 @@ To launch an app:
    ```
 
 1. Run the CLI command and write the result:
-
    * To a bucket {{ objstorage-name }}:
 
       ```bash

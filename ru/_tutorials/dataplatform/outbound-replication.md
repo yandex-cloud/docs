@@ -146,6 +146,6 @@ SELECT * FROM pg_subscription_rel;
 
 Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
-1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
-1. [Удалите кластер {{ mpg-full-name }}](../../managed-postgresql/operations/cluster-delete.md).
+* [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
+* Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+* [Удалите кластер {{ mpg-full-name }}](../../managed-postgresql/operations/cluster-delete.md).

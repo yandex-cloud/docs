@@ -35,7 +35,7 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 
 1. Payment for used resources is verified:
    - If the funds are debited from the bank card within one day, go back to step 4.
-   - If your bank card balance is insufficient on the day when funds are to be debited and you failed to [top up](../operations/pay-the-bill.md) your personal account,  the debit transaction will be repeated later. If the funds cannot be debited within one day, they may be debited from one of the bank cards linked to your Yandex account. <br/>If the funds cannot be debited from any of your bank cards, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md). For more information, see step 10.
+   - If your bank card balance is insufficient on the day when funds are to be debited and you failed to [top up](../operations/pay-the-bill.md) your personal account, the debit transaction will be repeated later. If the funds cannot be debited within one day, they may be debited from one of the bank cards linked to your Yandex account. <br/>If the funds cannot be debited from any of your bank cards, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md). For more information, see step 10.
 1. The use of {{ yandex-cloud }} services may be suspended if there are outstanding charges:
    - Your VM instances and DB clusters will be stopped completely.
    - You will not be able to read or download any saved data.

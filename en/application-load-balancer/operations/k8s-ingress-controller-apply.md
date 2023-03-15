@@ -1,12 +1,12 @@
 # Creating or updating {{ alb-name }} resources based on {{ managed-k8s-name }} configuration
 
-To manage {{ alb-name }} resources using an [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md) for {{ managed-k8s-full-name }}, create a configuration consisting of YAML files with descriptions of {{ k8s }} resources: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute`, and so on. For more information about the configuration, see the [{{ managed-k8s-name }} tool reference](../k8s-ref/index.md).
+To manage {{ alb-name }} resources using an [Ingress controller](../tools/k8s-ingress-controller/index.md)and [Gateway API](../tools/k8s-gateway-api/index.md) for {{ managed-k8s-full-name }}, create a configuration consisting of YAML files with descriptions of {{ k8s }} resources: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute`, etc. For more information about the configuration, see the [{{ managed-k8s-name }} tool reference](../k8s-ref/index.md).
 
-## Before you begin {#prerequisites}
+## Getting started {#prerequisites}
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Install an Ingress controller](k8s-ingress-controller-install.md) or [Gateway API](k8s-gateway-api-install.md).
-1. Creating a configuration. For more information, see the [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md) descriptions and the [reference](../k8s-ref/index.md) for these tools.
+1. [Install the Ingress controller](k8s-ingress-controller-install.md) or [Gateway API](k8s-gateway-api-install.md).
+1. Create a configuration. For more information, see the [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md) descriptions and the [reference](../k8s-ref/index.md) for these tools.
 
 ## Applying a configuration {#apply}
 
