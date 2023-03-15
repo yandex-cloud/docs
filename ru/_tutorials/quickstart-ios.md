@@ -70,7 +70,7 @@
 
 ### Метод challengeDidAppear для невидимой капчи {#challengeDidAppear-method}
 
-Капча [не будет отображаться в HTML-коде страницы](../smartcaptcha/concepts/invisible-captcha.md), если она была вызвана с параметром `invisible`. **WKWebView** не будет доступен пользователю до момента вызова метода `challengeDidAppear`. Пройдите проверку:
+Капча [не будет отображаться в HTML-коде страницы](../smartcaptcha/concepts/invisible-captcha.md), если она была вызвана с параметром `invisible`. **WKWebView** должен быть загружен, но недоступен пользователю до момента вызова метода `challengeDidAppear`. Один из способов сделать это:
 
 ```swift
 UIApplication.shared.windows.first?.addSubview(webControllerView)
