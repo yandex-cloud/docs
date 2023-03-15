@@ -41,14 +41,15 @@
 
 - API
 
-  Удалите API-ключ с помощью метода [delete](../../api-ref/ApiKey/delete.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
+  Удалите API-ключ с помощью метода REST API [delete](../../api-ref/ApiKey/delete.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
 
-        ```bash
-        export APIKEY_ID=ajeke74kbp5bfq7m6ka2
-        export IAM_TOKEN=CggaATEVAgA...
-        curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
-            https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
-        ```
+    ```bash
+    export APIKEY_ID=ajeke74kbp5bfq7m6ka2
+    export IAM_TOKEN=CggaATEVAgA...
+    curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
+        https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
+    ```
+   Также API-ключ можно удалить с помощью gRPC API [ApiKeyService/Delete](../../api-ref/grpc/api_key_service.md#Delete).
 
 - {{ TF }}
 

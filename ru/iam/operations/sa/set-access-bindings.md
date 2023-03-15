@@ -104,9 +104,9 @@
 
 - API
 
-    Воспользуйтесь методом [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.
+    Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/service_account_service.md#UpdateAccessBindings). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.
 
-    1. Узнайте ID сервисного аккаунта с помощью метода [list](../../api-ref/ServiceAccount/list.md):
+    1. Узнайте ID сервисного аккаунта с помощью метода REST API [list](../../api-ref/ServiceAccount/list.md):
 
         ```bash
         curl -H "Authorization: Bearer <IAM-TOKEN>" \
@@ -130,7 +130,7 @@
         ```
 
 {% if product == "yandex-cloud" %}
-    1. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
+    1. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
         
         ```bash
         curl -H "Authorization: Bearer <IAM-TOKEN>" \
@@ -350,7 +350,7 @@
     ```
 
 {% endif %}
-    Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md).
+    Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings).
 
     {% note alert %}
 
@@ -576,7 +576,6 @@
           }}}]}' \
           https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
       ```
-
 
 - {{ TF }}
 

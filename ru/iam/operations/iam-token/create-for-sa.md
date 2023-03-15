@@ -507,19 +507,18 @@ yc iam create-token
 
 - API
 
-  Чтобы получить IAM-токен, воспользуйтесь методом [create](../../api-ref/IamToken/create.md) для ресурса [IamToken](../../api-ref/IamToken/index.md).
+  Чтобы получить IAM-токен, воспользуйтесь методом REST API [createForServiceAccount](../../api-ref/IamToken/createForServiceAccount.md) для ресурса [IamToken](../../api-ref/IamToken/index.md) или вызовом gRPC API [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/iam_token_service.md#CreateForServiceAccount).
 
-  Пример запроса с помощью cURL:
+  Пример запроса с помощью cURL для метода REST API `createForServiceAccount`:
 
-  ```
+  ```curl
   curl -X POST \
       -H 'Content-Type: application/json' \
       -d '{"jwt": "<SIGNED_JWT>"}' \
-      https://iam.{{ api-host }}/iam/v1/tokens
+      https://iam.{{ api-host }}/iam/v1/tokens:createForServiceAccount
   ```
 
   Где `<SIGNED_JWT>` — токен в формате JWT, полученный на предыдущем шаге.
-
 
 - Go
 
