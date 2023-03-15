@@ -148,6 +148,6 @@ SELECT * FROM pg_subscription_rel;
 
 Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-1. {% if audience != "internal" %}[Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md){% else %}Удалите виртуальную машину{% endif %}.
-1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, {% if audience != "internal" %}[удалите его](../../vpc/operations/address-delete.md){% else %}удалите его{% endif %}.
-1. [Удалите кластер {{ mpg-full-name }}](../../managed-postgresql/operations/cluster-delete.md).
+* {% if audience != "internal" %}[Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md){% else %}Удалите виртуальную машину{% endif %}.
+* Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, {% if audience != "internal" %}[удалите его](../../vpc/operations/address-delete.md){% else %}удалите его{% endif %}.
+* [Удалите кластер {{ mpg-full-name }}](../../managed-postgresql/operations/cluster-delete.md).

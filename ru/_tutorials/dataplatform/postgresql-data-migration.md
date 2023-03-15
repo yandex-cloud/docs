@@ -514,9 +514,9 @@ pg_restore: warning: errors ignored on restore: 3
 
 * Вручную
 
-    1. [Удалите кластер {{ mpg-full-name }}](../../managed-postgresql/operations/cluster-delete.md).
-    1. Если вы создавали промежуточную виртуальную машину, {% if audience != "internal" %}[удалите ее](../../compute/operations/vm-control/vm-delete.md){% else %}удалите ее{% endif %}.
-    1. Если вы зарезервировали публичные статические IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.
+    * [Удалите кластер {{ mpg-full-name }}](../../managed-postgresql/operations/cluster-delete.md).
+    * Если вы создавали промежуточную виртуальную машину, {% if audience != "internal" %}[удалите ее](../../compute/operations/vm-control/vm-delete.md){% else %}удалите ее{% endif %}.
+    * Если вы зарезервировали публичные статические IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.
 
 * С помощью {{ TF }}
 
