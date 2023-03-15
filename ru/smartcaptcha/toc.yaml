@@ -10,11 +10,27 @@ items:
       - name: Создать капчу
         href: operations/create-captcha.md
       - name: Удалить капчу
-        href: operations/delete-captcha.md     
+        href: operations/delete-captcha.md
       - name: Получить ключи
         href: operations/get-keys.md
       - name: Добавить виджет расширенным методом
         href: operations/advanced-method.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Капча в мобильном приложении
+        items:
+          - name: Обзор
+            href: tutorials/mobile-app/website.md
+          - name: Капча в приложении на Android
+            items:
+              - name: Капча в приложении на Android
+                href: tutorials/mobile-app/android/quickstart-android.md
+              - name: Невидимая капча в приложении на Android
+                href: tutorials/mobile-app/android/invisible-captcha-android.md
+          - name: Капча в приложении на iOS
+            href: tutorials/mobile-app/ios/quickstart-ios.md
   - name: Концепции
     items:
       - name: Валидация пользователя
@@ -25,6 +41,8 @@ items:
         href: concepts/invisible-captcha.md
       - name: Капча в React
         href: concepts/react.md
+      - name: Объект Javascript Interface
+        href: concepts/js-interface.md
       - name: Ограниченный режим
         href: concepts/restricted-mode.md
       - name: Квоты и лимиты

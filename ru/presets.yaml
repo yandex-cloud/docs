@@ -645,6 +645,7 @@ default:
   yds-short-name: Data Streams
   yds: yds
   ch-domain: clickhouse.com
+  captcha-mobile-site: https://captcha-api.yandex.ru/webview
 
   # СУБД
   ch: # Clickhouse

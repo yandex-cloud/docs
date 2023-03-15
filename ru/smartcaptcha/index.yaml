@@ -23,6 +23,9 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+  - title: Практические руководства
+    description: Подробные инструкции, которые помогут вам использовать SmartCaptcha
+    href: tutorials/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
