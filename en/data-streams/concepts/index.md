@@ -16,4 +16,4 @@ If, while saving the data, you need to change either the data itself or its form
 
 * Support for a large number of targets, extensive customization options for streaming data.
 * The solution is fully integrated into the {{ yandex-cloud }} ecosystem and lets you centrally manage data streams using both the {{ yandex-cloud }} management console and API.
-* All components are fully managed, that is, they require no administration or a special team of {% if lang == "ru" %}[DevOps](https://cloud.yandex.ru/blog/posts/2022/03/what-is-devops){% else %}DevOps{% endif %} engineers.
+* All components are fully managed, which means they do not require any administration or dedicated {% if lang == "ru" %}[DevOps](/blog/posts/2022/03/what-is-devops){% else %}DevOps{% endif %} engineers.
