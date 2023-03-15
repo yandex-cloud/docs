@@ -1,6 +1,6 @@
 # Service account for {{ alb-name }} tools for {{ managed-k8s-name }}
 
-{% if product == "yandex-cloud" %}{{ alb-name }} tools for {{ managed-k8s-name }}, such as [Ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), deploy{% endif %}{% if product == "cloud-il" %}{{ alb-name }} [Ingress controller](index.md) for {{ managed-k8s-name }} deploys{% endif %} an infrastructure on behalf of a [service account](../../../iam/concepts/users/service-accounts.md). This account requires the following permissions:
+{% if product == "yandex-cloud" %}{{ alb-name }} tools for {{ managed-k8s-name }}, such as [Ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), deploy{% endif %}{% if product == "cloud-il" %}{{ alb-name }} [Ingress controller](index.md) for {{ managed-k8s-name }} deploys{% endif %} the infrastructure on behalf of a [service account](../../../iam/concepts/users/service-accounts.md). This account requires the following permissions:
 
 {% if product == "yandex-cloud" %}
 
@@ -32,7 +32,7 @@
 
 {% endif %}
 
-An [authorized key](../../../iam/concepts/authorization/key.md) is used to authenticate the service account. The key must be specified in the `saKeySecretKey` value when installing a Helm chart with an Ingress controller{% if product == "yandex-cloud" %} or Gateway API{% endif %}. For instance, if you created the key via the [`yc iam key create` CLI command](../../../cli/cli-ref/managed-services/iam/key/create.md) and saved it to `sa-key.json`, the chart install command could look like this:
+An [authorized key](../../../iam/concepts/authorization/key.md) is used to authenticate the service account. The key must be specified in the `saKeySecretKey` value when installing a Helm chart with an Ingress controller{% if product == "yandex-cloud" %} or Gateway API{% endif %}. For instance, if you created the key via the [`yc iam key create` CLI command](../../../cli/cli-ref/managed-services/iam/key/create.md) and saved it to `sa-key.json`, the chart installation command may look like this:
 
 ```bash
 helm install \

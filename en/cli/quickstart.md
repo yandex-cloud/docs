@@ -122,7 +122,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
       ```
 
       {% endif %}
-      
+
    1. Connect to the virtual machine over SSH on behalf of the `yc-user` user, using the private key:
 
       {% if product == "yandex-cloud" %}

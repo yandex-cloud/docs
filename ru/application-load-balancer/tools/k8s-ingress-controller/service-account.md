@@ -32,7 +32,7 @@
 
 {% endif %}
 
-Для аутентификации сервисного аккаунта используется [авторизованный ключ](../../../iam/concepts/authorization/key.md). Ключ нужно указать при установке Helm-чарта с Ingress-контроллером или Gateway API в значении `saKeySecretKey`. Например, если вы создали ключ с помощью [команды CLI `yc iam key create`](../../../cli/cli-ref/managed-services/iam/key/create.md) и сохранили его в файл `sa-key.json`, то команда для установки чарта может выглядеть так:
+Для аутентификации сервисного аккаунта используется [авторизованный ключ](../../../iam/concepts/authorization/key.md). Ключ нужно указать при установке Helm-чарта с Ingress-контроллером{% if product == "yandex-cloud" %} или Gateway API{% endif %} в значении `saKeySecretKey`. Например, если вы создали ключ с помощью [команды CLI `yc iam key create`](../../../cli/cli-ref/managed-services/iam/key/create.md) и сохранили его в файл `sa-key.json`, то команда для установки чарта может выглядеть так:
 
 ```bash
 helm install \

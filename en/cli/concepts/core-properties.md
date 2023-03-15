@@ -39,7 +39,7 @@ Note that some parameters cannot be used simultaneously. The value of one of the
 | `-h`, `--help` | — | Output the command help. |
 | `--no-user-output` | — | Exclude the output intended for the user from the `stderr` error output stream. |
 | `--profile` | — | The name of the profile whose parameters will be used when executing the command. |
-| `--endpoint` | `endpoint` | The domain name and port to which the CLI will send requests. For the CLI to work correctly with {{ yandex-cloud }}, use the value `{{ api-host }}:443` either in the profile parameter (see the [instructions](../operations/profile/profile-create.md#create)) or in the global flag at each run. |
+| `--endpoint` | `endpoint` | The domain name and port to which the CLI will send requests. For the CLI to work correctly with {{ yandex-cloud }}, use the `{{ api-host }}:443` value either in the profile parameter (see [this guide](../operations/profile/profile-create.md#create)) or in the global flag at each run. |
 | — | `service-account-key` | The authorized key of a [service account](../../iam/concepts/users/service-accounts.md) in {{ yandex-cloud }}. It is set from the file where the key is stored. |
 
 {% endif %}
