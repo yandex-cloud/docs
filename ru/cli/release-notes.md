@@ -4,8 +4,6 @@
 
 ## Версия 0.103.0 (15.03.23) {#version0.103.00}
 
-### Изменения в CLI {#cli}
-
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ api-gw-name }} {#api-gw}
@@ -20,9 +18,11 @@
 * Добавлена группа команд `yc compute gpu-cluster` для управления GPU-кластерами.
 * Добавлены параметры `--gpu-cluster-id` и `--gpu-cluster-name` в команду `yc compute instance create` для создания виртуальной машины в GPU-кластере.
 
-## Версия 0.102.0 (09.02.23) {#version0.102.0}
+## Предыдущие релизы {#previous-releases}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+### Версия 0.102.0 (09.02.23) {#version0.102.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ ig-name }} {#instance-groups}
 Исправлена проблема `update` `instance-group` при указании через `name`.
@@ -49,8 +49,6 @@
 * `--statement-timeout` — позволяет задавать `statement_timeout` в миллисекундах для указанного пользователя.
 * `--idle-in-transaction-session-timeout` — позволяет задавать `idle_in_transaction_session_timeout` в миллисекундах для указанного пользователя.
 * `--wal-sender-timeout` — позволяет задавать `wal_sender_timeout` в миллисекундах для указанного пользователя.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.101.0 (16.01.23) {#version0.101.0}
 
