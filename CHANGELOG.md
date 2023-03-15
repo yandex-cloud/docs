@@ -1,3 +1,12 @@
+Release 15.03.2023 
+
+* Cloud CDN: added information about domain name challenges for TLS certificates used in CDN resources. 
+* Managed Service for ClickHouse: added two items to the Q&A section (how to change a disk type, how to change network and subnet) 
+* Object Storage: updated information about object locks going public. 
+* Object Storage: added information about support for ice storage class in object lifecycles. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 14.03.2023 
 
 * Data Proc: added a scenario of using Data Proc to diagnose Spark SQL. 
