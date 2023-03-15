@@ -2,6 +2,24 @@
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.103.0 (15.03.23) {#version0.103.00}
+
+### Изменения в CLI {#cli}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ api-gw-name }} {#api-gw}
+В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены параметры:
+
+* `--no-logging` — для выключения логинга из API-шлюза.
+* `--log-group-id`, `--log-group-name` — для указания лог-группы, в которую следует отправлять логи.
+* `--log-folder-id`, `--log-folder-name` — для отправки логов в стандартную лог-группу заданного каталога.
+* `--min-log-level` — для указания минимального уровня логирования записей.
+
+#### {{ compute-name }} {#compute}
+* Добавлена группа команд `yc compute gpu-cluster` для управления GPU-кластерами.
+* Добавлены параметры `--gpu-cluster-id` и `--gpu-cluster-name` в команду `yc compute instance create` для создания виртуальной машины в GPU-кластере.
+
 ## Версия 0.102.0 (09.02.23) {#version0.102.0}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
