@@ -54,7 +54,7 @@
 
 - API
 
-  Чтобы создать сертификат, воспользуйтесь методом [requestNew](../../api-ref/Certificate/requestNew.md) для ресурса [Certificate](../../api-ref/Certificate/).
+  Чтобы создать сертификат, воспользуйтесь методом REST API [requestNew](../../api-ref/Certificate/requestNew.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/RequestNew](../../api-ref/grpc/certificate_service.md#RequestNew).
 
 {% endlist %}
 
