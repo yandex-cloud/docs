@@ -10,7 +10,7 @@ A payment receipt is a primary accounting document confirming the transfer of fu
 
 We recommend that you keep all your payment receipts, as this will help you if any problems with payments occur.
 
-## Payment receipt amount {#bill-amount}
+## Amount of receipt {#bill-amount}
 
 The payment receipt amount is equal to the amount debited from the bank card linked to your account.
 
@@ -31,8 +31,7 @@ The write-off amount is calculated using the formula:
    <br/>The billing threshold is 2000 rubles.
    <br/>In the middle of the reporting period, the billing threshold is reached and the amount for consumed resources is 3000 rubles.
    <br/>Total amount: 3000 - (0 + 0 + 1000) = 2000 (rubles).
-   <br/>
-   In the middle of the reporting period, 2000 rubles will be debited from the linked bank card. A payment receipt will also be generated for 2000 rubles.
+   <br/>In the middle of the reporting period, 2,000 rubles will be debited from the linked bank card. A payment receipt will also be generated for 2,000 rubles.
 
 - Example 2
 
@@ -51,8 +50,7 @@ The write-off amount is calculated using the formula:
    <br/>The billing threshold is 2000 rubles.
    <br/>At the end of the reporting period, the amount for consumed resources is 2300 rubles. The billing threshold has not been reached and the grant has been fully spent.
    <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 (rubles).
-   <br/>
-   At the beginning of the next reporting period, 1300 rubles are debited from the linked bank card. A payment receipt will also be generated for 1300 rubles.
+   <br/>At the beginning of the next reporting period, 1,300 rubles are debited from the linked bank card. A payment receipt will also be generated for 1,300 rubles.
 
 {% endlist %}
 
@@ -69,7 +67,7 @@ The write-off amount is calculated using the formula:
 | Receipt date | Receipt closing date and time. |
 | No. | Unique receipt number. |
 | Shift No. | Shift number. |
-| Service name | Information about the services provided. |
+| Name of misc. | Information about the services provided. |
 | VAT | Tax rate. |
 | VAT amount | The amount of taxes paid for all lines of the receipt. |
 | Total | The amount, in rubles, the receipt was generated for, including VAT. |

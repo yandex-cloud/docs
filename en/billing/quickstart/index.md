@@ -115,6 +115,12 @@ In addition, a trial period is available to new customers. The [trial period](..
 
       If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your billing account. If this is your first billing account in {{ yandex-cloud }}, it is automatically created with the trial period enabled. To continue using the resources after your trial period ends, make sure to switch to the [paid version](../operations/activate-commercial.md).
 
+      {% if lang == "ru" %}
+
+      {% include [offices-and-foreign-companies](../../_includes/billing/offices-and-foreign-companies.md) %}
+
+      {% endif %}
+
 {% endlist %}
 
 {% endif %}
@@ -141,7 +147,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
         * Select the payer type: **Individual**.
         * Enter your first and last name.
-        * Enter your Teudat zehut and post address.
+        * Enter your Teudat Zehut ID and email address.
 
     1. Link your bank card.
 
@@ -151,13 +157,13 @@ In addition, a trial period is available to new customers. The [trial period](..
         * Specify your card details: 16-digit number, I.D. Number, expiration date, and CVV (you can find it on the back side of your card).
         * Click **Pay now**.
 
-        {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
+       {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
 
-   1. Enter your current email address. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
+    1. Enter your current email address. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
 
     1. Click **Create**.
 
-- Company
+- Business
 
   To create a billing account:
 
@@ -173,7 +179,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
     1. To add a payer:
 
-        * Select the payer type: **Company**.
+        * Select the payer type: **Business**.
         * Enter your business name, tax identification number, and email address.
 
     1. Link your bank card.
@@ -200,13 +206,13 @@ In addition, a trial period is available to new customers. The [trial period](..
 
 ### Learn more
 
-- [Billing account](../concepts/billing-account.md)
+- [Billing accounts](../concepts/billing-account.md)
 - [Trial period](../../getting-started/free-trial/concepts/quickstart.md)
-{% if product == "cloud-il" %}- [Link a cloud to a billing account](../operations/pin-cloud.md){% endif %}
+{% if product == "cloud-il" %}- [Link clouds to billing accounts](../operations/pin-cloud.md){% endif %}
 
 {% if product == "yandex-cloud" %}
 ### Get started with {{ yandex-cloud }} {#start}
 
-   {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
+{% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
 
 {% endif %}

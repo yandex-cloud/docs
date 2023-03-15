@@ -10,6 +10,8 @@ The relationship between clouds, billing accounts, personal accounts, and paymen
 
 ![image](../../_assets/billing/cloud-billing-account-svg.svg)
 
+{% include [account_scope.md](../_includes/account-scope.md) %}
+
 {% endif %}
 
 {% note info %}
@@ -44,7 +46,6 @@ To go to the list of billing accounts:
       {% if region == "ru" %}
    * Once the funds are debited from your bank card, a [payment receipt](individual-bill.md) is sent to your email address.
       {% endif %}
-
 
 - Business account
 

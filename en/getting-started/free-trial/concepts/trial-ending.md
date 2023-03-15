@@ -15,7 +15,7 @@ The trial period terms of termination differ for individual and business account
    Automatic termination of the trial period depends on the payment method you selected when [creating your billing account](../../../billing/quickstart/index.md).
 
    | Payment method | Terms of termination |
-   ----- | -----  
+   ----- | -----
    | Bank transfer | The grant was used up or expired. |
    | Bank card | The grant or a [part](../../usage-grant.md) of the grant was used up or it expired. |
 
