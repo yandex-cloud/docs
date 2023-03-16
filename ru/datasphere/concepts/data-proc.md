@@ -38,6 +38,8 @@
 
 {% include [dataproc](../../_includes/datasphere/dataproc-sessions.md) %}
 
+### Ограничения сессий {{ dataproc-name }} {#restrictions}
+
 {% include [cluster variables](../../_includes/datasphere/dataproc-session-vars.md) %}
 
 ### Запуск python-кода в кластере {#run-code}
@@ -45,7 +47,7 @@
 Код запускается в ячейках с заголовком:
 
 ```
-#!spark [--cluster <кластер>] [--session <сессия>] [--variables <переменная>]
+#!spark [--cluster <кластер>] [--session <сессия>] [--variables <входящая_переменная>] [--return_variables <возвращаемая_переменная>]
 ```
 
 Где:
@@ -54,7 +56,8 @@
   * Именем кластера, созданного через интерфейс ноутбука.
   * HTTP-ссылкой на внутренний IP-адрес хоста `masternode`, например `http://10.0.0.8:8998/`.
 * `<сессия>` — идентификатор вычислительной сессии. Если параметр пропущен, используется сессия кластера {{ dataproc-name }} по умолчанию.
-* `<переменная>` — переменная, импортированная в ячейку из ядра. Поддерживаемые типы: `bool`, `int`, `float`, `str`, `pandas.DataFrame` (преобразовывается в Spark DataFrame).
+* `<входящая_переменная>` — переменная, импортированная в ячейку из ядра. Поддерживаемые типы: `bool`, `int`, `float`, `str`, `pandas.DataFrame` (преобразовывается в Spark DataFrame в кластере).
+* `<возвращаемая_переменная>` — переменная, которая будет экспортирована из ядра в ячейку. Поддерживаемые типы: `bool`, `int`, `float`, `str`, `pandas.DataFrame` (преобразованный Spark DataFrame).
 
 #### Пример использования вычислительных сессий с пользовательскими параметрами {#example-custom-sessions}
 
@@ -94,9 +97,9 @@
 {{ ml-platform-name }} может работать с библиотекой Spark SQL. Например, следующий запрос вернет все записи в таблице `animals`, созданной в кластере `cluster test-dataproc-cluster`:
 
 ```python
-#!spark --cluster test-dataproc-cluster
+#!spark --cluster test-dataproc-cluster --return_variables df
 df = spark.sql("SELECT * FROM animals;")
-df.show()
+df
 ```
 
 Подробнее о синтаксисе SQL-запросов и работе с библиотекой Spark SQL см. в [официальной документации](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).
