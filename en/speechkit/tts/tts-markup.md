@@ -42,7 +42,7 @@ Stop. sil<[300]> Think about it!
 Use cue words to automatically select the duration of pauses.
 
 ```
-Frost and sun; <medium> a wonderful day!
+Frost and sun; <[medium]> a wonderful day!
 ```
 
 ### Place emphasis {#accent}
