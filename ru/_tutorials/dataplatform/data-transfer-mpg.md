@@ -231,3 +231,13 @@
     * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
 1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и {% if audience != "internal" %}[удалите](../../vpc/operations/address-delete.md){% else %}удалите{% endif %} их.
+
+{% if product == "yandex-cloud" and lang == "ru" %}
+
+## Дополнительные материалы {#video}
+
+Больше информации о сценариях поставок данных в вебинаре {{ yandex-cloud }}:
+
+@[youtube](bzWmmPp6KFg)
+
+{% endif %}

@@ -181,3 +181,13 @@
             Все ресурсы, которые были описаны в конфигурационном файле `greenplum-clickhouse.tf`, будут удалены.
 
     {% endlist %}
+
+{% if product == "yandex-cloud" and lang == "ru" %}
+
+## Дополнительные материалы {#video}
+
+Больше информации о сценариях поставок данных в вебинаре {{ yandex-cloud }}:
+
+@[youtube](bzWmmPp6KFg)
+
+{% endif %}

@@ -171,3 +171,13 @@
 1. [Удалите базу данных {{ ydb-name }}](../ydb/operations/manage-databases.md#delete-db).
 1. [Удалите созданные сервисные аккаунты](../iam/operations/sa/delete.md).
 1. Удалите [трейл {{ at-name }}](../audit-trails/concepts/trail.md).
+
+{% if product == "yandex-cloud" and lang == "ru" %}
+
+## Дополнительные материалы {#video}
+
+Больше информации о сценариях поставок данных в вебинаре {{ yandex-cloud }}:
+
+@[youtube](bzWmmPp6KFg)
+
+{% endif %}
