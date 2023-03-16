@@ -101,7 +101,7 @@ If you don't have a Yandex Metrica tag, it doesn't have enough data, or if you w
 
 If you have the AppMetrica app and access to it, go to step [2.2](#uploading-data-from-appmetrica): this is recommended for experienced users who might need to edit scripts (skip step [2.1](#uploading-data-counter-from-disk)).
 
-### 2.1. {{ ml-platform-short-name }}. Download the test app data from Yandex.Disk {#uploading-data-counter-from-disk}
+### 2.1. {{ ml-platform-short-name }}. Download the test app data via Yandex Disk {#uploading-data-counter-from-disk}
 
 {% note info %}
 
@@ -325,7 +325,7 @@ Use QL charts to research event sequences and experiment in {{ datalens-short-na
    ![image](../_assets/datalens/solution-13/14-bar-chart.png)
 
 1. In the upper-right corner, click **Save**, then enter the chart name `Event chains`.
-1. Add the QL chart to your dashboard.
+1. Add the QL chart to the dashboard.
 
    1. In the menu on the left, click **Dashboards**.
    1. Select the **auto.ru app** dashboard from the list.

@@ -74,11 +74,7 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
    }
 
    provider "yandex" {
-     token     = "<OAuth>"
-     cloud_id  = "<cloud ID>"
-     folder_id = "<folder ID>"
-     zone      = "<default availability zone>"
-     
+     zone = "<default availability zone>"
    }
    ```
 
@@ -98,9 +94,6 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
 
    provider "yandex" {
      endpoint         = "{{ api-host }}:443"
-     token            = "<static key of the service account>"
-     cloud_id         = "<cloud ID>"
-     folder_id        = "<folder ID>"
      zone             = "<default availability zone>"
      storage_endpoint = "{{ s3-storage-host }}"
    }
@@ -113,7 +106,10 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
    * `required_version`: The minimum version of {{ TF }} the provider is compatible with.
    * `provider`: The provider name.
-   {% if product == "cloud-il" %}* `endpoint`: Domain name and port for requests to the {{ yandex-cloud }} API: `{{ api-host }}:443`.{% endif %}
+{% if product == "cloud-il" %}
+   * `endpoint`: Domain name and port for requests to the {{ yandex-cloud }} API: `{{ api-host }}:443`.
+   * `storage_endpoint`: Endpoint for managing {{ objstorage-name }} resources: `{{ s3-storage-host }}`.
+{% endif %}
    * `zone`: The [availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
 
 1. Execute the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.

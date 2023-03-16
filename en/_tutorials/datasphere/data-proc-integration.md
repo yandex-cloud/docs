@@ -23,15 +23,7 @@ The {{ dataproc-name }} cluster support cost covers the computing resources of t
 
 ## Prepare the infrastructure {#infra}
 
-Log in to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the organization that you use to access {{ ml-platform-name }}. On the [billing page]({{ link-console-billing }}), make sure you linked a billing account.
-
-If you have an active billing account, you can go to the [cloud page]({{ link-console-cloud }}) to create or select a folder to run your infrastructure.
-
-{% note info %}
-
-If you use an [identity federation](../../organization/add-federation.md) to access {{ yandex-cloud }}, billing details might be unavailable for you. In this case, contact your {{ yandex-cloud }} organization administrator.
-
-{% endnote %}
+{% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
 ### Create a folder and network {#create-folder}
 
@@ -42,7 +34,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **Create folder**.
-   1. Enter the folder name, for example, `data-folder`.
+   1. Give your folder a name, e.g., `data-folder`.
    1. Select the **Create a default network** option. A [network](../../vpc/concepts/network.md#network) is created with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
    1. Click **Create**.
 

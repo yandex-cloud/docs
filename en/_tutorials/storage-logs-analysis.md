@@ -28,7 +28,7 @@ If you no longer need these resources, [delete them](#clear-out).
 The cost includes:
 
 * A fee for data storage in {{ objstorage-short-name }}, operations with data, and outgoing traffic (see [{{ objstorage-short-name }} pricing](../storage/pricing.md)).
-* fees for the continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../managed-clickhouse/pricing.md)).
+* Fees for the continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../managed-clickhouse/pricing.md)).
 
 {% endif %}
 
@@ -73,6 +73,8 @@ To create a bucket:
       ```
 
 - {{ TF }}
+
+   {% include [terraform-install](../_includes/terraform-install.md) %}
 
    1. Add the parameters of the `bucket-logs` bucket to the configuration file:
 

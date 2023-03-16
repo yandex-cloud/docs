@@ -587,7 +587,7 @@ To check the performance of the created CRUD API, run the following HTTP request
      --request GET 'https://${MOVIES_API_GATEWAY_DOMAIN}/movies?from=1&limit=5'
    ```
 
-You can also upload the specifications to [Postman](https://www.postman.com) or [SwaggerHub](https://swagger.io/tools/swaggerhub/) by adding the address of the created API gateway from the `${MOVIES_API_GATEWAY_DOMAIN}` variable to the `servers` section. Now it'll be easier to run requests to the REST API.
+You can also upload the specifications to [Postman](https://www.postman.com) or [SwaggerHub](https://swagger.io/tools/swaggerhub/) by adding the address of the created API gateway from the `${MOVIES_API_GATEWAY_DOMAIN}` variable to the `servers` section. This enables you to easily run requests to the {% if lang == "ru" and audience != "internal" %}[REST API](../../glossary/rest-api.md){% else %}REST API{% endif %}.
 
 View diagnostic information about the container. In the [management console]({{ link-console-main }}), go to the container page. The **Logs** tab shows messages about container calls and the **Monitoring** tab charts of container calls, average request processing times, and number of errors.
 

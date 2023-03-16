@@ -618,4 +618,3 @@ You can now switch the type of map data visualization: heat map or region fill.
    You can enable or disable public access separately for each chart and dataset associated with the dashboard.
 
    {% endnote %}
-
