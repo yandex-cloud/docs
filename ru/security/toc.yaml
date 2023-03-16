@@ -83,3 +83,5 @@ items:
     href: compliance/pentest.md
   - name: Бюллетени безопасности
     href: security-bulletins/index.md
+  - name: Диапазоны публичных IP-адресов
+    href: ip-list.md
