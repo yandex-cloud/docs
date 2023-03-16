@@ -89,6 +89,11 @@ _Снимок диска_ — это копия файловой системы 
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
+- API
+
+  1. Получите список дисков с помощью метода REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
+  1. Создайте снимок с помощью метода REST API [create](../../api-ref/Snapshot/create.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md) или вызова gRPC API [SnapshotService/Create](../../api-ref/grpc/snapshot_service.md#Create).
+
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  

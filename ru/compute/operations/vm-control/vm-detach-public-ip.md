@@ -33,4 +33,8 @@
 
   Подробнее о команде `yc compute instance remove-one-to-one-nat` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/remove-one-to-one-nat.md).
 
+- API
+
+  Воспользуйтесь методом REST API [removeOneToOneNat](../../api-ref/Instance/removeOneToOneNat.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/RemoveOneToOneNat](../../api-ref/grpc/instance_service.md#RemoveOneToOneNat).
+
 {% endlist %}

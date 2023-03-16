@@ -45,6 +45,10 @@
      yc compute instance delete first-instance
      ```
 
+- API
+
+  Воспользуйтесь методом REST API [delete](../../api-ref/Instance/delete.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Delete](../../api-ref/grpc/instance_service.md#Delete).
+
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

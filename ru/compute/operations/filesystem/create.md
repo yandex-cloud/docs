@@ -29,6 +29,6 @@
   
 - API
 
-  Используйте метод [FilesystemService/Create](../../api-ref/grpc/filesystem_service.md#Create) gRPC API или метод [create](../../api-ref/Filesystem/create.md) ресурса Filesystem REST API.
+  Воспользуйтесь методом REST API [create](../../api-ref/Filesystem/create.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/Create](../../api-ref/grpc/filesystem_service.md#Create).
 
 {% endlist %}

@@ -67,7 +67,10 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       name: rdgw-network
       default_security_group_id: enpa139ji55jti00u5sg
       ```
-   
+    - API
+
+      Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
+
    {% endlist %}
 
 1. Создайте подсеть в сети `rdgw-network`.
@@ -107,6 +110,10 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       v4_cidr_blocks:
       - 10.1.0.0/16
       ```
+
+     - API
+
+       Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
    {% endlist %}
 
@@ -175,6 +182,10 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
      v4_cidr_blocks:
       - 0.0.0.0/0
   ```
+
+- API
+
+  Воспользуйтесь методом REST API [create](../../vpc/api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create).
 
 {% endlist %}
 
@@ -440,6 +451,10 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         type: STANDARD
         placement_policy: {}
       ```
+
+    - API
+
+      Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
 
     {% endlist %} 
 

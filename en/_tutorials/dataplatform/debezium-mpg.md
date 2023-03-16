@@ -141,6 +141,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    slot.name=debezium_slot
    heartbeat.interval.ms=15000
    heartbeat.topics.prefix=__debezium-heartbeat
+   snapshot.mode=always
    ```
 
    Where:
@@ -157,6 +158,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    * `publication.name`: The name of the publication [created on the source cluster](#prepare-source).
    * `slot.name`: The name of the replication slot that will be created by Debezium when working with the publication.
    * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: The heartbeat settings [needed for](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
+   * `snapshot.mode`: [Type of the snapshot created](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-connector-snapshot-mode-options) at connector startup. For the connector to run properly, set this parameter to `always`.
 
 ## Prepare the target cluster{#prepare-target}
 

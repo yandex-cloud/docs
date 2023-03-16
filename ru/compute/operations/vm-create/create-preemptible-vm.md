@@ -118,7 +118,7 @@
 
 - API
 
-  Воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.
+  Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create).
 
 - {{ TF }}
 
@@ -297,7 +297,7 @@
 
 - API
 
-  Воспользуйтесь методом [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/). В теле запроса в блоке `schedulingPolicy` укажите `"preemptible": false`.
+  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update). В теле запроса в блоке `schedulingPolicy` укажите `"preemptible": false`.
 
 - {{ TF }}
 

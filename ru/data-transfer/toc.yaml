@@ -138,6 +138,10 @@ items:
               Асинхронная репликация данных из {{ mpg-full-name }} в {{
               ydb-full-name }}
             href: tutorials/mpg-to-ydb.md
+          - name: >-
+              Асинхронная репликация данных из {{ mpg-full-name }} в {{
+              yds-full-name }}
+            href: tutorials/mpg-to-yds.md
           - name: Асинхронная репликация данных из {{ metrika }} в {{ CH }}
             stage: preview
             href: tutorials/metrika-to-clickhouse.md

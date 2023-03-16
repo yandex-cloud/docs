@@ -48,6 +48,10 @@ description: "Команда Остановить выключает вирту�
      yc compute instance stop first-instance
      ```
 
+- API
+
+  Воспользуйтесь методом REST API [stop](../../api-ref/Instance/stop.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Stop](../../api-ref/grpc/instance_service.md#Stop).
+
 {% endlist %}
 
 ## Запустить {#start}
@@ -89,6 +93,10 @@ description: "Команда Остановить выключает вирту�
      yc compute instance start first-instance
      ```
 
+- API
+
+  Воспользуйтесь методом REST API [start](../../api-ref/Instance/start.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Start](../../api-ref/grpc/instance_service.md#Start).
+
 {% endlist %}
 
 ## Перезапустить {#restart}
@@ -129,5 +137,9 @@ description: "Команда Остановить выключает вирту�
      ```bash
      yc compute instance restart first-instance
      ```
+
+- API
+
+  Воспользуйтесь методом REST API [restart](../../api-ref/Instance/restart.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Restart](../../api-ref/grpc/instance_service.md#Restart).
 
 {% endlist %}

@@ -58,7 +58,7 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
    1. Create a bucket for logs:
 
       1. Click **Create bucket**.
-      1. Enter the bucket **Name**: `ycprojektblue-logs`.
+      1. **Name** the bucket: `ycprojektblue-logs`.
       1. Click **Create bucket**.
 
 - AWS CLI
@@ -180,7 +180,7 @@ You need to check that, when user requests are made, files are downloaded from t
    </BucketLoggingStatus>
    ```
 
-   Where `TargetBucket` is the name of the bucket to write logs to `ycprojektblue-logs`.
+   `TargetBucket`: The name of the bucket to write logs to `ycprojektblue-logs`.
 
 {% endlist %}
 

@@ -148,21 +148,16 @@ If the number of open connections reaches the limit, errors appear in the cluste
 To get detailed information about the usage of available connections using [monitoring](../../managed-postgresql/operations/monitoring.md) tools:
 
 1. Go to the folder page and select **{{ mpg-name }}**.
-1. Click on the name of the cluster you need and select the **Hosts** tab.
-1. On the **Monitoring** tab, check the **PostgreSQL connections, [count]** and **Pooler connections, [count]** charts.
+1. Click on the cluster name and select the **Monitoring** tab.
+1. Review the **Total pooler connections** chart.
 
    {{ mpg-name }} doesn't allow connections directly to the DBMS, instead, they are connected to the connection pooler.
 
-   Review the charts:
+   * The **Clients** parameter means the number of client connections to the pooler.
 
-   * **PostgreSQL connections, [count]** reflects the number of connections between the DBMS and the pooler.
+   * The **Servers** parameter means the number of connections between the DBMS and the pooler.
 
-      Check the number of connections in the **Waiting** and **Idle in transaction** statuses. High values indicate that some queries keep connections open for too long.
-
-   * **Pooler connections, [count]** reflects the usage of connections to the pooler.
-
-      Check the number of connections in the **Used clients** status. This parameter shows the number of connections initiated by the application with the cluster.
-
+      Note the number of connections: high values indicate that some queries keep connections open for too long.
 
 ## Troubleshooting connection issues {#solving-connection-errors}
 

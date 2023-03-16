@@ -344,7 +344,7 @@
      
      - API
      
-       Используйте вызов gRPC API [ServiceAccountService/List](../../iam/api-ref/grpc/service_account_service.md#List) или метод REST API [list](../../iam/api-ref/ServiceAccount/list.md).
+       Воспользуйтесь методом REST API [list](../../iam/api-ref/ServiceAccount/list.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/List](../../iam/api-ref/grpc/service_account_service.md#List).
      
      {% endlist %}
      
@@ -380,7 +380,7 @@
        
      - API
      
-       Используйте вызов gRPC API [FolderService/List](../../resource-manager/api-ref/grpc/folder_service.md#List) или метод REST API [list](../../resource-manager/api-ref/Folder/list.md).
+       Воспользуйтесь методом REST API [list](../../resource-manager/api-ref/Folder/list.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/List](../../resource-manager/api-ref/grpc/folder_service.md#List).
      
      {% endlist %}
      
@@ -422,7 +422,7 @@
        
      - API
      
-       Используйте вызов gRPC API [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List) или метод REST API [list](../../vpc/api-ref/Subnet/list.md).
+       Воспользуйтесь методом REST API [list](../../vpc/api-ref/Subnet/list.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List).
      
      {% endlist %}
      
@@ -457,6 +457,10 @@
      key_algorithm: RSA_2048
      ```
      
+   - API
+
+     Воспользуйтесь методом REST API [create](../../iam/api-ref/Key/create.md) для ресурса [Key](../../iam/api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../iam/api-ref/grpc/key_service.md#Create).
+
    {% endlist %}
      
 1. Выполните команду для создания образа:
@@ -602,7 +606,7 @@
           
        - API
         
-         Используйте вызов gRPC API [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List) или метод REST API [list](../../vpc/api-ref/Network/list.md).
+         Воспользуйтесь методом REST API [list](../../vpc/api-ref/Network/list.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List).
         
        {% endlist %}
         
@@ -633,10 +637,6 @@
             
        {% list tabs %}
           
-       - API
-        
-         Используйте вызов gRPC API [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List) или метод REST API [list](../../vpc/api-ref/Network/list.md).
-        
        - Консоль управления
         
          1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
@@ -659,7 +659,11 @@
          created_at: "2021-10-04T16:28:15.905337847Z"
          name: queue-autoscale-network
          ```
+         
+       - API
         
+         Воспользуйтесь методом REST API [list](../../vpc/api-ref/Network/list.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List).
+
        {% endlist %}
         
        {% endcut %}

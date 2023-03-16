@@ -609,8 +609,8 @@ pip3 install pyMongo
 
    conn = pymongo.MongoClient(
        url,
-       ssl_ca_certs=CACERT,
-       ssl_cert_reqs=ssl.CERT_REQUIRED)
+       tls=True,
+       tlsCAFile=CACERT)
 
    db = conn[DB_NAME]
    print(db.name)
