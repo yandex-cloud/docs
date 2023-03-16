@@ -119,6 +119,9 @@
 
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
+{% if audience != "internal" and product == "yandex-cloud" %}
+* [{#T}](mpg-to-yds.md)
+{% endif %}
 
 ## {{ GP }} {#greenplum}
 

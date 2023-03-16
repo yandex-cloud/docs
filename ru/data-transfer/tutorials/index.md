@@ -41,6 +41,9 @@
 {% if product == "yandex-cloud" %}
 * [{#T}](mpg-to-ydb.md)
 {% endif %}
+{% if audience != "internal" and product == "yandex-cloud" %}
+* [{#T}](mpg-to-yds.md)
+{% endif %}
 {% if audience == "draft" %}* [{#T}](metrika-to-clickhouse.md){% endif %}
 
 {% if product == "yandex-cloud" and audience == "external"%}

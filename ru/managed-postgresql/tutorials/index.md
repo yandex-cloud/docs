@@ -18,3 +18,6 @@
 * [{#T}](../operations/logical-replica-from-rds.md)
 {% endif %}
 * [{#T}](./mpg-to-objstorage.md)
+{% if audience != "internal" and product == "yandex-cloud" %}
+* [{#T}](./mpg-to-yds.md)
+{% endif %}
