@@ -183,7 +183,7 @@
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
        folder_id = "<идентификатор каталога>"
        role      = "editor"
-       members   = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
+       member   = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
        depends_on = [
          yandex_iam_service_account.ig-sa,
        ]
