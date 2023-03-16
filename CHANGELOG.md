@@ -1,3 +1,9 @@
+Release 16.03.2023 
+
+* Data Transfer: added a tutorial on delivering data from Managed Service for PostgreSQL to YDS. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 15.03.2023 
 
 * Cloud CDN: added information about domain name challenges for TLS certificates used in CDN resources. 
