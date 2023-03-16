@@ -120,6 +120,6 @@
 
 - API
    
-  Используйте метод [FilesystemService/Update](../../api-ref/grpc/filesystem_service.md#Update) gRPC API или метод [update](../../api-ref/Filesystem/update.md) ресурса Filesystem REST API.
+  Воспользуйтесь методом REST API [update](../../api-ref/Filesystem/update.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/Update](../../api-ref/grpc/filesystem_service.md#Update).
   
 {% endlist %}

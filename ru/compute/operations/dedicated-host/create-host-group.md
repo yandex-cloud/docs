@@ -57,8 +57,8 @@
 
 - API
 
-  1. Выберите тип хоста с помощью метода [list](../../api-ref/HostType/list.md) для ресурса `HostType`.
-  1. Создайте группу выделенных хостов с помощью метода [create](../../api-ref/HostGroup/create.md) для ресурса `HostGroup`.
+  1. Выберите тип хоста с помощью метода REST API [list](../../api-ref/HostType/list.md) для ресурса [HostType](../../api-ref/HostType/index.md) или вызова gRPC API [HostTypeService/List](../../api-ref/grpc/host_type_service.md#List).
+  1. Создайте группу выделенных хостов с помощью метода REST API [create](../../api-ref/HostGroup/create.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызова gRPC API [HostGroupService/Create](../../api-ref/grpc/host_group_service.md#Create).
 
 {% endlist %}
 

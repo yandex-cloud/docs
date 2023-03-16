@@ -20,6 +20,8 @@
 
 - API
 
-  Используйте вызов [InstanceGroupService/UpdateFromYaml](../../api-ref/grpc/instance_group_service.md#UpdateFromYaml) gRPC API или метод [updateFromYaml](../../api-ref/InstanceGroup/updateFromYaml.md) ресурса `InstanceGroup` REST API.
+  Воспользуйтесь методом REST API [updateFromYaml](../../api-ref/InstanceGroup/updateFromYaml.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/UpdateFromYaml](../../api-ref/grpc/instance_group_service.md#UpdateFromYaml).
+
+  Список доступных групп запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
 
 {% endlist %} 

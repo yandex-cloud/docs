@@ -121,6 +121,6 @@
  
 - API
 
-  Воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.
+  Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create).
 
 {% endlist %}

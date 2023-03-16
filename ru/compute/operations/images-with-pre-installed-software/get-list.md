@@ -25,7 +25,7 @@
      {% if product == "yandex-cloud" %}* [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.{% endif %}
      * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
      * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
-  1. Получите список публичных образов от {{ yandex-cloud }} с помощью метода [List](../../api-ref/Image/list.md) для ресурса `Image`. В запросе укажите следующие параметры:
+  1. Получите список публичных образов от {{ yandex-cloud }} с помощью метода REST API [list](../../api-ref/Image/list.md) для ресурса [Image](../../api-ref/Image/index.md) или вызова gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List). В запросе укажите следующие параметры:
      * В идентификаторе каталога укажите `standard-images`.
      * В каталоге много образов, поэтому укажите `pageSize=1000` или используйте полученное значение `nextPageToken`, чтобы получить продолжение списка.
 

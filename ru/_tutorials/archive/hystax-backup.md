@@ -108,6 +108,10 @@ Hystax Acura Backup будет выполнять действия от имен
       1. Нажмите кнопку **Создать бакет** для завершения операции.
   1. Сохраните имя бакета, оно потребуется в дальнейшем.
 
+- API
+
+  Воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/) или вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create).
+
 {% endlist %}
 
 ## Создайте ВМ с Hystax Acura Backup {#create-acura-vm}
@@ -188,6 +192,10 @@ Hystax Acura Backup будет выполнять действия от имен
       * `service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa). Получить список аккаунтов можно с помощью команды `yc iam service-account list`.
       * `ssh-key` — путь к файлу открытого ключа SSH. Имя пользователя по умолчанию для доступа по SSH — `yc-user`.
 
+    - API
+
+      Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
+
     {% endlist %}
 
 ## Сделайте IP-адрес ВМ статическим {#static-ip}
@@ -257,6 +265,10 @@ Hystax Acura Backup будет выполнять действия от имен
 
       Параметр `reserved` принял значение `true`, теперь IP-адрес статический.
   1. Сохраните IP-адрес, он потребуется в дальнейшем.
+
+- API
+
+  Воспользуйтесь методом REST API [update](../../vpc/api-ref/Address/update.md) для ресурса [Address](../../vpc/api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../../vpc/api-ref/grpc/address_service.md#Update).
 
 {% endlist %}
 

@@ -74,6 +74,10 @@
      yc vpc network create --name my-network
      ```
 
+   - API
+
+     Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
+
    {% endlist %}
 
 2. Создайте подсеть в сети `my-network`:
@@ -101,6 +105,10 @@
          --network-name my-network \
          --range 10.1.0.0/16
        ```
+     
+     - API
+
+       Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
    {% endlist %}
 
@@ -161,6 +169,10 @@
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk-rds-5 \
      --metadata-from-file user-data=setpass
   ```
+
+- API
+
+  Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
 
 {% endlist %}
 

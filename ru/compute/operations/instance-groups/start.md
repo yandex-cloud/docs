@@ -45,8 +45,8 @@
 
 - API
 
-  Запустить группу можно с помощью метода API [start](../../api-ref/InstanceGroup/start.md).
+  Запустить группу можно с помощью метода REST API [start](../../api-ref/InstanceGroup/start.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Start](../../api-ref/grpc/instance_group_service.md#Start).
 
-  Список доступных групп запрашивайте методом [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+  Список доступных групп запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
 
 {% endlist %}

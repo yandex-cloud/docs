@@ -52,7 +52,7 @@
 
 - API
 
-  Для получения основной информации о виртуальной машине используйте метод [get](../../api-ref/Instance/get.md) для ресурса [Instance](../../api-ref/Instance/index.md).
+  Чтобы получить основную информацию о виртуальной машине, воспользуйтесь методом REST API [get](../../api-ref/Instance/get.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Get](../../api-ref/grpc/instance_service.md#Get).
 
   Основная информация не включает пользовательские метаданные, которые были переданы при создании или изменении виртуальной машины. Чтобы получить информацию вместе с метаданными, укажите в параметрах `view=FULL`.
 
@@ -221,9 +221,13 @@ curl http://169.254.169.254/latest/meta-data/local-ipv4
   1. Задайте настройки сервиса метаданных с помощью параметра `--metadata-options`:
 
      ```bash
-     yc compute instance update <ID_виртуальной_машины> \                                                                               
+     yc compute instance update <ID_виртуальной_машины> \
        --metadata-options gce-http-endpoint=enabled
      ```
+
+- API
+
+  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
 - {{ TF }}
 
@@ -272,9 +276,5 @@ curl http://169.254.169.254/latest/meta-data/local-ipv4
      ```
      
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-- API
-
-  Для настройки сервиса метаданных воспользуйтесь методом [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/).
 
 {% endlist %}

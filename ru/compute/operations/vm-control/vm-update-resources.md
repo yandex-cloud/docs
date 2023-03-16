@@ -77,7 +77,7 @@
 
 - API
 
-  Чтобы изменить vCPU и RAM ВМ, воспользуйтесь методом [Update](../../api-ref/Instance/update.md) для ресурса `Instance`.
+  Чтобы изменить vCPU и RAM ВМ, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
 {% endlist %}
 
@@ -168,7 +168,7 @@
 
 - API
 
-  Чтобы изменить платформу и конфигурацию ВМ, воспользуйтесь методом [Update](../../api-ref/Instance/update.md) для ресурса `Instance`.
+  Чтобы изменить платформу и конфигурацию ВМ, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
 {% endlist %}
 
@@ -237,7 +237,7 @@
 
 - API
 
-  Чтобы изменить количество GPU, воспользуйтесь методом [Update](../../api-ref/Instance/update.md) для ресурса `Instance`.
+  Чтобы изменить количество GPU, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
 {% endlist %}
 
