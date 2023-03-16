@@ -78,7 +78,7 @@ The function implements an API which you can use to perform the following action
 - Management console
 
    1. [Create](../functions/operations/function/function-create.md) a function named `ffmpeg-api`.
-   1. [Create](../functions/operations/function/version-manage.md#version-create) a function version:
+   1. [Create](../functions/operations/function/version-manage.md) a function version:
 
       1. Create a file named `requirements.txt` and specify the following library in it:
 
@@ -126,9 +126,9 @@ Video conversion is done using the FFmpeg utility. The FFmpeg executable file is
       * The FFmpeg executable file. To get it, go to the [FFmpeg official website](http://ffmpeg.org/download.html), the **Linux Static Builds** section, and download the archive with the 64-bit FFmpeg version.
 
    1. [Upload](../storage/operations/objects/upload.md) `src.zip` to `converter-bucket`.
-   1. [Create](../functions/operations/function/version-manage.md#version-create) a function version:
+   1. [Create](../functions/operations/function/version-manage.md) a function version:
 
-      1. Indicate the following:
+      1. Specify the following:
 
          * Upload method: `Object Storage`.
          * Bucket: `converter-bucket`.
@@ -163,7 +163,7 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../fun
    1. Under **Basic parameters**:
       * Name the trigger `ffmpeg-trigger`.
       * In the **Type** field, select **Message Queue**.
-   1. Under **Message Queue settings**, select  `converter-queue` and `ffmpeg-sa` with rights to read messages from it.
+   1. Under **Message Queue settings**, select `converter-queue` and the `ffmpeg-sa` service account with rights to read messages from the queue.
    1. Under **Function settings**:
       * Select the function to be invoked by the trigger: `ffmpeg-converter`.
       * Specify the [function version tag](../functions/concepts/function.md#tag): `$latest`.

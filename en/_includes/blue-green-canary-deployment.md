@@ -17,7 +17,7 @@ To perform steps, you can use various [supported tools](#supported-tools).
 
 To build an architecture for the blue-green and canary deployment:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create buckets in {{ objstorage-name }}](#create-buckets).
 1. [Upload the files of your service to the buckets](#upload-files).
@@ -210,7 +210,7 @@ To create a network and subnets:
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -218,9 +218,9 @@ To create a network and subnets:
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -303,7 +303,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -311,9 +311,9 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -428,7 +428,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
       1. Make sure that the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using the command:
+         1. Run the check using this command:
 
             ```bash
             terraform plan
@@ -436,9 +436,9 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
          If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-      1. Deploy the cloud resources.
+      1. Deploy cloud resources.
 
-         1. If the configuration doesn't contain any errors, run the command:
+         1. If the configuration does not contain any errors, run this command:
 
             ```bash
             terraform apply
@@ -594,7 +594,7 @@ To create security groups:
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -602,9 +602,9 @@ To create security groups:
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -840,7 +840,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -848,9 +848,9 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -1063,7 +1063,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -1071,9 +1071,9 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -1224,7 +1224,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
@@ -1232,9 +1232,9 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -1242,7 +1242,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -1252,7 +1252,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
 ## Configure DNS for the service{#configure-dns}
 
-The domain names `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` must be linked to the CDN resource using DNS records.
+The `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names must be linked to the CDN resource using {% if lang == "ru" and audience != "internal" %}[DNS](../glossary/dns.md){% else %}DNS{% endif %} records.
 
 To configure DNS:
 
@@ -1373,7 +1373,7 @@ To configure DNS:
       1. Make sure that the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using the command:
+         1. Run the check using this command:
 
             ```bash
             terraform plan
@@ -1381,9 +1381,9 @@ To configure DNS:
 
          If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-      1. Deploy the cloud resources.
+      1. Deploy cloud resources.
 
-         1. If the configuration doesn't contain any errors, run the command:
+         1. If the configuration does not contain any errors, run this command:
 
             ```bash
             terraform apply

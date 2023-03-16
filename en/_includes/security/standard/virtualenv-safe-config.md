@@ -220,7 +220,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
    1. Run the command below to check the bucket ACL for `allUsers` and `allAuthenticatedUsers`:
 
       ```bash
-      aws --endpoint-url=https://storage.yandexcloud.net s3api get-bucket-acl  <your bucket's name>
+      aws --endpoint-url=https://storage.yandexcloud.net s3api get-bucket-acl <your bucket's name>
       ```
 
 {% endlist %}
@@ -332,7 +332,7 @@ You can only use {{ TF }}/API to check if logging is enabled by following the [i
 
 #### 3.10 In {{ objstorage-name }}, Cross-Origin Resource Sharing (CORS) is set up {#cors}
 
-If cross-domain requests to bucket objects are required, the customer should configure the CORS (cross-origin resource sharing) policy in accordance with the customer's information security requirements. For more information, see the {{ objstorage-name }} documentation, [CORS configuration of buckets](../../../storage/s3/api-ref/cors/xml-config.md).
+If [cross-domain requests]{% if lang == "ru" and audience != "internal" %}(../../../glossary/cors.md){% else %}(https://en.wikipedia.org/wiki/Cross-origin_resource_sharing){% endif %} to objects in buckets are required, the customer should configure the CORS policy in accordance with the customer's information security requirements. For more information, see the {{ objstorage-name }} documentation, [CORS configuration of buckets](../../../storage/s3/api-ref/cors/xml-config.md).
 
 {% list tabs %}
 
@@ -460,7 +460,7 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. Del
    1. See what organizations are available to you and write down the desired ID:
 
       ```bash
-      yc organization-manager organization list  
+      yc organization-manager organization list
       ```
 
    1. Run the command below to search for managed DB clusters with deletion protection disabled:
@@ -504,7 +504,7 @@ You shouldn't enable access to databases containing critical data from the manag
    1. See what organizations are available to you and write down the desired ID:
 
       ```bash
-      yc organization-manager organization list  
+      yc organization-manager organization list
       ```
 
    1. Find managed DB clusters with access from {{ datalens-short-name }} enabled:
@@ -601,7 +601,7 @@ In cases where the use of public functions is not explicitly required, we recomm
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
       do for FUN in $(yc serverless function list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-      do yc serverless function  list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
+      do yc serverless function list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
       done;
       done;
       done
@@ -693,7 +693,7 @@ When working with the database, use [parameterized prepared statements](https://
 
 #### 3.23 No public access to {{ ydb-short-name }} is allowed {#ydb-public}
 
-When accessing the database in Dedicated mode, we recommend that you use it inside {{ vpc-short-name }}, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your infrastructure.  For more information about the operating modes, see the {{ ydb-name }} documentation, [Serverless and Dedicated modes](../../../ydb/concepts/serverless-and-dedicated.md).
+When accessing the database in dedicated mode, we recommend that you use it inside {{ vpc-short-name }}, disabling public access to it from the internet. In serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your infrastructure. For more information about the operating modes, see the [Serverless and dedicated modes](../../../ydb/concepts/serverless-and-dedicated.md) section in the {{ ydb-name }} documentation.
 
 When setting up database permissions, use the principle of least privilege.
 
@@ -712,7 +712,7 @@ When setting up database permissions, use the principle of least privilege.
    1. See what organizations are available to you and write down the desired ID:
 
       ```bash
-      yc organization-manager organization list  
+      yc organization-manager organization list
       ```
 
    1. Run the command below to search for managed DB clusters with public IPs:
@@ -761,7 +761,7 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
    1. See what organizations are available to you and write down the desired ID:
 
       ```bash
-      yc organization-manager organization list  
+      yc organization-manager organization list
       ```
 
    1. Run the command below to search for CRs that are not filtered by IP:
@@ -854,7 +854,7 @@ We recommend that you update certificates in advance if they are not [updated au
    1. See what organizations are available to you and write down the desired ID:
 
       ```bash
-      yc organization-manager organization list  
+      yc organization-manager organization list
       ```
 
    1. Search for any of your organization's certificates with the end date:

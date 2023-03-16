@@ -9,11 +9,13 @@
 
 - CLI
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../default-catalogue.md) %}
 
-   To get a list of container revisions, run the command:
+   {% include [note](./sc-list-note.md) %}
+
+   To get a list of container revisions, run this command:
 
    ```
    yc serverless container revision list --container-name <container_name>
