@@ -305,7 +305,7 @@ To use `pg_restore`, you might need the `pg_repack` database extension.
 Migration stages:
 
 1. [Create a dump of the database you want to migrate](#dump).
-1. [(optional) Create a virtual machine in {{ yandex-cloud }} and upload the dump to it](#create-vm).
+1. [(Optional) Create a virtual machine in {{ yandex-cloud }} and upload the DB dump to it](#create-vm).
 1. [Restore data from the dump to the target cluster](#restore).
 
 If you no longer need these resources, [delete them](#clear-out-backup).
@@ -318,7 +318,14 @@ Create the necessary resources:
 
 * Manually
 
-   1. Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. In this case:
+   1. Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. The following parameters must be the same as in the source cluster:
+
+      * Version {{ PG }}.
+      * Username.
+
+         {% include [user-name-restore](../../_includes/mdb/mpg/note-user-name-restore.md) %}
+
+      * [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md).
 
       * The {{ PG }} version must be the same as the version in the source cluster.
       * When creating a cluster, specify the same database name as in the source cluster.
@@ -352,12 +359,16 @@ Create the necessary resources:
 
    1. Specify the following in `data-restore-pgsql-mpg.tf`:
 
-      * `source_db_name`: Database name.
       * `pg-extensions`: List of [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md) in the source cluster.
       * Target cluster parameters:
 
          * `target_pgsql_version`: {{ PG }} version, must be the same as or higher than the version in the source cluster.
-         * `target_user` and `target_password`: Username and password of the database owner.
+         * `target_db_name`: Database name.
+         * `target_user`: Username of the database owner. It must be the same as the username in the source cluster.
+
+            {% include [user-name-restore](../../_includes/mdb/mpg/note-user-name-restore.md) %}
+
+         * `target_password`: User password of the database owner.
       * (Optional) Virtual machine parameters:
 
          * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts).
@@ -383,20 +394,16 @@ Create the necessary resources:
 ### Create a database dump {#dump}
 
 1. Switch the database to the <q>read-only</q> mode.
-1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by passing the number of available CPU cores in the `-j` argument:
+1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by passing the number of available CPU cores in the `--jobs` argument:
 
    ```bash
-   pg_dump -h <IP address or FQDN of source cluster's master host> \
-           -U <username> \
-           -j <number of processor cores> \
-           -Fd -d <DB name> \
-           -f ~/db_dump
-   ```
-
-1. Archive the dump:
-
-   ```bash
-   tar -cvzf db_dump.tar.gz ~/db_dump
+   pg_dump --host=<IP address of FQDN of the source cluster master host> \
+           --port=<port> \
+           --username=<username> \
+           --jobs=<number of CPU cores> \
+           --format=d \
+           --dbname=<database name> \
+           --file=db_dump
    ```
 
 ### (Optional) Upload the dump to a virtual machine in {{ yandex-cloud }} {#create-vm}
@@ -438,16 +445,24 @@ To prepare the virtual machine to restore the dump:
    sudo apt install postgresql-client-14
    ```
 
-1. Move the DB dump to the VM. For example, you can use `scp`:
+1. Archive the dump:
 
    ```bash
-   scp ~/db_dump.tar.gz <VM username>@<VM public address>:/tmp/db_dump.tar.gz
+   tar -cvzf db_dump.tar.gz db_dump
    ```
 
-1. Unpack the dump:
+1. Move the archive containing the dump to the VM, e.g., by the `scp` utility:
 
    ```bash
-   tar -xzf /tmp/db_dump.tar.gz
+   scp db_dump.tar.gz <VM username>@<VM public address>:/db_dump.tar.gz
+   ```
+
+1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md).
+
+1. Unpack the archive with the dump:
+
+   ```bash
+   tar -xzf db_dump.tar.gz
    ```
 
 ### Restore data from the dump to the target cluster {#restore}
@@ -458,18 +473,27 @@ The version of `pg_restore` must match the `pg_dump` version, and the major vers
 
 That is, to restore a dump of {{ PG }} 10, {{ PG }} 11, {{ PG }} 12, {{ PG }} 13, and {{ PG }} 14 use `pg_restore 10`, `pg_restore 11`, `pg_restore 12`, `pg_restore 13`, and `pg_restore 14`, respectively.
 
-If you only need to restore a single schema, add the `-n <schema name>` flag (without it, the command only runs on behalf of the database owner). Best practice is to restore data with the `--single-transaction` flag to avoid an inconsistent state of the database if an error occurs:
-
 ```bash
-pg_restore -h <IP address or FQDN of target cluster's master host> \
-           -U <username>
-           -d <DB name> \
-           -p {{ port-mpg }} \
-           -Fd -v \
-           /tmp/db_dump \
+pg_restore --host=<IP address of FQDN of the target cluster master host> \
+           --username=<username> \
+           --dbname=<database name> \
+           --port={{ port-mpg }} \
+           --format=d \
+           --verbose \
+           db_dump \
            --single-transaction \
            --no-privileges
 ```
+
+If you only need to restore a single schema, add the `--schema=<schema name>` parameter. Without this parameter, the command will only run on behalf of the database owner.
+
+If the restoring is interrupted by errors saying that required rights for creating and updating extensions are missing, remove the `--single-transaction` parameter from the command. The errors will be ignored in this case:
+
+```text
+pg_restore: warning: errors ignored on restore: 3
+```
+
+Make sure the errors only apply to the extensions and check the integrity of your restored data.
 
 ### Delete the resources you created {#clear-out-backup}
 

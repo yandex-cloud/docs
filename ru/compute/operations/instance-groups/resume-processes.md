@@ -14,4 +14,8 @@
   1. Выберите группу ВМ, нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите пункт **Возобновить процессы**.
   1. В открывшемся окне нажмите кнопку **Возобновить**.
 
+- API
+
+  Воспользуйтесь методом REST API [resumeProcesses](../../api-ref/InstanceGroup/resumeProcesses.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/ResumeProcesses](../../api-ref/grpc/instance_group_service.md#ResumeProcesses).
+
 {% endlist %}

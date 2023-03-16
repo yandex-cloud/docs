@@ -46,6 +46,6 @@
      
    - API
       
-     Используйте метод [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem) gRPC API или метод [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) ресурса Instance REST API.
+     Воспользуйтесь методом REST API [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem).
 
    {% endlist %}

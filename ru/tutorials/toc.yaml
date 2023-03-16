@@ -310,6 +310,10 @@ items:
         href: dataplatform/mpg-ydb-replication.md
       - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
+      - name: >-
+          Асинхронная репликация данных из {{ mpg-full-name }} в {{
+          yds-full-name }}
+        href: dataplatform/mpg-to-yds.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}

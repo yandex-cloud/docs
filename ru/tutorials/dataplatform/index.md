@@ -104,6 +104,7 @@
 
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
+* [{#T}](mpg-to-yds.md)
 
 ## {{ GP }} {#greenplum}
 

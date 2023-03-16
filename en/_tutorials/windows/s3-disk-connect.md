@@ -7,7 +7,7 @@ To mount your bucket as a disk:
 1. [Prepare your cloud](#before-begin).
 1. [Set up a work environment](#environment-prepare).
 1. [Create a service account](#create-sa).
-1. [Create a static access key](#create-static-key). 
+1. [Create a static access key](#create-static-key).
 1. [Create a bucket](#bucket-create).
 1. [Set up a connection to {{ objstorage-name }}](#rclone-config).
 1. [Mount the bucket](#bucket-mount).

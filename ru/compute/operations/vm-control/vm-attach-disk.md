@@ -87,7 +87,7 @@
 
 - API
 
-  Воспользуйтесь методом [attachDisk](../../api-ref/Instance/attachDisk.md) для ресурса [Instance](../../api-ref/Instance/).
+  Воспользуйтесь методом REST API [attachDisk](../../api-ref/Instance/attachDisk.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/AttachDisk](../../api-ref/grpc/instance_service.md#AttachDisk).
 
 {% endlist %}
 

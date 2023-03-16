@@ -58,6 +58,11 @@
         --pooled
       ```
 
+- API
+
+  1. Получите список снимков с помощью метода REST API [list](../../api-ref/Snapshot/list.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md) или вызова gRPC API [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List).
+  1. Создайте образ с помощью метода REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Snapshot/index.md) или вызова gRPC API [ImageService/Create](../../api-ref/grpc/image_service.md#Create). В запросе укажите идентификатор снимка.
+
 - {{ TF }}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -97,11 +102,6 @@
      1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
-
-- API
-
-  1. Получите список снимков с помощью метода [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List) gRPC API или метода [list](../../api-ref/Snapshot/list.md) ресурса `Snapshot` REST API.
-  1. Создайте образ с помощью метода [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API или метода [create](../../api-ref/Image/create.md) ресурса `Image` REST API. В запросе укажите идентификатор снимка.
 
 {% endlist %}
 

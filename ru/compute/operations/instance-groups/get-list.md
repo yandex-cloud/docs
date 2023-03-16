@@ -27,9 +27,9 @@
       {% include [instance-group-list](../../../_includes/instance-groups/instance-group-list.md) %}
   
 - API
-  
-  Воспользуйтесь методом API [list](../../api-ref/InstanceGroup/list.md).
-  
-  Список доступных групп запрашивайте методом [listInstances](../../api-ref/InstanceGroup/listInstances.md).
-  
+
+  Воспользуйтесь методом REST API [list](../../api-ref/InstanceGroup/list.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/List](../../api-ref/grpc/instance_group_service.md#List).
+
+  Список доступных групп запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
+
 {% endlist %}

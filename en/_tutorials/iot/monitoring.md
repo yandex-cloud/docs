@@ -6,7 +6,7 @@ You don't need to create or configure any VMs for this use case: all operations 
 
 To configure monitoring of sensor readings in the server room:
 1. [Prepare your cloud](#before-you-begin)
-   1. [Required paid resources](#paid-resources)
+1. [Required paid resources](#paid-resources)
 1. [Create the necessary resources {{ iot-full-name }}](#resources-step)
    1. [Create a registry](#registry-step)
    1. [Create a device](#device-step)
@@ -333,7 +333,7 @@ All data from the device will be automatically sent to **{{ monitoring-name }}**
 
 ## Set up sensor reading monitoring {#configure-monitoring}
 
-Sensor readings are monitored using a dashboard in {{ monitoring-full-name }}. The controller sends them to the server once a minute via the MQTT protocol. When the sensor readings reach the set values, {{ monitoring-full-name }} sends notifications to users.
+Sensor readings are monitored using a dashboard in {{ monitoring-full-name }}. The controller sends them to the server every 60 seconds via the MQTT protocol. When the sensor readings reach the set values, {{ monitoring-full-name }} sends notifications to users.
 
 {% cut "Data transfer format"%}
 

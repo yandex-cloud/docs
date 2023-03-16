@@ -100,20 +100,20 @@
 
      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
 
-- {{ TF }}
-
-  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
-
 - API
 
-  Воспользуйтесь методами:
-
-  1. [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount`, чтобы создать сервисный аккаунт `vm-scale-scheduled-sa`;
-  1. [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса `Folder`, чтобы назначить сервисному аккаунту в текущем каталоге роли:
+  1. Создайте сервисный аккаунт `vm-scale-scheduled-sa`. Для этого воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+  1. Назначьте сервисному аккаунту в текущем каталоге роли:
 
      * `compute.admin` — для управления группой ВМ.
      * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ, входящим в группу.
      * `serverless.functions.invoker` — для запуска функции {{ sf-name }}.
+
+     Для этого воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings).
+
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -198,15 +198,15 @@
      - 192.168.2.0/24
      ```
 
+- API
+
+  1. Создайте сеть `vm-scale-scheduled-network` с помощью метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
+ 
+  1. Создайте подсети `vm-scale-scheduled-subnet-a` в зоне `{{ region-id }}-a` и `vm-scale-scheduled-subnet-b` в зоне `{{ region-id }}-b` с помощью метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
+
 - {{ TF }}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
-
-- API
-
-  1. Создайте сеть `vm-scale-scheduled-network` с помощью метода [create](../../vpc/api-ref/Network/create.md) для ресурса `Network`.
- 
-  1. Создайте подсети `vm-scale-scheduled-subnet-a` в зоне `{{ region-id }}-a` и `vm-scale-scheduled-subnet-b` в зоне `{{ region-id }}-b` с помощью метода [create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
 
 {% endlist %}
 
@@ -367,25 +367,25 @@
       status: ACTIVE
       ```
 
-- {{ TF }}
-
-  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
-
 - API
 
   1. Получите идентификаторы ресурсов, созданных ранее:
      
-     * Идентификатор сервисного аккаунта `vm-scale-scheduled-sa` — с помощью вызова gRPC API [ServiceAccountService/Get](../../iam/api-ref/grpc/service_account_service.md#Get) или метода REST API [get](../../iam/api-ref/ServiceAccount/get.md).
-     * Идентификатор сети `vm-scale-scheduled-network` — с помощью вызова gRPC API [NetworkService/Get](../../vpc/api-ref/grpc/network_service.md#Get) или метода REST API [get](../../vpc/api-ref/Network/get.md).
-     * Идентификаторы подсетей `vm-scale-scheduled-subnet-a` и `vm-scale-scheduled-subnet-b` — с помощью вызовов gRPC API [SubnetService/Get](../../vpc/api-ref/grpc/subnet_service.md#Get) или метода REST API [get](../../vpc/api-ref/Subnet/get.md).
+     * Идентификатор сервисного аккаунта `vm-scale-scheduled-sa` — с помощью метода REST API [get](../../iam/api-ref/ServiceAccount/get.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызова gRPC API [ServiceAccountService/Get](../../iam/api-ref/grpc/service_account_service.md#Get).
+     * Идентификатор сети `vm-scale-scheduled-network` — с помощью метода REST API [get](../../vpc/api-ref/Network/get.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Get](../../vpc/api-ref/grpc/network_service.md#Get).
+     * Идентификаторы подсетей `vm-scale-scheduled-subnet-a` и `vm-scale-scheduled-subnet-b` — с помощью метода REST API [get](../../vpc/api-ref/Subnet/get.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Get](../../vpc/api-ref/grpc/subnet_service.md#Get).
    
-  1. Получите идентификатор последней версии публичного образа `ubuntu-2004-lts` в семействе `standard-images` с помощью вызова gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily) или метода REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md).
+  1. Получите идентификатор последней версии публичного образа `ubuntu-2004-lts` в семействе `standard-images` с помощью метода REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызова gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily).
 
   1. Вставьте полученные идентификаторы в файл `specification.yaml` со спецификацией группы виртуальных машин:
 
      {% include [vm-scale-scheduled-yaml-spec-init](../../_includes/instance-groups/vm-scale-scheduled-yaml-spec-init.md) %}
      
-  1. Создайте группу ВМ с именем `vm-scale-scheduled-ig` по спецификации `specification.yaml` с помощью вызова gRPC API [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml) или метода REST API [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md).
+  1. Создайте группу ВМ с именем `vm-scale-scheduled-ig` по спецификации `specification.yaml` с помощью метода REST API [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml).
+
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -491,17 +491,17 @@
        IG_NAME: vm-scale-scheduled-ig
      ```
 
+- API
+
+  1. Создайте функцию `vm-scale-scheduled-function` с помощью метода REST API [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create). Из ответных данных получите идентификатор созданной функции.
+  1. Создайте версию функции с помощью метода REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion). Версия функции должна иметь следующий код:
+
+     {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
+
 - {{ TF }}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
-- API
-
-  1. Создайте функцию `vm-scale-scheduled-function` с помощью вызова gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create) или метода REST API [create](../../functions/functions/api-ref/Function/create.md). Из ответных данных получите идентификатор созданной функции.
-  1. Создайте версию функции с помощью вызова gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion) или метода REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md). Версия функции должна иметь следующий код:
-
-     {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
- 
 {% endlist %}
 
 ### Создайте триггер {#create-trigger}
@@ -562,13 +562,13 @@
   status: ACTIVE
   ```
 
+- API
+
+  Используйте метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create), чтобы создать триггер типа `timer` с cron-выражением `*/2 * * * ? *`, связанный с функцией `vm-scale-scheduled-function` версии `$latest` и сервисным аккаунтом `vm-scale-scheduled-sa`.
+
 - {{ TF }}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
-
-- API
-
-  Используйте вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) или метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md), чтобы создать триггер типа `timer` с cron-выражением `*/2 * * * ? *`, связанный с функцией `vm-scale-scheduled-function` версии `$latest` и сервисным аккаунтом `vm-scale-scheduled-sa`.
 
 {% endlist %}
 
@@ -612,7 +612,7 @@
 
 - API
 
-  Несколько раз получите информацию о группе ВМ `vm-scale-scheduled-ig` с помощью вызова gRPC API [InstanceGroupService/Get](../../compute/api-ref/grpc/instance_group_service.md#Get) или метода REST API [get](../../compute/api-ref/InstanceGroup/get.md). Значение в поле `target_size` (целевой размер группы) должно меняться с `2` на `3` и обратно.
+  Несколько раз получите информацию о группе ВМ `vm-scale-scheduled-ig` с помощью метода REST API [get](../../compute/api-ref/InstanceGroup/get.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Get](../../compute/api-ref/grpc/instance_group_service.md#Get). Значение в поле `target_size` (целевой размер группы) должно меняться с `2` на `3` и обратно.
 
 {% endlist %}
 

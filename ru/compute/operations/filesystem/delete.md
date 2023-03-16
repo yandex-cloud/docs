@@ -15,6 +15,6 @@
 
    - API
 
-     Используйте метод [FilesystemService/Delete](../../api-ref/grpc/filesystem_service.md#Delete) gRPC API или метод [delete](../../api-ref/Filesystem/delete.md) ресурса Filesystem REST API.
+     Воспользуйтесь методом REST API [delete](../../api-ref/Filesystem/delete.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/Delete](../../api-ref/grpc/filesystem_service.md#Delete).
 
    {% endlist %}

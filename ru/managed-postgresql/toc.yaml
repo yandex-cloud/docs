@@ -87,6 +87,10 @@ items:
               Миграция базы данных из {{ mpg-full-name }} в {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
+          - name: >-
+              Асинхронная репликация данных из {{ mpg-full-name }} в {{
+              yds-full-name }}
+            href: tutorials/mpg-to-yds.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

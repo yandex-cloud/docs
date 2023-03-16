@@ -26,6 +26,8 @@ To set up a static website on Joomla:
 
 If you no longer need the website, [delete all its resources](#clear-out).
 
+You can also deploy the infrastructure for hosting a website based on the Joomla CMS with a {{ PG }} DB via {{ TF }} using a [ready-made configuration file](#terraform).
+
 ## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
@@ -44,45 +46,65 @@ The cost of hosting a Joomla-powered website includes:
 
 ## Create a VM for Joomla {#create-vm}
 
-1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-1. Use the **Name** field to enter a VM name, such as `joomla-pg-tutorial-web`.
-1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
-1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select [CentOS Stream](/marketplace/products/yc/centos-stream-8) as your public image.
-1. Under **Computing resources**:
-   * Choose a [platform](../../compute/concepts/vm-platforms.md).
-   * Specify the necessary number of vCPUs and amount of RAM.
+{% list tabs %}
 
-   The minimum configuration is enough for functional testing:
-   * **Platform**: Intel Ice Lake.
-   * **Guaranteed vCPU share**: 20%.
-   * **vCPU**: 2.
-   * **RAM**: 1 GB.
-1. In **Network settings**, select the subnet to connect the VM to once it is created.
-1. Enter the VM access information:
-   * Enter the username in the **Login** field.
-   * In the **SSH key** field, paste the contents of the public key file.
-      You will need to create a key pair for the SSH connection yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
-1. Click **Create VM**.
+- Management console
 
-The VM may take several minutes to create.
+   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+   1. Use the **Name** field to enter a VM name, such as `joomla-pg-tutorial-web`.
+   1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+   1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select [CentOS Stream](/marketplace/products/yc/centos-stream-8) as your public image.
+   1. Under **Computing resources**:
+      * Choose a [platform](../../compute/concepts/vm-platforms.md).
+      * Specify the necessary number of vCPUs and amount of RAM.
 
-Once created, the VM is assigned an IP address and a host name (FQDN). This data can be used for SSH access.
+      The minimum configuration is enough for functional testing:
+      * **Platform**: Intel Ice Lake.
+      * **Guaranteed vCPU share**: 20%
+      * **vCPU**: 2.
+      * **RAM**: 1 GB.
+   1. In **Network settings**, select the subnet to connect the VM to once it is created.
+   1. Enter the VM access information:
+      * Enter the username in the **Login** field.
+      * In the **SSH key** field, paste the contents of the public key file.
+         You will need to create a key pair for the SSH connection yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
+   1. Click **Create VM**.
+
+   The VM may take several minutes to create.
+
+   Once created, the VM is assigned an IP address and a host name (FQDN). This data can be used for SSH access.
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
+{% endlist %}
 
 ## Create a PostgreSQL database cluster {#create-cluster}
 
-1. On the folder page, click **Create resource** and select **{{ PG }} cluster**.
-1. In the **Name** field, enter the cluster name: `joomla-pg-tutorial-db-cluster`.
-1. Under **Host class**, select the appropriate host class.
-1. In the **Storage size** section, enter 10 GB.
-1. In the **Database** section, specify:
-   * **DB name**: `joomla-pg-tutorial-db`.
-   * **Username**: `joomla`.
-   * **Password**: The password you'll use to access the database.
-1. In the **Network** list, select the network your VM is connected to.
-1. In the **Hosts** section, add two more hosts in the other availability zones. When creating hosts, do not enable **Public access** to them.
-1. Click **Create cluster**.
+{% list tabs %}
 
-Creating the DB cluster may take several minutes.
+- Management console
+
+   1. On the folder page, click **Create resource** and select **{{ PG }} cluster**.
+   1. In the **Name** field, enter the cluster name: `joomla-pg-tutorial-db-cluster`.
+   1. Under **Host class**, select the appropriate host class.
+   1. In the **Storage size** section, enter 10 GB.
+   1. In the **Database** section, specify:
+      * **DB name**: `joomla-pg-tutorial-db`.
+      * **Username**: `joomla`.
+      * **Password**: The password you'll use to access the database.
+   1. In the **Network** list, select the network your VM is connected to.
+   1. In the **Hosts** section, add two more hosts in the other availability zones. When creating hosts, do not enable **Public access** to them.
+   1. Click **Create cluster**.
+
+   Creating the DB cluster may take several minutes.
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
+{% endlist %}
 
 ## Install Joomla and additional components {#install}
 
@@ -122,6 +144,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`:
       sudo dnf module enable postgresql:13
       sudo dnf install postgresql-server
       ```
+
    {% endlist %}
 
 1. Get and configure the SSL certificate:
@@ -220,18 +243,17 @@ Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Insta
    * **Database type**: `{{ PG }}`.
    * **DB server name**:
 
-      ```bash
+      ```text
       <address of host 1>,<address of host 2>,<address of host 3> port=6432 sslmode=verify-full target_session_attrs=read-write
       ```
 
    * **Username**: `joomla`.
    * **Password**: enter the DB user's password.
    * **DB name**: `joomla-pg-tutorial-db`.
-
 1. For security reasons, Joomla may ask you to create or delete a special test file. On the VM, go to the `/var/www/html/installation` folder and create or delete the specified file there.
 1. Create an empty file `configuration.php` to safe configuration and configure write permissions for the folder:
 
-   ```
+   ```bash
    sudo touch /var/www/html/configuration.php
    sudo chmod 655 /var/www/html/configuration.php
    sudo chown -R apache:apache /var/www/html/
@@ -275,7 +297,17 @@ Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Insta
 
 You need to bind the domain name you wish to use for your website to the created `joomla-pg-tutorial-web` VM. You can use the {{ dns-name }} service to manage your domain.
 
-{% include [configure-a-record-and-cname](../../_tutorials/web/configure-a-record-and-cname.md) %}
+{% list tabs %}
+
+- Management console
+
+   {% include [configure-a-record-and-cname](../../_tutorials/web/configure-a-record-and-cname.md) %}
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
+{% endlist %}
 
 ## Check that the website is running {#test-site}
 
@@ -285,9 +317,65 @@ To check that the site is up, enter its IP address or domain name in your browse
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for your deployed server, simply delete the [created VM](../../compute/operations/vm-control/vm-delete.md) `joomla-pg-tutorial-web` and the [{{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md) `joomla-pg-tutorial-db-cluster`.
+To stop paying for the resources created:
+* [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+* [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.
+* [Delete](../../managed-postgresql/operations/cluster-delete.md) the {{ mpg-name }} cluster.
 
-If you reserved a static public IP address specifically for this VM:
-1. Select **{{ vpc-name }}** in your folder.
-1. Go to the **IP addresses** tab.
-1. Find the required address, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
+## How to create an infrastructure using {{ TF }} {#terraform}
+
+{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+To create infrastructure for your Joomla-based website with a {{ PG }} DB:
+1. [Install](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+1. Prepare a file with the infrastructure description:
+
+   {% list tabs %}
+
+   - Ready-made archive
+
+      1. Create a directory for the file with the infrastructure description.
+      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/joomla-postgresql-terraform.zip) (2 KB).
+      1. Unpack the archive to the directory. As a result, it should contain the `joomla-postgresql-terraform.tf` configuration file and the `joomla-postgresql-terraform.auto.tfvars` file with user data.
+
+   - Creating files manually
+
+      1. Create a directory for the file with the infrastructure description.
+      1. In the directory, create a configuration file named `joomla-postgresql-terraform.tf`:
+
+         {% cut "Contents of the joomla-postgresql-terraform.tf file" %}
+
+         {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-config.md) %}
+
+         {% endcut %}
+
+      1. In the directory, create a `joomla-postgresql-terraform.auto.tfvars` file with user data:
+
+         {% cut "Contents of the joomla-postgresql-terraform.auto.tfvars file" %}
+
+         {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-variables.md) %}
+
+         {% endcut %}
+
+   {% endlist %}
+
+   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
+   For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+1. In the `joomla-postgresql-terraform.auto.tfvars` file, set the user-defined parameters:
+   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
+   * `vm_user`: VM username.
+   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `db_user`: Database username, e.g., `joomla`.
+   * `db_password`: Password for the database. The password length must be between 8 and 128 characters.
+   * `dns_zone`: [DNS zone](../../dns/concepts/dns-zone.md). Specify your registered domain, e.g., `example.com.`.
+   * `dns_recordset_name`: Name of the [record set](../../dns/concepts/resource-record.md), e.g., `example-recordset`.
+1. Create resources:
+
+   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+1. [Install Joomla and additional components](#install).
+1. [Configure the Apache2 web server](#configure-apache2).
+1. [Configure Joomla](#configure-joomla).
+1. [Upload the website files](#upload-files).
+1. [Check that the website is running](#test-site).

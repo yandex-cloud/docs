@@ -40,6 +40,11 @@
        --name first-snapshot
      ```
 
+
+- API
+
+  Воспользуйтесь методом REST API [delete](../../api-ref/Snapshot/delete.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md) или вызовом gRPC API [SnapshotService/Delete](../../api-ref/grpc/snapshot_service.md#Delete).
+
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

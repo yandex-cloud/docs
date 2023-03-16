@@ -91,8 +91,8 @@
 
 - API
 
-  1. Получите список расписаний с помощью метода [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API или метода [list](../../api-ref/SnapshotSchedule/list.md) для ресурса `SnapshotSchedule` REST API.
-  1. Остановите расписание снимков с помощью метода [SnapshotScheduleService/Disable](../../api-ref/grpc/snapshot_schedule_service.md#Disable) gRPC API или метода [disable](../../api-ref/SnapshotSchedule/disable.md) для ресурса `SnapshotSchedule` REST API.
+  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
+  1. Остановите расписание снимков с помощью метода REST API [disable](../../api-ref/SnapshotSchedule/disable.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Disable](../../api-ref/grpc/snapshot_schedule_service.md#Disable).
 
 {% endlist %}
 
@@ -190,8 +190,8 @@
 
 - API
 
-  1. Получите список расписаний с помощью метода [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API или метода [list](../../api-ref/SnapshotSchedule/list.md) для ресурса `SnapshotSchedule` REST API.
-  1. Запустите расписание снимков с помощью метода [SnapshotScheduleService/Enable](../../api-ref/grpc/snapshot_schedule_service.md#Enable) gRPC API или метода [enable](../../api-ref/SnapshotSchedule/enable.md) для ресурса `SnapshotSchedule` REST API.
+  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
+  1. Запустите расписание снимков с помощью метода REST API [enable](../../api-ref/SnapshotSchedule/enable.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Enable](../../api-ref/grpc/snapshot_schedule_service.md#Enable).
 
 {% endlist %}
 

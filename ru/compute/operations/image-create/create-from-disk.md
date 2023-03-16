@@ -59,6 +59,11 @@
         --pooled
       ```
 
+- API
+
+  1. Получите список дисков с помощью метода REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
+  1. Создайте образ с помощью метода REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызова gRPC API [ImageService/Create](../../api-ref/grpc/image_service.md#Create). В запросе укажите идентификатор диска.
+
 - {{ TF }}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -98,11 +103,6 @@
      1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
-
-- API
-
-  1. Получите список дисков с помощью метода [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API или метода [list](../../api-ref/Disk/list.md) ресурса `Disk` REST API.
-  1. Создайте образ с помощью метода [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API или метода [create](../../api-ref/Image/create.md) ресурса `Image` REST API. В запросе укажите идентификатор диска.
 
 {% endlist %}
 

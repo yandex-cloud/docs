@@ -71,11 +71,7 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
    }
 
    provider "yandex" {
-     token     = "<OAuth>"
-     cloud_id  = "<cloud ID>"
-     folder_id = "<folder ID>"
-     zone      = "<default availability zone>"
-     
+     zone = "<default availability zone>"
    }
    ```
 

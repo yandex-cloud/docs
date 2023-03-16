@@ -1,1 +1,1 @@
-To access a trigger, use its name or unique ID. To get them, [get](../../serverless-containers/operations/trigger-list#trigger-list) a list of triggers in the folder.
+To find out the name or unique ID of a trigger, [get](../../serverless-containers/operations/trigger-list#trigger-list) a list of triggers in the folder.

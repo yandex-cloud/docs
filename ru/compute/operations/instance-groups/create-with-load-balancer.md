@@ -247,7 +247,7 @@
 
 - API
 
-  Воспользуйтесь методом API [create](../../api-ref/InstanceGroup/create.md).
+  Воспользуйтесь методом REST API [create](../../api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create).
 
 - {{ TF }}
 

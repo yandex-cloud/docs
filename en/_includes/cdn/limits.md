@@ -1,10 +1,10 @@
-## Quotas {#cdn-quotas}
+#### Quotas {#cdn-quotas}
 
 | Type of limit | Value |
-| ---------------------------------------- | ---------- |
-| Amount of [CDN resources](../../cdn/concepts/resource.md) per cloud | 20 |
+|----------------------------------------|----------|
+| Number of [CDN resources](../../cdn/concepts/resource.md) per cloud | 20 |
 
-## Limits {#cdn-limits}
+#### Limits {#cdn-limits}
 
 | Type of limit | Value |
 | ----- | ----- |

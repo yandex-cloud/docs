@@ -72,7 +72,7 @@
 
    - API
 
-     Чтобы получить список облаков с идентификаторами, воспользуйтесь методом REST API [list](../../../resource-manager/api-ref/Cloud/list.md) для ресурса [Cloud](../../../resource-manager/api-ref/Cloud/index.md).
+     Чтобы получить список облаков с идентификаторами, воспользуйтесь методом REST API [list](../../../resource-manager/api-ref/Cloud/list.md) для ресурса [Cloud](../../../resource-manager/api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/List](../../../resource-manager/api-ref/grpc/cloud_service.md#List).
 
    {% endlist %}
 
@@ -90,6 +90,10 @@
        --source-image-id <идентификатор_исходного_образа> \
        --cloud-id <идентификатор_исходного_облака>
      ```
+
+   - API
+
+     Воспользуйтесь методом REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../../api-ref/grpc/image_service.md#Create). В запросе укажите идентификатор образа.
 
    {% endlist %}
 

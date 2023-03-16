@@ -5,26 +5,25 @@ We'll use a ClickHouse database connection and the **Companies: supply and deman
 In this use case, you'll prepare a dashboard for selecting locations to open new Dodo pizzerias.
 
 With {{ datalens-short-name }}, you'll analyze locations based on real data:
-
 - Revenue from current Dodo pizzerias.
 - Search queries to pizzerias by location (Yandex data).
 - The number of all pizzerias by location (Yandex data).
 
 This scenario is also available as a [recording](https://www.youtube.com/watch?v=cw6PotbQYng) from the {{ yandex-cloud }} YouTube channel.
 
-To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin), then follow the steps below:
+To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
 1. [Import geolayers from the Marketplace](#step1).
 1. [Create a connection](#step2).
 1. [Configure the dataset fields](#step3).
-1. [Create a column chart](#step4).
-1. [Create a bar chart](#step5).
+1. [Create a bar chart](#step4).
+1. [Create a line chart](#step5).
 1. [Create an indicator chart](#step6).
-1. [Create a map chart](#step7).
+1. [Create a map](#step7).
 1. [Create a dashboard](#step8).
 1. [Add geolayers to the dashboard](#step9).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
@@ -32,7 +31,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 1. Go to [Marketplace]({{ link-datalens-main }}/marketplace) {{ datalens-short-name }}.
 1. Choose the **Geolayers** category and the **Companies: supply and demand** product.
-1. Click **Deploy** in the product card that opens.
+1. Click **Expand** in the product card that opens.
 1. Save your purchase in the **Purchases** folder.
 1. Click **Open**.
 1. The resulting window will contain a collection of {{ datalens-short-name }} objects: [connection](../../datalens/concepts/connection.md), [dataset](../../datalens/concepts/dataset/index.md), [chart](../../datalens/concepts/chart/index.md), and [dashboard](../../datalens/concepts/dashboard.md). Click the yellow dashboard icon at the end of the list.
@@ -41,7 +40,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 1. Examine the dashboard and its description at the bottom of the screen:
    * Demand is the number of search queries made by users of Yandex geoservices to the selected category of companies or services. The category is determined from the query. Local queries from mobile devices within a search radius of 3 km are included.
-   * Supply is the number of existing companies in the selected category. This is based on company data in the [Yandex Business Directory](https://business.yandex.ru/sprav/index).
+   * Supply is the number of existing companies in the selected category. This is based on company data in the [Yandex Business Directory](https://business.yandex.ru/sprav/).
 
 1. Select the **Pizzeria** category and check the map for **Demand**, **Supply**, and **Demand for supply per city** measures.
 
@@ -52,15 +51,12 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}).
 1. Click **Create connection**.
 1. Select the **ClickHouse** connection.
-
    1. In the window that opens, specify the connection parameters:
-
       * Connection type: **Specify manually**.
       * Host name: `myt-g2ucdqpavskt6irw.{{ dns-zone }}, sas-1h1276u34g7nt0vx.{{ dns-zone }}` (comma-separated).
       * HTTP interface port: `8443` (default).
       * Username: `datalens-marathon-2020-11-ro`.
       * Password: `/4b+xBF6aSCgN9wKTevYGuDjxC9IO4Fa`.
-
    1. Check the connection and click **Create connection**.
    1. Enter `DODO Con` as the name for the connection and click **Create**.
 
@@ -76,7 +72,6 @@ Wait for the connection to be saved.
    ![drag-table](../../_assets/datalens/solution-09/12-drag-table.png)
 
 1. Open the **Fields** tab.
-
    1. Rename the **Name** field to **Pizzerias** in the **Name** column.
    1. For the **Coordinates** field, select the `geopoint` type.
    1. For the **Revenue** field, select the **Sum** aggregation type in the **Aggregation** column.
@@ -85,7 +80,7 @@ Wait for the connection to be saved.
       ![dublicate-field](../../_assets/datalens/solution-09/13-dublicate-field.png)
 
    1. Rename the created field from **Pizzerias** to **The number of pizzerias**.
-   1. For the **The number of pizzerias** field, select the **Number of unique** aggregation type in the **Aggregation** column.
+   1. For the **The number of pizzerias** field, select the **Unique count** aggregation type in the **Aggregation** column.
    1. Click **Add field**.
 
       ![add-field](../../_assets/datalens/solution-09/01-add-field.png)
@@ -113,11 +108,8 @@ Wait for the connection to be saved.
    ![add-measure-selector](../../_assets/datalens/solution-09/02-add-measure-selector.png)
 
    The chart will show statistics on how many new pizzerias opened on a certain day.
-
 1. Set up the **Opening dates** grouping by month.
-
    1. Click the calendar icon in the **OpenDate** field.
-
       1. In the **Grouping** list, select **Rounding** → **Month**.
       1. Click **Apply**.
 
@@ -137,12 +129,10 @@ Wait for the connection to be saved.
 
    ![sort-rank](../../_assets/datalens/solution-09/33-sort-rank.png)
 
-1. Add the **Rank by revenue** measure to the **Chart filters** section:
-
+1. Add the **Rank by revenue** measure to the **Filters** section:
    1. Select **Less than or equal** to from the **Operation** list.
    1. Enter **10** in the **Value** field.
    1. Click **Apply filter**.
-   
 1. The chart will show the rating of the **Top 10 pizzerias in Russia**.
 1. In the top right-hand corner, click ![save-button](../../_assets/datalens/solution-09/29-save-button.png) → **Save as**. Name the chart **Top 10 pizzerias** and click **Save**.
 
@@ -154,7 +144,7 @@ Wait for the connection to be saved.
 
    ![indicator](../../_assets/datalens/solution-09/15-indicator.png)
 
-1. Delete the **RANK by revenue** measure from the **Chart filters** field.
+1. Delete the **RANK by revenue** measure from the **Filters** field.
 1. Add the **Revenue** measure to the **Measure** section.
 
    ![delete-filters](../../_assets/datalens/solution-09/11-delete-filters.png)
@@ -173,25 +163,22 @@ Wait for the connection to be saved.
 
    ![map-chart](../../_assets/datalens/solution-09/18-map-chart.png)
 
-1. Add the **Coordinates** dimension to the **Points (Geopoints)** section.
-1. Add the **Revenue** metric to the **Points size** and the **Colors** sections.
+1. Add the **Coordinates** dimension to the **Geopoints** section.
+1. Add the **Revenue** metric to the **Size** and the **Colors** sections.
 
    ![map-measure](../../_assets/datalens/solution-09/21-map-measure.png)
 
 1. Add the following to the **Tooltips** section:
-
    * Pizzerias
    * Address
    * OpenDate
    * Revenue
-
 1. Go to the **Colors** section settings.
 
    ![map-colour](../../_assets/datalens/solution-09/19-map-colour.png)
 
-   1. Select the **2 point** gradient type and the **Yellow (shades)** color.
+   1. Select the **Two-color** gradient type and the **Yellow (shades)** color.
    1. Click **Apply**.
-
 1. Save the chart as **Pizzerias on the map**.
 
    ![pizzerias-on-the-map](../../_assets/datalens/solution-09/25-pizzerias-on-the-map.png)
@@ -214,10 +201,8 @@ Wait for the connection to be saved.
 
 1. To prevent charts from being created as a single column, drag each chart to any free space in the dashboard.
 1. In the upper-right corner, click **Add** → **Selector**.
-
    1. In the window that opens, select the **DODO** dataset.
    1. In the selector settings:
-
       1. Activate the **Show** option to display the name.
       1. Select the **City** field.
       1. Click **Add**.
@@ -240,37 +225,35 @@ Wait for the connection to be saved.
 
 1. Click on the **DODO** dataset name and choose **Add dataset**.
 1. In the drop-down list, select **Datasets** instead of **Personal folder**.
-1. Select **Companies** (dataset imported from Marketplace in [Step 1](#step-1)).
+1. Select **Organizations** (dataset imported from Marketplace in [Step 1](#step-1)).
 
    ![organizations](../../_assets/datalens/solution-09/23-organizations.png)
 
 1. Once the dataset is selected, the link setup window appears. By default, a link is established between fields with the same names.
 
    1. Click **Add link**.
-   1. Add a link between the **City** (DODO) and **City** (Companies) dataset fields and click **Save**.
+   1. Add a link between the **City** (DODO) and **City** (Organizations) dataset fields and click **Save**.
 
       ![links](../../_assets/datalens/solution-09/17-links.png)
 
 1. Click **Save** to close the **Links** window.
 1. In the layer section, rename **Layer 1**.
-
    1. To do this, click on the layer and choose ![links](../../_assets/datalens/solution-09/32-settings.png).
 
    ![select-layer](../../_assets/datalens/solution-09/30-select-layer.png)
 
    1. In the **Layer settings** window that opens, enter the name **DODO** and click **Apply**.
-
 1. Click ![plus](../../_assets/datalens/solution-09/26-plus.png) to add a layer. Rename it **Demand for supply**.
-1. Modify geolayer type from **Points (Geopoints)** to **Polygons (Geopolygons)**.
+1. Modify geolayer type from **Points** to **Polygons**.
 
    ![geopolygon](../../_assets/datalens/solution-09/14-geopolygon.png)
 
-1. Make sure that the current dataset is **Companies** and not **DODO**. If the current dataset is **DODO**, click on its name in the upper-left corner and choose **Companies**.
+1. Make sure that the current dataset is **Organizations** and not **DODO**. If the current dataset is **DODO**, click on its name in the upper-left corner and choose **Organizations**.
 
    ![organizations-dataset](../../_assets/datalens/solution-09/24-organizations-dataset.png)
 
-1. Add the **Polygon** dimension to the **Polygons (Geopolygons)** section.
-1. Add the **Polygon.Type** dimension to the **Chart filters** section and set it to **hash7**. Click **Apply filter**.
+1. Add the **Polygon** dimension to the **Polygons** section.
+1. Add the **Polyogn.Type** dimension to the **Filters** section and set it to **hash7**. Click **Apply filter**.
 1. Add the **Category** dimension to the **Layer filters** section and choose **Pizzeria**. Click **Apply filter**.
 1. Add the **Demand for supply per city** measure to the **Colors** section.
 1. In the color settings, select the **Blue-Grey-Red** three-color gradient and click **Apply**.
@@ -304,7 +287,6 @@ If the map remains centered on the same location when you change the city in the
 ## Optional {#additional}
 
 As an idea for further independent work we suggest:
-
 1. Adding a geolayer with companies in the **Where to eat** category (restaurants and fast food chains in general, not only pizzerias).
 1. Add [Audience: interests and social demographics]({{ link-datalens-main }}/marketplace/f2eemc2dui59rn72h0ck) from the Marketplace to be able to similarly display the city audience data on the map.
 1. Using Voronezh as an example, you can familiarize yourself with free [geolayers from Geointellect]({{ link-datalens-main }}/marketplace/f2eu3edujf1jdmaihu7u). A demo set contains calculated indexes of a fast food restaurant location's business potential.

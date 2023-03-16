@@ -282,7 +282,7 @@ Try to change **event name** in the selector to another value to see how the das
 
 Use SQL charts to research event sequences and experiment in {{ datalens-short-name }}.
 
-1. Open the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}) and select **Connections** in the menu on the left.
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}) and select **Connections** in the menu on the left.
 1. Select the `AppMetrica_workshop` connection that you created in step [4.2](#creation-datalens-connection-to-ch).
 1. At the top right, click **Create SQL chart**.
 1. Enter the query:

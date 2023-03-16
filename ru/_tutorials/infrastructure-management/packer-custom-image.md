@@ -86,6 +86,10 @@
 
       * Запишите идентификатор [подсети](../../vpc/concepts/network.md#subnet) (столбец `ID`), в которой будет размещаться вспомогательная ВМ, на основе которой создается образ, а также соответствующую [зону доступности](../../overview/concepts/geo-scope.md) (столбец `ZONE`). Эти параметры потребуются в дальнейшем.
 
+    - API
+    
+      Воспользуйтесь методом REST API [list](../../vpc/api-ref/Subnet/list.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List).
+
     {% endlist %}
 
 1. Задайте в командной строке значения переменных, используемых в процессе сборки образа.
@@ -336,6 +340,10 @@
       +----------------------+------------+-----------+----------------------+--------+
       ```
 
+    - API
+
+      Воспользуйтесь методом REST API [list](../../compute/api-ref/Image/list.md) для ресурса [Image](../../compute/api-ref/Image/) или вызовом gRPC API [ImageService/List](../../compute/api-ref/grpc/image_service.md#List).
+
     {% endlist %}
 
 ## Создайте виртуальную машину из образа {#create-vm}
@@ -398,7 +406,11 @@
       ...
       ```
 
-      Подробнее о [создании ВМ из пользовательского образа](../../compute/operations/vm-create/create-from-user-image.md).  
+      Подробнее о [создании ВМ из пользовательского образа](../../compute/operations/vm-create/create-from-user-image.md).
+
+    - API
+
+      Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
 
     {% endlist %}
 

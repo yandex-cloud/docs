@@ -14,4 +14,8 @@
   1. Выберите группу ВМ, нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите пункт **Приостановить процессы**.
   1. В открывшемся окне нажмите кнопку **Остановить**.
 
+- API
+
+  Воспользуйтесь методом REST API [pauseProcesses](../../api-ref/InstanceGroup/pauseProcesses.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/PauseProcesses](../../api-ref/grpc/instance_group_service.md#PauseProcesses).
+
 {% endlist %}

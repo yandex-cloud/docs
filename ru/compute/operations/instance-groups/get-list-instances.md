@@ -39,6 +39,6 @@
 
 - API
 
-  Воспользуйтесь методом API [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+  Воспользуйтесь методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
 
 {% endlist %}

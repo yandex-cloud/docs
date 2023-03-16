@@ -29,6 +29,7 @@
 * [{#T}](managed-mysql-to-ydb.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mpg-to-ydb.md)
+* [{#T}](mpg-to-yds.md)
 
 ## Сохранение потока данных
 * [{#T}](yds-to-clickhouse.md)

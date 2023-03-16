@@ -21,7 +21,7 @@
 
    - API
    
-     Используйте метод [InstanceService/AttachFilesystem](../../api-ref/grpc/instance_service.md#AttachFilesystem) gRPC API или метод [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) ресурса Instance REST API.
+     Воспользуйтесь методом REST API [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/AttachFilesystem](../../api-ref/grpc/instance_service.md#AttachFilesystem).
      
    {% endlist %}
    

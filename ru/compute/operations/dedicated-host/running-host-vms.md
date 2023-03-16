@@ -102,9 +102,9 @@
 
 - API
 
-  1. Узнайте идентификатор группы выделенных хостов с помощью метода [list](../../api-ref/HostGroup/list.md) для ресурса `HostGroup`.
-  1. Узнайте идентификаторы выделенных хостов в группе с помощью метода [listHosts](../../api-ref/HostGroup/listHosts.md) для ресурса `HostGroup`.
-  1. Создайте ВМ с помощью метода [create](../../api-ref/Instance/create.md) для ресурса `Instance`.
+  1. Узнайте идентификатор группы выделенных хостов с помощью метода REST API [list](../../api-ref/HostGroup/list.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызова gRPC API [HostGroupService/List](../../api-ref/grpc/host_group_service.md#List).
+  1. Узнайте идентификаторы выделенных хостов в группе с помощью метода REST API [listHosts](../../api-ref/HostGroup/listHosts.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызова gRPC API [HostGroupService/ListHosts](../../api-ref/grpc/host_group_service.md#ListHosts).
+  1. Создайте ВМ с помощью метода REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызова gRPC API [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create).
 
 {% endlist %}
 

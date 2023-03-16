@@ -50,9 +50,9 @@
 
 - API
 
-  Изменить имя и описание диска можно с помощью метода API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/).
+  Чтобы изменить имя и описание диска, воспользуйтесь методом REST API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Update](../../api-ref/grpc/disk_service.md#Update).
 
-  Список доступных дисков запрашивайте методом [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/).
+  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
 
 {% endlist %}
 
@@ -122,11 +122,11 @@
 
 - API
 
-  Увеличить размер диска можно с помощью метода API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/).
+  Увеличить размер диска можно с помощью метода REST API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/) или вызова gRPC API [DiskService/Update](../../api-ref/grpc/disk_service.md#Update).
 
-  Список доступных дисков запрашивайте методом [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/).
+  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
 
-  Чтобы остановить или запустить ВМ, воспользуйтесь методами [stop](../../api-ref/Instance/stop.md) и [start](../../api-ref/Instance/start.md) для ресурса [Instance](../../api-ref/Instance/).
+  Чтобы остановить или запустить ВМ, воспользуйтесь методами REST API [stop](../../api-ref/Instance/stop.md) и [start](../../api-ref/Instance/start.md) для ресурса [Instance](../../api-ref/Instance/) или вызовами gRPC API [InstanceService/Stop](../../api-ref/grpc/instance_service.md#Stop) и [InstanceService/Start](../../api-ref/grpc/instance_service.md#Start).
 
 {% endlist %}
 
