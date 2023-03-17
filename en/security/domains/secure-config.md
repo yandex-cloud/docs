@@ -23,7 +23,7 @@ Access to the serial console is disabled on VMs by default. We don't recommend e
 
 When working with a serial console:
 * Make sure that critical data is not output to the serial console.
-* If you enable {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} access to the serial console, make sure that both the credentials management and the password used for logging in to the operating system locally are compliant with regulator standards. For example, in an infrastructure for storing payment card data, passwords must meet {% if product == "yandex-cloud" %}[PCI DSS](/security/standards/pci){% else %}PCI DSS{% endif %} requirements: it must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
+* If you enable {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} access to the serial console, make sure that both the credentials management and the password used for logging in to the operating system locally are compliant with regulator standards. For example, in an infrastructure for storing payment card data, a password must meet {% if product == "yandex-cloud" %}[PCI DSS](/security/standards/pci){% else %}PCI DSS{% endif %} requirements: it must contain both letters and numbers, be at least seven characters long, and be changed at least once every 90 days.
 
 {% note info %}
 

@@ -17,7 +17,7 @@ Popular virtualization systems are supported.
 
 {% note warning %}
 
-In {{ compute-name }}, you can only create images using files uploaded to {{ objstorage-name }}.{% if product == "yandex-cloud" %} You can also migrate a VM using [Hystax Acura](../../../tutorials/infrastructure-management/hystax-migration.md).{% endif %}
+In {{ compute-name }}, you can only create images from files uploaded to {{ objstorage-name }}.{% if product == "yandex-cloud" %} You can also migrate a VM using [Hystax Acura](../../../tutorials/infrastructure-management/hystax-migration.md).{% endif %}
 
 {% endnote %}
 
@@ -99,7 +99,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
    1. Describe the resource parameters in the `yandex_compute_image` configuration file.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_compute_image" "image-1" {
@@ -112,18 +112,18 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
       1. Run the command:
 
@@ -133,7 +133,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 - API
 

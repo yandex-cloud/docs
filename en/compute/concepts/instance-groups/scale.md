@@ -32,7 +32,7 @@ For automatically scaled groups, assign [common scaling settings](#auto-scale-se
 The service can adjust the number of instances separately in each [availability zone](../../../overview/concepts/geo-scope.md) specified in the group settings or in the entire instance group:
 
 * If _zonal_ scaling is used, the service calculates for each availability zone its own average metric value for scaling and the required number of instances. The default type of automatic scaling is zonal.
-* If _regional_ scaling is used, the metric value and the number of instances are calculated for the entire group. To change the group's auto scaling type to regional, pass the [`auto_scale` scaling policy](policies/scale-policy.md#auto-scale-policy) with the `auto_scale_type: REGIONAL` key.
+* If _regional_ scaling is used, the metric value and the number of instances are calculated for the entire group. To change the group auto scaling type to regional, [pass the `auto_scale` scaling policy](policies/scale-policy.md#auto-scale-policy) with the `auto_scale_type: REGIONAL` key.
 
 
 ### General settings {#auto-scale-settings}
@@ -86,7 +86,7 @@ You can use up to any three {{ monitoring-name }} metrics for automatic scaling 
 
 When using monitoring metrics, specify the following in {{ ig-name }}:
 * _Metric name_ that you specified in {{ monitoring-name }}.
-   {% if audience == "external" %} * _[Labels](../../../monitoring/concepts/data-model.md#label)_{% else %}_Labels_{% endif %} that you specified in {{ monitoring-name }}:
+{% if audience == "external" %} * _[Labels](../../../monitoring/concepts/data-model.md#label)_{% else %}_Labels_{% endif %} that you specified in {{ monitoring-name }}:
    * (optional) `folder_id`: ID of the folder. By default, it's the ID of the folder that the group belongs to.
    * (optional) `service`: ID of the service. By default, `custom`. Labels can be used to specify service metrics, such as `service` with the `compute` value for {{ compute-short-name }}.
 

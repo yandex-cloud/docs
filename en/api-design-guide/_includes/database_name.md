@@ -1,0 +1,1 @@
+The `database_name` field may contain up to 63 characters, including letters, numbers, underscores, and hyphens.

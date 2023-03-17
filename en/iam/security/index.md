@@ -12,11 +12,11 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
 The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
 
@@ -26,7 +26,7 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
 
-For some services, you need the service account to perform operations, such as in [{{ ig-name }}]({{ link-cloud-services }}/instance-groups) and [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). If you have entered a service account in the request, {{ iam-short-name }} checks that you have rights to use this account.
+For some services, you need a service account to perform operations, such as in [{{ ig-name }}](../../compute/concepts/instance-groups/index.md) or [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). If you specified a service account in the request, {{ iam-short-name }} will check you have permissions to use this account.
 
 {% include [roles-sa-accessKeyAdmin](../../_includes/roles-sa-accessKeyAdmin.md) %}
 
