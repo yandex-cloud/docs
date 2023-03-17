@@ -1,3 +1,12 @@
+Release 17.03.2023 
+
+* Audit Trails: error mitigation instructions. 
+* Object Storage: added information about possible delays to statistics in management console. 
+* Object Storage: updated information about connecting a bucket to a domain name. 
+* Security: Added a complete list of public IP ranges 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 16.03.2023 
 
 * Data Transfer: added a tutorial on delivering data from Managed Service for PostgreSQL to YDS. 
