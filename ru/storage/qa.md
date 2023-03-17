@@ -140,5 +140,22 @@ yc kms symmetric-key add-access-binding \
 
 {% endif %}
 
-
 {% include [logs.md](../_qa/logs.md) %}
+
+#### Как подключить собственный домен к бакету {{ objstorage-name }}? {#domain-bucket}
+
+Чтобы подключить свой [домен](operations/hosting/own-domain.md) к [бакету](concepts/bucket.md):
+
+1. [Создайте](operations/buckets/create.md) бакет с именем домена.
+
+1. {% include [setup-bucket.md](../_includes/storage/setup-bucket.md) %}
+
+1. [Создайте](operations/hosting/own-domain.md#domain-support) на своем DNS-сервере CNAME-запись, чтобы привязать ваш домен к бакету.
+
+1. {% include [create-cert.md](../_includes/storage/create-cert.md) %}
+
+1. {% include [add-cert.md](../_includes/storage/add-cert.md) %}
+
+{% include [objects-access.md](../_includes/storage/objects-access.md) %}
+
+
