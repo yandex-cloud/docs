@@ -124,3 +124,6 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Публичные материалы
+    href: public_talks.md
+    when: lang == "ru"
