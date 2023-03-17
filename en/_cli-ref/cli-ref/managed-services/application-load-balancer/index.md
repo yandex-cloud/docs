@@ -42,7 +42,7 @@ Aliases:
 	- [yc application-load-balancer load-balancer add-location](load-balancer/add-location.md) — Adds locations to application load balancer.
 	- [yc application-load-balancer load-balancer remove-location](load-balancer/remove-location.md) — Removes locations from application load balancer.
 	- [yc application-load-balancer load-balancer target-states](load-balancer/target-states.md) — Shows states of targets in the target group and backend group for application load balancer.
-	- [yc application-load-balancer load-balancer autoscale](load-balancer/autoscale.md) — Manage autoscale settings of the load balancer.
+	- [yc application-load-balancer load-balancer autoscale](load-balancer/autoscale.md) — Modify scaling settings of the application load balancer.
 	- [yc application-load-balancer load-balancer logging](load-balancer/logging.md) — Manage cloud logging settings of the load balancer.
 - [yc application-load-balancer backend-group](backend-group/index.md) — Manage application load balancer backend groups
 	- [yc application-load-balancer backend-group get](backend-group/get.md) — Show information about the specified backend group

@@ -66,6 +66,10 @@ After creating a cloud network, you can change its name, description, and tags.
         --labels new_label=test_label
       ```
 
+- API
+
+   To update a [cloud network](../concepts/network.md), use the [update](../api-ref/Network/update.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Update](../api-ref/grpc/network_service.md#Update) gRPC API call.
+
 - {{ TF }}
 
    For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -107,7 +111,7 @@ After creating a cloud network, you can change its name, description, and tags.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

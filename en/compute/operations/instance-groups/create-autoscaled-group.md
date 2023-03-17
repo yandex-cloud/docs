@@ -32,12 +32,11 @@ To create an automatically scaled instance group
       yc vpc network list
       ```
 
-      If there aren't any, [create one](../../../vpc/operations/network-create.md).
+      If there are not any, [create one](../../../vpc/operations/network-create.md).
 
-   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
+   1. Select one of the public images {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
-
 
    1. Create a YAML file with any name (for example, `specification.yaml`).
 
@@ -55,8 +54,8 @@ To create an automatically scaled instance group
 
          | Key | Value |
          ----- | -----
-         | `name` | A name for the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
-         | `service_account_id` | ID of the service account. |
+         | `name` | A name for the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters. |
+         | `service_account_id` | Service account ID. |
          | `description` | A description of the instance group. |
 
       * An [instance template](../../concepts/instance-groups/instance-template.md), such as:
@@ -186,7 +185,7 @@ To create an automatically scaled instance group
 
    If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```
       resource "yandex_iam_service_account" "ig-sa" {
@@ -276,7 +275,7 @@ To create an automatically scaled instance group
             ----- | -----
             | `name` | Name of the instance group. |
             | `folder_id` | Folder ID. |
-            | `service_account_id` | ID of the service account. |
+            | `service_account_id` | Service account ID. |
 
          * [The instance template](../../concepts/instance-groups/instance-template.md):
 
@@ -284,10 +283,9 @@ To create an automatically scaled instance group
             ----- | -----
             | `platform_id` | [Platform](../../concepts/vm-platforms.md). |
             | `resources` | The number of vCPU cores and the amount of RAM available to the instance. The values must match the selected [platform](../../concepts/vm-platforms.md). |
-            | `boot_disk` | Boot disk settings. Enter: </br> - The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md). </br> Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
+            | `boot_disk` | Boot disk settings. Enter: </br> - The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).</br> Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
             | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
-            | `metadata` | In the metadata, pass the public key for accessing the instance via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
-
+            | `metadata` | In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
 
          * [Policies](../../concepts/instance-groups/policies/index.md):
 
@@ -308,20 +306,20 @@ To create an automatically scaled instance group
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -329,6 +327,6 @@ To create an automatically scaled instance group
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 {% endlist %}

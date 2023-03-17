@@ -3,7 +3,6 @@
 {% note alert %}
 
 Before you delete a network, you need to [delete](subnet-delete.md) all its subnets.
-
 You cannot restore a network after it is deleted.
 
 {% endnote %}
@@ -54,6 +53,10 @@ You cannot restore a network after it is deleted.
       yc vpc network delete test-network-1
       ```
 
+- API
+
+   To delete a [cloud network](../concepts/network.md), use the [delete](../api-ref/Network/delete.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Delete](../api-ref/grpc/network_service.md#Delete) gRPC API call.
+
 - {{ TF }}
 
    For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -101,7 +104,7 @@ You cannot restore a network after it is deleted.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

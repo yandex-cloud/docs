@@ -30,8 +30,8 @@ Syntax:
 |`-i`,`--include-table-regex`|<b>`value[,value]`</b><br/>Do not transfer the tables which do not match the specified regular expression|
 |`-p`,`--exclude-table-regex`|<b>`value[,value]`</b><br/>Do not transfer the tables which match the specified regular expression|
 |`--timezone`|<b>`string`</b><br/>Used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Defaults to the local timezone|
-|`-b`,`--transfer-before-data`|<b>`value[,value]`</b><br/>Schema objects to transfer before transferring data, one of [view, routine, trigger]|
-|`-a`,`--transfer-after-data`|<b>`value[,value]`</b><br/>Schema objects to transfer after transferring data, one of [view, routine, trigger]|
+|`-b`,`--transfer-before-data`|<b>`value[,value]`</b><br/>Schema objects to transfer before transferring data, one of [view, routine, trigger, tables]|
+|`-a`,`--transfer-after-data`|<b>`value[,value]`</b><br/>Schema objects to transfer after transferring data, one of [view, routine, trigger, tables]|
 
 #### Global Flags
 

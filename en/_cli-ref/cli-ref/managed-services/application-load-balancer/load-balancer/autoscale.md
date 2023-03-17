@@ -4,7 +4,7 @@ editable: false
 
 # yc application-load-balancer load-balancer autoscale
 
-Manage autoscale settings of the load balancer.
+Modify scaling settings of the application load balancer.
 
 #### Command Usage
 
@@ -19,8 +19,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/>ID of the Application load balancer.|
 |`--name`|<b>`string`</b><br/>Name of the Application load balancer.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--min-zone-size`|<b>`int`</b><br/>Lower limit for the number of resource units in each zone.|
-|`--max-size`|<b>`int`</b><br/>Upper limit for the total number of resource units across all zones.|
+|`--min-zone-size`|<b>`int`</b><br/>Lower limit for the number of resource units in each availability zone.<br/>If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly.<br/>The minimum value is 2.|
+|`--max-size`|<b>`int`</b><br/>Upper limit for the total number of resource units across all availability zones.<br/>If a positive value is specified, it must be at least the lower limit in each zone multiplied by the number of zones in which the load balancer is hosted.<br/>By default, there is no upper limit. To remove it, specify 0.|
 
 #### Global Flags
 

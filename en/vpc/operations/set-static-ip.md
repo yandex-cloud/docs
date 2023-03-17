@@ -1,6 +1,6 @@
 # Converting a dynamic public IP address to static
 
-You can make a dynamic public IP address static. Static public IP addresses are reserved and remain attached to respective resources when VMs and network load balancers are stopped.
+You can convert a dynamic public IP address to static. Static public IP addresses are reserved and remain attached to respective resources when VMs and network load balancers are stopped.
 
 {% note info %}
 
@@ -73,5 +73,9 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       ```
 
       The `reserved` parameter value changed to `true` and the IP address is now static.
+
+- API
+
+   To convert the type of a public IP address from dynamic to static, use the [update](../api-ref/Address/update.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Update](../api-ref/grpc/address_service.md#Update) gRPC API call.
 
 {% endlist %}

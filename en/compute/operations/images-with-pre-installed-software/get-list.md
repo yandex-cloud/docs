@@ -13,6 +13,8 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
    1. Select **Virtual machine**.
    1. Under **Image/boot disk selection**, click **Show all products**. A list of all available public images will appear.
 
+   To view information about a specific image, click ![image](../../../_assets/compute/info.svg).
+
 - CLI
 
    {% include [standard-images](../../../_includes/standard-images.md) %}

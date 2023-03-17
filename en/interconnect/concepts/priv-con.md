@@ -1,6 +1,6 @@
 # Private connection
 
-A private connection is a logical connection to your cloud [network](../../vpc/concepts/network.md#network), which is set up within a [trunk](./trunk.md). There can be multiple private connections to different cloud networks in a single trunk.
+A private connection is a logical connection to your cloud [network](../../vpc/concepts/network.md#network), which is set up within a [trunk](./trunk.md). There can be multiple private connections to different cloud networks in a trunk.
 
 {% note info %}
 
@@ -16,21 +16,21 @@ A private connection is set up inside a [trunk](./trunk.md) and has its own uniq
 
 To set up a private connection, you need a **point-to-point subnet**. It is used to configure IP connectivity between the {{ yandex-cloud }} equipment and the client or telecom provider equipment.
 
-The point-to-point subnet size may be either `/30` or `/31`.
+The point-to-point subnet size may be either `/30` or `/31`. Other subnet sizes are not allowed.
 
-An address space used in a point-to-point subnet should meet the [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) specification:
+You can use the following IP address ranges in point-to-point subnets:
 
 * `10.0.0.0/8`
 * `172.16.0.0/12`
 * `192.168.0.0/16`
 * `169.254.0.0/16`
 
-IP addressing from subnets in other ranges is not allowed.
+IP addressing in other ranges is not allowed.
 
 {% note info %}
 
 When you set up a private connection, only IPv4 addresses are used.
-Currently, you cannot use Ipv6 addresses.
+Currently, you cannot use IPv6 addresses.
 
 {% endnote %}
 
@@ -80,7 +80,7 @@ You do not have your own equipment at the point of presence and you use services
 
 To connect one or more cloud subnets to a private connection, you should know the following:
 * The ID of the virtual network (`vpc_net_id`) to connect to a trunk connection.
-* A list of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) distributed across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes correspond to the subnets configured in your cloud. In this case, the announced prefixes and the actual subnet address ranges match.
+* The list of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) distributed across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes correspond to the subnets configured in your cloud. In this case, the announced prefixes and the actual subnet address ranges match.
 
 New subnets that will be created in the virtual network later will not be announced to a {{ interconnect-name }} private connection automatically.
 
@@ -98,7 +98,7 @@ This enables you to use load balancers to distribute traffic coming from your in
 
 {% endnote %}
 
-Your equipment announces IPv4 prefixes from your infrastructure over BGP to the {{ yandex-cloud }} equipment. These prefixes get to {{ vpc-short-name }} subnets through redistribution of routing information on the {{ yandex-cloud }} equipment.
+Your equipment announces IPv4 prefixes from your infrastructure over BGP towards the {{ yandex-cloud }} equipment. These prefixes get to {{ vpc-short-name }} subnets through redistribution of routing information on the {{ yandex-cloud }} equipment.
 
 After the {{ yandex-cloud }} equipment receives the client prefixes, they become available to all VMs and internal load balancers within the {{ vpc-short-name }} subnets.
 
@@ -116,5 +116,5 @@ To automatically announce new subnets in {{ interconnect-name }}, you can use **
 > {{ region-id }}-c [10.140.0.0/16]
 > ```
 >
-> If you then create a subnet with the `10.128.15.0/24` perfix in this network in the `{{ region-id }}-a` availability zone, it will automatically be available via {{ interconnect-name }} because the `10.128.15.0/24` subnet belongs to the already announced address space, `10.128.0.0/16`.
+> If you then create a subnet with the `10.128.15.0/24` prefix in this network in the `{{ region-id }}-a` availability zone, it will automatically be available via {{ interconnect-name }} because the `10.128.15.0/24` subnet belongs to the already announced address space `10.128.0.0/16`.
 

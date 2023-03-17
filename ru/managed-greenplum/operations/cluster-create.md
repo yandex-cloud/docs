@@ -270,7 +270,7 @@
          environment         = "<окружение>"
          network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
          zone                = "<зона доступности>"
-         subnet_id           = yandex_vpc_subnet.<имя сети в {{ TF }}>.id
+         subnet_id           = yandex_vpc_subnet.<имя подсети в {{ TF }}>.id
          assign_public_ip    = <получение публичного IP-адреса: true или false>
          deletion_protection = <защита от удаления кластера: true или false>
          version             = "<версия {{ GP }}>"

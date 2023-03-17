@@ -99,6 +99,9 @@
 ```python
 #!spark --cluster test-dataproc-cluster --return_variables df
 df = spark.sql("SELECT * FROM animals;")
+```
+
+```python
 df
 ```
 

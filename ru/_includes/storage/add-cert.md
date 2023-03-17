@@ -1,0 +1,1 @@
+[Настройте](../../storage/operations/hosting/certificate.md#cert-manager) HTTPS: привяжите к бакету сертификат из Certificate Manager или загрузите свой.

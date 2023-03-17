@@ -87,6 +87,10 @@ You can move cloud resources between folders within a single [cloud](../../resou
       ```
       For more information about the `yc vpc gateway move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/gateway/move.md).
 
+- API
+
+   To move a [NAT gateway](../concepts/gateways.md) to a different folder, use the [move](../api-ref/Gateway/move.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Move](../api-ref/grpc/gateway_service.md#Move) gRPC API call.
+
 {% endlist %}
 
 ## Examples {#examples}

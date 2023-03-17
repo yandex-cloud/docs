@@ -32,8 +32,8 @@ Syntax:
 |`-p`,`--exclude-table`|<b>`value[,value]`</b><br/>Do not transfer these tables|
 |`--slot-lag-limit`|<b>`int`</b><br/>Terminate replication once the WAL lag on the slot exceeds the specified limit, in bytes. Unlimited by default|
 |`--service-schema`|<b>`string`</b><br/>Schema to create auxiliary tables in|
-|`-b`,`--transfer-before-data`|<b>`value[,value]`</b><br/>Schema objects to transfer before transferring data, one of [sequence, sequence_owned_by, table, primary_key, fk_constraint, default_values, constraint, index, view, function, trigger, type, rule, collation, policy, cast, materialized_view]|
-|`-a`,`--transfer-after-data`|<b>`value[,value]`</b><br/>Schema objects to transfer after transferring data, one of [sequence, sequence_owned_by, table, primary_key, fk_constraint, default_values, constraint, index, view, function, trigger, type, rule, collation, policy, cast, materialized_view]|
+|`-b`,`--transfer-before-data`|<b>`value[,value]`</b><br/>Schema objects to transfer before transferring data, one of [sequence, sequence_owned_by, sequence_set, table, primary_key, fk_constraint, default_values, constraint, index, view, materialized_view, function, trigger, type, rule, collation, policy, cast]|
+|`-a`,`--transfer-after-data`|<b>`value[,value]`</b><br/>Schema objects to transfer after transferring data, one of [sequence, sequence_owned_by, sequence_set, table, primary_key, fk_constraint, default_values, constraint, index, view, materialized_view, function, trigger, type, rule, collation, policy, cast]|
 
 #### Global Flags
 

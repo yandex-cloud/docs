@@ -19,11 +19,15 @@ After creating a security group, you can change its name and description, and [a
 
 - CLI
 
-   To update the security group, run the command:
+   To update the security group, run this command:
 
    ```
    yc vpc security-group update <group ID> --new-name test-sg-renamed
    ```
+
+- API
+
+   To change the security group name or description, use the [update](../api-ref/SecurityGroup/update.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Update](../api-ref/grpc/security_group_service.md#Update) gRPC API call.
 
 - {{ TF }}
 
@@ -51,25 +55,25 @@ After creating a security group, you can change its name and description, and [a
 
       {% endnote %}
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

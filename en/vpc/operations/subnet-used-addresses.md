@@ -46,4 +46,8 @@ To view a list of internal addresses used in a subnet:
       +-----------+------------+---------------------------------------+
       ```
 
+- API
+
+   Use the gRPC API [SubnetService/ListUsedAddresses](../api-ref/grpc/subnet_service.md#ListUsedAddresses) call.
+
 {% endlist %}

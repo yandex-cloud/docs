@@ -149,7 +149,7 @@ GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
    int64 size = 7;
 
    oneof source {
-     // Идентификатор образа, на основе которого нужно создать диск,
+     // Идентификатор образа, на основе которого нужно создать диск.
      string image_id = 8;
 
      // либо идентификатор снимка, с которого нужно создать диск.
@@ -227,7 +227,7 @@ GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
    // Метки диска в формате 'ключ: значение'.
    map<string, string> labels = 5;
 
-   // Размер диска в байтах
+   // Размер диска в байтах.
    int64 size = 6;
  }
 
@@ -257,8 +257,7 @@ PATCH https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 
 Методу `Delete` соответствует HTTP-метод `DELETE`. В параметрах запроса необходимо передать идентификатор ресурса, который требуется удалить.
 
-Метод имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который
- содержит статус операции удаления.
+Метод имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который содержит статус операции удаления.
 
 Пример gRPC-описания метода [Delete](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) для удаления диска:
 ```protobuf

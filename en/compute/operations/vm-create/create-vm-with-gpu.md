@@ -28,14 +28,14 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       ```
 
    1. Prepare the [key pair](../vm-connect/ssh.md#creating-ssh-keys) (public and private keys) for SSH access to the VM.
-   1. Select a public [image](../images-with-pre-installed-software/get-list.md).
+   1. Select a public image.
 
       {% include [gpu-images](../../../_includes/gpu-images.md) %}
 
       {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
    1. Create a VM in the default folder:
- 
+
       
       ```bash
       yc compute instance create \
@@ -50,7 +50,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
         --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
-     
+
 
       Where:
 
@@ -58,8 +58,8 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [availability zone](../../../overview/concepts/geo-scope.md).
-      * `platform`: [platform](../../concepts/vm-platforms.md) ID:
+      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
+      * `platform`: The [platform](../../concepts/vm-platforms.md) ID:
          * `gpu-standard-v1` for {{ v100-broadwell }}.
          * `gpu-standard-v2` for {{ v100-cascade-lake }}.
          * `gpu-standard-v3` for {{ a100-epyc }}.
@@ -68,8 +68,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       * `gpus`: [Number of GPUs](../../concepts/gpus.md).
       * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
       * `create-boot-disk`: [Image](../images-with-pre-installed-software/get-list.md) of the OS.
-      `ubuntu-1604-lts-gpu`: [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) image with CUDA drivers.
-      
+      * `ubuntu-1604-lts-gpu`: [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) with CUDA drivers.
       * `nat-ip-version=ipv4`: Public IP. To create a VM without a public IP, disable a parameter.
 
       Get a description of the created VM:
@@ -100,7 +99,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 - {{ TF }}
 
    If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```
       resource "yandex_compute_instance" "vm-1" {
@@ -111,13 +110,13 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
         resources {
           cores  = <number of vCPU cores>
-          memory = <RAM amount, GB>
+          memory = <amount of RAM, GB>
           gpus   = <number of GPUs>
         }
 
         boot_disk {
           initialize_params {
-            image_id = "fdv4f5kv5cvf3ohu4flt"
+            image_id = "<image ID>"
           }
         }
 
@@ -169,17 +168,17 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
-   1. Deploy the cloud resources.
-      1. If the configuration doesn't contain any errors, run the command:
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+   1. Deploy cloud resources.
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -187,7 +186,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

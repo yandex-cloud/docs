@@ -55,13 +55,17 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 
       The static public IP address is reserved.
 
+- API
+
+   To reserve a static IP address, use the [create](../api-ref/Address/create.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Create](../api-ref/grpc/address_service.md#Create) gRPC API call.
+
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * `name`: Static public IP address name. Name format:
 
@@ -70,7 +74,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       * `external_ipv4_address`: IPv4 address description:
          * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_address" "addr" {
@@ -83,20 +87,20 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 
       For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_address).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -104,7 +108,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc address list

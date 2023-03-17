@@ -158,6 +158,16 @@ Syntax:
 	- [yc compute filesystem resize](filesystem/resize.md) — Resize the specified filesystem
 	- [yc compute filesystem add-labels](filesystem/add-labels.md) — Add labels to specified filesystem
 	- [yc compute filesystem remove-labels](filesystem/remove-labels.md) — Remove labels from specified filesystem
+- [yc compute gpu-cluster](gpu-cluster/index.md) — Manage GPU clusters
+	- [yc compute gpu-cluster get](gpu-cluster/get.md) — Show information about the specified GPU cluster
+	- [yc compute gpu-cluster list](gpu-cluster/list.md) — List GPU clusters
+	- [yc compute gpu-cluster create](gpu-cluster/create.md) — Create a GPU cluster
+	- [yc compute gpu-cluster update](gpu-cluster/update.md) — Update the specified GPU cluster
+	- [yc compute gpu-cluster add-labels](gpu-cluster/add-labels.md) — Add labels to specified GPU cluster
+	- [yc compute gpu-cluster remove-labels](gpu-cluster/remove-labels.md) — Remove labels from specified GPU cluster
+	- [yc compute gpu-cluster delete](gpu-cluster/delete.md) — Delete the specified GPU cluster
+	- [yc compute gpu-cluster list-operations](gpu-cluster/list-operations.md) — List operations for the specified GPU cluster
+	- [yc compute gpu-cluster list-instances](gpu-cluster/list-instances.md) — List instances created in the specified GPU cluster
 
 #### Global Flags
 

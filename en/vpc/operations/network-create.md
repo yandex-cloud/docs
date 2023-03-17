@@ -79,6 +79,10 @@ In addition to the cloud network in the default folder, you can create cloud net
         description: Auto-created default network
       ```
 
+- API
+
+   To create a [cloud network](../concepts/network.md), use the [create](../api-ref/Network/create.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Create](../api-ref/grpc/network_service.md#Create) gRPC API call.
+
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -92,9 +96,9 @@ In addition to the cloud network in the default folder, you can create cloud net
          {% include [name-format](../../_includes/name-format.md) %}
 
       * `description`: Description of the cloud network.
-      * `labels`: Cloud network [labels](https://cloud.yandex.ru/docs/overview/concepts/services#labels). Set a key-value pair.
+      * `labels`: Cloud network [labels](https://cloud.yandex.com/docs/overview/concepts/services#labels). Set a key-value pair.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_network" "default" {
@@ -109,20 +113,20 @@ In addition to the cloud network in the default folder, you can create cloud net
 
       For more information about the parameters of the `vpc_network` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_network).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -130,7 +134,7 @@ In addition to the cloud network in the default folder, you can create cloud net
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc network list
@@ -165,20 +169,20 @@ Create a cloud network with a name and description in the selected folder:
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_network).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -186,7 +190,7 @@ Create a cloud network with a name and description in the selected folder:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc network list

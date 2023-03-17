@@ -1,6 +1,6 @@
 # Converting a static public IP address to dynamic
 
-A static public IP address set for a cloud resource can be made dynamic. If a dynamic IP address is used by a VM, it disappears when it's stopped and changes the next time it's started.
+You can convert a static public IP address set for a cloud resource to dynamic. If a dynamic IP address is used by a VM, it will disappear when the VM is stopped and change when it is started again.
 
 {% list tabs %}
 
@@ -66,5 +66,9 @@ A static public IP address set for a cloud resource can be made dynamic. If a dy
       ```
 
       The IP address is now dynamic.
+
+- API
+
+   To convert the type of a public IP address from static to dynamic, use the [update](../api-ref/Address/update.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Update](../api-ref/grpc/address_service.md#Update) gRPC API call.
 
 {% endlist %}

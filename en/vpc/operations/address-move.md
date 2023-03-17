@@ -62,7 +62,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       +----------------------+------------------------+--------+--------+
       ```
 
-   1. Move the address by specifying the name or ID of the address and destination folder: 
+   1. Move the address by specifying the name or ID of the address and destination folder:
 
       ```bash
       yc vpc address move <address_name_or_ID> \
@@ -87,6 +87,11 @@ You can move cloud resources between folders within a single [cloud](../../resou
        ip_version: IPV4
       ```
       For more information about the `yc vpc address move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/address/move.md).
+
+- API
+
+   To move a [public IP address](../concepts/address.md#public-addresses) to a different folder, use the [move](../api-ref/Address/move.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Move](../api-ref/grpc/address_service.md#Move) gRPC API call.
+
 
 {% endlist %}
 

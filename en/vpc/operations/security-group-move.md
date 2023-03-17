@@ -63,7 +63,7 @@
       +----------------------+------------------------+--------+--------+
       ```
 
-   1. Move the security group by specifying the name or ID of the group and destination folder: 
+   1. Move the security group by specifying the name or ID of the group and destination folder:
 
       ```bash
       yc vpc security-group move <group_name_or_ID> \
@@ -84,6 +84,10 @@
       status: ACTIVE
       ```
       For more information about the `yc vpc security-group move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/move.md).
+
+- API
+
+   To move a [security group](../concepts/security-groups.md) to a different folder, use the [move](../api-ref/SecurityGroup/move.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Move](../api-ref/grpc/security_group_service.md#Move) gRPC API call.
 
 {% endlist %}
 

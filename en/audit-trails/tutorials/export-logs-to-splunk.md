@@ -108,7 +108,7 @@ The infrastructure support cost includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a service account.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
    1. Go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the name of the service account:
@@ -302,10 +302,10 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following the 
       terraform plan
       ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
-      1. If the configuration doesn't contain any errors, run the command:
+   1. Deploy cloud resources.
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
