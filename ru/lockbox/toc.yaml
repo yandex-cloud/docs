@@ -23,6 +23,12 @@ items:
         href: operations/secret-activation-manage.md
       - name: Управление версиями секрета
         href: operations/secret-version-manage.md
+      - name: Serverless
+        items:
+          - name: Передать секрет в {{ serverless-containers-full-name }}
+            href: operations/serverless/containers.md
+          - name: Передать секрет в {{ sf-full-name }}
+            href: operations/serverless/functions.md
   - name: Практические руководства
     items:
       - name: Все руководства

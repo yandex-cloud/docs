@@ -17,6 +17,8 @@ items:
         href: operations/version.md
       - name: Шифрование данных
         href: operations/encryption.md
+      - name: Права доступа на ключ шифрования
+        href: operations/key-access.md
   - name: Концепции
     items:
       - name: Обзор
