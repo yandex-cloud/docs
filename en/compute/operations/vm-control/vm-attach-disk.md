@@ -1,15 +1,24 @@
 # Attaching a disk to a VM
 
-
 You can attach a disk to either a running or stopped VM.
 
-For a disk to be successfully attached to a running VM, the VM's operating system must be ready to accept commands to attach disks. Before attaching a disk, make sure that the OS is loaded or stop the VM, otherwise the attach disk operation fails. If an error occurs, stop the VM and repeat the operation.
+For a disk to be successfully attached to a running VM, the VM's operating system must be ready to accept commands to attach disks. Before attaching a disk, either make sure the OS is loaded up or stop the VM; otherwise, the attach disk operation will fail. If an error occurs, stop the VM and try again.
 
 {% include [disk-auto-delete](../../_includes_service/disk-auto-delete.md) %}
 
 ## Attaching a disk {#attach}
 
-To attach a disk to a VM:
+{% if product == "yandex-cloud" %}
+
+{% note info %}
+
+You can only attach a local disk to a VM on a [dedicated host](../../concepts/dedicated-host.md) while creating it. For more information, see this [guide](../index.md#dedicated-host).
+
+{% endnote %}
+
+{% endif %}
+
+To attach a network disk to a VM:
 
 {% list tabs %}
 
@@ -161,76 +170,87 @@ To partition and mount an empty disk yourself:
 
 - Linux
 
-   1. Check if the disk is attached as a device and get its path in the system:
+   1. Connect to the VM via [SSH](../vm-connect/ssh.md).
+   1. Check whether the disk is attached as a device and get its path in the system:
 
       ```bash
-      lsblk
+      ls -la /dev/disk/by-id
       ```
 
       Result:
 
       ```text
-      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-      vda    252:0    0  13G  0 disk
-      ├─vda1 252:1    0   1M  0 part
-      └─vda2 252:2    0  13G  0 part /
-      vdb    252:16   0   1G  0 disk
+      total 0
+      drwxr-xr-x 2 root root 140 Jan 16 12:09 .
+      drwxr-xr-x 6 root root 120 Jan 13 13:51 ..
+      lrwxrwxrwx 1 root root   9 Jan 16 12:09 virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc
+      lrwxrwxrwx 1 root root   9 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0 -> ../../vdb
+      lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0-part1 -> ../../vdb1
+      lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0-part2 -> ../../vdb2
+      lrwxrwxrwx 1 root root   9 Jan 13 13:51 virtio-nvme-disk-0 -> ../../vda
       ```
 
-      An empty disk is usually labeled `/dev/vdb`.
+      Where:
+
+      * Network disk links look like `virtio-<disk_ID>`. For example, `virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc` means that the unpartitioned disk with the `fhm1dn62tm5dnaspeh8n` ID is labeled as `/dev/vdc`.
+{% if product == "yandex-cloud" %}
+      * Local disks on [dedicated hosts](../../concepts/dedicated-host.md) have links like `virtio-nvme-disk-<disk_number>` (you will have local disks only in case you attached those to your VM while creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled as `/dev/vda`.
+{% endif %}
 
    1. Partition your disk. To do this, create [partitions]{% if lang == "ru" %}(https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %}{% if lang == "en" %}(https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% endif %} using the `cfdisk` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% endif %}, the `fdisk` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% endif %}, or the `parted` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% endif %}.
 
-   1. For example, let's create partitions using the `fdisk` command. Use the `sudo` command or run commands on behalf of the `root` user: to do this, run `sudo su -`.
+      For example, here is how to create partitions using the `fdisk` command. Use the `sudo` command or run commands on behalf of the `root` user: to do this, run `sudo su -`.
 
-      ```bash
-      sudo fdisk /dev/vdb
-      ```
+      1. Run the utility:
 
-      You will be taken to the `fdisk` program menu. For a list of available commands press the **M** key.
+         ```bash
+         sudo fdisk /dev/vdc
+         ```
 
-   1. To create a new partition, click **N**.
-   1. Specify that the partition will be the primary one: click **P**.
-   1. You will be prompted to select a partition number. Press **Enter** to create the first partition.
-   1. Leave default values for the numbers of the first and last sectors of the partition: press **Enter** twice.
-   1. Make sure that the partition has been created. To do this, press the **P** key to display a list of the disk's partitions. An example partition:
+         You will be taken to the `fdisk` menu. For a list of available commands, press **M**.
 
-      ```text
-      Device     Boot Start      End  Sectors Size Id Type
-      /dev/vdb1        2048 41943039 41940992  20G 83 Linux
-      ```
+      1. To create a new partition, press **N**.
+      1. Specify that the partition will be the primary one by pressing **P**.
+      1. You will be prompted to select a partition number. Press **Enter** to create the first partition.
+      1. Leave default values for the numbers of the first and last sectors of the partition: press **Enter** twice.
+      1. Make sure the partition has been created. To do this, press **P** to display a list of the disk partitions. This may look as follows:
 
-   1. To save the changes made, press the **W** key.
+         ```text
+         Device     Boot Start      End  Sectors Size Id Type
+         /dev/vdc1        2048 41943039 41940992  20G 83 Linux
+         ```
+
+      1. Press **W** to save changes.
 
    1. Format the disk for the desired file system, for example, using the `mkfs` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html){% endif %}. To format the partition for ext4, enter:
 
       ```bash
-      sudo mkfs.ext4 /dev/vdb1
+      sudo mkfs.ext4 /dev/vdc1
       ```
 
-   1. Mount the disk partitions using the `mount` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=mount&category=8&russian=0){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/mount.8.html){% endif %}. To mount the `vdb1` partition in the `/mnt/vdb1` folder, enter:
+   1. Mount the disk partitions using the `mount` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=mount&category=8&russian=0){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/mount.8.html){% endif %}. To mount a partition named `vdc1` to the `/mnt/vdc1` directory, run this command:
 
       ```bash
-      sudo mkdir /mnt/vdb1
-      sudo mount /dev/vdb1 /mnt/vdb1
+      sudo mkdir /mnt/vdc1
+      sudo mount /dev/vdc1 /mnt/vdc1
       ```
 
-   1. Configure the disk write and read permissions using the `chmod` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=chmod&russian=0&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/jammy/en/man1/chmod.1.html){% endif %}. For example, to grant all users write access to the disk, enter:
+   1. Configure the disk write and read permissions using the `chmod` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=chmod&russian=0&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/jammy/en/man1/chmod.1.html){% endif %}. For example, to grant all users a permission to write data to the disk, run the following command:
 
       ```bash
-      sudo chmod a+w /mnt/vdb1
+      sudo chmod a+w /mnt/vdc1
       ```
 
    1. Retrieve the disk ID (`UUID`) using the `blkid` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=blkid&russian=0&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/blkid.8.html){% endif %}:
 
       ```bash
-      sudo blkid /dev/vdb1
+      sudo blkid /dev/vdc1
       ```
 
       Result:
 
       ```text
-      /dev/vdb1: UUID="397f9660-e740-40bf-8e59-ecb88958b50e" TYPE="ext4" PARTUUID="e34d0d32-01"
+      /dev/vdc1: UUID="397f9660-e740-40bf-8e59-ecb88958b50e" TYPE="ext4" PARTUUID="e34d0d32-01"
       ```
 
    1. To configure partition automount after VM restart:
@@ -243,7 +263,7 @@ To partition and mount an empty disk yourself:
       1. Append the following line to the file putting your disk ID in the `UUID` parameter as follows:
 
          ```text
-         UUID=397f9660-e740-40bf-8e59-ecb88958b50e /mnt/vdb1 ext4 defaults 0 2
+         UUID=397f9660-e740-40bf-8e59-ecb88958b50e /mnt/vdc1 ext4 defaults 0 2
          ```
 
       1. Save the changes to the file.
@@ -259,12 +279,12 @@ To partition and mount an empty disk yourself:
       Filesystem     1K-blocks    Used Available Use% Mounted on
       udev              989424       0    989424   0% /dev
       tmpfs             203524     816    202708   1% /run
-      /dev/vda2       13354932 2754792  10015688  22% /
+      /dev/vdb2       13354932 2754792  10015688  22% /
       tmpfs            1017608       0   1017608   0% /dev/shm
       tmpfs               5120       0      5120   0% /run/lock
       tmpfs            1017608       0   1017608   0% /sys/fs/cgroup
       tmpfs             203520       0    203520   0% /run/user/1000
-      /dev/vdb1         523260    3080    520180   1% /mnt/vdb1
+      /dev/vdb1         523260    3080    520180   1% /mnt/vdc1
       ```
 
 {% if product == "cloud-il" %}

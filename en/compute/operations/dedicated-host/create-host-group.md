@@ -4,7 +4,7 @@ You can create a group of [dedicated hosts](../../concepts/dedicated-host.md) th
 
 {% include [dedicated](../../../_includes/compute/dedicated-quota.md) %}
 
-To create a group of dedicated hosts
+To create a group of dedicated hosts:
 
 {% list tabs %}
 
@@ -22,13 +22,7 @@ To create a group of dedicated hosts
 
       Result:
 
-      ```bash
-      +---------------------+-------+--------------+
-      |         ID          | CORES |    MEMORY    |
-      +---------------------+-------+--------------+
-      | intel-6230-c66-m454 |    66 | 487478788096 |
-      +---------------------+-------+--------------+
-      ```
+      {% include [dedicated-types-cli-output](../../../_includes/compute/dedicated-types-cli-output.md) %}
 
    1. Create a group of dedicated hosts of the selected type. A group may contain one or more hosts.
 
@@ -41,9 +35,9 @@ To create a group of dedicated hosts
 
       Where:
 
-      * `fixed-size`: The number of dedicated hosts in the group.
-      * `type`: The type of dedicated hosts.
-      * `zone` is the [availability](../../../overview/concepts/geo-scope.md) zone to place the group in.
+      * `fixed-size`: Number of dedicated hosts in the group.
+      * `type`: Type of dedicated hosts.
+      * `zone`: [Availability](../../../overview/concepts/geo-scope.md) zone to place the group in.
 
       Result:
 

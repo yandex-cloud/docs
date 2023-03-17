@@ -6,7 +6,7 @@ Serial console access is disabled by default.
 
 {% include [sc-warning](../../../_includes/compute/serial-console-warning.md) %}
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Before you enable serial console access on a VM:
 
@@ -44,7 +44,7 @@ To enable access to the serial console when creating a VM, set the `serial-port-
       yc compute instance create --help
       ```
 
-   1. Select a public [image](../images-with-pre-installed-software/get-list.md) based on a Linux OS (such as Ubuntu).
+   1. Select a public image based on a Linux OS (such as Ubuntu).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -78,7 +78,7 @@ To enable access to the serial console when creating a VM, set the `serial-port-
       yc compute instance create --help
       ```
 
-   1. Select a public Windows-based [image](../images-with-pre-installed-software/get-list.md).
+   1. Select a public Windows-based image.
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -227,7 +227,7 @@ If you created the VM before February 22, 2019, you need to update the Windows r
    ```
    bcdedit /ems "{current}" on
    The operation completed successfully.
-   
+
    bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
    The operation completed successfully.
    ```

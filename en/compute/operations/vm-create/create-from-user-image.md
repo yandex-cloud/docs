@@ -1,6 +1,6 @@
 # Creating a VM from a custom image
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 [Prepare and upload](../image-create/upload.md) the image to create a VM from.
 
@@ -17,7 +17,7 @@ Make sure the uploaded image is in the `READY` status.
    1. In the list of services, select **{{ compute-name }}**.
    1. Click **Create VM**.
    1. Under **Basic parameters**:
-      * Enter a name and description for the VM. Naming requirements:
+      * Enter a name and description for the VM. The naming requirements are as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -25,7 +25,7 @@ Make sure the uploaded image is in the `READY` status.
 
       * Select an [availability zone](../../../overview/concepts/geo-scope.md) to put your virtual machine in.
 
-   1. Under **Image/boot disk selection**, select one of the [images](../../operations/images-with-pre-installed-software/get-list.md).
+   1. Under **Image/boot disk selection**, select one of the images.
 
    1. Under **Disks{% if product == "yandex-cloud" %} and file storage{% endif %}**, [add a disk](./create-from-disks.md):
       * Click **Add disk**.
@@ -129,11 +129,11 @@ Make sure the uploaded image is in the `READY` status.
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }}yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a VM from a custom image:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```
       resource "yandex_compute_instance" "vm-1" {
@@ -195,20 +195,20 @@ Make sure the uploaded image is in the `READY` status.
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -216,6 +216,6 @@ Make sure the uploaded image is in the `READY` status.
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 {% endlist %}

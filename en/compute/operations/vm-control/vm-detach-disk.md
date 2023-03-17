@@ -2,11 +2,15 @@
 
 You can detach a disk from either a running and stopped VM.
 
+{% if product == "yandex-cloud" %}
+
 {% note info %}
 
-You can't detach the boot disk.
+You cannot detach a boot disk from a VM. You cannot detach a local disk from a VM running on a [dedicated host](../../concepts/dedicated-host.md).
 
 {% endnote %}
+
+{% endif %}
 
 For a disk to be successfully detached from a running VM, the operating system must be ready to accept commands to detach disks. Before detaching a disk, make sure that the OS is loaded or stop the VM, otherwise the detach disk operation fails. If an error occurs, stop the VM and repeat the operation.
 

@@ -48,13 +48,17 @@ To create a new [security group](../concepts/security-groups.md):
       * `protocol`: Data transfer protocol. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
       * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets that traffic will come from or to.
 
+- API
+
+   Use the [create](../api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create) gRPC API call.
+
 - {{ TF }}
 
-  If you don't have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a security group with multiple rules:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * `name`: Security group name.
       * `description`: Optional description of the security group.
@@ -67,7 +71,7 @@ To create a new [security group](../concepts/security-groups.md):
          * `from-port`: The first port in the range of ports for traffic.
          * `to-port`: The last port in the range of ports for traffic.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       {% if product == "yandex-cloud" %}
 
@@ -77,19 +81,19 @@ To create a new [security group](../concepts/security-groups.md):
         folder_id = "<folder ID>"
         zone      = "{{ region-id }}-a"
       }
-      
+
       resource "yandex_vpc_security_group" "test-sg" {
         name        = "Test security group"
         description = "Description for security group"
         network_id  = "<Network ID>"
-      
+
         ingress {
           protocol       = "TCP"
           description    = "Rule description 1"
           v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
           port           = 8080
         }
-      
+
         egress {
           protocol       = "ANY"
           description    = "Rule description 2"
@@ -111,19 +115,19 @@ To create a new [security group](../concepts/security-groups.md):
         folder_id = "<folder ID>"
         zone      = "{{ region-id }}-a"
       }
-      
+
       resource "yandex_vpc_security_group" "test-sg" {
         name        = "Test security group"
         description = "Description for security group"
         network_id  = "<Network ID>"
-      
+
         ingress {
           protocol       = "TCP"
           description    = "Rule description 1"
           v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
           port           = 8080
         }
-      
+
         egress {
           protocol       = "ANY"
           description    = "Rule description 2"
@@ -136,26 +140,26 @@ To create a new [security group](../concepts/security-groups.md):
 
       {% endif %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   2. Make sure that the configuration files are valid.
+   2. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      2. Run the check using the command:
+      2. Run the check using this command:
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   3. Deploy the cloud resources.
+   3. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
          ```
          terraform apply
          ```
       2. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

@@ -35,7 +35,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       ```
 
    1. Prepare the [key pair](../vm-connect/ssh.md#creating-ssh-keys) (public and private keys) for SSH access to the VM.
-   1. Select a public [image](../images-with-pre-installed-software/get-list.md).
+   1. Select a public image.
 
       {% include [gpu-images](../../../_includes/gpu-images.md) %}
 
@@ -83,8 +83,8 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [availability zone](../../../overview/concepts/geo-scope.md).
-      * `platform`: [platform](../../concepts/vm-platforms.md) ID:
+      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
+      * `platform`: The [platform](../../concepts/vm-platforms.md) ID:
          {% if product == "yandex-cloud" %}* `gpu-standard-v1` for {{ v100-broadwell }}.{% endif %}
          {% if product == "yandex-cloud" %}* `gpu-standard-v2` for {{ v100-cascade-lake }}.{% endif %}
          * `gpu-standard-v3` for {{ a100-epyc }}.
@@ -136,13 +136,13 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
         resources {
           cores  = <number of vCPU cores>
-          memory = <RAM amount, GB>
+          memory = <amount of RAM, GB>
           gpus   = <number of GPUs>
         }
 
         boot_disk {
           initialize_params {
-            image_id = "fdv4f5kv5cvf3ohu4flt"
+            image_id = "<image ID>"
           }
         }
 

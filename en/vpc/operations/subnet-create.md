@@ -38,19 +38,19 @@
 
 - CLI
 
-  {% include [include](../../_includes/cli-install.md) %}
+   {% include [include](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a subnet:
+   To create a subnet:
 
-  1. See the description of the CLI command for creating a subnet:
+   1. See the description of the CLI command for creating a subnet:
 
       ```
       yc vpc subnet create --help
       ```
 
-  1. Get a list of cloud networks in the required folder:
+   1. Get a list of cloud networks in the required folder:
 
       ```
       yc vpc network list --folder-id b1g6ci08ma55klukmdjs
@@ -124,6 +124,7 @@
 
       ```
       ...
+
       - id: e2l0psbfoloefpjb1rau
         folder_id: b1g6ci08ma55klukmdjs
         created_at: "2018-10-24T12:25:58Z"
@@ -133,15 +134,19 @@
         zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.0.0/24
-      
+
       ...
       ```
+
+- API
+
+   To create a subnet, use the [create](../api-ref/Subnet/create.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Create](../api-ref/grpc/subnet_service.md#Create) gRPC API call.
 
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the subnet parameters:
 
@@ -154,7 +159,7 @@
       * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `network_id`: ID of the network where the subnet is created.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_subnet" "lab-subnet-a" {
@@ -170,20 +175,20 @@
 
       For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -191,7 +196,7 @@
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc subnet list
@@ -205,7 +210,7 @@
 
 - CLI
 
-  Create a subnet with a name and description in the selected folder:
+   Create a subnet with a name and description in the selected folder:
 
    ```
    yc vpc subnet create \
@@ -233,14 +238,14 @@
 
 - {{ TF }}
 
-  1. Describe the properties of the `yandex_vpc_subnet` resource in a configuration file:
+   1. Describe the properties of the `yandex_vpc_subnet` resource in a configuration file:
 
       ```hcl
       resource "yandex_vpc_network" "lab-net" {
         name        = "network-1"
         description = "My first network"
       }
-      
+
       resource "yandex_vpc_subnet" "lab-subnet-a" {
         name           = "subnet-1"
         description    = "My first subnet"
@@ -252,28 +257,28 @@
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
-     1. In the command line, go to the directory where you created the configuration file.
-     1. Run the check using the command:
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using this command:
 
-        ```
-        terraform plan
-        ```
+         ```
+         terraform plan
+         ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-     1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
-        ```
-        terraform apply
-        ```
+         ```
+         terraform apply
+         ```
 
-     1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc subnet list

@@ -30,9 +30,10 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
       ```
 
    1. Prepare the key pair (public and private keys) for SSH access to the VM.
-   1. Select a public [image](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} based on a Linux OS (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
+   1. Select a Linux-based public image from {{ marketplace-name }}, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
+
    1. Select a subnet:
       ```bash
       yc vpc subnet list
@@ -165,8 +166,13 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
       * `zoneId`: Availability zone that corresponds to the selected subnet.
       * `platformId`: The [platform](../../concepts/vm-platforms.md).
       * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
-      * `metadata`: In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
-      * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and disk size. The disk size must not be below the minimum value specified in the image details.
+      * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+      * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and the disk size.
+        
+        {% include [id-info](../../../_includes/compute/id-info.md) %}
+        
+        The disk size must not be below the minimum value specified in the image details.
+
       * `networkInterfaceSpecs`: Network setting.
          * `subnetId`: ID of the selected subnet.
          * `primaryV4AddressSpec`: IP address to be assigned to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, please specify:
@@ -195,42 +201,42 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```
       resource "yandex_compute_instance" "vm-1" {
-      
+
         name        = "linux-vm"
         platform_id = "standard-v3"
         zone        = "<availability zone>"
-      
+
         resources {
           cores  = "<number of vCPU cores>"
           memory = "<RAM amount, GB>"
         }
-      
+
         boot_disk {
           initialize_params {
             image_id = "<image ID>"
           }
         }
-      
+
         network_interface {
           subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
           nat       = true
         }
-      
+
         metadata = {
           ssh-keys = "<username>:<SSH key contents>"
         }
       }
-      
+
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
-      
+
       resource "yandex_vpc_subnet" "subnet-1" {
         name           = "subnet1"
         zone           = "<availability zone>"
@@ -260,20 +266,20 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -281,7 +287,7 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 

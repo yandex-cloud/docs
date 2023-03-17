@@ -273,6 +273,8 @@ default:
       viewer: k8s.viewer
       clusters:
         agent: k8s.clusters.agent
+      tunnelClusters:
+        agent: k8s.tunnelClusters.agent
       cluster-api:
         cluster-admin: k8s.cluster-api.cluster-admin
         editor: k8s.cluster-api.editor

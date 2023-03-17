@@ -8,11 +8,15 @@
 
 ## Подключить диск {#attach}
 
+{% if product == "yandex-cloud" %}
+
 {% note info %}
 
 Подключить локальный диск к ВМ на [выделенном хосте](../../concepts/dedicated-host.md) можно только при ее создании. Подробнее см. в [инструкциях](../index.md#dedicated-host).
 
 {% endnote %}
+
+{% endif %}
 
 Чтобы подключить сетевой диск к ВМ:
 

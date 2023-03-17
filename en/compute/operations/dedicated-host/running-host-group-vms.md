@@ -1,8 +1,8 @@
 # Creating a VM in a group of dedicated hosts
 
-A created VM will be linked to one of the [dedicated hosts](../../concepts/dedicated-host.md) in the group. When the VM is stopped, it won't be available on the group hosts, and when it's restarted, it may be linked to a different host from the group.
+The VM you create will be linked to one of the [dedicated hosts](../../concepts/dedicated-host.md) in the group. When the VM is stopped, it will not be available on the group hosts, and when it is restarted, it may be linked to a different host from the group.
 
-If you don't have a group of dedicated hosts, [create](create-host-group.md) one.
+If you do not have a group of dedicated hosts, [create](create-host-group.md) one.
 
 To create a VM:
 
@@ -22,13 +22,7 @@ To create a VM:
 
       Result:
 
-      ```bash
-      +----------------------+------+---------------+--------+---------------------+------+
-      |          ID          | NAME |     ZONE      | STATUS |        TYPE         | SIZE |
-      +----------------------+------+---------------+--------+---------------------+------+
-      | abcdefg1hi23gkl16dnf |      | {{ region-id }}-a | READY  | intel-6230-c66-m454 |    2 |
-      +----------------------+------+---------------+--------+---------------------+------+
-      ```
+      {% include [dedicated-types-cli-output](../../../_includes/compute/dedicated-types-cli-output.md) %}
 
    1. Get a list of available subnets:
 
@@ -48,22 +42,29 @@ To create a VM:
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       ```
 
-   1. Run the command to create a VM:
+   1. Run the following command to create a VM:
 
       ```bash
       yc compute instance create \
-        --host-group-id <ID of the dedicated host group> \
-        --zone <availability zone> \
-        --network-interface subnet-name=<subnet name>
+        --host-group-id <dedicated_host_group_ID> \
+        --zone <availability_zone> \
+        --platform <platform_ID> \
+        --network-interface subnet-name=<subnet_name> \
+        --attach-local-disk size=<disk_size>
       ```
 
       Where:
 
-      * `host-group-id`: ID of the dedicated host group.
-      * `zone` is the [availability zone](../../../overview/concepts/geo-scope.md) to place the group of dedicated hosts in.
-      * `network-interface subnet-name` is the name of the subnet in the availability zone.
+      * `--host-group-id`: ID of the dedicated host group.
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) where the group of dedicated hosts resides.
+      * {% include [dedicated-cli-platform](../../../_includes/compute/dedicated-cli-platform.md) %}
+      * `--network-interface`: VM network interface description:
 
-      To specify VM properties, use the parameters for the `yc compute instance create` command as described in the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/create.md). For more information, see [{#T}](../../concepts/vm.md) and [{#T}](../index.md#vm-create).
+         * `subnet-name`: Name of the subnet in the availability zone.
+
+      * {% include [dedicated-cli-attach-local-disk](../../../_includes/compute/dedicated-cli-attach-local-disk.md) %}
+
+      To specify other VM properties, use the `yc compute instance create` command parameters as described in the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/create.md). For more information, see [{#T}](../../concepts/vm.md) and [{#T}](../index.md#vm-create).
 
       Result:
 
@@ -89,20 +90,24 @@ To create a VM:
 
 {% endlist %}
 
-{% if product == "cloud-il" %}
+{% include [dedicated-mount-local-disk](../../../_includes/compute/dedicated-mount-local-disk.md) %}
 
-## Example of creating a virtual machine in a group of dedicated hosts with a local NVMe disk {#host-vm-nvme}
 
-Before creating a VM, [create](create-host-group.md) a group of dedicated hosts and get its ID using the `yc compute host-group list` [CLI command](../../../cli/cli-ref/managed-services/compute/host-group/list.md).
+## Example of creating a VM with a local disk in a group of dedicated hosts {#host-vm-nvme}
+
+Before creating a VM:
+
+1. [Create a group of dedicated hosts](create-host-group.md) and get its ID using the `yc compute host-group list` [CLI command](../../../cli/cli-ref/managed-services/compute/host-group/list.md).
+1. [Generate a key pair](../vm-connect/ssh.md#creating-ssh-keys) to connect to the VM via SSH.
 
 Create a VM with the following characteristics:
 * Location: Dedicated host group.
-* Platform: Intel Cascade Lake.
-* VCPU cores: 32.
-* RAM: 252 GB
-* Number of NVMe disks: 2.
-* NVMe disk size: 1600 GB.
-* Operating system: [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter).
+* Platform: Intel Ice Lake.
+* VCPU cores: 64.
+* RAM: 704 GB
+* Number of local disks: 2.
+* Size of a local disk: 3200 × 10^9^ B (~ 2.91 TB).
+* Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
 
 To do this, follow these steps:
 
@@ -114,64 +119,63 @@ To do this, follow these steps:
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. Create a YAML file named `metadata.yaml`, for example, to include the administrator password for the VM being created:
+   Run the following command to create a VM:
 
-      ```bash
-      #ps1
-      net user administrator '<password>'
-      ```
+   ```bash
+   yc compute instance create \
+     --cloud-id <cloud_ID> \
+     --folder-id <folder_ID> \
+     --zone <availability_zone> \
+     --name <VM_name> \
+     --platform standard-v3 \
+     --cores 64 \
+     --memory 704 \
+     --host-group-id <dedicated_host_group_ID> \
+     --network-interface subnet-id=<subnet_ID> \
+     --attach-local-disk "size=3200000000000" \
+     --attach-local-disk "size=3200000000000" \
+     --ssh-key <public_SSH_key_file_path> \
+     --create-boot-disk name=boot-disk,size=1000,image-folder-id=standard-images,image-family=ubuntu-2204-lts
+   ```
 
-   1. Run the command to create a VM:
+   Where:
 
-      ```bash
-      yc compute instance create \
-        --cloud-id <cloud ID> \
-        --folder-id <folder ID> \
-        --zone <availability zone> \
-        --name <VM name> \
-        --platform standard-v2 \
-        --cores 32 \
-        --memory 352 \
-        --host-group-id <ID of the dedicated host group> \
-        --network-interface subnet-id=<subnet ID> \
-        --attach-local-disk "size=1717986918400" \
-        --attach-local-disk "size=1717986918400" \
-        --metadata-from-file user-data=metadata.yaml \
-        --create-boot-disk name=rds-c1-d1-sas-boot-disk,size=1000,image-folder-id=standard-images,image-family=windows-2019-dc-gvlk
-      ```
+   * `--cloud-id`: [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md).
+   * `--folder-id`: ID of the folder.
+   * `--zone`: Availability zone where the group of dedicated hosts resides.
+   * `--name`: VM name.
+   * `--platform`: VM platform.
+   * `--cores`: Number of vCPUs.
+   * `--memory`: Amount of RAM.
+   * `--host-group-id`: ID of the dedicated host group.
+   * `--network-interface`: VM network interface description:
 
-      Where:
+      * `subnet-id`: ID of the subnet in the availability zone hosting the VM.
 
-      * `cloud-id`: [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md).
-      * `folder-id`: ID of the folder.
-      * `zone` is the availability zone to place the group of dedicated hosts in.
-      * `name`: VM name.
-      * `platform` is a VM platform.
-      * `cores`: The number of vCPUs.
-      * `memory`: The amount of RAM.
-      * `host-group-id`: ID of the dedicated host group.
-      * `network-interface subnet-id`: Subnet ID in the availability zone that will be hosting the VM.
-      * `attach-local-disk`: Attached local disk size.
-      * `metadata-from-file user-data`: Path to file with the administrator password.
-      * `create-boot-disk`: Boot disk parameters.
+   * `--attach-local-disk`: Description of the local disk being attached:
 
-      Result:
+      * `size`: Disk size.
 
-      ```bash
-      done (20s)
-      id: fhmbdt1jj2k3ls036909
-      folder_id: m4n56op78mev0cljderg
-      created_at: "2020-10-13T07:41:19Z"
-      zone_id: {{ region-id }}-a
-      ...
-      placement_policy:
-        host_affinity_rules:
-        - key: yc.hostGroupId
-          op: IN
-          values:
-          - abcdefg1hi23gkl16dnf
-      ```
+   * `--ssh-key`: Path to the public SSH key. The user `yc-user` will be automatically created on the VM for this key.
+   * `--create-boot-disk`: Boot disk parameters.
+
+   Result:
+
+   ```bash
+   done (20s)
+   id: fhmbdt1jj2k3ls036909
+   folder_id: m4n56op78mev0cljderg
+   created_at: "2023-01-16T12:46:50Z"
+   zone_id: {{ region-id }}-a
+   ...
+   placement_policy:
+     host_affinity_rules:
+     - key: yc.hostGroupId
+       op: IN
+       values:
+       - abcdefg1hi23gkl16dnf
+   ```
 
 {% endlist %}
 
-{% endif %}
+{% include [intel-trademark](../../../_includes/intel-trademark.md) %}

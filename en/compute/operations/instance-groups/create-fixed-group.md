@@ -32,9 +32,9 @@ To create a fixed-size instance group:
       yc vpc network list
       ```
 
-      If there aren't any, [create one](../../../vpc/operations/network-create.md).
+      If there are not any, [create one](../../../vpc/operations/network-create.md).
 
-   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
+   1. Select one of the {{ marketplace-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
@@ -54,11 +54,11 @@ To create a fixed-size instance group:
 
          | Key | Value |
          ----- | -----
-         | `name` | A name for the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
-         | `service_account_id` | ID of the service account. |
-         | `description` | A description of the instance group. |
+         | `name` | Name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters. |
+         | `service_account_id` | Service account ID. |
+         | `description` | Description of the instance group. |
 
-      * An [instance template](../../concepts/instance-groups/instance-template.md), such as:
+      * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
 
          ```
          instance_template:
@@ -170,9 +170,9 @@ To create a fixed-size instance group:
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```
       resource "yandex_iam_service_account" "ig-sa" {
@@ -260,7 +260,7 @@ To create a fixed-size instance group:
             ----- | -----
             | `name` | Name of the instance group. |
             | `folder_id` | Folder ID. |
-            | `service_account_id` | ID of the service account. |
+            | `service_account_id` | Service account ID. |
 
          * [The instance template](../../concepts/instance-groups/instance-template.md):
 
@@ -291,20 +291,20 @@ To create a fixed-size instance group:
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -312,6 +312,6 @@ To create a fixed-size instance group:
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 {% endlist %}

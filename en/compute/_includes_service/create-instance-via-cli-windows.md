@@ -4,7 +4,7 @@
    yc compute instance create --help
    ```
 
-1. Select one of the public [images](../operations/images-with-pre-installed-software/get-list.md) on Windows.
+1. Select one of the public images on Windows.
 
    {% include [standard-images](../../_includes/standard-images.md) %}
 

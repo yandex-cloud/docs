@@ -2,13 +2,13 @@
 
 Create an instance group using the [Instance Groups](../concepts/instance-groups/index.md) component in the {{ yandex-cloud }} management console.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Log in to or register in the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-   {% if product == "yandex-cloud" %}
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-   {% endif %}
-1. If you don't have a folder, [create one](../../resource-manager/operations/folder/create.md).
+1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
+{% if product == "yandex-cloud" %}
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+{% endif %}
+1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an instance group {#create-ig}
 
@@ -22,7 +22,7 @@ To create an instance group:
 1. On the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **Instance groups**.
 1. Click **Create group**.
 1. Under **Basic parameters**:
-   * Enter a name and description of the instance group. Naming requirements:
+   * Enter a name and description of the instance group. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -34,7 +34,7 @@ To create an instance group:
 1. In the **Instance template** section, click **Define** to set the base instance configuration:
    * Under **Basic parameters**:
       * Enter a description for the basic instance.
-   * Select a public [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
+   * Select a public image.
    * In the **Disks** section:
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).
       * Specify the disk size.

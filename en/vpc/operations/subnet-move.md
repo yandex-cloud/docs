@@ -68,7 +68,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       +----------------------+------------------------+--------+--------+
       ```
 
-   1. Move the subnet by specifying the name or ID of the subnet and destination folder: 
+   1. Move the subnet by specifying the name or ID of the subnet and destination folder:
 
       ```bash
       yc vpc subnet move <subnet_name_or_ID> \
@@ -92,6 +92,10 @@ You can move cloud resources between folders within a single [cloud](../../resou
        dhcp_options: {}
       ```
       For more information about the `yc vpc subnet move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/move.md).
+
+- API
+
+   To move a [subnet](../concepts/network.md#subnet) to a different folder, use the [move](../api-ref/Subnet/move.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Move](../api-ref/grpc/subnet_service.md#Move) gRPC API call.
 
 {% endlist %}
 

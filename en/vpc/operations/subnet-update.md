@@ -1,6 +1,6 @@
 # Updating a subnet
 
-After creating a subnet, you can change its name, description, and DHCP settings.
+After creating a subnet, you can change its name, description, and DCHP settings.
 
 {% list tabs %}
 
@@ -70,6 +70,10 @@ After creating a subnet, you can change its name, description, and DHCP settings
       - 192.168.0.0/24
       ```
 
+- API
+
+   To update a [subnet](../concepts/network.md#subnet), use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) gRPC API call.
+
 - {{ TF }}
 
    For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -110,7 +114,7 @@ After creating a subnet, you can change its name, description, and DHCP settings
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

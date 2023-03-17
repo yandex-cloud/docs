@@ -15,24 +15,24 @@ To create a key pair:
       ssh-keygen -t ed25519
       ```
 
-      After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `~/.ssh` directory.
+      After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. Press **Enter** to use the default name (`id_ed25519`). The key pair will be created in the `~/.ssh` directory.
 
-      The public part of the key will be saved in the `<key_name>.pub` file. Paste this part of the key into the **SSH key** field when creating a new virtual machine from the management console.
+      The public key will be saved in the `<key_name>.pub` file.
 
 - Windows 10
 
    1. Run `cmd.exe` or `powershell.exe`.
-   1. Use the `ssh-keygen` command to create a new key. Run the command:
+   1. Use the `ssh-keygen` command to create a new key. Run the following command:
 
       ```
       ssh-keygen -t ed25519
       ```
 
-      After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. The keys are created in `C:\Users\<username>\.ssh\` or `C:\Users\<username>\` depending on the command-line interface.
+      After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. Press **Enter** to use the default name (`id_ed25519`).
 
-      The public part of the key will be saved in a file with the name `<key name>.pub`.
-   1. When creating a virtual machine via the management console, specify the public key. To do this, open `<key_name>.pub` in Notepad and copy and paste the key value into the **SSH key** field. Please note that the key must be written as a **single line** (no returns or line breaks).
+      The key pair will be created in `C:\Users\<username>\.ssh\` or `C:\Users\<username>\` depending on the command line interface.
 
+      The public key will be saved in the `<key_name>.pub` file.
 
 - Windows 7/8
 
@@ -51,7 +51,6 @@ To create a key pair:
 
    1. In **Key passphrase**, enter a strong password. Enter it again in the field below.
    1. Click **Save private** key and save the private key. Never share it with anyone and do not tell anyone the passphrase for it.
-   1. Save the key to a text file. To do this, copy the public key from the text field to a text file with the name `id_ed25519.pub`. Please note that the key must be written as a **single line** (no returns or line breaks).
-   1. When creating a virtual machine via the management console, specify the public key. To do this, open `id_ed25519.pub` in Notepad and copy and paste the key value into the **SSH key** field.
+   1. Save the key to a text file. To do this, copy the **single-line** public key from the text field to a text file named `id_ed25519.pub`.
 
 {% endlist %}

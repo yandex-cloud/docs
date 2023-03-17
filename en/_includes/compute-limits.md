@@ -25,7 +25,7 @@
 | Number of concurrent [operations](../api-design-guide/concepts/operation.md) per folder | 15 |
 | Maximum number of [placement groups](../compute/concepts/placement-groups.md) per cloud | 2 |
 | Number of dedicated hosts per dedicated host group^1^ | 0 |
-| Number of dedicated host groups per cloud | 0 |
+| Number of dedicated host groups per cloud | 6 |
 
 {% endif %}
 
@@ -53,7 +53,7 @@
 
 {% endif %}
 
-^1^ To increase [quotas]({{ link-console-quotas }}) for {% if product == "yandex-cloud" %}file storage, {% endif %}virtual machines with GPUs, deployment-optimized images{% if product == "yandex-cloud" %}, or dedicated hosts{% endif %}, please contact [technical support]({{ link-console-support }}).
+^1^ To increase [quotas]({{ link-console-quotas }}) for {% if product == "yandex-cloud" %}file storage, {% endif %}virtual machines with GPUs, deployment-optimized images,{% if product == "yandex-cloud" %} or dedicated hosts,{% endif %} please contact [technical support]({{ link-console-support }}).
 
 #### VM limits {#compute-limits-vm}
 

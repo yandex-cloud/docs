@@ -133,26 +133,30 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       route_table_id: enp1sdveovdpdhaao5dq
       ```
 
+- API
+
+   To create a route table and add [static routes](../concepts/static-routes.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) gRPC API call.
+
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a route table and add [static routes](../concepts/static-routes.md):
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: The name of the route table. Name format:
+      * `name`: Name of the route table. Use this name format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
       * `network-id`: The ID of the network where the table will be created.
       * `static_route`: Static route description:
-         * `destination_prefix`: The destination subnet prefix in CIDR notation.
-         * `next_hop_address`: The internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) that traffic is sent through.
+         * `destination_prefix`: Destination subnet prefix in CIDR notation.
+         * `next_hop_address`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be sent through.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_route_table" "lab-rt-a" {
@@ -169,20 +173,20 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
       For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_route_table).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -190,7 +194,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc route-table list

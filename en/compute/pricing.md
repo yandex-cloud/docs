@@ -51,7 +51,6 @@ The VM starts automatically once it's created.
 
 When creating a VM, you can specify a public IP address for it.
 
-
 For information about external IP address usage pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
 
 #### Computing resources {#instance-resources}
