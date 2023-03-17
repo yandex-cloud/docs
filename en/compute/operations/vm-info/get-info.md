@@ -18,7 +18,7 @@ You can also get the basic details and metadata from [inside a VM](#inside-insta
 
    * **Overview** shows general information about the VM, including the IP addresses assigned to it.
    * **Disks** provides information about the disks attached to the VM.
-      {% if product == "yandex-cloud" %}* **File storages** provides information about the file storages attached.{% endif %}
+   {% if product == "yandex-cloud" %}* **File storages** provides information about the file storages attached.{% endif %}
    * **Operations** lists operations on the VM and resources attached to it, such as disks.
    * **Monitoring** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
    * **Serial console** provides access to the serial console if enabled when creating the VM.
@@ -176,3 +176,107 @@ Get an internal IP address from inside a VM:
 ```
 curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```
+
+## Setting up metadata service parameters for a VM instance {#metadata-options}
+
+You can set up metadata service parameters when [creating](../../operations/index.md#vm-create) or [updating](../../operations/vm-control/vm-update.md) VMs.
+
+You can use the following settings:
+
+* `aws-v1-http-endpoint` provides access to metadata using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
+* `aws-v1-http-endpoint` provides access to {{ iam-short-name }} credentials using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
+
+   {% note info %}
+
+   The IMDSv1 format has certain drawbacks in terms of security, which is why the `aws-v1-http-token` parameter is `disabled` by default. The most severe drawback of IMDSv1 is its high risk of certain attacks, e.g., [SSRF](https://portswigger.net/web-security/ssrf). You can read more about it in the [AWS official blog](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/). To change the default behavior of this parameter, contact [support]({{ link-console-support }}).
+
+   The safest method to obtain the token in {{ yandex-cloud }} is to use [Google Compute Engine](#gce-metadata) format, which uses an extra header for protection against SSRF.
+
+   {% endnote %}
+
+* `gce-http-endpoint` provides access to metadata using Google Compute Engine format. Acceptable values: `enabled`, `disabled`.
+* `gce-http-token` provides access to {{ iam-short-name }} credentials using Google Compute Engine format. Acceptable values: `enabled`, `disabled`.
+
+To set up the metadata service parameters for an instance:
+
+{% list tabs %}
+
+- CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command for updating VM parameters:
+
+      ```bash
+      yc compute instance update --help
+      ```
+
+   1. Get a list of VMs in the default folder:
+
+      ```bash
+      yc compute instance list
+      ```
+
+   1. Select the `ID` or `NAME` of the relevant VM.
+   1. Set the metadata service settings using the `--metadata-options` parameter:
+
+      ```bash
+      yc compute instance update <VM_instance_ID> \
+        --metadata-options gce-http-endpoint=enabled
+      ```
+
+- {{ TF }}
+
+   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   1. Open the {{ TF }} configuration file and change the `metadata_options` parameter in the VM description:
+
+      ```hcl
+      ...
+      resource "yandex_compute_instance" "test-vm" {
+        metadata_options {
+          gce-http-endpoint = "enabled"
+        }
+      }
+      ...
+      ```
+
+      For more information about the `yandex_compute_instance` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_instance).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+- API
+
+   To set up the metadata service, use the [update](../../api-ref/Instance/update.md) method for the [Instance](../../api-ref/Instance/) resource.
+
+{% endlist %}
