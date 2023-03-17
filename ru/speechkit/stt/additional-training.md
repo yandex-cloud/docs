@@ -54,7 +54,7 @@
 
 ### Загрузка данных для дообучения {#import-data}
 
-Чтобы передать данные для дообучения команде {{ speechkit-name }}, {% if product == "yandex-cloud" %}обратитесь к своему менеджеру.{% endif %}{% if product == "cloud-il" %}обратитесь в [техническую поддержку](../../support/overview.md).{% endif %}
+Чтобы передать данные для дообучения команде {{ speechkit-name }}, [обратитесь]({{ link-console-support }}) в техническую поддержку.
 
 {% if audience == "draft" %}
 

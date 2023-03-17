@@ -50,11 +50,11 @@
 
 Ссылку на объект в бакете можно указывать в одном из форматов:
 - Для бакета с публичным доступом:
-  - `https://<bucket>.{{ s3-storage-host }}/<key>`
+  - `http(s)://<bucket>.{{ s3-storage-host }}/<key>`
   - `https://{{ s3-storage-host }}/<bucket>/<key>`
 - Для бакета с ограниченным доступом:
+  - `http(s)://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
   - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
-  - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
 Где:
 
@@ -63,6 +63,8 @@
 * `parameters` — дополнительные параметры, необходимые для доступа к бакету с ограниченным доступом. Например подпись и срок действия.
 
 Для бакета с ограниченным доступом сервисом генерируется подписанная ссылка, которая позволяет временно скачать объект даже из бакета с ограниченным доступом. [Подробнее про подписанные ссылки, их генерацию и использование](pre-signed-urls.md).
+
+{% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 

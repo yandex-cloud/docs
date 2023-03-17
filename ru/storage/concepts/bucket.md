@@ -40,9 +40,7 @@ keywords:
 
 {{ objstorage-name }} поддерживает безопасное подключение по протоколу [HTTPS](https://ru.wikipedia.org/wiki/HTTPS). При обращении к бакетам используйте URL вида `https://{{ s3-storage-host }}/<bucket>?<parameters>`.
 
-При использовании URL вида `http://<bucket>.{{ s3-storage-host }}?<parameters>` протокол HTTPS не доступен.
-
-О поддержке HTTPS при хостинге сайтов в {{ objstorage-name }}, читайте в разделе [{#T}](hosting.md).
+{% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
 ## Настройки бакетов {#bucket-settings}
 
