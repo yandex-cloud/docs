@@ -301,7 +301,7 @@
 
 * **Group by overflow mode**{#setting-group-by-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет поведение {{ CH }}, когда количество уникальных ключей при агрегации [превысило ограничение]({{ ch.docs }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity):
+  Определяет поведение {{ CH }}, когда количество уникальных ключей при агрегации [превысило ограничение]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
   * `break` — вернуть неполный результат.
   * `any` — выполнить `GROUP BY` приближенно. Качество такого вычисления зависит от статистических свойств данных.
@@ -469,7 +469,7 @@
 
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет, использовать ли [тип LowCardinality]}({{ ch.docs }}/sql-reference/data-types/lowcardinality/) в native-формате:
+  Определяет, использовать ли [тип LowCardinality]({{ ch.docs }}/sql-reference/data-types/lowcardinality/) в native-формате:
   * Настройка включена (по умолчанию) — использовать.
   * Настройка выключена — не использовать:
     * Для запроса `SELECT` конвертировать столбцы типа LowCardinality в обычные.
