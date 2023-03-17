@@ -1,1 +1,1 @@
-(опционально) [Добавьте](../../certificate-manager/operations/index.md) свой сертификат в Certificate Manager или [выпустите](../../certificate-manager/operations/managed/cert-create.md) бесплатный сертификат от Let's Encrypt.
+(опционально) {% if audience == "external" %}[Добавьте](../../certificate-manager/operations/index.md){% else %}Добавьте{% endif %} свой сертификат в Certificate Manager или {% if audience == "external" %}[выпустите](../../certificate-manager/operations/managed/cert-create.md){% else %}выпустите{% endif %} бесплатный сертификат от Let's Encrypt.
