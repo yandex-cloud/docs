@@ -2,25 +2,31 @@
 editable: false
 ---
 
-# yc managed-kubernetes node-group add-metadata
+# yc compute gpu-cluster
 
-Add or update metadata of the node template of the specified node group.
+Manage GPU clusters
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-kubernetes node-group add-metadata <NODE-GROUP-NAME>|<NODE-GROUP-ID> [Flags...] [Global Flags...]`
+`yc compute gpu-cluster <command>`
 
-#### Flags
+Aliases: 
 
-| Flag | Description |
-|----|----|
-|`--id`|<b>`string`</b><br/>ID of the node group.|
-|`--name`|<b>`string`</b><br/>Name of the node group.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--metadata`|<b>`key=value[,key=value...]`</b><br/>Metadata to add.<br/>See for details https://cloud.yandex.ru/docs/compute/concepts/vm-metadata|
-|`--metadata-from-file`|<b>`key=value[,key=value...]`</b><br/>Same as --metadata except that the value for the entry will be read from a local file.|
+- `gpu-clusters`
+
+#### Command Tree
+
+- [yc compute gpu-cluster get](get.md) — Show information about the specified GPU cluster
+- [yc compute gpu-cluster list](list.md) — List GPU clusters
+- [yc compute gpu-cluster create](create.md) — Create a GPU cluster
+- [yc compute gpu-cluster update](update.md) — Update the specified GPU cluster
+- [yc compute gpu-cluster add-labels](add-labels.md) — Add labels to specified GPU cluster
+- [yc compute gpu-cluster remove-labels](remove-labels.md) — Remove labels from specified GPU cluster
+- [yc compute gpu-cluster delete](delete.md) — Delete the specified GPU cluster
+- [yc compute gpu-cluster list-operations](list-operations.md) — List operations for the specified GPU cluster
+- [yc compute gpu-cluster list-instances](list-instances.md) — List instances created in the specified GPU cluster
 
 #### Global Flags
 

@@ -2,35 +2,26 @@
 editable: false
 ---
 
-# yc serverless api-gateway create
+# yc compute gpu-cluster create
 
-Create API Gateway
+Create a GPU cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc serverless api-gateway create <API-GATEWAY-NAME> [Flags...] [Global Flags...]`
+`yc compute gpu-cluster create <GPU-CLUSTER-NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--name`|<b>`string`</b><br/>Api-gateway name.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--description`|<b>`string`</b><br/>Api-gateway description.|
+|`--name`|<b>`string`</b><br/>A name of the GPU cluster.|
+|`--description`|<b>`string`</b><br/>Specifies a textual description of the GPU cluster.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
-|`--spec`|<b>`string`</b><br/>Api-gateway specification file name.|
-|`--network-name`|<b>`string`</b><br/>Api-gateway network name.|
-|`--network-id`|<b>`string`</b><br/>Api-gateway network id.|
-|`--subnet-name`|<b>`value[,value]`</b><br/>Api-gateway subnet names.|
-|`--subnet-id`|<b>`value[,value]`</b><br/>Api-gateway subnet ids.|
-|`--no-logging`|Disable logging from api-gateway.|
-|`--log-group-id`|<b>`string`</b><br/>Send logs to custom log group by id.|
-|`--log-group-name`|<b>`string`</b><br/>Send logs to custom log group by name.|
-|`--log-folder-id`|<b>`string`</b><br/>Send logs to default log group of custom folder by id.|
-|`--log-folder-name`|<b>`string`</b><br/>Send logs to default log group of custom folder by name.|
-|`--min-log-level`|<b>`string`</b><br/>Min log level. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'|
+|`--zone`|<b>`string`</b><br/>The zone of the GPU cluster to create.|
+|`--interconnect-type`|<b>`string`</b><br/>Interconnect type. Values: 'infiniband'|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 

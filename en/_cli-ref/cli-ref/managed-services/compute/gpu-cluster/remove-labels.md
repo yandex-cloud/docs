@@ -2,25 +2,24 @@
 editable: false
 ---
 
-# yc managed-kubernetes node-group add-metadata
+# yc compute gpu-cluster remove-labels
 
-Add or update metadata of the node template of the specified node group.
+Remove labels from specified GPU cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-kubernetes node-group add-metadata <NODE-GROUP-NAME>|<NODE-GROUP-ID> [Flags...] [Global Flags...]`
+`yc compute gpu-cluster remove-labels <GPU-CLUSTER-NAME>|<GPU-CLUSTER-ID> --labels KEY,[KEY...] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>ID of the node group.|
-|`--name`|<b>`string`</b><br/>Name of the node group.|
+|`--id`|<b>`string`</b><br/>GPU cluster id.|
+|`--name`|<b>`string`</b><br/>GPU cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--metadata`|<b>`key=value[,key=value...]`</b><br/>Metadata to add.<br/>See for details https://cloud.yandex.ru/docs/compute/concepts/vm-metadata|
-|`--metadata-from-file`|<b>`key=value[,key=value...]`</b><br/>Same as --metadata except that the value for the entry will be read from a local file.|
+|`--labels`|<b>`value[,value]`</b><br/>Label keys to remove.|
 
 #### Global Flags
 
