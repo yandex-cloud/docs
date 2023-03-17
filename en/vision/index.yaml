@@ -19,8 +19,8 @@ links:
     description: Learn more about the concepts of the service
     href: concepts/
   - title: API reference
-    description: HTTP API method descriptions
-    href: api-ref/
+    description: Authentication and API method descriptions
+    href: api-ref/authentication
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits

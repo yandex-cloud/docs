@@ -19,8 +19,8 @@ links:
     description: Узнайте про концепции сервиса
     href: concepts/
   - title: Справочник API
-    description: Описание методов HTTP API
-    href: api-ref/
+    description: Описание аутентификации и методов API
+    href: api-ref/authentication
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
