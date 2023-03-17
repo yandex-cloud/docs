@@ -234,7 +234,6 @@ Source: https://logging.apache.org/log4j/2.x/security.html
 Hystax Acura Controller: allow ingress traffic for UDP port 12201 only for a list of source IP ranges with replication agents deployed.
 
 If you placed Hystax Acura Controller behind a network load balancer in your infrastructure, apply the above firewall rule to the respective load balancer.
-
 ## 12.11.2021: CVE-2021-22205: Remote code execution via a vulnerability in {{ GL }}
 
 ### Description

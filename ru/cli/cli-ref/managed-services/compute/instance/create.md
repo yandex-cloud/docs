@@ -47,6 +47,8 @@ Syntax:
 |`--host-group-id`|<b>`string`</b><br/>Host group to create the instance in.|
 |`--host-group-name`|<b>`string`</b><br/>Host group to create the instance in.|
 |`--host-id`|<b>`string`</b><br/>Host to create the instance in.|
+|`--gpu-cluster-id`|<b>`string`</b><br/>GPU cluster to create the instance in.|
+|`--gpu-cluster-name`|<b>`string`</b><br/>GPU cluster to create the instance in.|
 |`--service-account-id`|<b>`string`</b><br/>Service account, which token can be obtained inside VM from metadata service.|
 |`--service-account-name`|<b>`string`</b><br/>Service account, which token can be obtained inside VM from metadata service.|
 |`--image-folder-id`|<b>`string`</b><br/>The folder ID against which all image and image family references will be resolved.|

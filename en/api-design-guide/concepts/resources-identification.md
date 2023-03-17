@@ -68,6 +68,7 @@ Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/bl
  }
 ```
 
+{% include notitle [database_name](../_includes/database_name.md) %}
 
 In the REST API, the unique URI of a nested resource has a hierarchical structure:
 ```
@@ -78,14 +79,13 @@ Sample REST request for getting a DB:
  GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/24f17h0gfqf7oeuis2f/databases/db-testing
 ```
 Where:
-- `clusters`: The category of the parent resource.
+- `clusters`: Category of the parent resource.
 - `24f17h0gfqf7oeuis2f`: ID of the parent resource.
-- `databases`: The category of the nested resource.
+- `databases`: Category of the nested resource.
 - `db-testing`: ID of the nested resource.
 
+
 #### See also {#see-also}
-
-- [API repository](https://github.com/yandex-cloud/cloudapi) — The link to the .proto specifications of the API.
-- [{{ resmgr-full-name }} documentation](../../resource-manager/concepts/resources-hierarchy.md) — The link to the <q>Hierarchy of {{ yandex-cloud }} resources</q> section.
-
+- [{{ yandex-cloud }} API repository](https://github.com/yandex-cloud/cloudapi): Link to the .proto specifications of the API.
+- [{{ resmgr-full-name }}Documentation](../../resource-manager/concepts/resources-hierarchy.md): Link to the <q>Hierarchy of {{ yandex-cloud }}resources</q> section.
 

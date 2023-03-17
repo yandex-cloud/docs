@@ -67,7 +67,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       +----------------------+------------------------+--------+--------+
       ```
 
-   1. Move the network by specifying the name or ID of the network and destination folder: 
+   1. Move the network by specifying the name or ID of the network and destination folder:
 
       ```bash
       yc vpc network move <network_name_or_ID> \
@@ -87,6 +87,10 @@ You can move cloud resources between folders within a single [cloud](../../resou
        default_security_group_id: enc2ta63h3q2jsri70ll
       ```
       For more information about the `yc vpc network move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/move.md).
+
+- API
+
+   To move a [cloud network](../concepts/network.md) to a different folder, use the [move](../api-ref/Network/move.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Move](../api-ref/grpc/network_service.md#Move) gRPC API call.
 
 {% endlist %}
 

@@ -48,7 +48,7 @@
 
 * **Mark cache size**{#setting-mark-cache-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-    Приблизительный размер (в байтах) кеша засечек, используемых движками таблиц семейства [MergeTree]({{ ch.docs }}//engines/table-engines/mergetree-family/mergetree/). Кеш общий для хоста кластера, память выделяется по мере необходимости.
+    Приблизительный размер (в байтах) кеша засечек, используемых движками таблиц семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/). Кеш общий для хоста кластера, память выделяется по мере необходимости.
 
     Выбранное значение настройки не является строгим ограничением. {{ CH }} может использовать чуть меньше или чуть больше памяти под этот кеш.
 
@@ -257,7 +257,7 @@
 
     Вы можете настроить несколько конфигураций и использовать их для разных таблиц.
 
-    Подробнее о поддержке Graphite см. в документации [{{ CH }}]({{ ch.docs }}//engines/table-engines/mergetree-family/graphitemergetree/).
+    Подробнее о поддержке Graphite см. в документации [{{ CH }}]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/).
 
 * **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 

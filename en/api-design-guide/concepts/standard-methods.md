@@ -3,7 +3,7 @@
 Below is a list of standard API methods and corresponding HTTP methods:
 
 | API method | HTTP method | Request body | Response body |
-| ----- | ----- | ----- | ---- |
+----- | ----- | ----- | ----
 | [Get](#method-get) | GET | — | Resource view. |
 | [List](#method-list) | GET | — | List of resources. |
 | [Create](#method-create) | POST | Resource view. | [Operation](operation.md) object. |
@@ -45,6 +45,8 @@ Returns a list of resources of a certain category. For example, a list of disks 
 Currently, resource lists can only be obtained relative to their direct parent. For example, you can get a list of disks in a folder, but you can't view a list of disks in the entire cloud.
 
 The `List` method corresponds to the HTTP `GET` method. The ID of the parent resource, such as the folder, should be passed in the request parameters.
+
+{% include notitle [page-size-field](../_includes/page-size-field.md) %}
 
 The `List` method supports [result pagination](pagination.md).
 
@@ -99,6 +101,8 @@ Creates a resource in the specified cloud, folder, network, etc.
 The `Create` method corresponds to the HTTP `POST` method. As parameters, pass the ID of the parent resource to create the new resource in (for example, the folder ID).
 
 `Create` is an asynchronous signature method. It returns the [Operation](operation.md) object with the operation status and the ID of the new resource.
+
+{% include notitle [name-description-labels-fields](../_includes/name-description-labels-fields.md) %}
 
 If you try to create a resource that already exists, the method returns the `ALREADY_EXISTS` error. [Learn more about errors](errors.md)
 
@@ -186,6 +190,8 @@ The `Update` method supports partial resource updates. The fields to update are 
 - The values of the other fields will be reset to their defaults.
 
 It is an asynchronous signature method. It returns the [Operation](operation.md) object that contains the operation status and the view of the updated resource.
+
+{% include notitle [name-description-labels-fields](../_includes/name-description-labels-fields.md) %}
 
 Sample gRPC description of the [Update](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to update a disk resource:
 ```protobuf

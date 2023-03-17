@@ -26,6 +26,12 @@ Syntax:
 |`--network-id`|<b>`string`</b><br/>Api-gateway network id.|
 |`--subnet-name`|<b>`value[,value]`</b><br/>Api-gateway subnet names.|
 |`--subnet-id`|<b>`value[,value]`</b><br/>Api-gateway subnet ids.|
+|`--no-logging`|Disable logging from api-gateway.|
+|`--log-group-id`|<b>`string`</b><br/>Send logs to custom log group by id.|
+|`--log-group-name`|<b>`string`</b><br/>Send logs to custom log group by name.|
+|`--log-folder-id`|<b>`string`</b><br/>Send logs to default log group of custom folder by id.|
+|`--log-folder-name`|<b>`string`</b><br/>Send logs to default log group of custom folder by name.|
+|`--min-log-level`|<b>`string`</b><br/>Min log level. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'|
 
 #### Global Flags
 

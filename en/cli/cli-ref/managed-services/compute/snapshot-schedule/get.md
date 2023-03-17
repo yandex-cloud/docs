@@ -11,7 +11,7 @@ Show information about the specified snapshot schedule
 
 Syntax: 
 
-`yc compute snapshot-schedule get <SNAPSHOT-NAME>|<SNAPSHOT-ID> [<SNAPSHOT-SCHEDULE-NAME>|<SNAPSHOT-SCHEDULE-ID>...] [Global Flags...]`
+`yc compute snapshot-schedule get <SNAPSHOT-SCHEDULE-NAME>|<SNAPSHOT-SCHEDULE-ID> [<SNAPSHOT-SCHEDULE-NAME>|<SNAPSHOT-SCHEDULE-ID>...] [Global Flags...]`
 
 Aliases: 
 

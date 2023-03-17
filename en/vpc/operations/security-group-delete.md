@@ -55,6 +55,10 @@ To delete a security group:
       yc vpc security-group delete test-sg-cli
       ```
 
+- API
+
+   Use the [delete](../api-ref/SecurityGroup/delete.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Delete](../api-ref/grpc/security_group_service.md#Delete) gRPC API call.
+
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -73,14 +77,14 @@ To delete a security group:
         name        = "Test security group"
         description = "Description for security group"
         network_id  = "${yandex_vpc_network.lab-net.id}"
-      
+
         ingress {
           protocol       = "TCP"
           description    = "Rule description 1"
           v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
           port           = 8080
         }
-      
+
         egress {
           protocol       = "ANY"
           description    = "Rule description 2"
@@ -108,13 +112,13 @@ To delete a security group:
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

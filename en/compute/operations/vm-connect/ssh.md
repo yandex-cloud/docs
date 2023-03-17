@@ -12,6 +12,79 @@ Save the private key in a secure location: you won't be able to connect to the V
 
 {% endnote %}
 
+## Copying a public key to the clipboard {#copy-key}
+
+Copy the key from the `<key_name>.pub` file using any text editor, such as Notepad. Please note that the key must be written as a **single line** (no returns or line breaks).
+
+You can also copy the key using the command line:
+
+{% list tabs %}
+
+- Windows
+
+   1. Run `cmd.exe` or `powershell.exe`.
+
+   1. Output the file contents:
+
+      ```bash
+      type C:\Users\<username>\.ssh\<key_name>.pub
+      ```
+      Where:
+
+      * `<username>`: Your Windows account name, such as `User`.
+      * `<key_name>`: Key name, such as `id_ed25519` or `id_rsa`.
+
+      The command will output the public key. To copy the key, select and right-click it. For example, `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz`.
+
+   1. You can copy the file contents right to the clipboard:
+
+      ```bash
+      type C:\Users\User\.ssh\id_ed25519.pub | clip
+      ```
+      Paste the public key into the **SSH key** field when creating a new VM in the [management console]({{ link-console-main }}).
+
+- Linux
+
+   1. Run the terminal.
+
+   1. Output the file contents:
+
+      ```bash
+      cat ~/.ssh/<key_name>.pub
+      ```
+      Where `<key_name>` is the key name, such as `id_ed25519` or `id_rsa`.
+
+      The command will output the public key. Select and copy its text to the clipboard. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz user@Desktop`.
+
+   1. You can copy the file contents right to the clipboard:
+
+      ```bash
+      cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
+      ```
+      Paste the public key into the **SSH key** field when creating a new VM in the [management console]({{ link-console-main }}).
+
+- MacOS
+
+   1. Run the terminal.
+
+   1. Output the file contents:
+
+      ```bash
+      cat ~/.ssh/<key_name>.pub
+      ```
+      Where `<key_name>` is the key name, such as `id_ed25519` or `id_rsa`.
+
+      The command will output the public key. Select and copy its text to the clipboard. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz user@Desktop`.
+
+   1. You can copy the file contents right to the clipboard:
+
+      ```bash
+      cat ~/.ssh/id_ed25519.pub | pbcopy
+      ```
+      Paste the public key into the **SSH key** field when creating a new VM in the [management console]({{ link-console-main }}).
+
+{% endlist %}
+
 ## Connecting to a VM {#vm-connect}
 
 You can connect to a virtual machine with the `RUNNING` status over SSH. Some time may be required to initialize all the services after the VM [starts](../vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after several minutes.

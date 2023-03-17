@@ -1,0 +1,1 @@
+The `description` field may contain up to 256 characters, while the `name` and `labels` field values may be up to 63 characters long.

@@ -81,6 +81,10 @@ You can move cloud resources between folders within a single [cloud](../../resou
       ```
       For more information about the `yc vpc route-table move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/route-table/move.md).
 
+- API
+
+   To move a [route table](../concepts/static-routes.md) to a different folder, use the [move](../api-ref/RouteTable/move.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Move](../api-ref/grpc/route_table_service.md#Move) gRPC API call.
+
 {% endlist %}
 
 

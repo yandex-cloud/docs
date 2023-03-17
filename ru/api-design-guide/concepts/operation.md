@@ -14,7 +14,7 @@
 Объект `Operation` содержит поля:
 
 Поле |  Описание
------ |  -----
+----- | -----
 `id`* | <b>string</b><br/>Идентификатор операции. Генерируется на стороне сервиса.
 `created_at`* | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)<br/>Время запуска операции. Указывается в формате [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt).
 `created_by`* |  <b>string</b><br/>Идентификатор пользователя, запустившего операцию.

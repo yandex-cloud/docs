@@ -1,6 +1,6 @@
 # VM instance metadata
 
-The VM instance details are available in the metadata service. You can use the metadata to pass any keys and values, and then request metadata from [inside](../operations/vm-info/get-info.md#inside-instance) or [outside](../operations/vm-info/get-info.md#outside-instance) an instance.
+The VM instance details are available in the metadata service. You can use the metadata to pass any keys and values, and then request metadata from [inside](../operations/vm-info/get-info.md#inside-instance) or [outside](../operations/vm-info/get-info.md#outside-instance) an instance. For more information about setting up a metadata service, see [{#T}](../operations/vm-info/get-info.md#metadata-options).
 
 Metadata is also used by programs launched on VM start.
 
@@ -21,7 +21,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 
    In the CLI, you can specify metadata in three parameters:
    * `--metadata-from-file` as a file, for example, `--metadata-from-file key=path/to/file`. This is convenient when passing values consisting of multiple strings.
-   * `--metadata`: the list of `key-value` pairs separated by commas, for example, `--metadata foo1=bar,foo2=baz`.
+   * `--metadata`: The list of `key-value` pairs separated by commas, for example, `--metadata foo1=bar,foo2=baz`.
 
       If the value is multiline, use `\n` to split lines: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`
    * `--ssh-key` with an SSH key. Only for Linux-based virtual machines.
@@ -40,9 +40,9 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 
 - {{ TF }}
 
-   In the {{ TF }}, you can specify metadata in any of these three ways:
+   In the {{ TF }}, you can specify metadata in three ways:
 
-   * As a separate file with user metadata to process by the cloud-init agent. To use this method, under `metadata`, specify the path to the file with user metadata, such as `cloud-init.yaml`:
+   * As a separate file with user metadata to be processed by the cloud-init agent. Under `metadata`, specify the path to the file with user metadata, such as `cloud-init.yaml`:
 
       ```hcl
       ...
@@ -67,7 +67,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 
       {% endcut %}
 
-   * In the `metadata` section, as a line with user metadata. If the value is multiline, use `\n` as a line separator. For example:
+   * In the `metadata` section, as a line with user metadata. If the value is multiline, use `\n` to split lines. For example:
 
       ```hcl
       ...
@@ -89,7 +89,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 
 - API
 
-   In the API, you specify the metadata in the `metadata` property as a JSON object, for example:
+   In the API, specify the metadata in the `metadata` property as a JSON object, e.g.:
    ```json
    "metadata": {
      "ssh-keys": "ssh-ed25519 AAAAB3Nza... user@example.com",

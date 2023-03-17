@@ -1,0 +1,1 @@
+The maximum `page_size` field value is 1000.
