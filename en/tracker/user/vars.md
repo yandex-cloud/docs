@@ -100,7 +100,7 @@ Examples of variables in JSON format:
 
 {% endnote %}
 
-## Comment variable {#comment-var}
+## Comment variables {#comment-var}
 
 Comment fields are written in the format: `{{userComment.<field key>}}` and its act like `{{issue.<field key>}}`.
 
