@@ -356,6 +356,10 @@ items:
         href: routing/mikrotik.md
       - name: Соединение с облачной сетью при помощи OpenVPN
         href: routing/openvpn.md
+      - name: >-
+          Создание туннеля между двумя подсетями при помощи OpenVPN Access
+          Server
+        href: routing/site-to-site-openvpn.md
       - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
         href: routing/usergate-proxy.md
       - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана

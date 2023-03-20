@@ -35,8 +35,9 @@
       +----------------------+-------------+------------+---------------------+----------------------+--------+
       ```
 
-  1. Назначьте роль на секрет для пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
-      * Для пользователя:
+  1. Чтобы назначить роль на секрет:
+
+      * Пользователю:
 
         ```bash
         yc lockbox secret add-access-binding \
@@ -50,7 +51,7 @@
         * `user-account-id` — [идентификатор пользователя](../../iam/operations/users/get.md).
         * `role` — назначаемая [роль](../security/index.md#roles-list).
 
-      * Для сервисного аккаунта:
+      * [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md):
 
         ```bash
         yc lockbox secret add-access-binding \
@@ -70,9 +71,11 @@
 
 {% endlist %}
 
-{% note info %}
+{% note warning %}
 
-Вы также можете [назначить](../../iam/operations/roles/grant.md) группе, пользователю или сервисному аккаунту роль на ресурс, от которого наследуются права доступа, например, на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+Если вы [назначите](../../iam/operations/roles/grant.md) группе, пользователю или сервисному аккаунту роль на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), в которых находится секрет, все разрешения этой роли будут действовать и для секрета.
+
+Подробнее об этом читайте в разделе [Как устроено управление доступом](../../iam/concepts/access-control/#inheritance).
 
 {% endnote %}
 
