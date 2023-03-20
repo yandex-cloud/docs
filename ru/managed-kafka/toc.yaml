@@ -61,6 +61,10 @@ items:
           Поставка данных из {{ mpg-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/cdc/data-transfer-mpg.md
+      - name: >-
+          Поставка данных из {{ ydb-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/cdc/data-transfer-ydb.md
       - name: Поставка данных в {{ mch-name }}
         href: tutorials/send-data-to-mch.md
       - name: >-

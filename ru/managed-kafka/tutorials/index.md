@@ -9,6 +9,7 @@
 * [{#T}](./cdc/debezium-mpg.md)
 * [{#T}](./cdc/debezium-mmy.md)
 * [{#T}](./cdc/data-transfer-mpg.md)
+* [{#T}](./cdc/data-transfer-ydb.md)
 * [{#T}](./send-data-to-mch.md)
 * [{#T}](./use-ksqldb-with-mkf.md)
 * [{#T}](./mkf-to-mch-migration.md)

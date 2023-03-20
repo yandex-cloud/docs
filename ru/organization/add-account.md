@@ -1,25 +1,19 @@
 # Добавить пользователя
 
 
-## Добавить пользователя Яндекса{#add-user-account}
+## Пригласить пользователя Яндекса{#add-or-invite-user-account}
 
 Если у сотрудников компании есть аккаунты на Яндексе (например, `{{login-example}}`), они могут использовать эти аккаунты для доступа к сервисам {{yandex-cloud}}, подключенным к вашей организации.
 
 {% note info %}
 
-Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. Как назначить роль пользователю, читайте в разделе [Роли](roles.md#admin).
+Приглашать пользователей может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. Как назначить роль пользователю, читайте в разделе [Роли](roles.md#admin).
 
 {% endnote %}
 
-Чтобы добавить аккаунты сотрудников в организацию:
+Чтобы пригласить сотрудников в организацию:
 
-{% include [add-useraccount](../_includes/organization/add-useraccount.md) %}
-
-{% note info %}
-
-{% include [yandex-account-2fa-warning.md](../_includes/iam/yandex-account-2fa-warning.md) %}
-
-{% endnote %}
+{% include [add-useraccount](../_includes/organization/invite-user.md) %}
 
 
 ## Добавить федеративных пользователей {#add-user-sso}

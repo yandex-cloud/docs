@@ -72,7 +72,7 @@
      * `--container-runtime` — [среда запуска контейнеров](../../concepts/index.md#config), `docker` или `containerd`.
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels` — [ресурсные метки {{ yandex-cloud }}](../../../overview/concepts/services.md#labels) в формате `<имя метки>=<значение метки>` для ВМ, представляющих узлы группы. Можно указать несколько меток через запятую.
+     * `--template-labels` — [ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) в формате `<имя метки>=<значение метки>` для ВМ, представляющих узлы группы. Можно указать несколько меток через запятую.
      * `--version` — версия {{ k8s }} на узлах группы.
      * `--node-name` — шаблон имени узлов. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
@@ -112,7 +112,7 @@
      * Идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) в параметре `cluster_id`.
      * [Платформу](../../../compute/concepts/vm-platforms.md) для узлов.
      * Настройку [среды запуска контейнеров](../../concepts/index.md#config) в параметре `container_runtime`.
-     * [Ресурсные метки {{ yandex-cloud }}](../../../overview/concepts/services.md#labels) для ВМ, представляющих узлы группы, в блоке `nodeTemplate.labels`.
+     * [Ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для ВМ, представляющих узлы группы, в блоке `nodeTemplate.labels`.
      * Настройки масштабирования в блоке `scale_policy`.
 
      Пример структуры конфигурационного файла:
@@ -151,7 +151,7 @@
        * `platform_id` – [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
        * `container_runtime`:
          * `type` — [среда запуска контейнеров](../../concepts/index.md#config): `docker` или `containerd`.
-       * `labels` — [ресурсные метки {{ yandex-cloud }}](../../../overview/concepts/services.md#labels) для ВМ, представляющих узлы группы. Можно указать несколько меток через запятую.
+       * `labels` — [ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для ВМ, представляющих узлы группы. Можно указать несколько меток через запятую.
        * `scale_policy` – настройки масштабирования.
 
      {% note warning %}
@@ -207,7 +207,7 @@
   * Идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Конфигурацию группы узлов](../../concepts/index.md#config) в параметре `nodeTemplate`.
   * [Среду запуска контейнеров](../../concepts/index.md#config) в параметре `nodeTemplate.containerRuntimeSettings.type`.
-  * [Ресурсные метки {{ yandex-cloud }}](../../../overview/concepts/services.md#labels) для ВМ, представляющих узлы группы, в параметре `nodeTemplate.labels`.
+  * [Ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для ВМ, представляющих узлы группы, в параметре `nodeTemplate.labels`.
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов в параметрах `allocationPolicy`.
   * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.

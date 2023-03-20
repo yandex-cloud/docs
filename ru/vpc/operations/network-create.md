@@ -96,7 +96,7 @@
         {% include [name-format](../../_includes/name-format.md) %}
 
      * `description` — описание облачной сети.
-     * `labels` — [метки](https://cloud.yandex.ru/docs/overview/concepts/services#labels) для облачной сети. Укажите пару ключ-значение.
+     * `labels` — [метки](../../resource-manager/concepts/labels.md) для облачной сети. Укажите пару ключ-значение.
 
      Пример структуры конфигурационного файла:
 

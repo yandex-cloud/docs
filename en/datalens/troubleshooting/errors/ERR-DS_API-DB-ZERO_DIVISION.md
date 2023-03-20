@@ -18,3 +18,5 @@ IF([B] != 0, [A] / [B], NULL)
 ```
 
 Alternatively, you can use another numeric value instead of the `NULL`, depending on the desired result.
+
+You can also use [DIV_SAFE](../../../datalens/function-ref/DIV_SAFE.md) and [FDIV_SAFE](../../../datalens/function-ref/FDIV_SAFE.md) functions that handle division by zero.

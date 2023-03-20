@@ -7,7 +7,7 @@
       {% include [name-format](../../_includes/name-format.md) %}
 
    * `description` — описание API-шлюза.
-   * `labels` — [метки](../../overview/concepts/services#labels) для API-шлюза. Укажите пару ключ-значение.
+   * `labels` — [метки](../../resource-manager/concepts/labels.md) для API-шлюза. Укажите пару ключ-значение.
    * `spec` — спецификация API-шлюза.
 
    Пример структуры конфигурационного файла:

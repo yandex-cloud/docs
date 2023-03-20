@@ -158,7 +158,7 @@
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-       * `labels` — [метки](../../overview/concepts/services.md#labels) для HTTP-роутера. Укажите пару ключ-значение.
+       * `labels` — [метки](../../resource-manager/concepts/labels.md) для HTTP-роутера. Укажите пару ключ-значение.
      * `yandex_alb_virtual_host` — описание виртуального хоста:
        * `name` — имя виртуального хоста. Формат имени:
 
