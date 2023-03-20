@@ -60,7 +60,7 @@
 ## Создайте политику Kyverno {#kyverno-policies}
 
 1. Установите приложение [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) согласно [инструкции](../../operations/applications/kyverno.md).
-1. Создайте политику, которая будет требовать, чтобы все [поды](../../concepts/index.md#pod) имели [метку](../../../overview/concepts/services.md#labels) `app.kubernetes.io/name`.
+1. Создайте политику, которая будет требовать, чтобы все [поды](../../concepts/index.md#pod) имели [метку](../../../resource-manager/concepts/labels.md) `app.kubernetes.io/name`.
    1. Сохраните спецификацию для создания объекта `ClusterPolicy` в YAML-файл с названием `policy.yaml`:
 
       ```yaml

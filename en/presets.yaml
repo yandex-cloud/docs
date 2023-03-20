@@ -70,6 +70,7 @@ default:
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
   preview-stage: <code><b><small>Preview</small></b></code>
+  storage-aws-cli-alias: ycs3
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver

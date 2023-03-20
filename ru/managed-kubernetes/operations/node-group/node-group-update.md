@@ -73,7 +73,7 @@
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-  * `--template-labels` — изменить [ресурсные метки {{ yandex-cloud }}](../../../overview/concepts/services.md#labels) в формате `<имя метки>=<значение метки>` для ВМ, представляющих узлы группы. Можно указать несколько меток через запятую.
+  * `--template-labels` — изменить [ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) в формате `<имя метки>=<значение метки>` для ВМ, представляющих узлы группы. Можно указать несколько меток через запятую.
   * `--latest-revision` — получить все доступные обновления для текущей версии [мастера](../../concepts/index.md#master).
   * `--auto-upgrade` — управлять автоматическими обновлениями.
   * Управление окном обновлений:
@@ -110,7 +110,7 @@
        }
        ```
 
-     * Чтобы изменить [ресурсные метки {{ yandex-cloud }}](../../../overview/concepts/services.md#labels) для ВМ, представляющих узлы группы, добавьте блок `instance_template.labels`:
+     * Чтобы изменить [ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для ВМ, представляющих узлы группы, добавьте блок `instance_template.labels`:
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<имя группы>" {
@@ -148,7 +148,7 @@
 
   Чтобы изменить [среду запуска контейнеров](../../concepts/index.md#config), передайте значение `docker` или `containerd` в параметре `nodeTemplate.containerRuntimeSettings.type`.
 
-  Чтобы изменить [ресурсные метки {{ yandex-cloud }}](../../../overview/concepts/services.md#labels) для ВМ, представляющих узлы группы, передайте их значения в параметре `nodeTemplate.labels`.
+  Чтобы изменить [ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для ВМ, представляющих узлы группы, передайте их значения в параметре `nodeTemplate.labels`.
 
   Чтобы изменить шаблон имени узлов, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
@@ -200,7 +200,7 @@
 
 ## Управлять метками группы узлов {#manage-label}
 
-Вы можете выполнять следующие действия с [метками](../../../overview/concepts/services.md#labels) группы узлов:
+Вы можете выполнять следующие действия с [метками](../../../resource-manager/concepts/labels.md) группы узлов:
 * [Добавить](#add-label).
 * [Изменить](#update-label).
 * [Удалить](#remove-label).

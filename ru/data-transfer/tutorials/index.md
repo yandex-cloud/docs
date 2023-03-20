@@ -22,6 +22,7 @@
 * [{#T}](cdc-mpg.md)
 * [{#T}](mpg-to-objstorage.md)
 * [{#T}](trails-to-os.md)
+* [{#T}](ydb-to-yds.md)
 
 ## Асинхронная репликация данных
 

@@ -54,7 +54,7 @@ When using the AWS CLI to work with {{ objstorage-name }}, keep the following in
 * When running the `aws` command to work with {{ objstorage-name }}, the `--endpoint-url` parameter is required because the client is configured to work with the Amazon servers by default. To avoid specifying the parameter manually at each run, create an alias, for example:
 
    ```bash
-   alias ycs3='aws s3 --endpoint-url=https://{{ s3-storage-host }}'
+   alias {{ storage-aws-cli-alias }}='aws s3 --endpoint-url=https://{{ s3-storage-host }}'
    ```
 
    The following two commands have the same authority with this alias:
@@ -64,7 +64,7 @@ When using the AWS CLI to work with {{ objstorage-name }}, keep the following in
    ```
 
    ```bash
-   ycs3 ls
+   {{ storage-aws-cli-alias }} ls
    ```
 
    To have an alias created each time the terminal runs, add the `alias` command to the configuration file `~/.bashrc` or `~/.zshrc`, depending on the type of shell.

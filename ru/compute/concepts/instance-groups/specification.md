@@ -2,7 +2,7 @@
 
 Группу ВМ можно создать или изменить по спецификации в формате [YAML](https://ru.wikipedia.org/wiki/YAML). В спецификации описываются:
 
-* базовые атрибуты и настройки группы — имя, описание, [метки](../../../overview/concepts/services.md#labels), [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и защита от удаления;
+* базовые атрибуты и настройки группы — имя, описание, [метки](../../../resource-manager/concepts/labels.md), [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и защита от удаления;
 * [шаблон ВМ](instance-template.md) и использующиеся в нем [переменные](variables-in-the-template.md);
 * политики [распределения](policies/allocation-policy.md), [развертывания](policies/deploy-policy.md) и [масштабирования](policies/scale-policy.md);
 * настройки балансировки трафика между ВМ с помощью [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) или [{{ alb-full-name }}](../../../application-load-balancer/).

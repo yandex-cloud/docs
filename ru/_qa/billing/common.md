@@ -6,7 +6,7 @@
 
 #### Где можно ознакомиться с Соглашением об уровне обслуживания (SLA)? {#sla}
 
-В {{ yandex-cloud }} для каждого сервиса предусмотрен свой SLA. Ознакомиться с SLA можно в разделе [Правовые документы](https://yandex.ru/legal/cloud_sla/?lang=ru).
+В {{ yandex-cloud }} для каждого сервиса предусмотрен свой [SLA](../../glossary/sla.md). Ознакомиться с SLA можно в разделе [Правовые документы](https://yandex.ru/legal/cloud_sla/?lang=ru).
 
 #### Где я могу найти реквизиты {{ yandex-cloud }}? {#requisites}
 

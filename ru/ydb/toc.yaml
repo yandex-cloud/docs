@@ -39,6 +39,14 @@ items:
           Миграция базы данных из {{ mmy-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/mmy-ydb-migration.md
+      - name: >-
+          Поставка данных в {{ mkf-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-mkf-replication.md
+      - name: >-
+          Поставка данных в {{ yds-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-to-yds.md
   - name: Концепции
     items:
       - name: Обзор
