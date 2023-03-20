@@ -151,7 +151,7 @@
     ingress {
       protocol          = "ANY"
       description       = "Правило разрешает взаимодействие мастер-узел и узел-узел внутри группы безопасности."
-      predefined_target = "self security group"
+      predefined_target = "self_security_group"
       from_port         = 0
       to_port           = 65535
     }
