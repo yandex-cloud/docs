@@ -58,7 +58,7 @@
      Где:
      * `--name` — имя ВМ.
      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md).
-     * `--create-boot-disk` — параметры [диска](../../compute/concepts/disk.md) ВМ.
+     * `--create-boot-disk` — параметры [диска](../../compute/concepts/disk.md) ВМ. Размер диска должен быть не менее 30 ГБ.
      * `--network-interface` — параметры [сети](../../vpc/concepts/network.md#network):
        * `subnet-name` — имя [подсети](../../vpc/concepts/network.md#subnet), в которой будет размещена ВМ.
        * `nat-ip-version` — способ назначения [публичного IPv4-адреса](../../vpc/concepts/ips.md).

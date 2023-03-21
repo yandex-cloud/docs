@@ -107,7 +107,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -123,10 +123,10 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    {% endnote %}
 
-   Use the [create](../../api-ref/Endpoint/create) API method and pass the following information in the request:
+   Use the [create](../../api-ref/Endpoint/create) API method and include the following information in the request:
 
    * ID of the folder to host the endpoint, in the `folderId` parameter.
-   * The endpoint name in the `name` parameter.
+   * Endpoint name in the `name` parameter.
    * The endpoint description in the `description` parameter.
    * The endpoint parameters in the `settings` parameter.
 
@@ -180,7 +180,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

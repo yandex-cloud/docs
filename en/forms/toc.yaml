@@ -132,10 +132,14 @@ items:
         href: blocks-ref/integer.md
       - name: Number
         href: blocks-ref/number.md
+  - name: '{{ ya-360 }} will no longer be free of charge'
+    href: organization-changes.md
   - name: Pricing policy
     href: pricing.md
   - name: Revision history
     items:
+      - name: February 2023
+        href: changelogs/2302.md
       - name: December 2022
         href: changelogs/2212.md
       - name: November 2022

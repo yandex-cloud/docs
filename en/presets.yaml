@@ -70,6 +70,7 @@ default:
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
   preview-stage: <code><b><small>Preview</small></b></code>
+  ya-360: Yandex 360 for business
   storage-aws-cli-alias: ycs3
   cloud-beaver:
     name: Cloud Beaver
@@ -615,6 +616,7 @@ default:
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.com
   link-support-mail: cloud@support.yandex.ru
+  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.com
   links:
     es:

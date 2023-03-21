@@ -153,10 +153,14 @@ items:
             href: static-markup/diagram.md
           - name: Borders, width, and alignment of blocks
             href: static-markup/wrappers.md
+  - name: '{{ ya-360 }} will no longer be free of charge'
+    href: organization-changes.md
   - name: Pricing policy
     href: pricing.md
   - name: Revision history
     items:
+      - name: February 2023
+        href: changelogs/2302.md
       - name: January 2023
         href: changelogs/2213.md
       - name: December 2022

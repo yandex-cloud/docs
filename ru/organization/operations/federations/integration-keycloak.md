@@ -728,7 +728,7 @@
 
       1. В настройках SAML-приложения включите опции **Encrypt Assertions** и **Client Signature Required** и сохраните приложение, чтобы обновить доступные вкладки.
 
-      1. На вкладке **Keys** SAML-приложения в разделе **Signing Key** нажмите кнопку **Import**.
+      1. На вкладке **Keys** SAML-приложения в разделах **Signing Key** и **Encryption Key** нажмите кнопку **Import**.
 
       1. В поле **Archive Format** выберите **Certificate PEM**.
       {#signature}

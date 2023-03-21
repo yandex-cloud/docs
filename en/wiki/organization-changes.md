@@ -1,0 +1,52 @@
+# {{ ya-360 }} will no longer be free of charge
+
+Starting April 17, 2023, the free {{ ya-360 }} version will be running with certain [restrictions]({{ link-ya-360-notfree }}). The changes will affect all owners of free-of-charge organizations in {{ ya-360 }}. In this article, you will learn how to continue using {{ wiki-name }} for free.
+
+{% note info %}
+
+{{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }} form a single ecosystem, so the change affects all three services. You need to prepare for the change within one service only without repeating the tutorial steps for each service.
+
+{% endnote %}
+
+## What will change?
+
+On April 17, 2023, {{ ya-360 }} will prompt the owners of free-of-charge organizations to switch to the paid service plan. {{ wiki-name }} remains [free of charge](./pricing.md).
+
+Unless you switch to the paid service plan, you will not be able to edit the list of your organization members in {{ ya-360 }} starting April 18, 2023. You will not be able to add new employees, which means {{ wiki-name }} will not be available to them.
+
+## What are the possible ways to use organizations?
+
+You can:
+
+* Switch to the {{ ya-360 }} paid plan and continue to take advantage of all the service features available.
+* Stay with the {{ ya-360 }} free plan and manage your workflows considering that you will no longer be able to change the list of your organization members starting April 18, 2023.
+* Use the {{ ya-360 }} and {{ org-full-name }} [features](../tracker/cloud-vs-360.md#features) simultaneously.
+
+## How do I set up simultaneous use of {{ ya-360 }} and {{ org-full-name }}?
+
+{% note warning %}
+
+This can only be set up by the {{ ya-360 }} organization administrator.
+
+{% endnote %}
+
+The {{ ya-360 }} organization features can be enhanced with the {{ org-full-name }} features.
+
+1. Create an organization in {{ org-full-name }} following [this guide](../organization/quick-start.md#create).
+
+   {% note alert %}
+
+   After the organization is created, do not open {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }} until the setup is complete.
+
+   {% endnote %}
+
+1. Send the organization IDs to the service via the [feedback form](https://forms.yandex.ru/surveys/6768):
+   * [Find out the {{ ya-360 }} organization ID](https://admin.yandex.ru/company-profile).
+   * [Find out the {{ org-full-name }} organization ID](https://org.cloud.yandex.ru/settings).
+
+You will receive a response from the service once the simultaneous use of your organizations is set up.
+
+All pages and sections you created in {{ ya-360 }} will also be available in {{ org-full-name }}. The page [access settings](./page-management/access-setup.md) will allow you to grant access permissions to the employees of both organizations.
+## I have a question {#support}
+
+If you still have questions, please contact our [technical support](https://forms.yandex.ru/surveys/6768).

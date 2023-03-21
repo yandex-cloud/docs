@@ -2,6 +2,12 @@
 
 Чтобы определить, на каком языке написан текст, воспользуйтесь методом [detectLanguage](../api-ref/Translation/detectLanguage).
 
+{% note info %}
+
+Метод [detectLanguage](../api-ref/Translation/detectLanguage) возвращает код языка заданного текста. Если определить язык невозможно, поле кода языка в ответе будет пустым.
+
+{% endnote %}
+
 ## Перед началом {#before-you-begin}
 
 {% include [curl](../../_includes/curl.md) %}

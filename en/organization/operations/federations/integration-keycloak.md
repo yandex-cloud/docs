@@ -429,7 +429,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
    1. In the SAML application settings, select **Encrypt Assertions** and **Client Signature Required** and save the application to update the available tabs.
 
-   1. In the SAML application's **Keys** tab, the **Signing Key** section, click **Import**.
+   1. In the SAML application's **Keys** tab, the **Signing Key** and **Encryption Key** sections, click **Import**.
 
    1. In the **Archive Format** field, select **Certificate PEM**.
       {#signature}

@@ -612,6 +612,7 @@ default:
   link-datalens-settings: https://datalens.yandex.ru/settings
   link-datasphere-main: https://datasphere.yandex.ru/
   link-org-main: https://org.cloud.yandex.ru/
+  link-org-acl: https://org.cloud.yandex.ru/acl
   link-org-users: https://org.cloud.yandex.ru/users
   link-tracker: https://tracker.yandex.ru/
   link-wiki: https://wiki.yandex.ru/
