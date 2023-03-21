@@ -327,7 +327,7 @@
        }
      
        attached_target_group {
-         target_group_id = "${yandex_compute_instance_group.ig-1.load_balancer.0.target_group_id}"
+         target_group_id = yandex_compute_instance_group.ig-1.load_balancer.0.target_group_id
      
          healthcheck {
            name = "http"
