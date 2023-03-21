@@ -85,8 +85,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
    A service account's JWT payload must contain the following fields:
    * `iss`: The ID of the service account whose key the JWT is signed with.
    * `aud`: The link by which an IAM token will be requested: `https://iam.{{ api-host }}/iam/v1/tokens`.
-   * `iat`: The token issue time, in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time).
-   * `exp`: The token expiration time, in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, meaning `exp - iat ≤ 3600`.
+   * `iat`: The JWT token issue time, in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time).
+   * `exp`: The JWT token expiration time, in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, meaning `exp - iat ≤ 3600`.
 
    Example:
 

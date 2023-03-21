@@ -185,7 +185,7 @@
        mode: READ_WRITE
        disk_spec:
          type_id: network-hdd
-         size: 10G
+         size: 30G
          image_id: fd8iv792kirahcnqnt0q # Идентификатор публичного образа Container Optimized Image.
      network_interface_specs:
        - network_id: <идентификатор облачной сети>

@@ -133,7 +133,7 @@
        disk_spec:
          image_id: <идентификатор последней версии COI>
          type_id: network-hdd # Тип диска.
-         size: 32G # Размер диска.
+         size: 32G # Размер диска. Должен быть не менее 30 ГБ.
      network_interface_specs:
       - network_id: enpabce123hde4ft1r3t # Идентификатор сети.
         subnet_ids:

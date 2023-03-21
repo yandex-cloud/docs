@@ -59,6 +59,7 @@
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
        --service-account-name my-robot \
+       --create-boot-disk size=30 \
        --public-ip \
        --platform standard-v3 \
        --container-name=my-app \
@@ -75,6 +76,7 @@
      * `--zone` — зона доступности.
      * `--ssh-key` — содержимое файла [открытого ключа](../../compute/quickstart/quick-create-linux.md#create-ssh).
      * `--service-account-name` — имя сервисного аккаунта.
+     * `--create-boot-disk size` — размер загрузочного диска. Должен быть не менее 30 ГБ.
      * `--public-ip` — выделение публичного IP-адреса для ВМ.
      * `--container-name` — имя Docker-контейнера.
      * `--container-image` — имя Docker-образа для запуска Docker-контейнера.
@@ -134,6 +136,7 @@
        --name my-vm \
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
+       --create-boot-disk size=30 \
        --service-account-name my-service-account \
        --public-ip
      ```
@@ -144,6 +147,7 @@
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
      * `--ssh-key` — содержимое файла [открытого ключа](../../compute/quickstart/quick-create-linux.md#create-ssh).
+     * `--create-boot-disk size` — размер загрузочного диска. Должен быть не менее 30 ГБ.
      * `--service-account-name` — имя сервисного аккаунта.
      * `--public-ip` — выделение публичного IP-адреса для ВМ.
 

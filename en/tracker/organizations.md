@@ -1,6 +1,6 @@
 # {{ ya-360 }} will no longer be free of charge
 
-Starting April 17, 2023, the free {{ ya-360 }} version will be disabled. In this tutorial, you will learn how to continue using {{ tracker-name }} if you do not need the {{ ya-360 }} services.
+Starting April 17, 2023, the free {{ ya-360 }} version will be running with certain [restrictions]({{ link-ya-360-notfree }}). In this tutorial, you will learn how to continue using {{ tracker-name }} if you do not need the {{ ya-360 }} services.
 
 ## Who will be affected by the changes? {#affect}
 
@@ -8,7 +8,7 @@ The [changes]({{ link-ya-360-notfree }}) will affect all {{ tracker-name }} user
 
 To see what organizations your {{ tracker-name }} is linked to, click ![](../_assets/tracker/svg/admin.svg) **Administration** → ![](../_assets/tracker/svg/organizations.svg) [**Organizations**]({{ link-tracker }}admin/orgs) in the left-hand panel. To check if you pay for an organization in {{ ya-360 }}, click **Organization management** in the section with the appropriate organization and go to **Payment and service plan**.
 
-{% cut "Why do I have an organization in {{ ya-360 }} if I only activated {{ org-full-name }}?" %}
+{% cut "Why do I have an organization in {{ ya-360 }} if I only had {{ org-full-name }} set up?" %}
 
 Previously, organizations in {{ org-full-name }} did not support managing {{ tracker-name }} user groups. That is why a {{ ya-360 }} organization was automatically created for an organization in {{ org-full-name }} and the settings of the users of these organizations were synced.
 

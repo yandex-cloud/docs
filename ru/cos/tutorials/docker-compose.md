@@ -47,6 +47,7 @@
        --name my-vm \
        --zone {{ region-id }}-a \
        --ssh-key ssh-key.pub \
+       --create-boot-disk size=30 \
        --network-interface subnet-name=<имя подсети>,nat-ip-version=ipv4 \
        --service-account-name default-sa \
        --docker-compose-file docker-compose.yaml
@@ -56,6 +57,7 @@
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
      * `--ssh-key` — путь к файлу и имя файла с [открытым ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * `--create-boot-disk size` — размер загрузочного диска. Должен быть не менее 30 ГБ.
      * `--network-interface` — сетевые настройки ВМ.
      * `--service-account-name` — имя сервисного аккаунта.
      * `--docker-compose-file` — YAML-файл со спецификацией контейнеров.
