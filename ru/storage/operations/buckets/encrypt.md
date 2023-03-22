@@ -22,12 +22,12 @@
 
   Чтобы добавить ключ {{ kms-short-name }}:
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить шифрование.
-  1. В левой панели выберите **Шифрование**.
-  1. В поле **Ключ {{ kms-short-name }}** выберите ключ или создайте новый:
+  1. В левой панели выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ или создайте новый:
 
      {% include [storage-create-kms](../../_includes_service/storage-create-kms.md) %}
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - {{ TF }}
 
@@ -112,9 +112,9 @@
 
   Чтобы убрать шифрование, удалите ключ {{ kms-short-name }}:
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите удалить шифрование.
-  1. В левой панели выберите **Шифрование**.
-  1. В поле **Ключ {{ kms-short-name }}** выберите **Не выбрано**.
-  1. Нажмите кнопку **Сохранить**.
+  1. В левой панели выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - {{ TF }}
 

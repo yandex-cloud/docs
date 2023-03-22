@@ -1,4 +1,4 @@
-# Migrating databases from {{ mmy-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
+# Asynchronously replicating data from {{ mmy-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
 
 With {{ data-transfer-name }}, you can transfer data from a {{ mmy-name }} source cluster to {{ ydb-name }}.
 

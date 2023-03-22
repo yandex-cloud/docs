@@ -7,13 +7,7 @@
 
 #### Как настроить ударения и произношение? {#tts-stress-pronunciation}
 
-Чтобы скорректировать произношение отдельных слов и текста в целом, воспользуйтесь [SSML](../../speechkit/tts/ssml.md).
-
-#### Можно ли протестировать премиум голоса? {#premium-voices}
-
-Вы можете попробовать голоса **Алёна** и **Филипп** на [странице сервиса](/services/speechkit#demo).
-
-Подробнее о тарифах премиум голосов см. в [документации](../../speechkit/pricing.md#prices).
+Чтобы скорректировать произношение отдельных слов и текста в целом, воспользуйтесь разметкой [SSML](../../speechkit/tts/markup/ssml.md) или [TTS](../../speechkit/tts/markup/tts-markup.md).
 
 #### Ошибка unsupported content-type: application/json {#content-type}
 
@@ -43,9 +37,7 @@
 
 `Invoke-WebRequest -Method 'Post' -H @{'Authorization' = 'Bearer ваш_токен'} -Body "lang=ru-RU&folderId= ваш_id_каталога&ssml=$([System.Net.WebUtility]::UrlEncode($(Get-Content -Path C:\curl\new.xml)))" -OutFile C:\curl\output.ogg "https://tts.{{ api-host }}/speech/v1/tts:synthesize"`
 
-#### Премиум голоса начинают заикаться на длинных текстах {#premium-stutter}
-
-Отдел разработки знает о существующей проблеме и работает над ее решением. Пока, чтобы озвучивать длинные тексты, разбивайте их на более короткие фрагменты.
+Больше советов для пользователей MS Windows см. в разделе [{#T}](../../overview/concepts/console-syntax-guide.md).
 
 #### Из чего складывается стоимость использования? {#tts-cost}
 

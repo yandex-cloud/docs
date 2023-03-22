@@ -6,6 +6,7 @@
   * [Работа с управляемым реестром схем формата данных](./managed-schema-registry.md)
   * [{#T}](./confluent-schema-registry.md)
 * [{#T}](./kafka-connectors.md)
+* [{#T}](./mkf-to-mkf-transfer.md)
 * [{#T}](./cdc/debezium-mpg.md)
 * [{#T}](./cdc/debezium-mmy.md)
 * [{#T}](./cdc/data-transfer-mpg.md)
@@ -14,4 +15,4 @@
 * [{#T}](./use-ksqldb-with-mkf.md)
 * [{#T}](./mkf-to-mch-migration.md)
 * [{#T}](./mkf-ydb-stream.md)
-* [{#T}](./mkf-to-mkf-transfer.md)
+* [{#T}](./mkf-yds-stream.md)

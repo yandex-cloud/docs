@@ -58,7 +58,7 @@ For your internet service to run, you need two static public IP addresses: one t
    1. In the [management console]({{ link-console-main }}), open your folder and click **Create resource**. Select **Virtual machine**.
    1. Enter the VM name: `web-node-a`.
    1. Select an availability zone `{{ region-id }}-a`.
-   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab and select [Drupal](/marketplace/products/yc/drupal-8) as your image.
+   1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select the [Drupal](/marketplace/products/yc/drupal-8) image.
    1. Under **Network settings**, select the `subnet-a subnet`. Under **Public address**, select **No address**.
    1. In the **Access** field, enter the login and SSH key to access the VM.
    1. Click **Create VM**.
@@ -197,8 +197,8 @@ Allow the following incoming connections:
    * Type of destination: **Security group**.
    * Destination: `Current`.
 1. Health checks from the network load balancer:
-   * **Protocol**: `TCP`,
-   * **Port**: `80`,
+   * **Protocol**: `TCP`.
+   * **Port**: `80`.
    * **Source**: `Load balancer health checks`.
 
 ### Assign the security groups to the VMs {#assign-security-groups-vm}

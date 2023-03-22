@@ -31,12 +31,16 @@ items:
         href: tts/templates.md
       - name: Разметка текста
         items:
+          - name: Обзор
+            href: tts/markup/index.md
           - name: TTS-разметка
-            href: tts/tts-markup.md
+            href: tts/markup/tts-markup.md
           - name: Разметка SSML
-            href: tts/ssml.md
+            href: tts/markup/ssml.md
+          - name: Список поддерживаемых фонем в TTS
+            href: tts/markup/tts-supported-phonemes.md
           - name: Список поддерживаемых фонем в SSML
-            href: tts/supported-phonemes.md
+            href: tts/markup/ssml-supported-phonemes.md
       - name: '{{ brand-voice-name }}'
         href: tts/brand-voice/index.md
   - name: Форматы аудио

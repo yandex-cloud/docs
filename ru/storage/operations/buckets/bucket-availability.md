@@ -11,9 +11,9 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Нажмите на имя необходимого бакета.
-  1. Перейдите на вкладку **Настройки**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите тип доступа к операциям с бакетом.
-  1. Нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI
 

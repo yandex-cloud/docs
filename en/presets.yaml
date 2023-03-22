@@ -827,6 +827,9 @@ default:
       - Other
   link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
   registry: cr.yandex
+  cos-external-ip-examples:
+    - 84.201.155.117
+    - 84.252.131.221
   sku|RUB|ai:
     adjustment:
       kop|number: '1.0000'
@@ -41008,6 +41011,10 @@ default:
       component:
         console-dashboard:
           button_action-create-folder: Create folder
+        symmetric-key-select:
+          button_create-key: Create key
+          button_create-key-new: Create new key
+          label_no-symmetric-key: Not selected
       iam:
         cloud:
           folders-create:
@@ -41019,6 +41026,91 @@ default:
           service-accounts:
             button_add: Create service account
           switch_service-accounts: Service accounts
+      kms:
+        symmetric-keys:
+          button_create: Create
+      storage:
+        bucket:
+          button_action-delete: Delete
+          button_action-permissions: Object ACL
+          button_create: Create folder
+          button_gr-delete: Delete
+          button_permissions: Bucket ACL
+          button_upload: Upload
+          cors:
+            button_cors_empty-create: Configure
+            label_title: CORS
+          encryption:
+            button_save: Save
+            field_key: KMS Key
+          https:
+            button_create-certificate: Go to Certificate Manager
+            button_empty-action: Configure
+            button_save: Save
+            field_certificate: Certificate
+            field_source: Source
+            value_method-custom: Your certificate
+          lifecycle:
+            button_lifecycle_empty-create: Configure
+            button_save: Save
+            field_date: Trigger date
+            field_days: Trigger time
+            field_description: Description
+            field_no-prefix: All objects
+            field_prefix: Prefix
+            field_status: Status
+            label_add-lifecycle-settings: Add rule
+            value_expiration-date: Exact date
+            value_expiration-days: Number of days
+            value_expired-object-delete-marker: Deletion marker without noncurrent versions
+          policy:
+            button_add-resource: Add resource
+            button_add-value: Add value
+            button_policy-delete: Delete access policy
+            button_policy-edit: Configure access
+            field_action: Action
+            field_effect: Result
+            field_key: Key
+            field_operator: Operator
+            field_principal-type: Selection principle
+            field_resource: Resource
+            field_user: User
+            field_value: Value
+            label_if-exists: Apply if the field exists
+          settings:
+            button_save: Save
+            field_size-limit: Max size
+            label_size-limit-disabled: No limit
+          switch_encryption: Encryption
+          switch_https: HTTPS
+          switch_lifecycle: Lifecycle
+          switch_policy: Access policy
+          switch_settings: Settings
+          switch_website: Website
+          website:
+            button_save: Save
+            switch_hosting: Hosting
+            switch_redirect: Redirect
+        buckets:
+          button_delete: Delete
+          button_empty-create: Create bucket
+          button_open-multipart-uploads: Show uploads
+          button_permissions: Bucket ACL
+          create:
+            button_create: Create bucket
+        button_upload: Upload
+        file:
+          action_file-restore: Restore
+          button_delete: Delete
+          button_download: Download
+          button_generate: Get link
+          button_permissions: Object ACL
+          button_version-history: Version history
+          label_lifetime: Lifetime
+          popup-confirm_button_delete: Delete
+        permissions-dialog:
+          button_save: Save
+          label_title: ACL editing
     yc-ui-datasphere:
       common:
         access: Access

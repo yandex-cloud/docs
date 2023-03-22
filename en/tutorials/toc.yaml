@@ -1,4 +1,4 @@
-title: Practical guidelines
+title: Tutorials
 href: index.yaml
 items:
   - name: Web service
@@ -17,7 +17,7 @@ items:
         href: web/application-load-balancer-website.md
       - name: Joomla-based website with {{ PG }}
         href: web/joomla-postgresql.md
-      - name: WordPress website
+      - name: Creating a website in WordPress
         href: web/wordpress.md
       - name: WordPress website on a {{ MY }} database
         href: web/wordpress-mysql.md
@@ -47,7 +47,7 @@ items:
         href: internet-store/index.md
       - name: 1C-Bitrix online store
         href: internet-store/bitrix-shop.md
-      - name: Opencart online store
+      - name: OpenCart based online store
         href: internet-store/opencart.md
   - name: Data archive
     items:
@@ -73,9 +73,9 @@ items:
     items:
       - name: All tutorials
         href: testing/index.md
-      - name: Testing applications with GitLab
+      - name: Testing applications with {{ GL }}
         href: testing/gitlab.md
-      - name: Creating test VMs using GitLab CI
+      - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
       - name: High-performance computing on preemptible VMs
         href: testing/hpc-on-preemptible.md
@@ -95,17 +95,17 @@ items:
     items:
       - name: All tutorials
         href: infrastructure-management/index.md
-      - name: Getting started with Terraform
+      - name: Getting started with {{ TF }}
         href: infrastructure-management/terraform-quickstart.md
-      - name: Uploading Terraform states to {{ objstorage-name }}
+      - name: Uploading {{ TF }} states to {{ objstorage-name }}
         href: infrastructure-management/terraform-state-storage.md
       - name: Getting started with Packer
         href: infrastructure-management/packer-quickstart.md
       - name: Building a VM image with a set of infrastructure tools using Packer
         href: infrastructure-management/packer-custom-image.md
-      - name: Automating VM image builds using Jenkins
+      - name: Automating image builds using Jenkins and Packer
         href: infrastructure-management/jenkins.md
-      - name: Continuous deployment of containerized applications using GitLab
+      - name: Continuous deployment of containerized applications using {{ GL }}
         href: infrastructure-management/gitlab-containers.md
       - name: >-
           Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
@@ -115,7 +115,7 @@ items:
         href: infrastructure-management/hystax-migration.md
       - name: Fault protection with Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
-      - name: Configuring NTP time synchronization
+      - name: Configuring clock synchronization using NTP
         href: infrastructure-management/ntp.md
       - name: Running instance groups with auto scaling
         href: infrastructure-management/vm-autoscale.md
@@ -127,7 +127,7 @@ items:
         href: infrastructure-management/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: infrastructure-management/updating-under-load.md
-      - name: Transferring logs from a VM instance to Yandex Cloud Logging
+      - name: Transferring logs from a VM instance to {{ cloud-logging-name }}
         href: infrastructure-management/vm-fluent-bit-logging.md
       - name: Creating a VM backup with Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
@@ -137,9 +137,9 @@ items:
         href: infrastructure-management/sap.md
       - name: Configuring a local caching DNS resolver
         href: infrastructure-management/local-dns-cache.md
-      - name: Migrating DNS zones from Yandex 360
+      - name: "Migrating DNS zones from Yandex\_360 to {{ dns-name }}"
         href: infrastructure-management/connect-migration.md
-      - name: Integrating with a corporate DNS service
+      - name: Integrating {{ dns-name }} and an enterprise DNS service
         href: infrastructure-management/dns-integration.md
       - name: Creating an ACME resolver webhook for responses to DNS01 checks
         href: infrastructure-management/cert-manager-webhook.md
@@ -162,8 +162,8 @@ items:
           {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mmy.md
       - name: >-
-          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using
-          {{ data-transfer-full-name }}
+          Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-mpg.md
       - name: >-
           Delivering data from {{ mkf-full-name }} to {{ mch-full-name }} using
@@ -174,36 +174,30 @@ items:
           data-transfer-full-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }} using
-          {{ data-transfer-full-name }}
+          Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
+          data-transfer-name }}
         href: dataplatform/mkf-ydb-stream.md
-      - name: >-
-          Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using
-          Debezium
+      - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/debezium-mmy.md
-      - name: >-
-          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using
-          Debezium
+      - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/debezium-mpg.md
-      - name: Configuring Kafka Connect for {{ mkf-full-name }} clusters
+      - name: Configuring Kafka Connect for {{ mkf-name }} clusters
         href: dataplatform/kafka-connect.md
-      - name: Managing data schemas in {{ mkf-full-name }}
+      - name: Managing data schemas in {{ mkf-name }}
         href: dataplatform/schema-registry-overview.md
-      - name: Using {{ mkf-msr }} with {{ mkf-full-name }}
+      - name: Using {{ mkf-msr }} with {{ mkf-name }}
         href: dataplatform/managed-schema-registry.md
-      - name: Using Confluent Schema Registry with {{ mkf-full-name }}
+      - name: Using Confluent Schema Registry with {{ mkf-name }}
         href: dataplatform/confluent-schema-registry.md
       - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
-      - name: >-
-          Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name
-          }}
+      - name: Exchanging data between {{ mch-name }} and {{ dataproc-name }}
         href: dataplatform/dp-mch-data-exchange.md
-      - name: Configuring {{ mch-full-name }} for Graphite
+      - name: Configuring {{ mch-name }} for Graphite
         href: dataplatform/clickhouse-for-graphite.md
       - name: Fetching data from {{ mkf-full-name }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-mkf.md
-      - name: Fetching data from {{ RMQ }} to {{ mch-full-name }}
+      - name: Fetching data from {{ RMQ }} to {{ mch-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
       - name: Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
         href: dataplatform/yds-to-clickhouse.md
@@ -212,28 +206,26 @@ items:
       - name: Sharding {{ mch-full-name }} tables
         href: dataplatform/clickhouse-sharding.md
       - name: >-
-          Configuring {{ dns-full-name }} for accessing managed database
-          clusters from other cloud networks
+          Configuring {{ dns-name }} for access to managed database clusters
+          from other cloud networks
         href: dataplatform/mdb-dns-peering.md
       - name: >-
           Configuring {{ dns-full-name }} for accessing {{ mch-full-name }}
           clusters from other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
-      - name: >-
-          Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }}
-          using Sqoop
+      - name: Exchanging data between {{ mch-name }} and {{ dataproc-name }}
+        href: dataplatform/dp-mch-data-exchange.md
+      - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
         href: dataplatform/sqoop-mmy.md
-      - name: >-
-          Importing data from {{ mpg-full-name }} to {{ dataproc-full-name }}
-          using Sqoop
+      - name: Importing data from {{ mpg-name }} to {{ dataproc-name }} using Sqoop
         href: dataplatform/sqoop-mpg.md
       - name: >-
-          Using initialization scripts to configure GeeseFS in {{
-          dataproc-full-name }}
+          Using initialization scripts to configure GeeseFS in {{ dataproc-name
+          }}
         href: dataplatform/data-proc-init-actions-geesefs.md
       - name: >-
-          Migrating data from a third-party {{ ES }} cluster to {{ mes-full-name
-          }} using the Reindex API
+          Migrating data from a third-party {{ ES }} cluster to {{ mes-name }}
+          using the Reindex API
         href: dataplatform/migration-via-reindex-api.md
       - name: >-
           Migrating collections from a third-party {{ MG }} cluster to {{
@@ -247,39 +239,53 @@ items:
         href: dataplatform/mongodb-profiling.md
       - name: >-
           Migrating databases from a third-party {{ MY }} cluster to a {{
-          mmy-full-name }} cluster
+          mmy-name }} cluster
         href: dataplatform/mysql-data-migration.md
       - name: '{{ mmy-name }} performance analysis and tuning'
         href: dataplatform/profiling-mmy.md
       - name: >-
-          Syncing data from a third-party {{ MY }} cluster to {{ mmy-full-name
-          }} using {{ data-transfer-full-name }}
+          Syncing data from a third-party {{ MY }} cluster to {{ mmy-name }}
+          using {{ data-transfer-name }}
         href: dataplatform/sync-mysql.md
       - name: >-
-          Migrating databases from {{ mmy-full-name }} to a third-party {{ MY }}
+          Migrating databases from {{ mmy-name }} to a third-party {{ MY }}
           cluster
         href: dataplatform/mmy-to-mysql-migration.md
       - name: >-
-          Migrating databases from {{ mmy-full-name }} to {{ ydb-full-name }}
-          using {{ data-transfer-full-name }}
-        href: dataplatform/mmy-ydb-migration.md
-      - name: >-
-          Migrating databases from {{ mmy-full-name }} to {{
-          objstorage-full-name }} using {{ data-transfer-full-name }}
+          Migrating databases from {{ mmy-name }} to {{ objstorage-name }} using
+          {{ data-transfer-name }}
         href: dataplatform/mmy-objs-migration.md
-      - name: Creating a {{ PG }} cluster for 1C
+      - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
+        href: dataplatform/sqoop-mmy.md
+      - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
+        href: dataplatform/./debezium-mmy.md
+      - name: >-
+          Migrating databases from {{ mmy-name }} to {{ ydb-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/mmy-ydb-migration.md
+      - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: '{{ mpg-name }} performance analysis and tuning'
         href: dataplatform/mpg-profiling.md
-      - name: >-
-          Migrating databases from third-party {{ PG }} cluster to {{
-          mpg-full-name }} cluster
-        href: dataplatform/postgresql-data-migration.md
       - name: Migrating databases from {{ mpg-name }}
         href: dataplatform/outbound-replication.md
       - name: >-
-          Delivering data from {{ mpg-full-name }} to {{ ydb-full-name }} using
-          {{ data-transfer-full-name }}
+          Migrating databases from a third-party {{ PG }} cluster to {{ mpg-name
+          }}
+        href: dataplatform/postgresql-data-migration.md
+      - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
+        href: dataplatform/rdbms-to-clickhouse.md
+      - name: >-
+          Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/./data-transfer-mpg.md
+      - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
+        href: dataplatform/./debezium-mpg.md
+      - name: Importing data from {{ mpg-name }} to {{ dataproc-name }} using Sqoop
+        href: dataplatform/sqoop-mpg.md
+      - name: >-
+          Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
+          data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
       - name: >-
           Migrating databases from {{ mpg-full-name }} to {{
@@ -290,8 +296,8 @@ items:
       - name: Migrating databases from {{ GP }} to {{ PG }}
         href: dataplatform/greenplum-to-postgresql.md
       - name: >-
-          Migrating databases from a third-party {{ RD }} cluster to {{
-          mrd-full-name }}
+          Migrating databases from a third-party {{ RD }} cluster to {{ mrd-name
+          }}
         href: dataplatform/redis-data-migration.md
       - name: Using {{ mrd-name }} clusters as PHP session storage
         href: dataplatform/redis-as-php-sessions-storage.md
@@ -311,7 +317,7 @@ items:
         href: windows/mssql-alwayson-lb.md
       - name: Deploying Remote Desktop Gateway
         href: windows/rds-gw.md
-  - name: Network routing
+  - name: Network infrastructure
     items:
       - name: All tutorials
         href: routing/index.md
@@ -323,7 +329,7 @@ items:
         href: routing/nat-instance.md
       - name: Creating an IPSec VPN tunnel
         href: routing/ipsec-vpn.md
-      - name: Installing a Cisco CSR1000v virtual router
+      - name: Installing a Cisco CSR 1000v virtual router
         href: routing/cisco.md
       - name: Installing a Mikrotik CHR virtual router
         href: routing/mikrotik.md
@@ -333,23 +339,23 @@ items:
         href: routing/usergate-proxy.md
       - name: Creating and configuring a UserGate gateway in firewall mode
         href: routing/usergate-firewall.md
-      - name: Configuring networks for {{ dataproc-full-name }}
+      - name: Configuring networks for {{ dataproc-name }}
         href: routing/dataproc-nat-instance.md
   - name: Data visualization and analytics
     items:
       - name: All tutorials
         href: datalens/index.md
-      - name: Visualizing data from a CSV file
+      - name: Visualizing data from a file
         href: datalens/data-from-csv-visualization.md
       - name: Creating and publishing a chart with a map of Moscow from a CSV file
         href: datalens/data-from-csv-to-public-visualization.md
-      - name: Analyzing a store chain's sales based on data from a {{ CH }} DB
+      - name: Analyzing a retail chain's sales from a {{ CH }} database
         href: datalens/data-from-ch-visualization.md
       - name: Analyzing public data on road accidents in Russia
         href: datalens/data-from-csv-geo-visualization.md
       - name: >-
-          Analyzing sales and locations of pizzerias based on data from {{ CH }}
-          DB and {{ marketplace-short-name }}
+          Analyzing sales and locations of pizzerias based on {{ CH }} and {{
+          marketplace-name }} data
         href: datalens/data-from-ch-to-geolayers-visualization.md
       - name: Web analytics with a connection to Yandex Metrica
         href: datalens/data-from-metrica-visualization.md
@@ -361,7 +367,7 @@ items:
         href: datalens/data-from-appmetrica-visualization.md
       - name: Analyzing Yandex Music podcast statistics (for podcasters)
         href: datalens/data-from-podcasts.md
-      - name: Visualizing data with a SQL chart
+      - name: Visualizing data with a QL chart
         href: datalens/data-from-ch-to-sql-chart.md
       - name: Mobile app customer journey analytics based on AppMetrica data
         href: datalens/data-from-appmetrica-yc-visualization.md
@@ -369,7 +375,7 @@ items:
         href: datalens/storage-logs-analysis.md
   - name: Internet of things
     items:
-      - name: Operating manuals for the Internet of Things
+      - name: Tutorials for working with the Internet of Things
         href: iot/index.md
       - name: Status monitoring of geographically distributed devices
         href: iot/datalens.md

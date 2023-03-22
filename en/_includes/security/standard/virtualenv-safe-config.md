@@ -790,6 +790,7 @@ We do not recommend that you use privileged containers to run loads that process
 
 {% list tabs %}
 
+
 - Performing a check in the management console
 
    1. In the management console, select the cloud or folder to check the VMs in.
@@ -798,6 +799,8 @@ We do not recommend that you use privileged containers to run loads that process
    1. In the Docker container's **Settings**, find the **Privileged mode** parameter.
    1. If it's disabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
        
+
+
 - Performing a check via the CLI
 
    1. See what organizations are available to you and write down the desired ID:
@@ -823,12 +826,15 @@ We do not recommend that you use privileged containers to run loads that process
 
 {% endlist %}
 
+
 **Instructions and solutions to use:**
 
 1. In the management console, select the cloud or folder to check the VMs in.
 1. In the list of services, select **{{ compute-short-name }}**.
 1. Open the settings of a specific VM with a **Container Optimized Image**.
 1. In the Docker container's Settings, disable the **Privileged mode** parameter.
+
+
 
 #### 3.26 A {{ certificate-manager-full-name }} certificate is valid for at least 30 days {#certificate-validity}
 

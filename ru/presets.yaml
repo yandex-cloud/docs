@@ -830,6 +830,9 @@ default:
       - Другое
   link-saml: https://ru.wikipedia.org/wiki/SAML
   registry: cr.yandex
+  cos-external-ip-examples:
+    - 84.201.155.117
+    - 84.252.131.221
   sku|RUB|ai:
     adjustment:
       kop|number: 1,0000
@@ -41011,6 +41014,10 @@ default:
       component:
         console-dashboard:
           button_action-create-folder: Создать каталог
+        symmetric-key-select:
+          button_create-key: Создать ключ
+          button_create-key-new: Создать новый
+          label_no-symmetric-key: Не выбрано
       iam:
         cloud:
           folders-create:
@@ -41022,6 +41029,91 @@ default:
           service-accounts:
             button_add: Создать сервисный аккаунт
           switch_service-accounts: Сервисные аккаунты
+      kms:
+        symmetric-keys:
+          button_create: Создать
+      storage:
+        bucket:
+          button_action-delete: Удалить
+          button_action-permissions: ACL объекта
+          button_create: Создать папку
+          button_gr-delete: Удалить
+          button_permissions: ACL бакета
+          button_upload: Загрузить
+          cors:
+            button_cors_empty-create: Настроить
+            label_title: CORS
+          encryption:
+            button_save: Сохранить
+            field_key: Ключ KMS
+          https:
+            button_create-certificate: Перейти в Certificate Manager
+            button_empty-action: Настроить
+            button_save: Сохранить
+            field_certificate: Сертификат
+            field_source: Источник
+            value_method-custom: Свой сертификат
+          lifecycle:
+            button_lifecycle_empty-create: Настроить
+            button_save: Сохранить
+            field_date: Дата срабатывания
+            field_days: Срок срабатывания
+            field_description: Описание
+            field_no-prefix: Все объекты
+            field_prefix: Префикс
+            field_status: Статус
+            label_add-lifecycle-settings: Добавить правило
+            value_expiration-date: Точная дата
+            value_expiration-days: Количество дней
+            value_expired-object-delete-marker: Маркер удаления без нетекущих версий
+          policy:
+            button_add-resource: Добавить ресурс
+            button_add-value: Добавить значение
+            button_policy-delete: Удалить политику доступа
+            button_policy-edit: Настроить доступ
+            field_action: Действие
+            field_effect: Результат
+            field_key: Ключ
+            field_operator: Оператор
+            field_principal-type: Принцип выбора
+            field_resource: Ресурс
+            field_user: Пользователь
+            field_value: Значение
+            label_if-exists: Применить, если поле существует
+          settings:
+            button_save: Сохранить
+            field_size-limit: Макс. размер
+            label_size-limit-disabled: Без ограничения
+          switch_encryption: Шифрование
+          switch_https: HTTPS
+          switch_lifecycle: Жизненный цикл
+          switch_policy: Политика доступа
+          switch_settings: Настройки
+          switch_website: Веб-сайт
+          website:
+            button_save: Сохранить
+            switch_hosting: Хостинг
+            switch_redirect: Переадресация
+        buckets:
+          button_delete: Удалить
+          button_empty-create: Создать бакет
+          button_open-multipart-uploads: Показать список
+          button_permissions: ACL бакета
+          create:
+            button_create: Создать бакет
+        button_upload: Загрузить
+        file:
+          action_file-restore: Восстановить
+          button_delete: Удалить
+          button_download: Скачать
+          button_generate: Получить ссылку
+          button_permissions: ACL объекта
+          button_version-history: История версий
+          label_lifetime: Время жизни
+          popup-confirm_button_delete: Удалить
+        permissions-dialog:
+          button_save: Сохранить
+          label_title: Редактирование ACL
     yc-ui-datasphere:
       common:
         access: Доступ

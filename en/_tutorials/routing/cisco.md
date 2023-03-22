@@ -1,10 +1,10 @@
 # Installing a Cisco CSR 1000v virtual router
 
-In {{ yandex-cloud }}, you can deploy the virtual router Cisco Cloud Services Router (CSR) 1000v based on a ready-to-use VM image.
+In {{ yandex-cloud }}, you can deploy a virtual router called Cisco Cloud Services Router (CSR) 1000v, based on a ready-to-use VM image.
 
 To install the CSR 1000v and configure SSH access to it:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create an SSH key pair](#create-ssh-keys).
 1. [Create a VM with a Cisco Cloud Services Router](#create-router).
 1. [Set the host name for the router](#hostname).
@@ -12,7 +12,7 @@ To install the CSR 1000v and configure SSH access to it:
 1. [Configure authentication using SSH keys](#enable-ssh).
 1. [Check the SSH connection to the router](#test-ssh).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Before you begin {#before-you-begin}
 
@@ -29,8 +29,8 @@ When you use a Cisco CSR 1000v image without a license, the router throughput is
 
 The cost of using a virtual router includes:
 
-* A fee for a disk and continuously running VM (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
-* A fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* A charge for a disk and a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Create an SSH key pair {#create-ssh-keys}
@@ -67,7 +67,7 @@ Save the private key in a secure location: you won't be able to connect to the V
       1. (optional) To automatically create subnets, select the **Create subnets** option.
       1. Click **Create**.
 
-         Each network must have at least one subnet. If there is no subnet, create one by selecting ![image](../../_assets/plus-sign.svg)**Add subnet**.
+         Each network must have at least one subnet. If there is no subnet, create one by selecting ![image](../../_assets/plus-sign.svg) **Add subnet**.
    1. Under **Public address**, keep **Auto** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
    1. Enter the VM access information:
       * Enter the username in the **Login** field.
@@ -100,7 +100,7 @@ Save the private key in a secure location: you won't be able to connect to the V
 
       ```text
       cisco-router.{{ region-id }}.internal#configure terminal
-      Enter configuration commands, one per line.  End with CNTL/Z.
+      Enter configuration commands, one per line. End with CNTL/Z.
       cisco-router.ru-cent(config)#hostname cisco-router
       ```
 
@@ -126,7 +126,7 @@ Create a user with the administrative rights and password authentication disable
 
 ## Configure authentication using SSH keys {#enable-ssh}
 
-1. If your public SSH key is longer than 72 characters, split the key into chunks 72 characters each. For this, in your computer terminal, run the command:
+1. If your public SSH key is longer than 72 characters, split the key into chunks, 72 characters each. For this, in your computer terminal, run this command:
 
    ```bash
    fold -bw 72 <path_to_file_with_public key>
@@ -138,7 +138,7 @@ Create a user with the administrative rights and password authentication disable
 
    ```text
    cisco-router(config)#aaa new-model
-   cisco-router(config)#ip ssh server algorithm authentication publickey 
+   cisco-router(config)#ip ssh server algorithm authentication publickey
    cisco-router(config)#ip ssh pubkey-chain
    ```
 
@@ -183,10 +183,10 @@ Create a user with the administrative rights and password authentication disable
 
 ## Check the SSH connection to the router {#test-ssh}
 
-1. Log in to the router via SSH. For this, in your computer terminal, run the command:
+1. Log in to the router via SSH. For this, in your computer terminal, run this command:
 
    ```bash
-   ssh -i <path_to_file_with_private_key> test-user@<public_IP_of_router> 
+   ssh -i <path_to_file_with_private_key> test-user@<public_IP_of_router>
    ```
 
    If everything is configured correctly, you will log in to the router under `test-user`. If the connection is not established, make sure that the router is configured correctly in the serial console: the `aaa new-model` command was run, the key hashes are the same on your computer and the router, and password authorization for the test user is disabled. If you can't find the problem, repeat the previous steps.

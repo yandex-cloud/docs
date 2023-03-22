@@ -229,13 +229,13 @@ If you no longer need these resources, delete them:
 * Using {{ TF }}
 
    1. In the terminal, go to the working directory that includes the `data-transfer-mpg-ydb.tf` configuration file.
-   1. Delete resources using the command:
+   1. Delete resources using this command:
 
       ```bash
       terraform destroy
       ```
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       All the resources described in the `data-transfer-mpg-ydb.tf` configuration file will be deleted.
 

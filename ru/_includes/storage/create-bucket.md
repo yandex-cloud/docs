@@ -6,7 +6,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
   1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
   1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
@@ -18,7 +18,7 @@
 
       1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access).
       1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
-      1. Нажмите кнопку **Создать бакет** для завершения операции.
+      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
 - {{ yandex-cloud }} CLI
 

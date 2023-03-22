@@ -4,6 +4,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
 
 {% list tabs %}
 
+
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder where the VM was created.
@@ -12,6 +13,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
   1. Click **Edit VM** in the top panel.
   1. Make your changes in the **Docker container settings** section.
   1. Click **Save changes**.
+ 
 
 - CLI
 
@@ -33,7 +35,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
      +----------------------+-------+---------------+---------+----------------+-------------+
      |          ID          | NAME  |    ZONE ID    | STATUS  |  EXTERNAL IP   | INTERNAL IP |
      +----------------------+-------+---------------+---------+----------------+-------------+
-     | epdbf646ge5qgutfvh43 | my-vm | {{ region-id }}-b | RUNNING | 84.201.155.117 | 172.18.0.21 |
+     | epdbf646ge5qgutfvh43 | my-vm | {{ region-id }}-b | RUNNING | {{ cos-external-ip-examples.0 }} | 172.18.0.21 |
      +----------------------+-------+---------------+---------+----------------+-------------+
      ```
 
@@ -74,7 +76,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
        done (2s)
        id: epdbf646ge5qgutfvh43
        folder_id: b1g88tflru0ek1omtsu0
-       created_at: "2019-08-07T09:44:03Z"
+       created_at: "2023-03-13T09:44:03Z"
        name: my-vm
        zone_id: {{ region-id }}-b
        platform_id: standard-v2
@@ -95,7 +97,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
        done (2s)
        id: fhma9omhj2e7d4c04kd2
        folder_id: b1g88tflru0ek1omtsu0
-       created_at: "2020-02-05T17:08:48Z"
+       created_at: "2023-03-13T17:08:48Z"
        name: coi-vm
        zone_id: {{ region-id }}-a
        platform_id: standard-v2

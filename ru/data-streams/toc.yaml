@@ -78,6 +78,10 @@ items:
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
       - name: >-
+          Поставка данных из {{ mkf-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/kafka-to-yds.md
+      - name: >-
           Поставка данных из {{ ydb-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/ydb-to-yds.md

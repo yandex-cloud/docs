@@ -105,6 +105,8 @@ items:
         href: testing/loadtesting-multiply.md
       - name: Миграция результатов нагрузочного тестирования из OverLoad
         href: testing/loadtesting-overload-migration.md
+      - name: Запуск внешних агентов для нагрузочного тестирования
+        href: testing/loadtesting-external-agent.md
   - name: Управление инфраструктурой
     items:
       - name: Все руководства
@@ -187,6 +189,10 @@ items:
           Поставка данных из {{ mkf-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mkf-ydb-stream.md
+      - name: >-
+          Поставка данных из {{ mkf-name }} в {{ yds-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/mkf-yds-stream.md
       - name: >-
           Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}

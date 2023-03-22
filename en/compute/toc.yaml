@@ -241,7 +241,7 @@ items:
             href: operations/dedicated-host/running-host-group-vms.md
           - name: Creating a VM on a dedicated host
             href: operations/dedicated-host/running-host-vms.md
-  - name: Yandex Container Solution
+  - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Practical guidelines
     items:

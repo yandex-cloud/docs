@@ -38,13 +38,13 @@ The cost of the resources required to use Hystax Acura Live Migration includes:
 ## Create a service account and authorized key {#create-sa}
 
 Hystax Acura Live Migration will run under a [service account](../../iam/concepts/users/service-accounts.md):
-1. [Create](../../iam/operations/sa/create.md) service account `hystax-acura-account` with the `editor` and the `marketplace.meteringAgent` roles.
-1. [Create](../../iam/operations/authorized-key/create.md) an authorized key for a service account.
+1. [Create](../../iam/operations/sa/create.md) a service account named `hystax-acura-account` with the `editor` and the `marketplace.meteringAgent` roles.
+1. [Create](../../iam/operations/authorized-key/create.md) an authorized key for the service account.
 
-Save the following for use in subsequent steps:
-1. ID of the service account.
-1. The service account authorized key ID.
-1. The service account private authorized key.
+Save the following details, as you will need them for the next steps:
+1. Service account ID.
+1. Service account authorized key ID.
+1. Service account private authorized key.
 
 ## Configure network traffic permissions {#network-settings}
 
@@ -83,7 +83,7 @@ Create a VM with a boot disk from the `Hystax Acura Live Migration to {{ yandex-
    1. In the list of services, select **{{ compute-name }}**.
    1. Click **Create VM**.
    1. Under **Basic parameters**:
-      * Enter `hystax-acura-vm` as your name and a VM description.
+      * Enter `hystax-acura-vm` as your VM name and add a description.
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
 
    1. Under **Image/boot disk selection**:
@@ -94,15 +94,14 @@ Create a VM with a boot disk from the `Hystax Acura Live Migration to {{ yandex-
 
    1. Under **Disks**, enter 200 GB as your disk size.
 
-   
-   1. Under **File storage**, keep the default value.
+      1. Under **File storage**, keep the default value.
    1. Under **Computing resources**, specify:
       * vCPU: 8.
       * RAM: 16 GB.
    1. Under **Network settings**:
       * Select a cloud network and a [subnet](../../vpc/concepts/network.md#subnet) from the list. If there is no subnet, click **Add subnet** and create one.
 
-         To add a subnet, select a folder, enter a subnet name, select the availability zone, and specify a CIDR in the resulting window. Then click **Create**.
+         To add a subnet, select a folder, enter the subnet name, select the availability zone, specify a CIDR in the window that opens, and click **Create**.
       * If a list of **Security groups** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
    1. Under **Access**, specify the information required to access the instance:
       * Select the previously created `hystax-acura-account` service account.
@@ -144,7 +143,7 @@ Create a VM with a boot disk from the `Hystax Acura Live Migration to {{ yandex-
       * `nat-ip-version=ipv4`: Connect a public IP.
       * `security-group-ids`: Security groups.
 
-         You can retrieve a group list using the `yc vpc security-group list` command. If you omit the parameter, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
+         You can retrieve a group list using the `yc vpc security-group list` command. If you skip this parameter, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
    * `create-boot-disk`: Crete a new disk for the VM:
       * `name`: Disk name, such as `hystax-acura-disk`.
       * `size`: Disk size.
@@ -170,20 +169,20 @@ Create a VM with a boot disk from the `Hystax Acura Live Migration to {{ yandex-
 
    {% endnote %}
 
-1. By default, a Hystax Acura VM has a self-signed certificate installed. If you need to replace this certificate, follow the [procedure](https://support.hystax.com/portal/en/kb/articles/how-to-update-ssl-certificate-on-acura).
-1. When you are prompted to complete the various fields, input the values below:
-   * **Organization**: The name of your organization.
-   * **Admin user login**: The email address for logging in to the Hystax Acura Control Panel.
-   * **Password**: The administrator password.
+1. By default, a Hystax Acura VM has a self-signed certificate installed. If you need to replace this certificate, follow the steps described [here](https://support.hystax.com/portal/en/kb/articles/how-to-update-ssl-certificate-on-acura).
+1. When you are prompted to fill out the fields, use the values below:
+   * **Organization**: Name of your organization.
+   * **Admin user login**: Email address for logging in to the Hystax Acura Control Panel.
+   * **Password**: Administrator password.
    * **Confirm password**: Re-enter the administrator password.
 1. Click **Next**.
 1. Specify the {{ yandex-cloud }} connection settings:
-   * **Service Account id**: The ID of your service account.
-   * **Key id**: The ID of the authorized key of your service account.
+   * **Service Account id**: ID of your service account.
+   * **Key id**: ID of the authorized key of your service account.
    * **Private key**: Service account private key.
-   * **Default Folder id**: The ID of your folder.
+   * **Default Folder id**: ID of your folder.
    * **Availability zone**: Availability zone for `hystax-acura-vm` VM.
-   * **Hystax Service Subnet**: The ID of the subnet that the `hystax-acura-vm` virtual machine is connected to.
+   * **Hystax Service Subnet**: ID of the subnet the `hystax-acura-vm` virtual machine is connected to.
    * **Hystax Acura Control Panel Public IP**: `hystax-acura-vm` VM's public IP. Replace the value in the field with the IP address obtained in step 1.
    * **Additional parameters**: Advanced settings. Do not edit this field.
 1. Click **Next**.
@@ -207,9 +206,9 @@ The agents are normally installed onto VMs to be migrated to {{ yandex-cloud }}.
    - VMware
 
       1. Select **New VMware vSphere** and fill in the fields:
-         * **Platform Name**: The name of the platform.
-         * **Endpoint**: The IP address of the VMware ESXi host where the replication agent will be deployed.
-         * **Login**: The user's login.
+         * **Platform Name**: Name of the platform.
+         * **Endpoint**: IP address of the VMware ESXi host where the replication agent will be deployed.
+         * **Login**: User login.
          * **Password**: Password.
 
          Click **Next**.
@@ -221,7 +220,7 @@ The agents are normally installed onto VMs to be migrated to {{ yandex-cloud }}.
 
       1. Click **Next**.
       1. Click **Download Agent** and wait for the agent to download.
-      1. Unpack the archive and install the agent from the file `hwragent.msi` on the VMs you would like to migrate.
+      1. Unpack the archive and install the agent from the `hwragent.msi` file on the VMs you would like to migrate.
 
    - Linux
 
@@ -232,11 +231,11 @@ The agents are normally installed onto VMs to be migrated to {{ yandex-cloud }}.
          * **Pre-built**: Install a driver binary.
          * **DKMS**: Compile as you install.
       1. Click **Next**.
-      1. Commands for the VM agent install will be generated. Run the commands as required by the procedure for your distribution and install method.
+      1. You will get commands for installing the agent to the VM. Run these commands following the instructions for your distribution and installation method.
 
    {% endlist %}
 
-The VM will show up in the target group several minutes after the agent is installed.
+The VM will show up in the target group a few minutes after the agent is installed.
 
 ## Create VM replicas {#create-replicas}
 
@@ -248,18 +247,18 @@ When replication starts, Hystax Acura creates a new VM with Hystax Acura Cloud A
 
 Start replication:
 1. Click on the Hystax logo.
-1. Under **Machines Groups**, select the virtual machines to be replicated.
+1. Under **Machines Groups**, select the virtual machines to replicate.
 1. You can specify additional parameters for the `network-ssd` volume in the replication editing menu.
-1. Click **Bulk actions**. In the resulting menu, select **Start Replication**.
+1. Click **Bulk actions**. In the menu that opens, select **Start Replication**.
 
-A VM replica will include all the data of the original VM; therefore, replication can take a long time (about 40 minutes). Replication status will be displayed in the **Status** column under **Machines Groups**. Wait for status to change to `Synced` and make sure that replicas of the selected machines show up in your folder's list of {{ compute-name }} VMs.
+A VM replica will include all the data of the original VM; therefore, replication can take a long time (about 40 minutes). The replication status will be displayed in the **Status** column under **Machines Groups**. Wait for the status to change to `Synced` and make sure the replicas of the selected machines show up in your folder in the {{ compute-name }} VM list.
 
 ## Create a migration plan {#prepare-migration-plan}
 
-As soon as the replicated status of the VMs is `Synced`, you can create a migration plan. The migration plan defines which machines should be migrated to your cloud and their start order after migration.
+As soon as the replication status of the VMs is `Synced`, you can create a migration plan. The migration plan defines which machines should be migrated to your cloud and their start order after migration.
 1. Click **Add Migration plan**.
-1. Enter a name for the migration plan: `YC Migration`.
-1. Under **Devices & Ranks**, click ![options](../../_assets/options.svg). In the resulting menu, select **Add machine** → VM group → VM to be added to the migration plan. Repeat the steps for all the VMs to migrate.
+1. Enter a name for the migration plan, e.g., `YC Migration`.
+1. Under **Devices & Ranks**, click ![options](../../_assets/options.svg). In the menu that opens, click **Add machine**, pick the VM group you need, and select the VM you want to add to the migration plan.
 1. In the **Subnet ID** and the **CIDR** fields, specify the ID and the CIDR of the subnet to connect the VMs to once migrated.
 1. Expand the device description and edit the **Flavor name** field (parameters of the VM being created) as follows: `<platform>-<cpu>-<ram>-<core_fraction>`. For example, `2-8-16-100`.
 1. In the **Port ip** field, enter a new VM IP from the current subnet.
@@ -271,9 +270,9 @@ Perform the migration as per the created plan:
 1. Open the **Migrate** tab.
 1. Select the `YC Migration` plan and click **Next**.
 1. Enter `CloudSite` in the **Cloud Site Name** field.
-1. Make sure that all the required resources are in the list and click **Run migration**.
+1. Make sure all required resources are in the list and click **Run migration**.
 
-The migration process might take about 10 minutes. The status of the VM being migrated will be displayed in the **Status** column under **Machines**. Wait for the status to change to `Running`, then make sure that all the required resources have transferred and your applications are ready to run. If the migrated infrastructure is running as expected, click **Detach** on the **CloudSite** page and confirm the detach action.
+The migration process might take about 10 minutes. The status of the VM being migrated will be displayed in the **Status** column under **Machines**. Wait for the status to change to `Running`, then make sure all required resources have been transferred and your applications are ready to run. If the migrated infrastructure is running as expected, click **Detach** on the **CloudSite** page and confirm the detach action.
 
 ## How to delete created resources {#clear-out}
 

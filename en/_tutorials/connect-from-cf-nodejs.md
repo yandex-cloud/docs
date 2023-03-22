@@ -4,7 +4,7 @@ This guide is intended for Linux users. On Windows, you can follow its steps in 
 
 {% endnote %}
 
-You will create a [function](../functions/concepts/function.md) and a [Node.js app](https://ydb.tech/en/docs/reference/ydb-sdk/example/example-nodejs) that will make small queries to a {{ ydb-short-name }} database. You deploy the application using Bash scripts and use the `tcs` command to compile.
+You will create a [function](../functions/concepts/function.md) and a [Node.js app](https://ydb.tech/en/docs/reference/ydb-sdk/example/example-nodejs) that will make small queries to a {{ ydb-short-name }} database. You will deploy the application using Bash scripts and use the `tcs` command to compile it.
 
 A function with an associated [service account](../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
 
@@ -43,7 +43,7 @@ The infrastructure support cost for this scenario includes:
    git clone https://github.com/ydb-platform/ydb-nodejs-sdk.git
    ```
 
-1. In the repository, go to the folder with the project files: `examples/basic-example-v1`.
+1. Go to the folder with the project files in the repository: `examples/basic-example-v1`.
 1. Install and initialize the [{{ yandex-cloud }} CLI](../cli/quickstart.md).
 1. Install the [jq](https://stedolan.github.io/jq/download/) utility. In the root of the folder with the project files, start the terminal and run the command:
 
@@ -101,10 +101,10 @@ The infrastructure support cost for this scenario includes:
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
@@ -112,9 +112,9 @@ The infrastructure support cost for this scenario includes:
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -177,10 +177,10 @@ The infrastructure support cost for this scenario includes:
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_key).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
@@ -188,9 +188,9 @@ The infrastructure support cost for this scenario includes:
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply

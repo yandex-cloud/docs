@@ -1,4 +1,4 @@
-# Transferring data using {{ data-transfer-full-name }} {#data-transfer}
+# Migrating data using {{ data-transfer-full-name }} {#data-transfer}
 
 1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-mg).
 1. [Prepare the target cluster](../../data-transfer/operations/prepare.md#target-mg).

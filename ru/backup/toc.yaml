@@ -8,8 +8,12 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Подключение ВМ
-        href: operations/create-vm.md
+      - name: Подключение ВМ к {{ backup-name }}
+        items:
+          - name: Создать и подключить ВМ Linux
+            href: operations/create-vm.md
+          - name: Подключить ВМ Windows Server
+            href: operations/connect-vm-windows.md
       - name: Политики резервного копирования
         items:
           - name: Создать политику

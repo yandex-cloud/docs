@@ -113,7 +113,7 @@ This instruction will use a gRPC service as a test target.
 
 ## Prepare a domain {#prepare-domain}
 
-1. [Create](../../dns/operations/zone-create-public) a public DNS zone and delegate the domain.
+1. [Create](../../dns/operations/zone-create-public.md) a public DNS zone and delegate the domain.
 
    {% note info %}
 
@@ -172,7 +172,7 @@ This instruction will use a gRPC service as a test target.
    * `secretName`: A reference to a TLS certificate from {{certificate-manager-full-name}} as `yc-certmgr-cert-id-<certificate ID>`.
    * `hosts`, `host`: The domain name the TLS certificate corresponds to.
 
-   For more information, see [Ingress fields and annotations](../../application-load-balancer/k8s-ref/ingress).
+   For more information, see [Ingress fields and annotations](../../application-load-balancer/k8s-ref/ingress.md).
 
 2. Create an `Ingress` resource:
 
@@ -263,9 +263,9 @@ This instruction will use a gRPC service as a test target.
       * `compute.admin`: Enables you to manage a VM in {{compute-name}}.
       * `vpc.user`: Enables you to connect to {{vpc-name}} network resources and use them.
 
-2. [Enable](../../vpc/operations/enable-nat.md) NAT to the internet on the subnet where the test target is and the agent will be located. This ensures the agent has access to {{load-testing-name}}.
+2. [Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. This ensures the agent has access to {{load-testing-name}}.
 
-3. [Create](../../load-testing/tutorials/loadtesting-grpc#create-agent.md) a test agent.
+3. [Create](../../load-testing/tutorials/loadtesting-grpc.md#create-agent) a test agent.
 
 4. Prepare the `ammo.json` file with test data:
 
@@ -322,7 +322,7 @@ This instruction will use a gRPC service as a test target.
 
    * `target` is the name of your website and port (for HTTPS: 443).
 
-6. [Run a test](../../load-testing/tutorials/loadtesting-grpc#run-test):
+6. [Run a test](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
    * Upload the `ammo.json` file to the **File with test data** field.
    * Upload the `load.yaml` file to the **Configuration file** field.

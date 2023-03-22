@@ -76,7 +76,7 @@ spec:
 
 Инструкции для запуска Docker-контейнеров и конфигурации сервисов указываются в файле спецификации `docker-compose.yaml`, согласно [документации Docker](https://docs.docker.com/compose/compose-file/).
 
-Подробнее о запуске нескольких Docker-контейнеров, читайте в разделе [{#T}](../tutorials/docker-compose.md).
+Подробнее о запуске нескольких Docker-контейнеров читайте в разделе [{#T}](../tutorials/docker-compose.md).
 
 ### Пример Docker Compose спецификации {#compose-spec-example}
 

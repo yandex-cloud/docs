@@ -295,7 +295,6 @@ To create an HTTP router:
 
 {% endlist %}
 
-Wait 15 to 20 minutes after setting up the DNS to check that the site is up.
 
 ## Check that the hosting is running properly {#test}
 

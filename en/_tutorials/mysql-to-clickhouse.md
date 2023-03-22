@@ -1,15 +1,15 @@
-# Migrating databases from {{ MY }} to {{ CH }} using {{ data-transfer-full-name }}
+# Asynchronously replicating data from {{ mmy-name }} to {{ mch-name }} using {{ data-transfer-full-name }}
 
 With {{ data-transfer-name }}, you can migrate your database from a {{ MY }} source cluster to {{ CH }}.
 
-To transfer data, perform these steps:
+To transfer data:
 
 1. [Prepare the source cluster](#prepare-source).
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 1. [Select the data from {{ CH }}](#working-with-data-ch).
 
-If you no longer need these resources, you can [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -19,13 +19,13 @@ Prepare the infrastructure:
 
 * Manually
 
-   1. [Create a {{ mmy-name }} source cluster](../managed-mysql/operations/cluster-create.md) with any suitable configuration. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
+   1. [Create a {{ mmy-name }} source cluster](../managed-mysql/operations/cluster-create.md) with any suitable configuration. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
    1. [Create a {{ mch-name }} target cluster](../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with the following settings:
 
       * Number of {{ CH }} hosts: At least two, which is required to enable replication in the cluster.
-      * Database name: Same as in the source cluster.
-      * To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
+      * The database name must be the same as in the source cluster.
+      * To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
    1. Configure security groups for your clusters so you can connect to them from the internet:
 
@@ -54,10 +54,10 @@ Prepare the infrastructure:
       * The {{ mmy-name }} source cluster parameters that will also be used as the [source endpoint parameters](../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
          * `source_mysql_version`: {{ MY }} version.
-         * `source_db_name`: {{ MY }} database name to be used as the {{ mch-name }} database name.
+         * `source_db_name`: {{ MY }} database name to use as the {{ mch-name }} database name.
          * `source_user` and `source_password`: Database owner username and password.
 
-      * The {{ mch-name }} target cluster parameters that will also be used as the [target endpoint parameters](../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
+      * The {{ mch-name }} target cluster that will also be used as the [target endpoint parameters](../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
          * `target_user` and `target_password`: Database owner username and password.
 
@@ -165,7 +165,7 @@ Prepare the infrastructure:
       SELECT * FROM <{{ CH }} database name>.x_tab
       ```
 
-      The result you are going to get should look like this:
+      Result:
 
       ```text
       ┌─id─┬─name──┬─__data_transfer_commit_time─┬─__data_transfer_delete_time─┐
@@ -177,9 +177,9 @@ Prepare the infrastructure:
       └────┴───────┴─────────────────────────────┴─────────────────────────────┘
       ```
 
-      The table also contains [columns with timestamps](#working-with-data-ch), such as `__data_transfer_commit_time` and `__data_transfer_delete_time`.
+      The table also contains [columns with timestamps](#working-with-data-ch) such as `__data_transfer_commit_time` and `__data_transfer_delete_time`.
 
-1. In the `x_tab` table of the {{ MY }} source database, delete the `41` `ID` row and edit the `42` `ID` one:
+1. In the `x_tab` table of the {{ MY }} source database, delete the row where `id` is `41` and edit the one where `ID` equals `42`:
 
    1. [Connect to the {{ mmy-name }} source cluster](../managed-mysql/operations/connect.md).
 
@@ -196,7 +196,7 @@ Prepare the infrastructure:
    SELECT * FROM <{{ CH }} database name>.x_tab WHERE id in (41,42);
    ```
 
-   The result you are going to get is the following:
+   Result:
 
    ```text
    ┌─id─┬─name──┬─__data_transfer_commit_time─┬─__data_transfer_delete_time─┐
@@ -215,10 +215,10 @@ Prepare the infrastructure:
 
 For table recovery, the {{ CH }} target with [replication](../managed-clickhouse/concepts/replication.md) enabled uses the [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and the [ReplacingMergeTree]({{ ch.docs }}engines/table-engines/mergetree-family/replacingmergetree/) engines. The following columns are added automatically to each table:
 
-* `__data_transfer_commit_time`: The time allowed for the row to change to this value, in the `TIMESTAMP` format.
-* `__data_transfer_delete_time`: The time allowed for deleting the row, in the `TIMESTAMP` format, in case the row has been deleted from the source. If the row has not been deleted, the default value is `0`.
+* `__data_transfer_commit_time`: Time allowed for the row to change to this value, in `TIMESTAMP` format.
+* `__data_transfer_delete_time`: Time allowed for deleting the row, in `TIMESTAMP` format, if the row has been deleted from the source. If it has not, the value is set at `0`.
 
-   The `__data_transfer_commit_time` column is required for the `ReplicatedReplacedMergeTree` engine. If a record is deleted or updated, a new row with a value is inserted to this column. When running a query by a single primary key, it will return multiple records with different values from the `__data_transfer_commit_time` column.
+   The `__data_transfer_commit_time` column is required for the `ReplicatedReplacedMergeTree` engine. If a record is deleted or updated, a new row is inserted with a value in this column. When running a query by a single primary key, it will return multiple records with different values from the `__data_transfer_commit_time` column.
 
 With the {{ dt-status-repl }} transfer status, you can both add and delete source data. To ensure the normal behavior of SQL commands when a primary key points to a single record, add a construction that filters data by the `__data_transfer_delete_time` column to your queries to the tables moved to {{ CH }}. For example, for the `x_tab` table, run the following query:
 
@@ -261,7 +261,7 @@ If you no longer need these resources, delete them:
 
       If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the resources have been updated:
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

@@ -1,6 +1,6 @@
 #  Синтезировать речь в формате WAV с помощью API v1
 
-Пример показывает, как с помощью [API v1](../request.md) синтезировать речь из текста в [TTS-разметке](../tts-markup.md) в файл формата [WAV](https://ru.wikipedia.org/wiki/WAV).
+Пример показывает, как с помощью [API v1](../request.md) синтезировать речь из текста в [TTS-разметке](../markup/tts-markup.md) в файл формата [WAV](https://ru.wikipedia.org/wiki/WAV).
 
 В примере заданы следующие параметры синтеза:
 * [формат](../../formats.md) синтезированного аудиофайла — LPCM с частотой дискретизации 48 000 Гц, контейнер [WAV](https://ru.wikipedia.org/wiki/WAV);
@@ -37,7 +37,7 @@
 
      Где:
 
-     * `TEXT` — текст в [TTS-разметке](../tts-markup.md), который нужно cинтезировать.
+     * `TEXT` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно cинтезировать.
      * `FOLDER_ID` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
      * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
      * `lang` — [язык](../index.md#langs) текста.
@@ -94,7 +94,7 @@
 
      * `iamToken` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
      * `folderId` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-     * `text` — текст в [TTS-разметке](../tts-markup.md), который нужно cинтезировать.
+     * `text` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно cинтезировать.
      * `lang` — [язык](../index.md#langs) текста.
      * `voice` — [голос](../voices.md) для синтеза речи.
      * `format` — [формат](../../formats.md) синтезированного аудиофайла.
@@ -168,7 +168,7 @@
        * `FOLDER_ID` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
        * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
        * `--output` — имя файла для записи аудио.
-       * `--text` — текст в [TTS-разметке](../tts-markup.md), который нужно cинтезировать.
+       * `--text` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно cинтезировать.
 
    - PHP
 
@@ -221,7 +221,7 @@
 
      * `token` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
      * `folderId` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-     * `text` — текст в [TTS-разметке](../tts-markup.md), который нужно cинтезировать.
+     * `text` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно синтезировать.
      * `lang` — [язык](../index.md#langs) текста.
      * `voice` — [голос](../voices.md) для синтеза речи.
      * `format` — [формат](../../formats.md) синтезированного аудиофайла.

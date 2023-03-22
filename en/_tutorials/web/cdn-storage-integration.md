@@ -8,7 +8,7 @@ To perform steps, you can use various [supported tools](#supported-tools).
 
 To build architecture for integrating an L7 load balancer with CDN and Object Storage:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a bucket in {{ objstorage-name }}](#create-buckets).
 1. [Upload the file of your service to the bucket](#upload-files).
@@ -199,7 +199,7 @@ To create a network and subnets:
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -207,9 +207,9 @@ To create a network and subnets:
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -279,12 +279,12 @@ Create a bucket named `example-bucket`:
       }
       ```
 
-      For more information about the `yandex_storage_bucket` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
 
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -292,9 +292,9 @@ Create a bucket named `example-bucket`:
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -368,12 +368,12 @@ Create a bucket named `example-bucket`:
          }
          ```
 
-         For more information about the `yandex_storage_object` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_object).
+         For more information about the `yandex_storage_object` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_object).
 
       1. Make sure that the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using the command:
+         1. Run the check using this command:
 
             ```bash
             terraform plan
@@ -381,9 +381,9 @@ Create a bucket named `example-bucket`:
 
          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-      1. Deploy the cloud resources.
+      1. Deploy cloud resources.
 
-         1. If the configuration doesn't contain any errors, run the command:
+         1. If the configuration does not contain any errors, run this command:
 
             ```bash
             terraform apply
@@ -506,7 +506,7 @@ To create security groups:
       ```
       resource "yandex_vpc_security_group" "example-sg" {
         name       = "example-sg"
-        network_id = yandex_vpc_network.example-network.id
+        network_id = "yandex_vpc_network.example-network.id"
 
         egress {
           protocol       = "ANY"
@@ -539,7 +539,7 @@ To create security groups:
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -547,9 +547,9 @@ To create security groups:
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -718,7 +718,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -726,9 +726,9 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -936,12 +936,12 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       }
       ```
 
-      For more information about the `yandex_alb_load_balancer` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/alb_load_balancer).
+      For more information about the `yandex_alb_load_balancer` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/alb_load_balancer).
 
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -949,9 +949,9 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -1011,7 +1011,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
    1. Create the `example-origin-group` origin group by indicating the IP address of the load balancer:
       ```bash
       yc cdn origin-group create --name "example-origin-group" \
-        --origin source=<load balancer IP-address>:80,enabled=true
+        --origin source=<load balancer IP address>:80,enabled=true
       ```
 
       Result:
@@ -1091,7 +1091,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
@@ -1099,9 +1099,9 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -1109,7 +1109,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -1119,7 +1119,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
 ## Configure DNS for the service{#configure-dns}
 
-The domain name `cdn.yandexcloud.example` must be linked to the CDN resource using DNS records.
+The `cdn.yandexcloud.example` domain name must be linked to the CDN resource using DNS records.
 
 To configure DNS:
 
@@ -1229,7 +1229,7 @@ To configure DNS:
       1. Make sure that the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using the command:
+         1. Run the check using this command:
 
             ```bash
             terraform plan
@@ -1237,9 +1237,9 @@ To configure DNS:
 
          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-      1. Deploy the cloud resources.
+      1. Deploy cloud resources.
 
-         1. If the configuration doesn't contain any errors, run the command:
+         1. If the configuration does not contain any errors, run this command:
 
             ```bash
             terraform apply

@@ -11,19 +11,21 @@
   Result:
 
   ```bash
-  coi-version: 2.0.4
+  coi-version: 2.3.14
   ```
 
 * To find out the version in `description` (version 2.1.0 and higher), run the command:
 
   ```bash
-  yc compute image get <image ID or name> --profile preprod --format json | jq -r '.description'
+  yc compute image get-latest-from-family container-optimized-image \
+    --folder-id standard-images --format json \
+  | jq -r '.description'
   ```
 
   Result:
 
   ```bash
-  Container Optimized Image 2.1.0
+  Container Optimized Image 2.3.14
   ```
 
 {% endcut %}
@@ -35,6 +37,8 @@ In version 2.2.0 and higher, the patch (the third number in the version, such as
 {% endnote %}
 
 {% include [latest-release](../_includes/cos/latest-release.md) %}
+
+
 
 ## Previous releases {#previous-releases}
 

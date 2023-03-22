@@ -10,7 +10,7 @@ To use 1C:Enterprise, you need a license. For more information about licenses an
 
 To configure 1C:Enterprise servers:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Prepare the infrastructure](#prepare).
 1. [Create a VM for the 1C:Enterprise server](#create-1c-vm).
 1. [Create a VM for the license server](#create-1c-license-vm).
@@ -20,10 +20,10 @@ To configure 1C:Enterprise servers:
 1. [Set up a Samba server for the license server](#set-up-samba-for-license-server).
 1. [Install the 1C:Enterprise server for the license server](#setup-1c-license-server).
 1. [Set up a server cluster](#setup-cluster).
-1. [Set up an infobase](#setup-infobase).
+1. [Set up the infobase](#setup-infobase).
 1. [Connect to the infobase](#connect-to-infobase).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
@@ -56,32 +56,30 @@ To create a VM:
 
 1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 
-2. In the **Name** field, enter the VM name: `server-1c`.
+1. In the **Name** field, enter the VM name: `server-1c`.
 
-3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
+1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [CentOS Stream](/marketplace/products/yc/centos-stream-8) image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [CentOS Stream](/marketplace/products/yc/centos-stream-8) image.
 
-5. Under **Computing resources**:
-    - Choose a [platform](../../compute/concepts/vm-platforms.md).
-    - Specify the number of vCPUs and amount of RAM:
-       * **vCPU**: 4.
-       * **Guaranteed vCPU share**: 100%.
-       * **RAM**: 4 GB.
+1. Under **Computing resources**:
+   - Choose a [platform](../../compute/concepts/vm-platforms.md).
+   - Specify the number of vCPUs and the amount of RAM:
+      * **vCPU**: 4.
+      * **Guaranteed vCPU share**: 100%.
+      * **RAM**: 4 GB.
 
-6. In the **Network settings** section, select the network and subnet to connect the VM to. If you don't have a network or subnet, create them right on the VM creation page.
+1. In the **Network settings** section, select the network and subnet to connect the VM to. If you do not have a network or subnet, create them right on the VM creation page.
 
-7. In the **Public address** field, leave the value **No address**. The VM will be accessed via the OpenVPN server.
+1. In the **Public address** field, leave the value **No address**. The VM will be accessed via the OpenVPN server.
 
-8. Specify data required for accessing the VM:
+1. Specify data required for accessing the VM:
+   - Enter the username in the **Login** field.
+   - In the **SSH key** field, paste the contents of the public key file.
 
-    - Enter the username in the **Login** field.
+      You need to create a key pair for the SSH connection yourself. See the [section about how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
-    - In the **SSH key** field, paste the contents of the public key file.
-
-      You need to create a key pair for the SSH connection yourself. [Learn how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
-
-9. Click **Create VM**.
+1. Click **Create VM**.
 
 Creating the VM may take several minutes.
 
@@ -93,32 +91,32 @@ To create a VM:
 
 1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 
-2. In the **Name** field, enter the VM name: `licensing-server-1c`.
+1. In the **Name** field, enter the VM name: `licensing-server-1c`.
 
-3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
+1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public **CentOS Stream** image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public **CentOS Stream** image.
 
-5. Under **Computing resources**:
-    - Choose a [platform](../../compute/concepts/vm-platforms.md).
-    - Specify the number of vCPUs and amount of RAM:
-       * **vCPU**: 4.
-       * **Guaranteed vCPU share**: 100%.
-       * **RAM**: 4 GB.
+1. Under **Computing resources**:
+   - Choose a [platform](../../compute/concepts/vm-platforms.md).
+   - Specify the number of vCPUs and the amount of RAM:
+      * **vCPU**: 4.
+      * **Guaranteed vCPU share**: 100%.
+      * **RAM**: 4 GB.
 
-6. In the **Network settings** section, select the network and subnet to connect the VM to. The VM should be created in the same subnet as the OpenVPN server.
+1. In the **Network settings** section, select the network and subnet to connect the VM to. The VM should be created in the same subnet as the OpenVPN server.
 
-7. In the **Public address** field, leave the value **No address**. The VM will be accessed via the OpenVPN server.
+1. In the **Public address** field, leave the value **No address**. The VM will be accessed via the OpenVPN server.
 
-8. Specify data required for accessing the VM:
-    - Enter the username in the **Login** field.
-    - In the **SSH key** field, paste the contents of the public key file.
+1. Specify data required for accessing the VM:
+   - Enter the username in the **Login** field.
+   - In the **SSH key** field, paste the contents of the public key file.
 
-9. Click **Create VM**.
+1. Click **Create VM**.
 
 Creating the VM may take several minutes.
 
-## Create a cluster {{ mpg-name }} {#create-pg-cluster}
+## Create a {{ mpg-name }} cluster {#create-pg-cluster}
 
 {{ yandex-cloud }} lets you create {{ mpg-name }} clusters optimized for 1C:Enterprise. Cluster settings may vary depending on your project requirements.
 
@@ -158,17 +156,16 @@ Creating the DB cluster may take several minutes.
    sudo yum install nano samba samba-client samba-common, net-utils
    ```
 
-1. Disable IPv6 to avoid server conflicts. To do this, open the file `/etc/sysctl.conf `:
+1. Disable IPv6 to avoid server conflicts. To do this, open the `/etc/sysctl.conf` file:
 
    ```
    sudo nano /etc/sysctl.conf
    ```
-
 1. Add the following lines to the file:
 
    ```
-   net.ip6.conf.all.disable_ipv6 = 1
-   net.ip6.conf.default.disable_ipv6 = 1
+   net.ipv6.conf.all.disable_ipv6 = 1
+   net.ipv6.conf.default.disable_ipv6 = 1
    ```
 
 1. Add the following lines to the file `/etc/sysconfig/network`:
@@ -200,13 +197,14 @@ Creating the DB cluster may take several minutes.
            load printers = yes
            cups iptions = raw
            security = user
-   
+
    [files]
            path = /1c-files
            browsable = yes
            writable = yes
            guest ok = yes
            read only = no
+
    ```
 
 1. Create a shared directory and grant access rights to it:
@@ -237,7 +235,7 @@ Creating the DB cluster may take several minutes.
    sudo systemctl restart smb.service
    ```
 
-## Install the 1C:Enterprise server {#setup-1c-server}
+## Set up the 1C:Enterprise server {#setup-1c-server}
 
 Install the 1C:Enterprise server on the VM:
 
@@ -246,7 +244,7 @@ Install the 1C:Enterprise server on the VM:
 
    ```
    sudo tar –xvf  /1c-files/<archive name>
-   sudo yum localinstall /1c-files/*.rpm 
+   sudo yum localinstall /1c-files/*.rpm
    ```
 
 1. Start the 1C server:
@@ -268,7 +266,7 @@ Install the 1C:Enterprise server on the VM:
 
 ## Set up a Samba server for the license server {#set-up-samba-for-license-server}
 
-[Connect](../../compute/operations/vm-connect/ssh.md) to the `server-1c` VM via SSH.
+[Connect](../../compute/operations/vm-connect/ssh.md) to the VM `licensing-server-1c` over SSH.
 
 1. Install Samba, the necessary dependencies, and the `nano` text editor:
 
@@ -276,24 +274,23 @@ Install the 1C:Enterprise server on the VM:
    sudo yum install nano samba samba-client samba-common, net-utils
    ```
 
-1. Disable IPv6 to avoid server conflicts. To do this, open the file `/etc/sysctl.conf `:
+1. Disable IPv6 to avoid server conflicts. To do this, open the `/etc/sysctl.conf` file:
 
    ```
    sudo nano /etc/sysctl.conf
    ```
-
 1. Add the following lines to the file:
 
    ```
-   net.ip6.conf.all.disable_ipv6 = 1
-   net.ip6.conf.default.disable_ipv6 = 1
+   net.ipv6.conf.all.disable_ipv6 = 1
+   net.ipv6.conf.default.disable_ipv6 = 1
    ```
 
 1. Run `sudo nano /etc/sysconfig/network` to add the following lines to the `/etc/sysconfig/network` file:
 
    ```
    NETWORKING_IPv6=no
-   HOSTNAME=server-1c
+   HOSTNAME=licensing-server-1c
    ```
 
 1. Configure a shared directory. To do this, open the Samba configuration file:
@@ -318,13 +315,14 @@ Install the 1C:Enterprise server on the VM:
            load printers = yes
            cups iptions = raw
            security = user
-   
+
    [files]
            path = /1c-files
            browsable = yes
            writable = yes
            guest ok = yes
            read only = no
+
    ```
 
 1. Create a shared directory and grant access rights to it:
@@ -364,7 +362,7 @@ Install the 1C:Enterprise server on the VM:
 
    ```
    sudo tar –xvf  /1c-files/<archive name>
-   sudo yum localinstall /1c-files/*.rpm 
+   sudo yum localinstall /1c-files/*.rpm
    ```
 
 1. Start the 1C server:
@@ -415,8 +413,8 @@ Before getting started, configure the server roles and add the infobase to the c
 ## Set up the infobase {#setup-infobase}
 
 1. In the administration console, open the **Infobases** context menu, select **New** and **Infobase**.
-
 1. In the window that opens, set the parameters:
+
    - **Name**: The name of the database in the {{ mpg-name }} cluster, `1c-database`.
    - **Secure connection**: **continuously**.
    - **Database server**: Your DB host address and port, such as `rc1a-cwxzr4yimhzgn5pp.{{ dns-zone }} port=6432`.
@@ -434,26 +432,21 @@ Before getting started, configure the server roles and add the infobase to the c
 ## Connect to the infobase {#connect-to-infobase}
 
 1. Connect to the OpenVPN server using the client.
-
 1. Run the 1C:Enterprise client.
-
 1. Click **Add**.
-
 1. Select **Add an existing infobase to the list** and click **Next**.
-
 1. Enter the infobase name, select **On 1C:Enterprise server**, and specify the following settings:
    - **Server cluster**: `server-1c.{{ region-id }}.internal`.
    - **Infobase name**: `1c`.
 
    Click **Next**.
-
 1. Click **Ready**.
 
 The infobase should appear on the list of infobases. You can now start configuring and using the database.
 
-## Delete the created resources {#clear-out}
+
+## Delete the resources you created {#clear-out}
 
 To stop paying for the deployed infrastructure, [delete](../../compute/operations/vm-control/vm-delete.md) the `server-1c` and `licensing-server-1c` VMs and the `1c-pg` cluster.
 
 If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
-

@@ -19,11 +19,11 @@
    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
    1. Выберите сервис **{{ objstorage-name }}**.
    1. Нажмите на имя необходимого бакета.
-   1. Перейдите на вкладку **HTTPS**.
-   1. В отобразившейся панели справа нажмите кнопку **Настроить**.
-   1. В поле **Источник** выберите **Свой сертификат**.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+   1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+   1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}**.
    1. Добавьте сертификат и секретный ключ.
-   1. Нажмите кнопку **Сохранить**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 {% endlist %}
 
@@ -36,10 +36,10 @@
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. Выберите сервис **{{ objstorage-name }}**.
     1. Нажмите на имя необходимого бакета.
-    1. Перейдите на вкладку **HTTPS**.
-    1. В отобразившейся панели справа нажмите кнопку **Настроить**.
-    1. В поле **Источник** выберите **Перейти в {{ certificate-manager-name }}**.
-    1. В поле **Сертификат** выберите сертификат в появившемся списке. 
+    1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+    1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.button_create-certificate }}**.
+    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке. 
     
         {% note info %}
         
@@ -47,7 +47,7 @@
         
         {% endnote %}
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 - CLI
 

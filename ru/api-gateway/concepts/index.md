@@ -21,6 +21,8 @@ API-шлюз задается декларативно при помощи сп�
 * [Интеграция с {{ ydb-short-name }}](../concepts/extensions/ydb.md).
 * [Жадные параметры](../concepts/extensions/greedy-parameters.md).
 * [Обобщенный HTTP-метод](../concepts/extensions/any-method.md).
+* [Поддержка CORS](../concepts/extensions/cors.md).
+* [Валидация HTTP-запросов и ответов](../concepts/extensions/validator.md).
 
 ## Использование доменов {#domains}
 

@@ -2,13 +2,13 @@
 
 Использование Speech Synthesis Markup Language (SSML) дает вам возможность контролировать, как {{ speechkit-name }} синтезирует речь из текста.
 
-Поддержка SSML доступна только при использовании [API v1](request.md).
+Поддержка SSML доступна только при использовании [API v1](../request.md).
 
 Чтобы передать текст в формате SSML, используйте параметр `ssml` в теле запроса, а сам текст оберните в тег `<speak>`:
 
-{% include [ssml-example](../../_includes/speechkit/ssml-example.md) %}
+{% include [ssml-example](../../../_includes/speechkit/ssml-example.md) %}
 
-[Пример отправки запроса](request.md#ssml).
+[Пример отправки запроса](../request.md#ssml).
 
 ## Поддерживаемые теги SSML {#supported-SSML-tags}
 
@@ -80,7 +80,7 @@
   </speak>
   ```
 
-[Список поддерживаемых фонем для каждого из языков](supported-phonemes.md).
+[Список поддерживаемых фонем](ssml-supported-phonemes.md).
 
 ### speak {#speak}
 
