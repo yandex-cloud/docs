@@ -8,6 +8,7 @@
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](data-transfer-mkf.md)
 * [{#T}](mkf-ydb-stream.md)
+* [{#T}](mkf-yds-stream.md)
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)

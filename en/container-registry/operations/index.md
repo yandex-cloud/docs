@@ -7,7 +7,6 @@ description: "Step-by-step instructions for working with Docker images in {{ yan
 
 To work with Docker images, [authenticate in {{ container-registry-name }}](authentication.md).
 
-
 ## Working with {{ coi }} {#coi}
 
 For more information about working with a {{ coi }} image, see the documentation [{{ cos-name }}](../../cos/).

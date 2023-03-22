@@ -1,6 +1,6 @@
 # Пример использования API v3 синтеза
 
-Пример показывает, как с помощью {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/) синтезировать речь из текста в [TTS-разметке](../tts-markup.md) в файл формата [WAV](https://ru.wikipedia.org/wiki/WAV).
+Пример показывает, как с помощью {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/) синтезировать речь из текста в [TTS-разметке](../markup/tts-markup.md) в файл формата [WAV](https://ru.wikipedia.org/wiki/WAV).
 
 В примере заданы следующие параметры синтеза:
 * [формат](../../formats.md) синтезированного аудиофайла — LPCM с частотой дискретизации 22 050 Гц, контейнер [WAV](https://ru.wikipedia.org/wiki/WAV) (значение по умолчанию);
@@ -134,7 +134,7 @@
           Где:
 
           * `IAM_TOKEN` — [IAM-токен сервисного аккаунта](../../../iam/concepts/authorization/iam-token.md).
-          * `TEXT` — текст в [TTS-разметке](../tts-markup.md), который нужно синтезировать.
+          * `TEXT` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно синтезировать.
           * `--output` — имя файла для записи аудио.
 
           В результате в директории `cloudapi` будет создан файл `speech.wav` с синтезированной речью.

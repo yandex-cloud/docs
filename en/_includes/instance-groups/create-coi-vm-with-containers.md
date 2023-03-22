@@ -40,7 +40,7 @@ Docker containers are created based on the [Docker Compose specification](../../
          ```bash
          id: ajeabccde01d23efl1v5
          folder_id: b0g12ga82bcv0cdeferg
-         created_at: "2021-02-08T14:32:18.900092Z"
+         created_at: "2023-03-13T14:32:18.900092Z"
          name: group-coi
          ```
 
@@ -84,7 +84,7 @@ Docker containers are created based on the [Docker Compose specification](../../
          ```bash
          id: enpabce123hde4ft1r3t
          folder_id: b0g12ga82bcv0cdeferg
-         created_at: "2020-11-30T14:57:15Z"
+         created_at: "2023-13-03T14:57:15Z"
          name: yc-auto-network
          ```
 
@@ -99,7 +99,7 @@ Docker containers are created based on the [Docker Compose specification](../../
          ```bash
          id: e1lnabc23r1c9d0efoje
          folder_id: b0g12ga82bcv0cdeferg
-         created_at: "2020-11-30T16:23:12Z"
+         created_at: "2023-13-03T16:23:12Z"
          network_id: enpabce123hde4ft1r3t
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
@@ -229,8 +229,8 @@ Docker containers are created based on the [Docker Compose specification](../../
       +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
       |     INSTANCE ID      |           NAME            |  EXTERNAL IP   | INTERNAL IP |         STATUS         | STATUS MESSAGE |
       +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
-      | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | 84.201.128.110 | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
-      | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | 84.252.131.221 | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
+      | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | {{ cos-external-ip-examples.0 }} | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
+      | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | {{ cos-external-ip-examples.1 }} | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
       +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
       ```
 
@@ -249,7 +249,7 @@ Docker containers are created based on the [Docker Compose specification](../../
    - CLI
 
       ```bash
-      ssh yc-user@84.201.128.110
+      ssh yc-user@{{ cos-external-ip-examples.0 }}
       ```
 
       Result:
@@ -260,7 +260,7 @@ Docker containers are created based on the [Docker Compose specification](../../
        * Documentation:  https://help.ubuntu.com
        * Management:     https://landscape.canonical.com
        * Support:        https://ubuntu.com/advantage
-      Last login: Mon Feb  8 15:23:28 2021 from 123.456.789.101
+      Last login: Mon Mar 13 15:23:28 2023 from 123.456.789.101
       ```
 
    {% endlist %}

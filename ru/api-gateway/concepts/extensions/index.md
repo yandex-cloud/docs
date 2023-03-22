@@ -13,15 +13,19 @@ description: "Расширение x-yc-apigateway позволяет задат
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-Параметр | Тип | Описание 
-----|----|----
-`service_account_id` | `string` | Идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого API-шлюз будет выполнять операции.
+ Параметр             | Тип               | Описание                                                                                                                                          
+----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------
+ `service_account_id` | `string`          | Идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого API-шлюз будет выполнять операции.     
+ `validator`          | `ValidatorObject` | [Валидатор HTTP-запросов и ответов](validator.md#validator_object) или ссылка на него. Может быть переопределен на уровне конкретной операции. 
+ `cors`               | `CorsRuleObject`  | [Правило обработки preflight-запросов CORS](cors.md#corsrule_object) или ссылка на него. Может быть переопределено на уровне конкретного пути. 
 
 ### Спецификация расширения {#tl-spec}
 
 ```yaml
 x-yc-apigateway:
   service_account_id: <ID сервисного аккаунта>
+  validator: <ValidatorObject или ссылка на него>
+  cors: <CorsRuleObject или ссылка на него>
 ```
 
 ## Расширение x-yc-apigateway-integration {#integration}
@@ -34,7 +38,7 @@ x-yc-apigateway:
 
 Параметр | Тип | Описание 
 ----|----|----
-`type` | `string` | Тип расширения. Доступные значения: `dummy`, `cloud_functions`, `http`, `object_storage`, `cloud_datasphere`, `cloud_datastreams` и `serverless_containers`.
+`type` | `string` | Тип расширения. Доступные значения: `dummy`, `cloud_functions`, `http`, `object_storage`, `cloud_datasphere`, `cloud_datastreams`, `serverless_containers`, `cloud_ymq` и `cloud_ydb` .
 
 ### Спецификация расширения {#intg-spec}
 

@@ -11,7 +11,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you begin {#before-you-begin}
 
-1. Prepare the data delivery infrastructure:
+1. Prepare the data transfer infrastructure:
 
    {% list tabs %}
 

@@ -2,7 +2,7 @@
 
 Create and set up a website on a [LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle)) ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [MySQL](https://www.mysql.com/), [PHP](https://www.php.net/)) or LEMP stack (with [Nginx](https://www.nginx.com/) used instead of Apache as its web server) with load balancing from [{{ network-load-balancer-short-name }}](../../network-load-balancer/concepts/index.md) between two availability zones. This protects the website from failures in one of the zones.
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Prepare the network infrastructure](#prepare-network).
 1. [Create an instance group](#create-vms).
 1. [Upload the website files](#upload-files).
@@ -47,7 +47,7 @@ To create an instance group with a pre-installed web server:
    1. Open the **Instance groups** tab and click **Create group**.
    1. Under **Basic parameters**:
       * Name the instance group like `nlb-vm-group`.
-      * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account.  All operations in {{ ig-name }} are performed on behalf of the service account.
+      * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
 
    1. Under **Allocation**, select three availability zones (`{{ region-id }}-a` and `{{ region-id }}-b`) to ensure fault tolerance of your hosting.
    1. Under **Instance template**, click **Define** and set up the configuration for a basic instance:

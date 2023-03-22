@@ -104,6 +104,8 @@ items:
             href: tutorials/mkf-to-mch.md
           - name: Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }}
             href: tutorials/mkf-to-ydb.md
+          - name: Поставка данных из {{ mkf-full-name }} в {{ yds-full-name }}
+            href: tutorials/mkf-to-yds.md
           - name: Поставка данных из {{ GP }} в {{ CH }}
             href: tutorials/greenplum-to-clickhouse.md
           - name: Поставка данных из {{ GP }} в {{ PG }}

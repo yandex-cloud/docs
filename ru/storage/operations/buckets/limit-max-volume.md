@@ -11,11 +11,11 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Нажмите на имя необходимого бакета.
-  1. Перейдите на вкладку **Настройки**.
-  1. Задайте значение поля **Макс. размер**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Задайте значение поля **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}**.
 
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
-  1. Нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI
 

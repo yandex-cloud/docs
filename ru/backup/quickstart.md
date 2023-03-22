@@ -1,8 +1,8 @@
 # Как начать работать с {{ backup-full-name }}
 
-{{ backup-name }} — сервис для создания резервных копий и восстановления ресурсов {{ yandex-cloud }} и данных на них.
+{{ backup-name }} — сервис для создания резервных копий и восстановления ресурсов {{ yandex-cloud }} и данных на них. Сервис находится на [стадии Preview](../overview/concepts/launch-stages.md)
 
-Сервис находится на [стадии Preview](../overview/concepts/launch-stages.md) и доступен для [виртуальных машин {{ compute-name }}](../compute/concepts/vm.md) с операционной системой Ubuntu версий 20.04 и ниже, установленными из [{{ marketplace-name }}](/marketplace).
+{{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../compute/concepts/vm.md) с операционными системами Ubuntu, CentOS и Windows Server. Подробнее см. в разделе [{#T}](concepts/vm-connection.md#os).
 
 Чтобы начать работать с {{ backup-name }}:
 

@@ -11,19 +11,21 @@
   Результат:
 
   ```bash
-  coi-version: 2.0.4
+  coi-version: 2.3.14
   ```
 
 * Чтобы узнать версию в `description` (для версии 2.1.0 и выше), выполните команду:
 
   ```bash
-  yc compute image get <ID или имя образа> --profile preprod --format json | jq -r '.description'
+  yc compute image get-latest-from-family container-optimized-image \
+    --folder-id standard-images --format json \
+  | jq -r '.description'
   ```
 
   Результат:
 
   ```bash
-  Container Optimized Image 2.1.0
+  Container Optimized Image 2.3.14
   ```
 
 {% endcut %}
@@ -35,6 +37,8 @@
 {% endnote %}
 
 {% include [latest-release](../_includes/cos/latest-release.md) %}
+
+
 
 ## Предыдущие релизы {#previous-releases}
 

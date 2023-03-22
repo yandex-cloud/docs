@@ -27,7 +27,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Make sure that you have a domain name and can access the DNS settings on the site of the company that provides DNS hosting to you. This is usually the company that registered your domain.
+Make sure you have a domain name and can access the DNS settings on the website of your DNS hosting provider. This is usually the company that registered your domain.
 
 
 ### Required paid resources {#paid-resources}
@@ -138,7 +138,7 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
    1. Make sure that the configuration files are correct:
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
@@ -148,7 +148,7 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
 
    1. Deploy the bucket:
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -246,9 +246,9 @@ You need to check that, when user requests are made, files are downloaded from t
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
       ```
       terraform apply
@@ -377,7 +377,7 @@ You need to check that, when user requests are made, files are downloaded from t
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
@@ -387,7 +387,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
    1. Apply the configuration changes:
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -395,7 +395,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 - API
 

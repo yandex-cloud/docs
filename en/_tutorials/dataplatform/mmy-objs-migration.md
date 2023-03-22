@@ -1,4 +1,4 @@
-# Migrating databases from {{ mmy-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
+# Delivering data from {{ mmy-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
 
 With {{ data-transfer-name }}, you can transfer data from a {{ mmy-name }} source cluster to {{ objstorage-name }} object storage.
 
@@ -10,7 +10,7 @@ To transfer data:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Prepare the infrastructure:
 

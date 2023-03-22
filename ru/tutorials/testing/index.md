@@ -12,3 +12,4 @@
 * [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](loadtesting-https-pandora.md)
 * [Нагрузочное тестирование с нескольких агентов](loadtesting-multiply.md)
 * [Миграция результатов нагрузочного тестирования из OverLoad](loadtesting-overload-migration.md)
+* [Запуск внешних агентов для нагрузочного тестирования](loadtesting-external-agent.md)

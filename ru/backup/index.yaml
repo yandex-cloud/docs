@@ -12,7 +12,7 @@ meta:
 links:
   - title: Начало работы
     description: Создайте ВМ и привяжите ее к политике резервного копирования
-    href: quickstart/
+    href: quickstart
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/

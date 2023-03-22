@@ -34,6 +34,8 @@ items:
         href: tutorials/loadtesting-multiply.md
       - name: Миграция результатов нагрузочного тестирования из OverLoad
         href: tutorials/loadtesting-overload-migration.md
+      - name: Запуск внешних агентов для нагрузочного тестирования
+        href: tutorials/loadtesting-external-agent.md
   - name: Концепции
     items:
       - name: Обзор сервиса

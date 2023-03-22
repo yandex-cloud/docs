@@ -14,11 +14,11 @@ description: "Для управления доступом к объекту в 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. Выберите сервис **{{ objstorage-name }}**.
     1. Нажмите на имя бакета.
-    1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) справа от имени объекта и выберите **ACL объекта**.
+    1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) справа от имени объекта и выберите **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
       
-        Также можно нажать на имя объекта, на открывшейся странице нажать ![image](../../../_assets/horizontal-ellipsis.svg) и выбрать **ACL объекта**.
+        Также можно нажать на имя объекта, на открывшейся странице нажать ![image](../../../_assets/horizontal-ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.file.button_permissions }}**.
 
-    1. В появившемся окне **Редактирование ACL** выдайте или отзовите необходимые разрешения.
+    1. В появившемся окне **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
 
 - {{ TF }}
 

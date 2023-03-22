@@ -10,6 +10,7 @@
 
 {% list tabs %}
 
+
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
@@ -37,6 +38,7 @@
      * (опционально) Включите **Запустить Docker-контейнер в привилегированном режиме**, чтобы процессы Docker-контейнера получили доступ ко всем ресурсам ВМ.
      Нажмите кнопку **Применить**.
   1. Задайте остальные параметры ВМ по [инструкции](../../compute/operations/vm-create/create-linux-vm.md).
+ 
 
 - CLI с помощью флагов
 
@@ -91,7 +93,7 @@
      done (17s)
       id: epdbf646ge5qgutfvh43
       folder_id: b1g88tflru0ek1omtsu0
-      created_at: "2019-08-07T09:44:03Z"
+      created_at: "2023-03-13T09:44:03Z"
       name: my-vm
       zone_id: {{ region-id }}-b
       platform_id: standard-v3
@@ -157,7 +159,7 @@
      done (1m40s)
       id: epde18u4mahl4a8n39ta
       folder_id: b1g7gvsi89m34qmcm3ke
-      created_at: "2020-08-10T13:50:17Z"
+      created_at: "2023-03-13T13:50:17Z"
       name: my-vm
       zone_id: {{ region-id }}-b
       platform_id: standard-v2

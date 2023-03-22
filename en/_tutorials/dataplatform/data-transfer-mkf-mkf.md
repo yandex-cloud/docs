@@ -1,6 +1,6 @@
-# Moving data between {{ mkf-full-name }} clusters using {{ data-transfer-full-name }}
+# Migrating data between {{ mkf-full-name }} clusters using {{ data-transfer-full-name }}
 
-You can move your data from {{ KF }} topics between one {{ mkf-name }} cluster and another in real time. Migration across versions is also supported. For example, you can move topics from {{ KF }} ver. 2.8 to ver. 3.1.
+You can transfer your data from {{ KF }} topics between one {{ mkf-name }} cluster and another in real time. Migration across versions is also supported. For example, you can move topics from {{ KF }} ver. 2.8 to ver. 3.1.
 
 This method of data migration enables you to:
 
@@ -17,7 +17,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you begin {#before-you-begin}
 
-1. Prepare the data delivery infrastructure:
+1. Prepare the data transfer infrastructure:
 
    {% list tabs %}
 

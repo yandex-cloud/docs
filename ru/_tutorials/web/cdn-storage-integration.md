@@ -506,7 +506,7 @@
      ```
      resource "yandex_vpc_security_group" "example-sg" {
        name       = "example-sg"
-       network_id = yandex_vpc_network.example-network.id
+       network_id = "yandex_vpc_network.example-network.id"
      
        egress {
          protocol       = "ANY"

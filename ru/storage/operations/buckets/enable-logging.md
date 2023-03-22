@@ -142,7 +142,7 @@
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Нажмите на имя бакета `bucket-logs`.
   1. Нажмите на имя объекта с префиксом `logs/`.
-  1. Нажмите кнопку **Скачать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.file.button_download }}**.
 
 {% endlist %}
 

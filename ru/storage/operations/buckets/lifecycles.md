@@ -9,8 +9,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить жизненные циклы объектов.
-  1. Выберите **Жизненный цикл**.
-  1. Нажмите кнопку **Настроить**.
+  1. Выберите **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.lifecycle.button_lifecycle_empty-create }}**.
   1. На отобразившейся странице можно добавлять, удалять и редактировать правила конфигурации.
 
      {% include [storage-create-rule](../../_includes_service/storage-create-rule.md) %}

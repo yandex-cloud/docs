@@ -64,7 +64,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. {% include [install-kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. [Install the {{ k8s }} Helm](https://helm.sh/docs/intro/install) package manager.
+1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
 
 ### Add multiple Docker images to the {{ container-registry-name }} registry {#add-docker-images}
 
@@ -121,7 +121,7 @@ If you no longer need these resources, [delete them](#clear-out).
    The following checks were performed on each of these signatures:
    - The cosign claims were validated
    - The signatures were verified against the specified public key
-   
+
    [{"critical":{"identity":{"docker-reference":"{{ registry }}/<registry ID>/<Docker image name>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
    ```
 
@@ -272,11 +272,11 @@ If you no longer need these resources, [delete them](#clear-out).
 
    ```text
    Error from server: admission webhook "mutate.kyverno.svc-fail" denied the request:
-   
+
    resource Pod/default/pod2 was blocked due to the following policies
-   
+
    check-image:
-     check-image: 
+     check-image:
        failed to verify signature for {{ registry }}/crpsere9njsadcq6fgm2/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
    ```
 

@@ -151,6 +151,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    {% list tabs %}
 
+   
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
@@ -186,6 +187,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          * Enable the option **Create target group**.
          * In the **Name of the target group** field, enter `load-generator`.
       1. Click **Create**.
+ 
 
    - CLI
 

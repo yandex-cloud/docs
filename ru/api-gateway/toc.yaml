@@ -45,24 +45,26 @@ items:
         items:
           - name: Обзор
             href: concepts/extensions/index.md
-          - name: Статический ответ
-            href: concepts/extensions/dummy.md
-          - name: Вызов функции
-            href: concepts/extensions/cloud-functions.md
-          - name: Интеграция с Serverless Containers
-            href: concepts/extensions/containers.md
-          - name: Обращение по HTTP
-            href: concepts/extensions/http.md
-          - name: Интеграция с Object Storage
-            href: concepts/extensions/object-storage.md
-          - name: Интеграция с DataSphere
-            href: concepts/extensions/datasphere.md
-          - name: Интеграция с Data Streams
-            href: concepts/extensions/datastreams.md
-          - name: Интеграция с Message Queue
-            href: concepts/extensions/ymq.md
-          - name: Интеграция с YDB
-            href: concepts/extensions/ydb.md
+          - name: Интеграции
+            items:
+              - name: Статический ответ
+                href: concepts/extensions/dummy.md
+              - name: Обращение по HTTP
+                href: concepts/extensions/http.md
+              - name: '{{ sf-name }}'
+                href: concepts/extensions/cloud-functions.md
+              - name: '{{ serverless-containers-name }}'
+                href: concepts/extensions/containers.md
+              - name: '{{ objstorage-name }}'
+                href: concepts/extensions/object-storage.md
+              - name: '{{ ml-platform-short-name }}'
+                href: concepts/extensions/datasphere.md
+              - name: '{{ yds-name }}'
+                href: concepts/extensions/datastreams.md
+              - name: '{{ message-queue-name }}'
+                href: concepts/extensions/ymq.md
+              - name: '{{ ydb-name }}'
+                href: concepts/extensions/ydb.md
           - name: Жадные параметры
             href: concepts/extensions/greedy-parameters.md
           - name: Обобщенный HTTP-метод
@@ -71,6 +73,10 @@ items:
             href: concepts/extensions/function-authorizer.md
           - name: Поддержка протокола WebSocket
             href: concepts/extensions/websocket.md
+          - name: Валидация данных
+            href: concepts/extensions/validator.md
+          - name: CORS
+            href: concepts/extensions/cors.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
