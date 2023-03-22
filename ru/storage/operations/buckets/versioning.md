@@ -32,7 +32,7 @@ description: "Версионирование бакета — это возмо�
   1. Выполните следующую команду:
 
      ```bash
-     yc storage bucket update <имя_бакета> --versioning versioning-enabled 
+     yc storage bucket update --name <имя_бакета> --versioning versioning-enabled 
      ```  
      
      Результат:
