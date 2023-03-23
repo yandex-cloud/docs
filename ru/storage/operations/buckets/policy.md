@@ -68,7 +68,7 @@
   1. Выполните команду:
 
      ```bash
-     yc storage bucket update <имя_бакета> --policy-from-file <путь_к_файлу_с_политиками>
+     yc storage bucket update --name <имя_бакета> --policy-from-file <путь_к_файлу_с_политиками>
      ```
      Результат:
 
