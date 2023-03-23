@@ -1,7 +1,9 @@
-# Установить агент для сброса паролей на виртуальную машину Windows
+# Установить агент для сброса паролей на виртуальную машину Windows Server
 
 
-Чтобы сбрасывать пароли пользователей на виртуальных машинах Windows средствами {{ yandex-cloud }}, установите агент для сброса паролей и программу для обновления агента. В июне 2022 года они войдут в состав стандартных образов Windows. 
+
+Чтобы сбрасывать пароли пользователей на виртуальных машинах Windows Server средствами {{ yandex-cloud }}, установите агент для сброса паролей и программу для обновления агента.
+
 
 {% include [password-reset-linux](../../../_includes/compute/password-reset-linux.md) %}
 
@@ -19,7 +21,7 @@
      1. Получите номер последней версии программы:
      
         ```powershell
-        $YCAgentUpdaterBaseUri = "https://{{ s3-storage-host }}/yandexcloud-guestagent-updater"
+        $YCAgentUpdaterBaseUri = "https://{{ s3-storage-host }}/{{ compute-guest-agent-bucket }}"
         $YCAgentUpdaterVersion = (Invoke-RestMethod "$YCAgentUpdaterBaseUri/release/stable").Trim()
         ```
    

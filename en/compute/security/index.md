@@ -5,17 +5,17 @@ description: "Access management in {{ compute-full-name }}, a service providing 
 
 # Access management in {{ compute-name }}
 
-In this section, you'll learn:
+In this section, you will learn:
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -30,6 +30,8 @@ In this section, you'll learn:
 | `compute.disks.user` | Lets you use disks to create new resources, such as virtual machines. |
 | `compute.images.user` | Lets you use images to create new resources, such as virtual machines. |
 | `compute.operator` | Lets you [stop, start, and restart virtual machines](../../compute/operations/vm-control/vm-stop-and-start.md), but doesn't let you create or delete virtual machines. |
+| `compute.snapshotSchedules.editor` | Grants the permission to [create](../operations/snapshot-control/create-schedule.md) scheduled disk snapshots and [update](../operations/snapshot-control/update-schedule.md) them. |
+| `compute.snapshotSchedules.viewer` | Grants the permission to view information about [scheduled disk snapshots](../concepts/snapshot-schedule.md). |
 | `iam.serviceAccounts.user` | Verifies the right to use the service account.<br/>This role is required to perform operations with instance groups. If you enter a service account in the request, {{ iam-short-name }} checks that you have rights to use this account. |
 | `resource-manager.clouds.member` | A role everyone requires to access cloud resources, except for [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md). |
 | `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
@@ -45,4 +47,4 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

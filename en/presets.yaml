@@ -819,6 +819,7 @@ default:
   alb-gateway-api-version: 0.4.16
   objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
   objstorage-sftps-gateway-version: '1.0'
+  compute-guest-agent-bucket: yandexcloud-guestagent-updater
   __system:
     dislikeVariants:
       - There's no answer to my question
@@ -830,6 +831,7 @@ default:
   cos-external-ip-examples:
     - 84.201.155.117
     - 84.252.131.221
+  api-url-prefix: /docs
   sku|RUB|ai:
     adjustment:
       kop|number: '1.0000'

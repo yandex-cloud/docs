@@ -1,7 +1,9 @@
-# Installing the password reset agent on Windows virtual machine
+# Installing the password reset agent on Windows Server virtual machine
 
 
-To reset user passwords on Windows virtual machines using {{ yandex-cloud }}, install the password reset agent and its update software. In June 2022, they will be included in standard Windows images.
+
+To reset user passwords on Windows Server virtual machines using {{ yandex-cloud }}, install the password reset agent and its update software.
+
 
 {% include [password-reset-linux](../../../_includes/compute/password-reset-linux.md) %}
 
@@ -19,7 +21,7 @@ To install the agent and configure it to autoupdate:
       1. Get the software's most recent version number:
 
          ```powershell
-         $YCAgentUpdaterBaseUri = "https://{{ s3-storage-host }}/yandexcloud-guestagent-updater"
+         $YCAgentUpdaterBaseUri = "https://{{ s3-storage-host }}/{{ compute-guest-agent-bucket }}"
          $YCAgentUpdaterVersion = (Invoke-RestMethod "$YCAgentUpdaterBaseUri/release/stable").Trim()
          ```
 

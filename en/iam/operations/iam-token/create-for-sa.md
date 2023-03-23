@@ -31,7 +31,7 @@ You can use the profile you created to perform CLI operations under your service
 
 To get an IAM token, create a [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) and exchange it for an IAM token.
 
-### Before you start {#before-you-begin}
+### Before you begin {#before-you-begin}
 
 1. [Find out the service account ID](../sa/get-id.md).
 1. [Create the authorized keys](../authorized-key/create.md) required for generating a JWT. Save the public key ID.

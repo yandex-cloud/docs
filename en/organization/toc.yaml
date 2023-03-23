@@ -23,6 +23,8 @@ items:
         href: roles.md
       - name: Deleting a user account
         href: edit-account.md
+      - name: Leaving an organization
+        href: leave-organization.md
   - name: Managing user groups
     href: manage-groups.md
   - name: Managing identity federations

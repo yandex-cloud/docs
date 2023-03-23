@@ -6,6 +6,7 @@ Remote Desktop Protocol (RDP) with Network Level Authentication (NLA) is enabled
 
 To connect using RDP, specify the public IP address or the FQDN of the VM. Access using FQDN is possible from another {{ yandex-cloud }} VM if it's connected to the same network. You can find out the IP address and FQDN in the management console. Go to the **Network** section on the virtual machine's page.
 
+
 To connect to the VM:
 
 {% list tabs %}
@@ -17,7 +18,7 @@ To connect to the VM:
   1. Click **Connect**.
   1. Specify the account settings:
      * **User name** `Administrator`.
-     * **The password** you set when creating the VM.
+     * **Password**.
   1. Press **OK**.
 
   {% include [initialization-windows-vm](initialization-windows-vm.md) %}
@@ -32,7 +33,7 @@ To connect to the VM:
   1. In the **User Account** field select **Add User Account**.
   1. In the **Add User Account** dialog specify the account settings:
      * **User Name** `Administrator`.
-     * **Password**: The password that you set when creating the VM.
+     * **Password**.
   1. Press **Save** twice.
   1. Connect to the remote machine by double-clicking the connection you created in the main Microsoft Remote Desktop window.
 
@@ -66,7 +67,7 @@ To connect to the VM:
   1. In the **Basic** tab specify the details for connection and authorization:
      * **Server**: the public IP address of the virtual machine to connect to.
      * **User Name**: `Administrator`.
-     * **Password**: the password that you set when you created the virtual machine.
+     * **Password**.
 
   1. Click **Save**.
 

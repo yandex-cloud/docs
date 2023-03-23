@@ -1,1 +1,1 @@
-Currently, this role can only be assigned for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) or [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+Currently, this role can only be assigned for working with a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) or a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).

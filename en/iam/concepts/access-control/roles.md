@@ -3,7 +3,7 @@
 A _role_ is a set of user permissions to perform operations with {{ yandex-cloud }} resources.
 
 There are two types of roles:
-* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}` , and `{{ roles-viewer }}`.
+* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
 * _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the role `{{ roles-image-user }}` lets you use images in the {{ compute-full-name }} service.
 
    A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
@@ -95,6 +95,10 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [roles-images-user](../../../_includes/roles-images-user.md) %}
 
 {% include [roles-compute-operator](../../../_includes/roles-compute-operator.md) %}
+
+{% include [roles-compute-snapshotSchedules-editor](../../../_includes/roles-compute-snapshotSchedules-editor.md) %}
+
+{% include [roles-compute-snapshotSchedules-viewer](../../../_includes/roles-compute-snapshotSchedules-viewer.md) %}
 
 ## {{ container-registry-full-name }} {#cr-roles}
 

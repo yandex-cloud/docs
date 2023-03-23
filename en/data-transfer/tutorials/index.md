@@ -7,12 +7,12 @@
 * [{#T}](managed-greenplum.md)
 * [{#T}](managed-mongodb.md)
 * [{#T}](managed-mysql.md)
-* [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](managed-postgresql.md)
 
 ## Data delivery
 
 * [{#T}](mkf-to-mch.md)
+* [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](mkf-to-ydb.md)
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](greenplum-to-postgresql.md)

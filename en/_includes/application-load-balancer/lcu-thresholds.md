@@ -5,4 +5,4 @@ One resource unit is designed for the following maximum indicator values:
 * 300 new connections per second.
 * 22 MB (176 Mbit) of traffic per second.
 
-A group of resource units is automatically scaled depending on the external load on the load balancer nodes. The group size is calculated so that the load per unit does not exceed the threshold values.
+A group of resource units is automatically scaled depending on the external load on load balancer nodes. The group size is calculated so that the load per unit does not exceed the threshold values.

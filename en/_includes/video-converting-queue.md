@@ -5,7 +5,7 @@ You'll create a video converter using [FFmpeg](https://ffmpeg.org/) and {{ messa
 
 To create an application:
 
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Create resources](#create-resources).
 1. [Create an API function](#create-api-function).
 1. [Create a converter function](#create-converter-function).
@@ -30,7 +30,7 @@ The infrastructure support cost includes:
 
 ## Create resources {#create-resources}
 
-1. [Download](https://{{ s3-storage-host }}/doc-files/video-converting.zip) the archive with the files needed to create a video converter.
+1. [Download](https://{{ s3-storage-host }}/doc-files/video-converting.zip) the archive with the files required to create a video converter.
 1. [Create](../iam/operations/sa/create.md) a service account named `ffmpeg-sa` and [assign](../iam/operations/sa/assign-role-for-sa.md) it the following roles:
 
    * `ymq.reader`.

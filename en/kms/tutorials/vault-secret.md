@@ -12,7 +12,7 @@ To download the most recent Docker image, use the command below:
 docker pull {{ registry }}/yc/vault
 ```
 
-## Before you start { #before-you-begin }
+## Before you start {#before-you-begin}
 
 1. Select one of the methods to authenticate Vault requests to {{ kms-short-name }}. You can authenticate via:
 
@@ -39,7 +39,7 @@ docker pull {{ registry }}/yc/vault
    {% endlist %}
 
 1. [Create](../operations/key.md#create) a separate KMS key for Vault (recommended).
-1. [Grant access](../../iam/operations/roles/grant.md) to the key only to the user or service account that will be used to authenticate Vault requests to {{ kms-short-name }}. When interacting with {{ kms-short-name }} , Vault only performs encryption and decryption operations, so the `kms.keys.encrypterDecrypter` role is sufficient.
+1. [Grant access](../../iam/operations/roles/grant.md) to the key only to the user or service account that will be used to authenticate Vault requests to {{ kms-short-name }}. When interacting with {{ kms-short-name }}, Vault only performs encryption and decryption operations, so the `kms.keys.encrypterDecrypter` role is sufficient.
 
 ## Setting up Auto Unseal {#setup}
 
@@ -72,8 +72,8 @@ If Vault has already been initialized, you have to do a [migration procedure](ht
 {% endnote %}
 
 You can use environment variables instead of the configuration file to set parameter values:
-* The `YANDEXCLOUD_KMS_KEY_ID` variable corresponds to the `kms_key_id` Vault configuration file parameter.
-* `YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE`: `service_account_key_file` parameter.
+* The `YANDEXCLOUD_KMS_KEY_ID` variable corresponds to the `kms_key_id` Vault configuration file parameter;
+* `YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE`: `service_account_key_file` parameter;
 * `YANDEXCLOUD_OAUTH_TOKEN`: `oauth_token` parameter.
 
 The environment variable values take precedence over the values from the configuration file.

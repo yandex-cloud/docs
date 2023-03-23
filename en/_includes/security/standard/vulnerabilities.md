@@ -4,7 +4,7 @@
 
 {{ yandex-cloud }} is responsible for managing vulnerabilities and security updates in managed services. The client is responsible for managing vulnerabilities and security updates for all other system components.
 
-For an example of a scope of responsibility for managing vulnerabilities and security updates, see **Requirement 5** in the [PCI DSS responsibility matrix](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
+For an example of the scope of responsibility for managing vulnerabilities and security updates, see **Requirement 5** in the [PCI DSS responsibility matrix](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
 
 #### 6.1 A vulnerability scanner is used for container images {#vulnerability-scanning}
 

@@ -3,7 +3,7 @@
 A resource record is the main unit of information in a DNS. Using resource records, you determine where to route queries that come to specific domain names. Resource records have the following parameters:
 
 * Domain name.
-* Record type.
+* Type of writes.
 * Record time to live (TTL) in seconds before updating the record value.
 * Record value.
 

@@ -29,7 +29,7 @@ For a description of the API method, see the [documentation](../../speechkit/tts
 
 If voices in the voiced text are different, check what voice is specified in the request. Each voice has its own main language. To specify a voice that is suitable for your text, use [a list of available voices](../../speechkit/tts/voices.md).
 
-#### SSML error saying «Error during parsing XML» {#ssml-err}
+#### SSML error saying "Error during parsing XML" {#ssml-err}
 
 Make sure you do not use SSML in the `text` parameter. If you specify text in SSML format, use the [appropriate parameter](../../speechkit/tts/request.md#body_params).
 

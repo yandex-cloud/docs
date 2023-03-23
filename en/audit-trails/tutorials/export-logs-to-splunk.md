@@ -9,7 +9,7 @@ The solution described in the tutorial follows the procedure below:
 
 To configure delivery of audit log files from a bucket to Splunk:
 
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#prepare-environment).
 1. [Assign roles to the service account](#add-roles).
 1. [Create a trail](#create-trail).
@@ -22,7 +22,7 @@ Some steps are completed in {{ TF }}.
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -264,7 +264,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following the 
 
 - {{ TF }}
 
-   1. If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Clone the [Yandex Cloud Security Solution Library repository](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
 
       ```
@@ -331,9 +331,11 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following the 
 
 ## How to delete created resources {#clear-out}
 
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 1. To delete the resources created with {{ TF }}:
 
-   1. Run the command:
+   1. Run the following command:
       ```
       terraform destroy
       ```

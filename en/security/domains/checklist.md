@@ -9,7 +9,7 @@
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a {{ yandex-cloud }} VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 * **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN (see the [setup instructions using the strongSwan daemon](../../tutorials/routing/ipsec-vpn.md)) or use [{{ interconnect-name }}](../../interconnect/) (the GOST VPN service is also available).
 
-  ![](../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
+![](../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 
 
 * **Secure remote administrator access (VPN)**: Set up a VPN connection between remote devices and {{ yandex-cloud }} using solutions from {{ marketplace-name }}. See the [setup instructions](../../tutorials/routing/openvpn.md) for [OpenVPN](/marketplace/products/yc/openvpn-access-server).
@@ -25,7 +25,7 @@
 * **{{ TF }} {{ yandex-cloud }} {{ iam-full-name }} module**: Organize access groups for cloud users.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: {{ iam-name }} in {{ TF }} for {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud)
 * **Working with service accounts**: [Assign a service account to a VM instance](../../compute/operations/vm-connect/auth-inside-vm.md) and get a token using the metadata service. Set up a local firewall on the VM instance so that only the necessary processes and system users have access to the metadata service (IP address: 169.254.169.254).<!-- tbd: добавить ссылку на решение -->
-* **2FA** For an identity federation, set up 2FA on the side of your IdP. For a Yandex account, set up 2FA using the [instructions](https://yandex.com/support/id/authorization/twofa.html).
+* **2FA**: For an identity federation, set up 2FA on the side of your IdP. For a Yandex account, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 * **billing.accounts.owner protection**: After performing the initial operations, don't use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a specific employee with a federated account.
 * **resource-manager.clouds.owner protection**: Assign the `resource-manager.clouds.owner` role to employees with federated accounts. Set a strong password for the Yandex account that was used to create the cloud, and use it only when absolutely necessary. Grant administrators less privileged access and use `resource-manager.clouds.owner` only when absolutely necessary.
 * **Resource model**: Place all critical resources that must be compliant with standards in a separate cloud. Divide resource groups by folders. Host shared resources (such as network and security groups) in a separate shared resource folder.
@@ -37,7 +37,7 @@
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: VM disk encryption using {{ kms-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
 * **Client-side encryption (if required)**: Use data encryption with {{ kms-name }} keys. See an [overview of encryption methods](../../kms/tutorials/encrypt/index.md).
 * **{{ kms-name }} key protection**: Grant only granular access to individual {{ kms-name }} keys (the `kms.keys.encrypterDecrypter` role). Use [key rotation](../../kms/concepts/version.md).
-* **Secret management**: Use secret management services, such as [{{ lockbox-name }}](../../lockbox/) or [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }}.<!-- или контейнер cr.yandex/yc/vault -->
+* **Secret management**: Use secret management services, such as [{{ lockbox-name }}](../../lockbox/) or [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }}.<!-- или контейнер {{ registry }}/yc/vault -->
 
 ## Secure configuration {#secure-configuration}
 
@@ -62,7 +62,7 @@
 ## Managing vulnerabilities {#vulnerability-management}
 
 * **Automated vulnerability scanning**: Use free network scanners, such as Nmap, OpenVAS, and OWASP ZAP, or host-based solutions, such as Wazuh and Tripwire.
-* **External security scans**: Perform scans according to the[ rules](../compliance/pentest.md).
+* **External security scans**: Perform scans according to the [rules](../compliance/pentest.md).
 * **Software and OS updates**: Install updates manually and use automated update tools.
 * **Web Application Firewall**: Install a WAF from [{{ marketplace-name }}](/marketplace?categories=security) or use Managed WAF — contact your account manager to get access.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: PT Application Firewall built on {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/unmng-waf-ptaf-cluster)
@@ -105,7 +105,7 @@
 ### Data encryption and key/secret management {#kubernetes-data-encryption}
 
 * **Server-side encryption**: Enable secret encryption in etcd. See the [tutorial](../../kms/tutorials/k8s.md). Do this at all times, regardless of whether you use secret management services or not.
-* **Secret management**: Use [{{ lockbox-name }}](../../lockbox/) or [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }}.<!-- или контейнер `cr.yandex/yc/vault` -->
+* **Secret management**: Use [{{ lockbox-name }}](../../lockbox/) or [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }}.<!-- или контейнер `{{ registry }}/yc/vault` -->
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Secret management using SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
 
 ### Network security {#kubernetes-network-security}

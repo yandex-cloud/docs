@@ -4,7 +4,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guide
     items:
       - name: All instructions
         href: operations/index.md
@@ -30,6 +30,8 @@ items:
         href: tutorials/loadtesting-https-pandora.md
       - name: Load testing using multiple agents
         href: tutorials/loadtesting-multiply.md
+      - name: Migrating load testing results from OverLoad
+        href: tutorials/loadtesting-overload-migration.md
   - name: Concepts
     items:
       - name: Service overview

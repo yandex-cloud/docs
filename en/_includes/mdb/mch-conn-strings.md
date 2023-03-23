@@ -23,6 +23,7 @@
 
 {% list tabs %}
 
+
 * Connecting without using SSL
 
    ```bash
@@ -32,6 +33,7 @@
                      --port 9000 \
                      --ask-password
    ```
+
 
 * Connecting via SSL
 
@@ -47,6 +49,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
 
 {% list tabs %}
 
+
 * Connecting without using SSL
 
    ```bash
@@ -54,6 +57,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
         --header "X-ClickHouse-Key: <DB user password>" \
         'http://<FQDN of any {{ CH }} host>:8123/?database=<DB name>&query=SELECT%20version()'
    ```
+
 
 * Connecting via SSL
 
@@ -75,6 +79,7 @@ sudo apt update && sudo apt install --yes golang git
 ```
 
 {% list tabs %}
+
 
 * Connecting without using SSL
 
@@ -121,6 +126,7 @@ sudo apt update && sudo apt install --yes golang git
        fmt.Println(string(data))
    }
    ```
+
 
 * Connecting via SSL
 
@@ -295,6 +301,7 @@ go run connect.go
 
 {% list tabs %}
 
+
 * Connecting without using SSL
 
    `src/java/com/example/App.java`
@@ -326,6 +333,7 @@ go run connect.go
        }
    }
    ```
+
 
 * Connecting via SSL
 
@@ -380,6 +388,7 @@ npm install querystring
 
 {% list tabs %}
 
+
 * Connecting without using SSL
 
    `app.js`
@@ -418,6 +427,7 @@ npm install querystring
 
    rs.end();
    ```
+
 
 * Connecting via SSL
 
@@ -522,6 +532,7 @@ node app.js
 
 {% list tabs %}
 
+
 * Connecting without using SSL
 
    `/etc/odbc.ini`
@@ -536,6 +547,7 @@ node app.js
    Port = 8123
    Proto = http
    ```
+
 
 * Connecting via SSL
 
@@ -589,6 +601,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
 
 {% list tabs %}
 
+
 * Connecting without using SSL
 
    `connect.php`
@@ -618,6 +631,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
        print_r($rs);
    ?>
    ```
+
 
 * Connecting via SSL
 
@@ -667,6 +681,7 @@ php connect.php
 
 {% list tabs %}
 
+
 * Connecting without using SSL
 
    ```powershell
@@ -675,6 +690,7 @@ php connect.php
        -H "X-ClickHouse-Key: <DB user password>" `
        'http://<FQDN of any {{ CH }} host>:8123/?database=<DB name>&query=SELECT+version()'
    ```
+
 
 * Connecting via SSL
 
@@ -698,6 +714,7 @@ pip3 install clickhouse-driver
 
 {% list tabs %}
 
+
 * Connecting without using SSL
 
    `connect.py`
@@ -712,6 +729,7 @@ pip3 install clickhouse-driver
 
    print(client.execute('SELECT version()'))
    ```
+
 
 * Connecting via SSL
 
@@ -750,6 +768,7 @@ pip3 install requests
 
 {% list tabs %}
 
+
 * Connecting without using SSL
 
    `connect.py`
@@ -770,6 +789,7 @@ pip3 install requests
    response.raise_for_status()
    print(response.text)
    ```
+
 
 * Connecting via SSL
 
@@ -811,6 +831,7 @@ sudo apt update && sudo apt install --yes ruby
 
 {% list tabs %}
 
+
 * Connecting without using SSL
 
    `connect.rb`
@@ -839,6 +860,7 @@ sudo apt update && sudo apt install --yes ruby
    rs = conn.request(req)
    puts rs.body
    ```
+
 
 * Connecting via SSL
 

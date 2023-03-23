@@ -2,11 +2,11 @@
 
 Create [DNS zones](concepts/dns-zone.md), add `A` records for your test VMs to them, and test the availability of domain names.
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
-1. Log in to or register in the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md). When creating a folder, you can create a default virtual network with subnets in all availability zones.
+1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
+1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 1. [Create a network](../vpc/quickstart.md) and subnets to connect your test VMs.
 1. [Create](../compute/operations/vm-create/create-linux-vm.md) VMs named `test-vm-1` and `test-vm-2` in the `{{ region-id }}-a` availability zone. Make sure that `test-vm-1` has a public IP address. Connect them to subnets of the same network.
 
@@ -31,7 +31,7 @@ Create a new domain zone:
 
 - CLI
 
-   Run the command:
+   Run the following command:
 
    ```
    yc dns zone create --name test-zone \
@@ -119,7 +119,7 @@ Create a new public domain zone:
 
 - CLI
 
-   Run the command:
+   Run the following command:
 
    ```
    yc dns zone create --name test-public-zone \
@@ -146,7 +146,7 @@ Create a new public domain zone:
 
 - CLI
 
-   Run the command:
+   Run the following command:
 
    ```
    yc dns zone add-records --name test-public-zone \
@@ -155,7 +155,7 @@ Create a new public domain zone:
 
 {% endlist %}
 
-Delegate your domain name by specifying the addresses of the `ns1.{{ dns-ns-host-sld }}.` and `ns2.{{ dns-ns-host-sld }}.` {{ yandex-cloud }} name servers at your registrar.
+Delegate your domain name by specifying the addresses of `ns1.{{ dns-ns-host-sld }}.` and `ns2.{{ dns-ns-host-sld }}.` {{ yandex-cloud }} name servers at your registrar.
 
 ### Test the availability of domain names in the public zone {#test-public-resolving}
 

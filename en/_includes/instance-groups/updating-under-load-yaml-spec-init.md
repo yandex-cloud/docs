@@ -24,7 +24,7 @@ instance_template:
        - b1csa2b3clideftjb121
      primary_v4_address_spec: {
        one_to_one_nat_spec: {
-         ip_version: IPV4 # IPv4 specification for public access to the VM.
+         ip_version: IPV4 # specification for public access to the VM.
        }
      }         
   metadata: # Values to pass to the VM metadata.
@@ -39,7 +39,7 @@ instance_template:
             tty: false
             stdin: false
     ssh-keys: | # Parameter for sending an SSH key to the VM.
-      yc-user:ssh-rsa ABC...d01 user@desktop.ru # Username for the VM connection.
+      yc-user:ssh-ed25519 ABC...d01 user@desktop.ru # Username for the VM connection.
 deploy_policy: # Deployment policy for instances in the group.
   max_unavailable: 4
 scale_policy: # Scaling policy for instances in the group.

@@ -8,7 +8,7 @@ To prepare an image ready for use in {{ yandex-cloud }}:
 
 1. [Install QEMU](https://www.qemu.org/download/).
 1. [Install Packer](../tutorials/infrastructure-management/packer-quickstart#install-packer).
-1. Download the archive with [Packer configurations](https://{{ s3-storage-host }}/packer-recipies/windows-packer.zip) and unpack it to the desired folder, such as `windows-packer`.
+1. Download the archive with [Packer configurations](https://{{ s3-storage-host }}/packer-recipies/windows-packer.zip) and unpack it to the relevant directory, such as `windows-packer`.
 1. Download the [image with drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso) and open it. Move the folders `NetKVM`, `vioserial`, and `viostor` to the folder `windows-packer/drivers`. The folders contain drivers for different operating systems, so make sure to use the appropriate drivers.
 1. Select the appropriate Packer configuration for your Microsoft product and make the following changes to the configuration file:
    1. Specify the path to your distribution in the `iso_url` parameter.

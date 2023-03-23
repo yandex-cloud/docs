@@ -8,12 +8,12 @@
 * [{#T}](managed-greenplum.md)
 * [{#T}](managed-mongodb.md)
 * [{#T}](managed-mysql.md)
-* [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](managed-postgresql.md)
 
 ## Поставка данных
 
 * [{#T}](mkf-to-mch.md)
+* [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](mkf-to-ydb.md)
 * [{#T}](mkf-to-yds.md)
 * [{#T}](greenplum-to-clickhouse.md)

@@ -1,4 +1,3 @@
-
 {% include [revision-service-account-note](./revision-service-account-note.md) %}
 
 {% list tabs %}
@@ -67,9 +66,9 @@
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   In {{ TF }}, a new revision is created every time the resource's runtime parameters are updated.
+   In {{ TF }}, a new revision is created every time the resource runtime parameters are updated.
 
    To create a revision:
 
@@ -98,7 +97,7 @@
 
       For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, switch to the folder where you created the configuration file.
       1. Run the check using the command:
@@ -110,7 +109,7 @@
       If the configuration is described correctly, the terminal displays a list of resources being created or updated and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
 
-   1. If the configuration doesn't contain any errors, run the command:
+   1. If the configuration does not contain any errors, run the command:
       ```
       terraform apply
       ```
