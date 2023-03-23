@@ -15,7 +15,7 @@ For more information about the scripts for uploading audit logs to ArcSight, see
 
 To configure delivery of audit log files to ArcSight:
 
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#prepare-environment).
 1. [Assign roles to the service accounts](#add-roles).
 1. [Create a trail](#create-trail).
@@ -24,7 +24,7 @@ To configure delivery of audit log files to ArcSight:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -363,6 +363,8 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
    ![image](../../_assets/audit-trails/tutorials/arcsight-events.png)
 
 ## How to delete created resources {#clear-out}
+
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket {{ objstorage-name }}.
 1. [Destroy](../../kms/operations/key.md#delete) the {{ kms-name }} key.

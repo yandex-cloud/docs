@@ -1,6 +1,6 @@
 ### compute.admin {#compute-admin}
 
-The `compute.admin` role includes the following permissions:
+The `compute.admin` role includes the permissions of the `compute.snapshotSchedules.editor` role, as well as the following permissions:
 
 * Create and edit [virtual machines](../compute/concepts/vm.md).
 * Create and edit [disks](../compute/concepts/disk.md) and [disk snapshots](../compute/concepts/snapshot.md).

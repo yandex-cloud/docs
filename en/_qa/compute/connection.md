@@ -13,13 +13,11 @@ Your device should "see" the VM over the network:
 * If you're connecting from the outside, a public IP address must be assigned to the VM or connectivity must be configured via another VM with a public IP address (for example, via an [NAT instance](../../tutorials/routing/nat-instance.md)).
 * Outgoing traffic to and from the VM must be allowed on your device.
 
-You shouldn't turn off or restart the VM immediately after creating it. For VMs with a small guaranteed vCPU performance, the initial launch process may take a long time (up to half an hour). If the VM is terminated prematurely, the initialization scripts might not have time to execute. In this case, delete the VM and create a new one.
-
-
+Do not turn off or restart the VM immediately after creating it. For VMs with a small guaranteed vCPU performance, the initial launch process may take a long time (up to half an hour). If the VM is terminated prematurely, the initialization scripts might not have time to execute. In this case, delete the VM and create a new one.
 
 #### How do I use root on a Linux VM? {#use-root-linux}
 
-When creating a Linux VM, don't use usernames reserved by the system, such as `root`, `admin`, and so on, because `cloud-init` can't add a user with this kind of username. Try creating a VM by specifying the username `user`.
+When creating a Linux VM, do not use usernames reserved by the system, such as `root`, `admin`, etc, because `cloud-init` will not be able to add a user with this kind of username. Try creating a VM by specifying the `user` username instead.
 
 To upgrade your rights to `root`, use `sudo`. The user specified when creating the VM is a member of the `sudo` group. `root` doesn't have a password, so you can simply connect to the VM via SSH (see [{#T}](../../compute/operations/vm-connect/ssh.md)) and enter the command:
 
@@ -47,22 +45,19 @@ There are two options for enabling the graphical interface on Linux VMs:
    1. Install the xrdp or VNC server to connect via RDP or VNC, respectively.
    1. Configure the software.
 
-
-      We recommend using a combination of a VNC server that listens only to localhost and an SSH tunnel. In this case, you eliminate the risk of attackers connecting to your VM via VNC and also encrypt the VNC traffic. 
+      We recommend using a combination of a VNC server that only listens to localhost and an SSH tunnel. In this case, you eliminate the risk of attackers connecting to your VM via VNC and also encrypt the VNC traffic. 
 * Configure X11 forwarding onto the local computer. For Windows, use [Xming](https://sourceforge.net/projects/xming/).
    1. Install the desktop environment.
    1. Configure X11 forwarding and connect via SSH.
    1. Launch the application from the terminal.
 
-
 #### How do I use a serial console? How do I connect directly to a VM? {#connection-linux-via-console}
 
-If you have problems connecting to a VM over a network, you can use the serial console. For more information about charts, see [{#T}](../../compute/operations/serial-console/index.md).
+If you have issues while connecting to a VM over a network, you can use the serial console. For more information about charts, see [{#T}](../../compute/operations/serial-console/index.md).
 
 You can enable access to the serial console when creating or modifying a VM. The serial console is available in the {{ yandex-cloud }} [management console]({{ link-console-main }}) in the VM menu.
 
-For a Linux VM, you additionally need to configure password access for the user in advance by connecting via SSH and setting a password with the `sudo passwd user` command (instead of `user`, specify the username that was set when creating the VM).
-
+For a Linux VM, you need to additionally configure password access for the user in advance by connecting via SSH and setting a password with the `sudo passwd user` command, where `user` is the username you set when creating the VM.
 
 #### Why does the VM not work after a reboot? {#why-fail-after-reboot}
 
@@ -75,13 +70,12 @@ The VM may stop working after a reboot for one of the following reasons:
 
 If you performed one of these actions, see [How do I get important data from a broken VM](#get-data-from-fail-vm). Otherwise, contact support.
 
-
 #### How do I get important data from a broken VM? {#get-data-from-fail-vm}
 
-When a VM malfunctions:
+When a VM crashes:
 1. Take a snapshot of the problem disk: see [{#T}](../../compute/operations/disk-control/create-snapshot.md).
 1. Create a new VM with an additional (non-bootable) disk that was restored from the snapshot: see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md).
-1. Connect to the VM: see [{#T}](../../compute/operations/index.md#vm-use).
-1. Mount the disk: see [{#T}](../../compute/operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid).
-1. Run a check of the disk's file system.
-1. Transfer the necessary data to the boot disk of the new VM.
+1. Connect to the VM (see [{#T}](../../compute/operations/index.md#vm-use) for details).
+1. Mount the disk (see [{#T}](../../compute/operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid) for details).
+1. Run a check of the disk file system.
+1. Transfer the data you need to the boot disk of your new VM.

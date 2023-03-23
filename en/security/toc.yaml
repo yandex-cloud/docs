@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Key security principles
     href: principles.md
-  - name: Shared responsibility
+  - name: Division of responsibility
     href: respons.md
   - name: Compliance
     href: conform.md

@@ -38,12 +38,12 @@
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной группы, например `first-instance-group`.
+  1. Выберите идентификатор (`ID`) нужной группы.
   1. Укажите нужное имя и описание в YAML-файле, по которому создавалась группа, например `specification.yaml`. Если YAML-файл не сохранился, [получите информацию](get-info.md) о группе виртуальных машин и создайте новый. Подробнее читайте в разделе [{#T}](create-fixed-group.md).
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
+      {{ yc-compute-ig }} update --id <ID_группы_ВМ> --file specification.yaml
       ```
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.
@@ -96,12 +96,12 @@
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной группы, например `first-instance-group`.
+  1. Выберите идентификатор (`ID`) нужной группы.
   1. Укажите нужные параметры виртуальной машины в YAML-файле (ключ `resources_spec`), по которому создавалась группа, например `specification.yaml`. Если YAML-файл не сохранился, [получите информацию](get-info.md) о группе виртуальных машин и создайте новый. Подробнее читайте в разделе [{#T}](create-fixed-group.md).
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
+      {{ yc-compute-ig }} update --id <ID_группы_ВМ> --file specification.yaml
       ```
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.
@@ -150,12 +150,12 @@
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной группы, например `first-instance-group`.
+  1. Выберите идентификатор (`ID`) нужной группы.
   1. Укажите нужный размер хранилища в YAML-файле (ключ `boot_disk_spec`), по которому создавалась группа, например `specification.yaml`. Если YAML-файл не сохранился, [получите информацию](get-info.md) о группе виртуальных машин и создайте новый. Подробнее читайте в разделе [{#T}](create-fixed-group.md).
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
+      {{ yc-compute-ig }} update --id <ID_группы_ВМ> --file specification.yaml
       ```
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.

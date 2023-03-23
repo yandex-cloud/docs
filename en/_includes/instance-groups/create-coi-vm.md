@@ -99,7 +99,7 @@ To create an instance group based on a {{ coi }}:
      * `type_id`: Disk type.
      * `size`: Disk size.
      * `network_id`: ID of `default-net`.
-     * `primary_v4_address_spec`: IPv4 specification. Only IPv4 is currently available. You can [grant public access to the group's instances](../../compute/concepts/instance-groups/instance-template.md#instance-template) by specifying the IP version for a public IP address.
+     * `primary_v4_address_spec`: IPv4 specification. Only IPv4 is currently available. You can [allow public access to group instances](../../compute/concepts/instance-groups/instance-template.md#instance-template) by specifying the IP version for the public IP address.
      * `metadata`: Values to pass to the VM metadata.
      * `docker-container-declaration`: Key in the VM metadata that is used with the [COI specification of the Docker container](../../cos/concepts/coi-specifications.md). In the metadata, you can use the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec). To do this, specify the `docker-compose` key instead of the `docker-container-declaration` key.
 
@@ -167,7 +167,7 @@ To create an instance group based on a {{ coi }}:
 
      {% note info %}
 
-     To use in `specification.yaml` [the Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec), specify the `docker-compose` key instead of the `docker-container-declaration` key.
+     To use the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec) in `specification.yaml`, specify the `docker-compose` key instead of the `docker-container-declaration` key.
 
      {% endnote %}
 

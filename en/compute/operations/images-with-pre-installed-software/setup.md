@@ -2,7 +2,7 @@
 
 Virtual machines with LEMP, LAMP, and Node.js do not require any initial configuration. The pre-installed software is ready for use.
 
-For VMs with content management systems to be deployed, such as Drupal, GitLab, Joomla, or WordPress, use a [web setup wizard](#web-setup) to perform the initial configuration.
+For VMs with content management systems to deploy, such as Drupal, GitLab, Joomla, or WordPress, use a [web setup wizard](#web-setup) to perform the initial configuration.
 
 ## Configuring software via web setup wizard {#web-setup}
 
@@ -15,7 +15,7 @@ To run the web setup wizard:
    If you can't connect to the VM, try again in a few minutes.
 
    {% endnote %}
-1. Complete the steps of the web setup wizard and follow the recommendations from the developers: [Drupal](https://drupal.org/), [GitLab](https://about.gitlab.com), [Joomla](https://joomla.org/), or [WordPress](https://wordpress.org/).
+1. Complete the steps of the web setup wizard while following the developer recommendations: [Drupal](https://drupal.org/), [GitLab](https://about.gitlab.com), [Joomla](https://joomla.org/), or [WordPress](https://wordpress.org/).
 
 During software configuration, you may need the DB connection parameters. To find out these parameters, [connect to the VM](operate.md) over SSH and run the command:
 

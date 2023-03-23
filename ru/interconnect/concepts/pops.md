@@ -18,8 +18,17 @@
 
 Шаблоны согласительных писем для каждой из точек присутствия:
 
-* `M9` — [шаблон согласительного письма для M9](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-M9-example.docx)
-* `NORD` — [шаблон согласительного письма для NORD](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-Nord-example.docx)
-* `OST` — [шаблон согласительного письма для OST](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-Ost-example.docx)
-* `STD` — cогласительное письмо не требуется. Технический персонал точки присутствия взаимодействует с {{ yandex-cloud }} напрямую.
+* `M9` — [шаблон согласительного письма для M9 (этаж 10)](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-M9-L10.docx)
+* `M9` — [шаблон согласительного письма для M9 (этаж 7)](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-M9-L7.docx)
+* `NORD` — [шаблон согласительного письма для NORD](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-NORD.docx)
+* `OST` — [шаблон согласительного письма для OST](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-OST.docx)
+* `TEHNO` - [шаблон согласительного письма для TEHNO](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-TEHNO.docx)
+
+
+{% note info "Важно" %}
+
+Подключение услуги {{ interconnect-name }} на точке присутствия **TEHNO** будет доступно с 15 апреля 2023 г. 
+
+{% endnote %}
+
 

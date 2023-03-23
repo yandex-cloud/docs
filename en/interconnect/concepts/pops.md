@@ -18,8 +18,8 @@ To have a cross connection enabled at a point of presence, write an agreement le
 
 You can find agreement letter forms for each point of presence below:
 
-* `M9`: [Agreement letter for M9 form](https://storage.yandexcloud.net/doc-files/interconnect-agreement-M9-example.docx)
-* `NORD`: [Agreement letter for NORD form](https://storage.yandexcloud.net/doc-files/interconnect-agreement-Nord-example.docx)
-* `OST`: [Agreement letter for OST form](https://storage.yandexcloud.net/doc-files/interconnect-agreement-Ost-example.docx)
+* `M9`: [Agreement letter form for M9](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-M9-example.docx).
+* `NORD`: [Agreement letter form for NORD](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-Nord-example.docx).
+* `OST`: [Agreement letter form for OST](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-Ost-example.docx).
 * `STD`: No agreement letter required. The technical staff at a point of presence works with {{ yandex-cloud }} directly.
 

@@ -4,6 +4,8 @@
 
 ## Версия 0.103.0 (15.03.23) {#version0.103.00}
 
+
+
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ api-gw-name }} {#api-gw}
@@ -14,9 +16,12 @@
 * `--log-folder-id`, `--log-folder-name` — для отправки логов в стандартную лог-группу заданного каталога.
 * `--min-log-level` — для указания минимального уровня логирования записей.
 
+
+
 #### {{ compute-name }} {#compute}
 * Добавлена группа команд `yc compute gpu-cluster` для управления GPU-кластерами.
 * Добавлены параметры `--gpu-cluster-id` и `--gpu-cluster-name` в команду `yc compute instance create` для создания виртуальной машины в GPU-кластере.
+
 
 ## Предыдущие релизы {#previous-releases}
 
@@ -24,9 +29,9 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 ##### {{ ig-name }} {#instance-groups}
 Исправлена проблема `update` `instance-group` при указании через `name`.
-
 
 ##### {{ alb-name }} {#alb}
 Добавлена поддержка аргументов командной строки для поиска соответствий по регулярному выражению`--regex-path-match` и `--regex-fqmn-match`. Используются аналогично `exact` и `prefix`:
@@ -51,8 +56,8 @@
 ### Версия 0.101.0 (16.01.23) {#version0.101.0}
 
 
-#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ managed-k8s-name }} {#managed-kubernetes}
 
@@ -66,8 +71,6 @@
 * `events-enabled` — флаг для отправки событий {{ k8s }} в {{ cloud-logging-name }}.
 
 Если отправка логов включена, но не указаны ни `log-group-id`, ни `folder-id`, логи будут отправляться в каталог, где находится кластер, в лог-группу по умолчанию. Указывать одновременно `log-group-id` и `folder-id` нельзя.
-
-
 
 ##### {{ network-load-balancer-name }} {#network-load-balancer}
 
@@ -91,14 +94,15 @@
 В команды `yc vpc address create` и `yc vpc address update` добавлен флаг `--deletion-protection` для защиты статического публичного IP-адреса от случайного удаления.
 
 
-
 ### Версия 0.100.0 (27.12.22) {#version0.100.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 ##### {{ compute-name }} {#compute}
 
 * В команде `yc compute instance update` добавлена возможность редактирования правил размещения на хостах.
+
 
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
@@ -162,9 +166,13 @@
 
 * В команде `{{ yc-mdb-rd }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
 
+
 **{{ mms-name }}**
 
 * В команде `{{ yc-mdb-ms }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
+
+
+
 
 ##### {{ sf-name }} {#serverless-functions}
 
@@ -243,14 +251,10 @@
   * `--log-group-id`, `--log-group-name` — для задания лог-группы из {{ cloud-logging-name }};
   * `--enable-logging` и `--disable-logging` — для включения и выключения записи логов балансировщика в лог-группу из {{ cloud-logging-name }}.
 
-
-
 ##### {{ compute-name }} {#compute}
 
 * Добавлена группа команд `yc compute snapshot-schedule` для управления снимками диска по расписанию.
 * В команду `yc compute instance create` добавлен флаг `--metadata-options` для управления доступом к метаданным ВМ.
-
-
 
 ###### {{ dns-name }} {#dns}
 
@@ -268,8 +272,6 @@
 
 * Добавлена группа команд `yc iot broker` для управления MQTT-брокером.
 
-
-
 ##### {{ sf-name }} {#serverless-functions}
 
 Добавлены команды:
@@ -278,8 +280,6 @@
 * `yc serverless trigger create mail` — для создания триггеров для почты.
 
 В команду `yc serverless function version create` добавлен параметр `--secret` для добавления [секретов](../lockbox/) к версии.
-
-
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
@@ -307,7 +307,6 @@
   * `yc serverless api-gateway websocket get` — получение информации о соединении;
   * `yc serverless api-gateway websocket send` — отправка данных в соединении;
   * `yc serverless api-gateway websocket disconnect` — разрыв соединения.
-  
 
 
 
@@ -315,27 +314,17 @@
 
 * В команду `yc certificate-manager certificate content` добавлен параметр `--key-format` для выбора формата приватного ключа: `PKCS1` или `PKCS8`.
 
-
-
-
 ##### {{ compute-name }} {#compute}
 
 * В команду `yc compute image create` добавлен параметр `--os-type` для указания типа операционной системы создаваемого образа: `linux` или `windows`.
-
-
-
 
 ##### {{ dns-name }} {#dns}
 
 * Команды `yc dns zone add-records`, `yc dns zone update-records`, `yc dns zone delete-records` и `yc dns zone replace-records` теперь возвращают список выполненных изменений.
 
-
-
-
 ##### {{ iam-name }} {#iam}
 
 * В группе команд `yc iam federation` исправлена ошибка, возникавшая при указании имени SAML-совместимой федерации как позиционного аргумента.
-
 
 
 
@@ -346,8 +335,7 @@
   * `--levels` — для поиска записей с указанными уровнями логирования;
   * `--filter` — для фильтрации записей.
 
-  Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md). 
-
+  Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md).
 
 
 ##### Сервисы управляемых баз данных {#managed-db}
@@ -421,10 +409,12 @@
   - `offsets-retention-minutes`
   - `ssl-cipher-suites`
 
+
 ##### {{ vpc-name }} {#vpc}
 
 * Добавлена группа команд `yc vpc gateway` для управления шлюзами маршрутизации.
 * В команды группы `yc vpc route-table` добавлена возможность указать шлюз в качестве назначения маршрута.
+
 
 ### Версия 0.93.0 (19.07.22) {#version0.93.0}
 
@@ -457,6 +447,7 @@
 * При создании нового кластера по умолчанию выбирается версия MongoDB 5.0.
 
 
+
 ##### {{ managed-k8s-name }} {#k8s}
 
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`:
@@ -464,6 +455,7 @@
   * Добавлен флаг `--node-name`, позволяющий указать шаблон именования узлов в группе.
 
   * Добавлены флаги `--template-labels` и `--template-labels-from-files`, позволяющие указать [ресурсные метки {{ yandex-cloud }}](../resource-manager/concepts/labels.md) для ВМ — узлов группы (не путать с [метками узлов {{ k8s }}](../managed-kubernetes/concepts/index.md#node-labels)).
+
 
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
@@ -478,6 +470,7 @@
 * Исправлена ошибка запуска `yc` при передаче большого количества аргументов.
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 ##### {{ certificate-manager-name }} {#certificate-manager}
 
@@ -501,17 +494,20 @@
 * Группа команд `yc managed-greenplum cluster` позволяет управлять кластерами.
 * Группа команд `yc managed-greenplum hosts` позволяет управлять хостами.
 
+
 **{{ mms-name }}**
 
 * Добавлена команда `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false`, которая привязывает или удаляет публичный IP-адрес хоста.
+
+
 
 
 ### Версия 0.91.0 (12.05.22){#version0.91.0}
 
 
 
-
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 ##### {{ alb-name }} {#alb}
 
@@ -543,6 +539,7 @@
 * В группу команд `yc ydb database` добавлены команды `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для баз данных.
 * В группу команд `yc ydb backup` добавлены команды `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для бекапов баз данных.
 
+
 ##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mes-name }}**
@@ -565,22 +562,22 @@
   * Параметр `--host-group-ids`, который задает список хостов для размещения кластера на выделенных серверах.
   * Флаг `--deletion-protection`, позволяющий восстанавливать кластер сразу с включенной защитой от удаления.
 
+
 **{{ mms-name }}**
 
 * В команды `yc managed-sqlserver create` и `yc managed-sqlserver update` добавлен параметр `--service-account-id` для назначения сервисного аккаунта хостам кластера {{ MS }}.
 * Добавлены команды `yc managed-sqlserver database backup-export` и `yc managed-sqlserver database backup-import` для экспорта и импорта бэкапов баз данных в пользовательское хранилище.
 * Добавлена команда `yc managed-sqlserver cluster start-failover` для ручного запуска смены мастера в кластере.
 
+
 **{{ mkf-name }}**
 
 * В команду `yc managed-kafka cluster update` добавлен флаг `--assign-public-ip` для управления публичным доступом к брокерам.
 
-
-
-
 ### Версия 0.90.0 (13.04.22) {#version0.90.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 ##### {{ dataproc-name }} {#dataproc}
 
@@ -597,6 +594,7 @@
 ##### {{ dns-name }} {#dns}
 
 * В команду `yc dns zone update` добавлен флаг `--clear-network-ids` для удаления списка виртуальных сетей, из которых видны записи внутренней DNS-зоны.
+
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -630,6 +628,7 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 ##### {{ compute-name }} {#compute}
 
 * Добавлена команда `yc compute filesystem resize` для изменения размера файлового хранилища.
@@ -642,7 +641,8 @@
   * `--levels` для поиска записей с указанными уровнями логирования;
   * `--filter` для фильтрации записей.
 
-  Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md). 
+  Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md).
+
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -686,6 +686,7 @@
   * `yc datatransfer endpoint update mysql-target`;
   * `yc datatransfer transfer update`;
 
+
 ##### {{ cdn-name }} {#cdn}
 
 * Добавлена возможность делать полную очистку кэша ресурса: `yc cdn cache purge --all`.
@@ -705,15 +706,18 @@
 
 * В команды `yc managed-sqlserver update`, `yc managed-sqlserver start` добавлен флаг `confirm-payment` для подтверждения согласия с лицензионными платежами.
 
+
 ### Версия 0.87.0 (18.01.22) {#version0.87.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 ##### {{ dataproc-name }} {#dataproc}
 
 * Добавлена команда `yc dataproc job cancel <JOB-ID>|<JOB-NAME>`.
 
   Теперь можно отменить выполнение незавершенного задания.
+
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -732,9 +736,11 @@
 
 ### Версия 0.86.0 (15.12.21) {#version0.86.0}
 
+
 #### Изменения в CLI {#cli}
 
-* Добавлена возможность передачи  [IAM-токена](../iam/concepts/authorization/iam-token.md)  через переменную окружения `YC_IAM_TOKEN`.
+* Добавлена возможность передачи [IAM-токена](../iam/concepts/authorization/iam-token.md) через переменную окружения `YC_IAM_TOKEN`.
+
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -744,6 +750,7 @@
 
 * В команду `yc managed-kafka cluster update` добавлен параметр `--maintenance-window`, позволяющий задать параметры окна обслуживания.
 * Добавлена команда `yc managed-kafka cluster reschedule-maintenance`, позволяющая изменить время запуска запланированной задачи по обслуживанию кластера.
+
 
 ##### {{ alb-name }} {#alb}
 
@@ -781,6 +788,7 @@
 * В команду `yc ydb database update` добавлен параметр `--labels` — он меняет весь набор меток для БД.
 * Добавлены команды для управления метками `yc ydb database add-labels` и `yc ydb database remove-labels`.
 
+
 ### Версия 0.85.0 (29.11.21) {#version0.85.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -792,6 +800,7 @@
 * Команда `yc managed-kafka cluster update`.
 
   Добавлен флаг `--version`, позволяющий обновить версию {{ KF }} кластера.
+
 
 ##### {{ managed-k8s-name }} {#k8s}
 
@@ -810,6 +819,7 @@
 
 * Добавлена команда `yc resource-manager folder delete`, которая позволяет удалить каталог.
 
+
 #### Изменения в CLI {#cli}
 
 Исправлена ошибка в команде `yc init`. Теперь при проверке доступности endpoints не игнорируются настройки proxy.
@@ -818,9 +828,11 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 ##### {{ cdn-name }} {#cdn}
 
 * Добавлена команда `yc cdn resource` для управления ресурсами {{ cdn-name }} (get, list, delete, get-provider-cname).
+
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -842,15 +854,18 @@
 В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster restore` добавлены новые флаги:
 * `--embedded-keeper` — позволяет создать кластер, используя {{ CH }} вместо {{ ZK }}.
 
+
 ##### {{ dataproc-name }} {#dataproc}
 
 * Команда `yc dataproc cluster create`, флаг `--subcluster`.
 
   Добавлен параметр `assign-public-ip`, позволяющий выделить публичные IP-адреса для всех хостов подкластера.
 
+
 ### Версия 0.83.0 (26.10.21) {#version0.83.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 ##### {{ cdn-name }} {#cdn}
 
@@ -867,6 +882,7 @@
 ##### {{ ydb-name }} {#ydb}
 
 * Добавлены команды `yc ydb database start` и `yc ydb database stop` для запуска и остановки БД.
+
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -891,6 +907,7 @@
 ### Версия 0.82.0 (23.09.21) {#version0.82.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 ##### {{ compute-name }} {#compute}
 
@@ -930,6 +947,7 @@
   * `--sls-enable-throttling-rcu`
   * `--sls-provisioned-rcu`
 
+
 ##### {{ mrd-name }}
 
 * Значение параметра `--redis-version` по умолчанию в команде `yc managed-redis cluster create` изменено на 6.2.
@@ -958,6 +976,7 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 ##### {{ sf-name }} {#serverless-functions}
 
 * Добавлена команда `yc serverless trigger create billing-budget` для создания триггеров на события от биллинга.
@@ -969,9 +988,11 @@
 
 * Исключена суб-команда `get-default` из `logging group`.
 
+
 ### Версия 0.80.0 (19.08.21) {#version0.80.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 ##### {{ ig-name }} {#instance-groups}
 
@@ -1012,6 +1033,7 @@
   * `yc application-load-balancer virtual-host update-grpc-route`
 * Добавлена команда `yc application-load-balancer virtual-host update-http-route` для обновления HTTP-маршрутов.
 
+
 ##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}, {{ mes-name }}, {{ mkf-name }}, {{ mmg-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ mms-name }}**
@@ -1039,15 +1061,18 @@
 
   Добавлена команда`yc managed-mysql hosts update HOST --replication-source HOST` для указания источника репликации каскадной реплики.
 
+
 **{{ mms-name }}**
 
 * Добавлена команда `yc managed-sqlserver database restore`.
 
   Команда позволяет восстановить заданную БД на существующем кластере из резервной копии. Возможно восстановление под другим именем.
 
+
 **{{ mkf-name }}**
 
 * Добавлена поддержка {{ KF }} 2.8.
+
 
 ##### {{ dataproc-name }} {#dataproc}
 
@@ -1077,9 +1102,11 @@
 
   Флаги `--invoke-container-name`, `--invoke-container-id` и `--invoke-container-path` позволяют указывать для триггера контейнер {{ serverless-containers-name }}.
 
+
 ### Версия 0.79.0 (13.07.21) {#version0.79.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
+
 
 #### {{ cloud-logging-name }} {#logging}
 
@@ -1098,6 +1125,7 @@
 
   Исправлена обработка директорий для флага `--source-path` на Windows.
 
+
 #### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}**
@@ -1107,6 +1135,8 @@
   Добавлен флаг `--cloud-storage` для включения хранения данных в {{ objstorage-name }}.
 
 ### Версия 0.78.0 (29.06.21) {#version0.78.0}
+
+
 
 #### {{ managed-k8s-name }} {#k8s}
 
@@ -1124,7 +1154,9 @@
 
   Теперь после запуска задания в терминале отображается лог его выполнения.
 
+
 ### Версия 0.77.0 (07.06.21) {#version0.77.0}
+
 
 **{{ compute-name }}**
 
@@ -1136,6 +1168,7 @@
 
 * Добавлена команда `yc serverless api-gateway add-domain` для привязывания домена к API-шлюзу.
 * Добавлена команда `yc serverless api-gateway remove-domain` для отсоединения домена от API-шлюза.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1169,6 +1202,7 @@
 
   Добавлен флаг `--serverless-access` для доступа к хостам кластера {{ mpg-full-name }} из функции {{ sf-full-name }}.
 
+
 **{{ vpc-name }}**
 
 * Добавлена команда `yc vpc address move` для перемещения адреса между каталогами облака.
@@ -1179,15 +1213,18 @@
 
   В вывод групп добавлено отображение статуса группы.
 
+
 ### Версия 0.75.0 (13.04.21) {#version0.75.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
+
 
 #### {{ compute-name }} {#compute}
 
 * Команда `yc compute create-with-container`.
 
   Добавлен флаг `--gpus`, который позволяет создать {{ coi }} с [GPU](../glossary/gpu.md).
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1222,15 +1259,18 @@
 
   Добавлен флаг `--host-group-ids`, контролирующий размещение кластера на выделенных серверах.
 
+
 #### {{ dataproc-name }} {#dataproc}
 
 * Команда `yc dataproc cluster create`.
 
   Добавлен флаг `--host-group-ids`, контролирующий размещение кластера на выделенных серверах.
 
+
 ### Версия 0.74.0 (29.03.21) {#version0.74.0}
 
 * Добавлена поддержка платформ macOS/arm64 (Apple Silicon M1) и linux/arm64.
+
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
@@ -1240,9 +1280,11 @@
 
   Добавлен флаг `--security-group-ids`, который позволяет установить набор групп безопасности для кластера.
 
+
 ### Версия 0.73.0 (17.03.21) {#version0.73.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
+
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -1266,6 +1308,7 @@
 #### {{ cloud-logs-name }} {#logs}
 
 * Добавлена команда `yc logs`.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1296,6 +1339,8 @@
 
 ### Версия 0.72.0 (11.02.21)
 
+
+
 #### Изменения в сервисах {{ yandex-cloud }}
 
 #### {{ alb-name }} {#alb}
@@ -1311,15 +1356,18 @@
 
 * Команды `yc compute instance|disk|image list` теперь возвращают более 1000 элементов.
 
+
 ### Версия 0.71.0 (03.02.21) {#version0.71.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
+
 
 #### {{ managed-k8s-name }} {#k8s}
 
 * Команда `yc managed-kubernetes node-group create`.
 
   Добавлен флаг `--placement-group` позволяющий указать `placement policy group` для группы узлов при создании.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1339,12 +1387,14 @@
 
 * Добавлены команды `yc managed-elasticsearch hosts create` и `yc managed-elasticsearch hosts delete` для добавления и удаления хостов.
 
+
 **{{ mms-name }}**
 
 Добавлена первичная поддержка сервиса {{ mms-full-name }}:
 * Команды группы `yc managed-sqlserver cluster` позволяют управлять кластерами.
 * Команды группы `yc managed-sqlserver database` позволяют управлять БД.
 * Команды группы `yc managed-sqlserver user` позволяют управлять пользователями.
+
 
 **{{ mch-name }}**
 
@@ -1354,6 +1404,7 @@
 
 ### Версия 0.70.0 (22.12.20) {#version0.70.0}
 
+
 #### Изменения в CLI {#cli}
 
 **Улучшено**
@@ -1362,11 +1413,14 @@
 
   Добавлен флаг `--disable`, позволяющий отключить интеграцию с Docker Credential Helper.
 
+
 #### Изменения в сервисах {{ yandex-cloud }}
+
 
 #### {{ iam-name }} {#iam}
 
 Добавлена команда `yc iam federation list-user-accounts` для листинга пользователей федерации.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1395,9 +1449,11 @@
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
+
 #### {{ managed-k8s-name }} {#k8s}
 
 * Исправлен парсинг флага `ipv6-address` для сетевой спецификации групп узлов.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1424,6 +1480,7 @@
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
+
 #### {{ compute-name }} {#compute}
 
 * Добавлена возможность указать размер блока для дисков при создании ВМ.
@@ -1436,6 +1493,7 @@
 * Команда `yc kms symmetric-key update`.
 
   Добавлены флаги для включения и выключения защиты ключа от удаления: `--deletion-protection` и `--no-deletion-protection`.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1454,6 +1512,7 @@
 
   Добавлен флаг `--permissions`, который поддерживает привилегии `ALL_PRIVILEGES` (синоним для `ALL`).
 
+
 #### {{ managed-k8s-name }} {#k8s}
 
 * Команда `yc managed-kubernetes cluster create`.
@@ -1466,7 +1525,10 @@
 
   Добавлен флаг `--network-interface`, который позволяет более детально задавать сетевые спецификации для узлов. Например, управлять настройкой групп безопасности для сетевых интерфейсов и настраивать интерфейсы узлов для параллельного использования IPv4 и IPv6 в кластерах {{ k8s }}.
 
+
 ### Версия 0.67.0 (05.10.20) {#version0.67.0}
+
+
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
@@ -1480,15 +1542,18 @@
 
 * Добавлены команды `yc container image list-vulnerabilities` и `yc container image scan` для сканирования Docker-образов.
 
+
 ### Версия 0.66.0 (28.09.20) {#version0.66.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 #### {{ compute-name }} {#compute}
 
 * Добавлена команда `yc compute host-group`, позволяющая управлять выделенными хостами.
 * Добавлена команда `yc compute host-type`, позволяющая управлять типами выделенных хостов.
 * Добавлена команда `yc compute disk-placement-group`, позволяющая управлять группами нереплицированных дисков.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1501,6 +1566,7 @@
 ### Версия 0.65.0 (22.09.20) {#version0.65.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 #### {{ dataproc-name }} {#dataproc}
 
@@ -1518,6 +1584,7 @@
 * Добавлена команда `yc certificate-manager certificate content` для получения содержимого сертификата.
 
   С ее помощью можно загрузить цепочку сертификатов и закрытый ключ для самостоятельного использования в конфигурации веб-сервера на ВМ.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1539,12 +1606,14 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 #### {{ compute-name }} {#compute}
 
 * Команда `yc compute instance-group`.
 
   * Добавлена возможность устанавливать и просматривать список ролей для группы ВМ: `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`.
   * Добавлены команды для удаления и остановки ВМ в группе ВМ: `stop-instances`, `delete-instances`.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1566,6 +1635,7 @@
 
   Для [шардированных](../managed-mongodb/concepts/sharding.md) кластеров появилась возможность задавать тип хоста: `mongoinfra`.
 
+
 #### {{ certificate-manager-name }} {#certificate-manager}
 
 Появилась поддержка сервиса для управления TLS-сертификатами: {{ certificate-manager-full-name }}.
@@ -1576,6 +1646,7 @@
 
 Сервис {{ certificate-manager-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](../certificate-manager/).
 
+
 ### Версия 0.63.0 (28.08.20) {#version0.63.0}
 
 #### Изменения в CLI {#cli}
@@ -1584,21 +1655,25 @@
 
 * Исправлена проблема с авторизацией для федеративных пользователей при инициализации нового профиля YC CLI.
 
+
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ vpc-name }} {#vpc}
 
 * Добавлена группа команд `yc vpc address` для управления [IP-адресами](../vpc/concepts/address.md#public-addresses).
 
+
 ### Версия 0.62.0 (20.08.20) {#version0.62.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 #### {{ sf-name }} {#serverless-functions}
 
 * Команда `yc serverless function version create`.
   * Добавлен флаг `--source-version-id` для указания базовой версии функции.
   * Добавлены флаги `--network-id` и `--network-name` для указания сети для версии функции, детальный список подсетей можно указать с помощью флагов `--subnet-id` и `--subnet-name`.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1623,6 +1698,8 @@
 
 ### Версия 0.61.0 (03.08.20) {#version0.61.0}
 
+
+
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ managed-k8s-name }} {#k8s}
@@ -1639,9 +1716,9 @@
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
 
-  
   Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](../cos/concepts/coi-specifications.md#coi-spec-example).
 
+  Добавлен флаг `--coi-spec-file` для передачи спецификации образа.
 
 ##### {{ vpc-name }} {#vpc}
 
@@ -1652,9 +1729,11 @@
 
   Команда выводит список используемых в подсети адресов.
 
+
 ### Версия 0.60.0 (20.07.20) {#version0.60.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 ##### {{ compute-name }} {#compute}
 
@@ -1668,6 +1747,7 @@
 
   Использование флага `--follow` теперь гарантирует получение журналов выполнения самой свежей версии функции с переданным тегом.
 
+
 ##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}**
@@ -1678,6 +1758,8 @@
 * Добавлены команды для управления группами шардов `yc managed-clickhouse shard-groups`.
 
 ### Версия 0.59.0 (02.07.20) {#version0.59.0}
+
+
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -1695,9 +1777,11 @@
   * `--encrypted-assertions` для включения шифрования утверждений SAML;
   * `--case-insensitive-name-ids` для включения нечувствительных к регистру Name IDs пользователей.
 
+
 ### Версия 0.58.0 (16.06.20) {#version0.58.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 ##### {{ sf-name }} {#serverless-functions}
 
@@ -1722,6 +1806,7 @@
 
 * Добавлены команды для управления политиками автоматического удаления Docker-образов `yc container repository lifecycle-policy`.
 
+
 ##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}**
@@ -1734,13 +1819,16 @@
 
 ### Версия 0.57.0 (26.05.20) {#version0.57.0}
 
+
 #### Изменения в CLI {#cli}
 
 **Исправлено**
 
 * Исправлена работа Docker Credential helper с HTTPS-адресами. Теперь возможно получить аутентификационные данные для адреса вида `https://cr.yandex`.
 
+
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -1751,6 +1839,7 @@
 * Команда `yc managed-kubernetes node-group create`.
 
   Изменена платформа и количество ядер, используемые по умолчанию при создании группы узлов. Теперь используется платформа Intel Cascade Lake (`standard-v2`) в двухъядерной конфигурации `cores: 2`.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1794,11 +1883,13 @@
 
   В выводе появились столбцы со значениями `type` и `shard_name`.
 
+
 ##### {{ coi }} {#coi}
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
 
   При передаче файла с переменными окружения через флаг `--container-env-file` корректно обрабатываются символы `=` в значениях переменных.
+
 
 ### Версия 0.55.0 (13.04.20) {#version0.55.0}
 
@@ -1816,6 +1907,7 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 #### {{ managed-k8s-name }} {#k8s}
 
 * Команда `yc managed-kubernetes cluster create`.
@@ -1824,6 +1916,7 @@
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`.
 
   Добавлены флаги `--max-unavailable` и `--max-expansion` для контроля количества удаляемых и создаваемых узлов в процессе обновления группы.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1839,6 +1932,7 @@
 
   Добавлено форматирование строчек лога.
 
+
 #### {{ coi }} {#coi}
 
 * Команда `yc compute instance create-with-container`.
@@ -1848,6 +1942,7 @@
 
   Добавлена возможность обновления `docker volumes` в Docker-контейнере, созданном в {{ coi }}.
 
+
 ### Версия 0.54.0 (24.03.20) {#version0.54.0}
 
 #### Изменения в CLI {#cli}
@@ -1856,6 +1951,7 @@
 
 * Стали более понятными сообщения, при ошибках ввода команд и флагов.
 
+
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ managed-k8s-name }} {#k8s}
@@ -1863,6 +1959,7 @@
 * Команда `yc managed-kubernetes cluster create`.
 
   Добавлены флаги `--kms-key-id` и `--kms-key-name` для создания кластера {{ k8s }} с шифрованием секретов в KMS.
+
 
 ### Версия 0.53.0 (04.03.20) {#version0.53.0}
 
@@ -1880,11 +1977,13 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 ##### {{ managed-k8s-name }} {#k8s}
 
 * Команда `yc managed-kubernetes cluster get-credentials`.
 
   Добавлена проверка и выдача предупреждения, если у пользователя установлена утилита `kubectl` версии ниже 1.11, такие версии не поддерживают способ аутентификации, который задаётся данной командой.
+
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -1928,6 +2027,7 @@
 **Исправлено**
 * Во время выполнения команд `yc components ...` не выводится предложение обновиться.
 
+
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ compute-name }} {#compute}
@@ -1961,6 +2061,7 @@
 
   Выводится пояснение результата выполнения.
 
+
 ### Версия 0.51.0 (12.02.20) {#version0.51.0}
 
 #### Изменения в CLI {#cli}
@@ -1983,17 +2084,21 @@
   Теперь значения флагов `--cloud-id`, `--folder-id` и `--folder-name` учитываются корректно.
 * Отключены сообщения о наличии новой версии `yc` при неинтерактивном вызове команды.
 
+
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ iam-name }} {#iam}
 
 * Добавлены команды для создания и управления SAML-совместимыми федерациями удостоверений и сертификатами к ним: `yc iam federation` и `yc iam certificate`. Подробнее про SAML-совместимые федерации удостоверений можно узнать в [документации](../organization/add-federation.md).
 
+
 ### Версия 0.50.0 (27.01.20) {#version0.50.0}
+
+
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-* Для [ресурсов, на которые можно назначать роли](../iam/concepts/access-control/resources-with-access-control.md). 
+* Для [ресурсов, на которые можно назначать роли](../iam/concepts/access-control/resources-with-access-control.md).
 
   Добавлены альтернативы флагу `--subject` для команд управления ролями: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login` и `--all-authenticated-users`.
 
@@ -2009,6 +2114,7 @@
 
   При указании флага `--gpus` автоматически выбирается платформа `gpu-standard-v1`.
 
+
 ### Версия 0.49.0 (21.01.20) {#version0.49.0}
 
 #### Изменения в CLI {#cli}
@@ -2016,6 +2122,7 @@
 **Улучшено**
 
 * При запуске YC CLI с флагом `--debug`, строка лога ответа API-вызова теперь выводит не только gRPC-код статуса, но и его описание.
+
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -2029,6 +2136,7 @@
 
 Сервис {{ kms-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](../kms/).
 
+
 ### Версия 0.48.0 (27.12.19) {#version0.48.0}
 
 #### Изменения в CLI {#cli}
@@ -2039,6 +2147,7 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 #### {{ compute-name }} {#compute}
 
 * Добавлена возможность работы с группой размещения `yc compute placement-group --help`.
@@ -2048,6 +2157,7 @@
 * Команда `yc compute instance create`.
 
   SSH-ключ, добавленный с помощью флага `--ssh-key`, записывается в метаданные с ключом `ssh-keys` вместо `ec2-user-data`.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -2080,29 +2190,31 @@
 
 ### Версия 0.47.0 (17.12.19) {#version0.47.0}
 
+
+
 #### Изменения в CLI {#cli}
 
 **Улучшено**
 
-
-* Добавлена возможность [аутентификации с помощью федерации](operations/authentication/federated-user.md) при вызове `yc` в неинтерактивном режиме. Этот режим используется, когда CLI запускается пользователем не напрямую, например в скрипте или в `kubectl` при работе с [кластером {{ k8s }}](../managed-kubernetes/concepts/index.md#kubernetes-cluster) в {{ managed-k8s-full-name }}.
+* Добавлена возможность [аутентификации с помощью федерации](operations/authentication/federated-user.md) при вызове `yc` в неинтерактивном режиме. Этот режим используется, когда CLI запускается пользователем не напрямую, например в скрипте или в `kubectl`.
 
 
 ### Версия 0.46.0 (13.12.19) {#version0.46.0}
 
+
+
 #### Изменения в CLI {#cli}
 
 **Улучшено**
 
-
 * Для ускорения диагностики проблем авторизации, в журнал отладки запроса пишется CRC32 отправляемого [IAM-токена](../iam/concepts/authorization/iam-token.md).
-
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ sf-name }} {#serverless-functions}
 
 * Добавлена команда `yc serverless trigger create object-storage` для подписки на изменения бакета в {{ objstorage-full-name }}.
+
 
 ### Версия 0.45.0 (03.12.19) {#version0.45.0}
 
@@ -2111,6 +2223,7 @@
 **Улучшено**
 
 * Увеличено время между повторными попытками подключения в случае недоступности любого ресурса, задействованного в выполнении команды.
+
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -2124,13 +2237,16 @@
 
   Добавлены флаги для поддержки авторизации по логину и паролю: `--username` и `--password`.
 
+
 ### Версия 0.44.0 (19.11.19) {#version0.44.0}
+
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ sf-name }} {#serverless-functions}
 
 * Добавлена команда `yc serverless trigger create timer` для вызова функций по таймеру.
+
 
 #### Изменения в CLI {#cli}
 
@@ -2143,6 +2259,7 @@
 * Отключен показ поля `Status.details` для gRPC-ошибок — информация из него дублируется в поле `Status.message`, которое показывается как основное сообщение об ошибке.
 
 ### Версия 0.43.1 (14.11.19)
+
 
 
 #### Изменения в CLI {#cli}
@@ -2164,10 +2281,12 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 #### {{ compute-name }} {#compute}
 
-
 * Добавлены подробности в лог и в текст об ошибке при [авторизации изнутри ВМ](../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) (с помощью IAM-токена из метаданных).
+
+* Добавлены подробности в лог и в текст об ошибке при авторизации изнутри ВМ (с помощью IAM-токена из метаданных).
 
 
 #### Изменения в сервисах управляемых баз данных {#managed-db}
@@ -2181,6 +2300,7 @@
 * Добавлена поддержка создания кластера с версией {{ MG }} 4.2.
 
 ### Версия 0.42.0 (21.10.19) {#version0.42.0}
+
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -2200,6 +2320,7 @@
 
   Удален флаг `--default-gateway-v4-address`.
 
+
 #### Изменения в сервисах управляемых баз данных {#managed-db}
 
 **{{ mpg-name }}**
@@ -2213,6 +2334,8 @@
 * Небольшие исправления и обновления.
 
 ### Версия 0.41.0 (25.09.19) {#version0.41.0}
+
+
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -2234,9 +2357,11 @@
 
   Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.
 
+
 ### Версия 0.40.0 (20.09.19) {#version0.40.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -2244,6 +2369,7 @@
 * Команда `yc container registry repository list`.
 
   Добавлен вывод уникального идентификатора реестра.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -2263,11 +2389,13 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 #### {{ container-registry-name }} {#container-registry}
 
 * Команда `yc container registry`.
 
   Добавлена возможность устанавливать и просматривать список ролей для реестра Docker-образов: `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -2296,6 +2424,7 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 #### {{ container-registry-name }} {#container-registry}
 
 **Улучшено**
@@ -2318,6 +2447,7 @@
 * Добавлены команды для управления метками: `yc managed-kubernetes node-group add-labels` и `yc managed-kubernetes node-group remove-labels`.
 * Добавлены команды для управления метаданными группы узлов: `yc managed-kubernetes node-group add-metadata` и `yc managed-kubernetes node-group remove-metadata`.
 
+
 #### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mpg-name }}**
@@ -2331,6 +2461,8 @@
 
 ### Версия 0.36.0 (27.08.19) {#version0.36.0}
 
+
+
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ resmgr-name }} {#resmgr}
@@ -2338,6 +2470,7 @@
 * Команда `yc resource-manager cloud update`.
 
   Добавлена возможность переименовать облако.
+
 
 ### Версия 0.35.1 (16.08.19) {#version0.35.1}
 
@@ -2447,11 +2580,13 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 #### {{ network-load-balancer-name }} {#load-balancer}
 
 * Команды `yc load-balancer network-load-balancer create` и `yc load-balancer network-load-balancer update`.
 
   Для флага `--listener` появилась возможность задать параметр `target-port`, позволяющий настроить NAT так, чтобы целевые ресурсы принимали трафик на порту, отличном от порта `listener`.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -2462,6 +2597,8 @@
   Добавлен флаг `--settings`, позволяющий задать пользовательские настройки.
 
 ### Версия 0.30.0 (18.06.19) {#version0.30.0}
+
+
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -2480,6 +2617,7 @@
 
   Добавлен флаг `--default-gateway-v4-address`, позволяющий обновить адрес шлюза для существующего {{ k8s }} кластера.
 
+
 ### Версия 0.29.0 (11.06.19) {#version0.29.0}
 
 * Небольшие исправления и обновления.
@@ -2492,11 +2630,13 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+
 #### {{ compute-name }} {#compute-cloud}
 
 * Команда `yc compute instance create`.
 
   Добавлен флаг `--gpus`, позволяющий указать количество графических процессоров у виртуальной машины.
+
 
 #### Сервисы управляемых баз данных {#managed-db}
 

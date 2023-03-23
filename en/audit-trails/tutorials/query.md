@@ -15,7 +15,7 @@ To connect a bucket with [audit logs](../concepts/events.md) to {{ yq-full-name 
 If you no longer need these resources, [delete them](#clear-out).
 
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -166,7 +166,7 @@ A connection must be created only the first time a trail is connected to {{ yq-s
    1. Select the `logsyq` trail.
    1. Click **Process in {{ yq-short-name }}**.
    1. Create a connection.
-      * Select the **Service account** `bucket-yq-sa`.
+      * Select the **service account** `bucket-yq-sa`.
       * For the other parameters, leave the default settings.
    1. Click **Create**.
    1. In the window with data binding options, click **Create**.

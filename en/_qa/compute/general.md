@@ -1,6 +1,6 @@
 ---
 title: "Cloud computing. Questions and answers"
-description: "What is cloud computing used for? {{ yandex-cloud }} provides scalable computing capacities: you can quickly create and start virtual machines on demand and stop them when the load decreases. By using cloud resources, you reduce your IT infrastructure costs because you pay only for actually consumed resources."
+description: "What is cloud computing used for? {{ yandex-cloud }} provides scalable cloud computing capacity: you can quickly create and start VMs on demand and stop them when the load decreases. By using cloud resources, you reduce your IT infrastructure costs because you pay only for actually consumed resources."
 ---
 
 # General questions about {{ compute-name }}
@@ -24,7 +24,7 @@ For more information about {{ yandex-cloud }} VMs, see [{#T}](../../compute/conc
 
 #### How are {{ yandex-cloud }} virtual machines different from regular hosting? {#better-than-hosting}
 
-Traditional hosting offers you resources on lease with pre-agreed performance for a fixed time. {{ yandex-cloud }} VMs let you use cloud resources as your personal data center. At the same time, you receive all the advantages of the resilient infrastructure of {{ yandex-cloud }} data centers.
+Traditional hosting offers you resources on lease with pre-agreed performance for a fixed time. {{ yandex-cloud }} VMs allow you to use cloud resources as your personal data center. At the same time, you get all the advantages of the fault tolerant infrastructure {{ yandex-cloud }} data centers provide.
 
 You can scale your cloud infrastructure as your performance requirements change. This way you can control how many resources you are using at any given time and how much you pay for them.
 
@@ -54,10 +54,9 @@ You can change the performance of your information system in one of the followin
 
 #### Why is my VM slow? {#why-vm-slowly}
 
-
-Just like any other server, including physical ones, VM performance depends on the performance of:
-* The CPU.
-* RAM.
+Just like for any other servers, including physical ones, VM performance depends on the performance of:
+* CPU
+* RAM
 * Disks.
 * The network.
 
@@ -73,8 +72,7 @@ General recommendations for improving VM performance:
    Keep in mind that disk performance also depends on the read and write request size. See [{#T}](../../compute/concepts/storage-read-write.md).
 
    You should read and write data in several threads.
-1. Remember that network computing depends on the vCPU performance. Run synthetic tests that don't affect disk usage to diagnose network problems. If it does have to do with a slow network, we recommend adding a vCPU and retesting it.
-   
+1. Note that network computing depends on the vCPU performance. Run synthetic tests that do not affect disk usage to diagnose network problems. If it does have to do with a slow network, we recommend adding a vCPU and retesting it.
 
 #### Which operating systems are supported by {{ yandex-cloud }} virtual machines? {#os}
 

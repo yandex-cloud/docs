@@ -1,9 +1,9 @@
 ---
-title: "How to work with a network load balancer. Step-by-step instructions"
-description: "Step-by-step instructions for working with a network load balancer in {{ yandex-cloud }}. In this tutorial, you'll learn how to create load balancers, monitor the status of resources, and work with target groups."
+title: "How to work with a network load balancer. Step-by-step guide"
+description: "Step-by-step guide for working with a network load balancer in {{ yandex-cloud }}. In this tutorial, you'll learn how to create load balancers, monitor the status of resources, and work with target groups."
 ---
 
-# Step-by-step instructions for {{ network-load-balancer-name }}
+# Step-by-step guide for {{ network-load-balancer-name }}
 
 ## Network load balancer {#load-balancer}
 

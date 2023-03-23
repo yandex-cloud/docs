@@ -36,21 +36,21 @@ vpc:
 
 Where:
 
-* `trunk_id` is the trunk ID received from the support team at the previous step.
-* `vlan_id` is the `VLAN-ID` for the private connection in trunk 802.1Q. This value is selected by the customer and must be different from the `VLAN-ID` values of the private connections previously set up in this trunk.
-* `peering_subnet` is a [point-to-point subnet](../../interconnect/concepts/priv-con.md#priv-address) for BGP peering. This value is selected by the customer.
-* `peer_ip` is the IP address of the point-to-point (peering) subnet on the customer's equipment. This value is selected by the customer.
-* `yandex_cloud_ip` is the IP address of the point-to-point (peering) subnet on the Yandex Cloud equipment. This value is selected by the customer.
-* `peer_bgp_asn` is the [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) on the customer's equipment. This value is selected by the customer.
-* `cloud_id`, `folder_id`, and `vpc_net_id` indicate the location of the VPC with the resources to connect to within this private connection.
-* `vpc_subnets` is a list of IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zone](../../overview/concepts/geo-scope.md). The resources in these subnets will only be accessible via this private connection. These prefixes will be announced over BGP by the {{ yandex-cloud }} equipment in the direction towards the customer's equipment.
+* `trunk_id`: Trunk ID received from the support team at the previous step.
+* `vlan_id`: `VLAN-ID` for the private connection in trunk 802.1Q. This value is selected by the customer. It must be different from the `VLAN-ID` values of the private connections previously set up in this trunk.
+* `peering_subnet`: [Point-to-point subnet](../../interconnect/concepts/priv-con.md#priv-address) for BGP peering. This value is selected by the customer.
+* `peer_ip`: IP address of the point-to-point (peering) subnet on the customer's equipment. This value is selected by the customer.
+* `yandex_cloud_ip`: IP address of the point-to-point (peering) subnet on the Yandex Cloud equipment. This value is selected by the customer.
+* `peer_bgp_asn`: [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) on the customer's equipment. This value is selected by the customer.
+* `cloud_id`, `folder_id`, `vpc_net_id`: Location of the VPC with the resources to connect to within this private connection.
+* `vpc_subnets`: List of IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zone](../../overview/concepts/geo-scope.md). The resources in these subnets will only be accessible via this private connection. These prefixes will be announced over BGP by the {{ yandex-cloud }} equipment in the direction towards the customer's equipment.
 
 
 ### Support team's response to the customer's request {#prc-ticket-resp}
 
-Once you complete the required actions for setting up a private connection, the support team will provide the customer with the ID of the created private connection.
+Once you complete all required actions for setting up a private connection, the support team will provide the customer with the ID of the created private connection.
 
-Here is how the support team may respond to the request for creating a private connection (this sample is provided for informational purposes only):
+Here is how the support team may respond to the request for creating a private connection (this sample is provided for indicative purposes only):
 ```s
 id: cf3qdug4fsf737g2gpdu
 ```
@@ -59,7 +59,7 @@ Where `id` is the ID of the created private connection.
 
 ### Monitoring the status of a private connection {#prc-check}
 
-* Use the [monitoring](../../interconnect/concepts/monitoring.md#private-mon) service to, on your own, monitor when the private connection's BGP session on the {{ yandex-cloud }} equipment switches to the running status.
-* The support team will notify you when they finish configuring BGP announcements for the subnet prefixes you requested. It may take up to two business days to configure BGP announcements.
+* Use the [monitoring](../../interconnect/concepts/monitoring.md#private-mon) service to monitor, on your own, when the private connection BGP session on the {{ yandex-cloud }} equipment switches to the running status.
+* The support team will notify you once they finish configuring BGP announcements for the subnet prefixes you requested. It may take up to two business days to configure BGP announcements.
 * You should check the IP connectivity between your equipment and the cloud resources to be accessible through the configured private connection yourself and notify the support team of the check results.
 * If there are any IP connectivity issues, contact support so that they may run diagnostics and troubleshooting.

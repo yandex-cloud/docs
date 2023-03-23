@@ -118,7 +118,7 @@ Create a group of dedicated hosts [according to the instructions](../compute/ope
 
 ### Create a VM from your image on the dedicated host {#create-vm}
 
-On the dedicated host, create a VM with the boot disk from the imported image. Specify the ID of the dedicated host in the `--host-id` parameter. You can create a VM only using the CLI, API, or Terraform. Run the command:
+On the dedicated host, create a VM with the boot disk from the imported image. Specify the ID of the dedicated host in the `--host-id` parameter. You can create a VM only using the CLI, API, or Terraform. Run the following command:
 
 {% list tabs %}
 

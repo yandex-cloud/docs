@@ -97,11 +97,11 @@ The internal load balancer's listener is assigned a random IP address from the r
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create an internal network load balancer with a listener:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * `name`: The name of the network load balancer.
       * `type`: The type of the network load balancer. Use internal to create an `internal` network load balancer.
@@ -112,7 +112,7 @@ The internal load balancer's listener is assigned a random IP address from the r
             * `address`: Internal IP address from the range of the selected subnet.
             * `subnet_id`: The subnet ID.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       
       ```
@@ -140,24 +140,24 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
          ```
          terraform apply
          ```
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -194,20 +194,20 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -215,7 +215,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc load-balancer network-load-balancer get <name of internal network load balancer>
@@ -248,7 +248,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
 
 
-   1. Run the command:
+   1. Run the following command:
 
       ```
       yc load-balancer network-load-balancer create \
@@ -298,20 +298,20 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -319,7 +319,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc load-balancer network-load-balancer get <name of internal network load balancer>

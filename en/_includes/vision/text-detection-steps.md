@@ -1,8 +1,8 @@
 1. Prepare an image file that meets the requirements:
 
-    {% include [file-restrictions](../../_includes/vision/file-restrictions.md) %}
+   {% include [file-restrictions](../../_includes/vision/file-restrictions.md) %}
 
-    {% note info %}
+   {% note info %}
 
     Need a sample image? Download an image of the [penguin crossing](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) road sign.
 
