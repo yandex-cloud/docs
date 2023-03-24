@@ -1,7 +1,7 @@
 Настройте CLI для работы от имени сервисного аккаунта:
 
 1. {% include [cli-install](cli-install.md) %}
-1. Создайте [авторизованный ключ](../iam/concepts/authorization/key.md) для вашего сервисного аккаунта и запишите его файл:
+1. Создайте [авторизованный ключ](../iam/concepts/authorization/key.md) для вашего сервисного аккаунта и запишите его в файл:
     ```
     yc iam key create --service-account-name my-robot --output key.json
     ```
