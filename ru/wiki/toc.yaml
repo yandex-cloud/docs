@@ -25,20 +25,22 @@ items:
         href: pages-types.md
   - name: Создание страниц
     items:
-      - name: Вики-страница
+      - name: Новый редактор
+        href: wysiwyg-create.md
+      - name: Старый редактор
         href: create-page.md
-      - name: Динамическая таблица
+      - name: Таблица
         href: create-grid.md
       - name: Импорт из файла
         href: import-page.md
       - name: Копия страницы
         href: create-copy.md
-      - name: Страница Wysiwyg
-        href: wysiwyg-create.md
-  - name: Редактирование вики-страниц и динамических таблиц
+  - name: Редактирование страниц {{ wiki-full-name }} и динамических таблиц
     items:
-      - name: Отредактировать вики-страницу
+      - name: Отредактировать страницу {{ wiki-full-name }}
         href: edit-page.md
+      - name: Отредактировать таблицу в новом редакторе
+        href: edit-grid-wysiwig.md
       - name: Отредактировать динамическую таблицу
         href: edit-grid.md
       - name: Базовые возможности

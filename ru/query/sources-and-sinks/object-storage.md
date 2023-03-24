@@ -68,10 +68,10 @@ WITH(
     format='csv_with_names',
     SCHEMA 
     (
-        int as Year,
-        String as Manufacturer,
-        String as Model,
-        Double as Price
+        Year int,
+        Manufacturer String,
+        Model String,
+        Price Double
     )
 );
 ```

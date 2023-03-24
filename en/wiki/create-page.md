@@ -49,7 +49,7 @@ You can create a Wiki page in a specific cluster:
 
 1. There are two ways to create a subpage in a cluster:
 
-   * In the ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure** menu: To the right of the page name, click ![](../_assets/wiki/svg/button-add-subpage.svg) **Create subpage**.
+   * In the ![](../_assets/wiki/svg/structure-icon.svg) **Wiki structure** menu: To the right of the page name, click ![](../_assets/wiki/svg/add.svg) **Create subpage**.
 
    * In the upper-right corner of the cluster page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Create subpage**.
 

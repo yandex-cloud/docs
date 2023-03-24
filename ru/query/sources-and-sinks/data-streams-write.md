@@ -56,13 +56,13 @@ FROM
 ```sql
 $data = 
 SELECT 
-    JSON_VALUE(Data, "$.host") as host,
-    CAST(JSON_VALUE(Data, "$.count") as Int) as count,
-    JSON_VALUE(Data, "$.tag") as tag,    
+    JSON_VALUE(Data, "$.host") AS host,
+    CAST(JSON_VALUE(Data, "$.count") AS Int) AS count,
+    JSON_VALUE(Data, "$.tag") AS tag,    
 FROM 
 (
     SELECT
-        CAST(Data as Json) as Data
+        CAST(Data AS Json) AS Data
     FROM yds.`input_stream`
     WITH(
         format=raw,

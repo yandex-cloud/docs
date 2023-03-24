@@ -56,7 +56,7 @@ To tag a Wiki page:
 
    * **By action**: To the right of the search bar, select **Created by me**, **Edited by me**, or **Show all**.
 
-1. To go to your [personal cluster](structure.md#personal_cluster), click ![](../_assets/wiki/svg/go-to-my-page-icon.svg) **Go to personal page** at the top.
+1. To go to your [personal cluster](structure.md#personal_cluster), click ![](../_assets/wiki/svg/my-page.svg) **My page** at the top.
 
 ## Subscriptions {#subscribes}
 

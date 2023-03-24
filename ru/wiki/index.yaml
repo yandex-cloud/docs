@@ -34,7 +34,7 @@ links:
     href: page-management/access-setup
   - title: Используйте разметку Markdown
     description: >-
-      На вики-страницах можно форматировать текст с помощью Markdown, добавлять
+      На страницах Wiki можно форматировать текст с помощью Markdown, добавлять
       динамические блоки и таблицы
     href: edit-page
   - title: Справочник разметки

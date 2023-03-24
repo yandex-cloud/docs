@@ -325,6 +325,8 @@ items:
         href: routing/web-service.md
       - name: DHCP settings for working with a corporate DNS server
         href: routing/dhcp-options.md
+      - name: Creating a bastion host
+        href: routing/bastion.md
       - name: Routing through a NAT instance
         href: routing/nat-instance.md
       - name: Creating an IPSec VPN tunnel

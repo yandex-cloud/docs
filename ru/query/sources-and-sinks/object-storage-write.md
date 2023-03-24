@@ -7,7 +7,7 @@
 ```sql
 INSERT INTO bindings.`my_binding` 
 SELECT
-    "value" as value, "name" as name
+    "value" AS value, "name" AS name
 FROM 
     $data;
 ```
@@ -25,6 +25,7 @@ INSERT INTO `<connection_name>`.`<bucket_path>`
         format='<format>',
         compression='<compression>'
     )
+SELECT
     <expression> 
 FROM 
     <query>
@@ -47,7 +48,7 @@ INSERT INTO `connection`.`test/`
         format='csv_with_names'
     )
 SELECT
-    "value" as value, "name" as name
+    "value" AS value, "name" AS name
 ```
 
 Где:
@@ -61,16 +62,12 @@ SELECT
 
 ```sql
 INSERT INTO bindings.`<binding_name>`
-    WITH
-    (
-        format='<format>',
-        compression='<compression>'
-    )
+SELECT    
     <expression> 
 FROM 
     <query>
 ```
-
+ 
 Где:
 
 * `binding_name` — название привязки к данным в {{ objstorage-short-name }}.
@@ -83,7 +80,7 @@ FROM
 ```sql
 INSERT INTO bindings.`test` 
 SELECT
-    "value" as value, "name" as name
+    "value" AS value, "name" AS name
 ```
 
 Где:

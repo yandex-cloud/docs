@@ -16,7 +16,7 @@ A page with all its subpages forms a [cluster](structure.md). To view the cluste
 
 1. Open the desired Wiki page.
 
-1. In the top panel, click ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure**.
+1. In the top panel, click ![](../_assets/wiki/svg/structure-icon.svg) **Wiki structure**.
 
 1. To see all subpages, click the expand list icon ![](../_assets/wiki/svg/navigation-tree-item.svg) to the left of the parent page name.
 

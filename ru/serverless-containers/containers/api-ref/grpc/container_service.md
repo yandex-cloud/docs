@@ -271,6 +271,7 @@ connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the container. 
+s3_mounts[] | **[S3Mount](#S3Mount)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources}
@@ -352,6 +353,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
+### S3Mount {#S3Mount}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
+
+
 ### Operation {#Operation3}
 
 Field | Description
@@ -394,6 +405,7 @@ connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specifie
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the container. 
+s3_mounts[] | **[S3Mount](#S3Mount1)**<br>S3 mounts to be used by the version. 
 
 
 ### Image {#Image}
@@ -496,6 +508,7 @@ connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specifie
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the container. 
+s3_mounts[] | **[S3Mount](#S3Mount1)**<br>S3 mounts to be used by the version. 
 
 
 ### Image {#Image1}
@@ -578,6 +591,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
+### S3Mount {#S3Mount1}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
+
+
 ## ListRevisions {#ListRevisions}
 
 Retrieves the list of revisions for the specified container, or of all container revisions in the specified folder.
@@ -623,6 +646,7 @@ connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specifie
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy2)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy2)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the container. 
+s3_mounts[] | **[S3Mount](#S3Mount2)**<br>S3 mounts to be used by the version. 
 
 
 ### Image {#Image2}
@@ -703,6 +727,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 &nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
+### S3Mount {#S3Mount2}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
 
 
 ## ListOperations {#ListOperations}

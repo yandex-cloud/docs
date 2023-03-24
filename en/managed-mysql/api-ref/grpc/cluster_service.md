@@ -1170,6 +1170,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 cluster_id | **string**<br>ID of the cluster that is being backed up. 
+backup_id | **string**<br>ID of the MySQL backup that is created. 
 
 
 ### Cluster {#Cluster7}

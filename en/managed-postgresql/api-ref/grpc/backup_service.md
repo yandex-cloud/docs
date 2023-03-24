@@ -119,5 +119,6 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 backup_id | **string**<br>Required. ID of the PostgreSQL backup that is currently being deleted. 
+cluster_id | **string**<br>ID of the cluster which backup belonged to. 
 
 

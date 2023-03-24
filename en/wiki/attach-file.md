@@ -43,7 +43,7 @@ If you insert a link to an image this way, the image itself will be displayed on
 
 1. Open the page. In the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
 
-1. Hover over the file and click ![](../_assets/wiki/svg/del-file.svg) **Delete**.
+1. Hover over the file and click ![](../_assets/wiki/svg/delete.svg) **Delete**.
 
 #### See also
 

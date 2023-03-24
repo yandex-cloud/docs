@@ -8,13 +8,13 @@
 
 ```sql
 SELECT
-    JSON_VALUE(CAST(Data as Json), "$.action") as action
+    JSON_VALUE(CAST(Data AS Json), "$.action") AS action
 FROM yds.`input_stream`
 WITH (
     format=raw,
     SCHEMA 
     (
-        String as Data
+        Data String
     )
 )
 LIMIT 10;
@@ -64,13 +64,13 @@ WHERE <filter>;
 ```sql
 $data = 
 SELECT 
-    JSON_VALUE(Data, "$.host") as host,
-    JSON_VALUE(Data, "$.count") as count,
-    JSON_VALUE(Data, "$.tag") as tag,    
+    JSON_VALUE(Data, "$.host") AS host,
+    JSON_VALUE(Data, "$.count") AS count,
+    JSON_VALUE(Data, "$.tag") AS tag,    
 FROM 
 (
     SELECT
-        CAST(Data as Json) as Data
+        CAST(Data AS Json) AS Data
     FROM yds.`input_stream`
     WITH 
     (
