@@ -212,21 +212,6 @@
         
         
         ```hcl
-        terraform {
-          required_providers {
-            yandex = {
-             source = "yandex-cloud/yandex"
-            }
-          }
-        }
-
-        provider "yandex" {
-          token     = "<OAuth или статический ключ сервисного аккаунта>"
-          cloud_id  = "<идентификатор облака>"
-          folder_id = "<идентификатор каталога>"
-          zone      = "<зона доступности>"
-        }
-
         resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
           environment         = "<окружение: PRESTABLE или PRODUCTION>"
           name                = "<имя кластера>"
@@ -388,21 +373,6 @@
     
     
     ```hcl
-    terraform {
-      required_providers {
-        yandex = {
-          source = "yandex-cloud/yandex"
-        }
-      }
-    }
-
-    provider "yandex" {
-      token     = "<OAuth или статический ключ сервисного аккаунта>"
-      cloud_id  = "{{ tf-cloud-id }}"
-      folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ region-id }}-a"
-    }
-
     resource "yandex_mdb_kafka_cluster" "mykf" {
       environment         = "PRODUCTION"
       name                = "mykf"
