@@ -56,7 +56,7 @@
    FROM 
        $data
    GROUP BY 
-       HOP(CAST(tpep_pickup_datetime as Timestamp), "PT1M", "PT1M", "PT1M");
+       HOP(CAST(tpep_pickup_datetime AS Timestamp), "PT1M", "PT1M", "PT1M");
    ```
 
 1. Нажмите кнопку **Выполнить**.

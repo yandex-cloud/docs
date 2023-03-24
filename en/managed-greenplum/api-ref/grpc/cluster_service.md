@@ -156,9 +156,11 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-greenplum_config | **oneof:** `greenplum_config_set_6_17` or `greenplum_config_set_6_19`<br>
+greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21` or `greenplum_config_set_6_22`<br>
 &nbsp;&nbsp;greenplum_config_set_6_17 | **[GreenplumConfigSet6_17](#GreenplumConfigSet6_17)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_19 | **[GreenplumConfigSet6_19](#GreenplumConfigSet6_19)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_21)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_22)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet)**<br>Odyssey® pool settings. 
 
 
@@ -166,7 +168,7 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet)**<br>Odyssey® 
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_17)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_17) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_17)). 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_17)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_17](#GreenplumConfig6_17)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_17](#GreenplumConfig6_17)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -188,7 +190,7 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_19)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_19) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_19)). 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_19)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_19](#GreenplumConfig6_19)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_19](#GreenplumConfig6_19)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -206,6 +208,56 @@ max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.go
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
 max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum memory limit for a query, in bytes. <br>Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high. <br>Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`. <br>When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file. <br>Default value is 2097152000 (2000 MB). <br>More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). 
 log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+
+
+### GreenplumConfigSet6_21 {#GreenplumConfigSet6_21}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_21](#GreenplumConfig6_21)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_21](#GreenplumConfig6_21)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_21](#GreenplumConfig6_21)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_21 {#GreenplumConfig6_21}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
+
+
+### GreenplumConfigSet6_22 {#GreenplumConfigSet6_22}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_22](#GreenplumConfig6_22)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_22](#GreenplumConfig6_22)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_22](#GreenplumConfig6_22)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_22 {#GreenplumConfig6_22}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet}
@@ -366,9 +418,11 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-greenplum_config | **oneof:** `greenplum_config_set_6_17` or `greenplum_config_set_6_19`<br>
+greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21` or `greenplum_config_set_6_22`<br>
 &nbsp;&nbsp;greenplum_config_set_6_17 | **[GreenplumConfigSet6_17](#GreenplumConfigSet6_171)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_19 | **[GreenplumConfigSet6_19](#GreenplumConfigSet6_191)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_211)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_221)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet1)**<br>Odyssey® pool settings. 
 
 
@@ -376,7 +430,7 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet1)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_171)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_171) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_171)). 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_171)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_17](#GreenplumConfig6_171)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_17](#GreenplumConfig6_171)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -398,7 +452,7 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_191)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_191) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_191)). 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_191)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_19](#GreenplumConfig6_191)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_19](#GreenplumConfig6_191)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -416,6 +470,56 @@ max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.go
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
 max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum memory limit for a query, in bytes. <br>Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high. <br>Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`. <br>When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file. <br>Default value is 2097152000 (2000 MB). <br>More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). 
 log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+
+
+### GreenplumConfigSet6_21 {#GreenplumConfigSet6_211}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_21](#GreenplumConfig6_211)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_21](#GreenplumConfig6_211)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_21](#GreenplumConfig6_211)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_21 {#GreenplumConfig6_211}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
+
+
+### GreenplumConfigSet6_22 {#GreenplumConfigSet6_221}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_22](#GreenplumConfig6_221)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_22](#GreenplumConfig6_221)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_22](#GreenplumConfig6_221)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_22 {#GreenplumConfig6_221}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet1}
@@ -543,8 +647,8 @@ Field | Description
 greenplum_config | **oneof:** `greenplum_config_6_17`, `greenplum_config_6_19`, `greenplum_config_6_21` or `greenplum_config_6_22`<br>
 &nbsp;&nbsp;greenplum_config_6_17 | **[GreenplumConfig6_17](#GreenplumConfig6_172)**<br> 
 &nbsp;&nbsp;greenplum_config_6_19 | **[GreenplumConfig6_19](#GreenplumConfig6_192)**<br> 
-&nbsp;&nbsp;greenplum_config_6_21 | **[GreenplumConfig6_21](#GreenplumConfig6_21)**<br> 
-&nbsp;&nbsp;greenplum_config_6_22 | **[GreenplumConfig6_22](#GreenplumConfig6_22)**<br> 
+&nbsp;&nbsp;greenplum_config_6_21 | **[GreenplumConfig6_21](#GreenplumConfig6_212)**<br> 
+&nbsp;&nbsp;greenplum_config_6_22 | **[GreenplumConfig6_22](#GreenplumConfig6_222)**<br> 
 pool | **[ConnectionPoolerConfig](#ConnectionPoolerConfig2)**<br>Odyssey® pool settings. 
 
 
@@ -576,7 +680,7 @@ max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com
 log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
 
 
-### GreenplumConfig6_21 {#GreenplumConfig6_21}
+### GreenplumConfig6_21 {#GreenplumConfig6_212}
 
 Field | Description
 --- | ---
@@ -592,7 +696,7 @@ log_statement | enum **LogStatement**<br>Controls which SQL statements are logge
 gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
 
 
-### GreenplumConfig6_22 {#GreenplumConfig6_22}
+### GreenplumConfig6_22 {#GreenplumConfig6_222}
 
 Field | Description
 --- | ---
@@ -705,9 +809,11 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-greenplum_config | **oneof:** `greenplum_config_set_6_17` or `greenplum_config_set_6_19`<br>
+greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21` or `greenplum_config_set_6_22`<br>
 &nbsp;&nbsp;greenplum_config_set_6_17 | **[GreenplumConfigSet6_17](#GreenplumConfigSet6_172)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_19 | **[GreenplumConfigSet6_19](#GreenplumConfigSet6_192)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_212)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_222)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet2)**<br>Odyssey® pool settings. 
 
 
@@ -715,7 +821,7 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet2)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_173)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_172) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_172)). 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_173)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_17](#GreenplumConfig6_173)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_17](#GreenplumConfig6_173)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -724,9 +830,27 @@ default_config | **[GreenplumConfig6_17](#GreenplumConfig6_173)**<br>Default con
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_193)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_192) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_192)). 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_193)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_19](#GreenplumConfig6_193)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_19](#GreenplumConfig6_193)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfigSet6_21 {#GreenplumConfigSet6_212}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_21](#GreenplumConfig6_213)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_21](#GreenplumConfig6_213)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_21](#GreenplumConfig6_213)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfigSet6_22 {#GreenplumConfigSet6_222}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_22](#GreenplumConfig6_223)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_22](#GreenplumConfig6_223)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_22](#GreenplumConfig6_223)**<br>Default configuration for a Greenplum® cluster. 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet2}
@@ -839,8 +963,8 @@ Field | Description
 greenplum_config | **oneof:** `greenplum_config_6_17`, `greenplum_config_6_19`, `greenplum_config_6_21` or `greenplum_config_6_22`<br>
 &nbsp;&nbsp;greenplum_config_6_17 | **[GreenplumConfig6_17](#GreenplumConfig6_173)**<br> 
 &nbsp;&nbsp;greenplum_config_6_19 | **[GreenplumConfig6_19](#GreenplumConfig6_193)**<br> 
-&nbsp;&nbsp;greenplum_config_6_21 | **[GreenplumConfig6_21](#GreenplumConfig6_211)**<br> 
-&nbsp;&nbsp;greenplum_config_6_22 | **[GreenplumConfig6_22](#GreenplumConfig6_221)**<br> 
+&nbsp;&nbsp;greenplum_config_6_21 | **[GreenplumConfig6_21](#GreenplumConfig6_213)**<br> 
+&nbsp;&nbsp;greenplum_config_6_22 | **[GreenplumConfig6_22](#GreenplumConfig6_223)**<br> 
 pool | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Odyssey® pool settings. 
 
 
@@ -872,7 +996,7 @@ max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com
 log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
 
 
-### GreenplumConfig6_21 {#GreenplumConfig6_211}
+### GreenplumConfig6_21 {#GreenplumConfig6_213}
 
 Field | Description
 --- | ---
@@ -888,7 +1012,7 @@ log_statement | enum **LogStatement**<br>Controls which SQL statements are logge
 gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
 
 
-### GreenplumConfig6_22 {#GreenplumConfig6_221}
+### GreenplumConfig6_22 {#GreenplumConfig6_223}
 
 Field | Description
 --- | ---
@@ -1001,9 +1125,11 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-greenplum_config | **oneof:** `greenplum_config_set_6_17` or `greenplum_config_set_6_19`<br>
+greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21` or `greenplum_config_set_6_22`<br>
 &nbsp;&nbsp;greenplum_config_set_6_17 | **[GreenplumConfigSet6_17](#GreenplumConfigSet6_173)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_19 | **[GreenplumConfigSet6_19](#GreenplumConfigSet6_193)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_213)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_223)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet3)**<br>Odyssey® pool settings. 
 
 
@@ -1011,7 +1137,7 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet3)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_173) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_173)). 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -1020,9 +1146,27 @@ default_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Default con
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_193) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_193)). 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfigSet6_21 {#GreenplumConfigSet6_213}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_21](#GreenplumConfig6_214)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_21](#GreenplumConfig6_214)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_21](#GreenplumConfig6_214)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfigSet6_22 {#GreenplumConfigSet6_223}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_22](#GreenplumConfig6_224)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_22](#GreenplumConfig6_224)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_22](#GreenplumConfig6_224)**<br>Default configuration for a Greenplum® cluster. 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet3}
@@ -1193,9 +1337,11 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-greenplum_config | **oneof:** `greenplum_config_set_6_17` or `greenplum_config_set_6_19`<br>
+greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21` or `greenplum_config_set_6_22`<br>
 &nbsp;&nbsp;greenplum_config_set_6_17 | **[GreenplumConfigSet6_17](#GreenplumConfigSet6_174)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_19 | **[GreenplumConfigSet6_19](#GreenplumConfigSet6_194)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_214)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_224)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet4)**<br>Odyssey® pool settings. 
 
 
@@ -1203,7 +1349,7 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet4)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_174) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_174)). 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -1225,7 +1371,7 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_194) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_194)). 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -1243,6 +1389,56 @@ max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.go
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
 max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum memory limit for a query, in bytes. <br>Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high. <br>Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`. <br>When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file. <br>Default value is 2097152000 (2000 MB). <br>More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). 
 log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+
+
+### GreenplumConfigSet6_21 {#GreenplumConfigSet6_214}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_21](#GreenplumConfig6_214)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_21](#GreenplumConfig6_214)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_21](#GreenplumConfig6_214)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_21 {#GreenplumConfig6_214}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
+
+
+### GreenplumConfigSet6_22 {#GreenplumConfigSet6_224}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_22](#GreenplumConfig6_224)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_22](#GreenplumConfig6_224)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_22](#GreenplumConfig6_224)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_22 {#GreenplumConfig6_224}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet4}
@@ -1459,9 +1655,11 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-greenplum_config | **oneof:** `greenplum_config_set_6_17` or `greenplum_config_set_6_19`<br>
+greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21` or `greenplum_config_set_6_22`<br>
 &nbsp;&nbsp;greenplum_config_set_6_17 | **[GreenplumConfigSet6_17](#GreenplumConfigSet6_175)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_19 | **[GreenplumConfigSet6_19](#GreenplumConfigSet6_195)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_215)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_225)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet5)**<br>Odyssey® pool settings. 
 
 
@@ -1469,7 +1667,7 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet5)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_175) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_175)). 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -1491,7 +1689,7 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_195) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_195)). 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -1509,6 +1707,56 @@ max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.go
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
 max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum memory limit for a query, in bytes. <br>Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high. <br>Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`. <br>When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file. <br>Default value is 2097152000 (2000 MB). <br>More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). 
 log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+
+
+### GreenplumConfigSet6_21 {#GreenplumConfigSet6_215}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_21](#GreenplumConfig6_215)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_21](#GreenplumConfig6_215)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_21](#GreenplumConfig6_215)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_21 {#GreenplumConfig6_215}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
+
+
+### GreenplumConfigSet6_22 {#GreenplumConfigSet6_225}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_22](#GreenplumConfig6_225)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_22](#GreenplumConfig6_225)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_22](#GreenplumConfig6_225)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_22 {#GreenplumConfig6_225}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet5}
@@ -1685,9 +1933,11 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-greenplum_config | **oneof:** `greenplum_config_set_6_17` or `greenplum_config_set_6_19`<br>
+greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21` or `greenplum_config_set_6_22`<br>
 &nbsp;&nbsp;greenplum_config_set_6_17 | **[GreenplumConfigSet6_17](#GreenplumConfigSet6_176)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_19 | **[GreenplumConfigSet6_19](#GreenplumConfigSet6_196)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_216)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_226)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet6)**<br>Odyssey® pool settings. 
 
 
@@ -1695,7 +1945,7 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet6)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_176) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_176)). 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -1717,7 +1967,7 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_196) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_196)). 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -1735,6 +1985,56 @@ max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.go
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
 max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum memory limit for a query, in bytes. <br>Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high. <br>Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`. <br>When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file. <br>Default value is 2097152000 (2000 MB). <br>More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). 
 log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+
+
+### GreenplumConfigSet6_21 {#GreenplumConfigSet6_216}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_21](#GreenplumConfig6_216)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_21](#GreenplumConfig6_216)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_21](#GreenplumConfig6_216)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_21 {#GreenplumConfig6_216}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
+
+
+### GreenplumConfigSet6_22 {#GreenplumConfigSet6_226}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_22](#GreenplumConfig6_226)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_22](#GreenplumConfig6_226)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_22](#GreenplumConfig6_226)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_22 {#GreenplumConfig6_226}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet6}
@@ -2176,9 +2476,11 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-greenplum_config | **oneof:** `greenplum_config_set_6_17` or `greenplum_config_set_6_19`<br>
+greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21` or `greenplum_config_set_6_22`<br>
 &nbsp;&nbsp;greenplum_config_set_6_17 | **[GreenplumConfigSet6_17](#GreenplumConfigSet6_177)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_19 | **[GreenplumConfigSet6_19](#GreenplumConfigSet6_197)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_217)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_227)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet7)**<br>Odyssey® pool settings. 
 
 
@@ -2186,7 +2488,7 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet7)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_177) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_177)). 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -2208,7 +2510,7 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_197) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_197)). 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
 user_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>User-defined settings for a Greenplum® cluster. 
 default_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Default configuration for a Greenplum® cluster. 
 
@@ -2226,6 +2528,56 @@ max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.go
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
 max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum memory limit for a query, in bytes. <br>Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high. <br>Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`. <br>When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file. <br>Default value is 2097152000 (2000 MB). <br>More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). 
 log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+
+
+### GreenplumConfigSet6_21 {#GreenplumConfigSet6_217}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_21](#GreenplumConfig6_217)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_21](#GreenplumConfig6_217)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_21](#GreenplumConfig6_217)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_21 {#GreenplumConfig6_217}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
+
+
+### GreenplumConfigSet6_22 {#GreenplumConfigSet6_227}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_22](#GreenplumConfig6_227)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_22](#GreenplumConfig6_227)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_22](#GreenplumConfig6_227)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_22 {#GreenplumConfig6_227}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet7}

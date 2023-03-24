@@ -43,7 +43,7 @@
 
    $ride_time = 
    SELECT
-       DateTime::ToMinutes(tpep_dropoff_datetime-tpep_pickup_datetime) as ride_time
+       DateTime::ToMinutes(tpep_dropoff_datetime-tpep_pickup_datetime) AS ride_time
    FROM
        $data;
 

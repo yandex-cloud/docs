@@ -14,7 +14,7 @@ To delete a page:
 
 1. Open the page.
 
-1. In the upper-right corner of the page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/delete-page.svg) **Delete**.
+1. In the upper-right corner of the page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/delete.svg) **Delete**.
 
 1. Check what pages link to the page being deleted and, if necessary, delete or replace the links.
 

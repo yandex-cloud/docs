@@ -43,6 +43,8 @@ items:
         href: operations/federations/integration-common.md
   - name: Управление облаками и сервисами
     href: manage-services.md
+  - name: Диагностика ошибок в федерациях, работающих по протоколу SAML 2.0
+    href: diagnostics.md
   - name: Справочник API
     items:
       - name: Аутентификация
@@ -51,6 +53,8 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: GroupMappingService
+            href: api-ref/grpc/group_mapping_service.md
           - name: GroupService
             href: api-ref/grpc/group_service.md
           - name: OrganizationService

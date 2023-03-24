@@ -38,7 +38,7 @@ To go to your personal cluster:
 
 1. In the {{ wiki-name }} panel on the left, click ![](../_assets/wiki/svg/edited-icon.svg) **Created and edited**.
 
-1. Next, click ![](../_assets/wiki/svg/go-to-my-page-icon.svg) **Go to personal page** at the top.
+1. Next, click ![](../_assets/wiki/svg/my-page.svg) **My page** at the top.
 
 The pages of a personal cluster are available to all users by default.
 

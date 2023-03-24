@@ -1393,6 +1393,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 cluster_id | **string**<br>ID of the PostgreSQL cluster that is being backed up. 
+backup_id | **string**<br>ID of the PostgreSQL backup that is being created. 
 
 
 ### Cluster {#Cluster7}

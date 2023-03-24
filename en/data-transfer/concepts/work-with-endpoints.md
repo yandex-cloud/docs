@@ -9,9 +9,9 @@ description: "{{ data-transfer-full-name }} considers the specifics of sources a
 
 ## {{ CH }} {#clickhouse}
 
-{{ dt-type-copy }} and {{ dt-type-copy-repl }} transfers (in the copy step) _from {{ CH }} to {{ CH }}_ don't support operations with `VIEW` objects. In source endpoints of the {{ CH }} type, a `VIEW` must be on the "List of excluded tables" if the "List of included tables" is empty or omitted. If the "List of included tables" is non-empty, it must not contain `VIEW` objects.
+{{ dt-type-copy }} and {{ dt-type-copy-repl }} transfers (in the copy step) _from {{ CH }} to {{ CH }}_ do not support `VIEW` objects. In source endpoints of the {{ CH }} type, `VIEW` objects must be on the "List of excluded tables" if the "List of included tables" is empty or not specified. If the "List of included tables" is not empty, it must not contain `VIEW` objects.
 
-The source supports `MATERIALIZED VIEW` objects but handles them as regular tables. This means that in transfers _from {{ CH }} to {{ CH }}_, `MATERIALIZED VIEW` are moved as tables and not as `MATERIALIZED VIEW` objects.
+The source supports `MATERIALIZED VIEW` objects but handles them as regular tables. This means that in transfers _from {{ CH }} to {{ CH }}_, `MATERIALIZED VIEW` items are transferred as tables rather than `MATERIALIZED VIEW` objects.
 
 If replication is enabled on a {{ CH }} target, the engines for recreating tables are selected depending on the source type:
 
@@ -20,9 +20,9 @@ If replication is enabled on a {{ CH }} target, the engines for recreating table
 
 ## {{ GP }} {#greenplum}
 
-Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ don't support moving a schema in the current {{data-transfer-full-name}} version. If there are user-defined table data types in these transfers, create these data types in the target database manually before starting a transfer. To manually transfer a schema, use [`pg_dump`]({{ gp.docs.pivotal }}/6-19/utility_guide/ref/pg_dump.html).
+Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ do not support moving a schema in the current {{data-transfer-full-name}} version. If there are user-defined table data types in these transfers, create these data types in the target database manually before starting a transfer. To manually transfer a schema, use [`pg_dump`]({{ gp.docs.pivotal }}/6-19/utility_guide/ref/pg_dump.html).
 
-The source treats a `FOREIGN TABLE` and `EXTERNAL TABLE` as a regular view and uses the general algorithm for `VIEW` when handling them.
+The source treats a `FOREIGN TABLE` and `EXTERNAL TABLE` as a regular view and uses the general algorithm for `VIEW` objects when handling them.
 
 The source never transfers data from a `MATERIALIZED VIEW`, even during transfers from {{ GP }} to a different database.
 
@@ -40,7 +40,7 @@ For more information about the `createIndex()` function, see the [{{ MG }} docum
 
 ## {{ PG }} {#postgresql}
 
-The source never transfers data from a `MATERIALIZED VIEW`, even during transfers from {{ PG }} to a different database. In transfers _from {{ PG }} to {{ PG }}_, a `MATERIALIZED VIEW` is treated as a regular view and handled using the general algorithm for `VIEW`.
+The source never transfers data from a `MATERIALIZED VIEW`, even during transfers from {{ PG }} to a different database. In transfers _from {{ PG }} to {{ PG }}_, a `MATERIALIZED VIEW` is treated as a regular view and handled using the general algorithm for `VIEW` objects.
 
 The source treats a `FOREIGN TABLE` as a regular view and uses the general algorithm for views when handling them.
 

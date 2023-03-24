@@ -56,7 +56,7 @@ To create a Wiki page in your personal cluster:
 
 1. Click **Save**.
 
-A list of all your pages is available on the top {{ wiki-name }} panel in the ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure** menu.
+A list of all your pages is available on the top {{ wiki-name }} panel in the ![](../_assets/wiki/svg/structure-icon.svg) **Wiki structure** menu.
 
 ## Configuring access {#access}
 

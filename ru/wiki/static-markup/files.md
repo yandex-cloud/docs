@@ -34,7 +34,7 @@
 
 Разметка | Результат
 --- | ---
-`no-highlight 60x20:{{ yandex-logo-link }}` | ![](../../_assets/wiki/resize-pic.png)
+`60x20:{{ yandex-logo-link }}` | ![](../../_assets/wiki/resize-pic.png)
 
 ### Вставить ссылку на скачивание изображения {#download-link}
 

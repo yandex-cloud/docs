@@ -17,6 +17,8 @@ The cost of {{ kms-name }} usage is based on:
 
 ## Pricing {#prices}
 
+Billing occurs per hour. For reference only. Assuming a 720-hour (30-day) month. The value is rounded.
+
 
 
 

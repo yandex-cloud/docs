@@ -11,13 +11,13 @@
 ```sql
 SELECT 
     PULocationID, 
-    COUNT(*) as rides_count,    -- Агрегатная функция COUNT возвращает количество строк,
+    COUNT(*) AS rides_count,    -- Агрегатная функция COUNT возвращает количество строк,
                                 -- полученных в результате выполнения запроса.
                                 -- Звездочка (*) указывает, что функция COUNT
                                 -- посчитает количество всех строк в таблице.
                                 -- Функция считает каждую строку отдельно.
                                 -- В результат также входят строки, содержащие значения null.
-    AVG(tip_amount) as avg_tip_amount
+    AVG(tip_amount) AS avg_tip_amount
 FROM 
     bindings.`tutorial-analytics` 
 GROUP BY PULocationID           -- Колонка, по которой выполняется агрегация данных.

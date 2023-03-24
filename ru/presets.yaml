@@ -328,6 +328,9 @@ default:
       viewer: managed-redis.viewer
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
+  roles-organization-admin: organization-manager.admin
+  roles-organization-owner: organization-manager.organizations.owner
+  roles-organization-viewer: organization-manager.viewer
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor
@@ -41169,3 +41172,6 @@ default:
       s3-page:
         mode-read: Только чтение
         mode-read-write: Чтение и запись
+      transferring:
+        title: Перенос проектов
+        transfer-selected-projects: Перенести выбранные проекты

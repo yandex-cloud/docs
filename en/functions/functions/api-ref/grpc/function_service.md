@@ -296,6 +296,7 @@ connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources}
@@ -335,6 +336,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
+### S3Mount {#S3Mount}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
+
+
 ## GetFunctionVersion {#GetFunctionVersion}
 
 Deprecated. Use [GetVersion](#GetVersion).
@@ -370,6 +381,7 @@ connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount1)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources1}
@@ -409,6 +421,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
+### S3Mount {#S3Mount1}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
+
+
 ## GetVersionByTag {#GetVersionByTag}
 
 Returns all versions with the specified tag. <br>To get the list of all available versions, make a [ListVersions](#ListVersions) request.
@@ -445,6 +467,7 @@ connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret2)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount2)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources2}
@@ -484,6 +507,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
+### S3Mount {#S3Mount2}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
+
+
 ## GetFunctionVersionByTag {#GetFunctionVersionByTag}
 
 Deprecated. Use [GetVersionByTag](#GetVersionByTag).
@@ -520,6 +553,7 @@ connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret3)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount3)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources3}
@@ -557,6 +591,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 &nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
+### S3Mount {#S3Mount3}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
 
 
 ## ListVersions {#ListVersions}
@@ -607,6 +651,7 @@ connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret4)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions4)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount4)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources4}
@@ -644,6 +689,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 &nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
+### S3Mount {#S3Mount4}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
 
 
 ## ListFunctionVersions {#ListFunctionVersions}
@@ -694,6 +749,7 @@ connectivity | **[Connectivity](#Connectivity5)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret5)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions5)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount5)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources5}
@@ -731,6 +787,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 &nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
+### S3Mount {#S3Mount5}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
 
 
 ## SetTag {#SetTag}
@@ -796,6 +862,7 @@ connectivity | **[Connectivity](#Connectivity6)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret6)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions6)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount6)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources6}
@@ -833,6 +900,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 &nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
+### S3Mount {#S3Mount6}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
 
 
 ## RemoveTag {#RemoveTag}
@@ -898,6 +975,7 @@ connectivity | **[Connectivity](#Connectivity7)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret7)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions7)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount7)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources7}
@@ -935,6 +1013,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 &nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
+### S3Mount {#S3Mount7}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
 
 
 ## ListTagHistory {#ListTagHistory}
@@ -1040,6 +1128,7 @@ connectivity | **[Connectivity](#Connectivity8)**<br>Function version connectivi
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret8)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions8)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount8)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources8}
@@ -1088,6 +1177,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
+### S3Mount {#S3Mount8}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
+
+
 ### Operation {#Operation5}
 
 Field | Description
@@ -1133,6 +1232,7 @@ connectivity | **[Connectivity](#Connectivity9)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount9)**<br>S3 mounts to be used by the version. 
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -1166,6 +1266,7 @@ connectivity | **[Connectivity](#Connectivity9)**<br>Function version connectivi
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount9)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources9}
@@ -1214,6 +1315,16 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
+### S3Mount {#S3Mount9}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>S3 bucket prefix for mounting. 
+mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+read_only | **bool**<br>Is mount read only. 
+
+
 ### Operation {#Operation6}
 
 Field | Description
@@ -1259,6 +1370,7 @@ connectivity | **[Connectivity](#Connectivity10)**<br>Network access. If specifi
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret10)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions10)**<br>Options for logging from the function 
+s3_mounts[] | **[S3Mount](#S3Mount10)**<br>S3 mounts to be used by the version. 
 
 
 ## ListRuntimes {#ListRuntimes}

@@ -2,6 +2,7 @@
 
 * [Architecture and protection of a basic internet service](web-service.md)
 * [DHCP settings for working with a corporate DNS server](dhcp-options.md)
+* [Creating a bastion host](bastion.md)
 * [Routing through a NAT instance](nat-instance.md)
 * [Creating an IPSec VPN tunnel](ipsec-vpn.md)
 * [Installing a Cisco CSR 1000v virtual router](cisco.md)

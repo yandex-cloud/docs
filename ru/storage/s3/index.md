@@ -25,8 +25,10 @@ keywords:
 
 ## Общий вид запроса к API {#common-request-form}
 
+Общий вид запроса к {{ objstorage-name }} API:
+
 ```
-{GET|HEAD|PUT|DELETE} /<bucket>/<key> HTTP/2
+{GET|HEAD|PUT|DELETE} /<имя_бакета>/<ключ_объекта> HTTP/2
 Host: {{ s3-storage-host }}
 Content-Length: length
 Date: date
@@ -35,11 +37,13 @@ Authorization: authorization string (AWS Signature Version 4)
 Request_body
 ```
 
+Запрос содержит HTTP-метод, имя бакета и [ключ объекта](../concepts/object.md).
+
 Имя бакета можно указать как часть имени хоста. В этом случае запрос примет вид:
 
 ```
-{GET|HEAD|PUT|DELETE} /<key>} HTTP/2
-Host: <bucket>.{{ s3-storage-host }}
+{GET|HEAD|PUT|DELETE} /<ключ_объекта>} HTTP/2
+Host: <имя_бакета>.{{ s3-storage-host }}
 ...
 ```
 
@@ -51,8 +55,10 @@ Host: <bucket>.{{ s3-storage-host }}
 
 URL может иметь одну из следующих форм:
 
-- `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
-- `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
+- `https://{{ s3-storage-host }}/<имя_бакета>/<ключ_объекта>?<query-параметры>`
+- `http://<имя_бакета>.{{ s3-storage-host }}/<ключ_объекта>?<query-параметры>`
+
+URL содержит имя бакета, ключ объекта и query-параметры. Пример возможных query-параметров см. в [описании метода для получения объекта](api-ref/object/get.md).
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 

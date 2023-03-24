@@ -99,7 +99,7 @@ items:
             href: operations/projects/publication.md
           - name: Экспорт проекта
             href: operations/projects/export.md
-      - name: Как перенести работу в новый интерфейс
+      - name: Как перенести работу в новую версию
         href: operations/migration.md
   - name: Концепции
     items:

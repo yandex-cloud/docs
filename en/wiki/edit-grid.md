@@ -14,7 +14,7 @@ Each time you save your changes, a new copy of the table is added to its [edit h
 
 ## Configuring parameters of table columns {#column-params}
 
-1. In a column's first cell, click ![](../_assets/wiki/svg/actions-icon.svg) and select ![](../_assets/wiki/svg/new-settings.svg) **Settings**.
+1. In a column's first cell, click ![](../_assets/wiki/svg/actions-icon.svg) and select ![](../_assets/wiki/svg/grid-settings.svg) **Settings**.
 
 1. In the pop-up window, change the column parameters:
 
@@ -30,7 +30,7 @@ Each time you save your changes, a new copy of the table is added to its [edit h
 
 To move a column:
 
-1. In the upper-right corner, click ![](../_assets/wiki/svg/new-settings.svg).
+1. In the upper-right corner, click ![](../_assets/wiki/svg/grid-settings.svg) **Settings**.
 
 1. Select ![](../_assets/wiki/svg/table-settings.svg) **Configure columns** in the table settings.
 
@@ -68,9 +68,9 @@ Specify the data type for a table column:
 
 * ![](../_assets/wiki/svg/type-text.svg) **Formatted text**. Any text formatted by [Markdown](basic-markup.md).
 
-* ![](../_assets/wiki/svg/type-checkbox.svg) **Number**.
+* ![](../_assets/wiki/svg/type-number.svg) **Number**.
 
-* ![](../_assets/wiki/svg/type-number.svg) **Checkbox**. A box that can be checked or unchecked. To mark an entire row, enable the **Mark as done** option. This will make all rows selected with the checkbox turn gray.
+* ![](../_assets/wiki/svg/type-checkbox.svg) **Checkbox**. A box that can be checked or unchecked. To mark an entire row, enable the **Mark as done** option. This will make all rows selected with the checkbox turn gray.
 
 * ![](../_assets/wiki/svg/type-date.svg) **Date**.
 
@@ -115,7 +115,7 @@ You can set conditions for displaying rows or columns for tables embedded using 
 To filter a table:
 
 1. Get the code for the dynamic table:
-   1. In the upper-right corner, click ![](../_assets/wiki/svg/settings-insert.svg).
+   1. In the upper-right corner, click ![](../_assets/wiki/svg/grid-settings.svg) **Settings**.
 
    1. Select ![](../_assets/wiki/svg/link.svg) **Copy embed code**.
 

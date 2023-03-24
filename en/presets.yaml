@@ -41166,3 +41166,6 @@ default:
       s3-page:
         mode-read: Read only
         mode-read-write: Read and write
+      transferring:
+        title: Transfer projects
+        transfer-selected-projects: Transfer selected projects

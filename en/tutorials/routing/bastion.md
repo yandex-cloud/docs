@@ -1,0 +1,1 @@
+{% include [bastion](../../_tutorials/routing/bastion.md) %}
