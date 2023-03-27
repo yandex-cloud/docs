@@ -26,9 +26,9 @@ You can use the {{ tracker-name }} API to update issue statuses automatically ba
 
 Test benches are usually used to test new product features. If you are developing multiple features in parallel, it makes sense to create an independent test bench for each issue. To make it easy to find such a test bench, add a link to it to the issue. This can be done automatically using the {{ tracker-name }} API.
 
-Suppose that your team has automated creation of a test bench using a script: this script uploads the application code from a specific issue branch, text the codes into a Docker image, then uses the image to deploy a container on the server and starts it.
+Let's assume your team has a script that automates test bench creation; this script uploads the application code from a specific issue branch, bundles it into a Docker image, and then uses this image to deploy a container on the server and starts it.
 
-The same script can be used to add to an issue a link to the deployed test bench. To do this:
+You can use the same script to include a link to the deployed test bench in the issue. To do this:
 
 
 1. [Create a new issue field](user/create-param.md#section_pxn_fp4_xgb) named <q>Bench link</q> in {{ tracker-name }}.

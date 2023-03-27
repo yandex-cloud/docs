@@ -1,10 +1,10 @@
 # Adding comments to issues
 
-You can use comments to leave notes about progress, ask for additional information, or ask colleagues to join the discussion.
+You can use comments to leave notes about the work progress, ask questions about the issue description, and invite your teammates to discuss the issue.
 
 {% note tip %}
 
-If you keep all your discussions about an issue in the comments section, you will always have access to the full history of what was discussed.
+If you only discuss an issue in the comments, you will always have access to a full history of its discussion.
 
 {% endnote %}
 
@@ -14,19 +14,18 @@ If you keep all your discussions about an issue in the comments section, you wil
 
 - Web interface
 
-    To comment on an issue, enter your text in the box at the bottom of the page and click **Submit**. You can use [markup](markup.md) in the comments section and attach images and files.
+  To comment on an issue, enter your text in the box at the bottom of the page and click **Submit**. In the comments section, you can use [text markup](markup.md) and attach images and files.
 
-    You can use the comments section to specify a key for a different issue so that {{ tracker-name }} automatically links the issue.
+  You can use the comments section to specify a key for a different issue so that {{ tracker-name }} automatically links the issue. When entering the issue key, use ALL CAPS.
 
 
-
-    If you close or refresh the page without sending your comment, it is still stored in drafts. You can restore the comment text by clicking ![](../../_assets/tracker/drafts.png) in the toolbar above the comment box and choosing the draft.
+  If you close or refresh the page without sending your comment, it will still be stored in the relevant text box. You can continue entering the comment or delete the text.
 
 - Mobile app
 
-    To comment on an issue, enter your text in the **Write a comment** box at the bottom of the screen and tap ![](../../_assets/tracker/send.png). You can use [text markup](markup.md) and [attach images and files](#sec_file) in the comment section. To expand the comment box to full screen, tap ![](../../_assets/tracker/open-text.png).
+  To comment on an issue, enter your text in the **Write a comment** box at the bottom of the screen and tap ![](../../_assets/tracker/send.png). In the comments section, you can use [text markup](markup.md) and [attach images and files](#sec_file). To expand the comment box to full screen, tap ![](../../_assets/tracker/open-text.png).
 
-    You can use the comments section to specify a key for a different issue so that {{ tracker-name }} automatically [links](ticket-links.md#add-link) the issue.
+  You can use the comments section to specify a key for a different issue so that {{ tracker-name }} automatically [links](ticket-links.md#add-link) the issue.
 
 {% endlist %}
 
@@ -36,15 +35,15 @@ If you keep all your discussions about an issue in the comments section, you wil
 
 - Web interface
 
-    1. Hover over the comment and click **Reply**. The comment you reply to is quoted in the response.
+  1. Hover over the comment and click![](../../_assets/tracker/svg/icon-reply.svg) **Reply**. The comment you are replying to will be quoted in the response.
 
-    1. Make your changes and click **Submit**.
+  1. Make your changes and click **Submit**.
 
 - Mobile app
 
-    1. Tap ![](../../_assets/tracker/dots.png) next to the comment and select **Reply**. The comment you reply to is quoted in the response.
+  1. Click ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Reply**. The comment you are replying to will be quoted in the response.
 
-    1. Make your changes and tap ![](../../_assets/tracker/send.png).
+  1. Make your changes and tap ![](../../_assets/tracker/send.png).
 
 {% endlist %}
 
@@ -54,19 +53,19 @@ If you keep all your discussions about an issue in the comments section, you wil
 
 - Web interface
 
-    1. Hover over the comment and click **Edit**.
+  1. Hover over the comment and click ![](../../_assets/tracker/svg/icon-edit.svg) **Edit comment**.
 
-    1. Make your changes and click **Save**.
+  1. Make your changes and click **Save**.
 
-    Any changes to comments are saved in the [History](history.md).
+  Any changes to comments are saved in the [History](history.md).
 
 - Mobile app
 
-    1. Tap ![](../../_assets/tracker/dots.png) next to the comment and select **Edit**.
+  1. Click ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Edit**.
 
-    1. Make your changes and tap ![](../../_assets/tracker/send.png).
+  1. Make your changes and tap ![](../../_assets/tracker/send.png).
 
-    Any changes to comments are saved in the [History](history.md).
+  Any changes to comments are saved in the [History](history.md).
 
 {% endlist %}
 
@@ -76,33 +75,33 @@ If you keep all your discussions about an issue in the comments section, you wil
 
 - Web interface
 
-    To invite other users to discuss an issue:
+  To invite other users to discuss an issue:
 
-    1. Above the comment box, click ![](../../_assets/tracker/summon.png).
+  1. In the bottom part of the comment entry field, click ![](../../_assets/tracker/svg/icon-call.svg) **Invite**.
 
-    1. Enter the login or name of the user you want to invite to the comments. You can invite multiple users at once.
+  1. Enter the login or name of the user you want to invite to the comments. To add another user, click ![](../../_assets/tracker/svg/icon-call.svg) **Invite** again.
 
-    1. Enter the comment text.
+  1. Enter the text of your comment.
 
-    1. Click **Submit**.
+  1. Click **Send**.
 
 - Mobile app
 
-    To invite other users to discuss an issue:
+  To invite other users to discuss an issue:
 
-    1. Select **Write a comment** at the bottom of the screen and tap ![](../../_assets/tracker/at.png).
+  1. Select **Write a comment** at the bottom of the screen and tap ![](../../_assets/tracker/at.png).
 
-    1. Enter the username or name of the user you want to invite to the comments and tap **Save**. You can invite multiple users at once.
+  1. Enter the username or name of the user you want to invite to the comments and tap **Save**. You can invite multiple users at once.
 
-    1. Enter the comment and tap ![](../../_assets/tracker/send.png).
+  1. Enter the comment and tap ![](../../_assets/tracker/send.png).
 
 {% endlist %}
 
-Users invited to comment are notified by email, with their names added to the **Pending reply from** issue field.
+Users invited to the comment will be notified by email, with their names added to the **Pending reply from** issue field.
 
 {% note info %}
 
-If you add a user in the **Pending reply from** field without inviting them when sending your comment, that user won't receive an email notification.
+If you add a user in the **Pending reply from** field without inviting them when sending an issue comment, the user will not receive an email notification.
 
 {% endnote %}
 
@@ -112,69 +111,31 @@ If you add a user in the **Pending reply from** field without inviting them when
 
 - Web interface
 
-    Drag files to the comment box or click **Choose files**.
+  Drag files to the comment box or click ![](../../_assets/tracker/svg/icon-file.svg).
 
-    To insert images attached to an issue in the comment text, click ![](../../_assets/tracker/add-image.png).
+  To attach an image, click ![](../../_assets/tracker/text-edit/image.svg) in the comment field on the toolbar. Then, add the image URL or upload it from your device.
 
 - Mobile app
 
-    To attach a file to a comment:
+  To attach a file to a comment:
 
-    1. Select **Write a comment** at the bottom of the screen and tap ![](../../_assets/tracker/pin.png).
+  1. Select **Write a comment** at the bottom of the screen and tap ![](../../_assets/tracker/pin.png).
 
-       * To add a photo or video from your phone's camera, tap **Camera**. When everything is ready, tap **OK**. To take a new photo or video, tap **Repeat**.
+     * To add a photo or video from your phone's camera, tap **Camera**. When everything is ready, tap **OK**. To take a new photo or video, tap **Repeat**.
 
-       * To attach files from your phone, tap **Files** and select them.
+     * To attach files from your phone, tap **Files** and select them.
 
-       {% note info %}
+     {% note info %}
 
-       If you're attaching files for the first time, allow access to your phone's camera and files.
+     If you're attaching files for the first time, allow access to your phone's camera and files.
 
-       {% endnote %}
+     {% endnote %}
 
-    1. Enter the comment and tap ![](../../_assets/tracker/send.png).
+  1. Enter the comment and tap ![](../../_assets/tracker/send.png).
 
-    The attached files are displayed below the comment.
+  The attached files are displayed below the comment.
 
 {% endlist %}
-
-## Sending comments to a user's email address {#send-comment}
-
-{% note alert %}
-
-You can only send comments to **external** users if the [queue settings](../manager/edit-queue-general.md) allow it.
-
-{% endnote %}
-
-You can send emails to in-house and outside users directly from the issue page. The message text is attached to the issue as a comment.
-
-To send an email from the issue page:
-
-1. Click **Email** on the toolbar under the issue title.
-
-1. Choose an address to send your email from:
-
-    {% list tabs %}
-
-    - Queue address
-
-        You can use this option if the queue has a [dedicated email address](../manager/queue-mail.md#section_gwv_hqb_hgb).
-
-        The <q>From</q> field will only display the queue address. Responses to such emails are turned into comments for the corresponding issue.
-
-        You can set up a custom **Sender name** to communicate with external users. Create one or more sender names in the [queue email address](../manager/queue-mail.md#section_ffq_gqb_hgb) settings.
-
-    - Your own address
-
-        The <q>From</q> field will display your name and email address.
-
-    {% endlist %}
-
-1. Specify your recipient and write your message.
-
-1. Click **Submit**.
-
-Responses to such emails are turned into comments for the corresponding issue automatically.
 
 ## Sharing a comment {#share-comment}
 
@@ -182,11 +143,11 @@ Responses to such emails are turned into comments for the corresponding issue au
 
 - Web interface
 
-    To copy a link to a comment, hover over it and click ![](../../_assets/tracker/share-comment.png). You can also click on the date in the upper-right corner of the comment: the link to it appears in the browser address bar.
+  To copy a link to a comment, hover over it and click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/text-edit/link.svg) **Copy link**. You can also click the date next to the comment author's name: the link will be shown in the browser's address bar.
 
 - Mobile app
 
-    To copy a link to a comment, tap ![](../../_assets/tracker/dots.png) next to it and select **Copy link**.
+  To copy a link to a comment, tap ![](../../_assets/horizontal-ellipsis.svg) and select **Copy link**.
 
 {% endlist %}
 
@@ -196,67 +157,58 @@ Responses to such emails are turned into comments for the corresponding issue au
 
 - Web interface
 
-    To delete a comment, hover over it and click ![](../../_assets/tracker/delete-comment.png).
+  To delete a comment, hover over it and click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Delete**.
 
 - Mobile app
 
-    To delete a comment, tap ![](../../_assets/tracker/dots.png) next to it and select **Delete**.
+  To delete a comment, tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Delete**.
 
 {% endlist %}
 
 
 
-## Using templates {#template-comment}
-
-#### Creating a template {#create-template}
-
-If you frequently leave similar comments, make a template for them. You can create a template on the [relevant page](ticket-template.md) or from the comment text:
-
-1. Enter the comment that you want to make a template.
-
-1. Tap ![](../../_assets/tracker/comment-template.png).
-
-1. Choose **Create template from this comment** from the drop-down list.
-
-1. Enter a name for the template.
-
-1. If you want the template to only be available in this queue, select the **Bind template to queue** option.
-
-1. Click **Create**.
-
-#### Using a template {#use-template}
-
-To create a comment from a template:
-
-1. Make sure that the comments field does not contain any text.
-
-1. Tap ![](../../_assets/tracker/comment-template.png).
-
-1. Select a template from the drop-down list and click **Choose**.
-
-1. If necessary, edit the comment. To publish it, click **Submit**.
-
-## Creating an issue based on a comment {#create-task}
-
-If the discussion of an issue leads to creating a new issue, you can create it directly from the comment:
-
-1. Click the comment that the new issue will be based on.
-
-1. Click **Create issue** and choose the link type.
-
-1. Fill in the fields the same way as when [creating a regular issue](create-ticket.md#create-task).
-
-1. Click **Create**.
-
 ## Sorting comments {#order-comments}
 
-Comments are listed chronologically by default. If you want to place the most recent comments at the start of the chain, do the following:
+By default, comments are listed chronologically. To display the latest comments at the beginning of the list, on the right-hand side of the **Activity** section, click ![](../../_assets/tracker/svg/new-first.svg) **Newest first**.
 
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
+The issue's changelog showing up when you click **History** will also change its order to newest first.
 
-1. Under **Message order in issues**, select **Newest first**.
+## Sending comments to a user's email address {#send-comment}
 
-1. Click **Save**.
+You can send emails from comments if [email integration](../manager/queue-mail.md) is set up.
 
-All issue changelogs on the **History** tab will also change their order to newest first.
+{% note alert %}
 
+You can only send comments to **external** users if the [queue settings](../manager/edit-queue-general.md) allow it.
+
+{% endnote %}
+
+You can send emails both to the external and internal users right from the issue page. The email text is added to the issue as a comment.
+
+To send an email from the issue page:
+
+1. Select **Email** above the field for a new comment.
+
+1. Select the email sender address from the list:
+
+   * Queue address
+
+      The <q>From</q> field will display the queue address. A response to such a message will become a comment to the issue.
+
+      You can [set up](../manager/queue-mail.md) multiple email addresses for the queue in the organization domain or on any other email server.
+
+   * User's personal email address {{ tracker-name }}
+
+      The <q>From</q> field will display your name and personal email address linked to the account in {{ tracker-name }}. Response emails will be sent to your personal email address.
+
+1. You can choose a **Nickname** for the queue address. Nicknames are used when emails need to be sent from the entire organization or service rather than from a single user.
+
+   Create one or more sender names in the queue [email address settings](../manager/queue-mail.md).
+
+1. Specify the recipient and enter the email text
+
+   To send a copy of an email to a different recipient, click **+ Copy** and select their email address.
+
+1. Click **Send**.
+
+The user's response will automatically be added as an issue comment.

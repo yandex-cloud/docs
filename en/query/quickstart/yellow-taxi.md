@@ -2,13 +2,13 @@
 
 {{ yq-full-name }} lets you access data stored in {{ objstorage-full-name }} by making queries in an SQL-like language called [YQL](https://ydb.tech/en/docs/yql/reference/syntax/).
 
-In this example, we'll build a frequency distribution of trip duration vs. trip number as a histogram. For this purpose, we will create a connection and run an analytical query.
+In this example, we will build a frequency distribution of trip duration vs. trip number as a histogram. For this purpose, we will connect to bucket data and run an analytical query.
 
 The dataset used in the example includes information about taxi trips in New York in 2019-2021. The data was uploaded to {{ objstorage-full-name }} and stored in a public bucket named `yq-sample-data`, in the `tutorial` folder.
 
 To execute the example:
 
-1. [Before you start](#before-you-begin).
+1. [Get started](#before-you-begin).
 1. [Create a connection](#create-binding).
 1. [Run the query](#run-query).
 1. [Review the result](#check-result).
@@ -19,12 +19,11 @@ To execute the example:
 
 {% endnote %}
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
 1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
-
 
 ## Create a connection {#create-binding}
 

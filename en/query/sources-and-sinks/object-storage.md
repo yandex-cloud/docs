@@ -1,4 +1,4 @@
-# Reading data from {{ objstorage-name }} using connections to {{ yq-name }}
+# Reading data from {{ objstorage-name }} using {{ yq-name }} connections
 
 When working with {{ objstorage-full-name }}, it is convenient to use connections for prototyping and initial setup of connections to data.
 
@@ -22,7 +22,7 @@ WITH
 
 ## Setting up a connection {#create_connection}
 
-To create a {{ objstorage-short-name }} connection:
+To create a connection to {{ objstorage-short-name }}:
 
 {% include [!](../_includes/create-object-storage-connection.md) %}
 
@@ -42,7 +42,7 @@ WHERE
 
 Where:
 
-* `object_storage_connection_name`: Name of object storage [connection](#create_connection).
+* `object_storage_connection_name`: Name of the storage [connection](#create_connection).
 * `file_path`: Path to a file or files in the bucket. `*` wildcards are supported.
 * `file_format`: File [data format](formats.md#formats).
 * `compression`: File [compression format](formats.md#compression_formats).
@@ -78,6 +78,6 @@ WITH(
 
 Where:
 
-* `connection`: Name of {{ objstorage-short-name }} connection.
+* `connection`: Name of the connection to {{ objstorage-short-name }}.
 * `folder/filename.csv`: Path to the file in the {{ objstorage-short-name }} bucket.
 * `SCHEMA`: Data schema description in the file.

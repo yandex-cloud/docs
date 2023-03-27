@@ -59,7 +59,7 @@ Create a {{ yds-full-name }} stream named `debezium`. For detailed information a
 
 {% include [create-environment](../../_includes/data-streams/create-environment.md) %}
 
-### Setting up the Debezium Server {#debezium_server}
+### Setting up Debezium Server {#debezium_server}
 
 {% include [debezium-setup](../../_includes/data-streams/debezium-setup.md) %}
 

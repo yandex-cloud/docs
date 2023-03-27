@@ -4,11 +4,11 @@ Integrate your form with other services to use their features related to process
 
 - [Set up actions](#add-integration) to be performed automatically when the user fills out the form:
 
-   - [Send notifications by email.](send-mail.md)
+   - [Send notifications by email](send-mail.md).
 
    - [Create issues in {{ tracker-name }}](create-task.md) and add form data to them.
 
-   - [Add user responses to {{ wiki-name }}.](send-wiki.md)
+   - [Add user responses to {{ wiki-name }}](send-wiki.md).
 
    - [Send HTTP requests to an API](send-request.md).
 

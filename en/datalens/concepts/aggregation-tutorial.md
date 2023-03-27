@@ -98,57 +98,56 @@ Result:
 
 When aggregating with grouping by several groups, keep in mind the following limitations:
 
-* The columns used for selection must be specified in the `GROUP BY` section:
+* Specify the columns used for selection in the `GROUP BY` section:
 
-  {% list tabs %}
+   {% list tabs %}
 
-  - Correct
+   - Correct
 
-    ```sql
-    SELECT
-        "City",
-        sum("Sales")
-    FROM "Selling"
-    GROUP BY "City"
-    ```
+      ```sql
+      SELECT
+          "City",
+          sum("Sales")
+      FROM "Selling"
+      GROUP BY "City"
+      ```
 
-  - Incorrect
+   - Incorrect
 
-    ```sql
-    SELECT
-        "City",
-        sum("Sales")
-    FROM "Selling"
-    GROUP BY "Category"
-    ```
+      ```sql
+      SELECT
+          "City",
+          sum("Sales")
+      FROM "Selling"
+      GROUP BY "Category"
+      ```
 
    {% endlist %}
 
 * Aggregated and non-aggregated expressions cannot be used at the same query level:
 
-  {% list tabs %}
+   {% list tabs %}
 
-  - Correct
+   - Correct
 
-    ```sql
-    SELECT
-        "City",
-        sum("Sales") as "Detroit Sales"
-    FROM "Selling"
-    WHERE "City" = 'Detroit'
-    GROUP BY "City"
-    ```
+      ```sql
+      SELECT
+          "City",
+          sum("Sales") as "Detroit Sales"
+      FROM "Selling"
+      WHERE "City" = 'Detroit'
+      GROUP BY "City"
 
-  - Incorrect
+   - Incorrect
 
-    ```sql
-    SELECT
-        if("City" = 'Detroit', sum("Sales"), 0) as "Detroit Sales"
-    FROM "Selling"
-    GROUP BY "Category"
-    ```
+      ```sql
+      SELECT
+          if("City" = 'Detroit', sum("Sales"), 0) as "Detroit Sales"
+      FROM "Selling"
+      GROUP BY "Category"
+      ```
 
-  {% endlist %}
+   {% endlist %}
 
 ### Filtering {#aggregation-with-filter}
 
@@ -213,25 +212,25 @@ You can add a measure at the dataset level in the following ways:
 
 * In the dataset creation interface, open the **Fields** tab and select the aggregation type for the field in the **Aggregation** column.
 
-  ![image](../../_assets/datalens/concepts/tutorial/aggregation-3.png)
+   ![image](../../_assets/datalens/concepts/tutorial/aggregation-3.png)
 
 * In the data creation interface, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). For more information, see [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can [substitute](#substituting-fields) other measures.
 
-  ![image](../../_assets/datalens/concepts/tutorial/aggregation-4.png)
+   ![image](../../_assets/datalens/concepts/tutorial/aggregation-4.png)
 
-  When you create a calculated field using an aggregate function, it is assigned the **Auto** aggregation type, which cannot be changed.
+   When you create a calculated field using an aggregate function, it is assigned the **Auto** aggregation type, which cannot be changed.
 
 #### Creating measures at the chart level {#add-measure-in-chart}
 
 You can add a measure at the chart level in the following ways:
 
-* In the wizard, drag the dimension to the section for measures and select the aggregation type. The field color changes from green to blue.
+* In the wizard, drag the dimension to the section for measures and select the aggregation type. The field color will change from green to blue.
 
-  ![image](../../_assets/datalens/concepts/tutorial/aggregation-5.png)
+   ![image](../../_assets/datalens/concepts/tutorial/aggregation-5.png)
 
 * In the wizard, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). For more information, see [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can [substitute](#substituting-fields) other measures.
 
-Measures can consist of more than one aggregate function and have more complex expressions. For example, in this [chart]({{ link-datalens-main }}/wizard/i55h82o0c6bgc), to calculate the average sales amount for the day, the `Sales per day` measure calculated with the formula `SUM([Sales])/COUNTD([Date])` is used.
+Measures can consist of more than one aggregate function and have more complex expressions. For example, in this [chart]({{ link-datalens-main }}/wizard/i55h82o0c6bgc), to calculate the average sales amount per day, we use the `Sales per day` measure calculated by the `SUM([Sales])/COUNTD([Date])` formula.
 
 ![image](../../_assets/datalens/concepts/tutorial/aggregation-12.png)
 
@@ -265,9 +264,9 @@ In some chart sections, you can drag only a dimension or only a measure. This de
 
 ### Expression limitations {#datalens-invalid-expressions}
 
-Like in SQL, in {{ datalens-short-name }}, you can't use aggregated and non-aggregated values in the same expression.
+Like in SQL, in {{ datalens-short-name }}, you cannot use aggregated and non-aggregated values in the same expression.
 
-For example, in the [chart]({{ link-datalens-main }}/wizard/i55h82o0c6bgc) with groupings by the `City` and `Category` dimensions, you can't add the `SUM([Sales]) * (1 - [Day's discount])` measure to calculate the sales amount taking with discounts. In this case, the `City` and `Category` dimensions determine group splitting, and therefore have fixed values in each group. For each group, you can calculate the `SUM([Sales])` value. However, the `Day's discount` field is neither aggregation nor a measure within the group. It doesn't have a fixed value — it can vary from row to row in the group. Therefore, it's impossible to determine what specific value of the `Day's discount` field needs to be selected to calculate the `SUM([Sales]) * (1 - [Day's discount])` measure for each group. Thus, the expression `SUM([Sales]) * (1 - [Day's discount])` can't be calculated. In {{ datalens-short-name }}, such cases result in the `Inconsistent aggregation among operands` error.
+For example, in the [chart]({{ link-datalens-main }}/wizard/i55h82o0c6bgc) with groupings by the `City` and `Category` dimensions, you cannot add the `SUM([Sales]) * (1 - [Day's discount])` measure to calculate the sales amount with discounts. In this case, the `City` and `Category` dimensions determine group breakdown, and therefore have fixed values in each group. For each group, you can calculate the `SUM([Sales])` value. However, the `Day's discount` field is neither aggregation nor a measure within the group. It does not have a fixed value and may vary from row to row in the group. Therefore, it is impossible to determine what specific value of the `Day's discount` field needs to be selected to calculate the `SUM([Sales]) * (1 - [Day's discount])` measure for each group. Thus, the `SUM([Sales]) * (1 - [Day's discount])` expression cannot be calculated. In {{ datalens-short-name }}, such cases result in the `Inconsistent aggregation among operands` error.
 
 ![image](../../_assets/datalens/concepts/tutorial/aggregation-10.png)
 
@@ -275,11 +274,11 @@ You can prevent this error in different ways:
 
 * Add the `Day's discount` field to the dimension section. In this case, data is grouped by the `City`, `Category`, and `Day's discount` dimensions, so the fixed value of the `Day's discount` field is used for each group to calculate the value of the `SUM([Sales]) * (1 - [Day's discount])` measure.
 
-  ![image](../../_assets/datalens/concepts/tutorial/aggregation-11.png)
+   ![image](../../_assets/datalens/concepts/tutorial/aggregation-11.png)
 
 * Specify the aggregation type for the `Day's discount` field. In this case, this field will become a measure and the original formula will be correct.
 
-  ![image](../../_assets/datalens/concepts/tutorial/aggregation-14.png)
+   ![image](../../_assets/datalens/concepts/tutorial/aggregation-14.png)
 
 ### Filtering dimensions and measures {#set-fiter}
 

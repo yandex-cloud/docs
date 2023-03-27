@@ -95,7 +95,7 @@ To stop an L7 load balancer:
 
 - API
 
-   Use the gRPC API [LoadBalancerService/Stop](../api-ref/grpc/load_balancer_service.md#Stop) or the REST API [stop](../api-ref/LoadBalancer/stop.md) method.
+   Use the [stop](../api-ref/LoadBalancer/stop.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Stop](../api-ref/grpc/load_balancer_service.md#Stop) gRPC API call.
 
 {% endlist %}
 
@@ -192,6 +192,6 @@ To start a load balancer:
 
 - API
 
-   Use the gRPC API [LoadBalancerService/Start](../api-ref/grpc/load_balancer_service.md#Start) or the REST API [start](../api-ref/LoadBalancer/start.md) method.
+   Use the [start](../api-ref/LoadBalancer/start.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Start](../api-ref/grpc/load_balancer_service.md#Start) gRPC API call.
 
 {% endlist %}

@@ -11,7 +11,7 @@ If you manage your issues and projects with a certain service and want to change
 ## Migrating data from Jira {#jira}
 
 
-1. [Connect {{ tracker-full-name }}.](enable-tracker.md)
+1. [Connect {{ tracker-full-name }}](enable-tracker.md).
 
 1. [Add your company's employees to {{ tracker-name }}](add-users.md).
 
@@ -29,7 +29,7 @@ If you manage your issues and projects with a certain service and want to change
 
    {% cut "How to export data" %}
 
-   1. In Jira, select **Settings**> **System**.
+   1. In Jira, select **Settings** > **System**.
 
    1. Under **IMPORT AND EXPORT**, select **Backup manager**.
 
@@ -176,7 +176,7 @@ To learn more about the data format used in {{ api-name }}, see the [API referen
 
 To import the data:
 
-1. [Connect {{ tracker-full-name }}.](enable-tracker.md)
+1. [Connect {{ tracker-full-name }}](enable-tracker.md).
 
 
 

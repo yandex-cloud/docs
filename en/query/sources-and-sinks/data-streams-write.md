@@ -22,7 +22,8 @@ FROM
     $data;
 ```
 
-## Setting up a connection
+## Setting up a connection {#connect}
+
 To read data from {{ yds-full-name }}:
 1. Go to the {{ yq-full-name }} interface, open the **Connections** section, and click **Create**.
 1. In the window that opens, specify a name for a connection to {{ yds-full-name }} in the **Name** field.
@@ -44,9 +45,9 @@ FROM
 
 Where:
 
-- `yds_connection_name` is the name of the {{ yds-short-name }} stream connection created in the previous step.
-- `stream_name` is the name of the stream in {{ yds-short-name }}.
-- `query` is the {{ yq-full-name }} data source query.
+- `yds_connection_name`: Name of the {{ yds-short-name }} stream connection created in the previous step.
+- `stream_name`: Name of the stream in {{ yds-short-name }}.
+- `query`: {{ yq-full-name }} data source query.
 
 ## Example of writing data
 
@@ -96,7 +97,7 @@ Where:
 |Field|Type|Description|
 |--|---|---|
 |`yds`| |{{ yds-full-name }} connection name|
-|`input_stream`| Source stream name in the SQL query|
+|`input_stream`| |Source stream name in the SQL query|
 |`output_stream`| |Target stream name in the SQL query|
 |`host`|String|Query string parameter|
 |`count`|Integer|Query numeric parameter|

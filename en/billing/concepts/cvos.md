@@ -4,7 +4,7 @@
 
 {% note info %}
 
-The agreement only provides for a discount on a certain volume of services within a region, but doesn't guarantee such availability in data centers.
+The agreement only provides for a discount on a certain volume of services, but does not guarantee such availability in data centers.
 
 {% endnote %}
 

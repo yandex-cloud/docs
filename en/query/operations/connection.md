@@ -13,7 +13,7 @@ To create a connection:
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Connections**.
 1. Click ![info](../../_assets/plus.svg) **Create**.
-1. Enter a name and description for the connection. Naming requirements:
+1. Enter a name and description for the connection. The naming requirements are as follows:
 
    {% include [name-format](../_includes/connection-name-format.md) %}
 
@@ -62,7 +62,7 @@ To edit connection parameters:
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Connections**.
 1. Click ![pencil](../../_assets/query/pensil.svg) next to the name of the desired connection.
-1. Set new parameters for the connection. You can't change the connection type.
+1. Set new parameters for the connection. You cannot change the connection type.
 1. Click **Edit**.
 
 ## Deleting a connection {#delete}

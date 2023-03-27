@@ -12,7 +12,7 @@ This section describes how to use the AWS SDK for several programming languages 
 * [Searching and extracting](query-and-scan.md) data.
 * [Deleting](delete-table.md) a table.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Configure the AWS environment](../aws-setup.md).
 1. Prepare the Document API endpoint of the [created database](../../../operations/manage-databases.md).

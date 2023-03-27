@@ -42,7 +42,7 @@ Using the management console or YC CLI, you can:
       yc ydb database create --help
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       yc ydb database create <DB_name> --serverless
@@ -56,10 +56,10 @@ Using the management console or YC CLI, you can:
       created_at: "2022-12-13T09:17:06Z"
       name: svlbd
       status: PROVISIONING
-      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etne027gi9aap7ldau3f
+      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etne027gi9aap7ldau3f
       serverless_database:
       storage_size_limit: "53687091200"
-      location_id: ru-central1
+      location_id: {{ region-id }}
       backup_config:
       backup_settings:
         - name: daily
@@ -69,7 +69,7 @@ Using the management console or YC CLI, you can:
                 hours: 17
           backup_time_to_live: 604800s
           type: SYSTEM
-      document_api_endpoint: https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvsleds/etne027gi9aap7ldau3f
+      document_api_endpoint: https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaomkfvsleds/etne027gi9aap7ldau3f
       monitoring_config: {}
       ```
 
@@ -89,9 +89,9 @@ Using the management console or YC CLI, you can:
    1. In the list of services, select **{{ ydb-name }}**.
    1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **Edit**.
    1. Configure the DB settings:
-      1. Change the DB name if required.
-      1. Under **Limits**, specify the [throughput](../pricing/serverless.md#prices-ru) and [max size](../pricing/serverless.md#rules-storage)
-      1. Under **Pricing**, set the [provisioned capacity](../pricing/serverless.md#prices-ru)
+      1. Change the DB name, if required.
+      1. Under **Limits**, specify the [throughput](../pricing/serverless.md#prices-ru) and [max size](../pricing/serverless.md#rules-storage).
+      1. Under **Pricing**, set the [provisioned capacity](../pricing/serverless.md#prices-ru).
    1. Click **Update database**.
 
 - YC CLI
@@ -177,7 +177,7 @@ Using the management console or YC CLI, you can:
       yc ydb database create --help
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       yc ydb database create <DB_name> \
@@ -238,7 +238,7 @@ Using the management console or YC CLI, you can:
    1. In the list of services, select **{{ ydb-name }}**.
    1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **Edit**.
    1. Configure the DB settings:
-      1. Change the DB name if required.
+      1. Change the DB name, if required.
       1. Under **Computing resources**, select the type and amount of [computing resources](../concepts/index.md#resource-presets).
       1. Under **Storage groups**, select the disk type and number of [storage groups](../concepts/index.md#storage-groups) that determines the total amount of storage.
    1. Click **Update database**.

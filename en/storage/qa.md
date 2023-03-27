@@ -49,6 +49,26 @@ Read the section [{#T}](concepts/limits.md).
 
 You can delete multiple objects via the {{ yandex-cloud }} management console or the API using the [deleteMultipleObjects](s3/api-ref/object/deletemultipleobjects.md) method.
 
+#### A service account cannot access a bucket, why is that? {#sa-bucket-access}
+
+Make sure the service account is assigned the [role](./security/#roles-list) that allows accessing the bucket.
+
+
+If [encryption](./concepts/encryption.md) is enabled for the bucket, assign the service account the `kms.keys.encrypterDecrypter` [role](../kms/security/#service) for the [{{ kms-short-name }} key](../kms/concepts/key.md) used to encrypt the bucket. You can do this, for example, using the following CLI command:
+
+```bash
+yc kms symmetric-key add-access-binding \
+  --id <key_ID> \
+  --service-account-id <service_account_ID> \
+  --role kms.keys.encrypterDecrypter
+```
+
+Where:
+* `--id`: {{ kms-short-name }} key ID.
+* `--service-account-id`: Service account ID.
+
+
+
 #### What does {{ yandex-cloud }} do with the data I store in {{ objstorage-full-name }}? {#qa-data-use-by-platform}
 
 The data is saved in the form in which it was transmitted by the user.

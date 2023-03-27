@@ -18,7 +18,7 @@ To use the CLI in scripts, you can use flags for a non-interactive installation:
 
 - Bash
 
-   Run the command:
+   Run this command:
 
    ```
    curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash -s -- -h

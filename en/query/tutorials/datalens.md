@@ -16,13 +16,13 @@ In the given example, we'll show the cost of New York City yellow taxi trips on 
 ## Setup {#setup}
 
 Setup steps:
-1. In {{ yq-full-name }}, [create a connection](#create_connection) to data stored in {{ objstorage-full-name }}.
+1. [Create a connection](#create_connection) in {{ yq-full-name }} to data stored in {{ objstorage-full-name }}.
 1. In {{ yq-full-name }}, [write a query](#query) that will generate a data structure.
 1. [Create a data source](#create_connection_lens) in {{ datalens-full-name }}.
 1. In {{ datalens-full-name }}, [create a dataset](#create_dataset).
 1. [Create a chart](#create_chart) in {{ datalens-full-name }} for data visualization.
 
-### Creating a data connection in {{ yq-full-name }} {#create_connection}
+### Creating a connection to data in {{ yq-full-name }} {#create_connection}
 
 To get started, create a connection to {{ objstorage-full-name }}:
 
@@ -31,8 +31,7 @@ To get started, create a connection to {{ objstorage-full-name }}:
 
 ### Creating a data source in {{ datalens-full-name }} {#create_connection_lens}
 
-To create a connection, you'll need a [service account](../../iam/concepts/users/service-accounts.md) with the **editor** [role](../../iam/operations/sa/assign-role-for-sa.md).
-
+To create a connection, you will need a [service account](../../iam/concepts/users/service-accounts.md) with the **editor** [role](../../iam/operations/sa/assign-role-for-sa.md).
 
 To create a {{ yq-full-name }} connection:
 
@@ -46,13 +45,11 @@ To create a {{ yq-full-name }} connection:
 1. Specify the connection parameters:
 
    * **Connection name**. Name it ``yellow-taxi``.
-
    * **Cloud and folder**. Select the folder where your service account will be located.
    * **Service account **. Select an existing service account or create a new one.
-
    * **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../datalens/concepts/dataset/settings.md#sql-request-in-datatset).
 
-1. Click **Create** in the lower-left corner. The connection appears in the list.
+1. Click **Create** in the bottom left corner. The connection will appear in the list.
 
 {% include [datalens-check-host](../../_includes/datalens/operations/datalens-check-host.md) %}
 

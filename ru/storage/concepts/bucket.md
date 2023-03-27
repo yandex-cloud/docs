@@ -36,11 +36,15 @@ keywords:
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 
+
+
 ## Обращение к бакету по HTTPS {#bucket-https}
 
 {{ objstorage-name }} поддерживает безопасное подключение по протоколу [HTTPS](https://ru.wikipedia.org/wiki/HTTPS). При обращении к бакетам используйте URL вида `https://{{ s3-storage-host }}/<bucket>?<parameters>`.
 
 {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
+
+
 
 ## Настройки бакетов {#bucket-settings}
 

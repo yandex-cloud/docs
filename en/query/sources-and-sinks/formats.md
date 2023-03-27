@@ -189,8 +189,8 @@ Query results:
 
 {% endcut %}
 
-#### Json_as_string format {#json_as_string}
-This format is based on a [`JSON representation`](https://ru.wikipedia.org/wiki/JSON) of data. This format doesn't split an input JSON document into fields. Instead, it represents each file line as a single JSON object (or a single string). This format is convenient if a list of fields isn't fixed and may change in different messages.
+#### json_as_string {#json_as_string}
+This format is based on a [`JSON representation`](https://ru.wikipedia.org/wiki/JSON) of data. It does not split an input JSON document into fields. Instead, it represents each file line as a single JSON object (or a single string). This format is convenient if a list of fields is not permanent and may change in different messages.
 
 In this format, each file should contain:
 - An object in a valid JSON representation in each file line.
@@ -229,8 +229,8 @@ Query results:
 
 {% endcut %}
 
-#### Parquet format {#parquet}
-This format lets you read the contents of a file in [Apache Parquet](https://parquet.apache.org) format.
+#### Parquet {#parquet}
+This format allows you to read the contents of a file in [Apache Parquet](https://parquet.apache.org) format.
 
 Data compression algorithms supported in Parquet files:
 - No compression.

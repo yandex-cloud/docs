@@ -36,7 +36,7 @@ items:
             href: concepts/stream-processing-windows.md
       - name: Unified analysis of streaming and analytical data
         href: concepts/unified-processing.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
       - name: Working with connections
         href: operations/connection.md
@@ -92,8 +92,6 @@ items:
         href: yql-tutorials/sort-filter.md
       - name: Data aggregation
         href: yql-tutorials/basic-aggregation.md
-      - name: Operations with streaming data
-        href: yql-tutorials/streaming-query.md
       - name: Additional selection criteria
         href: yql-tutorials/conditional-values.md
       - name: Working with JSON

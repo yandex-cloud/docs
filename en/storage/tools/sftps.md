@@ -11,7 +11,7 @@ A container implements links between the {{ objstorage-name }} [GeeseFS](geesefs
 ## Installation {#install}
 
 1. [Install Docker](https://docs.docker.com/get-docker/).
-1. [Authenticate in {{ container-registry-name }}](../../container-registry/operations/authentication.md).
+1. [Get authenticated in {{ container-registry-name }}](../../container-registry/operations/authentication.md).
 1. Download a container:
 
    ```bash

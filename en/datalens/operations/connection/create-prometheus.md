@@ -16,8 +16,8 @@ To create a {{ prometheus-name }} connection:
    * **Port**. Specify the {{ prometheus-name }} connection port.
    * **Username**. Specify the username for the {{ prometheus-name }} connection.
    * **Password**. Enter the password for the specified user.
-   * **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-   * **Raw SQL level**. The option **Allow subselects in datasets and queries from charts** is enabled, and you can't change it. Enables you to use an ad-hoc SQL query to generate a [QL chart](../../concepts/chart/index.md#sql-charts).
+   * **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+   * **SQL query access level**. The **Allow subselects in datasets and queries from charts** option is enabled, and you cannot change it. It enables you to use an ad-hoc SQL query to generate a [QL chart](../../concepts/chart/index.md#sql-charts).
    * **HTTPS**. Enable the secure connection option if your server supports HTTPS.
 
 1. Click **Create connection**.

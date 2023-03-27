@@ -61,22 +61,25 @@ To add a user and grant them access to {{ datalens-short-name }}:
 
 - To a cloud
 
-  1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
-  1. On the **Users and roles** page, click **Add user** in the upper-right corner.
-  1. Enter the user's Yandex email address.
-  1. Click **Add**. When a new user is added to the cloud, they're automatically assigned the cloud member role: [`resource-manager.clouds.member`](../../iam/concepts/access-control/roles.md#member).
+   1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
+   1. On the **Users and roles** page, click **Add user** in the top-right corner.
+   1. Enter the user's Yandex email address.
+   1. Click **Add**. When a new user is added to the cloud, they are automatically assigned the cloud member role: [`resource-manager.clouds.member`](../../iam/concepts/access-control/roles.md#member).
 
-     {% note info %}
+      {% note info %}
 
-     It may take several hours before the username of the added user appears in the form for granting permissions.
+      It may take a few hours before the username of the added user appears in the form for granting permissions.
 
-     {% endnote %}
+      {% endnote %}
 
-  1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-  1. To add a cloud role, click ![image](../../_assets/plus-sign.svg) in the **Roles for cloud <cloud name>** section.
+   1. Open the list of user roles:
 
-     To add a role for a folder, select the folder and click **Assign role** in the **Roles for folders** section.
-  1. Choose `{{ roles-datalens-instances-user }}` or `{{ roles-datalens-instances-admin }}` from the list.
+      {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+
+   1. To add a cloud role, click ![image](../../_assets/plus-sign.svg) in the **Roles for cloud <cloud name>** section.
+
+      To add a role for a folder, select the folder and click **Assign role** in the **Roles for folders** section.
+   1. Choose `{{ roles-datalens-instances-user }}` or `{{ roles-datalens-instances-admin }}` from the list.
 
 {% endlist %}
 
@@ -94,59 +97,62 @@ To add federated users to an organization and grant them access to {{ datalens-s
 
    - Management console
 
-     1. Make sure you are authorized in {{ yandex-cloud }} as an administrator or owner of the organization (your user holds the `admin` or `owner` role for the organization). In the top left-hand corner, click ![image](../../_assets/datalens/all-services.svg) and select **Resources and management** → **Manage organization services** or click the [link]({{ link-org-users }}).
-     1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
-     1. Select the identity federation to add users from.
-     1. List the Name IDs of users, separating them with line breaks.
-     1. Click **Add**. This will give the users access to the organization.
+      1. Make sure you are authorized in {{ yandex-cloud }} as an administrator or owner of the organization (your user holds the `admin` or `owner` role for the organization). In the top left-hand corner, click ![image](../../_assets/datalens/all-services.svg) and select **Resources and management** → **Manage organization services** or click the [link]({{ link-org-users }}).
+      1. In the top-right corner, click the arrow next to the **Add user** button. Select **Add federated users**.
+      1. Select the identity federation to add users from.
+      1. List the Name IDs of users, separating them with line breaks.
+      1. Click **Add**. This will give the users access to the organization.
 
    - CLI
 
-     {% include [cli-install](../../_includes/cli-install.md) %}
+      {% include [cli-install](../../_includes/cli-install.md) %}
 
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     1. View a description of the add user command:
+      1. View a description of the add user command:
 
-        ```
-        yc organization-manager federation saml add-user-accounts --help
-        ```
+         ```
+         yc organization-manager federation saml add-user-accounts --help
+         ```
 
-     1. Add users by listing their Name IDs separated by a comma:
+      1. Add users by listing their Name IDs separated by a comma:
 
-        ```
-        yc organization-manager federation saml add-user-accounts --name my-federation \
-          --name-ids=alice@example.com,bob@example.com,charlie@example.com
-        ```
+         ```
+         yc organization-manager federation saml add-user-accounts --name my-federation \
+           --name-ids=alice@example.com,bob@example.com,charlie@example.com
+         ```
 
    - API
 
-     1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
+      1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of Name IDs of users you want to add:
 
-        ```json
-        {
-          "nameIds": [
-            "alice@example.com",
-            "bob@example.com",
-            "charlie@example.com"
-          ]
-        }
-        ```
-     1. Send the request by specifying the Federation ID in the parameters:
+         ```json
+         {
+           "nameIds": [
+             "alice@example.com",
+             "bob@example.com",
+             "charlie@example.com"
+           ]
+         }
+         ```
+      1. Send the request by specifying the Federation ID in the parameters:
 
-        ```bash
-        $ curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer <IAM token>" \
-          -d '@body.json' \
-          https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
-        ```
+         ```bash
+         $ curl -X POST \
+           -H "Content-Type: application/json" \
+           -H "Authorization: Bearer <IAM token>" \
+           -d '@body.json' \
+           https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
+         ```
 
    {% endlist %}
 
 1. Assign roles to users for {{ datalens-short-name }} access:
 
-   1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+   1. Open the list of user roles:
+
+      {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+
    1. In the **Configure access rights** window, click **![image](../../_assets/plus-sign.svg) Add role**. Choose the `{{ roles-datalens-instances-user }}` role from the list.
    1. Click **Save**. The user will gain access to {{ datalens-short-name }}.
 
@@ -158,7 +164,10 @@ To add federated users to a cloud and grant them access to {{ datalens-short-nam
 
    {% include [include](../../_includes/iam/add-federated-users-instruction.md) %}
 
-1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+1. Open the list of user roles:
+
+   {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+
 1. To add a cloud role, click ![image](../../_assets/plus-sign.svg) in the **Roles for cloud <cloud name>** section.
 
    To add a role for a folder, select the folder and click **Assign role** in the **Roles for folders** section.

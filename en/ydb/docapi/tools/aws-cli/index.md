@@ -10,7 +10,7 @@ This section describes how to perform the following operations in {{ ydb-short-n
 * [Adding](put-item.md), [reading](get-item.md), and [updating](update-item.md) table data.
 * [Executing](query.md) simple queries.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Configure the AWS environment](../aws-setup.md).
 1. Prepare the Document API endpoint of the [created database](../../../operations/manage-databases.md).

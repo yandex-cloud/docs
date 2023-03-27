@@ -10,7 +10,7 @@ To connect to your DB in Dedicated mode from outside {{ yandex-cloud }}, allow i
 
 {% endnote %}
 
-## Get {#endpoint-and-path} connection parameters
+## Get connection parameters {#endpoint-and-path}
 
 You can get DB connection parameters in the {{ yandex-cloud }} management console or the {{ yandex-cloud }} CLI.
 

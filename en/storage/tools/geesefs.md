@@ -85,7 +85,7 @@ GeeseFS does not support the following:
 
       ```bash
       wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-linux-amd64
-      chmod a+x geesefs-linus-amd64
+      chmod a+x geesefs-linux-amd64
       sudo cp geesefs-linux-amd64 /usr/bin/geesefs
       ```
 
@@ -109,9 +109,17 @@ You can also build GeeseFS yourself using its source code. For more information,
 
 ## Authentication {#authentication}
 
-GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.md) for {{ objstorage-name }}, which is stored in the `.aws/credentials` file. You can also put the key in the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
+GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.md) for {{ objstorage-name }}, which is stored in the `.aws/credentials` [file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
 
-When using GeeseFS on a {{ compute-name }} VM that has a [linked service account](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), you can enable simplified authentication that doesn't require a static access key. To do this, when mounting a bucket, use the `--iam` option.
+```bash
+[default]
+  aws_access_key_id=<key_ID>
+  aws_secret_access_key=<secret_key>
+```
+
+You can also put the key in the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
+
+When using GeeseFS on a {{ compute-name }} VM that has a [linked service account](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), you can enable simplified authentication that does not require a static access key. To do this, when mounting a bucket, use the `--iam` option.
 
 ## Mounting a bucket {#bucket-mounting}
 
