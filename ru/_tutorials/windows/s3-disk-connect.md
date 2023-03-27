@@ -258,21 +258,21 @@
 1. В рабочей директории создайте файл `rclone.xml` со следующим содержимым:
    
    ```xml
-   `<service>`
-   `<id>rclone</id>`
-   `<name>rclone-s3-disk</name>`
-   `<description>This service maps an S3 bucket as a system drive.</description>`
-   `<executable>"<расположение рабочей директории>\rclone.exe"</executable>`
-   `<arguments>mount s3-connect:bucket-for-win <буква диска>: --vfs-cache-mode full</arguments>`
-   `<log mode="roll" />`
-   `<onfailure action="restart" />`
-   `</service>`
+   <service>
+     <id>rclone</id>
+     <name>rclone-s3-disk</name>
+     <description>This service maps an S3 bucket as a system drive.</description>
+     <executable>"<расположение рабочей директории>\rclone.exe"</executable>
+     <arguments>mount s3-connect:bucket-for-win <буква диска>: --vfs-cache-mode full</arguments>
+     <log mode="roll" />
+     <onfailure action="restart" />
+   </service>
    ```
 
 1. Запустите командную строку от имени администратора и выполните команду:
 
    ```powershell
-   WinSW-x64.exe install .\\rclone.xml
+   WinSW-x64.exe install .\rclone.xml
    ```
 
 1. Откройте панель управления службами Windows и убедитесь в наличии службы `rclone-s3-disk`:
