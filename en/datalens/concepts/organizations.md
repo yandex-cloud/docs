@@ -1,11 +1,11 @@
 ---
 title: "Organizations in {{ datalens-full-name }}"
-description: "Organization is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. {{ datalens-full-name }} is now created at the organization level, which makes interfacing with other {{ yandex-cloud }} services easier."
+description: "Yandex Cloud Organization is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. {{ datalens-full-name }} is now created at the organization level, which makes interfacing with other {{ yandex-cloud }} services easier."
 ---
 
 # Organizations in {{ datalens-full-name }}
 
-[{{ org-full-name }}](https://cloud.yandex.com/services/organization) is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. Read more about {{ org-name }} in the [documentation](../../organization/).
+[{{ org-full-name }}](/services/organization) is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. Read more about {{ org-name }} in the [documentation](../../organization/).
 
 Usually, each {{ yandex-cloud }} user has at least one organization. If you are not yet registered in {{ yandex-cloud }} and it is the first time you open {{ datalens-short-name }}, an organization is created for you automatically. All users at the organization level by default have access to [{{ datalens-full-name }}]({{ link-datalens-main }}), [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), and [{{ forms-full-name }}]({{ link-forms-b2b }}).
 
@@ -25,8 +25,8 @@ Before organizations were introduced, {{ datalens-short-name }} instances were c
 * To create {{ datalens-short-name }} in an organization, you will require the `admin` or `owner` roles for it.
 * At this time, technical support requests do not support organizations, therefore:
 
-  * To create a technical support ticket, you need to have a cloud. If you only have an organization, a cloud will be created automatically when you create a ticket. The functionality for creating support tickets from an organization without creating a cloud will be added later.
-  * For now, technical support plans can only be linked to a cloud and not an organization. If you have several clouds bound to your organization, and each has a different technical support plan, select the cloud with the highest rate when you create your support ticket. This will provide the most robust technical support available to you.
+   * To create a technical support ticket, you need to have a cloud. If you only have an organization, a cloud will be created automatically when you create a ticket. The functionality for creating support tickets from an organization without creating a cloud will be added later.
+   * For now, technical support plans can only be linked to a cloud and not an organization. If you have several clouds bound to your organization, and each has a different technical support plan, select the cloud with the highest rate when you create your support ticket. This will provide the most robust technical support available to you.
 
 ## Migrating an instance from folders to the organization level {#migration}
 

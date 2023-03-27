@@ -147,7 +147,9 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 1. [Set up an email address for the queue](queue-mail.md#section_gwv_hqb_hgb) to store issues created based on user requests.
 
-   If you can't add an address for the queue, it means that your organization doesn't have a domain. You need the domain to create mailboxes and newsletters, for example, to add an email address for your queue. You can freely [add a domain in {{ ya-360 }}]({{ support-business-domain }}).
+   
+   If you cannot add an address for the queue, it means that your organization does not have a domain. You need a domain to create mailboxes and newsletters, for example, to add an email address for your queue. You can [add a domain in {{ ya-360 }}]({{ support-business-domain }}) free of charge.
+
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
@@ -207,11 +209,13 @@ You need to set up email integration if you want to send emails from {{ tracker-
 
 1. [Set up an email address for the queue](queue-mail.md#section_gwv_hqb_hgb) to store issues created based on user requests.
 
-   If you can't add an address for the queue, it means that your organization doesn't have a domain. You need the domain to create mailboxes and newsletters, for example, to add an email address for your queue. You can freely [add a domain in {{ ya-360 }}]({{ support-business-domain }}).
+   
+   If you cannot add an address for the queue, it means that your organization does not have a domain. You need a domain to create mailboxes and newsletters, for example, to add an email address for your queue. You can [add a domain in {{ ya-360 }}]({{ support-business-domain }}) free of charge.
+
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
-1. If the users aren't your company's employees, [allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
+1. If the users are not your company's employees, [allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
 
 #### Step 2. Set up a form to register requests
 

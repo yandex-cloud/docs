@@ -1,6 +1,7 @@
 # Using Markdown in {{ datalens-short-name }}
 
 {{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](dashboard.md#text) widget on the dashboard.
+
 You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
 
 In text widgets, you can use the following elements:
@@ -41,22 +42,22 @@ Use formatting to highlight key points in your text:
 
 * To make text **bold**, use double `*`:
 
-  ```markdown
-  This text will be **bold**.
-  ```
+   ```markdown
+   This text will be **bold**.
+   ```
 
 * To make text _italic_, use `_`:
 
-  ```markdown
-  This text will be _italic_.
-  ```
+   ```markdown
+   This text will be _italic_.
+   ```
 
-* To combine _****bold and italics****_, use double `*` and `_` at the same time:
+* To combine _**bold and italics**_, use double `*` and `_` at the same time:
 
-  ```markdown
-  This text will be _**bold and italic**_.
-  This text will be **_bold and italic_**.
-  ```
+   ```markdown
+   This text will be _**bold and italic**_.
+   This text will be **_bold and italic_**.
+   ```
 
 ## Lists {#lists}
 
@@ -136,7 +137,7 @@ will be displayed as:
 1. First item
 
    1.1. Nested item<br>
-   1.2 Nested item
+   1.2. Nested item
 1. Second item
 
 ## Tables {#tables}
@@ -252,8 +253,8 @@ val a: Int = 1
  To insert an image in the widget, use [{{ objstorage-full-name }}](../../storage/quickstart.md). You can use it for free for up to 1 GB of standard storage per month.
 
 To upload an image to the widget:
-1. Open the [management console]({{ link-console-main }}) and select **{{ objstorage-short-name }}** in the menu on the left.
-1. [Create a bucket](../../storage/operations/buckets/create.md)with public access.
+Open the [management console]({{ link-console-main }}) and select **{{ objstorage-short-name }}** in the left-hand menu.
+1. [Create a bucket](../../storage/operations/buckets/create.md) with public access.
 1. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
 1. Go to the resulting object and click **Get link**.
 

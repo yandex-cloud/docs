@@ -34,7 +34,7 @@ WHERE
     AND month=02
 ```
 
-If no data partitioning scheme is specified, _all_ the stored data is read from {{ objstorage-full-name }}. However, as a result of processing, data for any other period is discarded.
+If no data partitioning scheme is specified, _all_ stored data is read from {{ objstorage-full-name }}. However, as a result of processing, data for any other period is discarded.
 
 If you explicitly specify the storage structure indicating that data in {{ objstorage-full-name }} is stored in folders by year and month
 ```sql
@@ -65,11 +65,11 @@ when executing a query from {{ objstorage-full-name }}, instead of reading all t
 
 {% note info %}
 
-In the example above, operations with data are performed at the level of [connections](glossary.md#connection). This example is given for illustrative purposes only. We strongly recommend that you work with data using bindings and don't work with connections directly.
+In the example above, operations with data are performed at the level of [connections](glossary.md#connection). This example is given for illustrative purposes only. We strongly recommend that you work with data using bindings and do not work with connections directly.
 
 {% endnote %}
 
-## Syntax { #syntax }
+## Syntax {#syntax}
 
 When working at the connection level, partitioning is set using the `partitioned_by` parameter.
 
@@ -142,4 +142,4 @@ The basic partitioning mode in {{ yq-full-name }} only supports Hive format.
 
 {% endnote %}
 
-To specify arbitrary storage paths, use [Extended data partitioning](partition-projection.md) mode.
+To specify arbitrary storage paths, use the [Extended data partitioning](partition-projection.md) mode.

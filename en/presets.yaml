@@ -41051,7 +41051,6 @@ default:
             button_save: Save
             field_certificate: Certificate
             field_source: Source
-            value_method-custom: Your certificate
           lifecycle:
             button_lifecycle_empty-create: Configure
             button_save: Save

@@ -6,20 +6,22 @@ A _query_ is an expression that is written in [YQL](https://ydb.tech/en/docs/yql
 
 A query consists of query text written in YQL, information about a [connection](#connection) to a [data source](#source), and a [data schema](#schema) in the source.
 
+## Data source {#source}
 
-## Connection {#connection}
+A _data source_ is an object with structured data. The following can be used as data sources in {{ yq-full-name }}:
 
-A _connection_ is a set of parameters necessary for connecting {{ yq-full-name }} to a [data source](#source). For example, if a file from {{ objstorage-full-name }} is used as a data source, a connection contains the name of a bucket and its authorization parameters.
+* [{{ yds-full-name }}](../../data-streams/concepts/index.md) streams.
+* Files in [{{ objstorage-full-name }}](../../storage/concepts/index.md).
 
-For more information, see [{#T}](../operations/connection.md).
+## Connecting {#connection}
 
+A _connection_ is a set of parameters required for connecting {{ yq-full-name }} to a [data source](#source). For example, if a file from {{ objstorage-full-name }} is used as a data source, a connection contains the name of a bucket and its authorization parameters.
 
 ## Data bindings {#binding}
 
-The same YQL query can be run on data from different [sources](#source) (such as for streaming and batch processing). In this case, for each source, you can create a _data binding_ that is a resource that contains information about a [connection](connection), data format, and [data schema](#schema).
+The same YQL query can be run on data from different [sources](#source) (such as for streaming and batch processing). In this case, for each source, you can create a _data binding_, i.e., a resource that contains information about a [connection](connection), data format, and [data schema](#schema).
 
 For more information, see [{#T}](../operations/binding.md).
-
 
 ## Information about executed queries {#job}
 
@@ -37,14 +39,6 @@ For more information, see [{#T}](../operations/binding.md).
 Execution results are saved only for the last execution of a YQL query.
 
 {% endnote %}
-
-## Data source {#source}
-
-A _data source_ is an object with structured data. The following can be used as data sources in {{ yq-full-name }}:
-
-* [{{ yds-full-name }}](../../data-streams/concepts/index.md) streams.
-* Files in [{{ objstorage-full-name }}](../../storage/concepts/index.md).
-
 
 ## Data schema {#schema}
 

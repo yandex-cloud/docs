@@ -37,7 +37,7 @@ Setup steps:
 1. [Create a {{ yds-full-name }} stream](#create_yds_stream).
 1. [Create a log group](#create_log_group).
 1. [Start sending data to the log group](#send_to_loggroup).
-1. [Create a connection](#create_connection) to the data stream.
+1. [Creating a connection](#create_connection) to a stream.
 1. [Create a binding](#create_binding) to a data stream.
 1. [Query](#query) the data from the log group.
 
@@ -118,7 +118,7 @@ Create a [binding](../concepts/glossary.md#binding) to {{ yds-full-name }} data 
 
 {% include [create-connection](../_includes/create-binding.md) %}
 
-## Querying the data {#query}
+## Data query {#query}
 
 Open the query editor in the {{ yq-full-name }} interface and run the query:
 

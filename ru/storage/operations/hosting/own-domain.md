@@ -18,10 +18,12 @@
 
     Если вы создаете для бакета запись CNAME на внешнем DNS-сервере, ваше доменное имя должно быть в домене не ниже третьего уровня — это связано с особенностями обработки CNAME-записей на DNS-хостингах. Подробнее см. п. 2.4 [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
 
+
 1. Чтобы сайт был доступен по протоколу HTTPS:
 
     1. {% include [create-cert.md](../../../_includes/storage/create-cert.md) %}
     1. {% include [add-cert.md](../../../_includes/storage/add-cert.md) %}
+   
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}
 

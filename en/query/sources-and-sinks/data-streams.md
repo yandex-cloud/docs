@@ -1,6 +1,6 @@
-# Reading data from {{ yds-name }} using connections to {{ yq-name }}
+# Reading data from {{ yds-name }} using {{ yq-name }} connections
 
-When working with {{ yds-full-name }}, it's convenient to use connections for prototyping and initial setup of connections to data.
+When working with {{ yds-full-name }}, it is convenient to use connections for prototyping and initial setup of connections to data.
 
 [{{ yds-full-name }}](../../data-streams/concepts/index.md) is a service that lets you transfer data streams to multiple applications for processing, with each of them handling the data independently.
 
@@ -54,9 +54,8 @@ WHERE <filter>;
 
 Where:
 
-- `yds_connection_name` is the name of the {{ yds-short-name }} stream connection created in the previous step.
-- `stream_name` is the name of the stream in {{ yds-short-name }}.
-
+- `yds_connection_name`: Name of the {{ yds-short-name }} stream connection created in the previous step.
+- `stream_name`: Name of the stream in {{ yds-short-name }}.
 
 ## Example of reading data
 

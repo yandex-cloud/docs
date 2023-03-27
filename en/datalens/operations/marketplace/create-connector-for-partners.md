@@ -29,9 +29,9 @@ You need to create a connector in the same CH cluster that will host your user d
 
 1. Create a [{{ CH }} cluster](../../../managed-clickhouse/operations/cluster-create.md) in the cloud.
    1. In the cluster, add a DB user called `datalens` with [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
-   1. In the settings, enable **{{ datalens-short-name }} access** and **Managing databases via SQL**.
-1. Pass the password and the cluster host list in to {{ datalens-short-name }}.
-1. Generate a pair of RSA-2048 keys. Pass the public key and the key version in to {{ datalens-short-name }}.
+   1. In the settings, enable **Access from {{ datalens-short-name }}** and **Database management via SQL**.
+1. Provide the password and the cluster host list to {{ datalens-short-name }}.
+1. Generate a pair of RSA-2048 keys. Provide the public key and the key version to {{ datalens-short-name }}.
    Key generation requirements: `public_exponent=65537`, `key_size=2048`. A key version is an integer that is required for future seamless key rotation.
 
    {% cut "Python code to generate a pair of keys" %}
@@ -102,7 +102,7 @@ You need to create a connector in the same CH cluster that will host your user d
         private_key_partner_pem.encode(),
         password=None,
     )
-    ciphertext = public_key_datalens.encrypt(data.encode(), padding.PKCS1v15()) # Encrypted JSON message with the user database..
+    ciphertext = public_key_datalens.encrypt(data.encode(), padding.PKCS1v15()) # Encrypted JSON message with the user database.
     signature = private_key_partner.sign(ciphertext, padding.PKCS1v15(), hashes.SHA1()) # Encrypted message signature.
 
     access_token = ':'.join((
@@ -122,8 +122,8 @@ You need to create a connector in the same CH cluster that will host your user d
 
 1. Gets an access token for {{ datalens-short-name }} on your website.
 1. Goes to {{ datalens-short-name }} {{ marketplace-short-name }}, purchases a connector, or activates a free product.
-1. Goes to the [connections {{ datalens-short-name }}]({{ link-datalens-main }}/connections/new) page and selects an activated connector from the list.
-1. Enters the access token you provided on the page where you create new connections. Doing this links the connection to the database whose name is encrypted in the access token.
+1. Goes to the [{{ datalens-short-name }} connections]({{ link-datalens-main }}/connections/new) page and selects an activated connector from the list.
+1. Enters the access token you provided on the page where you create new connections. This links the connection to the database whose name is encrypted in the access token.
 
    {% cut "Example for connecting" %}
 

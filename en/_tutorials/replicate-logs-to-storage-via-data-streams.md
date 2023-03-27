@@ -64,5 +64,5 @@ To stop paying for the resources created:
 1. [Delete the transfer](../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../data-transfer/operations/endpoint/#delete).
 1. [Delete the data stream](../data-streams/operations/manage-streams.md#delete-data-stream).
-1. [Delete objects from the bucket.](../storage/operations/objects/delete.md).
+1. [Delete objects from the bucket](../storage/operations/objects/delete.md).
 1. [Delete the bucket](../storage/operations/buckets/delete.md).

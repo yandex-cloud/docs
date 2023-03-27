@@ -61,3 +61,6 @@ links:
   - title: Снапшот
     description: Полный снимок текущего состояния виртуальной машины
     href: snapshot
+  - title: Data Mart
+    description: Витрина данных
+    href: datamart

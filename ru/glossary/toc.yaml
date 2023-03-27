@@ -37,4 +37,6 @@ items:
     href: qos.md
   - name: Снапшот
     href: snapshot.md
+  - name: Data Mart
+    href: datamart.md
 base: ru/glossary

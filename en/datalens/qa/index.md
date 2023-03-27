@@ -117,6 +117,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [create-grouped-column-chart](../../_qa/datalens/create-grouped-column-chart.md) %}
 
+{% include [add-column-grouped](../../_qa/datalens/add-column-grouped.md) %}
+
 {% include [number-of-indicators-in-color-section](../../_qa/datalens/number-of-indicators-in-color-section.md) %}
 
 {% include [creating-line-chart-with-columns](../../_qa/datalens/creating-line-chart-with-columns.md) %}
@@ -173,7 +175,7 @@ Yes, you can request log records about your resources from {{ yandex-cloud }} se
 
 {{ datalens-short-name }} is offered only as a cloud service. We would also like to note:
 
-* {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. More information is available in [{{ yandex-cloud }} security](/security).
+* {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. For more information, see [{{ yandex-cloud }} security](/security).
 
 * For {{ datalens-short-name }}, you can [set up identity federations](../../organization/quick-start.md).
 
@@ -205,6 +207,5 @@ In your report, please provide (if possible):
 * The most accurate description of the problem and the sequence of your actions.
 * Images, GIFs, or videos.
 
-You can leave feedback and suggestions regarding the service in the [{{ yandex-cloud }} user community](https://cloud.yandex.ru/features?serviceId=23).
 
 To receive news and discuss best service practices, join the [DataLens](https://t.me/YandexDataLens) community in Telegram.

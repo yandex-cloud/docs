@@ -41057,7 +41057,6 @@ default:
             button_save: Сохранить
             field_certificate: Сертификат
             field_source: Источник
-            value_method-custom: Свой сертификат
           lifecycle:
             button_lifecycle_empty-create: Настроить
             button_save: Сохранить

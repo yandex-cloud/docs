@@ -22,9 +22,9 @@ To set up integration:
 1. Open the list of billing detail exports in the {{ yandex-cloud }} console.
 1. Select the desired details and click **Process in YQ**.
 1. When switching from Billing to {{ yq-full-name }} for the first time, set up integration:
-   1. In the **{{ yq-full-name }}** interface, select the service account to be used to read data from {{ objstorage-full-name }} in the connection creation dialog box and click **Create**.
+   1. In the **{{ yq-full-name }}** interface, select the service account to be used to read data from {{ objstorage-full-name }} in the connection creation dialog and click **Create**.
    1. In the **{{ yq-full-name }}** interface, check the preset parameters by clicking **Preview** in the binding creation dialog box. Next, click **Create** to complete the integration process.
-   1. Once the integration settings are configured, you'll be redirected to the **Billing** section automatically.
+   1. Once the integration settings are configured, you will be redirected to the **Billing** section automatically.
 
 ## Running queries to data stored in {{ objstorage-full-name }}
 To query Billing analytical data stored in {{ objstorage-full-name }}:

@@ -20,6 +20,7 @@ FROM $query;
 Under [streaming processing](../concepts/stream-processing.md), {{ yq-full-name }} can send query results to {{ monitoring-name }} as metrics and their labels.
 
 ## Setting up a connection
+
 To send metrics to {{ monitoring-name }}:
 1. Go to the {{ yq-full-name }} interface, open the **Connections** section, and click **Create**.
 1. In the window that opens, specify a name for a connection to {{ monitoring-name }} in the **Name** field.
@@ -42,9 +43,9 @@ FROM
 
 Where:
 
-- `monitoring_connection_name` is the name of the {{ monitoring-name }} connection created in the previous step.
-- `fields` is the list of fields that contain a timestamp, metrics, and their labels.
-- `query` is the {{ yq-full-name }} data source query.
+- `monitoring_connection_name`: Name of the {{ monitoring-name }} connection created in the previous step.
+- `fields`: List of fields that contain a timestamp, metrics, and their labels.
+- `query`: {{ yq-full-name }} data source query.
 
 {% note info %}
 
@@ -92,9 +93,8 @@ Where:
 |`$query`| |SQL query data source, can be a YQL subquery, including a [connection](../quickstart/streaming-example.md) to the data source|
 |`my_timestamp`| Timestamp| Data source (`my_timestamp` column in the source `stream`)|
 |`exception_count`|Metric| Data source (`exception_count` column in the source `stream`)|
-|`host_name`|Label| Data source (`host` in the source `stream`)|
+|`host_name`|Label| Data source (`host` column in the source `stream`)|
 |`app_version`|Label| Data source (`app_version` column in the source data `stream`)|
 
 Sample query execution result in {{ monitoring-name }}.
 ![](../../_assets/query/monitoring-example.png)
-

@@ -12,10 +12,9 @@
    1. Under **Connection type parameters**:
 
       * **Bucket authentication**: Select `Public` or `Private` depending on the type of the bucket object read permissions.
-      * For a public bucket, enter a name in the **Bucket** field.
 
+         For a public bucket, enter a name in the **Bucket** field.
          For a private bucket, select:
-
          * **Cloud and folder** where the data source is located.
          * Select a bucket or create a new one.
          * Select or create a [service account](../../iam/concepts/users/service-accounts.md) with the [`storage.viewer`](../../storage/security/index.md#storage-viewer) role to be used to access the data.

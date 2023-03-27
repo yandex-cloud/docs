@@ -2,7 +2,6 @@
 
 When working with {{ yds-full-name }}, it's convenient to use bindings for running regular queries to stored data with no need to specify all details of operations with this data.
 
-
 Example of reading data using bindings:
 
 ```sql
@@ -18,11 +17,11 @@ LIMIT 10;
 
 {% endnote %}
 
-
 ## Setting up a data binding
 
 To read data from {{ yds-full-name }} using bindings:
-1. [Setting up a connection to data](./data-streams.md#create_connection).
+
+1. [Setting up a data connection](./data-streams.md#create_connection).
 1. In the Type field, select `Data Streams`.
 1. In the drop-down list of the `Connection` field, select the connection you created in the first step.
 1. Specify a name for a binding in the `Name` field.
@@ -55,9 +54,8 @@ WHERE <filter>;
 
 Where:
 
-- `yds_connection_name` is the name of the {{ yds-short-name }} stream connection created in the previous step.
-- `stream_name` is the name of the stream in {{ yds-short-name }}.
-
+- `yds_connection_name`: Name of the {{ yds-short-name }} stream connection created in the previous step.
+- `stream_name`: Name of the stream in {{ yds-short-name }}.
 
 ## Example of reading data
 

@@ -4,11 +4,9 @@ editable: false
 
 # Правила тарификации для {{ captcha-full-name }}
 
-
 ## Из чего складывается стоимость использования {{ captcha-full-name }} {#rules}
 
-Тарифицируются [запросы к API {{ captcha-name }}](./quickstart.md#check-answer) по адресу `https://captcha-api.yandex.ru/validate`.
-
+Тарифицируются [запросы к API {{ captcha-name }}](./quickstart.md#check-answer) по адресу `https://captcha-api.yandex.ru/validate`. Стоимость начисляется только за запросы, которые [успешно проходят проверку](concepts/validation.md#service-response).
 
 ## Цены {#prices}
 

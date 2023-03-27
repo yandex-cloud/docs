@@ -1,8 +1,8 @@
 # Extended partitioning
 
-[Partitioning](partitioning.md) lets you prompt {{yq-full-name}} what rules for storing data in {{objstorage-full-name}} should be used.
+[Partitioning](partitioning.md) allows you to prompt {{ yq-full-name }} which rules should be used for storing data in {{ objstorage-full-name }}.
 
-Let's say data in {{objstorage-full-name}} is stored using the following folder structure:
+Let's assume the data in {{ objstorage-full-name }} is stored using the following folder structure:
 
 ```
 year=2021
@@ -45,11 +45,11 @@ WHERE
 
 This means that when working with partitioned data, a full listing of the contents of {{objstorage-full-name}} is performed, which may take a long time in large buckets.
 
-To optimize operations with large amounts of data, use "extended partitioning". This mode doesn't involve {{ objstorage-full-name }} folder scanning. Instead, all paths are determined in advance and data is only accessed using them.
+To optimize operations with large amounts of data, use extended partitioning. This mode does not involve {{ objstorage-full-name }} folder scanning. Instead, all paths are determined in advance and data is only accessed using them.
 
 To enable extended partitioning, set the rules for operations via a special parameter called "projection". This parameter describes the rules for storing data in {{ objstorage-full-name}} folders.
 
-## Syntax { #syntax }
+## Syntax {#syntax}
 
 Extended partitioning is called "partition projection" and set using the `projection` parameter.
 
@@ -127,7 +127,7 @@ WITH
 )
 ```
 
-## Description of fields { #field_types }
+## Description of fields {#field_types}
 
 | Field name | Field description | Acceptable values |
 |----|----|----|
@@ -135,7 +135,7 @@ WITH
 | `projection.<field1_name>.type` | Field data type | integer, enum, or date |
 | `projection.<field1_name>.XXX` | Type properties |
 
-### Field of integer type { #integer_type }
+### Field of integer type {#integer_type}
 
 Used for columns whose values can be represented as integers in the range from 2^-63^ to 2^63^-1.
 
@@ -147,7 +147,7 @@ Used for columns whose values can be represented as integers in the range from 2
 | `projection.<field_name>.interval` | No, defaults to `1` | Defines a step between elements within a value range. For example, step 3 under the 2, 10 value range will result in the following values: 2, 5, 8. | 2<br>11 |
 | `projection.<field_name>.digits` | No, defaults to `0` | Sets the number of digits in a number. If the amount of non-zero digits is less than the specified value, zeros are added in front until the specified amount of digits is reached. For example, if the set value is .digits=3 while 2 is passed, it's converted to 002 | 2<br>4 |
 
-### Field of enum type { #enum_type }
+### Field of enum type {#enum_type}
 
 Used for columns whose values can be represented as an enumeration.
 
@@ -156,7 +156,7 @@ Used for columns whose values can be represented as an enumeration.
 | `projection.<field_name>.type` | Yes | Field data type | enum |
 | `projection.<field_name>.values` | Yes | Specifies the allowed values separated by a comma. Spaces are not ignored. | 1, 2<br>A,B,C |
 
-### Field of date type { #date_type }
+### Field of date type {#date_type}
 
 Used for columns whose values can be represented as a date.
 
@@ -169,7 +169,7 @@ Used for columns whose values can be represented as a date.
 |`projection.<field_name>.unit`|No|Interval units. Acceptable values: DAYS|DAYS|
 |`projection.<field_name>.interval`|No, defaults to `1`|Defines a step between elements within a value range with the unit set in `projection.<field_name>.unit`. For example, for the range 2021-02-02, 2021-03-05, step 15 with the DAYS unit will result in the values: 2021-02-17, 2021-03-04|2<br/>6|
 
-## Path templates { #storage_location_template}
+## Path templates {#storage_location_template}
 
 {{ objstorage-full-name }} bucket data can be stored in folders with any name. Using the `storage.location.template` setting, you can specify the rules for naming folders with data.
 

@@ -14,9 +14,13 @@ If you already have an organization in {{ org-full-name}}, {{ wiki-full-name }} 
 
 1. If your account is registered in several organizations, select the one where you want to activate {{ wiki-full-name }}. Then click **Next**.
 
+## Migrating to {{ wiki-name }} from Confluence
+
+If you are using Confluence and want to migrate to {{ wiki-full-name }}, our experts will help you migrate your posts to {{ wiki-name }}. To do this, [contact support]({{ link-support }}).
+
 ## Create a new organization {#new-org}
 
-If you don't have an organization in {{ org-full-name}}, you can create a new one when you first log in to {{ wiki-full-name }}.
+If you do not have an organization in {{ org-full-name}}, you can create a new one when you first log in to {{ wiki-full-name }}.
 
 {% note warning %}
 
