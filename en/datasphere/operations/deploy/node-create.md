@@ -196,3 +196,4 @@ Let's look at an example of creating an API endpoint that takes a number range a
 * [{#T}](node-delete.md)
 * [{#T}](alias-create.md)
 * [{#T}](../../tutorials/node-from-docker.md)
+* [{#T}](../../tutorials/node-from-cell.md)

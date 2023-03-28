@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
       - name: All instructions
         href: operations/index.md
@@ -155,6 +155,8 @@ items:
         href: tutorials/index.md
       - name: Integrating with {{ dataproc-full-name }}
         href: tutorials/data-proc-integration.md
+      - name: Deploying a service from a code cell
+        href: tutorials/node-from-cell.md
       - name: Deploying a service based on a Docker image
         href: tutorials/node-from-docker.md
       - name: >-

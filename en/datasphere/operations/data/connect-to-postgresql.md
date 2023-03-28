@@ -8,40 +8,92 @@ In the {{ yandex-cloud }} infrastructure, [{{ PG }}](https://www.postgresql.org/
 1. [Configure](../../../managed-postgresql/operations/connect.md#configuring-security-groups) cluster security groups.
 1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
-## Connecting to a {#connect-to-host} host
+## Connecting to a host {#connect-to-host}
 
-To connect to {{ mpg-short-name }} cluster hosts:
+{% list tabs %}
 
-1. Get an SSL certificate: To do this, enter the following command in a notebook cell:
+- Connecting via SSL
 
-   ```bash
-   #!:bash
-   mkdir ~/.postgresql
-   wget "{{ crt-web-path }}" -O ~/.postgresql/root.crt && \
-   chmod 0600 ~/.postgresql/root.crt
-   ```
+   For connecting to a cluster hosts {{ mpg-short-name }}:
+   
+   1. Get an SSL certificate: To do this, enter the following command in a notebook cell:
 
-1. Establish a connection to the database. To do this, enter the following command in a notebook cell:
+      ```bash
+      #!:bash
+      mkdir ~/.postgresql
+      wget "{{ crt-web-path }}" -O ~/.postgresql/root.crt && \
+      chmod 0600 ~/.postgresql/root.crt
+      ```
 
-   ```python
-   %pip install psycopg2-binary
-   import psycopg2
-   conn = psycopg2.connect("""
-       host=<FQDN of PostgreSQL host>
-       port=6432
-       sslmode=verify-full
-       dbname=<DB name>
-       user=<DB username>
-       password=<DB user password>
-       target_session_attrs=read-write
-   """)
-   q = conn.cursor()
-   q.execute('SELECT version()')
-   print(q.fetchone())
-   ```
+   1. Establish a connection to the database. To do this, enter the following command in a notebook cell:
 
-   A successful cluster connection and test query will display the {{ PG }} version:
+      ```python
+      %pip install psycopg2-binary
+      import psycopg2
+      conn = psycopg2.connect("""
+          host=<PostgreSQL_host_FQDN>
+          port=6432
+          sslmode=verify-full
+          dbname=<DB_name>
+          user=<DB_username>
+          password=<DB_user_password>
+          target_session_attrs=read-write
+      """)
+      q = conn.cursor()
+      q.execute('SELECT version()')
+      print(q.fetchone())
+      ```
 
-   ```
-   ('PostgreSQL 13.3 (Ubuntu 13.3-201-yandex.50027.438e1ff1be) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit',)
-   ```
+      If the connection to the cluster is successful, the {{ PG }} version will be output in response to the test query:
+
+      ```text
+      ('PostgreSQL 14.6 (Ubuntu 14.6-201-yandex.52665.7e82983c2c) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit',)
+      ```
+
+- Connecting without using SSL
+
+   Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. If this is the case, internal cloud network traffic will not be encrypted for connecting to a database.
+
+   1. [Configure your project](../../operations/projects/update.md). For this, on the project edit page, add or change the following data in the relevant fields:
+
+      * **Default folder** where the {{ mpg-short-name }} cluster is deployed.
+      * **Service account** with the `managed-postgresql.editor` [role](../../../managed-postgresql/security/index.md#required-roles) or higher.
+      * **Subnet** the database host belongs to.
+
+         {% note info %}
+
+         To enable online access, [specify a subnet within an NAT gateway](../../../vpc/operations/create-nat-gateway.md).
+
+         {% endnote %}
+
+   1. Establish a connection to the database. To do this, enter the following command in a notebook cell:
+
+      ```python
+      %pip install psycopg2-binary
+      import psycopg2
+
+      conn = psycopg2.connect("""
+          host=rc1a-<PostgreSQL_ cluster_ID>.mdb.yandexcloud.net
+          port=6432
+          sslmode=disable
+          dbname=<DB_name>
+          user=<DB_username>
+          password=<DB_user_password>
+          target_session_attrs=read-write
+      """)
+
+      q = conn.cursor()
+      q.execute('SELECT version()')
+
+      print(q.fetchone())
+
+      conn.close()
+      ```
+
+      If the connection to the cluster is successful, the {{ PG }} version will be output in response to the test query:
+
+      ```text
+      ('PostgreSQL 14.6 (Ubuntu 14.6-201-yandex.52665.7e82983c2c) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit',)
+      ```
+
+{% endlist %}

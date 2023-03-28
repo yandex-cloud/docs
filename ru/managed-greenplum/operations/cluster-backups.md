@@ -166,4 +166,6 @@
 
 {% endlist %}
 
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

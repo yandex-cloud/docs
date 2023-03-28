@@ -43,7 +43,7 @@ To connect to {{ mch-short-name }} cluster hosts:
       print(rs.text)
       ```
 
-      A successful cluster connection and test query will display the {{ CH }} version:
+      If the connection to the cluster is successful, the {{ CH }} version will be output in response to the test query:
 
       ```
       21.3.13.9
@@ -61,7 +61,7 @@ To connect to {{ mch-short-name }} cluster hosts:
       client.execute('SELECT version()')
       ```
 
-      A successful cluster connection and test query will display the {{ CH }} version:
+      If the connection to the cluster is successful, the {{ CH }} version will be output in response to the test query:
 
       ```
       [('21.3.13.9',)]

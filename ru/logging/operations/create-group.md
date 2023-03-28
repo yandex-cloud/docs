@@ -70,10 +70,6 @@ description: "Из статьи вы узнаете, как создать ло�
     data_stream: /{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream
     ```
 
-- API
-
-    Создать пользовательскую лог-группу можно с помощью метода API [create](../api-ref/LogGroup/create.md).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -142,5 +138,9 @@ description: "Из статьи вы узнаете, как создать ло�
         ```
         yc logging group list
         ```
+
+- API
+
+  Чтобы создать лог-группу, воспользуйтесь методом REST API [create](../api-ref/LogGroup/create.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Create](../api-ref/grpc/log_group_service.md#Create).
 
 {% endlist %}

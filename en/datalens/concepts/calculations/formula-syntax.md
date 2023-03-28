@@ -284,7 +284,7 @@ MSUM([Sales per Order], 1 WITHIN [ProductID] ORDER BY [Price])
 RANK_DENSE(AVG([Price]), "desc" WITHIN [ShopID] BEFORE FILTER BY [PaymentType])
 ```
 
-Window functions support [grouping](../../function-ref/window-functions.md#syntax-grouping) and[ sorting](../../function-ref/window-functions.md#syntax-order-by) of records and the [BEFORE FILTER BY](../../function-ref/window-functions.md#syntax-before-filter-by).
+Window functions support [grouping](../../function-ref/window-functions.md#syntax-grouping) and [sorting](../../function-ref/window-functions.md#syntax-order-by) of records and the [BEFORE FILTER BY](../../function-ref/window-functions.md#syntax-before-filter-by).
 
 ## Text markup {#text-markup}
 

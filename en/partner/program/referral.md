@@ -14,20 +14,6 @@ To become a referrer, make sure your billing account meets the following require
 * The payment method selected in the business account is <q>Bank transfer</q>.
 * The business account switched to paid consumption, but the initial grants can still be used.
 
-To become a referrer:
-1. [On the website](https://cloud.yandex.ru/partners/service), click **Become a partner**.
-1. Fill out the form.
-1. Once you get partner status, generate referral links in the [partner portal]({{ link-cloud-partners }}).
-
-   {% note info %}
-
-   To become a referrer, make sure your billing account meets the following [requirements](#referrer-conditions).
-
-   {% endnote %}
-
-1. Share referral links with potential customers.
-
-If a customer signs up using your link and satisfies the [conditions](#condition), you get a [reward](#premium).
 
 ### Referrer account requirements {#referrer-conditions}
 

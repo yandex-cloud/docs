@@ -110,6 +110,8 @@ keywords:
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   1. Нажмите кнопку **Создать резервную копию**.
 
+  {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
 - CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -139,6 +141,8 @@ keywords:
     Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 ### Восстановить кластер из резервной копии {#restore}
 

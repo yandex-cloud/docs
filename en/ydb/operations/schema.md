@@ -39,7 +39,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
       * **Key bloom filter**: If enabled, applies the [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by a key. In some cases, it can speed up key reads.
    1. Click **Create table**.
 
-   To create {{ ydb-short-name }} tables, you can also use the[`CREATE TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/create_table) command from the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
+   To create {{ ydb-short-name }} tables, you can also use the [`CREATE TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/create_table) command based on the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
 
 - Document table
 
@@ -74,7 +74,7 @@ In the {{ ydb-short-name }} cloud console, you can add non-key columns to a tabl
 1. Add new columns to the table and specify their parameters:
    * Column **name**. Must be unique within the table.
    * Column data **type**. Regardless of the data type, each column may contain a NULL value.
-1. To delete non-key columns from the table, click ![image](../../_assets/cross.svg)in the appropriate line. You can't delete columns that make up a primary key.
+1. To delete non-key columns from the table, click ![image](../../_assets/cross.svg)in the appropriate line. You cannot delete columns that make up a primary key.
 1. Configure automatic partitioning:
    * **By size**: If enabled, a partition is split into two when a certain data size is reached.
    * **By load**: If enabled, a partition is split into two if it is under high loads for a certain period of time (uses a lot of CPU time).
@@ -94,7 +94,7 @@ To alter {{ ydb-short-name }} tables, you can also use the [`ALTER TABLE`](https
 1. Locate the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **Delete**.
 1. Confirm the deletion.
 
-To drop {{ ydb-short-name }} tables, you can use the[`DROP TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/drop_table) command from the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
+To drop {{ ydb-short-name }} tables, you can use the [`DROP TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/drop_table) command based on the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
 
 ## Creating and deleting directories {#directories}
 

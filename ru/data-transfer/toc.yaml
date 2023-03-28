@@ -54,7 +54,7 @@ items:
                 href: operations/endpoint/target/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md
-              - name: ElasticSearch
+              - name: Elasticsearch
                 href: operations/endpoint/target/elasticsearch.md
               - name: Greenplum®
                 href: operations/endpoint/target/greenplum.md

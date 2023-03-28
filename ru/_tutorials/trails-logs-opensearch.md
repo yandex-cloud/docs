@@ -97,6 +97,8 @@
 
 ![opensearch-discover](../_assets/mdb/opensearch-discover.png)
 
+{% include [primary-key](../_includes/data-transfer/notes/os-es-transfer-conditions.md) %}
+
 ## Загрузите дополнительной контент {#additional-content}
 
 Для удобства пользователей команда безопасности {{ yandex-cloud }} подготовила библиотеку Solution Library — набор примеров и рекомендаций по построению безопасной инфраструктуры в {{ yandex-cloud }}. Библиотека доступна в [публичном репозитории на GitHub](https://github.com/yandex-cloud/yc-solution-library-for-security). Она включает следующие объекты для загрузки в {{ OS }}:

@@ -105,6 +105,30 @@ sourcePath: ru/_api-ref/datalens/function-ref/array-functions.md
 
 
 
+## [CONTAINS_ALL](CONTAINS_ALL.md)
+
+**Синтаксис:**`CONTAINS_ALL( array_1, array_2 )`
+
+Возвращает `TRUE`, если `array_1` содержит все элементы `array_2`.
+
+
+
+## [CONTAINS_ANY](CONTAINS_ANY.md)
+
+**Синтаксис:**`CONTAINS_ANY( array_1, array_2 )`
+
+Возвращает `TRUE`, если `array_1` содержит хотя бы один элемент из `array_2`.
+
+
+
+## [CONTAINS_SUBSEQUENCE](CONTAINS_SUBSEQUENCE.md)
+
+**Синтаксис:**`CONTAINS_SUBSEQUENCE( array_1, array_2 )`
+
+Возвращает `TRUE`, если `array_2` является непрерывной подпоследовательностью `array_1`. Другими словами, возвращает `TRUE` исключительно если `array1 = prefix + array2 + suffix`.
+
+
+
 ## [COUNT_ITEM](COUNT_ITEM.md)
 
 **Синтаксис:**`COUNT_ITEM( array, value )`

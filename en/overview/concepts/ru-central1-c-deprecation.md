@@ -11,8 +11,7 @@
 
 * In `{{ region-id }}-c`, new {{ yandex-cloud }} zonal features are unavailable. You can't create:
 
-   * {{ compute-name }} VMs with GPU.
+   * {{ compute-name }} VMs with GPUs.
    * {{ compute-name }} dedicated hosts on Intel Ice Lake.
    * {{ mgp-name }} database hosts.
 
-For more information about development plans for availability zones and migration options, see this [post in the {{ yandex-cloud }} blog](https://cloud.yandex.ru/blog/posts/2022/03/az-deprecation-notice).

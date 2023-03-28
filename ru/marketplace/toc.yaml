@@ -13,6 +13,8 @@ items:
         href: operations/create-new-version.md
       - name: Изменение версии продукта
         href: operations/update-version.md
+      - name: Создание пробного периода
+        href: operations/create-trial-period.md
   - name: Концепции
     items:
       - name: Продукт
@@ -30,6 +32,8 @@ items:
             href: operations/create-container.md
       - name: Тарификация продуктов на основе метрик издателя
         href: concepts/api-usage.md
+      - name: Пробный период
+        href: concepts/trial-period.md
   - name: Справочник API
     items:
       - name: REST

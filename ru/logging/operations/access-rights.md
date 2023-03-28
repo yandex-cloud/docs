@@ -36,7 +36,7 @@
 
 - API
 
-    Посмотреть [роли](../security/index.md#roles), назначенные на [пользовательскую лог-группу](../concepts/log-group.md), можно с помощью метода API [listAccessBindings](../api-ref/LogGroup/listAccessBindings.md).
+  Чтобы посмотреть роли, назначенные на пользовательскую лог-группу, воспользуйтесь методом REST API [listAccessBindings](../api-ref/LogGroup/listAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/ListAccessBindings](../api-ref/grpc/log_group_service.md#ListAccessBindings).
 
 {% endlist %}
 
@@ -95,7 +95,7 @@
 
 - API
 
-    Назначить [роли](../security/index.md#roles) на [пользовательскую лог-группу](../concepts/log-group.md) можно с помощью метода API [setAccessBindings](../api-ref/LogGroup/setAccessBindings.md).
+  Чтобы назначить роли на пользовательскую лог-группу, воспользуйтесь методом REST API [setAccessBindings](../api-ref/LogGroup/setAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/SetAccessBindings](../api-ref/grpc/log_group_service.md#SetAccessBindings).
 
 {% endlist %}
 
@@ -154,6 +154,6 @@
 
 - API
 
-    Отозвать [роли](../security/index.md#roles), назначенные на [пользовательскую лог-группу](../concepts/log-group.md), можно с помощью метода API [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md).
+  Чтобы отозвать роли, назначенные на пользовательскую лог-группу, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/UpdateAccessBindings](../api-ref/grpc/log_group_service.md#UpdateAccessBindings).
 
 {% endlist %}

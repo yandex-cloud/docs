@@ -50,7 +50,7 @@ Since checkpoints are created automatically, you can only change the name of a p
 
 ## Applying a checkpoint {#apply}
 
-To return to a certain notebook state:
+To roll back to a certain notebook state:
 1. Open your project page.
 1. Under **Resources**, select ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints**.
 1. In the line with the appropriate checkpoint, click ![options](../../../_assets/options.svg) and select **Apply**.

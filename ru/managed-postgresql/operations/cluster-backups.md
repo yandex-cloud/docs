@@ -244,7 +244,9 @@ description: "Вы можете создавать резервные копии
   1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   1. Нажмите кнопку **Создать резервную копию**.
-  
+
+  {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
 - CLI
   
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -274,6 +276,7 @@ description: "Вы можете создавать резервные копии
 
 {% endlist %}
 
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 ## Получить список резервных копий {#list-backups}
 

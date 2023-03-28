@@ -10,22 +10,10 @@ Program participants:
 * A partner is a business that is a resident of the Russian Federation and provides services using {{ yandex-cloud }} technologies.
 * A client is a business that purchases {{ yandex-cloud }} services from a partner (a partner subaccount).
 
-## How to become a partner {#desc}
-
-To become a partner under the VAR program:
-1. [On the website](https://cloud.yandex.ru/partners/service), click **Become a partner**.
-1. Fill out the form.
-1. Follow the instructions provided in the welcome email.
-
-Requirements for partners:
-* Billing account type: [Business account](../../billing/concepts/billing-account.md#ba-types).
-* You registered your business account for a business that is a resident of the Russian Federation.
-* The payment method selected in the business account is <q>Bank transfer</q>.
-* You have upgraded from the [trial period](../../getting-started/free-trial/concepts/quickstart.md) to the paid version. When [upgrading to the paid version](../../getting-started/free-trial/concepts/upgrade-to-paid.md), you keep the grants on your account and are able to use them to pay for services.
 
 ## Bonus for participating in the program {#premium}
 
-A partner bonus is a discount on {{ yandex-cloud }} services that is applied to the payment invoice issued to the {{ yandex-cloud }} partner's billing account at month-end. The certificate, payment invoice, and invoice issued to the partner indicate the total amount for all services consumed by all the partner's customers, including the discount.
+A partner bonus is a discount on {{ yandex-cloud }} services that is applied to the payment invoice issued to the {{ yandex-cloud }} partner's billing account at the end of month. The certificate, payment invoice, and regular invoice issued to the partner show the total amount for all services consumed by all partner's customers, including the discount.
 
 ### Discount amount {#discount}
 
