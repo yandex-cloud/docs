@@ -77,6 +77,8 @@ keywords:
     1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/mdb/backup.svg) **Резервные копии**.
     1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **Создать резервную копию**.
 
+    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
 - API
 
     Воспользуйтесь методом API [backup](../api-ref/Cluster/backup.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
@@ -84,6 +86,8 @@ keywords:
     Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 ### Восстановить кластер из резервной копии {#restore}
 

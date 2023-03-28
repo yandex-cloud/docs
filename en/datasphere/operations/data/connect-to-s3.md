@@ -8,16 +8,21 @@ Try not to use S3 storage in [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_
 
 {% endnote %}
 
-## Creating an S3 connector {#create}
+## Before begin {#before-begin}
 
 1. Get an access key from your S3 storage provider. Follow these steps in {{ objstorage-full-name }}:
-   1. [Create a service account](../../../iam/operations/sa/create.md).
-   1. To the created account, [assign](../../../iam/operations/sa/assign-role-for-sa.md) a [role](../../../storage/security/) that allows either reads only or both reads and writes.
-   1. [Create an access key](../../../iam/operations/sa/create-access-key.md) for the service account.
+  1. [Create a service account](../../../iam/operations/sa/create.md).
+  1. To the created account, [assign](../../../iam/operations/sa/assign-role-for-sa.md) a [role](../../../storage/security/) that allows either reads only or both reads and writes.
+  1. [Create an access key](../../../iam/operations/sa/create-access-key.md) for the service account.
+
+## Creating an S3 connector {#create}
+
+For creating an S3 connector:
+
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. If you're creating a connection to an {{ objstorage-name }} bucket, in the project settings, [specify](../projects/update.md) the service account on behalf of which {{ ml-platform-name }} will connect to it.
-1. (Optional) In the upper-right corner, click **Create resource**. In the window that appears, select **Secret** and [create a secret](secrets.md#create) with the secret part of the static access key for the service account. You can also create a secret when creating an S3 connection.
-1. In the upper-right corner, click **Create resource**. In the window that appears, select **S3 connector**.
+1. (Optional) In the upper-right corner, click **Create resource**. In the window that appears, select **Secret** and [create a secret](secrets.md#create) with the secret part of the static access key for the service account. You can also create a secret when creating an S3 connector.
+1. In the top-right corner, click **Create resource**. In the window that appears, select **S3 connector**.
 1. Complete the fields below:
    * **Name**: Name of the connector being created.
    * (Optional) **Description** of the new connector.

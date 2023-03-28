@@ -14,7 +14,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ alb-full-name }}](../../application-load-balancer/) | A service for distributing incoming traffic between web application components. |
 | [{{ at-full-name }}](../../audit-trails/) | {{ preview-stage }} A service for collecting and exporting audit logs. |
 | [{{ certificate-manager-full-name }}](../../certificate-manager/) | A service for managing TLS certificates. |
-| [{{ cloud-apps-full-name }}](../../cloud-apps/) | {{ preview-stage }} A service for deploying serverless stack-based applications |
+| [{{ cloud-apps-full-name }}](../../cloud-apps/) | {{ preview-stage }} A service for deploying serverless stack-based applications. |
 | [{{ backup-full-name }}](../../backup/) | {{ preview-stage }} A service for backing up {{ yandex-cloud }} resources. |
 | [{{ cdn-full-name }}](../../cdn/) | A service for setting up a content delivery network (CDN). |
 | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) | {{ preview-stage }} A service for creating remote desktops in the cloud. |
@@ -37,7 +37,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ iot-full-name }}](../../iot-core/) | An Internet of Things service that provides two-way messaging between registries and devices over the MQTT protocol. |
 | [{{ kms-full-name }}](../../kms/) | Encryption key management. |
 | [{{ load-testing-full-name }}](../../load-testing/) | {{ preview-stage }} A service for load testing and performance analysis. |
-| [{{ lockbox-name }}](../../lockbox) | {{ preview-stage }} A service for creating and storing secrets in the {{ yandex-cloud }} infrastructure.  |
+| [{{ lockbox-name }}](../../lockbox) | {{ preview-stage }} A service for creating and storing secrets in the {{ yandex-cloud }} infrastructure. |
 | [{{ mkf-full-name }}](../../managed-kafka/) | {{ KF }} cluster creation and management. |
 | [{{ mch-full-name }}](../../managed-clickhouse/) | {{ CH }} cluster creation and management. |
 | [{{ mes-full-name }}](../../managed-elasticsearch/) | {{ ES }} cluster creation and management. |
@@ -66,203 +66,13 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ vision-full-name }}](../../vision/) | A computer vision service for image analysis. |
 | [{{ wiki-full-name }}](../../wiki/) | A service for creating corporate databases. |
 
-### How to enable services {#enable}
+## How to enable services {#enable}
 
-You can use the {{ yandex-cloud }} [management console]({{ link-console-main }}) to enable services and manage resources. It allows you to launch VM instances in {{ yandex-cloud }}, connect to them, access object storage, create databases, and so on.
+You can use the {{ yandex-cloud }} [management console]({{ link-console-main }}) to enable services and manage resources. It allows you to launch VM instances in {{ yandex-cloud }}, connect to them, access object storage, create databases, and more.
 
 
 Services at the Preview stage are available only to some users. If you want to use one of these services, send us a request for access. You can do this on the page of the service you want to use.
 
-
-## Service resource labels{#labels}
-
-[Most services](#services) support labels for marking resources.
-
-A _label_ is a key-value pair in `<label name>=<label value>` format. You can use labels to logically separate resources.
-
-Labels are subject to the following restrictions:
-* The maximum number of labels per resource is 64.
-* For the key:
-   * The length can be from 1 to 63 characters.
-   * May contain lowercase Latin letters, numbers, hyphens, and underscores.
-   * The first character must be a letter.
-* Restrictions for the value:
-   * The length can be up to 63 characters.
-   * May contain lowercase Latin letters, numbers, hyphens, and underscores.
-
-### Managing labels {#managed-labels}
-
-You can add, delete, or update resource labels.
-
-#### Adding a label {#add-label}
-
-{% list tabs %}
-
-- CLI
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   Add a label to a service resource:
-
-   ```
-   yc <service name> <resource type> add-labels <resource name or ID> \
-     --labels <label name>=<label value>
-   ```
-
-{% endlist %}
-
-#### Updating a label {#update-label}
-
-{% list tabs %}
-
-- CLI
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% note warning %}
-
-   The existing set of `labels` is completely replaced by the set transmitted.
-
-   {% endnote %}
-
-   Update a service resource label:
-
-   ```
-   yc <service name> <resource type> update <resource name or ID> \
-     --labels <label name>=<label value>
-   ```
-
-{% endlist %}
-
-#### Deleting a label {#remove-label}
-
-{% list tabs %}
-
-- CLI
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   Delete a service resource label:
-
-   ```
-   yc <service name> <resource type> remove-labels <resource name or ID> \
-     --labels <label name>
-   ```
-
-{% endlist %}
-
-
-#### Examples of label management {#examples}
-
-{% cut "Add a label to a VM" %}
-
-{% list tabs %}
-
-- CLI
-
-   To add a label, run the command:
-
-   ```
-   yc compute instance add-labels cl123g4dridnn5cna6df-yduv --labels project=test
-   ```
-
-   Result:
-
-   ```
-   done (5s)
-   id: fhm1pr2bu3p45s6ildh7
-   folder_id: b1g23ga45mev6cljderg
-   created_at: "2020-08-07T11:29:18Z"
-   name: cl123g4dridnn5cna6df-yduv
-   labels:
-     project: test
-   zone_id: {{ region-id }}-a
-   ...
-   ```
-
-{% endlist %}
-
-{% endcut %}
-
-{% cut " Change the {{ k8s }} cluster label" %}
-
-{% list tabs %}
-
-- CLI
-
-   To update a label, run the command:
-
-   ```
-   yc managed-kubernetes cluster update k8s-gpu --labels new_lable=test_label
-   ```
-
-   Result:
-
-   ```
-   done (1m36s)
-   id: cat1hknor2345e6d7rr8
-   folder_id: b1g23ga45mev6cljderg
-   created_at: "2020-08-07T11:15:59Z"
-   name: cluster
-   labels:
-     new_lable: test_label
-   status: RUNNING
-   ...
-   ```
-
-{% endlist %}
-
-{% endcut %}
-
-{% cut " Remove a label from a {{ mmy-short-name }} cluster" %}
-
-{% list tabs %}
-
-- CLI
-
-   To delete a label, run the command:
-
-   ```
-   yc managed-mysql cluster remove-labels mysql123 --labels my_lable
-   ```
-
-   Result:
-
-   ```
-   id: c1qmjaatlurm2bcoi34i
-   folder_id: b1g23ga45mev6cljderg
-   created_at: "2020-08-20T11:53:20.015543Z"
-   name: mysql123
-   environment: PRODUCTION
-   ...
-   ```
-
-{% endlist %}
-
-{% endcut %}
-
-
-
-### Services that support labels {#services}
-
-List of services whose resources support labels:
-* [{{ certificate-manager-full-name }}](../../certificate-manager/)
-* [{{ compute-full-name }}](../../compute/)
-* [{{ vpc-full-name }}](../../vpc/)
-* [{{ resmgr-full-name }}](../../resource-manager/)
-* [{{ kms-full-name }}](../../kms/)
-* [{{ network-load-balancer-full-name }}](../../network-load-balancer/)
-* [{{ container-registry-full-name }}](../../container-registry/)
-* [{{ mch-full-name }}](../../managed-clickhouse/)
-* [{{ managed-k8s-full-name }}](../../managed-kubernetes/)
-* [{{ mmg-full-name }}](../../managed-mongodb/)
-* [{{ mmy-full-name }}](../../managed-mysql/)
-* [{{ mpg-full-name }}](../../managed-postgresql/)
-* [{{ mrd-full-name }}](../../managed-redis/)
-* [{{ dataproc-full-name }}](../../data-proc/)
-* [{{ sf-full-name }}](../../functions/)
-* [{{ iot-full-name }}](../../iot-core/)
-* [{{ ydb-full-name }}](../../ydb/)
 
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}

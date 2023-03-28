@@ -102,6 +102,8 @@ description: "Вы можете создавать резервные копии
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
   1. Нажмите кнопку **Создать резервную копию**.
 
+  {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -131,6 +133,8 @@ description: "Вы можете создавать резервные копии
   {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 В кластерах из одного хоста резервная копия создается чтением данных с хоста-мастера, а в многохостовых кластерах — с одной из реплик. При этом можно [задать приоритет использования хостов при создании резервных копий](#set-backup-priority).
 

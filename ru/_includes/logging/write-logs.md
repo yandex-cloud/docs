@@ -46,6 +46,6 @@
 
 - API
 
-    Добавить записи в лог-группу можно с помощью метода API [write](../../logging/api-ref/grpc/log_ingestion_service.md).
+  Чтобы добавить записи в лог-группу, воспользуйтесь вызовом gRPC API [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write).
 
 {% endlist %}

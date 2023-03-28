@@ -9,7 +9,15 @@ Data in a dataset is represented as fields.
 
 ## Data source {#source}
 
-One or more tables are used as the data source. If there are multiple tables in the source, you can join them with a [JOIN](https://en.wikipedia.org/wiki/Join_(SQL)).
+One or more tables are used as the data source.
+
+{% note info %}
+
+There is a limit on displaying the first 1,000 tables from a source in a dataset. If the required tables are not on the list, currently, you can only add them manually using an SQL query.
+
+{% endnote %}
+
+If there are multiple tables in the source, you can join them with a [JOIN](https://en.wikipedia.org/wiki/Join_(SQL)).
 When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table.
 
 Tables are linked automatically by the first match in the field name and field data type.

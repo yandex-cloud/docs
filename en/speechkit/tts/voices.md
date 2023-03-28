@@ -4,18 +4,18 @@ This section provides a list of voices available in the service and their charac
 
 * The main language that a voice supports. This is the language used by the speaker when creating this voice.
 * Voice gender: male or female.
-* Available voice [modes](index.md#role).
+* Available voice [roles](index.md#role).
    * Supported API version.
 
 
-You can listen to voice samples on the [SpeechKit page](/services/speechkit).
+You can listen to voice samples on the [service page](/services/speechkit).
 
 
 ## Supported voices {#premium}
 
 The table lists the properties of the supported voices that use deep neural networks to synthesize speech.
 
-| Language code | Language | Voice | Gender | Mode | API version | 
+| Language code | Language | Voice | Gender | Role | API version | 
 |---------| ---- | ---- | -- |--------|---|
 | `de-DE` | German | `lea` | F | — | v1, v3 |
 | `en-US` | English | `john` | M | — | v1, v3 |
@@ -25,13 +25,13 @@ The table lists the properties of the supported voices that use deep neural netw
 | `ru-RU` | Russian | `alena` </br> (default) | F | (default) neutral — `neutral` </br> happy — `good` </br> | v1, v3 |
 | `ru-RU` | Russian | `filipp` | M | — | v1, v3 |
 | `ru-RU` | Russian | `ermil` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
-| `ru-RU` | Russian | `jane`  | F | (default) neutral — `neutral` </br> happy — `good` </br> angry — `evil` | v1, v3 |
+| `ru-RU` | Russian | `jane` | F | (default) neutral — `neutral` </br> happy — `good` </br> angry — `evil` | v1, v3 |
 | `ru-RU` | Russian | `madirus` | M | — | v1, v3 |
 | `ru-RU` | Russian | `omazh` | F | (default) neutral — `neutral` </br> angry — `evil` | v1, v3 |
 | `ru-RU` | Russian | `zahar` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
 | `uz-UZ` | Uzbek | `nigora` | F | — | v1, v3 |
 
-The `oksana` and `alena` voices were created from the recordings of a single voice artist. The voice `oksana` is no longer on the supported voice list. The voice `alena` in `good` mode is used instead. The voice `oksana` is available for legacy projects.
+The `oksana` and `alena` voices were created from the recordings of a single voice artist. The `oksana` voice is no longer on the list of supported voices. Use the `alena` voice with `good` role instead. The `oksana` voice is still available for legacy projects.
 
 {% note tip %}
 

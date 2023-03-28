@@ -361,6 +361,12 @@ items:
             href: function-ref/CAST_ARR_STR.md
           - name: CONTAINS
             href: function-ref/CONTAINS_ARRAY.md
+          - name: CONTAINS_ALL
+            href: function-ref/CONTAINS_ALL.md
+          - name: CONTAINS_ANY
+            href: function-ref/CONTAINS_ANY.md
+          - name: CONTAINS_SUBSEQUENCE
+            href: function-ref/CONTAINS_SUBSEQUENCE.md
           - name: COUNT_ITEM
             href: function-ref/COUNT_ITEM.md
           - name: GET_ITEM

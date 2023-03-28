@@ -1,12 +1,12 @@
 # Using models
 
-{{ ml-platform-name }} provides tools for releasing services available to third-party resources. You can deploy a model trained in {{ ml-platform-name }} and use the same tools to develop a fully featured service running a [Docker image](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers).
+{{ ml-platform-name }} provides tools for releasing services available to third-party resources. You can deploy a model trained in {{ ml-platform-name }} and use the same tools to develop a fully featured service based on a Docker image.
 
 To publish a service, {{ ml-platform-name }} provides special resources, such as [nodes](#node) and [aliases](#statuses).
 
 ## Nodes {#node}
 
-A _node_ is an isolated group of specially created VM _instances_ the computing load is distributed across. Node instances are created with a preset environment and fixed interpreter state. Depending on your needs, you can select different instance [configurations](../../concepts/configurations.md).
+A _node_ is an isolated group of specially created VMs (_instances_) the computing load is distributed across. Node instances are created with a preset environment and fixed interpreter state. Depending on your needs, you can select different instance [configurations](../../concepts/configurations.md).
 
 {% note warning %}
 
@@ -57,22 +57,24 @@ A {{ ml-platform-name }} node can have one of the following statuses:
 Node instances can have one of the following statuses:
 
 * `Healthy`: The instance is healthy and available for balancing.
-* `Unhealthy`: There are issues with the instance, it's been excluded from balancing.
+* `Unhealthy`: There are issues with the instance and it has been excluded from balancing.
 * `Created`: A VM has been created for the instance.
 * `Started`: A connection has been established with the instance's VM.
 * `Preparing`: The instance is being prepared for processing requests.
 * `Deleting`: The instance is being deleted.
-* `Undefined`: The initial state of the instance, the VM has not been created yet.
+* `Undefined`: The initial state of the instance when the VM has not yet been created.
 
 
 ## Alias {#alias}
 
 An _alias_ is a special resource used for publishing and updating a service. It allows you to replace nodes and update the running service without affecting the user experience.
 
-[Create an alias](../../../datasphere/operations/deploy/alias-create.md) and use it as your service endpoint. You can update the nodes related to it, balance the load across them, and remove outdated versions of Docker images without affecting the user experience.
+[Create an alias](../../../datasphere/operations/deploy/alias-create.md) and use it as your service endpoint. You can update related nodes, balance the load across them, and remove deprecated Docker image versions without affecting the user experience.
 
 
 #### See also {#see-also}
 
 * [{#T}](../../operations/deploy/node-create.md).
 * [{#T}](../../operations/deploy/alias-create.md).
+* [{#T}](../../tutorials/node-from-cell.md)
+* [{#T}](../../tutorials/node-from-docker.md)

@@ -47,10 +47,6 @@ description: "Из статьи вы узнаете, как удалить ло�
     retention_period: 3600s
     ```
 
-- API
-
-    Удалить пользовательскую лог-группу можно с помощью метода API [delete](../api-ref/LogGroup/delete.md).
-
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -107,5 +103,9 @@ description: "Из статьи вы узнаете, как удалить ло�
      ```
      yc logging group list
      ```
+
+- API
+
+  Чтобы удалить пользовательскую лог-группу, воспользуйтесь методом REST API [delete](../api-ref/LogGroup/delete.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Delete](../api-ref/grpc/log_group_service.md#Delete).
 
 {% endlist %}

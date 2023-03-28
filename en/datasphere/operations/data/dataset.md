@@ -102,43 +102,80 @@ To create a dataset named `<dataset_name>` from a [CIFAR-10](https://www.cs.toro
    ```python
    #pragma dataset init <dataset_name> --size 1Gb
 
-   from cloud_ml.storage.api import Storage
-   s3 = Storage.s3(access_key=<access_key>, secret_key=<secret_key>])
-   s3.get('bucket/<storage_path>/file.txt', '/home/jupyter/mnt/datasets/<dataset_name>/<path>/file.txt')
-   ```
+  import os
+  import boto3
+
+  S3_CREDS = {
+       "aws_access_key_id": os.environ['<secret_with_access_key_ID>'],
+       "aws_secret_access_key": os.environ['<secret_with_secret_key>']
+  }
+  bucket_name = "<bucket_name>"
+
+  source_path = ''
+  target_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
+
+  s3r = boto3.resource(service_name='s3', endpoint_url='https://storage.yandexcloud.net', **S3_CREDS)
+  bucket = s3r.Bucket(bucket_name)
+
+  for obj in bucket.objects.filter(Prefix=source_path):
+       if not os.path.relpath(obj.key, source_path).startswith('../'):
+          os.makedirs(os.path.join(target_path, os.path.dirname(obj.key)), exist_ok=True)
+          if obj.key[-1] != '/':
+              bucket.download_file(obj.key, os.path.join(target_path, obj.key))
+  ```
 
    Where:
-   * `access_key`: ID of a [static access key](../../../iam/concepts/authorization/access-key.md) [generated](../../../iam/operations/sa/create-access-key.md) for the project's service account.
-   * `secret_key`: Secret key generated for that service account.
 
-   {% include [use secrets](../../../_includes/datasphere/use-secrets.md) %}
+  * `aws_access_key_id`: ID of the [static access key](../../../iam/concepts/authorization/access-key.md) [generated](../../../iam/operations/sa/create-access-key.md) for the project service account.
+  * `aws_secret_access_key`: Secret key generated for that service account.
 
 - Yandex.Disk
 
-   To connect to Yandex Disk, you'll need your application ID (`ClientID`) and secret key (`Client secret`). To get them:
+   Initialize the dataset in a cell with the following code:
 
-   {% include [oauth-token](../../../_includes/datasphere/token-for-ya-disk.md) %}
+  ```python
+  #pragma dataset init <dataset_name> --size 8Gb
 
-   1. [In the {{ ml-platform-name }} interface]({{ link-datasphere-main }}), [create the secrets](secrets.md#create) That include the values of the application ID and secret key.
-   1. Initialize the dataset in a cell with the following code:
+  import requests
+  from urllib.parse import urlencode
+  from io import BytesIO
+  from zipfile import ZipFile
 
-      ```python
-      #pragma dataset init <dataset_name> --size 1Gb
+  base_url = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?'
+  public_key = '<Yandex_Disk_folder_URL>'
 
-      from cloud_ml.storage.api import Storage
+  final_url = base_url + urlencode(dict(public_key=public_key))
+  response = requests.get(final_url)
+  download_url = response.json()['href']
+  response = requests.get(download_url)
 
-      disk = Storage.ya_disk(application_id=os.environ[<secret_with_ClientID>], application_secret=[<secret_with_Client_secret>])
+  dist_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
+  zipfile = ZipFile(BytesIO(response.content))
+  zipfile.extractall(path=dist_path)
+  ```
 
-      # downloading contents of the remote file into the local one
-      disk.get('<path_on_Yandex_Disk>/file.txt', '/home/jupyter/mnt/datasets/<dataset_name>/<path>/file.txt')
-      ```
+- Google Drive
 
-   {% note info %}
+  1. Install the [gdown](https://pypi.org/project/gdown/) package:
 
-   When {{ ml-platform-name }} tries to connect to Yandex Disk for the first time, you'll need to go to the Yandex ID login page and copy and paste the confirmation code in the notebook's **Enter the confirmation code** field.
+     ```python
+     %pip install gdown
+     ```
 
-   {% endnote %}
+  1. Initialize the dataset in a cell with the following code:
 
+     ```python
+     #pragma dataset init <dataset_name> --size 1Gb
+
+     import gdown
+
+     gdrive_folder_id = '<Google_Drive_folder_ID>'
+     dst_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
+
+     gdown.download_folder(id=gdrive_folder_id, output=dst_path, use_cookies=False)
+     ```
+
+     Where `gdrive_folder_id` is the ID of the Google Drive folder specified in the URL after `https://drive.google.com/drive/folders/`. For example, in the `https://drive.google.com/drive/folders/exampleId` URL, the folder ID is `exampleId`.
 
 {% endlist %}
 
@@ -149,8 +186,8 @@ Once initialized, the dataset becomes enabled in the project and available at th
 To enable a dataset:
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Project resources**, click ![dataset](../../../_assets/datasphere/dataset.svg) **Dataset**.
-1. In the line with the appropriate dataset, click ![options](../../../_assets/options.svg) and select **Apply**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset}}**.
+1. In the line with the appropriate dataset, click ![options](../../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.activate}}**.
 
 ## Viewing a list of datasets available in the project {#list}
 
@@ -158,7 +195,7 @@ To enable a dataset:
 
 - {{ ml-platform-name }} interface
 
-   Open the project page under **Project resources** → ![dataset](../../../_assets/datasphere/dataset.svg) **Dataset** and click **Available**.
+  On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset}}**. Next, go to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
 - Code in the notebook
 
@@ -177,9 +214,9 @@ Only a community admin can share a dataset in the community.
 To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Project resources**, click ![dataset](../../../_assets/datasphere/dataset.svg) **Dataset**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. Select the appropriate dataset from the list.
-1. Go to the **Access** tab.
+1. Click the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the dataset in.
 
 ## Deleting a dataset {#delete}
@@ -196,8 +233,8 @@ To delete a dataset:
 
 - {{ ml-platform-name }} interface
 
-   1. On the project page under **Project resources**, click ![dataset](../../../_assets/datasphere/dataset.svg)**Dataset**.
-   1. In the line with the appropriate dataset, click ![options](../../../_assets/options.svg) and select **Delete**.
+  1. On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+  1. In the line with the appropriate dataset, click ![options](../../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 
 - Code in the notebook
 

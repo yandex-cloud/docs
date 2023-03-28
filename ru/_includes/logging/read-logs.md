@@ -70,6 +70,6 @@
 
 - API
 
-    Посмотреть записи в лог-группе можно с помощью метода API [read](../../logging/api-ref/grpc/log_reading_service.md).
+  Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read).
 
 {% endlist %}

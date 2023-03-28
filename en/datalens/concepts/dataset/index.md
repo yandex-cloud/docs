@@ -6,8 +6,7 @@ Data in a dataset is represented as fields. For more information, see [{#T}](dat
 {{ datalens-full-name }} creates a dataset based on a data source that has a connection.
 
 
-There are several modes for datasets to work with data sources.
-{{ datalens-short-name }} can access a data source directly or save the dataset in its own database. For more information, see [{#T}](settings.md).
+A dataset works with sources in direct access mode: {{ datalens-short-name }} executes all data queries on the source side.
 
 
 ## Creating a dataset {#create-dataset}

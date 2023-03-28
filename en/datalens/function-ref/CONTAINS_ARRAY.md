@@ -24,15 +24,16 @@ Returns `TRUE` if `array` contains `value`.
 
 **Return type**: `Boolean`
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-CONTAINS(ARRAY(1, 2, 3), 2) = TRUE
-```
 
-```
-CONTAINS(ARRAY(1, 2, 3), 4) = FALSE
-```
+
+| **[array]**   | **[value]**   | **CONTAINS([array], [value])**   |
+|:--------------|:--------------|:---------------------------------|
+| `'[1,2,3]'`   | `2`           | `True`                           |
+| `'[1,2,3]'`   | `4`           | `False`                          |
+
+
 
 
 #### Data source support {#data-source-support}

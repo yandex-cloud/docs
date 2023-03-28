@@ -263,7 +263,7 @@ In the current version, a tree hierarchy has the following limitations:
 * One tree/hierarchy per chart.
 * You can't use the **Pagination** option and **Total** row in a tree table.
 * The tree expansion state is not remembered.
-* Selectors don't support trees.
+* Selectors do not support trees.
 * A source should store intermediate tree nodes, even those with no data available.
 
 ## Data type mapping table {#types-lookup-table}

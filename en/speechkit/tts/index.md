@@ -83,7 +83,7 @@ For a full list of available formats and their characteristics, see [{#T}](../fo
 #### See also {#see-also}
 
 
-* Try synthesizing speech using demo on the [service page](/services/speechkit#demo).
+* Try speech synthesis using our demo on the [service page](/services/speechkit#demo).
 * Review the parameters of the [API v1](request.md) method and [API v3](../tts-v3/api-ref/grpc/) requests.
 * See examples of using the {{ speechkit-name }} API:
    * [{#T}](api/tts-ogg.md)

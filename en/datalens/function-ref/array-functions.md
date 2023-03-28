@@ -105,6 +105,30 @@ Returns `TRUE` if `array` contains `value`.
 
 
 
+## [CONTAINS_ALL](CONTAINS_ALL.md)
+
+**Syntax:**`CONTAINS_ALL( array_1, array_2 )`
+
+Returns `TRUE` if `array_1` contains all elements of `array_2`.
+
+
+
+## [CONTAINS_ANY](CONTAINS_ANY.md)
+
+**Syntax:**`CONTAINS_ANY( array_1, array_2 )`
+
+Returns `TRUE` if `array_1` contains any elements of `array_2`.
+
+
+
+## [CONTAINS_SUBSEQUENCE](CONTAINS_SUBSEQUENCE.md)
+
+**Syntax:**`CONTAINS_SUBSEQUENCE( array_1, array_2 )`
+
+Returns `TRUE` if `array_2` is a continuous subsequence of `array_1`. In other words, returns `TRUE` if and only if `array1 = prefix + array2 + suffix`.
+
+
+
 ## [COUNT_ITEM](COUNT_ITEM.md)
 
 **Syntax:**`COUNT_ITEM( array, value )`

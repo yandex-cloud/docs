@@ -46,10 +46,6 @@
     retention_period: 86400s
     ```
 
-- API
-
-    Изменить срок хранения записей в лог-группе можно с помощью метода API [update](../api-ref/LogGroup/update.md).
-
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -113,5 +109,9 @@
      ```
      yc logging group get <имя лог-группы>
      ```
+
+- API
+
+  Чтобы изменить срок хранения записей в лог-группе, воспользуйтесь методом REST API [update](../api-ref/LogGroup/update.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Update](../api-ref/grpc/log_group_service.md#Update).
 
 {% endlist %}

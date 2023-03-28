@@ -58,7 +58,7 @@ Provide details to create a billing account:
       {% endnote %}
 
       * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](free-trial/concepts/upgrade-to-paid.md).
-      * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, after [using up the initial grant](usage-grant.md), you don't have to upgrade to the paid version.
+      * If you do not activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](usage-grant.md), you will not have to upgrade to the paid version.
 
    1. Click **Create**.
 
@@ -72,8 +72,9 @@ Provide details to create a billing account:
 
    You will receive an email with further instructions at the email address specified in your user account. It may take up to three business days to activate your billing account.
 
-   If this is your first billing account in {{ yandex-cloud }}, it's created with the trial period enabled. To continue to use the resources after your trial period ends, make sure to switch to the [paid version](../billing/operations/activate-commercial.md).
+   If this is your first billing account in {{ yandex-cloud }}, it's created with the trial period enabled. To continue using the resources after your trial period ends, make sure to switch to the [paid version](../billing/operations/activate-commercial.md).
 
 {% endlist %}
+
 
 {% include [start](_includes/quickstart-qa-whats-next.md) %}
