@@ -88,7 +88,7 @@ To implement an example:
 
              # Establish connection with server.
              cred = grpc.ssl_channel_credentials()
-             channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
+             channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
              stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
              # Send data for synthesis.

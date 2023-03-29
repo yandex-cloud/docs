@@ -57,7 +57,6 @@
      created_at: "2021-02-11T21:31:01.676592016Z"
      ```
  
- 
 
 - {{ TF }}
 
@@ -132,6 +131,10 @@
      ```
      yc alb http-router get <идентификатор http-роутера>
      ```
+
+- API
+
+  Воспользуйтесь методом REST API [update](../api-ref/HttpRouter/update.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Update](../api-ref/grpc/http_router_service.md#Update).
 
 {% endlist %}
 
@@ -485,7 +488,6 @@
           ...
           ```
 
-
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -546,6 +548,10 @@
      yc alb virtual-host get <идентификатор виртуального хоста>
      ```
 
+- API
+
+  Воспользуйтесь методом REST API [update](../api-ref/VirtualHost/update.md) для ресурса [VirtualHost](../api-ref/VirtualHost/index.md) или вызовом gRPC API [VirtualHostService/Update](../api-ref/grpc/virtual_host_service.md#Update).
+
 {% endlist %}
 
 ## Изменить порядок маршрутов в виртуальном хосте {#change-route-order}
@@ -599,5 +605,9 @@
           ```
       
       1. Добавьте маршрут в нужном месте одним из способов, описанных выше.   
+
+- API
+
+  Воспользуйтесь методом REST API [update](../api-ref/VirtualHost/update.md) для ресурса [VirtualHost](../api-ref/VirtualHost/index.md) или вызовом gRPC API [VirtualHostService/Update](../api-ref/grpc/virtual_host_service.md#Update).
 
 {% endlist %}

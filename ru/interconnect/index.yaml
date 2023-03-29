@@ -8,15 +8,12 @@ description:
     Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с ФЗ-152.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>.
 meta:
   title: Yandex Cloud Interconnect
 links:
   - title: Концепции
     description: Узнайте про возможности сервиса
-    href: concepts/overview
+    href: concepts/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

@@ -393,4 +393,6 @@ items:
             href: pricing-archive/pricing-01032019.md
   - name: Вопросы и ответы
     href: qa.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/storage

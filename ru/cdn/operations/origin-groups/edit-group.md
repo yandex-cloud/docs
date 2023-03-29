@@ -74,9 +74,19 @@
 
      Подробнее о команде `yc cdn origin-group update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/origin-group/update.md).
 
+- API
+
+  Чтобы изменить группу источников, воспользуйтесь методом REST API [update](../../api-ref/OriginGroup/update.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Update](../../api-ref/grpc/origin_group_service.md#Update).
+
 {% endlist %}
 
 ## Удаление одного источника из группы {#group-source-deletion}
+
+{% note info %}
+
+Удалить можно только резервные источники.
+
+{% endnote %}
 
 Чтобы удалить источник из группы источников:
 
@@ -88,18 +98,21 @@
   1. Выберите сервис **{{ cdn-short-name }}**.
   1. На панели слева выберите ![image](../../../_assets/cdn/origin-groups.svg) **Группы источников** и нажмите на имя группы, из которой хотите удалить источник.
   1. Выберите нужный источник и нажмите кнопку **Удалить** на панели внизу.
-
-     {% note info %}
-
-     Удалить можно только резервный источник.
-
-     {% endnote %}
-
   1. В открывшемся окне нажмите кнопку **Удалить**.
+
+- API
+
+  Воспользуйтесь методом REST API [delete](../../api-ref/Origin/delete.md) для ресурса [Origin](../../api-ref/Origin/index.md) или вызовом gRPC API [OriginService/Delete](../../api-ref/grpc/origin_service.md#Delete).
 
 {% endlist %}
 
 ## Удаление нескольких источников из группы {#summ-group-source-deletion}
+
+{% note info %}
+
+Удалить можно только резервные источники.
+
+{% endnote %}
 
 Чтобы удалить несколько источников из группы:
 
@@ -111,13 +124,6 @@
   1. Выберите сервис **{{ cdn-short-name }}**.
   1. На панели слева выберите ![image](../../../_assets/cdn/origin-groups.svg) **Группы источников** и нажмите на имя группы, из которой хотите удалить источники.
   1. Выберите нужные источники и нажмите кнопку **Удалить** на панели внизу.
-
-     {% note info %}
-
-     Удалить можно только резервные источники.
-
-     {% endnote %}
-
   1. В открывшемся окне нажмите кнопку **Удалить**.
 
 {% endlist %}

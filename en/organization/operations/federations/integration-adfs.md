@@ -1,6 +1,6 @@
 # Authentication using Active Directory
 
-With an [identity federation](../../add-federation.md), you can use [Active Directory Federation Services]({{link-adfs}}) (ADFS) to authenticate in the cloud.
+With an [identity federation](../../add-federation.md), you can use [Active Directory Federation Services]({{ link-adfs }}) (ADFS) to authenticate in the cloud.
 
 To set up authentication:
 
@@ -41,9 +41,9 @@ To use the instructions in this section, you will need:​
 
    To create a federation:
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
@@ -89,11 +89,11 @@ To use the instructions in this section, you will need:​
 
       * `name`: Federation name. The name must be unique within the folder.
       * `organization-id`: Your organization ID.
-      * `auto-create-account-on-login`: A flag to enable the automatic creation of new cloud users following authentication on the IdP server.
+      * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
 
-         This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
 
       * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication.
@@ -110,7 +110,7 @@ To use the instructions in this section, you will need:​
 
    1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create a federation in.
 
-   1. Create a file with the request body (for example, `body.json`).
+   1. Create a file with the request body, e.g., `body.json`:
 
       ```json
       {
@@ -130,10 +130,10 @@ To use the instructions in this section, you will need:​
       * `folderId`: ID of the folder.
       * `name`: Federation name. The name must be unique within the folder.
       * `organizationId`: Organization ID.
-      * `autoCreateAccountOnLogin`: A flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+      * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
 
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication.
@@ -150,14 +150,14 @@ To use the instructions in this section, you will need:​
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Specify the federation parameters in the configuration file:
 
       * `name`: Federation name. The name must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: Organization ID.
-      * `labels`: A set of key/value label pairs assigned to the federation.
+      * `labels`: Set of key/value label pairs assigned to the federation.
       * `issuer`: IdP server ID to be used for authentication.
 
          Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your ADFS server.
@@ -168,17 +168,17 @@ To use the instructions in this section, you will need:​
          Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your ADFS server.
 
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
-      * `auto_create_account_on_login`: A flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+      * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
-      * `case_insensitive_name_ids`: A flag that indicates if usernames are case-insensitive.
-         If the option is enabled, the IDs of federated users' names are case-insensitive.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+      * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
+         If the option is enabled, the IDs of federated user names are case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{yandex-cloud}} will have a digital signature. You need to download and install a {{yandex-cloud}} certificate.
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -194,34 +194,34 @@ To use the instructions in this section, you will need:​
       }
       ```
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Create a federation.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
          ```
 
-      1. Confirm that you want to create the federation.
+      1. Confirm you want to create a federation.
 
-      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{link-org-federations}}) section.
+      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
 
 {% endlist %}
 
 ## Specify certificates for the federation {#add-certificate}
 
-When the identity provider (IdP) informs {{org-full-name}} that a user has been authenticated, they sign the message with their certificate. To enable {{org-name}} to verify this certificate, add it to the created federation.
+When the identity provider (IdP) informs {{ org-full-name }} that a user has been authenticated, they sign the message with their certificate. To enable {{ org-name }} to verify this certificate, add it to the created federation.
 
 To get an ADFS certificate:
 
@@ -251,9 +251,9 @@ To add a certificate to a federation:
 
 - Management console
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
@@ -315,7 +315,7 @@ To add a certificate to a federation:
 
 {% note tip %}
 
-To ensure that authentication isn't interrupted when the certificate expires, we recommend adding several certificates to the federation: the current one and the ones that will be used after. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
+To ensure the authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to the federation, i.e. both the current one and those to use afterwards. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
 
 {% endnote %}
 
@@ -327,11 +327,11 @@ Obtain and save this link:
 
 1. Get the federation ID:
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
-   1. Copy the ID of the federation you're configuring access for.
+   1. Copy the ID of the federation you are configuring access for.
 
 1. Generate a link using this ID:
 
@@ -392,12 +392,12 @@ When ADFS authenticates a user, it sends a SAML message to {{ yandex-cloud }} to
 | User data | Comment | Outgoing Claim Type |
 ------------------- | ----------- | -------------------
 | Unique user ID | Required attribute. We recommend using the **User-Principal-Name** or email address. | Name ID |
-| Last name | Displayed in {{yandex-cloud}} services. We recommend using the **Surname** attribute. | Surname |
-| Name | Displayed in {{yandex-cloud}} services. We recommend using the **Given-Name** attribute. | Given Name |
-| Full name | Displayed in {{yandex-cloud}} services. Example: John Smith.<br>We recommend using the **Display-Name** attribute. | Name |
-| Email | Used to send notifications from {{yandex-cloud}} services. Example: `smith@example.com`<br>We recommend using the **E-Mail-Address** attribute. | E-Mail Address |
-| Phone | Used to send notifications from {{yandex-cloud}} services. Example: +71234567890<br>We recommend using the `Telephone-Number` attribute. | Type `phone` in the **Outgoing Claim Type** field. |
-| Profile image | Displayed in {{yandex-cloud}} services.<br>We recommend using the `thumbnailPhoto` attribute. [How to add a profile image](#add-avatar) | Type `thumbnailPhoto` in the **Outgoing Claim Type** field. |
+| Last name | Displayed in {{ yandex-cloud }} services. We recommend using the **Surname** attribute. | Surname |
+| Name | Displayed in {{ yandex-cloud }} services. We recommend using the **Given-Name** attribute. | Given Name |
+| Full name | Displayed in {{ yandex-cloud }} services. Example: John Smith.<br>We recommend using the **Display-Name** attribute. | Name |
+| Email | Used to send notifications from {{ yandex-cloud }} services. Example: `smith@example.com`<br>We recommend using the **E-Mail-Address** attribute. | E-Mail Address |
+| Phone | Used to send notifications from {{ yandex-cloud }} services. Example: +71234567890<br>We recommend using the `Telephone-Number` attribute. | Type `phone` in the **Outgoing Claim Type** field. |
+| Profile image | Displayed in {{ yandex-cloud }} services.<br>We recommend using the `thumbnailPhoto` attribute. [How to add a profile image](#add-avatar) | Type `thumbnailPhoto` in the **Outgoing Claim Type** field. |
 
 {% note warning %}
 
@@ -425,9 +425,9 @@ To set up a mapping between the user data and Outgoing Claim Types:
 
       In the **Outgoing Claim Type** column, select **Name ID**.
 
-   1. For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{link-console-support}}), add the user's email address (the **E-Mail Address** claim type) or name (the **Name** claim type).
+   1. For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), add the user's email address (the **E-Mail Address** claim type) or name (the **Name** claim type).
 
-   1. To pass the user's first and last name separately, add the **Given Name** and **Surname** claim types.
+   1. To provide the user's first and last name separately, add the **Given Name** and **Surname** claim types.
 
    1. To add the user's phone number or [profile image](#add-avatar), enter the `phone` or `thumbnailPhoto` type, respectively, in the **Outgoing Claim Type** field.
 
@@ -472,7 +472,7 @@ The `thumbnailPhoto` attribute supports files of up to 100 KB. The recommended f
       jones, C:\Photo\jones.jpg
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       Import-Csv <CSV file path> |%{Set-ADUser -Identity $_.AD_username -Replace @{thumbnailPhoto=([byte[]](Get-Content $_.Photo -Encoding byte))}}
@@ -492,13 +492,13 @@ To add federation users to an organization:
 
 - Management console
 
-   1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
+   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 
    1. Select the identity federation to add users from.
 

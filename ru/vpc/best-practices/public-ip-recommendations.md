@@ -36,16 +36,14 @@
 * [Настройка VPN с облаком AWS](https://github.com/yandex-cloud/yc-solution-library-for-aws/tree/main/VPN/modules/vpn).
 
 
-
 #### Используйте {{ interconnect-name }} {#cic}
 
 Свяжите вашу локальную сетевую инфраструктуру с облачной с помощью сервиса {{ interconnect-name }}. Это позволит не использовать публичные IP-адресов как со стороны вашей сети, так и со стороны {{ yandex-cloud }}. Вместо этого вы сможете использовать внутренние IP-адреса из подсетей, диапазоны которых определите сами.
 
 Подробнее: 
 
-* [{#T}](../../interconnect/concepts/overview.md).
+* [Документация {{ interconnect-name }}](../../interconnect/index.yaml).
 * [Маршрутизация трафика с помощью {{ interconnect-name }}](../../interconnect/concepts/routing.md).
-
 
 
 #### Подключайтесь к ВМ через серийную консоль {#serial-console}

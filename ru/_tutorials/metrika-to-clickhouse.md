@@ -33,12 +33,12 @@ noIndex: true
 
 1. [Создайте эндпоинт](../data-transfer/operations/endpoint/index.md#create) для приемника:
 
-    * **Тип базы данных** — `{{ CH }}`.
-    * **Параметры эндпоинта** → **Настройки подключения** — `Кластер {{ mch-name }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ CH }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`.
 
         Выберите кластер-приемник из списка и укажите [настройки подключения](../data-transfer/operations/endpoint/target/clickhouse.md) к нему.
 
-1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа _{{ dt-type-repl }}_, использующий созданные эндпоинты.
+1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
 1. [Активируйте](../data-transfer/operations/transfer.md#activate) его.
 
 Трансфер не переносит исторические данные, только текущие. Если трансфер деактивировать и активировать снова:
@@ -46,13 +46,13 @@ noIndex: true
 1. Данные полученные счетчиком {{ metrika }}, пока трансфер был деактивирован, перенесены не будут.
 2. В соответствии с политикой очистки, выбранной в эндпоинте-приемнике, существующие таблицы с данными будут:
 
-    * **Drop** — удалены вместе с данными и созданы заново с теми же именами.
-    * **Truncate** — очищены от существующих данных, но сами таблицы и их схемы останутся.
-    * **Не очищать** — использоваться для дальнейшей записи данных.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}** — удалены вместе с данными и созданы заново с теми же именами.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}** — очищены от существующих данных, но сами таблицы и их схемы останутся.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}** — использоваться для дальнейшей записи данных.
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Убедитесь, что в базу данных {{ mch-name }} перенеслись данные из счетчика {{ metrika }}:
 

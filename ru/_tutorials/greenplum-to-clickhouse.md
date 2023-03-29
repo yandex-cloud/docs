@@ -70,9 +70,9 @@
 
 1. [Создайте эндпоинт-приемник](../data-transfer/operations/endpoint/target/clickhouse.md) типа `{{ CH }}`.
 
-1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа [{{ dt-type-copy }}](../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты.
+1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа [{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}](../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты.
 
-    Для этой пары эндпоинтов репликация недоступна, но вы можете настроить регулярное копирование при создании трансфера. Для этого в блоке **Параметры трансфера** в поле **Копирование** выберите **Регулярно**, затем укажите интервал копирования. Трансфер будет автоматически активироваться через указанный промежуток времени.
+    Для этой пары эндпоинтов репликация недоступна, но вы можете настроить регулярное копирование при создании трансфера. Для этого в блоке **{{ ui-key.yc-data-transfer.data-transfer.transfer_service.transfer_service.HeaderTitle.title }}** в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** выберите **Регулярно**, затем укажите интервал копирования. Трансфер будет автоматически активироваться через указанный промежуток времени.
 
     {% note warning %}
 
@@ -99,7 +99,7 @@
     (44, 'User5');
     ```
 
-1. [Активируйте трансфер](../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус {{ dt-status-finished }}.
+1. [Активируйте трансфер](../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Чтобы проверить корректность переноса данных, подключитесь к кластеру-приемнику {{ mch-name }} и убедитесь, что колонки в таблице `x_tab` в базе `db1` совпадают с колонками таблицы `x_tab` в базе источника:
 
    ```sql
@@ -125,7 +125,7 @@
     UPDATE x_tab SET name = 'Key3' WHERE id = 42;
     ```
 
-1. Повторно [активируйте трансфер](../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус {{ dt-status-finished }}.
+1. Повторно [активируйте трансфер](../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Убедитесь, что в таблице `x_tab` на приемнике {{ CH }} отобразились изменения:
 
     ```sql
@@ -145,7 +145,7 @@
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-* Убедитесь, что трансфер находится в статусе {{ dt-status-finished }} и [удалите](../data-transfer/operations/transfer.md#delete) его.
+* Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../data-transfer/operations/transfer.md#delete) его.
 * [Удалите эндпоинт-источник и эндпоинт-приемник](../data-transfer/operations/endpoint/index.md#delete).
 * Удалите кластеры:
 

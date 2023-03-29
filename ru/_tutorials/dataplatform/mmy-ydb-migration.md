@@ -106,11 +106,11 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `YDB`.
-    * **Параметры эндпоинта**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-        * **Настройки подключения** → **База данных** — выберите базу данных {{ ydb-name }} из списка.
-        * **ID сервисного аккаунта** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
 
 1. Создайте эндпоинт для источника и трансфер:
 
@@ -120,12 +120,12 @@
 
         1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-            * **Тип базы данных** — `{{ MY }}`.
-            * **Параметры эндпоинта** → **Настройки подключения** — `Кластер {{ mmy-name }}`.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MY }}`.
+            * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
                 Выберите кластер-источник из списка и укажите настройки подключения к нему.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     * С помощью {{ TF }}
@@ -153,7 +153,7 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Убедитесь, что в базу данных {{ ydb-name }} перенеслись данные из кластера-источника {{ mmy-name }}:
 
@@ -164,7 +164,7 @@
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
         1. В списке сервисов выберите **{{ ydb-name }}**.
         1. Выберите базу из списка.
-        1. Перейдите на вкладку **Навигация**.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Проверьте, что база данных {{ ydb-name }} содержит таблицу `<имя базы данных кластера-источника>_measurements` с тестовыми данными.
 
     * CLI
@@ -195,7 +195,7 @@
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
         1. В списке сервисов выберите **{{ ydb-name }}**.
         1. Выберите базу из списка.
-        1. Перейдите на вкладку **Навигация**.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Проверьте, что в таблицу `<имя базы данных кластера-источника>_measurements` добавились новые данные.
 
     * CLI

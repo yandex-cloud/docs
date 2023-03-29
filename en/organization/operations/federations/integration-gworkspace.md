@@ -12,7 +12,7 @@ Setting up authentication includes the following steps:
 
 1. [Authentication](#test-auth).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 To use the instructions in this section, you'll need a subscription to Google Workspace services and a verified domain to set up your SAML application for.
 
@@ -58,12 +58,12 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
    1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
 
-   1. In the **IdP Issuer** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. Link format:
+   1. In the **IdP Issuer** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
       ```
       https://accounts.google.com/o/saml2?idpid=<SAML app ID>
       ```
 
-   1. In the **Link to the IdP login page** field, enter the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. Link format:
+   1. In the **Link to the IdP login page** field, enter the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
       ```
       https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
       ```
@@ -100,11 +100,11 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
       * `organization-id`: Your organization ID.
 
-      * `auto-create-account-on-login`: A flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-         
-         This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+      * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+
+         If this option is disabled, users who are not added to the organization can not log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -118,7 +118,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
       * `sso-url`: URL of the page that the browser redirects the user to for authentication.
 
-         Use the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. Link format:
+         Use the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
          https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
@@ -129,7 +129,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 - API
 
    1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create a federation in.
-   1. Create a file with the request body (for example, `body.json`).
+   1. Create a file with the request body, e.g., `body.json`:
 
       ```json
       {
@@ -152,23 +152,23 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
       * `organizationId`: Organization ID.
 
-      * `autoCreateAccountOnLogin`: A flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+      * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is disabled, users who are not added to the organization can not log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
 
       * `issuer`: IdP server ID to be used for authentication.
 
-         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. Link format:
+         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
          https://accounts.google.com/o/saml2?idpid=<SAML app ID>
          ```
       * `ssoUrl`: URL of the page that the browser redirects the user to for authentication.
 
-         Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace ** Google IdP information** page. Link format:
+         Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
          https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
@@ -179,17 +179,17 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Specify the federation parameters in the configuration file:
 
       * `name`: Federation name. The name must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: Organization ID.
-      * `labels`: A set of key/value label pairs assigned to the federation.
+      * `labels`: Set of key/value label pairs assigned to the federation.
       * `issuer`: IdP server ID to be used for authentication.
 
-         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. Link format:
+         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
          https://accounts.google.com/o/saml2?idpid=<SAML app ID>
@@ -198,24 +198,24 @@ Don't close the page where you create an app in Google Workspace: you'll get the
       * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
       * `sso_url`: URL of the page that the browser redirects the user to for authentication.
 
-         Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace ** Google IdP information** page. Link format:
+         Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
          https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
          ```
 
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
-      * `auto_create_account_on_login`: A flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+      * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
-      * `case_insensitive_name_ids`: A flag that indicates if usernames are case-insensitive.
-         If the option is enabled, the IDs of federated users' names are case-insensitive.
+         If this option is disabled, users who are not added to the organization can not log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+      * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
+         If the option is enabled, the IDs of federated user names are case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
             If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -231,26 +231,26 @@ Don't close the page where you create an app in Google Workspace: you'll get the
       }
       ```
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Create a federation.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
          ```
 
-      1. Confirm that you want to create the federation.
+      1. Confirm you want to create a federation.
 
       This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
 
@@ -264,7 +264,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 - Management console
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
@@ -329,7 +329,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% note tip %}
 
-To ensure that authentication isn't interrupted when the certificate expires, we recommend adding several certificates to the federation: the current one and the ones that will be used after. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
+To ensure the authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to the federation, i.e. both the current one and those to use afterwards. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
 
 {% endnote %}
 
@@ -343,7 +343,7 @@ Obtain and save this link:
 
    1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
-   1. Copy the ID of the federation you're configuring access for.
+   1. Copy the ID of the federation you are configuring access for.
 
 1. Generate a link using this ID:
 
@@ -406,7 +406,7 @@ Once you've created a federation and received a link to log in to the console, c
 >
 > ![image](../../../_assets/organization/google-saml-mapping.png)
 
-### Add users to your organization {#add-users}
+### Add users to your organization {#add-users-to-org}
 
 If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), federated users must be manually added to your organization.
 
@@ -418,7 +418,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
 - Management console
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator account.
+   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -455,7 +455,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
       * `id`: Federation ID.
 
-      * `name-ids`: User's Name IDs.
+      * `name-ids`: User name IDs.
 
 - API
 
@@ -494,7 +494,7 @@ When you finish configuring the server, test that everything works properly:
 
 1. Enter your credentials and click **Sign in**.
 
-If the authentication is successful, the IdP server redirects you back to the console login link and then to the [management console]({{ link-console-main }}) home page. In the upper-right corner, you can see that you are logged in to the console as a federated user.
+If the authentication is successful, the IdP server will redirect you back to the console login link, and then to the [management console]({{ link-console-main }}) home page. In the upper-right corner, you can see that you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

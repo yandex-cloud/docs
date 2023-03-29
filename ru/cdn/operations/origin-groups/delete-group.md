@@ -67,6 +67,10 @@
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+- API
+
+  Воспользуйтесь методом REST API [delete](../../api-ref/OriginGroup/delete.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Delete](../../api-ref/grpc/origin_group_service.md#Delete).
+
 {% endlist %}
 
 ## Удаление нескольких групп источников {#summ-deletion-groups}

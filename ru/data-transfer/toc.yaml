@@ -106,6 +106,8 @@ items:
             href: tutorials/mkf-to-ydb.md
           - name: Поставка данных из {{ mkf-full-name }} в {{ yds-full-name }}
             href: tutorials/mkf-to-yds.md
+          - name: Поставка данных из {{ mkf-full-name }} в {{ mgp-full-name }}
+            href: tutorials/managed-kafka-to-greenplum.md
           - name: Поставка данных из {{ GP }} в {{ CH }}
             href: tutorials/greenplum-to-clickhouse.md
           - name: Поставка данных из {{ GP }} в {{ PG }}
@@ -148,6 +150,10 @@ items:
               Асинхронная репликация данных из {{ mpg-full-name }} в {{
               yds-full-name }}
             href: tutorials/mpg-to-yds.md
+          - name: >-
+              Асинхронная репликация данных из {{ mmy-full-name }} в {{
+              yds-full-name }}
+            href: tutorials/mmy-to-yds.md
           - name: Асинхронная репликация данных из {{ metrika }} в {{ CH }}
             stage: preview
             href: tutorials/metrika-to-clickhouse.md
@@ -241,4 +247,6 @@ items:
                 href: api-ref/Transfer/update.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/data-transfer

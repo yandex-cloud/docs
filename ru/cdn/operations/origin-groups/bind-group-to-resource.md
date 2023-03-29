@@ -171,7 +171,11 @@
   1. Создайте группу источников.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-     
+
+- API
+
+  Чтобы подключить группу источников при создании ресурса, воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create).
+
 {% endlist %}
 
 ## Подключение группы источников при изменении настроек ресурса {#connect-while-changing}
@@ -354,6 +358,10 @@
      ```
 
      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+
+- API
+
+  Чтобы подключить группу источников при изменении настроек ресурса, воспользуйтесь методом REST API [update](../../api-ref/Resource/update.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update).
 
 {% endlist %}
 

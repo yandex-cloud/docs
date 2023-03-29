@@ -15,16 +15,16 @@ If the check is not passed within one week, the certificate status becomes `Inva
 ## Certificate challenge statuses {#status}
 
 Certificate checks can have the following statuses:
-* `Pending`: The check is waiting to be completed. {{ certificate-manager-name }} determines whether the check is complete.
-* `Processing`: The check is awaiting approval from Let's Encrypt.
-* `Valid`: The check is complete.
-* `Invalid`: The rights check for a specific domain failed or the one-week period allocated for the check expired.
+* `Pending`: Waiting to complete. {{ certificate-manager-name }} determines whether the check is complete.
+* `Validating`: Pending approval from Let's Encrypt.
+* `Valid`: Complete.
+* `Invalid`: Either the check of rights for a specific domain failed or the one-week period allocated for the check expired.
 
 ## HTTP {#http}
 
 {% note info %}
 
-You can't use the `HTTP` challenge type for [Wildcard certificates](https://en.wikipedia.org/wiki/Wildcard_certificate).
+You cannot use the `HTTP` challenge type for [Wildcard certificates](https://en.wikipedia.org/wiki/Wildcard_certificate).
 
 {% endnote %}
 

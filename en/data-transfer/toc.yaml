@@ -29,6 +29,9 @@ items:
                 href: operations/endpoint/source/eventhub.md
               - name: Greenplum®
                 href: operations/endpoint/source/greenplum.md
+              - name: '{{ metrika-endpoint }}'
+                stage: preview
+                href: operations/endpoint/source/metrika.md
               - name: MongoDB
                 href: operations/endpoint/source/mongodb.md
               - name: MySQL
@@ -49,6 +52,8 @@ items:
                 href: operations/endpoint/target/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md
+              - name: ElasticSearch
+                href: operations/endpoint/target/elasticsearch.md
               - name: Greenplum®
                 href: operations/endpoint/target/greenplum.md
               - name: MongoDB
@@ -57,6 +62,8 @@ items:
                 href: operations/endpoint/target/mysql.md
               - name: Object Storage
                 href: operations/endpoint/target/object-storage.md
+              - name: OpenSearch
+                href: operations/endpoint/target/opensearch.md
               - name: PostgreSQL
                 href: operations/endpoint/target/postgresql.md
               - name: '{{ ydb-full-name }}'
@@ -67,7 +74,7 @@ items:
         href: operations/db-actions.md
       - name: Monitoring the transfer status
         href: operations/monitoring.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
@@ -125,6 +132,9 @@ items:
               Asynchronously replicating data from {{ mpg-full-name }} to {{
               ydb-full-name }}
             href: tutorials/mpg-to-ydb.md
+          - name: Asynchronously replicating data from {{ metrika } to {{ CH }}
+            stage: preview
+            href: tutorials/metrika-to-clickhouse.md
       - name: Saving data streams
         items:
           - name: Saving a {{ yds-full-name }} data stream in {{ CH }}

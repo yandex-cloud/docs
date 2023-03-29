@@ -8,12 +8,6 @@
 * [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) на облаке; 
 * `billing.accounts.owner` или `editor` в платежном аккаунте. Подробнее о ролях читай в разделе [Управление доступом](../security/index.md#role-list).
 
-{% note info %}
-
- Если платежный аккаунт находится в статусе `SUSPENDED`, то при привязке облако также будет автоматически переведено из любого статуса в статус `SUSPENDED`.
-
-{% endnote %}
-
 ## Как привязать облако
 
 Чтобы привязать облако или перенести существующее:

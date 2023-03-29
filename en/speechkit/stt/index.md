@@ -4,7 +4,7 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
-The service is available at `{{ api-host-sk-stt }}`.
+The service is available at `{{ api-host-sk-stt }}:443`.
 
 ## Recognition methods {#stt-ways}
 

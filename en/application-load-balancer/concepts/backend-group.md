@@ -8,6 +8,8 @@ A backend group defines the settings based on which the L7 load balancer sends t
 
 The backend group includes a list of backends. Each backend, depending on its [type](#types), points to resources that act as application endpoints: VMs in target groups or a bucket with files. You can assign a relative weight to each backend. Traffic between backends is distributed proportionally to these weights. Protocols, health checks, and traffic distribution are configured separately for each backend. By using a group of multiple backends, you can split traffic between different application versions when running updates or experiments.
 
+{% include [backend-group-deletion-restriction](../../_includes/application-load-balancer/backend-group-deletion-restriction.md) %}
+
 ## Backend group types {#group-types}
 
 The type of a backend group determines what traffic the load balancer will send to it:

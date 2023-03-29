@@ -693,8 +693,8 @@ items:
         href: concepts/window-function-tutorial.md
       - name: LOD-выражения и управление фильтрацией в агрегатных функциях
         href: concepts/lod-aggregation.md
-  - name: Образовательные проекты
-    href: public-talks/educational-projects.md
+  - name: Обучающие курсы
+    href: training.md
   - name: Решение проблем
     expanded: true
     items:

@@ -40,3 +40,6 @@ links:
   - title: Вопросы и ответы
     description: Ответы на часто задаваемые вопросы
     href: qa/
+  - title: Обучающие курсы
+    description: Информация о доступных программах обучения
+    href: training

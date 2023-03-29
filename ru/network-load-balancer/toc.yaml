@@ -131,4 +131,6 @@ items:
                 href: api-ref/Operation/get.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/network-load-balancer

@@ -412,10 +412,10 @@
 Данные пользователя | Комментарий | Атрибуты приложений
 ------------------- | ----------- | -------------------
 Уникальный идентификатор пользователя (Name ID) | Обязательный атрибут.<br> По умолчанию в Azure AD в качестве источника атрибута используется User Principal Name (UPN) в формате `<login>_<domain>#EXT#@<supplier>.onmicrosoft.com`. При добавлении пользователей в федерацию вручную такой формат Name ID не поддерживается. Рекомендуется в Azure AD изменить источник атрибута: вместо UPN `user.userprincipalname` выбрать адрес электронной почты `user.mail`.| Утверждение **Уникальный идентификатор пользователя (ID)**
-Фамилия | Отображается в сервисах {{yandex-cloud}}.<br> Ограничение значения по длине: {{saml-limit-last-name}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
-Имя | Отображается в сервисах {{yandex-cloud}}.<br> Ограничение значения по длине: {{saml-limit-first-name}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-Полное имя | Отображается в сервисах {{yandex-cloud}}.<br>Пример: `Иван Иванов`.<br> Ограничение значения по длине: {{saml-limit-display-name}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
-Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример:&nbsp;`ivanov@example.com`.<br> Ограничение значения по длине: {{saml-limit-email}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+Фамилия | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+Имя | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+Полное имя | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: `Иван Иванов`.<br> Ограничение значения по длине: {{ saml-limit-display-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+Почта | Используется для отправки уведомлений из сервисов {{ yandex-cloud }}.<br>Пример:&nbsp;`ivanov@example.com`.<br> Ограничение значения по длине: {{ saml-limit-email }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
 {% note warning %}
 

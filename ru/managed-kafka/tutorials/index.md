@@ -13,6 +13,7 @@
 * [{#T}](./cdc/data-transfer-ydb.md)
 * [{#T}](./send-data-to-mch.md)
 * [{#T}](./use-ksqldb-with-mkf.md)
+* [{#T}](./managed-kafka-to-greenplum.md)
 * [{#T}](./mkf-to-mch-migration.md)
 * [{#T}](./mkf-ydb-stream.md)
 * [{#T}](./mkf-yds-stream.md)

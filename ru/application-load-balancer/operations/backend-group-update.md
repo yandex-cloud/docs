@@ -155,6 +155,10 @@ description: "Пошаговая инструкция по изменению г
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
+- API
+
+  Чтобы изменить базовые параметры группы, воспользуйтесь методом REST API [update](../api-ref/BackendGroup/update.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update).
+
 {% endlist %}
 
 ## Добавить бэкенд в группу {#add-backend}
@@ -325,6 +329,10 @@ description: "Пошаговая инструкция по изменению г
      ```bash
      yc alb backend-group get --name <имя группы бэкендов>
      ```
+
+- API
+
+  Чтобы изменить базовые параметры группы, воспользуйтесь методом REST API [addBackend](../api-ref/BackendGroup/addBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/AddBackend](../api-ref/grpc/backend_group_service.md#AddBackend).
 
 {% endlist %}
 
@@ -500,6 +508,10 @@ description: "Пошаговая инструкция по изменению г
      yc alb backend-group get --name <имя группы бэкендов>
      ```
 
+- API
+
+  Чтобы изменить параметры бэкенда в группе, воспользуйтесь методом REST API [updateBackend](../api-ref/BackendGroup/updateBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/UpdateBackend](../api-ref/grpc/backend_group_service.md#UpdateBackend).
+
 {% endlist %}
 
 ## Удалить бэкенд из группы {#delete-backend}
@@ -599,5 +611,9 @@ description: "Пошаговая инструкция по изменению г
      ```bash
      yc alb backend-group get --name <имя группы бэкендов>
      ```
+
+- API
+
+  Воспользуйтесь методом REST API [removeBackend](../api-ref/BackendGroup/removeBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/RemoveBackend](../api-ref/grpc/backend_group_service.md#RemoveBackend).
 
 {% endlist %}

@@ -131,4 +131,6 @@ items:
     href: public-talks.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/message-queue

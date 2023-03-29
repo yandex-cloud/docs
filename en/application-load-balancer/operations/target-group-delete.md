@@ -5,6 +5,12 @@ description: "To delete a target group, in the management console, select the fo
 
 # Delete an {{ alb-name }} target group
 
+{% note warning %}
+
+{% include [target-group-deletion-restriction](../../_includes/application-load-balancer/target-group-deletion-restriction.md) %}
+
+{% endnote %}
+
 To delete a target group:
 
 {% list tabs %}
@@ -32,7 +38,7 @@ To delete a target group:
       yc alb target-group delete --help
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       yc alb target-group delete <target group name or ID>
@@ -48,7 +54,7 @@ To delete a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and delete the fragment with the target group description.
 
       Sample target group description in the {{ TF }} configuration:

@@ -126,4 +126,6 @@ items:
     href: pricing.md
   - name: Публичные материалы
     href: public_talks.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/query

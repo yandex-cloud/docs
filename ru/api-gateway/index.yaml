@@ -28,3 +28,6 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+  - title: Обучающие курсы
+    description: Информация о доступных программах обучения
+    href: training

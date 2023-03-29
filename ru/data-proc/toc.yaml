@@ -221,4 +221,6 @@ items:
         href: release-notes/images.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/data-proc

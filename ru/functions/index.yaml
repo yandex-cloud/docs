@@ -61,3 +61,6 @@ links:
   - title: Вопросы и ответы
     description: Ответы на частые вопросы о сервисе
     href: qa/
+  - title: Обучающие курсы
+    description: Информация о доступных программах обучения
+    href: training

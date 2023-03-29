@@ -1,13 +1,13 @@
 ---
 title: "How to delete an instance group"
-description: "Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ network-load-balancer-name }} target group, instances, and disks. To delete an instance group, open the folder page in the management console. Select the {{ compute-full-name }} service. On the Virtual machines page, go to the Instance groups tab.  Select Delete."
+description: "Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ network-load-balancer-name }} target group, instances, and disks. To delete an instance group, open the folder page in the management console. Select the {{ compute-full-name }} service. On the Virtual machines page, go to the Instance groups tab. Select Delete."
 ---
 
 # Delete an instance group
 
 {% note warning %}
 
-Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ network-load-balancer-full-name }} target group, instances, and disks.
+You cannot cancel an instance group's deletion or restore it. Along with the group, you delete the {{ network-load-balancer-name }} or {{ alb-name }} target group, VMs, and disks. You can not delete an instance group if it is a target group for a load balancer ({{ network-load-balancer-name }}) or a backend group ({{ alb-name }}).
 
 {% endnote %}
 
@@ -60,7 +60,7 @@ To delete an instance group:
 
    If you created an instance group using {{ TF }}, you can delete it:
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Delete resources using the command:
+   1. Delete resources using this command:
 
       ```bash
       terraform destroy
@@ -72,6 +72,6 @@ To delete an instance group:
 
       {% endnote %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
 {% endlist %}

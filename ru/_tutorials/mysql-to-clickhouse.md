@@ -120,19 +120,19 @@
 
     1. [Создайте эндпоинт для источника](../data-transfer/operations/endpoint/index.md#create):
 
-        * **Тип базы данных** — `{{ MY }}`.
-        * **Параметры эндпоинта** → **Настройки подключения** — `Кластер {{ mmy-name }}`.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MY }}`.
+        * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
             Выберите кластер-источник из списка и укажите настройки подключения к нему.
 
     1. [Создайте эндпоинт для приемника](../data-transfer/operations/endpoint/index.md#create):
 
-        * **Тип базы данных** — `{{ CH }}`.
-        * **Параметры эндпоинта** → **Настройки подключения** — `Кластер {{ mch-name }}`.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ CH }}`.
+        * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`.
 
             Выберите кластер-приемник из списка и укажите настройки подключения к нему.
 
-    1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
+    1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
     1. [Активируйте](../data-transfer/operations/transfer.md#activate) его.
 
 * С помощью {{ TF }}
@@ -157,7 +157,7 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Убедитесь, что в базу данных {{ mch-name }} перенеслись данные из кластера-источника {{ mmy-name }}:
 
@@ -224,7 +224,7 @@
 
     Столбец `__data_transfer_commit_time` необходим для работы движка ReplicatedReplacedMergeTree. Если запись удаляется или изменяется, в таблицу вставляется новая строка со значением в этом столбце. Запрос по одному первичному ключу возвращает несколько записей с разными значениями в столбце `__data_transfer_commit_time`.
 
-В статусе трансфера {{ dt-status-repl }} данные в источнике могут добавляться или удаляться. Чтобы обеспечить стандартное поведение команд SQL, когда первичный ключ указывает на единственную запись, дополните запросы к перенесенным таблицам в {{ CH }} конструкцией с фильтром по столбцу `__data_transfer_delete_time`. Например, для таблицы `x_tab`:
+В статусе трансфера **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}** данные в источнике могут добавляться или удаляться. Чтобы обеспечить стандартное поведение команд SQL, когда первичный ключ указывает на единственную запись, дополните запросы к перенесенным таблицам в {{ CH }} конструкцией с фильтром по столбцу `__data_transfer_delete_time`. Например, для таблицы `x_tab`:
 
 ```sql
 SELECT * FROM <имя базы данных {{ CH }}>.x_tab FINAL

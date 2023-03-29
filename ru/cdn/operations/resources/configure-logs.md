@@ -26,6 +26,10 @@
 
   1. Нажмите кнопку **Включить**.
 
+- API
+
+  Воспользуйтесь методом REST API [activate](../../api-ref/RawLogs/activate.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Activate](../../api-ref/grpc/raw_logs_service.md#Activate).
+
 {% endlist %}
 
 После включения статус выгрузки изменится с `NOT_ACTIVATED`  на `OK`.
@@ -52,6 +56,10 @@
 
   1. Укажите нужные параметры и нажмите **Сохранить**.
 
+- API
+
+  Воспользуйтесь методом REST API [update](../../api-ref/RawLogs/update.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Update](../../api-ref/grpc/raw_logs_service.md#Update).
+
 {% endlist %}
 
 ## Отключение выгрузки {#disabling}
@@ -71,5 +79,9 @@
   1. Перейдите на вкладку **Выгрузка логов**.
 
   1. В правом верхнем углу нажмите **Выключить**.
+
+- API
+
+  Воспользуйтесь методом REST API [deactivate](../../api-ref/RawLogs/deactivate.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Deactivate](../../api-ref/grpc/raw_logs_service.md#Deactivate).
 
 {% endlist %}

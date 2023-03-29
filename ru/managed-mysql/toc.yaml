@@ -95,6 +95,8 @@ items:
         href: tutorials/mmy-ydb-migration.md
       - name: Миграция базы данных из {{ mmy-name }} в {{ objstorage-full-name }}
         href: tutorials/mmy-objs-migration.md
+      - name: Асинхронная репликация данных из {{ mmy-name }} в {{ yds-full-name }}
+        href: tutorials/mmy-to-yds.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -249,4 +251,6 @@ items:
         href: qa/configuring.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/managed-mysql

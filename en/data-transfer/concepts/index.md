@@ -44,11 +44,7 @@ If subnets are specified for endpoints, they must be hosted in the same [availab
 
 ### Transfer types {#transfer-type}
 
-The following types of transfers are available:
-
-* _{{ dt-type-copy }}_: Transfers a snapshot of the source to the target.
-* _{{ dt-type-repl }}_: Continuously receives changes from the source and applies them to the target. Initial data synchronization is not performed.
-* _{{ dt-type-copy-repl }}_: Transfers the current state of the source to the target and keeps it up-to-date.
+{% include [include](../../_includes/data-transfer/transfer-types.md) %}
 
 For more information about the differences between transfer types, see [{#T}](./transfer-lifecycle.md).
 

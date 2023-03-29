@@ -70,8 +70,8 @@
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
         1. В списке сервисов выберите **{{ ydb-name }}**.
-        1. Выберите базу из списка и перейдите на вкладку **Навигация**.
-        1. Нажмите кнопку **SQL-запрос**.
+        1. Выберите базу из списка и перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
 
     * {{ ydb-short-name }} CLI
 
@@ -117,22 +117,22 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `YDB`](../../data-transfer/operations/endpoint/source/ydb.md):
 
-    * **Настройки подключения**:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
 
-        * **База данных** — выберите базу данных источника {{ ydb-name }} из списка.
-        * **ID сервисного аккаунта** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных источника {{ ydb-name }} из списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
 
-    * **Список включенных путей**:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**:
 
-        * **Путь 1** — `test`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.array_item_label }} 1** — `test`.
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `{{ yds-full-name }}`](../../data-transfer/operations/endpoint/source/data-streams.md):
 
-    **Настройки подключения**:
+    **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
 
-    * **База данных** — выберите базу данных {{ ydb-name }} для потока данных приемника из списка.
-    * **Поток** — укажите имя потока {{ yds-name }}.
-    * **ID сервисного аккаунта** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} для потока данных приемника из списка.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
 
 1. Создайте трансфер:
 
@@ -140,7 +140,7 @@
 
     * Вручную
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-repl }}_, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     * С помощью {{ TF }}
@@ -169,7 +169,7 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. [Вставьте тестовые данные](../../ydb/operations/crud.md) в таблицу `test` в базе данных источника {{ ydb-name }}:
 

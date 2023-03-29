@@ -12,6 +12,8 @@
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
+* [{#T}](managed-kafka-to-greenplum.md)
+* [{#T}](mkf-ydb-stream.md)
 * Использование реестра схем форматов данных с {{ mkf-full-name }}:
   * [Управление схемами данных в {{ mkf-full-name }}](schema-registry-overview.md)
   * [{#T}](managed-schema-registry.md)
@@ -74,6 +76,7 @@
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](mmy-objs-migration.md)
+* [{#T}](mmy-to-yds.md)
 
 
 * [{#T}](sqoop-mmy.md)

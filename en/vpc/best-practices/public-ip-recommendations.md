@@ -43,7 +43,7 @@ Connect your local network and cloud infrastructures using {{ interconnect-name 
 
 Read more:
 
-* [{#T}](../../interconnect/concepts/overview.md).
+* [{{ interconnect-name }} documentation](../../interconnect/index.yaml).
 * [Traffic routing with {{ interconnect-name }}](../../interconnect/concepts/routing.md).
 
 

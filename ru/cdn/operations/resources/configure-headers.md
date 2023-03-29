@@ -195,6 +195,10 @@
      yc cdn resource list
      ```
 
+- API
+
+  Воспользуйтесь методом REST API [update](../../api-ref/Resource/update.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update).
+
 {% endlist %}
 
 {% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}

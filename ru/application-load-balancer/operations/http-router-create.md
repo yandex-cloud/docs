@@ -196,4 +196,8 @@
         yc alb http-router get <идентификатор http-роутера>
         ```
 
+- API
+
+  Воспользуйтесь методом REST API [create](../api-ref/HttpRouter/create.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Create](../api-ref/grpc/http_router_service.md#Create).
+
 {% endlist %}

@@ -44,6 +44,6 @@
 
 - API
 
-  Используйте вызов gRPC API [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) или метод REST API [get](../api-ref/LoadBalancer/create.md). Идентификатор лог-группы будет указан в поле `log_group_id`.
+  Воспользуйтесь методом REST API [get](../api-ref/LoadBalancer/get.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get). Идентификатор лог-группы будет указан в поле `log_group_id`.
 
 {% endlist %}

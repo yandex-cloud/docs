@@ -4,6 +4,8 @@ An HTTP router defines the routing rules for HTTP requests to [backend groups](b
 
 You can only set HTTP routers for [listeners](application-load-balancer.md#listener) of the **HTTP** type. If a listener accepts <q>pure</q> TCP traffic (of the **Stream** type), a backend group is explicitly specified for it.
 
+{% include [http-router-deletion-restriction](../../_includes/application-load-balancer/http-router-deletion-restriction.md) %}
+
 Using HTTP router settings, you can modify request and response headers and generate small static responses directly in the load balancer. You can create an empty HTTP router and then add routes to it.
 
 Routes inside an HTTP router are combined in [virtual hosts](#virtual-host). Routing is a two-step process.

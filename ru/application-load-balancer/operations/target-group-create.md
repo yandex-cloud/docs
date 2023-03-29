@@ -103,4 +103,8 @@ description: "Для создания целевой группы {{ alb-full-na
       yc alb target-group list
       ```
 
+- API
+
+  Воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create).
+
 {% endlist %}

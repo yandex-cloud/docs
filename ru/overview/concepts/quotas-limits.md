@@ -82,11 +82,9 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 
 
-
 ### {{ interconnect-full-name }} {#interconnect}
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
-
 
 
 
