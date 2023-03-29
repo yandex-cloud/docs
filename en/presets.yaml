@@ -406,6 +406,7 @@ default:
   CK: ClickHouse Keeper
   ZK: ZooKeeper
   metrika: Yandex Metrica
+  metrika-endpoint: Metrica
   DS: YDS
   ssms: SQL Server Management Studio
   tag-con: <code><b><small>Management console</small></b></code>
@@ -714,9 +715,9 @@ default:
   ml-project-size: 10 GB
   jlab: Jupyter
   ds-api-addr: datasphere.api.cloud.yandex.net:443
-  api-host-sk: api.cloud.yandex.net:443
-  api-host-sk-stt: stt.api.cloud.yandex.net:443
-  api-host-sk-tts: tts.api.cloud.yandex.net:443
+  api-host-sk: api.cloud.yandex.net
+  api-host-sk-stt: stt.api.cloud.yandex.net
+  api-host-sk-tts: tts.api.cloud.yandex.net
   speechkit-stt-alias: speechkit.stt.stable
   speechkit-tts-alias: speechkit.tts.stable
   mp-test-product-id: f2e4tmlj4qqciunhr7e6
@@ -41018,6 +41019,18 @@ default:
           button_create-key: Create key
           button_create-key-new: Create new key
           label_no-symmetric-key: Not selected
+      data-streams:
+        label_data-introspection: Data viewer
+      data-transfer:
+        forms:
+          label_source-type: Source
+          label_target-type: Target
+          label-database_type: Database type
+          section-endpoint: Endpoint parameters
+        label_connector-status-DONE: Completed
+        label_connector-status-RUNNING: Replicating
+        label_connector-status-STOPPED: Stopped
+        label_endpoints: Endpoints
       iam:
         cloud:
           folders-create:
@@ -41032,6 +41045,11 @@ default:
       kms:
         symmetric-keys:
           button_create: Create
+      mdb:
+        forms:
+          database_field_name: DB name
+          database_field_user-login: Username
+          database_field_user-password: Password
       storage:
         bucket:
           button_action-delete: Delete
@@ -41084,6 +41102,7 @@ default:
             field_size-limit: Max size
             label_size-limit-disabled: No limit
           switch_encryption: Encryption
+          switch_files: Objects
           switch_https: HTTPS
           switch_lifecycle: Lifecycle
           switch_policy: Access policy
@@ -41113,6 +41132,280 @@ default:
         permissions-dialog:
           button_save: Save
           label_title: ACL editing
+      ydb:
+        browse:
+          button_sql-query: New SQL query
+          dialogs:
+            tooltip_create_pk: Primary key
+          info:
+            column_name: Name
+            column_type: Type
+        database:
+          switch_browse: Navigation
+    yc-data-transfer:
+      data-transfer:
+        console:
+          form:
+            clickhouse:
+              console:
+                form:
+                  clickhouse:
+                    ClickHouseConnection:
+                      connection_type:
+                        title: Connection type
+                      database:
+                        title: Database
+                      password:
+                        title: Password
+                      user:
+                        title: User
+                    ClickHouseConnectionType:
+                      mdb_cluster_id:
+                        title: Managed Service for ClickHouse cluster
+                    ClickHouseSource:
+                      connection:
+                        title: Connection settings
+                    ClickHouseTarget:
+                      advanced_settings:
+                        title: Advanced settings
+                      cleanup_policy:
+                        title: Cleanup policy
+                      connection:
+                        title: Connection settings
+            common:
+              console:
+                form:
+                  common:
+                    CleanupPolicy:
+                      DISABLED:
+                        title: Don't cleanup
+                      DROP:
+                        title: Drop
+                      TRUNCATE:
+                        title: Truncate
+                    ColSchema:
+                      key:
+                        title: Key
+                      name:
+                        title: Name
+                      type:
+                        title: Type
+                    ConvertRecordOptions:
+                      data_schema:
+                        title: Data scheme
+                      format:
+                        title: Data format
+                    DataSchema:
+                      fields:
+                        title: Field list
+                      json_fields:
+                        title: JSON specification
+            greenplum:
+              console:
+                form:
+                  greenplum:
+                    GpSourceAdvancedSettings:
+                      service_schema:
+                        title: Service object schema
+                    GreenplumConnection:
+                      connection_type:
+                        title: Connection type
+                      database:
+                        title: Database
+                      password:
+                        title: Password
+                      user:
+                        title: User
+                    GreenplumConnectionType:
+                      mdb_cluster_id:
+                        title: Managed Service for Greenplum cluster
+            kafka:
+              console:
+                form:
+                  kafka:
+                    KafkaSource:
+                      advanced_settings:
+                        title: Advanced settings
+                      connection:
+                        title: Connection settings
+                    KafkaSourceAdvancedSettings:
+                      converter:
+                        title: Conversion rules
+                    KafkaSourceConnection:
+                      connection_type:
+                        title: Connection type
+                      topic_name:
+                        title: Topic full name
+                    KafkaTarget:
+                      connection:
+                        title: Connection settings
+                    KafkaTargetConnection:
+                      connection_type:
+                        title: Connection type
+                      topic_settings:
+                        title: Topic
+                    KafkaTargetTopic:
+                      topic_name:
+                        title: Topic full name
+                    KafkaTargetTopicSettings:
+                      topic_prefix:
+                        title: Topic prefix
+                      topic:
+                        title: Topic full name
+                    ManagedKafka:
+                      auth:
+                        title: Authentication
+                    ManagedKafkaSASLAuth:
+                      password:
+                        title: Password
+                      user:
+                        title: Username
+            logbroker:
+              console:
+                form:
+                  logbroker:
+                    ParserConfigCommon:
+                      parser_config_audit_trails_v1:
+                        title: AuditTrails.v1 parser
+            mysql:
+              console:
+                form:
+                  mysql:
+                    MysqlConnection:
+                      connection_type:
+                        title: Connection type
+                      database:
+                        title: Database
+                      password:
+                        title: Password
+                      user:
+                        title: User
+                    MysqlConnectionType:
+                      mdb_cluster_id:
+                        title: Managed Service for MySQL cluster
+                    MysqlSource:
+                      connection:
+                        title: Connection settings
+                    MysqlTableFilter:
+                      exclude_tables:
+                        title: Excluded tables
+                      include_tables:
+                        title: Included tables
+            object_storage:
+              console:
+                form:
+                  object_storage:
+                    ObjectStorageConnectionSettings:
+                      bucket_layout:
+                        title: Folder name
+                      bucket:
+                        title: Bucket
+                      service_account_id:
+                        title: Service account
+                    ObjectStorageTarget:
+                      connection_settings:
+                        title: Connection settings
+                      output_encoding:
+                        title: Encoding format
+                      output_format:
+                        title: Serialization format
+            opensearch:
+              console:
+                form:
+                  opensearch:
+                    OpenSearchConnection:
+                      connection_type:
+                        title: Connection type
+                      password:
+                        title: Password
+                      user:
+                        title: User
+                    OpenSearchConnectionType:
+                      mdb_cluster_id:
+                        title: Managed Service for OpenSearch cluster
+                    OpenSearchTarget:
+                      connection:
+                        title: Connection
+            postgres:
+              console:
+                form:
+                  postgres:
+                    PostgresConnection:
+                      connection_type:
+                        title: Connection type
+                      database:
+                        title: Database
+                      password:
+                        title: Password
+                      user:
+                        title: User
+                    PostgresConnectionType:
+                      mdb_cluster_id:
+                        title: Managed Service for PostgreSQL cluster
+                    PostgresSource:
+                      connection:
+                        title: Connection settings
+                    PostgresTableFilter:
+                      include_tables:
+                        title: Included tables
+            transfer:
+              console:
+                form:
+                  transfer:
+                    Transfer:
+                      type:
+                        title: Transfer type
+                    TransferType:
+                      increment:
+                        title: Replication
+                      snapshot_and_increment:
+                        title: Snapshot and replication
+                      snapshot:
+                        title: Snapshot
+            ydb:
+              console:
+                form:
+                  ydb:
+                    YdbConnectionSettings:
+                      database:
+                        title: Database
+                      service_account_id:
+                        title: Service account ID
+                    YdbSource:
+                      connection:
+                        title: Connection settings
+                      paths:
+                        array_item_label: path
+                        title: Included paths list
+                    YdbTarget:
+                      connection:
+                        title: Connection settings
+            yds:
+              console:
+                form:
+                  yds:
+                    YDSConnection:
+                      database:
+                        title: Database
+                      service_account_id:
+                        title: Service account
+                      stream:
+                        title: Stream
+                    YDSSource:
+                      advanced_settings:
+                        title: Advanced settings
+                      connection:
+                        title: Connection settings
+                    YDSSourceAdvancedSettings:
+                      converter:
+                        title: Conversion rules
+                    YDSTarget:
+                      connection:
+                        title: Connection settings
+        transfer_service:
+          transfer_service:
+            HeaderTitle:
+              title: Transfer Parameters
     yc-ui-datasphere:
       common:
         access: Access

@@ -1,5 +1,11 @@
 # Delete a backend group
 
+{% note warning %}
+
+{% include [backend-group-deletion-restriction](../../_includes/application-load-balancer/backend-group-deletion-restriction.md) %}
+
+{% endnote %}
+
 To delete a backend group:
 
 {% list tabs %}
@@ -42,7 +48,7 @@ To delete a backend group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and delete the fragment with the backend group description.
 
       Sample backend group description in the {{ TF }} configuration:

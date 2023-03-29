@@ -2,8 +2,8 @@
 
 Процесс подключения услуги {{ interconnect-full-name }} можно логически разделить на этапы:
 
-* [Организация транка](#trunk-create).
-* [Организация публичного соединения в транке](#pbc-create).
+1. [Организация транка](#trunk-create).
+1. [Организация публичного соединения в транке](#pbc-create).
 
 {% include [cic-trunk-add](../../_includes/interconnect/trunk-add.md) %}
 

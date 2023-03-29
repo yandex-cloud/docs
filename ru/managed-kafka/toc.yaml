@@ -73,6 +73,8 @@ items:
         href: tutorials/mkf-to-mch-migration.md
       - name: Поставка данных в ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
+      - name: Поставка данных из {{ mkf-full-name }} в {{ mgp-full-name }}
+        href: tutorials/managed-kafka-to-greenplum.md
       - name: >-
           Поставка данных в {{ ydb-full-name }} с помощью {{
           data-transfer-full-name }}
@@ -233,4 +235,6 @@ items:
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/managed-kafka

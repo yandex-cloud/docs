@@ -153,4 +153,6 @@ items:
                 href: apigateway/websocket/api-ref/Connection/send.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/api-gateway

@@ -27,3 +27,6 @@ links:
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/grpc/
+  - title: Обучающие курсы
+    description: Информация о доступных программах обучения
+    href: training

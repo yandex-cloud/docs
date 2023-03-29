@@ -88,5 +88,9 @@
       
       Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
 
+- API
+
+  Воспользуйтесь методом REST API [prefetch](../../api-ref/Cache/prefetch.md) для ресурса [Cache](../../api-ref/Cache/index.md) или вызовом gRPC API [CacheService/Prefetch](../../api-ref/grpc/cache_service.md#Prefetch).
+
 {% endlist %}
   

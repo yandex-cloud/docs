@@ -235,4 +235,6 @@ items:
     href: error/index.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/container-registry

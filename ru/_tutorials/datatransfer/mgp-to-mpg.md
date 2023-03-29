@@ -20,8 +20,8 @@
 
     1. [Создайте кластер-приемник {{ mpg-full-name }}](../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе. При создании кластера укажите:
 
-        * **Имя пользователя** — `pg-user`.
-        * **Имя базы данных** — `db1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
 
     
     1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
@@ -69,12 +69,12 @@
 
 1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/greenplum.md) типа `{{ GP }}` и укажите в нем параметры подключения к кластеру:
 
-    * **Тип подключения** — `Кластер Managed Service for Greenplum`.
-    * **Кластер** — `<имя кластера-источника {{ GP }}>` из выпадающего списка.
-    * **База данных** — `postgres`.
-    * **Пользователь** — `gp-user`.
-    * **Пароль** — `<пароль пользователя>`.
-    * **Схема служебных объектов** — `public`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}** — `<имя кластера-источника {{ GP }}>` из выпадающего списка.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}** — `postgres`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}** — `gp-user`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}** — `<пароль пользователя>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.service_schema.title }}** — `public`.
 
 1. Создайте эндпоинт-приемник и трансфер:
 
@@ -84,15 +84,15 @@
 
         1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
-            * **Тип подключения** — `Кластер Managed Service for PostgreSQL`.
-            * **Кластер** — `<имя кластера-приемника {{ PG }}>` из выпадающего списка.
-            * **База данных** — `db1`.
-            * **Пользователь** — `pg-user`.
-            * **Пароль** — `<пароль пользователя>`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}** — `Кластер Managed Service for PostgreSQL`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя кластера-приемника {{ PG }}>` из выпадающего списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}** — `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}** — `pg-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}** — `<пароль пользователя>`.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy }}_, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
 
-            Для этой пары эндпоинтов репликация недоступна, но вы можете настроить регулярное копирование при создании трансфера. Для этого в блоке **Параметры трансфера** в поле **Копирование** выберите **Регулярно**, затем укажите интервал копирования. Трансфер будет автоматически активироваться через указанный промежуток времени.
+            Для этой пары эндпоинтов репликация недоступна, но вы можете настроить регулярное копирование при создании трансфера. Для этого в блоке **{{ ui-key.yc-data-transfer.data-transfer.transfer_service.transfer_service.HeaderTitle.title }}** в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** выберите **Регулярно**, затем укажите интервал копирования. Трансфер будет автоматически активироваться через указанный промежуток времени.
 
             {% note warning %}
 
@@ -140,7 +140,7 @@
     (44, 'User5');
     ```
 
-1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус {{ dt-status-finished }}.
+1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Чтобы проверить корректность переноса данных, подключитесь к кластеру-приемнику {{ mpg-name }} и убедитесь, что колонки в таблице `x_tab` в базе `db1` совпадают с колонками таблицы `x_tab` в базе источника:
 
    ```sql
@@ -168,7 +168,7 @@
     UPDATE x_tab SET name = 'Key3' WHERE id = 42;
     ```
 
-1. Повторно [активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус {{ dt-status-finished }}.
+1. Повторно [активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Убедитесь, что в таблице `x_tab` на приемнике {{ PG }} отобразились изменения:
 
     ```sql
@@ -188,7 +188,7 @@
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-* Убедитесь, что трансфер находится в статусе {{ dt-status-finished }} и [удалите](../../data-transfer/operations/transfer.md#delete) его.
+* Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../../data-transfer/operations/transfer.md#delete) его.
 * [Удалите эндпоинт-источник и эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
 * Удалите кластеры:
 

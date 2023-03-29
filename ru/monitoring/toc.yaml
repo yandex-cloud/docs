@@ -156,4 +156,6 @@ items:
         href: qa/alerts.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/monitoring

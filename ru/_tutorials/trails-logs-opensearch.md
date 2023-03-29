@@ -47,40 +47,40 @@
 
 1. [Создайте эндпоинт для источника](../data-transfer/operations/endpoint/source/data-streams.md):
 
-    * **Тип базы данных** — `{{ yds-full-name }}`.
-    * **Параметры эндпоинта**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ yds-full-name }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-        * **Настройки подключения**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **База данных** — выберите базу данных {{ ydb-name }} из списка.
-            * **Поток** — укажите имя потока {{ yds-name }}.
-            * **Сервисный аккаунт** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
 
-        * **Расширенные настройки**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-            * **Правила конвертации** — `AuditTrails.v1 парсер`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_audit_trails_v1.title }}`.
 
 1. [Создайте эндпоинт для приемника](../data-transfer/operations/endpoint/target/opensearch.md):
 
-    * **Тип базы данных** — `{{ OS }}`.
-    * **Параметры эндпоинта**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ OS }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-        * **Настройки подключения**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
 
-            * **Тип подключения** — `Кластер {{ mos-name }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
 
-                * **Кластер {{ mch-name }}** — выберите кластер-приемник из списка.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}** — выберите кластер-приемник из списка.
 
-            * **Пользователь** и **Пароль** — укажите имя и пароль пользователя с доступом к базе, например, [пользователя `admin`](../managed-opensearch/operations/cluster-users.md).
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — укажите имя и пароль пользователя с доступом к базе, например, [пользователя `admin`](../managed-opensearch/operations/cluster-users.md).
 
-1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа {{ dt-type-repl }}, использующий созданные эндпоинты.
+1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**, использующий созданные эндпоинты.
 1. [Активируйте](../data-transfer/operations/transfer.md#activate) его.
 
 ## Проверьте результат {#check-result}
 
 Убедитесь, что данные из {{ at-name }} успешно загружаются в {{ OS }}:
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../managed-opensearch/operations/connect.md#dashboards).
 1. Выберите общий тенант `Global`.
 1. Создайте новый шаблон индекса с именем `audit-trails*`:

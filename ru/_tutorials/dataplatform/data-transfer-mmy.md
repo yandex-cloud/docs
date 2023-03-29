@@ -101,34 +101,33 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для источника {{ MY }} с [настройками](../../data-transfer/operations/endpoint/source/mysql.md):
 
-    * **Тип базы данных** — `MySQL`.
-    * **Параметры эндпоинта**:
-        * **Настройки подключения** — `Кластер MDB`.
-        * **Кластер MDB** — выберите [созданный ранее](#before-you-begin) кластер {{ mmy-name }}.
-        * **Имя базы данных** — `db1`.
-        * **Имя пользователя** — `my-user`.
-        * **Пароль** — укажите пароль пользователя `my-user`.
-        * **Список включенных таблиц** — `db1.measurements`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MySQL`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер {{ mmy-name }}.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}** — `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — `my-user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — укажите пароль пользователя `my-user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}** — `db1.measurements`.
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для приемника {{ KF }} с [настройками](../../data-transfer/operations/endpoint/source/kafka.md):
 
-    * **Тип базы данных** — `Kafka`.
-    * **Параметры эндпоинта**:
-        * **Подключение** — `Managed Kafka`.
-        * **Managed Kafka**:
-            * **ID кластера Managed Kafka** — выберите [созданный ранее](#before-you-begin) кластер {{ mkf-name }}.
-            * **Аутентификация** — укажите данные созданного ранее пользователя `kafka-user`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `Кластер Managed Service for Kafka`.
+            * **Кластер Managed Service for Kafka** — выберите [созданный ранее](#before-you-begin) кластер {{ mkf-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — укажите данные созданного ранее пользователя `kafka-user`.
 
-        * **Настройки топика Apache Kafka** — `Полное имя топика`.
-        * **Полное имя топика** — `cdc.db1.measurements`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `cdc.db1.measurements`.
 
         Если необходимо отслеживать изменения в нескольких таблицах, заполните поля следующим образом:
 
-        * **Настройки топика Apache Kafka** — `Префикс топика`.
-        * **Префикс топика** — укажите префикс `cdc`, использованный при формировании имен топиков.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}** — укажите префикс `cdc`, использованный при формировании имен топиков.
 
-1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-repl }}_ с созданными эндпоинтами для источника и приемника.
-1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус {{ dt-status-repl }}.
+1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** с созданными эндпоинтами для источника и приемника.
+1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 

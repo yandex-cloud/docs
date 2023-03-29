@@ -15,9 +15,9 @@
 * Вручную
 
     1. Создайте кластер-источник {{ mpg-name }} любой подходящей [конфигурации](../../managed-postgresql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
-        * Имя базы — `db1`.
-        * Имя пользователя — `pg-user`.
-        * Пароль — `<пароль источника>`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль источника>`.
 
     
     1. Если вы используете [группы безопасности](../../managed-postgresql/operations/connect.md#configuring-security-groups) в кластере, убедитесь, что они настроены правильно и допускают подключение к нему.
@@ -87,11 +87,11 @@
 
 1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/object-storage.md) типа `{{ objstorage-name }}` со следующими настройками:
 
-    * Бакет — `<имя созданного ранее бакета>`
-    * Сервисный аккаунт — `storage-sa`.
-    * Выходной формат — `CSV`.
-    * Формат сжатия — `UNCOMPRESSED`.
-    * Имя папки — `from_PostgreSQL`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}** — `<имя созданного ранее бакета>`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — `storage-sa`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — `CSV`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `UNCOMPRESSED`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket_layout.title }}** — `from_PostgreSQL`.
 
 1. Создайте эндпоинт-источник и трансфер:
 
@@ -101,13 +101,13 @@
 
     1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
-        * **Тип подключения** — `Кластер Managed Service for PostgreSQL`.
-        * **Кластер** — `<имя кластера-источника {{ PG }}>` из выпадающего списка.
-        * **База данных** — `db1`.
-        * **Пользователь** — `pg-user`.
-        * **Пароль** — `<пароль пользователя>`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя кластера-источника {{ PG }}>` из выпадающего списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}** — `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}** — `pg-user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}** — `<пароль пользователя>`.
 
-    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy }}_, использующий созданные эндпоинты.
+    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
 
 * С помощью {{ TF }}
 
@@ -132,7 +132,7 @@
 
 ## Активируйте трансфер {#activate-transfer}
 
-1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус _{{ dt-status-finished }}_.
+1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 
 1. Убедитесь, что в бакете {{ objstorage-name }} появилась таблица `public_x_tab.csv` с данными из таблицы `x_tab`.
 
@@ -145,14 +145,14 @@
     UPDATE x_tab SET name = 'Key3' WHERE id = 42;
     ```
 
-1. Повторно [активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус _{{ dt-status-finished }}_.
+1. Повторно [активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 1. Убедитесь, что изменения отобразились в таблице `public_x_tab.csv` на приемнике.
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-* Убедитесь, что трансфер находится в статусе _{{ dt-status-finished }}_.
+* Убедитесь, что трансфер находится в статусе **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 * [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
 * Удалите трансфер, эндпоинт-источник, кластер и бакет:
 

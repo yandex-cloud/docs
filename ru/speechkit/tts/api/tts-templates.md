@@ -176,7 +176,7 @@
     
               # Установить соединение с сервером.
               cred = grpc.ssl_channel_credentials()
-              channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
+              channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
               stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
               # Отправить данные для синтеза.

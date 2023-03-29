@@ -297,4 +297,6 @@ items:
         href: qa/access.md
       - name: Все вопросы на одной странице
         href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/iam

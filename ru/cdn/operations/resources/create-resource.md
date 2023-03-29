@@ -204,6 +204,10 @@
      yc cdn resource list
      ```
 
+- API
+
+  Воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create).
+
 {% endlist %}
 
 {% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}

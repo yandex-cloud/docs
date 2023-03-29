@@ -98,6 +98,10 @@
      yc alb target-group get --name <имя целевой группы>
      ```
 
+- API
+
+  Воспользуйтесь методом REST API [addTargets](../api-ref/TargetGroup/addTargets.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/AddTargets](../api-ref/grpc/target_group_service.md#AddTargets).
+
 {% endlist %}
 
 ## Удалить ВМ из целевой группы {#remove-targets}
@@ -186,5 +190,9 @@
      ```bash
      yc alb target-group get --name <имя целевой группы>
      ```
+
+- API
+
+  Воспользуйтесь методом REST API [removeTargets](../api-ref/TargetGroup/removeTargets.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/RemoveTargets](../api-ref/grpc/target_group_service.md#RemoveTargets).
 
 {% endlist %}

@@ -18,7 +18,7 @@ To set up authentication:
 
 1. [Test the authentication process](#test-auth).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 To use the instructions in this section, you will need a valid certificate to sign SAML messages on the Identity Provider's (IdP) server. If you don't have a valid SSL certificate, get one.
 
@@ -34,13 +34,13 @@ To create a federation:
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
    1. Enter a name for the federation. The name must be unique within the folder.
 
-   1. Add a description if necessary.
+   1. You can also add a description, if required.
 
    1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
 
@@ -92,20 +92,20 @@ To create a federation:
 
       * `name`: Federation name. The name must be unique within the folder.
       * `organization-id`: Your organization ID.
-      * `auto-create-account-on-login`: A flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-         
-         This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+      * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+
+         If this option is disabled, users who are not added to the organization can not log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
-      * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{org-name}} with this ID after the user is authenticated.
+      * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
       * `sso-url`: URL of the page that the browser redirects the user to for authentication.
       * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
 - API
 
    1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create a federation in.
-   1. Create a file with the request body (for example, `body.json`).
+   1. Create a file with the request body, e.g., `body.json`:
 
       ```json
       {
@@ -125,10 +125,10 @@ To create a federation:
       * `folderId`: ID of the folder.
       * `name`: Federation name. The name must be unique within the folder.
       * `organizationId`: Organization ID.
-      * `autoCreateAccountOnLogin`: A flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+      * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is disabled, users who are not added to the organization can not log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
       * `ssoUrl`: URL of the page that the browser redirects the user to for authentication.
@@ -138,36 +138,36 @@ To create a federation:
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Specify the federation parameters in the configuration file:
 
       * `name`: Federation name. The name must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: Organization ID.
-      * `labels`: A set of key/value label pairs assigned to the federation.
+      * `labels`: Set of key/value label pairs assigned to the federation.
       * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
       * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
       * `sso_url`: URL of the page that the browser redirects the user to for authentication.
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
-      * `auto_create_account_on_login`: A flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+      * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
-      * `case_insensitive_name_ids`: A flag that indicates if usernames are case-insensitive.
-         If the option is enabled, the IDs of federated users' names are case-insensitive.
+         If this option is disabled, users who are not added to the organization can not log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+      * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
+         If the option is enabled, the IDs of federated user names are case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
             If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_organizationmanager_saml_federation" federation {
        name            = "my-federation"
        organization_id = "<organization ID>"
        auto_create_account_on_login = "true"
-       issuer          = "https://accounts.google.com/o/saml2?idpid=C03xolm0y" 
+       issuer          = "https://accounts.google.com/o/saml2?idpid=C03xolm0y"
        sso_url         = "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y"
        sso_binding     = "POST"
        security_settings {
@@ -176,26 +176,26 @@ To create a federation:
       }
       ```
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Create a federation.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
          ```
 
-      1. Confirm that you want to create the federation.
+      1. Confirm you want to create a federation.
 
       This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
 
@@ -283,7 +283,7 @@ To add a certificate to a federation:
 
 {% note tip %}
 
-To ensure that authentication isn't interrupted when the certificate expires, we recommend adding several certificates to the federation: the current one and the ones that will be used after. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
+To ensure the authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to the federation, i.e. both the current one and those to use afterwards. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
 
 {% endnote %}
 
@@ -299,7 +299,7 @@ Obtain and save this link:
 
    1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
-   1. Copy the ID of the federation you're configuring access for.
+   1. Copy the ID of the federation you are configuring access for.
 
 1. Generate a link using this ID:
 
@@ -377,7 +377,7 @@ When setting up the message:
 * Specify a unique user ID in the `NameID` element. We recommend using the User Principal Name (UPN) or email address.
 * Specify the link to the IdP page in the `Issuer` element. The user was forwarded to this page for authentication).
 * Enter a signed message in the `SignatureValue` element and the certificate it was signed with in the `KeyInfo` element.
-* Please keep in mind that {{ yandex-cloud }} verifies that the response is received in the interval specified in the `Conditions` or the `SubjectConfirmationData` property attributes.
+* Note that {{ yandex-cloud }} validates that the response was received in the interval specified in the `Conditions` or `SubjectConfirmationData` element attributes.
 * For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), pass the user's name and email address in the `AttributeStatement` property. Email, first name, and last name are passed in separate `Attribute` elements. You can also pass the first name and last name together, for example:
    ```
    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
@@ -467,6 +467,8 @@ If you did not enable the **Automatically create users** option when creating a 
 
 To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you don't know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
 
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
+
 To add federation users to an organization:
 
 {% list tabs %}
@@ -543,7 +545,7 @@ When you finish configuring the server, check the authentication process:
 
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 
-1. On successful authentication, the server will redirect you back to the management console login link and then to the console's home page. In the upper-right corner, you can see that you are logged in to the console as a federated user.
+1. On successful authentication, the server will redirect you back to the management console login link and then to the console's home page. In the top right corner, you will be able to see you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

@@ -704,6 +704,7 @@ default:
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
   yq-full-name: Yandex Query
+  yq-name: Query
   yq-short-name: YQ
   stt-short-fileSize: 1 МБ
   stt-short-audioLength: 30 секунд
@@ -723,9 +724,9 @@ default:
   ml-project-size: 10 ГБ
   jlab: Jupyter
   ds-api-addr: datasphere.api.cloud.yandex.net:443
-  api-host-sk: api.cloud.yandex.net:443
-  api-host-sk-stt: stt.api.cloud.yandex.net:443
-  api-host-sk-tts: tts.api.cloud.yandex.net:443
+  api-host-sk: api.cloud.yandex.net
+  api-host-sk-stt: stt.api.cloud.yandex.net
+  api-host-sk-tts: tts.api.cloud.yandex.net
   speechkit-stt-alias: speechkit.stt.stable
   speechkit-tts-alias: speechkit.tts.stable
   mp-test-product-id: f2e4tmlj4qqciunhr7e6
@@ -752,6 +753,12 @@ default:
   k8s-versions-rapid: 1.21, 1.22, 1.23, 1.24
   k8s-versions-regular: 1.21, 1.22, 1.23
   k8s-versions-stable: 1.21, 1.22, 1.23
+  cic-bgp-asn: 200350
+  cic-pbc-subnet: 178.210.118.46/31
+  cic-pbc-subnet-client: 178.210.118.46
+  cic-pbc-subnet-cloud: 178.210.118.47
+  cic-pbc-nat-subnet: 178.210.118.200/30
+  cic-pbc-svc1-ip: 213.180.193.243/32
   tf-provider-link: >-
     https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources
   tf-provider-dt-endpoint: >-
@@ -41023,6 +41030,18 @@ default:
           button_create-key: Создать ключ
           button_create-key-new: Создать новый
           label_no-symmetric-key: Не выбрано
+      data-streams:
+        label_data-introspection: Просмотр данных
+      data-transfer:
+        forms:
+          label_source-type: Источник
+          label_target-type: Приёмник
+          label-database_type: Тип базы данных
+          section-endpoint: Параметры эндпоинта
+        label_connector-status-DONE: Завершен
+        label_connector-status-RUNNING: Реплицируется
+        label_connector-status-STOPPED: Остановлен
+        label_endpoints: Эндпоинты
       iam:
         cloud:
           folders-create:
@@ -41037,6 +41056,11 @@ default:
       kms:
         symmetric-keys:
           button_create: Создать
+      mdb:
+        forms:
+          database_field_name: Имя БД
+          database_field_user-login: Имя пользователя
+          database_field_user-password: Пароль
       storage:
         bucket:
           button_action-delete: Удалить
@@ -41089,6 +41113,7 @@ default:
             field_size-limit: Макс. размер
             label_size-limit-disabled: Без ограничения
           switch_encryption: Шифрование
+          switch_files: Объекты
           switch_https: HTTPS
           switch_lifecycle: Жизненный цикл
           switch_policy: Политика доступа
@@ -41118,6 +41143,280 @@ default:
         permissions-dialog:
           button_save: Сохранить
           label_title: Редактирование ACL
+      ydb:
+        browse:
+          button_sql-query: Новый SQL-запрос
+          dialogs:
+            tooltip_create_pk: Первичный ключ
+          info:
+            column_name: Имя
+            column_type: Тип
+        database:
+          switch_browse: Навигация
+    yc-data-transfer:
+      data-transfer:
+        console:
+          form:
+            clickhouse:
+              console:
+                form:
+                  clickhouse:
+                    ClickHouseConnection:
+                      connection_type:
+                        title: Тип подключения
+                      database:
+                        title: База данных
+                      password:
+                        title: Пароль
+                      user:
+                        title: Пользователь
+                    ClickHouseConnectionType:
+                      mdb_cluster_id:
+                        title: Кластер Managed Service for ClickHouse
+                    ClickHouseSource:
+                      connection:
+                        title: Настройки подключения
+                    ClickHouseTarget:
+                      advanced_settings:
+                        title: Расширенные настройки
+                      cleanup_policy:
+                        title: Политика очистки
+                      connection:
+                        title: Настройки подключения
+            common:
+              console:
+                form:
+                  common:
+                    CleanupPolicy:
+                      DISABLED:
+                        title: Не очищать
+                      DROP:
+                        title: Drop
+                      TRUNCATE:
+                        title: Truncate
+                    ColSchema:
+                      key:
+                        title: Ключ
+                      name:
+                        title: Имя
+                      type:
+                        title: Тип
+                    ConvertRecordOptions:
+                      data_schema:
+                        title: Схема данных
+                      format:
+                        title: Формат данных
+                    DataSchema:
+                      fields:
+                        title: Список полей
+                      json_fields:
+                        title: JSON спецификация
+            greenplum:
+              console:
+                form:
+                  greenplum:
+                    GpSourceAdvancedSettings:
+                      service_schema:
+                        title: Схема служебных объектов
+                    GreenplumConnection:
+                      connection_type:
+                        title: Тип подключения
+                      database:
+                        title: База данных
+                      password:
+                        title: Пароль
+                      user:
+                        title: Пользователь
+                    GreenplumConnectionType:
+                      mdb_cluster_id:
+                        title: Кластер Managed Service for Greenplum
+            kafka:
+              console:
+                form:
+                  kafka:
+                    KafkaSource:
+                      advanced_settings:
+                        title: Расширенные настройки
+                      connection:
+                        title: Настройки подключения
+                    KafkaSourceAdvancedSettings:
+                      converter:
+                        title: Правила конвертации
+                    KafkaSourceConnection:
+                      connection_type:
+                        title: Тип подключения
+                      topic_name:
+                        title: Полное имя топика
+                    KafkaTarget:
+                      connection:
+                        title: Настройки подключения
+                    KafkaTargetConnection:
+                      connection_type:
+                        title: Тип подключения
+                      topic_settings:
+                        title: Топик
+                    KafkaTargetTopic:
+                      topic_name:
+                        title: Полное имя топика
+                    KafkaTargetTopicSettings:
+                      topic_prefix:
+                        title: Префикс топика
+                      topic:
+                        title: Полное имя топика
+                    ManagedKafka:
+                      auth:
+                        title: Аутентификация
+                    ManagedKafkaSASLAuth:
+                      password:
+                        title: Пароль
+                      user:
+                        title: Имя пользователя
+            logbroker:
+              console:
+                form:
+                  logbroker:
+                    ParserConfigCommon:
+                      parser_config_audit_trails_v1:
+                        title: AuditTrails.v1 парсер
+            mysql:
+              console:
+                form:
+                  mysql:
+                    MysqlConnection:
+                      connection_type:
+                        title: Тип подключения
+                      database:
+                        title: База данных
+                      password:
+                        title: Пароль
+                      user:
+                        title: Пользователь
+                    MysqlConnectionType:
+                      mdb_cluster_id:
+                        title: Кластер Managed Service for MySQL
+                    MysqlSource:
+                      connection:
+                        title: Настройки подключения
+                    MysqlTableFilter:
+                      exclude_tables:
+                        title: Список исключённых таблиц
+                      include_tables:
+                        title: Список включённых таблиц
+            object_storage:
+              console:
+                form:
+                  object_storage:
+                    ObjectStorageConnectionSettings:
+                      bucket_layout:
+                        title: Имя папки
+                      bucket:
+                        title: Бакет
+                      service_account_id:
+                        title: Сервисный аккаунт
+                    ObjectStorageTarget:
+                      connection_settings:
+                        title: Настройки подключения
+                      output_encoding:
+                        title: Формат сжатия
+                      output_format:
+                        title: Выходной формат
+            opensearch:
+              console:
+                form:
+                  opensearch:
+                    OpenSearchConnection:
+                      connection_type:
+                        title: Тип подключения
+                      password:
+                        title: Пароль
+                      user:
+                        title: Пользователь
+                    OpenSearchConnectionType:
+                      mdb_cluster_id:
+                        title: Кластер Managed Service for OpenSearch
+                    OpenSearchTarget:
+                      connection:
+                        title: Настройки подключения
+            postgres:
+              console:
+                form:
+                  postgres:
+                    PostgresConnection:
+                      connection_type:
+                        title: Тип подключения
+                      database:
+                        title: База данных
+                      password:
+                        title: Пароль
+                      user:
+                        title: Пользователь
+                    PostgresConnectionType:
+                      mdb_cluster_id:
+                        title: Кластер Managed Service for PostgreSQL
+                    PostgresSource:
+                      connection:
+                        title: Настройки подключения
+                    PostgresTableFilter:
+                      include_tables:
+                        title: Список включённых таблиц
+            transfer:
+              console:
+                form:
+                  transfer:
+                    Transfer:
+                      type:
+                        title: Тип трансфера
+                    TransferType:
+                      increment:
+                        title: Репликация
+                      snapshot_and_increment:
+                        title: Копирование и репликация
+                      snapshot:
+                        title: Копирование
+            ydb:
+              console:
+                form:
+                  ydb:
+                    YdbConnectionSettings:
+                      database:
+                        title: База данных
+                      service_account_id:
+                        title: ID сервисного аккаунта
+                    YdbSource:
+                      connection:
+                        title: Настройки подключения
+                      paths:
+                        array_item_label: Путь
+                        title: Список включенный путей
+                    YdbTarget:
+                      connection:
+                        title: Настройки подключения
+            yds:
+              console:
+                form:
+                  yds:
+                    YDSConnection:
+                      database:
+                        title: База данных
+                      service_account_id:
+                        title: Сервисный аккаунт
+                      stream:
+                        title: Поток
+                    YDSSource:
+                      advanced_settings:
+                        title: Расширенные настройки
+                      connection:
+                        title: Настройки подключения
+                    YDSSourceAdvancedSettings:
+                      converter:
+                        title: Правила конвертации
+                    YDSTarget:
+                      connection:
+                        title: Настройки подключения
+        transfer_service:
+          transfer_service:
+            HeaderTitle:
+              title: Параметры трансфера
     yc-ui-datasphere:
       common:
         access: Доступ

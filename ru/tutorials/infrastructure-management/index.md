@@ -2,6 +2,11 @@
 
 * [Начало работы с {{ TF }}](terraform-quickstart.md)
 * [Загрузка состояний {{ TF }} в {{ objstorage-full-name }}](terraform-state-storage.md)
+
+
+* [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](terraform-state-lock.md)
+
+
 * [Начало работы с Packer](packer-quickstart.md)
 * [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](packer-custom-image.md)
 * [Автоматизация сборки образов с помощью Jenkins и Packer](jenkins.md)

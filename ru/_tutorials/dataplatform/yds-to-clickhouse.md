@@ -22,17 +22,17 @@
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-        * **Тип базы данных** — `{{ CH }}`.
-        * **Параметры эндпоинта**:
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ CH }}`.
+        * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-            * **Настройки подключения**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.connection.title }}**:
 
-                * **Тип подключения** — `Кластер {{ mch-name }}`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`.
 
-                    * **Кластер {{ mch-name }}** — выберите кластер-приемник из списка.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}** — выберите кластер-приемник из списка.
 
-                * **База данных** — укажите имя базы данных.
-                * **Пользователь** и **Пароль** — укажите имя и пароль пользователя с доступом к базе, например, владельца базы данных.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — укажите имя базы данных.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.user.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.password.title }}** — укажите имя и пароль пользователя с доступом к базе, например, владельца базы данных.
 
 * С помощью {{ TF }}
 
@@ -101,24 +101,24 @@
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `{{ yds-full-name }}`.
-    * **Параметры эндпоинта**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ yds-full-name }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-        * **Настройки подключения**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **База данных** — выберите базу данных {{ ydb-name }} из списка.
-            * **Поток** — укажите имя потока {{ yds-name }}.
-            * **Сервисный аккаунт** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
 
-        * **Расширенные настройки** → **Правила конвертации**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-            * **Формат данных** — `JSON`.
-            * **Схема данных** –  Вы можете задать схему двумя способами:
-              * `Список полей`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** — `JSON`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** –  Вы можете задать схему двумя способами:
+              * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
                 Задайте список полей топика вручную:
 
-                | Имя | Тип | Ключ |
+                | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.name.title }} | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.type.title }} | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.key.title }} |
                 | :-- | :-- | :--- |
                 |`device_id`|`STRING`| Да|
                 |`datetime` |`DATETIME`|  |
@@ -130,7 +130,7 @@
                 |`cabin_temperature`| `DOUBLE`||
                 | `fuel_level`|`ANY`||
 
-              * `JSON спецификация`.
+              * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
                 Создайте и загрузите файл схемы данных в формате JSON `json_schema.json`:
 
@@ -186,7 +186,7 @@
 
     * Вручную
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа {{ dt-type-repl }}, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     * С помощью {{ TF }}
@@ -214,7 +214,7 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. [Отправьте в поток](../../data-streams/operations/aws-cli/send.md) {{ yds-name }} новое сообщение:
 

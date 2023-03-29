@@ -109,4 +109,8 @@
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+- API
+
+  Воспользуйтесь методом REST API [create](../../api-ref/OriginGroup/create.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Create](../../api-ref/grpc/origin_group_service.md#Create).
+
 {% endlist %}

@@ -5,11 +5,11 @@
 You can contact technical support under [Support]({{ link-console-support }}) in the management console.
 
 
-#### How do I contact technical support if I can't log in to the management console? {#requesting-support-without-ui}
+#### How do I contact technical support if I cannot log in to the management console? {#requesting-support-without-ui}
 
-If you are unable to access your Yandex account, please see our [troubleshooting instructions](https://yandex.com/support/passport/troubleshooting/problems.html) in the Yandex ID Help.
+If you are unable to access your Yandex account, see our [troubleshooting guide](https://yandex.com/support/passport/troubleshooting/problems.html) in the Yandex ID Help.
 
-If you successfully logged in to your Yandex account but are unable to connect to the {{ yandex-cloud }} management console, contact technical support by email [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
+If you successfully logged in to your Yandex account but are unable to connect to the {{ yandex-cloud }} management console, contact technical support by email at [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
 
 
 #### What kinds of issues and cases does technical support resolve? {#support-cases-types}
@@ -49,10 +49,20 @@ To get help with architecture-related tasks, use the feedback form on the manage
 
 Technical support includes troubleshooting third-party software that is used in conjunction with the cloud infrastructure and limited assistance in solving identified problems. Technical support engineers can help you with the installation, basic setup, and diagnostics of the following software:
 
-- Operating systems on {{ yandex-cloud }} virtual machines created from public images provided by {{ yandex-cloud }}.
-- Databases created with [{{ mpg-full-name }}](../managed-postgresql/), [{{ mch-full-name }}](../managed-clickhouse/), [{{ mmg-full-name }}](../managed-mongodb/).
+- [Operating systems](https://cloud.yandex.ru/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
+- Databases and cluster management systems created in:
+   - [{{ mkf-full-name }}](../managed-kafka)
+   - [{{ mch-full-name }}](../managed-clickhouse/)
+   - [{{ mes-full-name }}](../managed-elasticsearch)
+   - [{{ mgp-full-name }}](../managed-greenplum)
+   - [{{ managed-k8s-full-name }}](../managed-kubernetes)
+   - [{{ mmg-full-name }}](../managed-mongodb)
+   - [{{ mmy-full-name }}](../managed-mysql)
+   - [{{ mos-full-name }}](../managed-opensearch)
+   - [{{ mrd-full-name }}](../managed-redis)
+   - [{{ mpg-full-name }}](../managed-postgresql/)
 
-#### What happens if you can't solve my third-party software problems? {#unresolved-third-party-issues}
+#### What happens if you cannot solve my third-party software problems? {#unresolved-third-party-issues}
 
 If the technical support team can't resolve your third-party software issue, you need to contact the support service of the software vendor. In some cases, contacting a vendor's support service requires a valid contract for technical support with the vendor or their partners.
 

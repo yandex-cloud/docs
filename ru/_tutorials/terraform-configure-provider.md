@@ -4,33 +4,34 @@
 
 {% endnote %}
 
+
 1. Если раньше у вас был настроен провайдер из реестра Hashicorp, сохраните его настройки:
 
    {% list tabs %}
-   
+
    - Linux и macOS
-   
+
      ```bash
      mv ~/.terraformrc ~/.terraformrc.old
      ```
-     
+
    - Windows
-   
+
      ```powershell
      mv $env:APPDATA/terraform.rc $env:APPDATA/terraform.rc.old
      ```
-     
+
    {% endlist %}
-   
+
 1. Укажите источник, из которого будет устанавливаться провайдер.
-   
+
    {% list tabs %}
 
    - Linux и macOS
-     
-     Откройте файл конфигурации {{ TF }} CLI: 
 
-     ```
+     Откройте файл конфигурации {{ TF }} CLI:
+
+     ```bash
      nano ~/.terraformrc
      ```
 
@@ -38,12 +39,11 @@
 
      Откройте файл конфигурации {{ TF }} CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
 
-   {% endlist %} 
+   {% endlist %}
 
    Добавьте в него следующий блок:
 
-
-   ```
+   ```hcl
    provider_installation {
      network_mirror {
        url = "https://terraform-mirror.yandexcloud.net/"
@@ -57,9 +57,10 @@
 
    Подробнее о настройках зеркал см. в [документации](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
+
 1. В начале конфигурационного файла `.tf` добавьте следующие блоки:
+
    
-      
    ```hcl
    terraform {
      required_providers {
@@ -74,16 +75,16 @@
      zone = "<зона доступности по умолчанию>"
    }
    ```
-   
+
 
 
    Где:
-
    * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
    * `required_version` — минимальная версия {{ TF }}, с которой совместим провайдер.
    * `provider` — название провайдера.
-   * `zone` — [зона доступности](../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
 
+
+   * `zone` — [зона доступности](../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
 1. Выполните команду `terraform init` в папке с конфигурационным файлом `.tf`. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
 
 Если провайдер не установился, создайте обращение в [поддержку]({{ link-console-support }}?section=contact) с именем и версией провайдера.
@@ -96,4 +97,3 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 ```
 
 Если вы использовали модули, то сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
-

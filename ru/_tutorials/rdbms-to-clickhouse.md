@@ -16,15 +16,15 @@
 * Вручную
 
   1. Создайте кластер-источник {{ mpg-name }} любой подходящей [конфигурации](../managed-postgresql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
-      * Имя базы — `db1`.
-      * Имя пользователя — `pg-user`.
-      * Пароль — `<пароль источника>`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль источника>`.
 
   1. Создайте кластер-приемник {{ mch-name }} любой подходящей [конфигурации](../managed-clickhouse/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
-      * Количество хостов {{ CH }} — не меньше 2 (для включения репликации в кластере).
-      * Имя базы — `db1`.
-      * Имя пользователя — `ch-user`.
-      * Пароль — `<пароль приемника>`.
+      * **Количество хостов {{ CH }}** — не меньше 2 (для включения репликации в кластере).
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `ch-user`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль приемника>`.
 
   
   1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
@@ -100,22 +100,22 @@
 
         1. [Создайте эндпоинт-источник](../data-transfer/operations/endpoint/source/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
-            * **Тип подключения** — `Кластер Managed Service for PostgreSQL`.
-            * **Кластер** — `<имя кластера-источника {{ PG }}>` из выпадающего списка.
-            * **База данных** — `db1`.
-            * **Пользователь** — `pg-user`.
-            * **Пароль** — `<пароль пользователя>`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя кластера-источника {{ PG }}>` из выпадающего списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}** — `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}** — `pg-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}** — `<пароль пользователя>`.
 
         1. [Создайте эндпоинт-приемник](../data-transfer/operations/endpoint/target/clickhouse.md) типа `{{ CH }}` и укажите в нем параметры подключения к кластеру:
 
-            * **Тип подключения** — `Кластер Managed Service for ClickHouse`.
-            * **Кластер** — `<имя кластера-приемника {{ CH }}>` из выпадающего списка.
-            * **База данных** — `db1`.
-            * **Пользователь** — `ch-user`.
-            * **Пароль** — `<пароль пользователя>`.
-            * **Политика очистки** — `DROP`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}** — `<имя кластера-приемника {{ CH }}>` из выпадающего списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.user.title }}** — `ch-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.password.title }}** — `<пароль пользователя>`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.cleanup_policy.title }}** — `DROP`.
 
-        1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа [{{ dt-type-copy-repl }}](../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты.
+        1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа [**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**](../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты.
 
     * С помощью {{ TF }}
 
@@ -137,7 +137,7 @@
 
 ## Активируйте трансфер {#activate-transfer}
 
-1. [Активируйте трансфер](../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус {{ dt-status-repl }}.
+1. [Активируйте трансфер](../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Чтобы проверить, что трансфер перенес данные с учетом репликации в приемнике, подключитесь к кластеру-приемнику {{ mch-full-name }} и посмотрите, что таблица `x_tab` в базе `db1` содержит те же колонки, что таблица `x_tab` в базе-источнике, а также [колонки с временными метками](#working-with-data-ch) `__data_transfer_commit_time` и `__data_transfer_delete_time`:
 
    ```sql
@@ -183,7 +183,7 @@
 
     Столбец `__data_transfer_commit_time` необходим для работы движка ReplicatedReplacedMergeTree. Если запись удаляется или изменяется, в таблицу вставляется новая строка со значением в этом столбце. Запрос по одному первичному ключу возвращает несколько записей с разными значениями в столбце `__data_transfer_commit_time`.
 
-В статусе трансфера {{ dt-status-repl }} данные в источнике могут добавляться или удаляться. Чтобы обеспечить стандартное поведение команд SQL, когда первичный ключ указывает на единственную запись, дополните запросы к перенесенным таблицам в {{ CH }} конструкцией с фильтром по столбцу `__data_transfer_delete_time`. Например, для таблицы `x_tab`:
+В статусе трансфера **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}** данные в источнике могут добавляться или удаляться. Чтобы обеспечить стандартное поведение команд SQL, когда первичный ключ указывает на единственную запись, дополните запросы к перенесенным таблицам в {{ CH }} конструкцией с фильтром по столбцу `__data_transfer_delete_time`. Например, для таблицы `x_tab`:
 
 ```sql
 SELECT * FROM x_tab FINAL
@@ -207,7 +207,7 @@ WHERE __data_transfer_delete_time == 0;
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-* Убедитесь, что трансфер находится в статусе {{ dt-status-finished }} и [удалите](../data-transfer/operations/transfer.md#delete) его.
+* Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../data-transfer/operations/transfer.md#delete) его.
 * Удалите эндпоинты и кластеры:
 
     {% list tabs %}

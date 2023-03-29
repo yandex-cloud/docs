@@ -89,4 +89,8 @@
      yc alb backend-group list
      ```
 
+- API
+
+  Воспользуйтесь методом REST API [delete](../api-ref/BackendGroup/delete.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Delete](../api-ref/grpc/backend_group_service.md#Delete).
+
 {% endlist %}

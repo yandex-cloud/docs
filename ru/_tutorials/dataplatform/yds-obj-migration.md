@@ -79,19 +79,19 @@
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `{{ yds-full-name }}`.
-    * **Параметры эндпоинта**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ yds-full-name }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-        * **Настройки подключения**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **База данных** — выберите базу данных {{ ydb-name }} из списка.
-            * **Поток** — укажите имя потока {{ yds-name }}.
-            * **Сервисный аккаунт** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
 
-        * (Опционально) **Расширенные настройки** → **Правила конвертации**:
+        * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-            * **Формат данных** — `JSON`.
-            * **Схема данных** — `JSON спецификация`:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** — `JSON`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
                 Создайте и загрузите файл схемы данных в формате JSON `json_schema.json`:
 
@@ -142,15 +142,15 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `{{ objstorage-name }}`.
-    * **Параметры эндпоинта**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ objstorage-name }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-        * **Настройки подключения**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.connection_settings.title }}**:
 
-            * **Бакет** — укажите имя бакета в {{ objstorage-name }}.
-            * **Сервисный аккаунт** — выберите или создайте сервисный аккаунт с ролью `storage.uploader`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}** — укажите имя бакета в {{ objstorage-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `storage.uploader`.
 
-        * **Выходной формат** — выберите `JSON` или `CSV`, если в расширенных настройках эндпоинта источника включили опцию **Правила конвертации**.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — выберите `JSON` или `CSV`, если в расширенных настройках эндпоинта источника включили опцию **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**.
 
 1. Создайте трансфер:
 
@@ -158,7 +158,7 @@
 
     * Вручную
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-repl }}_, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     * С помощью {{ TF }}
@@ -190,7 +190,7 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Убедитесь, что данные из потока {{ yds-name }} перенеслись в бакет {{ objstorage-name }}:
 

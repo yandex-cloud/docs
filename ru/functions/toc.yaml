@@ -493,4 +493,6 @@ items:
                 href: triggers/api-ref/Trigger/update.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/functions

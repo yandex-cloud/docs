@@ -8,12 +8,6 @@ Before linking a cloud, make sure that the billing account has been activated (t
 * [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) in the cloud.
 * `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access control](../security/index.md#role-list).
 
-{% note info %}
-
-If the billing account status is `SUSPENDED`, then the cloud status automatically switches to `SUSPENDED` when linked.
-
-{% endnote %}
-
 ## Linking a cloud
 
 To link a cloud or transfer an existing one:

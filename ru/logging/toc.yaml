@@ -101,4 +101,6 @@ items:
                 href: api-ref/LogGroup/updateAccessBindings.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/logging

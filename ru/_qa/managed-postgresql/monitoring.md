@@ -4,7 +4,7 @@
 
 Отслеживать использование дискового пространства можно:
 * в консоли управления с помощью инструментов [мониторинга состояния кластера](../../managed-postgresql/operations/monitoring.md#monitoring-cluster);
-* в сервисе [{{ monitoring-full-name }}]({{ link-monitoring }}) с возможностью [настроить уведомления](../../managed-postgresql/operations/monitoring.md#monitoring-integration) по заданным метрикам.
+* в сервисе [{{ monitoring-full-name }}]({{ link-monitoring }}) с возможностью [настроить алерты](../../managed-postgresql/operations/monitoring.md#monitoring-integration) по заданным метрикам.
 
 #### Логи хранятся на том же диске, что и данные {{ PG }}? Как они тарифицируются? {#logs-storage}
 
@@ -33,7 +33,21 @@ yc managed-postgresql cluster list-logs <идентификатор класте
 Подробнее о кешировании данных дисков в Linux см. в [документации](https://www.linuxatemyram.com/).
 
 
-#### Как получать уведомления о критических показателях кластера {{ PG }}? {#notifications}
+#### Как получать алерты о критических показателях кластера {{ PG }}? {#notifications}
 
-Воспользуйтесь сервисом [{{ monitoring-full-name }}]({{ link-monitoring }}) и [настройте уведомления](../../managed-postgresql/operations/monitoring.md#monitoring-integration) по критичным для вас параметрам.
+Воспользуйтесь сервисом [{{ monitoring-full-name }}]({{ link-monitoring }}) и [настройте алерты](../../managed-postgresql/operations/monitoring.md#monitoring-integration) по критичным для вас параметрам.
 
+
+#### Как настроить алерт, который срабатывает при заполнении определенного процента дискового пространства? {#disk-space-percentage}
+
+[Создайте алерт](../../managed-postgresql/operations/monitoring.md#monitoring-integration) с метрикой `disk.used_bytes` в сервисе {{ monitoring-full-name }}. Метрика показывает размер использованного дискового пространства в кластере {{ mpg-name }}.
+
+Для `disk.used_bytes` используются пороги для оповещения. Их рекомендуемые значения:
+
+* `Alarm` — 90% дискового пространства.
+* `Warning` — 80% дискового пространства.
+
+Значения порогов задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
+
+* `Alarm` — `96636764160` байтов (90%).
+* `Warning` — `85899345920` байтов (80%).

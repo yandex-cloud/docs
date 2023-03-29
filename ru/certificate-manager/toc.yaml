@@ -127,4 +127,6 @@ items:
                 href: api-ref/Certificate/updateAccessBindings.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/certificate-manager

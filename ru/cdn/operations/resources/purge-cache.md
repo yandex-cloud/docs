@@ -92,6 +92,10 @@
 
       Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/cache/purge.md).
 
+- API
+
+  Воспользуйтесь методом REST API [purge](../../api-ref/Cache/purge.md) для ресурса [Cache](../../api-ref/Cache/index.md) или вызовом gRPC API [CacheService/Purge](../../api-ref/grpc/cache_service.md#Purge).
+
 {% endlist %}
   
 На очистку кеша может потребоваться до 15 минут.

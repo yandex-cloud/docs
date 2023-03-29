@@ -161,7 +161,7 @@ Add users to the IdP server:
 
    1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create a federation in.
 
-   1. Create a file with the request body,e.g., `body.json`:
+   1. Create a file with the request body, e.g., `body.json`:
 
       ```json
       {
@@ -249,7 +249,7 @@ Add users to the IdP server:
          * `encrypted_assertions`: Sign authentication requests.
             If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -268,13 +268,13 @@ Add users to the IdP server:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Create a federation.
 
@@ -382,7 +382,7 @@ Get the link:
 
 1. Generate a link using this ID:
 
-   `{{ link-console-main }}/federations/<federation ID>`
+   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Setting up Single Sign-On (SSO) {#sso-settings}
 

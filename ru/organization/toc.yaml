@@ -161,4 +161,6 @@ items:
                 href: api-ref/Certificate/delete.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/organization

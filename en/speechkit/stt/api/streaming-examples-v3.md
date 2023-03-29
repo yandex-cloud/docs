@@ -105,7 +105,7 @@ To implement an example from this section:
       def run(iam_token, audio_file_name):
           # Establish a connection with the server.
           cred = grpc.ssl_channel_credentials()
-          channel = grpc.secure_channel('{{ api-host-sk-stt }}', cred)
+          channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
           stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
           # Send data for recognition.

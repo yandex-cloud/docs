@@ -133,4 +133,6 @@ items:
                 href: api-ref/SymmetricKey/updateAccessBindings.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/kms

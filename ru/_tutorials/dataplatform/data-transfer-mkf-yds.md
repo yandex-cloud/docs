@@ -104,18 +104,18 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `{{ KF }}`](../../data-transfer/operations/endpoint/source/kafka.md):
 
-    **Параметры эндпоинта**:
+    **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-    * **Настройки подключения** — `Кластер {{ mkf-name }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}** — `Кластер Managed Service for Kafka`.
 
         Выберите кластер-источник из списка и укажите настройки подключения к нему.
 
-    * **Расширенные настройки** → **Правила конвертации**.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.
 
-        * **Правила конвертации** – `json`.
-        * **Схема данных** –  Вы можете задать схему двумя способами:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** – `json`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** –  Вы можете задать схему двумя способами:
 
-            * `Список полей`.
+            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
                 Задайте список полей топика вручную:
 
@@ -131,7 +131,7 @@
                 |`cabin_temperature`| `UINT16`||
                 | `fuel_level`|`UINT16`||
 
-            * `JSON спецификация`.
+            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
                 Создайте и загрузите файл схемы данных в формате JSON `json_schema.json`:
 
@@ -183,11 +183,11 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `{{ yds-full-name }}`](../../data-transfer/operations/endpoint/target/data-streams.md):
 
-    **Настройки подключения**:
+    **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
 
-    * **База данных** — выберите базу данных {{ ydb-name }} из списка.
-    * **Поток** — укажите имя потока {{ yds-name }}.
-    * **ID сервисного аккаунта** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
 
 1. Создайте трансфер:
 
@@ -195,7 +195,7 @@
 
     * Вручную
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-repl }}_, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     * С помощью {{ TF }}
@@ -224,7 +224,7 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Убедитесь, что в поток данных {{ yds-name }} переносятся данные из топика кластера-источника {{ mkf-name }}:
 
     1. Создайте файл `sample.json` с тестовыми данными:

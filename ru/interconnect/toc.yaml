@@ -5,7 +5,7 @@ items:
     expanded: true
     items:
       - name: Обзор
-        href: concepts/overview.md
+        href: concepts/index.md
       - name: Терминология
         href: concepts/terms.md
       - name: Точки присутствия

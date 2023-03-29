@@ -265,4 +265,6 @@ items:
         href: k8s-ref/service.md
   - name: Справочник логов
     href: logs-ref.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/application-load-balancer

@@ -32,11 +32,11 @@ Where:
 
    * `annotations` (`map[string]string`, required)
 
-      Resource annotation. For more detail, please see [below](#annotations).
+      Resource annotation. For more information, see [below](#annotations).
 
 * `spec` (`IngressSpec`, required)
 
-   Resource specification. For more detail, please see [below](#spec).
+   Resource specification. For more information, see [below](#spec).
 
 ## Annotations (metadata.annotations) {#annotations}
 
@@ -97,7 +97,9 @@ Where:
 
    To use a [reserved IP](../../vpc/operations/get-static-ip.md), put it in the annotation value. For the load balancer to get its IP automatically, specify `auto`.
 
-   A load balancer must be configured with either a public or a private IP (`ingress.alb.yc.io/internal-ipv4-address` annotation) but not both.
+   If you set `auto`, deleting the Ingress controller will also delete the IP address from the cloud. To avoid this, use an existing reserved IP address.
+
+   A load balancer must be configured with either a public or a private IP (`ingress.alb.yc.io/internal-ipv4-address` annotation), but not both.
 
 * `ingress.alb.yc.io/internal-ipv4-address` (`string`)
 
@@ -278,7 +280,7 @@ Where:
 
          * `backend` (`IngressBackend`, required)
 
-            Reference to a backend or a group of backends to process requests with the specified domain name or URI path or gRPC call name. For more detail, please see [below](#backend).
+            Reference to a backend or a group of backends to process requests with the specified domain name or URI path or gRPC call name. For more information, see [below](#backend).
 
 ## IngressBackend {#backend}
 

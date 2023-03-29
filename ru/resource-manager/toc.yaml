@@ -119,4 +119,6 @@ items:
                 href: api-ref/Folder/updateAccessBindings.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/resource-manager

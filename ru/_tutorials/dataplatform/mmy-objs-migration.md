@@ -104,15 +104,15 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `{{ objstorage-name }}`.
-    * **Параметры эндпоинта**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ objstorage-name }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-        * **Настройки подключения**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.connection_settings.title }}**:
 
-          * **Бакет** — укажите имя бакета {{ objstorage-name }}.
-          * **Сервисный аккаунт** — выберите или создайте сервисный аккаунт с ролью `storage.uploader`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}** — укажите имя бакета {{ objstorage-name }}.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `storage.uploader`.
 
-        * **Имя папки** — `measurements`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket_layout.title }}** — `measurements`.
 
 1. Создайте эндпоинт для источника и трансфер:
 
@@ -122,17 +122,17 @@
 
         1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-            * **Тип базы данных** — `{{ MY }}`.
-            * **Параметры эндпоинта**:
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MY }}`.
+            * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-              * **Настройки подключения**:
-                * **Тип подключения** — `Кластер {{ mmy-name }}`.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**:
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
                    Выберите кластер-источник из списка и укажите настройки подключения к нему.
 
-              * (Опционально) **Список включенных таблиц**, **Список исключенных таблиц** — укажите регулярные выражения для переносимых таблиц и таблиц, которые не надо переносить.
+              * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}** — укажите регулярные выражения для переносимых таблиц и таблиц, которые не надо переносить.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy }}_, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     * С помощью {{ TF }}
@@ -161,13 +161,13 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-finished }}.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Убедитесь, что данные перенеслись из кластера-источника {{ mmy-name }} в бакет {{ objstorage-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный бакет.
     1. В списке сервисов выберите **{{ objstorage-name }}**.
     1. Выберите бакет из списка.
-    1. Перейдите на вкладку **Объекты**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
     1. Проверьте, что бакет {{ objstorage-name }} содержит папку `measurements` с объектом `<имя базы данных кластера-источника>_measurements` с тестовыми данными.
 
 ## Удалите созданные ресурсы {#clear-out}

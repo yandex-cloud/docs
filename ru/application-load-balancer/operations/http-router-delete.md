@@ -115,4 +115,8 @@
      yc alb http-router list
      ```
 
+- API
+
+  Воспользуйтесь методом REST API [delete](../api-ref/HttpRouter/delete.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Delete](../api-ref/grpc/http_router_service.md#Delete).
+
 {% endlist %}

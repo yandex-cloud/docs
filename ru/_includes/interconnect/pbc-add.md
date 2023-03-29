@@ -20,7 +20,7 @@ trunk_id: euus5dfgchu23b81d472
 vlan_id: 101
 ipv4_peering:
   peer_bgp_asn: 65001
-  #yandex_cloud_bgp_asn: 200350
+  #cloud_bgp_asn: {{ cic-bgp-asn }}
 allowed-public-services:
   - {{ s3-storage-host }}
   - transcribe.{{ api-host }}
@@ -32,8 +32,8 @@ is_nat_subnet_required: True
 * `trunk_id` — идентификатор транка, полученный от поддержки на предыдущем этапе.
 * `vlan_id` — идентификатор `VLAN-ID` для данного публичного соединения в 802.1Q транке. Выбирается клиентом. Не может совпадать со значениями `VLAN-ID` ранее настроенных приватных соединений в данном транке.
 * `peer_bgp_asn` — номер [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) на оборудовании клиента. Выбирается клиентом.
-* `allowed-public-services` — список `FQDN API Endpoint` для сервисов [из таблицы](../../interconnect/concepts/pub-con.md#pub-svc-list) к которым нужно предоставить доступ через данное публичное соединение.
-* `is_nat_subnet_required` — нужно ли клиенту выделить дополнительную `/30` подсеть (в дополнение к стыковой подсети `/31`) для реализации [функций NAT](../../interconnect/concepts/pub-con.md#pub-nat). По умолчанию дополнительная подсеть не выделяется - значение `False`.
+* `allowed-public-services` — список `FQDN API Endpoint` для сервисов [из таблицы](../../interconnect/concepts/pub-con.md#pub-svc-list), к которым нужно предоставить доступ через данное публичное соединение.
+* `is_nat_subnet_required` — нужно ли клиенту выделить дополнительную `/30` подсеть (в дополнение к стыковой подсети `/31`) для реализации [функций NAT](../../interconnect/concepts/pub-con.md#pub-nat). По умолчанию дополнительная подсеть не выделяется — значение `False`.
 
 ### Ответ поддержки по обращению клиента {#prc-ticket-resp}
 
@@ -43,13 +43,13 @@ is_nat_subnet_required: True
 ```s
 id: cf3qdug4fsf737g2gpdu
 ipv4_peering:
-  peering_subnet: 178.210.118.46/31
-  peer_ip: 178.210.118.47
-  yandex_cloud_ip: 178.210.118.46
+  peering_subnet: {{ cic-pbc-subnet }}
+  peer_ip: {{ cic-pbc-subnet-client }}
+  cloud_ip: {{ cic-pbc-subnet-cloud }}
   peer_bgp_asn: 65001
-  #yandex_cloud_bgp_asn: 200350
+  #cloud_bgp_asn: {{ cic-bgp-asn }}
 ipv4_nat:
-  nat_subnet: 178.210.118.200/30
+  nat_subnet: {{ cic-pbc-nat-subnet }}
 allowed-public-services:
   - {{ s3-storage-host }}
   - transcribe.{{ api-host }}
@@ -59,9 +59,9 @@ allowed-public-services:
 * `id` — идентификатор созданного публичного соединения.
 * `peering_subnet` — [стыковая подсеть](../../interconnect/concepts/pub-con.md#pub-address) для BGP-пиринга. Выделяется из [адресного пула](../../vpc/concepts/ips.md) {{ yandex-cloud }}.
 * `peer_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании клиента. Назначается {{ yandex-cloud }}.
-* `yandex_cloud_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании Yandex Cloud. Назначается {{ yandex-cloud }}.
+* `cloud_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании {{ yandex-cloud }}. Назначается {{ yandex-cloud }}.
 * `nat_subnet` — дополнительная подсеть выделенная из публичного адресного пространства {{ yandex-cloud }} для реализации [функций NAT](../../interconnect/concepts/pub-con.md#pub-nat).
-* `allowed-public-services` — список `FQDN API Endpoints` из запроса клиента для сервисов к которым был предоставлен доступ через созданное публичное соединение.
+* `allowed-public-services` — список `FQDN API Endpoints` из запроса клиента для сервисов, к которым был предоставлен доступ через созданное публичное соединение.
 
 ### Контроль состояния публичного соединения {#pbc-check}
 
