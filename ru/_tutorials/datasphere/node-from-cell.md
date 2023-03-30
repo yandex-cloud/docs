@@ -299,7 +299,7 @@
         import requests
     
         resp = requests.post(
-            "https://datasphere.api.cloud.yandex.net/datasphere/v1/nodes/<идентификатор_ноды>",
+            "https://datasphere.api.cloud.yandex.net/datasphere/v1/nodes/<идентификатор_ноды>:execute",
             data = json.dumps({
                 'node_id': '<идентификатор_ноды>',
                 'folder_id': '<идентификатор_каталога>',
