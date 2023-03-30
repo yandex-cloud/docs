@@ -50,6 +50,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud-functions
         function_id: <id вашей функции>
+        service_account_id:  <id сервисного аккаунта с ролью functions.functionInvoker>
       operationId: get
       parameters:
       - description: my param
