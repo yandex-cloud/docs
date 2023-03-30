@@ -28,7 +28,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
      --output sa-key.json
    ```
 
-## Installation using {{ marketplace-full-name }} {#install-alb-marketplace}
+## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
 1. Click the name of the desired cluster and select the **{{ marketplace-short-name }}** ![Marketplace](../../../_assets/marketplace.svg) tab.
@@ -43,7 +43,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 ## Installation using a Helm chart {#install-alb-helm}
 
-### Before you begin {#before-helm}
+### Getting started {#before-helm}
 
 1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
@@ -55,7 +55,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    sudo apt update && sudo apt install jq
    ```
 
-### Installation using a Helm chart {#install}
+### Installation using a Helm chart {#helm-install}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress controller, run the commands:
 

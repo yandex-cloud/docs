@@ -410,14 +410,8 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
 
 ## Install {{ alb-name }} {#setup-alb}
 
-1. Create a [namespace](../concepts/index.md#namespace) to enable the load balancer:
 
-   ```bash
-   kubectl create namespace yc-alb-ingress
-   ```
-
-
-1. [Install the load balancer using {{ marketplace-full-name }}](../operations/applications/alb-ingress-controller.md#install-alb-marketplace).
+To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [follow this guide](../operations/applications/alb-ingress-controller.md).
 
 
 

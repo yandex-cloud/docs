@@ -27,14 +27,14 @@ You can send notifications from Kyverno to other systems using the [Policy repor
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Helm installation](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Kyverno, run the following command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/marketplace/charts/kyverno \
-     --version 2.3.2 \
+     --version <Helm chart version> \
      --untar && \
    helm install \
      --namespace <namespace> \
@@ -42,6 +42,8 @@ You can send notifications from Kyverno to other systems using the [Policy repor
      kyverno ./kyverno/
    ```
 
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/kyverno#docker-images).
+
 ## See also {#see-also}
 
-[Kyverno documentation](https://kyverno.io/docs/).
+* [Kyverno documentation](https://kyverno.io/docs/).

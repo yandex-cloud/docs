@@ -46,4 +46,5 @@
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/falco).
 
 ## См. также {#see-also}
-* [Документация Falco](https://falco.org/docs/)
+
+* [Документация Falco](https://falco.org/docs/).

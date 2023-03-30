@@ -7,9 +7,9 @@ description: "In this tutorial, you'll create a {{ k8s }} cluster and node group
 
 Create a [{{ managed-k8s-name }} cluster](concepts/index.md#kubernetes-cluster) and [node group](concepts/index.md#node-group) and manage them using kubectl, the {{ k8s }} command-line interface.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-To start working with {{ managed-k8s-name }}:
+To get started with {{ managed-k8s-name }}:
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 
 
@@ -31,7 +31,7 @@ To start working with {{ managed-k8s-name }}:
 
 ## Create a {{ managed-k8s-name }} cluster {#kubernetes-cluster-create}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster {{ managed-k8s-name }}.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ managed-k8s-name }} cluster.
 1. Select **{{ managed-k8s-name }}**.
 1. Click **Create cluster**.
 1. Enter a name for the cluster. It must be unique within the folder.
@@ -67,7 +67,7 @@ For more information, see the [step-by-step instructions for creating a cluster]
   {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
   To add {{ managed-k8s-name }} cluster credentials to the kubectl configuration file:
-  1. Run the command:
+  1. Run the following command:
 
      ```bash
      yc managed-kubernetes cluster get-credentials test-k8s-cluster --external

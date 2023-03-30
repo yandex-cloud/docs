@@ -35,6 +35,8 @@ items:
             href: operations/applications/crossplane.md
           - name: Installing External Secrets Operator
             href: operations/applications/external-secrets-operator.md
+          - name: Installing Falco
+            href: operations/applications/falco.md
           - name: Installing Filebeat
             href: operations/applications/filebeat.md
           - name: Installing Fluent Bit
@@ -130,6 +132,10 @@ items:
         href: tutorials/container-registry.md
       - name: Signing and verifying {{ container-registry-name }} Docker images
         href: tutorials/sign-cr-with-cosign.md
+      - name: >-
+          Scanning {{ container-registry-name }} for vulnerabilities during
+          continuous deployment of applications using {{ GL }}
+        href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Running workloads with GPUs
         href: tutorials/running-pod-gpu.md
       - name: Installing an NGINX Ingress controller with Let's Encrypt®
@@ -162,6 +168,8 @@ items:
         href: tutorials/prometheus-grafana-monitoring.md
       - name: Continuous deployment of containerized applications using {{ GL }}
         href: tutorials/gitlab-containers.md
+      - name: Updating the Metrics Server parameters
+        href: tutorials/metrics-server.md
       - name: Using {{ marketplace-name }} products
         items:
           - name: Integrating with Argo CD

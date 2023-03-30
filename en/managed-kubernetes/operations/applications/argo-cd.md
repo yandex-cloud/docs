@@ -2,7 +2,7 @@
 
 [Argo CD](https://argo-cd.readthedocs.io) is a declarative, GitOps tool for continuous delivery to {{ k8s }}.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -44,14 +44,16 @@ To access the application via `localhost`:
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Argo CD, run the following command:
 
    ```bash
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argoproj/argocd/chart/argo-cd\
-     --version 4.5.3-1 \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argo/chart/argo-cd \
+     --version <Helm chart version> \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
      argo-cd ./argo-cd/
    ```
+
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/argo-cd#docker-images).
 
 ## See also {#see-also}
 

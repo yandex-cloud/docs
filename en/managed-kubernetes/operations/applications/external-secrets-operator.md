@@ -19,7 +19,7 @@ External Secrets Operator with {{ lockbox-name }} support enables you to configu
      --output sa-key.json
    ```
 
-## Installing External Secrets Operator through {{ marketplace-full-name }} {#install-eso-marketplace}
+## Installing External Secrets Operator through {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
 1. Click the name of the desired cluster and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
@@ -32,16 +32,16 @@ External Secrets Operator with {{ lockbox-name }} support enables you to configu
    * **Service account key**: Paste in the contents of `sa-key.json`.
 1. Click **Install**.
 
-## Installation using a Helm chart {#install-eso-helm}
+## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with External Secrets Operator, run the following command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets \
-     --version 0.3.8-2 \
+     --version <Helm chart version> \
      --untar && \
    helm install \
      --namespace <namespace> \
@@ -49,6 +49,8 @@ External Secrets Operator with {{ lockbox-name }} support enables you to configu
      --set-file auth.json=sa-key.json \
      external-secrets ./external-secrets/
    ```
+
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/external-secrets#docker-images).
 
    This command creates a new namespace required for using the External Secrets Operator.
 

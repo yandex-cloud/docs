@@ -12,7 +12,7 @@
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md). Save the key ID and secret key, you will need them when installing the application.
 1. (optional) To make new volumes fit into a single bucket with different prefixes, [create a {{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md). Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
 
-## Installation using {{ marketplace-full-name }} {#install-fb-marketplace}
+## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
 1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
@@ -28,22 +28,22 @@
    * **S3 service address**: The address of the S3 service to be used by the application. The default address is `https://{{ s3-storage-host }}`.
    * **GeeseFS mounting options**: Mounting options for GeeseFS. For a complete list of options, see the [GeeseFS documentation](https://github.com/yandex-cloud/geesefs).
    * **Volume cleanup policy**: Select the policy to clean up PersistentVolumes when deleting PersistentVolumeClaims:
-      * **Retain**: Retain a volume.
-      * **Delete**: Delete a volume.
+     * **Retain**: Retain a volume.
+     * **Delete**: Delete a volume.
    * **Storage class name**: If you previously selected the **Create storage class** option, specify the name of the new storage class.
    * **Secret name**: If you previously selected the **Create secret** option, specify the name of the new secret to be created for the storage class. Otherwise, specify the name of the existing secret to be used for the storage class.
 1. Click **Install**.
 
-## Installation using a Helm chart {#install-using-helm}
+## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with CSI, run the following command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/csi-s3/csi-s3 \
-     --version 0.30.9 \
+     --version <Helm chart version> \
      --untar && \
    helm install \
      --namespace <namespace> \
@@ -53,26 +53,28 @@
      csi-s3 .
    ```
 
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/csi-s3#docker-images).
+
 When installing a CSI application, the mandatory parameters are `secret.accessKey` and `secret.secretKey`. You can skip the other parameters or redefine them in the install command using the `--set <parameter name>=<new value>` key.
 
 The list of parameters available for redefining and their default values are shown in the table below:
 
-| Parameter name | Description | Default value |
+Parameter name | Description | Default value
 --- | --- | ---
-| `storageClass.create` | Whether a new storage class needs to be created | `true` |
-| `storageClass.name` | Storage class name | `csi-s3` |
-| `storageClass.singleBucket` | Use a single bucket for all PersistentVolumeClaims |
-| `storageClass.mountOptions` | GeeseFS mounting options | `--memory-limit 1000 --dir-mode 0777 --file-mode 0666` |
-| `storageClass.reclaimPolicy` | Volume cleanup policy | `Delete` |
-| `storageClass.annotations` | Description for a storage class |
-| `secret.create` | Whether a new secret needs to be created | `true` |
-| `secret.name` | Secret name | `csi-s3-secret` |
-| `secret.accessKey` | Key ID |
-| `secret.secretKey` | Private key |
-| `secret.endpoint` | S3 service address | `https://{{ s3-storage-host }}` |
+`storageClass.create` | Whether a new storage class needs to be created | `true`
+`storageClass.name` | Storage class name | `csi-s3`
+`storageClass.singleBucket` | Use a single bucket for all PersistentVolumeClaims
+`storageClass.mountOptions` | GeeseFS mounting options | `--memory-limit 1000 --dir-mode 0777 --file-mode 0666`
+`storageClass.reclaimPolicy` | Volume cleanup policy | `Delete`
+`storageClass.annotations` | Description for a storage class
+`secret.create` | Whether a new secret needs to be created | `true`
+`secret.name` | Secret name | `csi-s3-secret`
+`secret.accessKey` | Key ID
+`secret.secretKey` | Private key
+`secret.endpoint` | S3 service address | `https://{{ s3-storage-host }}`
 
 ## See also {#see-also}
 
-* [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)
-* [Integration with {{ objstorage-name }}](../volumes/s3-csi-integration.md)
-* [Working with persistent and dynamic volumes in {{ k8s }}](../../concepts/volume.md)
+* [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md).
+* [Integration with {{ objstorage-name }}](../volumes/s3-csi-integration.md).
+* [Working with persistent and dynamic volumes in {{ k8s }}](../../concepts/volume.md).

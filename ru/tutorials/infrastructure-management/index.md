@@ -4,7 +4,7 @@
 * [Загрузка состояний {{ TF }} в {{ objstorage-full-name }}](terraform-state-storage.md)
 
 
-* [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](terraform-state-lock.md)
+* [Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}](terraform-state-lock.md)
 
 
 * [Начало работы с Packer](packer-quickstart.md)
@@ -20,7 +20,7 @@
 
 
 * [Настройка синхронизации часов с помощью NTP](ntp.md)
-  
+
 
 * [Работа с группой виртуальных машин с автоматическим масштабированием](vm-autoscale.md)
 
@@ -28,7 +28,7 @@
 
 * [Масштабирование группы виртуальных машин по расписанию](vm-scale-scheduled.md)
 * [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди {{ message-queue-full-name }}](autoscale-monitoring.md)
-  
+
 
 
 * [Обновление группы виртуальных машин под нагрузкой](updating-under-load.md)

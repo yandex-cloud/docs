@@ -13,3 +13,6 @@ description: "Various {{ container-registry-full-name }} use cases in {{ yandex-
 
 
 * [{#T}](sign-with-cosign.md)
+
+
+* [{#T}](cr-scanner-with-k8s-and-gitlab.md)

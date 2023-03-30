@@ -43,7 +43,7 @@ Thumbor features:
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [install-helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -56,7 +56,7 @@ Thumbor features:
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
      helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
-       --version 0.1.1-4 \
+       --version <Helm chart version> \
        --untar && \
      helm install \
        --namespace <namespace for Thumbor> \
@@ -73,7 +73,7 @@ Thumbor features:
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
      helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
-       --version 0.1.1-4 \
+       --version <Helm chart version> \
        --untar && \
      helm install \
        --namespace <namespace for Thumbor> \
@@ -87,6 +87,8 @@ Thumbor features:
      ```
 
    {% endlist %}
+
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/thumbor#docker-images).
 
 ## Accessing the application {#app-access}
 
@@ -124,6 +126,6 @@ Learn more about working with images, in the [Thumbor documentation](https://thu
 
 ## See also {#see-also}
 
-[Thumbor documentation](https://thumbor.readthedocs.io/en/latest/)
-[{{ objstorage-name }} documentation](../../../storage/)
-[{{ network-load-balancer-name }} documentation](../../../network-load-balancer/)
+* [Thumbor documentation](https://thumbor.readthedocs.io/en/latest/).
+* [{{ objstorage-name }} documentation](../../../storage/).
+* [{{ network-load-balancer-name }} documentation](../../../network-load-balancer/).
