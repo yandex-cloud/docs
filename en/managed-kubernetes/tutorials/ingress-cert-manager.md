@@ -18,7 +18,7 @@ If you no longer need these resources, [delete them](#clear-out).
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
-1. If you already have a certificate for the domain zone, [add information about it](../../certificate-manager/operations/import/cert-create.md) to the [{{ certificate-manager-full-name }}](../../certificate-manager/) service. Or [create a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
+1. If you already have a certificate for the domain zone, [add its details](../../certificate-manager/operations/import/cert-create.md) to the [{{ certificate-manager-full-name }}](../../certificate-manager/) service. Or [create a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
 
 ## Install an NGINX Ingress controller using a Helm chart {#install-controller}
 
@@ -72,7 +72,7 @@ To test the certificate manager, create `ClusterIssuer`, `Ingress`, `Service`, a
    spec:
      acme:
        server: https://acme-v02.api.letsencrypt.org/directory
-       email: <your email>
+       email: <your email address>
        privateKeySecretRef:
          name: letsencrypt
        solvers:

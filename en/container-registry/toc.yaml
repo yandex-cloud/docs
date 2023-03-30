@@ -85,6 +85,10 @@ items:
         href: tutorials/image-auto-scan.md
       - name: Signing and verifying Docker images in {{ managed-k8s-name }}
         href: tutorials/sign-with-cosign.md
+      - name: >-
+          Scanning vulnerabilities during continuous deployment of {{
+          managed-k8s-name }} applications using {{ GL }}
+        href: tutorials/cr-scanner-with-k8s-and-gitlab.md
   - name: Concepts
     items:
       - name: Overview

@@ -41,7 +41,7 @@ Obtain a registration token:
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner \
-     --version 0.43.1-34 \
+     --version <Helm chart version> \
      --untar && \
    helm install \
      --namespace <namespace> \
@@ -51,9 +51,11 @@ Obtain a registration token:
      gitlab-runner ./gitlab-runner/
    ```
 
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/gitlab-runner#docker-images).
+
 ## See also {#see-also}
 
-[{{ mgl-full-name }} documentation](../../../managed-gitlab/).
-[{{ GL }} documentation](https://docs.gitlab.com/).
-[Documentation for {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/).
-[Reference guide on .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).
+* [{{ mgl-full-name }} documentation](../../../managed-gitlab/).
+* [{{ GL }} documentation](https://docs.gitlab.com/).
+* [Documentation for {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/).
+* [Reference guide on .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).

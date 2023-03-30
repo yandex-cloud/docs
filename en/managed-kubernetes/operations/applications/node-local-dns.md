@@ -4,7 +4,7 @@
 
 ## Before you begin {#before-you-begin}
 
-1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [kubectl installation](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Get the [internal IP address](../../../vpc/concepts/address.md#internal-addresses) of the `kube-dns` service:
 
@@ -32,14 +32,14 @@ After installing NodeLocal DNS, use the following values:
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/), from NodeLocal DNS, run the following command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 &&\
    helm pull oci://{{ registry }}/yc-marketplace/k8s.gcr.io/node-local-dns/chart \
-     --version 1.3 \
+     --version <Helm chart version> \
      --untar && \
    KUBE_DNS_IP="$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})" && \
    helm install \
@@ -47,5 +47,7 @@ After installing NodeLocal DNS, use the following values:
      --set config.clusterIp=$KUBE_DNS_IP \
      node-local-dns ./chart/
    ```
+
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/node-local-dns#docker-images).
 
 For more information about local DNS caching, see [{#T}](../../tutorials/node-local-dns.md).

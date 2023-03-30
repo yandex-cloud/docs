@@ -23,10 +23,16 @@ items:
         href: operations/connect.md
   - name: Practical guidelines
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: >-
           Continuous deployment of {{ managed-k8s-name }} containerized
           applications
         href: tutorials/gitlab-containers.md
+      - name: >-
+          Scanning {{ container-registry-name }} for vulnerabilities during
+          continuous deployment of {{ managed-k8s-name }} applications
+        href: tutorials/cr-scanner-with-k8s-and-gitlab.md
   - name: Concepts
     items:
       - name: Relationships between service resources

@@ -11,4 +11,6 @@ description: "{{ managed-k8s-name }} has limits and quotas for the total number 
 
 {{ managed-k8s-name }} uses the specified maximum node group size as the actual size, regardless of the current size.
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [limits-managed-kube](../../_includes/managed-kube-limits.md) %}

@@ -82,7 +82,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Helm installation](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Add the `metric-provider` repository:
 
@@ -90,10 +90,11 @@ For the provider to work, you need to create a [service account](../../../iam/co
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/metric-provider/chart \
-     --version=0.1.3 \
+     --version=<Helm chart version> \
      --untar
    ```
 
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/metric-provider#docker-images).
 1. Configure and install Metrics Provider:
 
    ```bash

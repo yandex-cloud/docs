@@ -165,7 +165,7 @@
            }
            prometheus :9253
            health 169.254.20.10:8080
-           }
+         }
          in-addr.arpa:53 {
            errors
            cache 30

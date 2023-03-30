@@ -6,12 +6,6 @@
 * [Connections to nodes over SSH](#rules-nodes-ssh).
 * [{{ k8s }} API access](#rules-master).
 
-{% note info %}
-
-We recommend creating an independent security group for each of the mentioned sets of rules.
-
-{% endnote %}
-
 You can set more detailed rules for security groups, such as allowing traffic in only specific [subnets](../../../vpc/concepts/network.md#subnet).
 
 Security groups must be correctly configured for all subnets that will host the [cluster](../../concepts/index.md#kubernetes-cluster). This determines the performance and availability of the cluster and the services running there.
@@ -53,7 +47,7 @@ For the cluster to run properly, create rules both for the inbound and outgoing 
    * To test the nodes using ICMP requests from the subnets within {{ yandex-cloud }}:
      * Protocol: `ICMP`.
      * Source type: `CIDR`.
-     * Destination: IP address ranges of the subnets within {{ yandex-cloud }} from which you'll  perform cluster diagnostics, such as:
+     * Destination: IP address ranges of the subnets within {{ yandex-cloud }} from which you'll perform cluster diagnostics, such as:
        * `10.0.0.0/8`.
        * `192.168.0.0/16`.
        * `172.16.0.0/12`.

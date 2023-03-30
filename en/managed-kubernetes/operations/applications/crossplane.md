@@ -25,31 +25,33 @@
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) for Crossplane or create a new one.
    * **Application name**: Enter an application name.
-   * **Service account key**: Paste the contents of the [service account key](../../../iam/concepts/authorization/access-key.md) file or create a new one.
+   * **Service account key**: Paste the contents of the [service account key](../../../iam/concepts/authorization/access-key.md) file you [previously obtained](#before-you-begin), or create a new one.
 1. Click **Install**.
 1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Crossplane, run the following command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/crossplane/crossplane/crossplane \
-     --version 1.6.3-5 \
+     --version <Helm chart version> \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
      --set-file providerJetYC.creds=key.json \
-     crossplane ./crossplane/
+     crossplane crossplane/.
    ```
+
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/crossplane#docker-images).
 
 ## Installation using the Helm GitHub repository {#helm-repo-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. Create a namespace for Crossplane:
 

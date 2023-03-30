@@ -13,7 +13,8 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
 ## Before you begin {#before-you-begin}
 
-1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [configure](../connect/create-static-conf.md) it to work with your [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Look up the unique ID of the [disk](../../../compute/concepts/disk.md) to be used to create a `PersistentVolume`:
    1. If you don't have a disk yet, [create one](../../../compute/operations/disk-create/empty.md).
 
@@ -74,6 +75,18 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    To create a `PersistentVolume` from an existing cloud drive, enter its unique disk ID in the `volumeHandle` parameter.
 
+   
+   {% note info %}
+
+   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
+
+   {% endnote %}
+
+
+
+   To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+
+   
    ```yaml
    apiVersion: v1
    kind: PersistentVolume
@@ -84,6 +97,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
        storage: <PersistentVolume size>
      accessModes:
        - ReadWriteOnce
+     storageClassName: "yc-network-hdd"
      csi:
        driver: disk-csi-driver.mks.ycloud.io
        fsType: ext4
@@ -91,7 +105,9 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
      storageClassName: <storage class name>
    ```
 
-1. Run the command:
+
+
+1. Run the following command:
 
    ```bash
    kubectl create -f test-pv.yaml
@@ -148,7 +164,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    {% endnote %}
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       kubectl create -f test-claim.yaml
@@ -202,7 +218,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    ```
 
    For more information about the specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
-1. Run the command:
+1. Run the following command:
 
    ```bash
    kubectl create -f test-pod.yaml

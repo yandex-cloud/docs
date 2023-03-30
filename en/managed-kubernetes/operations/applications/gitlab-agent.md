@@ -20,7 +20,7 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. [Create a {{ mgl-name }} instance](../../../managed-gitlab/operations/instance/instance-create.md) or a standalone instance.
 1. Create an agent configuration file in the repository:
@@ -56,14 +56,14 @@ For more information about setting up and registering an agent, see the [{{ GL }
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with {{ GL }} Agent, run the following command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gitlab-org/gitlab-agent/chart/gitlab-agent \
-     --version 1.3.0-10 \
+     --version <Helm chart version> \
      --untar && \
    helm upgrade --install \
      --namespace <namespace> \
@@ -72,6 +72,8 @@ For more information about setting up and registering an agent, see the [{{ GL }
      --set config.token='<{{ GL }} access token>' \
      gitlab-agent ./gitlab-agent/
    ```
+
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/gitlab-agent#docker-images).
 
    This command also creates a new namespace required for the application.
 1. Make sure the {{ GL }} Agent pod status changed to `Running`:
@@ -84,5 +86,5 @@ For more information about setting up and registering an agent, see the [{{ GL }
 
 ## See also {#see-also}
 
-[{{ mgl-name }} documentation](../../../managed-gitlab/).
-[{{ GL }} Agent documentation](https://docs.gitlab.com/ee/user/clusters/agent/).
+* [{{ mgl-name }} documentation](../../../managed-gitlab/).
+* [{{ GL }} Agent documentation](https://docs.gitlab.com/ee/user/clusters/agent/).

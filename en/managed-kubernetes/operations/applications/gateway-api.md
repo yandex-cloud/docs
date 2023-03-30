@@ -48,14 +48,14 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../../a
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Gateway API, run the command below:
 
    ```bash
     export HELM_EXPERIMENTAL_OCI=1 && \
     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api \
-      --version 0.4.16 \
+      --version <Helm chart version> \
       --untar && \
     helm install \
       --namespace <namespace> \
@@ -67,7 +67,9 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../../a
       gateway-api ./gateway-api/
    ```
 
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/gateway-api#docker-images).
+
 ## See also {#see-also}
 
-[{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/).
-[{{ alb-name }} documentation](../../../application-load-balancer/).
+* [{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/).
+* [{{ alb-name }} documentation](../../../application-load-balancer/).

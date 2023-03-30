@@ -2,7 +2,7 @@
 
 [HashiCorp Vault](https://www.vaultproject.io/) is an open source tool for securely storing and accessing secrets (such as passwords, certificates, and tokens).
 
-The application image contains a pre-installed build of HashiCorp Vault with [added support for Auto Unseal](https://github.com/hashicorp/vault/compare/v1.8.2...yandex-cloud:v1.8.2+yckms) via [{{ kms-full-name }}](../../../kms/). The build is based on [HashiCorp Vault 1.8.2](https://github.com/hashicorp/vault/tree/v1.8.2).
+The application image contains a pre-installed build of HashiCorp Vault with added support for [Auto Unseal](https://developer.hashicorp.com/vault/docs/concepts/seal#auto-unseal) via [{{ kms-full-name }}](../../../kms/). The build is based on [HashiCorp Vault](https://github.com/hashicorp/vault/tags) of the appropriate version.
 
 To install HashiCorp Vault:
 1. [Create a service account and keys](#sa-keys-create).
@@ -50,7 +50,7 @@ To use HashiCorp Vault, you need:
 
    You can fetch the folder ID with a [list of folders](../../../resource-manager/operations/folder/get-id.md).
 
-## Installing using {{ marketplace-full-name }} {#marketplace-install}
+## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
 1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
@@ -62,9 +62,9 @@ To use HashiCorp Vault, you need:
    * **{{ kms-short-name }} key ID for Vault**: Specify the [previously obtained](#sa-keys-create) {{ kms-name }} key ID.
 1. Click **Install**.
 
-## Installing using a Helm chart {#helm-install}
+## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with HashiCorp Vault, run the following command:
 
@@ -72,16 +72,16 @@ To use HashiCorp Vault, you need:
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat authorized-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
-      --version <Helm chart version> \
-      --untar && \
+     --version <Helm chart version> \
+     --untar && \
    helm install \
-      --namespace <namespace> \
-      --create-namespace \
-      --set-file yandexKmsAuthJson=authorized-key.json \
-      hashicorp ./vault/
+     --namespace <namespace> \
+     --create-namespace \
+     --set-file yandexKmsAuthJson=authorized-key.json \
+     hashicorp ./vault/
    ```
 
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/vault-yckms-k8s).
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/vault-yckms-k8s#docker-images).
 
    This command also creates a new namespace required for HashiCorp Vault.
 
@@ -127,7 +127,6 @@ To initialize the vault:
    Recovery Key 2: S0kcValC6qSfEI4WJBovSbJWZntBUwtTrtisSIcS3n0e
    Recovery Key 3: t44ZRqbzLZNzfChinZNzLCNnwvFN/R52vbDq/UueHPPg
    ...
-   
    Recovery key initialized with 5 key shares and a key threshold of 3. Please
    securely distribute the key shares printed above.
    ```

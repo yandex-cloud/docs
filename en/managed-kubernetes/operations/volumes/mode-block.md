@@ -16,8 +16,10 @@ To connect a [volume in](../../concepts/volume.md#block) `volumeMode: Block`, pe
    {% endnote %}
 
 
+
    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
+   
    ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
@@ -27,10 +29,13 @@ To connect a [volume in](../../concepts/volume.md#block) `volumeMode: Block`, pe
      accessModes:
        - ReadWriteOnce
      volumeMode: Block
+     storageClassName: "yc-network-hdd"
      resources:
        requests:
          storage: 1Gi
    ```
+
+
 
 1. Create a `PersistentVolumeClaim`:
 
@@ -72,7 +77,7 @@ To connect a [volume in](../../concepts/volume.md#block) `volumeMode: Block`, pe
          claimName: pvc-block
    ```
 
-1. Run the command:
+1. Run the following command:
 
    ```bash
    kubectl create -f pod.yaml

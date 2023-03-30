@@ -8,7 +8,7 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
 
 {% endnote %}
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 To export policy results, set up external storage:
 
@@ -54,9 +54,9 @@ To export policy results, set up external storage:
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [install-helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
-1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Policy Reporter, run the following command:
 
@@ -79,7 +79,7 @@ To export policy results, set up external storage:
      policy-reporter ./policy-reporter/
    ```
 
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/policy-reporter).
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/policy-reporter#docker-images).
 
    The `target.s3.bucket` and `serviceaccountawskeyvalue` parameters are only required if export to {{ objstorage-name }} is enabled (`target.s3.enabled=true`), and the `target.kinesis.endpoint` and `target.kinesis.streamName` parameters are required if export to {{ yds-name }} is enabled (`target.kinesis.enabled=true`).
 

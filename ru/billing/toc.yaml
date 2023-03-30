@@ -68,6 +68,8 @@ items:
         href: concepts/bonus-account.md
       - name: Пробный период
         href: concepts/trial-period.md
+      - name: Отчетный период
+        href: concepts/reporting-period.md
       - name: Резервируемое потребление (CVoS)
         href: concepts/cvos.md
       - name: Free tier экосистемы бессерверных вычислений

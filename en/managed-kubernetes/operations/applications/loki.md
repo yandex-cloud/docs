@@ -2,7 +2,7 @@
 
 [Loki](https://grafana.com/oss/loki/) is a horizontally scalable, highly available, multi-tenant log aggregation and storage system. It doesn't index the contents of logs, but rather a set of labels for each log stream.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -35,9 +35,9 @@
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Helm installation](../../../_includes/managed-kubernetes/helm-install.md) %}
 
-1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [kubectl installation](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Loki, run the following command:
 
@@ -54,8 +54,8 @@
      loki ./loki
    ```
 
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/loki).
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/loki#docker-images).
 
 ## See also {#see-also}
 
-[Grafana Loki documentation](https://grafana.com/docs/loki/latest/).
+* [Grafana Loki documentation](https://grafana.com/docs/loki/latest/).

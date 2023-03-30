@@ -1,3 +1,8 @@
+---
+title: "How to delete a Docker image from a {{ container-registry-full-name }} registry"
+description: "In this tutorial, you will learn how to delete a Docker image from a {{ container-registry-full-name }} registry."
+---
+
 # Deleting a Docker image from a registry
 
 {% note alert %}
@@ -15,9 +20,9 @@ Deleting a [Docker image](../../concepts/docker-image.md) is a deferred action o
      1. Go to the [folder page]({{ link-console-main }}) and select **{{ container-registry-name }}**.
      1. Open the appropriate registry.
      1. Open the repository.
-     1. Click the ![image](../../../_assets/horizontal-ellipsis.svg) icon next to the Docker image to delete.
-     1. In the resulting menu, click **Delete**.
-     1. In the window that opens, click **Delete**.
+  1. Click the ![image](../../../_assets/horizontal-ellipsis.svg) icon next to the Docker image to delete.
+  1. In the resulting menu, click **Delete**.
+  1. In the window that opens, click **Delete**.
 
 - CLI
 

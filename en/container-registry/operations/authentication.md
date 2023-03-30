@@ -51,7 +51,7 @@ Where:
 {% endnote %}
 
 1. If you don't have an OAuth token, get one by following this [link]({{ link-cloud-oauth }}).
-1. Run the command:
+1. Run the following command:
 
    ```bash
    docker login \
@@ -70,7 +70,7 @@ Where:
 {% endnote %}
 
 1. [Get an {{ iam-name }} token](../../iam/operations/iam-token/create.md).
-1. Run the command:
+1. Run the following command:
 
    ```bash
    docker login \
@@ -96,7 +96,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
    yc iam key create --service-account-name default-sa -o key.json
    ```
 
-   Result:
+   Command result:
 
    ```bash
    id: aje8a87g4e...
@@ -105,7 +105,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
    key_algorithm: RSA_2048
    ```
 
-1. Run the command:
+1. Run the following command:
 
    ```bash
    cat key.json | docker login \
@@ -118,7 +118,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
    * The `cat key.json` command writes the contents of the key file to the output stream.
    * The `--password-stdin` flag allows the password to be read from the input stream.
 
-   Result:
+   Command result:
 
    ```text
    Login succeeded
@@ -133,7 +133,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
 {% endnote %}
 
 1. [Get an {{ iam-name }} token](../../iam/operations/iam-token/create-for-sa.md).
-1. Run the command:
+1. Run the following command:
 
    ```bash
    docker login \
@@ -170,7 +170,7 @@ To prepare this secret:
      {{ registry }}
    ```
 
-   Result:
+   Command result:
 
    ```text
    Login succeeded
@@ -182,7 +182,7 @@ To prepare this secret:
    cat $HOME/.docker/config.json
    ```
 
-   Result:
+   Command result:
 
    ```json
    {
@@ -246,7 +246,7 @@ The Docker Engine can keep user credentials in an external credentials store. Th
    yc container registry configure-docker
    ```
 
-   Result:
+   Command result:
 
    ```bash
    Credential helper is configured in '/home/<user>/.docker/config.json'

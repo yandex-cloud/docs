@@ -23,6 +23,7 @@ description: "In this article, you'll learn how to work with the managed service
 * [{#T}](applications/csi-s3.md)
 * [{#T}](applications/crossplane.md)
 * [{#T}](applications/external-secrets-operator.md)
+* [{#T}](applications/falco.md)
 * [{#T}](applications/filebeat.md)
 * [{#T}](applications/fluentbit.md)
 * [{#T}](applications/gateway-api.md)
