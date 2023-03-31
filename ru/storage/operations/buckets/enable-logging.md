@@ -60,7 +60,7 @@
 
      
      Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
- 
+
 
      Чтобы включить механизм логирования в бакете, который вы хотите отслеживать:
 
@@ -102,7 +102,7 @@
 
    - API
 
-     Отправьте запрос методом [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md).
+     Чтобы включить механизм логирования в бакете, воспользуйтесь методом S3 API [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md).
 
      Пример тела HTTP-запроса:
 
@@ -154,7 +154,7 @@
 
 - API
 
-  Отправьте запрос методом [getBucketLogging](../../s3/api-ref/bucket/getBucketLogging.md).
+  Воспользуйтесь методом S3 API [getBucketLogging](../../s3/api-ref/bucket/getBucketLogging.md).
 
   Пример тела HTTP-ответа:
 
@@ -237,7 +237,7 @@
 
 - API
 
-  Отправьте запрос методом [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md). В теле запроса передайте параметр `<BucketLoggingStatus>` с пустым значением.
+  Воспользуйтесь методом S3 API [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md). В теле запроса передайте параметр `<BucketLoggingStatus>` с пустым значением.
 
   Пример тела HTTP-запроса:
 

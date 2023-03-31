@@ -1,8 +1,7 @@
 ---
 title: "Bucket"
-description: "A bucket is a logical entity that helps store objects. A bucket name is used as part of URL to access data. Bucket names are unique throughout Object Storage, meaning that you can't create two buckets with the same name (even in different folders in different clouds). Keep this in mind if you plan to create buckets automatically via the API."
+description: "A bucket is a logical entity that handles storing objects. A bucket name is used as part of a URL to access data. Bucket names are unique throughout Object Storage, which means you cannot create two buckets with the same name, even in different folders belonging to different clouds. You should keep this in mind if you are going to create buckets automatically through the API."
 keywords:
-  - what is a bucket
   - what is a bucket
   - bucket
   - bucket
@@ -12,24 +11,24 @@ keywords:
 
 # Bucket in {{ objstorage-name }}
 
-A logical entity that helps store objects.
+A bucket is a logical entity that handles storing objects.
 
 ## Naming buckets {#naming}
 
-A bucket's name is used as part of the data access URL and is visible to your users. For example, `https://{{ s3-storage-host }}/bucket-name`.
+A bucket name is used as part of the data access URL and is visible to your users. For example, it may look like `https://{{ s3-storage-host }}/bucket-name`.
 
-Naming rules:
+The naming requirements are as follows:
 
-- Bucket names are unique throughout {{ objstorage-name }}, so you can't create two buckets with the same name (even in different folders in different clouds). Keep this in mind if you plan to create buckets automatically via the API.
+- Bucket names are unique throughout {{ objstorage-name }}, which means you cannot create two buckets with the same name, even in different folders belonging to different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
 - Bucket names are subject to the following restrictions:
 
    {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
-When selecting a bucket name, please keep in mind that names containing dots are used for [hosting static websites](hosting.md). You may encounter a name conflict that prevents you or another user from hosting a website in Object Storage.
+When choosing a name for your bucket, keep in mind that names containing dots are used for [hosting static websites](hosting.md). You may encounter a name conflict that will prevent you or another user from hosting a website in Object Storage.
 
 ## Bucket URL {#bucket-url}
 
-You can use the following URL format to access a bucket:
+You can use the following URL formats to access a bucket:
 
 - `https://{{ s3-storage-host }}/<bucket>?<parameters>`
 - `http://<bucket>.{{ s3-storage-host }}?<parameters>`
@@ -38,26 +37,24 @@ You can use the following URL format to access a bucket:
 
 ## Accessing a bucket via HTTPS {#bucket-https}
 
-{{ objstorage-name }} supports secure connections over [HTTPS](https://en.wikipedia.org/wiki/HTTPS). When accessing your buckets, use URLs in the format `https://{{ s3-storage-host }}/<bucket>?<parameters>`.
+{{ objstorage-name }} supports secure connections over [HTTPS](https://en.wikipedia.org/wiki/HTTPS). When accessing your buckets, use URLs in the `https://{{ s3-storage-host }}/<bucket>?<parameters>` format.
 
-When you use URLs in the format `http://<bucket>.{{ s3-storage-host }}?<parameters>` HTTPS isn't available.
-
-Read about HTTPS support when hosting websites in {{ objstorage-name }} under [{#T}](hosting.md).
+{% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
 ## Bucket settings {#bucket-settings}
 
 You can:
 
-- [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md).
+- [Limit the maximum bucket size](../operations/buckets/limit-max-volume.md).
 
-   {{ objstorage-name }} doesn't let you upload objects if adding them exceeds the maximum bucket size.
+   {{ objstorage-name }} will not allow you to upload an object if doing so leads to exceeding the maximum bucket size.
 
 - Set the default [storage class](storage-class.md).
 
-   Objects uploaded to a bucket are by default saved with the storage class specified for that bucket.
+   By default, objects uploaded to a bucket are saved with the storage class specified for that bucket.
 
 - Configure a bucket for [static website hosting](hosting.md).
-- Uploading the [CORS configuration](cors.md) for the bucket.
+- Upload a [CORS configuration](cors.md) for a bucket.
 - Enable [bucket encryption](../operations/buckets/encrypt.md).
 
    By default, the objects added to the bucket are encrypted with the specified [{{ kms-short-name }} key](../../kms/concepts/key.md).
@@ -66,24 +63,24 @@ You can:
 
 ## Bucket access {#bucket-access}
 
-By default, buckets are created with restricted access, as set in the [IAM](../../iam/concepts/index.md). You can use the management console to [enable public access](../operations/buckets/bucket-availability.md):
+By default, buckets are created with restricted access, as specified in the [IAM](../../iam/concepts/index.md) settings. You can use the management console to [enable public access](../operations/buckets/bucket-availability.md):
 
 {% include [storage-public-operations](../_includes_service/storage-public-operations.md) %}
 
-If necessary, you can configure permissions to the buckets and objects they contain using the [ACL](acl.md).
+If required, you can configure permissions to the buckets and objects they contain using [ACLs](acl.md).
 
-## Guidelines and limitations {#details-of-usage}
+## Recommendations and limitations {#details-of-usage}
 
-- A bucket can't be renamed.
-- {{ objstorage-name }} performance doesn't depend on the number of buckets. You can store all your data in one or several buckets.
-- Buckets can't be nested.
+- You cannot rename a bucket.
+- {{ objstorage-name }} performance does not depend on the number of buckets. You can store all your data in one or more buckets, as you deem fit.
+- Buckets cannot be nested.
 - You can only delete an empty bucket.
-- It may take some time after deleting a bucket before you can create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you've released before you claim it again. Don't delete buckets without a reason.
-- When objects are uploaded in quick succession, the maximum specified bucket size can be exceeded.
-- After deleting objects from a bucket, their storage capacity is considered occupied for some time.
+- It may take some time after deleting a bucket before you can create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you released before you claim it again. Do not delete buckets without a reason.
+- Uploading objects quickly one by one may lead to exceeding the specified maximum bucket size.
+- After deleting objects from a bucket, their storage capacity is retained for some time.
 
    {% note info %}
 
-   If you limit the maximum size of a bucket, it may remain unavailable for writes for some time, even if you free up enough space for new objects.
+   If you limit the maximum size of a bucket, it may remain unavailable for writes for some time, even through you free up enough space for new objects.
 
    {% endnote %}

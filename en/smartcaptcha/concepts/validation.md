@@ -35,10 +35,10 @@ Where:
 * `<div id="captcha-container" class="smart-captcha" ...>`: `div` element with the widget.
 * `value`: Token value.
 
-To retrieve a validation result, send a GET request containing the token to `https://captcha-api.yandex.ru/validate`:
+To retrieve a validation result, send a GET request containing the token to `https://smartcaptcha.yandexcloud.net/validate`:
 
 ```TEXT
-https://captcha-api.yandex.ru/validate?secret=<server_key>&ip=<user_IP>&token=<token>
+https://smartcaptcha.yandexcloud.net/validate?secret=<server_key>&ip=<user_IP>&token=<token>
 ```
 
 Where:
@@ -82,7 +82,7 @@ In its response, the service will return a JSON object containing the `status` a
 
 ### Request errors {#errors}
 
-If a request to `https://captcha-api.yandex.ru/validate` is improperly formatted, the service will return an error. For example:
+If a request to `https://smartcaptcha.yandexcloud.net/validate` is improperly formatted, the service will return an error. For example:
 
 1. Request missing the server key:
 

@@ -11,6 +11,7 @@ Service | Description
 [BackupService](./backup_service.md) | A set of methods for managing PostgreSQL Backup resources.
 [ClusterService](./cluster_service.md) | A set of methods for managing PostgreSQL Cluster resources.
 [DatabaseService](./database_service.md) | A set of methods for managing PostgreSQL Database resources.
+[PerformanceDiagnosticsService](./perf_diag_service.md) | A set of methods for getting PostgreSQL performance diagnostics.
 [ResourcePresetService](./resource_preset_service.md) | A set of methods for managing ResourcePreset resources.
 [UserService](./user_service.md) | A set of methods for managing PostgreSQL User resources.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

@@ -51,4 +51,8 @@
         1. В открывшемся окне перейдите в раздел **Домены**.
         1. Нажмите **Подключить**, выберите сертификат и введите имя домена (FQDN).
 
+- API
+
+  Чтобы подключить домен к API-шлюзу, воспользуйтесь методом REST API [addDomain](../apigateway/api-ref/ApiGateway/addDomain.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/AddDomain](../apigateway/api-ref/grpc/apigateway_service.md#AddDomain).
+
 {% endlist %}

@@ -151,6 +151,8 @@ items:
             href: api-ref/grpc/cluster_service.md
           - name: DatabaseService
             href: api-ref/grpc/database_service.md
+          - name: PerformanceDiagnosticsService
+            href: api-ref/grpc/perf_diag_service.md
           - name: ResourcePresetService
             href: api-ref/grpc/resource_preset_service.md
           - name: UserService

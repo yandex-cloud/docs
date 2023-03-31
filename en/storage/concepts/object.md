@@ -2,47 +2,47 @@
 
 Objects are hosted in buckets and contain user data in the format it was uploaded in.
 
-The object ID is the string [key](#key).
+An object ID is a string [key](#key).
 
-{{ objstorage-name }} stores [user-defined](#user-meta) and [system](#system-meta) metadata along with the object.
+Along with the object, {{ objstorage-name }} stores [user](#user-meta) and [system](#system-meta) metadata.
 
-{{ objstorage-name }} lets you store objects in various storage classes depending on your requirements for the storage duration and frequency of object operations. For more information, see [{#T}](storage-class.md).
+{{ objstorage-name }} allows you to store objects in storages belonging to various classes depending on your requirements for the storage duration and frequency of object operations. For more information, see [{#T}](storage-class.md).
 
 {{ objstorage-name }} supports the following operations with objects:
 
-- Uploading an object to storage
-- Downloading an object from storage.
-- Copying an object inside the storage (for example, from one bucket to another).
+- Uploading an object to a storage.
+- Downloading an object from a storage.
+- Copying an object within a storage, e.g., from one bucket to another.
 
-All other operations that can be performed using [tools](../tools/index.md) are combinations of the ones given above.
+All other operations that can be performed using the [tools](../tools/index.md) are combinations of the ones given above.
 
 You can configure [lifecycles](lifecycles.md) for bucket objects.
 
-{{ objstorage-name }} restricts the size of objects and their metadata. For more information, see [{#T}](limits.md)).
+{{ objstorage-name }} restricts the size of objects and their metadata. For more information, see [{#T}](limits.md).
 
 ## Key {#key}
 
-The key is the ID of an object in a bucket.
+A key is an ID of an object in a bucket.
 
-Objects are stored in a flat structure, but GUI-based [tools](../tools/index.md) let you use {{ objstorage-name }} as a hierarchical file system. Hierarchical view is possible because keys can be written as paths in a file system (for example, `top_level_prefix/subprefix/text_data.txt`). In the {{ yandex-cloud }} management console, prefixes are called folders.
+Objects are stored in a flat structure, although GUI-based [tools](../tools/index.md) allow you to use {{ objstorage-name }} as a hierarchical file system. Hierarchical view is possible because keys can be written as paths in a file system, e.g., `top_level_prefix/subprefix/text_data.txt`. In the {{ yandex-cloud }} management console, prefixes are called folders.
 
 A key must:
 
 - Be UTF-8 encoded.
 - Be less than 1024 bytes in size.
-- Not contain the characters `: * ? " < > | !`.
+- Not contain these characters: `: * ? " < > | !`.
 
-The following characters are safe to use in a key: `[a-zA-Z0-9]`, `-`, `_`, `/`, `\`. Other characters may cause various problems in {{ objstorage-name }}.
+The following characters are safe to use in a key: `[a-zA-Z0-9]`, `-`, `_`, `/`, `\`. Other characters may cause various issues in {{ objstorage-name }}.
 
 ### Directory {#folder}
 
-There are no directories in {{ objstorage-name }}, but GUI-based file management clients like [CyberDuck](../tools/cyberduck.md) and the {{ objstorage-name }} interface in the {{ yandex-cloud }} management console emulate them. A zero-size object serves as a directory. Its key is included as a prefix in the keys of other objects. For example, an object with the `x` key and zero size is a directory in the management console, while an object with the `x/y.txt` key is the `y.txt` object located in the `x` folder.
+There are no directories in {{ objstorage-name }}; however, GUI-based file management clients, such as [CyberDuck](../tools/cyberduck.md) and the {{ objstorage-name }} interface in the {{ yandex-cloud }} management console, can emulate them. Such an emulated directory is a zero-size object. Its key is included as a prefix in the keys of other objects. For example, an object with the `x` key and zero size is a directory in the management console, while an object with the `x/y.txt` key is the `y.txt` object located in the `x` folder.
 
-Each [tool](../tools/index.md) manages objects and directories according to their own logic, which is described in their respective documentation.
+Each [tool](../tools/index.md) manages objects and directories according to its own logic, which is described in the respective documentation.
 
 {% note info %}
 
-Deleting folders with objects is an asynchronous operation. At the start of the operation, {{ objstorage-name }} prepares a list of objects to delete and then deletes them. If during the deletion process, you upload an object to {{ objstorage-name }} that should be in the directory being deleted, the object will still be uploaded successfully. After both operations in {{objstorage-name}} are complete, you're left with the directory that was supposed to be deleted and the newly uploaded file.
+Deleting folders with objects is an asynchronous operation. Once it starts, {{ objstorage-name }} prepares a list of objects to delete, and then deletes them. If, during the process, you upload an object to {{ objstorage-name }} that should be in the directory being deleted, the object will still be uploaded successfully. After both operations in {{objstorage-name}} are complete, the directory that was supposed to be deleted will still be there and will contain the newly uploaded file.
 
 {% endnote %}
 
@@ -50,19 +50,19 @@ Deleting folders with objects is an asynchronous operation. At the start of the 
 
 You can specify a link to a bucket object in one of the following formats:
 - For a bucket with public access:
-   - `https://<bucket>.{{ s3-storage-host }}/<key>`
-   - `https://{{ s3-storage-host }}/<bucket>/<key>`
+  - `https://<bucket>.{{ s3-storage-host }}/<key>`
+  - `https://{{ s3-storage-host }}/<bucket>/<key>`
 - For a bucket with restricted access:
-   - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
-   - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
+  - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
+  - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
 Where:
 
 * `bucket`: Bucket name.
 * `key`: [Key](#key) (file path).
-* `parameters`: Additional parameters for accessing a bucket with restricted access. For example, a signature and validity period.
+* `parameters`: Additional parameters for accessing a bucket with restricted access, for example, a signature and validity period.
 
-For buckets with restricted access, pre-signed links are generated by the service and let you temporarily download an object even from a bucket with restricted access. [Read more about pre-signed URLs, their generation, and their use](pre-signed-urls.md).
+For buckets with restricted access, {{ objstorage-name }} generates pre-signed URLs, which allows you to temporarily download an object even from a bucket with restricted access. You can read more about pre-signed URLs, their generation, and their use [here](pre-signed-urls.md).
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 
@@ -70,7 +70,7 @@ For buckets with restricted access, pre-signed links are generated by the servic
 
 Metadata is stored with an object as `name-value` pairs.
 
-Metadata can be system or user-defined.
+This can be either system or user metadata.
 
 ### System metadata {#system-meta}
 
@@ -78,21 +78,21 @@ System metadata is defined by {{ objstorage-name }}.
 
 | Name | Description |
 ----- | -----
-| `Date` | Date and time a request is sent to upload an object to {{ objstorage-name }}. |
+| `Date` | Date and time the request to upload an object to {{ objstorage-name }} was sent at. |
 | `Content-Length` | Object size in bytes. |
-| `Last-Modified` | Date when the object was created or last modified. |
-| `Content-MD5` | Object MD5 hash value, base64 encoded. |
-| `Cache-Control` | The value of the `Cache-Control` HTTP header passed by the client when saving the object to the bucket. {{ objstorage-name }} later returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header indicates that the object expires 200 seconds after the client receives it. Read more about the header in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2). |
-| `Expires` | The value of the `Expires` HTTP header passed by the client when saving the object to the bucket. {{ objstorage-name }} later returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Expires: Thu, 15 Apr 2020 20:00:00 GMT` header indicates that the object expires at 20:00:00 (GMT) on April 15, 2020. Read more about the header in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.3). |
+| `Last-Modified` | Date the object was created or last modified at. |
+| `Content-MD5` | Object MD5 hash value, Base64-encoded. |
+| `Cache-Control` | Value of the `Cache-Control` HTTP header provided by the client when saving the object to the bucket. Afterwards, {{ objstorage-name }} returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header means the object expires 200 seconds after the client receives it. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2). |
+| `Expires` | Value of the `Expires` HTTP header provided by the client when saving the object to the bucket. Afterwards, {{ objstorage-name }} returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Expires: Thu, 15 Apr 2020 20:00:00 GMT` header means the object expires at 8 pm GMT on April 15, 2020. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.3). |
 
 
 ### User-defined metadata {#user-meta}
 
-When uploading an object to {{ objstorage-name }}, you can pass a set of metadata as a `name-value` pair along with the object.
+When uploading an object to {{ objstorage-name }}, you can provide its metadata as `name-value` pairs.
 
-In the Amazon S3-compatible HTTP API, metadata is passed as HTTP headers. The header name must start with`X-Amz-Meta-`. When an object is requested via the HTTP API, Yandex Object Storage returns metadata in the form of HTTP headers with the same prefix.
+In an Amazon S3-compatible HTTP API, metadata is provided as HTTP headers. The header name must start with `X-Amz-Meta-`. When an object is requested via HTTP API, Yandex Object Storage returns metadata as HTTP headers with the same prefix.
 
-Metadata names must consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII) only. Passed headers are transformed as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`. Here, `Foo-Bar_baz` is the name of the metadata to be stored with the object.
+Metadata names must consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII) only. The headers being provided are transformed as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`, where `Foo-Bar_baz` is the name of the metadata to store with the object.
 
 {% note info %}
 

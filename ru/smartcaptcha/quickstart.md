@@ -55,7 +55,7 @@
 1. Подключите JS-скрипт к странице пользователя. Для этого разместите в любом месте страницы (например, внутри тега `<head>`) код:
 
     ```html
-    <script src="https://captcha-api.yandex.ru/captcha.js" defer></script>
+    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
     ```
 
     Скрипт `captcha.js` автоматически найдет все `div` с классом `smart-captcha` и установит в них виджет.
@@ -86,7 +86,7 @@
 </div>
 ```
 
-Для проверки токена нужно отправить GET-запрос на адрес `https://captcha-api.yandex.ru/validate` со следующими параметрами:
+Для проверки токена нужно отправить GET-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate` со следующими параметрами:
 
 * `secret` — ключ для серверной части;
 * `token` — токен, полученный после прохождения проверки;
@@ -107,7 +107,7 @@
 
     function check_captcha(token, callback) {
         const options = {
-            hostname: 'captcha-api.yandex.ru',
+            hostname: 'smartcaptcha.yandexcloud.net',
             port: 443,
             path: '/validate?' + querystring.stringify({
                 secret: SMARTCAPTCHA_SERVER_KEY,
@@ -157,7 +157,7 @@
             "ip" => $_SERVER['REMOTE_ADDR'], // Нужно передать IP-адрес пользователя.
                                              // Способ получения IP-адреса пользователя зависит от вашего прокси.
         ]);
-        curl_setopt($ch, CURLOPT_URL, "https://captcha-api.yandex.ru/validate?$args");
+        curl_setopt($ch, CURLOPT_URL, "https://smartcaptcha.yandexcloud.net/validate?$args");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 1);
 
@@ -194,7 +194,7 @@
 
     def check_captcha(token):
         resp = requests.get(
-            "https://captcha-api.yandex.ru/validate",
+            "https://smartcaptcha.yandexcloud.net/validate",
             {
                 "secret": SMARTCAPTCHA_SERVER_KEY,
                 "token": token,

@@ -119,7 +119,7 @@
        ```
       
      * Файл `index.py` с содержимым файла `ffmpeg-converter.py` из архива.
-     * Исполняемый файл FFmpeg. Чтобы получить его, перейдите на [официальный сайт FFmpeg](http://ffmpeg.org/download.html) и в разделе **Linux Static Builds** загрузите архив с 64-битной версией FFmpeg.
+     * Исполняемый файл FFmpeg. На [официальном сайте FFmpeg](http://ffmpeg.org/download.html), в разделе **Linux Static Builds**, загрузите архив с 64-битной версией FFmpeg и сделайте файл исполняемым, выполнив команду `chmod +x ffmpeg`.
 
   1. [Загрузите](../storage/operations/objects/upload.md) архив `src.zip` в бакет `converter-bucket`.
   1. [Создайте](../functions/operations/function/version-manage.md) версию функции:

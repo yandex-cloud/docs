@@ -5,6 +5,7 @@ editable: false
 # Pricing for {{ kms-name }}
 
 The cost of {{ kms-name }} usage is based on:
+
 * The number of active key versions used: versions with the `Active` and `Scheduled For Destruction` statuses.
 
    {% note alert %}
@@ -17,13 +18,11 @@ The cost of {{ kms-name }} usage is based on:
 
 ## Pricing {#prices}
 
-Billing occurs per hour. For reference only. Assuming a 720-hour (30-day) month. The value is rounded.
 
 
 
 
-
-{% include [usd.md](../_pricing/kms/usd.md) %}
+You can see service resources consumption in your billing. However, {{ kms-full-name }} can be used free of charge.
 
 
 

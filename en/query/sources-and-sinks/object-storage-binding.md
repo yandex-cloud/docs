@@ -29,7 +29,7 @@ To create a binding to read data from {{ objstorage-short-name }}:
 1. Under **Data binding parameters**:
 
    1. Give your a binding a name in the **Name** field.
-   1. In the **Path** field, specify the [path to bucket data](object-storage.md#path_format). Parts of file names can be specified using `\*`, such as `yellow\*.csv`.
+   1. In the **Path** field, specify the [path to bucket data](object-storage.md#path_format). Parts of file names can be specified using `/*`, such as `yellow/*.csv`.
    1. Specify the [data compression](formats.md#compression) method in the **Compression** field.
    1. Specify the [format of stored data](formats.md#formats) in the **Format** field.
    1. List data columns and their types.

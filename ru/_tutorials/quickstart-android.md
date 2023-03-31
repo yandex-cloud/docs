@@ -48,7 +48,7 @@
 ## Получите результат прохождения капчи {#get-result}
 
 1. Сохраните токен прохождения капчи. Он вернется в методе `onGetToken(token: String)`, когда сервис обработает попытку.
-1. Для проверки токена отправьте GET-запрос на адрес `https://captcha-api.yandex.ru/validate` со следующими параметрами:
+1. Для проверки токена отправьте GET-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate` со следующими параметрами:
 
    * `secret` — ключ для серверной части;
    * `token` — токен, полученный после прохождения проверки;
@@ -63,7 +63,7 @@
    Пример запроса:
 
    ```text
-     https://captcha-api.yandex.ru/validate?secret=<ключ_сервера>&ip=<IP_адрес_пользователя>&token=<токен>
+     https://smartcaptcha.yandexcloud.net/validate?secret=<ключ_сервера>&ip=<IP_адрес_пользователя>&token=<токен>
    ```
 
 1. Получите [ответ с сервера](../smartcaptcha/concepts/validation.md). Он содержит JSON-объект с полями `status` и `message`. Например:

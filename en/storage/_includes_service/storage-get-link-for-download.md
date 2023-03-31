@@ -1,8 +1,8 @@
 1. In the [management console]({{ link-console-main }}), select the folder.
 1. Select **{{ objstorage-name }}**.
-1. Click the name of the desired bucket.
+1. Click the name of the bucket you need.
 1. Click the object name.
-1. Click **Get link** in the upper-right corner.
-1. If you have a bucket with restricted access, specify a link **Lifetime** in hours or days (no more than 7 days).
-1. Click **Get link**.
+1. Click **{{ ui-key.yacloud.storage.file.button_generate }}** in the top right corner.
+1. If your bucket has restricted access, specify the link **{{ ui-key.yacloud.storage.file.label_lifetime }}** in hours or days (the maximum time is seven days).
+1. Click **{{ ui-key.yacloud.storage.file.button_generate }}**.
 1. Copy the link.

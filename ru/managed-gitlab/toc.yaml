@@ -33,6 +33,8 @@ items:
           Сканирование уязвимостей {{ container-registry-name }} при непрерывном
           развертывании приложений {{ managed-k8s-name }}
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
+      - name: Построение пайплайна CI/CD с использованием serverless-продуктов
+        href: tutorials/ci-cd-serverless.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

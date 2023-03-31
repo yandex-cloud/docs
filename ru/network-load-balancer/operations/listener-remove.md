@@ -8,83 +8,62 @@
   
   1. Откройте раздел **Load Balancer** в каталоге, где требуется удалить обработчик.
   1. Выберите сетевой балансировщик, у которого требуется удалить обработчик.
-  1. В блоке **Обработчики** нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке обработчика, который нужно удалить.
+  1. В блоке **Обработчики** нажмите на значок ![image](../../_assets/vertical-ellipsis.svg) в строке обработчика, который нужно удалить.
   1. В открывшемся меню нажмите кнопку **Удалить обработчик**.
   
 - CLI
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](../../cli/quickstart.md#install).
+  {% include [cli-install](../../_includes/cli-install.md) %}
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  Чтобы удалить обработчик сетевого балансировщика:
-  
-  1. Посмотрите список балансировщиков:
-  
+  Чтобы удалить обработчик сетевого балансировщика, выполните команду:
+
+  ```bash
+  yc load-balancer network-load-balancer remove-listener <идентификатор или имя балансировщика> \
+     --listener-name=<имя обработчика>
+  ```
+
+  Идентификатор и имя балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list), имя обработчика — с [детальной информацией о сетевом балансировщике](load-balancer-list.md#get).
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить обработчик сетевого балансировщика, созданного с помощью {{ TF }}:
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием обработчика.
+
+     ```hcl
+     resource "yandex_lb_network_load_balancer" "foo" {
+       ...
+       listener {
+         name = "<имя обработчика>"
+         port = <номер порта>
+         external_address_spec {
+           ip_version = "<версия IP-адреса: ipv4 или ipv6>"
+         }
+       }
+       ...
+     }
      ```
-     yc load-balancer network-load-balancer list
-     ```
-	 
-	    Результат:
-	    
-	    	 
-	    ```
-     +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-     |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
-     +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-     ...
-     | c58r8boim8qfkcqtuioj | test-load-balancer | {{ region-id }} | EXTERNAL |              1 |                        | INACTIVE |
-     ...
-     +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-     ```
-     
-     
-  
-  1. Выберите `ID` балансировщика, у которого требуется удалить обработчик.
-  1. Получите сведения о выбранном балансировщике:
-  
-     ```
-     yc load-balancer network-load-balancer get c58r8boim8qfkcqtuioj
-     ```
-	 
-	 Результат:
-	 
-	 ```
-     id: c58r8boim8qfkcqtuioj
-     folder_id: aoerb349v3h4bupphtaf
-     created_at: "2019-04-01T09:29:25Z"
-     name: test-load-balancer
-     region_id: {{ region-id }}
-     status: INACTIVE
-     type: EXTERNAL
-     listeners:
-     - name: test-listener
-       address: 130.193.32.39
-       port: "80"
-       protocol: TCP
-     ```
-  
-  1. Удалите выбранный обработчик, указав идентификатор балансировщика и имя удаляемого обработчика:
-  
-     ```
-     yc load-balancer network-load-balancer remove-listener c58r8boim8qfkcqtuioj --listener-name test-listener
-     ```
-	 
-	 Результат:
-	 
-	 ```
-     .......done
-     id: c58r8boim8qfkcqtuioj
-     folder_id: aoerb349v3h4bupphtaf
-     created_at: "2019-04-01T09:29:25Z"
-     name: test-load-balancer
-     region_id: {{ region-id }}
-     status: INACTIVE
-     type: EXTERNAL
-     ```
-  
+
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Удалите сетевой балансировщик.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 - API
   
-  Удалить обработчик можно с помощью метода API [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md).
-  
+  Воспользуйтесь методом API [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md) и передайте в запросе:
+
+  * Идентификатор балансировщика в параметре `networkLoadBalancerId`.
+  * Имя обработчика в параметре `listenerName`.
+
+  Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list), имя обработчика — с [детальной информацией о сетевом балансировщике](load-balancer-list.md#get).
+
 {% endlist %}

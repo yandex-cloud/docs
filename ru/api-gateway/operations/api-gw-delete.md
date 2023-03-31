@@ -26,10 +26,6 @@
     done (18s)
     ```
     
-- API
-
-  Удалить API-шлюз можно с помощью метода API [delete](../apigateway/api-ref/ApiGateway/delete.md).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -127,5 +123,9 @@
 - {{ yandex-cloud }} Toolkit
 
   Удалить API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
+- API
+
+  Чтобы удалить API-шлюз, воспользуйтесь методом REST API [delete](../apigateway/api-ref/ApiGateway/delete.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Delete](../apigateway/api-ref/grpc/apigateway_service.md#Delete).
 
 {% endlist %}

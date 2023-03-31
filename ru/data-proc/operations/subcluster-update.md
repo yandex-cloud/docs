@@ -75,6 +75,8 @@
 
 ## Изменить класс хостов {#change-resource-preset}
 
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+
 Вы можете изменить вычислительную мощность хостов в отдельном подкластере:
 
 {% list tabs %}
@@ -283,6 +285,8 @@
 {% endlist %}
 
 ## Увеличить размер хранилища {#change-disk-size}
+
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
 
 Вы можете увеличить размер хранилища, доступного каждому хосту в определенном подкластере.
 

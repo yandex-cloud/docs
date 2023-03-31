@@ -170,6 +170,7 @@ Create a client app to send your data to the API:
                     voice = "<your_voice_ID>"
                  )
               ],
+              # Set this parameter if you use {{ brand-voice-cc-name }}
               model = "zsl"
           )
 

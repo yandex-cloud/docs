@@ -105,7 +105,7 @@
     </script>
 
     <script
-      src="https://captcha-api.yandex.ru/captcha.js?render=onload&onload=onSmartCaptchaReady"
+      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onSmartCaptchaReady"
       defer
     ></script>
   </head>

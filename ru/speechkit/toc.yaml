@@ -9,6 +9,8 @@ items:
     items:
       - name: О технологии
         href: stt/index.md
+      - name: Поддерживаемые языки
+        href: stt/models.md
       - name: Потоковое распознавание
         href: stt/streaming.md
       - name: Распознавание аудиофайлов
@@ -17,8 +19,6 @@ items:
             href: stt/request.md
           - name: Асинхронное распознавание
             href: stt/transcribation.md
-      - name: Поддерживаемые языки
-        href: stt/models.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
   - name: Синтез речи
@@ -27,8 +27,6 @@ items:
         href: tts/index.md
       - name: Список голосов
         href: tts/voices.md
-      - name: Синтез по шаблонам
-        href: tts/templates.md
       - name: Разметка текста
         items:
           - name: Обзор
@@ -43,19 +41,19 @@ items:
             href: tts/markup/ssml-supported-phonemes.md
       - name: '{{ brand-voice-name }}'
         href: tts/brand-voice/index.md
-  - name: Форматы аудио
-    href: formats.md
-  - name: Интеграция телефонии
-    href: concepts/ivr-integration.md
-  - name: Использование API
+      - name: Синтез по шаблонам
+        href: tts/templates.md
+  - name: SpeechKit Hybrid
+    items:
+      - name: О технологии
+        href: hybrid-speechkit/index.md
+      - name: Системные требования
+        href: hybrid-speechkit/system-requirements.md
+  - name: Справочники API
     items:
       - name: Аутентификация в API
         href: concepts/auth.md
-      - name: Формат ответа
-        href: concepts/response.md
-      - name: Диагностика ошибок
-        href: concepts/support-headers.md
-      - name: Справочники API распознавания
+      - name: Распознавание
         items:
           - name: API v2
             items:
@@ -71,21 +69,7 @@ items:
                 href: stt-v3/api-ref/grpc/index.md
               - name: Recognizer
                 href: stt-v3/api-ref/grpc/stt_service.md
-      - name: Примеры использования API распознавания
-        items:
-          - name: Потоковое распознавание API v3
-            href: stt/api/streaming-examples-v3.md
-          - name: Автоматическое определение языка — API v3
-            href: stt/api/stt-language-labels-example.md
-          - name: Потоковое распознавание API v2
-            href: stt/api/streaming-examples.md
-          - name: Синхронное распознавание API v2
-            href: stt/api/request-examples.md
-          - name: Асинхронное распознавание формата LPCM — API v2
-            href: stt/api/transcribation-lpcm.md
-          - name: Асинхронное распознавание формата OggOpus — API v2
-            href: stt/api/transcribation-ogg.md
-      - name: Справочники API синтеза
+      - name: Синтез
         items:
           - name: API v1
             href: tts/request.md
@@ -95,24 +79,34 @@ items:
                 href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
                 href: tts-v3/api-ref/grpc/tts_service.md
-      - name: Примеры использования API синтеза
-        items:
-          - name: Синтез API v3
-            href: tts/api/tts-examples-v3.md
-          - name: Синтез по шаблонам
-            href: tts/api/tts-templates.md
-          - name: Синтез речи в формате WAV — API v1
-            href: tts/api/tts-wav.md
-          - name: Синтез речи в формате OggOpus — API v1
-            href: tts/api/tts-ogg.md
-          - name: Синтез из текста SSML — API v1
-            href: tts/api/tts-ssml.md
-  - name: SpeechKit Hybrid
+  - name: Практические руководства
     items:
-      - name: О технологии
-        href: hybrid-speechkit/index.md
-      - name: Системные требования
-        href: hybrid-speechkit/system-requirements.md
+      - name: Потоковое распознавание API v3
+        href: stt/api/streaming-examples-v3.md
+      - name: Автоматическое определение языка — API v3
+        href: stt/api/stt-language-labels-example.md
+      - name: Потоковое распознавание API v2
+        href: stt/api/streaming-examples.md
+      - name: Синхронное распознавание API v2
+        href: stt/api/request-examples.md
+      - name: Асинхронное распознавание формата LPCM — API v2
+        href: stt/api/transcribation-lpcm.md
+      - name: Асинхронное распознавание формата OggOpus — API v2
+        href: stt/api/transcribation-ogg.md
+      - name: Синтез API v3
+        href: tts/api/tts-examples-v3.md
+      - name: Синтез по шаблонам
+        href: tts/api/tts-templates.md
+      - name: Синтез речи в формате WAV — API v1
+        href: tts/api/tts-wav.md
+      - name: Синтез речи в формате OggOpus — API v1
+        href: tts/api/tts-ogg.md
+      - name: Синтез из текста SSML — API v1
+        href: tts/api/tts-ssml.md
+  - name: Поддерживаемые форматы аудио
+    href: formats.md
+  - name: Интеграция телефонии
+    href: concepts/ivr-integration.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом
@@ -127,8 +121,12 @@ items:
         href: release-notes-tts.md
       - name: Архив релизов
         href: release-notes.md
-  - name: Вопросы и ответы
+  - name: Решение проблем
     items:
+      - name: Формат ответа
+        href: concepts/response.md
+      - name: Диагностика ошибок
+        href: concepts/support-headers.md
       - name: Общие вопросы
         href: qa/general.md
       - name: Распознавание речи
