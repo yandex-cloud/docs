@@ -8,59 +8,45 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется добавить обработчик к балансировщику.
   1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
-  1. В строке балансировщика, к которому нужно добавить обработчик, нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Добавить обработчик**.
-  1. В открывшемся окне:
-     
-	 * Укажите порт, на котором обработчик будет принимать входящий трафик, из диапазона от 1 до 32767.
-	 * Укажите целевой порт, на который балансировщик будет направлять трафик, из диапазона от 1 до 32767.
-	 * Нажмите **Добавить**.
+  1. В строке балансировщика, к которому нужно добавить обработчик, нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Добавить обработчик**.
+  1. В открывшемся окне задайте параметры обработчика:
+
+     * **Имя**.
+     * **Протокол** — **TCP** или **UDP**.
+
+        {% note info %}
+
+        По умолчанию обработчик работает по протоколу TCP. Чтобы использовать протокол UDP, [запросите в технической поддержке]({{ link-console-support }}/create-ticket) эту возможность.
+
+        {% endnote %}
+
+     * **Порт**, на котором обработчик будет принимать входящий трафик. Возможные значения: от `1` до `32767`.
+     * **Целевой порт**, куда балансировщик будет направлять трафик. Возможные значения: от `1` до `32767`.
+     * Нажмите кнопку **Добавить**.
   
 - CLI
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](../../cli/quickstart.md#install).
+  {% include [cli-install](../../_includes/cli-install.md) %}
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  Чтобы добавить обработчик к сетевому балансировщику:
-  
-  1. Получите список балансировщиков:
-  
-       
-     ```
-     yc load-balancer network-load-balancer list
-     +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-     |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
-     +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-     | c58r8boim8qfkcqtuioj | test-load-balancer | {{ region-id }} | EXTERNAL |              0 |                        | INACTIVE |
-     +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-  
-     ```
-     
-     
-  
-  1. Добавьте обработчик, указав его имя, порт и версию IP-адреса:
-  
-     ```
-     yc load-balancer network-load-balancer add-listener c580id04kvumgn7ssfh1 \
-       --listener name=test-listener,port=80,external-ip-version=ipv4
-     .....done
-     id: c58r8boim8qfkcqtuioj
-     folder_id: aoerb349v3h4bupphtaf
-     created_at: "2019-04-01T09:29:25Z"
-     name: test-load-balancer
-     region_id: {{ region-id }}
-     status: INACTIVE
-     type: EXTERNAL
-     listeners:
-     - name: test-listener
-       address: <IP-адрес обработчика>
-       port: "80"
-       protocol: TCP
-     ```
-  
-- API
-  
-  Добавить обработчик можно с помощью метода API [addListener](../api-ref/NetworkLoadBalancer/addListener.md).
+  Чтобы добавить [обработчик](../concepts/listener.md) к сетевому балансировщику, выполните команду:
+
+  ```bash
+  yc load-balancer network-load-balancer add-listener <идентификатор или имя балансировщика> \
+     --listener name=<имя обработчика>,`
+               `port=<порт>,`
+               `target-port=<целевой порт>,`
+               `protocol=<протокол: tcp или udp>,`
+               `external-address=<внешний IP-адрес обработчика>,`
+               `external-ip-version=<версия IP-адреса: ipv4 или ipv6>
+  ```
+
+  Где:
+
+  {% include [listener-cli-description](../../_includes/network-load-balancer/listener-cli-description.md) %}
+
+  Идентификатор и имя балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 
 - {{ TF }}
 
@@ -71,150 +57,126 @@
   1. Откройте файл конфигурации {{ TF }} и добавьте блок `listener` в описании сетевого балансировщика:
 
      ```hcl
-     ...
      resource "yandex_lb_network_load_balancer" "foo" {
-       name = "my-network-load-balancer"
+       name = "<имя сетевого балансировщика>"
+       ...
        listener {
-         name = "my-listener"
-		 port = 9000
+         name = "<имя обработчика>"
+         port = <номер порта>
          external_address_spec {
-           ip_version = "ipv4"
+           ip_version = "<версия IP-адреса: ipv4 или ipv6>"
          }
        }
-	   attached_target_group {
-         target_group_id = "${yandex_lb_target_group.my-target-group.id}"
-         healthcheck {
-           name = "http"
-             http_options {
-               port = 9000
-               path = "/ping"
-             }
-         }
-       }
+       ...
      }
-     ...
      ```
 
      Где:
 
-     * `name` — имя сетевого балансировщика. Формат имени:
-
-          {% include [name-format](../../_includes/name-format.md) %}
-
-     * `listener` — описание параметров [обработчика](../concepts/listener.md) для сетевого балансировщика:
-        * `name` — имя обработчика. Формат имени:
-
-          {% include [name-format](../../_includes/name-format.md) %}
-
-        * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик, из диапазона от 1 до 32767.
-        * `external_address_spec` — описание внешнего IP-адреса. Укажите версию IP-адреса (ipv4 или ipv6). По умолчанию ipv4.
-     * `attached_target_group` — описание параметров целевой группы для сетевого балансировщика:
-        * `target_group_id` — идентификатор целевой группы.
-        * `healthcheck` — описание параметров проверки состояния. Укажите имя, порт из диапазона от 1 до 32767 и путь, по которому будут выполняться проверки.
+     * `name` — имя сетевого балансировщика.
+     * `listener` — параметры обработчика:
+       * `name` — имя обработчика.
+       * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик, из диапазона от `1` до `32767`.
+       * `external_address_spec` — спецификация обработчика для внешнего балансировщика:
+         * `ip_version` — описание внешнего IP-адреса. Укажите версию IP-адреса: `ipv4` или `ipv6`. По умолчанию `ipv4`.
 
      Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
 
-  1. Проверьте конфигурацию командой:
+  1. Проверьте корректность настроек.
 
-     ```
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```
-     Success! The configuration is valid.
-     ```
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Выполните команду:
+  1. Добавьте обработчик.
 
-     ```
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  1. Примените изменения конфигурации:
+- API
 
-     ```
-     terraform apply
-     ```
-     
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+  Воспользуйтесь методом API [addListener](../api-ref/NetworkLoadBalancer/addListener.md) и передайте в запросе:
 
-     Проверить изменение сетевого балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+  * Идентификатор балансировщика в параметре `networkLoadBalancerId`.
+  * Имя обработчика в параметре `listenerSpec.name`.
+  * Порт обработчика в параметре `listenerSpec.port`.
+  * Протокол обработчика в параметре `listenerSpec.protocol`.
+  * Целевой порт обработчика в параметре `listenerSpec.targetPort`.
+  * Параметры внешнего адреса обработчика в параметре `listenerSpec.externalAddressSpec`.
 
-     ```
-     yc load-balancer network-load-balancer get <имя сетевого балансировщика>
-     ```
+  Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 
 {% endlist %}
 
-## Примеры
+## Примеры {#examples}
 
-### Добавление обработчика внутреннему сетевому балансировщику {#internal-listener}
+### Добавление обработчика сетевому балансировщику {#add-listener}
+
+Добавьте сетевому балансировщику `test-load-balancer` обработчик с тестовыми характеристиками:
+
+* Имя `test-listener`.
+* Порт `80`.
+* Целевой порт `81`.
+* Протокол `TCP`.
+* Версия IP-адреса `ipv4`.
 
 {% list tabs %}
 
 - CLI
-  
-  Выполните команду, указав имя обработчика, порт, идентификатор подсети и внутренний адрес из диапазона адресов подсети:
-  
-  ```
-  yc load-balancer network-load-balancer add-listener b7rc2h753djb3a5dej1i \
-    --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14
+
+  Выполните следующую команду:
+
+  ```bash
+  yc load-balancer network-load-balancer add-listener test-load-balancer \
+     --listener name=test-listener,`
+               `port=80,`
+               `target-port=81,`
+               `protocol=tcp,`
+               `external-ip-version=ipv4
   ```
 
 - {{ TF }}
 
-    1. Откройте файл конфигурации {{ TF }} и добавьте блок `listener` в описании внутреннего сетевого балансировщика:
+  1. Откройте файл конфигурации {{ TF }} и добавьте блок `listener` в описании сетевого балансировщика:
 
-       {% cut "Пример добавление обработчика внутреннему сетевому балансировщику с помощью {{ TF }}" %}
-
-         ```
-         resource "yandex_lb_network_load_balancer" "internal-lb-test" {
-           name = "internal-lb-test"
-           type = "internal"
-           listener {
-             name = "my-listener"
-		     port = 9000
-             internal_address_spec {
-               subnet_id  = "b0cp4drld130kuprafls"
-               ip_version = "ipv4"
-             }
-           }
+     ```hcl
+     resource "yandex_lb_network_load_balancer" "foo" {
+       name = "test-load-balancer"
+       listener {
+         name        = "test-listener"
+         port        = 80
+         target_port = 81
+         protocol    = "tcp"
+         external_address_spec {
+           ip_version = "ipv4"
          }
-         ```
+       }
+     }
+     ```
 
-       {% endcut %}
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
+  1. Проверьте корректность настроек.
 
-    1. Проверьте корректность конфигурационных файлов.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-       1. Выполните проверку с помощью команды:
+  1. Создайте сетевой балансировщик.
 
-          ```
-          terraform plan
-          ```
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+- API
 
-    1. Разверните облачные ресурсы.
+  Воспользуйтесь методом API [addListener](../api-ref/NetworkLoadBalancer/addListener.md) и передайте в теле запроса:
 
-       1. Если в конфигурации нет ошибок, выполните команду:
-
-          ```
-          terraform apply
-          ```
-
-       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-          После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-          ```
-          yc load-balancer network-load-balancer get <имя внутреннего сетевого балансировщика>
-          ```
+  ```api
+  {
+    "listenerSpec": {
+      "name": "test-listener",
+      "port": "80",
+      "protocol": "TCP",
+      "targetPort": "81",
+      "externalAddressSpec": {
+        "ipVersion": "ipv4"
+      }
+    }
+  }
+  ```
 
 {% endlist %}

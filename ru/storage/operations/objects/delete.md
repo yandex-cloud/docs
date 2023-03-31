@@ -93,6 +93,10 @@
 
      Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
+- API
+
+  Воспользуйтесь методом S3 API [delete](../../s3/api-ref/object/delete.md).
+
 {% endlist %}
 
 
@@ -167,7 +171,7 @@
 
 - API
 
-  1. Получите информацию о блокировке версии объекта методами [getObjectRetention](../../s3/api-ref/object/getobjectretention.md) (временная блокировка) и [getObjectLegalHold](../../s3/api-ref/object/getobjectlegalhold.md) (бессрочная блокировка).
-  1. Если установлена только временная управляемая блокировка (`GOVERNANCE`) и у вас есть роль `storage.admin`, удалите версию объекта методом [delete](../../s3/api-ref/object/delete.md). Укажите в запросе идентификатор версии и заголовок `X-Amz-Bypass-Governance-Retention`, чтобы подтвердить обход блокировки.
+  1. Чтобы получить информацию о блокировке версии объекта, воспользуйтесь методами S3 API [getObjectRetention](../../s3/api-ref/object/getobjectretention.md) (временная блокировка) и [getObjectLegalHold](../../s3/api-ref/object/getobjectlegalhold.md) (бессрочная блокировка).
+  1. Если установлена только временная управляемая блокировка (`GOVERNANCE`) и у вас есть роль `storage.admin`, для удаления версии объекта воспользуйтесь методом S3 API [delete](../../s3/api-ref/object/delete.md). Укажите в запросе идентификатор версии и заголовок `X-Amz-Bypass-Governance-Retention`, чтобы подтвердить обход блокировки.
 
 {% endlist %}

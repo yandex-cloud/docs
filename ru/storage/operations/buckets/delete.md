@@ -107,4 +107,8 @@
 
      Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
+- API
+  
+  Чтобы удалить бакет, воспользуйтесь методом REST API [delete](../../api-ref/Bucket/delete.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Delete](../../api-ref/grpc/bucket_service.md#Delete) или методом S3 API [deleteBucket](../../s3/api-ref/bucket/delete.md).
+
 {% endlist %}

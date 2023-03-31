@@ -89,6 +89,10 @@ items:
           Сканирование уязвимостей при непрерывном развертывании приложений {{
           managed-k8s-name }} с помощью {{ GL }}
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
+      - name: >-
+          Построение пайплайна CI/CD в {{ GL }} с использованием
+          serverless-продуктов
+        href: tutorials/ci-cd-serverless.md
   - name: Концепции
     items:
       - name: Обзор

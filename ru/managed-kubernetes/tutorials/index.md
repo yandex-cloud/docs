@@ -29,6 +29,8 @@
 * [{#T}](metrics-server.md)
 
 
+* [{#T}](ci-cd-serverless.md)
+
 ## Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}
 
 * [{#T}](marketplace/argo-cd.md)

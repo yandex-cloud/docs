@@ -25,7 +25,7 @@
       {% include [name-format](../../_includes/name-format.md) %}
 
   1. Выберите тип балансировщика — **Внутренний**. 
-  1. В блоке **Обработчики** добавьте [обработчик](../concepts/listener.md): 
+  1. В блоке **Обработчики** добавьте [обработчик](../concepts/listener.md):
       1. Нажмите кнопку **Добавить обработчик**.
       1. В открывшемся окне задайте параметры обработчика:
           * **Имя**.
@@ -48,9 +48,9 @@
           * В открывшемся окне введите имя целевой группы.
           * Добавьте в целевую группу виртуальные машины.
           * Нажмите кнопку **Создать**.
-      1. (опционально) Под блоком **Проверка состояния** нажмите кнопку **Настроить**. В открывшемся окне задайте параметры [проверки состояния ресурсов](../concepts/health-check.md):
+      1. (Опционально) Под блоком **Проверка состояния** нажмите кнопку **Настроить**. В открывшемся окне задайте параметры [проверки состояния ресурсов](../concepts/health-check.md):
           * **Имя**.
-          * **Тип** — **HTTP** или **TCP**. Для проверки по протоколу HTTP поле **Путь** укажите адрес URL, по которому будут выполняться проверки.
+          * **Тип** — **HTTP** или **TCP**. Для проверки по протоколу HTTP в поле **Путь** укажите адрес URL, по которому будут выполняться проверки.
           * **Порт** для проверок. Возможные значения: от `1` до `32767`.
           * **Время ожидания** — время ожидания ответа в секундах.
           * **Интервал** — интервал выполнения проверок состояния в секундах.
@@ -61,103 +61,124 @@
 
 - CLI
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](../../cli/quickstart.md#install).
+  {% include [cli-install](../../_includes/cli-install.md) %}
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. Перед созданием балансировщика [создайте](target-group-create.md) целевую группу, чтобы подключить ее к балансировщику.
+  1. Перед созданием балансировщика [создайте целевую группу](target-group-create.md), чтобы подключить ее к балансировщику.
 
   1. Посмотрите описание команды CLI для создания сетевого балансировщика:
   
-     ```
+     ```bash
      yc load-balancer network-load-balancer create --help
      ```
   
-  1. Чтобы создать внутренний балансировщик с [обработчиком](../concepts/listener.md), выполните команду:
+  1. Чтобы создать внутренний балансировщик с [обработчиком](../concepts/listener.md) и [целевой группой](../concepts/target-resources.md), выполните команду:
   
+     ```bash
+     yc load-balancer network-load-balancer create <имя балансировщика> \
+        --type=internal \
+        --listener name=<имя обработчика>,`
+                  `port=<порт>,`
+                  `target-port=<целевой порт>,`
+                  `protocol=<протокол: tcp или udp>,`
+                  `internal-subnet-id=<идентификатор подсети>,`
+                  `internal-ip-version=<версия IP-адреса: ipv4 или ipv6> \
+        --target-group target-group-id=<идентификатор целевой группы>,`
+                      `healthcheck-name=<имя проверки состояния>,`
+                      `healthcheck-interval=<интервал между проверками>s,`
+                      `healthcheck-timeout=<таймаут проверки состояния>s,`
+                      `healthcheck-unhealthythreshold=<количество проваленных проверок для статуса Unhealthy>,`
+                      `healthcheck-healthythreshold=<количество успешных проверок для статуса Healthy>,`
+                      `healthcheck-tcp-port=<TCP-порт>,`
+                      `healthcheck-http-port=<HTTP-порт>,`
+                      `healthcheck-http-path=<адрес URL, по которому будут выполняться проверки>
      ```
-     yc load-balancer network-load-balancer create \
-       --name internal-lb-test \
-       --type internal \
-       --region-id {{ region-id }} \
-       --listener name=test-listener,port=80,internal-subnet-id=<идентификатор подсети>,internal-address=<внутренний IP-адрес из диапазона подсети>
-     ```
-  
-  1. Получите список всех балансировщиков, чтобы убедиться, что балансировщик создан:
-   
-     ```
-     yc load-balancer network-load-balancer list
-     ```
-  
-- API
-  
-  Создать внутренний сетевой балансировщик можно с помощью метода API [create](../api-ref/NetworkLoadBalancer/create.md).
 
-- {{ TF }} 
+     Где:
+
+     * `type` — тип балансировщика.
+     * `listener` — параметры обработчика:
+         * `name` — имя обработчика.
+         * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик. Возможные значения: от `1` до `32767`.
+         * `target-port` — целевой порт, куда балансировщик будет направлять трафик. Возможные значения: от `1` до `32767`.
+         * `protocol` — протокол, по которому будет работать обработчик: `tcp` или `udp`.
+         * `internal-subnet-id` — идентификатор подсети.
+         * `internal-ip-version` — версия внутреннего IP-адреса: `ipv4` или `ipv6`.
+
+     {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
+
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
-  Чтобы создать внутренний сетевой балансировщик с обработчиком: 
-    
-  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-     
-     * `name` — имя сетевого балансировщика.
-     * `type` — тип сетевого балансировщика. Используйте `internal`, чтобы создать внутренний балансировщик.
-     * `listener` — параметры обработчика.
-       * `name` — имя обработчика.
-       * `port` — порт для приема трафика.
-       * `internal_address_spec` — спецификация обработчика для внутреннего балансировщика.
-         * `address` — внутренний IP-адрес из диапазона выбранной подсети. 
-         * `subnet_id` — идентификатор подсети.
+  Чтобы создать внутренний сетевой балансировщик с [обработчиком](../concepts/listener.md) и [целевой группой](../concepts/target-resources.md):
+
+  1. Опишите в конфигурационном файле параметры ресурса сетевого балансировщика:
 
      Пример структуры конфигурационного файла:
-     
-     
-     ```
-     provider "yandex" {
-         token     = "<OAuth или статический ключ сервисного аккаунта>"
-         folder_id = "<идентификатор каталога>"
-         zone      = "{{ region-id }}-a"
-       }
 
-     resource "yandex_lb_network_load_balancer" "internal-lb-test" {
-       name = "internal-lb-test"
+     ```hcl
+     resource "yandex_lb_network_load_balancer" "foo" {
+       name = "<имя сетевого балансировщика>"
        type = "internal"
-
        listener {
-         name = "my-listener"
-         port = 8080
+         name = "<имя обработчика>"
+         port = <номер порта>
          internal_address_spec {
-           address = "<внутренний IP-адрес>"
            subnet_id = "<идентификатор подсети>"
+           ip_version = "<версия IP-адреса: ipv4 или ipv6>"
+         }
+       attached_target_group {
+         target_group_id = "<идентификатор целевой группы>"
+         healthcheck {
+           name = "<имя проверки состояния>"
+             http_options {
+               port = <номер порта>
+               path = "<адрес URL, по которому будут выполняться проверки>"
+             }
          }
        }
+     }
      ```
 
+     Где:
 
-     
+     * `name` — имя сетевого балансировщика.
+     * `type` — тип сетевого балансировщика. Используйте `internal`, чтобы создать внутренний балансировщик.
+     * `listener` — параметры обработчика:
+       * `name` — имя обработчика.
+       * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик, из диапазона от `1` до `32767`.
+       * `internal_address_spec` — спецификация обработчика для внешнего балансировщика:
+         * `subnet_id` — идентификатор подсети.
+         * `ip_version` — описание внешнего IP-адреса. Укажите версию IP-адреса: `ipv4` или `ipv6`. По умолчанию `ipv4`.
+     * `attached_target_group` — описание параметров целевой группы для сетевого балансировщика:
+        * `target_group_id` — идентификатор целевой группы.
+        * `healthcheck` — описание параметров проверки состояния. Укажите имя, порт из диапазона от `1` до `32767` и путь, по которому будут выполняться проверки.
+
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-     
-  1. Проверьте корректность конфигурационных файлов.
-     
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
-        ```
-        terraform plan
-        ```
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-        
-  1. Разверните облачные ресурсы.
 
-     1. Если в конфигурации нет ошибок, выполните команду:
-        ```
-        terraform apply
-        ```
-     1. Подтвердите создание ресурсов.
-     
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Создайте сетевой балансировщик.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- API
+
+  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в запросе:
+
+  * Идентификатор каталога, в котором должен быть размещен сетевой балансировщик, в параметре `folderId`.
+  * Имя сетевого балансировщика в параметре `name`.
+  * Тип сетевого балансировщика в параметре `type`. Используйте `INTERNAL`, чтобы создать внутренний балансировщик.
+  * Описание [обработчиков](../concepts/listener.md) в параметре `listenerSpecs`.
+  * Идентификаторы [целевых групп](../concepts/target-resources.md) и настройки [проверки состояния их ресурсов](../concepts/health-check.md) в параметре `attachedTargetGroups`.
+
+  Идентификаторы целевых групп можно получить со [списком целевых групп в каталоге](target-group-list.md#list).
 
 {% endlist %}
 
@@ -165,164 +186,185 @@
 
 ### Создание внутреннего сетевого балансировщика без обработчика {#without-listener}
 
+Создайте внутренний сетевой балансировщик без обработчика и целевой группы с именем `internal-lb-test-1`.
+
 {% list tabs %}
 
 - CLI
   
   Чтобы создать внутренний балансировщик без обработчика, выполните команду:
   
-  ```
-  yc load-balancer network-load-balancer create \
-    --name internal-lb-test-1 \
-    --type internal \
-    --region-id {{ region-id }}
+  ```bash
+  yc load-balancer network-load-balancer create internal-lb-test-1 \
+     --type=internal
   ```
 
 - {{ TF }}
 
-    1. Опишите в конфигурационном файле параметры ресурса без блока `listener`:
+  1. Опишите в конфигурационном файле параметры ресурса без блока `listener` и `attached_target_group`:
 
-       {% cut "Пример создания внутреннего сетевого балансировщика без обработчика с помощью {{ TF }}" %}
+     ```hcl
+     resource "yandex_lb_network_load_balancer" "foo" {
+       name = "internal-lb-test-1"
+       type = "internal"
+     ```
 
-         ```
-         resource "yandex_lb_network_load_balancer" "internal-lb-test" {
-           name = "internal-lb-test"
-           type = "internal"
-         ```
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
 
-       {% endcut %}
+  1. Проверьте корректность настроек.
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Проверьте корректность конфигурационных файлов.
+  1. Создайте сетевой балансировщик.
 
-       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-       1. Выполните проверку с помощью команды:
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-          ```
-          terraform plan
-          ```
+- API
 
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
-    1. Разверните облачные ресурсы.
-
-       1. Если в конфигурации нет ошибок, выполните команду:
-
-          ```
-          terraform apply
-          ```
-
-       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-          После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-          ```
-          yc load-balancer network-load-balancer get <имя внутреннего сетевого балансировщика>
-          ```
+  ```api
+  {
+    "folderId": "<идентификатор каталога>",
+    "name": "internal-lb-test-1",
+    "type": "INTERNAL"
+  }
+  ```
 
 {% endlist %}
 
 ### Создание внутреннего сетевого балансировщика с обработчиком и подключенной целевой группой {#with-listener-and-target-group}
 
+Создайте внутренний сетевой балансировщик с обработчиком и подключенной целевой группой с тестовыми характеристиками:
+
+* Имя `internal-lb-test-2`.
+* Параметры обработчика:
+    * Имя `test-listener`.
+    * Порт `80`.
+    * Целевой порт `81`.
+    * Протокол `TCP`.
+    * Идентификатор подсети `b0cp4drld130kuprafls`.
+    * Версия IP-адреса `ipv4`.
+* Идентификатор целевой группы `enpu2l7q9kth8906spjn`.
+* Параметры проверки состояния целевой группы:
+    * Имя `http`.
+    * Интервал выполнения проверок состояния `2` секунды.
+    * Время ожидания ответа `1` секунда.
+    * Порог неработоспособности `2`.
+    * Порог работоспособности `2`.
+    * Порт для проверок по протоколу HTTP `80`.
+    * Адрес URL, по которому будут выполняться проверки `/`.
+
 {% list tabs %}
 
 - CLI
-  
-  1. Чтобы создать внутренний балансировщик с [обработчиком](../concepts/listener.md) и сразу подключить к нему целевую группу, получите список целевых групп:
-  
-     ```
-     yc load-balancer target-group list
-     ```
-	 
-	    Результат:
-	 
-	    	 
-	    ```
-     +----------------------+------------------+---------------------+-------------+--------------+
-     |          ID          |       NAME       |       CREATED       |  REGION ID  | TARGET COUNT |
-     +----------------------+------------------+---------------------+-------------+--------------+
-     | b7rv80bfibkph3ekqqle | test-internal-tg | 2020-08-09 07:49:18 | {{ region-id }} |            3 |
-     +----------------------+------------------+---------------------+-------------+--------------+
-     ```
-     
-     
-  
-  1. Выполните команду:
-  
-     ```
-     yc load-balancer network-load-balancer create \
-       --name internal-lb-test-3 \
-       --type internal \
-       --region-id {{ region-id }} \
-       --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14 \
-       --target-group target-group-id=b7rv80bfibkph3ekqqle,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
-     ```
 
-     Где `target-group-id` – идентификатор целевой группы.
-     
-	 Обратите внимание на формат параметров `healthcheck-interval` и `healthcheck-timeout`: необходимо указывать значение в формате `Ns`, где `N` — значение в секундах.
+  Выполните следующую команду:
+
+  ```bash
+  yc load-balancer network-load-balancer create internal-lb-test-2 \
+     --type=internal \
+     --listener name=test-listener,`
+               `port=80,`
+               `target-port=81,`
+               `protocol=tcp,`
+               `internal-subnet-id=b0cp4drld130kuprafls,`
+               `internal-ip-version=ipv4 \
+     --target-group target-group-id=enpu2l7q9kth8906spjn,`
+                   `healthcheck-name=http,`
+                   `healthcheck-interval=2s,`
+                   `healthcheck-timeout=1s,`
+                   `healthcheck-unhealthythreshold=2,`
+                   `healthcheck-healthythreshold=2,`
+                   `healthcheck-http-port=80,`
+                   `healthcheck-http-path=/
+  ```
 
 - {{ TF }}
 
-    1. Чтобы создать внутренний сетевой балансировщик с [обработчиком](../concepts/listener.md), откройте файл конфигурации {{ TF }} и добавьте блок `listener` в описании внутреннего сетевого балансировщика. Чтобы подключить целевую группу, добавьте блок `attached_target_group` с указанием на целевую группу в поле `target_group_id`.
+  1. Опишите в конфигурационном файле параметры ресурса с блоками `listener` и `attached_target_group`:
 
-       {% cut "Пример создания внутреннего сетевого балансировщика с обработчиком и подключенной целевой группой с помощью {{ TF }}" %}
-
-         ```
-         resource "yandex_lb_network_load_balancer" "internal-lb-test" {
-           name = "internal-lb-test"
-           type = "internal"
-           listener {
-             name = "my-listener"
-		     port = 9000
-             internal_address_spec {
-               subnet_id  = "b0cp4drld130kuprafls"
-               ip_version = "ipv4"
-             }
-           }
-	       attached_target_group {
-             target_group_id = "${yandex_lb_target_group.my-target-group.id}"
-             healthcheck {
-               name = "http"
-                 http_options {
-                   port = 9000
-                   path = "/ping"
-                 }
-             }
+     ```hcl
+     resource "yandex_lb_network_load_balancer" "internal-lb-test" {
+       name = "internal-lb-test-2"
+       type = "internal"
+       listener {
+         name        = "test-listener"
+         port        = 80
+         target_port = 81
+         protocol    = "tcp"
+         internal_address_spec {
+           subnet_id  = "b0cp4drld130kuprafls"
+           ip_version = "ipv4"
+         }
+       }
+       attached_target_group {
+         target_group_id = "enpu2l7q9kth8906spjn"
+         healthcheck {
+           name                = "http"
+           interval            = 2
+           timeout             = 1
+           unhealthy_threshold = 2
+           healthy_threshold   = 2
+           http_options {
+             port = 80
+             path = "/"
            }
          }
-         ```
+       }
+     }
+     ```
 
-       {% endcut %}
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
+  1. Проверьте корректность настроек.
 
-    1. Проверьте корректность конфигурационных файлов.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-       1. Выполните проверку с помощью команды:
+  1. Создайте сетевой балансировщик.
 
-          ```
-          terraform plan
-          ```
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+- API
 
-    1. Разверните облачные ресурсы.
+  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
-       1. Если в конфигурации нет ошибок, выполните команду:
-
-          ```
-          terraform apply
-          ```
-
-       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-          После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-          ```
-          yc load-balancer network-load-balancer get <имя внутреннего сетевого балансировщика>
-          ```
+  ```api
+  {
+    "folderId": "<идентификатор каталога>",
+    "name": "internal-lb-test-2",
+    "type": "INTERNAL",
+    "listenerSpecs": [
+      {
+        "name": "test-listener",
+        "port": "80",
+        "protocol": "TCP",
+        "targetPort": "81",
+        "internalAddressSpec": {
+          "subnetId": "b0cp4drld130kuprafls",
+          "ipVersion": "IPV4"
+        }
+      }
+    ],
+    "attachedTargetGroups": [
+      {
+        "targetGroupId": "enpu2l7q9kth8906spjn",
+        "healthChecks": [
+          {
+            "name": "http",
+            "interval": "2s",
+            "timeout": "1s",
+            "unhealthyThreshold": "2",
+            "healthyThreshold": "2",
+            "httpOptions": {
+              "port": "80",
+              "path": "/"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  ```
 
 {% endlist %}

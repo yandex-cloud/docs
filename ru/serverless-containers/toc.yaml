@@ -167,8 +167,14 @@ items:
         href: concepts/limits.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Разработка CRUD API для сервиса фильмов
         href: tutorials/movies-database.md
+      - name: >-
+          Построение пайплайна CI/CD в {{ GL }} с использованием
+          serverless-продуктов
+        href: tutorials/ci-cd-serverless.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -47,22 +47,22 @@ budget_spec | **oneof:** `cost_budget`, `expense_budget` or `balance_budget`<br>
 
 Field | Description
 --- | ---
-amount | **string**<br>Max cost threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
+amount | **string**<br>Required. Max cost threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
+notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. The minimum number of elements is 1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule)**<br>List of the [ThresholdRule](#ThresholdRule). Rules define intermediate cost thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
 &nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
+end_date | **string**<br>Required. End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
 ### ThresholdRule {#ThresholdRule}
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Required. Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Required. Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -86,25 +86,25 @@ folder_ids[] | **string**<br>IDs of the `yandex.cloud.resourcemanager.v1.Folder`
 
 Field | Description
 --- | ---
-amount | **string**<br>Max expense threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
+amount | **string**<br>Required. Max expense threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
+notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. The minimum number of elements is 1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule1)**<br>List of the [ThresholdRule](#ThresholdRule1). Rules define intermediate expense thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter1)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
 &nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
+end_date | **string**<br>Required. End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
 ### BalanceBudgetSpec {#BalanceBudgetSpec}
 
 Field | Description
 --- | ---
-amount | **string**<br>Max balance threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
+amount | **string**<br>Required. Max balance threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
+notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. The minimum number of elements is 1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule1)**<br>List of the [ThresholdRule](#ThresholdRule1). Rules define intermediate balance thresholds of the budget. 
 start_date | **string**<br>Start_date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
+end_date | **string**<br>Required. End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
 ## List {#List}
@@ -149,22 +149,22 @@ budget_spec | **oneof:** `cost_budget`, `expense_budget` or `balance_budget`<br>
 
 Field | Description
 --- | ---
-amount | **string**<br>Max cost threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
+amount | **string**<br>Required. Max cost threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
+notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. The minimum number of elements is 1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule1)**<br>List of the [ThresholdRule](#ThresholdRule1). Rules define intermediate cost thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter1)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
 &nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
+end_date | **string**<br>Required. End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
 ### ThresholdRule {#ThresholdRule1}
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Required. Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Required. Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -188,25 +188,25 @@ folder_ids[] | **string**<br>IDs of the `yandex.cloud.resourcemanager.v1.Folder`
 
 Field | Description
 --- | ---
-amount | **string**<br>Max expense threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
+amount | **string**<br>Required. Max expense threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
+notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. The minimum number of elements is 1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule2)**<br>List of the [ThresholdRule](#ThresholdRule2). Rules define intermediate expense thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter2)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
 &nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
+end_date | **string**<br>Required. End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
 ### BalanceBudgetSpec {#BalanceBudgetSpec1}
 
 Field | Description
 --- | ---
-amount | **string**<br>Max balance threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
+amount | **string**<br>Required. Max balance threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
+notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. The minimum number of elements is 1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule2)**<br>List of the [ThresholdRule](#ThresholdRule2). Rules define intermediate balance thresholds of the budget. 
 start_date | **string**<br>Start_date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
+end_date | **string**<br>Required. End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
 ## Create {#Create}
@@ -235,22 +235,22 @@ budget_spec | **oneof:** `cost_budget_spec`, `expense_budget_spec` or `balance_b
 
 Field | Description
 --- | ---
-amount | **string**<br>Max cost threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
+amount | **string**<br>Required. Max cost threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
+notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. The minimum number of elements is 1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule2)**<br>List of the [ThresholdRule](#ThresholdRule2). Rules define intermediate cost thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter2)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
 &nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
+end_date | **string**<br>Required. End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
 ### ThresholdRule {#ThresholdRule2}
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Required. Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Required. Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -274,25 +274,25 @@ folder_ids[] | **string**<br>IDs of the `yandex.cloud.resourcemanager.v1.Folder`
 
 Field | Description
 --- | ---
-amount | **string**<br>Max expense threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
+amount | **string**<br>Required. Max expense threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
+notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. The minimum number of elements is 1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule3)**<br>List of the [ThresholdRule](#ThresholdRule3). Rules define intermediate expense thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter3)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
 &nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
+end_date | **string**<br>Required. End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
 ### BalanceBudgetSpec {#BalanceBudgetSpec2}
 
 Field | Description
 --- | ---
-amount | **string**<br>Max balance threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
+amount | **string**<br>Required. Max balance threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
+notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. The minimum number of elements is 1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule3)**<br>List of the [ThresholdRule](#ThresholdRule3). Rules define intermediate balance thresholds of the budget. 
 start_date | **string**<br>Start_date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
+end_date | **string**<br>Required. End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
 ### Operation {#Operation}

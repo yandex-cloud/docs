@@ -19,6 +19,8 @@ items:
         href: operations/monitoring.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Развертывание веб-приложения
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка Slack-бота
@@ -47,6 +49,10 @@ items:
           Поставка данных в {{ yds-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/ydb-to-yds.md
+      - name: >-
+          Построение пайплайна CI/CD в {{ GL }} с использованием
+          serverless-продуктов
+        href: tutorials/ci-cd-serverless.md
   - name: Концепции
     items:
       - name: Обзор

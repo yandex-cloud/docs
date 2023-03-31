@@ -70,6 +70,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
+payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
@@ -231,7 +232,7 @@ dead_letter_queue | **[PutQueueMessage](#PutQueueMessage)**<br>DLQ policy (no va
 Field | Description
 --- | ---
 retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. Acceptable values are 10s to 1m, inclusive.
 
 
 ### PutQueueMessage {#PutQueueMessage}
@@ -347,6 +348,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
+payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce1)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retry. 
@@ -508,7 +510,7 @@ dead_letter_queue | **[PutQueueMessage](#PutQueueMessage1)**<br>DLQ policy (no v
 Field | Description
 --- | ---
 retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. Acceptable values are 10s to 1m, inclusive.
 
 
 ### PutQueueMessage {#PutQueueMessage1}
@@ -644,6 +646,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
+payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce2)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retry. 
@@ -805,7 +808,7 @@ dead_letter_queue | **[PutQueueMessage](#PutQueueMessage2)**<br>DLQ policy (no v
 Field | Description
 --- | ---
 retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. Acceptable values are 10s to 1m, inclusive.
 
 
 ### PutQueueMessage {#PutQueueMessage2}
@@ -941,6 +944,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
+payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce3)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retry. 
@@ -1102,7 +1106,7 @@ dead_letter_queue | **[PutQueueMessage](#PutQueueMessage3)**<br>DLQ policy (no v
 Field | Description
 --- | ---
 retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. Acceptable values are 10s to 1m, inclusive.
 
 
 ### PutQueueMessage {#PutQueueMessage3}
@@ -1274,6 +1278,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
+payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce4)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retry. 
@@ -1435,7 +1440,7 @@ dead_letter_queue | **[PutQueueMessage](#PutQueueMessage4)**<br>DLQ policy (no v
 Field | Description
 --- | ---
 retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. Acceptable values are 10s to 1m, inclusive.
 
 
 ### PutQueueMessage {#PutQueueMessage4}
@@ -1567,6 +1572,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
+payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce5)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retry. 
@@ -1728,7 +1734,7 @@ dead_letter_queue | **[PutQueueMessage](#PutQueueMessage5)**<br>DLQ policy (no v
 Field | Description
 --- | ---
 retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. Acceptable values are 10s to 1m, inclusive.
 
 
 ### PutQueueMessage {#PutQueueMessage5}

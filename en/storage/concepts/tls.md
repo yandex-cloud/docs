@@ -11,11 +11,11 @@ keywords:
 
 {{ objstorage-name }} supports secure client-server data exchange via the Transport Layer Security (TLS) protocol. To ensure robust protection of your data exchange, use TLS version 1.2 or higher.
 
-{{ objstorage-name }} continues to support TLS versions 1.0 and 1.1 at the moment, but plans to deprecate them, although [no issues or vulnerabilities are known](https://datatracker.ietf.org/doc/draft-ietf-tls-oldversions-deprecate/).
+Currently, {{ objstorage-name }} supports TLS 1.0 and 1.1; however this support will be discontinued moving forward, although [no issues or vulnerabilities have been detected](https://datatracker.ietf.org/doc/draft-ietf-tls-oldversions-deprecate/).
 
-Most of Amazon S3-compatible {{ objstorage-name }} clients don't let you explicitly select the TLS version, using the version specified at the system level.
+Most Amazon S3-compatible {{ objstorage-name }} clients do not allow you to explicitly select the TLS version; instead, they use the version specified at the system level.
 
-To learn how to configure your clients for TLS version 1.2, see the documentation:
-* [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/security-java-tls.html).
-* [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/enforcing-tls.html).
-* [AWS SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/enforcing-tls.html).
+To learn how to configure your clients for TLS 1.2, see these AWS guides:
+* [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/security-java-tls.html)
+* [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/enforcing-tls.html)
+* [AWS SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/enforcing-tls.html)

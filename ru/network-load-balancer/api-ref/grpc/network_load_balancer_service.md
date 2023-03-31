@@ -219,7 +219,7 @@ name | **string**<br>Name of the network load balancer. The name must be unique 
 description | **string**<br>Description of the network load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 region_id | **string**<br>ID of the region where the network load balancer resides. The maximum string length in characters is 50.
-type | **[NetworkLoadBalancer.Type](#NetworkLoadBalancer2)**<br>Required. Type of the network load balancer. Only external network load balancers are currently available. 
+type | **[NetworkLoadBalancer.Type](#NetworkLoadBalancer2)**<br>Required. Type of the network load balancer. 
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>List of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup2)**<br>List of attached target groups for the network load balancer. The maximum number of elements is 1000.
 deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 

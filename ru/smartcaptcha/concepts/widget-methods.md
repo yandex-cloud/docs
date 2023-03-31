@@ -12,7 +12,7 @@
 В автоматическом методе JS-скрипт, который выполняет загрузку виджета на странице пользователя, добавляется на страницу по ссылке:
 
 ```html
-<script src="https://captcha-api.yandex.ru/captcha.js" defer></script>
+<script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
 ```
 
 После загрузки JS-скрипт ищет все контейнеры, которые подходят для загрузки в них виджета, и отрисовывает в них виджеты.
@@ -55,7 +55,7 @@
         console.log(callback);
       }
     </script>
-    <script src="https://captcha-api.yandex.ru/captcha.js" async defer></script>
+    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" async defer></script>
   </head>
 
   <body>
@@ -86,7 +86,7 @@
 В расширенном методе JS-скрипт, который выполняет загрузку виджета на странице пользователя, добавляется на страницу по ссылке:
 
 ```html
-<script src="https://captcha-api.yandex.ru/captcha.js?render=onload&onload=onloadFunction"></script>
+<script src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"></script>
 ```
 
 В параметре `onload` передается функция, которая содержит параметры отрисовки виджета. В данном примере это функция `onloadFunction`.
@@ -225,7 +225,7 @@
 <div id="container"></div>
 
 <script
-  src="https://captcha-api.yandex.ru/captcha.js?render=onload&onload=onloadFunction"
+  src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
   async
   defer
 ></script>
@@ -252,7 +252,7 @@
 
 ```html
 <script
-  src="https://captcha-api.yandex.ru/captcha.js?render=onload&onload=smartCaptchaInit"
+  src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=smartCaptchaInit"
   defer
 ></script>
 

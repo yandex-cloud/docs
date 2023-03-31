@@ -32,8 +32,7 @@
   1. Измените видимость зоны в сетях:
 
      ```
-     yc dns zone update <имя или идентификатор зоны> \
-     --private-visibility network-ids=c645mh47vscba1d64tbs,
+     yc dns zone update <имя или идентификатор зоны> --network-ids=c645mh47vscba1d64tbs,
      ```
 
      Результат:

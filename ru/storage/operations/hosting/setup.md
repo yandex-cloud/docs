@@ -149,6 +149,10 @@
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
+- API
+
+  Чтобы настроить хостинг статического сайта, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
+
 {% endlist %}
 
 ## Переадресация всех запросов {#redirects}
@@ -284,6 +288,10 @@
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      Проверить настройку переадресации запросов можно в [консоли управления]({{ link-console-main }}).
+
+- API
+
+  Чтобы настроить переадресацию всех запросов к бакету, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
 
 {% endlist %}
 
@@ -463,4 +471,8 @@
 
      Проверить настройку условной переадресации запросов можно в [консоли управления]({{ link-console-main }}).
         
+- API
+
+  Чтобы настроить условную переадресацию запросов к бакету, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
+
 {% endlist %}

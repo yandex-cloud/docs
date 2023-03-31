@@ -1,4 +1,4 @@
-В {{ objstorage-short-name }} [создайте бакеты](../../../storage/operations/buckets/create) и [настройте доступ](../../../storage/operations/buckets/edit-acl) к ним:
+В {{ objstorage-short-name }} [создайте бакеты](../../../storage/operations/buckets/create.md) и [настройте доступ](../../../storage/operations/buckets/edit-acl.md) к ним:
 
 1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
 1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.

@@ -9,13 +9,13 @@ items:
         href: operations/index.md
       - name: Сетевые балансировщики
         items:
+          - name: Информация об имеющихся сетевых балансировщиках
+            href: operations/load-balancer-list.md
           - name: Создать балансировщик
             href: operations/load-balancer-create.md
           - name: Создать внутренний балансировщик
             href: operations/internal-lb-create.md
-          - name: Запустить балансировщик
-            href: operations/load-balancer-start.md
-          - name: Остановить балансировщик
+          - name: Остановить и запустить сетевой балансировщик
             href: operations/load-balancer-stop.md
           - name: Удалить балансировщик
             href: operations/load-balancer-delete.md
@@ -27,6 +27,8 @@ items:
             href: operations/listener-remove.md
       - name: Целевые группы
         items:
+          - name: Информация об имеющихся целевых группах
+            href: operations/target-group-list.md
           - name: Создать целевую группу
             href: operations/target-group-create.md
           - name: Подключить целевую группу к балансировщику

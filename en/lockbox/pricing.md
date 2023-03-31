@@ -1,9 +1,16 @@
+---
+editable: false
+---
+
 # Pricing for {{ lockbox-name }}
 
 The cost of {{ lockbox-name }} usage is based on:
 
 * The number of secrets.
 * The number of [get](api-ref/Payload/get) operations performed on a secret.
+
+
+
 
 ## Pricing for secrets {#secrets}
 

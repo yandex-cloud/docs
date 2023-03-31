@@ -12,7 +12,7 @@
 
     ```html
     <script
-      src="https://captcha-api.yandex.ru/captcha.js?render=onload&onload=onloadFunction"
+      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
 

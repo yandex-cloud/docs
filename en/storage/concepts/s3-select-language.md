@@ -2,11 +2,11 @@
 
 {% note info %}
 
-To be able to make S3 Select queries, contact [support](../../support/overview.md).
+To be able to run S3 Select queries, contact [support](../../support/overview.md).
 
 {% endnote %}
 
-The S3 Select language only uses the `SELECT` operator from the standard SQL. It supports the following standard ANSI clauses:
+The only standard SQL operator used by S3 Select is `SELECT`. It supports the following standard ANSI clauses:
 
 * SELECT
 * FROM
@@ -17,7 +17,7 @@ Nested queries and connections are not supported.
 
 ## SELECT {#select-list}
 
-Object data returned by a query: names of columns, functions, and expressions.
+This operator determines the object data returned by a query, such as names of columns, functions, and expressions.
 
 Syntax:
 
@@ -26,12 +26,12 @@ SELECT *
 SELECT projection [ AS column_alias | column_alias ] [, ...]
 ```
 
-The first form of a clause returns each line that satisfies the condition in the `WHERE` clause as is. The second returns a row with a custom projection of the output scalar expressions for each column.
+The first form of the clause returns each line that satisfies the condition in the `WHERE` clause as is. The second one returns a row with a custom projection of the output scalar expressions for each column.
 
 
 ## FROM {#from-clause}
 
-Data source for `SELECT`. Takes the name of a {{ objstorage-name }} object as an argument.
+`FROM` clauses provide data source for `SELECT`. As an argument, they take the name of an {{ objstorage-name }} object.
 
 Syntax:
 
@@ -41,12 +41,12 @@ FROM S3Object alias
 FROM S3Object AS alias
 ```
 
-As in standard SQL, the `FROM` clause creates rows filtered using the `WHERE` clause and returned as a list of the data specified in `SELECT`.
+As in standard SQL, a `FROM` clause creates rows filtered using a `WHERE` clause and returned as a data list specified in `SELECT`.
 
 
 ## WHERE {#where-clause}
 
-Filters rows based on a specified condition. The condition is set as a logical expression. The result returned only contains rows for which the expression evaluates to `TRUE`.
+This clause filters rows based on a condition, which you specify as a logical expression. The returned result only contains rows for which the expression equals to `TRUE`.
 
 Syntax:
 
@@ -57,7 +57,7 @@ WHERE condition
 
 ## LIMIT {#limit-clause}
 
-Limits the number of records returned by a query.
+This clause limits the number of records returned by a query.
 
 Syntax:
 
@@ -74,11 +74,11 @@ CSV file attributes:
 
 * Column numbers.
 
-  In a query, you can refer to a specific column using the name `_N`, where `N` is the column's sequence number in a file.
+  In a query, you can refer to a specific column using the `_N` name, where `N` is the column sequence number in a file.
 
-  Column numbering starts with 1. For example, the first column will have the name `_1`, the second `_2`.
+  Column numbering starts with 1. For example, if the first column's name is `_1`, the second one's name is `_2`.
 
-  A column name can be specified both as `_N` and as `alias._N`. For example, the names `_2` and `myAlias._2` are both legal references to a column in `SELECT` and `WHERE` clauses.
+  A column name can be specified both as `_N` and as `alias._N`. For example, the `_2` and `myAlias._2` names are both valid references to a column in `SELECT` and `WHERE` clauses.
 
 * Column headers.
 
@@ -127,35 +127,35 @@ Result:
 ```
 
 
-## Case sensitivity of headers and attribute names {#sensitivity}
+## Case sensitivity of header and attribute names {#sensitivity}
 
-Double quotes indicate that CSV file column headers or JSON file attributes are case-sensitive. Headers or object attributes without double quotes will not be case-sensitive. Therefore, a query error may occur if a field name is ambiguous.
+To indicate that CSV file column headers or JSON file attributes are case-sensitive, use double quotes. Headers or object attributes without double quotes are not case-sensitive. Therefore, a query error may occur if a field name is ambiguous.
 
 **Examples**
 
-1. A queried object has a **NAME** header/attribute.
+1. A queried object has a **NAME** header or attribute.
 
-    If there is no indication of case sensitivity, the query successfully returns the object's data:
+    If there is no indication of case sensitivity, the query successfully returns the object data:
 
     ```sql
     SELECT s.name FROM S3Object s
     ```
 
-    If you enclose the header/attribute in double quotes, the query results in Error Code 400, `MissingHeaderName`:
+    If you enclose the header or attribute in double quotes, the query will output Error Code 400 (`MissingHeaderName`):
 
     ```sql
     SELECT s."name" FROM S3Object s
     ```
 
-1. A queried object has one header/attribute called **NAME** and another header/attribute called **name**.
+1. A queried object has one header or attribute called **NAME** and another header or attribute called **name**.
 
-    If there is no indication of case sensitivity, there is ambiguity as to which header/attribute to select. The query returns error code 400 `AmbiguousFieldName`:
+    If there is no indication of case sensitivity, there is ambiguity as to which header or attribute to select. The query returns error code 400 (`AmbiguousFieldName`):
 
     ```sql
     SELECT s.name FROM S3Object s
     ```
 
-    If you enclose the header/attribute in double quotes, the request successfully returns the object's data:
+    If you enclose the header or attribute in double quotes, the request will successfully return the object data:
 
     ```sql
     SELECT s."NAME" FROM S3Object s
@@ -164,21 +164,21 @@ Double quotes indicate that CSV file column headers or JSON file attributes are 
 
 ## Reserved keywords {#reserved-keywords}
 
-S3 Select has a series of reserved keywords. These are necessary to run SQL expressions when querying the contents of an object. Reserved keywords include, among others, function names, data type names, and operators.
+S3 Select has a set of reserved keywords, which are required to run SQL expressions when querying object contents. Among other things, reserved keywords include function names, data type names, and operators.
 
-In some cases, user terms may duplicate a reserved keyword. To avoid a conflict, use double quotes to indicate that your use of a certain term is intentional. Otherwise, a 400 syntax error will occur.
+In some cases, user terms may duplicate a reserved keyword. To avoid conflicts, use double quotes to indicate that you use a certain term intentionally. Otherwise, a 400 syntax error will occur.
 
 **Examples**
 
-A queried object has a header/attribute called **CAST**, which is a reserved keyword.
+A queried object has a header or attribute called **CAST**, which is a reserved keyword.
 
-If you enclose a user-defined header/attribute in double quotes, the request successfully returns the object's data:
+If you enclose a user-defined header or attribute in double quotes, the request will successfully return the object data:
 
 ```sql
 SELECT s."CAST" FROM S3Object s
 ```
 
-If you do not enclose a user-defined header/attribute in double quotes, there is a conflict with the reserved keyword. Therefore, the query returns a 400 syntax error:
+If you do not enclose a user-defined header or attribute in double quotes, there will be a conflict with the reserved keyword and the query will return a 400 syntax error:
 
 ```sql
 SELECT s.CAST FROM S3Object s
@@ -188,17 +188,17 @@ SELECT s.CAST FROM S3Object s
 
 `WHERE` and `SELECT` clauses may contain SQL scalar expressions that return scalar values. These may appear as follows:
 
-* `literal`. SQL literal. A literal is an explicit numeric, character, string, or boolean value (constant) that is not represented by an identifier.
+* `literal`: SQL literal, which is an explicit numeric, character, string, or boolean value (constant) without ID.
 
-* `column_reference`. Reference to a column, such as `column_name` or `alias.column_name`. Used to access a column using the column header.
+* `column_reference`: Reference to a column, such as `column_name` or `alias.column_name`, used to access a column by means of the column header.
 
-  Example:
+   Example:
 
   ```sql
   SELECT city.name FROM S3Object city
   ```
 
-* `unary_op expression`. In this expression, `unary_op` is a unary SQL operator. Unary operators perform operations on a single operand. These include, for example, the unary minus, which changes the sign of a number.
+* `unary_op expression`: In this expression, `unary_op` is a unary SQL operator. Unary operators perform operations on a single operand. They include, for instance, the unary minus, which changes the sign of a number.
 
   Example:
 
@@ -206,7 +206,7 @@ SELECT s.CAST FROM S3Object s
   SELECT -5 FROM S3Object
   ```
 
-* `expression binary_op expression`. In this expression, `binary_op` is a binary SQL operator. Binary operators perform an operation on two operands. For instance, binary operators include arithmetic, logical, and comparison operators.
+* `expression binary_op expression`: In this expression, `binary_op` is a binary SQL operator. Binary operators perform an operation on two operands. For instance, binary operators include arithmetic, logical, and comparison operators.
 
   Examples:
 
@@ -218,7 +218,7 @@ SELECT s.CAST FROM S3Object s
   SELECT result FROM S3Object WHERE result>=1 AND result<=5
   ```
 
-* `func_name`. In this expression, `func_name` is the name of a callable scalar function.
+* `func_name`: In this expression, `func_name` is the name of a callable scalar function.
 
   Example:
 
@@ -226,7 +226,7 @@ SELECT s.CAST FROM S3Object s
   SELECT CAST(status AS INT) FROM S3Object
   ```
 
-* `expression [ NOT ] BETWEEN expression AND expression`. Checking if a value belongs to a range.
+* `expression [ NOT ] BETWEEN expression AND expression`: Checking whether a value belongs to a range.
 
   Example:
 
@@ -236,17 +236,17 @@ SELECT s.CAST FROM S3Object s
 
 ## Aggregate functions {#aggregate-functions}
 
-In the `SELECT` clause, you can use _aggregate functions_ that are calculated using values of multiple or all rows and return a single resulting value.
+In `SELECT` clauses, you can use _aggregate functions_ that are calculated using values of multiple or all rows and return a single resulting value.
 
 The following functions are supported:
 
 | Function | Description | Input type | Output type |
 | ----- | ----- | ----- | ----- |
 | `COUNT` | Number of rows | Any | `INT` |
-| `MIN` | The minimum value in a given set of values | `INT` or `DECIMAL` | Same as input |
-| `MAX` | The maximum value in a given set of values | `INT` or `DECIMAL` | Same as input |
+| `MIN` | Minimum value within a certain set of values | `INT` or `DECIMAL` | Same as input |
+| `MAX` | Maximum value within a certain set of values | `INT` or `DECIMAL` | Same as input |
 | `SUM` | Sum of values | `INT`, `FLOAT`, or `DECIMAL` | Same as input |
-| `AVG` | Average value | `INT`, `FLOAT`, or `DECIMAL` | If the input type is `INT`, then `DECIMAL`.<br/>Otherwise, same as input. |
+| `AVG` | Average value | `INT`, `FLOAT`, or `DECIMAL` | `DECIMAL`, if the input type is `INT`.<br/>Otherwise, same as input. |
 
 Examples:
 
@@ -266,14 +266,14 @@ Examples:
 
   ```sql
   SELECT 
-    COUNT(*) AS "count", 
-    MIN(request_time) AS "min", 
-    MAX(request_time) AS "max", 
-    SUM(request_time) AS "sum", 
-    AVG(request_time) AS "avg"
+    COUNT(*) AS "count",
+    MIN(request_time) AS "min",
+    MAX(request_time) AS "max",
+    SUM(request_time) AS "sum",
+     AVG(request_time) AS "avg"
   FROM S3Object
   WHERE status = 200
-    ```
+  ```
 
   Result:
 
@@ -296,16 +296,16 @@ Examples:
 
   ```sql
   SELECT 
-    COUNT(*) AS "count", 
-    MIN(CAST(request_time AS FLOAT)) AS "min", 
-    MAX(CAST(request_time AS FLOAT)) AS "max", 
-    SUM(CAST(request_time AS FLOAT)) AS "sum", 
+    COUNT(*) AS "count",
+    MIN(CAST(request_time AS FLOAT)) AS "min",
+    MAX(CAST(request_time AS FLOAT)) AS "max",
+    SUM(CAST(request_time AS FLOAT)) AS "sum",
     AVG(CAST(request_time AS FLOAT)) AS "avg"
   FROM S3Object
   WHERE status = '200'
   ```
-    
-  Since all the values in the input CSV files are considered strings, they should be converted to the appropriate types using the `CAST` function.
+
+  Since all values in the input CSV files count as strings, you need to convert them to the appropriate types using the `CAST` function.
 
   Result:
 

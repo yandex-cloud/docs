@@ -6,6 +6,7 @@
 * [{#T}](./sqoop-mmy.md)
 * [{#T}](./sqoop-mpg.md)
 * [{#T}](./geesefs-init-actions.md)
+* [{#T}](./s3-dataproc-ch.md)
 
 ## Работа с заданиями {#jobs}
 

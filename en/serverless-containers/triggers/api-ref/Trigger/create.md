@@ -26,6 +26,7 @@ POST https://serverless-triggers.{{ api-host }}/triggers/v1/triggers
     // `rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`
     "timer": {
       "cronExpression": "string",
+      "payload": "string",
 
       // `rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`
       "invokeFunction": {
@@ -438,6 +439,7 @@ labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more
 rule | **object**<br><p>Required. Trigger type.</p> <p>Description of a rule for trigger activation.</p> 
 rule.<br>timer | **object**<br>Rule for a timed trigger. <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`<br>
 rule.<br>timer.<br>cronExpression | **string**<br><p>Required. Description of a schedule as a <a href="/docs/functions/concepts/trigger/timer">cron expression</a>.</p> <p>The maximum string length in characters is 100.</p> 
+rule.<br>timer.<br>payload | **string**<br><p>Payload to be passed to function.</p> <p>The maximum string length in characters is 4096.</p> 
 rule.<br>timer.<br>invokeFunction | **object**<br>Instructions for invoking a function once. <br>`rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`<br>
 rule.<br>timer.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>timer.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
@@ -448,7 +450,7 @@ rule.<br>timer.<br>invokeFunctionWithRetry.<br>functionTag | **string**<br><p>Ve
 rule.<br>timer.<br>invokeFunctionWithRetry.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
 rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -458,7 +460,7 @@ rule.<br>timer.<br>invokeContainerWithRetry.<br>path | **string**<br><p>Endpoint
 rule.<br>timer.<br>invokeContainerWithRetry.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
 rule.<br>timer.<br>invokeContainerWithRetry.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>timer.<br>invokeContainerWithRetry.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>timer.<br>invokeContainerWithRetry.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>timer.<br>invokeContainerWithRetry.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>timer.<br>invokeContainerWithRetry.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>timer.<br>invokeContainerWithRetry.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>timer.<br>invokeContainerWithRetry.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -487,7 +489,7 @@ rule.<br>iotMessage.<br>invokeFunction.<br>functionTag | **string**<br><p>Versio
 rule.<br>iotMessage.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
 rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -497,7 +499,7 @@ rule.<br>iotMessage.<br>invokeContainer.<br>path | **string**<br><p>Endpoint HTT
 rule.<br>iotMessage.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
 rule.<br>iotMessage.<br>invokeContainer.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>iotMessage.<br>invokeContainer.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>iotMessage.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>iotMessage.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>iotMessage.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>iotMessage.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>iotMessage.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -510,7 +512,7 @@ rule.<br>iotBrokerMessage.<br>invokeFunction.<br>functionTag | **string**<br><p>
 rule.<br>iotBrokerMessage.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
 rule.<br>iotBrokerMessage.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>iotBrokerMessage.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>iotBrokerMessage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>iotBrokerMessage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>iotBrokerMessage.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>iotBrokerMessage.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>iotBrokerMessage.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -520,7 +522,7 @@ rule.<br>iotBrokerMessage.<br>invokeContainer.<br>path | **string**<br><p>Endpoi
 rule.<br>iotBrokerMessage.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
 rule.<br>iotBrokerMessage.<br>invokeContainer.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>iotBrokerMessage.<br>invokeContainer.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>iotBrokerMessage.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>iotBrokerMessage.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>iotBrokerMessage.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>iotBrokerMessage.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>iotBrokerMessage.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -535,7 +537,7 @@ rule.<br>objectStorage.<br>invokeFunction.<br>functionTag | **string**<br><p>Ver
 rule.<br>objectStorage.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
 rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -545,7 +547,7 @@ rule.<br>objectStorage.<br>invokeContainer.<br>path | **string**<br><p>Endpoint 
 rule.<br>objectStorage.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
 rule.<br>objectStorage.<br>invokeContainer.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>objectStorage.<br>invokeContainer.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>objectStorage.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>objectStorage.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>objectStorage.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>objectStorage.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>objectStorage.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -560,7 +562,7 @@ rule.<br>containerRegistry.<br>invokeFunction.<br>functionTag | **string**<br><p
 rule.<br>containerRegistry.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
 rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -570,7 +572,7 @@ rule.<br>containerRegistry.<br>invokeContainer.<br>path | **string**<br><p>Endpo
 rule.<br>containerRegistry.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
 rule.<br>containerRegistry.<br>invokeContainer.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>containerRegistry.<br>invokeContainer.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>containerRegistry.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>containerRegistry.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>containerRegistry.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>containerRegistry.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>containerRegistry.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -585,7 +587,7 @@ rule.<br>cloudLogs.<br>invokeFunction.<br>functionTag | **string**<br><p>Version
 rule.<br>cloudLogs.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
 rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -595,7 +597,7 @@ rule.<br>cloudLogs.<br>invokeContainer.<br>path | **string**<br><p>Endpoint HTTP
 rule.<br>cloudLogs.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
 rule.<br>cloudLogs.<br>invokeContainer.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>cloudLogs.<br>invokeContainer.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>cloudLogs.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>cloudLogs.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>cloudLogs.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>cloudLogs.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>cloudLogs.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -613,7 +615,7 @@ rule.<br>logging.<br>invokeFunction.<br>functionTag | **string**<br><p>Version t
 rule.<br>logging.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
 rule.<br>logging.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>logging.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>logging.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>logging.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>logging.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>logging.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>logging.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -623,7 +625,7 @@ rule.<br>logging.<br>invokeContainer.<br>path | **string**<br><p>Endpoint HTTP p
 rule.<br>logging.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
 rule.<br>logging.<br>invokeContainer.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>logging.<br>invokeContainer.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>logging.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>logging.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>logging.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>logging.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>logging.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -636,7 +638,7 @@ rule.<br>billingBudget.<br>invokeFunction.<br>functionTag | **string**<br><p>Ver
 rule.<br>billingBudget.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
 rule.<br>billingBudget.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>billingBudget.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>billingBudget.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>billingBudget.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>billingBudget.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>billingBudget.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>billingBudget.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -646,7 +648,7 @@ rule.<br>billingBudget.<br>invokeContainer.<br>path | **string**<br><p>Endpoint 
 rule.<br>billingBudget.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
 rule.<br>billingBudget.<br>invokeContainer.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>billingBudget.<br>invokeContainer.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>billingBudget.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>billingBudget.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>billingBudget.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>billingBudget.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>billingBudget.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -664,7 +666,7 @@ rule.<br>dataStream.<br>invokeFunction.<br>functionTag | **string**<br><p>Versio
 rule.<br>dataStream.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
 rule.<br>dataStream.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>dataStream.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>dataStream.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>dataStream.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>dataStream.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>dataStream.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>dataStream.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -674,7 +676,7 @@ rule.<br>dataStream.<br>invokeContainer.<br>path | **string**<br><p>Endpoint HTT
 rule.<br>dataStream.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
 rule.<br>dataStream.<br>invokeContainer.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>dataStream.<br>invokeContainer.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>dataStream.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>dataStream.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>dataStream.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>dataStream.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>dataStream.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -686,7 +688,7 @@ rule.<br>mail.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag 
 rule.<br>mail.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
 rule.<br>mail.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>mail.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>mail.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>mail.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>mail.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>mail.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>mail.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
@@ -696,7 +698,7 @@ rule.<br>mail.<br>invokeContainer.<br>path | **string**<br><p>Endpoint HTTP path
 rule.<br>mail.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
 rule.<br>mail.<br>invokeContainer.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
 rule.<br>mail.<br>invokeContainer.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-rule.<br>mail.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>mail.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> <p>Acceptable values are 10 seconds to 60 seconds, inclusive.</p> 
 rule.<br>mail.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 rule.<br>mail.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>mail.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 

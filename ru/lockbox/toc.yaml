@@ -31,6 +31,10 @@ items:
         href: tutorials/index.md
       - name: Синхронизация с секретами Managed Service for Kubernetes
         href: tutorials/kubernetes-lockbox-secrets.md
+      - name: >-
+          Построение пайплайна CI/CD в {{ GL }} с использованием
+          serverless-продуктов
+        href: tutorials/ci-cd-serverless.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом

@@ -40,10 +40,6 @@
         log_group_id: ckghq1hm19q7ek5sjnh5
         ```
 
-- API
-
-  Изменить имя, описание или спецификацию API-шлюза можно с помощью метода API [update](../apigateway/api-ref/ApiGateway/update.md).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -141,5 +137,9 @@
 - {{ yandex-cloud }} Toolkit
 
   Изменить имя, описание или спецификацию API-шлюза можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
+- API
+
+  Чтобы изменить имя, описание или спецификацию API-шлюза, воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update).
 
 {% endlist %}

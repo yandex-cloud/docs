@@ -171,6 +171,7 @@
                      )
 
                   ],
+                  # Укажите этот параметр, если вы используете {{ brand-voice-cc-name }}
                   model = "zsl"
               )
     
@@ -181,7 +182,7 @@
 
               # Отправить данные для синтеза.
               it = stub.UtteranceSynthesis(request, metadata=(
-                  ("authorization", f"Bearer {iam_token}")
+                  ("authorization", f"Bearer {iam_token}"),
               ))
 
               # Обработать ответы сервера и записать результат в файл.

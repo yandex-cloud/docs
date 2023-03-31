@@ -8,13 +8,13 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется отключить целевую группу от балансировщика.
   1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
   1. Выберите балансировщик, от которого требуется отключить целевую группу.
-  1. В блоке **Целевые группы** в строке с нужной целевой группой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg).
+  1. В блоке **Целевые группы** в строке с нужной целевой группой нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg).
   1. В открывшемся меню нажмите **Отключить**.
   1. В открывшемся окне нажмите кнопку **Отключить**.
 
 - CLI
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](../../cli/quickstart.md#install).
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -24,37 +24,57 @@
      yc load-balancer network-load-balancer detach-target-group --help
      ```
 
-  1. Получите список балансировщиков:
+  1. Отключите [целевую группу](../concepts/target-resources.md) от сетевого балансировщика:
 
      ```bash
-     load-balancer network-load-balancer list
+     yc load-balancer network-load-balancer detach-target-group <идентификатор или имя балансировщика> \
+        --target-group-id=<идентификатор целевой группы>
      ```
 
-	 Результат:
+     Идентификатор, имя балансировщика и идентификаторы подключенных целевых групп можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 
-	 
-	 ```bash
-     +----------------------+--------------------+-----------------+----------+----------------+------------------------+----------+
-     |          ID          |        NAME        |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
-     +----------------------+--------------------+-----------------+----------+----------------+------------------------+----------+
-     ...
-     | b7r97ah2jn5rmo6k1dsk | test-load-balancer | {{ region-id }} | EXTERNAL |              1 | b7roi767je4c574iivrk   | INACTIVE |
-     ...
-     +----------------------+--------------------+-----------------+----------+----------------+------------------------+----------+
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы отключить [целевую группу](../concepts/target-resources.md) от сетевого балансировщика, созданного с помощью {{ TF }}:
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием целевой группы.
+
+     ```hcl
+     resource "yandex_lb_network_load_balancer" "foo" {
+       name = "<имя сетевого балансировщика>"
+       ...
+       attached_target_group {
+         target_group_id = "<идентификатор целевой группы>"
+         healthcheck {
+           name = "<имя проверки состояния>"
+           http_options {
+             port = <номер порта>
+             path = "<адрес URL, по которому будут выполняться проверки>"
+           }
+         }
+       }
+       ...
+     }
      ```
 
+  1. Проверьте корректность настроек.
 
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Выберите `ID` балансировщика и подключенной к нему целевой группы.
-  1. Отключите выбранную группу от балансировщика:
+  1. Удалите сетевой балансировщик.
 
-     ```bash
-     yc load-balancer network-load-balancer detach-target-group b7r97ah2jn5rmo6k1dsk \
-       --target-group-id=b7roi767je4c574iivrk
-     ```
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
-  Отключить целевую группу от сетевого балансировщика можно с помощью метода API [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md).
+  Воспользуйтесь методом API [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) и передайте в запросе:
+
+  * Идентификатор балансировщика в параметре `networkLoadBalancerId`.
+  * Идентификатор целевой группы в параметре `targetGroupId`.
+
+  Идентификатор балансировщика и идентификаторы подключенных целевых групп можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 
 {% endlist %}

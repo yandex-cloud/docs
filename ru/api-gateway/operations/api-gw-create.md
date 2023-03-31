@@ -110,10 +110,6 @@
         log_group_id: ckghq1hm19q7ek5sjnh5
         ```
 
-- API
-
-  Создать API-шлюз можно с помощью метода API [create](../apigateway/api-ref/ApiGateway/create.md).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -125,5 +121,9 @@
 - {{ yandex-cloud }} Toolkit
 
   Создать API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
+- API
+
+  Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../apigateway/api-ref/grpc/apigateway_service.md#Create).
 
 {% endlist %}

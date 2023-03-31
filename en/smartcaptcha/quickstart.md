@@ -55,7 +55,7 @@ Add the widget automatically:
 1. Add the JS script to the user page. To do this, place the following code anywhere on the page (for example, inside the `<head>` tag):
 
    ```html
-   <script src="https://captcha-api.yandex.ru/captcha.js" defer></script>
+   <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
    ```
 
    The `captcha.js` script will automatically find all `div` elements with the `smart-captcha` class and install the widget in them.
@@ -86,7 +86,7 @@ After the check, the user is given a unique token. The token is loaded to the `<
 </div>
 ```
 
-To validate the token, send a GET request to `https://captcha-api.yandex.ru/validate` with the following parameters:
+To validate the token, send a GET request to `https://smartcaptcha.yandexcloud.net/validate` with the following parameters:
 
 * `secret`: The key for the server part.
 * `token`: The token received after the check has been passed.
@@ -107,7 +107,7 @@ Example of the token validation function:
 
    function check_captcha(token, callback) {
        const options = {
-           hostname: 'captcha-api.yandex.ru',
+           hostname: 'smartcaptcha.yandexcloud.net',
            port: 443,
            path: '/validate?' + querystring.stringify({
                secret: SMARTCAPTCHA_SERVER_KEY,
@@ -157,7 +157,7 @@ Example of the token validation function:
            "ip" => $_SERVER['REMOTE_ADDR'], // You need to pass the user IP.
                                             // Method for retrieving the user IP depends on your proxy.
        ]);
-       curl_setopt($ch, CURLOPT_URL, "https://captcha-api.yandex.ru/validate?$args");
+       curl_setopt($ch, CURLOPT_URL, "https://smartcaptcha.yandexcloud.net/validate?$args");
        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
        curl_setopt($ch, CURLOPT_TIMEOUT, 1);
 
@@ -194,7 +194,7 @@ Example of the token validation function:
 
    def check_captcha(token):
        resp = requests.get(
-           "https://captcha-api.yandex.ru/validate",
+           "https://smartcaptcha.yandexcloud.net/validate",
            {
                "secret": SMARTCAPTCHA_SERVER_KEY,
                "token": token,

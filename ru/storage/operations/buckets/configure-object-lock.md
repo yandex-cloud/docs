@@ -34,7 +34,7 @@
 
 - API
 
-  Используйте метод [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md).
+  Воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md).
 
 {% endlist %}
 
@@ -131,5 +131,9 @@
  
   * `bucket` — имя бакета.
   * `object-lock-configuration` — настройки блокировок в бакете. Пустое значение отключает механизм блокировок.
+
+- API
+
+  Чтобы выключить возможность блокировок версий объектов в бакете, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).
 
 {% endlist %}

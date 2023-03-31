@@ -442,4 +442,6 @@ items:
         href: serverless/movies-database.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: serverless/alice-shareable-todolist.md
+      - name: Построение пайплайна CI/CD в {{ GL }}
+        href: serverless/ci-cd-serverless.md
 base: ru/tutorials

@@ -1,23 +1,23 @@
 # Object lifecycles
 
-{{ objstorage-name }} lets you define the actions automatically applied to individual objects or groups of objects in the bucket at specified points in time.
+{{ objstorage-name }} allows you to define the actions that are automatically applied to individual objects or object groups in the bucket at specified points in time.
 
 Types of actions:
 
-- Change [storage class](storage-class.md) for objects from `STANDARD` to `COLD`.
+- Change object [storage class](storage-class.md) from `STANDARD` to `COLD`.
 - Delete objects.
-- Deleting incomplete multipart uploads.
+- Delete incomplete multipart uploads.
 
-You can only configure object lifecycles for each individual bucket. You can't configure lifecycles for a bucket group, folder, or cloud.
+You can configure object lifecycles only for each individual bucket. You cannot configure lifecycles for a bucket group, folder, or cloud.
 
 To manage object lifecycles, you can use:
 
-- The {{ yandex-cloud }} [management console](../operations/buckets/lifecycles.md).
-- [Amazon S3-compatible HTTP API](../s3/index.md).
+- {{ yandex-cloud }} [management console](../operations/buckets/lifecycles.md)
+- [Amazon S3-compatible HTTP API](../s3/index.md)
 
-   This way you can manage lifecycle configurations using [tools](../tools/index.md) with Amazon S3 HTTP API support.
+   This way, you can manage lifecycle configurations using [tools](../tools/index.md) with Amazon S3 HTTP API support.
 
-When managing lifecycles via the Amazon S3-compatible HTTP API, define the [configuration in XML format](../s3/api-ref/lifecycles/xml-config.md). Different tools may require different configuration formats, see the example for the AWS CLI in [{#T}](../operations/buckets/lifecycles.md).
+When managing lifecycles via an Amazon S3-compatible HTTP API, define the [configuration in XML format](../s3/api-ref/lifecycles/xml-config.md). Different tools may require different configuration formats; for an example of AWS CLI configuration, see [{#T}](../operations/buckets/lifecycles.md).
 
-Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
+Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
 

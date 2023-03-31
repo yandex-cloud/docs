@@ -1541,8 +1541,8 @@ time_inclusive | **bool**<br>Flag that indicates whether a database should be re
 name | **string**<br>Required. Name of the new PostgreSQL cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new PostgreSQL cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster8)**<br>Deployment environment of the new PostgreSQL cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration for the PostgreSQL cluster to be created. 
+environment | **[Cluster.Environment](#Cluster8)**<br>Required. Deployment environment of the new PostgreSQL cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration for the PostgreSQL cluster to be created. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for PostgreSQL hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
 network_id | **string**<br>Required. ID of the network to create the PostgreSQL cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the PostgreSQL cluster in. The maximum string length in characters is 50.
