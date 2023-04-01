@@ -56,7 +56,7 @@
           --key $key \
           --expression "$query" \
           --expression-type 'SQL' \
-          --input-serialization '{"CSV": {"FileHeaderInfo": "USE", "FieldDelimiter":";"}}' \
+          --input-serialization '{"CSV": {"FileHeaderInfo": "USE", "FieldDelimiter":","}}' \
           --output-serialization '{"CSV": {}}' \
           "output.csv"
         ```
