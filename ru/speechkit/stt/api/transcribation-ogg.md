@@ -38,7 +38,7 @@
   1. Выполните созданный файл:
 
       ```bash
-      export IAM_TOKEN=<IAM-токен>
+      export IAM_TOKEN=<IAM-токен_сервисного_аккаунта>
       curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d "@body.json" \
@@ -107,7 +107,7 @@
       import json
 
       # Укажите ваш API-ключ и ссылку на аудиофайл в Object Storage.
-      key = '<IAM-токен>'
+      key = '<IAM-токен_сервисного_аккаунта>'
       filelink = 'https://{{ s3-storage-host }}/speechkit/speech.ogg'
      
       POST = "https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize"

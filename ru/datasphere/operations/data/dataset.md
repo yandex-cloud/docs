@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Во время инициализации датасета будет выделен весь запрошенный объем дискового хранилища, однако часть этого объема будет занята файловой системой. Указывайте размер датасета с запасом.
+Во время инициализации датасета будет выделен весь запрошенный объем дискового хранилища, однако часть этого объема будет занята файловой системой. Указывайте размер датасета в ГБ, округляя до целого в большую сторону.
 
 {% endnote %}
 
@@ -142,7 +142,7 @@
   from zipfile import ZipFile
 
   base_url = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?'
-  public_key = '<URL_папки_на_Яндекс_Диске>'
+  public_key = '<ссылка_на_каталог_на_Яндекс_Диске>'
 
   final_url = base_url + urlencode(dict(public_key=public_key))
   response = requests.get(final_url)
@@ -153,6 +153,8 @@
   zipfile = ZipFile(BytesIO(response.content))
   zipfile.extractall(path=dist_path)
   ```
+
+  Где `<ссылка_на_каталог_на_Яндекс_Диске>` — ссылка для доступа к каталогу на Яндекс Диске, содержимое которого нужно загрузить в {{ ml-platform-name }}.
 
 - Google Drive
 
