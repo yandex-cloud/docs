@@ -48,7 +48,7 @@ For more information about creating a backup manually, see [{#T}](../operations/
 
 Storing backups in {{ mrd-name }}:
 
-* Backups are kept in Yandex internal storage as logical dumps and encrypted with [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
+* Backups are kept in {{ yandex-cloud }} internal storage as logical dumps and encrypted with [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
 
 * All backups (automatic or manual) are stored for 7 days.
 

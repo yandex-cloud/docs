@@ -17,7 +17,10 @@ keywords:
 
 Because of replication's asynchronous nature, data on replicas may be out of date: while a replica is processing updates from the master, it continues sending existing data in response to requests ([replica-serve-stale-data yes](http://download.redis.io/redis-stable/redis.conf) flag is set).
 
+
 Due to limited resources, **b1**, **b2**, and **b3** class hosts aren't replicated.
+
+
 
 For more information about how replication works in {{ RD }}, read the [DBMS documentation](https://redis.io/topics/replication).
 

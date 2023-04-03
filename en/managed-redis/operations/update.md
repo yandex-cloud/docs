@@ -2,20 +2,22 @@
 
 After creating a cluster, you can:
 
-* [{#T}](#change-name-and-description).
+* [Change the cluster name and description](#change-name-and-description).
 
-* [{#T}](#change-resource-preset).
+* [Change the host class](#change-resource-preset).
 
-* [{#T}](#change-disk-size).
+
+* [Increase storage size](#change-disk-size).
+
 
 * Configure [{{ RD }} servers](#change-redis-config) according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
-* [{#T}](#change-additional-settings).
+* [Change additional cluster settings](#change-additional-settings).
 
 * [Move a cluster](#move-cluster) to another folder.
 
 
-* [{#T}](#change-sg-set).
+* [Change security groups](#change-sg-set).
 
 
 {% note info %}
@@ -24,7 +26,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 {% endnote %}
 
-## Change the cluster name and description {#change-name-and-description}
+## Changing the cluster name and description {#change-name-and-description}
 
 {% list tabs %}
 
@@ -151,6 +153,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
       Result:
 
+      
       ```text
       +-------------+--------------------------------+----------+
       |     ID      |            ZONE IDS            |  MEMORY  |
@@ -165,6 +168,8 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
       | ...                                                     |
       +-----------+----------------------------------+----------+
       ```
+
+
 
 
    1. Specify the class in the update cluster command:

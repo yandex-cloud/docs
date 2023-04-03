@@ -22,7 +22,10 @@ description:
     документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень
     обслуживания Yandex Managed Databases</a>.
 meta:
-  title: Yandex Managed Service for Redis
+  - text: Yandex Managed Service for Redis
+    when: product == "yandex-cloud"
+  - text: Managed Service for Redis
+    when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

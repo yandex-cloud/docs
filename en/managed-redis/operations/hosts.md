@@ -27,14 +27,17 @@ You can add and remove cluster hosts and manage their settings.
    Result:
 
    
+   
    ```text
-   +----------------------------+--------------+------------+---------+--------+-------------------+
-   |           NAME             |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |      ZONE ID      |
-   +----------------------------+--------------+------------+---------+--------+-------------------+
-   | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | {{ region-id }}-a |
-   | rc1b-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | {{ region-id }}-b |
-   +----------------------------+--------------+------------+---------+--------+-------------------+
+   +---------------------------------+--------------+------------+---------+--------+-------------------+
+   |              NAME               |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |      ZONE ID      |
+   +---------------------------------+--------------+------------+---------+--------+-------------------+
+   | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | {{ region-id }}-a     |
+   | rc1b-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | {{ region-id }}-b     |
+   +---------------------------------+--------------+------------+---------+--------+-------------------+
    ```
+
+
 
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -90,16 +93,19 @@ Public access to hosts can only be configured for clusters created with enabled 
 
       Result:
 
+      
       ```text
-      +-----------+-----------+------------+-------------------+------------------+
-      |     ID    |   NAME    | NETWORK ID |       ZONE        |      RANGE       |
-      +-----------+-----------+------------+-------------------+------------------+
+      +-----------+-----------+------------+---------------+------------------+
+      |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
+      +-----------+-----------+------------+---------------+------------------+
       | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
       | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
       | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
       | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
-      +-----------+-----------+------------+-------------------+------------------+
+      +-----------+-----------+------------+---------------+------------------+
       ```
+  
+
 
       
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).

@@ -65,9 +65,9 @@ items:
         href: concepts/switchover.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
-      - name: Управление памятью в Managed Service for Redis
+      - name: Управление памятью
         href: concepts/memory-management.md
-      - name: Доступные команды Managed Service for Redis
+      - name: Доступные команды
         href: concepts/supported-features.md
       - name: Квоты и лимиты
         href: concepts/limits.md

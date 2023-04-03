@@ -1,6 +1,6 @@
 # Preparing for connecting
 
-Available connection methods depend on whether [sharding](../../concepts/sharding.md):
+Available connection methods depend on whether [sharding](../../concepts/sharding.md) is enabled in a cluster:
 
 * [Connecting to a non-sharded cluster](./non-sharded.md).
 * [Connecting to a sharded cluster](./sharded.md).

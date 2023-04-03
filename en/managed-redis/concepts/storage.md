@@ -5,6 +5,7 @@
 
 {% include [storage-type](../../_includes/mdb/mrd/storage-type.md) %}
 
+
 ## Specifics of local SSD storage {#local-storage-features}
 
 This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mrd-name }} cluster using this type of storage, a 3-host fault-tolerant configuration is automatically set up.
@@ -12,6 +13,7 @@ This storage doesn't provide fault tolerance for a single-host cluster: if a loc
 ## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
+
 
 ## Choice of disk type during cluster creation {#storage-type-selection}
 

@@ -4,7 +4,9 @@ editable: false
 
 # Правила тарификации для {{ mrd-name }}
 
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
@@ -41,6 +43,7 @@ editable: false
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -53,6 +56,7 @@ editable: false
 
 {% endnote %}
 
+
 ## Цены {#prices}
 
 
@@ -64,7 +68,9 @@ editable: false
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
+
 {% include [rub-host.md](../_pricing/managed-redis/rub-host.md) %}
+
 
 
 
@@ -72,7 +78,9 @@ editable: false
 ### Хранилище и резервные копии {#prices-storage}
 
 
+
 {% include [rub-storage.md](../_pricing/managed-redis/rub-storage.md) %}
+
 
 
 
@@ -80,7 +88,9 @@ editable: false
 ### Исходящий трафик {#prices-traffic}
 
 
+
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 
 

@@ -13,12 +13,6 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 ## How to create a {{ RD }} cluster {#create-cluster}
 
-{% note info %}
-
-As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. For more information, see [{#T}](cluster-version-update.md#version-supported).
-
-{% endnote %}
-
 {% list tabs %}
 
 - Management console
@@ -317,7 +311,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
    * A single `{{ host-class }}` class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-      * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
+   * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
@@ -423,7 +417,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-c` with the `10.3.0.0/24` range.
    * With three hosts of the `{{ host-class }}` class, one in each subnet.
-         * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
+   * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
    * With protection against accidental cluster deletion.

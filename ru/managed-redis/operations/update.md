@@ -2,20 +2,22 @@
 
 После создания кластера вы можете:
 
-* [{#T}](#change-name-and-description).
+* [Изменить имя и описание кластера](#change-name-and-description).
 
-* [{#T}](#change-resource-preset).
+* [Изменить класс хостов](#change-resource-preset).
 
-* [{#T}](#change-disk-size).
+
+* [Увеличить размер хранилища](#change-disk-size).
+
 
 * [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
 
-* [{#T}](#change-additional-settings).
+* [Изменить дополнительные настройки кластера](#change-additional-settings).
 
 * [Переместить кластер](#move-cluster) в другой каталог.
 
 
-* [{#T}](#change-sg-set).
+* [Изменить группы безопасности](#change-sg-set).
 
 
 {% note info %}
@@ -148,9 +150,10 @@
      ```bash
      {{ yc-mdb-rd }} resource-preset list
      ```
-	 
+
      Результат:
 
+     
      ```text
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
@@ -165,6 +168,8 @@
      | ...                                                     |
      +-----------+----------------------------------+----------+
      ```
+
+
 
 
   1. Укажите нужный класс в команде изменения кластера:
