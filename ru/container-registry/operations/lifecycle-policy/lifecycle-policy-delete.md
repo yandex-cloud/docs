@@ -1,8 +1,16 @@
 # Удалить политику удаления
 
-Для обращения к [политике](../../concepts/lifecycle-policy.md) используйте ее идентификатор. Как узнать идентификатор политики, читайте в разделе [{#T}](lifecycle-policy-list.md).
-
 {% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
+  1. В списке сервисов выберите **{{ container-registry-name }}**.
+  1. Выберите реестр и нажмите на строку с его именем.
+  1. Выберите репозиторий и нажмите на строку с его именем.
+  1. На панели слева нажмите ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Жизненный цикл**.
+  1. Нажмите на значок ![image](../../../_assets/options.svg) для нужной [политики](../../concepts/lifecycle-policy.md) и выберите пункт **Удалить**.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
 
@@ -11,9 +19,10 @@
   1. Удалите политику, указав ее идентификатор:
 
      ```bash
-     yc container repository lifecycle-policy delete crp6lg1868p3i0emkv1b
+     yc container repository lifecycle-policy delete <идентификатор политики>
      ```
 
+     Чтобы узнать идентификатор политики, получите [список политик удаления в репозитории или в реестре](lifecycle-policy-list.md#lifecycle-policy-list).
   1. Проверьте, что политика действительно удалена:
 
      ```bash
