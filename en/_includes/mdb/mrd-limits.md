@@ -22,7 +22,7 @@
 | Amount of data on the host when using SSD network storage | Twice the amount of RAM selected | 4096 GB |
 | Amount of data on the host when using non-replicated SSD storage<sup>*</sup> | Twice the amount of RAM selected, but no less than 93 GB | 8184 GB |
 | Amount of data on the host when using local SSD storage<sup>*</sup> | Twice the amount of RAM selected, but no less than 100 GB | 1500 GB |
-| Number of cluster connections | | 65000 |
+| Number of cluster connections | — | 65000 |
 
 {% include [storage-limitations-mrd](./mrd/storage-limitations-note.md) %}
 

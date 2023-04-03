@@ -4,7 +4,9 @@ editable: false
 
 # Pricing for {{ mrd-name }}
 
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
@@ -41,6 +43,7 @@ The following is charged:
 
 The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -52,6 +55,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
 
 {% endnote %}
+
 
 ## Pricing {#prices}
 
@@ -66,7 +70,9 @@ All prices are shown without VAT.
 
 
 
+
 {% include [usd-host.md](../_pricing/managed-redis/usd-host.md) %}
+
 
 
 ### Storage and backups {#prices-storage}
@@ -74,7 +80,9 @@ All prices are shown without VAT.
 
 
 
+
 {% include [usd-storage.md](../_pricing/managed-redis/usd-storage.md) %}
+
 
 
 ### Outgoing traffic {#prices-traffic}
@@ -82,4 +90,7 @@ All prices are shown without VAT.
 
 
 
+
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+

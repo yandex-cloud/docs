@@ -15,7 +15,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
    You must transfer data to {{ compute-full-name }} using a virtual machine if:
 
-   * Your {{ mmy-name }} cluster is not accessible from the internet.
+   * Your {{ mrd-name }} cluster is not accessible from the internet.
    * Your hardware or connection to the cluster in {{ yandex-cloud }} is not very reliable.
 
 1. [Restore the dump on the target cluster](#restore-dump).

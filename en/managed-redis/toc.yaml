@@ -23,7 +23,7 @@ items:
             href: operations/connect/sharded.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
-      - name: Updating a Redis version
+      - name: Redis version upgrade
         href: operations/cluster-version-update.md
       - name: Managing hosts in a cluster
         href: operations/hosts.md
@@ -63,9 +63,9 @@ items:
         href: concepts/replication.md
       - name: Supported clients
         href: concepts/supported-clients.md
-      - name: Managing memory in Yandex Managed Service for Redis
+      - name: Memory management
         href: concepts/memory-management.md
-      - name: Supported commands in Yandex Managed Service for Redis
+      - name: Supported commands
         href: concepts/supported-features.md
       - name: Quotas and limits
         href: concepts/limits.md
