@@ -10,7 +10,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
    1. Select **{{ dns-name }}**.
    1. Click **Create zone**.
    1. Specify the zone settings:
-      1. **Zone**: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones.
+      1. **Zone**: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
       1. **Type**: **Public**.
       1. Zone **name**.
    1. Click **Create**.
@@ -54,7 +54,8 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
       1. DNS zone parameters:
 
-         * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. Required parameter.
+
+         * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This parameter is required.
          * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. This is an optional parameter.
          * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
          * `description`: Zone description. This is an optional parameter.
@@ -62,6 +63,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
          * `public`: Zone visibility (public or internal). This is an optional parameter.
 
       1. DNS record parameters:
+
 
          * `zone_id`: ID of the zone where the record set will be located. Required parameter.
          * `name`: Domain name. Required parameter.

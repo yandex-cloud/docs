@@ -46,6 +46,6 @@
 
 - API
 
-   To get the list of clouds with IDs, use the [list](../../api-ref/Cloud/list.md) method for the [Cloud](../../api-ref/Cloud/index.md) resource.
+   To get the list of clouds with IDs, use the [list](../../api-ref/Cloud/list.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/List](../../api-ref/grpc/cloud_service.md#List) gRPC API call.
 
 {% endlist %}

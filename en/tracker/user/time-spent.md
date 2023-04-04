@@ -70,9 +70,10 @@ Any user can record the time spent, not just the issue assignee. The [Time Spent
 
   To edit your issue estimate, to the right of the **Estimate** field, tap ![](../../_assets/tracker/mobile-edit-param.png). Enter a new value and tap **Save**.
 
-  {% note info  %}
+  {% note info %}
 
-  If there is no **Time spent** section, go to the web interface and add the **Time spent** and **Estimate** fields on the right panel by tapping  ![](../../_assets/tracker/task-params-btn.png) **Select fields**.
+  If the **Time spent** section is missing, go to the web interface and add the **Time spent** and **Estimate** fields on the right panel by tapping ![](../../_assets/tracker/task-params-btn.png) **Select fields**.
+
 
   {% endnote %}
 

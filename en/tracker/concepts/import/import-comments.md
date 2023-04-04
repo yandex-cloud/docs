@@ -87,7 +87,7 @@ Authorization: OAuth <token>
             "updatedAt": "2017-06-11T05:11:12.347+0000",
             "version": 1,
             "type" : "standard",
-            "transport" : "internal"   
+            "transport" : "internal" 
     }
     ```
 

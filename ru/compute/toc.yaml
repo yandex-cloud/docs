@@ -241,6 +241,16 @@ items:
             href: operations/dedicated-host/running-host-group-vms.md
           - name: Создать ВМ на выделенном хосте
             href: operations/dedicated-host/running-host-vms.md
+      - name: Кластеры GPU
+        items:
+          - name: Создать кластер GPU
+            href: operations/gpu-cluster/gpu-cluster-create.md
+          - name: Добавить ВМ в кластер GPU
+            href: operations/gpu-cluster/gpu-add-to-cluster.md
+          - name: Изменить кластер GPU
+            href: operations/gpu-cluster/gpu-cluster-update.md
+          - name: Удалить кластер GPU
+            href: operations/gpu-cluster/gpu-cluster-delete.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Практические руководства

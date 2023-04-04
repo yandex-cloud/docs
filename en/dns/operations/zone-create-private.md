@@ -10,7 +10,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
    1. Select **{{ dns-name }}**.
    1. Click **Create zone**.
    1. Specify the zone settings:
-      1. **Zone**: Domain zone. The zone name must end with a dot.
+      1. **Zone**: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
       1. **Type**: Internal.
       1. Specify the networks whose resources will be included in the zone being created.
       1. Zone **name**.
@@ -54,30 +54,30 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       1. DNS zone parameters:
 
-         * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. Required parameter.
-         * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. Optional.
-         * `name`: Zone name. It must be unique within the folder. Optional.
-         * `description`: Zone description. Optional.
-         * `labels`: A set of DNS zone labels. Optional.
-         * `public`: Zone visibility (public or internal). Optional.
-         * `private_networks`: For an internal zone, specify the {{ vpc-name }} resources that have access to domain names within this zone. Optional.
+         * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This parameter is required.
+         * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. This is an optional parameter.
+         * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
+         * `description`: Zone description. This is an optional parameter.
+         * `labels`: Set of DNS zone labels. This is an optional parameter.
+         * `public`: Zone visibility (public or internal). This is an optional parameter.
+         * `private_networks`: For an internal zone, specify the {{ vpc-name }} resources that have access to domain names within this zone. This is an optional parameter.
 
 
       1. DNS record parameters:
 
-         * `zone_id`: ID of the zone where the record set will be located. Required parameter.
-         * `name`: Domain name. Required parameter.
-         * `type`: DNS record type. Required parameter.
-         * `ttl`: Record time to live (TTL) in seconds before updating the record value. Optional.
-         * `data`: Record value. Optional.
+         * `zone_id`: ID of the zone where the record set will be located. This parameter is required.
+         * `name`: Domain name. This parameter is required.
+         * `type`: DNS record type. This parameter is required.
+         * `ttl`: Record time to live (TTL) in seconds before updating the record value. This is an optional parameter.
+         * `data`: Record value. This is an optional parameter.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_network" "foo" {}
@@ -106,12 +106,12 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
 
-   1. Run the check using the command:
+   1. Run the check using this command:
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contains any errors, {{ TF }} will point them out.
 
       {% note alert %}
 

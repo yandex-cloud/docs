@@ -21,7 +21,7 @@ If you use a bucket to host a static website, [use a {{ certificate-manager-name
 
 ## {{ api-gw-full-name }} {#api-gw}
 
-{{ api-gw-full-name }} lets you merge several microservices into a single product. Microservices can be run on VMs and containers or implemented as functions. You can use the domain to access the API.
+{{ api-gw-full-name }} allows you to merge multiple microservices into a single product. Microservices can be run on VMs and containers or implemented as functions. You can use the domain to access the API.
 
 A certificate linked to the domain is used to provide a TLS connection.
 

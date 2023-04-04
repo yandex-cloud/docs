@@ -84,7 +84,7 @@ If you want to change the display type for these values, do the following:
 To learn more about notifications, see the following sections:
 
 - [{#T}](subscribe.md)
-- [Notification settings ](notification-settings.md)
+- [Notification settings](notification-settings.md)
 
 ## Setting comment display order {#sec_mssg_sort}
 

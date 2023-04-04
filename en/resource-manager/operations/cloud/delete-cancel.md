@@ -18,6 +18,11 @@ To be able to cancel the deletion of a cloud, you must have the `{{ roles-cloud-
 
    1. Select a cloud from the list and click ![***](../../../_assets/options.svg) in the top right-hand corner of the page. In the menu that opens, select **Cancel deletion**.
 
+   The pending cloud deletion will be canceled.
+
+- API
+
+   Currently, you cannot cancel cloud deletion using the API.
+
 {% endlist %}
 
-The pending cloud deletion will be canceled.

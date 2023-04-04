@@ -38,22 +38,22 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
 
 - API
 
-   To create a folder, use the [create](../../api-ref/Folder/create.md) method for the [Folder](../../api-ref/Folder/index.md).
+   To create a folder, use the [create](../../api-ref/Folder/create.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Create](../../api-ref/grpc/folder_service.md#Create) gRPC API call.
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `cloud_id`: [ID of the cloud](../cloud/get-id.md) where the folder will be created. Optional. By default, the value specified in the provider settings is used.
-      * `name`: Name of the folder to be created. Required parameter. Naming requirements:
+      * `cloud_id`: [ID of the cloud](../cloud/get-id.md) where the folder will be created. This is an optional parameter. By default, the value specified in the provider settings is used.
+      * `name`: Name of the folder to be created. This parameter is required. For naming requirements, see below:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `description`: Folder description. Optional.
+      * `description`: Folder description. This is an optional parameter.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_resourcemanager_folder" "folder1" {
@@ -65,11 +65,11 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
 
       For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
 
-      1. Check the configuration using the command:
+      1. Check the configuration using this command:
 
          ```
          terraform validate
@@ -81,17 +81,17 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
          Success! The configuration is valid.
          ```
 
-      1. Run the command:
+      1. Run this command:
 
          ```
          terraform plan
          ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply

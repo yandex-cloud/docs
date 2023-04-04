@@ -82,7 +82,7 @@
   ![](../../_assets/overview/solution-library-icon.svg)[Use cases and important security events in audit logs](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
 * **Responding to {{ at-name }} with {{ sf-name }}**:
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Notifications and responses to {{ at-name }} information security events using {{ cloud-logging-full-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
-* **Regular status audit**: Use the [{{ yandex-cloud }} CLI](../../cli/) for queries to the current state of the cloud infrastructure or the [Cloud Advisor](https://cloud.yandex.ru/blog/posts/2021/03/cloud-advisor-review) partner solution.
+* **Regular status audit**: Use the [{{ yandex-cloud }} CLI](../../cli/) for queries to the current state of the cloud infrastructure or the Cloud Advisor partner solution.
 
 ## Physical security {#physical-security}
 
@@ -90,7 +90,7 @@
 
 ## Backups {#backup}
 
-* **Regular backups**: Configure scheduled creation of disk snapshots using {{ sf-name }}, see the [tutorial](https://cloud.yandex.ru/blog/posts/2020/01/snapshot-triggers).
+* **Regular backups**: Configure scheduled creation of disk snapshots using {{ sf-name }}.
 
 ## Managing budgets {#budget-management}
 

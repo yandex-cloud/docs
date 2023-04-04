@@ -82,9 +82,9 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
 - API
 
-   Use the [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) method for the [Folder](../../api-ref/Folder/index.md) resource. You will need the folder ID and the ID of the user who is assigned the role for the folder.
+   Use the [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../api-ref/grpc/folder_service.md#UpdateAccessBindings) gRPC API call. You will need the folder ID and the ID of the user who is assigned the role for the folder.
 
-   1. Find out the folder ID using the [list](../../api-ref/Folder/list.md):
+   1. Find out the folder ID using the [list](../../api-ref/Folder/list.md) REST API method:
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
@@ -105,7 +105,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
        ]
       }
       ```
-   2. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) method:
+   2. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
         https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
@@ -154,8 +154,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
-      * `role`: The role assigned. Required parameter.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This parameter is required.
+      * `role`: The role assigned. This parameter is required.
 
          {% note info %}
 
@@ -163,7 +163,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `members`: List of users to assign the role to. Required parameter. Each entry may have one of the following values:
+      * `members`: List of users to assign the role to. This parameter is required. Each entry may have one of the following values:
          * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<service account ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
          * `federatedUser:<user account ID>`: [User account ID](../../../organization/users-get.md).
@@ -190,7 +190,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       For more information about the parameters of the `yandex_resourcemanager_folder_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
       ```
       terraform validate
       ```
@@ -201,12 +201,12 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -284,7 +284,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
    ```
 
-   You can also assign roles using the [setAccessBindings](../../api-ref/Folder/setAccessBindings.md).
+   You can also assign roles using the [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../api-ref/grpc/folder_service.md#SetAccessBindings) gRPC API call.
 
    {% note alert %}
 
@@ -321,8 +321,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
-      * `role`: The role assigned. Required parameter.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This parameter is required.
+      * `role`: The role assigned. This parameter is required.
 
          {% note info %}
 
@@ -330,7 +330,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `members`: List of users to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user ID>` where `<user ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). Required parameter.
+      * `members`: List of users to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user ID>` where `<user ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). This parameter is required.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -362,7 +362,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       For more information about the parameters of the `yandex_resourcemanager_folder_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
       ```
       terraform validate
       ```
@@ -373,12 +373,12 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -430,8 +430,8 @@ You can only use the management console to assign a service account a role for a
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
-      * `role`: The role assigned. Required parameter.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This parameter is required.
+      * `role`: The role assigned. This parameter is required.
 
          {% note info %}
 
@@ -439,7 +439,7 @@ You can only use the management console to assign a service account a role for a
 
          {% endnote %}
 
-      * `members`: List of users to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. Required parameter.
+      * `members`: List of users to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. This parameter is required.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -463,7 +463,7 @@ You can only use the management console to assign a service account a role for a
 
       For more information about the parameters of the `yandex_resourcemanager_folder_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
       ```
       terraform validate
       ```
@@ -474,12 +474,12 @@ You can only use the management console to assign a service account a role for a
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

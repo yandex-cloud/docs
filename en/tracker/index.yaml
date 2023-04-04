@@ -45,7 +45,7 @@ links:
     href: automation
   - title: Search for issues
     description: >-
-      Search issues using filters with any combination of parameters,  which you
+      Search issues using filters with any combination of parameters, which you
       can set using the intuitive builder or the query language.
     href: user/filters
   - title: Issue control

@@ -3,10 +3,12 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step guide
+  - name: Step-by-step guides
     items:
       - name: All instructions
         href: operations/index.md
+      - name: Managing labels
+        href: operations/manage-labels.md
       - name: Cloud
         items:
           - name: Creating a cloud
@@ -45,6 +47,8 @@ items:
     items:
       - name: Yandex Cloud resource hierarchy
         href: concepts/resources-hierarchy.md
+      - name: Service resource labels
+        href: concepts/labels.md
       - name: Yandex Cloud notifications
         href: concepts/notify.md
       - name: Quotas and limits

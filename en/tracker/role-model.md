@@ -55,7 +55,7 @@ If you wish to grant admin rights to other users, use [{{ ya-360 }}](https://yan
 
 Actions available to admins:
 
-* Adding [users](add-users.md) to {{ tracker-name }}  and configuring their [access levels](access.md).
+* Adding [users](add-users.md) to {{ tracker-name }} and configuring their [access levels](access.md).
 
 * Managing {{ tracker-name }} settings: creating new [statuses](manager/workflow-status-edit.md#create-status), [resolutions](manager/create-resolution.md#create-resolution) and [issue types](manager/add-ticket-type.md#create-ticket-type), configuring [global issue fields](user/create-param.md#section_global_field), and adding [repositories](manager/add-repository.md).
 

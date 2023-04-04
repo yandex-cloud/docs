@@ -2,6 +2,8 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [22.02.2023 — CVE-2022-3602, CVE-2022-3786 — OpenSSL Security release v.3.0.7](../../_includes/security/security-bulletins/cve-2022-3786-openssl.md) %}
+
 
 {% include [07.02.2023 — CVE-2022-3411-4138-3759 — CVE-2023-0518 - GitLab-1581-1576-1567](../../_includes/security/security-bulletins/cve-2022-3411-4138-3759-cve-2023-0518-GitLab-1581-1576-1567.md) %}
 

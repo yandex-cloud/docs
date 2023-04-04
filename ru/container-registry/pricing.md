@@ -22,7 +22,7 @@ editable: false
 
 {% note warning %}
 
-Если несколько Docker-образов в одном реестре используют одни и те же слои, хранение каждого переиспользуемого слоя повторно не тарифицируется. Уникальность слоя определяется по его [хешу](concepts/docker-image.md#version).
+Если несколько [Docker-образов](concepts/docker-image.md) в одном реестре используют одни и те же слои, хранение каждого переиспользуемого слоя повторно не тарифицируется. Уникальность слоя определяется по его [хешу](concepts/docker-image.md#version).
 
 {% endnote %}
 
@@ -34,7 +34,7 @@ editable: false
 
 
 
-{% include [rub.md](../_pricing/cr/rub.md) %}
+{% include [rub.md](../_pricing/container-registry/rub.md) %}
 
 
 
@@ -46,6 +46,24 @@ editable: false
 ```
 Цена_хранения = Цена_за_ГБ_в_месяц * 15 * 12 / 24 / 30
 ```
+
+### Сканер уязвимостей {#scanner}
+
+{% note alert %}
+
+Использование сканера уязвимостей станет платным с **17 апреля 2023 года**.
+
+{% endnote %}
+
+Стоимость использования [сканера уязвимостей](concepts/vulnerability-scanner.md) для Docker-образов зависит от количества сканирований.
+
+
+
+{% include [rub-scanner.md](../_pricing/container-registry/rub-scanner.md) %}
+
+
+
+
 
 
 

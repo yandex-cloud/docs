@@ -19,6 +19,10 @@ To add a user to the list of notification recipients:
 
       {% endnote %}
 
-{% endlist %}
+   In the folder **Service notifications** section, you can see the users subscribed to notifications from the default folder, since they are linked to the folder parent resources.
 
-In the folder **Service notifications** section, you can see the users subscribed to notifications from the default folder, since they are linked to the folder parent resources.
+- API
+
+   Currently, you cannot add users to the list of notification recipients using the API.
+
+{% endlist %}
