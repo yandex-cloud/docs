@@ -12,6 +12,10 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
    1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the available delays or **Delete now**. The default cloud deletion delay is 7 days.
    1. Click **Delete**.
 
+- API
+
+   To delete a cloud, use the [Cloud Service/Delete](../../api-ref/grpc/cloud_service.md#Delete) gRPC API call.
+
 - {{ TF }}
 
    For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -35,7 +39,7 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
 
       For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
@@ -47,13 +51,13 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

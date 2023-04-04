@@ -77,7 +77,7 @@ Authorization: OAuth <OAuth token>
             "key": "ORG",
             "display": "Organization"
         },
-        "type": "local"     
+        "type": "local" 
      },
      ...
     ```

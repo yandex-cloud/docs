@@ -160,9 +160,9 @@ items:
   - name: Revision history
     items:
       - name: February 2023
-        href: changelogs/2302.md
+        href: changelogs/index.md
       - name: January 2023
-        href: changelogs/2213.md
+        href: changelogs/2301.md
       - name: December 2022
         href: changelogs/2212.md
       - name: November 2022

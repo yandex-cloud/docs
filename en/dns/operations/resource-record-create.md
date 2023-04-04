@@ -23,7 +23,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run the command:
+   Run this command:
 
    ```bash
    yc dns zone add-records --name <DNS zone name> \
@@ -34,7 +34,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of resources that you want to create: You can add multiple records at the same time.
 
@@ -75,30 +75,30 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
       1. `yandex_dns_zone` parameters:
 
-         * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. Required parameter.
-         * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. Optional.
-         * `name`: Zone name. It must be unique within the folder. Optional.
-         * `description`: Zone description. Optional.
-         * `labels`: A set of DNS zone labels. Optional.
-         * `public`: Zone visibility (public or internal). Optional.
-         * `private_networks`: For a public zone, specify the {{ vpc-name }} resources that this zone is visible to. Optional.
+         * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. This parameter is required.
+         * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. This is an optional parameter.
+         * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
+         * `description`: Zone description. This is an optional parameter.
+         * `labels`: Set of DNS zone labels. This is an optional parameter.
+         * `public`: Zone visibility (public or internal). This is an optional parameter.
+         * `private_networks`: For a public zone, specify the {{ vpc-name }} resources that this zone is visible to. This is an optional parameter.
 
       1. `yandex_dns_recordset` parameters:
 
-         * `zone_id`: ID of the zone where the record set will be located. Required parameter.
-         * `name`: Domain name. Required parameter.
-         * `type`: DNS record type. Required parameter.
-         * `ttl`: Record time to live (TTL) in seconds before updating the record value. Optional.
-         * `data`: Record value. Optional.
+         * `zone_id`: ID of the zone where the record set will be located. This parameter is required.
+         * `name`: Domain name. This parameter is required.
+         * `type`: DNS record type. This parameter is required.
+         * `ttl`: Record time to live (TTL) in seconds before updating the record value. This is an optional parameter.
+         * `data`: Record value. This is an optional parameter.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Run the check using the command:
+   1. Run the check using this command:
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contains any errors, {{ TF }} will point them out.
 
       {% note alert %}
 
@@ -123,4 +123,4 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
 When creating AAAA resource records, the service automatically normalizes IPv6 addresses by replacing the gaps between `:` with zeros. For example: `2001:db8::` → `2001:db8:0:0:0:0:0:0`.
 
-The value of resource [TXT records](../concepts/resource-record.md#txt) cannot contain more than 255 characters per line and 1024 characters total. If a record contains more characters, split it into multiple values.
+The service supports a single [TXT record](../concepts/resource-record.md#txt). The value of a resource TXT record cannot contain more than 255 characters per line and 1024 characters total. If a record contains more characters, split it into multiple values.

@@ -13,23 +13,12 @@ In the [management console]({{ link-console-main }}), you can select the interfa
 
 {% list tabs %}
 
-- Old navigation
-
-   1. In the [management console]({{ link-console-main }}), click on the name of the current folder in the upper-right corner.
-
-      ![image](../../../_assets/resource-manager/switch-cloud.png)
-
-   1. In the drop-down list, select the appropriate cloud or folder.
-
-- New navigation
+- Management console
 
    1. In the [management console]({{ link-console-main }}), select the appropriate cloud or folder in the list on the left.
 
       ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
 
-{% endlist %}
-
-{% list tabs %}
 
 - CLI
 
@@ -68,5 +57,9 @@ In the [management console]({{ link-console-main }}), you can select the interfa
       ```
       yc config set cloud-id b1gjqgj3hhvjen5iqakp
       ```
+
+- API
+
+   Currently, you cannot switch to another cloud using the API.
 
 {% endlist %}

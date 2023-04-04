@@ -40,6 +40,6 @@ To get a list of disk images:
 
 - API
 
-   Use the gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List) or REST API [list](../../api-ref/Image/list.md) method.
+   Use the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call.
 
 {% endlist %}

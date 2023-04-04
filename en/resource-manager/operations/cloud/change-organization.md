@@ -15,15 +15,7 @@ To change the organization assigned to the cloud:
 
 {% list tabs %}
 
-- Old navigation
-
-  1. In the [management console]({{ link-console-main }}) click ![***](../../../_assets/options.svg) next to the appropriate cloud and select **Change organization**.
-
-      ![image](../../../_assets/iam/cloud-actions.png)
-
-  1. Select a new organization from the list and click **Change**.
-
-- New navigation
+- Management console
 
   1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
   1. In the upper-right corner, click ![***](../../../_assets/options.svg)and select **Change organization**.
@@ -31,5 +23,9 @@ To change the organization assigned to the cloud:
    ![image](../../../_assets/iam/change-organization-n-n.png)
 
   1. Select a new organization from the list and click **Change**.
+
+- API
+
+   Currently, you cannot change the organization assigned to the cloud using the API.
 
 {% endlist %}

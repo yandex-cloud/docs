@@ -10,31 +10,22 @@ In the [management console]({{ link-console-main }}), you can select the interfa
 
 {% list tabs %}
 
-- Old navigation
-
-   1. In the [management console]({{ link-console-main }}), select the cloud from the list.
-   1. Click ![image](../../../_assets/options.svg) and select **Edit**.
-
-      ![image](../../../_assets/iam/cloud-actions.png)
-
-   1. In the window that opens, enter a new cloud name. Naming requirements:
-
-      {% include [name-format.md](../../../_includes/name-format.md) %}
-
-   1. Click **Save**.
-
-- New navigation
+- Management console
 
    1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
    1. Click ![***](../../../_assets/pencil.svg) **Edit** in the upper-right corner.
 
       ![image](../../../_assets/iam/cloud-actions-n-n.png)
 
-   1. In the window that opens, enter a new cloud name. Naming requirements:
+   1. In the window that opens, enter a new cloud name. For naming requirements, see below:
 
       {% include [name-format.md](../../../_includes/name-format.md) %}
 
    1. Click **Save**.
+
+- API
+
+   To rename a cloud, use the [update](../../api-ref/Cloud/update.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update) gRPC API call.
 
 - {{ TF }}
 
@@ -59,7 +50,7 @@ In the [management console]({{ link-console-main }}), you can select the interfa
 
       For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
@@ -71,13 +62,13 @@ In the [management console]({{ link-console-main }}), you can select the interfa
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

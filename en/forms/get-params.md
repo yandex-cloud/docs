@@ -1,8 +1,8 @@
 # GET parameters
 
-You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-url}}).  GET parameters let you automatically fill in the fields of the form that you publish using a link or [embed in a page using an iframe](publish.md#publlish-site):
+You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-url}}). GET parameters allow you to automatically fill in the fields of the form that you publish using a link or [embed in a page using an iframe](publish.md#publlish-site):
 
-1. Get the [question ID and response ID](question-id.md) (for questions with multiple response options).
+1. Get the [question ID and response ID](question-id.md) (for multiple choice questions).
 
 1. Add a question mark (`?`) to the form URL. After it, specify the parameter. The format of the parameter depends on the question type:
 

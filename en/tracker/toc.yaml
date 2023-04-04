@@ -57,7 +57,7 @@ items:
             href: support-process.md
           - name: Creating a queue for the support team
             href: support-process-create-queue.md
-          - name: Accepting requests by mail and via forms
+          - name: Accepting requests by email and via forms
             href: support-process-mail-forms.md
           - name: Configuring multi-tiered support
             href: support-process-lines.md
@@ -622,7 +622,7 @@ items:
   - name: Revision history
     items:
       - name: January 2023
-        href: changelogs/2301.md
+        href: changelogs/index.md
       - name: December 2022
         href: changelogs/2212.md
       - name: November 2022

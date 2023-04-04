@@ -1,6 +1,6 @@
 ---
 title: "{{ tracker-full-name }} API. Overview"
-description: "The {{ tracker-full-name }}  API is designed for web services and apps that work with your organization's issues on behalf of a user. The actions available in the API depend on the access rights of the user on whose behalf requests are made. You can manage {{ tracker-name }} using HTTP requests to the REST API."
+description: "The {{ tracker-full-name }} API is designed for web services and apps that work with your organization's issues on behalf of a user. The actions available in the API depend on the access rights of the user on whose behalf requests are made. You can manage {{ tracker-name }} using HTTP requests to the REST API."
 sourcePath: en/tracker/api-ref/about-api.md
 ---
 

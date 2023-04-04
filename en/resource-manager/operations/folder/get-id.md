@@ -55,6 +55,6 @@
 
 - API
 
-   To get the list of folders with IDs, use the [list](../../api-ref/Folder/list.md) method for the [Folder](../../api-ref/Folder/index.md) resource.
+   To get the list of folders with IDs, use the [list](../../api-ref/Folder/list.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/List](../../api-ref/grpc/folder_service.md#List) gRPC API call.
 
 {% endlist %}

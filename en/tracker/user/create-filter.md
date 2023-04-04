@@ -1,6 +1,6 @@
 # Creating an issue filter
 
-If you need something more advanced than the preset {{ tracker-name }} [system filters](default-filters.md), you can create your own filter to search for issues in  and sort issues by title, description, comments, field values, update dates, and other parameters. For example, you can use custom filters to find all issues in queues where you have the author or assignee status.
+If you need something more advanced than the preset {{ tracker-name }} [system filters](default-filters.md), you can create your own filter to search for issues in and sort issues by title, description, comments, field values, update dates, and other parameters. For example, you can use custom filters to find all issues in queues where you have the author or assignee status.
 
 You can use your saved filters to pick issues for [dashboards](dashboard.md) and [agile boards](../manager/create-agile-board.md).
 

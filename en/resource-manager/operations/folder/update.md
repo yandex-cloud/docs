@@ -78,7 +78,7 @@ The management console only allows you to change the name of a folder. To change
 
 - API
 
-   To edit the folder, use the [update](../../api-ref/Folder/update.md) method for the [Folder](../../api-ref/Folder/index.md) resource.
+   To update a folder, use the [update](../../api-ref/Folder/update.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Update](../../api-ref/grpc/folder_service.md#Update) gRPC API call.
 
 - {{ TF }}
 
@@ -104,7 +104,7 @@ The management console only allows you to change the name of a folder. To change
 
       For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
       ```
       terraform validate
       ```
@@ -115,12 +115,12 @@ The management console only allows you to change the name of a folder. To change
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

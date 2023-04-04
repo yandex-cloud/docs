@@ -18,4 +18,8 @@ If you want users to get notifications from services, add them to the list of su
 
       {% endnote %}
 
+- API
+
+   Currently, you cannot add users to the list of notification subscribers using the API.
+
 {% endlist %}

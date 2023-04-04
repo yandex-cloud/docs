@@ -4,10 +4,12 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
+      - name: Handling errors
+        href: operations/error.md
       - name: Uploading audit logs to {{ cloud-logging-name }}
         items:
           - name: Organization
@@ -32,7 +34,7 @@ items:
             href: operations/export-cloud-bucket.md
           - name: Folder
             href: operations/export-folder-bucket.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
         href: tutorials/query.md
@@ -52,6 +54,8 @@ items:
         items:
           - name: Uploading audit logs to {{ mes-full-name }}
             href: tutorials/trails-logs-elasticsearch.md
+          - name: Uploading audit logs to {{ mos-full-name }}
+            href: tutorials/trails-logs-opensearch.md
           - name: Exporting audit logs to MaxPatrol SIEM
             href: tutorials/maxpatrol.md
           - name: Exporting audit logs to SIEM Splunk systems

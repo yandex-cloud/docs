@@ -80,6 +80,6 @@ To change a VM's folder:
 
 - API
 
-   Use the gRPC API [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move) or the REST API [move](../../api-ref/Instance/move.md) method.
+   Use the [move](../../api-ref/Instance/move.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move) gRPC API call.
 
 {% endlist %}

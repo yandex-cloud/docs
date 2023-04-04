@@ -59,7 +59,7 @@ To create a new SLA rule:
    Possible conditions:
    Condition | Timer mode | Description
    ----- | ----- | -----
-   Assignee deleted | **Start**, **Stop** | The condition is met when the issue assignee is removed.  
+   Assignee deleted | **Start**, **Stop** | The condition is met when the issue assignee is removed.
    Assignee set | **Start**, **Stop** | The condition is met when a new assignee is set for the issue.
    Customer answer received | **Start**, **Stop** | The condition is met when the issue is commented on by a user who is not a member of the [queue team](queue-team.md).
 

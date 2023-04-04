@@ -9,3 +9,8 @@ This is why {{ dns-name }} is used even if your cloud does not contain any DNS z
 We recommend using [caching resolvers](../tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. You can use these to reduce the number of public DNS requests, and thereby, your costs.
 
 {% include [logs](../../_qa/logs.md) %}
+
+
+#### How do I create a zone using non-Latin characters?
+
+Cloud DNS supports any domain names, including those with local characters. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.

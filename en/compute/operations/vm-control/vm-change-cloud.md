@@ -38,7 +38,7 @@ You can't move a VM to another cloud, but you create an image from its boot disk
 
    - API
 
-      Use the gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List) or REST API [list](../../api-ref/Image/list.md) method.
+      Use the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call.
 
    {% endlist %}
 
@@ -72,7 +72,7 @@ You can't move a VM to another cloud, but you create an image from its boot disk
 
    - API
 
-      To get the list of clouds with IDs, use the [list](../../../resource-manager/api-ref/Cloud/list.md) method for the [Cloud](../../../resource-manager/api-ref/Cloud/index.md) resource.
+      To get the list of clouds with IDs, use the [list](../../../resource-manager/api-ref/Cloud/list.md) REST API method for the [Cloud](../../../resource-manager/api-ref/Cloud/index.md) resource.
 
    {% endlist %}
 

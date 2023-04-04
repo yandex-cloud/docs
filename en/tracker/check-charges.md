@@ -10,5 +10,5 @@ To view service detalization:
 
 The page displays the cost of {{ tracker-name }} paid features for the last 30 days and the current amount owed.
 
-To learn more about how subscription costs for {{ tracker-name }}  are calculated, see [{#T}](pricing.md#sec_calculate).
+To learn more about how subscription costs for {{ tracker-name }} are calculated, see [{#T}](pricing.md#sec_calculate).
 

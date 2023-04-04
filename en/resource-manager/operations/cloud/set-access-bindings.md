@@ -77,11 +77,14 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
         --subject userAccount:<user ID>
       ```
 
+
 - API
 
-   Use the [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) method for the [Cloud](../../api-ref/Cloud/index.md) resource. You will need the cloud ID and the ID of the user who is assigned the role for the cloud.
+   Use the [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings) gRPC API call.
 
-   1. Find out the cloud ID using the [list](../../api-ref/Cloud/list.md):
+   You will need the cloud ID and the ID of the user who is assigned the role for the cloud.
+
+   1. Find out the cloud ID using the [list](../../api-ref/Cloud/list.md) REST API method:
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
@@ -139,9 +142,10 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
           https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
       ```
 
+
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the properties of the cloud access rights in a configuration file:
       * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
@@ -151,7 +155,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
          * `serviceAccount:<ID of service account>`: [ID of the service account](../../../iam/operations/sa/get-id.md).
          * `federatedUser:<federated user ID>`: [ID of the federated user](../../../organization/users-get.md).
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
@@ -171,7 +175,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
       For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud_iam_binding).
    1. In the command line, go to the directory where you created the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
@@ -183,13 +187,13 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -235,6 +239,13 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
         --access-binding role=viewer,subject=userAccount:<second user ID>
       ```
 
+
+      ```bash
+      yc resource-manager cloud set-access-bindings my-cloud \
+        --access-binding role=editor,subject=federatedUser:<first user ID>
+        --access-binding role=viewer,subject=federatedUser:<second user ID>
+      ```
+
 - API
 
    Assign the `editor` role to one user and the `viewer` role to another user:
@@ -264,7 +275,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
    ```
 
-   You can also assign roles using the [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md).
+   You can also assign roles using the [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/SetAccessBindings](../../api-ref/grpc/cloud_service.md#SetAccessBindings) gRPC API call.
 
    {% note alert %}
 
@@ -314,7 +325,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       ```
 
    1. In the command line, go to the directory where you created the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
@@ -326,13 +337,13 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -450,7 +461,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       ```
 
    1. In the command line, go to the directory where you created the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
@@ -462,13 +473,13 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
