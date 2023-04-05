@@ -16,6 +16,10 @@ items:
         href: metrics-collector.md
       - name: VM Watchdog
         href: vm-watchdog.md
+      - name: VM Folder Watchdog
+        href: vm-folder-watchdog.md
       - name: Instance Group Scheduled Scaler
         href: yc-ig-scheduled-scale.md
+      - name: Identity Server based on Ory Kratos
+        href: kratos.md
 base: ru/cloud-apps

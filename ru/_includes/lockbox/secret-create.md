@@ -62,6 +62,64 @@
        - <ключ>
      ```
 
+- {{ TF }}
+
+  Секрет содержит только метаинформацию о себе: имя, описание, уникальный идентификатор и т. д. Для начала работы с секретом необходимо [создать версию](../../lockbox/operations/secret-version-manage.md) секрета.
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+          
+     ```
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+       required_version = ">= 0.13"
+     }
+     provider "yandex" {
+       zone = "{{ region-id }}-a"
+     }
+
+     resource "yandex_lockbox_secret" "my_secret" {
+       name                = "<имя_секрета>"
+       description         = "<описание_секрета>"
+       folder_id           = "<идентификатор_каталога>"
+       kms_key_id          = "<идентификатор_ключа_шифрования>"
+       deletion_protection = <флаг_защиты_от_удаления>
+       labels              = {
+         <ключ_метки_1>  = "<значение_метки_1>",
+         <ключ_метки_2>  = "<значение_метки_2>"
+       }
+     }
+     ```
+
+
+
+      Где:
+
+      * `name` — имя секрета. Обязательный параметр.
+      * `description` — описание секрета. Необязательный параметр.
+      * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога в котором будет создан секрет. Необязательный параметр.
+      * `kms_key_id` — идентификатор [ключа шифрования {{ kms-short-name }}](../../kms/concepts/). Указанный KMS-ключ используется для шифрования секрета. Если не указывать ключ, то секрет будет зашифрован специальным системным ключом. Необязательный параметр.
+      * `deletion_protection` — флаг защиты от удаления. Для включения защиты укажите значение `true`. Для отключения защиты — `false`. Значение по умолчанию `false`. Необязательный параметр.
+      * `labels` — [метка](../../overview/concepts/services.md#labels) ресурса в формате `<ключ>:"<значение>"`. Необязательный параметр.
+
+      Более подробную информацию о параметрах ресурса `yandex_lockbox_secret` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/lockbox_secret).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого в указанном каталоге будет создан секрет. Проверить появление секрета и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+    ```bash
+    yc lockbox secret get <имя_секрета>
+    ```
+
 - API
 
   Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create).

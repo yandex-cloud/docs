@@ -1,9 +1,11 @@
 title: Yandex Lockbox
 description:
-  - >-
-    <em>Сервис Yandex Lockbox находится на <a
-    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
   - Yandex Lockbox — сервис для хранения секретов.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a href="https://yandex.ru/legal/cloud_sla_lockbox">Уровень
+    обслуживания Yandex Lockbox</a>.
 meta:
   title: Yandex Lockbox
 links:

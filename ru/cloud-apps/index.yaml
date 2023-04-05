@@ -14,10 +14,10 @@ meta:
   title: Cloud Apps
 links:
   - title: Demo Telegram Bot
-    description: Бот в Telegram
+    description: Демонстрационный Telegram-бот на serverless-стеке
     href: telegram-bot
   - title: Django Container
-    description: Веб-сайт на Django
+    description: Демонстрационный сайт на Django, работающий в serverless-режиме
     href: django-container
   - title: Image Resizer
     description: Изменяет разрешение изображений
@@ -26,8 +26,16 @@ links:
     description: Записывает информацию об использовании ресурсов в Monitoring
     href: metrics-collector
   - title: VM Watchdog
-    description: Останавливает и запускает ВМ по расписанию
+    description: Запускает и останавливает виртуальную машину по расписанию
     href: vm-watchdog
+  - title: VM Folder Watchdog
+    description: Запускает и останавливает виртуальные машины в каталоге по расписанию
+    href: vm-folder-watchdog
   - title: Instance Group Scheduled Scaler
     description: Изменяет размер группы ВМ по расписанию
     href: yc-ig-scheduled-scale
+  - title: Identity Server based on Ory Kratos
+    description: >-
+      Приложение для авторизации учетных записей и управления ими на основе Ory
+      Kratos
+    href: kratos

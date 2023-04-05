@@ -53,7 +53,7 @@ If you no longer need these resources, [delete them](#clear-out).
    yc certificate-manager certificate list
    ```
 
-   Command result:
+   Result:
 
    ```text
    +------+--------+---------------+---------------------+----------+--------+
@@ -362,7 +362,7 @@ Build a Docker image and push it to the registry.
    yc container image list
    ```
 
-   Command result:
+   Result:
 
    ```text
    +----------------------+---------------------+----------------------------+-------+-----------------+
@@ -387,7 +387,7 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
    kubectl get pods
    ```
 
-   Command result:
+   Result:
 
    ```text
    NAME                          READY  STATUS   RESTARTS  AGE
@@ -400,7 +400,7 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
    kubectl logs hello-nginx-5847fb96b4-54g48
    ```
 
-   Command result:
+   Result:
 
    ```text
    Hi, I'm inside
@@ -493,7 +493,8 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need the created resources, delete them.
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 1. [Delete the {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md):
 
    ```bash

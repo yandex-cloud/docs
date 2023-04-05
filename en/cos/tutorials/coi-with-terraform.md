@@ -1,8 +1,8 @@
 # Creating a VM and an instance group from a {{ coi }} using {{ TF }}
 
-To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/vm.md) or an [instance group](../../compute/concepts/instance-groups/index.md) from a [{{ coi }}](../concepts/index.md), follow these steps.
+To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/vm.md) or an [instance group](../../compute/concepts/instance-groups/index.md) from a [{{ coi }}](../concepts/index.md), follow the steps below.
 
-## Before you start {#before-begin}
+## Get started {#before-begin}
 
 If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). In this use case, a configuration file named `example.tf` and located in the `~/cloud-terraform` directory is used.
 
@@ -10,7 +10,7 @@ If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} pro
 
 ### Create VM configuration files {#create-config-vm}
 
-1. Use a {{ coi }} from the [image family](../../compute/concepts/image.md#family) of {{ yandex-cloud }}. To do this, add the following lines to the `example.tf` configuration file:
+1. Use a {{ coi }} from the {{ yandex-cloud }} [image family](../../compute/concepts/image.md#family). To do this, add the following lines to the `example.tf` configuration file:
 
    ```
    data "yandex_compute_image" "container-optimized-image" {
@@ -42,9 +42,9 @@ If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} pro
    }
    ```
 
-   Where `subnet_id` is the [subnet](../../vpc/concepts/network.md#subnet) IDs.
+   Where `subnet_id` is the ID of the [subnet](../../vpc/concepts/network.md#subnet).
 
-   If you use [Docker Compose specification](../concepts/coi-specifications.md#compose-spec), then you should replace `docker-container-declaration` with `docker-compose` in `metadata` block:
+   If you use the [Docker Compose specification](../concepts/coi-specifications.md#compose-spec), enter the `docker-compose` key instead of the `docker-container-declaration` key in `metadata`:
 
    ```
    metadata = {
@@ -96,7 +96,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
 - CLI
 
-  1. Make sure that the configuration files are correct.
+  1. Make sure the configuration files are valid.
 
      1. In the command line, go to the `~/cloud-terraform` directory with the configuration files:
 
@@ -104,7 +104,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
         cd /Users/<username>/cloud-terraform
         ```
 
-     1. Run the check using the command:
+     1. Run the check using this command:
 
         ```bash
         terraform plan
@@ -124,7 +124,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
   1. Deploy your resources in {{ yandex-cloud }}.
 
-     1. Run the command:
+     1. Run the following command:
 
         ```bash
         terraform apply
@@ -170,7 +170,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
   1. Connect to the VM with the {{ coi }}.
 
-     1. Run the command:
+     1. Run the following command:
 
         ```bash
         ssh yc-user@<public IP address>
@@ -180,7 +180,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
         ```
         The authenticity of host '<public IP address> (<public IP address>)' can't be established.
-        ECDSA key fingerprint is SHA256:JPq...
+        ECDSA key fingerprint is SHA256:JPq....
         Are you sure you want to continue connecting (yes/no/[fingerprint])?
         ```
 
@@ -232,7 +232,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 1. Save a configuration file named `example.tf` to the `~/cloud-terraform` directory:
 
    
-   ```hcl
+   ```
    provider "yandex" {
      token     = "<OAuth token>"
      cloud_id  = "<cloud ID>"
@@ -245,7 +245,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
    resource "yandex_compute_instance_group" "ig-with-coi" {
      name = "ig-with-coi"
      folder_id = "<folder ID>"
-     service_account_id = "<service account ID>"
+     service_account_id = "<ID of the service account>"
      instance_template {
        platform_id = "standard-v3"
        resources {
@@ -316,7 +316,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
 - CLI
 
-  1. Make sure that the configuration files are correct.
+  1. Make sure the configuration files are valid.
 
      1. In the command line, go to the `~/cloud-terraform` directory with the configuration files:
 
@@ -324,7 +324,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
         cd /Users/<username>/cloud-terraform
         ```
 
-     1. Run the check using the command:
+     1. Run the check using this command:
 
         ```bash
         terraform plan
@@ -344,7 +344,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
   1. Deploy your resources in {{ yandex-cloud }}.
 
-     1. Run the command:
+     1. Run the following command:
 
         ```bash
         terraform apply
@@ -391,7 +391,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
   1. Connect to one of the VMs with the {{ coi }}.
 
-     1. Run the command:
+     1. Run the following command:
 
         ```bash
         ssh yc-user@<public IP address of VM1>

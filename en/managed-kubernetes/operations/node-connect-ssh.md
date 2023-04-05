@@ -41,7 +41,7 @@ Prepare the keys for use with your {{ k8s }} cluster node. To do this:
 - Windows 10
 
   1. Run `cmd.exe` or `powershell.exe`.
-  1. Use the `ssh-keygen` command to create a new key. Run the command:
+  1. Use the `ssh-keygen` command to create a new key. Run the following command:
 
      ```bash
      ssh-keygen -t ed25519

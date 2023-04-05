@@ -2,7 +2,7 @@
 
 [{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} CI/CD jobs in a pipeline using instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Obtain a registration token:
 * To configure {{ GLR }} for the entire [{{ GL }} instance](../../../managed-gitlab/concepts/index.md) ({{ GL }} administrator access required):
@@ -29,6 +29,7 @@ Obtain a registration token:
    * **Registration token**: Specify the [previously retrieved](#before-you-begin) registration token.
 1. Click **Install**.
 1. Wait for the application to change its status to `Deployed`.
+1. Go back to the Runners page of your {{ GL }} instance, reload the page, and make sure you see a new {{ GLR }}.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -46,12 +47,13 @@ Obtain a registration token:
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set gitlabUrl=<VM public IP or Managed Service for GitLab instance FQDN> \
+     --set gitlabDomain=<VM public IP or {{ mgl-full-name }} instance FQDN> \
      --set runnerRegistrationToken=<previously retrieved registration token> \
      gitlab-runner ./gitlab-runner/
    ```
 
    You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/gitlab-runner#docker-images).
+1. Go back to the Runners page of your {{ GL }} instance, reload the page, and make sure you see a new {{ GLR }}.
 
 ## See also {#see-also}
 

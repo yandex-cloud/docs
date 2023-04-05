@@ -32,11 +32,11 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
      Result:
 
      ```text
-     +----------------------+-------+---------------+---------+----------------+-------------+
-     |          ID          | NAME  |    ZONE ID    | STATUS  |  EXTERNAL IP   | INTERNAL IP |
-     +----------------------+-------+---------------+---------+----------------+-------------+
+     +----------------------+-------+-------------------+---------+----------------------------------+-------------+
+     |          ID          | NAME  |      ZONE ID      | STATUS  |           EXTERNAL IP            | INTERNAL IP |
+     +----------------------+-------+-------------------+---------+----------------------------------+-------------+
      | epdbf646ge5qgutfvh43 | my-vm | {{ region-id }}-b | RUNNING | {{ cos-external-ip-examples.0 }} | 172.18.0.21 |
-     +----------------------+-------+---------------+---------+----------------+-------------+
+     +----------------------+-------+-------------------+---------+----------------------------------+-------------+
      ```
 
   1. Update the VM.
@@ -79,7 +79,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
        created_at: "2023-03-13T09:44:03Z"
        name: my-vm
        zone_id: {{ region-id }}-b
-       platform_id: standard-v2
+       platform_id: standard-v3
        ...
        ```
 
@@ -100,7 +100,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
        created_at: "2023-03-13T17:08:48Z"
        name: coi-vm
        zone_id: {{ region-id }}-a
-       platform_id: standard-v2
+       platform_id: standard-v3
        ...
        ```
 

@@ -239,7 +239,8 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 1. [Delete the clusters {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved public static IP addresses for the clusters, [delete them](../../vpc/operations/address-delete.md).
 1. [Delete the bucket {{ objstorage-name }}](../../storage/operations/buckets/delete.md).

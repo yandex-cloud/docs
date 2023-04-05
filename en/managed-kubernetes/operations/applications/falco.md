@@ -26,15 +26,15 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another pro
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
-1. {% include [kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Falco, run the following command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://cr.yandex/yc-marketplace/falco \
+   helm pull oci://{{ registry }}/yc-marketplace/falco \
      --version <Helm chart version> \
      --untar && \
    helm install \

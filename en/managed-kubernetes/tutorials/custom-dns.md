@@ -141,7 +141,8 @@ Address:  10.129.0.3
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 1. Delete a {{ managed-k8s-name }} cluster:
 
    {% list tabs %}
@@ -153,7 +154,7 @@ If you no longer need these resources, delete them:
    - Using {{ TF }}
 
      1. In the command line, go to the folder with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete resources using the command:
+     1. Delete resources using this command:
 
         ```bash
         terraform destroy

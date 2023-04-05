@@ -1,16 +1,16 @@
 # Configuring data output from a Docker container to a serial port
 
 To create a [VM](../../compute/concepts/vm.md) from an [image](../../compute/concepts/image.md) such as a [{{ coi }}](../concepts/index.md) and set up a redirect of the application output stream to the VM's [serial port](../../compute/operations/serial-console/index.md#configuration):
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a VM specification file](#prepare-specification-vm).
 1. [Create a Docker container specification file](#prepare-specification-docker).
 1. [Get the ID of the image to create the VM](#get-id).
 1. [Create a VM](#create-vm).
 1. [Check the results](#check-result).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 If the required [Docker image](../../container-registry/concepts/docker-image.md) is pushed to [{{ container-registry-name }}](../../container-registry/), create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
 

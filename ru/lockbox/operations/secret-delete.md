@@ -76,6 +76,44 @@
      +----------------------+-----------------+------------+---------------------+----------------------+--------+
      ```
 
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием секрета:
+
+     {% cut "Пример описания секрета в конфигурации {{ TF }}" %}
+
+     ```
+     ...
+     resource "yandex_lockbox_secret" "my_secret" {
+       name                = "My secret"
+       description         = "test secret from tf"
+       folder_id           = "b1gmitvfx321d3kr4mhjmo"
+       kms_key_id          = "abjp8q2fjfg0sedaqfkl0"
+       deletion_protection = true
+       labels              = {
+         tf-label    = "tf-label-value",
+         empty-label = ""
+       }
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+  Проверить удаление секрета можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+    ```bash
+    yc lockbox secret list <имя_секрета>
+    ```
+
 - API
 
   Чтобы удалить секрет, воспользуйтесь методом REST API [delete](../api-ref/Secret/delete.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Delete](../api-ref/grpc/secret_service.md#Delete).

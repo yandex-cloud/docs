@@ -42,7 +42,7 @@
   1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
   1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf). В файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).
-     * [Подсеть](../../vpc/concepts/network.md##subnet).
+     * [Подсеть](../../vpc/concepts/network.md#subnet).
      * [Группа безопасности](../../vpc/concepts/security-groups.md) и [правила](../operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
        * Правила для служебного трафика.
        * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
@@ -485,7 +485,6 @@ service "node-local-dns" deleted
 ## Удалите созданные ресурсы {#clear-out}
 
 Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
-
 1. Удалите кластер {{ managed-k8s-name }}.
 
    {% list tabs %}

@@ -629,6 +629,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
 
 ## Delete the resources you created {#clear-out}
 
-If you finished working with the test scenario, delete the resources:
+Delete the resources you no longer need to avoid paying for them:
+
 1. [Delete the {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
