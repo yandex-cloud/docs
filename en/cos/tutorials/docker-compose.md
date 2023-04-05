@@ -4,7 +4,7 @@ In this tutorial, you'll create a VM with multiple Docker containers from a [{{ 
 
 ## Before you start {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A VM with a {{ coi }} pulls the Docker image from the registry on behalf of this account.
+If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
 
 ## Create a VM with multiple Docker containers {#docker-compose}
 
@@ -17,7 +17,6 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To create a VM with multiple Docker containers from a {{ coi }}:
-
   1. View a description of the CLI command to create a VM from a {{ coi }}:
 
      ```bash
@@ -26,7 +25,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
 
   1. Create a Docker container specification. Save the following data to a file named `docker-compose.yaml`:
 
-     ```
+     ```yaml
      version: '3.7'
      services:
        app1:
@@ -54,15 +53,14 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      ```
 
      Where:
-
      * `--name`: VM name.
      * `--zone`: Availability zone.
-     * `--ssh-key`: Contents of the [public key file](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * `--ssh-key`: Path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file and its name.
      * `--network-interface`: VM network settings.
-     * `--service-account-name`: Service account name.
+     * `--service-account-name`: Name of the service account.
      * `--docker-compose-file`: YAML file with the container specification.
 
-     After being created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+     Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
 
   1. Check the results.
      1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
@@ -74,7 +72,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
 
         Result:
 
-        ```
+        ```text
         CONTAINER ID  IMAGE  COMMAND                 CREATED         STATUS         PORTS               NAMES
         c79b1cdc5a3a  nginx  "nginx -g 'daemon of…"  16 seconds ago  Up 14 seconds  0.0.0.0:80->80/tcp  nginx
         3ac5a9844a5d  redis  "docker-entrypoint.s…"  2 minutes ago   Up 2 minutes   6379/tcp            redis

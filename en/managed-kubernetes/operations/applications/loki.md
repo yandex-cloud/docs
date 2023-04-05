@@ -43,7 +43,7 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/grafana/loki/chart/loki \
      --version <Helm chart version> \
      --untar && \
    helm install \
@@ -51,7 +51,7 @@
      --create-namespace \
      --set storageConfig.aws.bucketnames=<{{ objstorage-name }} bucket name> \
      --set-file serviceaccountawskeyvalue=<path to service account static key file> \
-     loki ./loki
+     loki ./loki/
    ```
 
    You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/loki#docker-images).

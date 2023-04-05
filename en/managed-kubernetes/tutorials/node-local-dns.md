@@ -240,7 +240,7 @@ To set up DNS query caching:
                requests:
                  cpu: 25m
                  memory: 5Mi
-             args: [ "-localip", "169.254.20.10,<IP-address of kube-dns service>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream" ]
+             args: [ "-localip", "169.254.20.10,<kube-dns IP address>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream" ]
              securityContext:
                privileged: true
              ports:
@@ -484,8 +484,7 @@ service "node-local-dns" deleted
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
-1. [Delete a {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+Delete the resources you no longer need to avoid paying for them:
 1. Delete the {{ managed-k8s-name }} cluster.
 
    {% list tabs %}

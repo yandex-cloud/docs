@@ -170,6 +170,7 @@ It will take {{ MP }} some time to receive metrics from the {{ managed-k8s-name 
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
+
 1. [Delete a {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved a [public static IP address](../../../vpc/concepts/address.md#public-addresses) for the cluster, [delete it](../../../vpc/operations/address-delete.md).

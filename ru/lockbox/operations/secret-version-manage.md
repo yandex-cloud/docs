@@ -25,10 +25,6 @@
         Вы можете создать несколько пар ключей и значений в одной версии.
     1. Нажмите кнопку **Добавить версию**.
 
-- API
-
-  Чтобы создать новую версию секрета, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion).
-
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -82,6 +78,10 @@
     ```bash
     yc lockbox secret list-versions <идентификатор_секрета>
     ```
+
+- API
+
+  Чтобы создать новую версию секрета, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion).
 
 {% endlist %}
 

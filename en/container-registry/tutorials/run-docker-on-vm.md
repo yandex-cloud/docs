@@ -3,7 +3,7 @@
 This tutorial describes the steps required to run a [Docker image](../../container-registry/concepts/docker-image.md) on a [VM](../../compute/concepts/vm.md) using the [{{ cos-full-name }}](../../cos/) registry.
 
 To run a Docker image on a VM using the registry:
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Create a service account](#create-sa).
 1. [Create a VM](#create-vm).
 1. [Build and upload the Docker image to {{ container-registry-name }}](#create-image).
@@ -119,7 +119,7 @@ The cost of this infrastructure includes:
      1. In the list of services, select **{{ compute-name }}**.
      1. Click **Create VM**.
      1. Under **Basic parameters**:
-        * Enter a name and description for the VM. Naming requirements:
+        * Enter a name and description for the VM. For naming requirements, see below:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -364,7 +364,7 @@ The cost of this infrastructure includes:
    - Using an OAuth token
 
      1. If you don't have an OAuth token, get one by following this [link]({{ link-cloud-oauth }}).
-     1. Run the command:
+     1. Run the following command:
 
         ```bash
         echo <oauth token> | docker login --username oauth --password-stdin {{ registry }}
@@ -386,7 +386,7 @@ The cost of this infrastructure includes:
      {% endnote %}
 
      1. [Get](../../iam/operations/iam-token/create.md) an IAM token.
-     1. Run the command:
+     1. Run the following command:
 
         ```bash
         yc iam create-token | docker login --username iam --password-stdin {{ registry }}

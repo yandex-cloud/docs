@@ -183,11 +183,11 @@ To run the script, install the following in the local environment:
    1. Click **Expand** next to **Variables**.
    1. Add three environment variables:
 
-      | Name | Value | Options |
+      Name | Value | Options
       --- | --- | ---
-      | CI_REGISTRY | {{ registry }}/<registry ID> | `no` |
-      | CI_REGISTRY_USER | json_key | `no` |
-      | CI_REGISTRY_PASSWORD | <`cat key.json \| base64` command output> | `Mask variable` |
+      CI_REGISTRY | {{ registry }}/<registry ID> | `no`
+      CI_REGISTRY_USER | json_key | `no`
+      CI_REGISTRY_PASSWORD | <`cat key.json \| base64` command output> | `Mask variable`
 
 1. Set up access to the repository:
    1. [Generate a new pair of SSH keys](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) or use an existing one.
@@ -224,7 +224,7 @@ To run the script, install the following in the local environment:
 
 ### Install Argo CD to the {{ k8s }} cluster {#install}
 
-1. Install Argo CD according to the [instructions](../../operations/applications/argo-cd.md).
+1. Install Argo CD by following this [guide](../../operations/applications/argo-cd.md).
 1. Configure the `argocd-server` port forwarding to the local machine, then connect to the {{ k8s }} cluster:
 
    ```bash
@@ -297,7 +297,8 @@ To run the script, install the following in the local environment:
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 1. [Delete the created Docker images](../../../container-registry/operations/docker-image/docker-image-delete.md).
 1. Delete the {{ k8s }} cluster and {{ container-registry-name }} registry:
 

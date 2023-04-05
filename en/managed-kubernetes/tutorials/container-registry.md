@@ -1,19 +1,19 @@
 # Integration with {{ container-registry-name }}
 
 To integrate {{ k8s }} with {{ container-registry-full-name }}, create the following resources: [service accounts](../../iam/concepts/users/service-accounts.md) for managing resources and respective access permissions, a [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster), a [node group](../concepts/index.md#node-group), a Docker registry, and a [Docker image](../../container-registry/concepts/docker-image.md). To facilitate authentication, configure Docker Credential Helper and make sure that a [pod](../concepts/index.md#pod) with an application from {{ container-registry-name }} launches using a service account with no additional authentication required.
-1. [Create service accounts](#create-sa)
-   1. [Create a service account for resources](#res-sa)
-   1. [Create a service account for nodes](#node-sa)
-1. [Prepare the necessary {{ k8s }} resources](#create-k8s-res)
-   1. [Create a {{ k8s }} cluster](#create-cluster)
-   1. [Create a node group](#create-node-groups)
-1. [Prepare the necessary {{ container-registry-name }} resources](#create-cr-res)
-   1. [Create a registry](#registry-create)
-   1. [Configure Credential helper](#config-ch)
-   1. [Prepare a Docker image](#docker-image)
-1. [Connect to the {{ k8s }} cluster](#cluster-connect)
-1. [Run the test app](#test-app)
-1. [Delete the created resources](#delete-resources)
+1. [Create service accounts](#create-sa).
+   1. [Create a service account for resources](#res-sa).
+   1. [Create a service account for nodes](#node-sa).
+1. [Prepare the necessary {{ k8s }} resources](#create-k8s-res).
+   1. [Create a {{ k8s }} cluster](#create-cluster).
+   1. [Create a node group](#create-node-groups).
+1. [Prepare the necessary {{ container-registry-name }} resources](#create-cr-res).
+   1. [Create a registry](#registry-create).
+   1. [Configure a Credential helper](#config-ch).
+   1. [Prepare a Docker image](#docker-image).
+1. [Connect to the {{ k8s }} cluster](#cluster-connect).
+1. [Run the test app](#test-app).
+1. [Delete the created resources](#delete-resources).
 
 {% include [requirements](backup.md#requirements) %}
 
@@ -279,6 +279,8 @@ Start the pod with the app from the Docker image and make sure that no additiona
 
 ## Delete the resources you created {#delete-resources}
 
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 1. Delete a {{ k8s }} cluster:
 
    ```bash
@@ -338,6 +340,6 @@ Start the pod with the app from the Docker image and make sure that no additiona
 
 #### See also {#see-also}
 
-* [{#T}](../../container-registry/concepts/docker-image.md)
-* [{#T}](../../container-registry/operations/authentication.md)
-* [{#T}](../../container-registry/operations/index.md)
+* [{#T}](../../container-registry/concepts/docker-image.md).
+* [{#T}](../../container-registry/operations/authentication.md).
+* [{#T}](../../container-registry/operations/index.md).

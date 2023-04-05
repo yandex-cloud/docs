@@ -21,7 +21,7 @@ Mar 25 12:07:41 instance-name yc-container-daemon[516]:
 {"level":"ERROR","ts":"2021-03-25T12:07:41.005Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: pull access denied for {{ registry }}/crpgruernc1bgt1la/ngin>
 ```
 
-**How to fix it:** [Assign to the service account](../../iam/operations/sa/set-access-bindings.md) the `viewer` or `container-registry.images.puller` role for a repository, registry, or folder. For more information about the roles available in the service, see the [documentation](../../container-registry/security/index.md).
+**How to fix it:** [Assign](../../iam/operations/sa/set-access-bindings.md) the `viewer` or `container-registry.images.puller` role to the service account to work with the repository, registry, or folder. For more information about the roles available in the service, see our [documentation](../../container-registry/security/index.md).
 
 ## No network access to {{ container-registry-name }} {#connection-to-cr}
 
@@ -36,7 +36,7 @@ Sep 28 08:00:33 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
 {"level":"ERROR","ts":"2019-09-28T08:00:33.843Z","caller":"container/container.go:124","msg":"error pulling image: Error response from daemon: Get https://{{ registry }}/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
 ```
 
-**How to fix it:** Check if there is access to {{ container-registry-name }} by running the command: `nc -vz {{ registry }} 443`. If not, [configure a NAT instance](../../tutorials/routing/nat-instance.md) or assign a public IP address to the VMs with the {{ coi }}. You can also [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet where the VMs are created.
+**How to fix it:** Check if there is access to {{ container-registry-name }} by running this command: `nc -vz {{ registry }} 443`. If there is no access, [configure a NAT instance](../../tutorials/routing/nat-instance.md) or assign a public IP address to the VMs with {{ coi }}. You can also [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet the VMs are being created in.
 
 ## No service account is linked to the VM to enable access to {{ container-registry-name }} {#sa-for-registry}
 

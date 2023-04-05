@@ -30,7 +30,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    - Using {{ TF }}
 
-     1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
      1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
         * [Network](../../vpc/concepts/network.md#network).
@@ -43,7 +43,7 @@ If you no longer need these resources, [delete them](#clear-out).
         * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -88,19 +88,19 @@ Two types of calculation are possible:
 
 For more information about calculating, see the [cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas) documentation.
 
-In this example, we use the `linear` mode where calculations follow the formula:
+In this example, we use the `linear` mode where calculations follow this formula:
 
 ```text
 replicas = max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerReplica ) )
 ```
 
 Where:
-* `coresPerReplica` is a configuration parameter indicating the number of CoreDNS replicas per vCPU of the cluster.
-* `nodesPerReplica` is a configuration parameter indicating the number of CoreDNS replicas per cluster node.
-* `cores` is the actual number of vCPUs in the cluster.
-* `nodes` is the actual number of nodes in the cluster.
-* `ceil` is the ceiling function that rounds up a decimal number to an integer.
-* `max` is the max function that returns the largest of the two values.
+* `coresPerReplica`: Configuration parameter indicating the number of CoreDNS replicas per vCPU of the cluster.
+* `nodesPerReplica`: Configuration parameter indicating the number of CoreDNS replicas per cluster node.
+* `cores`: Actual number of vCPUs in the cluster.
+* `nodes`: Actual number of nodes in the cluster.
+* `ceil`: Ceiling function that rounds up a decimal number to an integer.
+* `max`: Max function that returns the largest of the two values.
 
 The `preventSinglePointFailure` additional parameter is relevant for multi-node clusters. If `true`, the minimum number of DNS replicas is two.
 
@@ -117,7 +117,7 @@ For more information about calculating, see the [cluster-proportional-autoscaler
 
 1. Check the current settings.
 
-   In this example, we create `node-group-1` with the following parameters:
+   In this example, we are creating `node-group-1` with the following parameters:
    * Number of nodes: `3`.
    * `vCPU cores`: 256.
 
@@ -132,7 +132,7 @@ For more information about calculating, see the [cluster-proportional-autoscaler
 
    The `preventSinglePointFailure` parameter is `true`, meaning the number of CoreDNS replicas is two.
 
-   To get the `coredns` pod data, run the command:
+   To get the `coredns` pod data, run this command:
 
    ```bash
    kubectl get pods -n kube-system
@@ -158,31 +158,31 @@ For more information about calculating, see the [cluster-proportional-autoscaler
    replicas = max( ceil( 12 * 1/4 ), ceil( 3 * 1/2 ) ) = 3
    ```
 
-   To pass the parameters to the `kube-dns-autoscaler` application, edit the corresponding [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) using the command:
+   To deliver the parameters to the `kube-dns-autoscaler` application, edit the appropriate [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) using this command:
 
    ```bash
    kubectl edit configmap kube-dns-autoscaler --namespace=kube-system
    ```
 
-   A text editor with the `kube-dns-autoscaler` configuration opens. Change the line with the parameters:
+   Once a text editor with the `kube-dns-autoscaler` configuration opens, change the line with the following parameters:
 
    ```text
    linear: '{"coresPerReplica":4,"nodesPerReplica":2,"preventSinglePointFailure":true}'
    ```
 
-   Save the changes. The operation output is displayed:
+   Save your changes to see the operation output:
 
    ```text
    configmap/kube-dns-autoscaler edited
    ```
 
-   The `kube-dns-autoscaler` application uploads the configuration and scales the DNS service with the new parameters.
+   The `kube-dns-autoscaler` application will upload the configuration and scale the DNS service with the new parameters.
 
 ## Test scaling {#test-autoscaler}
 
 ### Resize the cluster {#resize-cluster}
 
-Create a second node group using the command:
+Create a second node group using this command:
 
 ```bash
 yc managed-kubernetes node-group create \
@@ -210,7 +210,7 @@ replicas = max( ceil( 20 * 1/4 ), ceil( 5 * 1/2 ) ) = 5
 
 ### Check the changes in the number of CoreDNS replicas {#inspect-changes}
 
-Run the command:
+Run the following command:
 
 ```bash
 kubectl get pods -n kube-system
@@ -269,7 +269,7 @@ Result:
 deployment.apps/kube-dns-autoscaler scaled
 ```
 
-Check the results with the command:
+Check the result with this command:
 
 ```bash
 kubectl get rs --namespace=kube-system
@@ -285,7 +285,7 @@ kube-dns-autoscaler  0/0    0           0          3h53m
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -298,7 +298,7 @@ If you no longer need these resources, delete them:
   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
   1. In the terminal window, change to the directory containing the infrastructure plan.
   1. Delete the `k8s-cluster.tf` configuration file.
-  1. Make sure the {{ TF }} configuration files are correct using the command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate

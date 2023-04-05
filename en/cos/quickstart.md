@@ -61,9 +61,10 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
      ```
 
      Where:
+
      * `--name`: VM name.
      * `--zone`: Availability zone.
-     * `--ssh-key`: The contents of a [public key](../compute/quickstart/quick-create-linux.md#create-ssh) file.
+     * `--ssh-key`: Contents of the [public key](../compute/quickstart/quick-create-linux.md#create-ssh) file.
      * `--service-account-name`: Name of the service account.
      * `--public-ip`: Public IP address allocated to the VM.
      * `--container-name`: The name of the Docker container.

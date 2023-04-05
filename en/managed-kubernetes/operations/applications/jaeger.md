@@ -79,12 +79,12 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 ### Installing Jaeger {#install-jaeger}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired cluster and open the **{{ marketplace-name }}** tab.
+1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
 1. Under **Applications available for installation**, select [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) and click **Use**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
-   * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, for example, `lb.etnk1hv0jol3cu5pojp7.ydb.{{ dns-zone }}:2135`.
+   * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, such as `lb.etnk1hv0jol3cu5pojp7.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
    * **Database**: Specify a database name, for example, `/{{ region-id }}/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
    * **Database directory**: `jaeger`.
    * **Use metadata to authenticate from inside a VM**: Select this option if authentication in the virtual machine is required.

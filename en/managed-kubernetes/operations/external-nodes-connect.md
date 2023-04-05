@@ -214,7 +214,7 @@ If there are issues, review the events in the `system` namespace first:
 - Management console
 
   1. On the cluster page, go to **Events** tab.
-  1. Select the `system` namespace.
+  1. Select the `-system` namespace.
 
 - CLI
 

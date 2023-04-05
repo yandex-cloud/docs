@@ -7,9 +7,9 @@ To create a snapshot and then restore it:
 1. [{#T}](#create-snapshot).
 1. [{#T}](#restore-from-snapshot).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Create {{ k8s }} resources:
 
@@ -21,7 +21,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    - Using {{ TF }}
 
-     1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
      1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
         * Network.
@@ -33,7 +33,7 @@ If you no longer need these resources, [delete them](#clear-out).
         * Service account required to create a {{ managed-k8s-name }} cluster and node group.
      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -56,7 +56,6 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
 1. Create a file named `01-pvc.yaml` with the `PersistentVolumeClaim` manifest:
 
    
-
    ```yaml
    ---
    apiVersion: v1
@@ -71,7 +70,6 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
        requests:
          storage: 5Gi
    ```
-
 
 
 
@@ -81,7 +79,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    kubectl apply -f 01-pvc.yaml
    ```
 
-1. Make sure that the `PersistentVolumeClaim` is created and its status is `Pending`:
+1. Make sure the `PersistentVolumeClaim` has been created and its status is `Pending`:
 
    ```bash
    kubectl get pvc pvc-dynamic
@@ -125,7 +123,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    kubectl get pod pod-source
    ```
 
-1. Make sure the date and time are written to the `/data/out.txt` file. For this, [run the command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
+1. Make sure the date and time are written to the `/data/out.txt` file. For this, [run this command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
 
    ```bash
    kubectl exec pod -- tail /data/out.txt
@@ -161,13 +159,13 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    kubectl apply -f 03-snapshot.yaml
    ```
 
-1. Make sure the snapshot is created:
+1. Make sure the snapshot has been created:
 
    ```bash
    kubectl get volumesnapshots.snapshot.storage.k8s.io
    ```
 
-1. Make sure the [VolumeSnapshotContent](https://kubernetes.io/docs/concepts/storage/volume-snapshots/#introduction) is created:
+1. Make sure the [VolumeSnapshotContent](https://kubernetes.io/docs/concepts/storage/volume-snapshots/#introduction) has been created:
 
    ```bash
    kubectl get volumesnapshotcontents.snapshot.storage.k8s.io
@@ -175,15 +173,14 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
 
 ## Restore objects from the snapshot {#restore-from-snapshot}
 
-When [restoring objects from the snapshot](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-snapshot-and-restore-volume-from-snapshot-support) the following are created in the cluster:
-* A `PersistentVolumeClaim` object named `pvc-restore`.
-* A pod named `pod-restore` with entries in the `/data/out.txt` file.
+When [restoring objects from the snapshot](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-snapshot-and-restore-volume-from-snapshot-support), the following items are created in the cluster:
+* `PersistentVolumeClaim` object named `pvc-restore`.
+* Pod named `pod-restore` with entries in the `/data/out.txt` file.
 
 To restore the snapshot:
 1. Create a file named `04-restore-snapshot.yaml` with a manifest of a new `PersistentVolumeClaim`:
 
    
-
    ```yaml
    ---
    apiVersion: v1
@@ -202,7 +199,6 @@ To restore the snapshot:
        requests:
          storage: 10Gi
    ```
-
 
 
 
@@ -218,7 +214,7 @@ To restore the snapshot:
    kubectl apply -f 04-restore-snapshot.yaml
    ```
 
-1. Make sure that the `PersistentVolumeClaim` is created and its status is `Pending`:
+1. Make sure the `PersistentVolumeClaim` has been created and its status is `Pending`:
 
    ```bash
    kubectl get pvc pvc-restore
@@ -247,7 +243,7 @@ To restore the snapshot:
            claimName: pvc-restore
    ```
 
-   The new pod container won't perform any actions with the `/data/out.txt` file.
+   The new pod container will not perform any actions with the `/data/out.txt` file.
 
 1. Create a pod named `pod-restore`:
 
@@ -261,7 +257,7 @@ To restore the snapshot:
    kubectl get pod pod-restore
    ```
 
-1. Make sure that the new `PersistentVolumeClaim` switched to the `Bound` status:
+1. Make sure the new `PersistentVolumeClaim` switched to the `Bound` status:
 
    ```bash
    kubectl get pvc pvc-restore
@@ -283,8 +279,8 @@ To restore the snapshot:
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
-1. Delete a {{ managed-k8s-name }} cluster:
+Delete the resources you no longer need to avoid paying for them:
+1. Delete the {{ managed-k8s-name }} cluster:
 
    {% list tabs %}
 
@@ -294,8 +290,8 @@ If you no longer need these resources, delete them:
 
    - Using {{ TF }}
 
-     1. In the command line, go to the folder with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete resources using the command:
+     1. In the command line, go to the folder that houses the current {{ TF }} configuration file with an infrastructure plan.
+     1. Delete the resources using this command:
 
         ```bash
         terraform destroy

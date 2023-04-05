@@ -4,6 +4,11 @@ description:
     Yandex Key Management Service — сервис для создания и управления ключами
     шифрования, которые можно использовать для защиты данных в инфраструктуре
     Yandex Cloud, а также шифрования и расшифровки любых ваших данных.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a href="https://yandex.ru/legal/cloud_sla_kms">Уровень
+    обслуживания Yandex Key Management Service</a>.
 meta:
   title: Yandex Key Management Service
 links:

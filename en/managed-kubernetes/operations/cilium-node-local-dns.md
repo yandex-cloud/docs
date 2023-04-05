@@ -155,7 +155,7 @@ To set up a local DNS in a {{ k8s }} cluster:
              requests:
                cpu: 25m
                memory: 5Mi
-           args: [ "-localip", "169.254.20.10, <kube-dns service IP>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream", "-skipteardown=true", "-setupinterface=false", "-setupiptables=false" ]
+           args: [ "-localip", "169.254.20.10,<kube-dns IP address>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream", "-skipteardown=true", "-setupinterface=false", "-setupiptables=false" ]
            securityContext:
              privileged: true
            ports:
@@ -262,11 +262,11 @@ To set up a local DNS in a {{ k8s }} cluster:
 To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launched in your cluster containing the `dnsutils` network utility suite.
 1. Launch the `nettool` pod:
 
-      
+   
    ```bash
    kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
    ```
-   
+
 
 
 1. Make sure the pod status changed to `Running`:
@@ -370,6 +370,7 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
+
 1. [Delete the {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

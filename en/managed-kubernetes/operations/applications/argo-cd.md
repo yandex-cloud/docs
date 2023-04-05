@@ -1,6 +1,6 @@
 # Installing Argo CD
 
-[Argo CD](https://argo-cd.readthedocs.io) is a declarative, GitOps tool for continuous delivery to {{ k8s }}.
+[Argo CD](https://argo-cd.readthedocs.io) is a declarative GitOps tool for continuous delivery to {{ k8s }}.
 
 ## Getting started {#before-you-begin}
 
@@ -20,7 +20,7 @@
    * **Application name**: Enter an application name.
 1. Click **Install**.
 1. Wait for the application to change its status to `Deployed`.
-1. Get the administrator's password (`admin`):
+1. Get the administrator password (`admin`):
 
    ```bash
    kubectl --namespace <namespace> get secret argocd-initial-admin-secret \
@@ -44,7 +44,7 @@ To access the application via `localhost`:
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Argo CD, run the following command:
 
    ```bash
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argo/chart/argo-cd \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argoproj/argocd/chart/argo-cd\
      --version <Helm chart version> \
      --untar && \
    helm install \

@@ -331,7 +331,7 @@ The created `access-nginx` network policies allow connections for pods with the 
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 

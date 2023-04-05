@@ -40,7 +40,6 @@ If you no longer need these resources, [delete them](#delete-resources).
    ```
 
    To learn more about the pod creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#pod-v1-core).
-
 1. Create a pod with a GPU:
 
    ```bash
@@ -55,7 +54,7 @@ If you no longer need these resources, [delete them](#delete-resources).
    kubectl describe pod cuda-vector-add
    ```
 
-   Command result:
+   Result:
 
    ```text
    Name:         cuda-vector-add
@@ -73,7 +72,7 @@ If you no longer need these resources, [delete them](#delete-resources).
    kubectl logs -f cuda-vector-add
    ```
 
-   Command result:
+   Result:
 
    ```text
    [Vector addition of 50000 elements]
@@ -86,6 +85,6 @@ If you no longer need these resources, [delete them](#delete-resources).
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).

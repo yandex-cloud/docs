@@ -145,7 +145,7 @@ The caching proxy is available in the cluster at `http://trickster:8480`. {{ gra
 When deploying the application, the following will be created:
 * {{ grafana-name }} application `Deployment`.
 * [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) to reserve internal storage.
-* `LoadBalancer` type `Service` for organizing network access to the {{ grafana-name }} management console.
+* `LoadBalancer` `Service` to enable network access to the {{ grafana-name }} management console.
 
 To install {{ grafana-name }}:
 1. Create a `grafana.yaml` configuration file.
@@ -239,7 +239,7 @@ To install {{ grafana-name }}:
 
    {% endcut %}
 
-   If necessary, change:
+   If required, change:
    * The size of the storage allocated for {{ grafana-name }} in the `spec.resources.requests.storage` parameter for `kind: PersistentVolumeClaim`.
    * Computing resources allocated to the {{ grafana-name }} pod in the `spec.containers.resources` parameters for `kind: Deployment`.
 1. Install {{ grafana-name }}:
@@ -281,6 +281,7 @@ To install {{ grafana-name }}:
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
+
 1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved a [public static IP address](../../vpc/concepts/address.md#public-addresses) for the cluster, [delete it](../../vpc/operations/address-delete.md).
