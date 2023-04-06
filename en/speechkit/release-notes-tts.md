@@ -1,4 +1,4 @@
-# Synthesis releases
+# {{ speechkit-full-name }} speech synthesis service releases
 
 {{ speechkit-name }} provides updates based on the system model and version.
 
@@ -51,7 +51,7 @@ The `general` branch also has voices `amira` and `john` available now.
 
 1. Added the ability to synthesize audio files in MP3 format. This feature is available in API v3 and when using premium voices in API v1.
 
-1. For new voices, role (extended emotional tone) support was added (see the `emotion` parameter in [API v1](tts/request.md#body_params) and `role` in [API v3](tts-v3/api-ref/grpc/tts_service#Hints)). Different modes are available for different voices. For a complete list of values, see [{#T}](tts/voices.md). If an incorrect mode is selected, the service will return an error.
+1. For new voices, we added role, which is extended emotional tone. See the `emotion` parameter in [API v1](tts/request.md#body_params) and `role` in [API v3](tts-v3/api-ref/grpc/tts_service.md#Hints) for details. Different roles are available for different voices. For a complete list of values, see [{#T}](tts/voices.md). If an incorrect role is selected, the service will return an error.
 
 1. Degraded quality of emphasis placement has been corrected for `alena` and `filipp`. Emphasis placement and synthesized voice perception have been improved for all voices.
 

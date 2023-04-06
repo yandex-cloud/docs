@@ -1,6 +1,5 @@
 # Добавить пользователя
 
-
 ## Пригласить пользователя Яндекса{#add-or-invite-user-account}
 
 Если у сотрудников компании есть аккаунты на Яндексе (например, `{{login-example}}`), они могут использовать эти аккаунты для доступа к сервисам {{yandex-cloud}}, подключенным к вашей организации.
@@ -13,8 +12,7 @@
 
 Чтобы пригласить сотрудников в организацию:
 
-{% include [add-useraccount](../_includes/organization/invite-user.md) %}
-
+{% include [invite-user](../_includes/organization/invite-user.md) %}
 
 ## Добавить федеративных пользователей {#add-user-sso}
 
@@ -25,7 +23,6 @@
 Чтобы добавить пользователей федерации в организацию:
 
 {% include [add-federateduser](../_includes/organization/add-federateduser.md) %}
-
 
 #### Что дальше {#what-is-next}
 

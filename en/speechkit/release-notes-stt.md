@@ -1,4 +1,4 @@
-# Recognition releases
+# {{ speechkit-full-name }} speech recognition service releases
 
 {{ speechkit-name }} provides updates based on the system model and version.
 

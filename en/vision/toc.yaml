@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
       - name: All instructions
         href: operations/index.md
@@ -20,7 +20,7 @@ items:
         href: operations/face-detection/index.md
       - name: Base64 encoding
         href: operations/base64-encode.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
@@ -38,7 +38,7 @@ items:
             href: concepts/ocr/template-recognition.md
           - name: Supported languages
             href: concepts/ocr/supported-languages.md
-          - name: Current version restrictions
+          - name: Restrictions in the current version
             href: concepts/ocr/known-issues.md
       - name: Image classification
         stage: preview
@@ -76,7 +76,7 @@ items:
                 href: api-ref/errors-handling.md
               - name: Troubleshooting
                 href: api-ref/support-headers.md
-              - name: API Overview
+              - name: API overview
                 href: api-ref/Vision/index.md
               - name: batchAnalyze
                 href: api-ref/Vision/batchAnalyze.md

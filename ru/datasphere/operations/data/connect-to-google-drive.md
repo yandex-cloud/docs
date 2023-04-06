@@ -4,11 +4,7 @@
 
 ## Перед началом {#before-begin}
 
-1. [Разрешите доступ к API](https://developers.google.com/drive/api/guides/enable-drive-api) вашего Google Drive.
-1. [Создайте OAuth client ID](https://developers.google.com/workspace/guides/create-credentials#tvs-limited-input-devices), укажите тип приложения **TVs and Limited Input devices**. Сохраните файл `client_secret.json` с секретом пользователя, он понадобится при подключении к Google Drive. 
-1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
-
-1. [Создайте секрет](../data/secrets.md#create), в котором будет храниться содержимое файла `client_secret.json`.
+{% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
 ## Загрузить содержимое из файла на Google Drive в файл проекта {{ ml-platform-name }} {#get-file}
 

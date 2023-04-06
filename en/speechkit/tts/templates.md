@@ -65,6 +65,6 @@ The logical stress should not fall on the variable part of the phrase.
 >
 > In all sentences, the logical stress emphasizes the main meaning of the sentence.
 
-## How to use pattern-based synthesis {#templates-implementation} 
+## How to use pattern-based synthesis {#templates-implementation}
 
 Pattern-based synthesis is only available for [API v3](../tts-v3/api-ref/grpc/). [Example of pattern-based synthesis](api/tts-templates.md).

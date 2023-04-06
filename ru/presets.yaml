@@ -41023,9 +41023,13 @@ default:
             1|int|string: "244\_₸"
   ui-key:
     yacloud:
+      common:
+        create: Создать
       component:
         console-dashboard:
           button_action-create-folder: Создать каталог
+        dns-integration:
+          button_add-domain: Создать запись
         symmetric-key-select:
           button_create-key: Создать ключ
           button_create-key-new: Создать новый
@@ -41042,6 +41046,10 @@ default:
         label_connector-status-RUNNING: Реплицируется
         label_connector-status-STOPPED: Остановлен
         label_endpoints: Эндпоинты
+      dns:
+        button_zone-create: Создать зону
+        label_additional-settings: Дополнительные настройки
+        label_form-ttl: TTL (в секундах)
       iam:
         cloud:
           folders-create:
@@ -41120,9 +41128,21 @@ default:
           switch_settings: Настройки
           switch_website: Веб-сайт
           website:
+            button_add-routing-rule: Добавить правило переадресации
             button_save: Сохранить
+            field_error: Страница ошибки
+            field_http-redirect-code: Код ответа
+            field_index: Главная страница
+            label_routing-condition: Условие
+            label_routing-redirect: Переадресация
+            select_condition_prefix: Начало ключа
+            select_redirect_key: Весь ключ
+            select_redirect_none: Не заменять
+            select_redirect_prefix: Только начало
             switch_hosting: Хостинг
             switch_redirect: Переадресация
+            title_connected-domains: Домены в Cloud DNS
+            title_redirect: Переадресация
         buckets:
           button_delete: Удалить
           button_empty-create: Создать бакет

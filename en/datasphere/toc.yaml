@@ -5,7 +5,7 @@ items:
     href: quickstart.md
   - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Community management
         items:
@@ -159,6 +159,8 @@ items:
         href: tutorials/node-from-cell.md
       - name: Deploying a service based on a Docker image
         href: tutorials/node-from-docker.md
+      - name: Image generation using Stable Diffusion model
+        href: tutorials/stable-diffusion.md
       - name: >-
           Web analytics with funnels and cohorts calculated based on Yandex
           Metrica data
@@ -241,7 +243,7 @@ items:
     href: pricing.md
   - name: Public materials
     href: public-talks.md
-  - name: Releases
+  - name: Revision history
     href: release-notes.md
   - name: Questions and answers
     href: qa/index.md

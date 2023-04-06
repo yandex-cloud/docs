@@ -2,7 +2,7 @@
 
 You can set cell running parameters using the `#pragma` service command.
 
-| Team | Description |
+| Command | Description |
 |----|----|
 | `#pragma dataset init` | [Create and initialize a dataset](dataset.md#init). |
 | `#pragma dataset delete` | [Delete a dataset](dataset.md#delete). |

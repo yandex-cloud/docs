@@ -27,7 +27,7 @@ A template consists of a pattern phrase audio recording and its text with markup
 
 {% endnote %}
 
-Examples of fixed phrases: 
+Examples of fixed phrases:
 > Hello, I am calling from the MedCity clinic.
 >
 > This is 'Junk It Out', a construction waste management company.
@@ -110,7 +110,7 @@ Create a client app to send your data to the API:
       import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
       def synthesize(iam_token, bytes_array) -> pydub.AudioSegment:
-          template = '<pattern_phrase_with_markup>'
+          template = "<pattern_phrase_with_markup>"
           # Example: 'This is to remind you that your kid has an appointment for {treatment name} treatment session tomorrow at {time}.'
           request = tts_pb2.UtteranceSynthesisRequest(
               output_audio_spec=tts_pb2.AudioFormatOptions(
@@ -126,7 +126,7 @@ Create a client app to send your data to the API:
                                   tts_pb2.TextVariable(
                                       variable_name = "<variable_name_in_the_pattern>",
                                       # Example: '{time}'
-                                      variable_value ="<text_for_synthesis>"
+                                      variable_value = "<text_for_synthesis>"
                                       # Example: 'eight thirty'
                                   )
                               ]
@@ -135,7 +135,7 @@ Create a client app to send your data to the API:
                  tts_pb2.Hints(
                       audio_template = tts_pb2.AudioTemplate(
                           audio = tts_pb2.AudioContent(
-                              # Source audio for the pattern
+                              # Source audio for the template
                               content = bytes_array,
                               audio_spec = tts_pb2.AudioFormatOptions(
                                   container_audio = tts_pb2.ContainerAudio(
@@ -149,18 +149,18 @@ Create a client app to send your data to the API:
                                   # Number of variables in the tts_pb2.TextVariable() list is the same as in the pattern.
                                   tts_pb2.TextVariable(
                                       variable_name = "<variable_name_in_the_pattern>",
-                                      variable_value ="<text_of_the_variable_part_for_pattern_audio_file>"
+                                      variable_value = "<text_of_the_variable_part_in_the_template_audio_file>"
                                   )
                               ]
                           ),
                           variables = [
                               # The number of variables in the tts_pb2.AudioVariable() list is the same as in the pattern.
                               tts_pb2.AudioVariable(
-                                  variable_name = '<name_of_variable_in_pattern>',
-                                  # Duration of the variable phrase part in the pattern audio (ms).
-                                  variable_length_ms = <length_of_variable>,
+                                  variable_name = "<variable_name_in_the_pattern>",
+                                  # Duration of the variable phrase part in the template audio (ms).
+                                  variable_length_ms = <variable_length>,
                                   # Start of the phrase variable part in the template audio (ms).
-                                  variable_start_ms = <start_time>
+                                  variable_start_ms = <variable_start_time>
                               )
                           ]
                       )
@@ -169,22 +169,23 @@ Create a client app to send your data to the API:
                  tts_pb2.Hints(
                     voice = "<your_voice_ID>"
                  )
+
               ],
               # Set this parameter if you use {{ brand-voice-cc-name }}
               model = "zsl"
           )
 
-          # Establish connection with the server.
+          # Establish a connection to the server.
           cred = grpc.ssl_channel_credentials()
-          channel = grpc.secure_channel("{{ api-host-sk-tts }}", cred)
+          channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
           stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
           # Send data for synthesis.
           it = stub.UtteranceSynthesis(request, metadata=(
-              ("authorization", f"Bearer {iam_token}"),
+              ("authorization", f"Bearer {iam_token}")
           ))
 
-          # Process server responses and save the result to a file.
+          # Process the server responses and write the result to a file.
           try:
               audio = io.BytesIO()
               for response in it:

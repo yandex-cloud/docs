@@ -22,17 +22,28 @@ You can connect to the [Yandex Disk](https://disk.yandex.com) file storage servi
 1. Go to a new cell and copy the command to import the contents from a file on Yandex Disk to it:
 
    ```python
-   from cloud_ml.storage.api import Storage
-   disk = Storage.ya_disk(application_id='<application_ID>', application_secret='<application_password>')
-   disk.get('<Yandex_Disk_file_path>', '<{{ ml-platform-name }}_project_file_path>')
+   # %pip install requests urllib if needed
+
+   import requests
+   from urllib.parse import urlencode
+
+   base_url = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?'
+   public_key = '<Yandex_Disk_file_path>'
+
+   final_url = base_url + urlencode(dict(public_key=public_key))
+   response = requests.get(final_url)
+   download_url = response.json()['href']
+   response = requests.get(download_url)
+
+   dist_path = '<{{ ml-platform-name }}_project_file_path>'
+   with open(dist_path, 'wb') as f:
+       f.write(response.content)
    ```
 
    Where:
 
-   * `<application_ID>` is the ID of the application registered in Yandex OAuth.
-   * `<application_password>` is the password of the application registered in Yandex OAuth.
-   * `<Yandex_Disk_file_path>` is the path to the file on Yandex Disk whose contents need to be uploaded to {{ ml-platform-name }}.
-   * `<{{ ml-platform-name }}_project_file_path>` is the path to the {{ ml-platform-name }} project file to import data to.
+   * `<Yandex_Disk_file_path>`: Path to the file on Yandex Disk, the content of which needs to be uploaded to {{ ml-platform-name }}.
+   * `<{{ ml-platform-name }}_project_file_path>`: Path to the {{ ml-platform-name }} project file to import data to.
 
 1. Run the cell. To do this, choose **Run** → **Run Selected Cells** or press **Shift** + **Enter**.
 
@@ -41,54 +52,29 @@ You can connect to the [Yandex Disk](https://disk.yandex.com) file storage servi
 1. Go to a new cell and copy the command to import the contents from a folder on Yandex Disk to it:
 
    ```python
-   from cloud_ml.storage.api import Storage
-   disk = Storage.ya_disk(application_id='<application_ID>', application_secret='<application_password>')
-   disk.get_dir('<Yandex_Disk_folder_path>', '<{{ ml-platform-name }}_project_folder_path>')
+   # %pip install requests urllib if needed
+
+   import requests
+   from urllib.parse import urlencode
+   from io import BytesIO
+   from zipfile import ZipFile
+
+   base_url = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?'
+   public_key = '<Yandex_Disk_folder_path>'
+
+   final_url = base_url + urlencode(dict(public_key=public_key))
+   response = requests.get(final_url)
+   download_url = response.json()['href']
+   response = requests.get(download_url)
+
+   dist_path = '<{{ ml-platform-name }}_project_folder_path>'
+   zipfile = ZipFile(BytesIO(response.content))
+   zipfile.extractall(path=dist_path)
    ```
 
    Where:
 
-   * `<application_ID>` is the ID of the application registered in Yandex OAuth.
-   * `<application_password>` is the password of the application registered in Yandex OAuth.
    * `<Yandex_Disk_folder_path>` is the path to the folder on Yandex Disk whose contents need to be uploaded to {{ ml-platform-name }}.
    * `<{{ ml-platform-name }}_project_folder_path>` is the path to the {{ ml-platform-name }} project folder to import data to.
-
-1. Run the cell.
-
-## Uploading the contents from a {{ ml-platform-name }} project file to a file on Yandex Disk {#put-file}
-
-1. Go to a new cell and copy the command to upload the contents from a {{ ml-platform-name }} project file on Yandex Disk to it:
-
-   ```python
-   from cloud_ml.storage.api import Storage
-   disk = Storage.ya_disk(application_id='<application_ID>', application_secret='<application_password>')
-   disk.put('<{{ ml-platform-name }}_project_file_path>', '<Yandex_Disk_file_path>')
-   ```
-
-   Where:
-
-   * `<application_ID>` is the ID of the application registered in Yandex OAuth.
-   * `<application_password>` is the password of the application registered in Yandex OAuth.
-   * `<{{ ml-platform-name }}_project_file_path>` is the path to the {{ ml-platform-name }} project file whose contents need to be uploaded to Yandex Disk.
-   * `<Yandex_Disk_file_path>` is the path to the file on Yandex Disk to upload data to.
-
-1. Run the cell.
-
-## Uploading the contents from a {{ ml-platform-name }} project folder to a folder on Yandex Disk {#put-dir}
-
-1. Go to a new cell and copy the command to upload the contents from a {{ ml-platform-name }} project folder on Yandex Disk to it:
-
-   ```python
-   from cloud_ml.storage.api import Storage
-   disk = Storage.ya_disk(application_id='<application_ID>', application_secret='<application_password>')
-   disk.put_dir('<{{ ml-platform-name }}_project_folder_path>', '<Yandex_Disk_folder_path>')
-   ```
-
-   Where:
-
-   * `<application_ID>` is the ID of the application registered in Yandex OAuth.
-   * `<application_password>` is the password of the application registered in Yandex OAuth.
-   * `<{{ ml-platform-name }}_project_folder_path>` is the path to the {{ ml-platform-name }} project folder whose contents need to be uploaded to Yandex Disk.
-   * `<Yandex_Disk_folder_path>` is the path to the folder on Yandex Disk to upload data to.
 
 1. Run the cell.

@@ -1,10 +1,10 @@
 # Настройка хостинга
 
-{{ objstorage-name }} позволяет настроить бакет:
+В бакетах {{ objstorage-name }} поддерживаются:
 
-* Для [хостинга статического сайта](#hosting).
-* Для [переадресации всех запросов](#redirects).
-* Для [условной переадресации запросов](#redirects-on-conditions).
+* [Хостинг статического сайта](#hosting).
+* [Переадресация всех запросов](#redirects).
+* [Условная переадресация запросов](#redirects-on-conditions).
 
 ## Хостинг статического сайта {#hosting}
 
@@ -13,12 +13,12 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить хостинг.
-  1. Убедитесь, что для бакета установлен публичный доступ. Если нет, то воспользуйтесь инструкцией [{#T}](../buckets/bucket-availability.md).
-  1. В левой панели выберите пункт **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** укажите:
-      * Главную страницу сайта.
-      * Страницу, которая будет отображаться пользователю при ошибках 4хх. Необязательно.
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. [Откройте](../buckets/bucket-availability.md) публичный доступ к операциям с бакетом.
+  1. Перейдите на вкладку ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
+      * в поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта;
+      * (опционально) в поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх. По умолчанию {{ objstorage-name }} возвращает собственную страницу.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -162,11 +162,12 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить переадресацию.
-  1. Убедитесь, что для бакета установлен публичный доступ. Если нет, то воспользуйтесь инструкцией [{#T}](../buckets/bucket-availability.md).
-  1. В левой панели выберите пункт **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. [Откройте](../buckets/bucket-availability.md) публичный доступ к операциям с бакетом.
+  1. Перейдите на вкладку ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}** укажите:
-      * Доменное имя хоста, на который будут перенаправляться все запросы к текущему бакету.
-      * Протокол, если указанный хост принимает запросы строго по определенному протоколу.
+      * Доменное имя хоста, на который будут перенаправляться все запросы к бакету.
+      * (опционально) Протокол, если указанный хост принимает запросы строго по определенному протоколу.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -302,16 +303,19 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить условную переадресацию запросов.
-  1. Убедитесь, что для бакета установлен публичный доступ. Если нет, то воспользуйтесь инструкцией [{#T}](../buckets/bucket-availability.md).
-  1. В левой панели выберите пункт **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** добавьте правило переадресации и в нем укажите условие для выполнения переадресации и новый адрес.
-      * Условие. Например, можно выполнить переадресацию при получении заданного кода ответа или если начало ключа объекта в запросе совпадает с указанным.
-      * Переадресация:
-        * Доменное имя хоста, на который должны перенаправляться запросы, удовлетворившие условию.
-        * Протокол, по которому должен быть отправлен переадресованный запрос.
-        * Код ответа для определения типа редиректа.
-        * Замена всего ключа или только его начала, указанного в условии.
-
+  1. [Откройте](../buckets/bucket-availability.md) публичный доступ к операциям с бакетом.
+  1. Перейдите на вкладку ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}** нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
+  1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}** укажите хотя бы одно условие переадресации:
+      * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** — HTTP-код, которым {{ objstorage-name }} должен был бы ответить на запрос без переадресации.
+      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}** — начало ключа объекта в запросе. 
+  1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}** задайте параметры переадресации:
+      * Протокол, по которому должен быть отправлен переадресованный запрос.
+      * Доменное имя хоста, на который должны перенаправляться запросы, удовлетворившие условию.
+      * Код ответа для определения типа редиректа.
+      * Замена ключа — **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}** или **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}**, указанное в условии.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  
 - {{ yandex-cloud }} CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -476,3 +480,9 @@
   Чтобы настроить условную переадресацию запросов к бакету, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](own-domain.md)
+* [{#T}](multiple-domains.md)
+* [{#T}](certificate.md)
