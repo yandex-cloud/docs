@@ -15,3 +15,9 @@ default:
   link-adfs: https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services
   link-azure-ad: https://azure.microsoft.com/en-us/services/active-directory/
   support-passport-create: https://yandex.com/support/passport/authorization/registration.html
+  saml-limit-last-name: 64 characters
+  saml-limit-first-name: 64 characters
+  saml-limit-display-name: 64 characters
+  saml-limit-email: 256 characters
+  saml-limit-phone: 64 characters
+  saml-limit-thumbnail-photo: 204800 characters
