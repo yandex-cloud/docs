@@ -24,8 +24,8 @@ To create an instance group with an L7 load balancer:
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
-      * Enable **Deletion protection** if needed. You can't delete a group with this option enabled.
-   1. In the **Allocation** section, select the desired **availability zones**. Group instances may reside in different availability zones and regions. [More about the geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
+      * Enable **Deletion protection** if needed. You cannot delete a group with this option enabled.
+   1. In the **Allocation** section, select the desired **Availability zones**. Group instances may reside in different availability zones and regions. [More about the geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
    1. In the **Instance template** section, click **Define** to set the base instance configuration:
       * Under **Basic parameters**, enter the template **Description**:
       * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
@@ -92,7 +92,7 @@ To create an instance group with an L7 load balancer:
       yc vpc network list
       ```
 
-      If there aren't any, [create one](../../../vpc/operations/network-create.md).
+      If there are not any, [create one](../../../vpc/operations/network-create.md).
 
    1. Select one of the {{ marketplace-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
@@ -114,11 +114,11 @@ To create an instance group with an L7 load balancer:
 
          | Key | Value |
          ----- | -----
-         | `name` | A name for the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
+         | `name` | Name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters. |
          | `service_account_id` | Service account ID. |
-         | `description` | A description of the instance group. |
+         | `description` | Description of the instance group. |
 
-      * An [instance template](../../concepts/instance-groups/instance-template.md), such as:
+      * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
 
          ```
          instance_template:
@@ -149,7 +149,7 @@ To create an instance group with an L7 load balancer:
          | `memory` | Amount of memory (RAM). |
          | `cores` | Number of processor cores (vCPUs). |
          | `mode` | Disk access mode.</br> - `READ_ONLY`: Read-only access.</br>- `READ_WRITE`: Read and write access. |
-         | `image_id` | ID of the public image. |
+         | `image_id` | ID of the public. {% include [id-info](../../../_includes/compute/id-info.md) %} |
          | `type_id` | Disk type. |
          | `size` | Disk size. |
          | `network_id` | The `default-net` ID. |
@@ -191,7 +191,7 @@ To create an instance group with an L7 load balancer:
          | Key | Value |
          ----- | -----
          | `target_group_spec` | Specification of the {{ alb-name }} target group associated with the instance group. |
-         | `name` | A name for the {{ alb-name }} target group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
+         | `name` | A name for the {{ alb-name }} target group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters. |
 
          Full code for the `specification.yaml` file:
 
@@ -251,7 +251,7 @@ To create an instance group with an L7 load balancer:
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -261,12 +261,10 @@ To create an instance group with an L7 load balancer:
         description = "service account to manage IG"
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+      resource "yandex_resourcemanager_folder_iam_member" "editor" {
         folder_id = "<folder ID>"
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.ig-sa.id}",
-        ]
+        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
       }
 
       resource "yandex_compute_instance_group" "ig-1" {
@@ -299,7 +297,7 @@ To create an instance group with an L7 load balancer:
 
         scale_policy {
           fixed_scale {
-            size = <number of instances in group>
+            size = <number of instances in the group>
           }
         }
 
@@ -333,7 +331,7 @@ To create an instance group with an L7 load balancer:
       Where:
 
       * `yandex_iam_service_account`: Description of a [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
-      * `yandex_resourcemanager_folder_iam_binding`: Description of access rights to the folder that the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the folder the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
       * `yandex_compute_instance_group`: Description of an [instance group](../../concepts/index.md):
 
          * General information about the group:
@@ -352,7 +350,7 @@ To create an instance group with an L7 load balancer:
             | `resources` | The number of vCPU cores and the amount of RAM available to the instance. The values must match the selected [platform](../../concepts/vm-platforms.md). |
             | `boot_disk` | Boot disk settings. Enter:</br> - The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).</br> Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
             | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
-            | `metadata` | In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
+            | `metadata` | In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
 
          * [Policies](../../concepts/instance-groups/policies/index.md):
 
@@ -374,7 +372,7 @@ To create an instance group with an L7 load balancer:
 
       {% note info %}
 
-      If you already have suitable resources, such as a service account, cloud network, and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+      If you already have suitable resources, such as a service account, cloud network, and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
 
       {% endnote %}
 
@@ -401,6 +399,6 @@ To create an instance group with an L7 load balancer:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}

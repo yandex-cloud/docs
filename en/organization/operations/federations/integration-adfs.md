@@ -403,6 +403,8 @@ When ADFS authenticates a user, it sends a SAML message to {{ yandex-cloud }} to
 
 The Name ID must be unique for every federation user. We recommend specifying the User Principal Name (UPN) or email address as the ID.
 
+The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If the value of a different attribute exceeds the limit, the value part that goes beyond the limit is truncated.
+
 {% endnote %}
 
 To set up a mapping between the user data and Outgoing Claim Types:

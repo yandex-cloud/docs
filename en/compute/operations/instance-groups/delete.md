@@ -7,7 +7,7 @@ description: "Deleting an instance group is an operation that cannot be canceled
 
 {% note warning %}
 
-You cannot cancel an instance group's deletion or restore it. Along with the group, you delete the {{ network-load-balancer-name }} or {{ alb-name }} target group, VMs, and disks. You can not delete an instance group if it is a target group for a load balancer ({{ network-load-balancer-name }}) or a backend group ({{ alb-name }}).
+You cannot cancel an instance group's deletion or restore it. Along with the group, you delete the {{ network-load-balancer-name }} or {{ alb-name }} target group, VMs, and disks. You cannot delete an instance group if it is a target group for a load balancer ({{ network-load-balancer-name }}) or a backend group ({{ alb-name }}).
 
 {% endnote %}
 

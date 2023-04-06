@@ -86,13 +86,13 @@ Add users to the IdP server:
 
    1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
 
-   1. In the **IdP Issuer** field, insert the link from the **Azure AD ID** field on the **Azure AD SAML-based sign-on** page. Link format:
+   1. In the **IdP Issuer** field, insert the link from the **Azure AD ID** field on the **Azure AD SAML-based sign-on** page. The link should have the following format:
 
       ```
       https://sts.windows.net/<SAML application ID>/
       ```
 
-   1. In the **Link to the IdP login page** field, copy the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. Link format:
+   1. In the **Link to the IdP login page** field, copy the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
 
       ```
       https://login.microsoftonline.com/<SAML application ID>/saml2
@@ -133,7 +133,7 @@ Add users to the IdP server:
       * `organization-id`: Your organization ID.
 
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-         
+
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -142,14 +142,14 @@ Add users to the IdP server:
 
       * `issuer`: IdP server ID to be used for authentication.
 
-         Use the link from the **Azure AD ID** field on the Azure AD **SAML-based sign-on** page. Link format:
+         Use the link from the **Azure AD ID** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
          ```
          https://sts.windows.net/<SAML application ID>/
          ```
 
       * `sso-url`: URL of the page that the browser redirects the user to for authentication.
 
-         Use the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. Link format:
+         Use the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
 
          ```
          https://login.microsoftonline.com/<SAML application ID>/saml2
@@ -193,7 +193,7 @@ Add users to the IdP server:
 
       * `issuer`: IdP server ID to be used for authentication.
 
-         Use the link from the **Azure AD ID** field on the Azure AD **SAML-based sign-on** page. Link format:
+         Use the link from the **Azure AD ID** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
 
          ```
          https://sts.windows.net/<SAML application ID>/
@@ -201,7 +201,7 @@ Add users to the IdP server:
 
       * `ssoUrl`: URL of the page that the browser redirects the user to for authentication.
 
-         Use the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. Link format:
+         Use the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
 
          ```
          https://login.microsoftonline.com/<SAML application ID>/saml2
@@ -223,7 +223,7 @@ Add users to the IdP server:
       * `labels`: Set of key/value label pairs assigned to the federation.
       * `issuer`: IdP server ID to be used for authentication.
 
-         Use the link from the **Azure AD ID** field on the Azure AD **SAML-based sign-on** page. Link format:
+         Use the link from the **Azure AD ID** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
 
          ```
          https://sts.windows.net/<SAML application ID>/
@@ -232,7 +232,7 @@ Add users to the IdP server:
       * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
       * `sso_url`: URL of the page that the browser redirects the user to for authentication.
 
-         Use the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. Link format:
+         Use the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
 
          ```
          https://login.microsoftonline.com/<SAML application ID>/saml2
@@ -413,10 +413,16 @@ The types of personal data supported by {{ org-full-name }} for Azure AD are lis
 | User data | Comment | Application Attributes |
 ------------------- | ----------- | -------------------
 | Unique user ID (Name ID) | Required attribute.<br> By default, Azure AD uses User Principal Name (UPN) in `<login>_<domain>#EXT#@<supplier>.onmicrosoft.com` format as the attribute source. When manually adding users to a federation, this Name ID format is not supported. We recommend changing the attribute source in Azure AD, replacing UPN `user.userprincipalname` with an email address `user.mail`. | **Unique user ID (ID)** claim |
-| Last name | Displayed in {{ yandex-cloud }} services. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
-| Name | Displayed in {{ yandex-cloud }} services. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
-| Full name | Displayed in {{ yandex-cloud }} services.<br>Example: `John Smith` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
-| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `smith@example.com` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+| Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+| Full name | Displayed in {{ yandex-cloud }} services.<br>Example: `John Smith`.<br> Value length limit: {{ saml-limit-display-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+
+{% note warning %}
+
+If the attribute value exceeds the length limit, the value part that goes beyond the limit is truncated.
+
+{% endnote %}
 
 ### Add users to your organization {#add-users-to-org}
 

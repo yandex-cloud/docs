@@ -34,7 +34,7 @@ To create an automatically scaled instance group
 
       If there are not any, [create one](../../../vpc/operations/network-create.md).
 
-   1. Select one of the public images {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
+   1. Select one of the {{ marketplace-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
@@ -54,11 +54,11 @@ To create an automatically scaled instance group
 
          | Key | Value |
          ----- | -----
-         | `name` | A name for the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters. |
+         | `name` | Name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters. |
          | `service_account_id` | Service account ID. |
-         | `description` | A description of the instance group. |
+         | `description` | Description of the instance group. |
 
-      * An [instance template](../../concepts/instance-groups/instance-template.md), such as:
+      * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
 
          ```
          instance_template:
@@ -183,7 +183,7 @@ To create an automatically scaled instance group
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -193,29 +193,27 @@ To create an automatically scaled instance group
         description = "service account to manage IG"
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+      resource "yandex_resourcemanager_folder_iam_member" "editor" {
         folder_id = "<folder ID>"
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.ig-sa.id}",
-        ]
+        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
       }
 
       resource "yandex_compute_instance_group" "ig-1" {
         name               = "autoscaled-ig"
-        folder_id          = "<folder ID>"
+        folder_id          = "<folder_ID>"
         service_account_id = "${yandex_iam_service_account.ig-sa.id}"
         instance_template {
           platform_id = "standard-v3"
           resources {
-            memory = <RAM amount in GB>
+            memory = <amount of RAM in GB>
             cores  = <number of vCPU cores>
           }
 
           boot_disk {
             mode = "READ_WRITE"
             initialize_params {
-              image_id = "<image ID>"
+              image_id = "<image_ID>"
             }
           }
 
@@ -225,7 +223,7 @@ To create an automatically scaled instance group
           }
 
           metadata = {
-            ssh-keys = "<username>:<SSH key content>"
+            ssh-keys = "<username>:<SSH key contents>"
           }
         }
 
@@ -266,7 +264,7 @@ To create an automatically scaled instance group
       Where:
 
       * `yandex_iam_service_account`: Description of a [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
-      * `yandex_resourcemanager_folder_iam_binding`: Description of access rights to the folder that the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the folder the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
       * `yandex_compute_instance_group`: Description of an [instance group](../../concepts/index.md):
 
          * General information about the group:
@@ -300,7 +298,7 @@ To create an automatically scaled instance group
 
          {% note info %}
 
-         If you already have suitable resources, such as a service account, cloud network, and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+         If you already have suitable resources, such as a service account, cloud network, and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
 
          {% endnote %}
 
@@ -327,6 +325,6 @@ To create an automatically scaled instance group
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
