@@ -9,3 +9,4 @@ description: "Here is a variety of {{ ml-platform-full-name }} use cases: servic
 * [{#T}](data-from-metrica-yc-visualization.md)
 * [{#T}](node-from-cell.md)
 * [{#T}](node-from-docker.md)
+* [{#T}](stable-diffusion.md)

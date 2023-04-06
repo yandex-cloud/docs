@@ -1,9 +1,9 @@
 # Сканирование уязвимостей {{ container-registry-name }} при непрерывном развертывании приложений {{ managed-k8s-name }} с помощью {{ GL }}
 
-Вы можете [сканировать уязвимости](../container-registry/concepts/vulnerability-scanner.md) [Docker-образов](../container-registry/concepts/docker-image.md) в [{{ container-registry-full-name }}](../container-registry/) при непрерывном развертывании приложений [{{ managed-k8s-full-name }}](../managed-kubernetes/) через {{ GL }}.
+Вы можете [сканировать уязвимости](../container-registry/concepts/vulnerability-scanner.md) Docker-образов в [{{ container-registry-full-name }}](../container-registry/) при непрерывном развертывании приложений [{{ managed-k8s-full-name }}](../managed-kubernetes/) через {{ GL }}.
 
 Для этого с помощью непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI) в {{ GL }} создается специальный сценарий, который запускается после каждого коммита:
-1. Сборка приложения в Docker-образ и загрузка образа в {{ container-registry-name }}.
+1. Сборка приложения в [Docker-образ](../container-registry/concepts/docker-image.md) и загрузка образа в {{ container-registry-name }}.
 1. Сканирование Docker-образа в {{ container-registry-name }} на наличие уязвимостей.
 1. Развертывание приложения из Docker-образа в кластере {{ managed-k8s-name }} с помощью инструментов {{ yandex-cloud }}.
 
@@ -30,7 +30,7 @@
      * Сервисный аккаунт для [узлов](../managed-kubernetes/concepts/index.md#node-group) с [ролями](../container-registry/security/index.md#service-roles) `{{ roles-cr-puller }}` и `{{ roles-cr-pusher }}` на каталог с [реестром](../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
-  1. [Создайте кластер {{ managed-k8s-name }} ](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
+  1. [Создайте кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
   1. [Настройте группы безопасности](../managed-kubernetes/operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
   1. [Настройте группу безопасности по умолчанию](../managed-gitlab/operations/connect.md) для работы [инстанса {{ mgl-full-name }}](../managed-gitlab/concepts/index.md#instance).
   1. [Создайте реестр {{ container-registry-name }}](../container-registry/operations/registry/registry-create.md).

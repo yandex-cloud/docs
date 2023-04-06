@@ -18,4 +18,4 @@
 
 * [{#T}](../data/connect-to-ya-disk.md)
 * [{#T}](../data/connect-to-google-drive.md)
-* [{#T}](./work-with-git.md#clone)
+* [{#T}](./work-with-git.md)

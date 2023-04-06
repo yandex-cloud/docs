@@ -4,17 +4,7 @@
 
 ## Перед началом {#before-begin}
 
-1. [Зарегистрируйте](https://yandex.ru/dev/id/doc/dg/oauth/tasks/register-client.html) ваш проект в качестве приложения в Яндекс OAuth:
-
-    {% include [oauth-token](../../../_includes/datasphere/token-for-ya-disk.md) %}
-
-    {% note info %}
-
-    При первом подключении {{ ml-platform-name }} к Яндекс Диску потребуется перейти на страницу авторизации Яндекс ID и скопировать код подтверждения в поле **Enter the confirmation code** ноутбука.
-
-    {% endnote %}
-
-1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
+{% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
 
 ## Загрузить содержимое из файла на Яндекс Диске в файл проекта {{ ml-platform-name }} {#get-file}

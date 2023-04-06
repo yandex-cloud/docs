@@ -101,7 +101,7 @@ items:
             href: tts/api/tts-wav.md
           - name: "Speech synthesis in OggOpus format using API\_v1"
             href: tts/api/tts-ogg.md
-          - name: "Synthesis from SSML text using API\_v1"
+          - name: "Synthesis from SSML text using API\_v3"
             href: tts/api/tts-ssml.md
   - name: SpeechKit Hybrid
     items:
@@ -115,7 +115,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Releases
+  - name: Revision history
     items:
       - name: Recognition releases
         href: release-notes-stt.md

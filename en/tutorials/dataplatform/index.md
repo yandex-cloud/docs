@@ -10,8 +10,8 @@
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
-* Using the registry of data format schemas with {{ mkf-full-name }}:
-  * [Managing data schemas in {{ mkf-full-name }}](schema-registry-overview.md)
+* Using the registry of data format schemas with {{ mkf-name }}:
+  * [Managing data schemas in {{ mkf-name }}](schema-registry-overview.md)
   * [{#T}](managed-schema-registry.md)
   * [{#T}](confluent-schema-registry.md)
 
@@ -52,8 +52,6 @@
 
 * [{#T}](migration-via-reindex-api.md)
 
-
-
 ## {{ MG }} {#mongodb}
 
 * [{#T}](mongodb-migration-with-data-transfer.md)
@@ -73,9 +71,10 @@
 
 * [{#T}](sqoop-mmy.md)
 
-* [{#T}](./data-transfer-mmy.md)
-* [{#T}](./debezium-mmy.md)
-* [{#T}](./mmy-ydb-migration.md)
+
+* [{#T}](data-transfer-mmy.md)
+* [{#T}](debezium-mmy.md)
+* [{#T}](mmy-ydb-migration.md)
 
 
 
@@ -83,9 +82,9 @@
 ## {{ PG }} {#postgresql}
 
 * [Creating a {{ PG }} cluster for 1C:Enterprise](1c-postgresql.md)
-* [{{ mpg-full-name }} performance analysis and tuning](mpg-profiling.md)
-* [Migrating databases from {{ mpg-full-name }}](outbound-replication.md)
-* [Migrating databases from a third-party {{ PG }} cluster to {{ mpg-full-name }}](postgresql-data-migration.md)
+* [{{ mpg-name }} performance analysis and tuning](mpg-profiling.md)
+* [Migrating databases from {{ mpg-name }}](outbound-replication.md)
+* [Migrating databases from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](data-transfer-mpg.md)
 * [{#T}](debezium-mpg.md)

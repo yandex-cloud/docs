@@ -49,4 +49,6 @@ items:
     href: qa.md
   - name: Облачная терминология
     href: ../glossary/index.yaml
+  - name: Обучающие курсы
+    href: training.md
 base: ru/overview

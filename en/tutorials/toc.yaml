@@ -67,7 +67,7 @@ items:
         href: archive/backup-with-bacula.md
       - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: archive/object-storage-veritas.md
-      - name: Digitizing image archives in {{ vision-full-name }}
+      - name: Digitizing image archives in {{ vision-name }}
         href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment
     items:
@@ -137,7 +137,7 @@ items:
         href: infrastructure-management/sap.md
       - name: Configuring a local caching DNS resolver
         href: infrastructure-management/local-dns-cache.md
-      - name: "Migrating DNS zones from Yandex\_360 to {{ dns-name }}"
+      - name: Migrating DNS zones from Yandex 360 to {{ dns-name }}
         href: infrastructure-management/connect-migration.md
       - name: Integrating {{ dns-name }} and an enterprise DNS service
         href: infrastructure-management/dns-integration.md
@@ -154,24 +154,24 @@ items:
       - name: All tutorials
         href: dataplatform/index.md
       - name: >-
-          Migrating databases from a third-party {{ KF }} cluster to {{
-          mkf-full-name }}
+          Migrating databases from a third-party {{ KF }} cluster to {{ mkf-name
+          }}
         href: dataplatform/kafka-connector.md
       - name: >-
-          Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using
-          {{ data-transfer-full-name }}
+          Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-mmy.md
       - name: >-
           Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mpg.md
       - name: >-
-          Delivering data from {{ mkf-full-name }} to {{ mch-full-name }} using
-          {{ data-transfer-full-name }}
+          Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mch.md
       - name: >-
-          Moving data between {{ mkf-full-name }} clusters using {{
-          data-transfer-full-name }}
+          Moving data between {{ mkf-name }} clusters using {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
           Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
@@ -195,23 +195,23 @@ items:
         href: dataplatform/dp-mch-data-exchange.md
       - name: Configuring {{ mch-name }} for Graphite
         href: dataplatform/clickhouse-for-graphite.md
-      - name: Fetching data from {{ mkf-full-name }} to {{ mch-full-name }}
+      - name: Fetching data from {{ mkf-name }} to {{ mch-name }}
         href: dataplatform/fetch-data-from-mkf.md
       - name: Fetching data from {{ RMQ }} to {{ mch-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
-      - name: Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
+      - name: Saving a {{ yds-name }} data stream in {{ mch-name }}
         href: dataplatform/yds-to-clickhouse.md
-      - name: Using hybrid storage in {{ mch-full-name }}
+      - name: Using hybrid storage in {{ mch-name }}
         href: dataplatform/clickhouse-hybrid-storage.md
-      - name: Sharding {{ mch-full-name }} tables
+      - name: Sharding {{ mch-name }} tables
         href: dataplatform/clickhouse-sharding.md
       - name: >-
           Configuring {{ dns-name }} for access to managed database clusters
           from other cloud networks
         href: dataplatform/mdb-dns-peering.md
       - name: >-
-          Configuring {{ dns-full-name }} for accessing {{ mch-full-name }}
-          clusters from other cloud networks
+          Configuring {{ dns-name }} for accessing {{ mch-name }} clusters from
+          other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
       - name: Exchanging data between {{ mch-name }} and {{ dataproc-name }}
         href: dataplatform/dp-mch-data-exchange.md
@@ -229,9 +229,9 @@ items:
         href: dataplatform/migration-via-reindex-api.md
       - name: >-
           Migrating collections from a third-party {{ MG }} cluster to {{
-          mmg-full-name }}
+          mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
-      - name: Migrating data to {{ mmg-full-name }}
+      - name: Migrating data to {{ mmg-name }}
         href: dataplatform/mongodb-data-migration.md
       - name: Sharding {{ MG }} collections
         href: dataplatform/mongodb-sharding.md
@@ -287,9 +287,7 @@ items:
           Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
-      - name: >-
-          Migrating databases from {{ mpg-full-name }} to {{
-          objstorage-full-name }}
+      - name: Migrating databases from {{ mpg-name }} to {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
       - name: Migrating databases from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md

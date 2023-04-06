@@ -214,8 +214,8 @@ items:
       - name: Использование Confluent Schema Registry с {{ mkf-name }}
         href: dataplatform/confluent-schema-registry.md
       - name: >-
-          Поставка данных из {{ mmy-full-name }} в {{ mch-full-name }} с помощью
-          {{ data-transfer-name }}
+          Поставка данных из {{ mmy-name }} в {{ mch-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/mysql-to-clickhouse.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
@@ -235,7 +235,7 @@ items:
         href: dataplatform/yds-to-clickhouse.md
       - name: >-
           Асинхронная репликация данных из {{ metrika }} в {{ CH }} с помощью {{
-          data-transfer-full-name }}
+          data-transfer-name }}
         stage: preview
         href: dataplatform/metrika-to-clickhouse.md
       - name: Использование гибридного хранилища в {{ mch-name }}
@@ -298,9 +298,7 @@ items:
           Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
-      - name: >-
-          Асинхронная репликация данных из {{ mmy-full-name }} в {{
-          yds-full-name }}
+      - name: Асинхронная репликация данных из {{ mmy-name }} в {{ yds-name }}
         href: dataplatform/mmy-to-yds.md
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
@@ -328,9 +326,7 @@ items:
         href: dataplatform/mpg-ydb-replication.md
       - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
-      - name: >-
-          Асинхронная репликация данных из {{ mpg-full-name }} в {{
-          yds-full-name }}
+      - name: Асинхронная репликация данных из {{ mpg-name }} в {{ yds-name }}
         href: dataplatform/mpg-to-yds.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md

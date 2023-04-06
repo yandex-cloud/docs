@@ -15,18 +15,20 @@ You can connect to the [Google Drive](https://drive.google.com) file storage ser
 1. Go to a new cell and copy the command to import the contents from a file on Google Drive to it:
 
    ```python
-   import os
-   from cloud_ml.storage.api import Storage
-   client_secret = {os.environ['<secret_name>']}
-   gdrive = Storage.gdrive(client_secret)
-   gdrive.get('<Google_Drive_file_ID>', '<{{ ml-platform-name }}_project_file_path>')
+   # %pip install gdown if needed
+
+   import gdown
+
+   gdrive_file_id = '<Google_Drive_file_ID>'
+   dst_path = '<{{ ml-platform-name }}_project_file_path>'
+
+   gdown.download(id=gdrive_file_id, output=dst_path)
    ```
 
    Where:
 
-   * `<secret name>` is the name of the secret that stores the contents of the `client_secret.json` file.
-   * `<Google_Drive_file_ID>` is the [ID of the Google Drive file](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics) whose contents need to be imported to {{ ml-platform-name }}.
-   * `<{{ ml-platform-name }}_project_file_path>` is the path to the {{ ml-platform-name }} project file to import data to.
+   * `<Google_Drive_file_ID>`: [ID of the Google Drive file](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics), the content of which needs to be imported to {{ ml-platform-name }}.
+   * `<{{ ml-platform-name }}_project_file_path>`: Path to the {{ ml-platform-name }} project file to import data to.
 
 1. Run the cell. To do this, choose **Run** → **Run Selected Cells** or press **Shift** + **Enter**.
 
@@ -35,57 +37,19 @@ You can connect to the [Google Drive](https://drive.google.com) file storage ser
 1. Go to a new cell and copy the command to import the contents from a folder on Google Drive to it:
 
    ```python
-   import os
-   from cloud_ml.storage.api import Storage
-   client_secret = {os.environ['<secret_name>']}
-   gdrive = Storage.gdrive(client_secret)
-   gdrive.get_dir('<Google_Drive_folder_ID>', '<{{ ml-platform-name }}_project_folder_path>')
+   # %pip install gdown if needed
+
+   import gdown
+
+   gdrive_folder_id = '<Google_Drive_folder_ID>'
+   dst_path = '<{{ ml-platform-name }}_project_folder_path>'
+
+   gdown.download_folder(id=gdrive_folder_id, output=dst_path)
    ```
 
    Where:
 
-   * `<secret name>` is the name of the secret that stores the contents of the `client_secret.json` file.
-   * `<Google_Drive_folder_ID>` is the [ID of the Google Drive folder](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics) whose contents need to be imported to {{ ml-platform-name }}.
-   * `<{{ ml-platform-name }}_project_folder_path>` is the path to the {{ ml-platform-name }} project folder to import data to.
-
-1. Run the cell.
-
-## Uploading the contents from a {{ ml-platform-name }} project file to a file on Google Drive {#put-file}
-
-1. Go to a new cell and copy the command to import the contents from a {{ ml-platform-name }} project file to Google Drive to it:
-
-   ```python
-   import os
-   from cloud_ml.storage.api import Storage
-   client_secret = {os.environ['<secret_name>']}
-   gdrive = Storage.gdrive(client_secret)
-   gdrive.put('<{{ ml-platform-name }}_project_file_path>', '<Google_Drive_file_ID>')
-   ```
-
-   Where:
-
-   * `<secret name>` is the name of the secret that stores the contents of the `client_secret.json` file.
-   * `<{{ ml-platform-name }}_project_file_path>` is the path to the {{ ml-platform-name }} project file whose contents need to be uploaded to Google Drive.
-   * `<Google_Drive_file_ID>` is the [ID of the Google Drive file](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics) to upload data to.
-
-1. Run the cell.
-
-## Uploading the contents from a {{ ml-platform-name }} project folder to a folder on Google Drive {#put-dir}
-
-1. Go to a new cell and copy the command to import the contents from a {{ ml-platform-name }} project folder to Google Drive to it:
-
-   ```python
-   import os
-   from cloud_ml.storage.api import Storage
-   client_secret = {os.environ['<secret_name>']}
-   gdrive = Storage.gdrive(client_secret)
-   gdrive.put_dir('<{{ ml-platform-name }}_project_folder_path>', '<Google_Drive_folder_path>')
-   ```
-
-   Where:
-
-   * `<secret name>` is the name of the secret that stores the contents of the `client_secret.json` file.
-   * `<{{ ml-platform-name }}_project_folder_path>` is the path to the {{ ml-platform-name }} project folder whose contents need to be uploaded to Google Drive.
-   * `<Google_Drive_folder_ID>` is the [ID of the Google Drive folder](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics) to upload data to.
+   * `<Google_Drive_folder_ID>`: [ID of the Google Drive folder](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics), the content of which needs to be imported to {{ ml-platform-name }}.
+   * `<{{ ml-platform-name }}_project_folder_path>`: Path to the {{ ml-platform-name }} project folder to import data to.
 
 1. Run the cell.

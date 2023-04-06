@@ -1,7 +1,6 @@
 The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer the cluster logs from [VM instances](../compute/concepts/vm.md) created based on a {{ coi }} to [{{ cloud-logging-full-name }}](../logging/). The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
 
 To configure log transfer from a VM instance created from the {{ coi }} image:
-
 1. [Create application that generates logs](#generate-logs).
 1. [Create a Docker image and push it to the registry](#create-docker).
 1. [Configure Fluent Bit](#fluent-bit).
@@ -16,6 +15,7 @@ To configure log transfer from a VM instance created from the {{ coi }} image:
 ## Create application that generates logs {#generate-logs}
 
 Create a `logs.py` file:
+
 ```py
 import logging
 import random
@@ -26,9 +26,9 @@ import uuid
 
 logger = logging.getLogger(__name__)
 
-# Set log format
+# Set log format.
 formatter = logging.Formatter(
-    '[req_id=%(req_id)s] [%(levelname)s] %(code)d %(message)s'
+  '[req_id=%(req_id)s] [%(levelname)s] %(code)d %(message)s'
 )
 
 handler = logging.StreamHandler(stream=sys.stdout)
@@ -36,61 +36,60 @@ handler.setFormatter(formatter)
 
 logger.addHandler(handler)
 
-# Configure default logging level, optional
+# Configure default logging level, optional.
 logger.setLevel(logging.DEBUG)
 
-# Generate URL-like values
+# Generate URL-like values.
 PATHS = [
-    '/',
-    '/admin',
-    '/hello',
-    '/docs',
+  '/',
+  '/admin',
+  '/hello',
+  '/docs',
 ]
 
 PARAMS = [
-    'foo',
-    'bar',
-    'query',
-    'search',
-    None
+  'foo',
+  'bar',
+  'query',
+  'search',
+  None
 ]
 
 def fake_url():
-    path = random.choice(PATHS)
-    param = random.choice(PARAMS)
-    if param:
-        val = random.randint(0, 100)
-        param += '=%s' % val
-    code = random.choices([200, 400, 404, 500], weights=[10, 2, 2, 1])[0]
-    return '?'.join(filter(None, [path, param])), code
+  path = random.choice(PATHS)
+  param = random.choice(PARAMS)
+  if param:
+    val = random.randint(0, 100)
+    param += '=%s' % val
+  code = random.choices([200, 400, 404, 500], weights=[10, 2, 2, 1])[0]
+  return '?'.join(filter(None, [path, param])), code
 
 if __name__ == '__main__':
-    while True:
-        req_id = uuid.uuid4()
-        # Create a pair of code and URL value
-        path, code = fake_url()
-        extra = {"code": code, "req_id": req_id}
-        # If code is 200, write to Info log
-        if code == 200:
-            logger.info(
-                'Path: %s',
-                path,
-                extra=extra,
-            )
-        # Otherwise, write to Error log
-        else:
-            logger.error(
-                'Error: %s',
-                path,
-                extra=extra,
-            )
-        # For multiple messages with the same request id, in 30% of cases, write the second entry
-        # to Debug log.
-        if random.random() > 0.7:
-            logger.debug("some additional debug log record %f", random.random(), extra=extra)
+  while True:
+    req_id = uuid.uuid4()
+    # Create a pair of code and URL value.
+    path, code = fake_url()
+    extra = {"code": code, "req_id": req_id}
+    # If code is 200, write to Info log.
+    if code == 200:
+      logger.info(
+        'Path: %s',
+        path,
+        extra=extra,
+      )
+    # Otherwise, write to Error log.
+    else:
+      logger.error(
+        'Error: %s',
+        path,
+         extra=extra,
+      )
+      # For multiple messages with the same request id, in 30% of cases, write the second entry to Debug log.
+      if random.random() > 0.7:
+        logger.debug("some additional debug log record %f", random.random(), extra=extra)
 
-        # Wait 1 second to avoid log clogging
-        time.sleep(1)
+      # Wait 1 second to avoid log clogging.
+      time.sleep(1)
 ```
 
 ## Create a Docker image and push it to the registry {#create-docker}
@@ -108,7 +107,6 @@ if __name__ == '__main__':
    ```
 
    Dockerfile describes a [Docker image](../container-registry/concepts/docker-image.md) that contains an application generating logs.
-
 1. Build a Docker image:
 
    ```bash
@@ -142,12 +140,12 @@ if __name__ == '__main__':
        depends_on:
          - fluentbit
        logging:
-         # Fluent Bit understands this log format
+         # Fluent Bit understands this log format.
          driver: fluentd
          options:
-           # Fluent Bit listens to logs on 24224
+           # Fluent Bit listens to logs on 24224.
            fluentd-address: localhost:24224
-           # Tags are used for routing logs
+           # Tags are used for routing logs.
            tag: app.logs
 
      fluentbit:
@@ -165,6 +163,7 @@ if __name__ == '__main__':
    ```
 
 1. Create a `user-data.yaml` file. It describes rules to read container logs. If necessary, in the `users` section, update the username and SSH key. Learn more about how to [generate SSH keys](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
    ```yaml
    #cloud-config
    write_files:
@@ -203,7 +202,7 @@ if __name__ == '__main__':
          [PARSER]
              Name   app_log_parser
              Format regex
-             Regex  ^\[req_id=(?<req_id>[0-9a-fA-F\-]+)\] \[(?<severity>.*)\] (?<code>\d+) (?<text>.*)$
+             Regex  ^\[req_id=(?<req_id>[0-9a-fA-F\-]+)\] \[(?<severity>.*)\](?<code>\d+) (?<text>.*)$
              Types  code:integer
        path: /etc/fluentbit/parsers.conf
 
@@ -239,12 +238,12 @@ Specify the following in the field:
 IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
 
 yc compute instance create \
-    --name coi-vm \
-    --zone=<zone> \
-    --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
-    --metadata-from-file user-data=user-data.yaml,docker-compose=spec.yaml \
-    --create-boot-disk image-id=${IMAGE_ID} \
-    --service-account-name <service_account_name>
+  --name coi-vm \
+  --zone=<zone> \
+  --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
+  --metadata-from-file user-data=user-data.yaml,docker-compose=spec.yaml \
+  --create-boot-disk image-id=${IMAGE_ID} \
+  --service-account-name <service_account_name>
 ```
 
 ## View the logs {#read-logs}
@@ -253,35 +252,33 @@ yc compute instance create \
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group whose ID you indicated in `spec.yaml`.
-   1. Select **{{ cloud-logging-name }}**.
-   1. Select the `default` log group. The page that opens will show the log group records.
+  1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group whose ID you indicated in `spec.yaml`.
+  1. Select **{{ cloud-logging-name }}**.
+  1. Select the `default` log group. The page that opens will show the log group records.
 
 - CLI
 
-   {% include [cli-install](../_includes/cli-install.md) %}
+  {% include [cli-install](../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-   To view records in the log group, run the command:
+  To view records in the log group, run the command:
 
-   ```
-   yc logging read --group-id=<log_group_ID>
-   ```
+  ```bash
+  yc logging read --group-id=<log_group_ID>
+  ```
 
-   Where `--group-id` is the ID of the `default` log group specified in `spec.yaml`.
+  Where `--group-id` is the ID of the `default` log group specified in `spec.yaml`.
 
 - API
 
-   You can view the entries in a log group using the API [read](../logging/api-ref/grpc/log_reading_service.md).
+  You can view the entries in a log group using the API [read](../logging/api-ref/grpc/log_reading_service.md).
 
 {% endlist %}
-
 
 ## Delete the resources you created {#delete-resources}
 
 If you no longer need these resources, delete them:
-
 1. [Delete a cloud network](../vpc/operations/network-delete.md).
 1. [Delete the Docker image](../container-registry/operations/docker-image/docker-image-delete.md).
 1. [Delete the registry](../container-registry/operations/registry/registry-delete.md).

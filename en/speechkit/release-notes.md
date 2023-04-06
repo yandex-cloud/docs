@@ -1,4 +1,4 @@
-# YC SpeechKit releases
+# Archive of {{ speechkit-full-name }} releases
 
 {{ speechkit-name }} provides updates based on the system model and version.
 

@@ -15,9 +15,9 @@ To set up the vulnerability scanner:
 1. [Configure the CI script](#ci).
 1. [Check the results](#check-result).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
@@ -25,51 +25,51 @@ If you no longer need these resources, [delete them](#clear-out).
 
 - Manually
 
-   1. [Create service accounts](../iam/operations/sa/create.md):
-      * A [service account](../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../resource-manager/security/index.md#roles-list) role to the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources that the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
-      * A service account for [nodes](../managed-kubernetes/concepts/index.md#node-group) with the [{{ roles-cr-puller }}](../container-registry/security/index.md#service-roles) role for the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
+  1. [Create service accounts](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) the following roles to them:
+     * A [service account](../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../resource-manager/security/index.md#roles-list) role to the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources that the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+     * A service account for [nodes](../managed-kubernetes/concepts/index.md#node-group) with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` [roles](../container-registry/security/index.md#service-roles) for the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
 
-      You can use the same service account for both operations.
-   1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Configure security groups](../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
-   1. [Configure the default security group](../managed-gitlab/operations/connect.md) required for the [{{ mgl-full-name }} instance](../managed-gitlab/concepts/index.md#instance) to run.
-   1. [Create a registry in {{ container-registry-name }}](../container-registry/operations/registry/registry-create.md).
+     You can use the same service account for both operations.
+  1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
+  1. [Configure security groups](../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
+  1. [Configure the default security group](../managed-gitlab/operations/connect.md) required for the [{{ mgl-full-name }} instance](../managed-gitlab/concepts/index.md#instance) to run.
+  1. [Create a registry in {{ container-registry-name }}](../container-registry/operations/registry/registry-create.md).
 
 - Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the [cr-scanner-with-k8s-and-gitlab.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/cr-scanner-with-k8s-and-gitlab.tf) configuration file to the same working directory.
+  1. If you do not have {{ TF }} yet, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+  1. Download the [cr-scanner-with-k8s-and-gitlab.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/cr-scanner-with-k8s-and-gitlab.tf) configuration file to the same working directory.
 
-      This file describes:
-      * [Network](../vpc/concepts/network.md#network).
-      * [Subnet](../vpc/concepts/network.md#subnet).
-      * [Default security group](../vpc/concepts/security-groups.md) and rules needed to run the {{ mgl-name }} instance.
-      * [Security group](../vpc/concepts/security-groups.md) and rules needed to run the {{ managed-k8s-name }} cluster:
-         * Rules for service traffic.
-         * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
-      * {{ managed-k8s-name }} cluster.
-      * Service account required to use the {{ managed-k8s-name }} cluster and node group.
-      * {{ container-registry-name }} registry.
-   1. In the `cr-scanner-with-k8s-and-gitlab.tf` file, specify:
-      * [Folder ID](../resource-manager/operations/folder/get-id.md).
-      * [{{ k8s }} version](../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
-      * {{ managed-k8s-name }} cluster CIDR.
-      * Name of the {{ managed-k8s-name }} cluster service account.
-      * Name of the {{ container-registry-name }} registry.
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+     This file describes:
+     * [Network](../vpc/concepts/network.md#network).
+     * [Subnet](../vpc/concepts/network.md#subnet).
+     * [Default security group](../vpc/concepts/security-groups.md) and rules needed to run the {{ mgl-name }} instance.
+     * [Security group](../vpc/concepts/security-groups.md) and rules needed to run the {{ managed-k8s-name }} cluster:
+       * Rules for service traffic.
+       * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
+     * {{ managed-k8s-name }} cluster.
+     * Service account required to use the {{ managed-k8s-name }} cluster and node group.
+     * {{ container-registry-name }} registry.
+  1. In the `cr-scanner-with-k8s-and-gitlab.tf` file, specify:
+     * [Folder ID](../resource-manager/operations/folder/get-id.md).
+     * [{{ k8s }} version](../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
+     * {{ managed-k8s-name }} cluster CIDR.
+     * Name of the {{ managed-k8s-name }} cluster service account.
+     * Name of the {{ container-registry-name }} registry.
+  1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+     ```bash
+     terraform validate
+     ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
-   1. Create the required infrastructure:
+     If there are any errors in the configuration files, {{ TF }} will point to them.
+  1. Create the required infrastructure:
 
-      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-      {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+     {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -94,14 +94,14 @@ Create a {{ mgl-name }} instance and a [virtual machine](../compute/concepts/vm.
 
 - {{ mgl-name }} instance
 
-   Create a {{ mgl-name }} instance by [following the instructions](../managed-gitlab/quickstart.md#instance-create).
+  Create a {{ mgl-name }} instance by [following the instructions](../managed-gitlab/quickstart.md#instance-create).
 
 
 - VM running a {{ GL }} image
 
-   Launch {{ GL }} on a VM with a public IP.
+  Launch {{ GL }} on a VM with a public IP.
 
-   {% include [create-gitlab](../_includes/managed-gitlab/create.md) %}
+  {% include [create-gitlab](../_includes/managed-gitlab/create.md) %}
 
 {% endlist %}
 
@@ -116,7 +116,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
    1. Log in to {{ GL }}.
    1. On the home page, select a repository.
    1. Select the **Repository** → **Files** section.
-   1. Click **+** and select **New file** from the drop-down menu.
+   1. Click **+** and select **New file** from the dropdown menu.
    1. Name the file as `Dockerfile` and add the following code to it:
 
       ```Dockerfile
@@ -128,7 +128,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
    1. Click **Commit changes**.
 1. Add the manifest for the {{ managed-k8s-name }} cluster resources to the project:
    1. Select the **Repository** → **Files** section.
-   1. Click **+** and select **New file** from the drop-down menu.
+   1. Click **+** and select **New file** from the dropdown menu.
    1. Name the file as `k8s.yaml`:
 
       {% cut "k8s.yaml" %}
@@ -179,13 +179,12 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
    1. Add two environment variables:
       * `KUBE_URL`: The [{{ managed-k8s-name }} master address](../managed-kubernetes/concepts/index.md#master). Retrieve it using the command:
 
-         ```bash
-         yc managed-kubernetes cluster get <{{ k8s }} cluster ID or name> --format=json \
-           | jq -r .master.endpoints.external_v4_endpoint
-         ```
+        ```bash
+        yc managed-kubernetes cluster get <{{ k8s }} cluster ID or name> --format=json \
+          | jq -r .master.endpoints.external_v4_endpoint
+        ```
 
       * `KUBE_TOKEN`: The token will use {{ GL }} to apply the configuration. Use the token that you received previously.
-
       To add a variable:
       * Click **Add variable**.
       * In the resulting window, enter the variable name in the **Key** field and the value in the **Value** field.
@@ -217,7 +216,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
           - wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ./jq && cp jq /kaniko
           # Get a service account token from metadata.
           - wget --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token && cp token /kaniko
-          - echo "{\"auths\":{\"cr.yandex\":{\"auth\":\"$(printf "%s:%s" "iam" "$(cat /kaniko/token | ./jq -r '.access_token')" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
+          - echo "{\"auths\":{\"{{ registry }}\":{\"auth\":\"$(printf "%s:%s" "iam" "$(cat /kaniko/token | ./jq -r '.access_token')" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
           - >-
             /kaniko/executor
             --context "${CI_PROJECT_DIR}"/"${DOCKER_CUSTOM_SUBFOLDER}"
@@ -240,7 +239,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
         script:
           - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
           # Install YC CLI.
-          - curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
+          - curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
           # Start scanning.
           - echo "Scanning image $IMAGE_NAME {{ registry }}/${YC_REGISTRY_ID}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}..."
           - export IMAGE_ID=$(yc container image list --registry-id $YC_REGISTRY_ID --format=json | jq -r --arg CI_COMMIT_SHA $CI_COMMIT_SHA '.[] | select(.tags[0]==$CI_COMMIT_SHA) | .id ')
@@ -282,9 +281,9 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
 
 After saving the `.gitlab-ci.yml` configuration file, the build script starts. To check its results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }}. Vulnerability scanning is performed at the second stage (`test`).
 
-## Delete the resources you created {#clear-out}
+## How to delete created resources {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ mgl-name }} instance](../managed-gitlab/operations/instance/instance-delete.md) or the [created VM with the {{ GL }} image](../compute/operations/vm-control/vm-delete.md).
 1. [Delete all the Docker images](../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
 
@@ -294,27 +293,27 @@ Delete the other resources, depending on the method used to create them:
 
 - Manually
 
-   1. [Delete the {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. If you reserved a public static IP address for the cluster, [delete it](../vpc/operations/address-delete.md).
-   1. [Delete the service accounts](../iam/operations/sa/delete.md).
-   1. [Delete the {{ container-registry-name }} registry](../container-registry/operations/registry/registry-delete.md).
+  1. [Delete the {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. If you reserved a public static IP address for the cluster, [delete it](../vpc/operations/address-delete.md).
+  1. [Delete the service accounts](../iam/operations/sa/delete.md).
+  1. [Delete the {{ container-registry-name }} registry](../container-registry/operations/registry/registry-delete.md).
 
 - Using {{ TF }}
 
-   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-   1. In the terminal window, change to the directory containing the infrastructure plan.
-   1. Delete the `cr-scanner-with-k8s-and-gitlab.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+  To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
+  1. In the terminal window, switch to the directory containing the infrastructure plan.
+  1. Delete the `cr-scanner-with-k8s-and-gitlab.tf` configuration file.
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+     ```bash
+     terraform validate
+     ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
-   1. Confirm the update of resources.
+     If there are any errors in the configuration files, {{ TF }} will point to them.
+  1. Confirm the resources have been updated.
 
-      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-      All the resources described in the `cr-scanner-with-k8s-and-gitlab.tf` configuration will be deleted.
+     All the resources described in the `cr-scanner-with-k8s-and-gitlab.tf` configuration will be deleted.
 
 {% endlist %}

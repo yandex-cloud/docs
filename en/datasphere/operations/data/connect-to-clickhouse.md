@@ -8,7 +8,7 @@ In the {{ yandex-cloud }} infrastructure, [{{ CH }}](https://{{ ch-domain }}/) s
 1. [Configure](../../../managed-clickhouse/operations/connect.md#configuring-security-groups) cluster security groups.
 1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
-## Connecting to a {#connect-to-host} host
+## Connecting to a host {#connect-to-host}
 
 To connect to {{ mch-short-name }} cluster hosts:
 
@@ -30,12 +30,12 @@ To connect to {{ mch-short-name }} cluster hosts:
       ```python
       import requests
       url = 'https://{host}:8443/?database={db}&query={query}'.format(
-              host='<FQDN of ClickHouse host>',
-              db='<DB name>',
+              host='<ClickHouse_host_FQDN>',
+              db='<database_name>',
               query='SELECT version()')
       auth = {
-              'X-ClickHouse-User': '<DB username>',
-              'X-ClickHouse-Key': '<DB user password>',
+              'X-ClickHouse-User': '<DB_user_name>',
+              'X-ClickHouse-Key': '<DB_user_password>',
           }
       cacert = '/home/jupyter/.clickhouse-client/root.crt'
       rs = requests.get(url, headers=auth, verify=cacert)
@@ -45,26 +45,27 @@ To connect to {{ mch-short-name }} cluster hosts:
 
       If the connection to the cluster is successful, the {{ CH }} version will be output in response to the test query:
 
-      ```
-      21.3.13.9
+      ```text
+      22.3.17.13
       ```
 
    - Using the clickhouse-driver library
 
       ```python
+      %pip install clickhouse-driver
       from clickhouse_driver import Client
-      client = Client(host='<ClickHouse host FQDN>',
-                      user='<DB username>',
-                      password='<DB user password>',
-                      database='<DB name>',
+      client = Client(host='<ClickHouse_host_FQDN>',
+                      user='<DB_user_name>',
+                      password='<DB_user_password>',
+                      database='<DB_name>',
                       secure=True)
       client.execute('SELECT version()')
       ```
 
       If the connection to the cluster is successful, the {{ CH }} version will be output in response to the test query:
 
-      ```
-      [('21.3.13.9',)]
+      ```text
+      [('22.3.17.13',)]
       ```
 
    {% endlist %}

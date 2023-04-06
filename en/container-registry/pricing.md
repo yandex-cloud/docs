@@ -22,7 +22,7 @@ Storage usage is measured in GB per month. The volume of data stored during a mo
 
 {% note warning %}
 
-If multiple Docker images in the same registry use the same layers, you aren't charged repeatedly for storing each reused layer. A layer's [digest](concepts/docker-image.md#version) indicates whether the layer is unique.
+If multiple [Docker images](concepts/docker-image.md) in the same registry use the same layers, you are not charged repeatedly for storing each reused layer. A layer's [digest](concepts/docker-image.md#version) indicates whether the layer is unique.
 
 {% endnote %}
 
@@ -46,6 +46,26 @@ Example of proportional calculation: let's say the user stores 15 GB of data for
 ```
 Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 ```
+
+
+### Vulnerability scanner {#scanner}
+
+{% note alert %}
+
+Using the vulnerability scanner will stop being free of charge starting **April 17, 2023**.
+
+{% endnote %}
+
+The cost of using the [vulnerability scanner](concepts/vulnerability-scanner.md) for Docker images depends on how many scans you run:
+
+
+
+
+
+{% include [usd-scanner.md](../_pricing/container-registry/usd-scanner.md) %}
+
+
+
 
 
 

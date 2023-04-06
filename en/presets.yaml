@@ -41012,9 +41012,13 @@ default:
             1|int|string: ₸244
   ui-key:
     yacloud:
+      common:
+        create: Create
       component:
         console-dashboard:
           button_action-create-folder: Create folder
+        dns-integration:
+          button_add-domain: Create record
         symmetric-key-select:
           button_create-key: Create key
           button_create-key-new: Create new key
@@ -41031,6 +41035,10 @@ default:
         label_connector-status-RUNNING: Replicating
         label_connector-status-STOPPED: Stopped
         label_endpoints: Endpoints
+      dns:
+        button_zone-create: Create zone
+        label_additional-settings: Additional settings
+        label_form-ttl: TTL (in seconds)
       iam:
         cloud:
           folders-create:
@@ -41109,9 +41117,21 @@ default:
           switch_settings: Settings
           switch_website: Website
           website:
+            button_add-routing-rule: Add forwarding rule
             button_save: Save
+            field_error: Error page
+            field_http-redirect-code: Response code
+            field_index: Home page
+            label_routing-condition: Condition
+            label_routing-redirect: Redirect
+            select_condition_prefix: Key prefix
+            select_redirect_key: Whole key
+            select_redirect_none: None
+            select_redirect_prefix: Prefix only
             switch_hosting: Hosting
             switch_redirect: Redirect
+            title_connected-domains: Domains in Cloud DNS
+            title_redirect: Redirect
         buckets:
           button_delete: Delete
           button_empty-create: Create bucket

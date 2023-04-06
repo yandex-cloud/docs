@@ -47,6 +47,7 @@ editable: false
 Цена_хранения = Цена_за_ГБ_в_месяц * 15 * 12 / 24 / 30
 ```
 
+
 ### Сканер уязвимостей {#scanner}
 
 {% note alert %}
@@ -60,6 +61,7 @@ editable: false
 
 
 {% include [rub-scanner.md](../_pricing/container-registry/rub-scanner.md) %}
+
 
 
 

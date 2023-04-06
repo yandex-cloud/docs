@@ -15,7 +15,7 @@
 * [{#T}](managed-kafka-to-greenplum.md)
 * [{#T}](mkf-ydb-stream.md)
 * Использование реестра схем форматов данных с {{ mkf-full-name }}:
-  * [Управление схемами данных в {{ mkf-full-name }}](schema-registry-overview.md)
+  * [Управление схемами данных в {{ mkf-name }}](schema-registry-overview.md)
   * [{#T}](managed-schema-registry.md)
   * [{#T}](confluent-schema-registry.md)
 
@@ -33,6 +33,8 @@
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
 * [{#T}](yds-to-clickhouse.md)
+
+
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
 
@@ -57,8 +59,6 @@
 
 * [{#T}](migration-via-reindex-api.md)
 * [{#T}](elasticsearch-to-opensearch.md)
-
-
 
 ## {{ MG }} {#mongodb}
 
@@ -95,9 +95,9 @@
 ## {{ PG }} {#postgresql}
 
 * [Создание кластера {{ PG }} для «1С:Предприятия»](1c-postgresql.md)
-* [Анализ производительности и оптимизация {{ mpg-full-name }}](mpg-profiling.md)
-* [Миграция базы данных из {{ mpg-full-name }}](outbound-replication.md)
-* [Миграция базы данных из стороннего кластера {{ PG }} в {{ mpg-full-name }}](postgresql-data-migration.md)
+* [Анализ производительности и оптимизация {{ mpg-name }}](mpg-profiling.md)
+* [Миграция базы данных из {{ mpg-name }}](outbound-replication.md)
+* [Миграция базы данных из стороннего кластера {{ PG }} в {{ mpg-name }}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](data-transfer-mpg.md)
 * [{#T}](debezium-mpg.md)
@@ -108,7 +108,10 @@
 
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
+
+
 * [{#T}](mpg-to-yds.md)
+
 
 ## {{ GP }} {#greenplum}
 

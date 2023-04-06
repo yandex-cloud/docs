@@ -1,14 +1,13 @@
-# Загрузка аудитных логов в {{ mch-full-name }} и визуализация данных в {{ datalens-full-name }}
+# Загрузка аудитных логов в {{ mch-name }} и визуализация данных в {{ datalens-name }}
 
-Загрузите [аудитные логи](../audit-trails/concepts/format.md) каталога в {{ mch-full-name }} и проанализируйте использование ресурсов в [{{ datalens-full-name }}]({{ link-datalens-main }}).
-
+Загрузите [аудитные логи](../audit-trails/concepts/format.md) каталога в [{{ mch-full-name }}](../managed-clickhouse/) и проанализируйте использование ресурсов в [{{ datalens-full-name }}]({{ link-datalens-main }}).
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте окружение](#environment-preparing).
 1. [Создайте трейл](#create-trail).
-1. [Создайте эндпоинт-источник для потока данных {{ yds-name }}](#create-source-endpoint).
+1. [Создайте эндпоинт-источник для потока данных {{ yds-full-name }}](#create-source-endpoint).
 1. [Создайте эндпоинт-приемник для БД {{ CH }}](#create-target-endpoint).
 1. [Создайте трансфер](#create-datatransfer).
-1. [Визуализируйте данные в {{ datalens-full-name }}](#datalens-visualization).
+1. [Визуализируйте данные в {{ datalens-name }}](#datalens-visualization).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -19,9 +18,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-
-* плата за использование потока данных (см. [тарифы {{ yds-name }}](../data-streams/pricing.md));
-* плата за постоянно запущенный кластер {{ mch-name }} (см. [тарифы {{ mch-name }}](../managed-clickhouse/pricing.md)).
+* Плата за использование [потока данных](../data-streams/concepts/glossary.md#stream-concepts) (см. [тарифы {{ yds-name }}](../data-streams/pricing.md)).
+* Плата за постоянно запущенный [кластер {{ mch-name }}](../managed-clickhouse/concepts/index.md) (см. [тарифы {{ mch-name }}](../managed-clickhouse/pricing.md)).
 
 ## Подготовьте окружение {#environment-preparing}
 
@@ -31,11 +29,11 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [сервисный аккаунт](../iam/concepts/users/service-accounts.md).
   1. Выберите вкладку **Сервисные аккаунты**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `sa-trail-logs`.
-  1. Нажмите ![](../_assets/plus-sign.svg) **Добавить роль** и выберите роли `audit-trails.viewer` и `yds.editor`.
+  1. Нажмите ![](../_assets/plus-sign.svg) **Добавить роль** и выберите [роли](../iam/concepts/access-control/roles.md) `audit-trails.viewer` и `yds.editor`.
   1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -44,7 +42,7 @@
 
   {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-  1. Создайте сервисный аккаунт с именем `sa-trail-logs`:
+  1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с именем `sa-trail-logs`:
 
      ```bash
      yc iam service-account create --name sa-trail-logs
@@ -52,7 +50,7 @@
 
      Результат:
 
-     ```
+     ```text
      id: aje6o61*****h6g9a33s
      folder_id: b1gvmob*****aplct532
      created_at: "2022-07-25T18:01:25Z"
@@ -60,8 +58,7 @@
      ```
 
      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../cli/cli-ref/managed-services/iam/service-account/create.md).
-
-  1. Назначьте сервисному аккаунту роль `audit-trails.viewer`:
+  1. [Назначьте сервисному аккаунту роль](../iam/operations/sa/assign-role-for-sa.md) `audit-trails.viewer`:
 
      ```bash
      yc resource-manager folder add-access-binding <имя_каталога> \
@@ -70,7 +67,6 @@
      ```
 
      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
-
   1. Назначьте сервисному аккаунту роль `yds.editor`:
 
      ```bash
@@ -81,11 +77,10 @@
 
 - {{ TF }}
 
-  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Опишите в конфигурационном файле параметры сервисного аккаунта:
 
-     ```
+     ```hcl
      resource "yandex_iam_service_account" "sa" {
        name = "sa-trail-logs"
      }
@@ -106,23 +101,19 @@
      ```
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account).
-
   1. Проверьте корректность конфигурационных файлов.
-
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
   1. Разверните облачные ресурсы.
-
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 
@@ -131,7 +122,6 @@
 - API
 
   1. Создайте сервисный аккаунт с помощью метода [create](../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md).
-
   1. Узнайте идентификатор сервисного аккаунта:
 
      ```bash
@@ -145,40 +135,41 @@
 
      ```json
      {
-      "serviceAccounts": [
-       {
-        "id": "aje6o61*****h6g9a33s",
-        "folderId": "b1gvmob*****aplct532",
-        "createdAt": "2022-07-25T18:01:25Z",
-        "name": "sa-trail-logs",
-       }
-      ]
+       "serviceAccounts": [
+        {
+          "id": "aje6o61*****h6g9a33s",
+          "folderId": "b1gvmob*****aplct532",
+          "createdAt": "2022-07-25T18:01:25Z",
+          "name": "sa-trail-logs"
+        }
+       ]
      }
      ```
 
   1. Сформируйте тело запроса в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта `sa-trail-logs`:
 
      **body.json:**
+
      ```json
      {
-      "accessBindingDeltas": [
-       {
-        "action": "ADD",
-        "accessBinding": {
-          "roleId": "audit-trails.viewer",
-          "subject": {
-            "id": "<идентификатор_сервисного_аккаунта_sa-trail-logs>",
-            "type": "serviceAccount"
-            }
-          }
-        }
-        {
-         "action": "ADD",
-         "accessBinding": {
-           "roleId": "yds.writer",
-           "subject": {
-             "id": "<идентификатор_сервисного_аккаунта_sa-trail-logs>",
-             "type": "serviceAccount"
+       "accessBindingDeltas": [
+         {
+           "action": "ADD",
+           "accessBinding": {
+             "roleId": "audit-trails.viewer",
+             "subject": {
+               "id": "<идентификатор_сервисного_аккаунта_sa-trail-logs>",
+               "type": "serviceAccount"
+             }
+           }
+         },
+         {
+           "action": "ADD",
+           "accessBinding": {
+             "roleId": "yds.writer",
+             "subject": {
+               "id": "<идентификатор_сервисного_аккаунта_sa-trail-logs>",
+               "type": "serviceAccount"
              }
            }
         }
@@ -208,29 +199,25 @@
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Кластер {{ CH }}**.
   1. Укажите настройки кластера {{ CH }}:
-
      1. В блоке **Базовые параметры** укажите имя кластера `trail-logs`.
-     1. В блоке **Класс хоста** выберите тип виртуальной машины **burstable** и тип хоста **b2.nano**.
+     1. В блоке **Класс хоста** выберите тип [виртуальной машины](../compute/concepts/vm.md) **burstable** и [тип хоста](../managed-clickhouse/concepts/instance-types.md) **b2.nano**.
      1. В блоке **База данных** укажите имя БД `trail_data`, имя пользователя `user` и пароль. Запомните имя БД.
      1. В блоке **Хосты** нажмите значок ![pencil](../_assets/pencil.svg). Включите опцию **Публичный доступ** и нажмите кнопку **Сохранить**.
      1. В блоке **Дополнительные настройки** включите опции:
-
-        * Доступ из {{ datalens-short-name }}.
+        * Доступ из {{ datalens-name }}.
         * Доступ из консоли управления.
-        * Доступ из {{ data-transfer-name }}.
-
+        * Доступ из [{{ data-transfer-full-name }}](../data-transfer/).
   1. После всех настроек нажмите кнопку **Создать кластер**.
 
 - CLI
 
-  1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+  1. Проверьте, есть ли в каталоге [подсети](../vpc/concepts/network.md#subnet) для хостов кластера:
 
      ```bash
      yc vpc subnet list
      ```
 
-     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
-
+     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../vpc/operations/subnet-create.md) в сервисе {{ vpc-full-name }}.
   1. Укажите параметры кластера в команде создания:
 
      ```bash
@@ -295,23 +282,19 @@
      ```
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mch }}).
-
   1. Проверьте корректность конфигурационных файлов.
-
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
   1. Разверните облачные ресурсы.
-
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 
@@ -332,11 +315,11 @@
 - Консоль управления
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **{{ yds-name }}**.
-  1. В поле **База данных** нажмите **Создать новую**. Откроется страница создания новой базы данных {{ ydb-short-name }}.
-  1. Введите **Имя** базы данных: `stream-db`.
+  1. В поле **База данных** нажмите **Создать новую**. Откроется страница создания новой БД {{ ydb-name }}.
+  1. Введите **Имя** БД: `stream-db`.
   1. В поле **Тип базы данных** выберите `Serverless`.
   1. Нажмите кнопку **Сохранить базу данных**.
-  1. Вернитесь на страницу создания потока. Нажмите кнопку **Обновить** и выберите из списка созданную базу данных.
+  1. Вернитесь на страницу создания потока. Нажмите кнопку **Обновить** и выберите из списка созданную БД.
   1. Введите имя потока данных: `trail-logs-stream`.
   1. Нажмите кнопку **Создать**.
 
@@ -344,10 +327,9 @@
 
 {% endlist %}
 
-
 ## Создайте трейл {#create-trail}
 
-Трейл будет загружать аудитные логи всех ресурсов вашего каталога в поток данных {{ yds-name }}.
+[Трейл](../audit-trails/concepts/trail.md) будет загружать [аудитные логи](../audit-trails/concepts/format.md) всех ресурсов вашего каталога в поток данных {{ yds-name }}.
 
 {% list tabs %}
 
@@ -356,15 +338,11 @@
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Audit trail**.
   1. Введите имя создаваемого трейла: `folder-trail`.
   1. В блоке **Фильтр** задайте параметры области сбора аудитных логов:
-
      * **Ресурс** — выберите `Каталог`.
      * **Каталог** — не требует заполнения (содержит имя каталога, в котором будет находиться трейл).
-
   1. В блоке **Назначение** задайте параметры объекта назначения:
-
      * **Назначение** —  `{{ yds-name }}`.
      * **Поток данных** — выберите поток данных `trail-logs-stream`.
-
   1. В блоке **Сервисный аккаунт** выберите сервисный аккаунт `sa-trail-logs`.
   1. Нажмите кнопку **Создать**.
 
@@ -372,7 +350,7 @@
 
 ## Создайте эндпоинт-источник для потока данных {{ yds-name }} {#create-source-endpoint}
 
-Для создания трансфера нужно указать эндпоинт-источник, ведущий на поток {{ yds-name }}.
+Для создания [трансфера](../data-transfer/concepts/index.md#transfer) нужно указать [эндпоинт](../data-transfer/concepts/index.md#endpoint)-источник, ведущий на поток {{ yds-name }}.
 
 {% list tabs %}
 
@@ -385,38 +363,34 @@
   1. Укажите имя эндпоинта: `source-logs-stream`.
   1. В поле **Тип базы данных** выберите `{{ yds-full-name }}`.
   1. Настройте параметры эндпоинта:
-
-     * **База данных** — выберите базу данных, зарегистрированную для потока `trail-logs-stream`.
+     * **База данных** — выберите БД, зарегистрированную для потока `trail-logs-stream`.
      * **Поток** — `trail-logs-stream`.
      * **Сервисный аккаунт** — `sa-trail-logs`.
-
   1. Настройте правила конвертации:
-
      * **Формат данных** — `JSON`.
      * **Схема данных** — `Список полей`.
 
        Укажите список полей как в таблице ниже:
 
-       | Name              | Type     | Key | Required | Path                            |
-       |-------------------|----------|-----|----------|---------------------------------|
-       | event_id          | STRING   | -   | -        | event_id                        |
-       | event_source      | STRING   | -   | -        | event_source                    |
-       | event_type        | STRING   | -   | -        | event_type                      |
-       | event_time        | DATETIME | -   | -        | event_time                      |
-       | authenticated     | ANY      | -   | -        | authentication.authenticated    |
-       | subject_type      | STRING   | -   | -        | authentication.subject_type     |
-       | subject_id        | STRING   | -   | -        | authentication.subject_id       |
-       | subject_name      | STRING   | -   | -        | authentication.subject_name     |
-       | authorized        | ANY      | -   | -        | authorization.authorized        |
-       | resource_metadata | ANY      | -   | -        | resource_metadata               |
-       | remote_address    | STRING   | -   | -        | request_metadata.remote_address |
-       | user_agent        | STRING   | -   | -        | request_metadata.user_agent     |
-       | request_id        | STRING   | -   | -        | request_metadata.request_id     |
-       | event_status      | STRING   | -   | -        | event_status                    |
-       | details           | ANY      | -   | -        | details                         |
+       Name | Type | Key | Required | Path
+       --- | --- | --- | --- | ---
+       event_id | STRING | - | - | event_id
+       event_source | STRING | - | - | event_source
+       event_type | STRING | - | - | event_type
+       event_time | DATETIME | - | - | event_time
+       authenticated | ANY | - | - | authentication.authenticated
+       subject_type | STRING | - | - | authentication.subject_type
+       subject_id | STRING | - | - | authentication.subject_id
+       subject_name | STRING | - | - | authentication.subject_name
+       authorized | ANY | - | - | authorization.authorized
+       resource_metadata | ANY | - | - | resource_metadata
+       remote_address | STRING | - | - | request_metadata.remote_address
+       user_agent | STRING | - | - | request_metadata.user_agent
+       request_id | STRING | - | - | request_metadata.request_id
+       event_status | STRING | - | - | event_status
+       details | ANY | - | - | details
 
      * Включите опцию **Добавить неразмеченные столбцы**.
-
   1. Нажмите кнопку **Создать**.
 
 {% endlist %}
@@ -436,12 +410,10 @@
   1. Укажите имя эндпоинта: `target-logs-ch`.
   1. В поле **Тип базы данных** выберите `{{ CH }}`.
   1. В блоке **Параметры эндпоинта** укажите:
-
      1. **Тип подключения** — **Кластер MDB**. Выберите кластер `trail-logs`.
      1. **Пользователь** — `user`.
      1. **Пароль** — укажите пароль пользователя БД.
      1. **База данных** — `trail_data`
-
   1. Нажмите кнопку **Создать**.
 
 {% endlist %}
@@ -454,7 +426,7 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
   1. На панели слева выберите ![image](../_assets/data-transfer/transfer.svg) **Трансферы**.
   1. Нажмите кнопку **Создать трансфер**.
   1. Укажите имя трансфера: `logs-transfer`.
@@ -492,23 +464,19 @@
      ```
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-dt-transfer }}).
-
   1. Проверьте корректность конфигурационных файлов.
-
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
   1. Разверните облачные ресурсы.
-
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 
@@ -516,7 +484,7 @@
 
 {% endlist %}
 
-После активации трансфера перейдите в {{ mch-name }} и убедитесь, что в БД `trail_data` появилась таблица `trail_logs_stream` с событиями {{ at-name }}.
+После активации трансфера перейдите в {{ mch-name }} и убедитесь, что в БД `trail_data` появилась таблица `trail_logs_stream` с событиями {{ at-full-name }}.
 
 Вы можете выполнять запросы к БД `trail_data` для поиска интересных событий с точки зрения безопасности.
 
@@ -536,7 +504,7 @@
   where subject_name = '<Name_ID_пользователя>' and  event_time >= 2022-06-26
   ```
 
-* Срабатывание при создании ключей для сервисных аккаунтов:
+* Срабатывание при создании [ключей](../iam/concepts/index.md#keys) для сервисных аккаунтов:
 
   ```sql
   select * from trail_data.trail_logs_stream
@@ -547,21 +515,19 @@
 
 {% endcut %}
 
-## Визуализируйте данные в {{ datalens-full-name }} {#datalens-visualization}
+## Визуализируйте данные в {{ datalens-name }} {#datalens-visualization}
 
-Чтобы построить визуализации, нужно подключиться к БД {{ CH }}, в которую были перенесены логи, и создать датасет на основе ее данных.
+Чтобы построить визуализации, нужно [подключиться](../datalens/concepts/connection.md) к БД {{ CH }}, в которую были перенесены логи, и создать [датасет](../datalens/concepts/dataset/index.md) на основе ее данных.
 
 ### Создайте подключение {#create-connection}
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) сервиса **{{ datalens-full-name }}**.
+1. Перейдите на [главную страницу]({{ link-datalens-main }}) сервиса **{{ datalens-name }}**.
 1. В открывшемся окне нажмите кнопку **Создать подключение**.
 1. Выберите подключение **{{ CH }}**.
 1. Выберите тип подключения **Выбрать в каталоге** и заполните настройки подключения:
-
    1. В поле **Кластер** выберите `trail-logs`.
    1. В поле **Имя хоста** выберите хост {{ CH }} из выпадающего списка.
    1. Введите имя пользователя БД и пароль.
-
 1. Нажмите **Проверить подключение**.
 1. После проверки подключения нажмите кнопку **Создать подключение**.
 1. Введите название подключения `trail-logs-con` и нажмите кнопку **Создать**.
@@ -576,8 +542,7 @@
 
 ### Создайте линейчатую диаграмму {#create-bar-chart}
 
-Чтобы показать количество событий для каждого источника, создайте чарт — линейчатую диаграмму:
-
+Чтобы показать количество событий для каждого источника, создайте [чарт](../datalens/concepts/chart/index.md) — линейчатую диаграмму:
 1. Выберите тип визуализации **Линейчатая диаграмма**.
 1. Перетащите поле `event_source` из раздела **Измерения** в секцию **Y**.
 1. Перетащите поле `event_id` из раздела **Измерения** в секцию **X**.
@@ -588,22 +553,18 @@
 ### Создайте круговую диаграмму {#create-pir-chart}
 
 Чтобы показать соотношение количества событий по статусу, создайте чарт — круговую диаграмму:
-
 1. Скопируйте чарт, получившийся на предыдущем шаге:
-
-   1. В правом верхнем углу нажмите значок галочки рядом с кнопкой **Сохранить** .
+   1. В правом верхнем углу нажмите значок галочки рядом с кнопкой **Сохранить**.
    1. Нажмите **Сохранить как**.
    1. В открывшемся окне введите название нового чарта `Trail logs: statuses` и нажмите кнопку **Сохранить**.
-
 1. Выберите тип визуализации **Круговая диаграмма**. Поля `event_source` и `event_id` автоматически попадут в секции **Цвет** и **Показатели** соответственно.
 1. Удалите поле `event_source` из секции **Цвет** и перетащите туда поле `event_status`.
 1. В правом верхнем углу нажмите **Сохранить**.
 
 ### Создайте дашборд и добавьте на него чарты {#create-dashboard}
 
-Создайте дашборд, на котором будут размещены чарты:
-
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) сервиса **{{ datalens-full-name }}**.
+Создайте [дашборд](../datalens/concepts/dashboard.md), на котором будут размещены чарты:
+1. Перейдите на [главную страницу]({{ link-datalens-main }}) сервиса **{{ datalens-name }}**.
 1. Нажмите кнопку **Создать дашборд**.
 1. Введите название дашборда `Trail logs dashboard` и нажмите кнопку **Создать**.
 1. В правом верхнем углу нажмите кнопку **Добавить** и выберите **Чарт**.
@@ -619,8 +580,7 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
-
-* [удалите кластер](../managed-postgresql/operations/cluster-delete.md) `trail-logs`;
-* [удалите поток данных](../data-streams/operations/manage-streams.md#delete-data-stream) `trail-logs-stream`;
-* [удалите эндпоинты](../data-transfer/operations/endpoint/index.md#delete) источника и приемника;
-* [удалите трансфер](../data-transfer/operations/transfer.md#delete) `logs-transfer`.
+* [Удалите кластер](../managed-postgresql/operations/cluster-delete.md) `trail-logs`.
+* [Удалите поток данных](../data-streams/operations/manage-streams.md#delete-data-stream) `trail-logs-stream`.
+* [Удалите эндпоинты](../data-transfer/operations/endpoint/index.md#delete) источника и приемника.
+* [Удалите трансфер](../data-transfer/operations/transfer.md#delete) `logs-transfer`.
