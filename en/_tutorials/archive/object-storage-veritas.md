@@ -10,12 +10,12 @@ To set up backups in {{ objstorage-name }} via Veritas Backup Exec:
 1. [Create a cloud instance on {{ objstorage-full-name }}](#new-becloudinstance)
 1. [Configure a cloud storage](#setup-cloud).
 1. [Add a server for backup](#add-source).
-1. [Configure backup settings](#add-target). 
+1. [Configure backup settings](#add-target).
 1. [Test the backup process](#test-backup).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -93,7 +93,7 @@ To create a service account:
 1. Enter a **Name** for the cloud storage device and click **Next**.
 1. Select a vendor for the **S3** device and click **Next**.
 1. Enter the connection information:
-   * Select the **Cloud storage** `{{ product }} [ compatible-with-s3 ]`.
+   * Select `{{ product }} [ compatible-with-s3 ]` as **Cloud Storage**.
    * Next to **Logon account**, click **Add/Edit**.
    * In the **Logon account selection** window, click **Add**.
    * In the **User name** field, enter the key ID.

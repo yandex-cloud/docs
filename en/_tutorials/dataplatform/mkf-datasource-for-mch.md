@@ -9,7 +9,7 @@ To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
@@ -350,11 +350,11 @@ To learn more about how to work with data received from {{ KF }}, see the [{{ CH
 
 ## Delete the resources you created {#clear-out}
 
+Delete the resources you no longer need to avoid paying for them:
+
 {% list tabs %}
 
 - Manually
-
-   If you no longer need these resources, delete them:
 
    - Delete the clusters:
 

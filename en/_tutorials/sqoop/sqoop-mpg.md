@@ -2,7 +2,7 @@
 
 {% include [What is the Sqoop](./header.md) %}
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [Same Network](../_tutorials_includes/note-same-network.md) %}
 
@@ -31,10 +31,12 @@ You can create other resources manually or using {{ TF }}.
 
 1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) to connect to {{ mpg-name }} and {{ dataproc-name }} clusters.
 
-1. Set up security groups for the clusters and the VM instance to allow connecting:
+1. If you are using security groups for the clusters and the VM instance, configure them to allow connecting:
 
    * [To the VM instance and the {{ dataproc-name }} cluster](../../data-proc/operations/connect.md).
    * [To the {{ mpg-name }} cluster](../../managed-postgresql/operations/connect.md#configuring-security-groups).
+
+   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 ### Using {{ TF }} {#create-terraform}
 
@@ -60,21 +62,21 @@ You can create other resources manually or using {{ TF }}.
    * `data_proc_sa`: Name of the service account for the {{ dataproc-name }} cluster. The name must be unique within the folder.
    * `pg_cluster_version`: {{ PG }} version of the {{ mpg-name }} cluster.
    * `pg_cluster_password`: Password of the `user1` user of the `db1` {{ mpg-name }} database.
-   * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts).
-   * `vm_username` and `vm_public_key`: Username and absolute path to a [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
+   * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+   * `vm_username` and `vm_public_key`: Username and absolute path to a [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
    * `bucket_name`: {{ objstorage-name }} bucket name. The name must be unique within the entire {{ objstorage-name }}.
    * `dp_public_key`: Absolute path to a [public SSH key](../../data-proc/operations/connect.md#data-proc-ssh) for the {{ dataproc-name }} cluster.
 
       For an SSH connection to the hosts of {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
-1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-1. Make sure the {{ TF }} configuration files are correct using the command:
+1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+1. Make sure the {{ TF }} configuration files are correct using this command:
 
    ```bash
    terraform validate
    ```
 
-   If there are errors in the configuration files, {{ TF }} will point to them.
+   If there are any errors in the configuration files, {{ TF }} will point to them.
 
 1. Create the required infrastructure:
 
@@ -197,19 +199,19 @@ Let:
 
 {% include [Check import](./check-import.md) %}
 
-## Delete created resources {#clear-out}
+## Deletе created resources {#clear-out}
+
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
 * Manually
 
-   If you no longer need these resources, delete them:
-
    1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
    1. If you reserved a public static IP address for the VM, release and [delete it](../../vpc/operations/address-delete.md).
    1. Delete the clusters:
 
-      * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md);
+      * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
       * [{{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
 
    1. If you created an {{ objstorage-name }} bucket, [delete it](../../storage/operations/buckets/delete.md).
@@ -220,17 +222,17 @@ Let:
 
    To delete the infrastructure created with {{ TF }}:
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `clusters-postgresql-data-proc-and-vm.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -10,7 +10,7 @@ To transfer data:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Prepare the infrastructure:
 
@@ -245,7 +245,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 {% endnote %}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. Delete the resources depending on how they were created:

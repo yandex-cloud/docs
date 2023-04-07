@@ -33,7 +33,7 @@ Examples of free network scanners:
 
 Example of a free scanner that operates as an agent on hosts: [Wazuh](https://documentation.wazuh.com/current/user-manual/capabilities/vulnerability-detection/how_it_works.html). Wazuh can also be used as a host-based intrusion detection system (IDS).
 
-You can also use a [solution](https://cloud.yandex.ru/marketplace/products/scanfactory/scanfactory) from {{ marketplace-name }}.
+You can also use a [solution](/marketplace/products/scanfactory/scanfactory) from {{ marketplace-name }}.
 
 {% list tabs %}
 
@@ -75,7 +75,7 @@ You can also install Wallarm WAF in [{{ managed-k8s-name }}](../../../managed-ku
 
 ##### Managed WAF {#managed-waf}
 
-A customer receives a cloud WAF as a service from {{ yandex-cloud }}. They are provided access to a personal account and the ability to view statistics and perform management. To activate the service and get detailed information, contact your account manager, the [sales department](https://cloud.yandex.ru/#contact-form), or [support]({{link-console-support}}?section=contact). The service is provided in partnership with Qrator.
+A customer receives a cloud WAF as a service from {{ yandex-cloud }}. They are provided access to a personal account and the ability to view statistics and perform management. To activate the service and get detailed information, contact your account manager, the [sales department](/#contact-form), or [support]({{link-console-support}}?section=contact). The service is provided in partnership with Qrator.
 
 [Solution: Installing a damn vulnerable web application (DVWA) in {{ yandex-cloud }} using {{ TF }} to test Managed WAF](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
 

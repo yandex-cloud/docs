@@ -43,7 +43,7 @@ To delegate a domain, specify its DNS servers in the registrar's account.
 
 Delegation does not take effect immediately. It normally takes internet service providers up to 24 hours (86400 seconds) to update records. This depends on the TTL value which determines how long domain records are cached.
 
-You can verify domain delegation using the dig utility or the [Whois service](https://www.reg.com/whois/check_site):
+You can verify domain delegation using the [Whois](https://www.reg.com/whois/check_site) service or the `dig` utility:
 
 ```bash
 dig +short NS example.com
@@ -52,10 +52,9 @@ dig +short NS example.com
 Result:
 
 
-
 ```
 ns2.{{ dns-ns-host-sld }}.
 ns1.{{ dns-ns-host-sld }}.
 ```
-
+
 

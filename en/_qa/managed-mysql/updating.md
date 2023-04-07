@@ -34,7 +34,7 @@ Clusters with local disks have a fault-tolerant 3-host configuration. Fewer host
 
 #### How do I perform a manual failover? {#manual-failover}
 
-In a failover  cluster with multiple hosts, you can switch the master role from the current master host to the replica host. After this operation, the current master host becomes the replica host of the new master.
+In a failover cluster with multiple hosts, you can switch the master role from the current master host to the replica host. After this operation, the current master host becomes the replica host of the new master.
 
 {% list tabs %}
 

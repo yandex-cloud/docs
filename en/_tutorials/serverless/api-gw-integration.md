@@ -21,7 +21,7 @@ To deploy a project:
 
 If you no longer need the created resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -82,7 +82,7 @@ The cost of resources for the integration includes:
       * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
          ```bash
-         curl https://{{ s3-storage-host }}{{ yc-install-path}} | bash
+         curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
          exec -l $SHELL
          yc version
          ```
@@ -282,9 +282,9 @@ To prepare configuration files for {{ TF }}:
      oauth_token = "<OAuth token>"
      zone        = "{{ region-id }}-a"
    }
+
    module "crud-api" {
      source = "https://github.com/yandex-cloud-examples/yc-serverless-ydb-api"
-   
      folder_id                 = local.folder_id
      api_name                  = "movies-api"
      database_name             = "movies-db"

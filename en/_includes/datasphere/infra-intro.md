@@ -1,6 +1,6 @@
 Log in to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the organization that you use to access {{ ml-platform-name }}. On the [billing page]({{ link-console-billing }}), make sure you linked a billing account.
 
-If you have an active billing account, you can go to the [cloud page]({{ link-console-cloud }}) to create or select a folder to run your infrastructure.
+If you have an active billing account, you can create or select a folder to deploy your infrastructure in, on the [cloud page]({{ link-console-cloud }}).
 
 {% note info %}
 

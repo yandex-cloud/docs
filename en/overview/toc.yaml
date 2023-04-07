@@ -45,6 +45,6 @@ items:
     href: sla.md
   - name: Revision history
     href: release-notes.md
-  - name: Questions and answers
+  - name: Troubleshooting
     href: qa.md
 base: en/overview

@@ -30,14 +30,14 @@ If you no longer need these resources, [delete them](#clear-out).
 
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-         * **Database type**: `MySQL`.
+         * **Data base type**: `MySQL`.
          * **Endpoint parameters** → **Connection settings**: `Custom installation`.
 
             Specify the parameters for connecting to the source cluster.
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-         * **Database type**: `MySQL`.
+         * **Data base type**: `MySQL`.
          * **Endpoint parameters** → **Connection settings**: `MDB cluster`.
 
             Select a target cluster from the list and specify the cluster connection settings.
@@ -107,6 +107,8 @@ If you no longer need these resources, [delete them](#clear-out).
    For more information about transfer statuses, see [Transfer lifecycle](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 ## Delete the resources you created {#clear-out}
+
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 

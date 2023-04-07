@@ -1,6 +1,6 @@
 # Overview
 
-This API reference is organized by resource. To perform an operation on a resource, make a remote procedure call (RPC). For more information, see [{{ yandex-cloud }} API concepts](../../../api-design-guide/).
+This API reference is organized by resource. To perform an operation on a resource, make a remote procedure call (RPC). For more information, see the [{{ yandex-cloud }} API concepts](../../../api-design-guide/) documentation.
 
 | Service | Description | Use cases |
 ------|--------|--------

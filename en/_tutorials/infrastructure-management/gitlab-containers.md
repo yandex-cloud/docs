@@ -6,10 +6,10 @@ This tutorial describes:
 
 Each commit to {{ GL }} is followed by:
 * Running a script that includes steps to build the [Docker image](../../container-registry/concepts/docker-image.md).
-* Applying a new {{ managed-k8s-name }} cluster configuration specifying the application to be deployed.
+* Applying a new {{ managed-k8s-name }} cluster configuration specifying the application to deploy.
 
 To set up the infrastructure needed to store the source code, build the Docker image, and deploy your applications, follow these steps:
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 
    
    1. [Review the list of paid resources available](#paid-resources).
@@ -104,13 +104,13 @@ To run the script, install the following in the local environment:
          * Name of the cluster service account.
          * Name of the {{ container-registry-name }} registry.
       1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
       1. Create the required infrastructure:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -209,7 +209,8 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 1. [Delete the created Docker images](../../container-registry/operations/docker-image/docker-image-delete.md).
 1. Delete the {{ managed-k8s-name }} cluster and {{ container-registry-name }} registry:
 
@@ -217,7 +218,7 @@ If you no longer need these resources, delete them:
 
    - Manually
 
-      1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+      1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
       1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
       1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
       1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
@@ -226,14 +227,14 @@ If you no longer need these resources, delete them:
 
       1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
       1. Delete the `k8s-gl.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
-      1. Confirm the update of resources.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
+      1. Confirm the resources have been updated.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

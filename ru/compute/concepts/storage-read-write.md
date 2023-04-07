@@ -35,6 +35,228 @@
 
 Для HDD-дисков небольшого размера предусмотрен механизм увеличения характеристик до уровня дисков размером 1 ТБ на период повышенной нагрузки. Работая на [базовом уровне производительности](../concepts/limits.md#compute-limits-disks) в течение 12 часов, небольшой диск накапливает <q>кредиты на операции</q>, которые будут потрачены автоматически при увеличении нагрузки (например, при старте ВМ). Небольшие HDD-диски могут работать с увеличенными характеристиками около 30 минут в день. <q>Кредиты на операции</q> могут быть потрачены как за один раз, так и небольшими промежутками. Для HDD-хранилищ механизм не предусмотрен.
 
+### Тестирование производительности дисков {#test-performance}
+
+Для тестирования производительности сетевых дисков можно воспользоваться утилитой [fio](https://fio.readthedocs.io/en/latest/fio_doc.html):
+
+1. [Подключите](../operations/vm-control/vm-attach-disk.md) диск к ВМ. 
+1. Установите утилиту [fio](https://fio.readthedocs.io/en/latest/fio_doc.html) на ВМ:
+    
+    Пример команды для ОС Ubuntu:
+
+    ```bash
+    sudo apt-get update && sudo apt-get install fio -y
+    ```
+
+1. Запустите утилиту `fio` и выполните сценарий:
+
+    ```bash
+    sudo fio \
+    --filename=/dev/vdb \
+    --direct=1 \
+    --rw=write \
+    --bs=4k \
+    --ioengine=libaio \
+    --iodepth=64 \
+    --runtime=120 \
+    --numjobs=8 \
+    --time_based \
+    --group_reporting \
+    --eta-newline=1
+    ```
+
+    Где:
+
+    * `filename=/dev/vdb` — имя тестируемого диска. Чтобы посмотреть подключенные диски, выполните команду `lsblk`.
+    * `direct` — использование буферизации, где `0` — использовать, `1` — не использовать.
+    * `rw` — шаблон нагрузки. Возможные значения: 
+      * `read` — последовательное чтение;
+      * `write` — последовательная запись;
+      * `rw` — последовательные чтения/записи;
+      * `randrw` — случайные чтение/запись;
+      * `randwrite` — случайная запись;
+      * `randread` — случайное чтение.
+    * `bs` — размер блока чтения/записи. Чтобы получить лучший результат, укажите значение меньше или равное размеру блока диска.
+    * `iodepth` — глубина блоков io на каждое задание (`job`).
+    * `runtime` — длительность тестирования, в секундах.
+    * `numjobs` — количество заданий чтения/записи.
+
+### Примеры сценариев {#test-examples}
+
+#### Тестирование IOPS, последовательная запись {#iops-write-example}
+
+```bash
+sudo fio \
+--name=readio \
+--filename=/dev/vdd \
+--direct=1 \
+--rw=write \
+--bs=4k \
+--ioengine=libaio \
+--iodepth=96 \
+--runtime=120 \
+--numjobs=4 \
+--time_based \
+--group_reporting \
+--eta-newline=1
+```
+
+Результат:
+
+```
+---
+  write: IOPS=39.7k, BW=155MiB/s (162MB/s)(5112MiB/33001msec); 0 zone resets
+    slat (usec): min=2, max=19776, avg= 5.25, stdev=47.15
+    clat (usec): min=874, max=5035.1k, avg=9677.38, stdev=40976.63
+     lat (usec): min=889, max=5035.1k, avg=9682.81, stdev=40976.66
+---
+```
+
+#### Тестирование IOPS, случайная запись {#iops-random-write-example}
+
+```bash
+sudo fio \
+--name=randwrite \
+--filename=/dev/vdd \
+--direct=1 \
+--rw=randwrite \
+--bs=4k \
+--ioengine=libaio \
+--iodepth=96 \
+--runtime=120 \
+--numjobs=1 \
+--time_based \
+--group_reporting \
+--eta-newline=1
+```
+
+Результат:
+
+```
+---
+write: IOPS=9596, BW=37.5MiB/s (39.3MB/s)(4499MiB/120011msec); 0 zone resets
+    slat (usec): min=2, max=338, avg= 5.21, stdev= 4.52
+    clat (usec): min=680, max=161320, avg=9996.54, stdev=10695.67
+     lat (usec): min=698, max=161323, avg=10001.94, stdev=10695.77
+---
+```
+
+#### Тестирование пропускной способности, последовательная запись {#bandwidth-write-example}
+
+```bash
+sudo fio \
+--name=writebw \
+--filename=/dev/vdd \
+--direct=1 \
+--rw=write \
+--bs=4M \
+--ioengine=libaio \
+--iodepth=32 \
+--runtime=120 \
+--numjobs=1 \
+--time_based \
+--group_reporting \
+--eta-newline=1
+```
+
+Результат:
+
+```
+---
+   write: IOPS=112, BW=449MiB/s (471MB/s)(52.8GiB/120237msec); 0 zone resets
+    slat (usec): min=166, max=270963, avg=8814.82, stdev=10995.16
+    clat (msec): min=58, max=661, avg=276.06, stdev=28.21
+     lat (msec): min=60, max=679, avg=284.88, stdev=27.91
+---
+```
+
+#### Тестирование IOPS, последовательное чтение {#iops-read-example}
+
+```bash
+sudo fio \
+--name=readio \
+--filename=/dev/vdd \
+--direct=1 \
+--rw=read \
+--bs=4k \
+--ioengine=libaio \
+--iodepth=128 \
+--runtime=120 \
+--numjobs=8 \
+--time_based \
+--group_reporting \
+--eta-newline=1
+```
+
+Результат:
+
+```
+---
+  read: IOPS=62.2k, BW=243MiB/s (255MB/s)(28.5GiB/120008msec)
+    slat (usec): min=2, max=123901, avg= 6.88, stdev=151.96
+    clat (usec): min=859, max=168609, avg=16450.99, stdev=8226.23
+     lat (usec): min=877, max=168611, avg=16458.07, stdev=8229.16
+---
+```
+
+#### Тестирование пропускной способности на чтение {#bandwidth-read-example}
+
+```bash
+sudo fio \
+--name=readbw \
+--filename=/dev/vdd \
+--direct=1 \
+--rw=read \
+--bs=4M \
+--ioengine=libaio \
+--iodepth=32 \
+--runtime=120 \
+--numjobs=1 \
+--time_based \
+--group_reporting \
+--eta-newline=1
+```
+
+Результат:
+
+```
+---
+  read: IOPS=112, BW=449MiB/s (470MB/s)(52.7GiB/120227msec)
+    slat (usec): min=85, max=177850, avg=8878.47, stdev=9824.19
+    clat (msec): min=50, max=4898, avg=276.36, stdev=45.16
+     lat (msec): min=52, max=4898, avg=285.24, stdev=44.94
+---
+```
+
+#### Тестирование IOPS, случайное чтение {#iops-random-read-example}
+
+```bash
+sudo fio \
+--name=randread \
+--filename=/dev/vdd \
+--direct=1 \
+--rw=randread \
+--bs=4k \
+--ioengine=libaio \
+--iodepth=16 \
+--runtime=120 \
+--numjobs=8 \
+--time_based \
+--group_reporting \
+--eta-newline=1
+```
+
+Результат:
+
+```
+---
+ read: IOPS=17.0k, BW=66.4MiB/s (69.6MB/s)(7966MiB/120006msec)
+    slat (usec): min=2, max=114, avg= 9.05, stdev= 5.36
+    clat (usec): min=172, max=251507, avg=7519.93, stdev=6463.84
+     lat (usec): min=179, max=251511, avg=7529.25, stdev=6464.41
+---
+```
+
 ### Троттлинг {#throttling}
 
 Если в какой-то промежуток времени ВМ не укладывается в [дисковые лимиты](limits.md#compute-limits-disks), срабатывает троттлинг.

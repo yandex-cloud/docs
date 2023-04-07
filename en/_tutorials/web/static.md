@@ -20,7 +20,6 @@ You can also deploy the infrastructure for hosting a static website in {{ objsto
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of hosting a static website includes:
@@ -29,7 +28,7 @@ The cost of hosting a static website includes:
 * A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
 * A fee for public DNS queries and zones (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
-
+
 
 ## Create a public bucket {#create-public-bucket}
 
@@ -176,12 +175,10 @@ dig +short NS example.com
 Result:
 
 
-
 ```text
 ns2.yandexcloud.net.
 ns1.yandexcloud.net.
 ```
-
 
 
 

@@ -7,9 +7,9 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
 1. [Configure PHP to use the {{ mrd-name }} cluster as storage for sessions](#settings-php).
 1. [Check whether PHP session data is saved to the {{ mrd-name }} cluster](#test-settings).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
@@ -18,11 +18,13 @@ If you no longer need these resources, [delete them](#clear-out).
 - Manually
 
    
-   1. [Configure the {{ vpc-name }} security group](../../vpc/operations/security-group-add-rule.md). Add TCP settings to the security group to allow the following:
+   1. If you use {{ vpc-name }} security groups, [configure them](../../vpc/operations/security-group-add-rule.md). Add TCP settings to the security group to allow the following:
 
       * Incoming traffic through port `22` from any IP addresses for SSH.
       * Outgoing and incoming traffic through ports `80` and `443` to and from any IP address for HTTP/HTTPS.
       * Outgoing and incoming traffic through port `6379` to and from internal network IP addresses for {{ RD }}.
+
+      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
       For details, see [{#T}](../../vpc/concepts/security-groups.md).
 
@@ -59,13 +61,13 @@ If you no longer need these resources, [delete them](#clear-out).
       * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file to use to access to the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
 
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -146,7 +148,7 @@ If you no longer need these resources, [delete them](#clear-out).
       session.save_path = "seed[]=<FQDN1>:6379&seed[]=<FQDN2>:6379&seed[]=<FQDN3>:6379&auth=<password>"
       ```
 
-      Where `<FQDN1>`, `<FQDN2>`, and `<FQDN3>` are fully qualified domain names of [cluster master hosts](../../managed-redis/operations/hosts.md#list). For example, for a cluster with 3 shards and the password `password`, the `session.save_path` parameter value looks like this:
+      Where `<FQDN1>`, `<FQDN2>`, and `<FQDN3>` are fully qualified domain names of [cluster master hosts](../../managed-redis/operations/hosts.md#list). For example, for a cluster with three shards and the `password` password, the `session.save_path` parameter value will look like this:
 
       ```ini
       session.save_path = "seed[]=rc1a-t9h8gxqor5v6lcc3.{{ dns-zone }}:6379&seed[]=rc1b-7qxk0h3b8pupxsj9.{{ dns-zone }}:6379&seed[]=rc1c-spy1c1i4vwvj0n8z.{{ dns-zone }}:6379&auth=password"
@@ -168,11 +170,11 @@ If you no longer need these resources, [delete them](#clear-out).
    ```php
    <?php
    session_start();
-   
+
    $count = isset($_SESSION['count']) ? $_SESSION['count'] : 1;
-   
+
    echo $count;
-   
+
    $_SESSION['count'] = $count * 2;
    ```
 
@@ -220,11 +222,11 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
+Delete the resources you no longer need to avoid paying for them:
+
 {% list tabs %}
 
 - Manually
-
-   If you no longer need these resources, delete them:
 
    * [Delete the {{ mrd-full-name }} cluster](../../managed-redis/operations/cluster-delete.md).
    * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
@@ -234,17 +236,17 @@ If you no longer need these resources, [delete them](#clear-out).
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the configuration file (`redis-cluster-non-sharded-and-vm.tf` or `redis-cluster-sharded-and-vm.tf`).
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

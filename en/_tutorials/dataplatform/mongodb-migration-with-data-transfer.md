@@ -2,7 +2,7 @@
 
 To migrate collections stored in a third-party {{ MG }} cluster to a {{ mmg-name }} cluster, you need to directly transfer the data, make the old databases read-only, and transfer the load to the {{ yandex-cloud }} cluster.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Make sure that you can connect to the source cluster hosts from the internet.
 
@@ -205,7 +205,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
 ### Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 

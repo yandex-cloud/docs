@@ -238,7 +238,7 @@ Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Insta
    1. Open the folder where the DB cluster was created and select **{{ mpg-name }}**.
    1. Select the cluster `joomla-pg-tutorial-db-cluster`.
    1. Open the **Hosts** tab.
-   1. Copy the host addresses from the **Host name** column.
+   1. In the **Address (domain name)** column, find the host addresses.
 1. At the **Database** step, fill in the following fields in the Joomla web installer:
    * **Database type**: `{{ PG }}`.
    * **DB server name**:
@@ -260,7 +260,7 @@ Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Insta
    sudo restorecon -R /var/www/html
    ```
 
-1. After the installation is completed, delete the `installation` directory. This is a Joomla security requirement:
+1. After installation is complete, delete the `Installation` folder. This is a Joomla security requirement:
    ```bash
    sudo rm -rf /var/www/html/installation
    ```

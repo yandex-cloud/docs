@@ -18,7 +18,7 @@
 
 * Вручную
 
-    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db) любой подходящей конфигурации.
+    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 

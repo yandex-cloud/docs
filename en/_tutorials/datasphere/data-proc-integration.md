@@ -9,7 +9,7 @@ You can use the Apache Spark™ clusters deployed in {{ dataproc-full-name }}, i
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
@@ -232,6 +232,8 @@ To learn more about running computations in the {{ dataproc-name }} clusters in
 Using the cluster deployed in {{ dataproc-name }}, you manage its lifecycle on your own. The cluster will run, and you will be [charged](../../data-proc/pricing.md) for it until you shut it down.
 
 {% endnote %}
+
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 

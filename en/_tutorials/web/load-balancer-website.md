@@ -88,7 +88,7 @@ To create an instance group with a pre-installed web server:
 
 ## Upload the website files {#upload-files}
 
-To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from this [archive](https://{{ s3-storage-host }}/doc-files/index.html.zip).
+To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from [this archive](https://{{ s3-storage-host }}/doc-files/index.html.zip).
 
 Do the following for each VM instance in the [created group](#create-vms):
 1. On the **Virtual machines** tab, click on the name of the desired VM in the list. Under **Network**, find the VM's public IP address.

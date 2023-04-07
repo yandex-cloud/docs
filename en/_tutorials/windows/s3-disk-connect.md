@@ -13,9 +13,9 @@ To mount your bucket as a disk:
 1. [Mount the bucket](#bucket-mount).
 1. [Set up the mounting service](#mount-service).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -132,7 +132,7 @@ The cost for bucket support includes:
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
+   1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
    1. Create a bucket named `bucket-for-win`:
 
       ```bash
@@ -170,20 +170,20 @@ The cost for bucket support includes:
 
       For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -199,14 +199,14 @@ The cost for bucket support includes:
 
 ## Set up a connection to {{ objstorage-name }} {#rclone-config}
 
-1. Open the command prompt in your working directory and run the command:
+1. Open the command prompt in your working directory as an admin user and run the following command:
 
    ```powershell
    psexec -i -s cmd.exe
    ```
 
 1. In the console that opens, run `whoami` and make sure that the session has been started by the system user.
-1. Run a configuration session for `rclone`:
+1. Go to the working directory and run a configuration session for `rclone`:
 
    ```powershell
    rclone.exe config
@@ -247,13 +247,9 @@ If needed, you can run an advanced connection setup. For this, at the `Edit adva
    rclone.exe mount s3-connect:bucket-for-win <disk letter>: --vfs-cache-mode full
    ```
 
-   You'll see a new disk with the objects from the bucket in the Windows Explorer.
+   You will see a new disk with the objects from the bucket in Windows Explorer.
 
-1. Unmount the bucket:
-
-   ```powershell
-   rclone.exe unmount s3-connect:bucket-for-win
-   ```
+1. To mount the bucket, press **Ctrl** + **C**.
 
 ## Set up the mounting service {#mount-service}
 
@@ -295,7 +291,7 @@ You can also set up the service to start on behalf of the system user (for more 
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 
 * [Delete objects](../../storage/operations/objects/delete-all.md) from `bucket-for-win`.
 * [Delete](../../storage/operations/buckets/delete.md) `bucket-for-win`.

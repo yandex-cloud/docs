@@ -67,16 +67,16 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
    ```boto
    [Credentials]
    gs_service_client_id  =<Google Cloud service account>
-   gs_service_key_file   =<absolute path to JSON file with the access key for the Google Cloud service account>
-   aws_access_key_id     =<key ID of the {{ yandex-cloud }} service account>
-   aws_secret_access_key =<secret key of the {{ yandex-cloud }}service account>
-   
+   gs_service_key_file   =<absolute path to the JSON file with the access key for the Google Cloud service account>
+   aws_access_key_id     =<{{ yandex-cloud }} service account key ID>
+   aws_secret_access_key =<{{ yandex-cloud }} service account secret key>
+
    [GSUtil]
      default_project_id    =<Google Cloud project ID>
-   
+
    [s3]
      calling_format=boto.s3.connection.OrdinaryCallingFormat
-     host=storage.yandexcloud.net
+     host={{ s3-storage-host }}
    ```
 
    Where:
@@ -97,7 +97,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
    import os
    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="<absolute path to JSON file with the access key for the Google Cloud service account>"
    os.environ["BOTO_CONFIG"]="<absolute path to the credentials.boto file>"
-   
+
    def parse_args():
        parser = argparse.ArgumentParser(description='Export data from Google Big Query to Yandex Cloud object storage')
        parser.add_argument('--bq_project', type=str, help='GBQ project ID')
@@ -106,7 +106,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
        parser.add_argument('--yc_bucket', type=str, help='YC copy destination bucket')
        parser.add_argument('--gsutil_path', type=str, help='GSutil exec path', default='gsutil')
        return parser.parse_args()
-   
+
    def select_from_list(message, elements):
        print(message)
        print("\t{}. {}".format(0, "Export all"))
@@ -120,11 +120,11 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
        except ValueError:
            print("Exiting")
            sys.exit()
-   
+
    if __name__ == '__main__':
        args = parse_args()
        client = bigquery.Client()
-   
+
        datasets = list(client.list_datasets(args.bq_project))
        dataset_selector = select_from_list("Datasets in project {}".format(args.bq_project), datasets)
        export_list = []
@@ -140,16 +140,16 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
                    for j in range(len(tables)):
                        if table_selector == 0 or j == table_selector - 1:
                            export_list.append(tables[j])
-   
+
        print("Starting tables export")
        for n in range(len(export_list)):
            table_ref = export_list[n].reference
-   
+
            # Creating Extract Job config. Selecting compression level and data format.
            job_config = bigquery.job.ExtractJobConfig()
            job_config.compression = bigquery.Compression.GZIP
            job_config.destination_format = bigquery.DestinationFormat.PARQUET
-   
+
            print("Exporting {} table".format(table_ref.table_id))
            extract_job = client.extract_table(
                source=table_ref,
@@ -159,7 +159,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
                job_config=job_config)
            extract_job.result()
        print("Tables export done")
-   
+
        # Calling gsutil rsync to synchronize source and destination buckets.
        source_uri = "gs://{}/".format(args.gs_bucket)
        destination_uri = "s3://{}/".format(args.yc_bucket)
@@ -176,7 +176,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 1. Run the `main.py` script to start migrating data from Google BigQuery to the Google Storage bucket and then to the {{ objstorage-full-name }} bucket:
 
    ```bash
-   python main.py \ 
+   python main.py \
        --bq_project=<ID of the Google Cloud project> \
        --bq_location=US \
        --gs_bucket=<name of the Google Cloud Storage bucket> \
@@ -203,7 +203,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
    refresh_date
    FROM s3Cluster(
      '<cluster ID>',
-     'https://storage.yandexcloud.net/<{{ objstorage-name }} bucket name>/top_terms-*',
+     'https://{{ s3-storage-host }}/<{{ objstorage-name }} bucket name>/top_terms-*',
      'Parquet',
      'rank Int32,
      country_name String,
@@ -246,6 +246,8 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 The system will analyze the usage of this query in the search system, and the result will be output as a bar chart by countries.
 
 ## Delete the resources you created {#clear-out}
+
+Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ mch-name }} cluster](../managed-clickhouse/operations/cluster-delete.md).
 1. [Delete all objects from the {{ objstorage-name }} bucket](../storage/operations/objects/delete-all.md), then [delete the bucket](../storage/operations/buckets/delete.md).

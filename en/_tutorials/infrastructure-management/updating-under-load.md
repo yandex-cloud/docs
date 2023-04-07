@@ -1,14 +1,14 @@
 # Updating an instance group under load
 
 Using this step-by-step guide, you will configure an [instance group](../../compute/concepts/instance-groups/index.md) and check its operation when updating the configuration. To do this:
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Prepare the environment](#create-environment).
 1. [Create an instance group from a {{ coi }}](#create-vm-group).
 1. [Create a load on an instance](#start-load-testing).
 1. [Update the instance group under load](#update-spec).
 1. [Stop the load and get the results](#end-load-testing).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -167,7 +167,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          * Click **Configure**.
          * In the **Docker container settings** window:
             * **Name** it `nginx`.
-            * In the **Docker image** field, click the **Enter link** button and enter `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
+            * In the **Docker image** field, click the **Enter link** button and type `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
             * Click **Apply**.
          * In the **Disks** section:
             * For the boot disk, specify the **Size** of 30 GB.

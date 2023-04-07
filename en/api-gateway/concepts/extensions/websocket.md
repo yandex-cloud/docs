@@ -1,6 +1,10 @@
 # WebSocket protocol support
 
-{% include [note-preview-pp](../../../_includes/note-preview-pp.md) %}
+{% note info %}
+
+{% include [preview-pp.md](../../../_includes/preview-pp.md) %}
+
+{% endnote %}
 
 To connect to an API gateway using the WebSocket protocol, client applications must make a [GET request](https://www.rfc-editor.org/rfc/rfc6455#section-1.3) to the URI for which integrations according to OpenAPI specifications are set up. Integrations are called when the following operations are performed:
 * `x-yc-apigateway-websocket-connect`: Open connections.
@@ -33,7 +37,7 @@ It isn't a required operation. If the operation isn't defined in the specificati
 
 ## x-yc-apigateway-websocket-message operation {#message}
 
-The operation is executed when a message from the client's side is sent. {{ api-gw-name }}calls an integration by performing the operation. Data from a websocket is passed in the body of an HTTP request to the integration. Text (UTF-8) and binary messages according to [RFC](https://www.rfc-editor.org/rfc/rfc6455#section-5.6) are supported. In text-based data, the `Content-Type` header gets the `application/json` value, in binary, `application/octet-stream`. If the {{ sf-name }} function is used as an integration, the binary message is Base64-encoded, the resulting string value is written to the `body` field of the [JSON structure](../../../functions/concepts/function-invoke.md#request) of the request, and the `isBase64Encoded` option is set to `true`.
+The operation is executed when a message from the client's side is sent. {{ api-gw-name }} calls an integration by performing the operation. Data from a websocket is provided in the body of an HTTP request to the integration. Text (UTF-8) and binary messages according to [RFC](https://www.rfc-editor.org/rfc/rfc6455#section-5.6) are supported. In text-based data, the `Content-Type` header gets the `application/json` value, in binary, `application/octet-stream`. If the {{ sf-name }} function is used as an integration, the binary message is Base64-encoded; the resulting string value is written to the `body` field of the [JSON structure](../../../functions/concepts/function-invoke.md#request) of the request, while the `isBase64Encoded` option is set to `true`.
 
 The body of the integration response is transferred to a web socket to the client's side as an individual message. If the `Content-Type` response from the integration has the `application/json` value or starts with the `text/` prefix, a text message is sent. Otherwise, a binary message is transferred.
 

@@ -39,11 +39,11 @@ Migration stages:
 
 1. [Restore data from the dump](#restore).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-### Before you begin {#before-you-begin}
+### Getting started {#before-you-begin}
 
-Create the necessary resources:
+Create the required resources:
 
 {% list tabs %}
 
@@ -59,7 +59,7 @@ Create the necessary resources:
 
       * [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
 
-   1. (Optional) [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
+   1. (Optional step) [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) based on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
 
       * **Disks and file storage** → **Size**: Sufficient to store both archived and unarchived dumps.
 
@@ -70,11 +70,15 @@ Create the necessary resources:
          * **Subnet**: Select a subnet on the cloud network hosting the target cluster.
          * **Public address**: Select `Auto` or one address from a list of reserved IPs.
 
-   1. [Set up security groups](../../managed-mysql/operations/connect.md#configure-security-groups) for the intermediate VM and the {{ mmy-name }} cluster.
+   
+   1. If you use security groups for the intermediate VM and the {{ mmy-name }} cluster, [configure them](../../managed-mysql/operations/connect.md#configure-security-groups).
+
+      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 
 * Using Terraform
 
-   1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file [data-migration-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-migration-mysql-mmy.tf) to the same working directory.
 
@@ -90,24 +94,24 @@ Create the necessary resources:
 
       * Target cluster parameters:
 
-         * `target_mysql_version`: The {{ MY }} version must be the same or higher than the version in the source cluster.
+         * `target_mysql_version`: {{ MY }} version must be the same or higher than the version in the source cluster.
          * `target_sql_mode`: [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
          * `target_db_name`: Database name.
-         * `target_user` and `target_password`: Username and password of the database owner.
+         * `target_user` and `target_password`: Database owner username and password.
 
       * (Optional) Virtual machine parameters:
 
-         * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts).
-         * `vm_username` and `vm_public_key`: Username and absolute path to a [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
+         * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU, e.g., [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+         * `vm_username` and `vm_public_key`: Username and absolute path to a [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -308,13 +312,15 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 
 You can get the cluster ID with a [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
-### Delete created resources {#clear-out}
+### Deletе created resources {#clear-out}
+
+Delete the resources you no longer need to avoid paying for them:
+
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
 * Manually
-
-   If you no longer need these resources, delete them:
 
    * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
    * If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
@@ -324,17 +330,17 @@ You can get the cluster ID with a [list of clusters in the folder](../../managed
 
    To delete the infrastructure created with {{ TF }}:
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the configuration file `data-migration-mysql-mmy.tf`.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

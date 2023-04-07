@@ -7,7 +7,7 @@ To sign Docker images and set up their verification:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
@@ -236,7 +236,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       {% endcut %}
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       kubectl apply -f ./policy.yaml
@@ -282,11 +282,12 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 {% list tabs %}
 
 - Manually
 
-   If you no longer need these resources, delete them:
    1. [Delete the {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If you reserved a public static IP address for the cluster, [delete it](../vpc/operations/address-delete.md).
    1. [Delete the service accounts](../iam/operations/sa/delete.md).

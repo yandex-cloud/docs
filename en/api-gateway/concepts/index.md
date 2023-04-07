@@ -36,7 +36,11 @@ For more information about domains, see [{#T}](../../certificate-manager/concept
 
 ## WebSocket {#websocket}
 
-{% include [note-preview-pp](../../_includes/note-preview-pp.md) %}
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
 
 For two-way asynchronous communication between clients and an API gateway, {{ api-gw-short-name }} supports the [WebSocket](https://en.wikipedia.org/wiki/WebSocket) protocol. Clients can send messages to an API gateway, which in turn can independently send messages to client applications. That means clients can receive data without having to make an HTTP request. Web sockets are often used in applications that require real-time data updates, such as messengers and online chats, multiplayer games, collaboration tools, trading apps, and sports betting services.
 

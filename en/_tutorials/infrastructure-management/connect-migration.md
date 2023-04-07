@@ -1,6 +1,6 @@
 # Migrating DNS zones from Yandex 360 to {{ dns-full-name }}
 
-If your domain is delegated to Yandex 360 and your services are hosted in {{ yandex-cloud }}, you can transfer domain control to {{ yandex-cloud }} DNS servers and migrate DNS zones to {{ dns-full-name }} for even more convenience. {{ dns-full-name }} is tightly integrated with other {{ yandex-cloud }} services ([such as {{ compute-full-name }}](../../dns/concepts/compute-integration.md)).
+If your domain is delegated to Yandex 360 and your services are hosted in {{ yandex-cloud }}, you can transfer domain control to {{ yandex-cloud }} DNS servers and migrate DNS zones to {{ dns-full-name }} for even more convenience. {{ dns-full-name }} is tightly integrated with other {{ yandex-cloud }} services, such as [{{ compute-full-name }}](../../dns/concepts/compute-integration.md).
 
 To migrate DNS zones from Yandex 360 to {{ dns-full-name }}:
 1. [Delegate your domain](#domain-delegate).

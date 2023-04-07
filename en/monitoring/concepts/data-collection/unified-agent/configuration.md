@@ -25,7 +25,7 @@ We recommend adding your custom configuration to a separate file in the director
 In [{#T}](#examples), you can find a variety of sample configurations as well as a reference example with a complete list of configuration parameters and their descriptions.
 
 ## Importing configuration files {#import}
-You can import other configuration files using the `import` directive. The value of the directive is a string or array of strings, each string expanded using the [glob](http://man7.org/linux/man-pages/man7/glob.7.html) function. Files are imported in the order of the `import` directives. Within each directive, they follow the lexicographic file name order.
+You can import other configuration files using the `import` directive. The value of the directive is a string or array of strings, each string expanded using the [glob](http://man7.org/linux/man-pages/man7/glob.7.html). Files are imported in the order of the `import` directives. Within each directive, they follow the lexicographic file name order.
 
 When importing configuration files, the following rules apply:
 
@@ -71,7 +71,7 @@ status: # optional
   # You can disable status viewing with the "false" value.
   enabled: true # optional, true by default
 
-  # Host for viewing the status, null/empty string/:: — on all interfaces.
+  # Host for viewing the status, null/empty string/::: on all interfaces.
   # For security reasons, the status service is only available locally by default.
   host: localhost # optional
 
@@ -218,7 +218,7 @@ An example of the `case` element:
             plugin: dev_null
 
       # Any message and session elements can be omitted inside when.
-      # The continue property is supported — don't stop searching for a suitable channel if the "when condition" is met.
+      # The continue property is supported: don't stop searching for a suitable channel if the "when condition" is met.
       # You can send incoming messages to multiple matching channels that way.
       - when:
           message:
@@ -350,7 +350,7 @@ system:  # optional
 ### flow_control section {#flow_control}
 This section contains a configuration for session control. The settings let you configure various session limits and their behavior upon reaching the limits.
 
-You can use the flow_control section for inputs and storage references (storage_ref).
+You can use the `flow_control` section for inputs and storage references (storage_ref).
 
 Parameter descriptions:
 
@@ -486,8 +486,8 @@ Parameter descriptions:
     sys_directory: "/sys" # optional, default value is /sys
 
     # List of resources to collect statistics from.
-    # Key — one of the values: cpu, memory, network, storage, io, kernel.
-    # Value — level of detail, takes one of basic or advanced.
+    # Key: one of the values: cpu, memory, network, storage, io, kernel.
+    # Value: level of detail, takes one of basic or advanced.
     resources: # optional
         cpu: advanced # optional, default value is basic
 
@@ -504,7 +504,7 @@ Parameter descriptions:
 
 ### Filters {#filters}
 
-#### Assign filter {#assign_filter}
+#### assign filter {#assign_filter}
 
 A filter for assigning metadata to a session or message.
 
@@ -635,7 +635,7 @@ Parameter descriptions:
 
 #### filter_metrics filter {#filter_metrics_filter}
 
-The filter lets you decrease the set of passed metrics based on the label values.
+The filter allows you to decrease the set of metrics being transferred based on the label values.
 
 ```yaml
 - filter:
@@ -646,7 +646,7 @@ The filter lets you decrease the set of passed metrics based on the label values
         match: "{name=gauge-*}"  # required
 ```
 
-#### Match filter {#match_filter}
+#### match filter {#match_filter}
 
 Filtering messages based on metadata: the filter only skips messages that contain all listed metadata.
 
@@ -674,7 +674,7 @@ Parameter descriptions:
 
 #### transform_metric_label filter {#transform_metric_label_filter}
 
-The filter helps add new metrics and delete and replace existing ones. A label value can be a string literal or a text expression using other labels. You can use the `match` expression to limit the collection of metrics the transformation is applied to.
+The filter helps add new labels to metrics, as well as delete and replace existing labels. A label value can be a string literal or a text expression with other labels. You can use the `match` expression to limit the collection of metrics the transformation is applied to.
 
 Parameter descriptions:
 ```yaml

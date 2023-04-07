@@ -1,6 +1,7 @@
 # Uploading audit logs to {{ mch-full-name }} and data visualization in {{ datalens-full-name }}
 
 Upload [audit logs](../audit-trails/concepts/format.md) from a folder to {{ mch-full-name }} and analyze resource use in [{{ datalens-full-name }}]({{ link-datalens-main }}).
+
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#environment-preparing).
 1. [Create a trail](#create-trail).
@@ -78,6 +79,7 @@ The infrastructure support cost includes:
 - {{ TF }}
 
   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
   1. In the configuration file, describe the service account parameters:
 
      ```hcl
@@ -581,6 +583,7 @@ Example dashboard:
 ## How to delete created resources {#clear-out}
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 * [Delete the cluster](../managed-postgresql/operations/cluster-delete.md) `trail-logs`.
 * [Delete the stream](../data-streams/operations/manage-streams.md#delete-data-stream) `trail-logs-stream`.
 * [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both source and target.

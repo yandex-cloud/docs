@@ -1,1 +1,1 @@
-The functionality is at the [Preview](../overview/concepts/launch-stages.md) stage.
+This feature is in the [Preview](../overview/concepts/launch-stages.md) stage.

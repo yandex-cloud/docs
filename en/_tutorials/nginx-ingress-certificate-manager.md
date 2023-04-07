@@ -2,7 +2,7 @@ Manage the TLS certificate for the NGINX Ingress controller via {{ certificate-m
 
 The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) syncs the certificate with the [{{ k8s }} secret](../managed-kubernetes/concepts/encryption.md). This helps control the deployed application's certificate via {{ certificate-manager-name }} by importing a self-signed certificate and updating it on your own or by issuing a Let's Encrypt<sup>®</sup> certificate that will update automatically.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -377,28 +377,28 @@ Where `<domain_name>` is the name of the domain for which the certificate is iss
 
 ## Check resource availability {#check-service-availability}
 
-Send a GET request to the resource via HTTPS, for example, by this command:
+Issue a GET request to the resource via HTTPS, for example, by this command:
 
-```bash
-curl <domain_name> -vv
-```
+    ```bash
+    curl <domain_name> -vv
+    ```
 
-Example output:
+    Example output:
 
-```text
-*   Trying 51.250.64.86:443...
-* Connected to <domain_name> (51.250.64.86) port 443 (#0)
-...
-* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
-* ALPN, server accepted to use h2
-* Server certificate:
-*  subject: CN=<domain_name>
-*  start date: Jul 13 14:31:55 2022 GMT
-*  expire date: Oct 11 14:31:54 2022 GMT
-*  subjectAltName: host "<domain_name>" matched cert's "<domain_name>"
-...
-*  SSL certificate verify ok.
-```
+    ```text
+    *   Trying 51.250.64.86:443...
+    * Connected to <domain_name> (51.250.64.86) port 443 (#0)
+    ...
+    * SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+    * ALPN, server accepted to use h2
+    * Server certificate:
+    *  subject: CN=<domain_name>
+    *  start date: Jul 13 14:31:55 2022 GMT
+    *  expire date: Oct 11 14:31:54 2022 GMT
+    *  subjectAltName: host "<domain_name>" matched cert's "<domain_name>"
+    ...
+    *  SSL certificate verify ok.
+    ```
 
 The Let's Encrypt<sup>®</sup> certificate must update automatically after the [certificate update](../certificate-manager/operations/managed/cert-update.md) in {{ certificate-manager-name }}.
 
@@ -406,7 +406,7 @@ You can specify a sync timeout in the `refreshInterval` parameter of the [Extern
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ k8s }} cluster.
 1. [Delete](../network-load-balancer/operations/load-balancer-delete.md) {{ network-load-balancer-short-name }}.

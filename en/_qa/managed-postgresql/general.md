@@ -170,3 +170,13 @@ Cluster backups are stored and available in all three data centers.
 {% include [fz-152.md](../../_qa/fz-152.md) %}
 
 
+#### Can I get superuser privileges in {{ PG }}? {#superuser}
+
+No, you cannot. Superuser privileges are not available to {{ mpg-name }} users. The highest privileges for working with clusters are granted to users with the [`mdb_admin` role](../../managed-postgresql/concepts/roles#mdb-admin).
+
+#### Are there any specifics of or restrictions for using the garbage collector in {{ mpg-name }} clusters? {#vacuum}
+
+{{ mpg-name }} clusters support all parameters of the [VACUUM command](https://www.postgresql.org/docs/current/sql-vacuum.html). However, you should consider the following specifics when using them:
+
+* To run `VACUUM FULL`, the user must have the [`mdb_admin` role](../../managed-postgresql/concepts/roles#mdb-admin). The VACUUM FULL command does not affect system views.
+* In {{ PG }} version 14, the functionality of the `INDEX_CLEANUP` parameter is enhanced: it now has the `AUTO` value by default. This means that the `VACUUM` command skips index cleanup if it is considered unfeasible. To ensure backward compatibility with the previous {{ PG }} versions, set `INDEX_CLEANUP` to `ON`.

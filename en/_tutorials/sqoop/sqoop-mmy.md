@@ -2,7 +2,7 @@
 
 {% include [What is the Sqoop](./header.md) %}
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [Same Network](../_tutorials_includes/note-same-network.md) %}
 
@@ -31,14 +31,16 @@ You can create other resources manually or using {{ TF }}.
 
 1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) to connect to {{ mmy-name }} and {{ dataproc-name }} clusters.
 
-1. Set up security groups for the clusters and the VM instance to allow connecting:
+1. If you are using security groups for the clusters and the VM instance, configure them to allow connecting:
 
    * [To the VM instance and the {{ dataproc-name }} cluster](../../data-proc/operations/connect.md).
    * [To the {{ mmy-name }} cluster](../../managed-mysql/operations/connect.md#configure-security-groups).
 
+   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 ### Using {{ TF }} {#create-terraform}
 
-1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 1. Download the [clusters-mysql-data-proc-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/sqoop/clusters-mysql-data-proc-and-vm.tf) configuration file and save it to the same working directory.
 
@@ -60,21 +62,21 @@ You can create other resources manually or using {{ TF }}.
    * `data_proc_sa`: Name of the service account for the {{ dataproc-name }} cluster. The name must be unique within the folder.
    * `my_cluster_version`: {{ MY }} version of the {{ mmy-name }} cluster.
    * `my_cluster_password`: Password of the `user1` user of the `db1` {{ mmy-name }} database.
-   * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts).
-   * `vm_username` and `vm_public_key`: Username and absolute path to a [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
+   * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+   * `vm_username` and `vm_public_key`: Username and absolute path to a [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
    * `bucket_name`: {{ objstorage-name }} bucket name. The name must be unique within the entire {{ objstorage-name }}.
    * `dp_public_key`: Absolute path to a [public SSH key](../../data-proc/operations/connect.md#data-proc-ssh) for the {{ dataproc-name }} cluster.
 
       For an SSH connection to the hosts of {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
-1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-1. Make sure the {{ TF }} configuration files are correct using the command:
+1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+1. Make sure the {{ TF }} configuration files are correct using this command:
 
    ```bash
    terraform validate
    ```
 
-   If there are errors in the configuration files, {{ TF }} will point to them.
+   If there are any errors in the configuration files, {{ TF }} will point to them.
 
 1. Create the required infrastructure:
 
@@ -197,19 +199,19 @@ Let:
 
 {% include [Check import](./check-import.md) %}
 
-## Delete created resources {#clear-out}
+## Deletе created resources {#clear-out}
+
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
 * Manually
 
-   If you no longer need these resources, delete them:
-
    1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
    1. If you reserved a public static IP address for the VM, release and [delete it](../../vpc/operations/address-delete.md).
    1. Delete the clusters:
 
-      * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md);
+      * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
       * [{{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
 
    1. If you created an {{ objstorage-full-name }} bucket, [delete it](../../storage/operations/buckets/delete.md).
@@ -220,17 +222,17 @@ Let:
 
    To delete the infrastructure created with {{ TF }}:
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `clusters-mysql-data-proc-and-vm.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -4,7 +4,7 @@ You can track data changes in {{ mpg-name }} and send them to {{ mkf-name }} usi
 
 In this article, you will learn how to create a virtual machine in {{ yandex-cloud }} and set up [Debezium](https://debezium.io/documentation/reference/index.html), software used for CDC.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a _source cluster_](../../managed-postgresql/operations/cluster-create.md) with the following settings:
 
@@ -17,10 +17,12 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
 
 
-1. Set up security groups so that you can connect to clusters from the internet and created VM, and connect to this VM over SSH from the internet:
+1. If you are using security groups, configure them to enable connecting to the clusters both from the internet and from the created VM. In addition, enable connecting to this VM over SSH from the internet:
 
    * [Configuring {{ mkf-name }} cluster security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
    * [Configuring {{ mpg-name }} cluster security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups).
+
+   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
 1. [Connect to a virtual machine over SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and perform preliminary setup:
@@ -155,9 +157,9 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    * `database.dbname`: The {{ PG }} database name.
    * `database.server.name`: Name of the database server that [Debezium will use](#prepare-target) when choosing a topic for sending messages.
    * `table.include.list`: Names of tables for which Debezium should track changes. Specify full names that include the schema name (default: `public`). [Debezium will use](#prepare-target) values from this field when selecting a topic for sending messages.
-   * `publication.name`: The name of the publication [created on the source cluster](#prepare-source).
-   * `slot.name`: The name of the replication slot that will be created by Debezium when working with the publication.
-   * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: The heartbeat settings [needed for](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
+   * `publication.name`: Name of the publication [created on the source cluster](#prepare-source).
+   * `slot.name`: Name of the replication slot that will be created by Debezium when working with the publication.
+   * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: Heartbeat settings [required for](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
    * `snapshot.mode`: [Type of the snapshot created](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-connector-snapshot-mode-options) at connector startup. For the connector to run properly, set this parameter to `always`.
 
 ## Prepare the target cluster{#prepare-target}
@@ -306,7 +308,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
 
 1. Delete the [virtual machine](../../compute/operations/vm-control/vm-delete.md).
 

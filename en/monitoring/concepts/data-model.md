@@ -5,6 +5,7 @@ description: "The article describes the data model used in {{ monitoring-full-na
 
 # Data model in {{ monitoring-name }}
 
+
 {{ monitoring-full-name }} stores data as [time series](https://en.wikipedia.org/wiki/Time_series).
 
 ## Metrics {#metric}
@@ -51,4 +52,6 @@ The following templates are available in {{ monitoring-full-name }}:
 #### See also {#see-also}
 
 - [{#T}](visualization/index.md)
+
+
 

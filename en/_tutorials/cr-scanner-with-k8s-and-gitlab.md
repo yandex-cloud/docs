@@ -279,7 +279,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
 
 ## Check the results {#check-result}
 
-After saving the `.gitlab-ci.yml` configuration file, the build script starts. To check its results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }}. Vulnerability scanning is performed at the second stage (`test`).
+Once you save the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }}. Vulnerability scanning is performed at the second stage (`test`).
 
 ## How to delete created resources {#clear-out}
 

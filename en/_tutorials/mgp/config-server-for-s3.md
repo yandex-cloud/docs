@@ -9,7 +9,7 @@ To create an external table using a configuration file:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
@@ -174,7 +174,7 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
 
    ```sql
    CREATE READABLE EXTERNAL TABLE s3_ext_table(id int, year int)
-   LOCATION('s3://{{ s3-storage-host }}/<bucket name>/example.csv config_server=http://<virtual machine private IP>:8553/s3.config region={{ region-id }}-a')
+   LOCATION('s3://{{ s3-storage-host }}/<bucket name>/example.csv config_server=http://<VM private IP>:8553/s3.config region={{ region-id }}-a')
    FORMAT 'csv';
    ```
 
@@ -201,7 +201,7 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -222,7 +222,7 @@ If you no longer need these resources, delete them:
 
    1. In the terminal window, change to the directory containing the infrastructure plan.
    1. Delete `greenplum-s3-vm.tf`.
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       terraform validate

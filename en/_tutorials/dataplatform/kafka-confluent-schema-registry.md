@@ -37,9 +37,9 @@ To use {{ mkf-name }} with Confluent Schema Registry:
 1. [Create producer and consumer scripts](#create-scripts).
 1. [Make sure that Confluent Schema Registry is working correctly](#check-schema-registry).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration.
 
@@ -53,7 +53,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 
 
-1. To allow traffic between the {{ mkf-name }} cluster and the virtual machine, [configure security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
+1. If you are using security groups, [configure them](../../managed-kafka/operations/connect.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
+
+   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 1. In the VM security group, [add a rule](../../vpc/operations/security-group-add-rule.md) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
 
@@ -362,7 +364,8 @@ Python scripts are provided for demonstration. You can prepare and send data for
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need the created resources, delete the [VM instance](../../compute/operations/vm-control/vm-delete.md) and the [{{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+Delete the resources you no longer need to avoid paying for them:
 
-If you have reserved a public static IP address for the created VM, [delete it](../../vpc/operations/address-delete.md).
-
+* [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
+* [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+* If you reserved a public static IP address for the created VM, [delete it](../../vpc/operations/address-delete.md).

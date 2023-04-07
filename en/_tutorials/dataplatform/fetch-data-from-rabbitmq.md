@@ -124,7 +124,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually
 
-  In the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config), specify the username and password for {{ RMQ }}authentication in **DBMS settings** → **Rabbitmq**.
+  In the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config), specify the username and password for {{ RMQ }} authentication in **DBMS settings** → **Rabbitmq**.
 
 - Using {{ TF }}
 
@@ -150,7 +150,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## In the {{ mch-name }} cluster, create a table on the {{ RMQ }} engine {#create-rmq-table}
 
-As an example in {{ RMQ }}, let's input JSON data from the car sensors to the `cars` queue at the `exchange` exchange in {{ RMQ }}:
+As an example in {{ RMQ }}, let's input JSON data from the car sensors to the `cars` queue at the `exchange` point in {{ RMQ }}:
 * String ID of the device, `device_id`.
 * Date and time when the data was generated, `datetime`, in `YYYY-MM-DD HH:MM:SS` format.
 * Car coordinates:

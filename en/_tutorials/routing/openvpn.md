@@ -21,7 +21,7 @@ With TCP or UDP port tunnels and asymmetric encryption, you can create virtual n
 
 An example of auto-connect and login-and-password configurations is shown below. To create a virtual network:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create subnets and a test VM](#create-environment).
 1. [Start the VPN server](#create-vpn-server).
 1. [Configure network traffic permissions](#network-settings).
@@ -41,9 +41,9 @@ If you no longer need the VPN server, [delete the VM](#clear-out).
 
 The cost of infrastructure support for OpenVPN includes:
 
-* A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or a static public IP (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md));
-* A fee for the OpenVPN Access Server license (when using more than two connections).
+* Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for the OpenVPN Access Server license (when using more than two connections).
 
 
 ## Create subnets and a test VM {#create-environment}
@@ -292,9 +292,10 @@ To check that a connection is established and working properly, connect to the V
 
 ## How to delete created resources {#clear-out}
 
-To free up resources in the folder, [delete](../../compute/operations/vm-control/vm-delete.md) the `vpn-server` VM and the test VM.
+Delete the resources you no longer need to avoid paying for them:
 
-If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
+* [Delete](../../compute/operations/vm-control/vm-delete.md) the `vpn-server` VM and the test VM.
+* If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
 
 #### See also {#see-also}
 

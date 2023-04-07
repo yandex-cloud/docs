@@ -1,12 +1,16 @@
 # Transmitting {{ lockbox-name }} secrets to a function
 
-{% include [note-preview-pp](../../../_includes/note-preview-pp.md) %}
+{% note info %}
+
+{% include [preview-pp.md](../../../_includes/preview-pp.md) %}
+
+{% endnote %}
 
 [{{ lockbox-name }}](../../../lockbox/) is a service for storing secrets. You can transmit a {{ lockbox-name }} secret to a function in the [environment variable](../../concepts/runtime/environment-variables.md#env).
 
-A function can access the secret when a service account with the `lockbox.payloadViewer` role is specified in the function's parameters. [How to create a service account](../../../iam/operations/sa/create.md).
+A function can access the secret when a service account with the `lockbox.payloadViewer` role is specified in the function parameters. [How to create a service account](../../../iam/operations/sa/create.md).
 
-A new version of a function is created when secrets are transmitted. You can't transmit secrets to an existing version.
+A new version of a function is created when secrets are transmitted. You cannot transmit secrets to an existing version.
 
 {% list tabs %}
 
@@ -24,7 +28,7 @@ A new version of a function is created when secrets are transmitted. You can't t
          * Secret version ID.
          * Non-secret key ID.
    1. Click **Add**. You can transmit several secrets to a function.
-   1. Click **Create version**. A new version of the function with the specified secrets is created.
+   1. Click **Create version**. A new version of the function with the specified secrets will be created.
 
 - CLI
 
@@ -57,9 +61,9 @@ A new version of a function is created when secrets are transmitted. You can't t
 
    * `--function-name`: The function name.
    * `--runtime`: The runtime environment.
-   * `--entrypoint`: The entry point specified in the <function file name>.<handler name> format.
-   * `--memory`: The amount of RAM.
-   * `--execution-timeout`: The maximum function execution time before the timeout is reached.
+   * `--entrypoint`: Entry point specified in the <function file name>.<handler name> format.
+   * `--memory`: Amount of RAM.
+   * `--execution-timeout`: Maximum function execution time before the timeout is reached.
    * `--source-version-id`: ID of the function version to copy the code of.
    * `--service-account-id`: ID of a service account with the `lockbox.payloadViewer` role.
    * `--secret`:

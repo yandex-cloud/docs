@@ -9,7 +9,7 @@ To migrate data from the source cluster in {{ ES }} to the target cluster in {{ 
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Create a [{{ mes-name }} target cluster](../../managed-elasticsearch/operations/cluster-create.md) with any suitable [configuration](../../managed-elasticsearch/concepts/instance-types.md).
 
@@ -101,7 +101,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Delete the resources you no longer need {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
 
 * If you reserved public static IPs for cluster access, release and [delete them](../../vpc/operations/address-delete.md).
 * If you used a {{ objstorage-full-name }} bucket to import a self-signed certificate, [clear](../../storage/operations/objects/delete-all.md) and [delete](../../storage/operations/buckets/delete.md) it.

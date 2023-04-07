@@ -14,7 +14,7 @@
 
 * Вручную
 
-    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db) любой подходящей конфигурации.
+    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
     1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).
 

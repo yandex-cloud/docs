@@ -31,9 +31,9 @@ To configure {{ KFC }} to work with a {{ mkf-name }} cluster:
 1. [Configure {{ KFC }}](#configure-kafka-connect).
 1. [Run {{ KFC }} and test it](#test-kafka-connect).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% list tabs %}
 
@@ -205,7 +205,7 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 

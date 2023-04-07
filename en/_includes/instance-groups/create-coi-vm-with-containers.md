@@ -2,11 +2,11 @@
 
 You can create an instance group built on a [{{ coi }}](../../cos/concepts/index.md) with multiple Docker containers inside.
 
-Docker containers are created based on the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
+Docker containers are created based on the [Docker Compose](../../cos/concepts/coi-specifications.md#compose-spec) specification.
 
 {% include [warning.md](warning.md) %}
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [cli-install.md](../cli-install.md) %}
 
@@ -182,7 +182,7 @@ Docker containers are created based on the [Docker Compose specification](../../
 
    - CLI
 
-      Run the command:
+      Run this command:
 
       ```bash
       yc compute instance-group create --file=specification.yaml

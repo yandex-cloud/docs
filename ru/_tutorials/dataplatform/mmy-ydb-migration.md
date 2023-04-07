@@ -18,7 +18,7 @@
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации.
 
-    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db) любой подходящей конфигурации.
+    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
     
     1. Если вы используете группы безопасности, [настройте их](../../managed-kafka/operations/connect.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.

@@ -1,0 +1,1 @@
+Если при создании секрета вы указали свой ключ {{ kms-short-name }}, необходимо назначить на этот секрет роли [kms.keys.encrypterDecrypter](../../kms/security/index.md#service) и [lockbox.payloadViewer](../../lockbox/security/index.md#roles-list). Они нужны для получения доступа к ключу, а также для шифрования и расшифровки.

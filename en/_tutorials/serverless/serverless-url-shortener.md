@@ -5,7 +5,7 @@ With this script, you'll create a URL shortening service using serverless techno
 The service accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The [hosting](../../storage/concepts/hosting.md) service sends the user an HTML page with a field for entering the URL. The [function](../../functions/concepts/function.md) sends the entered URL for storage in a [serverless database](../../ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user enters the shortened URL, the function finds the full URL in the database and redirects the user's request to it.
 
 To configure and test the service:
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Set up hosting for the URL shortener page](#object-storage).
 1. [Create a service account](#service-account).
 1. [Create a database in {{ ydb-full-name }}](#ydb).
@@ -23,7 +23,7 @@ If you no longer need these resources, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources for the script includes:
-* A fee for using the storage (see [pricing{{ objstorage-full-name }}](../../storage/pricing.md)).
+* A fee for using the storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * A fee for accessing the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 * 0A fee for function calls (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * A fee for requests to the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).

@@ -6,7 +6,7 @@ editable: false
 
 ## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 
-The cost of using {{ monitoring-short-name }} includes writing custom metrics via the [API](api-ref/index.md) as well as reading metrics via the [API](api-ref/index.md).
+The cost of using {{ monitoring-short-name }} includes writing custom metrics via the [API](api-ref/index.md) as well as reading any metrics via the [API](api-ref/index.md).
 
 Pricing features:
 * After writing or reading the first 50 million values, the writing cost is reduced. See [Pricing](#prices).

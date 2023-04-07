@@ -4,7 +4,7 @@ You can track data changes in {{ mmy-name }} and send them to {{ mkf-name }} usi
 
 In this article, you will learn how to create a virtual machine in {{ yandex-cloud }} and set up [Debezium](https://debezium.io/documentation/reference/index.html), software used for CDC.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a _source cluster_](../../managed-mysql/operations/cluster-create.md) with the following settings:
 
@@ -16,10 +16,14 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
 
-1. Set up security groups so that you can connect to clusters from the internet and created VM, and connect to this VM over SSH from the internet:
+
+1. If you are using security groups, configure them to enable connecting to the clusters both from the internet and from the created VM. In addition, enable connecting to this VM over SSH from the internet:
 
    * [Configuring {{ mkf-name }} cluster security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
    * [Configuring {{ mmy-name }} cluster security groups](../../managed-mysql/operations/connect.md#configure-security-groups).
+
+   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 
 1. [Connect to a virtual machine over SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and perform preliminary setup:
 
@@ -317,7 +321,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
 
 1. Delete the [virtual machine](../../compute/operations/vm-control/vm-delete.md).
 

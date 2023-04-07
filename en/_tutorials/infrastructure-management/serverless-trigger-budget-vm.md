@@ -12,9 +12,9 @@ To deploy a project:
 1. [Create {{ compute-name }} VM instances](#create-vm).
 1. [Check that the trigger stops the VM instances](#test).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 

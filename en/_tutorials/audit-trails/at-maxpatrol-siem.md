@@ -4,7 +4,7 @@
 
 To configure audit log export:
 
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#environment-preparing).
 1. [Create a trail to send logs to a {{ yds-name }} data stream](#create-trail).
 1. [In MaxPatrol SIEM, set up a job to collect data from a {{ yds-name }} data stream](#configure-maxpatrol).
@@ -310,7 +310,7 @@ To view the logs, go to the event review page:
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the resources created:
+Delete the resources you no longer need to avoid paying for them:
 
 * [Delete](../../data-streams/operations/manage-streams.md#delete-data-stream) the `maxpatrol-stream` data stream.
 * [Delete](../../ydb/operations/manage-databases.md#delete-db) the `maxpatrol-db` database.

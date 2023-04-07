@@ -28,7 +28,7 @@ There are two ways to migrate data from a {{ mmy-name }} _source cluster_ to a t
 
    Use this method only if, for some reason, it's not possible to migrate data using {{ data-transfer-full-name }}.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Prepare the target cluster:
 
@@ -37,11 +37,11 @@ Prepare the target cluster:
 
 Additionally, to migrate data using external {{ MY }} replication:
 
-* Make sure that all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. To do this:
+* Make sure all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. To do this:
    * [Add hosts](../../managed-mysql/operations/hosts.md#add) with public IP addresses.
    * [Delete hosts](../../managed-mysql/operations/hosts.md#remove) without public IP addresses.
-* Install [{{ mmy-name }} server SSL certificates](../../managed-mysql/operations/connect.md#get-ssl-cert) on the target cluster's hosts. They're required to connect to the source cluster that is publicly available.
-* If necessary, set up the firewall and [security groups](../../managed-mysql/operations/connect.md#configuring-security-groups) so that you can connect to the source cluster from the target cluster, as well as to each cluster separately (for example, using the [mysql utility](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)).
+* Install [{{ mmy-name }} server SSL certificates](../../managed-mysql/operations/connect.md#get-ssl-cert) on the target cluster's hosts. They are required to connect to the publicly available source cluster.
+* Set up the firewall and [security groups](../../managed-mysql/operations/connect.md#configuring-security-groups), if required, so that you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [mysql utility](https://dev.mysql.com/doc/refman/8.0/en/mysql.html). The security groups feature is currently in the [Preview stage](../../overview/concepts/launch-stages.md).
 * Make sure that you can connect to the source cluster's hosts from the target cluster's hosts.
 * Make sure that you can [connect to the source cluster](../../managed-mysql/operations/connect.md) and the target cluster via SSL.
 

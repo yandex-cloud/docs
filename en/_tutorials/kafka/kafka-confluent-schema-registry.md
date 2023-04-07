@@ -6,7 +6,7 @@ To use [Confluent Schema Registry](https://docs.confluent.io/platform/current/sc
 1. [Make sure that Confluent Schema Registry is working correctly](#check-schema-registry).
 1. [Delete the resources you created](#clear-out).
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration.
 
@@ -16,11 +16,13 @@ To use [Confluent Schema Registry](https://docs.confluent.io/platform/current/sc
         * `ACCESS_ROLE_PRODUCER`.
 
 
-1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and a public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and with a public IP address.
 
 
-1. To allow traffic between the {{ mkf-name }} cluster and the virtual machine, [configure security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
 
+1. If you are using security groups, [configure them](../../managed-kafka/operations/connect.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
+
+   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 1. In the VM security group, [add a rule](../../vpc/operations/security-group-add-rule.md) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
 

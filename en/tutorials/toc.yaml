@@ -7,7 +7,7 @@ items:
         href: web/index.md
       - name: Static site in {{ objstorage-name }}
         href: web/static.md
-      - name: Website on LAMP or LEMP stack
+      - name: Website based on LAMP or LEMP stack
         href: web/lamp-lemp.md
       - name: >-
           Fault-tolerant website with load balancing by {{
@@ -31,7 +31,7 @@ items:
         href: web/virtual-hosting.md
       - name: Creating a load balancer with DDoS protection
         href: web/alb-with-ddos-protection.md
-      - name: Publishing game updates
+      - name: Publishing game updates using {{ cdn-name }}
         href: web/prefetch.md
       - name: >-
           Integrating an L7 load balancer with the {{ cdn-name }} and {{
@@ -91,6 +91,8 @@ items:
         href: testing/loadtesting-https-pandora.md
       - name: Load testing using multiple agents
         href: testing/loadtesting-multiply.md
+      - name: Migrating load testing results from OverLoad
+        href: testing/loadtesting-overload-migration.md
   - name: Performing infrastructure management
     items:
       - name: All tutorials
@@ -119,11 +121,11 @@ items:
         href: infrastructure-management/ntp.md
       - name: Running instance groups with auto scaling
         href: infrastructure-management/vm-autoscale.md
-      - name: Automatically scaling an instance group on a schedule
+      - name: Scheduled scaling of instance groups
         href: infrastructure-management/vm-scale-scheduled.md
       - name: >-
-          Automatically scaling an instance group for handling messages from a
-          queue
+          Automatically scaling an instance group to handle messages from a
+          queue in {{ message-queue-name }}
         href: infrastructure-management/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: infrastructure-management/updating-under-load.md
@@ -197,6 +199,10 @@ items:
         href: dataplatform/clickhouse-for-graphite.md
       - name: Fetching data from {{ mkf-name }} to {{ mch-name }}
         href: dataplatform/fetch-data-from-mkf.md
+      - name: >-
+          Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/data-transfer-mkf-mch.md
       - name: Fetching data from {{ RMQ }} to {{ mch-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
       - name: Saving a {{ yds-name }} data stream in {{ mch-name }}
@@ -278,9 +284,9 @@ items:
       - name: >-
           Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
-        href: dataplatform/./data-transfer-mpg.md
+        href: dataplatform/data-transfer-mpg.md
       - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
-        href: dataplatform/./debezium-mpg.md
+        href: dataplatform/debezium-mpg.md
       - name: Importing data from {{ mpg-name }} to {{ dataproc-name }} using Sqoop
         href: dataplatform/sqoop-mpg.md
       - name: >-

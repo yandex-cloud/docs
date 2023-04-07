@@ -1,9 +1,10 @@
 ---
 title: "Query language in {{ monitoring-full-name }}"
-description: "This section describes the query language used in {{ monitoring-full-name }}. It's used to convert metrics when you configure dashboards and alerts, as well as in the MetricsData.read API method."
+description: "This section describes the\_query language used in {{ monitoring-full-name }}. It's used to convert metrics when you configure dashboards and alerts, as well as in the MetricsData.read API method."
 ---
 
 # Query language in {{ monitoring-name }}
+
 
 This section describes the {{monitoring-full-name}} query language. It's used to convert metrics when you configure [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
 
@@ -42,7 +43,7 @@ The {{monitoring-full-name}} query language supports the following data types:
 * _timeseries_vector_: A set of time series (metrics).
 * _number_: A real number.
 * _string_: A string in single or double quotes.
-* _duration_: A time period in the format `15s, 10m, 3h, 7d, 2w.` (without quotation marks).
+* _duration_: A time period in the format `15s, 10m, 3h, 7d, 2w`. (without quotation marks).
 
 ## Functions {#functions}
 
@@ -350,7 +351,7 @@ Selects the real part of point values.
 
 **heaviside**(*source: timeseries_vector*): *timeseries_vector*
 
-Calculates the [Heaviside step function](https://en.wikipedia.org/wiki/Heaviside_step_function) value. The function is 1 if the point values are positive, and 0 if the point values are negative.
+Calculates the [Heaviside step function](https://en.wikipedia.org/wiki/Heaviside_step_function). The function is 1 if the point values are positive, and 0 if the point values are negative.
 
 #### integral
 
@@ -450,3 +451,5 @@ Renames metrics. As an argument, you can use [mustache templates](https://mustac
 **drop_empty_series**(*source: timeseries_vector*): *timeseries_vector*
 
 Drops time series where either there are no points in the specified time range or all points have the `NaN` value.
+
+

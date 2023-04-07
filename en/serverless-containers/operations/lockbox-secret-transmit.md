@@ -1,6 +1,10 @@
 # Transmitting Yandex Lockbox secrets to a container
 
-{% include [note-preview-pp](../../_includes/note-preview-pp.md) %}
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
 
 [{{ lockbox-name }}](../../lockbox/) is a service for storing secrets. You can transmit a {{ lockbox-name }} secret to a container in the [environment variable](../concepts/runtime.md#environment-variables).
 
@@ -53,7 +57,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
    * `--container-name`: Container name.
    * `--image`: URL of a Docker image.
    * `--cores`: Number of cores available for the container.
-   * `--memory`: Required memory. The default is 128 MB.
+   * `--memory`: Required memory. The default value is 128 MB.
    * `--service-account-id`: ID of a service account with the `lockbox.payloadViewer` role.
    * `--secret`:
       * `environment-variable`: Name of the environment variable where the secret will be kept.

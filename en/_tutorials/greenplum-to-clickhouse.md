@@ -6,11 +6,11 @@ To transfer a database from {{ GP }} to {{ CH }}:
 1. [Activate the transfer](#activate-transfer).
 1. [Check the copy function upon re-activation](#example-check-copy).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-We'll create all the required resources for the example in {{ yandex-cloud }}. Prepare the infrastructure:
+For clarity, we will create all required resources in {{ yandex-cloud }}. Prepare the infrastructure:
 
 {% list tabs %}
 
@@ -21,14 +21,17 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
    1. [Create a {{ mch-full-name }} target cluster](../managed-clickhouse/operations/cluster-create.md#create-cluster) with any configuration with a database called `db1`.
 
    
-   1. Make sure that the cluster's security groups have been set up correctly and allow connecting to them:
+   1. If you are using security groups in your clusters, make sure they have been set up correctly and allow connection to clusters:
+
       * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
       * [{{ mgp-name }}](../managed-greenplum/operations/connect.md#configuring-security-groups).
+
+      {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
 * Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [greenplum-clickhouse.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/greenplum-clickhouse/greenplum-clickhouse.tf) configuration file to the same working directory.
 
@@ -41,13 +44,13 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
    1. In the `greenplum-clickhouse.tf` configuration file, specify the {{ GP }} and {{ CH }} administrator passwords.
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -59,11 +62,11 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 ## Set up the transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../data-transfer/operations/endpoint/source/greenplum.md) of type `{{ GP }}`, and within the endpoint, specify the cluster connection settings.
+1. [Create a source endpoint](../data-transfer/operations/endpoint/source/greenplum.md) with the `{{ GP }}` type, and specify the cluster connection settings in it.
 
 1. [Create a target endpoint](../data-transfer/operations/endpoint/target/clickhouse.md) with the `{{ CH }}` type.
 
-1. [Create a transfer](../data-transfer/operations/transfer.md#create) of the [{{ dt-type-copy }}](../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
+1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a [{{ dt-type-copy }}](../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
 
    Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, in the **Transfer parameters** **Copy** field, select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
 
@@ -136,10 +139,10 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-* Make sure that the transfer's status is {{ dt-status-finished }} and [delete](../data-transfer/operations/transfer.md#delete) it.
-* [Delete the source endpoint and the target endpoint](../data-transfer/operations/endpoint/index.md#delete).
+* Make sure the transfer has the {{ dt-status-finished }} status and [delete](../data-transfer/operations/transfer.md#delete) it.
+* [Delete both the source endpoint and the target endpoint](../data-transfer/operations/endpoint/index.md#delete).
 * Delete the clusters:
 
    {% list tabs %}
@@ -153,17 +156,17 @@ If you no longer need these resources, delete them:
 
       If you created your resources using {{ TF }}:
 
-      1. In the terminal window, change to the directory containing the infrastructure plan.
+      1. In the terminal window, switch to the directory containing the infrastructure plan.
       1. Delete the `greenplum-clickhouse.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
-      1. Confirm the update of resources.
+      1. Confirm the resources have been updated.
 
          {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

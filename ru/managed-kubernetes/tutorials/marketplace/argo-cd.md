@@ -23,6 +23,7 @@
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 * [Утилиту потоковой обработки JSON-файлов `jq`](https://stedolan.github.io/jq/).
+
 * [Менеджер пакетов Helm]({{ links.helm.install }}).
 
 ## Создайте ресурсы {{ managed-k8s-name }} и {{ container-registry-name }} {#k8s-cr-create}
@@ -77,7 +78,7 @@
         * [Группа безопасности](../../../vpc/concepts/security-groups.md) и [правила](../../operations/connect/security-groups.md), необходимые для работы кластера, группы узлов, инстанса {{ mgl-name }} и контейнера {{ container-registry-name }}:
           * Правила для служебного трафика.
           * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
-          * Правила для подключения к Git-репозиторию по протоколу SSH через порт 22.
+          * Правила для подключения к Git-репозиторию по протоколу [SSH](../../../glossary/ssh-keygen.md) через порт 22.
           * Правила, разрешающие HTTP- и HTTPS-трафик через порты 80 и 443.
           * Правила для подключения к {{ container-registry-name }} через порт 5050.
         * Кластер {{ managed-k8s-name }}.

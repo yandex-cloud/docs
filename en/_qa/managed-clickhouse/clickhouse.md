@@ -50,7 +50,7 @@ When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} auto
 
 For more information about using {{ ZK }}, see the [ClickHouse documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
 
-#### Deleting data in {{ CH }} based on TTL {#how-ttl-data-processing-works}
+#### How do I delete data in {{ CH }} based on TTL? {#how-ttl-data-processing-works}
 
 Data is deleted based on [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) either in entire [data chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes) or in merge transactions rather than row by row.
 
@@ -59,3 +59,21 @@ Deleting entire data chunks is more efficient and uses less server resources but
 Deletions during merge transactions use more resources and are carried out with regular background merge transactions or during unscheduled merges. Merge frequency depends on the value in the `merge_with_ttl_timeout` parameter. This parameter is set at table [creation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-creating-a-table) and is equal to the minimum time in seconds before a repeat merge to process data with an expired TTL. The default is 14400 seconds (4 hours).
 
 We recommend managing TTL data processing always to delete obsolete data in entire chunks. To do this, set [ttl_only_drop_parts]({{ ch.docs }}/operations/settings/settings/#ttl_only_drop_parts) to `true` when creating tables.
+
+#### Can I use JSON data for tables in {{ CH }}? {#how-to-use-json}
+
+Yes, you can. However, JSON is currently an experimental data type in {{ CH }}. To allow creating tables of this type, run this query:
+
+```sql
+SET allow_experimental_object_type=1;
+```
+
+{% note info %}
+
+`SET` queries are [not supported](../../managed-clickhouse/operations/web-sql-query#query-restrictions-in-the-management-console) when connecting to a cluster through the management console. To run such a query, use a different cluster connection method, e.g., [through clickhouse-client](../../managed-clickhouse/operations/connect#clickhouse-client).
+
+Make sure you have the latest client version installed.
+
+{% endnote %}
+
+For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/guides/developer/working-with-json/json-semi-structured/#json-object-type).

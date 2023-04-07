@@ -114,7 +114,7 @@ if __name__ == '__main__':
      -t {{ registry }}/<registry_ID>/coi:logs
    ```
 
-1. [Log in](../container-registry/operations/authentication.md) to the registry and upload a Docker image:
+1. [Log in](../container-registry/operations/authentication.md) to the registry and upload a Docker image into it:
 
    ```bash
    docker push {{ registry }}/<registry_ID>/coi:logs
@@ -156,7 +156,7 @@ if __name__ == '__main__':
          - 24224:24224/udp
        restart: always
        environment:
-         YC_GROUP_ID: <ID_of_log_group>
+         YC_GROUP_ID: <log_group_ID>
        volumes:
          - /etc/fluentbit/fluentbit.conf:/fluent-bit/etc/fluent-bit.conf
          - /etc/fluentbit/parsers.conf:/fluent-bit/etc/parsers.conf

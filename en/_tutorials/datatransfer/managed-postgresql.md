@@ -88,7 +88,7 @@
    For more information about transfer statuses, see [Transfer lifecycle](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 1. Switch over the load to the target cluster.
-1. Delete the resources you created:
+1. Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
    {% list tabs %}
 

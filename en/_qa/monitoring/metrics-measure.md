@@ -19,7 +19,6 @@ Metrics are described in the documentation for services, such as:
 
 Important metrics are displayed on each service's dashboard. For a full list of metrics for each service, see **Metric Explorer**. To export a full list of metrics, follow the [instructions](../../monitoring/operations/metric/list.md).
 
-
 #### How do I set up units on a chart? {#graph-units}
 
 Units are set up in the **Axes** tab when editing a chart. You can select the unit type, set the number format, scale (linear or logarithmic), and the maximum and minimum values.

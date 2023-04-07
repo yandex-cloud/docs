@@ -313,7 +313,7 @@ Maria,28
         * [{{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
     * Если вы создавали бакет {{ objstorage-name }}, [удалите его](../../storage/operations/buckets/delete.md).
 
-* С помощью Terraform
+* С помощью {{ TF }}
 
     Если вы создали ресурсы с помощью {{ TF }}:
 

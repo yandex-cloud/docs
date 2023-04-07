@@ -6,7 +6,7 @@ You will create a UserGate virtual machine in {{ yandex-cloud }} and set up the 
 
 To deploy a UserGate gateway and check its health:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a cloud network and subnet](#create-network).
 1. [Reserve a static public IP address](#get-static-ip).
 1. [Create a UserGate VM](#create-vm).
@@ -14,9 +14,9 @@ To deploy a UserGate gateway and check its health:
 1. [Set up routing in the subnet](#subnet-routing).
 1. [Test the firewall](#test-firewall).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -115,7 +115,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -123,9 +123,9 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -157,7 +157,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - CLI
 
-   Run the command:
+   Run the following command:
 
    ```bash
    yc vpc address create --external-ipv4 zone={{ region-id }}-a
@@ -238,7 +238,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
    1. [Create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair.
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       yc compute instance create \
@@ -324,7 +324,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory with the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
@@ -332,9 +332,9 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -441,7 +441,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
    1. (optional) Add a description of a route table.
    1. Select the `usergate-network` network.
    1. Click **Add route**.
-   1. In the window that opens, enter the prefix for the target subnet (`0.0.0.0`) and select `0` from the dropdown list.
+   1. In the window that opens, enter the prefix for the target subnet `0.0.0.0` and select `0` from the drop-down list.
    1. Specify **next hop**, that is, the internal IP address of the UserGate `usergate-firewall` VM.
    1. Click **Add**.
    1. Click **Create route table**.
@@ -549,18 +549,18 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
    To create a route table and add [static routes](../../vpc/concepts/static-routes.md):
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: The name of the route table. Name format:
+      * `name`: Name of the route table. The name format is as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
       * `network-id`: The ID of the network where the table will be created.
       * `static_route`: Static route description:
-         * `destination_prefix`: The destination subnet prefix in CIDR notation.
-         * `next_hop_address`: The internal IP address of the VM from the [allowed ranges](../../vpc/concepts/network.md#subnet) that traffic is sent through.
+         * `destination_prefix`: Destination subnet prefix in CIDR notation.
+         * `next_hop_address`: Internal IP address of the VM from the [allowed ranges](../../vpc/concepts/network.md#subnet) the traffic will be sent through.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_route_table" "usergate-rt-a" {
@@ -580,7 +580,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```hcl
          terraform plan
@@ -588,9 +588,9 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```hcl
          terraform apply
@@ -598,7 +598,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
 
          ```bash
          yc vpc route-table list

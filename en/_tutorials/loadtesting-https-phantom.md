@@ -3,7 +3,7 @@
 {{ load-testing-full-name }} can be used for testing a fixed-load service over HTTPS using the [Phantom](../load-testing/concepts/load-generator.md#phantom) load generator.
 
 To perform load testing:
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Prepare a test target](#target-prepare).
 1. [Prepare the infrastructure](#infrastructure-prepare).
 1. [Create an agent](#create-agent).
