@@ -332,6 +332,7 @@ default:
   roles-owner: owner
   roles-editor: editor
   roles-viewer: viewer
+  roles-auditor: auditor
   permission-admin: Admin
   permission-write: Write
   permission-read: Read

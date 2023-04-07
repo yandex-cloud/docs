@@ -335,6 +335,7 @@ default:
   roles-owner: owner
   roles-editor: editor
   roles-viewer: viewer
+  roles-auditor: auditor
   permission-admin: Администрирование
   permission-write: Редактирование
   permission-read: Просмотр
