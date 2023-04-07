@@ -16,9 +16,9 @@ To deploy a project:
 1. [Develop the REST API](#develop-rest-api).
 1. [Check the performance of the CRUD API](#test-api).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 

@@ -238,10 +238,10 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 #### 2.5 DDoS protection is enabled {#ddos-protection}
 
-{{ yandex-cloud }} has basic and extended DDoS protection. Be sure to at least use basic protection.
+{{ yandex-cloud }} has basic and extended DDoS protection. Make sure to use at least basic protection.
 
 * [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is the {{ vpc-short-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Qrator Labs. You can enable it yourself for an external IP address through cloud administration tools. Supported up to OSI L4.
-* [Extended](https://cloud.yandex.com/en-ru/services/ddos-protection) DDoS protection at OSI Layers 3 and 7. You can also track loads and attack properties, as well as enable Soundwall WAF in your Qrator Labs account. To enable extended protection, contact your manager or the tech support service.
+* [Extended](/services/ddos-protection) DDoS protection operates at layers 3 and 7 of the OSI model. You can also track loads and attack properties, as well as enable Soundwall WAF in your Qrator Labs account. To enable extended protection, contact your manager or the tech support service.
 
 {% list tabs %}
 

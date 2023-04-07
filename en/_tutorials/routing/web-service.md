@@ -211,7 +211,7 @@ For the security group rules to take effect, assign the groups to the VM network
 
    1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
    1. Select the `vpn` VM.
-   1. Under **Network**, click ![options](../../_assets/options.svg) and select **Edit security groups**.
+   1. Under **Network**, click ![options](../../_assets/options.svg) and select **Edit network interface**.
    1. In the window that opens, select the `vpn-sg` security group.
    1. Click **Save**.
    1. Repeat the steps and assign the `web-service-sg` security group to the `web-node-a`, `web-node-b`, and `web-node-c` VMs.
@@ -258,11 +258,11 @@ Test the infrastructure and make sure that traffic to the internet service VMs o
 
 ## Delete the resources you created {#clear-out}
 
-To stop paying for the deployed resources, delete the created [VMs](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../network-load-balancer/operations/load-balancer-delete.md):
-* `vpn`;
-* `web-node-a`;
-* `web-node-b`;
-* `web-node-c`;
-* `web-service-lb`.
+To stop paying for the deployed resources, delete the created [VMs](../../compute/operations/vm-control/vm-delete.md) and the [load balancer](../../network-load-balancer/operations/load-balancer-delete.md):
+* `vpn`
+* `web-node-a`
+* `web-node-b`
+* `web-node-c`
+* `web-service-lb`
 
 Release and [delete](../../vpc/operations/address-delete.md) the static public IP addresses you reserved.

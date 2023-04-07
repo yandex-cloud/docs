@@ -257,7 +257,7 @@ Delete the resources you no longer need to avoid paying for them:
   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
   1. In the terminal window, switch to the directory containing the infrastructure plan.
   1. Delete `clickhouse-hybrid-storage.tf`.
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      terraform validate

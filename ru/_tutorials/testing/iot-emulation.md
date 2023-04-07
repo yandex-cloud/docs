@@ -39,7 +39,7 @@
 
 С помощью {{ TF }} в {{ yandex-cloud }} можно создавать облачные ресурсы всех типов: виртуальные машины, диски, образы и т.д. Подробную информацию о ресурсах, создающихся с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
-{% include [terraform_install](../../_tutorials/terraform-install.md) %}
+{% include [terraform_install](../terraform-install.md) %}
 
 ## Опишите инфраструктуру {#set-configuration}
 

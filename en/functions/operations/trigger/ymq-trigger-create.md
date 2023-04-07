@@ -1,4 +1,4 @@
-# Creating a trigger for {{ message-queue-name }} that passes messages to the {{ sf-name }} function
+# Create a trigger for {{ message-queue-name }} that sends messages to the {{ sf-name }} function
 
 Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a {{ message-queue-short-name }} message queue and process the messages using the {{ sf-name }} [function](../../concepts/function.md).
 
@@ -10,7 +10,7 @@ Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a {{ message-queue
 
 {% endnote %}
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 To create a trigger, you need:
 
@@ -137,7 +137,7 @@ To create a trigger, you need:
 
    1. In the configuration file, describe the trigger parameters:
 
-      * `name`: Timer name. Name format:
+      * `name`: Timer name in the following format:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -158,7 +158,7 @@ To create a trigger, you need:
       * `function`: Settings for the function, which will be activated by the trigger:
          * `id`: Function ID.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -178,20 +178,20 @@ To create a trigger, you need:
 
       For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -199,7 +199,7 @@ To create a trigger, you need:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
 
          ```
          yc serverless trigger get <trigger ID>
@@ -227,4 +227,4 @@ To create a trigger, you need:
 
 ## See also {#see-also}
 
-* [{{ message-queue-short-name }} trigger that passes messages to the {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md).
+* [Trigger for {{ message-queue-short-name }} that sends messages to the {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md).

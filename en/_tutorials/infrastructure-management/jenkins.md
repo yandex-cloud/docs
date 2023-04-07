@@ -2,11 +2,11 @@
 
 Based on the specified configuration, Packer creates [VM disk images](../../compute/concepts/image.md) in {{ compute-name }}. Jenkins helps build a continuous update delivery process.
 
-You may use images to create cloud infrastructure with [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language), for example.
+You can use images to create a cloud infrastructure, for example, using [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language).
 
 To install and configure Jenkins, Packer, GitHub, and {{ TF }} to work together:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Configure the environment](#prepare).
 1. [Create a service account](#create-service-account).
 1. [Create a VM with Jenkins](#create-jenkins-vm).
@@ -19,7 +19,7 @@ To install and configure Jenkins, Packer, GitHub, and {{ TF }} to work together:
 
 If you no longer need the VM or the cluster you created, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -28,9 +28,9 @@ If you no longer need the VM or the cluster you created, [delete them](#clear-ou
 
 The cost of this infrastructure includes:
 
-* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
-* A fee for storing created images (see [{{ compute-full-name }} pricing](../../compute/pricing#prices-storage)).
-* A fee for using dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for storing created images (see [{{ compute-full-name }} pricing](../../compute/pricing#prices-storage)).
+* Fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Configure the environment {#prepare}
@@ -74,7 +74,7 @@ To create a virtual machine with Jenkins:
 1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 1. In the **Name** field, enter a name for the VM: `jenkins-tutorial`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
-1. Under **Image/boot disk** selection, click the **{{ marketplace-name }}** tab and then **Show more**. In the resulting window, select the [Jenkins](/marketplace/products/yc/jenkins) image.
+1. Under **Image/boot disk** selection, click the **{{ marketplace-name }}** tab and then **Show more**. In the window that opens, select a [Jenkins](/marketplace/products/yc/jenkins) image.
 
    {% note info %}
 
@@ -265,10 +265,10 @@ Once the images are created, you can use them to create your virtual machines. C
    mv terraform.tfvars_example terraform.tfvars
    ```
 
-2. Fill in the file fields with the applicable values. See also the [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language) and [{{ yandex-cloud }} provider]({{ tf-provider-link }}) documentation.
-3. Initialize the {{ TF }} provider by running `terraform init`.
-4. Execute `terraform plan -var-file="terraform.tfvars"`. Check the configuration created.
-5. Execute `terraform apply` and confirm that you want to create the infrastructure by entering `yes` to the terminal prompt.
+1. Fill in the file fields with the applicable values. See also the [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language) and [{{ yandex-cloud }} provider]({{ tf-provider-link }}) documentation.
+1. Initialize the {{ TF }} provider by running `terraform init`.
+1. Run `terraform plan -var-file="terraform.tfvars"`. Check the created configuration.
+1. Run `terraform apply` and confirm you want to create the infrastructure by typing `yes` into the terminal prompt.
 
 This will create:
 
@@ -278,7 +278,7 @@ This will create:
 
 ## How to delete created resources {#clear-out}
 
-To release folder resources:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 * [Delete the created VMs](../../compute/operations/vm-control/vm-delete.md).
 * [Delete the created images](../../compute/operations/image-control/delete.md).

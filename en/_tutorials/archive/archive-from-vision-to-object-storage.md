@@ -3,7 +3,7 @@
 Use the [{{ vision-full-name }}](../../vision/) service to recognize text in images. You can also store both the source images and recognition results in [{{ objstorage-full-name }}](../../storage/).
 
 To set up an infrastructure for text recognition using {{ vision-name }} and export the results automatically to {{ objstorage-name }}:
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a bucket](#create-bucket).
 1. [Create a VM](#create-vm).
 1. [Configure the VM](#configure-vm).
@@ -51,7 +51,7 @@ To create an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) to
 - Management console
 
    1. In the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter a name for the VM, such as `vision-vm`. Naming requirements:
+   1. In the **Name** field, enter a name for the VM, such as `vision-vm`. For naming requirements, see below:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -67,7 +67,7 @@ To create an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) to
       * **RAM**: 2 GB.
    1. Under **Network settings**, select the network and subnet to connect the VM to. If there aren't any networks, create one:
       1. Select ![image](../../_assets/plus-sign.svg) **Create network**.
-      1. In the window that opens, enter the network name and folder to host the network.
+      1. In the window that opens, enter the network name and the folder to host the network.
       1. (optional) To automatically create subnets, select the **Create subnets** option.
       1. Click **Create**.
 

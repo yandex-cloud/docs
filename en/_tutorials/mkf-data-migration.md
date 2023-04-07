@@ -68,14 +68,14 @@ There are two ways to migrate topics from a {{ KF }} _source cluster_ to a {{ mk
       * Filter template for the topics to be transferred.
       * The {{ KF }} version (2.8 or lower).
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -97,9 +97,9 @@ Once created, the connector is automatically activated and data migration begins
 1. [Start replication](#replication-start).
 1. [Check the target cluster topic for data](#check-data-mkf).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-### Before you begin {#before-you-begin}
+### Getting started {#before-you-begin}
 
 #### Prepare the infrastructure {#deploy-infrastructure}
 
@@ -132,17 +132,17 @@ If you no longer need these resources, [delete them](#clear-out).
    1. In `kafka-mirror-maker.tf`, specify:
 
       * {{ mkf-name }} admin user password.
-      * ID of the public [image](../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts).
+      * ID of the public [image](../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU, e.g., [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
       * Username and path to the [public key](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file to use to access to the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -297,11 +297,11 @@ To learn more about MirrorMaker 2.0, see the [{{ KF }} documentation](https://cw
 
 ### Delete the resources you created {#clear-out}
 
+Delete the resources you no longer need to avoid paying for them:
+
 {% list tabs %}
 
 - Manually
-
-   If you no longer need these resources, delete them:
 
    * [Delete the {{ mkf-full-name }} cluster](../managed-kafka/operations/cluster-delete.md).
    * [Delete the virtual machine](../compute/operations/vm-control/vm-delete.md).
@@ -311,17 +311,17 @@ To learn more about MirrorMaker 2.0, see the [{{ KF }} documentation](https://cw
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `kafka-mirror-maker.tf` or the `kafka-mirrormaker-connector.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

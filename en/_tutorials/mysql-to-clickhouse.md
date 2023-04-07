@@ -24,13 +24,17 @@ Prepare the infrastructure:
    1. [Create a {{ mch-name }} target cluster](../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with the following settings:
 
       * Number of {{ CH }} hosts: At least two, which is required to enable replication in the cluster.
-      * The database name must be the same as in the source cluster.
-      * To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+      * The name of the database must be the same as in the source cluster.
+      * To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
-   1. Configure security groups for your clusters so you can connect to them from the internet:
+   
+   1. If you are using security groups in your clusters, configure them so that you can connect to the clusters from the internet:
 
       * [{{ mmy-name }}](../managed-mysql/operations/connect.md#configuring-security-groups).
       * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
+
+      {% include [preview-pp.md](../_includes/preview-pp.md) %}
+
 
 * Using {{ TF }}
 
@@ -147,7 +151,7 @@ Prepare the infrastructure:
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-      Once created, your transfer will be activated automatically.
+      Once created, a transfer is activated automatically.
 
 {% endlist %}
 
@@ -218,9 +222,9 @@ For table recovery, the {{ CH }} target with [replication](../managed-clickhouse
 * `__data_transfer_commit_time`: Time allowed for the row to change to this value, in `TIMESTAMP` format.
 * `__data_transfer_delete_time`: Time allowed for deleting the row, in `TIMESTAMP` format, if the row has been deleted from the source. If it has not, the value is set at `0`.
 
-   The `__data_transfer_commit_time` column is required for the `ReplicatedReplacedMergeTree` engine. If a record is deleted or updated, a new row is inserted with a value in this column. When running a query by a single primary key, it will return multiple records with different values from the `__data_transfer_commit_time` column.
+   The `__data_transfer_commit_time` column is required for the ReplicatedReplacedMergeTree engine. If a record is deleted or updated, a new row is inserted with a value in this column. When running a query by a single primary key, it will return multiple records with different values from the `__data_transfer_commit_time` column.
 
-With the {{ dt-status-repl }} transfer status, you can both add and delete source data. To ensure the normal behavior of SQL commands when a primary key points to a single record, add a construction that filters data by the `__data_transfer_delete_time` column to your queries to the tables moved to {{ CH }}. For example, for the `x_tab` table, run the following query:
+With the {{ dt-status-repl }} transfer status, the source data may be both added and deleted. To ensure the standard behavior of SQL commands when a primary key points to a single record, add a construction that filters data by the `__data_transfer_delete_time` column to your queries to the tables moved to {{ CH }}. For example, for the `x_tab` table, the query will be the following:
 
 ```sql
 SELECT * FROM <{{ CH }} database name>.x_tab FINAL
@@ -238,7 +242,7 @@ WHERE __data_transfer_delete_time == 0;
 
 {% include [note before delete resources](../_includes/mdb/note-before-delete-resources.md) %}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -265,6 +269,6 @@ If you no longer need these resources, delete them:
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-      All the resources described in the `data-transfer-mmy-mch.tf` configuration file will be deleted.
+      All resources described in the `data-transfer-mmy-mch.tf` configuration file will be deleted.
 
 {% endlist %}

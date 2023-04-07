@@ -20,7 +20,7 @@ Using Packer, an auxiliary VM is created and run with the required software inst
 Follow the same steps to create your own image with the necessary software suite.
 
 To build an image and create a VM from it:
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Set up a work environment](#environment-prepare).
 1. [Prepare the image configuration](#prepare-image-config).
 1. [Build the image](#create-image).
@@ -42,12 +42,12 @@ The cost of building a VM image and creating a VM from it includes:
 
 1. Install Packer:
    1. Download a Packer distribution and install it by following the [instructions on the official website](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
- 
-      
-      You can also download a Packer distribution for your platform from a [{{ yandex-cloud }} mirror](https://hashicorp-releases.website.yandexcloud.net/packer/).
- 
 
-   1. When the download is complete, add the path to the folder with the executable to the `PATH` variable: To do this, run the command:
+      
+      You can also download a Packer distribution for your platform from a [{{ yandex-cloud }} mirror](https://hashicorp-releases.yandexcloud.net/packer/).
+
+
+   1. When the download is complete, add the path to the folder with the executable to the `PATH` variable. To do this, run the following command:
 
       ```bash
       export PATH=$PATH:<path_to_directory_with_executable_Packer_file>
@@ -66,7 +66,7 @@ The cost of building a VM image and creating a VM from it includes:
 
    - CLI
 
-      * Run the command:
+      * Run the following command:
 
          ```bash
          yc vpc subnet list
@@ -99,15 +99,15 @@ The cost of building a VM image and creating a VM from it includes:
 
    Where:
 
-   * `YC_FOLDER_ID` is the ID of the folder that will host the auxiliary VM used for creating the image. Filled in automatically. 
-   * `YC_ZONE` is the ID of the availability zone that will host the auxiliary VM used for creating the image. Obtained earlier.
-   * `YC_SUBET_ID` is the ID of the subnet that will host the auxiliary VM used for creating the image. Obtained earlier.
-   * `YC_TOKEN` — [IAM token](../../iam/concepts/authorization/iam-token.md). Required for creating VM images, filled in automatically.
-1. [Generate](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair. You'll need them to create a VM and connect to it.
+   * `YC_FOLDER_ID`: ID of the folder that will host the auxiliary VM used for creating the image. This value is provided automatically.
+   * `YC_ZONE`: ID of the availability zone that will host the auxiliary VM used for creating the image. This is the value you previously obtained.
+   * `YC_SUBET_ID`: ID of the subnet that will host the auxiliary VM used for creating the image. This is the value you previously obtained.
+   * `YC_TOKEN`: [IAM token](../../iam/concepts/authorization/iam-token.md), which is required for creating VM images. The value is provided automatically.
+1. [Generate](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair. You will need them to create a VM and connect to it.
 
 ## Prepare the image configuration {#prepare-image-config}
 
-1. Create an [HCL](https://github.com/hashicorp/hcl#readme) configuration file, such as `yc-toolbox.pkr.hcl`.
+1. Create an [HCL](https://github.com/hashicorp/hcl#readme) configuration file, such as `toolbox.pkr.hcl`.
 1. In the configuration file, describe the parameters of the image to create:
 
    
@@ -186,7 +186,7 @@ The cost of building a VM image and creating a VM from it includes:
          "echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections",
          "sudo apt-get install -y unzip python3-pip python3.8-venv",
 
-          # {{ yandex-cloud }} CLI tool
+         # {{ yandex-cloud }} CLI tool
          "curl -s -O https://{{ s3-storage-host }}{{ yc-install-path }}",
          "chmod u+x install.sh",
          "sudo ./install.sh -a -i /usr/local/ 2>/dev/null",
@@ -272,7 +272,7 @@ The cost of building a VM image and creating a VM from it includes:
      }
    }
    ```
-   
+
 
 
 ## Build the image {#create-image}
@@ -320,7 +320,7 @@ The cost of building a VM image and creating a VM from it includes:
 
    - CLI
 
-      Run the command:
+      Run the following command:
 
       ```bash
       yc compute image list
@@ -362,7 +362,7 @@ The cost of building a VM image and creating a VM from it includes:
 
    - CLI
 
-      Run the command:
+      Run the following command:
 
       ```bash
       yc compute instance create \

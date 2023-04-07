@@ -12,7 +12,7 @@ We don't recommend preloading files smaller than 200 MB or larger than 5 GB.
 
 To create a CDN infrastructure:
 
-1. [Before you start](#before-you-begin).
+1. [Get started](#before-you-begin).
 1. [Create buckets in {{ objstorage-name }}](#create-buckets).
 1. [Enable logging for the bucket with files](#enable-logging).
 1. [Upload a file to the bucket](#upload-object).
@@ -23,7 +23,7 @@ To create a CDN infrastructure:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -198,12 +198,12 @@ You need to check that, when user requests are made, files are downloaded from t
 
 - AWS CLI
 
-   Run the command:
+   Run the following command:
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} \
      s3 cp \
-     <path to the file ycgame-update-v1.1.exe> \
+     <path to ycgame-update-v1.1.exe> \
      s3://ycprojektblue-storage/ycgame-update-v1.1.exe
    ```
 
@@ -292,7 +292,7 @@ You need to check that, when user requests are made, files are downloaded from t
             * In the **Redirect clients** field, select **HTTP to HTTPS**.
             * Enable **End-user access to content**.
             * In the **Certificate type** field, select **Let's Encrypt®** to automatically issue a certificate for the `cdn.ycprojektblue.example` domain name after creating your CDN resource.
-            * In the **Host header** field, select **Custom**. In the **Header value** field, specify the origin domain name, `ycprojektblue-storage.{{ s3-storage-host }}`, so that the source bucket responds correctly to CDN server requests.
+            * In the **Host header** field, select **Custom**. In the **Header value** field, specify the origin domain name, `ycprojektblue-storage.{{ s3-storage-host }}`, so that the source bucket responds to CDN server requests correctly.
 
       1. Click **Create**.
 

@@ -1,6 +1,6 @@
 # Automatically scaling an instance group for handling messages from a queue in {{ message-queue-full-name }}
 
-This use case describes integration between {{ compute-full-name }}, [{{ message-queue-full-name }}](/services/message-queue), and [{{ monitoring-full-name }}](/services/monitoring).
+This use case describes integration within {{ compute-full-name }}, [{{ message-queue-full-name }}](/services/message-queue), and [{{ monitoring-full-name }}](/services/monitoring).
 
 In this use case, an [instance group](../../compute/concepts/instance-groups/index.md) is created. All instances in the group handle messages from the same {{ message-queue-name }} queue (for example, they receive messages and delete them after a while). The number of enqueued messages is registered in a {{ monitoring-name }} metric, and the instance group is [automatically scaled](../../compute/concepts/instance-groups/scale.md#auto-scale) based on this metric.
 
@@ -14,9 +14,9 @@ To perform this use case:
 1. [Create an instance group](#create-ig).
 1. [Check the instance group scalability](#test-autoscale).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -131,7 +131,7 @@ The cost of the infrastructure includes:
 
       Where:
 
-      * `--service-account-name`: The name of the service account created in step 1 (`queue-autoscale-sa`).
+      * `--service-account-name`: Name of the service account created in step 1: `queue-autoscale-sa`.
       * `--description`: Key description.
 
       Result:
@@ -273,8 +273,8 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       Where:
 
-      * `--endpoint`: The root URL of the {{ message-queue-name }} API: `https://message-queue.{{ api-host }}`.
-      * `--queue-name`: The name of the queue (`queue-autoscale-queue`).
+      * `--endpoint`: Root URL of the {{ message-queue-name }} API: `https://message-queue.{{ api-host }}`.
+      * `--queue-name`: Name of the queue: `queue-autoscale-queue`.
 
       Result:
 
@@ -443,9 +443,9 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       Where:
 
-      * `--service-account-name`: The name of the service account created earlier (`queue-autoscale-sa`).
+      * `--service-account-name`: Name of the previously created service account (`queue-autoscale-sa`).
       * `--description`: Key description.
-      * `--output`: The path to the file to save the key to (`key.json`).
+      * `--output`: Path to the file to save the key to `key.json`.
 
       Result:
 
@@ -579,7 +579,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
          - CLI
 
-            Run the command:
+            Run this command:
 
             ```bash
             yc vpc network get queue-autoscale-network
@@ -698,7 +698,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
    1. 100 messages were enqueued in `queue-autoscale-queue` (the **Message Queue** dashboard, the **Sent messages, count** and **Messages in queue, count** charts).
    1. Instances in the `queue-autoscale-ig` group started to receive messages (the **Received messages, count** chart) and delete them from the queue (the **Deleted messages, count** and **Messages in queue, count** charts).
-   1. While handling the messages, the number of instances in the group increased from one to five and, after all the messages were handled, the group was empty (the **Compute — Instance Groups** dashboard, the **Number of instances in zone B** chart).
+   1. While handling the messages, the number of instances in the group increased from one to five and, after all the messages were handled, the group became empty (the **Compute: Instance Groups** dashboard, the **Number of instances in zone B** chart).
 
 ## Delete the resources you created {#clear-out}
 

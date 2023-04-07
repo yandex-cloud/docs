@@ -2,7 +2,7 @@
 
 [LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle)) ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [MySQL](https://www.mysql.com/), [PHP](https://www.php.net/)) and LEMP (its variation where Apache is replaced with [Nginx](https://www.nginx.com/)) are popular sets of components for deploying web applications and dynamic websites.
 
-In this tutorial, you 'll learn to deploy LAMP (LEMP) in the {{ yandex-cloud }} infrastructure. At the end, you'll launch a VM running your site's web server.
+In this tutorial, you will learn to deploy LAMP (LEMP) in the {{ yandex-cloud }} infrastructure. At the end, you will launch a VM running your website's web server.
 
 To set up a LAMP or LEMP-based website:
 1. [Before you start](#before-you-begin).
@@ -20,13 +20,12 @@ You can also deploy an infrastructure for a LAMP web server or a LEMP site in {{
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Required paid resources {#paid-resources}
 
 The cost for maintaining a LAMP server includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+
 
 ## Create a cloud network {#create-network}
 
@@ -137,7 +136,7 @@ To create a security group:
 
       {% endnote %}
 
-   1. Click **Create VM**.
+   1. Click **Create VM**.
 
       The VM may take several minutes to create. When the VM status changes to `RUNNING`, you can [upload the website files](#upload-files).
 

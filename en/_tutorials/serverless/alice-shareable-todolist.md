@@ -13,7 +13,7 @@ To deploy a project:
 
 ## Prepare the environment {#prepare}
 
-1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
+1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) repository using Git.
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you don't have any. For convenience, you can use a separate folder named `alice-skill`.
 1. Install and initialize the following software programs:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
@@ -222,7 +222,7 @@ Learn more in the Yandex Dialogs [documentation](https://yandex.ru/dev/dialogs/
 1. Go to the **Main settings** tab and find the **Account linking** section.
 1. In the **Authorization** line, click **Create**.
 1. Enter the following:
-   * **ID** and **Application secret**: The ID and password you got when you registered the app on the [Yandex OAuth](https://oauth.yandex.com/).
+   * **ID** and **Application secret**: ID and password you obtained when registering your app with [Yandex OAuth](https://oauth.yandex.com/).
    * **Authorization URL**: `https://oauth.yandex.com/authorize`.
    * **Get token URL**: `https://oauth.yandex.com/token`.
    * **Refresh token URL**: `https://oauth.yandex.com/token`.

@@ -4,9 +4,9 @@ You can migrate a database from {{ mpg-full-name }} to {{ objstorage-full-name }
 1. [Activate the transfer](#activate-transfer).
 1. [Check the copy function upon re-activation](#example-check-copy).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Prepare the infrastructure:
 
@@ -19,7 +19,11 @@ Prepare the infrastructure:
       * Username: `pg-user`.
       * Password: `<password for the source>`.
 
-   1. Make sure that the [cluster's security group](../../managed-postgresql/operations/connect.md#configuring-security-groups) has been set up correctly and allows connecting to the cluster:
+   
+   1. If you are using [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups) in your cluster, make sure they have been set up correctly and allow connecting to the cluster:
+
+      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 
    1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
 
@@ -27,7 +31,7 @@ Prepare the infrastructure:
 
 * Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [postgresql-to-objstorage.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/postgresql-to-objstorage.tf) configuration file to the same working directory.
 
@@ -47,13 +51,13 @@ Prepare the infrastructure:
       * Bucket name meeting the [naming conventions](../../storage/concepts/bucket.md#naming).
 
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -103,7 +107,7 @@ Prepare the infrastructure:
       * **Password**: `pg-user`.
       * **Password**: `<user password>`.
 
-   1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy }}_ type that will use the created endpoints.
+   1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy }}_ type that will use the created endpoints.
 
 * Using {{ TF }}
 
@@ -112,13 +116,13 @@ Prepare the infrastructure:
       * `objstorage_endpoint_id`: ID of the target endpoint.
       * `transfer_enabled`: Set `1` to enable transfer creation.
 
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -134,7 +138,7 @@ Prepare the infrastructure:
 
 ## Check the copy function upon re-activation {#example-check-copy}
 
-1. [Connect to the {{ mpg-name }} cluster](../../managed-postgresql/operations/connect.md), delete the row with the ID of `41`, and edit the row with the ID `42` in the `x_tab` table:
+1. [Connect to the {{ mpg-name }} cluster](../../managed-postgresql/operations/connect.md) and, in the `x_tab` table, delete the row where ID equals `41`, and edit the row where ID is `42`:
 
    ```sql
    DELETE FROM x_tab WHERE id = 41;
@@ -146,9 +150,9 @@ Prepare the infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-* Make sure that the transfer is in the _{{ dt-status-finished }}_ status.
+* Make sure the transfer status is _{{ dt-status-finished }}_.
 * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 * Delete the transfer, source endpoint, cluster, and bucket:
 
@@ -163,17 +167,17 @@ If you no longer need these resources, delete them:
 
    * Using {{ TF }}
 
-      1. In the terminal window, change to the directory containing the infrastructure plan.
+      1. In the terminal window, switch to the directory containing the infrastructure plan.
       1. Delete the `postgresql-to-objstorage.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
-      1. Confirm the update of resources.
+      1. Confirm the resources have been updated.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

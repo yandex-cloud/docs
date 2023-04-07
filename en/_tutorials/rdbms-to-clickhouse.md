@@ -5,11 +5,11 @@ You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full
 1. [Test the replication process](#example-check-replication).
 1. [Select the data from the target](#working-with-data-ch).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-We'll create all the required resources for the example in {{ yandex-cloud }}. Prepare the infrastructure:
+For clarity, we will create all required resources in {{ yandex-cloud }}. Prepare the infrastructure:
 
 {% list tabs %}
 
@@ -21,22 +21,25 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
       * Password: `<password for the source>`.
 
    1. Create a {{ mch-name }} target cluster in any applicable [configuration](../managed-clickhouse/concepts/instance-types.md) with publicly available hosts and the following settings:
-      * Number of {{ CH }} hosts: At least 2 (to enable replication in the cluster).
+      * Number of {{ CH }} hosts: At least two, which is required to enable replication in the cluster.
       * Database name: `db1`.
       * Username: `ch-user`.
       * Password: `<password for the target>`.
 
    
-   1. Make sure that the cluster's security groups have been set up correctly and allow connecting to them:
+   1. If you are using security groups in your clusters, make sure they have been set up correctly and allow connection to clusters:
+
       * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
       * [{{ mpg-name }}](../managed-postgresql/operations/connect.md#configuring-security-groups).
+
+      {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
    1. [Grant the `mdb_replication` role](../managed-postgresql/operations/grant#grant-privilege) to the `pg-user` in the {{ mpg-name }} cluster.
 
 * Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [postgresql-to-clickhouse.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/postgresql-to-clickhouse.tf) configuration file to the same working directory.
 
@@ -52,14 +55,14 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
       * Transfer.
 
    1. In the `postgresql-to-clickhouse.tf` configuration file, specify the {{ PG }} and {{ CH }} administrator passwords.
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -112,19 +115,19 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
          * **Password**: `<user password>`.
          * **Cleanup policy**: `DROP`.
 
-      1. [Create a transfer](../data-transfer/operations/transfer.md#create) of the [{{ dt-type-copy-repl }}](../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
+      1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a [{{ dt-type-copy-repl }}](../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
 
    * Using {{ TF }}
 
       1. Set the `transfer_enabled` variable to `1` in the `postgresql-to-clickhouse.tf` file.
 
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
       1. Create the required infrastructure:
 
@@ -150,7 +153,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 ## Test the replication process {#example-check-replication}
 
 1. Connect to the source cluster.
-1. Delete the row with the `41` ID and edit the row with the `42` ID in the `x_tab` table of the {{ PG }} source database:
+1. In the `x_tab` table of the {{ PG }} source database, delete the row where ID is `41` and update the one where ID is `42`:
 
    ```sql
    DELETE FROM db1.public.x_tab WHERE id = 41;
@@ -173,21 +176,21 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 ## Select the data from {{ CH }} {#working-with-data-ch}.
 
-For table recovery, the {{ CH }} target with [replication](../managed-clickhouse/concepts/replication.md) enabled uses the [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and the [ReplacingMergeTree]({{ ch.docs }}engines/table-engines/mergetree-family/replacingmergetree/). The following columns are added automatically to each table:
+For table recovery, the {{ CH }} target with [replication](../managed-clickhouse/concepts/replication.md) enabled uses the [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and the [ReplacingMergeTree]({{ ch.docs }}engines/table-engines/mergetree-family/replacingmergetree/) engines. The following columns are added automatically to each table:
 
-* `__data_transfer_commit_time`: The time allowed for the row to change to this value, in `TIMESTAMP` format.
-* `__data_transfer_delete_time`: The time allowed for deleting the row, in `TIMESTAMP` format, if the row has been deleted from the source. If the row hasn't been deleted, `0` is set.
+* `__data_transfer_commit_time`: Time allowed for the row to change to this value, in `TIMESTAMP` format.
+* `__data_transfer_delete_time`: Time allowed for deleting the row, in `TIMESTAMP` format, if the row has been deleted from the source. If it has not, the value is set at `0`.
 
-   The `__data_transfer_commit_time` column is needed for the ReplicatedReplacedMergeTree engine. If a record is deleted or updated, a new row with the value in this column is inserted. The query by a single primary key returns multiple records with different values from the `__data_transfer_commit_time` column.
+   The `__data_transfer_commit_time` column is required for the ReplicatedReplacedMergeTree engine. If a record is deleted or updated, a new row is inserted with a value in this column. When running a query by a single primary key, it will return multiple records with different values from the `__data_transfer_commit_time` column.
 
-If the transfer status is {{ dt-status-repl }}, the source data can be added or deleted. To ensure the standard behavior of SQL commands when a primary key points to a single record, add a construction that filters data by the `__data_transfer_delete_time` column to your queries to tables moved to {{ CH }}. For example, for the `x_tab` table:
+With the {{ dt-status-repl }} transfer status, the source data may be both added and deleted. To ensure the standard behavior of SQL commands when a primary key points to a single record, add a construction that filters data by the `__data_transfer_delete_time` column to your queries to the tables moved to {{ CH }}. For example, for the `x_tab` table, the query will be the following:
 
 ```sql
 SELECT * FROM x_tab FINAL
 WHERE __data_transfer_delete_time = 0;
 ```
 
-To make it easier to run a `SELECT`, create a view with filtering by the `__data_transfer_delete_time` column and access it. For example, for the `x_tab` table:
+To make it easier to run a `SELECT` query, create a view with filtering by the `__data_transfer_delete_time` column and access it. For example, for the `x_tab` table, the query will be the following:
 
 ```sql
 CREATE VIEW x_tab_view AS SELECT * FROM x_tab FINAL
@@ -202,9 +205,9 @@ The `FINAL` keyword noticeably decreases the query efficiency. Avoid it when wor
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-* Make sure that the transfer's status is {{ dt-status-finished }} and [delete](../data-transfer/operations/transfer.md#delete) it.
+* Make sure the transfer has the  {{ dt-status-finished }} status and [delete](../data-transfer/operations/transfer.md#delete) it.
 * Delete the endpoints and clusters:
 
    {% list tabs %}
@@ -219,17 +222,17 @@ If you no longer need these resources, delete them:
 
       If you created your resources using {{ TF }}:
 
-      1. In the terminal window, change to the directory containing the infrastructure plan.
+      1. In the terminal window, switch to the directory containing the infrastructure plan.
       1. Delete the `postgresql-to-clickhouse.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
-      1. Confirm the update of resources.
+      1. Confirm the resources have been updated.
 
          {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

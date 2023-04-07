@@ -43,7 +43,13 @@ The standard can be used as the basis for developing company-specific recommenda
 The standard describes recommendations for the following security objectives:
 * Authentication and access control.
 * Network security.
-    
+* Secure configuration of a virtual environment.
+* Data encryption and key management.
+* Collecting, monitoring, and analyzing audit logs.
+* Vulnerability management.
+* Backups.
+* Physical security.
+
 ### Requirements to meet before you start {#requirements-and-preparation}
 
 Before you perform checks, make sure that:

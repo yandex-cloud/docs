@@ -9,6 +9,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
+В примерах этого сценария DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`. Ваши DNS-серверы могут находиться в {{ vpc-full-name }} или быть доступны через [VPN](../../glossary/vpn.md) или {{ interconnect-full-name }}. Необходимое условие — IP-связность между [узлами](../concepts/index.md#node-group) [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) и DNS-серверами.
 1. Создайте ресурсы {{ k8s }}:
 
    {% list tabs %}

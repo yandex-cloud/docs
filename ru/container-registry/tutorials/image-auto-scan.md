@@ -4,9 +4,25 @@ _Сервис сканирования находится на стадии [Pre
 
 В этом сценарии описано, как настроить автоматическое [сканирование](../concepts/vulnerability-scanner.md) [Docker-образа](../concepts/docker-image.md) на наличие уязвимостей при загрузке.
 
+Чтобы настроить автоматическое сканирование Docker-образа при загрузке:
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Подготовьте окружение](#prepare).
+1. [Создайте функцию](#create-function).
+1. [Создайте триггер](#create-trigger).
+1. [Загрузите образ](#download-image).
+1. [Проверьте результат](#check-result).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
+
 ## Подготовьте окружение {#prepare}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
+
+1. [Установите](https://www.docker.com) Docker.
 
 1. Создайте [реестр](../concepts/registry.md) для загрузки Docker-образа.
 
@@ -16,6 +32,7 @@ _Сервис сканирования находится на стадии [Pre
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан реестр.
      1. В списке сервисов выберите **{{ container-registry-name }}**.
+     1. Нажмите кнопку **Создать реестр**.
      1. Задайте имя реестра.
      1. Нажмите кнопку **Создать реестр**.
 
@@ -29,7 +46,7 @@ _Сервис сканирования находится на стадии [Pre
 
      Результат:
 
-     ```bash
+     ```text
      done
      id: crpd50616s9a2t7gr8mi
      folder_id: b1g88tflru0ek1omtsu0
@@ -44,7 +61,7 @@ _Сервис сканирования находится на стадии [Pre
 
    {% endlist %}
 
-1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `scanner` и назначьте ему роль `container-registry.images.scanner` на каталог, в котором создали реестр.
+1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `scanner` и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `container-registry.images.scanner` на каталог, в котором создали реестр.
 
    {% list tabs %}
 
@@ -67,7 +84,7 @@ _Сервис сканирования находится на стадии [Pre
 
         Результат:
 
-        ```bash
+        ```text
         id: ajelabcde12f33nol1v5
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2021-05-17T14:32:18.900092Z"
@@ -89,10 +106,11 @@ _Сервис сканирования находится на стадии [Pre
    {% endlist %}
 
 1. Аналогичным способом создайте сервисный аккаунт с именем `invoker` и назначьте ему роль `serverless.functions.invoker` на каталог, в котором создали реестр.
+1. Установите Docker.
 
 ## Создайте функцию {#create-function}
 
-Создайте [функцию](../../functions/concepts/function.md) в сервисе {{ sf-full-name }} с именем `scan-on-push`, которая будет запускать сканирование образа:
+Создайте [функцию](../../functions/concepts/function.md) в сервисе [{{ sf-full-name }}](../../functions/) с именем `scan-on-push`, которая будет запускать сканирование образа:
 
 {% list tabs %}
 
@@ -105,7 +123,7 @@ _Сервис сканирования находится на стадии [Pre
   1. Нажмите кнопку **Создать**.
   1. Перейдите в раздел **Редактор** и создайте версию функции:
      1. В блоке **Код функции**:
-        * Выберите среду исполнения `Bash`.
+        * Выберите среду исполнения `Bash` и нажмите **Продолжить**.
         * Выберите способ редактирования функции **Редактор кода**.
         * В окне для редактирования функции нажмите **Создать файл**. В открывшемся окне введите имя файла `handler.sh` и нажмите **Создать**.
         * Скопируйте в файл `handler.sh` следующий код:
@@ -135,7 +153,7 @@ _Сервис сканирования находится на стадии [Pre
 
      Результат:
 
-     ```bash
+     ```text
      id: d4ejb1799eko6re4omb1
      folder_id: aoek49ghmknnpj1ll45e
      created_at: "2021-17-05T14:07:32.134Z"
@@ -179,19 +197,11 @@ _Сервис сканирования находится на стадии [Pre
 
      Результат:
 
-     ```bash
+     ```text
      done (1s)
      id: d4egi3pmsd1qcdmsqt5n
      function_id: d4e275oj7jtp2o6kdmim
-     created_at: "2021-05-18T20:19:09.605Z"
-     runtime: bash
-     entrypoint: handler.sh
-     resources:
-       memory: "134217728"
-     execution_timeout: 60s
-     service_account_id: aje2stn6id9k43qk7n7l
-     image_size: "4096"
-     status: ACTIVE
+     ...
      tags:
      - $latest
      log_group_id: ckg6nb0c7uf19oo8pvjj
@@ -205,7 +215,7 @@ _Сервис сканирования находится на стадии [Pre
 
 ## Создайте триггер {#create-trigger}
 
-Создайте [триггер](../../functions/concepts/trigger/cr-trigger.md), который будет вызывать вашу функцию при создании тега образа.
+Создайте [триггер](../../functions/concepts/trigger/cr-trigger.md), который будет вызывать вашу функцию при создании [тега](../concepts/docker-image.md#version) образа.
 
 {% list tabs %}
 
@@ -217,8 +227,8 @@ _Сервис сканирования находится на стадии [Pre
   1. Нажмите кнопку **Создать триггер**.
   1. В блоке **Базовые параметры**:
      * Введите имя и описание триггера.
-     * В поле **Тип** выберите **Container Registry**.
-  1. В блоке **Настройки Container Registry**:
+     * В поле **Тип** выберите **{{ container-registry-name }}**.
+  1. В блоке **Настройки {{ container-registry-name }}**:
      * В поле **Реестр** выберите реестр, в который будете загружать образ.
      * В поле **Типы событий** выберите [событие](../../functions/concepts/trigger/cr-trigger.md#event) **Создание тега Docker-образа**.
   1. В блоке **Настройки функции**:
@@ -249,18 +259,11 @@ _Сервис сканирования находится на стадии [Pre
 
   Результат:
 
-  ```bash
+  ```text
   id: a1spt834cjmk40si80sp
   folder_id: b1g86q4m5vej8lkljme5
   created_at: "2021-05-18T20:42:54.898949653Z"
-  name: trig
-  rule:
-    container_registry:
-      event_type:
-      - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
-      registry_id: crpu20rpdc2foid8p8b0
-      invoke_function:
-        function_id: d4e275oj7jtp2o6kdmim
+  ...
         function_tag: $latest
         service_account_id: aje1insoe23e82t9mem2
   status: ACTIVE
@@ -274,13 +277,13 @@ _Сервис сканирования находится на стадии [Pre
 
 ## Загрузите образ {#download-image}
 
+1. Запустите Docker Desktop.
 1. Аутентифицируйтесь в реестре от своего имени:
 
    {% list tabs %}
 
    - С помощью Docker Credential helper
 
-     1. Если у вас еще нет профиля для YC CLI, [создайте его](../../cli/quickstart.md#initialize).
      1. Сконфигурируйте Docker для использования `docker-credential-yc`:
 
         ```bash
@@ -289,7 +292,7 @@ _Сервис сканирования находится на стадии [Pre
 
         Результат:
 
-        ```bash
+        ```text
         Credential helper is configured in '/home/<user>/.docker/config.json'
         ```
 
@@ -314,7 +317,7 @@ _Сервис сканирования находится на стадии [Pre
    
    - С помощью OAuth-токена
 
-     1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
+     1. Если у вас еще нет [OAuth-токена](../../iam/concepts/authorization/oauth-token.md), получите его по [ссылке]({{ link-cloud-oauth }}).
      1. Выполните команду:
 
         ```bash
@@ -323,7 +326,7 @@ _Сервис сканирования находится на стадии [Pre
 
         Результат:
 
-        ```bash
+        ```text
         Login Succeeded
         ```
 
@@ -336,7 +339,7 @@ _Сервис сканирования находится на стадии [Pre
 
      {% endnote %}
 
-     1. [Получите](../../iam/operations/iam-token/create.md) IAM-токен.
+     1. [Получите](../../iam/operations/iam-token/create.md) [IAM-токен](../../iam/concepts/authorization/iam-token.md).
      1. Выполните команду:
 
         ```bash
@@ -345,7 +348,7 @@ _Сервис сканирования находится на стадии [Pre
 
         Результат:
 
-        ```bash
+        ```text
         Login Succeeded
         ```
 
@@ -359,7 +362,7 @@ _Сервис сканирования находится на стадии [Pre
 
    Результат:
 
-   ```bash
+   ```text
    20.04: Pulling from library/ubuntu
    Digest: sha256:cf31af331f38d1d7158470e095b132acd126a7180a54f263d386da88eb681d93
    Status: Image is up to date for ubuntu:20.04
@@ -380,7 +383,7 @@ _Сервис сканирования находится на стадии [Pre
 
    Результат:
 
-   ```bash
+   ```text
    The push refers to repository [{{ registry }}/crpu20rpdc2foid8p8b0/ubuntu]
    2f140462f3bc: Layer already exists
    63c99163f472: Layer already exists
@@ -412,7 +415,7 @@ _Сервис сканирования находится на стадии [Pre
 
      Результат:
 
-     ```bash
+     ```text
      2021-05-18 09:27:43  START RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Version: b09i2s85a0c1fisjboft
      2021-05-18 09:27:43  END RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad
      2021-05-18 09:27:43  REPORT RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Duration: 538.610 ms Billed Duration: 538.700 ms Memory Size: 128 MB Max Memory Used: 13 MB
@@ -434,7 +437,7 @@ _Сервис сканирования находится на стадии [Pre
      1. Выберите сервис **{{ container-registry-name }}**.
      1. Выберите реестр, в который загрузили Docker-образ.
      1. Откройте репозиторий, в котором находится Docker-образ.
-     1. Выберите нужный образ и перейдите на вкладку **История сканирований**.
+     1. Выберите нужный образ и проверьте значение параметра **Дата последнего сканирования**.
 
    - CLI
 
@@ -446,7 +449,7 @@ _Сервис сканирования находится на стадии [Pre
 
      Результат:
 
-     ```bash
+     ```text
      +----------------------+----------------------+---------------------+--------+--------------------------------+
      |          ID          |        IMAGE         |     SCANNED AT      | STATUS |        VULNERABILITIES         |
      +----------------------+----------------------+---------------------+--------+--------------------------------+
@@ -455,3 +458,8 @@ _Сервис сканирования находится на стадии [Pre
      ```
 
    {% endlist %}
+
+## Как удалить созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за созданные ресурсы:
+* [Удалите Docker-образ](../../container-registry/operations/docker-image/docker-image-delete.md), который хранится в [{{ cos-full-name }}](../../cos/) и [реестр](../../container-registry/operations/registry/registry-delete.md).

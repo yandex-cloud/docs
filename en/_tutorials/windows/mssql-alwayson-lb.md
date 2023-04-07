@@ -770,7 +770,6 @@ Install SQL Server on your database servers:
       yc compute instance add-one-to-one-nat <ID_of_ya-mssql2> --network-interface-index 0
       yc compute instance add-one-to-one-nat <ID_of_ya-mssql3> --network-interface-index 0
       ```
-
    {% endlist %}
 
 1. Run the RDP client and connect to the `ya-mssql1` VM using the `Administrator` account and your password. Use the public IP address of the VM to connect.

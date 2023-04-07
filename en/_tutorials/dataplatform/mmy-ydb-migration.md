@@ -8,7 +8,7 @@ To transfer data:
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare the infrastructure {#deploy-infrastructure}
 
@@ -18,13 +18,17 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration.
 
-   1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
+   1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md#create-db) in any suitable configuration.
 
-   1. [Configure security groups](../../managed-kafka/operations/connect.md#configuring-security-groups) for your {{ mmy-name }} cluster so you can connect to it online.
+   
+   1. If you are using security groups, [configure them](../../managed-kafka/operations/connect.md#configuring-security-groups) so that you can connect to the cluster from the internet.
+
+      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 
 * Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file [data-transfer-mmy-ydb.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-ydb.tf) to the same working directory.
 
@@ -40,7 +44,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. Specify in the `data-transfer-mmy-ydb.tf` file:
 
-      * Parameters of the {{ mmy-name }} source cluster that are also used as the [source endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
+      * The {{ mmy-name }} source cluster parameters that will also be used as the [source endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
          * `source_mysql_version`: {{ MY }} version.
          * `source_db_name`: Database name.
@@ -49,13 +53,13 @@ If you no longer need these resources, [delete them](#clear-out).
       * `target_db_name`: {{ ydb-name }} database name.
 
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -121,8 +125,8 @@ If you no longer need these resources, [delete them](#clear-out).
 
             Select a source cluster from the list and specify the cluster connection settings.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) it.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
+      1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
 
@@ -131,19 +135,19 @@ If you no longer need these resources, [delete them](#clear-out).
          * The `target_endpoint_id` variable and set it to the value of the endpoint ID for the target created in the previous step.
          * The `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
 
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
       1. Create the required infrastructure:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         Once created, a transfer is activated automatically.
+         Once created, your transfer will be activated automatically.
 
    {% endlist %}
 
@@ -151,7 +155,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
 
-1. Make sure that the data from the source {{ mmy-name }} cluster has been moved to the {{ ydb-name }} database:
+1. Make sure the data from the source {{ mmy-name }} cluster has been moved to the {{ ydb-name }} database:
 
    {% list tabs %}
 
@@ -214,7 +218,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 {% endnote %}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
@@ -232,17 +236,17 @@ Delete the other resources, depending on the method used to create them:
 
 * Using {{ TF }}
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-mmy-ydb.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -14,3 +14,25 @@ Go to the cluster settings, enable the [{#T}](../../managed-clickhouse/operation
 #### How do I find out the internal_replication setting value? {#internal-replication}
 
 The `internal_replication` setting information is not available in the {{ yandex-cloud }} interfaces or the {{ CH }} system tables. The default setting value is `true`.
+
+#### How do I increase the maximum amount of RAM to run a query? {#max-memory-usage}
+
+If the amount of RAM is not sufficient for running a query, the following error occurs:
+
+```text
+DB::Exception: Memory limit (total) exceeded:
+would use 14.10 GiB (attempt to allocate chunk of 4219924 bytes), maximum: 14.10 GiB.
+(MEMORY_LIMIT_EXCEEDED), Stack trace (when copying this message, always include the lines below)
+```
+
+To [increase](../../managed-clickhouse/operations/cluster-users.md#update-settings) the maximum amount of RAM, use the [Max memory usage](../../managed-clickhouse/concepts/settings-list.md#setting-max-memory-usage) parameter.
+
+If the [User management via SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) option is enabled for the cluster, you can set the `Max memory usage` parameter:
+
+* For the current user session by running this query:
+
+   ```sql
+   SET max_memory_usage = <value in bytes>;
+   ```
+
+* For all users by default by creating a [settings profile]({{ ch.docs }}/operations/access-rights/#settings-profiles-management).

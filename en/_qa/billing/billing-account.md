@@ -68,3 +68,6 @@ To create a billing account with a payer being a resident of a different country
 
 {% include [billing-account-payers-example](../../billing/_includes/billing-account-payers-example.md) %}
 
+#### How do I change the billing account owner? {#account-owner}
+
+You cannot change the billing account owner. If you still need this, a new owner may [create a billing account](../../billing/operations/create-new-account.md) and [link](../../billing/operations/pin-cloud.md) clouds with all their resources to this billing account.

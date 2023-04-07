@@ -5,6 +5,7 @@ description: "Access management in {{ monitoring-full-name }}, a service for col
 
 # Access management in {{ monitoring-name }}
 
+
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 
 To allow access to resources in {{ monitoring-full-name }}, assign the required roles to the user from the list below.
@@ -44,3 +45,5 @@ The `{{ roles-monitoring-editor }}` role also includes all permissions of the `{
 Users with the `{{ roles-monitoring-admin }}` role can create dashboards and widgets as well as upload metrics and manage alerts.
 
 The `{{ roles-monitoring-admin }}` role also includes all permissions of the `{{ roles-monitoring-editor }}` role.
+
+

@@ -8,9 +8,9 @@ To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
@@ -18,7 +18,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 * Manually
 
-   1. [Create a source {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+   1. [Create a source {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
    1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) in the {{ mkf-name }} cluster.
 
@@ -27,16 +27,20 @@ If you no longer need these resources, [delete them](#clear-out).
       * With the `ACCESS_ROLE_PRODUCER` role for the producer.
       * With the `ACCESS_ROLE_CONSUMER` role for the consumer.
 
-   1. Create a [{{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md). To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+   1. Create a [{{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md). To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
-   1. Configure security groups for your clusters so you can connect to them from the internet:
+   
+   1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
       * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
       * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
 
+      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+
 * Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file [data-transfer-mkf-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mch.tf) to the same working directory.
 
@@ -58,19 +62,19 @@ If you no longer need these resources, [delete them](#clear-out).
          * `source_user_consumer` and `source_password_consumer`: Username and password of the consumer user.
          * `source_topic_name`: Name of the topic.
 
-      * Parameters of the target {{ mch-name }} cluster that are also used as the [target endpoint parameters](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
+      * The {{ mch-name }} target cluster parameters that will also be used as the [target endpoint parameters](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
          * `target_db_name`: Database name{{ mch-name }}.
-         * `target_user` and `target_password`: Username and password of the database owner.
+         * `target_user` and `target_password`: Database owner username and password.
 
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -290,8 +294,8 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
             * **Advanced settings** → **Upload data in JSON format**: Enable this option if you enabled **Conversion rules** in the advanced settings of the source endpoint.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-repl }}_ type that will use the created endpoints.
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) it.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-repl }}_ type that will use the created endpoints.
+      1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
 
@@ -300,19 +304,19 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
          * The `source_endpoint_id` parameter and assign to it the value of the endpoint ID for the source created in the previous step.
          * The `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
 
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
       1. Create the required infrastructure:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         Once created, a transfer is activated automatically.
+         Once created, your transfer will be activated automatically.
 
    {% endlist %}
 
@@ -320,11 +324,11 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
 
-1. Make sure that the data from the source {{ mkf-name }} cluster has been moved to the {{ mch-name }} database:
+1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mch-name }} database:
 
    1. [Connect to the cluster](../../managed-clickhouse/operations/connect.md) using `clickhouse-client`:
 
-   1. Run the query:
+   1. Run the following query:
 
       ```sql
       SELECT * FROM <{{ CH }} database name>.<{{ KF }} topic name>
@@ -348,7 +352,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
    1. [Connect to the cluster](../../managed-clickhouse/operations/connect.md) using `clickhouse-client`:
 
-   1. Run the query:
+   1. Run the following query:
 
       ```sql
       SELECT * FROM <{{ CH }} database name>.<{{ KF }} topic name>
@@ -362,7 +366,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 {% endnote %}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
@@ -374,22 +378,22 @@ Delete the other resources, depending on the method used to create them:
 * Manually
 
    * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-   * [Delete a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+   * [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
    * [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
 * Using {{ TF }}
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the configuration file `data-transfer-mkf-mch.tf`.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

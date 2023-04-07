@@ -109,9 +109,9 @@ You can use a solution for secure {{ objstorage-full-name }} bucket setup with {
 #### 5.5 Audit logs are collected at the OS level {#os-collection}
 
 When using IaaS cloud services and {{ k8s }} node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
-* [Osquery](https://osquery.io/).
-* [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html).
-* [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html).
+* [Osquery](https://osquery.io/)
+* [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html)
+* [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
 
 Additional event generation options can be implemented using Auditd for Linux or Sysmon for Windows.
 

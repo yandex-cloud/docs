@@ -19,7 +19,7 @@ To configure a database to work with Graphite:
 1. [Create a GraphiteMergeTree table](#table-create).
 1. [Configure Graphite](#graphite-setup).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare the environment {#start}
 
@@ -57,7 +57,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
       ```bash
                 name: test_rollup
-      patterns:    
+      patterns:
           - regexp: click_cost
           function: max
           retention:
@@ -144,9 +144,12 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
 ## Connect the virtual machine to a database {#cluster-connect}
 
-1. [Configure security groups](../../managed-clickhouse/operations/connect.md#configuring-security-groups) for the cloud network to permit all the required traffic between the cluster and the VM.
+1. If you are using security groups for a cloud network, [set them up](../../managed-clickhouse/operations/connect.md#configuring-security-groups) to allow all required traffic between the cluster and the VM.
+
+   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 1. [Connect](../../compute/operations/vm-connect/ssh.md).
-1. Run the ClickHouse CLI with the following parameters: specify the earlier saved parameters in place of `<host FQDN>`, `<database name>`, `<database username>`, and `<database user password>`.
+1. Run the ClickHouse CLI with the following parameters: replace `<host FQDN>`, `<database name>`, `<database username>`, and `<database user password>` with the previously saved values.
 
    ```bash
    clickhouse-client --host <host FQDN> \
@@ -218,6 +221,7 @@ Configure Graphite to save metrics in the {{ CH }} cluster. In this case, data i
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the resources created:
+Delete the resources you no longer need to avoid paying for them:
+
 * [Delete the {{ CH }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).

@@ -19,20 +19,20 @@ All the [source files](https://github.com/yandex-cloud/yc-solution-library-for-s
 In addition to using the solution for your cloud logs, you can use it for organization or folder logs. To do this, create a trail by following the instructions for [organizations](../audit-trails/operations/export-organization-bucket.md) or [folders](../audit-trails/operations/export-folder-bucket.md), respectively.
 
 To export audit logs:
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#environment-preparing).
 1. [Create a trail](#create-trail).
 1. [Deploy a {{ ES }} cluster and intermediate VM](#create-cluster-vm).
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-you-begin](_tutorials_includes/before-you-begin.md) %}
 
 {% include [cli-install](../_includes/cli-install.md) %}
 
-Some steps are completed in [{{ TF }}](https://www.terraform.io/intro). If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+Some steps are completed in [{{ TF }}](https://www.terraform.io/intro). If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 Some {{ yandex-cloud }} features described in this tutorial are at the [Preview](../overview/concepts/launch-stages.md) stage. [Request access to these features from the support team]({{ link-console-support }}/create-ticket):
 * [{{ at-name }}](../audit-trails/).
@@ -438,7 +438,7 @@ To connect to the {{ ES }} cluster, type the cluster address in the browser and 
 
 To use the latest version of the solution for exporting audit logs to your {{ ES }} cluster:
 
-* Make sure you're using the current version of the intermediate VM's Docker container and the latest available version of the `{{ registry }}/sol/s3-elk-importer:latest` image. You can update the Docker container in one of the following ways:
+* Make sure you are using the current version of the intermediate VM's Docker container and the latest available version of the `{{ registry }}/sol/s3-elk-importer:latest` image. You can update the Docker container in one of the following ways:
    * Delete the intermediate VM and create it again using {{ TF }}.
    * Stop and delete the `audit-trail-worker-*` Docker container on the intermediate VM, delete the `s3-elk-importer` image, and restart the intermediate VM. Once restarted, a new image is downloaded and a new container is created.
 * Make sure the correlation rules and security event queries are up-to-date. To update the data in Kibana, run the `elk-updater` container:
@@ -466,7 +466,7 @@ You can also check the [yandex-cloud/yc-solution-library-for-security](https://g
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the resources created:
+Delete the resources you no longer need to avoid paying for them:
 
 * Delete the resources created with {{ TF }}:
 

@@ -9,9 +9,9 @@ In this tutorial, you will, using a [node built from a Docker image](../../datas
 1. [Deploy the service in {{ ml-platform-name }}](#deploy).
 1. [Run a health check for the service you deployed](#check-node).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
@@ -29,12 +29,11 @@ What the cost of deploying a service based on a Docker image includes:
 
 ### Create a folder {#create-folder}
 
-
-Create a folder to host the infrastructure and store logs of your service.
+Create a folder to host the infrastructure and store logs of your service.
 
 {% note info %}
 
-In our example, both the {{ yandex-cloud }} infrastructure and the deployed service run in the same {{ yandex-cloud }} folder; however, this is not required.
+In our example, both the {{ yandex-cloud }} infrastructure and the deployed service run in the same {{ yandex-cloud }} folder; however, this is not required.
 
 {% endnote %}
 
@@ -82,7 +81,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 
 {% endlist %}
 
-### Create an authorized key for the service account {#create-key}
+### Create an authorized key for a service account {#create-key}
 
 To allow your service account to [get authenticated in {{ container-registry-full-name }}](../../container-registry/operations/authentication.md), create an authorized key.
 
@@ -122,6 +121,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
    ```text
    # syntax=docker/dockerfile:1
    FROM nvcr.io/nvidia/tritonserver:22.01-py3
+
    RUN mkdir -p /models/resnet50_640x640/1/model.savedmodel/ &&\
      curl -L "https://tfhub.dev/tensorflow/faster_rcnn/resnet50_v1_640x640/1?tf-hub-format=compressed" |\
      tar -zxvC /models/resnet50_640x640/1/model.savedmodel/ &&\
@@ -134,6 +134,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
      mkdir -p /models/inception_resnet_v2_640x640/1/model.savedmodel/ &&\
      curl -L "https://tfhub.dev/tensorflow/faster_rcnn/inception_resnet_v2_640x640/1?tf-hub-format=compressed" |\
      tar -zxvC /models/inception_resnet_v2_640x640/1/model.savedmodel/
+
    ENTRYPOINT ["/opt/tritonserver/nvidia_entrypoint.sh",\
                "tritonserver",\
                "--model-repository=/models",\
@@ -199,14 +200,14 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
       docker login \
         --username iam \
         --password <IAM token> \
-        cr.yandex
+        {{ registry }}
       ```
 
    1. Push the Docker image to {{ container-registry-name }}. For <Registry ID>, use the ID of your registry (`datasphere-registry`):
 
       ```bash
-      docker tag triton-docker cr.yandex/<registry ID>/triton:v1
-      docker push cr.yandex/<Registry ID>/triton:v1
+      docker tag triton-docker {{ registry }}/<Registry ID>/triton:v1
+      docker push {{ registry }}/<Registry ID>/triton:v1
       ```
 
 {% endlist %}
@@ -251,7 +252,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
 ## Run a health check for the service you deployed {#check-node}
 
-1. [Download a notebook](https://storage.yandexcloud.net/doc-files/datasphere-nodefromdocker.ipynb) with the health check code and upload it to the `Node from Docker` project IDE.
+1. [Download a notebook](https://{{ s3-storage-host }}/doc-files/datasphere-nodefromdocker.ipynb) with the health check code and upload it to the `Node from Docker` project IDE.
 1. Run the cells in the **Preparing environment** section: select the cells and press **Shift** + **Enter**.
 1. Under **Authentication**, fill out the details to get authenticated in the node. Replace `<node ID>` and `<folder ID>` with your node ID (`triton`) and folder ID (`data-folder`).
 1. Run the cells under **Authentication**.

@@ -18,14 +18,18 @@ To migrate a database from the {{ mpg-name }} *source cluster* to the {{ PG }} *
 1. [Monitor the migration process](#monitor-migration) until it is complete.
 1. [Finish the migration](#finish-migration).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Make sure that all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. For more information, see [{#T}](../../managed-postgresql/operations/cluster-create.md).
 1. [Install the {{ mpg-name }} client SSL certificates on the hosts of the target cluster](../../managed-postgresql/operations/connect.md#get-ssl-cert). They're required to successfully connect to the source cluster that is publicly available.
-1. If necessary, set up the firewall and [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups) so that you can connect to the source cluster from the target cluster, as well as to each cluster separately (for example, using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility).
-1. Make sure that you can connect to the source cluster's hosts from the target cluster's hosts.
+
+
+1. Set up the firewall and [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups), if required, so that you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility). The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
+
+
+1. Make sure you can connect to the source cluster's hosts from the target cluster's hosts.
 1. Make sure you can [connect to the source cluster](../../managed-postgresql/operations/connect.md) and the target cluster via SSL.
 1. Check that an empty database is created on the target cluster to migrate your data to.
 1. Check if there is a user with full access rights to this database in the target cluster.
@@ -140,8 +144,8 @@ After the replication is complete:
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
 1. If you reserved a public static IP for your virtual machine, [delete it](../../vpc/operations/address-delete.md).
-1. [Delete a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
+1. [Delete the {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).

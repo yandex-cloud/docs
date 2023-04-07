@@ -1,7 +1,7 @@
 Learn how to use serverless technologies and the Java Servlet API to create a simple web application for managing a task list.
 
 To create a web application:
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#preare).
 1. [Create a {{ objstorage-full-name }} bucket](#create-bucket).
 1. [Create a {{ ydb-short-name }} database](#create-db).
@@ -11,7 +11,7 @@ To create a web application:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -64,7 +64,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
       1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
       1. Select **{{ ydb-name }}**.
       1. Click **Create database**.
-      1. Enter the database **Name**. Naming requirements:
+      1. Enter the database **Name**. For naming requirements, see below:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -181,9 +181,9 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
       Where:
       * `function-name`: The name of the function you want to create a version of.
       * `runtime`: The runtime environment.
-      * `entrypoint`: The entry point specified in the \<function file name>.\<handler name> format.
-      * `memory`: The amount of RAM.
-      * `execution-timeout`: The maximum function execution time before the timeout is reached.
+      * `entrypoint`: Entry point specified in the \<function file name>.\<handler name> format.
+      * `memory`: Amount of RAM.
+      * `execution-timeout`: Maximum function execution time before the timeout is reached.
       * `source-path`: ZIP archive with the function code and required dependencies.
       * `environment`: Environment variables in key=value format.
 

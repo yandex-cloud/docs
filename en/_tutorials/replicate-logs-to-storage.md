@@ -4,18 +4,18 @@ Data aggregators enable you to transmit data (for example, logs) from the [VM in
 
 In this tutorial, you'll learn to replicate VM logs automatically to an {{ objstorage-name }} bucket using the [Fluent Bit](https://fluentbit.io) logging processor.
 
-Here's the outline of how the below-described solution is working:
+The solution described below works in the following way:
 1. Fluent Bit runs on an active VM as a [systemd](https://ru.wikipedia.org/wiki/Systemd) module.
-1. Fluent Bit collects logs according to the configuration settings and sends them to a {{ yds-name }} stream via the [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/) protocol.
-1. In the working folder, you set up a {{ data-transfer-name }} transfer that fetches data from the stream and saves it to an {{ objstorage-name }} bucket.
+1. Fluent Bit collects logs according to the configuration settings and sends them to a {{ yds-name }} [stream](../data-streams/concepts/glossary.md#stream-concepts) via the [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/) protocol.
+1. In the working folder, you set up a {{ data-transfer-name }} [transfer](../data-transfer/concepts/#transfer) that fetches data from the stream and saves it to an {{ objstorage-name }} [bucket](../storage/concepts/bucket.md).
 
 To set up log replication:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Configure the environment](#setup).
 1. [Create an {{ objstorage-name }} bucket for storing your logs](#create-bucket).
 1. [Create a data stream {{ yds-name }}](#create-stream).
-1. [Create a transfer {{data-transfer-name}}](#create-transfer).
+1. [Create a transfer {{ data-transfer-name }}](#create-transfer).
 1. [Install Fluent Bit](#install-fluent-bit).
 1. [Connect Fluent Bit to a data stream](#connect).
 1. [Test sending and receiving data](#check-ingestion).
@@ -30,9 +30,9 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
 
 The cost of data storage support includes:
 
-* Data stream maintenance fees (see [{{ yds-name }} pricing](../data-streams/pricing.md)).
-* Fees for transmitting data between sources and targets (see [{{ data-transfer-name }} pricing](../data-transfer/pricing.md)).
-* Data storage fees (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
+* Data stream maintenance fees (see [{{ yds-full-name }} pricing](../data-streams/pricing.md)).
+* Fees for transmitting data between sources and targets (see [{{ data-transfer-full-name }} pricing](../data-transfer/pricing.md)).
+* Data storage fees (see [{{ objstorage-full-name }} pricing](../storage/pricing.md)).
 
 ## Configure the environment {#setup}
 
@@ -41,7 +41,7 @@ The cost of data storage support includes:
 1. [Create a VM](../compute/operations/vm-create/create-linux-vm.md) from a public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image. Under **Access**, specify the service account that you created in the previous step.
 1. [Connect to the VM](../compute/operations/vm-connect/ssh.md#vm-connect) via SSH.
 1. Install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) utility on the VM.
-1. Run the command:
+1. Run this command:
 
    ```bash
    aws configure
@@ -52,75 +52,11 @@ The cost of data storage support includes:
    * `AWS Secret Access Key [None]:` [Secret access key](../iam/concepts/authorization/access-key.md) of the service account.
    * `Default region name [None]:` Region `{{ region-id }}`.
 
-## Create a bucket {#create-bucket}
+{% include [create-bucket](_tutorials_includes/create-bucket.md) %}
 
-{% list tabs %}
+{% include [create-stream](_tutorials_includes/create-stream.md) %}
 
-- Management console
-
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../storage/concepts/bucket.md).
-   1. Select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
-   1. Enter a bucket name like `logs-bucket`.
-   1. In the **Storage class** field, select `Cold`.
-   1. Click **Create bucket**.
-
-{% endlist %}
-
-## Create a data stream {#create-stream}
-
-{% list tabs %}
-
-- Management console
-
-   1. In the [management console]({{ link-console-main }}), select the folder to create a [data stream](../data-streams/concepts/glossary#stream-concepts) in.
-   1. Select **{{ yds-name }}**.
-   1. Click **Create stream**.
-   1. Specify an existing [serverless](../ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../ydb/quickstart.md#serverless) a new one. If you have created a new database, click ![refresh-button](../_assets/data-streams/refresh-button.svg) **Update** to update the database list.
-   1. Enter the data stream name: `logs-stream`.
-   1. Click **Create**.
-
-   Wait for the stream to start. Once the stream is ready for use, its status changes from `CREATING` to `ACTIVE`.
-
-{% endlist %}
-
-## Create a transfer {#create-transfer}
-
-{% list tabs %}
-
-- Management console
-
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [transfer](../data-transfer/concepts/index.md#transfer).
-   1. Select **{{ data-transfer-name }}**.
-   1. Create a source endpoint:
-      1. Click **Create endpoint**.
-      1. In the **Direction** field, select `Source`.
-      1. Enter the endpoint name, for example, `logs-source`.
-      1. In the **Database type** list, select `{{ yds-full-name }}`.
-      1. Select a database for the source.
-      1. Enter the name of the previously created `logs-stream` stream.
-      1. Select the previously created `logs-sa` service account.
-      1. Click **Create**.
-   1. Create a target endpoint:
-      1. Click **Create endpoint**.
-      1. In the **Direction** field, select `Target`.
-      1. Enter the endpoint name, for example, `logs-receiver`.
-      1. In the **Database type** list, select `{{ objstorage-name }}`.
-      1. Enter the name of the previously created bucket (`logs-bucket`).
-      1. Select the previously created `logs-sa` service account.
-      1. Click **Create**.
-   1. Create a transfer:
-      1. On the left-hand panel, select ![image](../_assets/data-transfer/transfer.svg) **Transfers**.
-      1. Click **Create transfer**.
-      1. Enter the transfer name, for example, `logs-transfer`.
-      1. Select the previously created source endpoint `logs-source`.
-      1. Select the previously created target endpoint `logs-receiver`.
-      1. Click **Create**.
-      1. Click ![ellipsis](../_assets/horizontal-ellipsis.svg) next to the name of the created transfer and select **Activate**.
-
-   Wait until the transfer is activated. Once the transfer is ready for use, its status changes from {{ dt-status-creation }} to {{ dt-status-repl }}.
-
-{% endlist %}
+{% include [create-transfer](_tutorials_includes/create-transfer.md) %}
 
 ## Install Fluent Bit {#install-fluent-bit}
 
@@ -182,17 +118,17 @@ If you are running Fluent Bit version below 1.9 that comes with the `td-agent-bi
 
    ```bash
    [OUTPUT]
-       Name  kinesis_streams
+       Name kinesis_streams
        Match *
        region ru-central-1
-       stream /<region>/<folder ID>/<database ID>/<data stream ID>
+       stream /<region>/<folder_ID>/<database_ID>/<data_stream_ID>
        endpoint https://yds.serverless.yandexcloud.net
    ```
    Where:
 
    * `data-stream`: {{ yds-name }} data stream ID.
-      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logs-stream` if:
-      > * `logs-stream` is the name of the stream.
+      > For example, if your stream ID is `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logs-stream`, it breaks down into the following parts:
+      > * `logs-stream`: Name of the stream.
       > * `{{ region-id }}`: Region.
       > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
       > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
@@ -235,30 +171,14 @@ If you are running Fluent Bit version below 1.9 that comes with the `td-agent-bi
    Sep 08 16:51:19 ycl-20 fluent-bit[3450]: [2022/09/08 16:51:19] [ info] [output:stdout:stdout.0] worker #0 started
    ```
 
-## Test sending and receiving data {#check-ingestion}
-
-{% list tabs %}
-
-- Management console
-
-   1. In the [management console]({{ link-console-main }}), go to the folder where you created a data stream, transfer, and bucket.
-   1. Select **{{ yds-name }}**.
-   1. Select the `logs-stream` data stream.
-   1. Go to the **Monitoring** tab and look at the stream activity charts.
-   1. Select **{{ data-transfer-name }}**.
-   1. Select `logs-transfer`.
-   1. Go to the **Monitoring** tab and look at the transfer activity charts.
-   1. Select **{{ objstorage-name }}**.
-   1. Select `logs-bucket`.
-   1. Make sure that you have objects in the bucket. Download and review the resulting log files.
-
-{% endlist %}
+{% include [check-ingestion](_tutorials_includes/check-ingestion.md) %}
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the resources created:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the transfer](../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the data stream](../data-streams/operations/manage-streams.md#delete-data-stream).
+1. [Delete objects from the bucket](../storage/operations/objects/delete.md).
 1. [Delete the bucket](../storage/operations/buckets/delete.md).

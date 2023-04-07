@@ -3,7 +3,7 @@
 You can use {{ load-testing-full-name }} to run incremental HTTPS load tests of the service with the [Pandora](../load-testing/concepts/load-generator.md#pandora) load generator.
 
 To perform load testing:
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Prepare a test target](#target-prepare).
 1. [Prepare the infrastructure](#infrastructure-prepare).
 1. [Create an agent](#create-agent).
@@ -176,7 +176,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
            package: yandextank.plugins.Autostop
            autostop:
              - quantile(75,100ms,10s)       # stop test if 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, processing time of 25% of queries exceeds 100 milliseconds).
-             - instances(90%,60s)           # stop test if 90% of testing threads are used for 60 seconds.
+             - instances(90%,60s)           # stop test if 90% of testing threads are being used for 60 seconds.
          core: {}
          uploader:
            enabled: true

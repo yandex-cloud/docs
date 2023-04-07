@@ -1,5 +1,5 @@
+Delete the resources you no longer need to avoid paying for them:
 
-If you no longer need the created resources, delete the [VM instance](../../compute/operations/vm-control/vm-delete.md) and the [{{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-
-If you have reserved a public static IP address for the created VM, [delete it](../../vpc/operations/address-delete.md).
-
+* [Delete the {{ mkf-full-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+* [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
+* If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).

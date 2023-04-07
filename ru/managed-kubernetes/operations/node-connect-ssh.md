@@ -1,6 +1,6 @@
 # Подключение к узлу по SSH
 
-Чтобы подключиться к [узлу](../concepts/index.md#node-group) [кластера {{ k8s }}](../concepts/index.md#kubernetes-cluster) по SSH:
+Чтобы подключиться к [узлу](../concepts/index.md#node-group) [кластера {{ k8s }}](../concepts/index.md#kubernetes-cluster) по [SSH](../../glossary/ssh-keygen.md):
 * Добавьте публичный ключ в метаинформацию при [создании группы узлов](node-group/node-group-create.md).
 
   {% note info %}

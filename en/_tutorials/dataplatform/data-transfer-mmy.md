@@ -9,9 +9,9 @@ To set up CDC using {{ data-transfer-name }}:
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a source {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) in any suitable configuration with the following settings:
 
@@ -21,10 +21,14 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
 
-1. Configure security groups for your clusters so you can connect to them from the internet:
+
+1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
    * [Instructions for {{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups)
    * [Instructions for {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups)
+
+   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 
 1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and the [MySQL command-line tool](https://www.mysql.com/downloads/) on the local machine. For example, in Ubuntu 20.04, run:
 
@@ -151,7 +155,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    ```sql
    INSERT INTO db1.measurements VALUES
        ('iv7b74th678tooxh5ur2', '2022-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL),
-       ('iv9a94th678tooxh5ur2', '2022-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
+       ('iv9a94th678tooxh5ur2', '2022-06-07 15:00:10', 55.70985913, 37.62141918, 417.0, 15.7, 10.3, 17, NULL);
    ```
 
 1. Make sure the terminal running the `kafkacat` utility is displaying the `db1.measurements` table data format schema and information on the inserted rows.
@@ -276,7 +280,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
 

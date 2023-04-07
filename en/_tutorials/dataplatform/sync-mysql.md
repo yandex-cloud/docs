@@ -4,7 +4,7 @@ In this scenario, you'll learn how to ensure periodic delivery of changes from a
 
 To set up the transfer of changes:
 
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Create a VM with an online store](#create-vm-mysql).
 1. [Create staging storage](#create-staging-dwh).
 1. [Configure the transfer parameters](#create-transfer).
@@ -21,10 +21,10 @@ If you no longer need these resources, [delete them](#clear-out).
 
 Infrastructure costs for data transfers include:
 
-1. A fee for a continuously running VM (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
-1. A fee for using a dynamic or a static public IP (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md));
-1. Fees for the continuously running cluster {{ mmy-name }} (see [pricing{{ mmy-name }}](../../managed-mysql/pricing.md)).
-1. A fee for {{ data-transfer-name }} (see [pricing{{ data-transfer-name }}](../../data-transfer/pricing)).
+1. Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+1. Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+1. Fee for continuously running {{ mmy-name }} cluster (see [pricing for {{ mmy-name }}](../../managed-mysql/pricing.md)).
+1. Fee for {{ data-transfer-name }} (see [pricing for {{ data-transfer-name }}](../../data-transfer/pricing)).
 
 
 ## Create a VM with an online store {#create-vm-mysql}
@@ -125,7 +125,7 @@ To synchronize the order information from the MySQL database of the website with
    * **Database name**: `magento-cloud`.
    * **Replication user's name** (`yc-user`) and password (`12345678`).
    * Select **Disable constraint checks**.
-      In this case, if the data transfer sequence is violated, no error messages are returned.
+     In this case, if the data transfer sequence is violated, no error messages are returned.
    * Click **Create**.
 
 1. Select **Transfers** in the menu and click **Create transfer**.
@@ -156,13 +156,15 @@ To synchronize the order information from the MySQL database of the website with
    ```sql
    SELECT so.*, soi.* FROM sales_order_grid so
    INNER JOIN sales_order_item soi ON so.entity_id = soi.order_id
-   ORDER BY entity_id DESC 
+   ORDER BY entity_id DESC
    LIMIT 10
    ```
 1. Make sure that your order data appeared in the database.
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the data transfer infrastructure, [delete](../../compute/operations/vm-control/vm-delete.md) the `magento` VM and the `ya-sample-cloud-mysql` cluster.
+Delete the resources you no longer need to avoid paying for them:
 
-If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
+* [Delete](../../compute/operations/vm-control/vm-delete.md) the `magento` VM.
+* [Delete](../../managed-mysql/operations/cluster-delete.md) the `ya-sample-cloud-mysql` cluster.
+* If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).

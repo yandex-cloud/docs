@@ -1,6 +1,6 @@
-# Shared responsibility
+# Division of responsibility
 
-Systems using cloud services require security responsibilities be divided and shared by the client-owner of the end system and the provider-owner of the cloud infrastructure. It depends on the cloud service model: IaaS (Infrastructure as a Service) or PaaS (Platform as a Service).
+The security of the systems using cloud services requires sharing the responsibility between the client (end system owner) and the provider (cloud infrastructure owner). The way it is shared depends on the cloud service model: whether it is IaaS (Infrastructure as a Service) or PaaS (Platform as a Service).
 
 It can be visualized in a table, where:
 
@@ -19,13 +19,15 @@ It can be visualized in a table, where:
 | Network security (Underlay) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | Physical security and disaster recovery | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 
-If the customer uses their own infrastructure, the customer is solely responsible for ensuring security at every level.
+In any of the three situations, only the client is responsible for controlling access and managing permissions. Other areas of responsibility depend on the model.
 
-When using IaaS cloud services, the provider is responsible for the physical security and fault tolerance of the platform itself, network security, and the collection and analysis of security events from hypervisors and other infrastructure components. The client is responsible for the security of guest VMs.
+## Privately owned infrastructure
+The client is solely responsible for ensuring security at all levels.
 
-IT departments of companies that use cloud services should back up VMs, protect the virtual network, ensure the security of guest OS, control access, and secure cloud user accounts.
+## IaaS
+The provider is responsible for the physical security and fault tolerance of the platform itself, network security, and the collection and analysis of security events from hypervisors and other infrastructure components.
 
-When using managed services (PaaS/SaaS), the end user has even less to worry about, since the provider initially provides protection for higher-level infrastructure layers. This includes VM protection and DB backups.
+The client is to back up VMs, protect the virtual network, ensure the security of guest OS, control access, and secure cloud user accounts.
 
-In all these situations, only the client is responsible controlling access and managing permissions.
-
+## PaaS
+When using managed services (PaaS/SaaS), the client has even less to worry about, since the provider initially ensures protection for higher-level infrastructure layers. This includes VM protection and DB backups.

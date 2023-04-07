@@ -33,7 +33,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% note alert %}
 
-All resources created using {{ TF }} are chargeable. Please, make sure to check the configurations you are creating now.
+All resources created using {{ TF }} are chargeable. Make sure to check the configuration prior to creating any resources.
 
 {% endnote %}
 

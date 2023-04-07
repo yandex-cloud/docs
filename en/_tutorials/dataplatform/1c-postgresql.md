@@ -90,11 +90,13 @@ List of extensions installed in PostgreSQL {{ pg.versions.console.str-1c }} clus
 
 ## Delete the resources you created {#clear-out}
 
+Delete the resources you no longer need to avoid paying for them:
+
 {% list tabs %}
 
 - Manually
 
-   If you no longer need these resources, delete the [{{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
+   [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
 
 - Using {{ TF }}
 

@@ -2,7 +2,7 @@
 
 A {{ ydb-name }} cluster can get data from {{ PG }} databases in real time. This data is automatically added to {{ ydb-short-name }} tables with names of source schemas and tables.
 
-To run data transfer:
+To run data delivery:
 
 1. [Prepare the source cluster](#prepare-source).
 1. [Prepare and activate the transfer](#prepare-transfer).
@@ -10,7 +10,7 @@ To run data transfer:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Prepare the data transfer infrastructure:
 
@@ -214,7 +214,7 @@ Prepare the data transfer infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 

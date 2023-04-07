@@ -1,6 +1,7 @@
 # Fault-tolerant website with load balancing by {{ alb-full-name }}
 
 Create and set up a website with load balancing by [{{ alb-name }}](../../application-load-balancer/concepts/index.md) between three availability zones and fault tolerance in one zone.
+
 1. [Prepare your cloud](#before-you-begin).
 1. [Prepare the network infrastructure](#prepare-network).
 1. [Create security groups](#create-security-groups).
@@ -141,7 +142,7 @@ It may take several minutes to create an instance group. Once all VMs change the
 
 ## Upload the website files {#upload-files}
 
-To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from this [archive](https://{{ s3-storage-host }}/doc-files/index.html.zip).
+To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from [this archive](https://{{ s3-storage-host }}/doc-files/index.html.zip).
 
 Do the following for each VM instance in the [created group](#create-vms):
 1. On the **Virtual machines** tab, click on the name of the desired VM in the list. Under **Network**, find the VM's public IP address.

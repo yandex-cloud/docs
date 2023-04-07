@@ -1,7 +1,7 @@
 
 ### Host computing resources {#prices-hosts}
 
-| Resource | Cost for 1 hour |
+| Resource | Cost per hour |
 |----------------|-----------------|
 | **Intel Cascade Lake** |
 | 50% vCPU | $0.008615 |

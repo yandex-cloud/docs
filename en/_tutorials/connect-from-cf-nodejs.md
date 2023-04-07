@@ -12,7 +12,7 @@ The application creates a {{ ydb-short-name }} database connection driver, a ses
 
 To set up a connection to the {{ ydb-short-name }} database:
 
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#prepare-environment).
 1. [Create a service account](#create-sa).
 1. [Create an authorized key](#create-key).
@@ -79,7 +79,7 @@ The infrastructure support cost for this scenario includes:
 
 - CLI
 
-   Run the command:
+   Run the following command:
 
    ```bash
    yc iam service-account create --name sa-function
@@ -89,7 +89,7 @@ The infrastructure support cost for this scenario includes:
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the service account parameters:
 
@@ -110,7 +110,7 @@ The infrastructure support cost for this scenario includes:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -154,7 +154,7 @@ The infrastructure support cost for this scenario includes:
 
 - CLI
 
-   Run the command:
+   Run the following command:
 
    ```bash
    yc iam key create --service-account-name sa-function -o service_account_key_file.json
@@ -186,7 +186,7 @@ The infrastructure support cost for this scenario includes:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -213,7 +213,7 @@ The infrastructure support cost for this scenario includes:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
    1. In the list of services, select **{{ ydb-name }}**.
    1. Click **Create database**.
-   1. Enter a name for the database. Naming requirements:
+   1. Enter a name for the database. For naming requirements, see below:
 
       {% include [name-format](../_includes/name-format.md) %}
 

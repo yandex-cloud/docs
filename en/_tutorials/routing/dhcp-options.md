@@ -17,7 +17,7 @@ In this scenario, you'll add a new subnet `10.128.0.0/24 `with the DNS suffix an
 
 To add a subnet with DHCP settings:
 
-* [Before you start](#before-begin).
+* [Prepare your cloud](#before-begin).
 * [Create a subnet](#create-subnet).
 * [Test the network](#check-config).
 
@@ -241,7 +241,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 ## How to delete created resources {#clear-out}
 
-To release the resources, follow these steps:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. Delete the `vm-for-tests-in-subnet` VM.
 

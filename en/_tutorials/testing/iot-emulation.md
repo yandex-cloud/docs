@@ -24,12 +24,12 @@ Each sensor sends its result in JSON format. For example:
 
 To emulate the operation of multiple devices:
 
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Install {{ TF }}](#install-terraform).
 1. [Describe the infrastructure](#set-configuration).
 1. [Deploy cloud resources](#deploy).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need these resources, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
@@ -45,7 +45,7 @@ Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type
 
 1. Create the `iot-terraform` directory. It will store the {{ TF }} configuration files.
 
-1. [Download](https://{{ s3-storage-host }}/doc-files/emulator_publish.zip) an archive containing the files that you will needed to execute the script, and unpack it to `iot-terraform`.
+1. [Download](https://{{ s3-storage-host }}/doc-files/emulator_publish.zip) the archive with the files required to run the script and unpack it to `iot-terraform`.
 
    The archive contains:
    * `common.tf`: {{ TF }} provider settings.
@@ -108,7 +108,7 @@ Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type
    terraform plan
    ```
 
-   The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contain errors, {{ TF }} will point them out.
+   The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contains any errors, {{ TF }} will point them out.
 
    {% note alert %}
 
@@ -127,14 +127,14 @@ Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type
 
    ```
    Outputs:
-   
+
    function = "d4erep.......aq085f0"
    iot_core = "are.......ht10enkb3u"
    service_account = "ajestqfepa.......0l6"
    trigger = "a1sva8sse.......7kf6"
    ```
 
-   {{ TF }} will create all the required resources, and the terminal will display the IDs of the resources created. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
+   {{ TF }} will create all the required resources, and the terminal will display the IDs of the resources created. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
 
 ## Delete the resources you created {#clear-out}
 

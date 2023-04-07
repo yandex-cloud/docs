@@ -21,7 +21,7 @@ When testing is complete, [delete the created resources](#clear-out) if you no l
 
    If security groups are not available in your cloud, all incoming and outgoing traffic will be enabled for the resources and no additional setup is required.
 
-1. [Set up the {{managed-k8s-name}} cluster](../../managed-kubernetes/quickstart.md).
+1. [Set up the {{ managed-k8s-name }} cluster](../../managed-kubernetes/quickstart.md).
 
 1. [Install Metrics Provider](../../managed-kubernetes/operations/applications/metrics-provider.md).
 
@@ -29,16 +29,16 @@ When testing is complete, [delete the created resources](#clear-out) if you no l
 
    1. [Create](../../application-load-balancer/tools/k8s-ingress-controller/service-account.md) a service account for the Ingress controller.
 
-   2. [Install](../../application-load-balancer/operations/k8s-ingress-controller-install.md) the {{alb-name}} Ingress controller for {{managed-k8s-name}}.
+   2. [Install](../../application-load-balancer/operations/k8s-ingress-controller-install.md) the {{ alb-name }} Ingress controller for {{ managed-k8s-name }}.
 
 
 ### Required paid resources {#paid-resources}
 
 The cost of this infrastructure includes:
 
-* A fee for using the master and outgoing {{managed-k8s-name}} traffic (see [Pricing for {{managed-k8s-name}}](../../managed-kubernetes/pricing.md)).
-* A fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for using the master and outgoing {{ managed-k8s-name }} traffic (see [Pricing for {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 
 ## Prepare a test target {#prepare-target}
@@ -102,7 +102,7 @@ This instruction will use a gRPC service as a test target.
          port: 80
          targetPort: 8080
          protocol: TCP
-         nodePort: 30085    
+         nodePort: 30085
    ```
 
 2. Create an application:
@@ -167,10 +167,10 @@ This instruction will use a gRPC service as a test target.
 
    Where:
 
-   * `ingress.alb.yc.io/subnets`: A list of comma-separated subnet IDs.
+   * `ingress.alb.yc.io/subnets`: List of comma-separated subnet IDs.
    * `ingress.alb.yc.io/security-groups`: ID of the security group created when [preparing your cloud](#prepare-cloud). If security groups are not enabled in your cloud, delete this annotation.
-   * `secretName`: A reference to a TLS certificate from {{certificate-manager-full-name}} as `yc-certmgr-cert-id-<certificate ID>`.
-   * `hosts`, `host`: The domain name the TLS certificate corresponds to.
+   * `secretName`: Reference to a TLS certificate from {{ certificate-manager-full-name }} as `yc-certmgr-cert-id-<certificate ID>`.
+   * `hosts`, `host`: Domain name the TLS certificate corresponds to.
 
    For more information, see [Ingress fields and annotations](../../application-load-balancer/k8s-ref/ingress.md).
 
@@ -200,12 +200,12 @@ This instruction will use a gRPC service as a test target.
 
    The ADDRESS column must contain an IP address. Otherwise, the load balancer was not created or was created with an error. Check the logs for the `yc-alb-ingress-controller-*` pod.
 
-4. In {{dns-name}}, [create](../../dns/operations/resource-record-create.md) an A record referring to the load balancer's public address.
+4. In {{ dns-name }}, [create](../../dns/operations/resource-record-create.md) an A record referring to the load balancer's public address.
 
 
 ## Configure horizontal pod autoscaling {#configure-autoscaling}
 
-1. Create the `hpa.yaml` file with the {{k8s-hpa}} specification:
+1. Create the `hpa.yaml` file with the {{ k8s-hpa }} specification:
 
    ```
    ### HPA
@@ -241,14 +241,14 @@ This instruction will use a gRPC service as a test target.
    * `load_balancer` is the L7 load balancer ID.
    * `backend_group` is the backend group ID.
 
-   You can find them in the {{alb-name}} console or by running the commands:
+   You can find them in the {{ alb-name }} console or by running the commands:
 
    ```
    yc alb load-balancer list
    yc alb backend-group list
    ```
 
-2. Create the {{k8s-hpa}}:
+2. Create the {{ k8s-hpa }}:
 
    ```
    kubectl apply -f hpa.yaml
@@ -260,8 +260,8 @@ This instruction will use a gRPC service as a test target.
    1. [Create](../../iam/operations/sa/create.md) a `sa-loadtest` service account in the folder to host the agent that will generate the load.
    2. [Assign](../../iam/operations/roles/grant.md) a role to a service account.
       * `loadtesting.generatorClient`: Enables you to run agents and tests on agents and upload test results to the storage.
-      * `compute.admin`: Enables you to manage a VM in {{compute-name}}.
-      * `vpc.user`: Enables you to connect to {{vpc-name}} network resources and use them.
+      * `compute.admin`: Enables you to manage a VM in {{ compute-name }}.
+      * `vpc.user`: Enables you to connect to {{ vpc-name }} network resources and use them.
 
 2. [Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. This ensures the agent has access to {{load-testing-name}}.
 
@@ -329,18 +329,18 @@ This instruction will use a gRPC service as a test target.
 
 7. Monitor the test:
 
-   1. In the [management console]({{ link-console-main }}), select {{managed-k8s-name}}.
+   1. In the [management console]({{ link-console-main }}), select {{ managed-k8s-name }}.
    1. Select your test cluster.
    1. Go to the **Workload** tab.
    1. Monitor the change in the number of application pods as the load increases and decreases.
-   1. After testing is complete, in the [management console]({{ link-console-main }}), select {{alb-name}}.
+   1. After testing is complete, in the [management console]({{ link-console-main }}), select {{ alb-name }}.
    1. Select the created L7 load balancer.
    1. Go to the **Monitoring** tab.
    1. View the test load chart.
 
 ## How to delete created resources {#clear-out}
 
-To shut down the infrastructure and stop paying for the created resources:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. If you set up CNAME records in {{ dns-name }}, [delete](../../dns/operations/zone-delete.md) the DNS zone.
 1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the L7 load balancer.

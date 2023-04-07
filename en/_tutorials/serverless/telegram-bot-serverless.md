@@ -13,9 +13,9 @@ To create a bot:
 1. [Configure a link between the function and the Telegram bot](#function-bind-bot).
 1. [Check that the Telegram bot works](#test-bot).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -30,7 +30,7 @@ The cost of Telegram bot support includes:
 
 ## Create resources {#create-resources}
 
-1. [Download](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) the file archive needed to create the bot.
+1. [Download](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) the archive with the files required to create a bot.
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.
 
 ## Register the Telegram bot {#create-bot}
@@ -114,7 +114,7 @@ Create and configure an [API Gateway](../../api-gateway/concepts/index.md).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create an API gateway.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. Select **{{ api-gw-name }}**.
    1. Click Create **API gateway**.
    1. Enter a name for the gateway: `for-serverless-hello-telegram-bot`.

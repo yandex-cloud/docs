@@ -19,13 +19,12 @@ You can also deploy the infrastructure for hosting a website in the WordPress CM
 Make sure the selected folder has a cloud network with a subnet in at least one availability zone. To do this, select **{{ vpc-short-name }}** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of hosting a website in WordPress includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+
 
 ## Create a security group {#create-security-group}
 
@@ -108,7 +107,7 @@ To create a VM:
 
          You will need to create a key pair for the SSH connection yourself. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md).
 
-   1. Click **Create VM**.
+   1. Click **Create VM**.
 
    The VM may take several minutes to create. When the VM's status changes to `RUNNING`, you can begin configuring the website.
 

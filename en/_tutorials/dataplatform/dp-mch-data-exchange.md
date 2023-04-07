@@ -1,7 +1,7 @@
 # Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name }}
 
 To configure data export and import between {{ mch-name }} and {{ dataproc-name }} clusters:
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Export data from {{ mch-name }}](#export-from-mch).
 1. [Upload the data to {{ mch-name }}](#import-to-mch).
 
@@ -300,6 +300,8 @@ Maria,28
 
 ## Delete the resources you created {#clear-out}
 
+Delete the resources you no longer need to avoid paying for them:
+
 {% list tabs %}
 
 * Manually
@@ -307,11 +309,11 @@ Maria,28
    * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
    * If you reserved a public static IP address for the VM, release and [delete it](../../vpc/operations/address-delete.md).
    * Delete the clusters:
-      * [{{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md);
+      * [{{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
       * [{{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
    * If you created an {{ objstorage-name }} bucket, [delete it](../../storage/operations/buckets/delete.md).
 
-* Using Terraform
+* Using {{ TF }}
 
    If you created your resources using {{ TF }}:
 

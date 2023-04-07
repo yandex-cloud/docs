@@ -2,7 +2,7 @@
 
 #### How is the relationship between partners and {{ yandex-cloud }} regulated? {#offer}
 
-The relationship between a partner and {{ yandex-cloud }} is regulated by the [Partner Agreement](https://yandex.ru/legal/cloud_partnership/?lang=en) that you sign when applying to participate in the [partner program](https://cloud.yandex.ru/partners/service#join). The Partner Agreement is a separate agreement that supplements the {{ yandex-cloud }} Offer Agreement in terms of participation in the partner program.
+The relationship between a partner and {{ yandex-cloud }} is regulated by the [Partner Agreement](https://yandex.ru/legal/cloud_partnership/?lang=en) that you sign when applying to participate in the partner program. The Partner Agreement is a separate agreement that supplements the {{ yandex-cloud }} Offer Agreement in terms of participation in the partner program.
 
 You enter into an agreement with a customer yourself.
 

@@ -2,7 +2,7 @@
 
 To create an [instance group with auto scaling](../../compute/concepts/instance-groups/scale.md#auto-scale) and a [network load balancer](../../network-load-balancer/concepts/index.md), follow these steps.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
@@ -135,7 +135,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
 
 ## Create an instance group with auto scaling and network load balancer {#create-vm-group}
 
-1. All the instance groups are created from the image [{{ coi }}](../../cos/concepts/index.md). Each instance contains a Docker container running a web server that emulates the service utilization.
+1. All instance groups are created from the image [{{ coi }}](../../cos/concepts/index.md). Each instance contains a Docker container running a web server that emulates the service utilization.
 
    {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 
@@ -197,7 +197,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
 
    - CLI
 
-      Run the command:
+      Run this command:
 
       ```bash
       yc compute instance-group create --file=specification.yaml
@@ -354,7 +354,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
 
    ```bash
    EXTERNAL_IP=$(yc load-balancer network-load-balancer get group-balancer --format=json | jq -r .listeners[0].address)
-   
+
    curl "http://$EXTERNAL_IP/burn-cpu?time=30000&load=100"
    ```
 
@@ -401,7 +401,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
    ```bash
    EXTERNAL_IP=$(yc load-balancer network-load-balancer get group-balancer --format=json | jq -r .listeners[0].address)
-   
+
    wrk -H "Connection: close" -t12 -c12 -d10m "http://$EXTERNAL_IP/burn-cpu?time=5000&load=20"
    ```
 

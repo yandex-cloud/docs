@@ -32,6 +32,17 @@ To request a reconciliation report:
 1. Open the **Reconciliation reports** tab.
 1. Click **Request reconciliation report**. In the window that opens, select the period to generate the reconciliation report for and click **Request**.
 1. Once the request status changes to **Done**, the download button will appear in the **Action** column. Choose **Download signed report** or **Download unsigned report**.
+
+   {% cut "Exchanging original documents" %}
+
+   To exchange original documents, download an unsigned report, print two copies, sign them, and send them as follows:
+   * By post, to: 121205, Russia, Moscow, 40 Bolshoy Blvd., Amalthea Business Center, Western Administrative District, Mozhaisk District, Skolkovo Innovation Center, Yandex, marked "for the Project Deals Support Group”. Do not specify any employee names.
+   * By delivery service, to: 121205, Russia, Moscow, 40 Bolshoy Blvd., Amalthea Business Center, Western Administrative District, Mozhaisk District, Skolkovo Innovation Center. If no delivery confirmation is required, documents can be submitted 24/7 through a mail drop-off point that is available to visitors of the Amalthea Business Center, 1st floor (between entrances B and C). If delivery confirmation is required, call the office and order a pass beforehand to get access to the reception desk (third floor). Office phone number: +7 495 739-70-00.
+
+   As soon as the documents are signed, you will be sent your copy.
+
+   {% endcut %}
+
 1. Click the button with the selected download type. The document will open in a new window and become available for saving.
 
 ## For residents of Kazakhstan {#for-kazakhstan-residents}

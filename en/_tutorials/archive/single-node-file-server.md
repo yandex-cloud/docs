@@ -4,7 +4,7 @@ You'll learn to use [Samba](https://www.samba.org/) and [NFS](https://docs.micro
 
 To create a single-node file server:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a virtual machine for your file server](#create-vm).
 1. [Set up Samba and NFS](#setup-samba-nfs).
 1. [Test your file server](#test-file-server).
@@ -76,7 +76,7 @@ To create a VM:
    1. Specify data required for accessing the VM:
 
       * Enter the username in the **Login** field.
-      * In the **SSH key** field, paste the contents of the public key file. You will need to create a key pair for the SSH connection [yourself](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys).
+      * In the **SSH key** field, paste the contents of the public key file. You need to [create](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys) the SSH key pair yourself.
 
    1. Click **Create VM**.
 

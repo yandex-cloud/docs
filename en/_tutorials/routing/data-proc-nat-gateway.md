@@ -32,15 +32,15 @@ You have to create:
       * One rule for inbound and outbound service traffic:
 
          * Port range: `{{ port-any }}`.
-         * Protocol: ``Any``.
-         * Destination name: `Security group`.
+         * Protocol: `Any`.
+         * Source: `Security group`.
          * Security group: `Self` (`Self`).
 
       * Rule for outgoing HTTPS traffic:
 
          * Port range: `{{ port-https }}`.
          * Protocol: `TCP`.
-         * Destination name: `CIDR`.
+         * Source type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
    1. [Create a service account](../../iam/operations/sa/create.md) `data-proc-sa` with the roles:
@@ -99,7 +99,7 @@ You have to create:
 
       1. If you are happy with the planned changes, apply them:
 
-         1. Run the command:
+         1. Run the following command:
 
             ```bash
             terraform apply
@@ -109,15 +109,15 @@ You have to create:
 
          1. Wait for the operation to complete.
 
-   All the required resources will be created in the specified folder. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-cloud }}).
+   All the required resources will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-cloud }}).
 
 {% endlist %}
 
 ## Delete the resources you created {#clear-out}
 
-{% list tabs %}
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-If you no longer need these resources, delete them:
+{% list tabs %}
 
 - Manually
 
@@ -155,7 +155,7 @@ If you no longer need these resources, delete them:
 
    1. If you are happy with the planned changes, apply them:
 
-      1. Run the command:
+      1. Run the following command:
 
          ```bash
          terraform apply

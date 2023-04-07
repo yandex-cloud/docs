@@ -6,17 +6,17 @@ To transfer a database from {{ GP }} to {{ PG }}:
 1. [Activate the transfer](#activate-transfer).
 1. [Check the copy function upon re-activation](#example-check-copy).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-We'll create all the required resources for the example in {{ yandex-cloud }}. Prepare the infrastructure:
+For clarity, we will create all required resources in {{ yandex-cloud }}. Prepare the infrastructure:
 
 {% list tabs %}
 
 * Manually
 
-   1. [Create a source {{ mgp-full-name }} cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) of any suitable configuration with the `gp-user` admin username and hosts in the public domain.
+   1. [Create a source {{ mgp-full-name }} cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) of any suitable configuration with the `gp-user` admin user name and hosts in the public domain.
 
    1. [Create a {{ mpg-full-name }} target cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) in any applicable configuration with publicly available hosts. When creating a cluster, specify:
 
@@ -24,7 +24,8 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
       * **Database name**: `db1`.
 
    
-   1. Make sure that the cluster's security groups have been set up correctly and allow connecting to them:
+   1. If you are using security groups in your clusters, make sure they have been set up correctly and allow connection to clusters:
+
       * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
       * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
@@ -32,7 +33,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 * Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [greenplum-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/greenplum-postgresql.tf) configuration file to the same working directory.
 
@@ -47,13 +48,13 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
    1. In the file `greenplum-postgresql.tf`, specify the {{ GP }} and {{ PG }} administrator passwords.
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -88,7 +89,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
       * **Password**: `pg-user`.
       * **Password**: `<user password>`.
 
-   1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy }}_ type that will use the created endpoints.
+   1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy }}_ type that will use the created endpoints.
 
       Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, in the **Transfer parameters** **Copy** field, select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
 
@@ -105,13 +106,13 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
       * `gp_source_endpoint_id`: ID of the source endpoint.
       * `transfer_enabled`: Set `1` to enable transfer creation.
 
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -159,7 +160,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 1. In the [target endpoint parameters](../../data-transfer/operations/endpoint/target/postgresql#additional-settings), select either a `DROP` or a `TRUNCATE` cleanup policy.
 1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md).
-1. Delete the row with the `41` ID and edit the row with the `42` ID in the `x_tab` table:
+1. In the `x_tab` table, delete the row where ID is `41` and update the one where ID is `42`:
 
    ```sql
    DELETE FROM x_tab WHERE id = 41;
@@ -184,10 +185,10 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-* Make sure that the transfer's status is {{ dt-status-finished }} and [delete](../../data-transfer/operations/transfer.md#delete) it.
-* [Delete the source endpoint and the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+* Make sure the transfer has the {{ dt-status-finished }} status and [delete](../../data-transfer/operations/transfer.md#delete) it.
+* [Delete both the source endpoint and the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 * Delete the clusters:
 
    {% list tabs %}
@@ -203,17 +204,17 @@ If you no longer need these resources, delete them:
 
          If you created your resources using {{ TF }}:
 
-         1. In the terminal window, change to the directory containing the infrastructure plan.
+         1. In the terminal window, switch to the directory containing the infrastructure plan.
          1. Delete the `greenplum-postgresql.tf` configuration file.
-         1. Make sure the {{ TF }} configuration files are correct using the command:
+         1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are errors in the configuration files, {{ TF }} will point to them.
+            If there are any errors in the configuration files, {{ TF }} will point to them.
 
-         1. Confirm the update of resources.
+         1. Confirm the resources have been updated.
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

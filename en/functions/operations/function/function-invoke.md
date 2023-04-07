@@ -51,7 +51,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
    {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
 
-   For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invoke link in the browser address bar. Link format:
+   For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invoke link in the browser address bar. The link should have the following format:
 
    ```
    {{ sf-url }}/<function ID>
@@ -117,7 +117,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
 - {{ yandex-cloud }} Toolkit
 
-   You can call a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can call a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 

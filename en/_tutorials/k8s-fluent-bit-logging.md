@@ -4,7 +4,7 @@ To set up transfer of logs:
 1. [Prepare the {{ k8s }} cluster](#configure-cluster).
 1. [Install and configure Fluent Bit](#fluent-bit-install).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -117,7 +117,8 @@ To set up transfer of logs:
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
 1. [Delete the {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved a public static IP address for the cluster, [delete it](../vpc/operations/address-delete.md).
 1. [Delete the log group](../logging/operations/delete-group.md).
