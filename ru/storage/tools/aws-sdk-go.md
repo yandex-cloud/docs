@@ -105,7 +105,7 @@ func main() {
 		return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
 	})
 
-	// Подгружаем конфигрурацию из ~/.aws/*
+	// Подгружаем конфигурацию из ~/.aws/*
 	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver))
 	if err != nil {
 		log.Fatal(err)
