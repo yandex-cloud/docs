@@ -121,7 +121,6 @@ The infrastructure support cost for this scenario includes:
 
       ```txt
       ydb
-      six
       ```
 
    1. Specify the entry point: `index.handler`.

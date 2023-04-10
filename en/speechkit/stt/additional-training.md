@@ -54,7 +54,7 @@ Hello, can I talk to {first-name=first-names-ablative.tsv}{middle-name=middle-na
 
 ### Importing retraining data {#import-data}
 
-To transmit retraining data to the {{ speechkit-name }} command, contact your manager.
+To send the retraining data to the {{ speechkit-name }} team, [contact]({{ link-console-support }}) support.
 
 
 ### Model availability dates {#commitments}

@@ -38,6 +38,8 @@ To ensure proper integration with {{ ml-platform-name }}, make sure the [image v
 
 {% include [dataproc](../../_includes/datasphere/dataproc-sessions.md) %}
 
+### {{ dataproc-name }} session restrictions {#restrictions}
+
 {% include [cluster variables](../../_includes/datasphere/dataproc-session-vars.md) %}
 
 ### Running Python code in a cluster {#run-code}
@@ -45,7 +47,7 @@ To ensure proper integration with {{ ml-platform-name }}, make sure the [image v
 Code is run in cells with the header:
 
 ```
-#!spark [--cluster <cluster>] [--session <session>] [--variables <variable>]
+#!spark [--cluster <cluster>] [--session <session>] [--variables <input_variable>] [--return_variables <returned_variable>]
 ```
 
 Where:
@@ -54,7 +56,8 @@ Where:
    * The name of the cluster created through the notebook interface.
    * An HTTP link to the internal IP address of the `masternode` host, like `http://10.0.0.8:8998/`.
 * `<session>` is the computing session ID. If this parameter is omitted, the default {{ dataproc-name }} cluster session is used.
-* `<variable>` is the variable imported to the cell from the core. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame).
+* `<input variable>` is the variable imported to the cell from the core. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame in a cluster).
+* `<returned variable>` is the variable to be exported from the core to the cell. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame).
 
 #### Example of using computing sessions with user-defined parameters {#example-custom-sessions}
 
@@ -94,9 +97,12 @@ To run computations in a session with defined settings, first create this sessio
 {{ ml-platform-name }} supports the Spark SQL library. For example, the query below will return all records in the `animals` table created in the `cluster test-dataproc-cluster`:
 
 ```python
-#!spark --cluster test-dataproc-cluster
+#!spark --cluster test-dataproc-cluster --return_variables df
 df = spark.sql("SELECT * FROM animals;")
-df.show()
+```
+
+```python
+df
 ```
 
 For more information about the SQL query syntax and how to use the Spark SQL library, see the [official documentation](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).

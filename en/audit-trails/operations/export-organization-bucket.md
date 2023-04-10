@@ -2,9 +2,7 @@
 
 Follow these instructions to create a new trail that will upload audit logs of all of an organization's resources to an {{ objstorage-name }} bucket.
 
-
 {% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
-
 
 
 ## Prepare the environment {#before-you-begin}
@@ -60,9 +58,7 @@ To collect organization audit logs:
    * `storage.viewer` for the bucket or the folder.
 
 
-
 {% include [bucket-encryption-section](../../_includes/audit-trails/bucket-encryption-section.md) %}
-
 
 
 ## Create a trail {#the-trail-creation}

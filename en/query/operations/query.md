@@ -1,6 +1,6 @@
-# Working with queries
+# Managing queries
 
-In {{ yq-full-name }}, you can run [analytical](../concepts/batch-processing.md) and [streaming](../concepts/stream-processing.md) queries.
+[Queries](../concepts/glossary.md#query) contain a set of YQL statements for handling data and connection parameters.
 
 ## Creating a query {#create}
 
@@ -8,6 +8,7 @@ In {{ yq-full-name }}, you can run [analytical](../concepts/batch-processing.md)
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Queries**.
 1. On the top panel, click **New analytics query** or **New streaming query**.
+1. Enter the query text in the input field.
 
 ## Checking a query {#parse}
 
@@ -53,47 +54,26 @@ To stop a query:
 
 {% endlist %}
 
-### Viewing results {#view-result}
+## Viewing query execution information {#view-result}
 
-Query execution results are available in the **Result** tab as a table or schema.
+You can view the query progress in the following tabs:
 
-{% note info %}
+* **Result**: Query execution results as a table or schema. You can only view the results of the last query execution within 24 hours.
+* **Plan**: Information about [query execution stages](../concepts/request-processing.md).
+* **Monitoring**: Query execution metrics with the following data:
+  * Input data streams.
+  * Capacity used for running the query.
+  * Amount of RAM used.
+  * Amount of output data.
+* **Metadata**: Query metadata:
+  * Query ID.
+  * Query execution status.
+  * Date when the query was created, modified, and last executed.
+* **Issues**: Information about query execution errors.
 
-The following limitations apply to query execution results:
-* You can only view the results of the last query execution.
-* The results of a query are deleted in 24 hours.
+## Viewing the history of query runs {#log}
 
-{% endnote %}
-
-### Errors {#errors}
-
-Query execution errors are available in the **Errors** tab.
-
-### Query plan {#plan}
-
-The **Plan** tab shows [query execution stages](../concepts/request-processing.md).
-
-### Monitoring query execution {#monitoring}
-
-Using query execution metrics, you can diagnose in detail the performance of queries managed by {{ yq-full-name }}. The **Monitoring** tab shows information about:
-
-* Input data streams.
-* Capacity used for running a query.
-* Amount of RAM used.
-* Amount of output data.
-
-### Metadata {#meta}
-
-The **Meta** section contains query metadata:
-* Query ID.
-* Query execution status.
-* Date when the query was created, modified, and last executed.
-
-## Viewing information about executed queries {#log}
-
-{{ yq-full-name }} logs the [execution history](../concepts/glossary.md#job) for each query.
-
-To view the history of query runs:
+{{ yq-full-name }} logs each query's [run history](../concepts/glossary.md#jobs).
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to view the query execution history.
 1. In the list of services, select **{{ yq-full-name }}**.
@@ -101,8 +81,6 @@ To view the history of query runs:
 1. Select the desired query and click ![pencil](../../_assets/query/launch.svg) **Show launches** on the top panel.
 
 ## Renaming a query {#update-query-name}
-
-To rename a query:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to rename a query.
 1. In the list of services, select **{{ yq-full-name }}**.

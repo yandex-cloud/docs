@@ -176,9 +176,12 @@ description: "Из статьи вы узнаете, как осуществля
 
 Чтобы определить пороговые значения метрики `ch_system_events_FailedQuery_rate`, используйте значение показателя `Total queries` [для кластера](#monitoring-cluster).
 
-Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
+Для метрики `disk.used_bytes` значения порогов `Alarm` и `Warning` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-clickhouse).
+* `Alarm` — `102005473280` байтов (95%).
+* `Warning` — `85899345920` байтов (80%).
+
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-clickhouse).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

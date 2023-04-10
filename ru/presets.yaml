@@ -41056,6 +41056,9 @@ default:
           folders-create:
             button_create: Создать
         folder:
+          dashboard:
+            button_add: Создать ресурс
+            label_data-proc: Data Proc
           service-account:
             label_add-role: Добавить роль
             popup-robot_button_add: Создать
@@ -41066,10 +41069,17 @@ default:
         symmetric-keys:
           button_create: Создать
       mdb:
+        cluster:
+          overview:
+            button_action-delete: Удалить кластер
+        clusters:
+          button_create: Создать кластер
         forms:
+          base_field_name: Имя кластера
           database_field_name: Имя БД
           database_field_user-login: Имя пользователя
           database_field_user-password: Пароль
+          section_network-settings: Сетевые настройки
       storage:
         bucket:
           button_action-delete: Удалить

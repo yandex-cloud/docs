@@ -28,7 +28,7 @@ For more information about limits on the number of hosts per cluster, see [{#T}]
 
 ## Managing disk space {#manage-storage-space}
 
-When the storage is more than 95% full, the host automatically switches to read-only mode. At the same time, the `DEFAULT_TRANSACTION_READ_ONLY = TRUE` setting is set for all the DBs via the `ALTER DATABASE` query.
+When the storage is more than 97% full, the host automatically switches to read-only mode. At the same time, the `DEFAULT_TRANSACTION_READ_ONLY = TRUE` setting is set for all the DBs via the `ALTER DATABASE` query.
 
 In this mode, the data `INSERT`, `DELETE`, or `UPDATE` queries result in an error.
 

@@ -2,20 +2,20 @@
 
 When using [{{ objstorage-full-name }}](../../storage/), you have to make sure to encrypt critical data.
 
-We recommend encrypting {{ objstorage-name }} bucket using [{{ kms-full-name }}](../../kms/) keys (server-side encryption). This encryption method enables protection against accidental or intentional publication of the bucket content on the web.
+We recommend encrypting {{ objstorage-name }} bucket using [{{ kms-full-name }}](../../kms/) keys (server-side encryption). This encryption method protects against accidental or intentional publication of the bucket content on the web.
 
 {% note alert %}
 
-Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../../kms/concepts/envelope.md). This means that deleting a key is the same as destroying all data encrypted with that key.
+Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../../kms/concepts/envelope.md), meaning that deleting a key is the same as destroying all data encrypted with that key.
 
 {% endnote %}
 
 Server-side encryption is performed using keys stored in {{ kms-full-name }}. A created {{ kms-short-name }} key is specified in the bucket settings. It will be used for encrypting all new objects or when [uploading an object via the API](../../storage/s3/api-ref/object/upload.md).
 
-Objects are encrypted before you save them to a bucket and decrypted when you download them from the bucket. By default, encryption applies to all new objects, while the previously uploaded ones remain unchanged.
+Objects are encrypted before you save them to a bucket and decrypted when you download them from the bucket. By default, encryption applies to all new objects, while previously uploaded ones remain unchanged.
 
 
-To decrypt an object, a user must have both the `storage.editor` role and the `kms.keys.encrypterDecrypter` role that allows [reading the encryption key](../../kms/security/index.md#service).
+To decrypt an object, a user must have both the `storage.editor` role and the `kms.keys.encrypterDecrypter` role that allows them to [read the encryption key](../../kms/security/index.md#service).
 
 
 

@@ -41,6 +41,8 @@ items:
         items:
           - name: Выбрать вычислительные ресурсы
             href: operations/projects/control-compute-resources.md
+          - name: Проверить загрузку GPU
+            href: operations/projects/gpu-performance-check.md
           - name: Установить пакеты
             href: operations/projects/install-dependencies.md
           - name: Очистить состояние интерпретатора

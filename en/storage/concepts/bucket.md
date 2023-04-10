@@ -1,6 +1,6 @@
 ---
 title: "Bucket"
-description: "A bucket is a logical entity that handles storing objects. A bucket name is used as part of a URL to access data. Bucket names are unique throughout Object Storage, which means you cannot create two buckets with the same name, even in different folders belonging to different clouds. You should keep this in mind if you are going to create buckets automatically through the API."
+description: "A bucket is a logical entity for storing objects. A bucket name is used as part of a URL to access data. Bucket names are unique throughout Object Storage, which means you cannot create two buckets with the same name, even in different folders belonging to different clouds. You should keep this in mind if you are going to create buckets automatically through the API."
 keywords:
   - what is a bucket
   - bucket
@@ -57,7 +57,8 @@ You can:
 - Upload a [CORS configuration](cors.md) for a bucket.
 - Enable [bucket encryption](../operations/buckets/encrypt.md).
 
-   By default, the objects added to the bucket are encrypted with the specified [{{ kms-short-name }} key](../../kms/concepts/key.md).
+   By default, objects added to the bucket are encrypted with the specified [{{ kms-short-name }} key](../../kms/concepts/key.md).
+
 
 - Set up [object lifecycles](lifecycles.md).
 
@@ -71,16 +72,16 @@ If required, you can configure permissions to the buckets and objects they conta
 
 ## Recommendations and limitations {#details-of-usage}
 
-- You cannot rename a bucket.
-- {{ objstorage-name }} performance does not depend on the number of buckets. You can store all your data in one or more buckets, as you deem fit.
+- You cannot rename buckets.
+- The number of buckets does not affect the performance of {{ objstorage-name }}. How many buckets you use to store your data is up to you.
 - Buckets cannot be nested.
-- You can only delete an empty bucket.
-- It may take some time after deleting a bucket before you can create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you released before you claim it again. Do not delete buckets without a reason.
+- You can only delete empty buckets.
+- After deleting a bucket, you may not be able to immediately create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you released before you claim it again. Do not delete buckets without a reason.
 - Uploading objects quickly one by one may lead to exceeding the specified maximum bucket size.
 - After deleting objects from a bucket, their storage capacity is retained for some time.
 
    {% note info %}
 
-   If you limit the maximum size of a bucket, it may remain unavailable for writes for some time, even through you free up enough space for new objects.
+   If you limit the maximum size of a bucket, it may remain temporarily unavailable for writes even after you free up enough space for new objects.
 
    {% endnote %}

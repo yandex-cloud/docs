@@ -252,6 +252,13 @@ val a: Int = 1
 ## Image {#image}
  To insert an image in the widget, use [{{ objstorage-full-name }}](../../storage/quickstart.md). You can use it for free for up to 1 GB of standard storage per month.
 
+{% note info %}
+
+* You cannot upload images from external storage.
+* The only supported [object link](../../storage/concepts/object.md#object-url) format is `https://storage.yandexcloud.net/<bucket>/<key>`.
+
+{% endnote %}
+
 To upload an image to the widget:
 Open the [management console]({{ link-console-main }}) and select **{{ objstorage-short-name }}** in the left-hand menu.
 1. [Create a bucket](../../storage/operations/buckets/create.md) with public access.

@@ -38,11 +38,11 @@ items:
         href: concepts/unified-processing.md
   - name: Step-by-step guides
     items:
-      - name: Working with connections
+      - name: Managing connections
         href: operations/connection.md
-      - name: Working with data bindings
+      - name: Managing bindings
         href: operations/binding.md
-      - name: Working with queries
+      - name: Managing queries
         href: operations/query.md
   - name: Data sources and targets
     items:

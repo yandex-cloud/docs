@@ -72,6 +72,6 @@ To create a {{ MY }} connection:
 
 
 
-1. Click **Save**. The connection appears in the list.
+1. Click **Save**. The connection will appear in the list.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}

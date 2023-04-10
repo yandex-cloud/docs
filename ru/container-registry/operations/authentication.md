@@ -8,6 +8,8 @@
 
 Подробнее про роли читайте в разделе [{#T}](../security/index.md).
 
+{% include [cli-install](../../_includes/cli-install.md) %}
+
 ## Способы аутентификации {#method}
 
 Вы можете аутентифицироваться:

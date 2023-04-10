@@ -2,7 +2,9 @@
 
 TTS markup grants the ability to control speech synthesis using special characters and SIL tags. This helps make synthesized speech more natural.
 
-Support for TTS markup is available for Russian in the [API v1](request.md) when transmitting data in `text` format and in the API v3.
+TTS markup is supported for Russian in [API v3](../tts-v3/api-ref/grpc/) and [API v1](request.md) for data in `text` format.
+
+Pausing is available for testing in all languages that support speech synthesis.
 
 ## Markup components {#markup-elements}
 

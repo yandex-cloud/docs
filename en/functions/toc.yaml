@@ -23,9 +23,15 @@ items:
             href: quickstart/create-function/bash-function-quickstart.md
           - name: Java
             href: quickstart/create-function/java-function-quickstart.md
-  - name: Step-by-step instructions
+      - name: Creating a trigger
+        items:
+          - name: Overview
+            href: quickstart/create-trigger/index.md
+          - name: Timer
+            href: quickstart/create-trigger/timer-quickstart.md
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Using functions to get an IAM token for a service account
         href: operations/function-sa.md
@@ -355,9 +361,9 @@ items:
         href: lang/csharp/errors.md
       - name: Using the SDK
         href: lang/csharp/sdk.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
-      - name: All practical guidelines
+      - name: All tutorials
         href: tutorials/index.md
       - name: Creating skills for Alice
         href: tutorials/alice-skill.md

@@ -1,0 +1,1 @@
+To set up the time scale, select **Week**, **Months**, or **Quarter** in the bottom-right corner of the chart. The scale settings persist after refreshing the page or opening the chart again.

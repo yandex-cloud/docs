@@ -14,7 +14,7 @@ Along with the object, {{ objstorage-name }} stores [user](#user-meta) and [syst
 - Downloading an object from a storage.
 - Copying an object within a storage, e.g., from one bucket to another.
 
-All other operations that can be performed using the [tools](../tools/index.md) are combinations of the ones given above.
+You can also combine these operations using the [tools](../tools/index.md).
 
 You can configure [lifecycles](lifecycles.md) for bucket objects.
 
@@ -36,13 +36,13 @@ The following characters are safe to use in a key: `[a-zA-Z0-9]`, `-`, `_`, `/`,
 
 ### Directory {#folder}
 
-There are no directories in {{ objstorage-name }}; however, GUI-based file management clients, such as [CyberDuck](../tools/cyberduck.md) and the {{ objstorage-name }} interface in the {{ yandex-cloud }} management console, can emulate them. Such an emulated directory is a zero-size object. Its key is included as a prefix in the keys of other objects. For example, an object with the `x` key and zero size is a directory in the management console, while an object with the `x/y.txt` key is the `y.txt` object located in the `x` folder.
+There are no directories in {{ objstorage-name }}, but GUI-based file management clients, such as [CyberDuck](../tools/cyberduck.md) and the {{ objstorage-name }} interface in the {{ yandex-cloud }} management console, can emulate them. Such an emulated directory is a zero-size object. Its key is included as a prefix in the keys of other objects. For example, an object with the `x` key and zero size is a directory in the management console, while an object with the `x/y.txt` key is the `y.txt` object located in the `x` folder.
 
 Each [tool](../tools/index.md) manages objects and directories according to its own logic, which is described in the respective documentation.
 
 {% note info %}
 
-Deleting folders with objects is an asynchronous operation. Once it starts, {{ objstorage-name }} prepares a list of objects to delete, and then deletes them. If, during the process, you upload an object to {{ objstorage-name }} that should be in the directory being deleted, the object will still be uploaded successfully. After both operations in {{objstorage-name}} are complete, the directory that was supposed to be deleted will still be there and will contain the newly uploaded file.
+Deleting folders with objects is an asynchronous operation. Once it starts, {{ objstorage-name }} prepares a list of objects and then deletes them. If during the process you upload an object to {{ objstorage-name }} to a directory marked for deletion, the object will upload successfully. After both operations in {{objstorage-name}} are complete, the directory marked for deletion will remain and contain the newly uploaded file.
 
 {% endnote %}
 
@@ -60,7 +60,7 @@ Where:
 
 * `bucket`: Bucket name.
 * `key`: [Key](#key) (file path).
-* `parameters`: Additional parameters for accessing a bucket with restricted access, for example, a signature and validity period.
+* `parameters`: Additional parameters for accessing a bucket with restricted access, e.g., a signature and validity period.
 
 For buckets with restricted access, {{ objstorage-name }} generates pre-signed URLs, which allows you to temporarily download an object even from a bucket with restricted access. You can read more about pre-signed URLs, their generation, and their use [here](pre-signed-urls.md).
 
@@ -78,9 +78,9 @@ System metadata is defined by {{ objstorage-name }}.
 
 | Name | Description |
 ----- | -----
-| `Date` | Date and time the request to upload an object to {{ objstorage-name }} was sent at. |
+| `Date` | Date and time the request to upload an object to {{ objstorage-name }} was sent. |
 | `Content-Length` | Object size in bytes. |
-| `Last-Modified` | Date the object was created or last modified at. |
+| `Last-Modified` | Date the object was created or last modified. |
 | `Content-MD5` | Object MD5 hash value, Base64-encoded. |
 | `Cache-Control` | Value of the `Cache-Control` HTTP header provided by the client when saving the object to the bucket. Afterwards, {{ objstorage-name }} returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header means the object expires 200 seconds after the client receives it. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2). |
 | `Expires` | Value of the `Expires` HTTP header provided by the client when saving the object to the bucket. Afterwards, {{ objstorage-name }} returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Expires: Thu, 15 Apr 2020 20:00:00 GMT` header means the object expires at 8 pm GMT on April 15, 2020. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.3). |

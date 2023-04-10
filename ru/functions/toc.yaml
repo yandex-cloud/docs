@@ -127,7 +127,7 @@ items:
         items:
           - name: Создать таймер
             href: operations/trigger/timer-create.md
-          - name: Создать триггер для {{  message-queue-name }}
+          - name: Создать триггер для {{ message-queue-name }}
             href: operations/trigger/ymq-trigger-create.md
           - name: Создать триггер для {{ objstorage-name }}
             href: operations/trigger/os-trigger-create.md

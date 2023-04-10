@@ -1,52 +1,44 @@
 # Terms and definitions {{ yq-name }}
 
+## Connection {#connection}
+
+A _connection_ is a set of parameters required for connecting {{ yq-full-name }} to a data source and target. For example, if a file from {{ objstorage-full-name }} is used as a data source, a connection contains the name of a bucket and its authorization parameters.
+
+{{ yq-full-name }} supports the following connection types:
+
+* {{ objstorage-short-name }}, which is a connection to a {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md); it can be both a data source and a target.
+* {{ yds-short-name }}, which is a connection to a {{ ydb-full-name }} [database](../../ydb/concepts/resources.md#database) where a {{ yds-full-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) is located; it can be both a data source and a target.
+* {{ monitoring-short-name }}, which is a connection to {{ monitoring-full-name }}; it can only be a data target.
+
+## Binding {#binding}
+
+The same YQL query can be run on the data available through different types of [connections](#connection), such as bucket or stream data. In this case, for each connection, it may be handy to create a _binding_, which is a resource containing information about a connection, data [format](../sources-and-sinks/formats.md), and [data schema](#schema).
+
 ## Query {#query}
 
-A _query_ is an expression that is written in [YQL](https://ydb.tech/en/docs/yql/reference/syntax/), an SQL dialect, and used for unified execution of streaming and analytical data queries.
+A _query_ is an expression that is written in [YQL](https://ydb.tech/en/docs/yql/reference/syntax/), an SQL dialect, and used for data operations. A query consists of YQL statements and information about a [connection](#connection) or [binding](#binding). When using a connection, you need to specify a [data schema](#schema).
 
-A query consists of query text written in YQL, information about a [connection](#connection) to a [data source](#source), and a [data schema](#schema) in the source.
+Using {{ yq-full-name }} queries, you can perform [batch](batch-processing.md) and [streaming](./stream-processing.md) data processing.
 
-## Data source {#source}
+## Information about query runs {#jobs}
 
-A _data source_ is an object with structured data. The following can be used as data sources in {{ yq-full-name }}:
+You can run the same [query](#query) multiple times. The following information is saved for each query run:
 
-* [{{ yds-full-name }}](../../data-streams/concepts/index.md) streams.
-* Files in [{{ objstorage-full-name }}](../../storage/concepts/index.md).
-
-## Connecting {#connection}
-
-A _connection_ is a set of parameters required for connecting {{ yq-full-name }} to a [data source](#source). For example, if a file from {{ objstorage-full-name }} is used as a data source, a connection contains the name of a bucket and its authorization parameters.
-
-## Data bindings {#binding}
-
-The same YQL query can be run on data from different [sources](#source) (such as for streaming and batch processing). In this case, for each source, you can create a _data binding_, i.e., a resource that contains information about a [connection](connection), data format, and [data schema](#schema).
-
-For more information, see [{#T}](../operations/binding.md).
-
-## Information about executed queries {#job}
-
-{{ yq-full-name }} saves the following information for each executed `query`:
-
-* Query execution results.
 * Query execution status.
 * Query execution start date and time.
 * Query execution duration.
 * Name of the user who ran the query.
 * Query execution metrics.
 
-{% note info %}
-
-Execution results are saved only for the last execution of a YQL query.
-
-{% endnote %}
+The results of the last query run are saved and stored for 24 hours.
 
 ## Data schema {#schema}
 
-A _data schema_ is a list of input data fields and types to be used in a query.
+A _data schema_ is a list of source data fields and types. A schema should describe all fields to use in a query. If a query accesses data using a [connection](#connection), specify the schema in the request body. If you use a [binding](#binding), specify the data schema in its properties.
 
 ## Checkpoint {#checkpoint}
 
-Streaming analysis systems handle infinite (without beginning or end) data streams. To avoid processing all data in a stream from the beginning every time, when a query is rerun {{ yq-full-name }} remembers offsets in processed data. If processing is paused and then restarted, {{ yq-full-name }} rewinds the data stream to the saved offset and resumes processing data from that point.
+Streaming analysis systems handle infinite data streams that do not have any beginning or end. To avoid processing all data in a stream from the beginning every time, {{yq-full-name}} remembers offsets in processed data when a query is rerun. If the processing is paused and then restarted, {{yq-full-name}} rewinds the data stream to the saved offset and resumes processing data from that point.
 
 Checkpoints contain information about a streaming query, including offsets in data streams.
 

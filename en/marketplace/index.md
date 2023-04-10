@@ -13,7 +13,7 @@ Once the moderation is complete, you will receive a confirmation email to the ad
 
 ## Register an account {#registration}
 
-To access the {{ marketplace-short-name }} partner account, you need the billing account of a business that is a resident of Russia or Kazakhstan. If you don't have a billing account yet, [create one](operations/registration.md).
+To access the {{ marketplace-short-name }} partner account, you need the billing account of a business that is a resident of Russia or Kazakhstan. If you do not have a billing account yet, [create one](operations/registration.md).
 
 {% include [billing-note](../_includes/marketplace/billing-note.md) %}
 

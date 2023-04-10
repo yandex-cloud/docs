@@ -24,6 +24,7 @@ description: "Страница содержит все инструкции дл
 ## Работа в ноутбуке {#notebook}
 
 * [{#T}](projects/control-compute-resources.md)
+* [{#T}](projects/gpu-performance-check.md)
 * [{#T}](projects/install-dependencies.md)
 * [{#T}](projects/clear-kernel-state.md)
 * [{#T}](projects/work-with-git.md)

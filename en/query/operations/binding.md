@@ -1,6 +1,6 @@
-# Working with data bindings
+# Managing bindings
 
-Data binding in {{ yq-full-name }} contains information about a [connection](connection.md), data format and schema and lets you run queries to data from different sources.
+[Bindings](../concepts/glossary.md#binding) contain information about a connection, data format, and data schema. You can use different bindings in the same query.
 
 ## Creating a binding {#create}
 
@@ -11,10 +11,10 @@ To create a binding:
 1. On the left-hand panel, select **Bindings**.
 1. Click ![info](../../_assets/plus.svg) **Create**.
 1. Under **Connection parameters**:
-   1. Select the connection type: `{{ yds-short-name }}` or `{{ objstorage-short-name }}`.
+   1. Select the type of connection to create a binding for: `{{ yds-short-name }}` or `{{ objstorage-short-name }}`.
    1. Select a connection or create a new one.
 1. Under **Data binding parameters**:
-   1. Enter a name and description for the binding. Naming requirements:
+   1. Enter a name and description for the binding. The naming requirements are as follows:
 
       {% include [name-format](../_includes/connection-name-format.md) %}
 

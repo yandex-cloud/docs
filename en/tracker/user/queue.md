@@ -1,52 +1,88 @@
-# List of queue issues
+# Queue issue list
 
-Each issue in {{ tracker-name }} belongs to a [queue](../queue-intro.md). Issues with a common topic are usually put in the same queue. They might be issues for a specific project, department, or team.
+Each issue in {{ tracker-name }} belongs to a [queue](../queue-intro.md). Queues usually include issues belonging to similar categories. These can be issues of a project, department, or team.
 
-To view all the issues in a queue, open the queue page:
+To view all issues in the queue, open its page:
 
-1. Select **Queues** → **All queues** on the top panel in {{ tracker-name }}.
+1. On the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **Queues**.
 
-1. Click the name of the desired queue.
+1. Select a filter to show the list of queues:
+   * **My queues**
+   * **Owned by me**
+   * **Favorites**
+   * **Recently viewed**
 
-By default, the queue page only displays active issues (the **Without resolution** option). You can customize which issues to display by using the [quick filter](../manager/quick-filters.md) buttons above the list of issues.
+1. If you cannot see all relevant queues, expand the list:
 
-## Adding a queue to Favorites {#section_p4p_4sv_jz}
+   * On the left-hand panel at the bottom of the page, click: **Full list...** for the selected filter.
 
-If you need quick access to a particular [queue](queue.md), add it to your Favorites:
+   * To open all the queues available to you in {{ tracker-name }}, at the bottom of the window, click **All queues** or follow the [direct link]({{ link-tracker }}queues).
 
-1. Go to the queue page.
+1. Click the name of the relevant queue.
 
-1. Click ![](../../_assets/tracker/add-to-favorites.png) to the right of the queue name.
+By default, the queue page only displays active issues (the **Resolution: Without value** option). You can customize which issues to display by using the [quick filter](../manager/quick-filters.md) buttons above the list of issues.
 
-The queues you added to Favorites are available in the **Queues** menu on the top panel in {{ tracker-name }}.
+## Adding a queue to Favorites {#queue-fav}
 
-## Saving a list in {{ wiki-full-name }} {#section_uy5_hds_3bb}
+If you need quick access to a particular queue, add it to your Favorites:
 
-You can insert a list of issues on a Wiki page:
+1. Open the queue page.
 
-1. In the upper-left corner of the page, select ![](../../_assets/tracker/icon-settings2.png) → **Get the Wiki code**.
+1. At the top of the page, under the queue name, click ![](../../_assets/tracker/svg/favourites.svg) **Add to Favorites**.
 
-1. Copy the code.
+To open the list of your favorite queues:
 
-1. Insert the code on a Wiki page.
+1. On the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **Queues**.
 
-The list will be updated automatically. It will always show up-to-date information about the status of issues, their names, and assignees.
+1. In the list on the right, select the **Favorites** filter.
 
-## Saving a list to a file {#section_vjt_x3h_11b}
 
-You can save the list of issues as a file in XML, CSV, or XLS format.
+## Saving a list to a file {#save-file}
+
+You can save an issue list to a file in one of the formats: XML, CSV, or XLSX.
 
 {% note alert %}
 
-The list of issues is saved with all filters and field settings applied.
+The issue list is saved with all the filters and field settings applied.
 
 {% endnote %}
 
-To save a list to a file:
+To save your issue list to a file:
 
-1. Click ![](../../_assets/tracker/icon-settings2.png) above the issue list.
+1. In the top-right corner of the page, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/export.svg) **Export**.
 
 1. Select the format for saving the list.
 
-1. Wait until the file is downloaded to your device.
+1. Wait until the file downloads to your device.
 
+## Gantt chart for queue issues {gantt-queue}
+
+A Gantt chart in {{ tracker-name }} is a tool for planning work on issues on the calendar. Gantt charts show all issues and links between them.
+
+To open a Gantt chart for queue issues:
+
+1. Open the queue page.
+
+1. {% include [go-to-gantt](../../_includes/tracker/go-to-gantt.md) %}
+
+1. {% include [gantt-time-scale](../../_includes/tracker/gantt-time-scale.md) %}
+
+### Updating links between issues {#links}
+
+{% include [gantt-links](../../_includes/tracker/gantt-links.md) %}
+
+### Changing issue deadlines {#timing}
+
+{% include [gantt-timing](../../_includes/tracker/gantt-timing.md) %}
+
+### Assigning an issue {#assigned}
+
+{% include [gantt-assigned](../../_includes/tracker/gantt-assigned.md) %}
+
+### Setting up the chart {#settings}
+
+{% include [gantt-settings](../../_includes/tracker/gantt-settings.md) %}
+
+### Setting up the display of the issue list section {#tasks-view}
+
+{% include [gantt-tasks-view](../../_includes/tracker/tasks-view.md) %}

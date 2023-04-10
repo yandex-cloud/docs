@@ -1,9 +1,6 @@
-# Working with connections
+# Managing connections
 
-Connections in {{ yq-full-name }} let you interact with data sources of the following types:
-* [{{ objstorage-full-name }}](../../storage/concepts/index.md).
-* [{{ yds-full-name }}](../../data-streams/concepts/index.md).
-* [{{ monitoring-name }}](../../monitoring/concepts/index.md).
+A [connection](../concepts/glossary.md#connection) is required for connecting {{ yq-full-name }} to a data source and target.
 
 ## Creating a connection {#create}
 
@@ -17,11 +14,11 @@ To create a connection:
 
    {% include [name-format](../_includes/connection-name-format.md) %}
 
-1. Select the source type and specify the **Connection type parameters**:
+1. Select the connection type and specify the **Connection type parameters**:
 
    {% list tabs %}
 
-   - {{ objstorage-full-name }}
+   - {{ objstorage-short-name }}
 
       * **Bucket auth**: `Public` or `Private`.
       * For a public bucket, enter a name in the **Bucket** field.
@@ -30,13 +27,13 @@ To create a connection:
          * Select a bucket or create a new one.
          * Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be used to access the data.
 
-   - {{ yds-full-name }}
+   - {{ yds-short-name }}
 
       * Select the **Cloud and folder** where the data source is located.
       * Select or create a [serverless {{ ydb-name }} database](../../ydb/) with a {{ yds-full-name }} [stream](../../data-streams/concepts/index.md).
       * Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be used to access the data.
 
-   - {{ monitoring-name }}
+   - {{ monitoring-short-name }}
 
       * Select the **Cloud and folder** where the data source is located.
       * Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be used to log metrics.
@@ -44,6 +41,8 @@ To create a connection:
    {% endlist %}
 
 1. Click **Create**.
+
+Next, you can [create a binding](binding.md#create).
 
 ## Getting information about a connection {#get-info}
 

@@ -1,4 +1,4 @@
-# Creating a trigger for {{ iot-name }} that sends messages to a {{ serverless-containers-name }} container
+# Creating trigger for {{ iot-name }} that sends messages to {{ serverless-containers-name }} container
 
 Create a [trigger](../concepts/trigger/iot-core-trigger.md) for a device topic or the {{ iot-name }} service registry and process copies of messages using a {{ serverless-containers-name }} [container](../concepts/container.md).
 
@@ -8,12 +8,11 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 {% endnote %}
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-* The [registry](../../iot-core/concepts/index.md#registry) or [device](../../iot-core/concepts/index.md#device) from whose topics a trigger will receive copies of messages. If you don't have either:
-
+* [Registry](../../iot-core/concepts/index.md#registry) or [device](../../iot-core/concepts/index.md#device) from whose topics the trigger will receive copies of messages. If you have neither:
    * [Create a registry](../../iot-core/operations/registry/registry-create.md).
    * [Create a device](../../iot-core/operations/device/device-create.md).
 
