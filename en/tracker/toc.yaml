@@ -229,6 +229,8 @@ items:
         href: user/create-filter.md
       - name: Query language
         href: user/query-filter.md
+      - name: Gantt chart for issue filters
+        href: manager/gantt-search.md
   - name: Notifications and subscriptions
     items:
       - name: Overview
@@ -621,10 +623,12 @@ items:
         href: organizations.md
   - name: Revision history
     items:
-      - name: January 2023
+      - name: February 2023
         href: changelogs/index.md
+      - name: January 2023
+        href: changelogs/2301.md
       - name: December 2022
-        href: changelogs/2212.md
+        href: changelogs/index.md
       - name: November 2022
         href: changelogs/2211.md
       - name: October 2022

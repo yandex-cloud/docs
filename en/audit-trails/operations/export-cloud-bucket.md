@@ -2,9 +2,7 @@
 
 Follow these instructions to create a new trail that will upload audit logs of cloud resources to an {{ objstorage-name }} bucket.
 
-
 {% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
-
 
 
 ## Prepare the environment {#before-you-begin}
@@ -58,7 +56,6 @@ To collect audit logs of an individual cloud:
    * `audit-trails.editor` for the folder to host the trail.
    * `audit-trails.viewer` for the cloud whose audit logs will be collected.
    * `storage.viewer` for the bucket or the folder.
-
 
 
 {% include [bucket-encryption-section](../../_includes/audit-trails/bucket-encryption-section.md) %}

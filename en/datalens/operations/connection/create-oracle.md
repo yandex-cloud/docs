@@ -19,13 +19,13 @@ To create an Oracle Database connection:
 1. Select **Oracle Database** as the connection type.
 1. Specify the connection parameters:
 
-   - **Connection name**. Specify a name for the connection. You can set any name.
-   - **Hostname or IP**. Specify the path to the master host or the IP address of the Oracle Database master host. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+   - **Connection name**: Specify a name for the connection. You can set any name.
+   - **Hostname or IP**: Specify the path to the master host or the IP address of the Oracle Database master host. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
    - **Port**. Specify the Oracle Database connection port.
-   - **Path to database**. Specify the Service Name or SID of the database to connect to.
-   - **Username**. Specify the username for the Oracle Database connection.
-   - **Password**. Enter the password for the specified user.
-   - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+   - **Path to database**: Specify the Service Name or SID of the database to connect to.
+   - **Username**: Specify the username for the Oracle Database connection.
+   - **Password**: Enter the password for the specified user.
+   - **Cache lifetime in seconds**: Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
    - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 1. Click **Create**. The connection will appear in the list.
 

@@ -1,6 +1,6 @@
 * To find issues in the list, enter text in the **Search by issue name** field.
 
-* To change the layout of the issue list, select ![](../../_assets/tracker/svg/flat-list.svg)&nbsp;**Flat list** or ![](../../_assets/tracker/svg/tree-list.svg)&nbsp;**Tree list**.
+* To change the layout of the issue list, select ![](../../_assets/tracker/svg/flat-list.svg)&nbsp;**Flat list** or ![](../../_assets/tracker/svg/tree-list.svg)&nbsp;**Tree list**.{#trees}
 
    {% note info %}
 
@@ -8,7 +8,7 @@
 
    {% endnote %}
 
-   In the flat list, you can range (move) issues with respect to other issues. To do this, click and hold ![](../../_assets/tracker/svg/range.svg) on the left of the issue and drag it where needed.
+   In the flat list, you can range (move) issues with respect to other issues. To do this, click and hold ![](../../_assets/tracker/svg/range.svg) on the left of the issue and drag it where needed.
 
    In the tree list, you can create new sub-issues or change links for sub-issues:
    * To create a sub-issue, click ![](../../_assets/tracker/svg/icon-add.svg) **Add sub-issue** next to the issue:
@@ -23,7 +23,7 @@
 
    {% endnote %}
 
-* To set up their display order, click ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**Sorting**, specify the parameter, and click ![](../../_assets/tracker/svg/new-first.svg). In this case, you won't be able to move issues manually.
+* To set up their display order, click ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**Sorting**, specify the parameter, and click ![](../../_assets/tracker/svg/new-first.svg). In this case, you will not be able to move issues manually.
 
 * To group issues by their status, assignee, and other parameters, click ![](../../_assets/tracker/svg/group.svg) and select an option from the list.
 

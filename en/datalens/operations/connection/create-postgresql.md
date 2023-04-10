@@ -48,31 +48,31 @@ To create a {{ PG }} connection:
 
          {% endnote %}
 
-      - **Hostname**. Select the host name from the list of hosts available in the {{ PG }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-      - **Port**. Specify the {{ PG }} connection port. The default port is 6432.
-      - **Path to database**. Specify the name of the database to connect to.
-      - **Username**. Specify the username for the {{ PG }} connection.
-      - **Password**. Enter the password for the user.
-      - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      - **Hostname**: Select the host name from the list of hosts available in the {{ PG }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+      - **Port**: Specify the {{ PG }} connection port. The default port is 6432.
+      - **Path to database**: Specify the name of the database to connect to.
+      - **Username**: Specify the username for the {{ PG }} connection.
+      - **Password**: Enter the password for the user.
+      - **Cache lifetime in seconds**: Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
       - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    - Specify manually
 
       Specify the connection parameters for the external {{ PG }} database:
 
-      - **Hostname**. Specify the path to a master host or a {{ PG }} master host IP address. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-      - **Port**. Specify the {{ PG }} connection port. The default port is 6432.
-      - **Path to database**. Specify the name of the database to connect to.
-      - **Username**. Specify the username for the {{ PG }} connection.
-      - **Password**. Enter the password for the user.
-      - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      - **Hostname**: Specify the path to a master host or a {{ PG }} master host IP address. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+      - **Port**: Specify the {{ PG }} connection port. The default port is 6432.
+      - **Path to database**: Specify the name of the database to connect to.
+      - **Username**: Specify the username for the {{ PG }} connection.
+      - **Password**: Enter the password for the user.
+      - **Cache lifetime in seconds**: Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
       - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    {% endlist %}
 
 
 
-1. Click **Save**. The connection appears in the list.
+1. Click **Save**. The connection will appear in the list.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
 

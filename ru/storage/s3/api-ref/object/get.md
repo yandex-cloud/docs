@@ -62,7 +62,6 @@ GET /{bucket}/{key} HTTP/2
 `X-Amz-Object-Lock-Legal-Hold` | <p>Статус бессрочной [блокировки](../../../concepts/object-lock.md), установленной на объект (если бакет [версионируемый](../../../concepts/versioning.md) и в нем включен механизм блокировок):</p><ul><li>`ON` — блокировка установлена.</li><li>`OFF` — блокировка не установлена.</li></ul><p>На версию объекта может быть установлена только временная блокировка (заголовки `X-Amz-Object-Lock-Mode` и `X-Amz-Object-Lock-Retain-Until-Date`), только бессрочная блокировка (`X-Amz-Object-Lock-Legal-Hold`) или обе сразу. Подробнее об их совместной работе см. в разделе [{#T}](../../../concepts/object-lock.md#types).</p>
 
 
-
 ### Коды ответов {#response-codes}
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).

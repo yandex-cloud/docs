@@ -5,9 +5,9 @@ items:
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Getting an IAM token for a service account using a container
         href: operations/sa.md
@@ -77,8 +77,12 @@ items:
                 href: operations/label-delete.md
           - name: Viewing monitoring charts
             href: operations/monitoring.md
-          - name: Viewing logs
-            href: operations/logs.md
+          - name: Managing logs
+            items:
+              - name: Viewing logs
+                href: operations/logs.md
+              - name: Writing logs
+                href: operations/logs-write.md
           - name: Deleting a container
             href: operations/delete.md
       - name: Getting information about a trigger
@@ -161,7 +165,7 @@ items:
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md

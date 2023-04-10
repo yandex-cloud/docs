@@ -6,6 +6,38 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
 
 {% list tabs %}
 
+- Node.js
+
+   **package.json**
+   ```
+   {
+     "name": "server-app",
+     "version": "1.0.0",
+     "dependencies": {
+       "winston": "^3.8.2"
+     }
+   }
+   ```
+
+   **index.js**
+   ```
+   const winston = require('winston');
+
+   const logger = winston.createLogger({
+       level: 'debug',
+       format: winston.format.json(),
+       transports: [new winston.transports.Console()],
+   });
+
+   module.exports.handler = async function (event, context) {
+       logger.info({"message": "My log message", "my-key": "my-value"})
+       return {
+           statusCode: 200,
+           body: 'Hello World!',
+       };
+   };
+   ```
+
 - Python
 
    **requirements.txt**

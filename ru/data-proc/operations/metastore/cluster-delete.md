@@ -18,7 +18,7 @@ noIndex: true
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
     1. На левой панели нажмите на значок ![image](../../../_assets/data-proc/metastore.svg) **Metastore-сервер**.
-    1. Нажмите на значок ![image](../../../_assets/options.svg) для нужного сервера и выберите пункт **Удалить**.
+    1. Нажмите на значок ![image](../../../_assets/options.svg) для нужного сервера и выберите пункт **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
     1. Подтвердите удаление сервера.
 
 {% endlist %}

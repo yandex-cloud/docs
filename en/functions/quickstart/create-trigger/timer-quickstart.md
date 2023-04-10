@@ -1,0 +1,127 @@
+# Creating a timer that invokes a function
+
+Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [function](../../concepts/function.md) every minute.
+
+## Getting started {#before-you-begin}
+
+1. [Create a function](../../operations/index.md#create-function) to be triggered by timer. For example, you can create any function from [this list](../../quickstart/create-function/index.md).
+1. [Create a service account](../../../iam/operations/sa/create.md) that will be used to invoke the function and assign it the `functions.functionInvoker` role.
+
+## Create a timer {#timer-create}
+
+{% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a timer.
+
+   1. Select **{{ sf-name }}**.
+
+   1. On the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **Triggers**.
+
+   1. Click **Create trigger**.
+
+   1. Under **Basic parameters**:
+
+      * Enter the trigger name: `timer`.
+      * In the **Type** field, select **Timer**.
+      * In the **Launched resource** field, select **Function**.
+
+   1. Under **Timer settings**, specify `* * ? * * *` or select `Every minute`.
+
+   1. Under **Function settings**, select a function and specify:
+
+      * [Function version tag](../../concepts/function.md#tag): `$latest`.
+      * [Service account](../../../iam/concepts/users/service-accounts.md) you previously created.
+
+   1. Click **Create trigger**.
+
+- CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To create a timer that invokes a function every minute, run this command:
+
+   ```bash
+   yc serverless trigger create timer \
+     --name timer \
+     --cron-expression '* * ? * * *' \
+     --invoke-function-id <function_ID> \
+     --invoke-function-service-account-id <service_account_ID>
+   ```
+
+   Where:
+
+   * `--name`: Timer name.
+   * `--cron-expression`: Function invocation schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
+   * `--invoke-function-id`: Function ID.
+   * `--invoke-function-service-account-id`: Service account ID.
+
+   Result:
+
+   ```text
+   id: a1s2aanidtep********
+   folder_id: b1gtmgn9gbvm********
+   created_at: "2023-03-03T12:18:15.707328472Z"
+   name: timer
+   rule:
+     timer:
+       cron_expression: '* * ? * * *'
+       invoke_function_with_retry:
+         function_id: d4eaic3se926********
+         function_tag: $latest
+         service_account_id: ajek1us5r79c********
+   status: ACTIVE
+   ```
+
+- API
+
+   You can create a timer using the [create](../../triggers/api-ref/Trigger/create.md) API method.
+
+{% endlist %}
+
+## Check the result {#check-result}
+
+To make sure the timer is running properly, view the function logs. They should show that the function is invoked every minute.
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder containing your function.
+
+   1. Select **{{ sf-name }}**.
+
+   1. Click a function to view its runtime log.
+
+   1. In the window that opens, go to **Logs** and specify the period for which you want to view logs. The default period is 1 hour.
+
+- CLI
+
+   To view the function logs, run this command:
+
+   ```bash
+   yc serverless function logs <function_ID>
+   ```
+
+   Result:
+
+   ```text
+   2023-03-03 12:44:12  INFO START RequestID: 5906fbf3-7ff5-4fe4-a0b2-b35ca126ac9d Version: d4efs25vm37e********
+   2023-03-03 12:44:12  INFO END RequestID: 5906fbf3-7ff5-4fe4-a0b2-b35ca126ac9d
+   2023-03-03 12:44:12  INFO REPORT RequestID: 5906fbf3-7ff5-4fe4-a0b2-b35ca126ac9d Duration: 8.951 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 48 MB Queuing Duration: 0.066 ms Function Init Duration: 5.892 ms
+   2023-03-03 12:45:12  INFO START RequestID: e806a5c4-e06a-4a6f-b468-386d91189bc5 Version: d4efs25vm37e********
+   2023-03-03 12:45:12  INFO END RequestID: e806a5c4-e06a-4a6f-b468-386d91189bc5
+   2023-03-03 12:45:12  INFO REPORT RequestID: e806a5c4-e06a-4a6f-b468-386d91189bc5 Duration: 10.266 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 48 MB Queuing Duration: 0.054 ms Function Init Duration: 7.023 ms
+   ```
+
+{% endlist %}
+
+## What's next {#what-is-next}
+
+* [Check out the concepts](../../concepts/trigger/index.md).
+* [Learn how to create other triggers](../../operations/index.md#trigger-create).

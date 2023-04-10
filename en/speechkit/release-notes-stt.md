@@ -6,12 +6,23 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release on 16/03/23 {#070323}
+
+Upgrades to the [release on March 7, 2023](#070323) are now available in the `general` model.
+
+## Previous versions {#previous}
+
+### Release on 07/03/23 {#070323}
+
+For the `general:rc` model:
+
+1. Improved the accuracy of recognition for Uzbek.
+1. Added support for number normalization when recognizing speech in English, German, French, Italian, Spanish, and Turkish. Number normalization is also available for Kazakh speech recognition in test mode.
+
 ### Release on 08/02/23 {#080223}
 
 1. The first version of Uzbek speech recognition is now available in the `general:rc` model for all API versions. Under some acoustic conditions, Uzbek can be recognized as Kazakh. The issue will be fixed in future model releases.
 1. To access the `general:rc` model in [API v3](./stt-v3/api-ref/grpc/), you can now specify this value in the [`model` parameter](./stt-v3/api-ref/grpc/stt_service#RecognitionModelOptions).
-
-## Previous versions {#previous}
 
 ### Release 20.12.22 {#201222}
 

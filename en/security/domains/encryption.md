@@ -5,7 +5,6 @@
 {{ yandex-cloud }} APIs support cipher suites in specific TLS versions that are compliant with PCI DSS and other standards.
 
 
-
 ## Encryption at rest {#encryption-at-rest}
 
 By default, all user data at rest is encrypted at the {{ yandex-cloud }} level. Encryption at the {{ yandex-cloud }} level implements one of the best practices for protecting user data and is performed using {{ yandex-cloud }} keys.
@@ -20,7 +19,6 @@ If your corporate information security policy sets specific key size and rotatio
 ### {{objstorage-full-name}} {#storage-at-rest}
 
 To protect critical data in [{{ objstorage-full-name }}](../../storage/), we recommend using bucket server-side encryption with [{{ kms-full-name }}](../../kms/) keys. This encryption method protects against the accidental or intentional publication of bucket contents on the internet. For more information, see [{#T}](../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
-
 
 
 ### {{managed-k8s-name}} {#kubernetes}

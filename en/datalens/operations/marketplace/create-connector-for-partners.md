@@ -29,6 +29,18 @@ You need to create a connector in the same CH cluster that will host your user d
 
 1. Create a [{{ CH }} cluster](../../../managed-clickhouse/operations/cluster-create.md) in the cloud.
    1. In the cluster, add a DB user called `datalens` with [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
+
+      {% note info %}
+
+      If the user management via SQL is enabled for the cluster, you can create a user with the following command:
+      ```sql
+      CREATE USER IF NOT EXISTS <username> ON CLUSTER <cluster_name>
+          IDENTIFIED WITH plaintext_password by '<user_password>'
+          SETTINGS readonly = 2;
+      ```
+
+      {% endnote %}
+
    1. In the settings, enable **Access from {{ datalens-short-name }}** and **Database management via SQL**.
 1. Provide the password and the cluster host list to {{ datalens-short-name }}.
 1. Generate a pair of RSA-2048 keys. Provide the public key and the key version to {{ datalens-short-name }}.
@@ -134,6 +146,6 @@ You need to create a connector in the same CH cluster that will host your user d
 1. Saves the connection. At this point, {{ datalens-short-name }} deploys a standard dashboard based on connector data.
 
 
-#### See also
+#### For details, see also
 
 - [{#T}](../../concepts/marketplace.md)

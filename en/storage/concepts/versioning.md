@@ -1,6 +1,6 @@
 # Bucket versioning
 
-Bucket versioning enables storing object history through versions. Each version is a complete copy of an object and occupies space in {{ objstorage-name }}. By using version control, you can protect your data from both unintentional user actions and application faults.
+Bucket versioning enables the storage of object history through versions. Each version is a complete copy of an object and occupies space in {{ objstorage-name }}. Using version control protects your data from both unintentional user actions and application faults.
 
 Versioning is enabled at the bucket level and applies to every object in the bucket.
 
@@ -12,13 +12,13 @@ For more information on how to enable versioning, see [Managing bucket versionin
   When versioning is paused, the `version_id` of existing objects does not change. Each new object is assigned a `null` version ID. If a `null` version already exists, it will be overwritten.
 * When you overwrite an object version, a new object with the same ID and a randomly generated `version_id` is created.
 
-  To access a previous version of the object, use the object ID and the `version_id` you need.
+  To access a previous version of an object, use the object ID and the `version_id` you need.
 
 * If versioning is enabled, you can restore previous object versions by following [this guide](../operations/objects/restore-object-version.md).
 
 {% note info %}
 
-Once you enable versioning, you cannot disable it; however, you can pause the creation of new versions. After you pause versioning, new objects will be saved as `null` versions.
+You cannot disable versioning once you enable it, but you can pause the creation of new versions. After you pause versioning, new objects will be saved as `null` versions.
 
 {% endnote %}
 

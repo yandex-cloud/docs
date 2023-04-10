@@ -50,7 +50,6 @@ In addition to [common response headers](../common-response-headers.md), you can
 | `X-Amz-Object-Lock-Legal-Hold` | <p>Type of [legal hold](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>On an object version, you can put only retention (the headers `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date`), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p> |
 
 
-
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).

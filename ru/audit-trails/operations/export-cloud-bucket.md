@@ -2,9 +2,7 @@
 
 По этой инструкции вы создадите новый трейл, который будет загружать аудитные логи ресурсов облака в бакет {{ objstorage-name }}.
 
-
 {% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
-
 
 
 ## Подготовить окружение {#before-you-begin}
@@ -58,7 +56,6 @@
     * `audit-trails.editor` на каталог, где будет находиться трейл;
     * `audit-trails.viewer` на облако, с которого будут собираться аудитные логи;
     * `storage.viewer` на бакет или каталог.
-
 
 
 {% include [bucket-encryption-section](../../_includes/audit-trails/bucket-encryption-section.md) %}

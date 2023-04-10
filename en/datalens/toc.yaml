@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
@@ -37,6 +37,8 @@ items:
         href: tutorials/data-from-monitoring-visualization.md
       - name: Building customer journey charts based on AppMetrica data
         href: tutorials/data-from-appmetrica-yc-visualization.md
+      - name: Creating a Bitrix24 connection
+        href: tutorials/data-from-bitrix24-visualization.md
   - name: Concepts
     items:
       - name: Service overview
@@ -67,6 +69,8 @@ items:
         href: concepts/dashboard.md
       - name: Joining data
         href: concepts/data-join.md
+      - name: Optimization best practices
+        href: concepts/optimization_recommendations.md
       - name: Using Markdown in {{ datalens-name }}
         href: concepts/markdown.md
       - name: '{{ datalens-name }} Public'
@@ -87,9 +91,9 @@ items:
         href: concepts/caching.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Working with connections
         items:

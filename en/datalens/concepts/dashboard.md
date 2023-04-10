@@ -3,7 +3,7 @@ title: "{{ datalens-full-name }} dashboard"
 description: "Dashboards in {{ datalens-full-name }} are pages or sets of pages that contain widgets. They let you group charts in one place and add explanatory text and titles. You can create new dashboard pages using the tab element. {{ datalens-name }} lets you display the dashboard in full-screen mode."
 ---
 
-# {{ datalens-full-name }} dashboard
+# {{ datalens-full-name }} dashboards
 
 _Dashboards_ are pages or sets of pages that contain widgets. They let you group charts in one place and add explanatory text and titles.
 You can create new dashboard pages using the **tab** element.
@@ -99,7 +99,8 @@ For more information about charts, see [{#T}](chart/index.md).
 ### Selector {#selector}
 
 A filter that affects query results on its linked widgets. To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
-A selector can be linked to a chart or another selector. For more information, see [Link](#link).
+A selector can be linked to a chart or another selector.
+ For more information, see [Link](#link).
 A selector works within a single dashboard tab.
 
 When adding a selector to a dashboard, consider how it affects chart filters:
@@ -131,14 +132,14 @@ You can use links to filter the values of selectors and charts. For example, if 
 
 The field used by the selector to filter on must be included in the dataset used to construct a chart. Otherwise, the link will not work. For more information, see [{#T}](data-join.md).
 
-The link type determines how values in selectors and charts are filtered. The type is set in the links window in the dashboard edit mode.  
-You can use the following types of links for a pair of widgets:
+The link type determines how values in selectors and charts are filtered. The type is set in the links window in the dashboard edit mode.
+You can use the following types of links for a widget pair:
 
-* **Link**: for widgets that mutually affect each other.
-* **Incoming link**: when a widget is affected by a widget.
-* **Outgoing link**: when a widget affects another widget.
-* **Ignore**: for widgets that mutually ignore each other.
-* **No link**: for widgets from different datasets or widgets that can't be linked.
+* **Link**: For widgets that mutually affect each other.
+* **Incoming link**: When a widget is affected by another widget.
+* **Outgoing link**: When a widget affects another widget.
+* **Ignore**: For widgets that mutually ignore each other.
+* **No link**: For widgets from different datasets or widgets that cannot be linked.
 
 {% note warning %}
 
@@ -305,3 +306,8 @@ The **Data sources** section displays information about the sources used in a ch
 * Link to source.
 * Request body in JSON format.
 * SQL query text sent to source (only if the SQL query is successful and its results are rendered in the chart).
+
+
+#### For details, see also {#see-also}
+
+* [{#T}](optimization_recommendations.md)

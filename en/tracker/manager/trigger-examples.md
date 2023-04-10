@@ -308,7 +308,7 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
    
    ```
-   {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/<form_id>/?iframe=1&<question_id>=<value>" frameborder=0 width=500)
+   {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/<form_id>/?iframe=1&<question_id>=<values>" frameborder=0 width=500)
    ```
 
 
@@ -440,7 +440,7 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
     To substitute the values from the original issue, use [variables](../user/vars.md):
 
    #|
-   || **Field** | **Content** ||  
+   || **Field** | **Content** ||
    || Method | POST ||
    || Address | `{{ host }}/{{ ver }}/issues` ||
    || Authorization method | OAuth 2.0 ||

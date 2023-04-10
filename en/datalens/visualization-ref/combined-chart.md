@@ -2,7 +2,7 @@
 
 A combined chart is a visualization type that consists of layers. Each layer is represented with its own chart type. You can combine [linear charts](line-chart.md), [column charts](column-chart.md), and [area charts](area-chart.md).
 
-Specifics:
+Features:
 
 * The **X** axis is common for all layers.
 * You can add, delete, and rename layers, as well as change their order.
@@ -11,7 +11,8 @@ Specifics:
 
 {% note info %}
 
-There is no color fill by measure in column charts.
+* There is no color fill by measure in column charts.
+* In a combined chart, sorting only applies to the layers it is supported for.
 
 {% endnote %}
 
@@ -63,8 +64,10 @@ To create a combined chart:
 1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
 1. Under **Dataset**, select a dataset for visualization.
 1. Select **Combined chart** as your chart type.
+
+
 1. Drag a dimension from the dataset to the **X** section. The values are displayed in the lower part of the chart on the X-axis.
-1. Select a layer chart type: linear chart ![](../../_assets/datalens/line.svg), column chart ![](../../_assets/datalens/column.svg), or area chart ![](../../_assets/datalens/area.svg). Rename the layer if needed.
+1. Select a layer chart type: linear chart ![](../../_assets/datalens/line.svg), column chart ![](../../_assets/datalens/column.svg), or area chart ![](../../_assets/datalens/area.svg). Rename the layer, if required.
 1. Create a chart of the appropriate type:
 
    * [{#T}](line-chart.md#create-diagram)

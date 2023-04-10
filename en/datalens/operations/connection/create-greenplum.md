@@ -39,24 +39,24 @@ To create a Greenplum connection:
 
          {% endnote %}
 
-      * **Hostname**. Select the host name from the list of hosts available in the Greenplum cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-      * **Port**. Specify the Greenplum connection port. The default port is 5432.
-      * **Path to database**. Specify the name of the database to connect to.
-      * **Username**. Specify the username for the Greenplum connection.
-      * **Password**. Enter the password for the user.
-      * **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-      * **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+      * **Hostname**: Select the host name from the list of hosts available in the Greenplum cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+      * **Port**: Specify the Greenplum connection port. The default port is 5432.
+      * **Path to database**: Specify the name of the database to connect to.
+      * **Username**: Specify the username for the Greenplum connection.
+      * **Password**: Enter the password for the user.
+      * **Cache TTL in seconds**: Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      * **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    - Specify manually
 
       Specify the connection parameters for the external Greenplum database:
 
-      * **Hostname**. Specify the path to the master host or the IP address of the Greenplum master host. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-      * **Port**. Specify the Greenplum connection port. The default port is 5432.
-      * **Path to database**. Specify the name of the database to connect to.
-      * **Username**. Specify the username for the Greenplum connection.
-      * **Password**. Enter the password for the user.
-      * **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      * **Hostname**: Specify the path to the master host or the IP address of the Greenplum master host. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+      * **Port**: Specify the Greenplum connection port. The default port is 5432.
+      * **Path to database**: Specify the name of the database to connect to.
+      * **Username**: Specify the username for the Greenplum connection.
+      * **Password**: Enter the password for the user.
+      * **Cache lifetime in seconds**: Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
       * **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    {% endlist %}
