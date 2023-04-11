@@ -36,7 +36,7 @@ Starting April 17, 2023, you will be able to choose which service to use:
 
    {% note info %}
 
-   If you do not pay for using {{ ya-360 }}, {{ tracker-name }} will continue running, but you will not be able to edit the list of your organization members.
+   If you do not submit payment for using {{ ya-360 }}, {{ tracker-name }} will continue running, but you will not be able to edit the list of your organization members.
 
    {% endnote %}
 
@@ -50,16 +50,39 @@ Starting April 17, 2023, you will be able to choose which service to use:
 
 * To only use {{ ya-360 }}, you will need to disable the {{ org-full-name }} organization in the {{ tracker-name }} interface.
 
-## Linking {{ tracker-name }} to another organization {#reconnect}
+## Switching from {{ ya-360 }} to {{ org-full-name }} {#reconnect}
 
-In March 2023, administrators will be able to choose an organization when [activating](./enable-tracker.md) {{ tracker-name }}. Later on, administrators of multiple organizations will be able to change {{ tracker-name }} binding to an organization.
+A {{ ya-360 }} organization administrator can change an organization for {{ tracker-name }} and switch to {{ org-full-name }}.
 
-{% note info %}
+* If you already have an organization enabled in {{ org-full-name }}, you will be switched to it automatically with no additional actions required. You can check this by going to ![](../_assets/tracker/svg/admin.svg) **Administration** → ![](../_assets/tracker/svg/organizations.svg) [**Organizations**]({{ link-tracker }}admin/orgs).
 
-Changing the organization {{ tracker-name }} is linked to only allowed within one organization management service: either {{ ya-360 }} or {{ org-full-name }}.
+* If you have a {{ org-full-name }} organization you want to switch to, but it is linked to a different {{ tracker-name }}, {{ wiki-name }}, or {{ forms-name }}, contact [support](troubleshooting.md). This is required because, when switching organizations, all data will be deleted.
 
-{% endnote %}
+The steps below can only be completed by a {{ ya-360 }} organization administrator who will also become a {{ org-full-name }} organization administrator.
 
-Once a new organization is linked, the current one will be disconnected from {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }}. Its data will not be lost. However, the current organization users will be marked as dismissed, the groups will be deleted, and the access rights will be revoked.
+1. If you do not have an organization in {{ org-full-name }}, create one following [this guide](../organization/enable-org.md). If you already have an organization, skip this step.
 
-Users registered in both organizations with the same credentials will be able to continue using {{ tracker-name }} without any changes. For other users in the new organization, you will need to reconfigure access rights to {{ tracker-name }}, queues, filters, dashboards, {{ wiki-name }} pages, and forms in {{ forms-name }}.
+1. In {{ tracker-name }}, click ![](../_assets/tracker/svg/admin.svg) **Administration** → ![](../_assets/tracker/svg/organizations.svg) [**Organizations**]({{ link-tracker }}admin/orgs) in the left-hand panel. In the {{ org-full-name }} organizations section, click **Connect** and select the organization you need. Wait until the users and groups from {{ org-full-name }} are synced in {{ tracker-name }}, which may take up to 30 minutes.
+
+1. In {{ org-full-name }}, add [users](../organization/manage-users.md) and [groups](../organization/manage-groups.md) in the same way as in {{ ya-360 }}. A group name in {{ tracker-name }} is generated based on the **Description** field value, or, if it is not provided, on the **Name** field value.
+
+   {% note info %}
+
+   Users registered in both organizations with the same credentials will be able to continue using {{ tracker-name }} without any changes. For other users in the new organization, you will need to reconfigure access rights to {{ tracker-name }}, queues, filters, dashboards, {{ wiki-name }} pages, and forms in {{ forms-name }}.
+
+   {% endnote %}
+
+1. Set up roles in {{ org-full-name }}: if your organization had other administrators, [grant them roles](../organization/roles.md#add-role), such as `admin` or `tracker.admin`.
+
+1. In {{ tracker-name }}, set up [access permissions](./access.md) for the users or groups.
+
+   {% note info %}
+
+   In the group access settings, under ![](../_assets/tracker/svg/admin.svg) **Administration** → [**Groups**]({{ link-tracker }}admin/groups), you will see two **All employees** groups: one with the {{ ya-360 }} organization employees and the other with the employees from both organizations.
+
+   {% endnote %}
+
+If you do not need the {{ ya-360 }} organization, do not delete it just yet; we will notify you as soon as this is required. The steps described above are enough to avoid switching to the {{ ya-360 }} paid plan.
+
+
+If you still have questions, please contact our [technical support](troubleshooting.md).

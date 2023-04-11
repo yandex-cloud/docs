@@ -37,7 +37,7 @@ You can also configure a public IP address for each instance. This allows the in
 
 You can specify the [appropriate security groups](../../../vpc/concepts/security-groups.md) in a template or configure them individually for each instance in the group.
 
-{% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
+{% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
 
 ## Metadata {#metadata}
 
@@ -96,7 +96,7 @@ instance_template:
 Keys (the table lists keys that directly define the base instance's configuration):
 
 | Key | Value |
-| ----- | ----- |
+----- | -----
 | `platform_id` | ID of the instance's hardware platform. |
 | `memory` | The amount of RAM available to the instance, specified in bytes. The maximum value is 274877906944 (275 GB). |
 | `cores` | The number of cores available to the instance. The value depends on the [platform](../vm-platforms.md) type. |

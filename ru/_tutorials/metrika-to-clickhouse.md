@@ -4,6 +4,8 @@ noIndex: true
 
 # Асинхронная репликация данных из {{ metrika }} в {{ CH }} с помощью {{ data-transfer-full-name }}
 
+{% include [note-metrica-pro](../_includes/data-transfer/note-metrica-pro.md) %}
+
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из счетчика [{{ metrika }}](https://metrika.yandex.ru/) в кластер {{ CH }}. Такой перенос обеспечивает полноту переносимых данных из {{ metrika }} и предоставляет возможности для:
 
 * обработки данных средствами {{ CH }};

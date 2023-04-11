@@ -83,6 +83,9 @@ In some cases, for example, to connect cloud resources to the internet via the c
 
 In this flowchart, traffic from cloud subnets connected to {{ interconnect-name }} is unconditionally routed to client routers via both points of presence.
 
+{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
+
+[Security groups](../../vpc/concepts/security-groups.md) cannot be assigned to resources outside {{ yandex-cloud }}, therefore the correct way to filter traffic is to use IPv4 prefixes rather than links to other security groups.
 In this case, the customer can configure traffic filtering rules on client routers before sending it to the internet via their own NAT gateway without using the {{ yandex-cloud }} infrastructure.
 
 

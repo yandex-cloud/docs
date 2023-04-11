@@ -20,6 +20,7 @@
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](cdc-mpg.md)
 * [{#T}](mpg-to-objstorage.md)
+* [{#T}](trails-to-os.md)
 
 ## Asynchronous replication of data
 

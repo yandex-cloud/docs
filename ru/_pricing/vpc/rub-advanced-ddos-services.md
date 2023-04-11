@@ -1,13 +1,18 @@
 | Наименование услуги | Professional<br/>(Pro) | Business<br/>(Bsns) | Corporate<br/>(Corp) | Enterprise<br/>(ENT) |
 | --- | --- | --- | --- | --- |
-| Включенный объем легитимного трафика в АП | 10 Мбит/с | 10 Мбит/с | 10 Мбит/с | Рассчитывается индивидуально |
-| Фильтрация HTTPS-трафика с использованием приватных ключей клиента | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Предоставление сертификатов Let's Encrypt<sup>®</sup> | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Активная проверка доступности площадок клиента | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Фильтрация HTTPS без использования приватных ключей | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Доступ к API | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Базовая балансировка очищенного трафика между IP-адресами (не более двух апстримов по алгоритму Round-robin) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Балансировка очищенного трафика между IP-адресами клиента QLB (Qrator Load Balancing), ежемесячно | ![image](../../_assets/common/no.svg) | 42 000 ₽ | 42 000 ₽ | ![image](../../_assets/common/yes.svg) |
-| Услуга защиты Websockets (проксирование TCP-соединений), ежемесячно | 18 000 ₽ | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Защита от ботов, ежемесячно, за каждый Мбит/с | 480 ₽ | 480 ₽ | 480 ₽ | Рассчитывается индивидуально |
-| Фильтрация трафика по геозонам, ежемесячно | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | 36 000 ₽ | ![image](../../_assets/common/yes.svg) |
+| Защищенные IP-адреса (сверх одного IP-адреса, включенного в АП), ежемесячно | 8400&nbsp;₽ | 19&nbsp;200&nbsp;₽ | 30&nbsp;000&nbsp;₽ | Рассчитывается индивидуально |
+| Базовая балансировка очищенного трафика между IP-адресами (Не более двух апстримов по алгоритму Round-robin) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Балансировка очищенного трафика между IP-адресами Заказчика QLB (Qrator Load Balancing), ежемесячно | ![image](../../_assets/common/no.svg) | 42&nbsp;000&nbsp;₽ | 42&nbsp;000&nbsp;₽ | ![image](../../_assets/common/yes.svg) |
+| Услуга защиты Websockets (проксирование TCP соединений), ежемесячно | 18&nbsp;000&nbsp;₽ | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Фильтрация трафика по геозонам, ежемесячно | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | 36&nbsp;000&nbsp;₽ | ![image](../../_assets/common/yes.svg) |
+| Отказоустойчивый DNS 10 зон, ежемесячно | 9600&nbsp;₽ | 9600&nbsp;₽ | 9600&nbsp;₽ | Рассчитывается индивидуально |
+| Отказоустойчивый DNS 10+ зон, ежемесячно | 14&nbsp;400&nbsp;₽ | 14&nbsp;400&nbsp;₽ | 14&nbsp;400&nbsp;₽ | Рассчитывается индивидуально |
+| Отказоустойчивый DNS 100 зон, ежемесячно | 36&nbsp;000&nbsp;₽ | 36&nbsp;000&nbsp;₽ | 36&nbsp;000&nbsp;₽ | Рассчитывается индивидуально |
+| Отказоустойчивый DNS 100+ зон | 54&nbsp;000&nbsp;₽ | 54&nbsp;000&nbsp;₽ | 54&nbsp;000&nbsp;₽ | Рассчитывается индивидуально |
+| Защита от ботов, ежемесячно, за каждый Мбит/сек (руб.) | 480&nbsp;₽ | 480&nbsp;₽ | 480&nbsp;₽ | Рассчитывается индивидуально |
+| Кэширование контента CDN 100, стоимость за 1Тбайт (до 100 Тбайт включительно) | 1440&nbsp;₽ | 1440&nbsp;₽ | 1440&nbsp;₽ | Рассчитывается индивидуально |
+| Кэширование контента CDN 100+, стоимость за 1Тбайт (свыше 100 Тбайт) | 840&nbsp;₽ | 840&nbsp;₽ | 840&nbsp;₽ | Рассчитывается индивидуально |
+| Предоплаченная полоса трафика сверх включенного в АП, за каждый Мбит/с, ежемесячно | 960&nbsp;₽ | 960&nbsp;₽ | 960&nbsp;₽ | Рассчитывается индивидуально |
+| 300 Мбит/с предоплаченная полоса трафика сверх включенного в АП (стоимостью 720 р. за 1 Мбит/с), ежемесячно | 216&nbsp;000&nbsp;₽ | 216&nbsp;000&nbsp;₽ | 216&nbsp;000&nbsp;₽ | Рассчитывается индивидуально |
+| 400 Мбит/с предоплаченная полоса трафика сверх включенного в АП (стоимостью 720 р. за 1 Мбит/с), ежемесячно | 288&nbsp;000&nbsp;₽ | 288&nbsp;000&nbsp;₽ | 288&nbsp;000&nbsp;₽ | Рассчитывается индивидуально |
+| 500 Мбит/с предоплаченная полоса трафика сверх включенного в АП (стоимостью 720 р. за 1 Мбит/с), ежемесячно | 360&nbsp;000&nbsp;₽ | 360&nbsp;000&nbsp;₽ | 360&nbsp;000&nbsp;₽| Рассчитывается индивидуально |

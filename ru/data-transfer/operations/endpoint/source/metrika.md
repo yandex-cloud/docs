@@ -4,6 +4,8 @@ noIndex: true
 
 # Настройка эндпоинта-источника {{ metrika-endpoint }}
 
+{% include [note-metrica-pro](../../../../_includes/data-transfer/note-metrica-pro.md) %}
+
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к сервису [{{ metrika }}](https://metrika.yandex.ru/).
 
 ## Настройки {#settings}

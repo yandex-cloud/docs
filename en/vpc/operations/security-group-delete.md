@@ -1,6 +1,8 @@
 # Delete a security group
 
-{% include [Preview](../../_includes/vpc/preview.md) %}
+Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+
+To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 
 {% note warning %}
 
@@ -63,7 +65,7 @@ To delete a security group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a security group created with {{ TF }}:
 
@@ -100,19 +102,19 @@ To delete a security group:
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```
       terraform plan

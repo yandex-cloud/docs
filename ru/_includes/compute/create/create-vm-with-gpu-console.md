@@ -25,6 +25,7 @@
     * Выберите одну из [платформ](../../../compute/concepts/vm-platforms.md#gpu-platforms):
         * {{ v100-broadwell }}.
         * {{ v100-cascade-lake }}.
+        * {{ t4-ice-lake }}.
         * {{ a100-epyc }}.
     * Выберите [конфигурацию](../../../compute/concepts/gpus.md#config) виртуальной машины, указав необходимое количество GPU.
     * При необходимости сделайте виртуальную машину [прерываемой](../../../compute/concepts/preemptible-vm.md).

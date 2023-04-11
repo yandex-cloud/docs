@@ -1,1 +1,1 @@
-Install the {{ k8s }} package manager [Helm 3](https://helm.sh/docs/intro/install).
+[Install Helm](https://helm.sh/docs/intro/install/) v3.7.0 or higher.

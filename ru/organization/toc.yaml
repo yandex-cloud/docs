@@ -43,8 +43,12 @@ items:
         href: operations/federations/integration-common.md
   - name: Управление облаками и сервисами
     href: manage-services.md
-  - name: Диагностика ошибок в федерациях, работающих по протоколу SAML 2.0
-    href: diagnostics.md
+  - name: Диагностика ошибок
+    items:
+      - name: Общие ошибки для федераций
+        href: diagnostics.md
+      - name: Ошибки в федерациях, работающих по протоколу SAML 2.0
+        href: saml-diagnostics.md
   - name: Справочник API
     items:
       - name: Аутентификация

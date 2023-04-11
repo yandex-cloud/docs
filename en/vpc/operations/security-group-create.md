@@ -1,6 +1,8 @@
 # Create a security group
 
-{% include [Preview](../../_includes/vpc/preview.md) %}
+Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+
+To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 
@@ -22,10 +24,10 @@ To create a new [security group](../concepts/security-groups.md):
       1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
       1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
       1. In the **Purpose** or **Source** field, select the purpose of the rule:
-         1. **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         1. **Security group**: The rule will apply to the VMs from the current group or the selected security group.
-         1. **Load balancer's health checks**.
-   1. Click **Save**. If necessary, add other rules.
+         1. **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+         1. **Security group**: Rule will apply to the VMs from the current group or the selected security group.
+         1. **Load balancer health checks**.
+   1. Click **Save**. Add other rules, if required.
    1. Click **Save**.
 
 - CLI
@@ -35,7 +37,7 @@ To create a new [security group](../concepts/security-groups.md):
    ```
    yc vpc security-group create \
      --name test-sg-cli \
-     --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24] \
+     --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
      --network-id c645mh47vscba1d64tbs
    ```
 
@@ -64,8 +66,8 @@ To create a new [security group](../concepts/security-groups.md):
       * `description`: Optional description of the security group.
       * `network_id`: ID of the network that the security group will be assigned to.
       * `ingress` and `egress`: Rule parameters for incoming and outgoing traffic:
-         * `protocol`: Traffic transfer protocol.
-         * `description`: Optional description of the rule. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+         * `protocol`: Traffic transfer protocol. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+         * `description`: Optional description of the rule.
          * `v4_cidr_blocks`: List of CIDRs and masks of subnets that traffic will come from or to.
          * `port`: Port for traffic.
          * `from-port`: The first port in the range of ports for traffic.
@@ -124,7 +126,7 @@ To create a new [security group](../concepts/security-groups.md):
          ```
       2. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

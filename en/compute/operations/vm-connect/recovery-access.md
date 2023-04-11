@@ -65,6 +65,8 @@ If you can't access the serial console, do the following to recover the public p
 
 The problem may occur due to an error in the SSH, [security group](../../../vpc/concepts/security-groups.md), or network settings. To restore access, connect to the VM using the [serial console](../serial-console/index.md) and adjust the settings.
 
+{% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
+
 {% list tabs %}
 
 - Linux

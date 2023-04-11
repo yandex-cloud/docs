@@ -165,7 +165,7 @@
    * `iso`: ISO format.
    * `unix_timestamp`: Unix format.
 
-   The default value is `simple`.
+   Defaults to `simple`.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-date_time_output_format).
 

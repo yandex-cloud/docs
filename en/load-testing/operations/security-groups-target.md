@@ -1,4 +1,6 @@
-# Setting up security groups for test targets
+# Set up the test target security group
+
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [security-groups-target](../../_includes/load-testing/security-groups-target.md) %}
 

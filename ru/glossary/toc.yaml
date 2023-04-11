@@ -27,6 +27,8 @@ items:
     href: cors.md
   - name: Облачный сервер
     href: cloud-server.md
+  - name: Реляционные базы данных
+    href: relational-databases.md
   - name: Транскрибация
     href: transcribation.md
   - name: S3
@@ -37,6 +39,8 @@ items:
     href: qos.md
   - name: Снапшот
     href: snapshot.md
+  - name: Контейнеризация
+    href: containerization.md
   - name: Data Mart
     href: datamart.md
 base: ru/glossary

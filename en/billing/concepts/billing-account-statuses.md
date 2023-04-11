@@ -5,16 +5,18 @@ The status of your billing account depends on whether you have any arrears resul
 ## List of statuses {#list}
 
 A billing account can have one of the following statuses:
-- `NEW`: a billing account is being created.
-- `PENDING`: account confirmation required.
-- `PAYMENT_NOT_CONFIRMED`: account confirmation required. An email with further instructions is sent to the email address specified in your Yandex or Yandex 360 account.
-- `TRIAL_ACTIVE`: the trial period has been activated and there is at least one unspent grant.
-- `TRIAL_SUSPENDED`: the trial period has not been activated, as the initial grant was previously provided for your other billing account.
-- `TRIAL_EXPIRED`: the trial period has ended or all available grants have been spent.
-- `FIRST_PAYMENT_REQUIRED`: account creation must be confirmed by topping up your personal account.
-- `ACTIVE`: the paid version has been activated and there are no arrears for resource usage.
-- `PAYMENT_REQUIRED`: the account has arrears for service usage.
-- `SUSPENDED`: access to resources has been suspended.
+- `NEW`: Billing account is being created.
+- `PENDING`: Account confirmation required.
+- `PAYMENT_NOT_CONFIRMED`: Account confirmation required. An email with further instructions has been sent to the email address specified in your Yandex or Yandex 360 account.
+- `TRIAL_ACTIVE`: Trial period has been activated and there is at least one unspent grant.
+- `TRIAL_SUSPENDED`: Trial period has not been activated, as the initial grant was previously provided for another billing account of yours.
+- `TRIAL_SUSPENDED`: Trial period has ended or all available grants have been spent.
+   `FIRST_PAYMENT_REQUIRED`: You need to confirm account creation by making a deposit.
+- `ACTIVE`: Paid version has been activated and there is no outstanding debt for resource usage.
+- `PAYMENT_REQUIRED`: There is outstanding debt for service usage.
+- `SUSPENDED`: Access to resources has been suspended.
+
+If your account has been suspended for a long time or the cloud status is `PENDING_DELETION`, make sure to manually [cancel](../../resource-manager/operations/cloud/delete-cancel.md) its deletion.
 
 ## Description of statuses {#descr}
 

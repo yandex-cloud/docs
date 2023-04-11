@@ -46,6 +46,9 @@ links:
   - title: Облачный сервер
     description: Принципы построения и использования облачных серверов
     href: cloud-server
+  - title: Реляционные базы данных
+    description: Принципы построения, структура и характеристики реляционных баз данных
+    href: relational-databases
   - title: DNS
     description: Базовая технология современной всемирной сети
     href: dns
@@ -61,6 +64,9 @@ links:
   - title: Снапшот
     description: Полный снимок текущего состояния виртуальной машины
     href: snapshot
+  - title: Контейнеризация
+    description: Контейнеризация
+    href: containerization
   - title: Data Mart
     description: Витрина данных
     href: datamart

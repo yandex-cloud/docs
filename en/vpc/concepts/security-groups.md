@@ -5,19 +5,19 @@ description: "Security groups let you manage VM access to resources and security
 
 # Security groups
 
-The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
-Security groups let you manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is assigned to the network interface when creating or updating a VM and should contain rules for receiving and sending traffic. You can assign multiple security groups to each VM.
+Security groups allow you to manage VM access to resources and {{ yandex-cloud }} security groups or resources on the internet. A security group is assigned to the network interface when creating or updating a VM and should contain rules for receiving and sending traffic. You can assign multiple security groups to each VM.
 
 Security groups:
 
-* Not designed to protect against DDoS attacks. To filter out large volumes of unwanted traffic, use [DDoS protection](../ddos-protection/index.md).
+* Are not designed to protect against DDoS attacks. To filter out large volumes of unwanted traffic, use [DDoS protection](../ddos-protection/index.md).
 
-* Operate on the principle of "what is not allowed is forbidden". If you assign a security group without rules to the network interface of a VM, the VM won't be able to transmit or receive traffic.
+* Operate based on the "what is not allowed is forbidden" principle. If you assign a security group without rules to the network interface of a VM, the VM will not be able to send or receive traffic.
 
-* Automatically terminate TCP connections in the `idle` status in 180 seconds. We don't recommend using session timeouts in applications for a longer period of time. Learn more about [limits](limits.md#vpc-limits).
+* Automatically terminate TCP connections in the `idle` status in 180 seconds. We do not recommend using session timeouts in applications for a longer period of time. Learn more about [limits](limits.md#vpc-limits).
 
-Learn more about [how to create a security group](../operations/security-group-create.md).
+You can learn how to create a security group [here](../operations/security-group-create.md).
 
 ## Security group rules {#rules}
 
@@ -25,9 +25,9 @@ Security group rules define the protocols and IP addresses for receiving and sen
 
 Rules store session statuses. Security groups monitor the status of connections and map response traffic to an already open session to allow traffic receipt.
 
-> For example, a rule allows a VM to create an outgoing session to port 80 of an IP address. Responses from port 80 to the request source port are automatically resolved.
+> For example, you can configure a rule that allows a VM to create an outgoing session to port 80 of an IP address. This will automatically allow responses from port 80 to the request source port.
 
-Learn more about [how to create a rule](../operations/security-group-add-rule.md).
+You can learn how to create a rule [here](../operations/security-group-add-rule.md).
 
 ### Types of rules {#rules-types}
 
@@ -38,21 +38,21 @@ There are two types of rules:
 
 If a security group only contains a rule for outgoing traffic and no rules for incoming traffic, a VM can still receive the response traffic. If a security group only has rules for incoming traffic, the VM will only be able to respond to requests, but not initiate them.
 
-If two VMs are in the same security group with no rules, they won't be able to exchange traffic. To enable VMs in the same group to transfer traffic between one another, you can:
+If two VMs are in the same security group with no rules, they will not be able to exchange traffic. To enable VMs in the same group to transfer traffic between one another, you can:
 
 * Use the `Self` rule for the entire group.
 * Specify the addresses and ports of the required resources in the rules.
 
 ### Protocols {#protocols}
 
-Security group rules let you specify which VM protocols can be used to transmit traffic. The following protocols are available:
+Security group rules allow you to specify which VM protocols can be used to transmit traffic. You can use the following protocols:
 
-* TCP.
-* UDP.
-* ICMP.
-* ESP.
-* AH.
-* All available protocols.
+* TCP
+* UDP
+* ICMP
+* ESP
+* AH
+* All available protocols
 
 ### IP addresses and address ranges {#cidrs}
 
@@ -62,10 +62,10 @@ You can specify a particular IP address in the rules using CIDR with the `/32` m
 
 To allow traffic to be sent to any addresses over any protocols, specify CIDR `0.0.0.0` with the `/0` mask and set `Any` in the protocol selection field.
 
-Security groups don't block sending traffic to the addresses of services required for the VM and virtual network operation:
+Security groups do not block sending traffic to the addresses of services required for the VM and virtual network operation:
 
-* The metadata server address: `169.254.169.254`.
-* The address of the [DNS server](network.md#subnet): The second-in-order internal IP address (usually `x.x.x.2`) in each subnet.
+* Metadata server address: `169.254.169.254`.
+* [DNS server](network.md#subnet) address: Second internal IP address (usually, `x.x.x.2`) in each subnet.
 
 To enable [health checks](../../network-load-balancer/concepts/health-check.md) for resources connected to a network load balancer, use one of the methods below:
 
@@ -76,19 +76,19 @@ To enable [health checks](../../network-load-balancer/concepts/health-check.md) 
 
 The rules for selecting a security group as a source/destination only apply to packets that have IP addresses from [private ranges](network.md#subnet) specified as the source/destination and assigned to the interfaces from the selected security group.
 
-Packets redirected to other network IPs through static routes won't match the rules that allow traffic. In this case, create rules explicitly specifying CIDR for the source or destination.
+Packets redirected to other network IPs through static routes will not match the rules that allow traffic. In this case, create rules explicitly specifying CIDR for the source or destination.
 
 ## Default security group {#default-security-group}
 
 The default security group is automatically:
 * Created in a new network.
-* Assigned to VMs when connecting to the new network subnets if they don't have any security groups.
+* Assigned to VMs when connecting to the new network subnets if they do not have any security groups.
 
-   In this case, the automatically assigned security group isn't displayed in API or CLI responses.
+   In this case, the automatically assigned security group is not displayed in API or CLI responses.
 
    {% note warning %}
 
-   You can't delete the default security group.
+   You cannot delete the default security group.
 
    {% endnote %}
 
@@ -114,7 +114,7 @@ The default security group is created with the following rules:
 
 {% note info %}
 
-In networks created before the security group functionality was launched, traffic will be transmitted without any restrictions to maintain backward compatibility.
+In the networks created before the security group functionality was launched, the traffic will be transmitted without any restrictions to maintain backward compatibility.
 
 {% endnote %}
 

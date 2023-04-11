@@ -1,6 +1,6 @@
 # Deleting a rule from a security group
 
-{% include [Preview](../../_includes/vpc/preview.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% list tabs %}
 
@@ -13,7 +13,7 @@
    1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
    1. Select the group to update.
    1. Under **Rules**, click ![image](../../_assets/options.svg) in the row of the rule to delete.
-   1. In the resulting menu, click **Delete**.
+   1. In the menu that opens, click **Delete**.
    1. In the window that opens, click **Delete**.
 
 - CLI
@@ -89,7 +89,7 @@
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a rule created with {{ TF }} from a security group:
 
@@ -126,19 +126,19 @@
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```
       terraform plan

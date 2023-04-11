@@ -8,7 +8,7 @@ The recommended method for connecting to a virtual machine over SSH is based on 
 
 {% note warning %}
 
-Save the private key in a secure location: you won't be able to connect to the VM without it.
+Save the private key in a secure location, as you will not be able to connect to the VM without it.
 
 {% endnote %}
 
@@ -34,7 +34,7 @@ You can also copy the key using the command line:
       * `<username>`: Your Windows account name, such as `User`.
       * `<key_name>`: Key name, such as `id_ed25519` or `id_rsa`.
 
-      The command will output the public key. To copy the key, select and right-click it. For example, `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz`.
+      The command will output the public key. To copy the key, select and right-click it. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz`.
 
    1. You can copy the file contents right to the clipboard:
 
@@ -93,7 +93,7 @@ To connect, you can use the `ssh` utility on Linux/macOS/Windows 10 and [PuTTY](
 
 Virtual machine [security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic on port 22.
 
-{% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
+{% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
 
 To connect to the VM, specify its public address. You can find out the public IP address in the management console. On the VM's page, go to the **Network** section and find the **Public IPv4** field. If you created a virtual machine with a private address only, [bind it to a public address](../vm-control/vm-attach-public-ip.md).
 
@@ -103,7 +103,7 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
 
 - Linux/macOS
 
-   In the terminal, run the command:
+   In the terminal, run this command:
 
    ```bash
    ssh <username>@<VM_public_IP_address>
