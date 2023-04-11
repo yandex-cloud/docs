@@ -1,6 +1,6 @@
 ### Bash {#bash}
 
-Before connecting, install the [Mongo Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell).
+Before connecting, install the [MongoDB Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell).
 
 {% list tabs %}
 
@@ -10,7 +10,7 @@ Before connecting, install the [Mongo Shell utility](https://docs.mongodb.com/ma
    mongosh --norc \
            --tls \
            --tlsCAFile /home/<home directory>/.mongodb/root.crt \
-           --host '<FQDN of MONGOINFRA or MONGOS host 1>:27017,...,<FQDN of MONGOINFRA or MONGOS host N>:27017' \
+           --host '<FQDN of host 1 MONGOINFRA or MONGOS>:27017,...,<FQDN of host N MONGOINFRA or MONGOS>:27017' \
            --username <DB user name> \
            --password <DB user password> \
            <DB name>
@@ -47,7 +47,7 @@ After connecting, run the `db` command.
 **Before connecting, install the dependencies:**
 
 ```bash
-sudo apt update && sudo apt install -y golang git && \
+sudo apt update && sudo apt install --yes golang git && \
 go get go.mongodb.org/mongo-driver/mongo
 ```
 
@@ -153,22 +153,25 @@ go run connect.go
 1. Install the dependencies:
 
    ```bash
-   sudo apt update && sudo apt install -y default-jdk maven
+   sudo apt update && sudo apt install --yes default-jdk maven
    ```
 
 1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MG }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password using the `-storepass` parameter for additional storage protection:
 
    ```bash
    cd ~/.mongodb && \
-       keytool -importcert -alias YARootCrt -file root.crt \
-       -keystore YATrustStore -storepass <certificate store password> \
-       --noprompt
+   sudo keytool -importcert \
+                -alias {{ crt-alias }} -file root.crt \
+                -keystore ssl -storepass <certificate store password, at least 6 characters> \
+                --noprompt
    ```
 
 1. Create a folder for the Maven project:
 
    ```bash
-   cd ~/ && mkdir -p project/src/java/com/example && cd project/
+   cd ~/ && \
+   mkdir --parents project/src/java/com/example && \
+   cd ~/project
    ```
 
 1. Create a configuration file for Maven:
@@ -354,7 +357,7 @@ mvn clean package && \
 **Before connecting, install the dependencies**:
 
 ```bash
-sudo apt update && sudo apt install -y nodejs npm && \
+sudo apt update && sudo apt install --yes nodejs npm && \
 npm install mongodb
 ```
 
@@ -442,7 +445,7 @@ node app.js
 **Before connecting, install the dependencies:**
 
 ```bash
-sudo apt update && sudo apt install -y php php-mongodb
+sudo apt update && sudo apt install --yes php php-mongodb
 ```
 
 {% list tabs %}
@@ -561,7 +564,7 @@ After connecting, run the `db` command.
 **Before connecting, install the dependencies:**
 
 ```bash
-sudo apt update && sudo apt install -y python3 python3-pip && \
+sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install pyMongo
 ```
 

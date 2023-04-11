@@ -1,4 +1,4 @@
-# Configuring a {{ yds-full-name }} source endpoint
+# Configuring {{ yds-full-name }} source endpoints
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -11,7 +11,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 - Management console
 
-   {% include [Data Streams UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-data-streams.md) %}
+   {% include [Data Streams UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-data-streams-source.md) %}
 
 {% endlist %}
 

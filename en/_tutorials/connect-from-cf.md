@@ -92,7 +92,7 @@ The infrastructure support cost for this scenario includes:
         endpoint=os.getenv('YDB_ENDPOINT'),
         database=os.getenv('YDB_DATABASE'),
         credentials=ydb.iam.MetadataUrlCredentials(),
-      )('YDB_DATABASE'))
+      )
 
       # Wait for the driver to become active for requests.
       driver.wait(fail_fast=True, timeout=5)

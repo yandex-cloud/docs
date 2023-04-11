@@ -300,16 +300,16 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 - Oracle
 
-   1. Create a user account the transfer will utilize to connect to the source:
+   * To prepare the source for the _{{ dt-type-copy }}_ transfer:
 
-      ```sql
-      CREATE USER <username> IDENTIFIED BY <password>;
-      GRANT CREATE SESSION TO <username>;
-      ```
+      1. Create a user account the transfer will utilize to connect to the source:
 
-   1. To prepare the source for the _{{ dt-type-copy }}_ transfer:
+         ```sql
+         CREATE USER <username> IDENTIFIED BY <password>;
+         GRANT CREATE SESSION TO <username>;
+         ```
 
-      * Grant privileges to the created user:
+      1. Grant privileges to the created user:
 
          ```sql
          GRANT SELECT ON V$DATABASE TO <username>;
@@ -318,45 +318,75 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
          GRANT FLASHBACK ANY TABLE TO <username>;
          ```
 
-         The `FLASHBACK` privileges can't be granted to `ANY TABLE`. You can only grant them to the tables to be copied.
+         If required, you can only grant the `FLASHBACK` privileges to the tables you need to copy rather than to all (`ANY TABLE`).
 
-      * Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be copied.
+      1. Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be copied.
 
-   1. To prepare the source for the _{{ dt-type-repl }}_ transfer:
+   * To prepare the source for the _{{ dt-type-repl }}_ transfer:
 
-      * Grant privileges to the created user:
+      1. Create a user account the transfer will utilize to connect to the source:
 
-         ```sql
-         GRANT SELECT ON V$DATABASE TO <username>;
-         GRANT SELECT ON V$LOG TO <username>;
-         GRANT SELECT ON V$LOGFILE TO <username>;
-         GRANT SELECT ON V$ARCHIVED_LOG TO <username>;
-         GRANT EXECUTE ON SYS.DBMS_LOGMNR TO <username>;
-         ```
+           ```sql
+           CREATE USER <username> IDENTIFIED BY <password>;
+           ALTER USER <username> DEFAULT tablespace USERS TEMPORARY tablespace TEMP;
+           ALTER USER <username> quote unlimited on USERS;
 
-      * Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be replicated.
-      * Enable [Minimal Supplemental Logging](https://docs.oracle.com/database/121/SUTIL/GUID-D2DDD67C-E1CC-45A6-A2A7-198E4C142FA3.htm#SUTIL1583) with primary keys as follows:
+           GRANT
+               CREATE SESSION,
+               execute_catalog_role,
+               SELECT ANY TRANSACTION,
+               SELECT ANY DISCTIONARY,
+               CREATE PROCEDURE
+           TO <username>.
+           ```
 
-         ```sql
-         ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-         ```
+      1. Grant privileges to the created user:
 
-   1. (optional) If you're using the [CDB environment](https://docs.oracle.com/database/121/CNCPT/cdbovrvw.htm#CNCPT89234), configure additional settings:
+           ```sql
+            GRANT SELECT ON V$DATABASE TO <username>;
+            GRANT SELECT ON V$LOG TO <username>;
+            GRANT SELECT ON V$LOGFILE TO <username>;
+            GRANT SELECT ON V$ARCHIVED_LOG TO <username>;
 
-      1. Create a [user](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/overview-of-managing-a-multitenant-environment.html#GUID-7D303718-2D59-495F-90FB-E51A377B1AD2) `Common User`:
+            GRANT SELECT ON dba_objects TO <username>;
+            GRANT SELECT ON dba_extents TO <username>;
 
-         ```sql
-         CREATE USER C##<username> IDENTIFIED BY <password> CONTAINER=ALL;
-         GRANT CREATE SESSION TO C##<username>;
-         ```
+            GRANT EXECUTE ON SYS.DBMS_LOGMNR TO <username>;
+            GRANT SELECT ON SYSTEM.LOGMNR_COL$ TO <username>;
+            GRANT SELECT ON SYSTEM.LOGMNR_OBJ$ TO <username>;
+            GRANT SELECT ON SYSTEM.LOGMNR_USER$ TO <username>;
+            GRANT SELECT ON SYSTEM.LOGMNR_UID$ TO <username>;
+            ```
 
-         {% note info %}
+        1. Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be replicated.
+        1. Enable [Minimal Supplemental Logging](https://docs.oracle.com/database/121/SUTIL/GUID-D2DDD67C-E1CC-45A6-A2A7-198E4C142FA3.htm#SUTIL1583) with primary keys as follows:
 
-         Make sure the `Common User` has a username with the `C##` prefix.
+            ```sql
+            ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+            ```
 
-         {% endnote %}
+    * If you are using the [CDB environment](https://docs.oracle.com/database/121/CNCPT/cdbovrvw.htm#CNCPT89234), configure the following settings:
 
-         You can only specify the `cdb$root` container and the container with the tables to transfer.
+        1. Create a [user](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/overview-of-managing-a-multitenant-environment.html#GUID-7D303718-2D59-495F-90FB-E51A377B1AD2) `Common User`:
+
+            ```sql
+            CREATE USER C##<username> IDENTIFIED BY <password> CONTAINER=all;
+            ALTER USER C##<username> DEFAULT TABLESPACE USERS temporary tablespace TEMP CONTAINER=all;
+            ALTER USER C##<username> quota unlimited on USERS CONTAINER=all;
+            ALTER USER C##<username> SET container_data = (cdb$root, <your PCB name>) CONTAINER=current;
+
+            GRANT
+                CREATE SESSION,
+                execute_catalog_role,
+                SELECT ANY TRANSACTION,
+                SELECT ANY DICTIONALY,
+                CREATE PROCEDURE,
+                LOGMINING,
+                SET CONTAINER
+            TO C##<username> CONTAINER=ALL;
+            ```
+
+         If required, you can only specify the `cdb$root` container and the container with the tables to transfer.
 
       1. To allow the user to switch to the `cdb$root` container, grant them the `ALTER SESSION` privileges:
 
@@ -364,13 +394,23 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
          GRANT ALTER SESSION TO C##<username>;
          ```
 
-      1. Grant the user the privilege to read the appropriate [PDB container](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/overview-of-the-multitenant-architecture.html#GUID-49C0C90D-5A72-4131-8C3D-B07341C75CB2):
+      1. Grant privileges to the created user:
 
-         ```sql
-         GRANT SELECT ANY TABLE TO C##<usename> CONTAINER=<PDB container name>;
-         ```
+            ```sql
+            GRANT SELECT ON V$DATABASE TO C##<username> CONTAINER=ALL;
+            GRANT SELECT ON V$LOG TO C##<username> CONTAINER=ALL;
+            GRANT SELECT ON V$LOGFILE TO C##<username> CONTAINER=ALL;
+            GRANT SELECT ON V$ARCHIVED_LOG TO C##<username> CONTAINER=ALL;
 
-         You can only specify the tables to transfer and not `ANY TABLE`.
+            GRANT SELECT ON dba_objects TO C##<username> CONTAINER=ALL;
+            GRANT SELECT ON dba_extents TO C##<username> CONTAINER=ALL;
+
+            GRANT EXECUTE ON SYS.DBMS_LOGMNR TO C##<username> CONTAINER=ALL;
+            GRANT SELECT ON SYSTEM.LOGMNR_COL$ TO C##<username> CONTAINER=ALL;
+            GRANT SELECT ON SYSTEM.LOGMNR_OBJ$ TO C##<username> CONTAINER=ALL;
+            GRANT SELECT ON SYSTEM.LOGMNR_USER$ TO C##<username> CONTAINER=ALL;
+            GRANT SELECT ON SYSTEM.LOGMNR_UID$ TO C##<username> CONTAINER=ALL;
+            ```
 
 {% endlist %}
 
@@ -378,9 +418,9 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 {% note info %}
 
-When transferring from {{ PG }} to a target of any type, objects of the [large object](https://www.postgresql.org/docs/current/largeobjects.html) type will not transfer.
+When performing a transfer from {{ PG }} to a target of any type, objects of the [large object](https://www.postgresql.org/docs/current/largeobjects.html) type will not get transferred.
 
-Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/storage-toast.html) and with [type bytea](https://www.postgresql.org/docs/12/datatype-binary.html) transfer without restrictions.
+Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/storage-toast.html) and those of the [bytea](https://www.postgresql.org/docs/12/datatype-binary.html) type get transferred without restrictions.
 
 {% endnote %}
 

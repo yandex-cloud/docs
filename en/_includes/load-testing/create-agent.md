@@ -1,64 +1,56 @@
-1. [Generate](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair to connect to an agent over SSH.
+1. [Generate](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a pair of SSH keys to connect to an agent over SSH.
+1. Create an agent.
 
-1. Create an agent:
+   {% list tabs %}
 
-    {% list tabs %}
+   - Management console
 
-    - Management console
-
-      1. In the [management console]({{ link-console-main }}), select the folder to create an agent in.
-
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your agent.
       1. In the list of services, select **{{ load-testing-name }}**.
-
-      1. In the left-hand panel, select ![image](../../_assets/load-testing/agent.svg) **Agents**. Click **Create agent**.
-
-      1. Name the agent like `agent-008`.
-
+      1. On the left-hand panel, select ![image](../../_assets/load-testing/agent.svg) **Agents**. Click **Create agent**.
+      1. Give your agent a name, e.g., `agent-008`.
       1. Specify the same availability zone where the test target is located.
-
       1. Under **Agent**:
-          * Select the appropriate agent type. For more information, see [Agent performance](../../load-testing/concepts/agent.md#benchmark).
-          * Specify the subnet where the test target is located.
-          * Specify the agent's security group.
-
+         * Select the appropriate agent type. For more information, see [Agent performance](../../load-testing/concepts/agent.md#benchmark).
+         * Specify the subnet where the test target is located.
+         * Specify the test agent's security group.
       1. Under **Access**, specify the information required to access the agent:
+         * Select the `sa-loadtest` service account.
+         * Enter the username in the **Login** field.
 
-          * Select the `sa-loadtest` service account.
+            {% note alert %}
 
-          * Enter the username in the **Login** field.
+            Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
 
-              {% note alert %}
+            {% endnote %}
 
-              Don't use the username `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the command `sudo`.
-
-              {% endnote %}
-
-          * In the **SSH key** field, paste the contents of the [public key file](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
+         * In the **SSH key** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
       1. Click **Create**.
+      1. Wait for the VM instance to create. Make sure the agent status changes to `READY_FOR_TEST`.
 
-      1. Wait for the VM creation process to complete. The agent status should change to `READY_FOR_TEST`.
+         {% note info %}
 
-          {% note info %}
+         The agent creation process may stop at the `INITIALIZING_CONNECTION` status unless the following conditions are met:
+         * The agent has [access](../../load-testing/operations/security-groups-agent.md) to `loadtesting.{{ api-host }}:443` and is assigned a public IP address.
+         * A NAT gateway is [set up](../../vpc/operations/create-nat-gateway.md) in the target subnet.
+         * The service account assigned to the agent has the required [roles](../../load-testing/operations/create-agent.md#infrastructure-prepare).
 
-          The agent creation process may end up with the `INITIALIZING_CONNECTION` status if the agent has no [permission](../../load-testing/operations/security-groups-agent.md) to access `loadtesting.{{ api-host }}:443`, or the service account that is assigned to the agent doesn't have the required [roles](../../load-testing/operations/create-agent.md#infrastructure-prepare).
+         {% endnote %}
 
-          {% endnote %}
+   {% endlist %}
 
-    {% endlist %}
+1. Assign a public IP to the agent to enable access over SSH:
 
-1. Link a public IP address to the agent for SSH access:
+   {% list tabs %}
 
-    {% list tabs %}
+   - Management console
 
-    - Management console
       1. In the [management console]({{ link-console-main }}), select the folder where the agent is located.
       1. Select **{{ compute-name }}**.
-      1. Select the `agent-008` VM.
-      1. Under **Network interface**, click ![image](../../_assets/horizontal-ellipsis.svg) in the upper-right corner and select **Add public IP address**.
+      1. Select the VM named `agent-008`.
+      1. Under **Network interface**, in the top right-hand corner, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Add public IP**.
       1. In the window that opens:
-          * In the **Public address** field, select the **Auto** method for assigning an IP address.
-          * Click **Add**.
+         * In the **Public IP** field, choose **Auto** assignment of IP addresses.
+         * Click **Add**.
 
-    {% endlist %}
-
+   {% endlist %}

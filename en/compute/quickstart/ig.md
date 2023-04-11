@@ -49,10 +49,13 @@ To create an instance group:
       * In the **Public IP** field, choose a method for assigning an IP address:
          * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
          * **No address**: Do not assign a public IP address.
-      * (optional) Select a security group. If there is no security group, create one:
+      * (optional) Select a [security group](../../vpc/concepts/security-groups.md). If there is no security group, create one:
          * Click **Add security group**.
          * Enter a name and description for the security group. You will be able to add rules to the security group at a later stage using **{{ vpc-name }}**.
          * Click **Create**.
+
+         {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
+
    * Under **Access**:
       * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one.
       * If you selected a Linux-based public image:

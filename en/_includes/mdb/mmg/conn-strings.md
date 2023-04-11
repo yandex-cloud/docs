@@ -1,6 +1,6 @@
 ### Bash {#bash}
 
-Before connecting, install the [Mongo Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell).
+Before connecting, install the [MongoDB Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell).
 
 {% list tabs %}
 
@@ -47,7 +47,7 @@ After connecting, run the `db` command.
 **Before connecting, install the dependencies:**
 
 ```bash
-sudo apt update && sudo apt install -y golang git && \
+sudo apt update && sudo apt install --yes golang git && \
     go get go.mongodb.org/mongo-driver/mongo
 ```
 
@@ -157,22 +157,25 @@ go run connect.go
 1. Install the dependencies:
 
    ```bash
-   sudo apt update && sudo apt install -y default-jdk maven
+   sudo apt update && sudo apt install --yes default-jdk maven
    ```
 
 1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MG }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password for additional storage security using the `-storepass` parameter:
 
    ```bash
    cd ~/.mongodb && \
-       keytool -importcert -alias YARootCrt -file root.crt \
-       -keystore YATrustStore -storepass <certificate store password> \
-       --noprompt
+   sudo keytool -importcert \
+                -alias {{ crt-alias }} -file root.crt \
+                -keystore ssl -storepass <certificate store password, at least 6 characters> \
+                --noprompt
    ```
 
 1. Create a folder for the Maven project:
 
    ```bash
-   cd ~/ && mkdir -p project/src/java/com/example && cd project/
+   cd ~/ && \
+   mkdir --parents project/src/java/com/example && \
+   cd ~/project
    ```
 
 1. Create a configuration file for Maven:
@@ -359,8 +362,8 @@ mvn clean package && \
 **Before connecting, install the dependencies**:
 
 ```bash
-sudo apt update && sudo apt install -y nodejs npm && \
-    npm install mongodb
+sudo apt update && sudo apt install --yes nodejs npm && \
+npm install mongodb
 ```
 
 {% list tabs %}
@@ -451,7 +454,7 @@ node app.js
 **Before connecting, install the dependencies:**
 
 ```bash
-sudo apt update && sudo apt install -y php php-mongodb
+sudo apt update && sudo apt install --yes php php-mongodb
 ```
 
 {% list tabs %}
@@ -574,7 +577,7 @@ After connecting, run the `db` command.
 **Before connecting, install the dependencies:**
 
 ```bash
-sudo apt update && sudo apt install -y python3 python3-pip && \
+sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install pyMongo
 ```
 
@@ -590,7 +593,7 @@ pip3 install pyMongo
    from urllib.parse import quote_plus as quote
 
    CACERT = '/home/<home directory>/.mongodb/root.crt'
-   DB_RS = '<replica set name>'
+   DB_RS = '<name of replica set>'
    DB_NAME = '<DB name>'
    DB_HOSTS =','.join([
          '<FQDN of {{ MG }} host 1>:27018',

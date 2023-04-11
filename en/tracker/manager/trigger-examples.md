@@ -223,7 +223,7 @@ To create issues based on requests submitted from a form:
 
 1. Go to [{{ forms-full-name }}]({{ link-forms }}) and create a new form.
 
-1. Add questions that let users provide relevant information necessary to register their request.
+1. Add questions that allow users to provide relevant information that is required to register their request.
 
    If you want to know the user's email address, add the **Email** question and make it a required field.
 
@@ -313,11 +313,12 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
 
 
-   - Where `<form id>` is the ID of the form to be added.
+   Where:
+   - `<form id>`: ID of the form to add.
 
-   - `<question_id>` is the [ID of the question](../../forms/question-id.md#sec_question);
+   - `<question_id>`: [ID of the question](../../forms/question-id.md#sec_question).
 
-   - `<value>` is the value to be used in the form's field.
+   - `<value>`: Value to use in the form's field.
 
       To transfer issue parameters to the form, use [variables](../user/vars.md) as values: at the bottom of the window, click **Add variable** and choose the issue parameter. Then replace the `not_var{{ }}` characters around the name of the variable with `<% %>`.
 
@@ -348,9 +349,9 @@ When the issue is closed, the robot will create a comment with a form and invite
 
 ## Automatically adding issues to your board {#board}
 
-On the [new version of the issue board](agile-new.md), currently you can't set up a filter to add issues automatically to the board. If you need such a feature, you can implement it using a trigger.
+The [new board version](agile-new.md) allows you to set up adding issues automatically by a filter or [trigger](trigger-examples.md#board).
 
-Instead of a trigger, you can also [set up an auto action](../user/create-autoaction.md) with a similar condition and action. When using an auto action, the issues meeting the condition won't be added to the board immediately, but at a given periodicity.
+Instead of a trigger, you can also [set up an auto action](../user/create-autoaction.md) with a similar condition and action. When using an auto action, the issues meeting the condition will be added to the board at the specified time intervals rather than immediately.
 
 {% note warning %}
 
@@ -439,44 +440,44 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
 1. Specify the request parameters. In the **Request body** field, set the parameters of a new sub-issue.
     To substitute the values from the original issue, use [variables](../user/vars.md):
 
-   #|
-   || **Field** | **Content** ||
-   || Method | POST ||
-   || Address | `{{ host }}/{{ ver }}/issues` ||
-   || Authorization method | OAuth 2.0 ||
-   || Token | [How to get a token](../concepts/access.md#section_about_OAauth) ||
-   || Authorization header | Authorization ||
-   || Token type | OAuth ||
-   || Content type | application/json ||
-   || Request body |
+    #|
+    || **Field** | **Content** ||
+    || Method | POST ||
+    || Address | `{{ host }}/{{ ver }}/issues` ||
+    || Authorization method | OAuth 2.0 ||
+    || Token | [How to get a token](../concepts/access.md#section_about_OAauth) ||
+    || Authorization header | Authorization ||
+    || Token type | OAuth ||
+    || Content type | application/json ||
+    || Request body |
 
-   > Example: Creating a sub-issue and transmitting to it field values from the original issue, such as description, assignee, followers, and tags.
-   >
-   > ```
-   > {
-   >    "summary": "Issue name",
-   >    "queue": "<Key of the queue to create a new issue in>",
-   >    "description": not_var{{issue.description.json}},
-   >    "links": [
-   >        {
-   >            "relationship": "is subtask for",
-   >            "issue": "not_var{{issue.key}}"
-   >        }
-   >    ],
-   >    "assignee": "not_var{{issue.assignee.login}}",
-   >    "tags": not_var{{issue.tags.json}},
-   >    "followers": not_var{{issue.followers.uid.json}}
-   > }
-   > ```
-   For more information about the request, see [{#T}](../concepts/issues/create-issue.md) and [{#T}](../concepts/issues/link-issue.md). ||
-   || Headers | Header: `X-Org-ID`.
-   Value: Organization ID. The ID is shown in the **Organization ID for API** field on the [{{ tracker-name }} settings]({{ link-settings }}) page. ||
-   |#
+    > Example: Creating a sub-issue and transmitting to it field values from the original issue, such as description, assignee, followers, and tags.
+    >
+    > ```
+    > {
+    >    "summary": "Issue name",
+    >    "queue": "<Key of the queue to create a new issue in>",
+    >    "description": not_var{{issue.description.json}},
+    >    "links": [
+    >        {
+    >            "relationship": "is subtask for",
+    >            "issue": "not_var{{issue.key}}"
+    >        }
+    >    ],
+    >    "assignee": "not_var{{issue.assignee.login}}",
+    >    "tags": not_var{{issue.tags.json}},
+    >    "followers": not_var{{issue.followers.uid.json}}
+    > }
+    > ```
+    For more information about the request, see [{#T}](../concepts/issues/create-issue.md) and [{#T}](../concepts/issues/link-issue.md). ||
+    || Headers | Header: `X-Org-ID`.
+    Value: Organization ID. The ID is shown in the **Organization ID for API** field on the [{{ tracker-name }} settings]({{ link-settings }}) page. ||
+    |#
 
-   {% note info %}
+    {% note info %}
 
-   Make sure the parameters you send to the request body using variables are set in the original issue; otherwise, the trigger won't work.
+    Make sure the parameters you send to the request body using variables are set in the original issue; otherwise, the trigger will not work.
 
-   {% endnote %}
+    {% endnote %}
 
 1. Click **Create**.

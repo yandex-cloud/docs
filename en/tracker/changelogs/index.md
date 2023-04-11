@@ -1,6 +1,5 @@
 # {{ tracker-full-name }} revision history for February 2023
 
-* [Gantt chart for issue queues and filters](#gannt-queue-filter)
 * [Setting up a color palette in a Gantt chart for projects](#gantt-colors)
 * [Displaying external blockers in a list of issues on a project's Gantt chart](#ext-blockers-gannt)
 * [Workflow templates](#work-templates)
@@ -9,10 +8,6 @@
 * [Retaining a list of projects](#projects-preset)
 * [Displaying files attached to an issue](#attaches)
 * [Dashboard access rights](#access-dashboards)
-
-## Gantt chart for issue queues and filters {#gannt-queue-filter}
-
-You can plan your work on the calendar as a Gantt chart for issue [queues](../user/queue.md) and [filters](../user/create-filter.md). To switch to the chart, select a queue or set up an issue filter and open the **Gantt chart** tab.
 
 ## Setting up a color palette in a Gantt chart for projects {#gantt-colors}
 

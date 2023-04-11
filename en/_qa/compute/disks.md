@@ -28,13 +28,17 @@ Follow the instructions: [{#T}](../../compute/operations/image-create/upload.md)
 
 To ensure that the VM created from your image functions properly, follow all of the instructions.
 
-If you have followed all the recommendations, but the image fails to start up, or if you have other questions, contact support.
+If you have followed all recommendations and the image still fails to start up, or in case you have other questions, contact support.
+
+#### What happens to the VMs running outdated OS versions? {#end-of-life}
+
+{% include [end-of-life](../../_includes/compute/end-of-life.md) %}
 
 #### Should I use swap? {#swap-use}
 
 Avoid using swap in cloud systems whenever possible because the disk subsystem can become a bottleneck for the entire guest system. [Network disk limits](../../compute/concepts/limits.md#compute-limits-disks) are too low to use the disk as a RAM extension.
 
-Instead of swap, you can use the `zram-config` utility. It allows you to organize a kind of swap inside the RAM itself thanks to compression, which is ten times faster than IO with a disk. Keep in mind that with a high load on IO and/or vCPUs, the use of `zram-config` may negatively affect `iowait` and, consequently, the operation of the network, disks, and vCPUs.
+Instead of swap, you can use the `zram-config` utility. It allows you to organize a kind of swap inside the RAM itself thanks to compression, which is ten times faster than I/O with a disk. Keep in mind that with a high load on I/O and/or vCPUs, the use of `zram-config` may negatively affect `iowait` and, consequently, the performance of the network, disks, and vCPUs.
 
 The best solution for increasing available memory is to expand the vRAM on the VM.
 

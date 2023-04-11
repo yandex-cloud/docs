@@ -1,6 +1,6 @@
 # Changing the name and description
 
-{% include [Preview](../../_includes/vpc/preview.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 After creating a security group, you can change its name and description, and [add](security-group-add-rule.md) or [remove](security-group-delete-rule.md) rules.
 
@@ -31,7 +31,7 @@ After creating a security group, you can change its name and description, and [a
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -67,7 +67,7 @@ After creating a security group, you can change its name and description, and [a
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```
       terraform plan

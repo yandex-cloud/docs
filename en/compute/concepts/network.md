@@ -2,7 +2,7 @@
 
 When creating a VM, you should specify settings for the network interface connected to it: select the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to, configure [internal](#internal-ip) and [public IP addresses](#public-ip), and add the necessary [security groups](../../vpc/concepts/security-groups.md). This allows the VM to interact with other services on the intranet and internet.
 
-{% include [security-groups-note](../_includes_service/security-groups-note.md) %}
+{% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
 
 When the network interface is connected, the VM will be assigned the internal IP address in the subnet and the [internal FQDN](#hostname). The public IP address will only be assigned if this was set when creating the VM.
 

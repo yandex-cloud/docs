@@ -36,6 +36,7 @@
         ```bash
         {{ yc-mdb-pg }} cluster list-logs <имя или идентификатор кластера> \
            --limit <ограничение количества записей> \
+           --format <формат вывода> \
            --columns <список колонок для вывода информации> \
            --filter <настройки фильтрации записей> \
            --since <левая граница временного диапазона> \
@@ -45,6 +46,7 @@
         Где:
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
+        * {% include [logs output format](../../_includes/cli/logs/format.md) %}
         * `--service-type` — тип сервиса, для которого требуется вывести записи (`postgresql` или `pooler`).
         * `--columns` — список колонок для вывода информации:
             * `hostname` — [имя хоста](hosts.md#list-hosts).
@@ -58,6 +60,8 @@
             В примере приведены только основные колонки. Список выводимых колонок зависит от выбранного типа сервиса `--service-type`.
 
             {% endnote %}
+
+            {% include [logs column format](../../_includes/cli/logs/column-format.md) %}
 
         * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}

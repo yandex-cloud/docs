@@ -5,9 +5,9 @@ items:
     href: transfer-matrix.md
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step guide
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Preparing for the transfer
         href: operations/prepare.md
@@ -66,13 +66,15 @@ items:
                 href: operations/endpoint/target/opensearch.md
               - name: PostgreSQL
                 href: operations/endpoint/target/postgresql.md
+              - name: '{{ yds-full-name }}'
+                href: operations/endpoint/target/data-streams.md
               - name: '{{ ydb-full-name }}'
                 href: operations/endpoint/target/yandex-database.md
-      - name: Managing the transfer process
+      - name: Managing transfer process
         href: operations/transfer.md
-      - name: Working with databases during the transfer
+      - name: Working with databases during transfer
         href: operations/db-actions.md
-      - name: Monitoring the transfer status
+      - name: Monitoring transfer status
         href: operations/monitoring.md
   - name: Tutorials
     items:
@@ -116,6 +118,8 @@ items:
               Delivering data from {{ mpg-full-name }} to {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
+          - name: Delivering logs from {{ at-full-name }} to {{ mos-full-name }}
+            href: tutorials/trails-to-os.md
       - name: Asynchronous replication of data
         items:
           - name: >-
@@ -163,7 +167,7 @@ items:
         href: concepts/cdc.md
       - name: Sharded copy
         href: concepts/sharded.md
-      - name: What tasks is the service used for?
+      - name: What tasks the service is used for
         href: concepts/use-cases.md
       - name: Quotas and limits
         href: concepts/limits.md

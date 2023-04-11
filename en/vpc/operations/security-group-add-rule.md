@@ -7,7 +7,8 @@ description: "You can add rules using the management console, CLI, and {{ vpc-na
 
 You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
 
-{% include [Preview](../../_includes/vpc/preview.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
 
 {% list tabs %}
 
@@ -39,7 +40,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
       1. In the **Purpose** or **Source** field, select the purpose of the rule:
 
-         * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
 
          * **Security group**. Select one of the following:
 
@@ -117,7 +118,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -158,19 +159,19 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
       For more information about the `yandex_vpc_security_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
@@ -238,19 +239,19 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
       For more information about the parameters of the `yandex_vpc_security_group_rule` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resources/vpc_security_group_rule).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```
       terraform plan

@@ -62,6 +62,7 @@
      * `platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
        * `gpu-standard-v1` для платформы {{ v100-broadwell }}.
        * `gpu-standard-v2` для платформы {{ v100-cascade-lake }}.
+       * `standard-v3-t4` для платформы {{ t4-ice-lake }}.
        * `gpu-standard-v3` для платформы {{ a100-epyc }}.
      * `cores` – [количество vCPU](../../concepts/gpus.md).
      * `memory` – [размер RAM](../../concepts/gpus.md).
@@ -148,6 +149,7 @@
        * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
          * `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.
          * `gpu-standard-v2` для платформы Intel Cascade Lake with NVIDIA® Tesla® V100.
+         * `standard-v3-t4` для платформы Intel Ice Lake with NVIDIA® Tesla® T4.
          * `gpu-standard-v3` для платформы AMD Epyc 7662 with NVIDIA® Ampere® A100.
        * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).

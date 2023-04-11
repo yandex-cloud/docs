@@ -120,7 +120,9 @@ editable: false
 
 
 
-В тариф {{ adv-ddos-protection }} включены следующие услуги:
+К тарифу {{ adv-ddos-protection }} можно дополнительно подключить следующие услуги:
+
+Все цены указаны с учетом НДС.
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 

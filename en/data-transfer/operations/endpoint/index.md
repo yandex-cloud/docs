@@ -40,7 +40,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ objstorage-name }}](target/object-storage.md)
          * [{{ OS }}](target/opensearch.md)
          * [{{ PG }}](target/postgresql.md)
-         * [{{ ydb-name }}](target/yandex-database.md)
+         * [{{ yds-full-name }}](target/data-streams.md)
+         * [{{ ydb-full-name }}](target/yandex-database.md)
    1. Click **Create**.
 
 - CLI
@@ -168,7 +169,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](target/mysql.md)
          * [{{ objstorage-name }}](target/object-storage.md)
          * [{{ PG }}](target/postgresql.md)
-         * [{{ ydb-name }}](target/yandex-database.md)
+         * [{{ yds-full-name }}](target/data-streams.md)
+         * [{{ ydb-full-name }}](target/yandex-database.md)
    1. Click **Apply**.
 
 - {{ TF }}

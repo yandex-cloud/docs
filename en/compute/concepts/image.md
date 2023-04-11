@@ -13,6 +13,8 @@ An _image_ is a complete copy of the file system structure and data on a disk.
 
 It is designed to quickly create a data disk, primarily a VM's boot disk. Images can be used for distributing software, such as OS distributions or disks with pre-installed software.
 
+{% include [end-of-life](../../_includes/compute/end-of-life.md) %}
+
 {% note tip %}
 
 To regularly back up your data on disks, use [snapshots](snapshot.md).

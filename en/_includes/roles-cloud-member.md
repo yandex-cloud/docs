@@ -18,4 +18,3 @@ How the role can be combined with other roles depends on whether a cloud belongs
    The role is assigned automatically when you add a new user to a cloud without an organization.
 
 {% endlist %}
-
