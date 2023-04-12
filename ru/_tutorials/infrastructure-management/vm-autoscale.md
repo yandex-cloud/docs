@@ -212,6 +212,8 @@
      id: cl0hmabc1nd2hdefgb7k
      folder_id: b0g12ga82bcv0cdeferg
      ...
+       target_group_id: enpoi5jhfps37opefgus
+     ...
          name: auto-group-tg
      service_account_id: ajelabcde12f33nol1v5
      status: ACTIVE
@@ -276,7 +278,7 @@
         * В поле **Целевой порт** укажите `80`, на него балансировщик будет направлять трафик.
         * Нажмите кнопку **Добавить**.
      1. В блоке **Целевые группы** нажмите кнопку **Добавить целевую группу**.
-     1. В поле **Целевая группа** выберите группу ВМ `auto-group` и нажмите кнопку **Настроить**:
+     1. В поле **Целевая группа** выберите группу ВМ `auto-group-tg` и нажмите кнопку **Настроить**:
         * В открывшемся окне **Настройка проверки состояния** введите **Имя** `tcp`.
         * Выберите **Тип** **TCP**.
         * В поле **Порт** укажите `80`.
@@ -289,7 +291,7 @@
      yc load-balancer network-load-balancer create \
        --listener external-ip-version=ipv4,name=http,port=80,protocol=tcp,target-port=80 \
        --name group-balancer \
-       --target-group healthcheck-name=tcp,healthcheck-tcp-port=80,target-group-id=cl0hmabc1nd2hdefgb7k
+       --target-group healthcheck-name=tcp,healthcheck-tcp-port=80,target-group-id=enpoi5jhfps37opefgus
      ```
 
      Результат выполнения команды:
