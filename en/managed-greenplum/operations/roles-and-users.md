@@ -24,7 +24,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 * SQL
 
-   Run the command:
+   Run this command:
 
    ```sql
    SELECT rolname FROM pg_roles;
@@ -69,7 +69,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 * SQL
 
-   Run the command:
+   Run this command:
 
    ```sql
    CREATE ROLE <role name> <attribute list>;
@@ -113,7 +113,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 * SQL
 
-   Run the command:
+   Run this command:
 
    ```sql
    ALTER ROLE <role name> <attribute list>;
@@ -161,7 +161,7 @@ Before deleting a role, delete all objects it owns or reassign their ownership r
 
 * SQL
 
-   Run the command:
+   Run this command:
 
    ```sql
    DROP ROLE <role name>;
@@ -179,7 +179,7 @@ Create a role with test characteristics:
 * Attributes: `CREATEDB` and `CREATEROLE`.
 * Option of logging in to the system using a secure password: `password123`.
 
-Run the command:
+Run this command:
 
 ```sql
 CREATE ROLE greenplum_user CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD 'password123';

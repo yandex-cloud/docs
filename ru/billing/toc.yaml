@@ -8,46 +8,58 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Активировать платную версию
-        href: operations/activate-commercial.md
-      - name: Зарезервировать потребление (CVoS)
-        href: operations/purchase-cvos.md
-      - name: Активировать промокод
-        href: operations/activate-promocode.md
-      - name: Посмотреть детализацию
-        href: operations/check-charges.md
-      - name: Пополнить счет
-        href: operations/pay-the-bill.md
-      - name: Привязать другую карту
-        href: operations/pin-card.md
-      - name: Отвязать карту
-        href: operations/unlink-card.md
-      - name: Привязать облако к платежному аккаунту
-        href: operations/pin-cloud.md
-      - name: Изменить способ оплаты
-        href: operations/change-payment-method.md
-      - name: Расшифровать счет на оплату
-        href: operations/spell-out-bill.md
-      - name: Посмотреть историю платежей
-        href: operations/check-bill-history.md
-      - name: Изменить данные платежного аккаунта
-        href: operations/change-data.md
-      - name: Создать новый платежный аккаунт
-        href: operations/create-new-account.md
-      - name: Удалить платежный аккаунт
-        href: operations/delete-account.md
-      - name: Получать детализацию расходов по каталогам
-        href: operations/get-folder-report.md
-      - name: Посмотреть детализацию в {{ datalens-full-name }}
-        href: operations/dashboard.md
-      - name: Установить уведомления
-        href: operations/budgets.md
-      - name: Подключиться к ЭДО
-        href: operations/edo.md
-      - name: Скачать отчетные документы
-        href: operations/download-reporting-docs.md
-      - name: Интеграция с {{ yq-full-name }}
-        href: operations/query-integration.md
+      - name: Работа с документами
+        items:
+          - name: Расшифровать счет на оплату
+            href: operations/spell-out-bill.md
+          - name: Скачать отчетные документы
+            href: operations/download-reporting-docs.md
+          - name: Подключиться к ЭДО
+            href: operations/edo.md
+      - name: Управление платежным аккаунтом
+        items:
+          - name: Создать новый платежный аккаунт
+            href: operations/create-new-account.md
+          - name: Изменить данные платежного аккаунта
+            href: operations/change-data.md
+          - name: Привязать облако к платежному аккаунту
+            href: operations/pin-cloud.md
+          - name: Удалить платежный аккаунт
+            href: operations/delete-account.md
+          - name: Активировать платную версию
+            href: operations/activate-commercial.md
+      - name: Управление способами оплаты
+        items:
+          - name: Привязать другую карту
+            href: operations/pin-card.md
+          - name: Отвязать карту
+            href: operations/unlink-card.md
+          - name: Изменить способ оплаты
+            href: operations/change-payment-method.md
+      - name: Оптимизация расходов
+        items:
+          - name: Установить уведомления
+            href: operations/budgets.md
+          - name: Зарезервировать потребление (CVoS)
+            href: operations/purchase-cvos.md
+      - name: Оплата услуг
+        items:
+          - name: Активировать промокод
+            href: operations/activate-promocode.md
+          - name: Пополнить счет
+            href: operations/pay-the-bill.md
+      - name: Анализ использования сервисов {{ yandex-cloud }}
+        items:
+          - name: Посмотреть историю платежей
+            href: operations/check-bill-history.md
+          - name: Посмотреть детализацию в консоли
+            href: operations/check-charges.md
+          - name: Получать детализацию расходов по каталогам
+            href: operations/get-folder-report.md
+          - name: Посмотреть детализацию в {{ datalens-full-name }}
+            href: operations/dashboard.md
+          - name: Поиск в детализации с помощью {{ yq-full-name }}
+            href: operations/query-integration.md
   - name: Концепции
     items:
       - name: Все понятия

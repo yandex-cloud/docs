@@ -19,13 +19,13 @@ With external tables, you can:
 
 {% note info %}
 
-For security reasons, {{ mgp-name }} does not support the creation of [external web tables]({{ gp.docs.pivotal }}/6-19/admin_guide/external/g-creating-and-using-web-external-tables.html) that use shell scripts.
+For security reasons, {{ mgp-name }} does not support creating [external web tables]({{ gp.docs.pivotal }}/6-19/admin_guide/external/g-creating-and-using-web-external-tables.html) that use shell scripts.
 
 {% endnote %}
 
 ## Connecting to external DBMS {#pxf}
 
-The [{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.org }}/6-4/pxf/overview_pxf.html) is a software platform that enables access to data in external DBMS. Tables from the following external sources are available to connect to:
+The [{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.org }}/6-4/pxf/overview_pxf.html) is a software platform that provides access to data from external DBMS's. Tables from the following external sources are available to connect to:
 
 * Apache Hive.
 * {{ CH }}.
@@ -272,7 +272,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
          INSERT 0 1
          ```
 
-      1. Make sure in the bucket, that a new object [ has been created](../../storage/operations/objects/info.md).
+      1. Make sure in the bucket, that a new object [has been created](../../storage/operations/objects/info.md).
 
    {% note info %}
 
@@ -284,7 +284,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
 ## Connecting to an external file server {#gpfdist}
 
-The [{{ GP }} Parallel File Server (GPFDIST)]({{ gp.docs.pivotal }}/6-19/admin_guide/external/g-using-the-greenplum-parallel-file-server--gpfdist-.html) is a utility to read data from and write data to files located on remote servers. It is installed on each segment host of a {{ mgp-name }} cluster and provides parallel data loading by distributing it across segments either evenly or according to the [distribution key](../concepts/sharding.md#distribution-key) set. This improves performance when handling large amounts of external data.
+[{{ GP }} Parallel File Server (GPFDIST)]({{ gp.docs.pivotal }}/6-19/admin_guide/external/g-using-the-greenplum-parallel-file-server--gpfdist-.html) is a utility to read data from and write data to files located on remote servers. It is installed on each segment host of a {{ mgp-name }} cluster and provides parallel data loading by distributing it across segments either evenly or according to the [distribution key](../concepts/sharding.md#distribution-key) set. This improves performance when handling large amounts of external data.
 
 GPFDIST works with any delimited text files and compressed gzip and bzip2 files.
 

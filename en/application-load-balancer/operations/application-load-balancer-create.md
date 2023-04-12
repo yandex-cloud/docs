@@ -1,4 +1,4 @@
-# Create an L7 load balancer
+# Creating L7 load balancer
 
 To create an L7 load balancer:
 
@@ -14,7 +14,9 @@ To create an L7 load balancer:
 
    1. Enter the name of your load balancer: `test-load-balancer`.
 
-   1. Under **Network Settings**, select the network whose subnets will host the load balancer's nodes and the [appropriate security groups](../concepts/application-load-balancer.md#security-groups) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the load balancer).
+   1. Under **Network Settings**, select the network whose subnets will host the load balancer's nodes, as well as the [appropriate security groups](../concepts/application-load-balancer.md#security-groups). If there is no appropriate field, all incoming and outgoing traffic will be allowed for the load balancer.
+
+      {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
    1. (Optional) In the **Autoscaling settings** section, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
 
@@ -213,14 +215,14 @@ To create an L7 load balancer:
 
       Where:
 
-      * `name`: Name of the L7 load balancer. Name format:
+      * `name`: Name of the L7 load balancer. The name format is as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
       * `network_id`: Network ID.
       * `allocation_policy`: Description of the L7 load balancer's [node location](../../application-load-balancer/concepts/application-load-balancer.md#lb-location). Specify the availability zone and subnet IDs.
       * `listener`: Description of the L7 load balancer's [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) parameters:
-         * `name`: The name of the listener. Name format:
+         * `name`: The name of the listener. The name format is as follows:
 
             {% include [name-format](../../_includes/name-format.md) %}
 
@@ -250,7 +252,7 @@ To create an L7 load balancer:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc alb load-balancer list

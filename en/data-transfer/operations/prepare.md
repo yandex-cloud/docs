@@ -18,9 +18,16 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/bigquery).
 
+#### Microsoft SQL Server source {#source-mssql}
+
+1. Make sure your database can be accessed from the computer that Airbyte® is running on.
+1. Create a dedicated Airbyte® user with read-only permissions and access to any tables that require replication.
+
+For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/mssql).
+
 #### S3 source {#source-s3}
 
-If you are using a private bucket as a source, grant `read` and `list` permissions to the account that you will use for connection.
+If you are using a private bucket as a source, grant the `read` and `list` permissions to the account you will use for connection.
 
 For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/s3/).
 

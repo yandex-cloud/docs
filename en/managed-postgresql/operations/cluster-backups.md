@@ -55,7 +55,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `--folder-id` parameter.
 
    To restore a cluster from a backup:
 
@@ -93,7 +93,7 @@ When restoring to the current state, the new cluster will reflect the state of:
          --environment=<environment: PRESTABLE or PRODUCTION> \
          --network-name=<network name> \
          --host zone-id=<availability zone>,`
-               `subnet-name=<subnet name>`
+               `subnet-name=<subnet name>,`
                `assign-public-ip=<host access via public IP: true or false> \
          --resource-preset=<host class> \
          --disk-size=<storage size in GB> \
@@ -136,10 +136,16 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    Use {{ TF }} to restore:
 
-   * An existing cluster from a backup.
-   * A cluster created and deleted via the management console, CLI, or API.
+   * Existing cluster from a backup.
+   * Cluster created and deleted via the management console, CLI, or API.
 
-   To restore a cluster, you'll need the backup ID. Retrieve a list of available {{ PG }} cluster backups [using the CLI](#list-backups):
+   {% note info %}
+
+   The cluster is restored to the folder, the ID of which is specified in the `folder_id` parameter of [provider settings]({{ tf-provider-link }}).
+
+   {% endnote %}
+
+   To restore a cluster, you will need the backup ID. Retrieve a list of available {{ PG }} cluster backups [using the CLI](#list-backups):
 
    ```bash
    {{ yc-mdb-pg }} backup list
@@ -168,7 +174,7 @@ When restoring to the current state, the new cluster will reflect the state of:
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
         ...
         restore {
-          backup_id = "<desired backup name>"
+          backup_id = "<desired backup ID>"
           time      = "<restore time stamp in yyyy-mm-ddThh:mm:ss format>"
         }
       }
@@ -186,7 +192,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -213,7 +219,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -224,8 +230,10 @@ When restoring to the current state, the new cluster will reflect the state of:
    Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * The timestamp of the point to which you want to recover the cluster, in the `time` parameter.
-   * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+   * Timestamp of the point to which you want to recover the cluster, in the `time` parameter.
+   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+
+   By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `folderId` parameter.
 
 {% endlist %}
 
@@ -410,7 +418,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

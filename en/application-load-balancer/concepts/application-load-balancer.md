@@ -8,7 +8,7 @@ For convenience and security, you can use the load balancer in combination with 
 
 ## Security groups {#security-groups}
 
-{% include [security-groups-note](../_includes_service/security-groups-note.md) %}
+{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
 When you create a load balancer, specify [security groups](../../vpc/concepts/security-groups.md) as they contain a set of rules for the load balancer to receive incoming traffic and send it to backend VMs. Security groups are also assigned to each VM.
 
@@ -86,7 +86,7 @@ Request routing to [backend groups](backend-group.md) depends on the _listener t
 * **HTTP**: The load balancer accepts HTTP or HTTPS requests and distributes them across backend groups based on the rules set in [HTTP routers](http-router.md), or redirects HTTP requests to HTTPS. Backend groups receiving traffic must have the **HTTP** or **gRPC** [type](backend-group.md#group-type).
 * **Stream**: The load balancer accepts incoming traffic via unencrypted or encrypted TCP connections and routes it to **Stream** backend groups.
 
-If encrypted traffic is accepted, the _main listener_ and optional _SNI listeners_ are set up for the load balancer. In each SNI listener, the domain name specified when establishing a TLS connection as [Server Name Indication](https://{{ lang }}.wikipedia.org/wiki/Server_Name_Indication) (SNI) is mapped to a TLS certificate and HTTP router (if the listener type is **HTTP**) or a backend group (if the listener type is **Stream**). The main listener is responsible for TLS connections with domain names that don't match any SNI listener.
+If encrypted traffic is accepted, the _main listener_ and optional _SNI listeners_ are set up for the load balancer. In each SNI listener, the domain name specified when establishing a TLS connection as [Server Name Indication](https://{{ lang }}.wikipedia.org/wiki/Server_Name_Indication) (SNI) is mapped to a TLS certificate and HTTP router (if the listener type is **HTTP**) or a backend group (if the listener type is **Stream**). The main listener is responsible for TLS connections with domain names that do not match any SNI listener.
 
 {% note tip %}
 

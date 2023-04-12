@@ -19,6 +19,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * Airbyte®:
             * [AWS CloudTrail](source/aws-cloudtrail.md)
             * [BigQuery](source/bigquery.md)
+            * [MS SQL Server](source/mssql.md)
             * [S3](source/s3.md)
          * [{{ KF }}](source/kafka.md)
          * [{{ CH }}](source/clickhouse.md)
@@ -150,6 +151,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * Airbyte®:
             * [AWS CloudTrail](source/aws-cloudtrail.md)
             * [BigQuery](source/bigquery.md)
+            * [MS SQL Server](source/mssql.md)
             * [S3](source/s3.md)
          * [{{ KF }}](source/kafka.md)
          * [{{ CH }}](source/clickhouse.md)

@@ -8,7 +8,7 @@ To decrypt objects, the user must have both the {{ objstorage-name }} role and t
 
 To enable server-side bucket encryption:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a bucket](#create-bucket).
 1. [Create a key](#create-key).
 1. [Enable encryption](#enable-encryption).
@@ -90,12 +90,10 @@ You can create a new bucket or use an existing one. To create a bucket, run:
         description = local.sa_desc
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
-        ]
+        member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
 
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
@@ -114,21 +112,21 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
       For more information about the resources you can create with [{{ TF }}](https://www.terraform.io/docs/language/index.html), see the [provider documentation]({{ tf-provider-link }}).
 
-   2. Make sure that the configuration files are valid.
+   2. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
 
-      1. Run the check using the command:
+      1. Run the check using this command:
 
       ```bash
       terraform plan
       ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   3. Deploy the cloud resources.
+   3. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -147,9 +145,9 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../tools/aws-cli.md).
+   1. If you do not have the AWS CLI yet, [install and configure it](../tools/aws-cli.md).
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       aws s3 mb s3://example-bucket --endpoint-url=https://{{ s3-storage-host }}
@@ -184,7 +182,7 @@ Create a new key or use an existing one. To create a key:
 
 - CLI
 
-   Run the command:
+   Run the following command:
 
    ```bash
    yc kms symmetric-key create \
@@ -243,12 +241,10 @@ Create a new key or use an existing one. To create a key:
         description = local.sa_desc
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
-        ]
+        member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
 
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
@@ -272,21 +268,21 @@ Create a new key or use an existing one. To create a key:
 
 
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
 
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -365,12 +361,10 @@ To enable bucket encryption with a {{ kms-short-name }} key:
         description = local.sa_desc
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
-        ]
+        members   = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
 
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
@@ -402,21 +396,21 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
 
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
 
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -438,26 +432,26 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
 - AWS CLI
 
-   Run the command:
+  Run the following command:
 
-   ```
-   aws s3api put-bucket-encryption \
-     --bucket example-bucket \
-     --endpoint-url=https://{{ s3-storage-host }} \
-     --server-side-encryption-configuration '{
-       "Rules": [
-         {
-             "ApplyServerSideEncryptionByDefault": {
-               "SSEAlgorithm": "aws:kms",
-               "KMSMasterKeyID": "<KMS key ID>"
-       },
-       "BucketKeyEnabled": true
-          }
-       ]
-     }'
-   ```
+  ```
+  aws s3api put-bucket-encryption \
+    --bucket example-bucket \
+    --endpoint-url=https://{{ s3-storage-host }} \
+    --server-side-encryption-configuration '{
+  	"Rules": [
+  	  {
+  		"ApplyServerSideEncryptionByDefault": {
+  		  "SSEAlgorithm": "aws:kms",
+  		  "KMSMasterKeyID": "<KMS key ID>"
+  		},
+  		"BucketKeyEnabled": true
+  	}
+  	]
+  }'
+  ```
 
-   As a result of successful command execution, all new objects in `example-bucket` will be encrypted with `key-1`.
+  As a result of successful command execution, all new objects in `example-bucket` will be encrypted with `key-1`.
 
 {% endlist %}
 
@@ -522,12 +516,10 @@ After you disable bucket encryption, previously uploaded objects will be stored 
         description = local.sa_desc
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
-        ]
+        member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
 
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
@@ -561,20 +553,20 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
 
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -590,11 +582,11 @@ After you disable bucket encryption, previously uploaded objects will be stored 
          * A {{ kms-short-name }} key named `key-1`.
          * A bucket named `example-bucket`.
 
-         The `example-bucket` encryption in the specified folder will be disabled. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
+         The `example-bucket` encryption in the specified folder will be disabled. You can check whether the resources and their settings are updated in the [management console]({{ link-console-main }}).
 
 - AWS CLI
 
-   Run the command:
+   Run the following command:
 
    ```bash
    aws s3api delete-bucket-encryption \
