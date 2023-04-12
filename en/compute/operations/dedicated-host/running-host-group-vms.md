@@ -149,13 +149,9 @@ To do this, follow these steps:
    * `--memory`: Amount of RAM.
    * `--host-group-id`: ID of the dedicated host group.
    * `--network-interface`: VM network interface description:
-
       * `subnet-id`: ID of the subnet in the availability zone hosting the VM.
-
    * `--attach-local-disk`: Description of the local disk being attached:
-
       * `size`: Disk size.
-
    * `--ssh-key`: Path to the public SSH key. The user `yc-user` will be automatically created on the VM for this key.
    * `--create-boot-disk`: Boot disk parameters.
 

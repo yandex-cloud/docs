@@ -87,7 +87,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
    
    > 
-   > 3 × (2×$0.012080 + 8×$0.003200) = $0.149280
+   > 3 × (2&nbsp;×&nbsp;$0.012080 + 8&nbsp;×&nbsp;$0.003200) = $0.149280
    > 
    >
    > Total: $0.149280 is the cost per hour of operation of {{ KF }} broker hosts.
@@ -101,7 +101,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * 8 is the amount of RAM per host (in GB).
    * $0.003200 is the cost per hour of 1 GB RAM utilization on 100% vCPU.
 
-   Storage calculation for {{ KF }} broker hosts:
+   Calculating the cost of storage for {{ KF }} broker hosts:
 
    
    > 
@@ -121,7 +121,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
    
    > 
-   > 3 × (2×$0.005600 + 4×$0.002240) = $0.060480
+   > 3 × (2&nbsp;×&nbsp;$0.005600 + 4&nbsp;×&nbsp;$0.002240) = $0.060480
    > 
    >
    > Total: $0.060480 is the cost per hour of {{ ZK }} host operation.
@@ -135,7 +135,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * 4 is the amount of RAM per host (in GB).
    * $0.002240 is the cost per hour of 1 GB RAM utilization on 50% vCPU.
 
-   Storage calculation for {{ ZK }} broker hosts:
+   Calculating the cost of storage for {{ ZK }} hosts:
 
    
    > 

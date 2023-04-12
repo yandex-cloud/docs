@@ -63,7 +63,7 @@ Allows limiting the size of disk space for schemas and roles in the database.
 Contains functions for identifying the similarity and distance between any two strings.
 | 1.0 ||
 || [gp_internal_tools](https://github.com/greenplum-db/gpdb/blob/master/gpcontrib/gp_internal_tools)
-Contains different internal utilities for {{ GP }}.
+Contains various internal utilities for {{ GP }}.
 | 1.0.0 ||
 || [hstore]({{ gp.docs.pivotal }}/latest/ref_guide/modules/hstore.html)
 Adds a data type for storing <q>key-value</q> pairs in a single field.
@@ -78,13 +78,13 @@ Enables support for the PL/Perl procedural language.
 Enables support for the PL/pgSQL procedural language.
 | 1.0 ||
 || [postgis]({{ gp.docs.vmware }}/5/greenplum-database/GUID-ref_guide-extensions-postGIS.html)
-Allows GIS (Geographic Information Systems) objects to be stored and handled in {{ PG }} databases.
+Allows GIS (Geographic Information System) objects to be stored and handled in {{ PG }} databases.
 | 2.1.5 ||
 || [postgres_fdw]({{ gp.docs.pivotal }}/latest/ref_guide/modules/postgres_fdw.html)
-Adds a wrapper that lets you access remote {{ PG }} databases.
+Adds a wrapper that allows you to access remote {{ PG }} databases.
 | 1.0 ||
 || [pxf]({{ gp.docs.pivotal }}/pxf/latest/using/overview_pxf.html)
-Lets you work with heterogeneous data sources.
+Allows you to work with heterogeneous data sources.
 | 2.0 ||
 || uuid-cb
 Enables the generation and validation of unique IDs in compliance with the Russian Central Bank requirements. For more information, see [{#T}](./uuid-cb.md).

@@ -79,7 +79,7 @@ Where:
 
 * `ingress.alb.yc.io/security-groups` (`string`)
 
-   {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
+   {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
    List of {{ vpc-name }} [security groups](../../vpc/concepts/security-groups.md) for a load balancer. Group IDs are provided in a comma-separated list, such as:
 

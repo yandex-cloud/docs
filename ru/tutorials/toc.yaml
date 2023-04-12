@@ -360,6 +360,8 @@ items:
         href: routing/web-service.md
       - name: Настройки DHCP для работы с корпоративным DNS-сервером
         href: routing/dhcp-options.md
+      - name: Создание бастионного хоста
+        href: routing/bastion.md
       - name: Маршрутизация с помощью NAT-инстанса
         href: routing/nat-instance.md
       - name: Создание туннеля IPSec VPN

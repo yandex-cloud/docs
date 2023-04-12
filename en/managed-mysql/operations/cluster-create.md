@@ -74,20 +74,20 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    To create a cluster:
 
+   
    1. Check whether the folder has any subnets for the cluster hosts:
 
-      ```
+      ```bash
       yc vpc subnet list
       ```
 
-      
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
 
    1. View a description of the CLI's create cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-my }} cluster create --help
       ```
 
@@ -105,15 +105,31 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
-        --disk-size <storage size, GB> \
+        --disk-size <storage size in GB> \
         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-        --security-group-ids <list of security group IDs> \
-        --deletion-protection=<cluster deletion protection: true or false> \
-        --datalens-access=<cluster access from {{ datalens-name }}: true or false>
+        --security-group-ids <list of security group IDs>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
+
+
+
+      Configure additional cluster settings, if required:
+
+      
+      ```bash
+      {{ yc-mdb-my }} cluster create \
+        ...
+        --backup-window-start <backup start time> \
+        --backup-retain-period-days=<retention period for automatic backups, days> \
+        --datalens-access=<cluster access from {{ datalens-name }}: true or false> \
+        --maintenance-window type=<maintenance type: anytime or weekly>,`
+                            `day=<day of week for weekly>,`
+                            `hour=<hour for weekly> \
+        --websql-access=<queries from the management console: true or false> \
+        --deletion-protection=<cluster deletion protection: true or false>
+      ```
 
 
 
@@ -213,11 +229,37 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
+      * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
       
-      1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+      * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
+
+      * To set the backup start time, add the `backup_window_start` block to the {{ mmy-name }} cluster description:
+
+         ```hcl
+         resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+           ...
+           backup_window_start {
+             hours   = <backup start hour>
+             minutes = <backup start minute>
+           }
+           ...
+         }
+         ```
+
+      * To set the retention period for backup files, define the `backup_retain_period_days` parameter in the cluster description:
+
+         ```hcl
+           resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+             ...
+             backup_retain_period_days = <retention period for automatic backups (in days)>
+             ...
+
+           }
+         ```
+
+         Acceptable values are from `7` to `60`. The default value is `7`.
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
 
@@ -233,23 +275,23 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
+   Use the [create](../api-ref/Cluster/create.md) API method and provide the following information in the request:
 
    * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-   * The cluster name in the `name` parameter. The cluster name must be unique within the folder.
+   * Cluster name in the `name` parameter. It must be unique within the folder.
    * The environment of the cluster, in the `environment` parameter.
    * Cluster configuration, in the `configSpec` parameter.
    * Database configuration, in one or more `databaseSpecs` parameters.
    * User settings, in one or more `userSpecs` parameters.
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
    * Network ID, in the `networkId` parameter.
-      * IDs of [security groups](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+   * [Security group](../concepts/network.md#security-groups) identifiers, in the `securityGroupIds` parameter.
+
+   If required, provide the backup start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
-   
    {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
-
 
 {% endlist %}
 

@@ -184,7 +184,7 @@ default:
   vision-short-name: Vision
   datalens-short-name: DataLens
   iot-short-name: Yandex IoT Core
-  sf-short-name: Functions
+  sf-short-name: Cloud Functions
   ydb-short-name: YDB
   kms-short-name: KMS
   cos-short-name: COS

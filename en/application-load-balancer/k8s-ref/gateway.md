@@ -43,7 +43,7 @@ Where:
 
       * `gateway.alb.yc.io/security-groups` (`string`, required)
 
-         {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
+         {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
          List of {{ vpc-name }} [security groups](../../vpc/concepts/security-groups.md) for a load balancer. Group IDs are provided in a comma-separated list, such as:
 
@@ -55,7 +55,7 @@ Where:
 
 * `spec` (`GatewaySpec`, required)
 
-   Resource specification. For more detail, please see [below](#spec).
+   Resource specification. For more information, see [below](#spec).
 
 
 ## GatewaySpec {#spec}
@@ -106,7 +106,7 @@ Where:
 
       Internal name of the listener.
 
-      Only used for {{ k8s }} needs and doesn't match the listener name in {{ alb-name }}.
+      Only used for {{ k8s }} needs and does not match the listener name in {{ alb-name }}.
 
       A name should have domain format corresponding to the following regular expression:
 
@@ -114,7 +114,7 @@ Where:
 
       For instance, names like `example`, `example.com`, or `foo.example.com` are suitable, while `example.com/bar` and `-example.` are not.
 
-      The maximum length of the name is 63 characters.
+      The name may not be longer than 63 characters.
 
    * `hostname` (`string`)
 

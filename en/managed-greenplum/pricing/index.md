@@ -23,19 +23,17 @@ The {{ mgp-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in [{#T}](../concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
-
 There are different ways to calculate the cost depending on the [host type](../concepts/):
 
 * Standard hosts
 
    The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources.
 
-
 * Dedicated hosts
 
    The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
 
+Supported resource configurations are shown in [{#T}](../concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ GP }} host is not performing its main functions.
 
@@ -73,7 +71,7 @@ The cost of using a cluster with the following parameters for 30 days:
 Cost calculation for standard hosts:
 
 > 
-> 3 × (8×$0.017231 + 32×$0.004564) = $0.851688
+> 3 × (8&nbsp;×&nbsp;$0.017231 + 32&nbsp;×&nbsp;$0.004564) = $0.851688
 > 
 >
 > Total: $0.851688 is the cost per hour of standard host operation.
@@ -88,7 +86,7 @@ Where:
 Cost calculation for dedicated hosts:
 
 > 
-> 3 × (8×$0.009595 + 32×$0.002538) = $0.473928
+> 3 × (8&nbsp;×&nbsp;$0.009595 + 32&nbsp;×&nbsp;$0.002538) = $0.473928
 > 
 >
 > Total: $0.473928 is the cost per hour of dedicated host operation.

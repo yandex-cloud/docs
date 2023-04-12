@@ -5,38 +5,42 @@ description: "Из статьи вы узнаете, как работать с 
 
 # Все инструкции для Биллинга
 
-[{#T}](activate-commercial.md)
 
-[{#T}](purchase-cvos.md)
+## Работа с документами {#docs}
 
-[{#T}](activate-promocode.md)
+* [{#T}](spell-out-bill.md)
+* [{#T}](download-reporting-docs.md)
+* [{#T}](edo.md)
 
-[{#T}](check-charges.md)
 
-[{#T}](pay-the-bill.md)
+## Управление платежным аккаунтом {#account}
 
-[{#T}](pin-card.md)
+* [{#T}](create-new-account.md)
+* [{#T}](change-data.md)
+* [{#T}](pin-cloud.md)
+* [{#T}](delete-account.md)
+* [{#T}](activate-commercial.md)
 
-[{#T}](pin-cloud.md)
+## Управление способами оплаты {#payment-methods}
 
-[{#T}](change-payment-method.md)
+* [{#T}](pin-card.md)
+* [{#T}](unlink-card.md)
+* [{#T}](change-payment-method.md)
 
-[{#T}](spell-out-bill.md)
+## Оптимизация расходов {#cost-optimization}
 
-[{#T}](check-bill-history.md)
+* [{#T}](budgets.md)
+* [{#T}](purchase-cvos.md)
 
-[{#T}](change-data.md)
+## Оплата услуг {#payment}
 
-[{#T}](create-new-account.md)
+* [{#T}](activate-promocode.md)
+* [{#T}](pay-the-bill.md)
 
-[{#T}](delete-account.md)
+## Анализ использования сервисов {{ yandex-cloud }} {#details}
 
-[{#T}](get-folder-report.md)
-
-[{#T}](dashboard.md)
-
-[{#T}](budgets.md)
-
-[{#T}](edo.md)
-
-[{#T}](query-integration.md)
+* [{#T}](check-bill-history.md)
+* [{#T}](check-charges.md)
+* [{#T}](get-folder-report.md)
+* [{#T}](dashboard.md)
+* [{#T}](query-integration.md)

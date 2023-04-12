@@ -9,7 +9,7 @@ items:
         href: enable-org.md
       - name: Изменить данные организации
         href: org-profile.md
-      - name: Переключиться на другую организацию
+      - name: Управление несколькими организациями
         href: manage-organizations.md
   - name: Управление пользователями
     items:

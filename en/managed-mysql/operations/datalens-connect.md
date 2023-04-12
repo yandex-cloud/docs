@@ -103,7 +103,7 @@ Once the connection is created, you can:
    1. Open the **Select in folder** tab.
    1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the folder with {{ datalens-name }} by clicking **Create new**.
    1. Select the database and user from the drop-down lists.
-   1. Enter the password for the user. See [{#T}](../../datalens/operations/connection/create-mysql.md) and [{#T}](../../datalens/concepts/dataset/settings.md#access-management) in the {{ datalens-name }} documentation.
+   1. Enter the password for the user. See also [{#T}](../../datalens/operations/connection/create-mysql.md) and [{#T}](../../datalens/concepts/dataset/settings.md#access-management) in the {{ datalens-name }} documentation.
 
    If the cluster and {{ datalens-name }} are in different folders:
    1. Go to the **Specify manually** tab.

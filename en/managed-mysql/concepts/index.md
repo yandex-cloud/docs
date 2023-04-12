@@ -1,9 +1,9 @@
 ---
-title: "Relationship between {{ mmy-full-name }} resources"
+title: "Relationships between {{ mmy-full-name }} resources"
 description: "The main entity used in {{ mmy-name }} is a database cluster. Each cluster consists of one or more database hosts, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones. A cluster with multiple hosts features automatic failover: one of the replica hosts becomes the master if the current master host is down."
 ---
 
-# Relationship between resources in {{ mmy-name }}
+# Relationships between resources in {{ mmy-name }}
 
 The main entity used in {{ mmy-name }} is a _database cluster_.
 
