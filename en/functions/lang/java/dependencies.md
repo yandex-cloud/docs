@@ -1,8 +1,6 @@
 # Building and managing Java function dependencies
 
-Сервис {{ sf-name }} поддерживает два способа управления зависимостями функции на Java — автоматическую установку через `maven` из исходного кода и ручное добавление зависимостей в архив с собранным проектом. При этом настроить зависимости одновременно двумя способами нельзя.
-
-{{ sf-name }} supports two ways to manage dependencies for a Java function: automatic installation using `maven` from source code and manual dependency bundling along with the compiled code. However, you can't configure dependencies using both methods at the same time.
+{{ sf-name }} supports two ways to manage dependencies for a Java function: automatic installation using `maven` from source code and manual dependency bundling along with the code. However, you can't configure dependencies using both methods at the same time.
 
 ### Maven
 
@@ -20,13 +18,13 @@ Make sure the project archive root contains the `pom.xml` file.
 
 ### Manual delivery of dependencies
 
-To configure dependencies manually, place the `jar` archives of the necessary libraries in the root of the compiled project archive. Example:
+To configure dependencies manually, place the `jar` archives of the necessary libraries in the root of the project archive. Example:
 
 ```
 build.zip
 +--org
 +----package
-+------Main.class
++------Main.java
 +--dependency.jar
 ```
 
