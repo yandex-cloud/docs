@@ -5,7 +5,7 @@
 
 * Set the network for the cluster itself.
 * Set the subnets for each host in the cluster.
-* Enable TLS support. You need TLS support if you plan to connect to cluster hosts from the Internet.
+* Enable TLS support. You need TLS support if you plan to connect to cluster hosts from the internet.
 
 
 ## Hostname and FQDN {#hostname}
@@ -17,17 +17,23 @@ You can use the FQDN to access the host within a single cloud network.
 
 ## Public access to {#public-access-to-host} cluster hosts
 
-If you create a {{ mrd-short-name }} cluster with TLS support, you can connect to it both from a {{ yandex-cloud }} VM and from the Internet.
+If you create a {{ mrd-short-name }} cluster with TLS support, you can connect to it both from a {{ yandex-cloud }} VM and from the internet.
 
 If you created a cluster without TLS support, you can only connect to it from a {{ yandex-cloud }} VM on the same cloud network. You cannot get a public IP address for a host in this type of cluster.
 
-Any host in a cluster with TLS support enabled can be available from outside {{ yandex-cloud }} if you requested public access when [creating](../operations/hosts.md#add) or [modifying](../operations/hosts.md#update) the host.
+Any host in a cluster with TLS support enabled can be accessible from outside {{ yandex-cloud }} if you requested public access when [creating](../operations/hosts.md#add) or [modifying](../operations/hosts.md#update) the host.
 
-It is not possible to modify a public address after creating a host, but you can replace one of the existing hosts with a new host that has a public address.
+You cannot update a public address after creating a host; however, you can replace one of the existing hosts with a new one that has a public address.
 
-When you delete a host with a public IP, its corresponding FQDN is withdrawn.
+When you delete a host with a public IP, its respective FQDN is withdrawn.
 
 ## Security groups {#security-groups}
+
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 

@@ -24,6 +24,8 @@ There are ready-made {{ KF }} API implementations for most popular programming l
 
 ## Configuring security groups {#configuring-security-groups}
 
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Settings of rules depend on the connection method you select:
@@ -50,10 +52,10 @@ Settings of rules depend on the connection method you select:
 
    1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on ports {{ port-mkf-ssl }} and {{ port-mkf-text }}. To do this, create the following rule for incoming traffic in these groups:
 
-   * Port range: `{{ port-mkf-ssl }}-{{ port-mkf-text }}`.
-   * Protocol: `TCP`.
-   * Source: `Security group`.
-   * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
+      * Port range: `{{ port-mkf-ssl }}-{{ port-mkf-text }}`.
+      * Protocol: `TCP`.
+      * Source: `Security group`.
+      * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
 
       To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
 
@@ -64,15 +66,15 @@ Settings of rules depend on the connection method you select:
 
    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
-   Example of rules for a VM:
+      Example of rules for a VM:
 
-   * For incoming traffic:
-      * Port range: `{{ port-ssh }}`.
-      * Protocol: `TCP`.
-      * Source: `CIDR`.
-      * CIDR blocks: `0.0.0.0/0`.
+      * For incoming traffic:
+         * Port range: `{{ port-ssh }}`.
+         * Protocol: `TCP`.
+         * Source: `CIDR`.
+         * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you connect to the VM over SSH.
+         This rule allows you to connect to the VM over SSH.
 
       * For outgoing traffic:
          * Protocol: `Any`.

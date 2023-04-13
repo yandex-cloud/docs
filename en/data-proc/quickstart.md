@@ -11,16 +11,20 @@ To get started with the service:
 1. [Connect to component interfaces](#connect-components).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
 
-1. If you don't have a folder yet, create one:
+1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. [Set up a NAT gateway](../vpc/operations/create-nat-gateway.md) in the subnet to host the cluster.
-1. [Set up a security group](operations/cluster-create.md#change-security-groups) for the cluster's service traffic.
+
+1. If you use security groups, [configure them](operations/cluster-create.md#change-security-groups).
+
+   {% include [preview-pp.md](../_includes/preview-pp.md) %}
+
 1. You can connect to an {{ dataproc-name }} cluster from both inside and outside {{ yandex-cloud }}:
 
    * To connect from inside {{ yandex-cloud }}, create a [Linux-](../compute/quickstart/quick-create-linux.md) virtual machine, which must be in the same network as the cluster.
@@ -50,7 +54,9 @@ To create a cluster:
 To connect to a cluster:
 
 
-1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+
+   {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
 1. Copy the SSL key that you specified when creating the {{ dataproc-name }} cluster to the VM.

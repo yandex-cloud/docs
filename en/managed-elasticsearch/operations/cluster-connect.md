@@ -22,6 +22,8 @@ Regardless of the connection method, {{ mes-name }} only supports cluster host c
 
 ## Configuring security groups {#configuring-security-groups}
 
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Settings of rules depend on the connection method you select:

@@ -31,6 +31,12 @@ After creating a cluster, you cannot request or disable public addresses.
 ## Security groups {#security-groups}
 
 
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
 {% note tip %}
 
 When connecting to a cluster from the same cloud network, [configure security groups](../operations/connect.md#configuring-security-groups) for the cluster and the connecting host.

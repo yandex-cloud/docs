@@ -48,7 +48,12 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       1. Select the {{ ES }} version from the list.
       1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
-      1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
+      1. Under **Network settings**, select:
+      * Cloud network for the cluster.
+      * Security groups for the cluster's network traffic. You may also need to [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
+
+         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
    1. Under **User**, specify the `admin` user password.
 
       {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
@@ -125,7 +130,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       ```
 
       
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
 
 
    1. View a description of the CLI's create cluster command:
@@ -172,7 +177,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
    To create a cluster:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * Database cluster: Description of the cluster and its hosts.
 
@@ -180,7 +185,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       
       
@@ -271,18 +276,18 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 - API
 
-   To create a cluster, use the API [create](../api-ref/Cluster/create.md) method and pass the following in the request:
+   To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and include the following in the request:
 
-   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-   * The cluster name in the `name` parameter.
-   * The {{ ES }} version in the `configSpec.version` parameter.
-   * The {{ ES }} edition in the `configSpec.edition` parameter.
+   * ID of the folder where the cluster should be placed in the `folderId` parameter.
+   * Cluster name in the `name` parameter.
+   * {{ ES }} version in the `configSpec.version` parameter.
+   * {{ ES }} edition in the `configSpec.edition` parameter.
    * Cluster configuration in the `configSpec` parameter, including:
-      * Class of hosts with the _Master node_ role, in the `configSpec.elasticsearchSpec.masterNode.resources` parameter. If you don't want to create dedicated hosts with the _Master node_ role, don't set values for the group of `configSpec.elasticsearchSpec.masterNode` parameters.
+      * Class of hosts with the _Master node_ role in the `configSpec.elasticsearchSpec.masterNode.resources` parameter. If you do not want to create dedicated hosts with the _Master node_ role, do not set values for the group of `configSpec.elasticsearchSpec.masterNode` parameters.
       * Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
-   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-   * Network ID, in the `networkId` parameter.
-      * Security group identifiers, in the `securityGroupIds` parameter.
+   * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
+   * Network ID in the `networkId` parameter.
+      * Security group identifiers in the `securityGroupIds` parameter.
    * The list of plugins in the `configSpec.elasticsearchSpec.plugins` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
 

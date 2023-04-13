@@ -27,9 +27,15 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 ## Security groups {#security-groups}
 
-Security groups follow the principle "All traffic that is not allowed is prohibited". To connect to a cluster, security groups must include rules allowing traffic from certain ports, IP addresses, or from other security groups.
+{% note info %}
 
-Say, for example, that a host with the _Data node_ role is assigned a public IP address. If there's no security group rule that allows connecting to it from the internet on port `443`, you won't be able to connect to the Kibana web interface. You also won't be able to access a host that has no security group rule that explicitly allows incoming traffic on port `9200`.
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
+Security groups follow the "All traffic that is not allowed is prohibited" principle. To connect to a cluster, security groups must include rules allowing traffic from certain ports, IP addresses, or other security groups.
+
+For example, let's assume a host with the _Data node_ role is assigned a public IP address. If there is no security group rule that allows connecting to it from the internet on port `443`, you will not be able to connect to the Kibana web interface. Furthermore, you will not be able to access a host either, unless it has a security group rule configured that explicitly allows incoming traffic on port `9200`.
 
 {% note tip %}
 

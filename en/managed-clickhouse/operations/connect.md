@@ -165,7 +165,7 @@ There are two ways to run SQL queries from your browser:
 
 * [Built-in SQL editor](#inline-editor).
 
-When connecting from the browser, SQL queries are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session (for example, `USE` or `SET`) have no impact.
+When connecting from the browser, SQL queries are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session have no impact. For example, this is true for such queries as `USE` or `SET`.
 
 ### Management console {#console}
 
@@ -178,6 +178,7 @@ To allow connections, activate the **Access from management console** option whe
 For more information, see [{#T}](web-sql-query.md).
 
 ### Built-in SQL editor {#inline-editor}
+
 
 
 

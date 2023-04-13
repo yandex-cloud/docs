@@ -81,7 +81,7 @@
 
    Use the [get](../api-ref/MlModel/get.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter.
+   * Cluster ID in the `clusterID` parameter.
    * The model name in the `mlModelName` parameter.
 
    You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -164,11 +164,11 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
 - API
 
-   Use the [create](../api-ref/MlModel/create) API method and pass the following information in the request:
+   Use the [create](../api-ref/MlModel/create) API method and include the following information in the request:
 
-   * The cluster ID in the `clusterId` parameter.
-   * The model name in the `mlModelName` parameter.
-   * The `ML_MODEL_TYPE_CATBOOST` model type in the `type` parameter.
+   * Cluster ID in the `clusterID` parameter.
+   * Model name in the `mlModelName` parameter.
+   * `ML_MODEL_TYPE_CATBOOST` model type in the `type` parameter.
    * Link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -263,11 +263,11 @@ To update the contents of a model that is already connected to the cluster:
 
 - API
 
-   Use the [update](../api-ref/MlModel/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/MlModel/update.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * The model name in the `mlModelName` parameter.
-   * The new link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Model name in the `mlModelName` parameter.
+   * New link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -331,8 +331,8 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
    Use the [delete](../api-ref/MlModel/delete.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter.
-   * The model name in the `mlModelName` parameter.
+   * Cluster ID in the `clusterID` parameter.
+   * Model name in the `mlModelName` parameter.
 
    You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the model name with a [list of models in the cluster](#list-ml).
 
@@ -353,7 +353,7 @@ To upload data to {{ CH }} and test the model:
 1. Install the [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) and configure your cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
 
 
-1. Download the [data file](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) to analyze:
+1. Download the [file](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) with data to analyze:
 
    ```bash
    wget https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv

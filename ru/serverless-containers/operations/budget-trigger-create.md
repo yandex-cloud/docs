@@ -98,7 +98,7 @@
 
 - API
 
-  Создать триггер для бюджетов можно с помощью метода API [create](../triggers/api-ref/Trigger/create.md).
+  Чтобы создать триггер для бюджетов, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create).
 
 {% endlist %}
 

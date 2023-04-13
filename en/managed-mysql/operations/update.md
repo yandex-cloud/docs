@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on changing settings for a {{ MY }} cluster"
-description: "In this tutorial, you'll learn how to change settings for a {{ MY }} cluster."
+title: "How to change settings for a {{ MY }} cluster"
+description: "In this tutorial, you will learn how to change settings for a {{ MY }} cluster."
 ---
 
 # Changing {{ MY }} cluster settings
@@ -15,7 +15,7 @@ After creating a cluster, you can:
 
    {% note warning %}
 
-   You can't change {{ MY }} settings using SQL commands.
+   You cannot change {{ MY }} settings using SQL commands.
 
    {% endnote %}
 
@@ -119,9 +119,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To change the [host class](../concepts/instance-types.md), use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   * The desired host class in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
-   * List of settings to update (`configSpec.resources.resourcePresetId` in this case) in the `updateMask` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Host class you need in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
+   * List of settings to update (in this case, `configSpec.resources.resourcePresetId`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -135,7 +135,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - Management console
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
@@ -148,9 +148,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the CLI update cluster command:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -165,7 +165,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - {{ TF }}
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -197,9 +197,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - API
 
-   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass the following in the call:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and include the following in the call:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Storage size in the `configSpec.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.resources.diskSize` in this case).
 
@@ -280,8 +280,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   * An array with new {{ MY }} settings in the following parameter:
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Array with new {{ MY }} settings in the following parameter:
       * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} 5.7.
       * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} 8.0.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
@@ -316,7 +316,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       {{ yc-mdb-my }} cluster update --help
       ```
 
-   1. Run the command with a list of settings to update:
+   1. Run the following command with a list of settings to update:
 
       
       ```bash
@@ -472,12 +472,39 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](./cluster-create.md).
+
+   1. In the {{ mmy-name }} cluster description, add or edit the `folder_id` parameter value:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        folder_id = "<destination folder ID>"
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the resources have been updated.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+
 - API
 
    Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The ID of the destination folder in the `destinationFolderId` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
 
@@ -544,8 +571,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * The list of security group IDs in the `securityGroupIds` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * List of security group IDs in the `securityGroupIds` parameter.
    * List of settings to update (`securityGroupIds` in this case) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -554,7 +581,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configure-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect.md#configure-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
 
 {% endnote %}
 

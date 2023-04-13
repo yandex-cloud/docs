@@ -161,7 +161,7 @@ You can change the computing power of hosts in a separate subcluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -274,7 +274,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -370,7 +370,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -410,7 +410,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -420,6 +420,6 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
 {% note warning %}
 
-You may need to additionally [set up security groups](./connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](./connect.md#configuring-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
 
 {% endnote %}

@@ -36,6 +36,9 @@
 [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
 [putObjectLockConfiguration](bucket/putobjectlockconfiguration.md) | Настраивает механизм [блокировок версий объектов](../../concepts/object-lock.md) в [версионируемом](../../concepts/versioning.md) бакете.
 [getObjectLockConfiguration](bucket/getobjectlockconfiguration.md) | Возвращает настройки механизма блокировок.
+[putBucketTagging](bucket/putbuckettagging.md) | Добавляет [метки](../../../resource-manager/concepts/labels.md) бакету.
+[getBucketTagging](bucket/getbuckettagging.md) | Возвращает метки бакета.
+[deleteBucketTagging](bucket/deletebuckettagging.md) | Удаляет метки бакета.
 
 
 

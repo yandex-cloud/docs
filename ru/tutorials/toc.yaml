@@ -442,4 +442,8 @@ items:
         href: serverless/alice-shareable-todolist.md
       - name: Построение пайплайна CI/CD в {{ GL }}
         href: serverless/ci-cd-serverless.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: serverless/websocket-app.md
 base: ru/tutorials

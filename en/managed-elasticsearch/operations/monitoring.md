@@ -106,7 +106,7 @@ To view detailed information about the status of individual {{ mes-name }} hosts
       * **{{ mes-name }}** to configure cluster alerts.
       * **{{ mes-name }} — Host Overview** to configure host alerts.
 
-   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **Create alert**.

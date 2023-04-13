@@ -122,15 +122,15 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
          --resource-preset <host class> \
          --user name=<username>,password=<user password> \
-         --database name=<database name>,owner=<database owner name> \
+         --database name=<database name>,owner=<name of the database owner> \
          --disk-size <storage size, GB> \
          --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --security-group-ids <list of security group IDs> \
-         --connection-pooling-mode=<connection manager mode> \
+         --connection-pooling-mode=<connection manager operating mode> \
          --deletion-protection=<cluster deletion protection: true or false>
       ```
 
-      The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
@@ -147,7 +147,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          * The lowest priority is `0` (default), the highest is `100`.
 
             
-      To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
+      To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
 - {{ TF }}
@@ -270,29 +270,25 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
+   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
 
-   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-   * The cluster name in the `name` parameter.
-   * The environment of the cluster, in the `environment` parameter.
-   * Network ID, in the `networkId` parameter.
+   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
+   * Cluster name in the `name` parameter.
+   * Cluster environment in the `environment` parameter.
+   * Network ID in the `networkId` parameter.
 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-   * Cluster configuration, in the `configSpec` parameter.
-   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-
-   
-   * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
-
-
-   * Database configuration, in one or more `databaseSpecs` parameters.
-   * User settings, in one or more `userSpecs` parameters.
+   * Cluster configuration in the `configSpec` parameter.
+   * Configuration of the cluster's hosts in one or more `hostSpecs` parameters.
+      * IDs of [security groups](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+   * Database configuration in one or more `databaseSpecs` parameters.
+   * User settings in one or more `userSpecs` parameters.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
       
-   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
+   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `true` value for the `configSpec.access.serverless` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
    To enable [statistics collection](./performance-diagnostics.md#activate-stats-collector):

@@ -1,10 +1,10 @@
 # AWS Command Line Interface (AWS CLI)
 
-[AWS CLI](https://aws.amazon.com/ru/cli/) — это интерфейс командной строки для работы с сервисами AWS. Общий [порядок вызова команд](https://docs.aws.amazon.com/cli/latest/reference/) смотрите в официальной документации Amazon.
+[AWS CLI](https://aws.amazon.com/ru/cli/) — это интерфейс командной строки для работы с сервисами AWS. Общий [порядок вызова команд](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html) смотрите в официальной документации Amazon.
 
 Для работы с {{ objstorage-name }} с помощью AWS CLI вы можете использовать следующие наборы команд:
-* [s3api](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) — команды, соответствующие операциям в [REST API](../../glossary/rest-api.md). Перед использованием ознакомьтесь с [перечнем поддерживаемых операций](../s3/api-ref/index.md).
-* [s3](https://docs.aws.amazon.com/cli/latest/reference/s3/index.html) — дополнительные команды, упрощающие работу с большим количеством объектов.
+* [s3api](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/index.html) — команды, соответствующие операциям в [REST API](../../glossary/rest-api.md). Перед использованием ознакомьтесь с [перечнем поддерживаемых операций](../s3/api-ref/index.md).
+* [s3](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/index.html) — дополнительные команды, упрощающие работу с большим количеством объектов.
 
 ## Подготовка к работе {#before-you-begin}
 

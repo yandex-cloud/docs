@@ -1,6 +1,6 @@
 # {{ mmy-full-name }} releases
 
-This section presents the revision history for {{ mmy-name }}.
+This section provides the revision history for {{ mmy-name }}.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
@@ -8,16 +8,22 @@ This section presents the revision history for {{ mmy-name }}.
 
 * The status of a host on the **Hosts** page now changes to `READ-ONLY` in the management console if data writes to the host are disabled. {{ tag-con }}
 * You can now [move a cluster](operations/update.md#move-cluster) to a different folder using {{ TF }}.
-* Added such settings as `Backup retain period days`, `Lock wait timeout`, `Max prepared stmt count`, `Optimizer search depth`, and `Optimizer switch`.
+* Added new DBMS settings:
+
+   * `Backup retain period days`
+   * [Lock wait timeout](./concepts/settings-list.md#setting-lock-wait-timeout)
+   * [Max prepared stmt count](./concepts/settings-list.md#setting-max-prepared-stmt-count)
+   * [Optimizer search depth](./concepts/settings-list.md#setting-optimizer-search-depth)
+   * [Optimizer switch](./concepts/settings-list.md#setting-optimizer-switch)
 
 ## Q3 2022 {#q3-2022}
 
-* Added a `Free space` plot on the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab and an `Inode usage` plot on the [host monitoring](operations/monitoring.md#monitoring-hosts) page. {{ tag-con }}
+* Added the `Free space` plot on the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab and an `Inode usage` plot on the [host monitoring](operations/monitoring.md#monitoring-hosts) page. {{ tag-con }}
 * Added the [Binlog transaction dependency tracking](concepts/settings-list.md#setting-binlog-transaction-dependency-tracking) setting.
 
 ## Q2 2022 {#q2-2022}
 
-* In the {{ TF }} configuration files, the `database` and the `user` sections have been deprecated, and the `yandex_mdb_mysql_database` and the `yandex_mdb_mysql_user` resources have been added. {{ tag-tf }}
+* In the {{ TF }} configuration files, the `database` and the `user` sections have been deprecated; instead, the `yandex_mdb_mysql_database` and the `yandex_mdb_mysql_user` resources have been added. {{ tag-tf }}
 * Added the [Innodb compression level](concepts/settings-list.md#setting-innodb-compression-level) setting.
 * Accelerated the process of restoring replicas from a backup by using WAL-G with subsequent synchronization of data from the master host.
 * Fixed the display of long queries on the **Performance diagnostics** tab. {{ tag-con }}

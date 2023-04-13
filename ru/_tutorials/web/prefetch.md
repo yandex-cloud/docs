@@ -111,24 +111,24 @@
      Пример структуры конфигурационного файла:
 
      
-     ```
+     ```hcl
      provider "yandex" {
        token     = "<OAuth>"
-       cloud_id  = "<идентификатор облака>"
-       folder_id = "<идентификатор каталога>"
+       cloud_id  = "<идентификатор_облака>"
+       folder_id = "<идентификатор_каталога>"
        zone      = "{{ region-id }}-a"
      }
   
      resource "yandex_storage_bucket" "storage" {
-       access_key = "<идентификатор статического ключа>"
-       secret_key = "<секретный ключ>"
+       access_key = "<идентификатор_статического_ключа>"
+       secret_key = "<секретный_ключ>"
        bucket     = "ycprojektblue-storage"
        acl        = "public-read"
      }
      
      resource "yandex_storage_bucket" "logs" {
-       access_key = "<идентификатор статического ключа>"
-       secret_key = "<секретный ключ>"
+       access_key = "<идентификатор_статического_ключа>"
+       secret_key = "<секретный_ключ>"
        bucket     = "ycprojektblue-logs"
      }
      ```
@@ -140,7 +140,7 @@
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
         
-        ```
+        ```bash
         terraform plan
         ```
   
@@ -150,7 +150,7 @@
   
      1. Если в конфигурации нет ошибок, выполните команду:
      
-        ```
+        ```bash
         terraform apply
         ```
      
@@ -203,7 +203,7 @@
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }} \
     s3 cp \
-    <путь к файлу ycgame-update-v1.1.exe> \
+    <путь_к_файлу_ycgame-update-v1.1.exe> \
     s3://ycprojektblue-storage/ycgame-update-v1.1.exe
   ```
   
@@ -223,15 +223,15 @@
   
      Пример структуры конфигурационного файла:
 
-     ```
+     ```hcl
      ...
   
      resource "yandex_storage_object" "patch-v1-1" {
-       access_key = "<идентификатор статического ключа>"
-       secret_key = "<секретный ключ>"
+       access_key = "<идентификатор_статического_ключа>"
+       secret_key = "<секретный_ключ>"
        bucket = "ycprojektblue-storage"
        key    = "ycgame-update-v1.1.exe"
-       source = "<путь к файлу>/ycgame-update-v1.1.exe"
+       source = "<путь_к_файлу>/ycgame-update-v1.1.exe"
      }
      ```
 
@@ -240,7 +240,7 @@
      1. В командной строке перейдите в папку с конфигурационным файлом.
      1. Выполните проверку с помощью команды:
      
-        ```
+        ```bash
         terraform plan
         ```
   
@@ -250,7 +250,7 @@
   
      1. Если в конфигурации нет ошибок, выполните команду:
      
-     ```
+     ```bash
      terraform apply
      ```
      
@@ -312,13 +312,13 @@
   
   1. Если CDN-провайдер ещё не активирован, выполните команду:
 
-     ```
-     yc cdn provider activate --folder-id <идентификатор каталога> --type gcore
+     ```bash
+     yc cdn provider activate --folder-id <идентификатор_каталога> --type gcore
      ```
   
   1. Создайте CDN-ресурс:
 
-     ```
+     ```bash
      yc cdn resource create \
        --cname cdn.ycprojectblue.example \
        --origin-bucket-source ycprojektblue-storage.{{ s3-storage-host }} \
@@ -326,7 +326,6 @@
        --origin-protocol https \
        --lets-encrypt-gcore-ssl-cert \
        --host-header ycprojektblue-storage.{{ s3-storage-host }} \
-       --redirect-http-to-https
      ```
 
      Результат:
@@ -341,6 +340,12 @@
      ```
 
      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/resource/create.md).
+
+  1. Включите переадресацию клиентов для ресурса:
+
+     ```bash
+     yc cdn resource update <ID_ресурса> --redirect-http-to-https
+     ```
 
 - {{ TF }}
 
@@ -363,7 +368,6 @@
        origin_protocol     = "https"
        origin_group_id     = yandex_cdn_origin_group.my_group.id
        options {
-         redirect_https_to_http = true
          custom_host_header     = "ycprojektblue-storage.{{ s3-storage-host }}"
        }
        ssl_certificate {
@@ -379,7 +383,7 @@
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
@@ -389,13 +393,40 @@
 
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+  1. Включите переадресацию клиентов для ресурса. Добавьте в начало блока `options` для CDN-ресурса следующее поле:
+
+      ```hcl
+      ...
+      options {
+        redirect_https_to_http = true
+      ...
+      ```
+
+  1. Выполните проверку с помощью команды:
+
+      ```bash
+      terraform plan
+      ```
+
+     Если конфигурация описана верно, в терминале отобразится список обновляемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+  
+  1. Если ошибок нет, выполните команду:
+
+      ```bash
+      terraform apply
+      ```
+
+  1. Подтвердите обновление ресурса: введите в терминал слово `yes` и нажмите **Enter**.
+      
+  После этого для у ресурса будет включена переадресация.
 
 - API
 
@@ -544,8 +575,8 @@
   
   Укажите путь к файлу, который нужно предзагрузить:
 
-  ```
-  yc cdn cache prefetch --resource-id <идентификатор ресурса> \
+  ```bash
+  yc cdn cache prefetch --resource-id <идентификатор_ресурса> \
     --path /ycgame-update-v1.1.exe
   ```
 

@@ -14,3 +14,12 @@ To solve the issue, you can [increase the disk size](../operations/cluster-updat
 {% include [logs](../../_qa/logs.md) %}
 
 {% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
+
+#### How do I move a cluster to a different network?
+
+You cannot move a {{ mkf-name }} cluster to another network.
+
+Here is an alternative solution:
+
+1. Create a new cluster with the same configuration in the new network.
+1. Use [MirrorMaker](../tutorials/kafka-connectors.md#kf-mirrormaker) to move the topics of the source cluster to the new one.

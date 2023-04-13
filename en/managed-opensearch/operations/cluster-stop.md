@@ -9,10 +9,10 @@ keywords:
 
 # Stopping and starting {{ OS }} clusters
 
-If necessary, you can stop and restart {{ OS }} clusters. When a cluster is stopped, all data in it is retained: it will be available again when you restart the cluster.
+You can stop and restart {{ OS }} clusters, if required. When a cluster is stopped, all data in it is retained and will be available again when you restart the cluster.
 
 
-You are not charged for the time when your cluster is stopped, but you still pay for the storage size based on the [pricing policy](../pricing.md).
+You are not charged for the time when your cluster is stopped; however, you still have to pay for the storage size based on the [pricing policy](../pricing.md).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 
@@ -24,12 +24,12 @@ You are not charged for the time when your cluster is stopped, but you still pay
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
-   1. Find the cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop cluster**.
+   1. Find the cluster you need in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop cluster**.
    1. In the dialog box that opens, confirm that you want to stop the cluster and click **Stop**.
 
 - API
 
-   Use the [stop](../api-ref/Cluster/stop.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [stop](../api-ref/Cluster/stop.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

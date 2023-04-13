@@ -141,7 +141,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.resources.resourcePresetId` parameter (`configSpec.zookeeper.resources.resourcePresetId` for ZooKeeper).
 
       To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
@@ -166,7 +166,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
 - Management console
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
@@ -179,7 +179,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. View a description of the CLI's update cluster command:
 
@@ -240,9 +240,9 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
    To increase storage size, use the API [update](../api-ref/Cluster/update.md) method and pass the following in in the call:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * The required size of the {{ CH }} host storage in the `configSpec.clickhouse.resources.diskSize` parameter.
-   * The required size of the {{ ZK }} host storage in the `configSpec.zookeeper.resources.diskSize` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Required size of the {{ CH }} host storage in the `configSpec.clickhouse.resources.diskSize` parameter.
+   * Required size of the {{ ZK }} host storage in the `configSpec.zookeeper.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -456,9 +456,9 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.config` parameter.
 
       All supported settings are described in [{#T}](../concepts/settings-list.md#dbms-cluster-settings) and the [API reference](../api-ref/Cluster/update.md).
@@ -497,7 +497,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
       {{ yc-mdb-ch }} cluster update --help
       ```
 
-   1. Run the command with a list of settings to update:
+   1. Run the following command with a list of settings to update:
 
       
       ```bash
@@ -506,9 +506,9 @@ For more information, see [{#T}](../concepts/memory-management.md).
          --datalens-access=<true or false> \
          --datatransfer-access=<true or false> \
          --deletion-protection=<cluster deletion protection: true or false> \
-         --maintenance-window type=<maintenance type: anytime or weekly>,`
-                             `day=<day of week for weekly>,`
-                             `hour=<hour for weekly> \
+         --maintenance-window type=<maintenance window type: anytime or weekly>,`
+                             `day=<day of the week for the weekly type>,`
+                             `hour=<hour of the day for the weekly type> \
          --metrika-access=<true or false> \
          --serverless-access=<true or false> \
          --websql-access=<true or false>
@@ -572,10 +572,10 @@ For more information, see [{#T}](../concepts/memory-management.md).
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
         ...
         access {
-          data_lens  = <access from DataLens: true or false>
-          metrika    = <access from Metrica and AppMetrika: true or false>
-          serverless = <access from Cloud Functions: true or false>
-          web_sql    = <executing SQL queries from the management console: true or false>
+          data_lens  = <Access from DataLens: true or false>
+          metrika    = <Access from Yandex.Metrica and AppMetrica: true or false>
+          serverless = <Access from Cloud Functions: true or false>
+          web_sql    = <Run SQL queries from the management console: true or false>
         }
         ...
       }
@@ -673,7 +673,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The ID of the destination folder in the `destinationFolderId parameter`.
 
 {% endlist %}
@@ -739,10 +739,10 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The list of security group IDs in the `securityGroupIds` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * List of security group IDs in the `securityGroupIds` parameter.
    * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -751,7 +751,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster (the functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
 
 {% endnote %}
 
@@ -798,10 +798,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The `true` value in the `configSpec.cloudStorage.enabled` parameter if hybrid storage is not enabled.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * `true` value in the `configSpec.cloudStorage.enabled` parameter unless hybrid storage is already enabled.
 
       {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 

@@ -31,6 +31,8 @@ For more information, see [{#T}](../concepts/index.md).
       * Select the cloud network for the cluster.
       * In the **Security groups** parameter, specify the [security group](../operations/connect.md#configuring-security-groups) that contains the rules allowing all incoming and outgoing traffic over any protocol from any IP address.
 
+         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
          {% note alert %}
 
          For a {{ mgp-name }} cluster to work properly, at least one of its security groups must have rules allowing all incoming and outgoing traffic from any IP address.
@@ -38,8 +40,8 @@ For more information, see [{#T}](../concepts/index.md).
          {% endnote %}
 
 
-      * Select the availability zone and subnet for the cluster. To create a new subnet, click **Create new** subnet next to the availability zone.
-      * Select **Public access** to allow connecting to the cluster from the internet.
+       * Select the availability zone and subnet for the cluster. To create a new subnet, click **Create new** subnet next to the availability zone.
+       * Select **Public access** to allow connecting to the cluster from the internet.
 
    1. Specify the administrative user's settings. This is a special user that is needed to manage clusters and cannot be deleted. For more information, see [{#T}](../concepts/cluster-users.md).
 
@@ -112,7 +114,7 @@ For more information, see [{#T}](../concepts/index.md).
       yc vpc subnet list
       ```
 
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
    1. View a description of the CLI's create cluster command:
@@ -156,9 +158,9 @@ For more information, see [{#T}](../concepts/index.md).
       * `--environment`: Environment:
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ GP }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-      * `--network-name`: The [name of the network](../../vpc/concepts/network.md#network).
+      * `--network-name`: [Name of the network](../../vpc/concepts/network.md#network).
       * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, but must start with a letter, a number, or an underscore. It can be between 1 and 32 characters long.
-      * `--user-password`: Password. From 8 to 128 characters.
+      * `--user-password`: Password, which must be from 8 to 128 characters long.
       * `--master-config` and `--segment-config`: Master and segment host configurations:
          * `resource-id`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
@@ -314,15 +316,15 @@ For more information, see [{#T}](../concepts/index.md).
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
+   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
 
-   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-   * The cluster name in the `name` parameter.
-   * The environment of the cluster, in the `environment` parameter.
-   * The {{ GP }} version, in the `config.version` parameter.
-   * Username, in the `userName` parameter.
-   * User password, in the `userPassword` parameter.
-   * Network ID, in the `networkId` parameter.
+   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
+   * Cluster name in the `name` parameter.
+   * Cluster environment in the `environment` parameter.
+   * {{ GP }} version in the `config.version` parameter.
+   * Username in the `userName` parameter.
+   * User password in the `userPassword` parameter.
+   * Network ID in the `networkId` parameter.
       * [Security group](../concepts/network.md#security-groups) identifiers, in the `securityGroupIds` parameter.
    * Configuration of master hosts, in the `masterConfig` parameter.
    * Configuration of segment hosts, in the `segmentConfig` parameter.

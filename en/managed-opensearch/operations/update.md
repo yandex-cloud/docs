@@ -18,11 +18,11 @@ After creating a cluster, you can edit its service settings. To update the confi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select a cluster and click ![pencil](../../_assets/pencil.svg) **Edit cluster** on the top panel.
    1. Under **Service settings**:
 
       1. Change the `admin` user password.
-      1. If necessary, change additional cluster settings:
+      1. If required, change additional cluster settings:
 
          {% include [extra-settings](../../_includes/mdb/mos/extra-settings.md) %}
 
@@ -32,9 +32,9 @@ After creating a cluster, you can edit its service settings. To update the confi
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The new `admin` user password in the `configSpec.adminPassword` parameter.
-   * The list of plugins in the `configSpec.opensearchSpec.plugins` parameter. Plugins that are not included in the list will be disabled.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * New `admin` user password in the `configSpec.adminPassword` parameter.
+   * List of plugins in the `configSpec.opensearchSpec.plugins` parameter. The plugins that are not included in the list will be disabled.
    * Settings for access from other services in the `configSpec.access` parameter.
 
    

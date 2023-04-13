@@ -35,10 +35,6 @@
 	status: ACTIVE
 	```
 
-- API
-
-   Создать контейнер можно с помощью метода API [create](../../serverless-containers/containers/api-ref/Container/create.md).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -115,5 +111,8 @@
      yc serverless container list 
      ```
 
+- API
+
+  Чтобы создать контейнер, воспользуйтесь методом REST API [create](../../serverless-containers/containers/api-ref/Container/create.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Create](../../serverless-containers/containers/api-ref/grpc/container_service.md#Create).
 
 {% endlist %}

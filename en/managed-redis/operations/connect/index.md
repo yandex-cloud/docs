@@ -18,7 +18,7 @@ You can connect to {{ mrd-name }} cluster hosts:
 * Via the internet if the following conditions are met:
 
    * [Public access to hosts](../hosts.md#public-access) is configured.
-   * SSL connection is used.
+   * An SSL connection is used.
    * Your cluster was created with TLS support.
 
 * From {{ yandex-cloud }} virtual machines located in the same cloud network.
@@ -32,6 +32,8 @@ You can connect to {{ mrd-name }} cluster hosts:
 
 
 ## Configuring security groups {#configuring-security-groups}
+
+{% include [preview-pp.md](../../../_includes/preview-pp.md) %}
 
 {% include [Security groups notice](../../../_includes/mdb/sg-rules-connect.md) %}
 

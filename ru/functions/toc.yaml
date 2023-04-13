@@ -391,6 +391,10 @@ items:
           Создание триггера для бюджетов, который вызывает функцию для остановки
           ВМ
         href: tutorials/serverless-trigger-budget-vm.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

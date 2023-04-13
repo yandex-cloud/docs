@@ -54,6 +54,6 @@ description: "Из статьи вы узнаете, как удалить тр�
 
 - API
 
-  Удалить триггер можно с помощью метода API [delete](../triggers/api-ref/Trigger/delete.md).
+  Чтобы удалить триггер, воспользуйтесь методом REST API [delete](../triggers/api-ref/Trigger/delete.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Delete](../triggers/api-ref/grpc/trigger_service.md#Delete).
 
 {% endlist %}

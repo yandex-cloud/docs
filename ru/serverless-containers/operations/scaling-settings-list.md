@@ -46,7 +46,7 @@
 
 - API
 
-  Посмотреть настройки масштабирования контейнера можно с помощью метода API [getRevision](../containers/api-ref/Container/getRevision.md).
+  Чтобы посмотреть настройки масштабирования контейнера, воспользуйтесь методом REST API [getRevision](../containers/api-ref/Container/getRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/GetRevision](../containers/api-ref/grpc/container_service.md#GetRevision).
 
 {% endlist %}
 

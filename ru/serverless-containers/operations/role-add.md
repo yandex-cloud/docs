@@ -42,6 +42,6 @@
 
 - API
 
-  Назначить роли на контейнер можно с помощью метода API [setAccessBindings](../../serverless-containers/containers/api-ref/Container/setAccessBindings.md).
+  Чтобы назначить роли на контейнер, воспользуйтесь методом REST API [setAccessBindings](../containers/api-ref/Container/setAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/SetAccessBindings](../containers/api-ref/grpc/container_service.md#SetAccessBindings).
 
 {% endlist %}

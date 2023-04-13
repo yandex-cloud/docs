@@ -95,7 +95,7 @@
   
      * В `{{ region-id }}-a`:
      
-       ```
+       ```bash
        yc vpc subnet create example-subnet-{{ region-id }}-a \
          --zone {{ region-id }}-a \
          --network-name example-network \
@@ -117,7 +117,7 @@
      
      * В `{{ region-id }}-b`:
      
-       ```
+       ```bash
        yc vpc subnet create example-subnet-{{ region-id }}-b \
          --zone {{ region-id }}-b \
          --network-name example-network \
@@ -139,7 +139,7 @@
      
      * В `{{ region-id }}-c`:
      
-       ```
+       ```bash
        yc vpc subnet create example-subnet-{{ region-id }}-c \
          --zone {{ region-id }}-c \
          --network-name example-network \
@@ -167,7 +167,7 @@
   
   1. Опишите в конфигурационном файле параметры сети `example-network` и ее подсетей `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c`:
   
-     ```
+     ```hcl
      resource "yandex_vpc_network" "example-network" {
        name = "example-network"
      }
@@ -270,7 +270,7 @@
 
   1. Добавьте в конфигурационный файл параметры бакета `example-bucket`:
   
-     ```
+     ```hcl
      ...
      
      resource "yandex_storage_bucket" "example-bucket" {
@@ -358,7 +358,7 @@
    
      1. Добавьте в конфигурационный файл параметры файла `v1/index.html`, загружаемого в бакет `example-bucket`:
      
-        ```
+        ```hcl
         ...
         
         resource "yandex_storage_object" "example-bucket-index" {
@@ -503,7 +503,7 @@
 
   1. Добавьте в конфигурационный файл параметры группы безопасности `example-sg`:
   
-     ```
+     ```hcl
      resource "yandex_vpc_security_group" "example-sg" {
        name       = "example-sg"
        network_id = "yandex_vpc_network.example-network.id"
@@ -690,7 +690,7 @@
 
   1. Добавьте в конфигурационный файл параметры HTTP-роутера `example-router`, его виртуальных хостов и маршрутов:
   
-     ```
+     ```hcl
      ...
      
      resource "yandex_alb_http_router" "example-router" {
@@ -706,7 +706,7 @@
          name = "example-route"
          http_route {
            http_route_action {
-             backend_group_id = "<идентификатор группы бэкендов example-bg>"
+             backend_group_id = "<идентификатор_группы_бэкендов_example-bg>"
            }
          }
        }  
@@ -810,15 +810,15 @@
      ```bash
      yc alb load-balancer create example-balancer \
        --network-name example-network \
-       --security-group-id <идентификатор группы безопасности example-sg> \
-       --location zone={{ region-id }}-a,subnet-id=<идентификатор подсети example-subnet-{{ region-id }}-a> \
-       --location zone={{ region-id }}-b,subnet-id=<идентификатор подсети example-subnet-{{ region-id }}-b> \
-       --location zone={{ region-id }}-c,subnet-id=<идентификатор подсети example-subnet-{{ region-id }}-c>
+       --security-group-id <идентификатор_группы_безопасности_example-sg> \
+       --location zone={{ region-id }}-a,subnet-id=<идентификатор_подсети_example-subnet-{{ region-id }}-a> \
+       --location zone={{ region-id }}-b,subnet-id=<идентификатор_подсети_example-subnet-{{ region-id }}-b> \
+       --location zone={{ region-id }}-c,subnet-id=<идентификатор_подсети_example-subnet-{{ region-id }}-c>
      ```
      
      Результат:
      
-     ```
+     ```hcl
      done (3m0s)
      id: ds77q7v39b4ubg8ta2n4
      name: example-balancer
@@ -893,7 +893,7 @@
 
   1. Добавьте в конфигурационный файл параметры L7-балансировщика `example-balancer`:
   
-     ```
+     ```hcl
      ...
      
      resource "yandex_alb_load_balancer" "example-balancer" {
@@ -1004,17 +1004,20 @@
 - CLI
 
   1. Если CDN-провайдер ещё не активирован, выполните команду:
-      ```
-      yc cdn provider activate --folder-id <идентификатор каталога> --type gcore
+
+      ```bash
+      yc cdn provider activate --folder-id <идентификатор_каталога> --type gcore
       ```
 
   1. Создайте группу источников `example-origin-group`, указав IP-адрес балансировщика:
+
       ```bash
       yc cdn origin-group create --name "example-origin-group" \
-        --origin source=<IP-адрес балансировщика>:80,enabled=true
+        --origin source=<IP-адрес_балансировщика>:80,enabled=true
       ```
 
       Результат:
+
       ```
       id: "90748"
       folder_id: b1geoelk7fldts6chmjq
@@ -1035,13 +1038,14 @@
       ```bash
       yc cdn resource create \
         --cname cdn.yandexcloud.example \
-        --origin-group-id <идентификатор группы источников> \
+        --origin-group-id <идентификатор_группы_источников> \
         --origin-protocol http \
-        --redirect-http-to-https \
+        --lets-encrypt-gcore-ssl-cert \
         --forward-host-header
       ```
 
       Результат:
+
       ```
       id: bc843k2yinvq5fhgvuvc
       folder_id: b1ge1elk72ldts6chmjq
@@ -1055,6 +1059,12 @@
 
       Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
+  1. Включите переадресацию клиентов для ресурса:
+
+     ```bash
+     yc cdn resource update <ID_ресурса> --redirect-http-to-https
+     ```
+
 - {{ TF }}
 
   1. Добавьте в конфигурационный файл параметры CDN-ресурсов:
@@ -1065,7 +1075,7 @@
         name     = "example-origin-group"
         use_next = true
         origin {
-         source = "<IP-адрес балансировщика>:80"
+         source = "<IP-адрес_балансировщика>:80"
          backup = false
         }
       }
@@ -1076,6 +1086,9 @@
           active              = true
           origin_protocol     = "http"
           origin_group_id     = yandex_cdn_origin_group.my_group.id
+          ssl_certificate {
+            type = "lets_encrypt_gcore"
+          }
           options {
               edge_cache_settings    = "345600"
               browser_cache_settings = "1800"
@@ -1093,7 +1106,7 @@
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
@@ -1103,13 +1116,40 @@
 
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+  1. Включите переадресацию клиентов для ресурса. Добавьте в начало блока `options` для CDN-ресурса следующее поле:
+
+      ```hcl
+      ...
+      options {
+        redirect_https_to_http = true
+      ...
+      ```
+
+  1. Выполните проверку с помощью команды:
+
+      ```bash
+      terraform plan
+      ```
+
+     Если конфигурация описана верно, в терминале отобразится список обновляемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+  
+  1. Если ошибок нет, выполните команду:
+
+      ```bash
+      terraform apply
+      ```
+
+  1. Подтвердите обновление ресурса: введите в терминал слово `yes` и нажмите **Enter**.
+      
+  После этого для у ресурса будет включена переадресация.
 
 - API
 
@@ -1220,7 +1260,7 @@
           zone_id = ${yandex_dns_zone.example-dns-zone.id}
           name    = "cdn"
           type    = "CNAME"
-          data    = ["<скопированное значение вида cl-....edgecdn.ru>"]
+          data    = ["<скопированное_значение_вида_cl-....edgecdn.ru>"]
         }
         ```
 

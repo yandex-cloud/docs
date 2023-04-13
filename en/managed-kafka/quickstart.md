@@ -11,11 +11,11 @@ To get started with the service:
 1. [Connect to the cluster](#connect).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
 
-1. If you don't have a folder yet, create one:
+1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
@@ -66,7 +66,7 @@ Then create users for producers and consumers.
 
 ## Create a user {#account-create}
 
-User settings let you manage [producer and consumer](concepts/producers-consumers.md) permissions to cluster topics.
+User settings let you manage [producer and consumer](./concepts/producers-consumers.md) permissions to cluster topics.
 
 To create a user:
 1. In the management console, select the folder where the cluster is located.
@@ -87,7 +87,9 @@ You can connect the producer and consumer to the cluster on behalf of one user. 
 To connect to a cluster:
 
 
-1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+
+   {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
 1. Install an SSL certificate on the VM:
@@ -102,7 +104,7 @@ To connect to a cluster:
 
    {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
-1. To get messages from a topic, run the command:
+1. To get messages from a topic, run the following command:
 
    {% include [default-get-string](../_includes/mdb/mkf/default-get-string.md) %}
 

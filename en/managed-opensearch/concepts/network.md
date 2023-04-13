@@ -27,9 +27,15 @@ When deleting a host group with public FQDNs, the assigned IP addresses are revo
 
 ## Security groups {#security-groups}
 
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
 Security groups follow the principle "All traffic that is not allowed is prohibited". To connect to a cluster, security groups must include rules allowing traffic from certain ports, IP addresses, or from other security groups.
 
-For example, a host group of the `DASHBOARDS` type is assigned a public IP address. If there's no security group rule that allows connecting to it from the internet on port `{{ port-https }}`, you won't be able to connect to the web interface. You also won't be able to access an `OPENSEARCH` host group that has no security group rule that explicitly allows incoming traffic on port `{{ port-mos }}`.
+For example, let's assume a host group of the `Dashboards` type is assigned a public IP address. If there is no security group rule that allows connecting to it from the internet on port `{{ port-https }}`, you will not be able to connect to the web interface. You will not be able to access an `{{ OS }}` host group either, unless it has a security group rule that explicitly allows incoming traffic on port `{{ port-mos }}`.
 
 {% note tip %}
 

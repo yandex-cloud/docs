@@ -14,7 +14,7 @@ UI Proxy is disabled by default. To take advantage of UI Proxy, enable it when [
 
 {% note warning %}
 
-You may need to additionally [set up security groups](../operations/connect.md#configuring-security-groups) to use UI Proxy.
+You may need to additionally [set up security groups](../operations/connect.md#configuring-security-groups) to use UI Proxy (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
 
 {% endnote %}
 

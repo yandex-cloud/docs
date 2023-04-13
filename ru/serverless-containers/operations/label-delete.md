@@ -22,10 +22,6 @@
     status: ACTIVE
     ```
 
-- API
-
-  Удалить метку контейнера можно с помощью метода API [update](../containers/api-ref/Container/update.md).
-    
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -82,5 +78,9 @@
   ```
   yc serverless container get <идентификатор_контейнера>|<имя_контейнера>
   ```
+
+- API
+
+  Чтобы удалить метку контейнера, воспользуйтесь методом REST API [update](../containers/api-ref/Container/update.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update).
 
 {% endlist %}

@@ -53,7 +53,7 @@
 
 - API
 
-  Удалить настройки масштабирования для контейнера можно с помощью метода API [deployRevision](../containers/api-ref/Container/deployRevision.md).
+  Чтобы удалить настройки масштабирования контейнера, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision).
 
 {% endlist %}
 
