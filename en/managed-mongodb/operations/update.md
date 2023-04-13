@@ -94,7 +94,7 @@ After creating a cluster, you can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -104,9 +104,9 @@ After creating a cluster, you can:
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Host class in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.resources.resourcePresetId` parameter.
 
       To retrieve a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
@@ -125,7 +125,7 @@ After creating a cluster, you can:
 
 - Management console
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
@@ -138,7 +138,7 @@ After creating a cluster, you can:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. View a description of the CLI's update cluster command:
 
@@ -157,7 +157,7 @@ After creating a cluster, you can:
 
 - {{ TF }}
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -179,7 +179,7 @@ After creating a cluster, you can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -189,9 +189,9 @@ After creating a cluster, you can:
 
 - API
 
-   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
+   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and include the following in the call:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.resources.diskSize` parameter.
    * List of settings to update in the `updateMask` parameter.
 
@@ -237,12 +237,12 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Target {{ MG }} setting values in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.config` parameter.
 
-      All the supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
+      All supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
 
    * List of cluster settings to update in the `updateMask` parameter.
 
@@ -278,7 +278,7 @@ You can change the DBMS settings of the hosts in your cluster.
       {{ yc-mdb-mg }} cluster update --help
       ```
 
-   1. Run the command with a list of settings to update:
+   1. Run the following command with a list of settings to update:
 
       ```bash
       {{ yc-mdb-mg }} cluster update <cluster ID or name> \
@@ -367,7 +367,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -379,8 +379,8 @@ You can change the DBMS settings of the hosts in your cluster.
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * The new backup start time, in the `configSpec.backupWindowStart` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * New backup start time in the `configSpec.backupWindowStart` parameter.
    * Settings for access from other services in the `configSpec.access` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
@@ -432,8 +432,8 @@ You can change the DBMS settings of the hosts in your cluster.
 
    Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The ID of the destination folder in the `destinationFolderId` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
 
@@ -490,7 +490,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -500,10 +500,10 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   - The list of security group IDs in the `securityGroupIds` parameter.
+   - Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   - List of security group IDs in the `securityGroupIds` parameter.
    - List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -512,7 +512,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
 
 {% endnote %}
 

@@ -28,10 +28,6 @@
     status: ACTIVE
     ```
 
-- API
-
-  Добавить метку контейнеру можно с помощью метода API [update](../containers/api-ref/Container/update.md).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -89,5 +85,9 @@
   ```
   yc serverless container get <идентификатор_контейнера>|<имя_контейнера>
   ```
+
+- API
+
+  Чтобы добавить метку контейнеру, воспользуйтесь методом REST API [update](../containers/api-ref/Container/update.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update).
 
 {% endlist %}

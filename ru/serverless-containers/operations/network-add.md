@@ -19,7 +19,7 @@
 
 - API
 
-  Указать облачную сеть, в которой будет исполняться контейнер, можно с помощью метода API [deployRevision](../containers/api-ref/Container/deployRevision.md).
+  Чтобы указать облачную сеть, в которой будет исполняться контейнер, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision).
 
 {% endlist %}
 

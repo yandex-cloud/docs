@@ -42,6 +42,12 @@ In addition to host names, to connect to a cluster, you can use [special FQDNs](
 
 ## Security groups {#security-groups}
 
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
 {% note tip %}

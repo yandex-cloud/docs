@@ -7,11 +7,11 @@ To get started with the service:
 1. [{#T}](#dashboards-connect).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or register if you haven't yet.
 
-1. If you don't have a folder yet, create one:
+1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
@@ -46,6 +46,8 @@ These instructions assume that you're connecting to the cluster from the interne
 
 
 ## Configure security groups {#configure-security-groups}
+
+{% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 {% include notitle [Configuring security groups](../_includes/mdb/mos/configuring-security-groups.md) %}
 
@@ -89,7 +91,6 @@ To connect to a cluster:
    1. Make sure that hosts with the `DASHBOARDS` role are publicly accessible.
 
 
-   1. Make sure that hosts with the `DASHBOARDS` role are publicly accessible.
    1. Install the [SSL certificate]({{ crt-web-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. On the cluster page, in the management console, click **OpenSearch Dashboards** and go to `https://c-<{{ OS }} cluster ID>.rw.{{ dns-zone }}>` in your browser.
    1. Enter the `admin` username and password that you set when [creating the cluster](#create-cluster).

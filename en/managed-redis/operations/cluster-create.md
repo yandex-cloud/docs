@@ -65,7 +65,11 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
 
    
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+   1. Under **Network settings**, select:
+      * Cloud network for the cluster.
+      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+
+         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
    1. Under **Hosts**:
@@ -102,7 +106,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       yc vpc subnet list
       ```
 
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
    1. View a description of the CLI's create cluster command:
@@ -139,7 +143,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       ```
 
 
-      The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -242,9 +246,9 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
-   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-   * The cluster name in the `name` parameter.
+   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
+   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
+   * Cluster name in the `name` parameter.
          * Security group identifiers, in the `securityGroupIds` parameter.
    * The `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
 

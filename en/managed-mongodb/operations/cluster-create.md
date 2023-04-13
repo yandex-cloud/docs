@@ -57,6 +57,8 @@
       * Cloud network for the cluster.
       * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
+         {% include [preview-pp](../../_includes/preview-pp.md) %}
+
 
    1. Under **Hosts**, add the DB hosts created with the cluster:
 
@@ -96,7 +98,7 @@
       yc vpc subnet list
       ```
 
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
    1. View a description of the CLI's create cluster command:
@@ -122,7 +124,7 @@
          --deletion-protection=<deletion protection for the cluster: true or false>
       ```
 
-      The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -137,7 +139,7 @@
 
    To create a cluster:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * Database cluster: Description of the cluster and its hosts.
 
@@ -145,7 +147,7 @@
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       
       
@@ -228,23 +230,23 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
+   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
 
-   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-   * The cluster name in the `name` parameter.
-   * The environment of the cluster, in the `environment` parameter.
-   * Network ID, in the `networkId` parameter.
-   * Cluster configuration, in the `configSpec` parameter.
-   * Configuration of the cluster's hosts, in one or more `hostSpecs` parameters.
-      * IDs of [security groups](../concepts/network.md#security-groups), in the parameter `securityGroupIds`.
-   * Database configuration, in one or more `databaseSpecs` parameters.
-   * User settings, in one or more `userSpecs` parameters.
+   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
+   * Cluster name in the `name` parameter.
+   * Cluster environment in the `environment` parameter.
+   * Network ID in the `networkId` parameter.
+   * Cluster configuration in the `configSpec` parameter.
+   * Configuration of the cluster's hosts in one or more `hostSpecs` parameters.
+      * IDs of [security groups](../concepts/network.md#security-groups) in the `securityGroupIds` parameter.
+   * Database configuration in one or more `databaseSpecs` parameters.
+   * User settings in one or more `userSpecs` parameters.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}

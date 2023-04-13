@@ -9,6 +9,8 @@ In the subnet the subcluster with master host will connect to, [set up an NAT ga
 
 ## Configure security groups {#change-security-groups}
 
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 {% note warning %}
 
 Security groups must be created and configured before creating a cluster. If the selected security groups don't have the required rules, {{ yandex-cloud }} disables cluster creation.
@@ -176,7 +178,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       yc vpc subnet list
       ```
 
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
 
 
    1. View a description of the CLI's create cluster command:
@@ -528,10 +530,10 @@ A cluster must include a subcluster with a master host and at least one subclust
 
 - API
 
-   To create a cluster, use the API [create](../api-ref/Cluster/create) method and pass the following in the request:
+   To create a cluster, use the [create](../api-ref/Cluster/create) API method and include the following in the request:
 
    * ID of the folder to host the cluster, in the `folderId` parameter.
-   * The cluster name in the `name` parameter.
+   * Cluster name in the `name` parameter.
    * Cluster configuration in the `configSpec` parameter, including:
       * [Image version](../concepts/environment.md), in the `configSpec.versionId` parameter.
 

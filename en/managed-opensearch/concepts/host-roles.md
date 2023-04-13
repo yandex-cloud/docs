@@ -8,11 +8,11 @@ Hosts with this role store one or more indexes and handle search, write, and ana
 
 {% note info %}
 
-There should be at least one host with the `DATA` role in the cluster. A single-host cluster doesn't guarantee fault tolerance.
+There should be at least one host with the `DATA` role in the cluster. A single-host cluster does not guarantee fault tolerance.
 
 {% endnote %}
 
-To ensure fault tolerance, you can't create a cluster that only has two hosts with the `DATA` role. To make your cluster fault-tolerant, add an `OPENSEARCH` host group with the `MANAGER` role.
+To ensure fault tolerance, you cannot create a cluster that only has two hosts with the `DATA` role. To make your cluster fault-tolerant, add an `{{ OS }}` host group with the `MANAGER` role.
 
 ## Hosts with the MANAGER role {#manager}
 

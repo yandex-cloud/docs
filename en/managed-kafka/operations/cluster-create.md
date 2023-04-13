@@ -68,6 +68,8 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       1. Select security groups to control the cluster's network traffic.
 
+         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
       1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
 
@@ -197,7 +199,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * {{ KF }} cluster: Description of a cluster and its hosts. If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
+      * {{ KF }} cluster: Description of a cluster and its hosts. If required, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
 
       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -284,11 +286,11 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
+   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
 
-   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-   * The cluster name in the `name` parameter.
-         * Security group identifiers, in the `securityGroupIds` parameter.
+   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
+   * Cluster name in the `name` parameter.
+         * Security group identifiers in the `securityGroupIds` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 

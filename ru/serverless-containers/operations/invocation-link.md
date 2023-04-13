@@ -32,6 +32,6 @@
 
 - API
 
-  Получить ссылку для вызова контейнера можно с помощью метода API [get](../containers/api-ref/Container/get.md).
+  Чтобы получить ссылку для вызова контейнера, воспользуйтесь методом REST API [get](../containers/api-ref/Container/get.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Get](../containers/api-ref/grpc/container_service.md#Get).
 
 {% endlist %}

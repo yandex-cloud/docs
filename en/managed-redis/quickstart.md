@@ -9,10 +9,10 @@ To get started with the service:
 1. [Connect to the cluster](#connect).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-1. If you don't have a folder yet, create one:
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
@@ -40,7 +40,9 @@ To get started with the service:
    {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
 
-1. [Configure security groups](operations/connect/index.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+1. If you are using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+
+   {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
 1. Connect to the cluster using `redis-cli`.

@@ -43,10 +43,6 @@
     * `--memory` — требуемая память. По умолчанию — 128 МБ.
     * `--environment` — переменные окружения в формате `key=value`. Можно указать несколько пар через запятую.
 
-- API
-
-  Добавить переменную окружения в ревизию контейнера можно с помощью метода API [deployRevision](../containers/api-ref/Container/deployRevision.md).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -107,6 +103,10 @@
   ```
   yc serverless container revision get <идентификатор_ревизии>
   ```
+
+- API
+
+  Чтобы добавить переменную окружения в ревизию контейнера, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision).
 
 {% endlist %}
 

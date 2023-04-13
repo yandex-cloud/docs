@@ -9,7 +9,7 @@ keywords:
 
 # Creating a {{ OS }} cluster
 
-A {{ mos-name }} cluster is a group of multiple linked {{ OS }} hosts and [Dashboards]({{ os.docs }}/dashboards/index/). A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
+A {{ mos-name }} cluster is a group of multiple linked {{ OS }} and [Dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
 
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
@@ -17,7 +17,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 ## Creating a cluster {#create-cluster}
 
-When creating a cluster, parameters are specified separately for hosts with different roles: `DATA`, `MANAGER`, and `DASHBOARDS`.
+When creating a cluster, you need to specify individual parameters for each [host group](../concepts/host-groups.md).
 
 {% list tabs %}
 
@@ -38,13 +38,23 @@ When creating a cluster, parameters are specified separately for hosts with diff
          * `PRESTABLE`: For testing, including the {{ mos-full-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
       1. Select the {{ OS }} version.
-      1. Select the [plugins](plugins.md#supported-plugins) you want to be installed in the cluster.
+      1. Select the [plugins](../concepts/plugins.md#opensearch) you want to install in the cluster.
 
    
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
+   1. Under **Network settings**, select:
+      * Cloud network for the cluster.
+      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
+
+         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
-   1. Under **Resources**, configure hosts with the `DATA` [role](../concepts/host-roles.md#data) by opening the **Data node** tab:
+   1. Under **Virtual host group**, configure the [host group](../concepts/host-groups.md):
+
+      1. Select the host group type: `{{ OS }}` and `Dashboards`.
+
+      1. Enter a name for the host group, which must be unique within the cluster.
+
+      1. For the `{{ OS }}` host group, select a [host role](../concepts/host-roles.md).
 
       1. Select the platform, host type, and host class.
 
@@ -64,28 +74,11 @@ When creating a cluster, parameters are specified separately for hosts with diff
 
       {% note warning %}
 
-      After creating your cluster, you can only change the host configuration using the API. However, you can also create a new host group with a different configuration if needed.
+      Once you have created a cluster, you will not be able to change the **Public access** option for the host group. You can only change other configuration settings using the API. However, you can also create a new host group with a different configuration, if required.
 
       {% endnote %}
 
-   1. If necessary, configure hosts with the `MANAGER` and `DASHBOARDS` [roles](../concepts/host-roles.md#manager) by opening the **Manager node** or **Dashboards** tab, respectively:
-
-      1. Select the platform, host type, and host class.
-      1. Set up storage in the same way as for `DATA` hosts.
-      1. Specify how hosts should be distributed across availability zones and subnets.
-      1. Select the number of hosts to create.
-
-      
-      1. Enable **Public access** if you want to allow [connecting](connect.md) to hosts over the internet.
-
-         {% note tip %}
-
-         It's not recommended to enable public access for hosts with the `MANAGER` role, because this might be unsafe.
-
-         {% endnote %}
-
-         {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
-
+   1. To create another host group, click **Add virtual host group** and set up its configuration.
 
    1. Under **Service settings**:
 
@@ -97,24 +90,27 @@ When creating a cluster, parameters are specified separately for hosts with diff
 
          {% include [Extra settings](../../_includes/mdb/mos/extra-settings.md) %}
 
-   1. Click **Create**.
+   1. Click **Create cluster**.
 
 - API
 
-   To create a cluster, use the API [create](../api-ref/Cluster/create.md) method and pass the following in the request:
+   To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and include the following in the request:
 
-   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-   * The cluster name in the `name` parameter.
-   * The {{ OS }} version in the `configSpec.version` parameter.
-   * The `admin` user password in the `configSpec.adminPassword` parameter.
-   * Configuration of one or more groups of hosts with the `DATA` and `MANAGER` (optional) [roles](../concepts/host-roles.md) in the `configSpec.opensearchSpec.nodeGroups` parameter.
-   * Configuration of one or more groups of hosts with the `DASHBOARDS` [role](../concepts/host-roles.md#dashboards) in the `configSpec.dashboardsSpec.nodeGroups` parameter.
-   * The list of plugins in the `configSpec.opensearchSpec.plugins` parameter.
+   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
+   * Cluster name in the `name` parameter.
+   * {{ OS }} version in the `configSpec.version` parameter.
+   * `admin` user password in the `configSpec.adminPassword` parameter.
+   * Configuration of one or more [host groups](../concepts/host-groups.md) with the `DATA` and `MANAGER` (optional) [roles](../concepts/host-roles.md) in the `configSpec.opensearchSpec.nodeGroups` parameter.
+   * Configuration of one or more [host groups](../concepts/host-groups.md) with the `DASHBOARDS` [role](../concepts/host-roles.md#dashboards) in the `configSpec.dashboardsSpec.nodeGroups` parameter.
+   * List of [plugins](../concepts/plugins.md#opensearch) in the `configSpec.opensearchSpec.plugins` parameter.
    * Settings for access from other services in the `configSpec.access` parameter.
-   * Network ID, in the `networkId` parameter.
+   * Network ID in the `networkId` parameter.
 
    
    * Security group identifiers, in the `securityGroupIds` parameter. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
+
+      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
    * ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
 
 

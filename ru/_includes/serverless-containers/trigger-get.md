@@ -44,6 +44,6 @@
 
 - API
 
-  Получить информацию о триггере можно с помощью метода API [get](../../serverless-containers/triggers/api-ref/Trigger/get.md).
+  Чтобы получить информацию о триггере, воспользуйтесь методом REST API [get](../../serverless-containers/triggers/api-ref/Trigger/get.md) для ресурса [Trigger](../../serverless-containers/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Get](../../serverless-containers/triggers/api-ref/grpc/trigger_service.md#Get).
 
 {% endlist %}

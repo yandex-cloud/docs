@@ -41,6 +41,10 @@ items:
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

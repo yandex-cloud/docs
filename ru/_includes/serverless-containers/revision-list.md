@@ -34,6 +34,6 @@
 
 - API
 
-  Получить список ревизий контейнера можно с помощью метода API [listRevisions](../../serverless-containers/containers/api-ref/Container/listRevisions.md).
+  Чтобы получить список ревизий контейнера, воспользуйтесь методом REST API [listRevisions](../../serverless-containers/containers/api-ref/Container/listRevisions.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/ListRevisions](../../serverless-containers/containers/api-ref/grpc/container_service.md#ListRevisions).
 
 {% endlist %}

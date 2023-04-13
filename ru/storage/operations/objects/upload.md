@@ -59,7 +59,7 @@
      * `<имя_бакета>` — имя вашего бакета.
      * `<префикс>` — идентификатор папки в хранилище, описан в разделе [{#T}](../../concepts/object.md#folder).
 
-  Команда `aws s3 cp` — высокоуровневая, ее функциональность ограничена. Подробнее см. в [справочнике AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html). Все возможности загрузки, которые поддерживаются в {{ objstorage-name }}, можно использовать при выполнении команды [aws s3api put-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html) (см. [ниже](#w-object-lock) примеры работы с [блокировками](../../concepts/object-lock.md)).
+  Команда `aws s3 cp` — высокоуровневая, ее функциональность ограничена. Подробнее см. в [справочнике AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). Все возможности загрузки, которые поддерживаются в {{ objstorage-name }}, можно использовать при выполнении команды [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) (см. [ниже](#w-object-lock) примеры работы с [блокировками](../../concepts/object-lock.md)).
 
 - {{ TF }}
 

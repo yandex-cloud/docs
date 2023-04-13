@@ -36,4 +36,4 @@
 [**Синтез речи**](../speechkit/tts/index.md) |
 Максимальный размер запроса REST | 5000 символов
 Максимальный размер запроса gRPC | {{ tts-v3-count }} и {{ tts-v3-time }}
-
+Максимальный размер запроса gRPC в режиме [unsafe](../speechkit/tts-v3/api-ref/grpc/tts_service#UtteranceSynthesisRequest) | 5000 символов

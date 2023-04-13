@@ -118,7 +118,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Host class ID in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
    * List of settings to update (`configSpec.resources.resourcePresetId` in this case) in the `updateMask` parameter.
 
@@ -140,7 +140,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 - Management console
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. Go to the folder page and select **{{ mpg-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
@@ -153,9 +153,9 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -170,7 +170,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 - {{ TF }}
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -204,9 +204,9 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 - API
 
-   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.resources.diskSize` parameter.
    * List of settings to update (`configSpec.resources.diskSize` in this case) in the `updateMask` parameter.
 
@@ -220,7 +220,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 {% note warning %}
 
-* You can't change {{ PG }} settings using SQL commands.
+* You cannot change {{ PG }} settings using SQL commands.
 * Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
 
 {% endnote %}
@@ -305,7 +305,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required setting values in the `configSpec.postgresqlConfig_<{{ PG }} version>` parameter.
    * List of settings to update in the `updateMask` parameter.
 
@@ -339,7 +339,7 @@ You can change the DBMS settings of the hosts in your cluster.
       {{ yc-mdb-pg }} cluster update --help
       ```
 
-   1. Run the command with a list of settings to update:
+   1. Run the following command with a list of settings to update:
 
       
       ```bash
@@ -370,11 +370,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   
+  
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
-
    
-   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }} documentation](../../functions/operations/database-connection.md).
+   
+   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
 
@@ -424,7 +424,7 @@ You can change the DBMS settings of the hosts in your cluster.
         config {
           access {
             data_lens = <access from DataLens: true or false>
-            web_sql   = <executing SQL queries from the management console: true or false>
+            web_sql   = <execution of queries from the management console: true or false>
             ...
         }
         ...
@@ -477,7 +477,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Settings for access from other services  and access to SQL queries from the management console  in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
@@ -616,8 +616,8 @@ To switch the master:
 
    Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The ID of the destination folder in the `destinationFolderId` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * ID of the destination folder in the `destinationFolderId parameter`.
 
 {% endlist %}
 
@@ -690,9 +690,9 @@ After the cluster is moved, it will continue using the cloud network from the so
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The list of security group IDs in the `securityGroupIds` parameter.
-   * List of settings to update (`securityGroupIds` in this case) in the `updateMask` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * List of security group IDs in the `securityGroupIds` parameter.
+   * List of settings to update (in this case, `securityGroupIds`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -700,7 +700,7 @@ After the cluster is moved, it will continue using the cloud network from the so
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster (the functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
 
 {% endnote %}
 

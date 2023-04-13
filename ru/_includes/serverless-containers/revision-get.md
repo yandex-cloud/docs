@@ -40,7 +40,6 @@
 
 - API
 
-  Получить информацию о ревизии контейнера можно с помощью метода API [getRevision](../../serverless-containers/containers/api-ref/Container/getRevision.md).
-
+  Чтобы получить информацию о ревизии контейнера, воспользуйтесь методом REST API [getRevision](../../serverless-containers/containers/api-ref/Container/getRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/GetRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#GetRevision).
 
 {% endlist %}

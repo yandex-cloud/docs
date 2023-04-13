@@ -155,6 +155,8 @@ items:
         items:
           - name: AWS SDK для Java
             href: tools/aws-sdk-java.md
+          - name: AWS SDK для JavaScript
+            href: tools/aws-sdk-js.md
           - name: Python SDK (boto)
             href: tools/boto.md
           - name: AWS SDK для .NET
@@ -223,6 +225,12 @@ items:
                     href: s3/api-ref/bucket/putobjectlockconfiguration.md
                   - name: getObjectLockConfiguration
                     href: s3/api-ref/bucket/getobjectlockconfiguration.md
+                  - name: putBucketTagging
+                    href: s3/api-ref/bucket/putbuckettagging.md
+                  - name: getBucketTagging
+                    href: s3/api-ref/bucket/getbuckettagging.md
+                  - name: deleteBucketTagging
+                    href: s3/api-ref/bucket/deletebuckettagging.md
               - name: Object
                 items:
                   - name: Все методы

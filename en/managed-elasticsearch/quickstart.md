@@ -13,11 +13,11 @@ To get started with the service:
 1. [{#T}](#connect-kibana).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or register if you haven't yet.
 
-1. If you don't have a folder yet, create one:
+1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
@@ -46,7 +46,7 @@ These instructions assume that you're connecting to the cluster from the interne
    1. Select **Public access**.
    1. Click **Save**.
 
-   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. You may also need to [set up security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster.
+   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. To connect to the cluster, you may also need to [set up security groups](operations/cluster-connect.md#configuring-security-groups) (this feature is in the [Preview](../overview/concepts/launch-stages.md) stage).
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
@@ -56,7 +56,9 @@ These instructions assume that you're connecting to the cluster from the interne
 
 ## Configure security groups {#configuring-security-groups}
 
-[Configure security groups](operations/cluster-connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+{% include [preview-pp.md](../_includes/preview-pp.md) %}
+
+If you are using security groups for a cloud network, [configure them](operations/cluster-connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
 
 ## Connect to the cluster {#connect}

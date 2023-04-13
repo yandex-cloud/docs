@@ -17,6 +17,8 @@ For more information, see [{#T}](../concepts/network.md).
 
 ## Configuring security groups {#configure-security-groups}
 
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Settings of rules depend on the connection method you select:

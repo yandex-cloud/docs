@@ -16,7 +16,7 @@ You can delete an {{ OS }} cluster if you no longer need it. All data in the clu
 * [Disable deletion protection](update.md) for the cluster if it is enabled.
 * [Save the cluster ID](cluster-list.md#list-clusters).
 
-   {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
 ## Deleting a cluster {#delete}
 

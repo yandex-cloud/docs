@@ -160,7 +160,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         --deletion-protection=<protection from cluster deletion: true or false>
       ```
 
-      The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -327,10 +327,10 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
            ...
            access {
-             data_lens  = <access from DataLens: true or false>
-             metrika    = <access from Metrica and AppMetrika: true or false>
-             serverless = <access from Cloud Functions: true or false>
-             web_sql    = <executing SQL queries from the management console: true or false>
+             data_lens  = <Access from DataLens: true or false>
+             metrika    = <Access from Metrica and AppMetrika: true or false>
+             serverless = <Access from Cloud Functions: true or false>
+             web_sql    = <Executing SQL queries from the management console: true or false>
            }
            ...
          }
@@ -362,13 +362,13 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 - API
 
-   Use the [create](../api-ref/Cluster/create) API method and pass the following information in the request:
-   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-   * The cluster name in the `name` parameter.
-   * The environment of the cluster, in the `environment` parameter.
-   * Cluster configuration, in the `configSpec` parameter.
+   Use the [create](../api-ref/Cluster/create) API method and include the following information in the request:
+   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
+   * Cluster name in the `name` parameter.
+   * Cluster environment in the `environment` parameter.
+   * Cluster configuration in the `configSpec` parameter.
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-   * Network ID, in the `networkId` parameter.
+   * Network ID in the `networkId` parameter.
 
    
    * Security group identifiers, in the `securityGroupIds` parameter.

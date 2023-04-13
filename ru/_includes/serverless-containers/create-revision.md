@@ -59,10 +59,6 @@
 	status: ACTIVE
 	```
 
-- API
-
-  Создать ревизию контейнера можно с помощью метода API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -122,5 +118,9 @@
      ```
      yc serverless container revision list
      ```
+
+- API
+
+  Чтобы создать ревизию контейнера, воспользуйтесь методом REST API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#DeployRevision).
 
 {% endlist %}

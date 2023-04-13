@@ -104,7 +104,7 @@
 
      * В `{{ region-id }}-a`:
 
-       ```
+       ```bash
        yc vpc subnet create canary-subnet-{{ region-id }}-a \
          --zone {{ region-id }}-a \
          --network-name canary-network \
@@ -126,7 +126,7 @@
 
      * В `{{ region-id }}-b`:
 
-       ```
+       ```bash
        yc vpc subnet create canary-subnet-{{ region-id }}-b \
          --zone {{ region-id }}-b \
          --network-name canary-network \
@@ -148,7 +148,7 @@
 
      * В `{{ region-id }}-c`:
 
-       ```
+       ```bash
        yc vpc subnet create canary-subnet-{{ region-id }}-c \
          --zone {{ region-id }}-c \
          --network-name canary-network \
@@ -176,7 +176,7 @@
 
   1. Опишите в конфигурационном файле параметры сети `canary-network` и ее подсетей `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-c`:
 
-     ```
+     ```hcl
      resource "yandex_vpc_network" "canary-network" {
        name = "canary-network"
      }
@@ -282,7 +282,7 @@
 
   1. Добавьте в конфигурационный файл параметры бакетов `canary-bucket-blue` и `canary-bucket-green`:
 
-     ```
+     ```hcl
      ...
 
      resource "yandex_storage_bucket" "canary-bucket-blue" {
@@ -405,7 +405,7 @@
 
      1. Добавьте в конфигурационный файл параметры файлов `v1/index.html` и `v2/index.html`, загружаемых в бакеты `canary-bucket-blue` и `canary-bucket-green` соответственно:
 
-        ```
+        ```hcl
         ...
 
         resource "yandex_storage_object" "canary-bucket-blue-index" {
@@ -556,7 +556,7 @@
 
   1. Добавьте в конфигурационный файл параметры группы безопасности `canary-sg`:
 
-     ```
+     ```hcl
      resource "yandex_vpc_security_group" "canary-sg" {
        name       = "canary-sg"
        network_id = yandex_vpc_network.canary-network.id
@@ -795,7 +795,7 @@
 
   1. Добавьте в конфигурационный файл параметры HTTP-роутера `canary-router`, его виртуальных хостов и маршрутов:
 
-     ```
+     ```hcl
      ...
 
      resource "yandex_alb_http_router" "canary-router" {
@@ -811,7 +811,7 @@
          name = "canary-route-production"
          http_route {
            http_route_action {
-             backend_group_id = "<идентификатор группы бэкендов canary-bg-production>"
+             backend_group_id = "<идентификатор_группы_бэкендов_canary-bg-production>"
            }
          }
        }  
@@ -826,7 +826,7 @@
          name = "canary-route-staging"
          http_route {
            http_route_action {
-             backend_group_id = "<идентификатор группы бэкендов canary-bg-staging>"
+             backend_group_id = "<идентификатор_группы_бэкендов_canary-bg-staging>"
            }
          }
        }  
@@ -930,10 +930,10 @@
      ```bash
      yc alb load-balancer create canary-balancer \
        --network-name canary-network \
-       --security-group-id <идентификатор группы безопасности canary-sg> \
-       --location zone={{ region-id }}-a,subnet-id=<идентификатор подсети canary-subnet-{{ region-id }}-a> \
-       --location zone={{ region-id }}-b,subnet-id=<идентификатор подсети canary-subnet-{{ region-id }}-b> \
-       --location zone={{ region-id }}-c,subnet-id=<идентификатор подсети canary-subnet-{{ region-id }}-c>
+       --security-group-id <идентификатор_группы_безопасности_canary-sg> \
+       --location zone={{ region-id }}-a,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-a> \
+       --location zone={{ region-id }}-b,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-b> \
+       --location zone={{ region-id }}-c,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-c>
      ```
 
      Результат:
@@ -1013,7 +1013,7 @@
 
   1. Добавьте в конфигурационный файл параметры L7-балансировщика `canary-balancer`:
 
-     ```
+     ```hcl
      ...
 
      resource "yandex_alb_load_balancer" "canary-balancer" {
@@ -1131,17 +1131,20 @@
 - CLI
 
   1. Если CDN-провайдер ещё не активирован, выполните команду:
-      ```
-      yc cdn provider activate --folder-id <идентификатор каталога> --type gcore
+      
+      ```bash
+      yc cdn provider activate --folder-id <идентификатор_каталога> --type gcore
       ```
 
   1. Создайте группу источников `canary-origin-group`, указав IP-адрес балансировщика:
+      
       ```bash
       yc cdn origin-group create --name "canary-origin-group" \
-        --origin source=<IP-адрес балансировщика>:80,enabled=true
+        --origin source=<IP-адрес_балансировщика>:80,enabled=true
       ```
 
       Результат:
+      
       ```
       id: "90748"
       folder_id: b1geoelk7fldts6chmjq
@@ -1162,14 +1165,15 @@
       ```bash
       yc cdn resource create \
         --cname cdn.yandexcloud.example \
-        --origin-group-id <идентификатор группы источников> \
+        --origin-group-id <идентификатор_группы_источников> \
         --secondary-hostnames cdn-staging.yandexcloud.example \
         --origin-protocol http \
-        --redirect-http-to-https \
+        --lets-encrypt-gcore-ssl-cert \
         --forward-host-header
       ```
 
       Результат:
+      
       ```
       id: bc843k2yinvq5fhgvuvc
       folder_id: b1ge1elk72ldts6chmjq
@@ -1185,9 +1189,16 @@
 
       Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/resource/create.md).
 
+  1. Включите переадресацию клиентов для ресурса:
+
+     ```bash
+     yc cdn resource update <ID_ресурса> --redirect-http-to-https
+     ```
+
 - {{ TF }}
 
   1. Добавьте в конфигурационный файл параметры CDN-ресурсов:
+      
       ```hcl
       ...
 
@@ -1195,7 +1206,7 @@
         name     = "canary-origin-group"
         use_next = true
         origin {
-         source = "<IP-адрес балансировщика>:80"
+         source = "<IP-адрес_балансировщика>:80"
          backup = false
         }
       }
@@ -1207,6 +1218,9 @@
           origin_protocol     = "http"
           secondary_hostnames = ["cdn-staging.yandexcloud.example"]
           origin_group_id     = yandex_cdn_origin_group.my_group.id
+          ssl_certificate {
+            type = "lets_encrypt_gcore"
+          }
           options {
               edge_cache_settings    = "345600"
               browser_cache_settings = "1800"
@@ -1224,7 +1238,7 @@
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
@@ -1234,13 +1248,40 @@
 
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+  1. Включите переадресацию клиентов для ресурса. Добавьте в начало блока `options` для CDN-ресурса следующее поле:
+
+      ```hcl
+      ...
+      options {
+        redirect_https_to_http = true
+      ...
+      ```
+
+  1. Выполните проверку с помощью команды:
+
+      ```bash
+      terraform plan
+      ```
+
+     Если конфигурация описана верно, в терминале отобразится список обновляемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+  
+  1. Если ошибок нет, выполните команду:
+
+      ```bash
+      terraform apply
+      ```
+
+  1. Подтвердите обновление ресурса: введите в терминал слово `yes` и нажмите **Enter**.
+      
+  После этого для ресурса будет включена переадресация.
 
 - API
 
@@ -1355,14 +1396,14 @@
           zone_id = ${yandex_dns_zone.canary-dns-zone.id}
           name    = "cdn"
           type    = "CNAME"
-          data    = ["<скопированное значение вида cl-....edgecdn.ru>"]
+          data    = ["<скопированное_значение_вида_cl-....edgecdn.ru>"]
         }
 
         resource "yandex_dns_recordset" "canary-recordset-staging" {
           zone_id = ${yandex_dns_zone.canary-dns-zone.id}
           name    = "cdn-staging"
           type    = "CNAME"
-          data    = ["<скопированное значение вида cl-....edgecdn.ru>"]
+          data    = ["<скопированное_значение_вида_cl-....edgecdn.ru>"]
         }
         ```
 
@@ -1460,7 +1501,7 @@
 
         ```bash
         yc cdn cache purge \
-          --resource-id <идентификатор CDN-ресурса> \
+          --resource-id <идентификатор_CDN-ресурса> \
           --path "/index.html"
         ```
 
@@ -1549,7 +1590,7 @@
 
         ```bash
         yc cdn cache purge \
-          --resource-id <идентификатор CDN-ресурса> \
+          --resource-id <идентификатор_CDN-ресурса> \
           --path "/index.html"
         ```
 
@@ -1740,7 +1781,7 @@
 
         ```bash
         yc cdn cache purge \
-          --resource-id <идентификатор CDN-ресурса> \
+          --resource-id <идентификатор_CDN-ресурса> \
           --path "/index.html"
         ```
 

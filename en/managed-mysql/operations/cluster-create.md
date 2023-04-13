@@ -49,7 +49,11 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
          {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
    
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configure-security-groups) to connect to the cluster.
+   1. Under **Network settings**, select:
+      * Cloud network for the cluster.
+      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
    1. Under **Hosts**, select the parameters for the DB hosts created with the cluster: If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
@@ -85,7 +89,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
-   1. View a description of the CLI's create cluster command:
+   1. View a description of the CLI create cluster command:
 
       ```bash
       {{ yc-mdb-my }} cluster create --help
@@ -110,7 +114,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --security-group-ids <list of security group IDs>
       ```
 
-      The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
 
 
@@ -133,9 +137,9 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
+      Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
 
 - {{ TF }}
 
@@ -231,9 +235,33 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
-      
-      * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+            * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
+      * To set the backup start time, add the `backup_window_start` section to the {{ mmy-name }} cluster description:
+
+         ```hcl
+         resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+           ...
+           backup_window_start {
+             hours   = <backup start hour>
+             minutes = <backup start minute>
+           }
+           ...
+         }
+         ```
+
+      * To set the retention period for backup files, define the `backup_retain_period_days` parameter in the cluster description:
+
+         ```hcl
+           resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+             ...
+             backup_retain_period_days = <retention period for automatic backups (in days)>
+             ...
+
+           }
+         ```
+
+         Acceptable values are from `7` to `60`. The default value is `7`.
 
       * To set the backup start time, add the `backup_window_start` block to the {{ mmy-name }} cluster description:
 
@@ -317,7 +345,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    
    * Named `my-mysql`.
-   * Version `{{ versions.cli.latest }}`.
+   * Versions `{{ versions.cli.latest }}`.
    * In the `production` environment.
    * In the `default` network.
    * In the security group with the ID `{{ security-group }}`.
@@ -362,16 +390,16 @@ If you specified security group IDs when creating a cluster, you may also need t
    Create a {{ mmy-name }} cluster and a network for it with test characteristics:
 
    * Named `my-mysql`.
-   * Version `{{ versions.tf.latest }}`.
+   * Versions `{{ versions.tf.latest }}`.
    * In the `PRESTABLE` environment.
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
    * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-   * In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.
+      * In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
-   * With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`.
+   * With one `db1` database, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
    * With protection against accidental cluster deletion.
 
    The configuration file for the cluster looks like this:
