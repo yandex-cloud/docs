@@ -10,7 +10,7 @@
 
 ## Пример: простое приложение с эндпоинтом
 
-Следующее приложение имеет один эндпоинт: `GET: /get/{name}`. По `GET` запросу по адресу `/get` с указанным параметром пути функция вернет строку `Hello, $name`, где `$name` — переданный параметр пути.
+Следующее приложение имеет один эндпоинт: `GET: /get/{name}`. По `GET` запросу по адресу `/get` с указанным параметром пути функция вернет строку `Hello, $name`, где `$name` — переданный параметр пути. В примере используется [публичная](../../../operations/function/function-public.md) функция. Если ваша фукнция [приватная](../../../operations/function/function-private.md), укажите в спецификации API-шлюза сервисный аккаунт, у которого есть права на ее вызов.
 
 Файл `Application.java`:
 ```java
@@ -50,7 +50,6 @@ paths:
       x-yc-apigateway-integration:
         type: cloud-functions
         function_id: <id вашей функции>
-        service_account_id:  <id сервисного аккаунта с ролью functions.functionInvoker>
       operationId: get
       parameters:
       - description: my param
