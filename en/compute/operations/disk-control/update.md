@@ -50,13 +50,13 @@ To change the name and description of a disk:
 
 - API
 
-   You can change a disk name and description with the API [update](../../api-ref/Disk/update.md) method for the [Disk](../../api-ref/Disk/) resource.
+  To change the disk name or description, use the [update](../../api-ref/Disk/update.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Update](../../api-ref/grpc/disk_service.md#Update) gRPC API call.
 
-   Use the [list](../../api-ref/Disk/list.md) method for the [Disk](../../api-ref/Disk/) resource to retrieve a list of available disks.
+  To request the list of available disks, use the [list](../../api-ref/Disk/list.md) REST API method or the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API call.
 
 {% endlist %}
 
-## Increasing a disk's size {#change-disk-size}
+## Increasing disk size {#change-disk-size}
 
 {% note info %}
 
@@ -122,11 +122,11 @@ You can only increase the size of a disk that is not attached to a running VM. T
 
 - API
 
-   You can increase the disk size by using the API [update](../../api-ref/Disk/update.md) method for the [Disk](../../api-ref/Disk/) resource.
+  You can increase the disk size by using the [update](../../api-ref/Disk/update.md) REST API method for the [Disk](../../api-ref/Disk/) resource or the [DiskService/Update](../../api-ref/grpc/disk_service.md#Update) gRPC API call.
 
-   Use the [list](../../api-ref/Disk/list.md) method for the [Disk](../../api-ref/Disk/) resource to retrieve a list of available disks.
+  To request the list of available disks, use the [list](../../api-ref/Disk/list.md) REST API method or the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API call.
 
-   To stop or start a VM, use the [stop](../../api-ref/Instance/stop.md) and [start](../../api-ref/Instance/start.md) methods for the [Instance](../../api-ref/Instance/) resource.
+  To stop or start a VM, use the [stop](../../api-ref/Instance/stop.md) and [start](../../api-ref/Instance/start.md) methods for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Stop](../../api-ref/grpc/instance_service.md#Stop) and [InstanceService/Start](../../api-ref/grpc/instance_service.md#Start) gRPC API calls, respectively.
 
 {% endlist %}
 

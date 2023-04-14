@@ -48,6 +48,10 @@ To stop a VM:
       yc compute instance stop first-instance
       ```
 
+- API
+
+   Use the [stop](../../api-ref/Instance/stop.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Stop](../../api-ref/grpc/instance_service.md#Stop) gRPC API call.
+
 {% endlist %}
 
 ## Start {#start}
@@ -89,6 +93,10 @@ To start a VM:
       yc compute instance start first-instance
       ```
 
+- API
+
+   Use the [start](../../api-ref/Instance/start.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Start](../../api-ref/grpc/instance_service.md#Start) gRPC API call.
+
 {% endlist %}
 
 ## Restart {#restart}
@@ -129,5 +137,9 @@ To restart a VM:
       ```bash
       yc compute instance restart first-instance
       ```
+
+- API
+
+   Use the [restart](../../api-ref/Instance/restart.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Restart](../../api-ref/grpc/instance_service.md#Restart) gRPC API call.
 
 {% endlist %}

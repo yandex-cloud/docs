@@ -19,11 +19,11 @@ You can create an empty disk of the specified size.
    1. Select the desired disk type: `HDD`, `SSD`, or `Non-replicated SSD`.
    1. Select the proper block size (the minimum chunk used to store data on the disk). By default, the block size of all created disks is 4 KB, but that's not enough for disks larger than 8 TB.
    1. Specify the necessary disk size. The maximum disk size depends on the chosen block size.
-   1. If necessary, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
+   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-      When creating a disk, you can select only one snapshot schedule. If necessary, after the disk is created, you can add a few more schedules, according to the [instructions](../disk-control/configure-schedule.md#add-schedule).
+      When creating a disk, you can select only one snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).
 
    1. Click **Create disk**.
 
@@ -86,6 +86,10 @@ You can create an empty disk of the specified size.
           instance_ids:
           - fhm5b617fjnj44ovhcun
       ```
+
+- API
+
+   Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call.
 
 - {{ TF }}
 

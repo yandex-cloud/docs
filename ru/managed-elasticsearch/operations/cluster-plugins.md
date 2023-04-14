@@ -143,7 +143,7 @@
 
 * [repository-azure](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-azure.html)
 
-    Добавляет поддержку хранилища Azure Blob в качестве репозитория снапшотов.
+    Добавляет поддержку хранилища Azure Blob в качестве репозитория [снапшотов](https://cloud.yandex.ru/docs/glossary/snapshot).
 
 * [repository-gcs](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-gcs.html)
 

@@ -406,7 +406,7 @@ curl <имя_домена> -vv
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 1. [Удалите](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ k8s }}.
 1. [Удалите](../network-load-balancer/operations/load-balancer-delete.md) {{ network-load-balancer-short-name }}.

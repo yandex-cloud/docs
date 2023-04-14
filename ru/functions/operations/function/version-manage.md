@@ -81,10 +81,6 @@
     log_group_id: ckg3qh8h363p********
     ```
 
-- API
-
-    Создать версию функции можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
-
 - {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -165,6 +161,10 @@
     ```
     yc serverless function version list --function-name <имя функции>
     ```
+
+- API
+
+    Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
 
 - {{ yandex-cloud }} Toolkit
 

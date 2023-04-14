@@ -179,7 +179,7 @@ To create an automatically scaled instance group
 
 - API
 
-   Use the API [create](../../api-ref/InstanceGroup/create.md) method.
+  Use the [create](../../api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
 
 - {{ TF }}
 

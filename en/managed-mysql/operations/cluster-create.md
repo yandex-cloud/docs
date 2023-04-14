@@ -146,7 +146,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:

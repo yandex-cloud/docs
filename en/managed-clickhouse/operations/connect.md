@@ -11,7 +11,7 @@ You can connect to a cluster both using encryption via ports `{{ port-mch-cli }}
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -71,7 +71,7 @@ Security groups must be configured correctly for all subnets that will include c
 
 {% endnote %}
 
-For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
+For more information about security groups, see [DB network and clusters](../concepts/network.md#security-groups).
 
 
 ## Getting an SSL certificate {#get-ssl-cert}

@@ -246,7 +246,7 @@ To create an instance group with a network load balancer:
 
 - API
 
-   Use the API [create](../../api-ref/InstanceGroup/create.md) method.
+   Use the [create](../../api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
 
 - {{ TF }}
 
@@ -315,6 +315,29 @@ To create an instance group with a network load balancer:
         }
       }
 
+      resource "yandex_lb_network_load_balancer" "lb-1" {
+        name = "network-load-balancer-1"
+
+        listener {
+          name = "network-load-balancer-1-listener"
+          port = 80
+          external_address_spec {
+            ip_version = "ipv4"
+          }
+        }
+
+        attached_target_group {
+          target_group_id = yandex_compute_instance_group.ig-1.load_balancer.0.target_group_id
+
+          healthcheck {
+            name = "http"
+            http_options {
+              port = 80
+              path = "/index.html"
+            }
+          }
+        }
+
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
@@ -368,6 +391,7 @@ To create an instance group with a network load balancer:
 
       * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
       * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) the instance group will connect to.
+      * `yandex_lb_network_load_balancer`: Description of the [{{ network-load-balancer-name }} load balancer](../../../network-load-balancer/concepts/index.md) to attach the target group to.
 
          {% note info %}
 

@@ -48,10 +48,6 @@
     * `--source-version-id` — идентификатор версии функции, код которой вы хотите скопировать.
     * `--environment` — переменные окружения в формате `key=value`. Можно указать несколько пар через запятую.
 
-- API
-
-    Добавить переменные окружения можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
-
 - {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -115,6 +111,10 @@
     1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
       
     Проверить появление переменных окружения можно в [консоли управления]({{ link-console-main }}).
+
+- API
+
+    Чтобы добавить переменные окружения, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
 
 - {{ yandex-cloud }} Toolkit
 

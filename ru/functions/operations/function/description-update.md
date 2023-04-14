@@ -38,10 +38,6 @@
     status: ACTIVE
     ```
 
-- API
-
-    Изменить описание функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
-
 - {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -105,6 +101,10 @@
     ```
     yc serverless function get <имя_функции>|<идентификатор_функции>
     ```
+
+- API
+
+    Чтобы изменить описание функции, воспользуйтесь методом REST API [update](../../functions/api-ref/Function/update.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update).
 
 - {{ yandex-cloud }} Toolkit
 

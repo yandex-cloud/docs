@@ -284,7 +284,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 1. [Удалите инстанс {{ mgl-name }}](../managed-gitlab/operations/instance/instance-delete.md) или [созданную ВМ с образом {{ GL }}](../compute/operations/vm-control/vm-delete.md).
 1. [Удалите все Docker-образы](../container-registry/operations/docker-image/docker-image-delete.md) из реестра {{ container-registry-name }}.
 

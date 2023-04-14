@@ -1,10 +1,10 @@
-# Update an instance group
+# Updating an instance group
 
 After creating an instance group, you can:
 
-* [Changing the name and description](#change-name).
-* [To change computing resources](#change-compute-resources).
-* [Increasing the disk size](#change-disk-size).
+* [Change the name and description](#change-name).
+* [Change computing resources](#change-compute-resources).
+* [Increase the disk size](#change-disk-size).
 
 ## Changing the name and description {#change-name}
 
@@ -17,7 +17,7 @@ To change the name and description of an instance group:
    1. Open the folder page in the [management console]({{ link-console-main }}).
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
-   1. Click on the name of the group you want to update.
+   1. Click the name of the group you want to update.
    1. Click **Change** in the upper-right corner of the page.
    1. Enter the appropriate name and description for the group.
    1. Click **Save**.
@@ -39,7 +39,7 @@ To change the name and description of an instance group:
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
    1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
-   1. Specify the name and description in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file wasn't saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
+   1. Specify the name and description in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file was not saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
    1. Update the instance group in the default folder:
 
       ```
@@ -50,9 +50,9 @@ To change the name and description of an instance group:
 
 - API
 
-   You can change a group name and description using the API [update](../../api-ref/InstanceGroup/update.md) method.
+   You can change the name and description of an instance group by using the [update](../../api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update) gRPC API call.
 
-   To request a list of available groups, use the method [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
 
 {% endlist %}
 
@@ -60,8 +60,8 @@ To change the name and description of an instance group:
 
 After creating an instance group, you can change:
 
-* The guaranteed vCPU share.
-* The number of vCPUs and amount of RAM.
+* Guaranteed vCPU share.
+* Number of vCPUs and the amount of RAM.
 
 {% include [include](../../../_includes/instance-groups/update-stopped-group-disclaimer.md) %}
 
@@ -74,7 +74,7 @@ To change the computing resources of an instance group:
    1. Open the folder page in the [management console]({{ link-console-main }}).
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
-   1. Click on the name of the group you want to update.
+   1. Click the name of the group you want to update.
    1. Click **Change** in the upper-right corner of the page.
    1. Delete the current instance template and create a new one with the appropriate instance parameters.
    1. Click **Save**.
@@ -97,7 +97,7 @@ To change the computing resources of an instance group:
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
    1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
-   1. Specify the necessary instance parameters in the `resources_spec` key in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file wasn't saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
+   1. Specify the required instance parameters in the `resources_spec` key in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file was not saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
    1. Update the instance group in the default folder:
 
       ```
@@ -108,13 +108,13 @@ To change the computing resources of an instance group:
 
 - API
 
-   You can change the computing resources using the [update](../../api-ref/InstanceGroup/update.md).
+   You can change the computing resources by using the [update](../../api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update) gRPC API call.
 
-   To request a list of available groups, use the method [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
 
 {% endlist %}
 
-## Increasing a disk's size {#change-disk-size}
+## Increasing disk size {#change-disk-size}
 
 {% include [include](../../../_includes/instance-groups/update-stopped-group-disclaimer.md) %}
 
@@ -127,7 +127,7 @@ To increase the disk size of an instance group:
    1. Open the folder page in the [management console]({{ link-console-main }}).
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
-   1. Click on the name of the group you want to update.
+   1. Click the name of the group you want to update.
    1. Click **Change** in the upper-right corner of the page.
    1. Click ![image](../../../_assets/horizontal-ellipsis.svg) in the top right-hand corner of the **Virtual machine template** section and select **Edit**.
    1. Under **Disks**, specify the disk size:
@@ -151,7 +151,7 @@ To increase the disk size of an instance group:
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
    1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
-   1. Specify the required storage size in the `boot_disk_spec` key in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file wasn't saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
+   1. Specify the required storage size in the `boot_disk_spec` key in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file was not saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
    1. Update the instance group in the default folder:
 
       ```
@@ -162,9 +162,9 @@ To increase the disk size of an instance group:
 
 - API
 
-   You can change the disk size using the [update](../../api-ref/InstanceGroup/update.md).
+   You can change the disk size by using the [update](../../api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update) gRPC API call.
 
-   To request a list of available groups, use the method [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
 
 {% endlist %}
 

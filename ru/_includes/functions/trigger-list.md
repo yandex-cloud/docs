@@ -30,6 +30,6 @@
 
 - API
 
-    Получить список триггеров можно с помощью метода API [list](../../functions/triggers/api-ref/Trigger/list.md).
+  Чтобы получить список триггеров, воспользуйтесь методом REST API [list](../../functions/triggers/api-ref/Trigger/list.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/List](../../functions/triggers/api-ref/grpc/trigger_service.md#List).
 
 {% endlist %}

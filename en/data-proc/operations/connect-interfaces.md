@@ -10,6 +10,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 {% endnote %}
 
+Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+
+To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
+
 ### Enabling component interfaces {#ui-proxy-enable}
 
 {% list tabs %}
@@ -55,7 +59,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click on the name of the desired cluster.
+   1. Click the name of the cluster you need.
    1. Connection links for the component web interfaces can be found under **UI Proxy**.
 
 - CLI

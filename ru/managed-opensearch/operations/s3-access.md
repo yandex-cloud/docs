@@ -1,7 +1,7 @@
 # Настройка доступа к {{ objstorage-name }} из кластера {{ OS }}
 
 
-{{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов]({{ os.docs }}/opensearch/snapshot-restore/) {{ OS }}. Это позволяет использовать {{ objstorage-name }} для [хранения резервных копий](cluster-backups.md).
+{{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве репозитория [снапшотов](https://cloud.yandex.ru/docs/glossary/snapshot) {{ OS }}. Это позволяет использовать {{ objstorage-name }} для [хранения резервных копий](cluster-backups.md). Подробнее о репозитории снапшотов см. в [документации {{ OS }}]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
 
 
 Для доступа к данным в бакете {{ objstorage-name }} из кластера:
@@ -42,7 +42,7 @@
 
 {% note alert %}
 
-Если бакет зарегистрирован в кластере {{ OS }} как репозиторий снапшотов, не изменяйте содержимое бакета вручную — это нарушит работу механизма снапшотов {{ OS }}.
+Если бакет зарегистрирован в кластере {{ OS }} как репозиторий [снапшотов](https://cloud.yandex.ru/docs/glossary/snapshot), не изменяйте содержимое бакета вручную — это нарушит работу механизма снапшотов {{ OS }}.
 
 {% endnote %}
 

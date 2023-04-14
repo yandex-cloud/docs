@@ -37,10 +37,6 @@
     status: ACTIVE
     ```
 
-- API
-
-    Создать функцию можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
-
 - {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -140,6 +136,10 @@
        ```
        yc serverless function list
        ```
+
+- API
+
+    Чтобы создать функцию, воспользуйтесь методом REST API [create](../../functions/api-ref/Function/create.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/api-ref/grpc/function_service.md#Create).
 
 - {{ yandex-cloud }} Toolkit
 

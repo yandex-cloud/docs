@@ -106,11 +106,17 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ container-registry-full-name }} {#cr-roles}
 
+{% include [container-registry-viewer](../../../_includes/iam/roles/container-registry-viewer.md) %}
+
+{% include [container-registry-editor](../../../_includes/iam/roles/container-registry-editor.md) %}
+
 {% include [container-registry-admin](../../../_includes/iam/roles/container-registry-admin.md) %}
+
+{% include [container-registry-pusher](../../../_includes/iam/roles/container-registry-pusher.md) %}
 
 {% include [container-registry-puller](../../../_includes/iam/roles/container-registry-puller.md) %}
 
-{% include [container-registry-pusher](../../../_includes/iam/roles/container-registry-pusher.md) %}
+{% include [container-registry-images-scanner](../../../_includes/iam/roles/container-registry-images-scanner.md) %}
 
 ## Управляемые базы данных {#mdb-roles}
 

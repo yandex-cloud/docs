@@ -91,12 +91,12 @@ In addition to the cloud network in the default folder, you can create cloud net
 
    1. In the configuration file, describe the parameters of your cloud network:
 
-      * `name`: Name of the cloud network. Name format:
+      * `name`: Name of the cloud network. Use this name format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
       * `description`: Description of the cloud network.
-      * `labels`: Cloud network [labels](https://cloud.yandex.com/docs/overview/concepts/services#labels). Set a key-value pair.
+      * `labels`: Cloud network [labels](../../resource-manager/concepts/labels.md). Set a key-value pair.
 
       Example of the configuration file structure:
 
@@ -190,7 +190,7 @@ Create a cloud network with a name and description in the selected folder:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc network list

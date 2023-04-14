@@ -6,7 +6,7 @@
 
   Для чтения записей из потока данных используется пара методов: `get_shard_iterator` и `get_record/get_records`. При вызове этого метода необходимо указать следующие параметры:
   * Имя потока данных, например `example-stream`.
-  * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором находится поток, например `aoeu1kuj2dhtaupdb5es`.
+  * [Идентификатор облака](../../../resource-manager/operations/cloud/get-id.md), в котором находится поток, например `b1gi1kuj2dhtaupdb5es`.
   * Идентификатор базы данных {{ ydb-full-name }} с потоком, например `cc8028jgtuabcqutgtbv`.
 
   Для чтения записей из потока с параметрами, указанными выше:
@@ -17,10 +17,10 @@
      from pprint import pprint
      import itertools
     
-     def get_records(folder, database, stream_name):
+     def get_records(cloud, database, stream_name):
          client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
     
-         StreamName = "/{{ region-id }}/{folder}/{database}/{stream}".format(folder=folder,
+         StreamName = "/{{ region-id }}/{cloud}/{database}/{stream}".format(cloud=cloud,
                                                                       database=database,
                                                                       stream=stream_name)
     
@@ -46,7 +46,7 @@
     
     
      if __name__ == '__main__':
-         for record in get_records(folder="aoeu1kuj2dhtaupdb5es",
+         for record in get_records(cloud="b1gi1kuj2dhtaupdb5es",
                                    database="cc8028jgtuabcqutgtbv",
                                    stream_name="example-stream"):
              pprint(record)    

@@ -89,7 +89,7 @@
           `memory` | Количество памяти (RAM).
           `cores` | Количество ядер процессора (vCPU).
           `mode` | Режим доступа к диску.</br>- `READ_ONLY` — доступ на чтение.</br>- `READ_WRITE` — доступ на чтение и запись.
-          `image_id` | Идентификатор публичного образа. {% include [id-info](../../../_includes/compute/id-info.md) %}
+          `image_id` | Идентификатор публичного образа. Идентификаторы образа можно посмотреть в [консоли управления]({{ link-console-main }}) при создании ВМ или в [{{ marketplace-name }}](/marketplace) на странице образа в блоке **Идентификаторы продукта**.
           `type_id` | Тип диска.
           `size` | Размер диска.
           `network_id` | Идентификатор сети `default-net`.
@@ -163,10 +163,6 @@
       * В зоне доступности `{{ region-id }}-a`.
       * С 2 vCPU и 2 ГБ RAM.
       * С сетевым HDD-диском объемом 32 ГБ.
-
-- API
-
-  Воспользуйтесь методом REST API [create](../../api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create).
 
 - {{ TF }}
 
@@ -311,5 +307,9 @@
      1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+- API
+
+  Воспользуйтесь методом REST API [create](../../api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create).
 
 {% endlist %}

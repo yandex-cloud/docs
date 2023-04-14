@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
@@ -51,6 +51,12 @@ items:
         href: operations/cluster-delete.md
       - name: Working with logs
         href: operations/logging.md
+      - name: Monitoring the state of Spark applications
+        href: operations/spark-monitoring.md
+      - name: >-
+          Diagnostics and troubleshooting of Spark application performance
+          issues
+        href: operations/spark-diagnostics.md
       - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
   - name: Tutorials
@@ -103,6 +109,8 @@ items:
         href: concepts/interfaces.md
       - name: Jobs in {{ dataproc-name }}
         href: concepts/jobs.md
+      - name: Spark jobs
+        href: concepts/spark-sql.md
       - name: Automatic scaling
         href: concepts/autoscaling.md
       - name: Decommissioning subclusters and hosts

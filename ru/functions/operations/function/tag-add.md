@@ -35,10 +35,6 @@
     log_group_id: eolv6578frac08uh5h6s
     ```
 
-- API
-
-    Добавить тег можно с помощью метода API [setTag](../../functions/api-ref/Function/setTag.md).
-
 - {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -102,6 +98,10 @@
     ```
     yc serverless function version list --function-name <имя функции>
     ```
+
+- API
+
+    Чтобы добавить тег версии функции, воспользуйтесь методом REST API [setTag](../../functions/api-ref/Function/setTag.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetTag](../../functions/api-ref/grpc/function_service.md#SetTag).
 
 - {{ yandex-cloud }} Toolkit
 

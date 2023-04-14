@@ -54,7 +54,7 @@ To create a fixed-size instance group:
 
          | Key | Value |
          ----- | -----
-         | `name` | Name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters. |
+         | `name` | Name of the instance group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters. |
          | `service_account_id` | Service account ID. |
          | `description` | Description of the instance group. |
 
@@ -89,7 +89,7 @@ To create a fixed-size instance group:
          | `memory` | Amount of memory (RAM). |
          | `cores` | Number of processor cores (vCPUs). |
          | `mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access. |
-         | `image_id` | ID of the public. {% include [id-info](../../../_includes/compute/id-info.md) %} |
+         | `image_id` | ID of the public. You can view image IDs in the [management console]({{ link-console-main }}) when creating a VM or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**. |
          | `type_id` | Disk type. |
          | `size` | Disk size. |
          | `network_id` | The `default-net` ID. |
@@ -163,10 +163,6 @@ To create a fixed-size instance group:
       * In the `{{ region-id }}-a` availability zone.
       * With 2 vCPUs and 2 GB of RAM.
       * With a 32 GB network HDD.
-
-- API
-
-   Use the API [create](../../api-ref/InstanceGroup/create.md) method.
 
 - {{ TF }}
 
@@ -265,7 +261,7 @@ To create a fixed-size instance group:
             | Field | Description |
             ----- | -----
             | `platform_id` | [Platform](../../concepts/vm-platforms.md). |
-            | `resources` | The number of vCPU cores and the amount of RAM available to the instance. The values must match the selected [platform](../../concepts/vm-platforms.md). |
+            | `resources` | Number of vCPU cores and the amount of RAM available to the instance. The values must match the selected [platform](../../concepts/vm-platforms.md). |
             | `boot_disk` | Boot disk settings. Enter:</br>- The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).</br>-Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
             | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
             | `metadata` | In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
@@ -311,5 +307,9 @@ To create a fixed-size instance group:
       1. Confirm that you want to create the resources.
 
       Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+
+- API
+
+   Use the [create](../../api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
 
 {% endlist %}

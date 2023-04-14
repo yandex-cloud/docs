@@ -5,11 +5,12 @@ You can get the information that the VM outputs to the serial port. This can be 
 {% list tabs %}
 
 - Management console
-  1. Select the folder the VM belongs to.
-  1. Select **{{ compute-name }}**.
-  1. Click on the line with the VM you need.
-  1. Go to the **Serial port** tab.
-  1. To use the **Ctrl** + **F** keyboard shortcut to search, enable **Raw mode** in the upper-right corner.
+
+   1. Select the folder the VM belongs to.
+   1. Select **{{ compute-name }}**.
+   1. Click on the line with the VM you need.
+   1. Go to the **Serial port** tab.
+   1. To use the **CTRL**+**F **keyboard shortcut to search, enable **Raw mode** in the upper-right corner.
 
 - CLI
 
@@ -33,6 +34,6 @@ You can get the information that the VM outputs to the serial port. This can be 
 
 - API
 
-   To get the serial port output, use the [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) method for the [Instance](../../api-ref/Instance/index.md) resource.
+   To get the serial port output, use the [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/GetSerialPortOutput](../../api-ref/grpc/instance_service.md#GetSerialPortOutput) gRPC API call.
 
 {% endlist %}

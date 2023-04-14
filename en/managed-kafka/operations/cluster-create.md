@@ -66,7 +66,9 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
          {% endnote %}
 
-      1. Select security groups to control the cluster's network traffic.
+      1. Select [security groups](../../vpc/concepts/security-groups.md) for the cluster's network traffic.
+
+         {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
          {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
@@ -192,7 +194,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -278,7 +280,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there and their settings are correct, using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 

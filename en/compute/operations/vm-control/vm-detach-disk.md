@@ -10,7 +10,7 @@ You cannot detach a boot disk from a VM. You cannot detach a local disk from a V
 {% endnote %}
 
 
-For a disk to be successfully detached from a running VM, the operating system must be ready to accept commands to detach disks. Before detaching a disk, make sure that the OS is loaded or stop the VM, otherwise the detach disk operation fails. If an error occurs, stop the VM and repeat the operation.
+For a disk to be successfully detached from a running VM, the operating system must be ready to accept commands to detach disks. Before detaching a disk, make sure that the OS is loaded or stop the VM, otherwise the detach disk operation fails. If an error occurs, stop the VM and try again.
 
 To detach a disk from a VM:
 
@@ -73,6 +73,6 @@ To detach a disk from a VM:
 
 - API
 
-   Use the [detachDisk](../../api-ref/Instance/detachDisk.md) method for the [Instance](../../api-ref/Instance/) resource.
+   Use the [detachDisk](../../api-ref/Instance/detachDisk.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/DetachDisk](../../api-ref/grpc/instance_service.md#DetachDisk) gRPC API call.
 
 {% endlist %}

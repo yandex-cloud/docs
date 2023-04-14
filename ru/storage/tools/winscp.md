@@ -9,7 +9,7 @@ keywords:
 
 # WinSCP
 
-WinSCP — это графический клиент к сетевым хранилищам для Windows.
+[WinSCP](https://winscp.net/eng/docs/lang:ru) — это графический клиент для работы с облачными хранилищами, в том числе совместимыми с [Amazon S3 API](../../glossary/s3.md), на Windows.
 
 {% note info %}
 
@@ -19,23 +19,30 @@ WinSCP — это графический клиент к сетевым хран
 
 ## Подготовка к работе {#before-you-begin}
 
-{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
+{% include [aws-tools-prepare-with-bucket](../../_includes/aws-tools/aws-tools-prepare-with-bucket.md) %}
 
 ## Установка {#installation}
 
-Для установки WinSCP перейдите на [сайт производителя](https://winscp.net) и скачайте необходимый дистрибутив.
+[Скачайте](https://winscp.net/eng/download.php) дистрибутив WinSCP и запустите его.
 
 ## Подключение {#connection}
 
-Создайте соединение со следующими параметрами:
+1. Запустите WinSCP.
+1. На вкладке **Sessions** выберите **New Session...**.
+1. В блоке **Sessions** укажите следующие параметры:
+    * **File protocol** — **Amazon S3**.
+    * **Host name** — `{{ s3-storage-host }}`.
+    * **Port number** — `443`.
+    * **Access key ID** — идентификатор статического ключа, полученный ранее.
+    * **Secret access key** — секретный ключ, полученный ранее.
+1. Нажмите кнопку **Login**.
 
-  - Протокол передачи: `Amazon S3`.
-  - Имя хоста: `{{ s3-storage-host }}`.
-  - Идентификатор ключа доступа: идентификатор ключа, который вы получили при генерации статического ключа.
-  - Секретный ключ доступа: ключ, который вы получили при генерации статического ключа.
+После подключения на панели справа появится бакет, созданный ранее.
 
 {% note info %}
 
-WinSCP работает с {{ objstorage-name }} как с иерархической файловой системой. Это значит, что ключи объектов, загруженных через WinSCP, будут иметь вид пути к файлу. Например, `prefix/subprefix/picture.jpg`.
+WinSCP работает с {{ objstorage-name }} как с иерархической файловой системой. Это значит, что ключи объектов, загруженных через WinSCP, будут иметь вид пути к файлу, например `prefix/subprefix/picture.jpg`.
 
 {% endnote %}
+
+Подробности о работе WinSCP с S3-совместимыми хранилищами см. в [документации WinSCP](https://winscp.net/eng/docs/guide_amazon_s3#buckets).

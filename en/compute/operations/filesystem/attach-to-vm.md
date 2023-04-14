@@ -21,14 +21,14 @@
 
    - API
 
-      Use the [InstanceService/AttachFilesystem](../../api-ref/grpc/instance_service.md#AttachFilesystem) gRPC API method or the [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) method of the REST API Instance resource.
+     Use the [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/AttachFilesystem](../../api-ref/grpc/instance_service.md#AttachFilesystem) gRPC API call.
 
    {% endlist %}
 
 1. Mount file storage to the VM:
 
    1. [Connect to the VM via SSH](../vm-connect/ssh.md).
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       sudo mount -t virtiofs <device name> <mount path>

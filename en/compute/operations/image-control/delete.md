@@ -44,13 +44,17 @@ To delete an image:
         --name first-image
       ```
 
+- API
+
+   Use the [delete](../../api-ref/Image/delete.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Delete](../../api-ref/grpc/image_service.md#Delete) gRPC API call.
+
 - {{ TF }}
 
    For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    Images created using {{ TF }} can be deleted:
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Delete resources using the command:
+   1. Delete the resources using this command:
 
       ```bash
       terraform destroy
@@ -62,6 +66,6 @@ To delete an image:
 
       {% endnote %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
 {% endlist %}

@@ -47,6 +47,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
          {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
+      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
 
    1. Under **Virtual host group**, configure the [host group](../concepts/host-groups.md):
 

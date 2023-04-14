@@ -91,12 +91,12 @@ To interrupt automatic [scheduled](../../concepts/snapshot.md) creation of [disk
 
 - API
 
-   1. Retrieve a list of schedules using the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API method or the [list](../../api-ref/SnapshotSchedule/list.md) method for the REST API `SnapshotSchedule` resource.
-   1. Interrupt a snapshot schedule using the [SnapshotScheduleService/Disable](../../api-ref/grpc/snapshot_schedule_service.md#Disable) gRPC API method or the [disable](../../api-ref/SnapshotSchedule/disable.md) method for the REST API `SnapshotSchedule` resource.
+   1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API call.
+   1. Disable a snapshot schedule using the [disable](../../api-ref/SnapshotSchedule/disable.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Disable](../../api-ref/grpc/snapshot_schedule_service.md#Disable) gRPC API call.
 
 {% endlist %}
 
-The schedule [status](../../concepts/snapshot-schedule.md#statuses) changes to `INACTIVE` – disk snapshots won't be created or deleted.
+The schedule [status](../../concepts/snapshot-schedule.md#statuses) changes to `INACTIVE`– disk snapshots won't be created or deleted.
 
 All snapshot creation and deletion operations that started prior to interrupting the schedule will be completed.
 
@@ -190,8 +190,8 @@ To start automatic scheduled creation of disk snapshots:
 
 - API
 
-   1. Retrieve a list of schedules using the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API method or the [list](../../api-ref/SnapshotSchedule/list.md) method for the REST API `SnapshotSchedule` resource.
-   1. Start a snapshot schedule using the [SnapshotScheduleService/Enable](../../api-ref/grpc/snapshot_schedule_service.md#Enable) gRPC API method or the [enable](../../api-ref/SnapshotSchedule/enable.md) method for the REST API `SnapshotSchedule` resource.
+   1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API call.
+   1. Enable a snapshot schedule using the [enable](../../api-ref/SnapshotSchedule/enable.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Enable](../../api-ref/grpc/snapshot_schedule_service.md#Enable) gRPC API call.
 
 {% endlist %}
 

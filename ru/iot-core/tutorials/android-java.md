@@ -226,7 +226,7 @@ mqttAndroidClient.setCallback(new MqttCallback() {
 });
 ```
 
-Подпишитесь на топик с помощью следующего кода. В методе `subscribe` нужно указать топик, на который вы хотите подписаться, и уровень качества обслуживания.
+Подпишитесь на топик с помощью следующего кода. В методе `subscribe` нужно указать топик, на который вы хотите подписаться, и [уровень качества обслуживания](../../glossary/qos.md).
 
 ```java
 IMqttToken subToken = mqttAndroidClient.subscribe(topic, qos);

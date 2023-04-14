@@ -59,7 +59,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
-      * `platform`: The [platform](../../concepts/vm-platforms.md) ID:
+      * `platform`: [Platform](../../concepts/vm-platforms.md) ID:
          * `gpu-standard-v1` for {{ v100-broadwell }}.
          * `gpu-standard-v2` for {{ v100-cascade-lake }}.
          * `gpu-standard-v3` for {{ a100-epyc }}.
@@ -94,11 +94,11 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
 - API
 
-   To create a VM, use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+   To create a VM, use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```
@@ -150,7 +150,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
             * `gpu-standard-v2` for Intel Cascade Lake with NVIDIA® Tesla® V100.
             * `gpu-standard-v3` for AMD EPYC 7662 with NVIDIA® Ampere® A100.
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
-         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
             {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
@@ -162,7 +162,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       {% note info %}
 
-      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+      If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
 
       {% endnote %}
 
@@ -186,7 +186,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

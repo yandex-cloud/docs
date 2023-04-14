@@ -62,10 +62,10 @@
 
 - API
 
-    Получить подробную информацию о версии функции можно с помощью метода API [getVersion](../../functions/functions/api-ref/Function/getVersion.md).
+    Чтобы получить подробную информацию о версии функции, воспользуйтесь методом REST API [getVersion](../../functions/functions/api-ref/Function/getVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/GetVersion](../../functions/functions/api-ref/grpc/function_service.md#GetVersion).
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-    Получить подробную информацию о версии функции можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+    Получить подробную информацию о версии функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

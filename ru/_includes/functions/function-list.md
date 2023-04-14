@@ -30,7 +30,7 @@
 
 - API
 
-	Получить список функций можно с помощью метода API [list](../../functions/functions/api-ref/Function/list.md).
+	Чтобы получить список функций, воспользуйтесь методом REST API [list](../../functions/functions/api-ref/Function/list.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/List](../../functions/functions/api-ref/grpc/function_service.md#List).
 
 - {{ yandex-cloud }} Toolkit
 

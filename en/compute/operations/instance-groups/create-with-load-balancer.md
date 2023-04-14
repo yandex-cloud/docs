@@ -149,7 +149,7 @@ To create an instance group with an L7 load balancer:
          | `memory` | Amount of memory (RAM). |
          | `cores` | Number of processor cores (vCPUs). |
          | `mode` | Disk access mode.</br> - `READ_ONLY`: Read-only access.</br>- `READ_WRITE`: Read and write access. |
-         | `image_id` | ID of the public. {% include [id-info](../../../_includes/compute/id-info.md) %} |
+         | `image_id` | ID of the public. You can view image IDs in the [management console]({{ link-console-main }}) when creating a VM or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**. |
          | `type_id` | Disk type. |
          | `size` | Disk size. |
          | `network_id` | The `default-net` ID. |
@@ -244,10 +244,6 @@ To create an instance group with an L7 load balancer:
       * With a target group named `first-target-group`.
 
    After that, you can add the `first-target-group` target group to a [new](../../../application-load-balancer/operations/backend-group-create.md) or [existing group of {{ alb-name }} backends](../../../application-load-balancer/operations/backend-group-update.md), a backend group to a [new](../../../application-load-balancer/operations/http-router-create.md) or [existing HTTP router](../../../application-load-balancer/operations/http-router-update.md), and a router to a [new](../../../application-load-balancer/operations/application-load-balancer-create.md) or [existing L7 load balancer](../../../application-load-balancer/operations/application-load-balancer-update.md).
-
-- API
-
-   Use the API [create](../../api-ref/InstanceGroup/create.md) method.
 
 - {{ TF }}
 
@@ -400,5 +396,9 @@ To create an instance group with an L7 load balancer:
       1. Confirm that you want to create the resources.
 
       Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+
+- API
+
+    Use the [create](../../api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
 
 {% endlist %}

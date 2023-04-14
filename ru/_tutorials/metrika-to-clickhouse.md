@@ -86,7 +86,7 @@ noIndex: true
 
 {% include [note before delete resources](../_includes/mdb/note-before-delete-resources.md) %}
 
-Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 1. [Удалите трансфер](../data-transfer/operations/transfer.md#delete-transfer).
 1. [Удалите эндпоинты](../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.

@@ -27,10 +27,6 @@
     * `--id` — идентификатор функции. Чтобы узнать его, [получите](./function-list.md) список функций.
     * `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
 
-- API
-
-    Удалить настройки масштабирования для функции можно с помощью метода API [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md).
-
 - {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -95,6 +91,10 @@
     ```
     yc serverless function list-scaling-policies <имя_функции>|<идентификатор_функции>
     ```
+
+- API
+
+    Чтобы удалить настройки масштабирования для функции, воспользуйтесь методом REST API [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/function_service.md#RemoveScalingPolicy).
 
 - {{ yandex-cloud }} Toolkit
 

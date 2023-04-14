@@ -50,9 +50,9 @@ To delete an instance group:
 
 - API
 
-   Use the API [delete](../../api-ref/InstanceGroup/delete.md) method.
+   Use the [delete](../../api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../api-ref/grpc/instance_group_service.md#Delete) gRPC API call.
 
-   To request a list of available groups, use the method [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
 
 - {{ TF }}
 
@@ -61,6 +61,7 @@ To delete an instance group:
    If you created an instance group using {{ TF }}, you can delete it:
    1. In the command line, go to the directory with the {{ TF }} configuration file.
    1. Delete resources using this command:
+
 
       ```bash
       terraform destroy

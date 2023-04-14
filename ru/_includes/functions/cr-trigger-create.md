@@ -103,9 +103,10 @@
             service-account-id: aje3932acd**********
     status: ACTIVE
     ```
+
 - API
 
-    Создать триггер для {{ container-registry-name }} можно с помощью метода API [create](../../functions/triggers/api-ref/Trigger/create.md).
+  Чтобы создать триггер для {{ container-registry-name }}, воспользуйтесь методом REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create).
 
 {% endlist %}
 

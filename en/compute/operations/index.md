@@ -1,9 +1,9 @@
 ---
-title: "Working with VMs Step-by-step guide"
+title: "Working with VMs Step-by-step guides"
 description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud }}. In this article, you'll learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
 ---
 
-# Step-by-step guide for {{ compute-name }}
+# Step-by-step guides for {{ compute-name }}
 
 ## Creating VMs {#vm-create}
 
@@ -14,8 +14,8 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-create/create-vm-with-gpu.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
-
 ## DSVM {#dsvm}
+
 
 * [{#T}](dsvm/index.md)
 * [{#T}](dsvm/quickstart.md)

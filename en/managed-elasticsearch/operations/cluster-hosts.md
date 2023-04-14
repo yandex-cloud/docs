@@ -23,7 +23,7 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Click on the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
@@ -60,7 +60,7 @@ You can't assign a public IP address to it after it's been created.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Click on the name of the cluster you need and select the **Hosts** tab.
    1. Click **Add host**.
    1. Specify the host parameters:
@@ -114,7 +114,7 @@ You can't assign a public IP address to it after it's been created.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -130,6 +130,10 @@ You can't assign a public IP address to it after it's been created.
 
 {% endlist %}
 
+
+Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+
+To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 
 {% note warning %}
 
@@ -149,7 +153,7 @@ The following restrictions apply when deleting hosts:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Click on the name of the cluster you need and select the **Hosts** tab.
    1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Delete**.
 

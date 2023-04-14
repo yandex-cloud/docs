@@ -21,7 +21,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 
    In the CLI, you can specify metadata in three parameters:
    * `--metadata-from-file` as a file, for example, `--metadata-from-file key=path/to/file`. This is convenient when passing values consisting of multiple strings.
-   * `--metadata`: The list of `key-value` pairs separated by commas, for example, `--metadata foo1=bar,foo2=baz`.
+   * `--metadata` is the list of `key-value` pairs separated by commas, for example, `--metadata foo1=bar,foo2=baz`.
 
       If the value is multiline, use `\n` to split lines: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`
    * `--ssh-key` with an SSH key. Only for Linux-based virtual machines.
@@ -58,11 +58,11 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
       #cloud-config
       users:
         - name: <username>
-        groups: sudo
-        shell: /bin/bash
-        sudo: ['ALL=(ALL) NOPASSWD:ALL']
-        ssh_authorized_keys:
-          - <SSH_key_contents>
+          groups: sudo
+          shell: /bin/bash
+          sudo: ['ALL=(ALL) NOPASSWD:ALL']
+          ssh_authorized_keys:
+            - <SSH_key_contents>
       ```
 
       {% endcut %}
@@ -86,6 +86,13 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
       }
       ...
       ```
+
+      If you are using an out-of-the-box public image from {{ marketplace-name }}, the specified username does not matter. The key will be assigned to the user specified in the `cloud-init` configuration by default. In different images, these users differ.
+
+
+      If you don't know the default user, find the string containing `Authorized keys from` in the [serial port output](../operations/vm-info/get-serial-port-output.md). It contains the name of the user assigned the authorized keys.
+
+      If no such string is found, but you see the string `no authorized ssh keys fingerprints found for user`, it means that you incorrectly passed your SSH key. Check the format again or try passing the SSH keys in the `user-data` field.
 
 - API
 
@@ -130,17 +137,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
       }
       ```
 
-   * `ssh-keys`: A key for delivering an SSH key to Linux VMs. The key is specified in the format `<any name>:<SSH key content>`, for example, `user:ssh-rsa AAAAB3Nza... user@example.com`. If you specify multiple keys, only the first one is used.
-
-      {% note warning %}
-
-      Regardless of the username specified, the key is assigned to the user given in the `cloud-init` configuration by default. In different images, these users differ.
-
-      {% endnote %}
-
-      If you don't know the default user, find the string containing `Authorized keys from` in the [serial port output](../operations/vm-info/get-serial-port-output.md). It contains the name of the user assigned the authorized keys.
-
-      If no such string is found, but you see the string `no authorized ssh keys fingerprints found for user`, it means that you incorrectly passed your SSH key. Check the format again or try passing the SSH keys in the `user-data` field.
+   * `ssh-keys`: Key for delivering the SSH key to Linux VMs through {{ TF }}. The key is specified in `<username>:<SSH key content>` forma, e.g., `user:ssh-ed25519 AAC4NzaC1 user@example.com`. If you specify multiple keys, only the first one will be used.
 
 - Windows
 

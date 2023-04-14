@@ -39,7 +39,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
    
    1. (optional) Under **Disks and file storage**, click the **File storage tab** and connect a [file store](../../concepts/filesystem.md):
       * Click **Connect file storage**.
-      * In the resulting window, select a file store.
+      * In the window that opens, select a file store.
       * Enter a device name.
       * Click **Connect file storage**.
 
@@ -61,7 +61,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
          {% note alert %}
 
-         Don't use the username `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the command `sudo`.
+         Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
 
          {% endnote %}
 
@@ -118,7 +118,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
 - API
 
-   Use the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 - {{ TF }}
 
@@ -171,9 +171,9 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       Where:
       * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
          * `name`: VM name.
-         * `platform_id`: The [platform](../../concepts/vm-platforms.md).
+         * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
-         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
          * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
          * `metadata`: In the metadata, pass the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
@@ -183,7 +183,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       {% note info %}
 
-      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+      If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
 
       {% endnote %}
 
@@ -206,7 +206,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -297,7 +297,7 @@ To change the type of a VM, for example, make it preemptible:
 
 - API
 
-   Use the [update](../../api-ref/Instance/update.md) method for the [Instance](../../api-ref/Instance/) resource. In the request body, set `"preemptible": false` in `schedulingPolicy`.
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call. In the request body, set `"preemptible": false` in `schedulingPolicy`.
 
 - {{ TF }}
 
@@ -331,7 +331,7 @@ To change the type of a VM, for example, make it preemptible:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

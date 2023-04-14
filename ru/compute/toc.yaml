@@ -85,6 +85,8 @@ items:
             href: operations/vm-control/vm-update.md
           - name: Изменить вычислительные ресурсы ВМ
             href: operations/vm-control/vm-update-resources.md
+          - name: Изменить группы безопасности ВМ
+            href: operations/vm-control/vm-change-security-groups-set.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
       - name: Работа на виртуальной машине

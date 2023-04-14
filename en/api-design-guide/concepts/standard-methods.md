@@ -1,14 +1,14 @@
 # Standard methods
 
-Below is a list of standard API methods and corresponding HTTP methods:
+Below, you can find a list of standard API methods and the respective HTTP methods:
 
 | API method | HTTP method | Request body | Response body |
 ----- | ----- | ----- | ----
-| [Get](#method-get) | GET | — | Resource view. |
-| [List](#method-list) | GET | — | List of resources. |
+| [Get](#method-get) | GET | N/A | Resource view. |
+| [List](#method-list) | GET | N/A | List of resources. |
 | [Create](#method-create) | POST | Resource view. | [Operation](operation.md) object. |
 | [Update](#method-update) | PATCH | Resource view. | [Operation](operation.md) object. |
-| [Delete](#method-delete) | DELETE | — | [Operation](operation.md) object. |
+| [Delete](#method-delete) | DELETE | N/A | [Operation](operation.md) object. |
 
 Below are gRPC descriptions of standard methods and examples of corresponding REST requests.
 

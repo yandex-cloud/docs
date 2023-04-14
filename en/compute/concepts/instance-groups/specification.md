@@ -2,8 +2,8 @@
 
 You can create or edit an instance group based on the specification in the [YAML](https://en.wikipedia.org/wiki/YAML) format. The specification describes:
 
-* The basic attributes and settings of the group: name, description, [labels](../../../overview/concepts/services.md#labels), [service account](../../../iam/concepts/users/service-accounts.md), and deletion protection.
-* The [VM instance template](instance-template.md) and [variables](variables-in-the-template.md) used in it.
+* Basic attributes and settings of the group: name, description, [labels](../../../resource-manager/concepts/labels.md), [service account](../../../iam/concepts/users/service-accounts.md), and deletion protection.
+* [VM instance template](instance-template.md) and [variables](variables-in-the-template.md) used in it.
 * Policies for [allocation](policies/allocation-policy.md), [deployment](policies/deploy-policy.md), and [scaling](policies/scale-policy.md).
 * Settings for balancing the traffic between VM instances using [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) or [{{ alb-full-name }}](../../../application-load-balancer/).
 
@@ -74,8 +74,8 @@ service_account_id: ajefnb8427bhl9t0pvf8
 The list, structure, and  descriptions of specification fields are provided:
 
 * In the specification of the [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) structure and other [structures used in it](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto), in the API repository on GitHub ([Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) format).
-* In the description of the method [Create](../../api-ref/InstanceGroup/create) of the `InstanceGroup` resource in the REST API ([JSON](https://en.wikipedia.org/wiki/JSON) format).
-* In the description of the call [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API.
+* In the description of the  [create](../../api-ref/InstanceGroup/create) method of the `InstanceGroup` resource in the REST API ([JSON](https://en.wikipedia.org/wiki/JSON) format).
+* In the description of the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
 
 API references are generated from specifications published on GitHub.
 
@@ -105,7 +105,7 @@ You can create a YAML specification from a JSON or Protobuf specification using 
         "description": "ALB target group for example instance group",
         "labels": {
           "foo": "bar",
-          "environment": "production"     
+          "environment": "production"
         }
       }
       ```
@@ -215,7 +215,7 @@ If a value uses a suffix, it must be prefixed by an integer.
 
 ### The `boolean` type {#boolean}
 
-In fields of `bool` or `boolean` type, all values listed in the [YAML format specification](https://yaml.org/type/bool.html) are supported:
+In fields of `bool` or `boolean` type, all values listed in the [YAML format specification](https://yaml.org/type/bool.html):
 
 * True: `y`, `Y`, `yes`, `Yes`, `YES`, `true`, `True`, `TRUE`, `on`, `On`, `ON`.
 * False: `n`, `N`, `no`, `No`, `NO`, `false`, `False`, `FALSE`, `off`, `Off`, `OFF`.

@@ -89,7 +89,7 @@ To attach a network disk to a VM:
 
 - API
 
-   Use the [attachDisk](../../api-ref/Instance/attachDisk.md) method for the [Instance](../../api-ref/Instance/) resource.
+   Use the [attachDisk](../../api-ref/Instance/attachDisk.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/AttachDisk](../../api-ref/grpc/instance_service.md#AttachDisk) gRPC API call.
 
 {% endlist %}
 

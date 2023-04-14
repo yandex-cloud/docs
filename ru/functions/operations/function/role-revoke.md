@@ -46,6 +46,6 @@
 
 - API
 
-    Отозвать роли на функцию можно с помощью метода API [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md).
+  Чтобы отозвать роли на функцию, воспользуйтесь методом REST API [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/function_service.md#UpdateAccessBindings).
 
 {% endlist %}

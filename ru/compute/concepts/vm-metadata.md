@@ -59,11 +59,11 @@
       #cloud-config
       users:
         - name: <имя_пользователя>
-        groups: sudo
-        shell: /bin/bash
-        sudo: ['ALL=(ALL) NOPASSWD:ALL']
-        ssh_authorized_keys:
-          - <содержимое_SSH-ключа>
+          groups: sudo
+          shell: /bin/bash
+          sudo: ['ALL=(ALL) NOPASSWD:ALL']
+          ssh_authorized_keys:
+            - <содержимое_SSH-ключа>
       ```
 
       {% endcut %}

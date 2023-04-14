@@ -52,7 +52,7 @@
 
 * repository-azure
 
-    Добавляет поддержку [хранилища Azure Blob]({{ ms.docs }}/azure/storage/blobs/storage-blobs-introduction) в качестве репозитория снапшотов.
+    Добавляет поддержку [хранилища Azure Blob]({{ ms.docs }}/azure/storage/blobs/storage-blobs-introduction) в качестве репозитория [снапшотов](https://cloud.yandex.ru/docs/glossary/snapshot).
 
 * repository-gcs
 

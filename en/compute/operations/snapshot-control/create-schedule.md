@@ -131,11 +131,11 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
 - API
 
-   1. Retrieve a list of disks using the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API method or the [list](../../api-ref/Disk/list.md) method for the REST API `Disk` resource.
+  1. Get the list of disks using the [list](../../api-ref/Disk/list.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API call.
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-   1. Create a snapshot schedule using the [SnapshotScheduleService/Create](../../api-ref/grpc/snapshot_schedule_service.md#Create) gRPC API method or the [create](../../api-ref/SnapshotSchedule/create.md) method for the REST API `SnapshotSchedule` resource.
+  1. Create a snapshot schedule using the [create](../../api-ref/SnapshotSchedule/create.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/Create](../../api-ref/grpc/snapshot_schedule_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -225,7 +225,7 @@ Snapshots are created and deleted automatically only while the schedule is on (`
       folder_id: e1ea8s8l71li5n96eakv
       created_at: "2022-10-03T13:28:01Z"
       name: sched-1
-      description: Daily
+      description: daily
       labels:
         machine: file-server
       status: ACTIVE
