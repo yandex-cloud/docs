@@ -3,6 +3,12 @@ sourcePath: ru/tracker/api-ref/concepts/queues/restore-queue.md
 ---
 # Восстановить очередь
 
+{% note warning %}
+ 
+Запрос может быть выполнен только от имени [администратора](../../role-model.md).
+
+{% endnote %}
+
 Запрос позволяет восстановить удаленную очередь.
 
 ## Формат запроса {#query}
