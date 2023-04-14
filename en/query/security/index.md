@@ -18,31 +18,27 @@ To assign a user a role:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
 You can manage access to {{ yq-name }} objects using both service and primitive roles. The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
 
+<center>
+
 ![image](../../_assets/query/service-roles-hierarchy.svg)
+
+</center>
 
 ## Roles {#roles}
 
 The list below shows all roles that are considered when verifying access rights in the {{ yq-name }} service.
 
-### yq.invoker
+{% include [yq-invoker](../../_includes/iam/roles/yq-invoker.md) %}
 
-Users with the `yq.invoker` role can run queries in {{ yq-name }}. The role is designed for service accounts to automatically execute queries. For example, to run queries triggered by an event or on schedule.
+{% include [yq-viewer](../../_includes/iam/roles/yq-viewer.md) %}
 
-### yq.viewer
+{% include [yq-editor](../../_includes/iam/roles/yq-editor.md) %}
 
-Users with the `yq.viewer` role can view connections and bindings, create queries, and run them in {{ yq-name }}.
-
-### yq.editor
-
-Users with the `yq.editor` role can view, edit, and delete connections they created. The role allows creating, editing, deleting, and running the user-created queries. The `yq.editor` role includes all permissions of the `ydb.viewer` role.
-
-### yq.admin
-
-The `yq.admin` role lets you manage any {{ yq-name }} resources, including those marked as private. The `yq.admin` role includes all permissions of the `ydb.editor` role.
+{% include [yq-admin](../../_includes/iam/roles/yq-admin.md) %}
 
 ### {{ roles-viewer }}
 

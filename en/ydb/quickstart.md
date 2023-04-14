@@ -14,14 +14,14 @@ You can also work with a {{ ydb-full-name }} DB through:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you do not have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
 1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 ## Create a database {#create-db}
 
-You can create a DB in the Serverless configuration or with dedicated servers. For more information about differences in configurations, see [Serverless and Dedicated modes](concepts/serverless-and-dedicated.md). You can't change the DB type once you have created it.
+You can create a DB in the Serverless configuration or with dedicated servers. For more information about differences in configurations, see [Serverless and dedicated modes](concepts/serverless-and-dedicated.md). You cannot change the DB type once you have created it.
 
 {% note info %}
 
@@ -47,7 +47,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       You can leave the default parameters for the DB being created and [change](operations/manage-databases.md#update-db-serverless) them later. For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
   1. Click **Create database**.
 
-   Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
+  Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
 - YC CLI
 
@@ -110,30 +110,30 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
   1. Click **Create database**.
   1. Enter the **Name** of the DB. The naming requirements are as follows:
 
-      {% include [name-format](../_includes/name-format.md) %}
+     {% include [name-format](../_includes/name-format.md) %}
 
   1. Under **Database type**, select the **Dedicated** option.
-  1. Under **Computing resources**, select the type and amount of [computing resources](concepts/index.md#resource-presets).
-  1. Under **Storage groups**, select the disk type and number of [storage groups](concepts/index.md#storage-groups) that determines the total amount of storage.
+  1. Under **Computing resources**, select the type and amount of [computing resources](concepts/resources.md#resource-presets).
+  1. Under **Storage groups**, select the disk type and number of [storage groups](concepts/resources.md#storage-groups) that determines the total amount of storage.
   1. Under **Network**, configure network settings:
      1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to run queries against the DB both from the {{ yandex-cloud }} network and the internet.
 
-         {% include [traffic_metering](_includes/traffic_metering.md) %}
+        {% include [traffic_metering](_includes/traffic_metering.md) %}
 
      1. Select an existing network from the **Cloud network** list or create a new one:
-         1. Click **Create new**.
-         1. In the window that opens, enter a **Name** for the new network.
-         1. (optional) Select the **Create subnets** option. Subnets in each availability zone will be created automatically.
-         1. Click **Create**.
+        1. Click **Create new**.
+        1. In the window that opens, enter a **Name** for the new network.
+        1. (optional) Select the **Create subnets** option. Subnets in each availability zone will be created automatically.
+        1. Click **Create**.
      1. Under **Subnets**, select a network or create a new one for each [availability zone](../overview/concepts/geo-scope.md):
-         1. Click **Create new**.
-         1. In the window that opens, enter a **Name** for the new subnet.
-         1. (optional) Enter a **Description** of the subnet.
-         1. Select the desired availability zone from the **Availability zone** list.
-         1. Specify the subnet address in [**CIDR**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
-         1. Click **Create**.
+        1. Click **Create new**.
+        1. In the window that opens, enter a **Name** for the new subnet.
+        1. (optional) Enter a **Description** of the subnet.
+        1. Select the availability zone you need from the **Availability zone** list.
+        1. Specify the subnet address in [**CIDR**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
+        1. Click **Create**.
 
-      You cannot change the settings of the **Network** section after the database is created.
+     You cannot change the settings of the **Network** section after the database is created.
   1. Click **Create database**.
 
      Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
@@ -157,11 +157,11 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
       Where:
 
-      * `--resource-preset STR`: The configuration of node computing resources. Possible values are listed in the "Configuration name" column of the [Computing resources](concepts/index.md#resource-presets) table on the page with information about databases.
-      * `--storage STR`: The media type and number of storage groups in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
+      * `--resource-preset STR`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](concepts/resources.md#resource-presets).
+      * `--storage STR`: Media type and number of [storage groups](concepts/resources.md#storage-groups) in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
       * `--public-ip`: Flag indicating that public IP addresses are assigned. Without it, you cannot connect to the database you created from the internet.
       * `--network-name STR`: Name of the cloud network to create the database in. You can specify the network as `default`.
-      * `--async`: The asynchronous DB creation flag.
+      * `--async`: Asynchronous DB creation flag.
 
       For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
 
@@ -221,9 +221,9 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
   1. Check the status of the created database:
 
-      ```bash
-      yc ydb database get <name>
-      ```
+     ```bash
+     yc ydb database get <name>
+     ```
 
      Where `name` is the name of the new DB.
 
@@ -249,7 +249,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
   1. Click **Run**.
 
-      See the query result below:
+     See the query result below:
 
      ```text
      # column0
@@ -281,9 +281,9 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
      ...
      ```
 
-     Here, part of the `{{ ydb.ep-serverless }}` string contains the endpoint and `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` specifies the DB path.
+     Here, part of the `{{ ydb.ep-serverless }}` string contains the endpoint, while `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` specifies the DB path.
 
-  1. Make a query to the previously created DB using the resulting endpoint value and DB path:
+  1. Run a query to the previously created DB using the resulting endpoint value and DB path:
 
      ```bash
      ydb \

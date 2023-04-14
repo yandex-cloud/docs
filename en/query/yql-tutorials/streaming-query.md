@@ -19,7 +19,7 @@ FROM
     LIMIT 10
 )
 GROUP BY
-    HOP(Just(CAST(tpep_pickup_datetime as Timestamp)), "PT1M", "PT1M", "PT1M");
+    HOP(Just(CAST(tpep_pickup_datetime AS Timestamp)), "PT1M", "PT1M", "PT1M");
 ```
 
 ## See also {#see-also}

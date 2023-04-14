@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
       - name: Overview
         href: operations/index.md
@@ -17,8 +17,10 @@ items:
         href: operations/crud.md
       - name: Monitoring DB status
         href: operations/monitoring.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Deploying a web application
         href: tutorials/java-servlet-todo-list.md
       - name: Developing a Slack bot
@@ -39,6 +41,16 @@ items:
           Migrating databases from {{ mmy-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mmy-ydb-migration.md
+      - name: >-
+          Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-mkf-replication.md
+      - name: >-
+          Delivering data to {{ yds-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-to-yds.md
+      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+        href: tutorials/ci-cd-serverless.md
   - name: Concepts
     items:
       - name: Overview

@@ -7,7 +7,7 @@ Example of writing `JSON` data using bindings:
 ```sql
 INSERT INTO bindings.`my_binding`
 SELECT
-    "value" as value, "name" as name
+    "value" AS value, "name" AS name
 FROM
     $data;
 ```
@@ -25,6 +25,7 @@ INSERT INTO `<connection_name>`.`<bucket_path>`
         format='<format>',
         compression='<compression>'
     )
+SELECT
     <expression>
 FROM
     <query>
@@ -47,12 +48,12 @@ INSERT INTO `connection`.`test/`
         format='csv_with_names'
     )
 SELECT
-    "value" as value, "name" as name
+    "value" AS value, "name" AS name
 ```
 
 Where:
 
-* `connection`: Name of {{ objstorage-short-name }} connection.
+* `connection`: Name of the connection to {{ objstorage-short-name }}.
 * `test/`: Path within the bucket to write data to.
 
 ## Writing data using bindings {#bindings-write}
@@ -61,11 +62,7 @@ If you need to make data writes on a regular basis, it is handy to use bindings.
 
 ```sql
 INSERT INTO bindings.`<binding_name>`
-    WITH
-    (
-        format='<format>',
-        compression='<compression>'
-    )
+SELECT    
     <expression>
 FROM
     <query>
@@ -83,13 +80,13 @@ Sample query to write data to {{ objstorage-short-name }} using bindings:
 ```sql
 INSERT INTO bindings.`test`
 SELECT
-    "value" as value, "name" as name
+    "value" AS value, "name" AS name
 ```
 
 Where:
 
 * `bindings`: Keyword indicating that a data write is being performed using bindings.
-* `test`: Name of the binding to {{ objstorage-short-name }} data.
+* `test`: Name of binding to {{ objstorage-short-name }} data.
 
 ## Supported write formats {#write-formats}
 

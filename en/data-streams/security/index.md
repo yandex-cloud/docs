@@ -22,21 +22,15 @@ To assign a user a role:
 
 The list below shows all roles that are considered when verifying access rights in the {{ yds-name }} service.
 
+{% include [yds-viewer](../../_includes/iam/roles/yds-viewer.md) %}
+
+{% include [yds-writer](../../_includes/iam/roles/yds-writer.md) %}
+
+{% include [yds-editor](../../_includes/iam/roles/yds-editor.md) %}
+
+{% include [yds-admin](../../_includes/iam/roles/yds-admin.md) %}
+
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
-
-### yds.viewer {#yds-viewer}
-
-Users with the `yds.viewer` role can read data from {{ yds-name }} streams and view their settings. The `yds.viewer` role also includes all permissions of the `ydb.viewer` role.
-
-### yds.editor {#yds-editor}
-
-The `yds.writer` role allows writing data to {{ yds-name }} streams.
-
-### yds.admin {#yds-admin}
-
-Users with the `yds.admin` role can manage resource access rights, for example, allow other users to create {{ yds-name }} streams or view information about them.
-
-The `{{ roles-admin }}` role also includes all permissions of the `ydb.admin` role.
 
 ### {{ roles-viewer }} {#viewer}
 

@@ -15,3 +15,9 @@ When adding a new row to a table, a record is also added to each index that exis
 Whenever a table row update occurs, the statistics will reflect a deletion operation for the old record and an insert for the new one for all indexes that include the fields being updated.
 
 When deleting a table row, the statistics will include the deletion of records from all indexes in this table.
+
+### What does the RESOURCE_EXHAUSTED error mean? {#resource-exhausted}
+
+This error means a limit has been reached.
+
+Check the throughput in the {{ ydb-short-name }} cluster settings and increase it, if required. If the issue persists after you increase the throughput limit or the quota is exceeded, contact [support]({{ link-console-support }}).

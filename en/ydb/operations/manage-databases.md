@@ -20,7 +20,7 @@ Using the management console or YC CLI, you can:
    1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
    1. In the list of services, select **{{ ydb-name }}**.
    1. Click **Create database**.
-   1. Enter the **Name** of the DB. For naming requirements, see below:
+   1. Enter the **Name** of the DB. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -42,7 +42,7 @@ Using the management console or YC CLI, you can:
       yc ydb database create --help
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc ydb database create <DB_name> --serverless
@@ -73,7 +73,7 @@ Using the management console or YC CLI, you can:
       monitoring_config: {}
       ```
 
-   You can [update](#update-db-serverles) any parameter later by running the YC CLI `update` command or using the management console. For more information, see [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
+   You can [update](#update-db-serverles) any parameter later by running the `update` YC CLI command or using the management console. For more information, see [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
 
    Every serverless database is created with geographic redundancy in three [availability zones](../../overview/concepts/geo-scope.md).
 
@@ -137,7 +137,7 @@ Using the management console or YC CLI, you can:
    1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
    1. In the list of services, select **{{ ydb-name }}**.
    1. Click **Create database**.
-   1. Enter the database **Name**. For naming requirements, see below:
+   1. Enter the database **Name**. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -158,7 +158,7 @@ Using the management console or YC CLI, you can:
          * Click **Create new**.
          * In the window that opens, enter a **Name** for the new subnet.
          * (optional) Enter a **Description** of the subnet.
-         * Select the desired availability zone from the **Availability zone** list.
+         * Select the availability zone you need from the **Availability zone** list.
          * Specify the subnet address in [**CIDR**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
          * Click **Create**.
    1. Click **Create database**.
@@ -177,7 +177,7 @@ Using the management console or YC CLI, you can:
       yc ydb database create --help
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc ydb database create <DB_name> \
@@ -191,13 +191,13 @@ Using the management console or YC CLI, you can:
 
       * `--dedicated`: Configuration of the DB with dedicated servers.
       * `--network-name`: Name of the cloud network to create the DB in. You can specify the network as `default`.
-      * `--storage`: Media type and storage group count in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
-      * `--resource-preset`: Configuration of the node computing resources. You can [view](../concepts/resources.md#resource-presets) possible values in the table, namely, in the **Configuration name** column.
+      * `--storage`: Media type and [storage group](../concepts/resources.md#storage-groups) count in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
+      * `--resource-preset`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
 
    Important additional parameters:
 
    * `--public-ip`: Flag indicating that public IP addresses are assigned. Without it, you cannot connect to the DB you created, from the internet.
-   * `--fixed-size INT`: Number of cluster nodes, with the default number of 1. Nodes are allocated in different availability zones, so a configuration of three nodes will be geographically distributed across three availability zones.
+   * `--fixed-size INT`: Number of cluster nodes, with the default value of 1. Nodes are allocated in different availability zones, so a configuration of three nodes will be geographically distributed across three availability zones.
    * `--async`: Asynchronous DB creation flag. Creating a dedicated DB may take a long time, up to a few minutes. You can set this flag to return control as soon as the `create DB` command is accepted by the cloud.
 
    **Examples**
@@ -239,8 +239,8 @@ Using the management console or YC CLI, you can:
    1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **Edit**.
    1. Configure the DB settings:
       1. Change the DB name, if required.
-      1. Under **Computing resources**, select the type and amount of [computing resources](../concepts/index.md#resource-presets).
-      1. Under **Storage groups**, select the disk type and number of [storage groups](../concepts/index.md#storage-groups) that determines the total amount of storage.
+      1. Under **Computing resources**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
+      1. Under **Storage groups**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
    1. Click **Update database**.
 
 - YC CLI
@@ -285,7 +285,7 @@ Using the management console or YC CLI, you can:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run the command:
+   Run the following command:
 
    ```bash
    yc ydb database list
@@ -310,7 +310,7 @@ Using the management console or YC CLI, you can:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run the command:
+   Run the following command:
 
    ```bash
    yc ydb database delete <DB_name>

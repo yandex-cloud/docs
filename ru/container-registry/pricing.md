@@ -48,6 +48,26 @@ editable: false
 ```
 
 
+### Сканер уязвимостей {#scanner}
+
+{% note alert %}
+
+Использование сканера уязвимостей станет платным с **24 апреля 2023 года**.
+
+{% endnote %}
+
+Стоимость использования [сканера уязвимостей](concepts/vulnerability-scanner.md) для Docker-образов зависит от количества сканирований.
+
+
+
+{% include [rub-scanner.md](../_pricing/container-registry/rub-scanner.md) %}
+
+
+
+
+
+
+
 
 {% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
 
