@@ -288,7 +288,7 @@ git clone https://github.com/yandex-cloud/examples.git
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 1. [Удалите каталоги](../../resource-manager/operations/folder/delete.md) `prod`, `testing` и `infra` вместе с ресурсами в них.
 1. [Удалите инстанс {{ mgl-name }}](../../managed-gitlab/operations/instance/instance-delete.md) или [созданную ВМ с образом {{ GL }}](../../compute/operations/vm-control/vm-delete.md).
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).

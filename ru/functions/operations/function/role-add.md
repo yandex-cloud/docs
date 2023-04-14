@@ -46,6 +46,6 @@
 
 - API
 
-    Назначить роли на функцию можно с помощью метода API [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md).
+  Чтобы назначить роли на функцию, воспользуйтесь методом REST API [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/function_service.md#SetAccessBindings).
 
 {% endlist %}

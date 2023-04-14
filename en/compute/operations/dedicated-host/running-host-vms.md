@@ -1,6 +1,6 @@
 # Creating a VM on a dedicated host
 
-The VM you create will be linked to the host selected from a group of [dedicated hosts](../../concepts/dedicated-host.md). When the VM is stopped, it will not be available on the host, and when it is restarted, it will be linked to the same host from the group.
+A created VM will be linked to the host selected from a group of [dedicated hosts](../../concepts/dedicated-host.md). When the VM is stopped, it will not be available on the host, and when it is restarted, it will be linked to the same host from the group.
 
 If you do not have a group of dedicated hosts, [create](create-host-group.md) one.
 
@@ -102,9 +102,9 @@ To create a VM:
 
 - API
 
-   1. Find out the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) method for the `HostGroup` resource.
-   1. Find out the IDs of the dedicated hosts in the group using the [listHosts](../../api-ref/HostGroup/listHosts.md) method for the `HostGroup` resource.
-   1. Create a VM using the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+  1. Find out the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/List](../../api-ref/grpc/host_group_service.md#List) gRPC API call.
+  1. Find out the IDs of dedicated hosts in the group using the [listHosts](../../api-ref/HostGroup/listHosts.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/ListHosts](../../api-ref/grpc/host_group_service.md#ListHosts) gRPC API call.
+  1. Create a VM instance using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 {% endlist %}
 

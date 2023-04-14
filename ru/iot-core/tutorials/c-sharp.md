@@ -264,7 +264,7 @@ private Task DataHandler(MqttApplicationMessageReceivedEventArgs arg)
 }
 ```
 
-Подпишитесь на топик с помощью следующего кода. В методе `SubscribeAsync` нужно указать топик `topic`, на который вы хотите подписаться, и уровень качества обслуживания `qos`.
+Подпишитесь на топик с помощью следующего кода. В методе `SubscribeAsync` нужно указать топик `topic`, на который вы хотите подписаться, и [уровень качества обслуживания](../../glossary/qos.md) `qos`.
 
 ```C#
 mqttClient.SubscribeAsync(topic, qos);

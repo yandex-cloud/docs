@@ -25,7 +25,7 @@ If you can't access the serial console, do the following to recover the public p
 
 1. [Stop](../vm-control/vm-stop-and-start.md) the VM.
 1. [Take a snaphost](../disk-control/create-snapshot.md) of the VM's boot disk.
-1. [Create](../vm-create/create-from-snapshots.md) an auxiliary Linux-based VM. Use the disk from the previously created snapshot as the data disk.
+1. [Create](../vm-create/create-from-snapshots.md) an auxiliary Linux-based VM. Under **Image/boot disk selection**, choose the OS for the boot disk. To attach a data disk to an auxiliary VM, select the previously created snapshot in the **Disk and file storage** section.
 1. [Connect over SSH](../vm-connect/ssh.md) to the auxiliary VM and [mount the disk](../vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid) you created from the snapshot.
 1. Replace the SSH key that is stored on this disk with a valid key:
    1. Go to the directory that stores the public part of the SSH key in the mounted partition. For example:

@@ -108,19 +108,19 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
 - API
 
-   Use the [update](../../api-ref/Instance/update.md).
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    Adding an existing instance to a placement group:
 
    1. To the configuration file of an existing [virtual machine](../../operations/vm-create/create-linux-vm.md), add a field named `placement_group_id` pointing to the `yandex_compute_placement_group` placement group resource.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       ...
@@ -131,7 +131,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
           placement_group_id = "${yandex_compute_placement_group.group1.id}"
         }
       }
-      
+
       resource "yandex_compute_placement_group" "group1" {
         name = "test-pg"
       }
@@ -144,25 +144,25 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -172,7 +172,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can verify that the virtual machine has been added to the placement group from the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can verify that the virtual machine has been added to the placement group from the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

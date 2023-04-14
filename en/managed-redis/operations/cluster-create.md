@@ -18,6 +18,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a DB cluster in.
+
    1. Select **{{ mrd-name }}**.
    1. Click **Create cluster**.
    1. Under **Basic parameters**:
@@ -152,7 +153,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -162,8 +163,8 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here if necessary.
 
       
-      * Network: A description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you don't need to describe it again.
-      * Subnets: The [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
+      * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you do not need to describe it again.
+      * Subnets: [Subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
 
       Sample configuration file structure for creating sharded clusters with SSL support:

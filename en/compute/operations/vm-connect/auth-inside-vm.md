@@ -35,7 +35,7 @@ To link a service account to a VM, you must have permission to use this account.
 
 - API
 
-   Use the [update](../../api-ref/Instance/update.md) method for the [Instance](../../api-ref/Instance/) resource. In the `serviceAccountId` property, specify the ID of the service account.
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call. Specify the service account ID in your request.
 
 {% endlist %}
 
@@ -69,7 +69,7 @@ To link a service account to a VM, you must have permission to use this account.
 
 - API
 
-   Use the [create](../../api-ref/Instance/create.md) method for the [Instance](../../api-ref/Instance/) resource. In the `serviceAccountId` property, specify the ID of the service account.
+   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call. Specify the service account ID in your request.
 
 {% endlist %}
 
@@ -109,7 +109,7 @@ To authenticate from inside a VM on behalf of the linked service account:
 
       ```bash
       curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
-      
+
       {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
       ```
 

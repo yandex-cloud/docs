@@ -45,6 +45,6 @@
 
 - API
 
-  Получить подробную информацию о триггере можно с помощью метода API [get](../../functions/triggers/api-ref/Trigger/get.md).
-  
+  Чтобы получить подробную информацию о триггере, воспользуйтесь методом REST API [get](../../functions/triggers/api-ref/Trigger/get.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Get](../../functions/triggers/api-ref/grpc/trigger_service.md#Get).
+
 {% endlist %}

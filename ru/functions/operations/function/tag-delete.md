@@ -32,10 +32,6 @@
     log_group_id: eolv6578frac08uh5h6s
     ```
 
-- API
-
-    Удалить тег можно с помощью метода API [removeTag](../../functions/api-ref/Function/removeTag.md).
-
 - {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -99,6 +95,10 @@
     ```
     yc serverless function version list --function-name <имя функции>
     ```
+
+- API
+
+    Чтобы удалить тег версии функции, воспользуйтесь методом REST API [removeTag](../../functions/api-ref/Function/removeTag.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/RemoveTag](../../functions/api-ref/grpc/function_service.md#RemoveTag).
 
 - {{ yandex-cloud }} Toolkit
 

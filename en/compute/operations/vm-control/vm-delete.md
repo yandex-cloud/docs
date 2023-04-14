@@ -45,13 +45,17 @@ If you have disks attached to your VM, the disks will be detached when you delet
       yc compute instance delete first-instance
       ```
 
+- API
+
+   Use the [delete](../../api-ref/Instance/delete.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Delete](../../api-ref/grpc/instance_service.md#Delete) gRPC API call.
+
 - {{ TF }}
 
    For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    If you created an instance using {{ TF }}, you can delete it:
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Delete resources using the command:
+   1. Delete the resources using this command:
 
       ```bash
       terraform destroy
@@ -63,6 +67,6 @@ If you have disks attached to your VM, the disks will be detached when you delet
 
       {% endnote %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
 {% endlist %}

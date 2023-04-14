@@ -213,6 +213,9 @@ default:
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
+  roles-cr-viewer: container-registry.viewer
+  roles-cr-editor: container-registry.editor
+  roles-cr-images-scanner: container-registry.images.scanner
   roles-data-transfer-admin: data-transfer.admin
   roles-data-transfer-private-admin: data-transfer.privateAdmin
   roles-data-transfer-viewer: data-transfer.viewer
@@ -41040,6 +41043,12 @@ default:
         button_zone-create: Create zone
         label_additional-settings: Additional settings
         label_form-ttl: TTL (in seconds)
+      greenplum:
+        action_expand-open: Expand cluster
+        action_expand-start: Save
+        field_expand-add-segments-per-host-count: Add segments to host
+        field_expand-duration: Redistribution timeout
+        field_expand-segment-host-count: Number of new segment hosts
       iam:
         cloud:
           folders-create:
@@ -41048,6 +41057,7 @@ default:
           dashboard:
             button_add: Create resource
             label_data-proc: Data Proc
+            label_managed-greenplum: Managed Service for Greenplum
           service-account:
             label_add-role: Add role
             popup-robot_button_add: Create
@@ -41059,6 +41069,8 @@ default:
           button_create: Create
       mdb:
         cluster:
+          hosts:
+            label_title: Hosts
           overview:
             button_action-delete: Delete cluster
         clusters:

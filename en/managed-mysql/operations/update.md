@@ -511,6 +511,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 ## Changing security groups {#change-sg-set}
 
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
 {% list tabs %}
 
 - Management console

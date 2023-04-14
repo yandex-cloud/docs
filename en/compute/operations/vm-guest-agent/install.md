@@ -9,7 +9,7 @@ To reset user passwords on Windows Server virtual machines using {{ yandex-cloud
 
 The agent is installed using the agent update software.
 
-To install the agent and configure it to autoupdate:
+To install the agent and configure its auto update:
 
 1. [Connect to the VM via RDP](../vm-connect/rdp.md).
 1. Download and set up the agent update software:

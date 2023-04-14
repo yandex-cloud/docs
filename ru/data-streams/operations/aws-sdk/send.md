@@ -13,7 +13,7 @@ description: "Из статьи вы узнаете, как отправить �
 
   Для отправки данных в поток данных используется метод `put_record/put_records`. При вызове этого метода необходимо указать следующие параметры:
   * Имя потока данных, например `example-stream`.
-  * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором находится поток, например `aoeu1kuj2dhtaupdb5es`.
+  * [Идентификатор облака](../../../resource-manager/operations/cloud/get-id.md), в котором находится поток, например `b1gi1kuj2dhtaupdb5es`.
   * Идентификатор базы данных {{ ydb-full-name }} с потоком, например `cc8028jgtuabcqutgtbv`.
   * Отправляемые данные, например `message`.
 
@@ -24,10 +24,10 @@ description: "Из статьи вы узнаете, как отправить �
      import boto3
      from pprint import pprint
 
-     def put_record(folder, database, stream_name, message):
+     def put_record(cloud, database, stream_name, message):
        client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
        response = client.put_record(
-         StreamName="/{{ region-id }}/{folder}/{database}/{stream}".format(folder=folder,
+         StreamName="/{{ region-id }}/{cloud}/{database}/{stream}".format(cloud=cloud,
                                                                        database=database,
                                                                        stream=stream_name),
          Data=message,
@@ -37,7 +37,7 @@ description: "Из статьи вы узнаете, как отправить �
 
      if __name__ == '__main__':
        put_record_response = put_record(
-         folder="aoeu1kuj2dhtaupdb5es",
+         cloud="b1gi1kuj2dhtaupdb5es",
          database="cc8028jgtuabcqutgtbv",
          stream_name="example-stream",
          message="message")

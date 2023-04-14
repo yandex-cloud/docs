@@ -35,10 +35,10 @@
 
 - API
 
-    Получить список версий функции можно с помощью метода API [listVersions](../../functions/functions/api-ref/Function/listVersions.md).
+    Чтобы получить список версий функции, воспользуйтесь методом REST API [listVersions](../../functions/functions/api-ref/Function/listVersions.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/ListVersions](../../functions/functions/api-ref/grpc/function_service.md#ListVersions).
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-    Получить список версий функции можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+    Получить список версий функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

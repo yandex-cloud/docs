@@ -66,6 +66,6 @@
 
 - API
 
-    Передать секрет {{ lockbox-name }} в функцию можно с помощью метода API [createVersion](../../functions/functions/api-ref/Function/createVersion.md).
+    Чтобы передать секрет {{ lockbox-name }} в функцию, воспользуйтесь методом REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion).
 
 {% endlist %}

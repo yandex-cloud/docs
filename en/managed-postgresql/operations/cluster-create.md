@@ -1,6 +1,6 @@
 # Creating {{ PG }} clusters
 
-{{ PG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to disk both on the master host and on a certain number of replicas sufficient to [establish a quorum](../concepts/replication.md).
+{{ PG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to disk both on the master host and on a certain number of replicas sufficient [to establish a quorum](../concepts/replication.md).
 
 {% note info %}
 
@@ -66,7 +66,11 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
-        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+      Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+
+      To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
+
+      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
 
    1. Under **Hosts**, select the parameters for the database hosts created with the cluster. If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
@@ -155,7 +159,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:

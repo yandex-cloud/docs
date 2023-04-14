@@ -1,12 +1,14 @@
 # Настройка доступа к {{ objstorage-name }} из {{ ES }}-кластера
 
-{{ mes-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) {{ ES }}. Это позволяет использовать {{ objstorage-name }}:
+{{ mes-name }} поддерживает работу с {{ objstorage-full-name }} в качестве репозитория [снапшотов](https://cloud.yandex.ru/docs/glossary/snapshot) {{ ES }}. Это позволяет использовать {{ objstorage-name }}:
 
 * для [переноса данных из стороннего кластера {{ ES }} в {{ mes-name }}](../tutorials/migration-via-snapshots.md);
 
 * для добавления [пользовательских расширений](cluster-extensions.md#add);
 
 * для [хранения резервных копий](./cluster-backups.md).
+
+Подробнее о механизме снапшотов см. в [документации {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
 Для доступа к данным в бакете {{ objstorage-name }} из кластера:
 

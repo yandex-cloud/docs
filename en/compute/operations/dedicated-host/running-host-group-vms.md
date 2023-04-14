@@ -85,8 +85,8 @@ To create a VM:
 
 - API
 
-   1. Find out  the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) method for the `HostGroup` resource.
-   1. Create a VM using the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+  1. Find out the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/List](../../api-ref/grpc/host_group_service.md#List) gRPC API call.
+  1. Create a VM instance using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 {% endlist %}
 

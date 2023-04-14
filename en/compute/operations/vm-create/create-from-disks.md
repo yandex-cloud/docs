@@ -60,9 +60,9 @@ To create a VM from a set of disks:
       * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
       * Enter the username in the **Login** field.
 
-          {% note alert %}
+         {% note alert %}
 
-          Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
+         Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
 
          {% endnote %}
 
@@ -127,7 +127,7 @@ To create a VM from a set of disks:
 
 - API
 
-  Use the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+  Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 - {{ TF }}
 
@@ -188,10 +188,10 @@ To create a VM from a set of disks:
        * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
        * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
        * `boot_disk`: Boot disk settings. Specify the disk ID. If you have no boot disk available, specify the ID of a public image using the `image_id` parameter.
-         
+
          {% include [id-info](../../../_includes/compute/id-info.md) %}
 
-       * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you don't have a disk, [create](../disk-create/empty.md) one.
+       * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you do not have a disk, [create](../disk-create/empty.md) one.
        * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
        * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
@@ -226,6 +226,6 @@ To create a VM from a set of disks:
 
      2. Confirm that you want to create the resources.
 
-     Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+     Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}

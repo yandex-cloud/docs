@@ -1,5 +1,11 @@
 # Посмотреть роли, назначенные на функцию
 
+{% note info %}
+
+[Роли](../../security/index.md#roles), назначенные на каталог или облако, автоматически [наследуются](../../../iam/concepts/access-control/index.md#inheritance) функцией. При этом они не отображаются в списке ролей, назначенных на нее. Подробнее о [просмотре ролей](../../../iam/operations/roles/get-assigned-roles.md).
+
+{% endnote %}
+
 {% list tabs %}
     
 - CLI 
@@ -25,12 +31,6 @@
 
 - API
 
-    Посмотреть [роли](../../security/index.md#roles), назначенные на функцию, можно с помощью метода API [listAccessBindings](../../functions/api-ref/Function/listAccessBindings.md).
+  Чтобы посмотреть роли на функцию, воспользуйтесь методом REST API [listAccessBindings](../../functions/api-ref/Function/listAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListAccessBindings](../../functions/api-ref/grpc/function_service.md#ListAccessBindings).
 
 {% endlist %}
-
-{% note info %}
-
-[Роли](../../security/index.md#roles), назначенные на каталог или облако, автоматически [наследуются](../../../iam/concepts/access-control/index.md#inheritance) функцией. При этом они не отображаются в списке ролей, назначенных на нее. Подробнее о [просмотре ролей](../../../iam/operations/roles/get-assigned-roles.md).
-
-{% endnote %}

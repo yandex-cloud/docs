@@ -138,7 +138,7 @@
 
 1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}_**.
 
-{% include [get-yds-data](../../_includes/data-transfer/get-yds-data.md) %}
+1. {% include [get-yds-data](../../_includes/data-transfer/get-yds-data.md) %}
 
 ## Проверьте работу репликации {#check-replication}
 
@@ -154,7 +154,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 * [Деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-STOPPED }}_**.
 * [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).

@@ -211,6 +211,9 @@ default:
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
+  roles-cr-viewer: container-registry.viewer
+  roles-cr-editor: container-registry.editor
+  roles-cr-images-scanner: container-registry.images.scanner
   roles-data-transfer-admin: data-transfer.admin
   roles-data-transfer-private-admin: data-transfer.privateAdmin
   roles-data-transfer-viewer: data-transfer.viewer
@@ -41051,6 +41054,12 @@ default:
         button_zone-create: Создать зону
         label_additional-settings: Дополнительные настройки
         label_form-ttl: TTL (в секундах)
+      greenplum:
+        action_expand-open: Расширить кластер
+        action_expand-start: Сохранить
+        field_expand-add-segments-per-host-count: Добавить сегментов на хост
+        field_expand-duration: Таймаут редистрибуции
+        field_expand-segment-host-count: Количество новых хостов-сегментов
       iam:
         cloud:
           folders-create:
@@ -41059,6 +41068,7 @@ default:
           dashboard:
             button_add: Создать ресурс
             label_data-proc: Data Proc
+            label_managed-greenplum: Managed Service for Greenplum
           service-account:
             label_add-role: Добавить роль
             popup-robot_button_add: Создать
@@ -41070,6 +41080,8 @@ default:
           button_create: Создать
       mdb:
         cluster:
+          hosts:
+            label_title: Хосты
           overview:
             button_action-delete: Удалить кластер
         clusters:

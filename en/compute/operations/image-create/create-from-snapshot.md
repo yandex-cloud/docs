@@ -58,13 +58,18 @@ To create an image from a disk snapshot:
         --pooled
       ```
 
+- API
+
+   1. Get the list of snapshots using the [list](../../api-ref/Snapshot/list.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List) gRPC API call.
+   1. Create an image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Snapshot/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. Specify the snapshot ID in your request.
+
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the resource parameters in the `yandex_compute_image` configuration file.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_compute_image" "image-1" {
@@ -75,20 +80,20 @@ To create an image from a disk snapshot:
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. Run the command:
+      1. Run this command:
 
          ```bash
          terraform apply
@@ -96,12 +101,7 @@ To create an image from a disk snapshot:
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
-
-- API
-
-   1. Retrieve a list of snapshots using the [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List) gRPC API method or the [list](../../api-ref/Snapshot/list.md) method of the REST API `Snapshot` resource.
-   1. Create an image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API method or the [create](../../api-ref/Image/create.md) method of the REST API `Image` resource. Specify the snapshot ID in your request.
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

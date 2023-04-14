@@ -72,7 +72,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
    1. Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-      * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
       * The new cluster configuration in the `configSpec` parameter. Specify the value `"unmanagedTopics": true` in the configuration.
       * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -167,7 +167,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -178,7 +178,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Broker host class in the `configSpec.kafka.resources.resourcePresetId` parameter.
    * Number of broker hosts in the `configSpec.brokersCount` parameter.
    * List of settings to update in the `updateMask` parameter.
@@ -250,7 +250,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -262,7 +262,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * {{ ZK }} host class in the `configSpec.zookeeper.resources.resourcePresetId` parameter.
    * List of settings to update in the `updateMask` parameter.
 
@@ -284,7 +284,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 - Management console
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
    1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit cluster**.
@@ -325,7 +325,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 - {{ TF }}
 
-   To increase a cluster's storage size
+   To increase the cluster storage size
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -355,7 +355,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -367,7 +367,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New storage settings in the `configSpec.kafka.resources` parameter (`configSpec.zookeeper.resources` for {{ ZK }} hosts).
    * List of settings to update in the `updateMask` parameter.
 
@@ -438,7 +438,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -452,7 +452,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - The list of security group IDs in the `securityGroupIds` parameter.
    - Public access settings, in the `configSpec.assignPublicIp` parameter.
    - List of settings to update in the `updateMask` parameter.
@@ -494,7 +494,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
       {{ yc-mdb-kf }} cluster update --help
       ```
 
-   1. Run the command with a list of settings to update:
+   1. Run the following command with a list of settings to update:
 
       ```bash
       {{ yc-mdb-kf }} cluster update <cluster name or ID> \
@@ -542,7 +542,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -554,7 +554,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
 
@@ -637,7 +637,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -649,7 +649,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
    * New values of [settings {{ KF }}](../concepts/settings-list.md#cluster-settings) in the parameter:
       * `configSpec.kafka.kafkaConfig_2_8` if you use {{ KF }} `2.8`;
@@ -693,7 +693,83 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 - API
 
    Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The ID of the destination folder in the `destinationFolderId` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The ID of the destination folder in the `destinationFolderId parameter`.
 
 {% endlist %}
+
+
+## Changing security groups {#change-sg-set}
+
+{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
+   1. Under **Network settings**, select security groups for cluster network traffic.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
+
+   1. View a description of the CLI's update cluster command:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster update --help
+      ```
+
+   1. Specify the security groups in the update cluster command:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster update <cluster name> \
+         --security-group-ids <security group list>
+      ```
+
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+   1. Change the value of the `security_group_ids` parameter in the cluster description:
+
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+        ...
+        security_group_ids = ["<list of cluster security group IDs>"]
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the resources have been updated:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
+- API
+
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+   - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   - The list of security group IDs in the `securityGroupIds` parameter.
+   - List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+

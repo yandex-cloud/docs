@@ -46,7 +46,7 @@ items:
                 href: operations/endpoint/source/s3.md
               - name: '{{ yds-full-name }}'
                 href: operations/endpoint/source/data-streams.md
-              - name: '{{ ydb-full-name }}'
+              - name: '{{ ydb-short-name }}'
                 href: operations/endpoint/source/ydb.md
           - name: Configuring target endpoints
             items:
@@ -70,7 +70,7 @@ items:
                 href: operations/endpoint/target/postgresql.md
               - name: '{{ yds-full-name }}'
                 href: operations/endpoint/target/data-streams.md
-              - name: '{{ ydb-full-name }}'
+              - name: '{{ ydb-short-name }}'
                 href: operations/endpoint/target/yandex-database.md
       - name: Managing transfer process
         href: operations/transfer.md
@@ -138,6 +138,10 @@ items:
               Asynchronously replicating data from {{ mpg-full-name }} to {{
               ydb-full-name }}
             href: tutorials/mpg-to-ydb.md
+          - name: >-
+              Asynchronously replicating data from {{ mpg-full-name }} to {{
+              yds-full-name }}
+            href: tutorials/mpg-to-yds.md
           - name: Asynchronously replicating data from {{ metrika } to {{ CH }}
             stage: preview
             href: tutorials/metrika-to-clickhouse.md

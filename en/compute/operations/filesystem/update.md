@@ -120,6 +120,6 @@ After creating file storage, you can change its name, description, and size.
 
 - API
 
-   Use the [FilesystemService/Update](../../api-ref/grpc/filesystem_service.md#Update) gRPC API method or the [update](../../api-ref/Filesystem/update.md) method of the REST API Filesystem resource.
+   Use the [update](../../api-ref/Filesystem/update.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Update](../../api-ref/grpc/filesystem_service.md#Update) gRPC API call.
 
 {% endlist %}

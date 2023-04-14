@@ -1,4 +1,4 @@
-# Creating an image from other custom image
+# Creating an image from another custom image
 
 To create an image from another user image:
 
@@ -58,13 +58,18 @@ To create an image from another user image:
         --pooled
       ```
 
+- API
+
+   1. Get the list of images using the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call.
+   1. Create a new image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. In your request, specify the source image ID.
+
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the resource parameters in the `yandex_compute_image` configuration file.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_compute_image" "image-1" {
@@ -75,20 +80,20 @@ To create an image from another user image:
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. Run the command:
+      1. Run this command:
 
          ```bash
          terraform apply
@@ -96,12 +101,7 @@ To create an image from another user image:
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
-
-- API
-
-   1. Retrieve a list of images using the [ImageService/List](../../api-ref/grpc/image_service.md#List) grPC API method or the [list](../../api-ref/Image/list.md) method of the REST API `Image` resource.
-   1. Create a new image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) method of the gRPC API or the [create](../../api-ref/Image/create.md) method of the REST API `Image` resource. In your request, specify the source image ID.
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

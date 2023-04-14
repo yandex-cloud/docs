@@ -77,7 +77,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
    1. Click **Create resource** and select ![image](../../_assets/data-proc/data-proc.svg) **{{ dataproc-name }} cluster** from the drop-down list.
 
-   1. Name the cluster in the **Cluster name** field. Naming conventions:
+   1. Name the cluster in the **Cluster name** field. The naming requirements are as follows:
 
       * It must be unique within the folder.
 
@@ -118,8 +118,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       {% endnote %}
 
    1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
-      
-   1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
+         1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
       To enable this functionality, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
@@ -223,7 +222,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       {% note info %}
 
-      The cluster name must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
+      The cluster name must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may not be longer than 63 characters.
 
       {% endnote %}
 
@@ -309,8 +308,9 @@ A cluster must include a subcluster with a master host and at least one subclust
 
          {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
+
    
-   1. To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), specify host group IDs as a comma-separated list in the `--host-group-ids` parameter:
+   1. To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter:
 
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
@@ -333,7 +333,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       Where:
 
-      * `uri`: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
+      * `URI`: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
       * (Optional) `timeout`: Script execution timeout (in seconds). If your initialization script runs longer than this time, it will be terminated.
       * (Optional) `args`: Arguments, enclosed in square brackets and separated by commas, with which an initialization script must be executed.
 
@@ -350,9 +350,9 @@ A cluster must include a subcluster with a master host and at least one subclust
 
    1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
-      The cluster is hosted on a cloud network. If you already have a suitable network, you don't need to describe it again.
+      The cluster is hosted on a cloud network. If you already have a suitable network, you do not need to describe it again.
 
-      Cluster hosts are located on subnets of the selected cloud network. If you already have suitable subnets, you don't need to describe them again.
+      Cluster hosts are located on subnets of the selected cloud network. If you already have suitable subnets, you do not need to describe them again.
 
       Example structure of a configuration file that describes a cloud network with a single subnet:
 
@@ -376,7 +376,7 @@ A cluster must include a subcluster with a master host and at least one subclust
         description = "<service account description>"
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "dataproc" {
+      resource "yandex_resourcemanager_folder_iam_member" "dataproc" {
         folder_id = "<folder ID>"
         role      = "mdb.dataproc.agent"
         members   = [
@@ -384,7 +384,7 @@ A cluster must include a subcluster with a master host and at least one subclust
         ]
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "bucket-creator" {
+      resource "yandex_resourcemanager_folder_iam_member" "bucket-creator" {
         folder_id = "<folder ID>"
         role      = "editor"
         members   = [
@@ -392,13 +392,13 @@ A cluster must include a subcluster with a master host and at least one subclust
         ]
       }
 
-      resource "yandex_iam_service_account_static_access_key" "<name of static key in {{ TF }}>" {
-        service_account_id = yandex_iam_service_account.<service account name in {{ TF }}>.id
+      resource "yandex_iam_service_account_static_access_key" "<static key name in {{ TF }}>" {
+        service_account_id = yandex_iam_service_account.<name of service account in {{ TF }}>.id
       }
 
       resource "yandex_storage_bucket" "<bucket name in {{ TF }}>" {
         depends_on = [
-          yandex_resourcemanager_folder_iam_binding.bucket-creator
+          yandex_resourcemanager_folder_iam_member.bucket-creator
         ]
 
         bucket     = "<bucket name>"

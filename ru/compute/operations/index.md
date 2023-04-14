@@ -52,6 +52,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
+* [{#T}](vm-control/vm-change-security-groups-set.md)
 * [{#T}](vm-control/vm-delete.md)
 
 ## Работа на виртуальной машине {#vm-use}

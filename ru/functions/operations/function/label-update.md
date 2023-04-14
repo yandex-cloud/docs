@@ -34,10 +34,6 @@
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
 
-- API
-
-    Изменить метки функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
-
 - {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -105,5 +101,9 @@
     ```
     yc serverless function get <имя_функции>|<идентификатор_функции>
     ```
+
+- API
+
+    Чтобы изменить метку функции, воспользуйтесь методом REST API [update](../../functions/api-ref/Function/update.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update).
 
 {% endlist %}

@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart/index.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Creating API gateways
         href: operations/api-gw-create.md
@@ -21,7 +21,7 @@ items:
         href: operations/api-gw-logs.md
   - name: Tutorials
     items:
-      - name: All practical guidelines
+      - name: All tutorials
         href: tutorials/index.md
       - name: Deploying a web application using the Java Servlet API
         href: tutorials/java-servlet-todo-list.md
@@ -45,24 +45,26 @@ items:
         items:
           - name: Overview
             href: concepts/extensions/index.md
-          - name: Static response
-            href: concepts/extensions/dummy.md
-          - name: Invoking a function
-            href: concepts/extensions/cloud-functions.md
-          - name: Integration with Serverless Containers
-            href: concepts/extensions/containers.md
-          - name: Access via HTTP
-            href: concepts/extensions/http.md
-          - name: Integration with Object Storage
-            href: concepts/extensions/object-storage.md
-          - name: Integration with DataSphere
-            href: concepts/extensions/datasphere.md
-          - name: Integration with Data Streams
-            href: concepts/extensions/datastreams.md
-          - name: Integration with Message Queue
-            href: concepts/extensions/ymq.md
-          - name: Integration with YDB
-            href: concepts/extensions/ydb.md
+          - name: Integrations
+            items:
+              - name: Static response
+                href: concepts/extensions/dummy.md
+              - name: Access via HTTP
+                href: concepts/extensions/http.md
+              - name: '{{ sf-name }}'
+                href: concepts/extensions/cloud-functions.md
+              - name: '{{ serverless-containers-name }}'
+                href: concepts/extensions/containers.md
+              - name: '{{ objstorage-name }}'
+                href: concepts/extensions/object-storage.md
+              - name: '{{ ml-platform-short-name }}'
+                href: concepts/extensions/datasphere.md
+              - name: '{{ yds-name }}'
+                href: concepts/extensions/datastreams.md
+              - name: '{{ message-queue-name }}'
+                href: concepts/extensions/ymq.md
+              - name: '{{ ydb-name }}'
+                href: concepts/extensions/ydb.md
           - name: Greedy parameters
             href: concepts/extensions/greedy-parameters.md
           - name: Generalized HTTP method
@@ -71,6 +73,10 @@ items:
             href: concepts/extensions/function-authorizer.md
           - name: WebSocket protocol support
             href: concepts/extensions/websocket.md
+          - name: Data validation
+            href: concepts/extensions/validator.md
+          - name: CORS
+            href: concepts/extensions/cors.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

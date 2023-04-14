@@ -128,11 +128,11 @@ To change basic settings of a snapshot schedule:
 
 - API
 
-   1. Retrieve a list of schedules using the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API method or the [list](../../api-ref/SnapshotSchedule/list.md) method for the REST API `SnapshotSchedule` resource.
+   1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API call.
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-   1. Start a snapshot schedule using the [SnapshotScheduleService/Update](../../api-ref/grpc/snapshot_schedule_service.md#Update) gRPC API method or the [update](../../api-ref/SnapshotSchedule/update.md) method for the REST API `SnapshotSchedule` resource.
+   1. Update a snapshot schedule using the [update](../../api-ref/SnapshotSchedule/update.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Update](../../api-ref/grpc/snapshot_schedule_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -386,15 +386,15 @@ To change a list of disks for which snapshots are scheduled:
 
 - API
 
-   1. Retrieve a list of schedules using the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API method or the [list](../../api-ref/SnapshotSchedule/list.md) method for the REST API `SnapshotSchedule` resource.
-   1. Retrieve a list of disks using the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API method or the [list](../../api-ref/Disk/list.md) method for the REST API `Disk` resource.
-   1. Change a list of disks in the schedule using the [SnapshotScheduleService/UpdateDisks](../../api-ref/grpc/snapshot_schedule_service.md#UpdateDisks) gRPC API method or the [updateDisks](../../api-ref/SnapshotSchedule/updateDisks.md) method for the REST API `SnapshotSchedule` resource.
+   1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API call.
+   1. Get the list of disks using the [list](../../api-ref/Disk/list.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API call.
+   1. Update the list of disks in a schedule using the [updateDisks](../../api-ref/SnapshotSchedule/updateDisks.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/UpdateDisks](../../api-ref/grpc/snapshot_schedule_service.md#UpdateDisks) gRPC API call.
 
 {% endlist %}
 
 ## Examples {#examples}
 
-### Updating the name of a schedule {#change-name} 
+### Updating the name of a schedule {#change-name}
 
 {% list tabs %}
 

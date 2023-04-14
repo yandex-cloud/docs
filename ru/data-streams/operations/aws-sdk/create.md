@@ -6,7 +6,7 @@
 
   Для создания потока данных используется метод `create_stream`. При вызове этого метода необходимо указать следующие параметры:
   * Имя создаваемого потока данных, например `example-stream`.
-  * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором будет создан поток, например `aoeu1kuj2dhtaupdb5es`.
+  * [Идентификатор облака](../../../resource-manager/operations/cloud/get-id.md), в котором будет создан поток, например `b1gi1kuj2dhtaupdb5es`.
   * Идентификатор существующей [бессерверной](../../../ydb/pricing/serverless.md) базы данных {{ ydb-full-name }}, например `cc8028jgtuabcqutgtbv`. Как создать новую базу данных, читайте в [документации {{ ydb-short-name }}](../../../ydb/quickstart.md#create-db).
   * Число сегментов, например `1`.
 
@@ -18,10 +18,10 @@
      import boto3
      from pprint import pprint
 
-     def create_stream(folder, database, stream_name, shard_count):
+     def create_stream(cloud, database, stream_name, shard_count):
          client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
          response = client.create_stream(
-           StreamName="/{{ region-id }}/{folder}/{database}/{stream}".format(folder=folder,
+           StreamName="/{{ region-id }}/{cloud}/{database}/{stream}".format(cloud=cloud,
                                                                          database=database,
                                                                          stream=stream_name),
            ShardCount=shard_count
@@ -30,7 +30,7 @@
 
      if __name__ == '__main__':
        create_stream_response = create_stream(
-         folder="aoeu1kuj2dhtaupdb5es",
+         cloud="b1gi1kuj2dhtaupdb5es",
          database="cc8028jgtuabcqutgtbv",
          stream_name="example-stream",
          shard_count=1)

@@ -1,6 +1,6 @@
-# Creating {{ CH }} clusters
+# Creating a {{ CH }} cluster
 
-{{ CH }} clusters are one or more database hosts that replication can be configured between.
+A {{ CH }} cluster is one or more database hosts that replication can be configured between.
 
 {% note info %}
 
@@ -19,7 +19,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
 
-   The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. For more information, see [{#T}](../concepts/replication.md#zk).
+   The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. To learn more, see [Replication](../concepts/replication.md#zk).
 
    {% note alert %}
 
@@ -44,11 +44,11 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the {{ CH }} version from the **Version** drop-down list to use for the {{ mch-name }} cluster:
       * For most clusters, it's recommended to select the latest LTS version.
-      * If you plan to use hybrid storage in a cluster, it's recommended to select {{ mch-ck-version }} version or higher.
-   1. If you are expecting to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up a service account to access data in a bucket, see [{#T}](s3-access.md).
+      * If you plan to use hybrid storage in a cluster, it's recommended to select version {{ mch-ck-version }} or higher.
+   1. If you are expecting to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
    1. Under **Resources**:
 
-      * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
+      * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
       
       * Select the [disk type](../concepts/storage.md).
@@ -79,7 +79,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-      * DB name. The database name may contain Latin letters, numbers, and underscores. The maximum name length is 63 characters. You can't create a database named `default`.
+      * DB name. The database name may contain Latin letters, numbers, and underscores. The name may not be longer than 63 characters. You can't create a database named `default`.
 
       * If necessary, enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster.
 
@@ -92,12 +92,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
    
-   1. Under **Network settings**, select:
+   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-      * Cloud network for the cluster.
-      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
-
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 
    1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its number:
@@ -191,7 +188,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
            ...
            --enable-sql-user-management true \
            --enable-sql-database-management true \
-           --admin-password "<admin password>"
+           --admin-password "<admin account password>"
          ```
 
       
@@ -251,8 +248,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
-      * Network: A description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you don't need to describe it again.
-      * Subnets: The [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
+      * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you do not need to describe it again.
+      * Subnets: [Subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
       Example structure of a configuration file that describes a cloud network with a single subnet:
 
@@ -371,7 +368,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    * Network ID in the `networkId` parameter.
 
    
-   * Security group identifiers, in the `securityGroupIds` parameter.
+   * Security group identifiers in the `securityGroupIds` parameter.
 
 
    To allow [connection](connect.md) to cluster hosts from the internet, pass the `true` value in the `hostSpecs.assignPublicIp` parameter.

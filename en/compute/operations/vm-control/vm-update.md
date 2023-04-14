@@ -42,7 +42,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
 - API
 
-  To update a VM, use the [update](../../api-ref/Instance/update.md) method for the [Instance](../../api-ref/Instance/) resource.
+  To update a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -93,6 +93,10 @@ To update a VM name or description, perform the following steps:
        --description "changed description vm via CLI"
      ```
 
+- API
+
+  Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+
 {% endlist %}
 
 {% note alert %}
@@ -138,7 +142,7 @@ To update VM metadata, perform the following steps:
         net user administrator '<password>'
         ```
 
-     1. Run the command:
+     1. Run this command:
 
         ```bash
         yc compute instance update first-instance \

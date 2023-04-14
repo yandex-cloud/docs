@@ -40,8 +40,9 @@ To get information about an instance group:
 
 - API
 
-   Use the API [get](../../api-ref/InstanceGroup/get.md) method.
+   Use the [get](../../api-ref/InstanceGroup/get.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Get](../../api-ref/grpc/instance_group_service.md#Get) gRPC API call.
 
-   To request a list of available groups, use the method [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
+
 
 {% endlist %}

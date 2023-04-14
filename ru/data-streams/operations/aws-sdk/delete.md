@@ -6,7 +6,7 @@
 
   Для удаления [потока данных](../../concepts/glossary.md#stream-concepts) используется метод `delete_stream`.  При вызове этого метода необходимо указать следующие параметры:
   * Имя удаляемого потока данных, например `example-stream`.
-  * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором будет удален поток, например `aoeu1kuj2dhtaupdb5es`.
+  * [Идентификатор облака](../../../resource-manager/operations/cloud/get-id.md), в котором будет удален поток, например `b1gi1kuj2dhtaupdb5es`.
   * Идентификатор базы данных {{ ydb-full-name }} с потоком, например `cc8028jgtuabcqutgtbv`.
 
   Чтобы удалить поток с параметрами, указанными выше:
@@ -17,23 +17,23 @@
      import boto3
      from pprint import pprint
 
-     def delete_stream(folder, database, stream_name):
+     def delete_stream(cloud, database, stream_name):
        client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
        response = client.delete_stream(
-         StreamName="/{{ region-id }}/{folder}/{database}/{stream}".format(folder=folder,
+         StreamName="/{{ region-id }}/{cloud}/{database}/{stream}".format(cloud=cloud,
                                                                        database=database,
                                                                        stream=stream_name)
-         )
-         return response
+       )
+       return response
 
      if __name__ == '__main__':
        delete_stream_response = delete_stream(
-         folder="aoeu1kuj2dhtaupdb5es",
+         cloud="b1gi1kuj2dhtaupdb5es",
          database="cc8028jgtuabcqutgtbv",
          stream_name="example-stream")
 
-         print("The stream has been deleted successfully")
-         pprint(delete_stream_response)
+       print("The stream has been deleted successfully")
+       pprint(delete_stream_response)
      ```
 
   1. Запустите программу:

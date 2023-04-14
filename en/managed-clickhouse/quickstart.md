@@ -61,7 +61,7 @@ To get started with the service:
 1. In the management console, select the folder where you want to create a DB cluster.
 1. Select **{{ mch-name }}**.
 1. Click **Create cluster**.
-1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [Creating clusters](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mch-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}

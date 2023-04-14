@@ -45,8 +45,8 @@ If an instance group is stopped by {{ yandex-cloud }} because it was blocked for
 
 - API
 
-   You can start an instance group using the API method [start](../../api-ref/InstanceGroup/start.md).
+   You can start an instance group using the [start](../../api-ref/InstanceGroup/start.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Start](../../api-ref/grpc/instance_group_service.md#Start) gRPC API call.
 
-   To request a list of available groups, use the method [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
 
 {% endlist %}

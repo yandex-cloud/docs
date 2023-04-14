@@ -1,8 +1,6 @@
 ### container-registry.admin {#cr-admin}
 
-В роль `{{ roles-cr-admin }}` входят следующие разрешения:
-* [создание реестра](../../../container-registry/operations/registry/registry-create.md);
-* [изменение реестра](../../../container-registry/operations/registry/registry-update.md);
-* [удаление реестра](../../../container-registry/operations/registry/registry-delete.md).
+Роль `{{ roles-cr-admin }}` назначается на облако или каталог.
+Дает право управлять доступом к реестрам, Docker-образам и репозиториям.
 
-{% include [roles-restriction-only-parents](../roles-restriction-only-parents.md) %}
+Роль включает все разрешения, которые дают роли `{{ roles-cr-viewer }}` и `{{ roles-cr-editor }}`.

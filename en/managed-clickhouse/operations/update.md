@@ -40,13 +40,13 @@ After creating a cluster, you can:
 
 {% note info %}
 
-In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, see [{#T}](../concepts/replication.md).
+In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Replication](../concepts/replication.md).
 
 {% endnote %}
 
-Host class affects the amount of RAM that {{ CH }} can use. For more information, see [{#T}](../concepts/memory-management.md).
+Host class affects the amount of RAM that {{ CH }} can use. For more information, see [Memory management](../concepts/memory-management.md).
 
-The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. For more information, see [{#T}](../concepts/replication.md#zk).
+The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. To learn more, see [Replication](../concepts/replication.md#zk).
 
 {% list tabs %}
 
@@ -103,7 +103,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, change the value of the `resource_preset_id` parameter in the `clickhouse.resources` and `zookeeper.resources` blocks for {{ CH }} and {{ ZK }} hosts, respectively:
 
@@ -129,7 +129,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -156,7 +156,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 {% note info %}
 
-In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, see [{#T}](../concepts/replication.md).
+In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Replication](../concepts/replication.md).
 
 {% endnote %}
 
@@ -202,7 +202,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, change the value of the `disk_size` parameter in the `clickhouse.resources` and `zookeeper.resources` blocks for {{ CH }} and {{ ZK }}, respectively:
 
@@ -228,7 +228,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -238,7 +238,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
 - API
 
-   To increase storage size, use the API [update](../api-ref/Cluster/update.md) method and pass the following in in the call:
+   To increase storage size, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required size of the {{ CH }} host storage in the `configSpec.clickhouse.resources.diskSize` parameter.
@@ -306,7 +306,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. {% include [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
 
@@ -316,7 +316,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -340,7 +340,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 You can only update the value of [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) by [changing the {{ CH }} host class](#change-resource-preset).
 
-For more information, see [{#T}](../concepts/memory-management.md).
+For more information, see [Memory management](../concepts/memory-management.md).
 
 {% endnote %}
 
@@ -388,7 +388,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, change the values of the parameters in the `clickhouse.config` block:
 
@@ -446,7 +446,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -461,7 +461,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.config` parameter.
 
-      All supported settings are described in [{#T}](../concepts/settings-list.md#dbms-cluster-settings) and the [API reference](../api-ref/Cluster/update.md).
+      All supported settings are described in [{{ CH }} settings](../concepts/settings-list.md#dbms-cluster-settings) and the [API reference](../api-ref/Cluster/update.md).
 
    * List of settings to update in the `updateMask` parameter.
 
@@ -521,7 +521,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
    
-   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
 
    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
@@ -550,7 +550,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. To change the backup start time, add a `backup_window_start` block to the {{ mch-name }} cluster description:
 
@@ -600,7 +600,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -681,6 +681,8 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
 ## Changing security groups {#change-sg-set}
 
+{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
+
 {% list tabs %}
 
 - Management console
@@ -714,7 +716,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Change the value of the `security_group_ids` parameter in the cluster description:
 
@@ -729,7 +731,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

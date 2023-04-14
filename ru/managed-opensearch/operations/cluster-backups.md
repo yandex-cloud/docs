@@ -9,7 +9,8 @@ keywords:
 
 # Управление резервными копиями в {{ mos-name }}
 
-{{ mos-short-name }} позволяет создавать резервные копии [индексов](../concepts/indexing.md) как средствами {{ yandex-cloud }}, так и с помощью механизма [снапшотов]({{ os.docs }}/opensearch/snapshots/snapshot-restore/) {{ OS }}.
+{{ mos-short-name }} позволяет создавать резервные копии [индексов](../concepts/indexing.md) как средствами {{ yandex-cloud }}, так и с помощью механизма [снапшотов](https://cloud.yandex.ru/docs/glossary/snapshot) {{ OS }}. Подробнее о механизме снапшотов см. в [документации {{ OS }}]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
+
 
 ## Резервное копирование средствами {{ yandex-cloud }} {#cloud-backups}
 

@@ -73,7 +73,7 @@ description: "Use this tutorial to create a Linux VM."
 
 - API
 
-   Create a VM using the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource:
+   Create a VM using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource:
 
    1. Prepare the key pair (public and private keys) for SSH access to the VM.
    1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) for authentication in these examples:
@@ -157,10 +157,10 @@ description: "Use this tutorial to create a Linux VM."
       * `platformId`: The [platform](../../concepts/vm-platforms.md).
       * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
       * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
-      * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and the disk size.
-        
+      * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and disk size.
+
         {% include [id-info](../../../_includes/compute/id-info.md) %}
-        
+
         The disk size must not be below the minimum value specified in the image details.
 
       * `networkInterfaceSpecs`: Network setting.
@@ -239,18 +239,18 @@ description: "Use this tutorial to create a Linux VM."
 
       * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
          * `name`: VM name.
-         * `platform_id`: The [platform](../../concepts/vm-platforms.md).
+         * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
-         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
          * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
-         * `metadata`: In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+         * `metadata`: In metadata, provide the public SSH key for accessing the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
       * `yandex_vpc_subnet`: Description of [subnet](../../../vpc/concepts/network.md#network) your virtual machine will connect to.
 
       {% note info %}
 
-      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+      If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
 
       {% endnote %}
 
@@ -277,7 +277,7 @@ description: "Use this tutorial to create a Linux VM."
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 

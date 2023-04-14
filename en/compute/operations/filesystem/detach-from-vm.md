@@ -4,7 +4,7 @@
 
    1. [Connect to the VM via SSH](../vm-connect/ssh.md).
    1. If you added a line to the `/etc/fstab` file for automatically mounting file storage to the VM at startup (for example, when [attaching storage to a VM](attach-to-vm.md)), delete the line.
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       sudo umount <mount path>
@@ -46,6 +46,6 @@
 
    - API
 
-      Use the [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem) gRPC API method or the [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) method of the REST API Instance resource.
+      Use the [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem) gRPC API call.
 
    {% endlist %}

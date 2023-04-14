@@ -108,7 +108,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -196,7 +196,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -295,7 +295,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -467,7 +467,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -532,7 +532,7 @@ To switch the master:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run this command:
+   Run the following command:
 
    ```bash
    {{ yc-mdb-pg }} cluster start-failover <cluster ID or name> \
@@ -562,7 +562,7 @@ To switch the master:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -630,6 +630,8 @@ After the cluster is moved, it will continue using the cloud network from the so
 
 ## Changing security groups {#change-sg-set}
 
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
 {% list tabs %}
 
 - Management console
@@ -680,7 +682,7 @@ After the cluster is moved, it will continue using the cloud network from the so
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

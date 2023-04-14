@@ -3,7 +3,7 @@
     {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
 
-* **Сервисный аккаунт** — аккаунт для [доступа к {{ objstorage-full-name }}](../../../managed-opensearch/operations/s3-access.md) в качестве репозитория снапшотов {{ OS }}. Подробнее о сервисных аккаунтах см. в [документации {{ iam-full-name }}](../../../iam/concepts/users/service-accounts.md).
+* **Сервисный аккаунт** — аккаунт для [доступа к {{ objstorage-full-name }}](../../../managed-opensearch/operations/s3-access.md) в качестве репозитория [снапшотов](https://cloud.yandex.ru/docs/glossary/snapshot) {{ OS }}. Подробнее о сервисных аккаунтах см. в [документации {{ iam-full-name }}](../../../iam/concepts/users/service-accounts.md).
 
 
 * {% include [Deletion protection](../console/deletion-protection.md) %}

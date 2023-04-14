@@ -115,10 +115,6 @@
     status: ACTIVE
     ```
 
-- API
-
-    Создать триггер для {{ cloud-logging-name }} можно с помощью метода API [create](../../triggers/api-ref/Trigger/create.md).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -195,6 +191,10 @@
         ```
         yc serverless trigger get <идентификатор триггера>
         ```
+
+- API
+
+  Чтобы создать триггер для {{ cloud-logging-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create).
 
 {% endlist %}
 

@@ -57,8 +57,8 @@ To create a group of dedicated hosts:
 
 - API
 
-   1. Select the host type using the [list](../../api-ref/HostType/list.md) method for the `HostType` resource.
-   1. Create a group of dedicated hosts using the [create](../../api-ref/HostGroup/create.md) method for the `HostGroup` resource.
+   1. Select the host type using the [list](../../api-ref/HostType/list.md) REST API method for the [HostType](../../api-ref/HostType/index.md) resource or the [HostTypeService/List](../../api-ref/grpc/host_type_service.md#List) gRPC API call.
+   1. Create a group of dedicated hosts using the [create](../../api-ref/HostGroup/create.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/Create](../../api-ref/grpc/host_group_service.md#Create) gRPC API call.
 
 {% endlist %}
 

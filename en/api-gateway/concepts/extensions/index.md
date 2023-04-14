@@ -1,27 +1,31 @@
 ---
 title: "Extensions of the {{ api-gw-name }} specification. Overview"
-description: "The x-yc-apigateway extension lets you set top-level API gateway parameters whose values will be inherited by nested extensions. The x-yc-apigateway-integration extension is the entry point for integrating the API gateway with other services."
+description: "The x-yc-apigateway extension allows you to set top-level API gateway parameters whose values will be inherited by nested extensions. The x-yc-apigateway-integration extension is the entry point for integrating the API gateway with other services."
 ---
 
-# Specification extensions{{ api-gw-name }}. Overview
+# Specification extensions {{ api-gw-name }}. Overview
 
 ## x-yc-apigateway extension {#top-level}
 
-The `x-yc-apigateway` extension lets you set top-level API gateway parameters whose values will be inherited by nested extensions.
+The `x-yc-apigateway` extension allows you to set top-level API gateway parameters whose values will be inherited by nested extensions.
 
 ### Supported parameters {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
 | Parameter | Type | Description |
-----|----|----
+----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------
 | `service_account_id` | `string` | The ID of the [service account](../../../iam/concepts/users/service-accounts.md) on behalf of which the API gateway will perform operations. |
+| `validator` | `ValidatorObject` | [HTTP request and response validator](validator.md#validator_object) or a link to it. It can be overridden at the level of a specific operation. |
+| `cors` | `CorsRuleObject` | [Rule for handling CORS preflight requests](cors.md#corsrule_object) or a link to it. It can be overridden at the level of a specific path. |
 
 ### Extension specification {#tl-spec}
 
 ```yaml
 x-yc-apigateway:
-  service_account_id: <ID of service account>
+  service_account_id: <service_account_ID>
+  validator: <ValidatorObject or a link to it>
+  cors: <CorsRuleObject or a link to it>
 ```
 
 ## x-yc-apigateway-integration extension {#integration}
@@ -34,7 +38,7 @@ The `x-yc-apigateway-integration` extension is the entry point for integrating t
 
 | Parameter | Type | Description |
 ----|----|----
-| `type` | `string` | Extension type. Legal values: `dummy`, `cloud_functions`, `http`, `object_storage`, `cloud_datasphere`, `cloud_datastreams`, and `serverless_containers`. |
+| `type` | `string` | Extension type. Acceptable values: `dummy`, `cloud_functions`, `http`, `object_storage`, `cloud_datasphere`, `cloud_datastreams`, `serverless_containers`, `cloud_ymq`, and `cloud_ydb`. |
 
 ### Extension specification {#intg-spec}
 

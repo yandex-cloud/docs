@@ -148,7 +148,7 @@ For more information, see [{#T}](../concepts/index.md).
 
       {% note info %}
 
-      The cluster name must be unique within a folder. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
+      The cluster name must be unique within a folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may not be longer than 63 characters.
 
       {% endnote %}
 
@@ -239,9 +239,9 @@ For more information, see [{#T}](../concepts/index.md).
 
    2. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
-      The cluster is hosted on a cloud network. If you already have a suitable network, you don't need to describe it again.
+      The cluster is hosted on a cloud network. If you already have a suitable network, you do not need to describe it again.
 
-      Cluster hosts are located on subnets of the selected cloud network. If you already have suitable subnets, you don't need to describe them again.
+      Cluster hosts are located on subnets of the selected cloud network. If you already have suitable subnets, you do not need to describe them again.
 
       Example structure of a configuration file that describes a cloud network with a single subnet:
 
@@ -345,7 +345,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 ## Examples {#examples}
 
-### Creating an cluster {#create-example}
+### Creating a cluster {#create-example}
 
 {% list tabs %}
 

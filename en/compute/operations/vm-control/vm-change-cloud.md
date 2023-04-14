@@ -1,6 +1,6 @@
 # Moving a VM to another cloud
 
-You can't move a VM to another cloud, but you create an image from its boot disk and then create a VM from this image in another cloud.
+You cannot move a VM to another cloud; however, you can create an image from its boot disk and then create a VM from this image in another cloud.
 
 1. Use a boot disk of your VM to [create an image](../image-create/create-from-disk.md).
 1. Get the boot disk image ID:
@@ -72,7 +72,7 @@ You can't move a VM to another cloud, but you create an image from its boot disk
 
    - API
 
-      To get the list of clouds with IDs, use the [list](../../../resource-manager/api-ref/Cloud/list.md) REST API method for the [Cloud](../../../resource-manager/api-ref/Cloud/index.md) resource.
+      To get the list of clouds with IDs, use the [list](../../../resource-manager/api-ref/Cloud/list.md) REST API method for the [Cloud](../../../resource-manager/api-ref/Cloud/index.md) resource or the [CloudService/List](../../../resource-manager/api-ref/grpc/cloud_service.md#List) gRPC API call.
 
    {% endlist %}
 
@@ -90,6 +90,10 @@ You can't move a VM to another cloud, but you create an image from its boot disk
         --source-image-id <source_image_ID> \
         --cloud-id <source_cloud_ID>
       ```
+
+   - API
+
+      Use the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. Specify the image ID in your request.
 
    {% endlist %}
 

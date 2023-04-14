@@ -1,4 +1,4 @@
-# Practical guidelines for {{ compute-name }}
+# {{ compute-name }} tutorials
 
 * [{#T}](ntp.md)
 * [{#T}](vm-autoscale.md)

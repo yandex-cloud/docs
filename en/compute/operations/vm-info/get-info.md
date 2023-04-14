@@ -52,7 +52,7 @@ You can also get the basic details and metadata from [inside a VM](#inside-insta
 
 - API
 
-   To get basic information about a VM, use the [get](../../api-ref/Instance/get.md) method for the [Instance](../../api-ref/Instance/index.md) resource.
+   To get basic information about a VM, use the [get](../../api-ref/Instance/get.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Get](../../api-ref/grpc/instance_service.md#Get) gRPC API call.
 
    The basic information does not include the user-defined metadata that was passed when creating or updating the VM. To get the information along with the metadata, specify `view=FULL` in the parameters.
 
@@ -227,6 +227,10 @@ To set up the metadata service parameters for an instance:
         --metadata-options gce-http-endpoint=enabled
       ```
 
+- API
+
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+
 - {{ TF }}
 
    For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -247,25 +251,25 @@ To set up the metadata service parameters for an instance:
 
       For more information about the `yandex_compute_instance` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_instance).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -274,9 +278,5 @@ To set up the metadata service parameters for an instance:
       ```
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-- API
-
-   To set up the metadata service, use the [update](../../api-ref/Instance/update.md) method for the [Instance](../../api-ref/Instance/) resource.
 
 {% endlist %}

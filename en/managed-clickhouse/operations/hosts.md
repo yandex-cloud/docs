@@ -135,7 +135,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Add a `host` block to the {{ mch-name }} cluster description.
 
       ```hcl
@@ -154,7 +154,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -165,7 +165,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 - API
 
    Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New host settings in one or more `hostSpecs` parameters.
 
    To copy the data schema from a random replica to the new host, pass the `copySchema` parameter set to `true` in the request.
@@ -217,7 +217,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the host, use the `host` section to add or edit the `assign_public_ip` parameter.
 
@@ -236,7 +236,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -253,6 +253,10 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+
+To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 
 {% note warning %}
 
@@ -297,13 +301,13 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. In the {{ mch-name }} cluster description, remove the `CLICKHOUSE` type `host` block.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -314,7 +318,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 - API
 
    Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The name(s) of the host(s) to delete, in the `hostNames` parameter.
 
 {% endlist %}

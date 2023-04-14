@@ -79,8 +79,8 @@ To delete a disk snapshot schedule:
 
 - API
 
-   1. Retrieve a list of schedules using the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API method or the [list](../../api-ref/SnapshotSchedule/list.md) method for the REST API `SnapshotSchedule` resource.
-   1. Delete a snapshot schedule using the [SnapshotScheduleService/Delete](../../api-ref/grpc/snapshot_schedule_service.md#Delete) gRPC API method or the [delete](../../api-ref/SnapshotSchedule/delete.md) method for the REST API `SnapshotSchedule` resource.
+   1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API call.
+   1. Delete a snapshot schedule using the [delete](../../api-ref/SnapshotSchedule/delete.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Delete](../../api-ref/grpc/snapshot_schedule_service.md#Delete) gRPC API call.
 
 {% endlist %}
 

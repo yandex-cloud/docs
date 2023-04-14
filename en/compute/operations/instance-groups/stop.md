@@ -1,6 +1,6 @@
 # Stop an instance group
 
-If you don't need instances in a group for a while, stop the group. All instances in the group are stopped. If the instance group is very large and it would take a long time to create that many instances afterwards, stopping a group is more effective than deleting it or reducing its size to zero.
+If you do not need instances in a group for a while, stop the group. All instances in the group will be stopped. If the instance group is very large and it would take a long time to create that many instances afterwards, stopping a group is more effective than deleting it or reducing its size to zero.
 
 {% note info %}
 
@@ -47,8 +47,8 @@ Only disks are charged for stopped instances. If you don't want to pay for disk 
 
 - API
 
-   You can stop an instance group using the API method [stop](../../api-ref/InstanceGroup/stop.md).
+   You can stop an instance group by using the [stop](../../api-ref/InstanceGroup/stop.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Stop](../../api-ref/grpc/instance_group_service.md#Stop) gRPC API call.
 
-   To request a list of available groups, use the method [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
 
 {% endlist %}

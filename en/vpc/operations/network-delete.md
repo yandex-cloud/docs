@@ -2,7 +2,8 @@
 
 {% note alert %}
 
-Before you delete a network, you need to [delete](subnet-delete.md) all its subnets.
+Before deleting a network, you need to delete all its child resources.
+
 You cannot restore a network after it is deleted.
 
 {% endnote %}
@@ -59,7 +60,7 @@ You cannot restore a network after it is deleted.
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -86,19 +87,19 @@ You cannot restore a network after it is deleted.
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan

@@ -82,19 +82,19 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
 - API
 
-   Use the API [create](../../api-ref/Instance/create.md) method.
+   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a VM instance in a placement group:
 
    1. In the configuration file, describe the [parameters of the virtual machine](../../operations/vm-create/create-linux-vm.md) pointing to `yandex_compute_placement_group` in the `placement_group_id` field. The `yandex_compute_instance` resource describe the virtual machine parameters.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       ...
@@ -105,7 +105,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
           placement_group_id = "${yandex_compute_placement_group.group1.id}"
         }
       }
-      
+
       resource "yandex_compute_placement_group" "group1" {
         name = "test-pg"
       }
@@ -118,25 +118,25 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -146,7 +146,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can verify that the virtual machine has been created and added to the placement group from the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can verify that the virtual machine has been created and added to the placement group from the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

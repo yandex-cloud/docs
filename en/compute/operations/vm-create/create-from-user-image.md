@@ -56,7 +56,7 @@ Make sure the uploaded image is in the `READY` status.
 
          {% note alert %}
 
-         Don't use the username `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the command `sudo`.
+         Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
 
          {% endnote %}
 
@@ -65,7 +65,7 @@ Make sure the uploaded image is in the `READY` status.
 
    1. Click **Create VM**.
 
-   The virtual machine appears in the list. When a VM is created, it is assigned an [IP address](../../../vpc/concepts/address.md) and [hostname](../../../vpc/concepts/address.md#fqdn) (FQDN).
+   The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../../vpc/concepts/address.md) and [hostname](../../../vpc/concepts/address.md#fqdn) (FQDN).
 
 - CLI
 
@@ -118,11 +118,11 @@ Make sure the uploaded image is in the `READY` status.
 
 - API
 
-   Use the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 - {{ TF }}
 
-   If you do not have {{ TF }}yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a VM from a custom image:
 
@@ -171,18 +171,18 @@ Make sure the uploaded image is in the `READY` status.
 
       * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
          * `name`: VM name.
-         * `platform_id`: The [platform](../../concepts/vm-platforms.md).
+         * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
-         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the identifier of the [uploaded](../image-create/upload.md) image.
          * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
-         * `metadata`: In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+         * `metadata`: In metadata, provide the public SSH key for accessing the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
       * `yandex_vpc_subnet`: Description of [subnet](../../../vpc/concepts/network.md#network) your virtual machine will connect to.
 
       {% note info %}
 
-      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+      If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
 
       {% endnote %}
 
@@ -209,6 +209,6 @@ Make sure the uploaded image is in the `READY` status.
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}

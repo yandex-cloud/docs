@@ -30,7 +30,7 @@ For setup instructions, see [{#T}](custom-image.md).
 ## Upload an image file to {{ objstorage-name }} {#upload-file}
 
 Upload your image to {{ objstorage-name }} and get a link to the uploaded image:
-1. If you don't have a bucket in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one.
+1. If you do not have a bucket in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one.
 1. Upload the image [using the management console](../../../storage/operations/objects/upload.md), the [AWS CLI](../../../storage/tools/aws-cli.md), or [WinSCP](../../../storage/tools/winscp.md), for example. In {{ objstorage-name }} terms, the uploaded image is called an _object_.
 1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in {{ compute-name }}.
 
@@ -91,9 +91,13 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
    {% include [min-disk-size](../../_includes_service/min-disk-size.md) %}
 
+- API
+
+   Create a new image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. In the request, specify the link to the image.
+
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create an image:
 
@@ -125,7 +129,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
    1. Deploy cloud resources.
 
-      1. Run the command:
+      1. Run this command:
 
          ```bash
          terraform apply
@@ -133,11 +137,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
-
-- API
-
-   Create a new image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) method of the gRPC API or the [create](../../api-ref/Image/create.md) method of the REST API `Image` resource. In the request, specify the link to the image.
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

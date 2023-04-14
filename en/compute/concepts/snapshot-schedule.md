@@ -7,7 +7,7 @@ The schedule describes:
 * Disks for which the snapshots will be created. One schedule can include several disks and one disk can be added to several schedules.
 * Frequency of snapshot creation by hour, day, week, or [cron expression](#cron). The time is written in the [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
 * [Snapshot retention](#retention) settings.
-* Description and [labels](../../overview/concepts/services.md#labels) of snapshots created by the schedule (you can only use the API to add them to the schedule settings).
+* Description and [labels](../../resource-manager/concepts/labels.md) of snapshots created by the schedule (you can only use the API to add them to the schedule settings).
 
 {% note info %}
 
@@ -28,7 +28,7 @@ Schedules can be used free of charge. You only pay for retaining the snapshots. 
 
 ## Cron expressions {#cron}
 
-You can set the frequency of creating scheduled snapshots using [cron expressions](https://{{ lang }}.wikipedia.org/wiki/Cron), which include five [fields](#cron-fields): `Minutes Hours Day-of-month Month Day-of-week`. [Special expressions](#cron-predefined) are also supported - for example, to create snapshots every hour or every day.
+You can set the frequency of creating scheduled snapshots using [cron expressions](https://{{ lang }}.wikipedia.org/wiki/Cron), which include five [fields](#cron-fields): `Minutes Hours Day-of-month Month Day-of-week`. You can also use [specific expressions](#cron-predefined), for example, to create snapshots every hour or every day.
 
 
 ### Possible field values {#cron-fields}

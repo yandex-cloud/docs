@@ -67,7 +67,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
 - API
 
-   Use the [update](../../api-ref/Instance/update.md).
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 
 - {{ TF }}
 
@@ -79,7 +79,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
    1. Open the virtual machine's configuration file and delete the `placement_group_id` parameter.
 
-      Example configuration VM file structure:
+      Example of the VM configuration file structure:
 
       ```hcl
       ...
@@ -90,7 +90,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
           placement_group_id = "${yandex_compute_placement_group.group1.id}"
         }
       }
-      
+
       resource "yandex_compute_placement_group" "group1" {
         name = "test-pg"
       }
@@ -99,25 +99,25 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

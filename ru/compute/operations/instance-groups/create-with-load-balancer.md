@@ -149,7 +149,7 @@
           `memory` | Количество памяти (RAM).
           `cores` | Количество ядер процессора (vCPU).
           `mode` | Режим доступа к диску.</br> - `READ_ONLY` — доступ на чтение.</br>- `READ_WRITE` — доступ на чтение и запись.
-          `image_id` | Идентификатор публичного образа. {% include [id-info](../../../_includes/compute/id-info.md) %}
+          `image_id` | Идентификатор публичного образа. Идентификаторы образа можно посмотреть в [консоли управления]({{ link-console-main }}) при создании ВМ или в [{{ marketplace-name }}](/marketplace) на странице образа в блоке **Идентификаторы продукта**.
           `type_id` | Тип диска.
           `size` | Размер диска.
           `network_id` | Идентификатор сети `default-net`.
@@ -244,10 +244,6 @@
       * С целевой группой `first-target-group`.
 
   После этого вы можете добавить целевую группу `first-target-group` к [новой](../../../application-load-balancer/operations/backend-group-create.md) или [существующей группе бэкендов](../../../application-load-balancer/operations/backend-group-update.md) {{ alb-name }}, группу бэкендов — к [новому](../../../application-load-balancer/operations/http-router-create.md) или [существующему HTTP-роутеру](../../../application-load-balancer/operations/http-router-update.md), а роутер — к [новому](../../../application-load-balancer/operations/application-load-balancer-create.md) или [существующему L7-балансировщику](../../../application-load-balancer/operations/application-load-balancer-update.md).
-
-- API
-
-  Воспользуйтесь методом REST API [create](../../api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create).
 
 - {{ TF }}
 
@@ -400,5 +396,9 @@
      1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+- API
+
+  Воспользуйтесь методом REST API [create](../../api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create).
 
 {% endlist %}

@@ -39,6 +39,6 @@ To get a list of instances:
 
 - API
 
-   Use the API [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+   Use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
 
 {% endlist %}

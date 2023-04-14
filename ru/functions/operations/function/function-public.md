@@ -95,6 +95,6 @@
 
 - API
 
-    Сделать функцию публичной можно с помощью метода API [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md).
+   Чтобы сделать функцию публичной, воспользуйтесь методом REST API [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/function_service.md#SetAccessBindings).
 
 {% endlist %}

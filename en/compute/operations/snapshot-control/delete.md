@@ -40,13 +40,18 @@ To delete a snapshot:
         --name first-snapshot
       ```
 
+
+- API
+
+   Use the [delete](../../api-ref/Snapshot/delete.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/Delete](../../api-ref/grpc/snapshot_service.md#Delete) gRPC API call.
+
 - {{ TF }}
 
    For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    If you created a snapshot with {{ TF }}, you can delete it:
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Delete resources using the command:
+   1. Delete the resources using this command:
 
       ```bash
       terraform destroy
@@ -54,10 +59,10 @@ To delete a snapshot:
 
       {% note alert %}
 
-      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} will delete all the resources you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
       {% endnote %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
 {% endlist %}

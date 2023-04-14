@@ -14,4 +14,8 @@ To resume processes in an instance group:
    1. Select an instance group, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Resume**.
    1. In the window that opens, click **Resume**.
 
+- API
+
+   Use the [resumeProcesses](../../api-ref/InstanceGroup/resumeProcesses.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/ResumeProcesses](../../api-ref/grpc/instance_group_service.md#ResumeProcesses) gRPC API call.
+
 {% endlist %}
