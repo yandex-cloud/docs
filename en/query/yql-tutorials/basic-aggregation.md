@@ -11,13 +11,13 @@ For example:
 ```sql
 SELECT
     PULocationID,
-    COUNT(*) as rides_count,    -- The COUNT aggregate function returns the number of rows,
+    COUNT(*) AS rides_count,    -- The COUNT aggregate function returns the number of rows,
                                 -- returned by the query.
                                 -- The asterisk (*) indicates that the COUNT function
                                 -- counts the total number of rows in the table.
                                 -- It counts each row separately.
                                 -- The result includes rows that contain null values.
-    AVG(tip_amount) as avg_tip_amount
+    AVG(tip_amount) AS avg_tip_amount
 FROM
     bindings.`tutorial-analytics`
 GROUP BY PULocationID           -- The column by which the data is aggregated.

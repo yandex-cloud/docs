@@ -26,48 +26,22 @@ To assign a user a role:
 
 The list below shows all roles that are considered when verifying access rights in the {{ ydb-name }} service.
 
+{% include [ydb-viewer](../../_includes/iam/roles/ydb-viewer.md) %}
+
+{% include [ydb-editor](../../_includes/iam/roles/ydb-editor.md) %}
+
+{% include [ydb-admin](../../_includes/iam/roles/ydb-admin.md) %}
+
+### {{ roles-viewer }} {#viewer}
+
+{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+
+### {{ roles-editor }} {#editor}
+
+{% include [roles-editor](../../_includes/roles-editor.md) %}
+
+### {{ roles-admin }} {#admin}
+
+{% include [roles-admin](../../_includes/roles-admin.md) %}
+
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
-
-### ydb.viewer
-
-A user with the `ydb.viewer` role can perform the following actions:
-* Establish DB connections.
-* View a list of schema objects (tables, indexes, and folders).
-* View descriptions of schema objects (table, index, and folder).
-* View DB information.
-* Run queries to read data.
-
-A user with this role can also retrieve a list of folders in the cloud and a list of resources in a cloud folder.
-
-All the `ydb.viewer` permissions are included in the `viewer` role.
-
-### ydb.editor
-
-A user with the `ydb.editor` role can perform the following actions:
-* Manage DBs, for example, create a DB or reconfigure it.
-* Create, modify, and delete schema objects (tables, indexes, and folders) in a database.
-* Run the statements that write data.
-
-The `ydb.editor` role also includes all permissions of the `viewer` role.
-
-All the `ydb.editor` permissions are included in the `editor` role.
-
-### ydb.admin
-
-The `ydb.admin` role has the same permissions as the `ydb.editor` role.
-
-### viewer
-
-Users with the `viewer` role can view information about resources. For example, they can view a list of hosts or get information about a database cluster.
-
-### editor
-
-Users with the `editor` role can manage any resource, including creating a database cluster and creating or deleting cluster hosts.
-
-The `editor` role also includes all permissions of the `viewer` role.
-
-### admin
-
-Users with the `admin` role can manage resource access rights, including allowing other users to create database clusters and to view information about them.
-
-Additionally, the `admin` role includes all the permissions of the `editor` role.

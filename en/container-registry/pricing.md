@@ -48,6 +48,26 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 ```
 
 
+### Vulnerability scanner {#scanner}
+
+{% note alert %}
+
+Using the vulnerability scanner will stop being free of charge starting **April 24, 2023**.
+
+{% endnote %}
+
+The cost of using the [vulnerability scanner](concepts/vulnerability-scanner.md) for Docker images depends on how many scans you run:
+
+
+
+
+
+{% include [usd-scanner.md](../_pricing/container-registry/usd-scanner.md) %}
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Below are the data formats and compression algorithms supported in {{ yq-full-na
 - [`json_as_string`](#json_as_string).
 - [`parquet`](#parquet).
 
-#### csv_with_names {#csv_with_names}
+#### Csv_with_names {#csv_with_names}
 This format is based on [`CSV`](https://ru.wikipedia.org/wiki/CSV) format. Data is comma-separated and stored in columns with the first file line containing column names.
 
 Sample data:
@@ -53,7 +53,7 @@ Query results:
 {% endcut %}
 
 
-#### tsv_with_names {#tsv_with_names}
+#### Tsv_with_names {#tsv_with_names}
 This format is based on [`TSV`](https://ru.wikipedia.org/wiki/TSV) format. Data is stored in columns, separated by tab characters (the `0x9` code), with the first file line containing column names.
 
 Sample data:
@@ -92,7 +92,7 @@ Query results:
 
 {% endcut %}
 
-#### json_list {#json_list}
+#### Json_list {#json_list}
 This format is based on a [`JSON representation`](https://ru.wikipedia.org/wiki/JSON) of data. In this format, each file should contain an object in a correct JSON representation.
 
 Example of correct data (represented as a list of JSON objects):
@@ -110,7 +110,7 @@ Example of INCORRECT data (each line contains a separate object in JSON format, 
 { "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
 ```
 
-#### json_each_row {#json_each_row}
+#### Json_each_row {#json_each_row}
 This format is based on a [`JSON representation`](https://ru.wikipedia.org/wiki/JSON) of data. In this format, each row of an input file contains an object in a JSON representation.
 
 Example of correct data (with a JSON representation of an object in each separate row):
@@ -119,7 +119,7 @@ Example of correct data (with a JSON representation of an object in each separat
 { "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
 ```
 
-#### raw {#raw}
+#### Raw {#raw}
 This format allows reading raw data as is. The data read this way can be processed using [YQL](https://ydb.tech/en/docs/yql/reference/udf/list/string) tools by breaking it down into rows and columns.
 
 Use this format if the built-in features for parsing source data in {{ yq-full-name }} are insufficient.
@@ -150,8 +150,8 @@ Year,Manufacturer,Model,Price
 
 {% endcut %}
 
-#### json_each_row {#json_each_row}
-This format is based on a [`JSON representation`](https://ru.wikipedia.org/wiki/JSON) of data. In this format, each file's individual line must contain an object in a valid JSON representation without combining these objects into a JSON list. This format is used when transferring data via streaming systems like [Yandex Data Streams](../../data-streams/concepts/index.md).
+#### Json_each_row {#json_each_row}
+This format is based on a [`JSON representation`](https://ru.wikipedia.org/wiki/JSON) of data. In this format, each file's individual line must contain an object in a valid JSON representation without combining these objects into a JSON list. This format is used when transferring data via streaming systems, such as [Yandex Data Streams](../../data-streams/concepts/index.md).
 
 Example of correct data (each line contains a separate object in JSON format, but these objects are not represented as a list):
 ```json
@@ -189,12 +189,12 @@ Query results:
 
 {% endcut %}
 
-#### json_as_string {#json_as_string}
+#### Json_as_string {#json_as_string}
 This format is based on a [`JSON representation`](https://ru.wikipedia.org/wiki/JSON) of data. It does not split an input JSON document into fields. Instead, it represents each file line as a single JSON object (or a single string). This format is convenient if a list of fields is not permanent and may change in different messages.
 
 In this format, each file should contain:
-- An object in a valid JSON representation in each file line.
-- A list of objects in a valid JSON representation.
+- Object in a valid JSON representation in each file line.
+- List of objects in a valid JSON representation.
 
 Example of correct data (represented as a list of JSON objects):
 ```json
@@ -290,10 +290,10 @@ WITH(
     format='csv_with_names',
     SCHEMA
     (
-        int as Year,
-        String as Manufacturer,
-        String as Model,
-        Double as Price
+        Year int,
+        Manufacturer String,
+        Model String,
+        Price Double
     )
 );
 ```

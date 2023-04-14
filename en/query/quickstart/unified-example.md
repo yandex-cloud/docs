@@ -71,7 +71,7 @@ To run this example:
    INNER JOIN $locations AS locations
        ON rides.PULocationID=locations.PULocationID
    GROUP BY
-       HOP(cast(tpep_pickup_datetime AS Timestamp?), "PT1M", "PT1M", "PT1M"),
+       HOP(CAST(tpep_pickup_datetime AS Timestamp?), "PT1M", "PT1M", "PT1M"),
        rides.PULocationID;
 
    SELECT

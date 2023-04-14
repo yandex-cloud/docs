@@ -6,7 +6,7 @@ In this example, we'll use a ready-made dataset on New York City taxi trips. As 
 
 To execute the example:
 
-1. [Before you start](#before-you-begin).
+1. [Get started](#before-you-begin).
 1. [Create a data stream](#create-datastream).
 1. [Set up data generation](#configure-generation).
 1. [Run the query](#run-query).
@@ -18,12 +18,12 @@ To execute the example:
 
 {% endnote %}
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
 1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
-1. We'll connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). [Create](../../iam/operations/sa/create.md#create-sa) a service account with the name `datastream-connection-account` and the role `ydb.editor`.
+1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). Thus, you will need to [create](../../iam/operations/sa/create.md#create-sa) a service account with the `datastream-connection-account` name and the `ydb.editor` role.
 1. Data streams use {{ ydb-full-name }}. [Create](../../ydb/quickstart.md#serverless) a serverless database.
 
 ## Create a data stream {#create-datastream}
@@ -56,7 +56,7 @@ Data generation to the `yellow-taxi` stream will start. Use the **Stop** and **S
    FROM
        $data
    GROUP BY
-       HOP(CAST(tpep_pickup_datetime as Timestamp), "PT1M", "PT1M", "PT1M");
+       HOP(CAST(tpep_pickup_datetime AS Timestamp), "PT1M", "PT1M", "PT1M");
    ```
 
 1. Click **Run**.

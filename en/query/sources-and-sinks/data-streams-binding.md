@@ -6,7 +6,7 @@ Example of reading data using bindings:
 
 ```sql
 SELECT
-    JSON_VALUE(CAST(Data as Json), "$.action") as action
+    JSON_VALUE(CAST(Data AS Json), "$.action") AS action
 FROM bindings.`input_stream`
 LIMIT 10;
 ```
@@ -64,13 +64,13 @@ Sample query for reading data from {{ yds-full-name }} and writing the results t
 ```sql
 $data =
 SELECT
-    JSON_VALUE(Data, "$.host") as host,
-    JSON_VALUE(Data, "$.count") as count,
-    JSON_VALUE(Data, "$.tag") as tag,
+    JSON_VALUE(Data, "$.host") AS host,
+    JSON_VALUE(Data, "$.count") AS count,
+    JSON_VALUE(Data, "$.tag") AS tag,
 FROM
 (
     SELECT
-        CAST(Data as Json) as Data
+        CAST(Data AS Json) AS Data
     FROM bindings.`binding_name`
 )
 WHERE

@@ -53,3 +53,6 @@ To create a new message queue:
    {% include [ymq-terraform](../_includes_service/mq-terraform.md) %}
 
 {% endlist %}
+
+
+When the limit on the maximum number of queues is reached, the `Cannot create queue: Too many queues` error occurs. To increase the limit, contact [support]({{ link-console-support }}).

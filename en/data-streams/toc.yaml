@@ -19,7 +19,7 @@ items:
         href: quickstart/debezium.md
   - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Managing streams
         href: operations/manage-streams.md
@@ -77,6 +77,14 @@ items:
           Migrating data to {{ objstorage-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/kafka-to-yds.md
+      - name: >-
+          Delivering data from {{ ydb-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-to-yds.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

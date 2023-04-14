@@ -26,7 +26,7 @@ LIMIT 10;
 
  {% endnote %}
 
-## Настройка соединения { #create_connection }
+## Настройка соединения {#create_connection}
 
 Для чтения данных из {{ yds-full-name }} необходимо:
 
@@ -34,7 +34,7 @@ LIMIT 10;
 
 ## Модель данных
 
-Данные через {{yds-full-name }} передаются в бинарном виде. Чтение данных выполняется с помощью SQL-выражений.
+Данные через {{ yds-full-name }} передаются в бинарном виде. Чтение данных выполняется с помощью SQL-выражений.
 
 ```sql
 SELECT 
@@ -54,8 +54,8 @@ WHERE <filter>;
 
 Где:
 
-- `yds_connection_name` — название соединения с потоком данных {{yds-short-name}}, созданного в предыдущем пункте.
-- `stream_name` — название потока данных в {{yds-short-name}}.
+- `yds_connection_name` — название соединения с потоком данных {{ yds-short-name }}, созданного в предыдущем пункте.
+- `stream_name` — название потока данных в {{ yds-short-name }}.
 
 ## Пример чтения данных
 
@@ -66,7 +66,7 @@ $data =
 SELECT 
     JSON_VALUE(Data, "$.host") AS host,
     JSON_VALUE(Data, "$.count") AS count,
-    JSON_VALUE(Data, "$.tag") AS tag,    
+    JSON_VALUE(Data, "$.tag") AS tag,
 FROM 
 (
     SELECT
@@ -88,7 +88,7 @@ SELECT
     * 
 FROM 
     $data
-LIMIT 10;    
+LIMIT 10;
 ```
 
 Где:
