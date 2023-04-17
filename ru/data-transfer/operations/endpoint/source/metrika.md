@@ -6,7 +6,7 @@ noIndex: true
 
 {% include [note-metrica-pro](../../../../_includes/data-transfer/note-metrica-pro.md) %}
 
-При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к сервису [{{ metrika }}](https://metrika.yandex.ru/).
+При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к сервису [{{ metrika }}]({{ metrika-link }}).
 
 ## Настройки {#settings}
 
@@ -14,8 +14,8 @@ noIndex: true
 
 - Консоль управления
 
-    * **Счетчики** — укажите [номера счетчиков](https://yandex.ru/support/metrica/general/tag-id.html), из которых будут поступать данные.
-    * **Токен** — укажите токен для подтверждения доступа к счетчикам. Его можно получить по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a).
+    * **Счетчики** — укажите [номера счетчиков]({{ link-yandex }}/support/metrica/general/tag-id.html), из которых будут поступать данные.
+    * **Токен** — укажите токен для подтверждения доступа к счетчикам. Его можно получить по [ссылке]({{ ya-oauth-url }}/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a).
     * **Хиты** — выберите, передавать ли информацию о хитах.
         * **Поля** — выберите поля хита, которые нужно экспортировать. Помимо выбранных полей, всегда экспортируется несколько обязательных полей.
     * **Визиты** — выберите, передавать ли информацию о визитах.
@@ -23,6 +23,6 @@ noIndex: true
 
 {% endlist %}
 
-Подробнее о настройках см. в [документации сервиса](https://yandex.ru/support/metrica/index.html).
+Подробнее о настройках см. в [документации сервиса]({{ link-yandex }}/support/metrica/index.html).
 
 См. [практическое руководство](../../../tutorials/metrika-to-clickhouse.md) по переносу данных из счетчика {{ metrika }} в кластер {{ CH }}.

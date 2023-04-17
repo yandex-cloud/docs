@@ -77,7 +77,7 @@ description: "Атомарные полномочия в PostgreSQL называ
 
 - API
 
-    Чтобы указать новый список необходимых ролей для пользователя, воспользуйтесь методом [update](../api-ref/User/update.md) и передайте в запросе:
+    Чтобы указать новый список необходимых ролей для пользователя, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/user_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Имя пользователя в параметре `userName`.

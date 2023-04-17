@@ -9,7 +9,6 @@ description: "При необходимости вы можете останов
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 
-
 ## Остановить кластер {#stop-cluster}
 
 {% include [cluster-stop](../../_includes/mdb/cluster-stop.md) %}
@@ -38,7 +37,7 @@ description: "При необходимости вы можете останов
 
 - API
 
-    Воспользуйтесь методом API [stop](../api-ref/Cluster/stop.md) и передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+    Чтобы остановить кластер, воспользуйтесь методом REST API [stop](../api-ref/Cluster/stop.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Stop](../api-ref/grpc/cluster_service.md#Stop) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -72,7 +71,7 @@ description: "При необходимости вы можете останов
 
 - API
 
-    Воспользуйтесь методом API [start](../api-ref/Cluster/start.md) и передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+    Чтобы запустить кластер, воспользуйтесь методом REST API [start](../api-ref/Cluster/start.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Start](../api-ref/grpc/cluster_service.md#Start) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

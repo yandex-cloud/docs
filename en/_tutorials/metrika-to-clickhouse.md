@@ -4,7 +4,7 @@ noIndex: true
 
 # Asynchronously replicating data from {{ metrika }} to {{ CH }} using {{ data-transfer-full-name }}
 
-With {{ data-transfer-name }}, you can transfer data from a [{{ metrika }}](https://metrika.yandex.ru/) tag to a {{ CH }} cluster. Such a transfer ensures the data transferred from {{ metrika }} are complete and allows:
+With {{ data-transfer-name }}, you can transfer data from a [{{ metrika }}]({{ metrika-link }}) tag to a {{ CH }} cluster. Such a transfer ensures the data transferred from {{ metrika }} are complete and allows:
 
 * Processing data with {{ CH }} tools.
 * Streaming data from {{ CH }} to other locations.
@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-1. [Select](https://yandex.ru/support/metrica/general/tag-id.html) a {{ metrika }} tag or [create and install](https://yandex.ru/support/metrica/general/creating-counter.html) a new one.
+1. [Select]({{ link-yandex }}/support/metrica/general/tag-id.html) a {{ metrika }} tag or [create and install]({{ link-yandex }}/support/metrica/general/creating-counter.html) a new one.
 
 1. Create a [{{ mch-name }} target cluster](../managed-clickhouse/operations/cluster-create.md) with any suitable configuration.
 

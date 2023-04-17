@@ -53,7 +53,10 @@
 
 - API
 
-  Получить список расширений для базы данных кластера можно с помощью метода [get](../../api-ref/Database/get.md).
+  Чтобы получить список расширений для базы данных, воспользуйтесь методом REST API [get](../../api-ref/Database/get.md) для ресурса [Database](../../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Get](../../api-ref/grpc/database_service.md#Get) и передайте в запросе:
+  
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](../cluster-list.md#list-clusters).
+  * Имя базы данных в параметре `databaseName`.
 
 {% endlist %}
 
@@ -119,10 +122,10 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../../api-ref/Database/update.md) и передайте в запросе:
+    Чтобы изменить список расширений для базы данных, воспользуйтесь методом REST API [update](../../api-ref/Database/update.md) для ресурса [Database](../../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../../api-ref/grpc/database_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](../cluster-list.md#list-clusters).
-    * Имя изменяемой базы данных в параметре `databaseName`.
+    * Имя изменяемой базы данных в параметре `databaseName`. Чтобы узнать имя базы данных, [получите список баз данных в кластере](../databases.md#list-db).
     * Один или несколько объектов с настройками расширений в параметре `extensions`.
     * Список настроек базы данных, которые необходимо изменить (в данном случае — `extensions`), в параметре `updateMask`.
 

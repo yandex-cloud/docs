@@ -30,7 +30,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [сервисный аккаунт](../iam/concepts/users/service-accounts.md).
-  1. Выберите вкладку **Сервисные аккаунты**.
+  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `sa-trail-logs`.
   1. Нажмите ![](../_assets/plus-sign.svg) **Добавить роль** и выберите [роли](../iam/concepts/access-control/roles.md) `audit-trails.viewer` и `yds.editor`.
