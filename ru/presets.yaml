@@ -398,8 +398,10 @@ default:
   GP: Greenplum®
   KF: Apache Kafka®
   KFC: Kafka Connect
-  metrika: Yandex Metrica
+  metrika: Яндекс Метрика
+  metrika-pro: Метрика Про
   metrika-endpoint: Metrica
+  metrika-link: https://metrika.yandex.ru/
   MG: MongoDB
   MP: Metrics Provider
   MS: SQL Server
@@ -723,6 +725,7 @@ default:
   tts-cc-quality: 8 кГц
   ya-client-app: https://oauth.yandex.ru/client/new
   ya-oauth: https://oauth.yandex.ru/verification_code
+  ya-oauth-url: https://oauth.yandex.ru
   taas-name: Training as a Service
   taas: TaaS
   ml-project-size: 10 ГБ
@@ -1154,6 +1157,21 @@ default:
         v1|string: Не тарифицируется
         v1|int|number: '0'
         v1|int|string: Не тарифицируется
+  sku|RUB|backup:
+    protected_vms:
+      v1|number: 0,0000
+      v1|string: Не тарифицируется
+      v1|int|number: '0'
+      v1|int|string: Не тарифицируется
+    used_space:
+      v1|number: 0,0000
+      v1|string: Не тарифицируется
+      v1|int|number: '0'
+      v1|int|string: Не тарифицируется
+      v1|month|number: 0,0000
+      v1|month|string: Не тарифицируется
+      v1|month|int|number: '0'
+      v1|month|int|string: Не тарифицируется
   sku|RUB|business:
     referral_program:
       v1|number: 0,0000
@@ -1172,6 +1190,12 @@ default:
           egress|string: "0,9600\_₽"
           egress|int|number: '1'
           egress|int|string: "1\_₽"
+          egress:
+            monthly_usage:
+              v1|number: 0,0000
+              v1|string: Не тарифицируется
+              v1|int|number: '0'
+              v1|int|string: Не тарифицируется
     logs:
       raw|number: "5\_000,0000"
       raw|string: "5\_000,0000\_₽"
@@ -1182,6 +1206,25 @@ default:
       shielding|int|number: "3\_500"
       shielding|int|string: "3\_500\_₽"
   sku|RUB|compute:
+    filesystem:
+      hdd:
+        v1|number: 0,0000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
+        v1|month|number: 0,0000
+        v1|month|string: Не тарифицируется
+        v1|month|int|number: '0'
+        v1|month|int|string: Не тарифицируется
+      ssd:
+        v1|number: 0,0000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
+        v1|month|number: 0,0000
+        v1|month|string: Не тарифицируется
+        v1|month|int|number: '0'
+        v1|month|int|string: Не тарифицируется
     hostgroup:
       cpu:
         c100:
@@ -3326,6 +3369,17 @@ default:
         v1|string: Не тарифицируется
         v1|int|number: '0'
         v1|int|string: Не тарифицируется
+    vulnerabilityscanner:
+      rescan:
+        v1|number: 0,0000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
+      scan:
+        v1|number: 0,0000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
   sku|RUB|datalens:
     adjustment:
       kop|number: 1,0000
@@ -3764,6 +3818,14 @@ default:
         generatedatakey|int|string: "3\_₽"
     storage:
       v1:
+        hsm|number: 0,5000
+        hsm|string: "0,5000\_₽"
+        hsm|int|number: '1'
+        hsm|int|string: "1\_₽"
+        hsm|month|number: 360,0000
+        hsm|month|string: "360,0000\_₽"
+        hsm|month|int|number: '360'
+        hsm|month|int|string: "360\_₽"
         software|number: 0,0040
         software|string: "0,0040\_₽"
         software|int|number: '0'
@@ -3775,20 +3837,20 @@ default:
   sku|RUB|lockbox:
     api:
       v1:
-        get|number: 0,0000
-        get|string: Не тарифицируется
-        get|int|number: '0'
-        get|int|string: Не тарифицируется
+        get|number: 3,4560
+        get|string: "3,4560\_₽"
+        get|int|number: '3'
+        get|int|string: "3\_₽"
     storage:
       v1:
-        active_secrets|number: 0,0000
-        active_secrets|string: Не тарифицируется
+        active_secrets|number: 0,0250
+        active_secrets|string: "0,0250\_₽"
         active_secrets|int|number: '0'
-        active_secrets|int|string: Не тарифицируется
-        active_secrets|month|number: 0,0000
-        active_secrets|month|string: Не тарифицируется
-        active_secrets|month|int|number: '0'
-        active_secrets|month|int|string: Не тарифицируется
+        active_secrets|int|string: "0\_₽"
+        active_secrets|month|number: 18,0000
+        active_secrets|month|string: "18,0000\_₽"
+        active_secrets|month|int|number: '18'
+        active_secrets|month|int|string: "18\_₽"
   sku|RUB|logging:
     ingested:
       traffic|number: 0,0000
@@ -4031,6 +4093,23 @@ default:
         f2eane6bhdlsg10ha83e|month|string: "1\_584,0000\_₽"
         f2eane6bhdlsg10ha83e|month|int|number: "1\_584"
         f2eane6bhdlsg10ha83e|month|int|string: "1\_584\_₽"
+      f2ecfntfdfga8rvltls3:
+        f2el6llr6h1j6t4hpjg2|number: 1,8000
+        f2el6llr6h1j6t4hpjg2|string: "1,8000\_₽"
+        f2el6llr6h1j6t4hpjg2|int|number: '2'
+        f2el6llr6h1j6t4hpjg2|int|string: "2\_₽"
+        f2el6llr6h1j6t4hpjg2|month|number: "1\_296,0000"
+        f2el6llr6h1j6t4hpjg2|month|string: "1\_296,0000\_₽"
+        f2el6llr6h1j6t4hpjg2|month|int|number: "1\_296"
+        f2el6llr6h1j6t4hpjg2|month|int|string: "1\_296\_₽"
+        f2euoj1mcp0a4uv59k6t|number: 1,8000
+        f2euoj1mcp0a4uv59k6t|string: "1,8000\_₽"
+        f2euoj1mcp0a4uv59k6t|int|number: '2'
+        f2euoj1mcp0a4uv59k6t|int|string: "2\_₽"
+        f2euoj1mcp0a4uv59k6t|month|number: "1\_296,0000"
+        f2euoj1mcp0a4uv59k6t|month|string: "1\_296,0000\_₽"
+        f2euoj1mcp0a4uv59k6t|month|int|number: "1\_296"
+        f2euoj1mcp0a4uv59k6t|month|int|string: "1\_296\_₽"
       f2esrcqm8viu9rv1n7ie:
         f2emfedf53pgc1hl8jfn|number: 1,2500
         f2emfedf53pgc1hl8jfn|string: "1,2500\_₽"
@@ -4040,6 +4119,21 @@ default:
         f2emfedf53pgc1hl8jfn|month|string: "900,0000\_₽"
         f2emfedf53pgc1hl8jfn|month|int|number: '900'
         f2emfedf53pgc1hl8jfn|month|int|string: "900\_₽"
+    f2e4726jgrpc78j38fke:
+      f2eqdak2eg8aobqa03jo:
+        f2ecesu2eu7vmf7htdhe|number: 298,0000
+        f2ecesu2eu7vmf7htdhe|string: "298,0000\_₽"
+        f2ecesu2eu7vmf7htdhe|int|number: '298'
+        f2ecesu2eu7vmf7htdhe|int|string: "298\_₽"
+        f2ecesu2eu7vmf7htdhe:
+          v2|number: 298,0000
+          v2|string: "298,0000\_₽"
+          v2|int|number: '298'
+          v2|int|string: "298\_₽"
+          v3|number: 298,0000
+          v3|string: "298,0000\_₽"
+          v3|int|number: '298'
+          v3|int|string: "298\_₽"
     f2e48e94628vefcmr7sk:
       tarif11|number: 11,0000
       tarif11|string: "11,0000\_₽"
@@ -4271,6 +4365,16 @@ default:
         f2ejnabftcos7nerlto2|month|string: "1\_440,0000\_₽"
         f2ejnabftcos7nerlto2|month|int|number: "1\_440"
         f2ejnabftcos7nerlto2|month|int|string: "1\_440\_₽"
+    f2ebkdms8g0erjqldpg0:
+      f2ebcd5babld628meq9a:
+        f2ellmmcppgu8d4bpj3b|number: 5,0000
+        f2ellmmcppgu8d4bpj3b|string: "5,0000\_₽"
+        f2ellmmcppgu8d4bpj3b|int|number: '5'
+        f2ellmmcppgu8d4bpj3b|int|string: "5\_₽"
+        f2ellmmcppgu8d4bpj3b|month|number: "3\_600,0000"
+        f2ellmmcppgu8d4bpj3b|month|string: "3\_600,0000\_₽"
+        f2ellmmcppgu8d4bpj3b|month|int|number: "3\_600"
+        f2ellmmcppgu8d4bpj3b|month|int|string: "3\_600\_₽"
     f2ebqa7lc46leoc0kh6p:
       f2eeufgqgiu0ptcdj02g:
         f2er8ai5gu7t9tvurt6v|number: 4,3500
@@ -4282,6 +4386,15 @@ default:
         f2er8ai5gu7t9tvurt6v|month|int|number: "3\_132"
         f2er8ai5gu7t9tvurt6v|month|int|string: "3\_132\_₽"
     f2ecalpspqeplhugdo5a:
+      f2e1a1vvpdemq2ac732t:
+        f2e1pooekk6ahduij0qs|number: 10,0000
+        f2e1pooekk6ahduij0qs|string: "10,0000\_₽"
+        f2e1pooekk6ahduij0qs|int|number: '10'
+        f2e1pooekk6ahduij0qs|int|string: "10\_₽"
+        f2e1pooekk6ahduij0qs|month|number: "7\_200,0000"
+        f2e1pooekk6ahduij0qs|month|string: "7\_200,0000\_₽"
+        f2e1pooekk6ahduij0qs|month|int|number: "7\_200"
+        f2e1pooekk6ahduij0qs|month|int|string: "7\_200\_₽"
       f2e4qu8nfgftvmakg2lk:
         f2ehvbtdqao29o5g14ov|number: 10,0000
         f2ehvbtdqao29o5g14ov|string: "10,0000\_₽"
@@ -4300,6 +4413,14 @@ default:
         f2end4gcq409kmi9cp0o|month|int|number: "7\_200"
         f2end4gcq409kmi9cp0o|month|int|string: "7\_200\_₽"
       f2e9aguvg1rrjsrnq4qn:
+        f2ea8b0nqblcbje9gptg|number: 1,0000
+        f2ea8b0nqblcbje9gptg|string: "1,0000\_₽"
+        f2ea8b0nqblcbje9gptg|int|number: '1'
+        f2ea8b0nqblcbje9gptg|int|string: "1\_₽"
+        f2ea8b0nqblcbje9gptg|month|number: 720,0000
+        f2ea8b0nqblcbje9gptg|month|string: "720,0000\_₽"
+        f2ea8b0nqblcbje9gptg|month|int|number: '720'
+        f2ea8b0nqblcbje9gptg|month|int|string: "720\_₽"
         f2ebe3up7jd833mak09d|number: 10,0000
         f2ebe3up7jd833mak09d|string: "10,0000\_₽"
         f2ebe3up7jd833mak09d|int|number: '10'
@@ -4308,6 +4429,40 @@ default:
         f2ebe3up7jd833mak09d|month|string: "7\_200,0000\_₽"
         f2ebe3up7jd833mak09d|month|int|number: "7\_200"
         f2ebe3up7jd833mak09d|month|int|string: "7\_200\_₽"
+      f2e9cdk1kskn0cmmp2eo:
+        f2e5hfafg0k246jbgjpj|number: 5,0000
+        f2e5hfafg0k246jbgjpj|string: "5,0000\_₽"
+        f2e5hfafg0k246jbgjpj|int|number: '5'
+        f2e5hfafg0k246jbgjpj|int|string: "5\_₽"
+        f2e5hfafg0k246jbgjpj|month|number: "3\_600,0000"
+        f2e5hfafg0k246jbgjpj|month|string: "3\_600,0000\_₽"
+        f2e5hfafg0k246jbgjpj|month|int|number: "3\_600"
+        f2e5hfafg0k246jbgjpj|month|int|string: "3\_600\_₽"
+        f2emqboqgoer4t13b1vs|number: 1,0000
+        f2emqboqgoer4t13b1vs|string: "1,0000\_₽"
+        f2emqboqgoer4t13b1vs|int|number: '1'
+        f2emqboqgoer4t13b1vs|int|string: "1\_₽"
+        f2emqboqgoer4t13b1vs|month|number: 720,0000
+        f2emqboqgoer4t13b1vs|month|string: "720,0000\_₽"
+        f2emqboqgoer4t13b1vs|month|int|number: '720'
+        f2emqboqgoer4t13b1vs|month|int|string: "720\_₽"
+      f2eh5pcihr1iqbm3qu33:
+        f2e760fghjmqu6ng847a|number: 1,0000
+        f2e760fghjmqu6ng847a|string: "1,0000\_₽"
+        f2e760fghjmqu6ng847a|int|number: '1'
+        f2e760fghjmqu6ng847a|int|string: "1\_₽"
+        f2e760fghjmqu6ng847a|month|number: 720,0000
+        f2e760fghjmqu6ng847a|month|string: "720,0000\_₽"
+        f2e760fghjmqu6ng847a|month|int|number: '720'
+        f2e760fghjmqu6ng847a|month|int|string: "720\_₽"
+        f2e7a3llgc4dveulv4td|number: 5,0000
+        f2e7a3llgc4dveulv4td|string: "5,0000\_₽"
+        f2e7a3llgc4dveulv4td|int|number: '5'
+        f2e7a3llgc4dveulv4td|int|string: "5\_₽"
+        f2e7a3llgc4dveulv4td|month|number: "3\_600,0000"
+        f2e7a3llgc4dveulv4td|month|string: "3\_600,0000\_₽"
+        f2e7a3llgc4dveulv4td|month|int|number: "3\_600"
+        f2e7a3llgc4dveulv4td|month|int|string: "3\_600\_₽"
       f2enqv6dekluj950h6tq:
         f2e5asg0ktbfl3kfokkq|number: 3,0000
         f2e5asg0ktbfl3kfokkq|string: "3,0000\_₽"
@@ -4350,6 +4505,14 @@ default:
         f2e07qhvqqtrf663g7ve|month|string: "28\_800,0000\_₽"
         f2e07qhvqqtrf663g7ve|month|int|number: "28\_800"
         f2e07qhvqqtrf663g7ve|month|int|string: "28\_800\_₽"
+        f2edm87t7lalkq0irjti|number: 10,0000
+        f2edm87t7lalkq0irjti|string: "10,0000\_₽"
+        f2edm87t7lalkq0irjti|int|number: '10'
+        f2edm87t7lalkq0irjti|int|string: "10\_₽"
+        f2edm87t7lalkq0irjti|month|number: "7\_200,0000"
+        f2edm87t7lalkq0irjti|month|string: "7\_200,0000\_₽"
+        f2edm87t7lalkq0irjti|month|int|number: "7\_200"
+        f2edm87t7lalkq0irjti|month|int|string: "7\_200\_₽"
         f2ej8pm8jrv36q16fosk|number: 30,0000
         f2ej8pm8jrv36q16fosk|string: "30,0000\_₽"
         f2ej8pm8jrv36q16fosk|int|number: '30'
@@ -4444,6 +4607,14 @@ default:
       ispmgr6lite|month|int|string: "7\_200\_₽"
     f2eg84tuulrv811moppv:
       f2e6fecfiucsv2aa1ip0:
+        f2e21oeq24caf8cgfgcg|number: 10,0000
+        f2e21oeq24caf8cgfgcg|string: "10,0000\_₽"
+        f2e21oeq24caf8cgfgcg|int|number: '10'
+        f2e21oeq24caf8cgfgcg|int|string: "10\_₽"
+        f2e21oeq24caf8cgfgcg|month|number: "7\_200,0000"
+        f2e21oeq24caf8cgfgcg|month|string: "7\_200,0000\_₽"
+        f2e21oeq24caf8cgfgcg|month|int|number: "7\_200"
+        f2e21oeq24caf8cgfgcg|month|int|string: "7\_200\_₽"
         f2ecbvvsp9fb54llb6va|number: 10,0000
         f2ecbvvsp9fb54llb6va|string: "10,0000\_₽"
         f2ecbvvsp9fb54llb6va|int|number: '10'
@@ -4488,6 +4659,15 @@ default:
         f2e9vrnneildlm7vg27b|month|string: "7\_200,0000\_₽"
         f2e9vrnneildlm7vg27b|month|int|number: "7\_200"
         f2e9vrnneildlm7vg27b|month|int|string: "7\_200\_₽"
+      f2ehihcc667vimphmn4g:
+        f2eer50bu2qub1k7qsj1|number: 2,0000
+        f2eer50bu2qub1k7qsj1|string: "2,0000\_₽"
+        f2eer50bu2qub1k7qsj1|int|number: '2'
+        f2eer50bu2qub1k7qsj1|int|string: "2\_₽"
+        f2eer50bu2qub1k7qsj1|month|number: "1\_440,0000"
+        f2eer50bu2qub1k7qsj1|month|string: "1\_440,0000\_₽"
+        f2eer50bu2qub1k7qsj1|month|int|number: "1\_440"
+        f2eer50bu2qub1k7qsj1|month|int|string: "1\_440\_₽"
     f2ek7nhomcb25115tef5:
       c44100rub|number: 100,0000
       c44100rub|string: "100,0000\_₽"
@@ -4598,6 +4778,14 @@ default:
         f2eh913p0vdcv2bjn6sv|month|string: "2\_016,0000\_₽"
         f2eh913p0vdcv2bjn6sv|month|int|number: "2\_016"
         f2eh913p0vdcv2bjn6sv|month|int|string: "2\_016\_₽"
+        f2eq5geqna64ph605c1g|number: 4,2800
+        f2eq5geqna64ph605c1g|string: "4,2800\_₽"
+        f2eq5geqna64ph605c1g|int|number: '4'
+        f2eq5geqna64ph605c1g|int|string: "4\_₽"
+        f2eq5geqna64ph605c1g|month|number: "3\_081,6000"
+        f2eq5geqna64ph605c1g|month|string: "3\_081,6000\_₽"
+        f2eq5geqna64ph605c1g|month|int|number: "3\_082"
+        f2eq5geqna64ph605c1g|month|int|string: "3\_082\_₽"
       f2eq0mbk057s9ka838em:
         f2e25sqfsetc4de4u7vl|number: 1,1000
         f2e25sqfsetc4de4u7vl|string: "1,1000\_₽"
@@ -4607,6 +4795,14 @@ default:
         f2e25sqfsetc4de4u7vl|month|string: "792,0000\_₽"
         f2e25sqfsetc4de4u7vl|month|int|number: '792'
         f2e25sqfsetc4de4u7vl|month|int|string: "792\_₽"
+        f2e4lb413ssf6safhgiq|number: 1,3800
+        f2e4lb413ssf6safhgiq|string: "1,3800\_₽"
+        f2e4lb413ssf6safhgiq|int|number: '1'
+        f2e4lb413ssf6safhgiq|int|string: "1\_₽"
+        f2e4lb413ssf6safhgiq|month|number: 993,6000
+        f2e4lb413ssf6safhgiq|month|string: "993,6000\_₽"
+        f2e4lb413ssf6safhgiq|month|int|number: '994'
+        f2e4lb413ssf6safhgiq|month|int|string: "994\_₽"
       hourly-redos-255|number: 2,5500
       hourly-redos-255|string: "2,5500\_₽"
       hourly-redos-255|int|number: '3'
@@ -4615,6 +4811,16 @@ default:
       hourly-redos-255|month|string: "1\_836,0000\_₽"
       hourly-redos-255|month|int|number: "1\_836"
       hourly-redos-255|month|int|string: "1\_836\_₽"
+    f2ellht7j4uit76gl00m:
+      f2eh321bklml7ding5ed:
+        f2et5qtujq8ek8o3qdnr|number: 1,0000
+        f2et5qtujq8ek8o3qdnr|string: "1,0000\_₽"
+        f2et5qtujq8ek8o3qdnr|int|number: '1'
+        f2et5qtujq8ek8o3qdnr|int|string: "1\_₽"
+        f2et5qtujq8ek8o3qdnr|month|number: 720,0000
+        f2et5qtujq8ek8o3qdnr|month|string: "720,0000\_₽"
+        f2et5qtujq8ek8o3qdnr|month|int|number: '720'
+        f2et5qtujq8ek8o3qdnr|month|int|string: "720\_₽"
     f2em5a3i24q3t08cn3kl:
       f2eei6luohpblolsh8in:
         f2e1guvsuu20a7uddauo|number: 36,0000
@@ -4678,6 +4884,17 @@ default:
         f2eqv9qnqsss5438q93c|month|string: "2\_584,8000\_₽"
         f2eqv9qnqsss5438q93c|month|int|number: "2\_585"
         f2eqv9qnqsss5438q93c|month|int|string: "2\_585\_₽"
+    f2eo13d48ctnjc81jafg:
+      f2erhjbf9qitfc9hiaeg:
+        f2eekn6ne9b3mb61u15r:
+          15-90|number: 417,0000
+          15-90|string: "417,0000\_₽"
+          15-90|int|number: '417'
+          15-90|int|string: "417\_₽"
+          91|number: 834,0000
+          91|string: "834,0000\_₽"
+          91|int|number: '834'
+          91|int|string: "834\_₽"
     f2ep3ga08d2viv580apb:
       f2e4qmgm32elkl0vc7ka:
         f2enbb1hur45us0ib7bu|number: 1,0000
@@ -4738,6 +4955,14 @@ default:
       test|int|string: Не тарифицируется
     f2eqg0mtllf1op2ft5eh:
       f2ejennnfuar11o5u3h9:
+        f2e1d1oc5f36i5ved8b5|number: 0,6000
+        f2e1d1oc5f36i5ved8b5|string: "0,6000\_₽"
+        f2e1d1oc5f36i5ved8b5|int|number: '1'
+        f2e1d1oc5f36i5ved8b5|int|string: "1\_₽"
+        f2e1d1oc5f36i5ved8b5|month|number: 432,0000
+        f2e1d1oc5f36i5ved8b5|month|string: "432,0000\_₽"
+        f2e1d1oc5f36i5ved8b5|month|int|number: '432'
+        f2e1d1oc5f36i5ved8b5|month|int|string: "432\_₽"
         f2ei07814dtuo4b7qb2j|number: 0,6000
         f2ei07814dtuo4b7qb2j|string: "0,6000\_₽"
         f2ei07814dtuo4b7qb2j|int|number: '1'
@@ -4747,6 +4972,14 @@ default:
         f2ei07814dtuo4b7qb2j|month|int|number: '432'
         f2ei07814dtuo4b7qb2j|month|int|string: "432\_₽"
       f2ekpv5mkr9gqlsdfj9s:
+        f2e6g4s74vmqr2npd61l|number: 2,1000
+        f2e6g4s74vmqr2npd61l|string: "2,1000\_₽"
+        f2e6g4s74vmqr2npd61l|int|number: '2'
+        f2e6g4s74vmqr2npd61l|int|string: "2\_₽"
+        f2e6g4s74vmqr2npd61l|month|number: "1\_512,0000"
+        f2e6g4s74vmqr2npd61l|month|string: "1\_512,0000\_₽"
+        f2e6g4s74vmqr2npd61l|month|int|number: "1\_512"
+        f2e6g4s74vmqr2npd61l|month|int|string: "1\_512\_₽"
         f2erf58jonbp8iaul5vp|number: 2,1000
         f2erf58jonbp8iaul5vp|string: "2,1000\_₽"
         f2erf58jonbp8iaul5vp|int|number: '2'
@@ -5170,6 +5403,40 @@ default:
         f2evgfh71brpij7m9o8t|string: "20\_000,0000\_₽"
         f2evgfh71brpij7m9o8t|int|number: "20\_000"
         f2evgfh71brpij7m9o8t|int|string: "20\_000\_₽"
+    f2er20h91kfgve9fi4kt:
+      f2eo3gume0fji9r76lh9:
+        f2ep4ink9149j48v5le1|number: 200,0000
+        f2ep4ink9149j48v5le1|string: "200,0000\_₽"
+        f2ep4ink9149j48v5le1|int|number: '200'
+        f2ep4ink9149j48v5le1|int|string: "200\_₽"
+    f2eruipd9018lmd8edp7:
+      f2e6qg4eif743jnkmb9v:
+        f2ekib2rik8qcoviurfc|number: 3,5000
+        f2ekib2rik8qcoviurfc|string: "3,5000\_₽"
+        f2ekib2rik8qcoviurfc|int|number: '4'
+        f2ekib2rik8qcoviurfc|int|string: "4\_₽"
+        f2ekib2rik8qcoviurfc|month|number: "2\_520,0000"
+        f2ekib2rik8qcoviurfc|month|string: "2\_520,0000\_₽"
+        f2ekib2rik8qcoviurfc|month|int|number: "2\_520"
+        f2ekib2rik8qcoviurfc|month|int|string: "2\_520\_₽"
+      f2e947j7ru8tpct52nm1:
+        f2e19re2qk11745jcn55|number: 3,4700
+        f2e19re2qk11745jcn55|string: "3,4700\_₽"
+        f2e19re2qk11745jcn55|int|number: '3'
+        f2e19re2qk11745jcn55|int|string: "3\_₽"
+        f2e19re2qk11745jcn55|month|number: "2\_498,4000"
+        f2e19re2qk11745jcn55|month|string: "2\_498,4000\_₽"
+        f2e19re2qk11745jcn55|month|int|number: "2\_498"
+        f2e19re2qk11745jcn55|month|int|string: "2\_498\_₽"
+      f2egrdmsfi34of2ph3cs:
+        f2eedg1guu7k9i5f8ge1|number: 8,7000
+        f2eedg1guu7k9i5f8ge1|string: "8,7000\_₽"
+        f2eedg1guu7k9i5f8ge1|int|number: '9'
+        f2eedg1guu7k9i5f8ge1|int|string: "9\_₽"
+        f2eedg1guu7k9i5f8ge1|month|number: "6\_264,0000"
+        f2eedg1guu7k9i5f8ge1|month|string: "6\_264,0000\_₽"
+        f2eedg1guu7k9i5f8ge1|month|int|number: "6\_264"
+        f2eedg1guu7k9i5f8ge1|month|int|string: "6\_264\_₽"
     f2et4igqrmpc4g5btb6h:
       f2evo2f3lg8cd57n9ev4:
         f2e5uu3qkk46s5uq9sse:
@@ -5445,6 +5712,59 @@ default:
         agent|month|string: Не тарифицируется
         agent|month|int|number: '0'
         agent|month|int|string: Не тарифицируется
+    kosmos:
+      ms:
+        rds:
+          license:
+            10|number: "10\_718,5000"
+            10|string: "10\_718,5000\_₽"
+            10|int|number: "10\_719"
+            10|int|string: "10\_719\_₽"
+            5|number: "5\_359,2600"
+            5|string: "5\_359,2600\_₽"
+            5|int|number: "5\_359"
+            5|int|string: "5\_359\_₽"
+            50|number: "53\_592,4600"
+            50|string: "53\_592,4600\_₽"
+            50|int|number: "53\_592"
+            50|int|string: "53\_592\_₽"
+        sql:
+          enterprise:
+            2016|number: "42\_252,8900"
+            2016|string: "42\_252,8900\_₽"
+            2016|int|number: "42\_253"
+            2016|int|string: "42\_253\_₽"
+            2019|number: "42\_252,8900"
+            2019|string: "42\_252,8900\_₽"
+            2019|int|number: "42\_253"
+            2019|int|string: "42\_253\_₽"
+          standard:
+            2016|number: "11\_018,1700"
+            2016|string: "11\_018,1700\_₽"
+            2016|int|number: "11\_018"
+            2016|int|string: "11\_018\_₽"
+            2019|number: "11\_018,1700"
+            2019|string: "11\_018,1700\_₽"
+            2019|int|number: "11\_018"
+            2019|int|string: "11\_018\_₽"
+          web:
+            2016|number: 688,6900
+            2016|string: "688,6900\_₽"
+            2016|int|number: '689'
+            2016|int|string: "689\_₽"
+            2019|number: 688,6900
+            2019|string: "688,6900\_₽"
+            2019|int|number: '689'
+            2019|int|string: "689\_₽"
+        visio:
+          professional|number: "2\_564,4000"
+          professional|string: "2\_564,4000\_₽"
+          professional|int|number: "2\_564"
+          professional|int|string: "2\_564\_₽"
+          standard|number: "1\_161,9600"
+          standard|string: "1\_161,9600\_₽"
+          standard|int|number: "1\_162"
+          standard|int|string: "1\_162\_₽"
     loginom:
       cpu|number: 7,0000
       cpu|string: "7,0000\_₽"
@@ -9750,10 +10070,16 @@ default:
           v1|int|string: Не тарифицируется
     opensearch:
       adjustment:
-        kop|number: 0,0000
-        kop|string: Не тарифицируется
-        kop|int|number: '0'
-        kop|int|string: Не тарифицируется
+        kop|number: 1,0000
+        kop|string: "1,0000\_₽"
+        kop|int|number: '1'
+        kop|int|string: "1\_₽"
+      subscription:
+        monthly_usage:
+          v1|number: 0,0000
+          v1|string: Не тарифицируется
+          v1|int|number: '0'
+          v1|int|string: Не тарифицируется
     pg:
       adjustment:
         kop|number: 1,0000
@@ -11037,6 +11363,24 @@ default:
       allocated|month|string: Не тарифицируется
       allocated|month|int|number: '0'
       allocated|month|int|string: Не тарифицируется
+    network-ssd-io-m2:
+      allocated|number: 0,0000
+      allocated|string: Не тарифицируется
+      allocated|int|number: '0'
+      allocated|int|string: Не тарифицируется
+      allocated|month|number: 0,0000
+      allocated|month|string: Не тарифицируется
+      allocated|month|int|number: '0'
+      allocated|month|int|string: Не тарифицируется
+    network-ssd-io-m3:
+      allocated|number: 0,0000
+      allocated|string: Не тарифицируется
+      allocated|int|number: '0'
+      allocated|int|string: Не тарифицируется
+      allocated|month|number: 0,0000
+      allocated|month|string: Не тарифицируется
+      allocated|month|int|number: '0'
+      allocated|month|int|string: Не тарифицируется
     network-ssd-nonreplicated:
       allocated|number: 0,0122
       allocated|string: "0,0122\_₽"
@@ -11688,27 +12032,14 @@ default:
       fixed_consumption|month|int|number: '0'
       fixed_consumption|month|int|string: Не тарифицируется
       fixed_consumption:
-        v1|number: "100\_000,0000"
-        v1|string: "100\_000,0000\_₽"
-        v1|int|number: "100\_000"
-        v1|int|string: "100\_000\_₽"
-      percentage_consumption|number: 0,0000
-      percentage_consumption|string: Не тарифицируется
+        v1|number: "564\_000,0000"
+        v1|string: "564\_000,0000\_₽"
+        v1|int|number: "564\_000"
+        v1|int|string: "564\_000\_₽"
+      percentage_consumption|number: 0,0500
+      percentage_consumption|string: "0,0500\_₽"
       percentage_consumption|int|number: '0'
-      percentage_consumption|int|string: Не тарифицируется
-      percentage_consumption|pricingRate:
-        1000000|number: 0,0700
-        1000000|string: "0,0700\_₽"
-        1000000|int|number: '0'
-        1000000|int|string: "0\_₽"
-        3000000|number: 0,0500
-        3000000|string: "0,0500\_₽"
-        3000000|int|number: '0'
-        3000000|int|string: "0\_₽"
-        5000000|number: 0,0300
-        5000000|string: "0,0300\_₽"
-        5000000|int|number: '0'
-        5000000|int|string: "0\_₽"
+      percentage_consumption|int|string: "0\_₽"
     standard|number: 0,0000
     standard|string: Не тарифицируется
     standard|int|number: '0'
@@ -11933,6 +12264,42 @@ default:
                 v3|month|string: "281,5200\_₽"
                 v3|month|int|number: '282'
                 v3|month|int|string: "282\_₽"
+            opensearch:
+              cpu:
+                c100:
+                  v2|number: 1,4280
+                  v2|string: "1,4280\_₽"
+                  v2|int|number: '1'
+                  v2|int|string: "1\_₽"
+                  v2|month|number: "1\_028,1600"
+                  v2|month|string: "1\_028,1600\_₽"
+                  v2|month|int|number: "1\_028"
+                  v2|month|int|string: "1\_028\_₽"
+                  v3|number: 1,4280
+                  v3|string: "1,4280\_₽"
+                  v3|int|number: '1'
+                  v3|int|string: "1\_₽"
+                  v3|month|number: "1\_028,1600"
+                  v3|month|string: "1\_028,1600\_₽"
+                  v3|month|int|number: "1\_028"
+                  v3|month|int|string: "1\_028\_₽"
+              ram:
+                v2|number: 0,5950
+                v2|string: "0,5950\_₽"
+                v2|int|number: '1'
+                v2|int|string: "1\_₽"
+                v2|month|number: 428,4000
+                v2|month|string: "428,4000\_₽"
+                v2|month|int|number: '428'
+                v2|month|int|string: "428\_₽"
+                v3|number: 0,5950
+                v3|string: "0,5950\_₽"
+                v3|int|number: '1'
+                v3|int|string: "1\_₽"
+                v3|month|number: 428,4000
+                v3|month|string: "428,4000\_₽"
+                v3|month|int|number: '428'
+                v3|month|int|string: "428\_₽"
             pg:
               cpu:
                 c100:
@@ -12174,6 +12541,42 @@ default:
                 v3|month|string: "258,3360\_₽"
                 v3|month|int|number: '258'
                 v3|month|int|string: "258\_₽"
+            opensearch:
+              cpu:
+                c100:
+                  v2|number: 1,1138
+                  v2|string: "1,1138\_₽"
+                  v2|int|number: '1'
+                  v2|int|string: "1\_₽"
+                  v2|month|number: 801,9360
+                  v2|month|string: "801,9360\_₽"
+                  v2|month|int|number: '802'
+                  v2|month|int|string: "802\_₽"
+                  v3|number: 1,1138
+                  v3|string: "1,1138\_₽"
+                  v3|int|number: '1'
+                  v3|int|string: "1\_₽"
+                  v3|month|number: 801,9360
+                  v3|month|string: "801,9360\_₽"
+                  v3|month|int|number: '802'
+                  v3|month|int|string: "802\_₽"
+              ram:
+                v2|number: 0,4641
+                v2|string: "0,4641\_₽"
+                v2|int|number: '0'
+                v2|int|string: "0\_₽"
+                v2|month|number: 334,1520
+                v2|month|string: "334,1520\_₽"
+                v2|month|int|number: '334'
+                v2|month|int|string: "334\_₽"
+                v3|number: 0,4641
+                v3|string: "0,4641\_₽"
+                v3|int|number: '0'
+                v3|int|string: "0\_₽"
+                v3|month|number: 334,1520
+                v3|month|string: "334,1520\_₽"
+                v3|month|int|number: '334'
+                v3|month|int|string: "334\_₽"
             pg:
               cpu:
                 c100:
@@ -12312,6 +12715,15 @@ default:
               requests|month|int|number: '0'
               requests|month|int|string: Не тарифицируется
           mdb:
+            greenplum:
+              network-nvme|number: 0,0000
+              network-nvme|string: Не тарифицируется
+              network-nvme|int|number: '0'
+              network-nvme|int|string: Не тарифицируется
+              network-nvme|month|number: 0,0000
+              network-nvme|month|string: Не тарифицируется
+              network-nvme|month|int|number: '0'
+              network-nvme|month|int|string: Не тарифицируется
             kafka:
               network-nvme|number: 0,0000
               network-nvme|string: Не тарифицируется
@@ -12409,6 +12821,16 @@ default:
               network-nvme|month|string: Не тарифицируется
               network-nvme|month|int|number: '0'
               network-nvme|month|int|string: Не тарифицируется
+          storage:
+            used_space:
+              ice|number: 0,0000
+              ice|string: Не тарифицируется
+              ice|int|number: '0'
+              ice|int|string: Не тарифицируется
+              ice|month|number: 0,0000
+              ice|month|string: Не тарифицируется
+              ice|month|int|number: '0'
+              ice|month|int|string: Не тарифицируется
         y3:
           marketplace:
             search-api:
@@ -12421,6 +12843,15 @@ default:
               requests|month|int|number: '0'
               requests|month|int|string: Не тарифицируется
           mdb:
+            greenplum:
+              network-nvme|number: 0,0000
+              network-nvme|string: Не тарифицируется
+              network-nvme|int|number: '0'
+              network-nvme|int|string: Не тарифицируется
+              network-nvme|month|number: 0,0000
+              network-nvme|month|string: Не тарифицируется
+              network-nvme|month|int|number: '0'
+              network-nvme|month|int|string: Не тарифицируется
             opensearch:
               cpu:
                 c100:
@@ -12473,6 +12904,16 @@ default:
                 v3|month|string: Не тарифицируется
                 v3|month|int|number: '0'
                 v3|month|int|string: Не тарифицируется
+          storage:
+            used_space:
+              ice|number: 0,0000
+              ice|string: Не тарифицируется
+              ice|int|number: '0'
+              ice|int|string: Не тарифицируется
+              ice|month|number: 0,0000
+              ice|month|string: Не тарифицируется
+              ice|month|int|number: '0'
+              ice|month|int|string: Не тарифицируется
       y1:
         compute:
           hostgroup:
@@ -13891,10 +14332,31 @@ default:
       kop|int|number: '1'
       kop|int|string: "1\_₽"
     monthly_usage:
+      advanced:
+        v1|number: "1\_399,0000"
+        v1|string: "1\_399,0000\_₽"
+        v1|int|number: "1\_399"
+        v1|int|string: "1\_399\_₽"
+      basic:
+        v1|number: 249,0000
+        v1|string: "249,0000\_₽"
+        v1|int|number: '249'
+        v1|int|string: "249\_₽"
+      optimal:
+        v1|number: 469,0000
+        v1|string: "469,0000\_₽"
+        v1|int|number: '469'
+        v1|int|string: "469\_₽"
       v1|number: 0,0000
       v1|string: Не тарифицируется
       v1|int|number: '0'
       v1|int|string: Не тарифицируется
+    prepaid:
+      adjustment:
+        kop|number: 1,0000
+        kop|string: "1,0000\_₽"
+        kop|int|number: '1'
+        kop|int|string: "1\_₽"
   sku|RUB|ydb:
     adjustment:
       kop|number: 1,0000
@@ -14241,6 +14703,13 @@ default:
             1|string: "48,7600\_₽"
             1|int|number: '49'
             1|int|string: "49\_₽"
+  sku|RUB|yq:
+    network:
+      ingress:
+        v1|number: 0,0000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
   sku|USD|ai:
     adjustment:
       kop|number: 0,012821
@@ -14546,6 +15015,21 @@ default:
         v1|string: Не тарифицируется
         v1|int|number: '0'
         v1|int|string: Не тарифицируется
+  sku|USD|backup:
+    protected_vms:
+      v1|number: 0,000000
+      v1|string: Не тарифицируется
+      v1|int|number: '0'
+      v1|int|string: Не тарифицируется
+    used_space:
+      v1|number: 0,000000
+      v1|string: Не тарифицируется
+      v1|int|number: '0'
+      v1|int|string: Не тарифицируется
+      v1|month|number: 0,000000
+      v1|month|string: Не тарифицируется
+      v1|month|int|number: '0'
+      v1|month|int|string: Не тарифицируется
   sku|USD|business:
     referral_program:
       v1|number: 0,000000
@@ -14564,6 +15048,12 @@ default:
           egress|string: "0,007680\_$"
           egress|int|number: '0'
           egress|int|string: "0\_$"
+          egress:
+            monthly_usage:
+              v1|number: 0,000000
+              v1|string: Не тарифицируется
+              v1|int|number: '0'
+              v1|int|string: Не тарифицируется
     logs:
       raw|number: 64,102565
       raw|string: "64,102565\_$"
@@ -14574,6 +15064,25 @@ default:
       shielding|int|number: '45'
       shielding|int|string: "45\_$"
   sku|USD|compute:
+    filesystem:
+      hdd:
+        v1|number: 0,000000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
+        v1|month|number: 0,000000
+        v1|month|string: Не тарифицируется
+        v1|month|int|number: '0'
+        v1|month|int|string: Не тарифицируется
+      ssd:
+        v1|number: 0,000000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
+        v1|month|number: 0,000000
+        v1|month|string: Не тарифицируется
+        v1|month|int|number: '0'
+        v1|month|int|string: Не тарифицируется
     hostgroup:
       cpu:
         c100:
@@ -16718,6 +17227,17 @@ default:
         v1|string: Не тарифицируется
         v1|int|number: '0'
         v1|int|string: Не тарифицируется
+    vulnerabilityscanner:
+      rescan:
+        v1|number: 0,000000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
+      scan:
+        v1|number: 0,000000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
   sku|USD|datalens:
     adjustment:
       kop|number: 0,012821
@@ -17156,6 +17676,14 @@ default:
         generatedatakey|int|string: "0\_$"
     storage:
       v1:
+        hsm|number: 0,004000
+        hsm|string: "0,004000\_$"
+        hsm|int|number: '0'
+        hsm|int|string: "0\_$"
+        hsm|month|number: 2,880000
+        hsm|month|string: "2,880000\_$"
+        hsm|month|int|number: '3'
+        hsm|month|int|string: "3\_$"
         software|number: 0,000032
         software|string: "0,000032\_$"
         software|int|number: '0'
@@ -17167,20 +17695,20 @@ default:
   sku|USD|lockbox:
     api:
       v1:
-        get|number: 0,000000
-        get|string: Не тарифицируется
+        get|number: 0,027648
+        get|string: "0,027648\_$"
         get|int|number: '0'
-        get|int|string: Не тарифицируется
+        get|int|string: "0\_$"
     storage:
       v1:
-        active_secrets|number: 0,000000
-        active_secrets|string: Не тарифицируется
+        active_secrets|number: 0,000200
+        active_secrets|string: "0,000200\_$"
         active_secrets|int|number: '0'
-        active_secrets|int|string: Не тарифицируется
-        active_secrets|month|number: 0,000000
-        active_secrets|month|string: Не тарифицируется
+        active_secrets|int|string: "0\_$"
+        active_secrets|month|number: 0,144000
+        active_secrets|month|string: "0,144000\_$"
         active_secrets|month|int|number: '0'
-        active_secrets|month|int|string: Не тарифицируется
+        active_secrets|month|int|string: "0\_$"
   sku|USD|logging:
     ingested:
       traffic|number: 0,000000
@@ -17423,6 +17951,23 @@ default:
         f2eane6bhdlsg10ha83e|month|string: "12,672000\_$"
         f2eane6bhdlsg10ha83e|month|int|number: '13'
         f2eane6bhdlsg10ha83e|month|int|string: "13\_$"
+      f2ecfntfdfga8rvltls3:
+        f2el6llr6h1j6t4hpjg2|number: 0,014400
+        f2el6llr6h1j6t4hpjg2|string: "0,014400\_$"
+        f2el6llr6h1j6t4hpjg2|int|number: '0'
+        f2el6llr6h1j6t4hpjg2|int|string: "0\_$"
+        f2el6llr6h1j6t4hpjg2|month|number: 10,368000
+        f2el6llr6h1j6t4hpjg2|month|string: "10,368000\_$"
+        f2el6llr6h1j6t4hpjg2|month|int|number: '10'
+        f2el6llr6h1j6t4hpjg2|month|int|string: "10\_$"
+        f2euoj1mcp0a4uv59k6t|number: 0,014400
+        f2euoj1mcp0a4uv59k6t|string: "0,014400\_$"
+        f2euoj1mcp0a4uv59k6t|int|number: '0'
+        f2euoj1mcp0a4uv59k6t|int|string: "0\_$"
+        f2euoj1mcp0a4uv59k6t|month|number: 10,368000
+        f2euoj1mcp0a4uv59k6t|month|string: "10,368000\_$"
+        f2euoj1mcp0a4uv59k6t|month|int|number: '10'
+        f2euoj1mcp0a4uv59k6t|month|int|string: "10\_$"
       f2esrcqm8viu9rv1n7ie:
         f2emfedf53pgc1hl8jfn|number: 0,016026
         f2emfedf53pgc1hl8jfn|string: "0,016026\_$"
@@ -17432,6 +17977,21 @@ default:
         f2emfedf53pgc1hl8jfn|month|string: "11,538462\_$"
         f2emfedf53pgc1hl8jfn|month|int|number: '12'
         f2emfedf53pgc1hl8jfn|month|int|string: "12\_$"
+    f2e4726jgrpc78j38fke:
+      f2eqdak2eg8aobqa03jo:
+        f2ecesu2eu7vmf7htdhe|number: 2,384000
+        f2ecesu2eu7vmf7htdhe|string: "2,384000\_$"
+        f2ecesu2eu7vmf7htdhe|int|number: '2'
+        f2ecesu2eu7vmf7htdhe|int|string: "2\_$"
+        f2ecesu2eu7vmf7htdhe:
+          v2|number: 2,384000
+          v2|string: "2,384000\_$"
+          v2|int|number: '2'
+          v2|int|string: "2\_$"
+          v3|number: 2,384000
+          v3|string: "2,384000\_$"
+          v3|int|number: '2'
+          v3|int|string: "2\_$"
     f2e48e94628vefcmr7sk:
       tarif11|number: 0,141026
       tarif11|string: "0,141026\_$"
@@ -17663,6 +18223,16 @@ default:
         f2ejnabftcos7nerlto2|month|string: "11,520000\_$"
         f2ejnabftcos7nerlto2|month|int|number: '12'
         f2ejnabftcos7nerlto2|month|int|string: "12\_$"
+    f2ebkdms8g0erjqldpg0:
+      f2ebcd5babld628meq9a:
+        f2ellmmcppgu8d4bpj3b|number: 0,040000
+        f2ellmmcppgu8d4bpj3b|string: "0,040000\_$"
+        f2ellmmcppgu8d4bpj3b|int|number: '0'
+        f2ellmmcppgu8d4bpj3b|int|string: "0\_$"
+        f2ellmmcppgu8d4bpj3b|month|number: 28,800000
+        f2ellmmcppgu8d4bpj3b|month|string: "28,800000\_$"
+        f2ellmmcppgu8d4bpj3b|month|int|number: '29'
+        f2ellmmcppgu8d4bpj3b|month|int|string: "29\_$"
     f2ebqa7lc46leoc0kh6p:
       f2eeufgqgiu0ptcdj02g:
         f2er8ai5gu7t9tvurt6v|number: 0,034800
@@ -17674,6 +18244,15 @@ default:
         f2er8ai5gu7t9tvurt6v|month|int|number: '25'
         f2er8ai5gu7t9tvurt6v|month|int|string: "25\_$"
     f2ecalpspqeplhugdo5a:
+      f2e1a1vvpdemq2ac732t:
+        f2e1pooekk6ahduij0qs|number: 0,080000
+        f2e1pooekk6ahduij0qs|string: "0,080000\_$"
+        f2e1pooekk6ahduij0qs|int|number: '0'
+        f2e1pooekk6ahduij0qs|int|string: "0\_$"
+        f2e1pooekk6ahduij0qs|month|number: 57,600000
+        f2e1pooekk6ahduij0qs|month|string: "57,600000\_$"
+        f2e1pooekk6ahduij0qs|month|int|number: '58'
+        f2e1pooekk6ahduij0qs|month|int|string: "58\_$"
       f2e4qu8nfgftvmakg2lk:
         f2ehvbtdqao29o5g14ov|number: 0,080000
         f2ehvbtdqao29o5g14ov|string: "0,080000\_$"
@@ -17692,6 +18271,14 @@ default:
         f2end4gcq409kmi9cp0o|month|int|number: '58'
         f2end4gcq409kmi9cp0o|month|int|string: "58\_$"
       f2e9aguvg1rrjsrnq4qn:
+        f2ea8b0nqblcbje9gptg|number: 0,008000
+        f2ea8b0nqblcbje9gptg|string: "0,008000\_$"
+        f2ea8b0nqblcbje9gptg|int|number: '0'
+        f2ea8b0nqblcbje9gptg|int|string: "0\_$"
+        f2ea8b0nqblcbje9gptg|month|number: 5,760000
+        f2ea8b0nqblcbje9gptg|month|string: "5,760000\_$"
+        f2ea8b0nqblcbje9gptg|month|int|number: '6'
+        f2ea8b0nqblcbje9gptg|month|int|string: "6\_$"
         f2ebe3up7jd833mak09d|number: 0,080000
         f2ebe3up7jd833mak09d|string: "0,080000\_$"
         f2ebe3up7jd833mak09d|int|number: '0'
@@ -17700,6 +18287,40 @@ default:
         f2ebe3up7jd833mak09d|month|string: "57,600000\_$"
         f2ebe3up7jd833mak09d|month|int|number: '58'
         f2ebe3up7jd833mak09d|month|int|string: "58\_$"
+      f2e9cdk1kskn0cmmp2eo:
+        f2e5hfafg0k246jbgjpj|number: 0,040000
+        f2e5hfafg0k246jbgjpj|string: "0,040000\_$"
+        f2e5hfafg0k246jbgjpj|int|number: '0'
+        f2e5hfafg0k246jbgjpj|int|string: "0\_$"
+        f2e5hfafg0k246jbgjpj|month|number: 28,800000
+        f2e5hfafg0k246jbgjpj|month|string: "28,800000\_$"
+        f2e5hfafg0k246jbgjpj|month|int|number: '29'
+        f2e5hfafg0k246jbgjpj|month|int|string: "29\_$"
+        f2emqboqgoer4t13b1vs|number: 0,008000
+        f2emqboqgoer4t13b1vs|string: "0,008000\_$"
+        f2emqboqgoer4t13b1vs|int|number: '0'
+        f2emqboqgoer4t13b1vs|int|string: "0\_$"
+        f2emqboqgoer4t13b1vs|month|number: 5,760000
+        f2emqboqgoer4t13b1vs|month|string: "5,760000\_$"
+        f2emqboqgoer4t13b1vs|month|int|number: '6'
+        f2emqboqgoer4t13b1vs|month|int|string: "6\_$"
+      f2eh5pcihr1iqbm3qu33:
+        f2e760fghjmqu6ng847a|number: 0,008000
+        f2e760fghjmqu6ng847a|string: "0,008000\_$"
+        f2e760fghjmqu6ng847a|int|number: '0'
+        f2e760fghjmqu6ng847a|int|string: "0\_$"
+        f2e760fghjmqu6ng847a|month|number: 5,760000
+        f2e760fghjmqu6ng847a|month|string: "5,760000\_$"
+        f2e760fghjmqu6ng847a|month|int|number: '6'
+        f2e760fghjmqu6ng847a|month|int|string: "6\_$"
+        f2e7a3llgc4dveulv4td|number: 0,040000
+        f2e7a3llgc4dveulv4td|string: "0,040000\_$"
+        f2e7a3llgc4dveulv4td|int|number: '0'
+        f2e7a3llgc4dveulv4td|int|string: "0\_$"
+        f2e7a3llgc4dveulv4td|month|number: 28,800000
+        f2e7a3llgc4dveulv4td|month|string: "28,800000\_$"
+        f2e7a3llgc4dveulv4td|month|int|number: '29'
+        f2e7a3llgc4dveulv4td|month|int|string: "29\_$"
       f2enqv6dekluj950h6tq:
         f2e5asg0ktbfl3kfokkq|number: 0,024000
         f2e5asg0ktbfl3kfokkq|string: "0,024000\_$"
@@ -17742,6 +18363,14 @@ default:
         f2e07qhvqqtrf663g7ve|month|string: "230,400000\_$"
         f2e07qhvqqtrf663g7ve|month|int|number: '230'
         f2e07qhvqqtrf663g7ve|month|int|string: "230\_$"
+        f2edm87t7lalkq0irjti|number: 0,080000
+        f2edm87t7lalkq0irjti|string: "0,080000\_$"
+        f2edm87t7lalkq0irjti|int|number: '0'
+        f2edm87t7lalkq0irjti|int|string: "0\_$"
+        f2edm87t7lalkq0irjti|month|number: 57,600000
+        f2edm87t7lalkq0irjti|month|string: "57,600000\_$"
+        f2edm87t7lalkq0irjti|month|int|number: '58'
+        f2edm87t7lalkq0irjti|month|int|string: "58\_$"
         f2ej8pm8jrv36q16fosk|number: 0,240000
         f2ej8pm8jrv36q16fosk|string: "0,240000\_$"
         f2ej8pm8jrv36q16fosk|int|number: '0'
@@ -17836,6 +18465,14 @@ default:
       ispmgr6lite|month|int|string: "92\_$"
     f2eg84tuulrv811moppv:
       f2e6fecfiucsv2aa1ip0:
+        f2e21oeq24caf8cgfgcg|number: 0,080000
+        f2e21oeq24caf8cgfgcg|string: "0,080000\_$"
+        f2e21oeq24caf8cgfgcg|int|number: '0'
+        f2e21oeq24caf8cgfgcg|int|string: "0\_$"
+        f2e21oeq24caf8cgfgcg|month|number: 57,600000
+        f2e21oeq24caf8cgfgcg|month|string: "57,600000\_$"
+        f2e21oeq24caf8cgfgcg|month|int|number: '58'
+        f2e21oeq24caf8cgfgcg|month|int|string: "58\_$"
         f2ecbvvsp9fb54llb6va|number: 0,080000
         f2ecbvvsp9fb54llb6va|string: "0,080000\_$"
         f2ecbvvsp9fb54llb6va|int|number: '0'
@@ -17880,6 +18517,15 @@ default:
         f2e9vrnneildlm7vg27b|month|string: "57,600000\_$"
         f2e9vrnneildlm7vg27b|month|int|number: '58'
         f2e9vrnneildlm7vg27b|month|int|string: "58\_$"
+      f2ehihcc667vimphmn4g:
+        f2eer50bu2qub1k7qsj1|number: 0,016000
+        f2eer50bu2qub1k7qsj1|string: "0,016000\_$"
+        f2eer50bu2qub1k7qsj1|int|number: '0'
+        f2eer50bu2qub1k7qsj1|int|string: "0\_$"
+        f2eer50bu2qub1k7qsj1|month|number: 11,520000
+        f2eer50bu2qub1k7qsj1|month|string: "11,520000\_$"
+        f2eer50bu2qub1k7qsj1|month|int|number: '12'
+        f2eer50bu2qub1k7qsj1|month|int|string: "12\_$"
     f2ek7nhomcb25115tef5:
       c44100rub|number: 1,282051
       c44100rub|string: "1,282051\_$"
@@ -17990,6 +18636,14 @@ default:
         f2eh913p0vdcv2bjn6sv|month|string: "16,128000\_$"
         f2eh913p0vdcv2bjn6sv|month|int|number: '16'
         f2eh913p0vdcv2bjn6sv|month|int|string: "16\_$"
+        f2eq5geqna64ph605c1g|number: 0,034240
+        f2eq5geqna64ph605c1g|string: "0,034240\_$"
+        f2eq5geqna64ph605c1g|int|number: '0'
+        f2eq5geqna64ph605c1g|int|string: "0\_$"
+        f2eq5geqna64ph605c1g|month|number: 24,652800
+        f2eq5geqna64ph605c1g|month|string: "24,652800\_$"
+        f2eq5geqna64ph605c1g|month|int|number: '25'
+        f2eq5geqna64ph605c1g|month|int|string: "25\_$"
       f2eq0mbk057s9ka838em:
         f2e25sqfsetc4de4u7vl|number: 0,008800
         f2e25sqfsetc4de4u7vl|string: "0,008800\_$"
@@ -17999,6 +18653,14 @@ default:
         f2e25sqfsetc4de4u7vl|month|string: "6,336000\_$"
         f2e25sqfsetc4de4u7vl|month|int|number: '6'
         f2e25sqfsetc4de4u7vl|month|int|string: "6\_$"
+        f2e4lb413ssf6safhgiq|number: 0,011040
+        f2e4lb413ssf6safhgiq|string: "0,011040\_$"
+        f2e4lb413ssf6safhgiq|int|number: '0'
+        f2e4lb413ssf6safhgiq|int|string: "0\_$"
+        f2e4lb413ssf6safhgiq|month|number: 7,948800
+        f2e4lb413ssf6safhgiq|month|string: "7,948800\_$"
+        f2e4lb413ssf6safhgiq|month|int|number: '8'
+        f2e4lb413ssf6safhgiq|month|int|string: "8\_$"
       hourly-redos-255|number: 0,032692
       hourly-redos-255|string: "0,032692\_$"
       hourly-redos-255|int|number: '0'
@@ -18007,6 +18669,16 @@ default:
       hourly-redos-255|month|string: "23,538462\_$"
       hourly-redos-255|month|int|number: '24'
       hourly-redos-255|month|int|string: "24\_$"
+    f2ellht7j4uit76gl00m:
+      f2eh321bklml7ding5ed:
+        f2et5qtujq8ek8o3qdnr|number: 0,008000
+        f2et5qtujq8ek8o3qdnr|string: "0,008000\_$"
+        f2et5qtujq8ek8o3qdnr|int|number: '0'
+        f2et5qtujq8ek8o3qdnr|int|string: "0\_$"
+        f2et5qtujq8ek8o3qdnr|month|number: 5,760000
+        f2et5qtujq8ek8o3qdnr|month|string: "5,760000\_$"
+        f2et5qtujq8ek8o3qdnr|month|int|number: '6'
+        f2et5qtujq8ek8o3qdnr|month|int|string: "6\_$"
     f2em5a3i24q3t08cn3kl:
       f2eei6luohpblolsh8in:
         f2e1guvsuu20a7uddauo|number: 0,461538
@@ -18070,6 +18742,17 @@ default:
         f2eqv9qnqsss5438q93c|month|string: "20,678400\_$"
         f2eqv9qnqsss5438q93c|month|int|number: '21'
         f2eqv9qnqsss5438q93c|month|int|string: "21\_$"
+    f2eo13d48ctnjc81jafg:
+      f2erhjbf9qitfc9hiaeg:
+        f2eekn6ne9b3mb61u15r:
+          15-90|number: 3,336000
+          15-90|string: "3,336000\_$"
+          15-90|int|number: '3'
+          15-90|int|string: "3\_$"
+          91|number: 6,672000
+          91|string: "6,672000\_$"
+          91|int|number: '7'
+          91|int|string: "7\_$"
     f2ep3ga08d2viv580apb:
       f2e4qmgm32elkl0vc7ka:
         f2enbb1hur45us0ib7bu|number: 0,008000
@@ -18130,6 +18813,14 @@ default:
       test|int|string: Не тарифицируется
     f2eqg0mtllf1op2ft5eh:
       f2ejennnfuar11o5u3h9:
+        f2e1d1oc5f36i5ved8b5|number: 0,004800
+        f2e1d1oc5f36i5ved8b5|string: "0,004800\_$"
+        f2e1d1oc5f36i5ved8b5|int|number: '0'
+        f2e1d1oc5f36i5ved8b5|int|string: "0\_$"
+        f2e1d1oc5f36i5ved8b5|month|number: 3,456000
+        f2e1d1oc5f36i5ved8b5|month|string: "3,456000\_$"
+        f2e1d1oc5f36i5ved8b5|month|int|number: '3'
+        f2e1d1oc5f36i5ved8b5|month|int|string: "3\_$"
         f2ei07814dtuo4b7qb2j|number: 0,004800
         f2ei07814dtuo4b7qb2j|string: "0,004800\_$"
         f2ei07814dtuo4b7qb2j|int|number: '0'
@@ -18139,6 +18830,14 @@ default:
         f2ei07814dtuo4b7qb2j|month|int|number: '3'
         f2ei07814dtuo4b7qb2j|month|int|string: "3\_$"
       f2ekpv5mkr9gqlsdfj9s:
+        f2e6g4s74vmqr2npd61l|number: 0,016800
+        f2e6g4s74vmqr2npd61l|string: "0,016800\_$"
+        f2e6g4s74vmqr2npd61l|int|number: '0'
+        f2e6g4s74vmqr2npd61l|int|string: "0\_$"
+        f2e6g4s74vmqr2npd61l|month|number: 12,096000
+        f2e6g4s74vmqr2npd61l|month|string: "12,096000\_$"
+        f2e6g4s74vmqr2npd61l|month|int|number: '12'
+        f2e6g4s74vmqr2npd61l|month|int|string: "12\_$"
         f2erf58jonbp8iaul5vp|number: 0,016800
         f2erf58jonbp8iaul5vp|string: "0,016800\_$"
         f2erf58jonbp8iaul5vp|int|number: '0'
@@ -18562,6 +19261,40 @@ default:
         f2evgfh71brpij7m9o8t|string: "256,410260\_$"
         f2evgfh71brpij7m9o8t|int|number: '256'
         f2evgfh71brpij7m9o8t|int|string: "256\_$"
+    f2er20h91kfgve9fi4kt:
+      f2eo3gume0fji9r76lh9:
+        f2ep4ink9149j48v5le1|number: 1,600000
+        f2ep4ink9149j48v5le1|string: "1,600000\_$"
+        f2ep4ink9149j48v5le1|int|number: '2'
+        f2ep4ink9149j48v5le1|int|string: "2\_$"
+    f2eruipd9018lmd8edp7:
+      f2e6qg4eif743jnkmb9v:
+        f2ekib2rik8qcoviurfc|number: 0,028000
+        f2ekib2rik8qcoviurfc|string: "0,028000\_$"
+        f2ekib2rik8qcoviurfc|int|number: '0'
+        f2ekib2rik8qcoviurfc|int|string: "0\_$"
+        f2ekib2rik8qcoviurfc|month|number: 20,160000
+        f2ekib2rik8qcoviurfc|month|string: "20,160000\_$"
+        f2ekib2rik8qcoviurfc|month|int|number: '20'
+        f2ekib2rik8qcoviurfc|month|int|string: "20\_$"
+      f2e947j7ru8tpct52nm1:
+        f2e19re2qk11745jcn55|number: 0,027760
+        f2e19re2qk11745jcn55|string: "0,027760\_$"
+        f2e19re2qk11745jcn55|int|number: '0'
+        f2e19re2qk11745jcn55|int|string: "0\_$"
+        f2e19re2qk11745jcn55|month|number: 19,987200
+        f2e19re2qk11745jcn55|month|string: "19,987200\_$"
+        f2e19re2qk11745jcn55|month|int|number: '20'
+        f2e19re2qk11745jcn55|month|int|string: "20\_$"
+      f2egrdmsfi34of2ph3cs:
+        f2eedg1guu7k9i5f8ge1|number: 0,069600
+        f2eedg1guu7k9i5f8ge1|string: "0,069600\_$"
+        f2eedg1guu7k9i5f8ge1|int|number: '0'
+        f2eedg1guu7k9i5f8ge1|int|string: "0\_$"
+        f2eedg1guu7k9i5f8ge1|month|number: 50,112000
+        f2eedg1guu7k9i5f8ge1|month|string: "50,112000\_$"
+        f2eedg1guu7k9i5f8ge1|month|int|number: '50'
+        f2eedg1guu7k9i5f8ge1|month|int|string: "50\_$"
     f2et4igqrmpc4g5btb6h:
       f2evo2f3lg8cd57n9ev4:
         f2e5uu3qkk46s5uq9sse:
@@ -18837,6 +19570,59 @@ default:
         agent|month|string: Не тарифицируется
         agent|month|int|number: '0'
         agent|month|int|string: Не тарифицируется
+    kosmos:
+      ms:
+        rds:
+          license:
+            10|number: 85,748000
+            10|string: "85,748000\_$"
+            10|int|number: '86'
+            10|int|string: "86\_$"
+            5|number: 42,874080
+            5|string: "42,874080\_$"
+            5|int|number: '43'
+            5|int|string: "43\_$"
+            50|number: 428,739680
+            50|string: "428,739680\_$"
+            50|int|number: '429'
+            50|int|string: "429\_$"
+        sql:
+          enterprise:
+            2016|number: 338,023120
+            2016|string: "338,023120\_$"
+            2016|int|number: '338'
+            2016|int|string: "338\_$"
+            2019|number: 338,023120
+            2019|string: "338,023120\_$"
+            2019|int|number: '338'
+            2019|int|string: "338\_$"
+          standard:
+            2016|number: 88,145360
+            2016|string: "88,145360\_$"
+            2016|int|number: '88'
+            2016|int|string: "88\_$"
+            2019|number: 88,145360
+            2019|string: "88,145360\_$"
+            2019|int|number: '88'
+            2019|int|string: "88\_$"
+          web:
+            2016|number: 5,509520
+            2016|string: "5,509520\_$"
+            2016|int|number: '6'
+            2016|int|string: "6\_$"
+            2019|number: 5,509520
+            2019|string: "5,509520\_$"
+            2019|int|number: '6'
+            2019|int|string: "6\_$"
+        visio:
+          professional|number: 20,515200
+          professional|string: "20,515200\_$"
+          professional|int|number: '21'
+          professional|int|string: "21\_$"
+          standard|number: 9,295680
+          standard|string: "9,295680\_$"
+          standard|int|number: '9'
+          standard|int|string: "9\_$"
     loginom:
       cpu|number: 0,089744
       cpu|string: "0,089744\_$"
@@ -23142,10 +23928,16 @@ default:
           v1|int|string: Не тарифицируется
     opensearch:
       adjustment:
-        kop|number: 0,000000
-        kop|string: Не тарифицируется
+        kop|number: 0,008000
+        kop|string: "0,008000\_$"
         kop|int|number: '0'
-        kop|int|string: Не тарифицируется
+        kop|int|string: "0\_$"
+      subscription:
+        monthly_usage:
+          v1|number: 0,000000
+          v1|string: Не тарифицируется
+          v1|int|number: '0'
+          v1|int|string: Не тарифицируется
     pg:
       adjustment:
         kop|number: 0,012821
@@ -24429,6 +25221,24 @@ default:
       allocated|month|string: Не тарифицируется
       allocated|month|int|number: '0'
       allocated|month|int|string: Не тарифицируется
+    network-ssd-io-m2:
+      allocated|number: 0,000000
+      allocated|string: Не тарифицируется
+      allocated|int|number: '0'
+      allocated|int|string: Не тарифицируется
+      allocated|month|number: 0,000000
+      allocated|month|string: Не тарифицируется
+      allocated|month|int|number: '0'
+      allocated|month|int|string: Не тарифицируется
+    network-ssd-io-m3:
+      allocated|number: 0,000000
+      allocated|string: Не тарифицируется
+      allocated|int|number: '0'
+      allocated|int|string: Не тарифицируется
+      allocated|month|number: 0,000000
+      allocated|month|string: Не тарифицируется
+      allocated|month|int|number: '0'
+      allocated|month|int|string: Не тарифицируется
     network-ssd-nonreplicated:
       allocated|number: 0,000098
       allocated|string: "0,000098\_$"
@@ -25080,27 +25890,14 @@ default:
       fixed_consumption|month|int|number: '0'
       fixed_consumption|month|int|string: Не тарифицируется
       fixed_consumption:
-        v1|number: "1\_282,051300"
-        v1|string: "1\_282,051300\_$"
-        v1|int|number: "1\_282"
-        v1|int|string: "1\_282\_$"
-      percentage_consumption|number: 0,000000
-      percentage_consumption|string: Не тарифицируется
+        v1|number: "4\_512,000000"
+        v1|string: "4\_512,000000\_$"
+        v1|int|number: "4\_512"
+        v1|int|string: "4\_512\_$"
+      percentage_consumption|number: 0,000400
+      percentage_consumption|string: "0,000400\_$"
       percentage_consumption|int|number: '0'
-      percentage_consumption|int|string: Не тарифицируется
-      percentage_consumption|pricingRate:
-        1000000|number: 0,000897
-        1000000|string: "0,000897\_$"
-        1000000|int|number: '0'
-        1000000|int|string: "0\_$"
-        3000000|number: 0,000641
-        3000000|string: "0,000641\_$"
-        3000000|int|number: '0'
-        3000000|int|string: "0\_$"
-        5000000|number: 0,000385
-        5000000|string: "0,000385\_$"
-        5000000|int|number: '0'
-        5000000|int|string: "0\_$"
+      percentage_consumption|int|string: "0\_$"
     standard|number: 0,000000
     standard|string: Не тарифицируется
     standard|int|number: '0'
@@ -25325,6 +26122,42 @@ default:
                 v3|month|string: "2,252160\_$"
                 v3|month|int|number: '2'
                 v3|month|int|string: "2\_$"
+            opensearch:
+              cpu:
+                c100:
+                  v2|number: 0,011424
+                  v2|string: "0,011424\_$"
+                  v2|int|number: '0'
+                  v2|int|string: "0\_$"
+                  v2|month|number: 8,225280
+                  v2|month|string: "8,225280\_$"
+                  v2|month|int|number: '8'
+                  v2|month|int|string: "8\_$"
+                  v3|number: 0,011424
+                  v3|string: "0,011424\_$"
+                  v3|int|number: '0'
+                  v3|int|string: "0\_$"
+                  v3|month|number: 8,225280
+                  v3|month|string: "8,225280\_$"
+                  v3|month|int|number: '8'
+                  v3|month|int|string: "8\_$"
+              ram:
+                v2|number: 0,004760
+                v2|string: "0,004760\_$"
+                v2|int|number: '0'
+                v2|int|string: "0\_$"
+                v2|month|number: 3,427200
+                v2|month|string: "3,427200\_$"
+                v2|month|int|number: '3'
+                v2|month|int|string: "3\_$"
+                v3|number: 0,004760
+                v3|string: "0,004760\_$"
+                v3|int|number: '0'
+                v3|int|string: "0\_$"
+                v3|month|number: 3,427200
+                v3|month|string: "3,427200\_$"
+                v3|month|int|number: '3'
+                v3|month|int|string: "3\_$"
             pg:
               cpu:
                 c100:
@@ -25566,6 +26399,42 @@ default:
                 v3|month|string: "2,066688\_$"
                 v3|month|int|number: '2'
                 v3|month|int|string: "2\_$"
+            opensearch:
+              cpu:
+                c100:
+                  v2|number: 0,008910
+                  v2|string: "0,008910\_$"
+                  v2|int|number: '0'
+                  v2|int|string: "0\_$"
+                  v2|month|number: 6,415488
+                  v2|month|string: "6,415488\_$"
+                  v2|month|int|number: '6'
+                  v2|month|int|string: "6\_$"
+                  v3|number: 0,008910
+                  v3|string: "0,008910\_$"
+                  v3|int|number: '0'
+                  v3|int|string: "0\_$"
+                  v3|month|number: 6,415488
+                  v3|month|string: "6,415488\_$"
+                  v3|month|int|number: '6'
+                  v3|month|int|string: "6\_$"
+              ram:
+                v2|number: 0,003713
+                v2|string: "0,003713\_$"
+                v2|int|number: '0'
+                v2|int|string: "0\_$"
+                v2|month|number: 2,673216
+                v2|month|string: "2,673216\_$"
+                v2|month|int|number: '3'
+                v2|month|int|string: "3\_$"
+                v3|number: 0,003713
+                v3|string: "0,003713\_$"
+                v3|int|number: '0'
+                v3|int|string: "0\_$"
+                v3|month|number: 2,673216
+                v3|month|string: "2,673216\_$"
+                v3|month|int|number: '3'
+                v3|month|int|string: "3\_$"
             pg:
               cpu:
                 c100:
@@ -25704,6 +26573,15 @@ default:
               requests|month|int|number: '0'
               requests|month|int|string: Не тарифицируется
           mdb:
+            greenplum:
+              network-nvme|number: 0,000000
+              network-nvme|string: Не тарифицируется
+              network-nvme|int|number: '0'
+              network-nvme|int|string: Не тарифицируется
+              network-nvme|month|number: 0,000000
+              network-nvme|month|string: Не тарифицируется
+              network-nvme|month|int|number: '0'
+              network-nvme|month|int|string: Не тарифицируется
             kafka:
               network-nvme|number: 0,000000
               network-nvme|string: Не тарифицируется
@@ -25801,6 +26679,16 @@ default:
               network-nvme|month|string: Не тарифицируется
               network-nvme|month|int|number: '0'
               network-nvme|month|int|string: Не тарифицируется
+          storage:
+            used_space:
+              ice|number: 0,000000
+              ice|string: Не тарифицируется
+              ice|int|number: '0'
+              ice|int|string: Не тарифицируется
+              ice|month|number: 0,000000
+              ice|month|string: Не тарифицируется
+              ice|month|int|number: '0'
+              ice|month|int|string: Не тарифицируется
         y3:
           marketplace:
             search-api:
@@ -25813,6 +26701,15 @@ default:
               requests|month|int|number: '0'
               requests|month|int|string: Не тарифицируется
           mdb:
+            greenplum:
+              network-nvme|number: 0,000000
+              network-nvme|string: Не тарифицируется
+              network-nvme|int|number: '0'
+              network-nvme|int|string: Не тарифицируется
+              network-nvme|month|number: 0,000000
+              network-nvme|month|string: Не тарифицируется
+              network-nvme|month|int|number: '0'
+              network-nvme|month|int|string: Не тарифицируется
             opensearch:
               cpu:
                 c100:
@@ -25865,6 +26762,16 @@ default:
                 v3|month|string: Не тарифицируется
                 v3|month|int|number: '0'
                 v3|month|int|string: Не тарифицируется
+          storage:
+            used_space:
+              ice|number: 0,000000
+              ice|string: Не тарифицируется
+              ice|int|number: '0'
+              ice|int|string: Не тарифицируется
+              ice|month|number: 0,000000
+              ice|month|string: Не тарифицируется
+              ice|month|int|number: '0'
+              ice|month|int|string: Не тарифицируется
       y1:
         compute:
           hostgroup:
@@ -27283,10 +28190,31 @@ default:
       kop|int|number: '0'
       kop|int|string: "0\_$"
     monthly_usage:
+      advanced:
+        v1|number: 11,192000
+        v1|string: "11,192000\_$"
+        v1|int|number: '11'
+        v1|int|string: "11\_$"
+      basic:
+        v1|number: 1,992000
+        v1|string: "1,992000\_$"
+        v1|int|number: '2'
+        v1|int|string: "2\_$"
+      optimal:
+        v1|number: 3,752000
+        v1|string: "3,752000\_$"
+        v1|int|number: '4'
+        v1|int|string: "4\_$"
       v1|number: 0,000000
       v1|string: Не тарифицируется
       v1|int|number: '0'
       v1|int|string: Не тарифицируется
+    prepaid:
+      adjustment:
+        kop|number: 0,008000
+        kop|string: "0,008000\_$"
+        kop|int|number: '0'
+        kop|int|string: "0\_$"
   sku|USD|ydb:
     adjustment:
       kop|number: 0,012821
@@ -27633,6 +28561,13 @@ default:
             1|string: "0,390080\_$"
             1|int|number: '0'
             1|int|string: "0\_$"
+  sku|USD|yq:
+    network:
+      ingress:
+        v1|number: 0,000000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
   sku|KZT|ai:
     adjustment:
       kop|number: 6,0000
@@ -27938,6 +28873,21 @@ default:
         v1|string: Не тарифицируется
         v1|int|number: '0'
         v1|int|string: Не тарифицируется
+  sku|KZT|backup:
+    protected_vms:
+      v1|number: 0,0000
+      v1|string: Не тарифицируется
+      v1|int|number: '0'
+      v1|int|string: Не тарифицируется
+    used_space:
+      v1|number: 0,0000
+      v1|string: Не тарифицируется
+      v1|int|number: '0'
+      v1|int|string: Не тарифицируется
+      v1|month|number: 0,0000
+      v1|month|string: Не тарифицируется
+      v1|month|int|number: '0'
+      v1|month|int|string: Не тарифицируется
   sku|KZT|business:
     referral_program:
       v1|number: 0,0000
@@ -27956,6 +28906,12 @@ default:
           egress|string: "4,8000\_₸"
           egress|int|number: '5'
           egress|int|string: "5\_₸"
+          egress:
+            monthly_usage:
+              v1|number: 0,0000
+              v1|string: Не тарифицируется
+              v1|int|number: '0'
+              v1|int|string: Не тарифицируется
     logs:
       raw|number: "30\_000,0000"
       raw|string: "30\_000,0000\_₸"
@@ -27966,6 +28922,25 @@ default:
       shielding|int|number: "21\_000"
       shielding|int|string: "21\_000\_₸"
   sku|KZT|compute:
+    filesystem:
+      hdd:
+        v1|number: 0,0000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
+        v1|month|number: 0,0000
+        v1|month|string: Не тарифицируется
+        v1|month|int|number: '0'
+        v1|month|int|string: Не тарифицируется
+      ssd:
+        v1|number: 0,0000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
+        v1|month|number: 0,0000
+        v1|month|string: Не тарифицируется
+        v1|month|int|number: '0'
+        v1|month|int|string: Не тарифицируется
     hostgroup:
       cpu:
         c100:
@@ -30110,6 +31085,17 @@ default:
         v1|string: Не тарифицируется
         v1|int|number: '0'
         v1|int|string: Не тарифицируется
+    vulnerabilityscanner:
+      rescan:
+        v1|number: 0,0000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
+      scan:
+        v1|number: 0,0000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
   sku|KZT|datalens:
     adjustment:
       kop|number: 6,0000
@@ -30548,6 +31534,14 @@ default:
         generatedatakey|int|string: "14\_₸"
     storage:
       v1:
+        hsm|number: 2,5000
+        hsm|string: "2,5000\_₸"
+        hsm|int|number: '3'
+        hsm|int|string: "3\_₸"
+        hsm|month|number: "1\_800,0000"
+        hsm|month|string: "1\_800,0000\_₸"
+        hsm|month|int|number: "1\_800"
+        hsm|month|int|string: "1\_800\_₸"
         software|number: 0,0200
         software|string: "0,0200\_₸"
         software|int|number: '0'
@@ -30559,20 +31553,20 @@ default:
   sku|KZT|lockbox:
     api:
       v1:
-        get|number: 0,0000
-        get|string: Не тарифицируется
-        get|int|number: '0'
-        get|int|string: Не тарифицируется
+        get|number: 17,2800
+        get|string: "17,2800\_₸"
+        get|int|number: '17'
+        get|int|string: "17\_₸"
     storage:
       v1:
-        active_secrets|number: 0,0000
-        active_secrets|string: Не тарифицируется
+        active_secrets|number: 0,1250
+        active_secrets|string: "0,1250\_₸"
         active_secrets|int|number: '0'
-        active_secrets|int|string: Не тарифицируется
-        active_secrets|month|number: 0,0000
-        active_secrets|month|string: Не тарифицируется
-        active_secrets|month|int|number: '0'
-        active_secrets|month|int|string: Не тарифицируется
+        active_secrets|int|string: "0\_₸"
+        active_secrets|month|number: 90,0000
+        active_secrets|month|string: "90,0000\_₸"
+        active_secrets|month|int|number: '90'
+        active_secrets|month|int|string: "90\_₸"
   sku|KZT|logging:
     ingested:
       traffic|number: 0,0000
@@ -30815,6 +31809,23 @@ default:
         f2eane6bhdlsg10ha83e|month|string: "7\_920,0000\_₸"
         f2eane6bhdlsg10ha83e|month|int|number: "7\_920"
         f2eane6bhdlsg10ha83e|month|int|string: "7\_920\_₸"
+      f2ecfntfdfga8rvltls3:
+        f2el6llr6h1j6t4hpjg2|number: 9,0000
+        f2el6llr6h1j6t4hpjg2|string: "9,0000\_₸"
+        f2el6llr6h1j6t4hpjg2|int|number: '9'
+        f2el6llr6h1j6t4hpjg2|int|string: "9\_₸"
+        f2el6llr6h1j6t4hpjg2|month|number: "6\_480,0000"
+        f2el6llr6h1j6t4hpjg2|month|string: "6\_480,0000\_₸"
+        f2el6llr6h1j6t4hpjg2|month|int|number: "6\_480"
+        f2el6llr6h1j6t4hpjg2|month|int|string: "6\_480\_₸"
+        f2euoj1mcp0a4uv59k6t|number: 9,0000
+        f2euoj1mcp0a4uv59k6t|string: "9,0000\_₸"
+        f2euoj1mcp0a4uv59k6t|int|number: '9'
+        f2euoj1mcp0a4uv59k6t|int|string: "9\_₸"
+        f2euoj1mcp0a4uv59k6t|month|number: "6\_480,0000"
+        f2euoj1mcp0a4uv59k6t|month|string: "6\_480,0000\_₸"
+        f2euoj1mcp0a4uv59k6t|month|int|number: "6\_480"
+        f2euoj1mcp0a4uv59k6t|month|int|string: "6\_480\_₸"
       f2esrcqm8viu9rv1n7ie:
         f2emfedf53pgc1hl8jfn|number: 7,5000
         f2emfedf53pgc1hl8jfn|string: "7,5000\_₸"
@@ -30824,6 +31835,21 @@ default:
         f2emfedf53pgc1hl8jfn|month|string: "5\_400,0000\_₸"
         f2emfedf53pgc1hl8jfn|month|int|number: "5\_400"
         f2emfedf53pgc1hl8jfn|month|int|string: "5\_400\_₸"
+    f2e4726jgrpc78j38fke:
+      f2eqdak2eg8aobqa03jo:
+        f2ecesu2eu7vmf7htdhe|number: "1\_490,0000"
+        f2ecesu2eu7vmf7htdhe|string: "1\_490,0000\_₸"
+        f2ecesu2eu7vmf7htdhe|int|number: "1\_490"
+        f2ecesu2eu7vmf7htdhe|int|string: "1\_490\_₸"
+        f2ecesu2eu7vmf7htdhe:
+          v2|number: "1\_490,0000"
+          v2|string: "1\_490,0000\_₸"
+          v2|int|number: "1\_490"
+          v2|int|string: "1\_490\_₸"
+          v3|number: "1\_490,0000"
+          v3|string: "1\_490,0000\_₸"
+          v3|int|number: "1\_490"
+          v3|int|string: "1\_490\_₸"
     f2e48e94628vefcmr7sk:
       tarif11|number: 66,0000
       tarif11|string: "66,0000\_₸"
@@ -31055,6 +32081,16 @@ default:
         f2ejnabftcos7nerlto2|month|string: "7\_200,0000\_₸"
         f2ejnabftcos7nerlto2|month|int|number: "7\_200"
         f2ejnabftcos7nerlto2|month|int|string: "7\_200\_₸"
+    f2ebkdms8g0erjqldpg0:
+      f2ebcd5babld628meq9a:
+        f2ellmmcppgu8d4bpj3b|number: 25,0000
+        f2ellmmcppgu8d4bpj3b|string: "25,0000\_₸"
+        f2ellmmcppgu8d4bpj3b|int|number: '25'
+        f2ellmmcppgu8d4bpj3b|int|string: "25\_₸"
+        f2ellmmcppgu8d4bpj3b|month|number: "18\_000,0000"
+        f2ellmmcppgu8d4bpj3b|month|string: "18\_000,0000\_₸"
+        f2ellmmcppgu8d4bpj3b|month|int|number: "18\_000"
+        f2ellmmcppgu8d4bpj3b|month|int|string: "18\_000\_₸"
     f2ebqa7lc46leoc0kh6p:
       f2eeufgqgiu0ptcdj02g:
         f2er8ai5gu7t9tvurt6v|number: 21,7500
@@ -31066,6 +32102,15 @@ default:
         f2er8ai5gu7t9tvurt6v|month|int|number: "15\_660"
         f2er8ai5gu7t9tvurt6v|month|int|string: "15\_660\_₸"
     f2ecalpspqeplhugdo5a:
+      f2e1a1vvpdemq2ac732t:
+        f2e1pooekk6ahduij0qs|number: 50,0000
+        f2e1pooekk6ahduij0qs|string: "50,0000\_₸"
+        f2e1pooekk6ahduij0qs|int|number: '50'
+        f2e1pooekk6ahduij0qs|int|string: "50\_₸"
+        f2e1pooekk6ahduij0qs|month|number: "36\_000,0000"
+        f2e1pooekk6ahduij0qs|month|string: "36\_000,0000\_₸"
+        f2e1pooekk6ahduij0qs|month|int|number: "36\_000"
+        f2e1pooekk6ahduij0qs|month|int|string: "36\_000\_₸"
       f2e4qu8nfgftvmakg2lk:
         f2ehvbtdqao29o5g14ov|number: 50,0000
         f2ehvbtdqao29o5g14ov|string: "50,0000\_₸"
@@ -31084,6 +32129,14 @@ default:
         f2end4gcq409kmi9cp0o|month|int|number: "36\_000"
         f2end4gcq409kmi9cp0o|month|int|string: "36\_000\_₸"
       f2e9aguvg1rrjsrnq4qn:
+        f2ea8b0nqblcbje9gptg|number: 5,0000
+        f2ea8b0nqblcbje9gptg|string: "5,0000\_₸"
+        f2ea8b0nqblcbje9gptg|int|number: '5'
+        f2ea8b0nqblcbje9gptg|int|string: "5\_₸"
+        f2ea8b0nqblcbje9gptg|month|number: "3\_600,0000"
+        f2ea8b0nqblcbje9gptg|month|string: "3\_600,0000\_₸"
+        f2ea8b0nqblcbje9gptg|month|int|number: "3\_600"
+        f2ea8b0nqblcbje9gptg|month|int|string: "3\_600\_₸"
         f2ebe3up7jd833mak09d|number: 50,0000
         f2ebe3up7jd833mak09d|string: "50,0000\_₸"
         f2ebe3up7jd833mak09d|int|number: '50'
@@ -31092,6 +32145,40 @@ default:
         f2ebe3up7jd833mak09d|month|string: "36\_000,0000\_₸"
         f2ebe3up7jd833mak09d|month|int|number: "36\_000"
         f2ebe3up7jd833mak09d|month|int|string: "36\_000\_₸"
+      f2e9cdk1kskn0cmmp2eo:
+        f2e5hfafg0k246jbgjpj|number: 25,0000
+        f2e5hfafg0k246jbgjpj|string: "25,0000\_₸"
+        f2e5hfafg0k246jbgjpj|int|number: '25'
+        f2e5hfafg0k246jbgjpj|int|string: "25\_₸"
+        f2e5hfafg0k246jbgjpj|month|number: "18\_000,0000"
+        f2e5hfafg0k246jbgjpj|month|string: "18\_000,0000\_₸"
+        f2e5hfafg0k246jbgjpj|month|int|number: "18\_000"
+        f2e5hfafg0k246jbgjpj|month|int|string: "18\_000\_₸"
+        f2emqboqgoer4t13b1vs|number: 5,0000
+        f2emqboqgoer4t13b1vs|string: "5,0000\_₸"
+        f2emqboqgoer4t13b1vs|int|number: '5'
+        f2emqboqgoer4t13b1vs|int|string: "5\_₸"
+        f2emqboqgoer4t13b1vs|month|number: "3\_600,0000"
+        f2emqboqgoer4t13b1vs|month|string: "3\_600,0000\_₸"
+        f2emqboqgoer4t13b1vs|month|int|number: "3\_600"
+        f2emqboqgoer4t13b1vs|month|int|string: "3\_600\_₸"
+      f2eh5pcihr1iqbm3qu33:
+        f2e760fghjmqu6ng847a|number: 5,0000
+        f2e760fghjmqu6ng847a|string: "5,0000\_₸"
+        f2e760fghjmqu6ng847a|int|number: '5'
+        f2e760fghjmqu6ng847a|int|string: "5\_₸"
+        f2e760fghjmqu6ng847a|month|number: "3\_600,0000"
+        f2e760fghjmqu6ng847a|month|string: "3\_600,0000\_₸"
+        f2e760fghjmqu6ng847a|month|int|number: "3\_600"
+        f2e760fghjmqu6ng847a|month|int|string: "3\_600\_₸"
+        f2e7a3llgc4dveulv4td|number: 25,0000
+        f2e7a3llgc4dveulv4td|string: "25,0000\_₸"
+        f2e7a3llgc4dveulv4td|int|number: '25'
+        f2e7a3llgc4dveulv4td|int|string: "25\_₸"
+        f2e7a3llgc4dveulv4td|month|number: "18\_000,0000"
+        f2e7a3llgc4dveulv4td|month|string: "18\_000,0000\_₸"
+        f2e7a3llgc4dveulv4td|month|int|number: "18\_000"
+        f2e7a3llgc4dveulv4td|month|int|string: "18\_000\_₸"
       f2enqv6dekluj950h6tq:
         f2e5asg0ktbfl3kfokkq|number: 15,0000
         f2e5asg0ktbfl3kfokkq|string: "15,0000\_₸"
@@ -31134,6 +32221,14 @@ default:
         f2e07qhvqqtrf663g7ve|month|string: "144\_000,0000\_₸"
         f2e07qhvqqtrf663g7ve|month|int|number: "144\_000"
         f2e07qhvqqtrf663g7ve|month|int|string: "144\_000\_₸"
+        f2edm87t7lalkq0irjti|number: 50,0000
+        f2edm87t7lalkq0irjti|string: "50,0000\_₸"
+        f2edm87t7lalkq0irjti|int|number: '50'
+        f2edm87t7lalkq0irjti|int|string: "50\_₸"
+        f2edm87t7lalkq0irjti|month|number: "36\_000,0000"
+        f2edm87t7lalkq0irjti|month|string: "36\_000,0000\_₸"
+        f2edm87t7lalkq0irjti|month|int|number: "36\_000"
+        f2edm87t7lalkq0irjti|month|int|string: "36\_000\_₸"
         f2ej8pm8jrv36q16fosk|number: 150,0000
         f2ej8pm8jrv36q16fosk|string: "150,0000\_₸"
         f2ej8pm8jrv36q16fosk|int|number: '150'
@@ -31228,6 +32323,14 @@ default:
       ispmgr6lite|month|int|string: "43\_200\_₸"
     f2eg84tuulrv811moppv:
       f2e6fecfiucsv2aa1ip0:
+        f2e21oeq24caf8cgfgcg|number: 50,0000
+        f2e21oeq24caf8cgfgcg|string: "50,0000\_₸"
+        f2e21oeq24caf8cgfgcg|int|number: '50'
+        f2e21oeq24caf8cgfgcg|int|string: "50\_₸"
+        f2e21oeq24caf8cgfgcg|month|number: "36\_000,0000"
+        f2e21oeq24caf8cgfgcg|month|string: "36\_000,0000\_₸"
+        f2e21oeq24caf8cgfgcg|month|int|number: "36\_000"
+        f2e21oeq24caf8cgfgcg|month|int|string: "36\_000\_₸"
         f2ecbvvsp9fb54llb6va|number: 50,0000
         f2ecbvvsp9fb54llb6va|string: "50,0000\_₸"
         f2ecbvvsp9fb54llb6va|int|number: '50'
@@ -31272,6 +32375,15 @@ default:
         f2e9vrnneildlm7vg27b|month|string: "36\_000,0000\_₸"
         f2e9vrnneildlm7vg27b|month|int|number: "36\_000"
         f2e9vrnneildlm7vg27b|month|int|string: "36\_000\_₸"
+      f2ehihcc667vimphmn4g:
+        f2eer50bu2qub1k7qsj1|number: 10,0000
+        f2eer50bu2qub1k7qsj1|string: "10,0000\_₸"
+        f2eer50bu2qub1k7qsj1|int|number: '10'
+        f2eer50bu2qub1k7qsj1|int|string: "10\_₸"
+        f2eer50bu2qub1k7qsj1|month|number: "7\_200,0000"
+        f2eer50bu2qub1k7qsj1|month|string: "7\_200,0000\_₸"
+        f2eer50bu2qub1k7qsj1|month|int|number: "7\_200"
+        f2eer50bu2qub1k7qsj1|month|int|string: "7\_200\_₸"
     f2ek7nhomcb25115tef5:
       c44100rub|number: 600,0000
       c44100rub|string: "600,0000\_₸"
@@ -31382,6 +32494,14 @@ default:
         f2eh913p0vdcv2bjn6sv|month|string: "10\_080,0000\_₸"
         f2eh913p0vdcv2bjn6sv|month|int|number: "10\_080"
         f2eh913p0vdcv2bjn6sv|month|int|string: "10\_080\_₸"
+        f2eq5geqna64ph605c1g|number: 21,4000
+        f2eq5geqna64ph605c1g|string: "21,4000\_₸"
+        f2eq5geqna64ph605c1g|int|number: '21'
+        f2eq5geqna64ph605c1g|int|string: "21\_₸"
+        f2eq5geqna64ph605c1g|month|number: "15\_408,0000"
+        f2eq5geqna64ph605c1g|month|string: "15\_408,0000\_₸"
+        f2eq5geqna64ph605c1g|month|int|number: "15\_408"
+        f2eq5geqna64ph605c1g|month|int|string: "15\_408\_₸"
       f2eq0mbk057s9ka838em:
         f2e25sqfsetc4de4u7vl|number: 5,5000
         f2e25sqfsetc4de4u7vl|string: "5,5000\_₸"
@@ -31391,6 +32511,14 @@ default:
         f2e25sqfsetc4de4u7vl|month|string: "3\_960,0000\_₸"
         f2e25sqfsetc4de4u7vl|month|int|number: "3\_960"
         f2e25sqfsetc4de4u7vl|month|int|string: "3\_960\_₸"
+        f2e4lb413ssf6safhgiq|number: 6,9000
+        f2e4lb413ssf6safhgiq|string: "6,9000\_₸"
+        f2e4lb413ssf6safhgiq|int|number: '7'
+        f2e4lb413ssf6safhgiq|int|string: "7\_₸"
+        f2e4lb413ssf6safhgiq|month|number: "4\_968,0000"
+        f2e4lb413ssf6safhgiq|month|string: "4\_968,0000\_₸"
+        f2e4lb413ssf6safhgiq|month|int|number: "4\_968"
+        f2e4lb413ssf6safhgiq|month|int|string: "4\_968\_₸"
       hourly-redos-255|number: 15,3000
       hourly-redos-255|string: "15,3000\_₸"
       hourly-redos-255|int|number: '15'
@@ -31399,6 +32527,16 @@ default:
       hourly-redos-255|month|string: "11\_016,0000\_₸"
       hourly-redos-255|month|int|number: "11\_016"
       hourly-redos-255|month|int|string: "11\_016\_₸"
+    f2ellht7j4uit76gl00m:
+      f2eh321bklml7ding5ed:
+        f2et5qtujq8ek8o3qdnr|number: 5,0000
+        f2et5qtujq8ek8o3qdnr|string: "5,0000\_₸"
+        f2et5qtujq8ek8o3qdnr|int|number: '5'
+        f2et5qtujq8ek8o3qdnr|int|string: "5\_₸"
+        f2et5qtujq8ek8o3qdnr|month|number: "3\_600,0000"
+        f2et5qtujq8ek8o3qdnr|month|string: "3\_600,0000\_₸"
+        f2et5qtujq8ek8o3qdnr|month|int|number: "3\_600"
+        f2et5qtujq8ek8o3qdnr|month|int|string: "3\_600\_₸"
     f2em5a3i24q3t08cn3kl:
       f2eei6luohpblolsh8in:
         f2e1guvsuu20a7uddauo|number: 216,0000
@@ -31462,6 +32600,17 @@ default:
         f2eqv9qnqsss5438q93c|month|string: "12\_924,0000\_₸"
         f2eqv9qnqsss5438q93c|month|int|number: "12\_924"
         f2eqv9qnqsss5438q93c|month|int|string: "12\_924\_₸"
+    f2eo13d48ctnjc81jafg:
+      f2erhjbf9qitfc9hiaeg:
+        f2eekn6ne9b3mb61u15r:
+          15-90|number: "2\_085,0000"
+          15-90|string: "2\_085,0000\_₸"
+          15-90|int|number: "2\_085"
+          15-90|int|string: "2\_085\_₸"
+          91|number: "4\_170,0000"
+          91|string: "4\_170,0000\_₸"
+          91|int|number: "4\_170"
+          91|int|string: "4\_170\_₸"
     f2ep3ga08d2viv580apb:
       f2e4qmgm32elkl0vc7ka:
         f2enbb1hur45us0ib7bu|number: 5,0000
@@ -31522,6 +32671,14 @@ default:
       test|int|string: Не тарифицируется
     f2eqg0mtllf1op2ft5eh:
       f2ejennnfuar11o5u3h9:
+        f2e1d1oc5f36i5ved8b5|number: 3,0000
+        f2e1d1oc5f36i5ved8b5|string: "3,0000\_₸"
+        f2e1d1oc5f36i5ved8b5|int|number: '3'
+        f2e1d1oc5f36i5ved8b5|int|string: "3\_₸"
+        f2e1d1oc5f36i5ved8b5|month|number: "2\_160,0000"
+        f2e1d1oc5f36i5ved8b5|month|string: "2\_160,0000\_₸"
+        f2e1d1oc5f36i5ved8b5|month|int|number: "2\_160"
+        f2e1d1oc5f36i5ved8b5|month|int|string: "2\_160\_₸"
         f2ei07814dtuo4b7qb2j|number: 3,0000
         f2ei07814dtuo4b7qb2j|string: "3,0000\_₸"
         f2ei07814dtuo4b7qb2j|int|number: '3'
@@ -31531,6 +32688,14 @@ default:
         f2ei07814dtuo4b7qb2j|month|int|number: "2\_160"
         f2ei07814dtuo4b7qb2j|month|int|string: "2\_160\_₸"
       f2ekpv5mkr9gqlsdfj9s:
+        f2e6g4s74vmqr2npd61l|number: 10,5000
+        f2e6g4s74vmqr2npd61l|string: "10,5000\_₸"
+        f2e6g4s74vmqr2npd61l|int|number: '11'
+        f2e6g4s74vmqr2npd61l|int|string: "11\_₸"
+        f2e6g4s74vmqr2npd61l|month|number: "7\_560,0000"
+        f2e6g4s74vmqr2npd61l|month|string: "7\_560,0000\_₸"
+        f2e6g4s74vmqr2npd61l|month|int|number: "7\_560"
+        f2e6g4s74vmqr2npd61l|month|int|string: "7\_560\_₸"
         f2erf58jonbp8iaul5vp|number: 10,5000
         f2erf58jonbp8iaul5vp|string: "10,5000\_₸"
         f2erf58jonbp8iaul5vp|int|number: '11'
@@ -31954,6 +33119,40 @@ default:
         f2evgfh71brpij7m9o8t|string: "120\_000,0000\_₸"
         f2evgfh71brpij7m9o8t|int|number: "120\_000"
         f2evgfh71brpij7m9o8t|int|string: "120\_000\_₸"
+    f2er20h91kfgve9fi4kt:
+      f2eo3gume0fji9r76lh9:
+        f2ep4ink9149j48v5le1|number: "1\_000,0000"
+        f2ep4ink9149j48v5le1|string: "1\_000,0000\_₸"
+        f2ep4ink9149j48v5le1|int|number: "1\_000"
+        f2ep4ink9149j48v5le1|int|string: "1\_000\_₸"
+    f2eruipd9018lmd8edp7:
+      f2e6qg4eif743jnkmb9v:
+        f2ekib2rik8qcoviurfc|number: 17,5000
+        f2ekib2rik8qcoviurfc|string: "17,5000\_₸"
+        f2ekib2rik8qcoviurfc|int|number: '18'
+        f2ekib2rik8qcoviurfc|int|string: "18\_₸"
+        f2ekib2rik8qcoviurfc|month|number: "12\_600,0000"
+        f2ekib2rik8qcoviurfc|month|string: "12\_600,0000\_₸"
+        f2ekib2rik8qcoviurfc|month|int|number: "12\_600"
+        f2ekib2rik8qcoviurfc|month|int|string: "12\_600\_₸"
+      f2e947j7ru8tpct52nm1:
+        f2e19re2qk11745jcn55|number: 17,3500
+        f2e19re2qk11745jcn55|string: "17,3500\_₸"
+        f2e19re2qk11745jcn55|int|number: '17'
+        f2e19re2qk11745jcn55|int|string: "17\_₸"
+        f2e19re2qk11745jcn55|month|number: "12\_492,0000"
+        f2e19re2qk11745jcn55|month|string: "12\_492,0000\_₸"
+        f2e19re2qk11745jcn55|month|int|number: "12\_492"
+        f2e19re2qk11745jcn55|month|int|string: "12\_492\_₸"
+      f2egrdmsfi34of2ph3cs:
+        f2eedg1guu7k9i5f8ge1|number: 43,5000
+        f2eedg1guu7k9i5f8ge1|string: "43,5000\_₸"
+        f2eedg1guu7k9i5f8ge1|int|number: '44'
+        f2eedg1guu7k9i5f8ge1|int|string: "44\_₸"
+        f2eedg1guu7k9i5f8ge1|month|number: "31\_320,0000"
+        f2eedg1guu7k9i5f8ge1|month|string: "31\_320,0000\_₸"
+        f2eedg1guu7k9i5f8ge1|month|int|number: "31\_320"
+        f2eedg1guu7k9i5f8ge1|month|int|string: "31\_320\_₸"
     f2et4igqrmpc4g5btb6h:
       f2evo2f3lg8cd57n9ev4:
         f2e5uu3qkk46s5uq9sse:
@@ -32229,6 +33428,59 @@ default:
         agent|month|string: Не тарифицируется
         agent|month|int|number: '0'
         agent|month|int|string: Не тарифицируется
+    kosmos:
+      ms:
+        rds:
+          license:
+            10|number: "53\_592,5000"
+            10|string: "53\_592,5000\_₸"
+            10|int|number: "53\_593"
+            10|int|string: "53\_593\_₸"
+            5|number: "26\_796,3000"
+            5|string: "26\_796,3000\_₸"
+            5|int|number: "26\_796"
+            5|int|string: "26\_796\_₸"
+            50|number: "267\_962,3000"
+            50|string: "267\_962,3000\_₸"
+            50|int|number: "267\_962"
+            50|int|string: "267\_962\_₸"
+        sql:
+          enterprise:
+            2016|number: "211\_264,4500"
+            2016|string: "211\_264,4500\_₸"
+            2016|int|number: "211\_264"
+            2016|int|string: "211\_264\_₸"
+            2019|number: "211\_264,4500"
+            2019|string: "211\_264,4500\_₸"
+            2019|int|number: "211\_264"
+            2019|int|string: "211\_264\_₸"
+          standard:
+            2016|number: "55\_090,8500"
+            2016|string: "55\_090,8500\_₸"
+            2016|int|number: "55\_091"
+            2016|int|string: "55\_091\_₸"
+            2019|number: "55\_090,8500"
+            2019|string: "55\_090,8500\_₸"
+            2019|int|number: "55\_091"
+            2019|int|string: "55\_091\_₸"
+          web:
+            2016|number: "3\_443,4500"
+            2016|string: "3\_443,4500\_₸"
+            2016|int|number: "3\_443"
+            2016|int|string: "3\_443\_₸"
+            2019|number: "3\_443,4500"
+            2019|string: "3\_443,4500\_₸"
+            2019|int|number: "3\_443"
+            2019|int|string: "3\_443\_₸"
+        visio:
+          professional|number: "12\_822,0000"
+          professional|string: "12\_822,0000\_₸"
+          professional|int|number: "12\_822"
+          professional|int|string: "12\_822\_₸"
+          standard|number: "5\_809,8000"
+          standard|string: "5\_809,8000\_₸"
+          standard|int|number: "5\_810"
+          standard|int|string: "5\_810\_₸"
     loginom:
       cpu|number: 42,0000
       cpu|string: "42,0000\_₸"
@@ -36534,10 +37786,16 @@ default:
           v1|int|string: Не тарифицируется
     opensearch:
       adjustment:
-        kop|number: 0,0000
-        kop|string: Не тарифицируется
-        kop|int|number: '0'
-        kop|int|string: Не тарифицируется
+        kop|number: 5,0000
+        kop|string: "5,0000\_₸"
+        kop|int|number: '5'
+        kop|int|string: "5\_₸"
+      subscription:
+        monthly_usage:
+          v1|number: 0,0000
+          v1|string: Не тарифицируется
+          v1|int|number: '0'
+          v1|int|string: Не тарифицируется
     pg:
       adjustment:
         kop|number: 6,0000
@@ -37821,6 +39079,24 @@ default:
       allocated|month|string: Не тарифицируется
       allocated|month|int|number: '0'
       allocated|month|int|string: Не тарифицируется
+    network-ssd-io-m2:
+      allocated|number: 0,0000
+      allocated|string: Не тарифицируется
+      allocated|int|number: '0'
+      allocated|int|string: Не тарифицируется
+      allocated|month|number: 0,0000
+      allocated|month|string: Не тарифицируется
+      allocated|month|int|number: '0'
+      allocated|month|int|string: Не тарифицируется
+    network-ssd-io-m3:
+      allocated|number: 0,0000
+      allocated|string: Не тарифицируется
+      allocated|int|number: '0'
+      allocated|int|string: Не тарифицируется
+      allocated|month|number: 0,0000
+      allocated|month|string: Не тарифицируется
+      allocated|month|int|number: '0'
+      allocated|month|int|string: Не тарифицируется
     network-ssd-nonreplicated:
       allocated|number: 0,0611
       allocated|string: "0,0611\_₸"
@@ -38472,27 +39748,14 @@ default:
       fixed_consumption|month|int|number: '0'
       fixed_consumption|month|int|string: Не тарифицируется
       fixed_consumption:
-        v1|number: "600\_000,0000"
-        v1|string: "600\_000,0000\_₸"
-        v1|int|number: "600\_000"
-        v1|int|string: "600\_000\_₸"
-      percentage_consumption|number: 0,0000
-      percentage_consumption|string: Не тарифицируется
+        v1|number: "2\_820\_000,0000"
+        v1|string: "2\_820\_000,0000\_₸"
+        v1|int|number: "2\_820\_000"
+        v1|int|string: "2\_820\_000\_₸"
+      percentage_consumption|number: 0,2500
+      percentage_consumption|string: "0,2500\_₸"
       percentage_consumption|int|number: '0'
-      percentage_consumption|int|string: Не тарифицируется
-      percentage_consumption|pricingRate:
-        1000000|number: 0,4200
-        1000000|string: "0,4200\_₸"
-        1000000|int|number: '0'
-        1000000|int|string: "0\_₸"
-        3000000|number: 0,3000
-        3000000|string: "0,3000\_₸"
-        3000000|int|number: '0'
-        3000000|int|string: "0\_₸"
-        5000000|number: 0,1800
-        5000000|string: "0,1800\_₸"
-        5000000|int|number: '0'
-        5000000|int|string: "0\_₸"
+      percentage_consumption|int|string: "0\_₸"
     standard|number: 0,0000
     standard|string: Не тарифицируется
     standard|int|number: '0'
@@ -38717,6 +39980,42 @@ default:
                 v3|month|string: "1\_407,6000\_₸"
                 v3|month|int|number: "1\_408"
                 v3|month|int|string: "1\_408\_₸"
+            opensearch:
+              cpu:
+                c100:
+                  v2|number: 7,1400
+                  v2|string: "7,1400\_₸"
+                  v2|int|number: '7'
+                  v2|int|string: "7\_₸"
+                  v2|month|number: "5\_140,8000"
+                  v2|month|string: "5\_140,8000\_₸"
+                  v2|month|int|number: "5\_141"
+                  v2|month|int|string: "5\_141\_₸"
+                  v3|number: 7,1400
+                  v3|string: "7,1400\_₸"
+                  v3|int|number: '7'
+                  v3|int|string: "7\_₸"
+                  v3|month|number: "5\_140,8000"
+                  v3|month|string: "5\_140,8000\_₸"
+                  v3|month|int|number: "5\_141"
+                  v3|month|int|string: "5\_141\_₸"
+              ram:
+                v2|number: 2,9750
+                v2|string: "2,9750\_₸"
+                v2|int|number: '3'
+                v2|int|string: "3\_₸"
+                v2|month|number: "2\_142,0000"
+                v2|month|string: "2\_142,0000\_₸"
+                v2|month|int|number: "2\_142"
+                v2|month|int|string: "2\_142\_₸"
+                v3|number: 2,9750
+                v3|string: "2,9750\_₸"
+                v3|int|number: '3'
+                v3|int|string: "3\_₸"
+                v3|month|number: "2\_142,0000"
+                v3|month|string: "2\_142,0000\_₸"
+                v3|month|int|number: "2\_142"
+                v3|month|int|string: "2\_142\_₸"
             pg:
               cpu:
                 c100:
@@ -38958,6 +40257,42 @@ default:
                 v3|month|string: "1\_291,6800\_₸"
                 v3|month|int|number: "1\_292"
                 v3|month|int|string: "1\_292\_₸"
+            opensearch:
+              cpu:
+                c100:
+                  v2|number: 5,5690
+                  v2|string: "5,5690\_₸"
+                  v2|int|number: '6'
+                  v2|int|string: "6\_₸"
+                  v2|month|number: "4\_009,6800"
+                  v2|month|string: "4\_009,6800\_₸"
+                  v2|month|int|number: "4\_010"
+                  v2|month|int|string: "4\_010\_₸"
+                  v3|number: 5,5690
+                  v3|string: "5,5690\_₸"
+                  v3|int|number: '6'
+                  v3|int|string: "6\_₸"
+                  v3|month|number: "4\_009,6800"
+                  v3|month|string: "4\_009,6800\_₸"
+                  v3|month|int|number: "4\_010"
+                  v3|month|int|string: "4\_010\_₸"
+              ram:
+                v2|number: 2,3205
+                v2|string: "2,3205\_₸"
+                v2|int|number: '2'
+                v2|int|string: "2\_₸"
+                v2|month|number: "1\_670,7600"
+                v2|month|string: "1\_670,7600\_₸"
+                v2|month|int|number: "1\_671"
+                v2|month|int|string: "1\_671\_₸"
+                v3|number: 2,3205
+                v3|string: "2,3205\_₸"
+                v3|int|number: '2'
+                v3|int|string: "2\_₸"
+                v3|month|number: "1\_670,7600"
+                v3|month|string: "1\_670,7600\_₸"
+                v3|month|int|number: "1\_671"
+                v3|month|int|string: "1\_671\_₸"
             pg:
               cpu:
                 c100:
@@ -39096,6 +40431,15 @@ default:
               requests|month|int|number: '0'
               requests|month|int|string: Не тарифицируется
           mdb:
+            greenplum:
+              network-nvme|number: 0,0000
+              network-nvme|string: Не тарифицируется
+              network-nvme|int|number: '0'
+              network-nvme|int|string: Не тарифицируется
+              network-nvme|month|number: 0,0000
+              network-nvme|month|string: Не тарифицируется
+              network-nvme|month|int|number: '0'
+              network-nvme|month|int|string: Не тарифицируется
             kafka:
               network-nvme|number: 0,0000
               network-nvme|string: Не тарифицируется
@@ -39193,6 +40537,16 @@ default:
               network-nvme|month|string: Не тарифицируется
               network-nvme|month|int|number: '0'
               network-nvme|month|int|string: Не тарифицируется
+          storage:
+            used_space:
+              ice|number: 0,0000
+              ice|string: Не тарифицируется
+              ice|int|number: '0'
+              ice|int|string: Не тарифицируется
+              ice|month|number: 0,0000
+              ice|month|string: Не тарифицируется
+              ice|month|int|number: '0'
+              ice|month|int|string: Не тарифицируется
         y3:
           marketplace:
             search-api:
@@ -39205,6 +40559,15 @@ default:
               requests|month|int|number: '0'
               requests|month|int|string: Не тарифицируется
           mdb:
+            greenplum:
+              network-nvme|number: 0,0000
+              network-nvme|string: Не тарифицируется
+              network-nvme|int|number: '0'
+              network-nvme|int|string: Не тарифицируется
+              network-nvme|month|number: 0,0000
+              network-nvme|month|string: Не тарифицируется
+              network-nvme|month|int|number: '0'
+              network-nvme|month|int|string: Не тарифицируется
             opensearch:
               cpu:
                 c100:
@@ -39257,6 +40620,16 @@ default:
                 v3|month|string: Не тарифицируется
                 v3|month|int|number: '0'
                 v3|month|int|string: Не тарифицируется
+          storage:
+            used_space:
+              ice|number: 0,0000
+              ice|string: Не тарифицируется
+              ice|int|number: '0'
+              ice|int|string: Не тарифицируется
+              ice|month|number: 0,0000
+              ice|month|string: Не тарифицируется
+              ice|month|int|number: '0'
+              ice|month|int|string: Не тарифицируется
       y1:
         compute:
           hostgroup:
@@ -40675,10 +42048,31 @@ default:
       kop|int|number: '5'
       kop|int|string: "5\_₸"
     monthly_usage:
+      advanced:
+        v1|number: "6\_995,0000"
+        v1|string: "6\_995,0000\_₸"
+        v1|int|number: "6\_995"
+        v1|int|string: "6\_995\_₸"
+      basic:
+        v1|number: "1\_245,0000"
+        v1|string: "1\_245,0000\_₸"
+        v1|int|number: "1\_245"
+        v1|int|string: "1\_245\_₸"
+      optimal:
+        v1|number: "2\_345,0000"
+        v1|string: "2\_345,0000\_₸"
+        v1|int|number: "2\_345"
+        v1|int|string: "2\_345\_₸"
       v1|number: 0,0000
       v1|string: Не тарифицируется
       v1|int|number: '0'
       v1|int|string: Не тарифицируется
+    prepaid:
+      adjustment:
+        kop|number: 5,0000
+        kop|string: "5,0000\_₸"
+        kop|int|number: '5'
+        kop|int|string: "5\_₸"
   sku|KZT|ydb:
     adjustment:
       kop|number: 6,0000
@@ -41025,6 +42419,13 @@ default:
             1|string: "243,8000\_₸"
             1|int|number: '244'
             1|int|string: "244\_₸"
+  sku|KZT|yq:
+    network:
+      ingress:
+        v1|number: 0,0000
+        v1|string: Не тарифицируется
+        v1|int|number: '0'
+        v1|int|string: Не тарифицируется
   ui-key:
     yacloud:
       common:

@@ -6,7 +6,7 @@ noIndex: true
 
 {% include [note-metrica-pro](../_includes/data-transfer/note-metrica-pro.md) %}
 
-С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из счетчика [{{ metrika }}](https://metrika.yandex.ru/) в кластер {{ CH }}. Такой перенос обеспечивает полноту переносимых данных из {{ metrika }} и предоставляет возможности для:
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из счетчика [{{ metrika }}]({{ metrika-link }}) в кластер {{ CH }}. Такой перенос обеспечивает полноту переносимых данных из {{ metrika }} и предоставляет возможности для:
 
 * обработки данных средствами {{ CH }};
 * стриминга из {{ CH }} в другие локации;
@@ -23,7 +23,7 @@ noIndex: true
 
 Подготовьте инфраструктуру:
 
-1. [Выберите](https://yandex.ru/support/metrica/general/tag-id.html) счетчик {{ metrika }} или [создайте и установите](https://yandex.ru/support/metrica/general/creating-counter.html) новый счетчик.
+1. [Выберите]({{ link-yandex }}/support/metrica/general/tag-id.html) счетчик {{ metrika }} или [создайте и установите]({{ link-yandex }}/support/metrica/general/creating-counter.html) новый счетчик.
 
 1. [Создайте кластер-приемник {{ mch-name }}](../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации.
 

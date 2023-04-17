@@ -54,7 +54,7 @@
 
 * API
 
-    Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) или [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы включить сбор статистики, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) или [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) или [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
     * Значение `true` в параметре `config.performanceDiagnostics.enabled`.

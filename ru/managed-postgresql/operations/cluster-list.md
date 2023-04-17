@@ -7,7 +7,6 @@ description: "Вы можете запросить детальную инфор
 
 Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mpg-short-name }}.
 
-
 ## Получить список кластеров БД в каталоге {#list-clusters}
 
 {% list tabs %}
@@ -24,9 +23,11 @@ description: "Вы можете запросить детальную инфор
 
   Чтобы запросить список {{ PG }}-кластеров в каталоге по умолчанию, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-pg }} cluster list
+  ```
 
+  ```text
   +----------------------+---------------+-----------------------------+--------+---------+
   |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
   +----------------------+---------------+-----------------------------+--------+---------+
@@ -37,10 +38,9 @@ description: "Вы можете запросить детальную инфор
 
 - API
 
-  Воспользуйтесь методом API [list](../api-ref/Cluster/list.md) и передайте идентификатор каталога в параметре `folderId` запроса.
+  Чтобы получить список кластеров БД в каталоге, воспользуйтесь методом REST API [list](../api-ref/Cluster/list.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/List](../api-ref/grpc/cluster_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
 {% endlist %}
-
 
 ## Получить детальную информацию о кластере {#get-cluster}
 
@@ -59,7 +59,7 @@ description: "Вы можете запросить детальную инфор
 
   Чтобы получить информацию о {{ PG }}-кластере, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-pg }} cluster get <имя или идентификатор кластера>
   ```
 
@@ -67,7 +67,7 @@ description: "Вы можете запросить детальную инфор
 
 - API
 
-  Воспользуйтесь методом API [get](../api-ref/Cluster/get.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы получить детальную информацию о кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -93,7 +93,7 @@ description: "Вы можете запросить детальную инфор
 
   Чтобы получить список операций, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-pg }} cluster list-operations <имя или идентификатор кластера>
   ```
 
@@ -101,7 +101,7 @@ description: "Вы можете запросить детальную инфор
 
 - API
 
-  Воспользуйтесь методом API [listOperations](../api-ref/Cluster/listOperations.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы посмотреть список операций в кластере, воспользуйтесь методом REST API [listOperations](../api-ref/Cluster/listOperations.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

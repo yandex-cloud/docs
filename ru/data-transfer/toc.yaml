@@ -30,7 +30,6 @@ items:
               - name: Greenplum®
                 href: operations/endpoint/source/greenplum.md
               - name: '{{ metrika-endpoint }}'
-                stage: preview
                 href: operations/endpoint/source/metrika.md
               - name: Microsoft SQL Server
                 href: operations/endpoint/source/mssql.md
@@ -155,7 +154,6 @@ items:
               yds-full-name }}
             href: tutorials/mmy-to-yds.md
           - name: Асинхронная репликация данных из {{ metrika }} в {{ CH }}
-            stage: preview
             href: tutorials/metrika-to-clickhouse.md
       - name: Сохранение потока данных
         items:
