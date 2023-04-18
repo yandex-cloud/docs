@@ -1,4 +1,4 @@
-# Create HTTP router for gRPC traffic 
+# Creating HTTP router for gRPC traffic 
 
 To create an HTTP router and add a route to it:
 
@@ -6,7 +6,7 @@ To create an HTTP router and add a route to it:
 
 - Management console
 
-   1. In the menu on the left, select **HTTP routers**.
+   1. In the left menu, select **HTTP routers**.
    1. Click **Create HTTP router**.
    1. Enter the router name: `test-grpc-router`.
    1. Under **Virtual hosts**, click **Add virtual host**.
@@ -14,7 +14,7 @@ To create an HTTP router and add a route to it:
    1. In the **Authority** field, specify the `*` or IP address of the load balancer
    1. Click **Add route** and select `gRPC` as a **Type**.
       1. Enter the **Name**: `grpc-route`.
-      1. Under **FQMN**, select `Starts with` and in the input field, specify `/<first word in service name>`, for example: `/helloworld`.
+      1. Under **FQMN**, select `Starts with` and, in the input field, specify the `/<first word in service name>`, e.g., `/helloworld`.
 
       {% note warning %}
 
@@ -24,7 +24,7 @@ To create an HTTP router and add a route to it:
 
       1. In the **Action** field, leave the `Routing` value.
       1. In the **Backend group**, select the backend group name from the same folder where you create the router.
-      1. Leave the other settings as they are and click **Create**.
+      1. Leave all other settings as they are and click **Create**.
 
 
 - CLI
@@ -38,7 +38,7 @@ To create an HTTP router and add a route to it:
       yc alb http-router create --help
       ```
 
-   1. Run the command:
+   1. Run the following command:
       ```
       yc alb http-router create <HTTP router name>
       ```
@@ -105,5 +105,9 @@ To create an HTTP router and add a route to it:
            max_timeout: 60s
 
       ```
+
+- API
+
+   Use the [create](../api-ref/HttpRouter/create.md) REST API method for the [HttpRouter](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Create](../api-ref/grpc/http_router_service.md#Create) gRPC API call.
 
 {% endlist %}

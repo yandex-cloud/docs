@@ -1,6 +1,6 @@
 # {{ yandex-cloud }} services
 
-_Services_ in {{ yandex-cloud }} let you manage specific cloud resources and access to them.
+_Services_ in {{ yandex-cloud }} allow you to manage specific cloud resources and access to them.
 
 ## List of {{ yandex-cloud }} services {#list}
 

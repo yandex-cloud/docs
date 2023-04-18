@@ -41,18 +41,19 @@
 
 - API
 
-   1. Delete the API key using the [delete](../../api-ref/ApiKey/delete.md) method for the [ApiKey](../../api-ref/ApiKey/index.md) resource.
+   Delete the API key using the [delete](../../api-ref/ApiKey/delete.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
 
-      ```bash
-      export APIKEY_ID=ajeke74kbp5bfq7m6ka2
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
-          https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
-      ```
+   ```bash
+   export APIKEY_ID=ajeke74kbp5bfq7m6ka2
+   export IAM_TOKEN=CggaATEVAgA...
+   curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
+       https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
+   ```
+   You can also delete the API key using the [ApiKeyService/Delete](../../api-ref/grpc/api_key_service.md#Delete) gRPC API call.
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and delete the fragment with the API key description.
 
@@ -68,22 +69,22 @@
 
    1. Delete the record with information about the resource.
 
-      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -91,7 +92,7 @@
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
+      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
 
       ```
       yc iam key list --service-account-id <service account ID>

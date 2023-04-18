@@ -1,8 +1,8 @@
 # Deleting a bucket
 
-{% note info %}
+{% note warning %}
 
-You can only delete an empty bucket.
+You can only delete an empty bucket. In the management console, information about the number of objects in a bucket is updated with a few minutes' delay.
 
 {% endnote %}
 
@@ -12,8 +12,8 @@ You can only delete an empty bucket.
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete a bucket from.
    1. Select **{{ objstorage-name }}**. This opens a page with a list of buckets.
-   1. To delete a single bucket, click ![image](../../../_assets/horizontal-ellipsis.svg) to the left of the bucket name and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. To delete a single bucket, click ![image](../../../_assets/horizontal-ellipsis.svg) to the left of the bucket name and select **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -57,7 +57,7 @@ You can only delete an empty bucket.
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To delete a bucket created with {{ TF }}:
@@ -78,25 +78,25 @@ You can only delete an empty bucket.
       {% endcut %}
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```text
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

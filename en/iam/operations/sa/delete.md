@@ -46,6 +46,10 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
       yc iam service-account delete my-robot
       ```
 
+- API
+
+   To delete a service account, use the [delete](../../api-ref/ServiceAccount/delete.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Delete](../../api-ref/grpc/service_account_service.md#Delete) gRPC API call.
+
 - {{ TF }}
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -66,23 +70,23 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```text
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```bash
@@ -96,9 +100,5 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
       ```bash
       yc iam service-account list
       ```
-
-- API
-
-   To delete a service account, use the [delete](../../api-ref/ServiceAccount/delete.md) method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource.
 
 {% endlist %}

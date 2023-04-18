@@ -25,20 +25,22 @@ items:
         href: pages-types.md
   - name: Creating pages
     items:
-      - name: Wiki page
+      - name: New editor
+        href: wysiwyg-create.md
+      - name: Old editor
         href: create-page.md
-      - name: Dynamic table
+      - name: Table
         href: create-grid.md
       - name: Importing a page from a file
         href: import-page.md
       - name: Page copy
         href: create-copy.md
-      - name: WYSIWYG page
-        href: wysiwyg-create.md
-  - name: Editing Wiki pages and dynamic tables
+  - name: Editing {{ wiki-full-name }} pages and dynamic tables
     items:
-      - name: Editing a Wiki page
+      - name: Editing a {{ wiki-full-name }} page
         href: edit-page.md
+      - name: Editing a page in the new editor
+        href: edit-grid-wysiwig.md
       - name: Editing a dynamic table
         href: edit-grid.md
       - name: Basic features

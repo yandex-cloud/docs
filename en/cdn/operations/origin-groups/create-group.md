@@ -66,11 +66,11 @@ To create an [origin group](../../concepts/origins.md):
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the properties of the `yandex_cdn_origin_group` resource in the configuration file:
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       
       ```
@@ -108,5 +108,9 @@ To create an [origin group](../../concepts/origins.md):
    1. Create an origin group.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+- API
+
+   Use the [create](../../api-ref/OriginGroup/create.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Create](../../api-ref/grpc/origin_group_service.md#Create) gRPC API call.
 
 {% endlist %}

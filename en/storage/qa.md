@@ -49,6 +49,7 @@ Read the section [{#T}](concepts/limits.md).
 
 You can delete multiple objects via the {{ yandex-cloud }} management console or the API using the [deleteMultipleObjects](s3/api-ref/object/deletemultipleobjects.md) method.
 
+
 #### A service account cannot access a bucket, why is that? {#sa-bucket-access}
 
 Make sure the service account is assigned the [role](./security/#roles-list) that allows accessing the bucket.
@@ -109,7 +110,11 @@ By default, the storage is accessed via HTTPS.
 
 #### How do you guarantee the performance of {{ objstorage-full-name }}? {#qa-timings}
 
+<<<<<<< HEAD
+{{ objstorage-name }} has internal SLA and SLO that guarantee a specific speed of sending data to the customer, which, among other things, depend on the storage class.
+=======
 {{ objstorage-name }} has internal SLAs and SLOs that guarantee a specific speed of sending data to the customer, which, among other things, depend on the storage class.
+>>>>>>> l10n/DOCSUP-44712
 
 The {{ objstorage-name }} response time depends on multiple factors:
 * Client-side performance (network speed, CPU load, or disk subsystem load).
@@ -123,5 +128,23 @@ This is why we can't specify a particular response time value. However, we do no
 {% include [fz-152.md](../_qa/fz-152.md) %}
 
 
-
 {% include [logs.md](../_qa/logs.md) %}
+
+
+
+#### How do I add my own domain to a {{ objstorage-name }} bucket? {#domain-bucket}
+
+To add your [domain](operations/hosting/own-domain.md) to a [bucket](concepts/bucket.md):
+
+1. [Create](operations/buckets/create.md) a bucket with the same name as your domain.
+
+1. {% include [setup-bucket.md](../_includes/storage/setup-bucket.md) %}
+
+1. On your DNS server, [create](operations/hosting/own-domain.md#domain-support) a CNAME record to link your domain to the bucket.
+
+1. {% include [create-cert.md](../_includes/storage/create-cert.md) %}
+
+1. {% include [add-cert.md](../_includes/storage/add-cert.md) %}
+
+{% include [objects-access.md](../_includes/storage/objects-access.md) %}
+

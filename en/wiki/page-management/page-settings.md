@@ -1,13 +1,13 @@
-# Page actions
+# Actions with {{ wiki-name }} pages
 
-To open the menu of actions that can be performed with a page:
+To open the menu of actions that can be performed with a {{ wiki-name }} page:
 
 1. Go to the page you have access to.
 
 1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions**.
 
 
-## Managing pages {#manage}
+## Managing {{ wiki-name }} pages {#manage}
 
 * Managing the edit [history](../history.md).
 
@@ -15,7 +15,7 @@ To open the menu of actions that can be performed with a page:
 
 * Creating [subpages](../create-page.md#create-subpage).
 
-* Editing the page [address](./move-page.md#move-with-menu) and creating [copies](../create-page.md#create-copy) of pages.
+* Editing the page [address](./move-page.md#move-with-menu) and creating [copies](../create-copy.md) of pages.
 
 * [Deleting](../delete-page.md) pages.
 
@@ -23,10 +23,9 @@ To open the menu of actions that can be performed with a page:
 
 * Adding [followers](../notifications.md#subscribes) for a page or cluster.
 
-## Page layout {#view}
+## {{ wiki-name }} page layout {#view}
 
-You can add a cover to a page: this is a background that specifies the owner and name of the page and the date of the last update.
+You can add a cover to a page: this is a background that specifies the owner and name of the page and the date it was last updated.
 
 To set the background, select ![](../../_assets/wiki/svg/add-cover.svg) **Add cover** in the actions menu. All {{ wiki-name }} users will see the cover.
-
 

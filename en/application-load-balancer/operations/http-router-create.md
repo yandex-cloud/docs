@@ -1,4 +1,4 @@
-# Creating an HTTP router for HTTP traffic
+# Creating HTTP router for HTTP traffic
 
 To create an HTTP router and add a route to it:
 
@@ -153,14 +153,14 @@ To create an HTTP router and add a route to it:
 
       Where:
 
-      * `yandex_alb_virtual_host` is the HTTP router description:
-         * `name` is the HTTP router name. Name format:
+      * `yandex_alb_virtual_host`: HTTP router description:
+         * `name`: HTTP router name. The name format is as follows:
 
             {% include [name-format](../../_includes/name-format.md) %}
 
-         * `labels`: HTTP router [labels](../../overview/concepts/services.md#labels). Set a key-value pair.
+         * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Set a key-value pair.
       * `yandex_alb_virtual_host` is the virtual host description:
-         * `name` is the virtual host name. Name format:
+         * `name`: Virtual host name. The name format is as follows:
 
             {% include [name-format](../../_includes/name-format.md) %}
 
@@ -190,10 +190,14 @@ To create an HTTP router and add a route to it:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc alb http-router get <HTTP router ID>
          ```
+
+- API
+
+   Use the [create](../api-ref/HttpRouter/create.md) REST API method for the [HttpRouter](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Create](../api-ref/grpc/http_router_service.md#Create) gRPC API call.
 
 {% endlist %}

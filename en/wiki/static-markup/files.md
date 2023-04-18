@@ -34,7 +34,7 @@ The image is scaled proportionally, so the height value can be set approximately
 
 | Markup | Result |
 --- | ---
-| `no-highlight 60x20:{{ yandex-logo-link }}` | ![](../../_assets/wiki/resize-pic.png) |
+| `60x20:{{ yandex-logo-link }}` | ![](../../_assets/wiki/resize-pic.png) |
 
 ### Adding download links for images {#download-link}
 

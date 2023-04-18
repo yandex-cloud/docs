@@ -1,4 +1,4 @@
-# Create a backend group
+# Creating backend group
 
 To create a [backend group](../concepts/backend-group.md):
 
@@ -68,7 +68,7 @@ To create a [backend group](../concepts/backend-group.md):
 
       {% cut "HTTP backend" %}
 
-      Run the command:
+      Run this command:
 
       ```
       yc alb backend-group add-http-backend \
@@ -126,7 +126,7 @@ To create a [backend group](../concepts/backend-group.md):
 
       {% cut "Stream backend" %}
 
-      Run the command:
+      Run this command:
 
       ```
       yc alb backend-group add-stream-backend \
@@ -184,7 +184,7 @@ To create a [backend group](../concepts/backend-group.md):
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 
@@ -255,5 +255,9 @@ To create a [backend group](../concepts/backend-group.md):
       ```bash
       yc alb backend-group list
       ```
+
+- API
+
+   Use the [create](../api-ref/BackendGroup/create.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Create](../api-ref/grpc/backend_group_service.md#Create) gRPC API call.
 
 {% endlist %}

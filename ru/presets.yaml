@@ -42429,7 +42429,9 @@ default:
   ui-key:
     yacloud:
       common:
+        add: Добавить
         create: Создать
+        save: Сохранить
       component:
         console-dashboard:
           button_action-create-folder: Создать каталог
@@ -42472,6 +42474,9 @@ default:
             label_managed-greenplum: Managed Service for Greenplum
           service-account:
             label_add-role: Добавить роль
+            overview:
+              button_create_service-account-key: Создать статический ключ доступа
+              button_create-key-popup: Создать новый ключ
             popup-robot_button_add: Создать
           service-accounts:
             button_add: Создать сервисный аккаунт
@@ -42513,6 +42518,7 @@ default:
             button_save: Сохранить
             field_certificate: Сертификат
             field_source: Источник
+            value_method-custom: Свой сертификат
           lifecycle:
             button_lifecycle_empty-create: Настроить
             button_save: Сохранить
@@ -42587,6 +42593,26 @@ default:
         permissions-dialog:
           button_save: Сохранить
           label_title: Редактирование ACL
+      vpc:
+        gateways:
+          field_type: Тип
+          value_gateway-type-egress-nat: NAT в интернет
+        network:
+          switch_route-table: Таблицы маршрутизации
+        route-table-form:
+          label_add-static-route: Добавить маршрут
+          label_gateway: Шлюз
+          label_next-hop-address: Next hop
+        route-table:
+          create:
+            button_create: Создать таблицу маршрутизации
+        subnet:
+          add-route-table:
+            button_add: Привязать
+        subnetworks:
+          button_action-add-route-table: Привязать таблицу маршрутизации
+        switch_gateways: Шлюзы
+        switch_networks: Подсети
       ydb:
         browse:
           button_sql-query: Новый SQL-запрос
@@ -42875,14 +42901,20 @@ default:
         default: По умолчанию
         delete: Удалить
         description: Описание
+        edit: Редактировать
         endpoint: Эндпоинт
         folder: Каталог
         name: Имя
         pin: Закрепить
         prefix: Префикс
         save: Сохранить
+        settings-key-value: Настройки
         shared-with-project-resources: Доступные
         spaces: Сообщества
+      edit-project-page:
+        advanced-settings: Расширенные настройки
+        service-account: Сервисный аккаунт
+        subnet: Подсеть
       new-alias:
         field:
           label-nodes: Ноды и распределение нагрузки
@@ -42914,6 +42946,9 @@ default:
       s3-page:
         mode-read: Только чтение
         mode-read-write: Чтение и запись
+      secret:
+        content: Значение
+        name: Имя
       transferring:
         title: Перенос проектов
         transfer-selected-projects: Перенести выбранные проекты

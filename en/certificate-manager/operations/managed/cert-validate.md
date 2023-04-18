@@ -25,7 +25,7 @@ To check rights for domains:
       yc certificate-manager certificate get --help
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       yc certificate-manager certificate get \
@@ -88,6 +88,6 @@ To check rights for domains:
 
 - API
 
-   To get the information required to pass the rights check for a domain, use the [get](../../api-ref/Certificate/get.md) method for the [Certificate](../../api-ref/Certificate/) resource with the `view=FULL` flag.
+   To get the information required to pass the rights check for a domain, use the [get](../../api-ref/Certificate/get.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Get](../../api-ref/grpc/certificate_service.md#Get) gRPC API call with the `view=FULL` flag.
 
 {% endlist %}

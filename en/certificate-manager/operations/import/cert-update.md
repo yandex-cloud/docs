@@ -31,11 +31,10 @@ To get a new version of a user certificate:
 
    1. View a description of the command:
 
-      ``bash
+      ```bash
       yc certificate-manager certificate update --help
       ```
-      
-      
+
    1. View the list of certificates:
 
       ```bash
@@ -52,7 +51,7 @@ To get a new version of a user certificate:
       +----------------------+--------+-------------+---------------------+----------+--------+
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       yc certificate-manager certificate update \
@@ -80,6 +79,6 @@ To get a new version of a user certificate:
 
 - API
 
-   To update a certificate, use the [update](../../api-ref/Certificate/update.md) method for the [Certificate](../../api-ref/Certificate/) resource.
+   To renew a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
 
 {% endlist %}

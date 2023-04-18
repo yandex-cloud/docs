@@ -17,27 +17,25 @@ If a company has a system for user and access management (such as Active Directo
 
 ## {{ wiki-full-name }} Features {#features}
 
-- [Create Wiki pages](quick-guide.md) with text, images, tables, and links.
+- [Create pages and clusters](quick-guide.md) with text, images, tables, and links.
    The maximum number of pages per organization is 10000.
 
-- [Attach files](attach-file.md) to a Wiki page.
-   The maximum total size of all files per organization is 5 GB.
+- Format your pages in the [new editor](./wysiwyg-create.md) with visual markup tools or in the old editor using the [Markdown](static-markup.md) markup. The new editor also allows you to enable Markdown as an additional feature.
 
-- When formatting text, use [Markdown markup](static-markup.md) to highlight text fragments and add titles, lists, quotes, and other elements.
+- [Attach files](attach-file.md) to a page.
+   The maximum total size of all files per organization is 5 GB.
 
 - Track user edits to pages in the [history of changes](history.md). You can compare two versions of a page or restore a version from the history.
 
-- To structure information in {{wiki-name}}, create a page tree and link the pages with cross-references. For more information, see [{#T}](structure.md).
+- [Structure](structure.md) information in {{wiki-name}} by creating a page tree and linking the pages with cross-references.
 
 - To quickly find information on {{ wiki-name }}, use the [search](search.md), subscribe to pages, and add them to your [favorites](notifications.md).
 
 - Configure [access rights to pages](page-management/access-setup.md): you can make a page accessible to all or some employees, restrict editing, or prohibit viewing a page.
 
-- Use {{ wiki-name }} integration with {{ tracker-full-name }} and {{ forms-full-name }}:
+- Integrate {{ wiki-name }} with {{ tracker-full-name }} and {{ forms-full-name }} to add:
 
-   * [Adding a list of issues from {{ tracker-full-name }} to a page](actions/tracker.md).
+   * [Lists of issues from {{ tracker-full-name }}](actions/tracker.md).
 
-   * [Embedding a form in a page](actions/forms.md).
-
-   * [Saving responses from {{ forms-full-name }} on a page](../forms/send-wiki.md).
+   * [Surveys and request forms from {{ forms-full-name }}](actions/forms.md).
 

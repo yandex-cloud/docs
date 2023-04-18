@@ -177,7 +177,7 @@ Create a client app to send your data to the API:
 
           # Establish a connection to the server.
           cred = grpc.ssl_channel_credentials()
-          channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
+          channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
           stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
           # Send data for synthesis.

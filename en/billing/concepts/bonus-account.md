@@ -17,12 +17,12 @@ When [creating your first billing account](../quickstart/index.md), you are prov
 
 {% note info %}
 
-Each individual, sole proprietor, or businessclient of {{ yandex-cloud }} can be given only one initial grant.
+Each individual, sole proprietor, or business can be given only one initial grant.
 
 {% endnote %}
 
 ## Additional grants {#additional}
-Additional grants can be provided by decision of a {{ yandex-cloud }} manager, or if you request them from support. You can view the amount of additional grants and their validity period in the management console.
+Additional grants can be provided upon a {{ yandex-cloud }} manager's decision, as well as under the [content program](../../../content-program), [referral program](../../../referral-program), or [Yandex Cloud Boost program](../../../cloud-boost). You can view the amount of additional grants and their validity period in the management console.
 
 
 

@@ -1,4 +1,4 @@
-# Delete an L7 load balancer
+# Deleting L7 load balancer
 
 To delete an L7 load balancer:
 
@@ -25,7 +25,7 @@ To delete an L7 load balancer:
       yc alb load-balancer delete --help
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       yc alb load-balancer delete <ID or name of the load balancer>
@@ -39,7 +39,7 @@ To delete an L7 load balancer:
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete an L7 load balancer created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the L7 load balancer description.
@@ -81,25 +81,25 @@ To delete an L7 load balancer:
       {% endcut %}
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -113,5 +113,9 @@ To delete an L7 load balancer:
       ```bash
       yc alb load-balancer list
       ```
+
+- API
+
+   Use the [delete](../api-ref/LoadBalancer/delete.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Delete](../api-ref/grpc/load_balancer_service.md#Delete) gRPC API call.
 
 {% endlist %}

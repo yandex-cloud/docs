@@ -231,14 +231,14 @@ If public access is enabled, [remove](../../../iam/operations/roles/revoke.md) i
 
 #### 3.7 {{ objstorage-name }} uses Bucket Policies {#bucket-policy}
 
-[Bucket policies](../../../storage/concepts/policy.md) set permissions for actions with buckets, objects, and groups of objects. A policy is triggered when a user makes a request to a resource. As a result, the request is either executed or rejected.
+[Bucket policies](../../../storage/concepts/policy.md) set permissions for actions with buckets, objects, and object groups. A policy is triggered when a user makes a request to a resource. As a result, the request is either executed or rejected.
 
 Bucket Policy [examples](../../../storage/concepts/policy.md#config-examples):
 
-* A policy that only enables object download from a specified range of IP addresses.
-* A policy that prohibits downloading objects from the specified IP address.
-* A policy gives different users full access only to certain folders with each user being able to access their own.
-* A policy that gives each user and service account full access to a folder named the same as the user ID or service account ID.
+* Policy that only enables object download from a specified range of IP addresses.
+* Policy that prohibits downloading objects from the specified IP address.
+* Policy that provides different users with full access only to certain folders, with each user being able to access their own.
+* Policy that gives each user and service account full access to a folder named the same as the user ID or service account ID.
 
 We recommend making sure that your {{ objstorage-name }} bucket uses at least one policy.
 
@@ -302,7 +302,7 @@ The storage period of critical data in a bucket is determined by the client's in
       --bucket <your bucket's name>
       ```
 
-   1. Run the command below to check if versioning is enabled:
+   1. Run the command below to check whether versioning is enabled:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \

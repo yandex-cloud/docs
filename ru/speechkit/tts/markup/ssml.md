@@ -2,6 +2,8 @@
 
 Использование Speech Synthesis Markup Language (SSML) дает вам возможность контролировать, как {{ speechkit-name }} синтезирует речь из текста.
 
+{% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}
+
 Поддержка SSML доступна только при использовании [API v1](../request.md).
 
 Чтобы передать текст в формате SSML, используйте параметр `ssml` в теле запроса, а сам текст оберните в тег `<speak>`:

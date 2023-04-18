@@ -67,11 +67,11 @@ orientation = portrait
 
 {% endcut %}
 
-You can configure the appearance of your diagrams using optional parameters:
+You can configure the flowchart layout using these optional parameters:
 
-* `width`: The maximum width of the flowchart in pixels.
+* `width`: Maximum width of the flowchart in pixels.
 
-* `height`: The maximum height of the flowchart in pixels.
+* `height`: Maximum height of the flowchart in pixels.
 
 ## Seqdiag {#seqdiag}
 

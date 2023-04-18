@@ -164,7 +164,7 @@ CONCAT(
   ```
 
 
-Полное описание логической функции [IF](../../function-ref/CASE.md).
+Полное описание логической функции [IF](../../function-ref/IF.md).
 
 - `IFNULL`, `ISNULL`, `ZN`.
 

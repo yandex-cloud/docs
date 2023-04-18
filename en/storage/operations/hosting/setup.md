@@ -1,6 +1,6 @@
 # Hosting setup
 
-{{ objstorage-name }} lets you configure a bucket:
+{{ objstorage-name }} allows you to configure a bucket:
 
 * For [static website hosting](#hosting).
 * To [redirect all requests](#redirects).
@@ -14,11 +14,11 @@
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure hosting for.
    1. Make sure public access is allowed to the bucket. If not, follow the instructions in [{#T}](../buckets/bucket-availability.md).
-   1. In the left panel, select **Website**.
-   1. Under **Hosting**, specify:
-      * The website homepage.
-      * The page to be displayed to the user in the event of 4xx errors. Optional.
-   1. Click **Save**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, specify:
+      * Website home page.
+      * Page to display to the user in the event of 4xx errors. This is optional.
+   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -42,8 +42,8 @@
       ```
 
       Where:
-      * `index`: Absolute path to the file of the website homepage.
-      * `error`: Absolute path to the file to be displayed to the user in the event of 4xx errors.
+      * `index`: Absolute path to the file of the website home page.
+      * `error`: Absolute path to the file to display to the user in the event of 4xx errors.
 
    1. Run the following command:
 
@@ -89,7 +89,7 @@
 
    Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       
       ```hcl
@@ -118,28 +118,28 @@
 
       Where:
 
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
       * `bucket`: Bucket name.
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website's homepage. Required parameter.
+         * `index_document`: Absolute path to the file of the website home page. This parameter is required.
          * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
       ```
       terraform apply
@@ -147,7 +147,7 @@
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -159,10 +159,10 @@
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you wish to configure redirection for.
    1. Make sure public access is allowed to the bucket. If not, follow the instructions in [{#T}](../buckets/bucket-availability.md).
-   1. In the left panel, select **Website**.
-   1. Under **Redirect**, specify:
-      * The domain name of the host to act as the redirect target for all requests to the current bucket.
-      * The protocol if the specified host accepts requests strictly over a specific protocol.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
+      * Domain name of the host to act as the redirect target for all requests to the current bucket.
+      * Protocol if the specified host accepts requests only over a specific protocol.
 
 - {{ yandex-cloud }} CLI
 
@@ -219,7 +219,7 @@
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To set up a redirect for all requests:
@@ -244,36 +244,36 @@
       ```
 
       Where:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
       * `bucket`: Bucket name.
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website's homepage. Required parameter.
+         * `index_document`: Absolute path to the file of the website's homepage. This parameter is required.
          * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
-         * `redirect_all_requests_to`: The domain name of the host to act as the redirect target for all requests to the current bucket. You can set a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
+         * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can set a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}//storage_bucket#static-website-hosting).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -295,11 +295,11 @@
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you wish to configure conditional request redirects for.
    1. Make sure public access is allowed to the bucket. If not, follow the instructions in [{#T}](../buckets/bucket-availability.md).
-   1. In the left panel, select **Website**.
-   1. Under **Hosting**, add a redirect rule with the redirect condition and the new address.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, add a redirect rule with the redirect condition and the new address.
       * Condition. For example, you can do a redirect when you receive a specified response code or if the beginning of the object key in a request matches the specified key.
       * Redirection:
-         * The domain name of the host where requests that satisfy the condition should redirect.
+         * Domain name of the host where the requests satisfying the condition should be redirected.
          * The protocol to use to send redirected requests.
          * Response code to determine the redirect type.
          * Replace the entire key specified in the condition or its initial sequence only.
@@ -380,7 +380,7 @@
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To set up a conditional redirect of requests:
@@ -422,36 +422,36 @@
       ```
 
       Where:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
       * `bucket`: Bucket name.
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website's homepage. Required parameter.
+         * `index_document`: Absolute path to the file of the website's homepage. This parameter is required.
          * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
          * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}//storage_bucket#static-website-hosting).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

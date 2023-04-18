@@ -20,8 +20,8 @@ All parameters must be [URL-encoded](https://datatracker.ietf.org/doc/html/rfc39
 
 | Parameter | Description |
 ----- | -----
-| text | **string**<br>UTF-8 encoded text to be converted into speech.<br>You can only use one `text` and `ssml` field.<br>To control pronunciation (pause, emphasis, and stress), use [TTS markup](tts-markup.md).<br>Maximum string length: 5000 characters. |
-| ssml | **string**<br>Text in [SSML](ssml.md) format to be converted into speech.<br>You can only use one `text` and `ssml` fields. |
+| text | **string**<br>UTF-8 encoded text to be converted into speech.<br>You can only use one `text` and `ssml` field.<br>To control pronunciation (pause, emphasis, and stress), use [TTS markup](markup/tts-markup.md).<br>Maximum string length: 5,000 characters. |
+| ssml | **string**<br>Text in [SSML](markup/ssml.md) format to be converted into speech.<br>You can only use one `text` and `ssml` fields. |
 | lang | **string**<br>Language.<br/>Acceptable values: `ru-RU` (default): Russian. |
 | voice | **string**<br>Preferred speech synthesis voice from the [list](voices.md). |
 | emotion | **string**<br>Voice mode or emotional tone. Supported only for Russian (`ru-RU`). See [{#T}](voices.md) for acceptable voice/emotional tone combinations. |
@@ -32,6 +32,6 @@ All parameters must be [URL-encoded](https://datatracker.ietf.org/doc/html/rfc39
 
 ## Response {#response}
 
-If the synthesis was successful, the response contains the audio file binary content. The output data format depends on the value of the `format` parameter.
+If the synthesis was successful, the response will contain the audio file binary content. The output data format depends on the value of the `format` parameter.
 
 For more information about the response format and codes, see [{#T}](../concepts/response.md).

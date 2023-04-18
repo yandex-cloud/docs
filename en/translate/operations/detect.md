@@ -2,7 +2,13 @@
 
 To detect the language of a text, use the [detectLanguage](../api-ref/Translation/detectLanguage) method.
 
-## Before you begin {#before-you-begin}
+{% note info %}
+
+The [detectLanguage](../api-ref/Translation/detectLanguage) method returns the language code of the source text. If the language cannot be detected, the language code field in the response will be empty.
+
+{% endnote %}
+
+## Getting started {#before-you-begin}
 
 {% include [curl](../../_includes/curl.md) %}
 

@@ -137,11 +137,11 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the resource parameters in the `yandex_cdn_resource` configuration file.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       
       ```
@@ -156,7 +156,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
         cname = "<resource domain name>"
         active = true
         origin_protocol = "https"
-	     origin_group_id = <origin group ID>
+        origin_group_id = <origin group ID>
       }
       ```
 
@@ -171,6 +171,10 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
    1. Create an origin group.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+- API
+
+   To add a source group when creating a resource, use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -354,6 +358,10 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
       ```
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+
+- API
+
+   To add a source group when editing resource settings, use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
 
 {% endlist %}
 

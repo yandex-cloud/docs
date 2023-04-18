@@ -18,6 +18,10 @@ The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime canno
       yc iam create-token
       ```
 
+- API
+
+   To get an IAM token, use the [create](../../api-ref/IamToken/create.md) REST API method for the [IamToken](../../api-ref/IamToken/index.md) resource or the [IamTokenService/Create](../../api-ref/grpc/iam_token_service.md#Create) gRPC API call.
+
 {% endlist %}
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}

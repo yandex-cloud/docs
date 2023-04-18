@@ -1,6 +1,6 @@
 ---
 title: "Create an {{ alb-full-name }} target group"
-description: "To create an {{ alb-full-name }} target group, in the management console, select the folder to create your target group in. In the list of services, select {{ alb-name }}. In the left menu, select Target groups. Click Create target group. Enter the name of the target group. Select the VMs. Click Create."
+description: "To create an {{ alb-full-name }} target group, in the management console, select the folder to create your target group in. In the list of services, select {{ alb-name }}. In the left-hand menu, select Target groups. Click Create target group. Enter the name of the target group. Select the VMs. Click Create."
 ---
 
 # Create a target group {{ alb-name }}
@@ -59,7 +59,7 @@ To create a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 
@@ -102,5 +102,9 @@ To create a target group:
       ```bash
       yc alb target-group list
       ```
+
+- API
+
+   Use the [create](../api-ref/TargetGroup/create.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create) gRPC API call.
 
 {% endlist %}

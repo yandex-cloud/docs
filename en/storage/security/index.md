@@ -5,54 +5,42 @@ description: "Access management in {{ objstorage-full-name }} (S3), a service fo
 
 # Access management in {{ objstorage-name }}
 
-In this section, you'll learn:
+In this section, you will learn:
 
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role to a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These assigned roles will also apply to nested resources.
 
 For information about managing access to buckets and objects, see [{#T}](../concepts/acl.md).
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![service-roles-hierarchy](../../_assets/storage/service-roles-hierarchy.svg)
 
-### storage.admin {#storage-admin}
+{% include [storage-viewer](../../_includes/iam/roles/storage-viewer.md) %}
 
-{% include notitle [roles-storage-admin](../../_includes/roles-storage-admin.md) %}
+{% include [storage-config-viewer](../../_includes/iam/roles/storage-config-viewer.md) %}
 
-### storage.configViewer {#storage-config-viewer}
+{% include [storage-configurer](../../_includes/iam/roles/storage-configurer.md) %}
 
-{% include notitle [roles-storage-config-viewer](../../_includes/roles-storage-config-viewer.md) %}
+{% include [storage-uploader](../../_includes/iam/roles/storage-uploader.md) %}
 
-### storage.configurer {#storage-configurer}
+{% include [storage-editor](../../_includes/iam/roles/storage-editor.md) %}
 
-{% include notitle [roles-storage-configurer](../../_includes/roles-storage-configurer.md) %}
+{% include [storage-admin](../../_includes/iam/roles/storage-admin.md) %}
 
-### storage.editor {#storage-editor}
-
-{% include notitle [roles-storage-editor](../../_includes/roles-storage-editor.md) %}
-
-### storage.uploader {#storage-uploader}
-
-{% include notitle [roles-storage-uploader](../../_includes/roles-storage-uploader.md) %}
-
-### storage.viewer {#storage-viewer}
-
-{% include notitle [roles-storage-viewer](../../_includes/roles-storage-viewer.md) %}
-
-### {{ roles-cloud-member }} {#resmgr-clouds-member}
+### {{ roles-cloud-member }} {#member}
 
 {% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+### {{ roles-cloud-owner }} {#owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 

@@ -43,6 +43,12 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ OS }}](target/opensearch.md)
          * [{{ PG }}](target/postgresql.md)
          * [{{ yds-full-name }}](target/data-streams.md)
+         * [{{ MG }}](target/mongodb.md)
+         * [{{ MY }}](target/mysql.md)
+         * [{{ objstorage-name }}](target/object-storage.md)
+         * [{{ OS }}](target/opensearch.md)
+         * [{{ PG }}](target/postgresql.md)
+         * [{{ yds-full-name }}](target/data-streams.md)
          * [{{ ydb-full-name }}](target/yandex-database.md)
    1. Click **Create**.
 
@@ -78,64 +84,64 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
 - {{ TF }}
-      {% note info %}
+        {% note info %}
 
-   You can create endpoints with {{ TF }} only for {{ MY }}, {{ PG }}, {{ MG }}, and {{ CH }} sources and targets.
+    You can create endpoints with {{ TF }} only for {{ MY }}, {{ PG }}, {{ MG }}, and {{ CH }} sources and targets.
 
-   {% endnote %}
+    {% endnote %}
 
-   
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+    
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   To create an endpoint:
+    To create an endpoint:
 
-   1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it doesn't exist.
-      1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Create a configuration file with a description of your endpoint.
+    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
+        1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Create a configuration file with a description of your endpoint.
 
-      Example of the configuration file structure:
+       Example of the configuration file structure:
 
-      ```hcl
-      resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-        name = "<endpoint name>"
-        settings {
-          <endpoint type> {
-            <endpoint parameters>
-          }
-        }
-      }
-      ```
+       ```hcl
+       resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+         name = "<endpoint name>"
+         settings {
+           <endpoint type> {
+             <endpoint parameters>
+           }
+         }
+       }
+       ```
 
-   1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
+    1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
-   1. Make sure the settings are correct.
+    1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+    1. Confirm the resources have been updated.
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      
-   1. For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+        
+    1. For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 
 - API
 
-   {% note info %}
+    {% note info %}
 
-   You can create endpoints with the API only for {{ MY }} and {{ PG }} sources and targets.
+    You can create endpoints with the API only for {{ MY }} and {{ PG }} sources and targets.
 
-   {% endnote %}
+    {% endnote %}
 
-   Use the [create](../../api-ref/Endpoint/create) API method and include the following information in the request:
+    Use the [create](../../api-ref/Endpoint/create) API method and include the following information in the request:
 
-   * ID of the folder to host the endpoint, in the `folderId` parameter.
-   * Endpoint name in the `name` parameter.
-   * The endpoint description in the `description` parameter.
-   * The endpoint parameters in the `settings` parameter.
+    * ID of the folder to host the endpoint, in the `folderId` parameter.
+    * Endpoint name in the `name` parameter.
+    * Endpoint description in the `description` parameter.
+    * Endpoint parameters in the `settings` parameter.
 
-   You can view the endpoint parameters in the settings section for the appropriate data source or target.
+    You can view the endpoint parameters in the settings section for the appropriate data source or target.
 
 {% endlist %}
 
@@ -174,47 +180,52 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ objstorage-name }}](target/object-storage.md)
          * [{{ PG }}](target/postgresql.md)
          * [{{ yds-full-name }}](target/data-streams.md)
+         * [{{ MG }}](target/mongodb.md)
+         * [{{ MY }}](target/mysql.md)
+         * [{{ objstorage-name }}](target/object-storage.md)
+         * [{{ PG }}](target/postgresql.md)
+         * [{{ yds-full-name }}](target/data-streams.md)
          * [{{ ydb-full-name }}](target/yandex-database.md)
-   1. Click **Apply**.
+    1. Click **Apply**.
 
 - {{ TF }}
 
-   1. Open the current {{ TF }} configuration file with the endpoint description.
+    1. Open the current {{ TF }} configuration file with the endpoint description.
 
-      For more detail on creating a file like that, please review [Create endpoint](#create).
+        To learn how to create such a file, see [Create endpoint](#create).
 
-   1. Edit the value in the `name` field (endpoint name) and the endpoint parameters under `settings`.
-   1. Make sure the settings are correct.
+    1. Edit the value in the `name` field (endpoint name) and the endpoint parameters under `settings`.
+    1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+    1. Confirm the resources have been updated.
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API
 
-   {% note info %}
+    {% note info %}
 
-   You can edit endpoints using the API only for {{ MY }} and {{ PG }} sources and targets.
+    You can edit endpoints using the API only for {{ MY }} and {{ PG }} sources and targets.
 
-   {% endnote %}
+    {% endnote %}
 
-   Use the [update](../../api-ref/Endpoint/update) API method and pass the following in the request:
+    Use the [update](../../api-ref/Endpoint/update) API method and include the following in the request:
 
-   * The endpoint ID in the `endpointId` parameters.
-   * The endpoint name in the `name` parameter.
-   * The endpoint description in the `description` parameter.
-   * The endpoint parameters in the `settings` parameter.
+    * Endpoint ID in the `endpointId` parameters.
+    * Endpoint name in the `name` parameter.
+    * Endpoint description in the `description` parameter.
+    * Endpoint parameters in the `settings` parameter.
 
-   To get the endpoint ID:
+    To get the endpoint ID:
 
-   1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
-   1. Click the desired endpoint.
+    1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
+    1. Click the endpoint you need.
 
-   You can view the endpoint parameters in the settings section for the appropriate data source or target.
+    You can view the endpoint parameters in the settings section for the appropriate data source or target.
 
 {% endlist %}
 
@@ -234,39 +245,39 @@ To delete an endpoint:
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. Select the endpoint to delete.
-   1. Click **Delete** on the panel above.
-   1. In the window that opens, click **Delete**.
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+    1. Select the endpoint to delete.
+    1. Click **Delete** on the panel above.
+    1. In the window that opens, click **Delete**.
 
 - CLI
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To delete an endpoint, run the command:
+    To delete an endpoint, run the command:
 
-   ```bash
-   {{ yc-dt }} endpoint delete <endpoint ID>
-   ```
+    ```bash
+    {{ yc-dt }} endpoint delete <endpoint ID>
+    ```
 
-   To get the endpoint ID:
+    To get the endpoint ID:
 
-   1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
-   1. Click the desired endpoint.
+    1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
+    1. Click the endpoint you need.
 
 - {{ TF }}
 
-   {% include [terraform-delete](../../../_includes/data-transfer/terraform-delete-endpoint.md) %}
+    {% include [terraform-delete](../../../_includes/data-transfer/terraform-delete-endpoint.md) %}
 
 - API
 
-   Use the [delete](../../api-ref/Endpoint/delete) API method and pass the ID of the required endpoint in the `endpointID` request parameter:
+    Use the [delete](../../api-ref/Endpoint/delete) API method and provide the ID of the required endpoint in the `endpointID` request parameter:
 
-   To get the endpoint ID:
-   1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
-   1. Click the desired endpoint.
+    To get the endpoint ID:
+    1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
+    1. Click the endpoint you need.
 
 {% endlist %}
 

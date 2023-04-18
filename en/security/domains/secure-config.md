@@ -23,7 +23,7 @@ Access to the serial console is disabled on VMs by default. We don't recommend e
 
 When working with a serial console:
 * Make sure that critical data is not output to the serial console.
-* If you enable SSH access to the serial console, make sure that both the credentials management and the password used for logging in to the operating system locally are compliant with regulator standards. For example, in an infrastructure for storing payment card data, a password must meet [PCI DSS](/security/standards/pci) requirements: it must contain both letters and numbers, be at least seven characters long, and be changed at least once every 90 days.
+* If you enable SSH access to the serial console, make sure that both the credentials management and the password used for logging in to the operating system locally are compliant with regulator standards. For example, in an infrastructure for storing payment card data, a password must meet [PCI DSS](/security/standards/pci) requirements: it must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
 
 {% note info %}
 
@@ -107,10 +107,10 @@ Verification procedure:
 1. Bucket policy rules are checked in the following order:
    1. If the request meets at least one of the `Deny` rules, access is denied.
    1. If the request meets at least one of the `Allow` rules, access is allowed.
-   1. If the request doesn't meet any of the rules, access is denied.
+   1. If the request does not meet any of the rules, access is denied.
 1. If the request fails the {{ iam-name }} or bucket policy check, access verification is performed based on an object's ACL.
 
-In the {{ iam-name }} service, a bucket inherits the same access rights as those of the folder and cloud where it's located. For more information, see [Inheritance of bucket access rights by {{ yandex-cloud }} system groups](../../storage/concepts/acl.md#inheritance). For this reason, we don't recommend assigning roles for entire folders in {{ objstorage-name }}. We recommend that you only assign the minimum required roles to certain buckets or objects in {{ objstorage-name }}.
+In the {{ iam-name }} service, a bucket inherits the same access rights as those of the folder and cloud where it's located. For more information, see [Inheritance of bucket access rights by {{ yandex-cloud }} system groups](../../storage/concepts/acl.md#inheritance). For this reason, we do not recommend assigning roles for entire folders in {{ objstorage-name }}. We recommend that you only assign the minimum required roles to certain buckets or objects in {{ objstorage-name }}.
 
 Bucket policies are used for additional data protection, for example, to restrict access to a bucket by IP addresses, grant granular rights to objects, and so on.
 
@@ -124,7 +124,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-name }} verificati
 
 When processing critical data in buckets, you must ensure that data is protected from deletion and that versions are backed up. This can be achieved by versioning and lifecycle management mechanisms.
 
-Bucket versioning is the ability to store the history of object versions. Each version is a complete copy of the object and occupies space in {{ objstorage-name }}. By using version control, you can protect your data from both unintentional user actions and application faults.
+Bucket versioning is the ability to store the history of object versions. Each version is a complete copy of an object and occupies space in {{ objstorage-name }}. By using version control, you can protect your data from both unintentional user actions and application faults.
 
 If you delete/modify an object with versioning enabled, a new version of the object with a new ID is effectively created. In the case of deletion, the object becomes unreadable, but its version is kept and can be restored.
 

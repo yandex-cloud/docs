@@ -1,9 +1,9 @@
 ---
 title: "Deleting a target group from an application load balancer"
-description: "To delete a target group, in the management console, select the folder that hosts the target group. Select {{ alb-name }}. In the left menu, select Target groups. Select the target group and click the select icon. In the menu that opens, select Delete. To do this with multiple groups, select the groups to delete from the list and click Delete at the bottom of the screen."
+description: "To delete a target group, in the management console, select the folder that hosts the target group. Select {{ alb-name }}. In the left-hand menu, select Target groups. Select the target group and click the select icon. In the menu that opens, select Delete. To do this with multiple groups, select the groups to delete from the list and click Delete at the bottom of the screen."
 ---
 
-# Delete an {{ alb-name }} target group
+# Delete a {{ alb-name }} target group
 
 {% note warning %}
 
@@ -54,7 +54,7 @@ To delete a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and delete the fragment with the target group description.
 
       Sample target group description in the {{ TF }} configuration:
@@ -90,5 +90,9 @@ To delete a target group:
       ```bash
       yc alb target-group list
       ```
+
+- API
+
+   Use the [delete](../api-ref/TargetGroup/delete.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Delete](../api-ref/grpc/target_group_service.md#Delete) gRPC API call.
 
 {% endlist %}

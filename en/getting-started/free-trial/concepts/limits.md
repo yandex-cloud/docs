@@ -9,7 +9,7 @@ The free trial is intended for testing and exploring the features of the cloud i
 
 ## Service Level Agreement (SLA) {#sla}
 
-The SLA doesn't apply to the trial period. We don't recommend running production applications in {{ yandex-cloud }} during the trial period.
+The Service Level Agreement (SLA) does not apply to the trial period. We do not recommend running production applications in {{ yandex-cloud }} during the trial period.
 
 
 ## Support {#support}

@@ -52,28 +52,13 @@ spec:
 
 ## Installation and requirements {#install}
 
-A {{ alb-name }} Ingress controller is provided as a Helm chart. Its installation requires:
-* The [Helm](https://helm.sh/) package manager, version {{ alb-ingress-helm-version }} or higher with [OCI support enabled](https://helm.sh/docs/topics/registries/).
+To install the {{ alb-name }} Ingress controller, you need:
+
 * {{ managed-k8s-name }} cluster.
 * Cluster node group.
-* A cluster namespace to store the [service account](service-account.md) key.
+* Cluster namespace to store the [service account](service-account.md) key.
 
-You can download and install the chart using the commands below:
-
-```bash
-export HELM_EXPERIMENTAL_OCI=1
-helm pull \
-  --version v{{ alb-ingress-version }} \
-  oci://{{ registry }}/yc/yc-alb-ingress-controller-chart
-helm install \
-  --namespace <namespace name> \
-  --set folderId=<folder ID> \
-  --set clusterId=<cluster ID> \
-  --set-file saKeySecretKey=<path to file with service account key> \
-  yc-alb-ingress-controller ./yc-alb-ingress-controller-chart-{{ alb-ingress-version }}.tgz
-```
-
-For more detail, please see the [complete installation instructions](../../operations/k8s-ingress-controller-install.md).
+To learn how to install the Ingress controller, see [this guide](../../operations/k8s-ingress-controller-install.md).
 
 #### See also {#see-also}
 

@@ -13,11 +13,11 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
-   1. To edit an ACL, click ![image](../../../_assets/horizontal-ellipsis.svg) to the right of a bucket name and select the **Bucket ACL**.
+   1. To edit an ACL, click ![image](../../../_assets/horizontal-ellipsis.svg) to the right of the bucket name and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
-      You can also click the bucket name and then click **Bucket ACL** on the page that opens.
+      You can also click the bucket name and then click **{{ ui-key.yacloud.storage.bucket.button_permissions }}** on the page that opens.
 
-   1. In the **Edit ACL** window, grant or revoke the desired permissions.
+   1. In the **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
 
 - {{ yandex-cloud }} CLI
 
@@ -104,7 +104,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
    Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```
       resource "yandex_storage_bucket" "test" {
@@ -127,9 +127,9 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
       Where:
 
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
-      * `bucket`: Bucket name. Required parameter.
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
+      * `bucket`: Bucket name. This parameter is required.
       * `grant`: [ACL](../../concepts/acl.md). This is an optional parameter. For access management, use a service account with administrator rights.
          * `id`: User ID.
          * `type`: System group type.
@@ -138,25 +138,25 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
       ```
       terraform apply
       ```
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}

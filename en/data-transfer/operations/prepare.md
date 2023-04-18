@@ -78,7 +78,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 - {{ mgp-name }}
 
-   1. Create a user account the transfer will use to connect to the source. To do this, run the command:
+   1. Create a user account the transfer will use to connect to the source. To do this, run the following command:
 
       ```pgsql
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
@@ -106,7 +106,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-   1. Create a user account the transfer will use to connect to the source. To do this, run the command:
+   1. Create a user account the transfer will use to connect to the source. To do this, run the following command:
 
       ```pgsql
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
@@ -318,12 +318,12 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       1. Grant privileges to the created user:
 
-         ```sql
-         GRANT SELECT ON V$DATABASE TO <username>;
-         GRANT SELECT ON DBA_EXTENTS TO <username>;
-         GRANT SELECT ON DBA_OBJECTS TO <username>;
-         GRANT FLASHBACK ANY TABLE TO <username>;
-         ```
+            ```sql
+            GRANT SELECT ON V$DATABASE TO <username>;
+            GRANT SELECT ON DBA_EXTENTS TO <username>;
+            GRANT SELECT ON DBA_OBJECTS TO <username>;
+            GRANT FLASHBACK ANY TABLE TO <username>;
+            ```
 
          If required, you can only grant the `FLASHBACK` privileges to the tables you need to copy rather than to all (`ANY TABLE`).
 
@@ -395,11 +395,22 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
          If required, you can only specify the `cdb$root` container and the container with the tables to transfer.
 
-      1. To allow the user to switch to the `cdb$root` container, grant them the `ALTER SESSION` privileges:
+            ```sql
+            CREATE USER C##<username> IDENTIFIED BY <password> CONTAINER=all;
+            ALTER USER C##<username> DEFAULT TABLESPACE USERS temporary tablespace TEMP CONTAINER=all;
+            ALTER USER C##<username> quota unlimited on USERS CONTAINER=all;
+            ALTER USER C##<username> SET container_data = (cdb$root, <your PCB name>) CONTAINER=current;
 
-         ```sql
-         GRANT ALTER SESSION TO C##<username>;
-         ```
+            GRANT
+                CREATE SESSION,
+                execute_catalog_role,
+                SELECT ANY TRANSACTION,
+                SELECT ANY DICTIONALY,
+                CREATE PROCEDURE,
+                LOGMINING,
+                SET CONTAINER
+            TO C##<username> CONTAINER=all;
+            ```
 
       1. Grant privileges to the created user:
 
@@ -435,54 +446,54 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
 - {{ mpg-name }}
 
-   1. Configure the user the transfer will connect to the source under:
+    1. Configure the user the transfer will connect to the source under:
 
-      1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser).
+        1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser).
 
-      1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the role](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` to this user.
+        1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the role](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` to this user.
 
-      1. [Connect to the database](../../managed-postgresql/operations/connect.md) that you want to migrate as the database owner and [configure privileges](../../managed-postgresql/operations/grant.md#grant-privilege):
+        1. [Connect to the database](../../managed-postgresql/operations/connect.md) that you want to migrate as the database owner and [configure privileges](../../managed-postgresql/operations/grant.md#grant-privilege):
 
-         * `SELECT` for all the database tables to be transferred.
-         * `SELECT` for all the database sequences to be transferred.
-         * `USAGE` for the schemas of these tables and sequences.
-         * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the `__consumer_keeper` and `__data_transfer_mole_finder` housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
+            * `SELECT` for all the database tables to be transferred.
+            * `SELECT` for all the database sequences to be transferred.
+            * `USAGE` for the schemas of these tables and sequences.
+            * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the `__consumer_keeper` and `__data_transfer_mole_finder` housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
-   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
+    1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
 
-   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+    1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
-   1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
+    1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
 
-   1. Find and terminate DDL queries that are running for too long. To do this, make a Select from the {{ PG }} `pg_stat_activity` housekeeping table:
+    1. Find and terminate DDL queries that are running for too long. To do this, run a `SELECT` query against the {{ PG }} `pg_stat_activity` housekeeping table:
 
-      ```sql
-      SELECT NOW() - query_start AS duration, query, state
-      FROM pg_stat_activity
-      WHERE state != 'idle' ORDER BY 1 DESC;
-      ```
+        ```sql
+        SELECT NOW() - query_start AS duration, query, state
+        FROM pg_stat_activity
+        WHERE state != 'idle' ORDER BY 1 DESC;
+        ```
 
-      A list of queries running on the server is returned. Check queries with a large `duration`.
+        This will return a list of queries running on the server. Check queries that have a large value for the `duration` parameter.
 
-   1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
+    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
-   1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+    1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
       Then specify the number of jobs and threads in the [transfer parameters](transfer.md#create) under **Runtime environment**.
 
 - {{ PG }}
 
-   1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-   1. Create a user account the transfer will utilize to connect to the source:
+    1. Create a user account the transfer will utilize to connect to the source:
 
-      * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
+        * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
 
-         ```sql
-         CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
-         ```
+            ```sql
+            CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
+            ```
 
-      * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, create a user with the `REPLICATION` privilege with the command:
+      * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, create a user with the `REPLICATION` privilege using this command:
 
          ```sql
          CREATE ROLE <username> WITH REPLICATION LOGIN ENCRYPTED PASSWORD '<password>';
@@ -762,9 +773,9 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      * Integrity checks for foreign keys.
-      * Triggers.
-      * Other constraints.
+        * Integrity checks for foreign keys.
+        * Triggers.
+        * Other constraints.
 
       {% note warning %}
 
@@ -1020,9 +1031,9 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      * Integrity checks for foreign keys.
-      * Triggers.
-      * Other constraints.
+        * Integrity checks for foreign keys.
+        * Triggers.
+        * Other constraints.
 
       {% note warning %}
 

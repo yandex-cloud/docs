@@ -39,10 +39,12 @@ items:
         href: operations/federations/integration-azure.md
       - name: Authentication using Keycloak
         href: operations/federations/integration-keycloak.md
-      - name: Authentication using an SAML-compatible identity federation
+      - name: Authentication using a SAML-compatible identity federation
         href: operations/federations/integration-common.md
   - name: Managing clouds and services
     href: manage-services.md
+  - name: Troubleshooting errors in SAML 2.0 federations
+    href: diagnostics.md
   - name: API reference
     items:
       - name: Authentication

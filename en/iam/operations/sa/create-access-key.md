@@ -71,11 +71,15 @@ To create a static access key:
 
    1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
 
+- API
+
+   To create an access key, use the [create](../../api-ref/AccessKey/create.md) REST API method for the [AccessKey](../../api-ref/AccessKey/index.md) resource or the [AccessKeyService/Create](../../api-ref/grpc/access_key_service.md#Create) gRPC API call.
+
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
@@ -87,26 +91,26 @@ To create a static access key:
 
       Where:
 
-      * `service_account_id` = service account ID. Required parameter.
-      * `-description`: Key description. Optional.
-      * `pgp_key`: An additional PGP key for encrypting a private key. Optional. A public part of the key in base64 encoding or in the `keybase:keybaseusername` form is specified.
+      * `service_account_id` = service account ID. This parameter is required.
+      * `description`: Key description. This is an optional parameter.
+      * `pgp_key`: An additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in base64 encoding or in the `keybase:keybaseusername` format.
 
       For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_static_access_key).
 
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -122,10 +126,6 @@ To create a static access key:
          ```bash
          yc iam access-key list --service-account-name=<service_account_name>
          ```
-
-- API
-
-   To create an access key, use the [create](../../api-ref/AccessKey/create.md) method for the [AccessKey](../../api-ref/AccessKey/index.md) resource.
 
 {% endlist %}
 

@@ -14,17 +14,17 @@ Some use case steps can't be performed in the [management console]({{ link-conso
 
 To set up logging:
 
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Create a cloud network](#create-network).
 1. [Create security groups](#create-security-groups).
 1. [Set up a database in {{ mpg-full-name }}](#set-up-db).
 1. [Create an instance group](#create-vms).
-1. [Create the necessary resources in {{ alb-full-name }}](#create-alb-resources).
+1. [Create the required resources in {{ alb-full-name }}](#create-alb-resources).
 1. [Get the ID of the log group for the load balancer](#get-log-group-id).
-1. [Create the necessary resources in {{ sf-full-name }}](#set-up-sf).
+1. [Create the required resources in {{ sf-full-name }}](#set-up-sf).
 1. [Test the logging process](#test).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
@@ -35,7 +35,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The support cost for a load balancer with logging includes:
 
-* A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A payment for computing resources, the amount of storage and backups for a {{ PG }} cluster (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
 * A payment for calling the log-processing function and allocating computing resources to the function (see [{{ sf-full-name }}](../../functions/pricing.md) pricing).
 
@@ -60,7 +60,7 @@ To create a network:
 
 ## Create security groups {#create-security-groups}
 
-{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that:
 * Let the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic.
@@ -96,9 +96,9 @@ To create security groups:
          1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
          1. In the **Purpose** or **Source** field, select the purpose of the rule:
 
-            * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-            * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
-            * **Load balancer health checks** is a rule that allows a load balancer to check the health of VMs.
+            * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+            * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
+            * **Load balancer health checks**: Rule that allows a load balancer to check the health of VMs.
 
          1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -241,7 +241,7 @@ To create an instance group:
    1. Under **Computing resources**:
 
       - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
-      - Specify the necessary number of vCPUs and amount of RAM.
+      - Specify the required number of vCPUs and the amount of RAM.
 
       The minimum configuration is enough for functional website testing:
       * **Platform**: Intel Cascade Lake.
@@ -249,7 +249,7 @@ To create an instance group:
       * **vCPU**: 2.
       * **RAM**: 1 GB.
 
-   1. Under **Network settings**, select the **Network** named `alb-logging-network` that you [created earlier](#create-network) and its subnets.
+   1. Under **Network settings**, select the **Network** named `alb-logging-network` [that you created earlier](#create-network) and its subnets.
    1. In the **Public address** field, select **Auto**.
    1. Select the [previously created](#create-security-groups) `alb-logging-sg-vms` security group.
    1. Specify data required for accessing the VM:
@@ -363,7 +363,7 @@ To get the log group ID:
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   Run the command:
+   Run the following command:
 
    ```bash
    yc alb load-balancer get alb-logging-balancer | grep log_group_id
@@ -401,20 +401,20 @@ To create a function:
       import logging
       import psycopg2
       import json
-      
+
       logger = logging.getLogger()
       logger.setLevel(logging.INFO)
       verboseLogging = eval(os.environ['VERBOSE_LOG'])
       if verboseLogging:
           logger.info('Loading handler function')
-      
+
       def handler(event, context):
           statusCode = 500
-      
+
           if verboseLogging:
               logger.info(event)
               logger.info(context)
-      
+
           connection_string = (
               "host='{db_hostname}' port='{db_port}' dbname='{db_name}' "
               "user='{db_user}' password='{db_password}' sslmode='require'"
@@ -425,38 +425,38 @@ To create a function:
               db_user=os.environ['DB_USER'],
               db_password=os.environ['DB_PASSWORD']
           )
-      
+
           if verboseLogging:
               logger.info(f'Connecting: {connection_string}')
-      
+
           conn = psycopg2.connect(connection_string)
           cursor = conn.cursor()
-      
+
           messages = event['messages'][0]['details']['messages']
-      
+
           for message in messages:
               alb_message = json.loads(message['message'])
               alb_message['table_name'] = 'load_balancer_requests'
               insert_statement = (
-                  'INSERT INTO {table_name} ' 
-                  '(type, "time", http_status, backend_ip, request_time) ' 
-                  'VALUES(\'{type}\', timestamptz \'{time}\', \'{http_status}\', ' 
+                  'INSERT INTO {table_name} '
+                  '(type, "time", http_status, backend_ip, request_time) '
+                  'VALUES(\'{type}\', timestamptz \'{time}\', \'{http_status}\', '
                   '\'{backend_ip}\', {request_processing_times[request_time]});'
               ).format(**alb_message)
-      
-              if verboseLogging:     
+
+              if verboseLogging: 
                   logger.info(f'Exec: {insert_statement}')
               try:
                   cursor.execute(insert_statement)
                   statusCode = 200
               except Exception as error:
                   logger.error(error)
-      
+
               conn.commit()
-      
+
           cursor.close()
           conn.close()
-      
+
           return {
               'statusCode': statusCode,
               'headers': {
@@ -519,7 +519,7 @@ To create a trigger:
 
 - CLI
 
-   Run the command:
+   Run this command:
 
    ```bash
    yc serverless trigger create cloud-logs alb-logging-trigger \

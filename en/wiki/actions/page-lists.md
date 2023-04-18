@@ -1,6 +1,6 @@
 # Page lists
 
-You can add lists to your [Wiki page](../pages-types.md#page):
+You can add lists to your [page](../pages-types.md#page):
 
 * [{#T}](#tree)
 * [{#T}](#backlinks)
@@ -13,7 +13,7 @@ This block contains a list of all pages for the selected cluster.
 ### Using the block {#tree-call}
 
 ```
-{{tree for="pageName" nomark="0" depth="3" show_redirects="False" show_grids="True" show_files="False" show_owners="False" show_titles="True" show_created_at="False" show_modified_at="False" sort_by="title" sort="asc"}}
+{{tree for="pageURL" nomark="0" depth="3" show_redirects="False" show_grids="True" show_files="False" show_owners="False" show_titles="True" show_created_at="False" show_modified_at="False" sort_by="title" sort="asc"}}
 ```
 
 All parameters of the `not_var{{tree}}` block are optional. The example below shows the default parameter values.
@@ -61,6 +61,12 @@ The block contains a list of pages that the user authored.
 not_var{{mypages}}
 ```
 
+> For example, if you want to display a list of pages created by `username` and sort them by the date of their last update, set this block:
+>
+> ```
+> {{mypages bychange=1 user="username"}}
+> ```
+
 All parameters of the `not_var{{mypages}}` block are optional. By default, the block displays the current user's list of pages. The pages are displayed in alphabetical order.
 
 ### Block parameters (optional) {#mypages-params}
@@ -70,9 +76,3 @@ All parameters of the `not_var{{mypages}}` block are optional. By default, the b
 | `user` | You can display the list of pages created by any user. To do this, specify that user's login in the `user` parameter. |
 | `bydate` | Sorting by creation date:<br>`1`: Enable.<br>`0`: Disable. |
 | `bychange` | Sorting by date of change:<br>`1`: Enable.<br>`0`: Disable. |
-
-For example, if you want to display a list of pages created by `username` and sort them by the date of their last update, set this block:
-
-```
-{{mypages bychange=1 user="username"}}
-```

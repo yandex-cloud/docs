@@ -1,8 +1,8 @@
 # Getting started with {{ backup-full-name }}
 
-{{ backup-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data.
+{{ backup-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. The service is at the [Preview stage](../overview/concepts/launch-stages.md).
 
-The service is at the [Preview stage](../overview/concepts/launch-stages.md) and available for [{{ compute-name }} VMs](../compute/concepts/vm.md) running Ubuntu 20.04 or lower installed from [{{ marketplace-name }}](/marketplace).
+{{ backup-name }} supports backing up [{{ compute-name }} VMs](../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server. For more information, see [{#T}](concepts/vm-connection.md#os).
 
 To get started with {{ backup-name }}:
 
@@ -69,7 +69,7 @@ To activate the service:
    1. Under **Image/boot disk selection**, choose [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
    1. Under **Network settings**:
       1. Select the [cloud network](../vpc/concepts/network.md#network) and [subnet](../vpc/concepts/network.md#subnet) to connect the VM to. If you don't have a network, click ![plus-sign](../_assets/plus-sign.svg) **Create network**:
-         1. In the resulting window, enter a network name and folder to host the network.
+         1. In the window that opens, enter the network name and the folder to host the network.
          1. Click **Create**.
 
          Each network must have at least one subnet. If there is no subnet, create one by selecting ![plus-sign](../_assets/plus-sign.svg) **Add subnet**.

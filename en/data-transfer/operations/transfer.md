@@ -1,4 +1,4 @@
-# Managing the transfer process
+# Managing transfer process
 
 You can:
 
@@ -50,35 +50,35 @@ For more information about transfer states, operations applicable to transfers, 
          * {{ dt-type-repl }}: Allows you to receive data updates from the source and apply them to the target (without creating a full copy of the source data). Under **Replication settings**, specify the number of replication processes. This setting is available for such sources as {{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. 
          * {{ dt-type-copy-repl }}: Creates a full copy of the source data and keeps it up-to-date. Under **Snapshot settings**, specify the number of parallel copy and replication processes and threads. Under **Replication settings**, specify the number of replication processes. This setting is available for such sources as {{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. 
 
-      * (Optional) **List of objects to transfer**: Only objects on this list will transfer. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. The setting is not available for sources such as {{ KF }}, and {{ DS }}.
+       * (Optional) **List of objects to be transferred**: Specify the full path to each object being transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
             Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
 
-            * {{ CH }}: `<database name>.<table name>`.
-            * {{ GP }}: `<schema name>.<table name>`.
-            * {{ MG }}: `<database name>.<collection name>`.
-            * {{ MY }}: `<database name>.<table name>`.
-            * {{ PG }}: `<schema name>.<table name>`.
-            * Oracle: `<schema name>.<table name>`.
+            * {{ CH }}: `<database name>.<table path>`.
+            * {{ GP }}: `<scheme name>.<table path>`.
+            * {{ MG }}: `<database name>.<collection path>`.
+            * {{ MY }}: `<database name>.<table path>`.
+            * {{ PG }}: `<scheme name>.<table path>`.
+            * Oracle: `<scheme name>.<table path>`.
             * {{ ydb-short-name }}: Table path.
 
             If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
 
-      * (Optional) **Data transformations**: Rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
+       * (Optional) **Data transformations**: Rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
             * **Rename tables**: Settings for renaming tables:
-               * **Source table name**:
-                  * **Named schema**: Naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
-                  * **Table name**: Source table name.
-               * **Target table name**:
-                  * **Named schema**: Naming convention depending on the target type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
-                  * **Table name**: New name for the target table.
+                * **Source table name**:
+                     * **Named schema**: Naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                    * **Table name**: Source table name.
+                * **Target table name**:
+                    * **Named schema**: Naming convention depending on the target type, e.g., a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                    * **Table name**: New name for the target table.
             * **Columns filter**: Specifies column transfer settings:
-               * **Tables**:
-                  * **Included tables**: Names of the tables the column transfer settings apply to.
-                  * **Excluded tables**: Names of the tables the column transfer settings do not apply to.
-               * **List of columns**:
-                  * **Included columns**: Names of the columns in the list of included tables to transfer.
-                  * **Excluded columns**: Names of the columns in the list of included tables not to transfer.
+                * **Tables**:
+                    * **Included tables**: Names of the tables the column transfer settings apply to.
+                    * **Excluded tables**: Names of the tables the column transfer settings do not apply to.
+                * **List of columns**:
+                    * **Included columns**: Names of the columns in the list of included tables to transfer.
+                    * **Excluded columns**: Names of the columns in the list of included tables not to transfer.
     1. Click **Create**.
 
 - {{ TF }}
@@ -89,7 +89,7 @@ For more information about transfer states, operations applicable to transfers, 
 
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-      1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Create a configuration file with a description of your transfer.
 
       Example of the configuration file structure:
@@ -115,7 +115,7 @@ For more information about transfer states, operations applicable to transfers, 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -146,37 +146,37 @@ For more information about transfer states, operations applicable to transfers, 
    1. Edit the transfer parameters:
       * **Transfer name**.
       * (Optional) **Description**.
-      * (Optional) **List of objects to transfer**: Only objects on this list will transfer. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. The setting is not available for sources such as {{ KF }}, and {{ DS }}.
+        * (Optional) **List of objects to be transferred**: Specify the full path to each object being transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
          Adding new objects to {{ dt-type-copy-repl }} or {{ dt-type-repl }} transfers in the {{ dt-status-repl }} status will result in uploading data history for these objects or tables. If a table is large, uploading the history may take a long time. You can't edit the list of objects for transfers in the {{ dt-status-copy }} status.
 
          Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
 
-         * {{ CH }}: `<database name>.<table name>`.
-         * {{ GP }}: `<schema name>.<table name>`.
-         * {{ MG }}: `<database name>.<collection name>`.
-         * {{ MY }}: `<database name>.<table name>`.
-         * {{ PG }}: `<schema name>.<table name>`.
-         * Oracle: `<schema name>.<table name>`.
-         * {{ ydb-short-name }}: Table path.
+            * {{ CH }}: `<database name>.<table path>`.
+            * {{ GP }}: `<scheme name>.<table path>`.
+            * {{ MG }}: `<database name>.<collection path>`.
+            * {{ MY }}: `<database name>.<table path>`.
+            * {{ PG }}: `<scheme name>.<table path>`.
+            * Oracle: `<scheme name>.<table path>`.
+            * {{ ydb-short-name }}: Table path.
 
-         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
+            If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
 
-      * (Optional) **Data transformations**: Rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
-         * **Rename tables** are settings for renaming tables:
-            * **Source table name**:
-               * **Named schema** is a naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
-               * **Table name** is the source table name.
-            * **Target table name**:
-               * **Named schema** is a naming convention depending on the target type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
-               * **Table name** is a new name for the target table.
-         * **Column filter** specifies column transfer settings:
-            * **List of tables**:
-               * **Included tables** are the names of tables that column transfer settings apply to.
-               * **Excluded tables** are the names of tables that column transfer settings don't apply to.
-            * **List of columns**:
-               * **Included columns** are the names of columns in the list of included tables to be transferred.
-               * **Excluded columns** are the names of columns in the list of included tables that are not to be transferred.
+        * (Optional) **Data transformations** are rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
+            * **Rename tables**: Settings for renaming tables:
+               * **Source table name**:
+                   * **Named schema**: Naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                   * **Table name**: Source table name.
+               * **Target table name**:
+                   * **Named schema**: Naming convention depending on the target type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                   * **Table name**: New name for the target table.
+            * **Column filter** specifies column transfer settings:
+               * **List of tables**:
+                   * **Included tables**: Names of the tables the column transfer settings apply to.
+                   * **Excluded tables**: Names of tables the column transfer settings do not apply to.
+               * **List of columns**:
+                   * **Included columns**: Names of the columns in the list of included tables to transfer.
+                   * **Excluded columns**: Names of the columns in the list of included tables not to transfer.
    1. Click **Save**.
 
 - {{ TF }}
@@ -190,7 +190,7 @@ For more information about transfer states, operations applicable to transfers, 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

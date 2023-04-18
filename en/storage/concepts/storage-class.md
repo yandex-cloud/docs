@@ -31,16 +31,7 @@ Setting the default storage may be handy when the tool you use does not allow yo
 {{ objstorage-name }} does not support changing the storage class of an object directly. To change the storage class, you can:
 
 - Upload the object to {{ objstorage-name }} again and select the required storage class.
-- Set the criteria for changing the storage class in the [object lifecycle](lifecycles.md) configuration.
-
-Lifecycle configuration allows you to move an object from a standard storage to a cold one according to the [rules you specify](../s3/api-ref/lifecycles/xml-config.md).
-
-{% note info %}
-
-With lifecycle configuration, you can only move an object from a `STANDARD` storage to a `COLD` one.
-
-{% endnote %}
-
+- Set the criteria for changing the storage class to a _colder_ one using [object lifecycles](lifecycles.md). For more information about the lifecycle rule format, see [{#T}](../s3/api-ref/lifecycles/xml-config.md).
 
 ## Storage class IDs {#storage-class-identifiers}
 

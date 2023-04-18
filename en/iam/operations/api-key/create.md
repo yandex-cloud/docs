@@ -1,8 +1,8 @@
 # Creating API keys
 
-These are instructions for how to create an [API key](../../concepts/authorization/api-key.md) for a [service account](../../concepts/users/service-accounts.md). The _API key_ is a secret key used for simplified authorization in the {{ yandex-cloud }} API.
+This guide will tell you how to create an [API key](../../concepts/authorization/api-key.md) for a [service account](../../concepts/users/service-accounts.md). The _API key_ is a secret key used for simplified authorization in the {{ yandex-cloud }} API.
 
-If you don't have a service account yet, [create one](../sa/create.md) and [assign it roles](../sa/assign-role-for-sa.md).
+If you do not have a service account yet, [create one](../sa/create.md) and [assign roles to it](../sa/assign-role-for-sa.md).
 
 To create an API key:
 
@@ -20,7 +20,7 @@ To create an API key:
 
       {% note alert %}
 
-      After the dialog is closed, the private key value will be unavailable.
+      Once you close the dialog, the private key value will be unavailable.
 
       {% endnote %}
 
@@ -67,12 +67,12 @@ To create an API key:
       secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHsssT5ICtm
       ```
 
-      For information about how to pass the key in a request, read the documentation of the [services](../../concepts/authorization/api-key.md#supported-services) that support this authorization method.
+      To learn how to provide the key to a request, read the guides for the [services](../../concepts/authorization/api-key.md#supported-services) that support this authorization method.
 
 - API
 
    1. [Find out the service account ID](../sa/get-id.md).
-   1. Create an API key using the [create](../../api-ref/ApiKey/create.md) method for the [ApiKey](../../api-ref/ApiKey/index.md) resource.
+   1. Create an API key using the [create](../../api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
 
       ```bash
       export SERVICEACCOUNT_ID=aje6o61dvog2h6g9a33s
@@ -83,18 +83,19 @@ To create an API key:
         -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
         https://iam.{{ api-host }}/iam/v1/apiKeys
       ```
+      You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create) gRPC API call.
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Add parameters of resource to the configuration file:
 
-      * `service_account_id` = service account [ID](../sa/get-id.md). Required parameter.
-      * `description`: Key description. Optional.
-      * `pgp_key`: An additional PGP key for encrypting a private key. Optional. A public part of the key in base64 encoding or in the `keybase:keybaseusername` form is specified.
+      * `service_account_id` = service account [ID](../sa/get-id.md). This parameter is required.
+      * `-description`: Key description. This is an optional parameter.
+      * `pgp_key`: An additional PGP key for encrypting a private key. This is an optional parameter. A public part of the key in base64 encoding or in the `keybase:keybaseusername` form is specified.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
@@ -106,20 +107,20 @@ To create an API key:
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -127,7 +128,7 @@ To create an API key:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
+      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
 
       ```
       yc iam key list --service-account-id <service account ID>
@@ -169,8 +170,8 @@ To make it easier to find an API key without knowing its ID, add a description w
 
    1. Add parameters of resource to the configuration file:
 
-      * `service_account_id` = service account ID. Required parameter.
-      * `-description`: Key description. Optional.
+      * `service_account_id` = service account ID. This parameter is required.
+      * `-description`: Key description. This is an optional parameter.
 
       {% cut "Example of adding a description when creating a service account API key using {{ TF }}" %}
 
@@ -185,20 +186,20 @@ To make it easier to find an API key without knowing its ID, add a description w
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -206,7 +207,7 @@ To make it easier to find an API key without knowing its ID, add a description w
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

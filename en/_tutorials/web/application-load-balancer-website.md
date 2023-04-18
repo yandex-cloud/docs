@@ -38,7 +38,7 @@ Before creating a VM:
 
 ## Create security groups {#create-security-groups}
 
-{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that let the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic.
 

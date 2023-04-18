@@ -33,8 +33,8 @@
 - API
 
    Get information about the user (the [UserAccount](../../api-ref/UserAccount/index.md)):
-   * If you know the user's login, use the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) method for the [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md) resource.
-   * If you know the user's ID, use the [get](../../api-ref/UserAccount/get.md) method for the [UserAccount](../../api-ref/UserAccount/index.md) resource.
+   * If you know the user's login, use the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) REST API method for the [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md) resource or the [YandexPassportUserAccount/GetByLogin](../../api-ref/grpc/yandex_passport_user_account_service.md#GetByLogin) gRPC API call.
+   * If you know the user's ID, use the [get](../../api-ref/UserAccount/get.md) REST API method for the [UserAccount](../../api-ref/UserAccount/index.md) resource or the [UserAccountService/Get](../../api-ref/grpc/service_account_service.md#Get) gRPC API call.
 
 
 {% endlist %}

@@ -269,11 +269,11 @@ When creating a new cluster, set all required parameters.
    Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
-   * The environment of the cluster, in the `environment` parameter.
-   * Cluster configuration, in the `configSpec` parameter.
+   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+   * Cluster environment in the `environment` parameter.
+   * Cluster configuration in the `configSpec` parameter.
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-   * Network ID, in the `networkId` parameter.
+   * Network ID in the `networkId` parameter.
 
 {% endlist %}
 
@@ -295,7 +295,7 @@ To work with snapshots, use the [{{ ES }} public API](https://www.elastic.co/gui
 1. Get a list of snapshots in the repository:
 
    ```http
-   GET https://admin:<password>@<host_FQDN_or_IP-address>:9200/_snapshot/<repository>/_all
+   GET https://admin:<password>@<host_FQDN_or_IP_address>:9200/_snapshot/<repository>/_all
    ```
 
    Each snapshot is a single backup.

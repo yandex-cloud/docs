@@ -28,6 +28,6 @@ links:
   - title: Pricing policy
     description: Prices and rates of Yandex Cloud services
     href: pricing
-  - title: API Billing reference
+  - title: API reference
     description: HTTP API method descriptions
     href: api-ref/

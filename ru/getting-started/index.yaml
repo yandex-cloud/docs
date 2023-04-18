@@ -16,24 +16,11 @@ description:
 meta:
   title: Начало работы
 links:
-  - title: Начало работы
-    description: Информация для физических лиц
-    href: quickstart-individuals
-  - title: Регистрация в Yandex Cloud
-    description: Инструкция для юридических лиц
-    href: quickstart-legal-entity
-  - title: Как работает пробный период
-    description: Кто и как может использовать Yandex Cloud в рамках пробного периода
-    href: free-trial/concepts/quickstart
-  - title: Ограничения пробного периода
-    description: Технические и организационные ограничения пробного периода
-    href: free-trial/concepts/limits
-  - title: Условия использования стартового гранта
-    description: Кто и как может использовать стартовый грант
-    href: usage-grant
-  - title: Завершение пробного периода
-    description: Что произойдет, когда пробный период закончится
-    href: free-trial/concepts/trial-ending
-  - title: Переход на платную версию
-    description: Как и когда переходить на платную версию
-    href: free-trial/concepts/upgrade-to-paid
+  - title: Начало работы для физических лиц
+    description: >-
+      Пошаговые инструкции для комфортного старта и исследования возможностей {{
+      yandex-cloud }}
+    href: individuals/registration
+  - title: Начало работы для организаций и ИП
+    description: Поэтапное развертывание организации в {{ yandex-cloud }}
+    href: legal-entity/registration

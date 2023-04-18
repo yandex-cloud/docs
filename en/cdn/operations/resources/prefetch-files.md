@@ -88,5 +88,9 @@ To [pre-load content](../../concepts/caching.md#prefetch) from [origins](../../c
 
       For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
 
+- API
+
+   Use the [prefetch](../../api-ref/Cache/prefetch.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Prefetch](../../api-ref/grpc/cache_service.md#Prefetch) gRPC API call.
+
 {% endlist %}
 

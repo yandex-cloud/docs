@@ -36,6 +36,7 @@
   * [{{ RD }}](../managed-redis/quickstart.md).
   * [{{ PG }}](../managed-postgresql/quickstart.md).
   * [{{ ES }}](../managed-elasticsearch/quickstart.md).
+  * [{{ OS }}](../managed-opensearch/quickstart.md).
   * [{{ KF }}](../managed-kafka/quickstart.md).
   * [{{ GP }}](../managed-greenplum/quickstart.md).
   * [{{ ydb-name }}](../ydb/quickstart.md#create-db).

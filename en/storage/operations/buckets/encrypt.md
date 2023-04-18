@@ -21,13 +21,13 @@ To decrypt objects, the user must have both the {{ objstorage-name }} role and t
 - Management console
 
    To add a {{ kms-short-name }} key:
-   1. In the [management console]({{ link-console-main }}), select the bucket you wish to configure encryption for.
-   1. In the left panel, select **Encryption**.
-   1. In the **{{ kms-short-name }} key** field, select an existing key or create a new one:
+   1. In the [management console]({{ link-console-main }}), select the bucket for which you want to configure encryption.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select an existing key or create a new one:
 
       {% include [storage-create-kms](../../_includes_service/storage-create-kms.md) %}
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - {{ TF }}
 
@@ -111,17 +111,17 @@ To decrypt objects, the user must have both the {{ objstorage-name }} role and t
 - Management console
 
    To remove encryption, delete the {{ kms-short-name }} key:
-   1. In the [management console]({{ link-console-main }}), select the bucket you wish to remove encryption for.
-   1. In the left panel, select **Encryption**.
-   1. In the **{{ kms-short-name }} key** field, select **Not selected**.
-   1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), select the bucket for which you want to remove encryption.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To disable encryption for a bucket created using {{ TF }}:

@@ -64,6 +64,8 @@ Where:
 
 For buckets with restricted access, {{ objstorage-name }} generates pre-signed URLs, which allows you to temporarily download an object even from a bucket with restricted access. You can read more about pre-signed URLs, their generation, and their use [here](pre-signed-urls.md).
 
+{% include [bucket-https](../../_includes/storage/bucket-https.md) %}
+
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 
 ## Metadata {#metadata}

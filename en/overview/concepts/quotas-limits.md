@@ -82,11 +82,9 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 
 
-
 ### {{ interconnect-full-name }} {#interconnect}
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
-
 
 
 

@@ -1,10 +1,10 @@
 # Importing a page from a file
 
-## Wiki page {#page}
+## Pages created in the old editor {#page}
 
-To convert a .txt file or a .docx document to a Wiki page:
+To convert a .txt file or a .docx document to a page created in the old editor:
 
-1. On any Wiki page, click ![](../_assets/wiki/svg/create-page.svg) **Create page** in the left panel or select ![](../_assets/wiki/svg/actions-icon.svg) **Actions** → **Create subpage** in the upper-right corner.
+1. On any page created in the old editor, click ![](../_assets/wiki/svg/create-page.svg) **Create page** in the left-hand panel or select ![](../_assets/wiki/svg/actions-icon.svg) **Actions** → **Create subpage** in the top-right corner.
 
 1. Select **Page**.
 
@@ -14,24 +14,24 @@ To convert a .txt file or a .docx document to a Wiki page:
 
 1. Click **Create**.
 
-The contents of the selected file will be uploaded to a new Wiki page:
+The contents of the selected file will be uploaded to a new page:
 
-- If you uploaded a .txt file, the complete text of the file is copied to the Wiki page. If the text contains [markup elements](basic-markup.md), they will be displayed correctly on the page.
+- If you uploaded a .txt file, the complete text of the file is copied to the page. If the text contains [markup elements](basic-markup.md), they will be displayed correctly on the page.
 
-- If you uploaded a .docx document, its text is converted to [Wiki page markup](basic-markup.md). If the document contains images, they are placed at the end of the page in the `<<Imported images>>` section.
+- If you uploaded a .docx document, its text will be converted to [page markup](basic-markup.md). If the document contains images, they will be placed at the end of the page in the `<<Imported images>>` section.
 
 
 ## Dynamic table {#dynamic-table}
 
 You can create dynamic tables from CSV or TXT files:
 
-1. Save your spreadsheet (for instance, an MS Excel file) in CSV format. Alternatively, create a TXT file in which the cell values are separated by a comma, semicolon, or tab character.
+1. Save your spreadsheet (for instance, an MS Excel file) in CSV format. Alternatively, you can create a TXT file in which the cell values are separated by a comma, semicolon, or tab character.
 
 1. [Create](create-grid.md) a new dynamic table or open an existing one.
 
 1. Click **Edit**.
 
-1. In the lower-left corner of the table, select ![](../_assets/wiki/table-settings-footer.png) → **Import data**.
+1. In the bottom-left corner of the table, select ![](../_assets/wiki/table-settings-footer.png) → **Import data**.
 
 1. Select a CSV or TXT file and check the delimiter settings.
 

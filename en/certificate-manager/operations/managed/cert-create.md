@@ -28,7 +28,7 @@ To create a new [Let's Encrypt certificate](../../concepts/managed-certificate.m
       yc certificate-manager certificate request --help
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       yc certificate-manager certificate request \
@@ -54,7 +54,7 @@ To create a new [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
 - API
 
-   To create a certificate, use the [requestNew](../../api-ref/Certificate/requestNew.md) method for the [Certificate](../../api-ref/Certificate/) resource.
+   To create a certificate, use the [requestNew](../../api-ref/Certificate/requestNew.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/RequestNew](../../api-ref/grpc/certificate_service.md#RequestNew) gRPC API call.
 
 {% endlist %}
 

@@ -15,7 +15,7 @@ The user is responsible for correctly choosing security settings in {{ managed-k
 When using {{ managed-k8s-name }} to comply with PCI DSS or other security standards, it is forbidden to:
 
 * Use sensitive data in names and descriptions of clusters, node groups, namespaces, services, and pods.
-* Use sensitive data in [{{ k8s }} node labels](../../managed-kubernetes/concepts/#node-labels) and [{{ yandex-cloud }} service resource labels](../../overview/concepts/services.md#labels).
+* Use sensitive data in [{{ k8s }} node labels](../../managed-kubernetes/concepts/#node-labels) and [{{ yandex-cloud }} service resource labels](../../resource-manager/concepts/labels.md).
 * Use sensitive data in pod manifests.
 * Use sensitive data in etcd in clear text.
 * Write sensitive data to {{ managed-k8s-name }} logs.
@@ -49,7 +49,7 @@ Use firewall protection when needed (for example, [security groups](../../vpc/co
 
 Restrict network access to the {{ k8s }} API (master) and node groups using [instructions for security groups](../../managed-kubernetes/operations/connect/security-groups.md).
 
-When using an ALB as an [Ingress Gateway](../../managed-kubernetes/tutorials/alb-ingress-controller.md), also complete the following steps:
+When using an ALB as an [Ingress Gateway](../../application-load-balancer/tools/k8s-ingress-controller/index.md), also complete the following steps:
 
 1. Apply the security group to the ALB.
 2. Additionally, apply the security group to the node group:
@@ -64,8 +64,8 @@ Restrict network access inside {{ k8s }} using the [Network Policy](https://kube
 
 You can use two network plugins in {{ yandex-cloud }}:
 
-* [Calico](../../managed-kubernetes/concepts/network-policy.md#calico): A basic plugin.
-* [Cilium CNI](../../managed-kubernetes/concepts/network-policy.md#cilium): An advanced plugin that uses advanced network policies applied [at the L7 layer (REST/HTTP, gRPC and Kafka)](https://docs.cilium.io/en/v1.10/gettingstarted/http/).
+* [Calico](../../managed-kubernetes/concepts/network-policy.md#calico): a basic plugin.
+* [Cilium CNI](../../managed-kubernetes/concepts/network-policy.md#cilium): an advanced plugin that uses advanced network policies applied [at the L7 layer (REST/HTTP, gRPC and Kafka)](https://docs.cilium.io/en/v1.10/gettingstarted/http/).
 
 We recommend that you use the `default deny` rule for the default incoming and outgoing traffic, allowing only relevant traffic.
 
@@ -85,11 +85,11 @@ To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ing
 
 There exist at least two variants of an Ingress controller that you can use in {{ yandex-cloud }}:
 - [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
-- [{{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+- [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 Benefits of {{ alb-name }} Ingress controller:
 * Integration with the [{{ certificate-manager-full-name }}](../../certificate-manager/) cloud service.
-* No need to install a controller to the cluster because everything is deployed on the [{{ alb-name }}](../../application-load-balancer/) side).
+* No need to install a controller to the cluster because everything is deployed on the [{{ alb-name }}](../../application-load-balancer/) side.
 
 #### Restricting access to the metadata of VMs in the node group {#metadata-access-restriction}
 

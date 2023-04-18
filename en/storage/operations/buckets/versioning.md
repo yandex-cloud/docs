@@ -1,15 +1,15 @@
 ---
 title: "Managing bucket versioning in {{ objstorage-full-name }}"
-description: "Bucket versioning is the capability to store the history of an object using versions. In this article, you will learn how to manage versioning in {{ objstorage-name }}."
+description: "Bucket versioning enables storing object history through versions. In this article, you will learn how to manage versioning in {{ objstorage-name }}."
 ---
 
 # Managing bucket versioning
 
-[Bucket versioning](../../concepts/versioning.md) is the capability to store the history of an object using versions.
+Bucket [versioning](../../concepts/versioning.md) enables storing object history through versions.
 
 {% note info %}
 
-Enabling versioning is irreversible: you can't disable versioning, but you can pause the creation of new versions. After you pause versioning, new objects are saved as `null` versions.
+Once you enable versioning, you cannot disable it; however, you can pause the creation of new versions. After you pause versioning, new objects will be saved as `null` versions.
 
 {% endnote %}
 
@@ -49,7 +49,7 @@ Enable bucket versioning:
 
 - AWS CLI
 
-  If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
   Run the following command:
 
@@ -66,7 +66,7 @@ Enable bucket versioning:
 
   Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
 
-  In the configuration file, describe the parameters of resources that you want to create:
+  In the configuration file, describe the parameters of the resources you want to create:
 
   ```hcl
   resource "yandex_storage_bucket" "b" {
@@ -83,10 +83,10 @@ Enable bucket versioning:
 
    Where:
 
-  * `bucket`: Bucket name. Required parameter.
-  * `access_key`: The ID of the static access key.
-  * `secret_key`: The value of the secret access key.
-  * `acl`: The ACL policy applied. Defaults to `private`. This is an optional parameter.
+  * `bucket`: Bucket name. This parameter is required.
+  * `access_key`: ID of the static access key.
+  * `secret_key`: Value of the secret access key.
+  * `acl`: Applied ACL policy. The default value is `private`. This is an optional parameter.
   * `versioning`: Bucket versioning management:
      * `enabled`: Enables bucket versioning. This is an optional parameter.
 

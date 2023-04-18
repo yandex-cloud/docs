@@ -84,7 +84,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
          ```bash
          id: enpabce123hde4ft1r3t
          folder_id: b0g12ga82bcv0cdeferg
-         created_at: "2023-13-03T14:57:15Z"
+         created_at: "2023-03-13T14:57:15Z"
          name: yc-auto-network
          ```
 
@@ -99,7 +99,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
          ```bash
          id: e1lnabc23r1c9d0efoje
          folder_id: b0g12ga82bcv0cdeferg
-         created_at: "2023-13-03T16:23:12Z"
+         created_at: "2023-03-13T16:23:12Z"
          network_id: enpabce123hde4ft1r3t
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
@@ -133,7 +133,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
        disk_spec:
          image_id: <ID of latest COI version>
          type_id: network-hdd # Disk type.
-         size: 32G # Disk size.
+         size: 32G # Disk size. It must be at least 30 GB.
      network_interface_specs:
       - network_id: enpabce123hde4ft1r3t # Network ID.
         subnet_ids:
@@ -236,7 +236,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    - API
 
-     View a list of created instances using the [List](../../compute/api-ref/InstanceGroup/list.md) method for the `InstanceGroup` resource.
+     See the list of the instance you created using the [List](../../compute/api-ref/InstanceGroup/list.md) method for the `InstanceGroup` resource.
 
    {% endlist %}
 

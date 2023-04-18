@@ -6,7 +6,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
 
 - AWS CLI
 
-   If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
    1. Create a variable containing the bucket name:
 
@@ -144,3 +144,5 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
    ```
 
 {% endlist %}
+
+In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.

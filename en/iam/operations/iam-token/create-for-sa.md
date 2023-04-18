@@ -31,7 +31,7 @@ You can use the profile you created to perform CLI operations under your service
 
 To get an IAM token, create a [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) and exchange it for an IAM token.
 
-### Before you begin {#before-you-begin}
+### Getting started {#before-you-begin}
 
 1. [Find out the service account ID](../sa/get-id.md).
 1. [Create the authorized keys](../authorized-key/create.md) required for generating a JWT. Save the public key ID.
@@ -51,11 +51,11 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 - Instructions
 
    Generate the parts that make up a JWT:
-   * `header`: A Base64Url encoded JWT headers.
-   * `payload`: A Base64Url encoded JWT Claims Set.
-   * `signature`: A signature generated from parts of the header and payload.
+   * `header`: Base64Url encoded JWT headers.
+   * `payload`: Base64Url encoded JWT Claims Set.
+   * `signature`: Signature generated from parts of the header and payload.
 
-   To create a JWT, join all the parts using a dot as the delimiter:
+   To create a JWT, join all parts using a dot as the delimiter:
 
    ```
    header.payload.signature
@@ -65,8 +65,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
    A service account's JWT header must contain the following fields:
    * `typ`: Token type, the value is always `JWT`.
-   * `alg`: The encryption algorithm. The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
-   * `kid`: The ID of the public key obtained when [creating authorized keys](../authorized-key/create.md). The key must belong to the service account that the IAM token is requested for.
+   * `alg`: Encryption algorithm. The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
+   * `kid`: ID of the public key obtained when [creating authorized keys](../authorized-key/create.md). The key must belong to the service account that the IAM token is requested for.
 
    Example:
 
@@ -78,15 +78,15 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
    }
    ```
 
-   Save the result as a Base64Url encoded string.
+   Save the result as a Base64Url-encoded string.
 
    **1.2. Generating payload**
 
    A service account's JWT payload must contain the following fields:
-   * `iss`: The ID of the service account whose key the JWT is signed with.
-   * `aud`: The link by which an IAM token will be requested: `https://iam.{{ api-host }}/iam/v1/tokens`.
-   * `iat`: The JWT token issue time, in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time).
-   * `exp`: The JWT token expiration time, in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, meaning `exp - iat ≤ 3600`.
+   * `iss`: ID of the service account whose key the JWT is signed with.
+   * `aud`: Link by which an IAM token will be requested: `https://iam.{{ api-host }}/iam/v1/tokens`.
+   * `iat`: JWT issue time in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
+   * `exp`: JWT expiration time in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, meaning `exp - iat ≤ 3600`.
 
    Example:
 
@@ -99,7 +99,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
    }
    ```
 
-   Save the result as a Base64Url encoded string.
+   Save the result as a Base64Url-encoded string.
 
    **1.3. Generating signature**
 
@@ -111,7 +111,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
    The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
 
-   Save the result as a Base64Url encoded string.
+   Save the result as a Base64Url-encoded string.
 
    If you generate a token using [jwt.io](https://jwt.io), note that `\n` in the key value must be replaced by line breaks.
 
@@ -505,19 +505,18 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
 - API
 
-   To get an IAM token, use the [create](../../api-ref/IamToken/create.md) method for the [IamToken](../../api-ref/IamToken/index.md).
+   To get an IAM token, use the [createForServiceAccount](../../api-ref/IamToken/createForServiceAccount.md) REST API method for the [IamToken](../../api-ref/IamToken/index.md) resource or the [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/iam_token_service.md#CreateForServiceAccount) gRPC API call.
 
-   Sample request using cURL:
+   Sample request using cURL for the `createForServiceAccount` REST API method:
 
-   ```
+   ```curl
    curl -X POST \
        -H 'Content-Type: application/json' \
        -d '{"jwt": "<SIGNED_JWT>"}' \
-       https://iam.{{ api-host }}/iam/v1/tokens
+       https://iam.{{ api-host }}/iam/v1/tokens:createForServiceAccount
    ```
 
    Where `<SIGNED_JWT>` is the JWT received in the previous step.
-
 
 - Go
 

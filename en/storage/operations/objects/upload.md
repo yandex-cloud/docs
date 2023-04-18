@@ -20,17 +20,19 @@ You cannot upload objects greater than 5 GB in size via the management console (
    To upload an object:
    1. In the [management console]({{ link-console-main }}), select the folder to upload an object to.
    1. Select **{{ objstorage-name }}**.
-   1. Click the name of the desired bucket.
-   1. If you want to upload the object to a particular folder, go to that folder by clicking on its name. If you want to create a new folder, click **Create folder**.
-   1. Once you are in the appropriate folder, click **Upload**.
+   1. Click the name of the bucket you need.
+   1. If you want to upload the object to a particular folder, go to that folder by clicking on its name. If you want to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}**.
+   1. Once you navigate to the appropriate folder, click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
    1. In the window that opens, select the required files and click **Open**.
    1. The management console displays all the objects selected for uploading and prompts you to select a [storage class](../../concepts/storage-class.md). The default storage class is defined in the [bucket settings](../../concepts/bucket.md#bucket-settings).
-   1. Click **Upload**.
+   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
    1. Refresh the page.
+
+   In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
    1. To upload a single object, run the command:
 
       ```bash
@@ -82,10 +84,10 @@ You cannot upload objects greater than 5 GB in size via the management console (
       ```
 
       Where:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
-      * `bucket`: Name of the bucket to add the object to. Required parameter.
-      * `key`: Name of the object in the bucket. Required parameter. Name format:
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
+      * `bucket`: Name of the bucket to add the object to. This parameter is required.
+      * `key`: Name of the object in the bucket. This parameter is required. The name format is as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -93,20 +95,20 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_object).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -114,7 +116,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+         Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -127,8 +129,8 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run the command:
+   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   1. Run the following command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -175,7 +177,7 @@ If a bucket already has the [default object locks set for a certain period](../.
       md5_base64=$(echo $md5 | base64)
       ```
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
    1. Upload an object to the bucket:
 
       ```bash

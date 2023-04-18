@@ -1,1 +1,1 @@
-{% include [hystax-migration](../../_tutorials/infrastructure-management/hystax-migration.md) %}
+{% include [hystax-migration](../../_tutorials/archive/hystax-migration.md) %}

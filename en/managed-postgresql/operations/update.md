@@ -116,7 +116,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Host class ID in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
@@ -204,7 +204,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 - API
 
-   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.resources.diskSize` parameter.
@@ -616,8 +616,8 @@ To switch the master:
 
    Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * ID of the destination folder in the `destinationFolderId parameter`.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
 

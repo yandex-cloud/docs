@@ -15,7 +15,7 @@
 
 - CLI
 
-   {% include [cli-install](../../_includes/cli-install.md) %}  
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 

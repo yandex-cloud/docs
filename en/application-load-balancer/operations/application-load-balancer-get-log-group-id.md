@@ -1,4 +1,4 @@
-# Get the ID of the log group of the L7 load balancer
+# Getting log group ID of L7 load balancer
 
 To get the ID of the log group created together with the L7 load balancer to store its [logs](../concepts/application-load-balancer.md#logging):
 
@@ -44,6 +44,6 @@ To get the ID of the log group created together with the L7 load balancer to sto
 
 - API
 
-   Use the gRPC API [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) call or the [get](../api-ref/LoadBalancer/create.md) REST API method. The ID of the log group will be specified in the `log_group_id` field.
+   Use the [get](../api-ref/LoadBalancer/get.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) gRPC API call. The ID of the log group will be specified in the `log_group_id` field.
 
 {% endlist %}

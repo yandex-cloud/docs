@@ -10,10 +10,10 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
-   1. Click the name of the desired bucket.
-   1. Go to the **Settings** tab.
+   1. Click the name of the bucket you need.
+   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
    1. Select the type of access for bucket operations.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -104,27 +104,27 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
       ```
 
       Where:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
       * `read`: Read access to bucket objects.
       * `list`: Access to list of bucket objects.
 
       For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#bucket-anonymous-access-flags).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -132,6 +132,6 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+         Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}

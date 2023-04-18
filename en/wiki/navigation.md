@@ -40,4 +40,4 @@ To find information on {{ wiki-name }} pages that you have access to, click ![](
 
 * To open the account management page and a list of available organizations, click the icon with your **Account** photo.
 
-* If you find an error in the service or want to suggest an improvement, use the feedback forms. To do this, click ![](../_assets/wiki/svg/bugs.svg) **Feedback** on the left panel.
+* If you find an error in the service or want to suggest an improvement, use the feedback forms. To do this, click ![](../_assets/wiki/svg/feedback.svg) **Feedback** on the left panel.

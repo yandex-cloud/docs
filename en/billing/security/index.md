@@ -80,7 +80,7 @@ A billing account owner can add any {{ yandex-cloud }} user to the **Users** lis
 1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
 1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
-1. Select an account on the **List of accounts** page.
+1. Select an account on the **Accounts** page.
 1. Go to **Access control**.
 1. Click **Add user**.
 1. Enter the Yandex ID or Yandex 360 account username. The drop-down list will display the users who meet the search conditions. Select the one you need.
@@ -93,7 +93,7 @@ The user with the specified username is assigned the `billing.accounts.member` r
 The owner can grant access to the billing account to any user on the **Users** list. To do this:
 
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) in the upper-left corner of the page and go to **Billing**.
-1. Select an account on the **List of accounts** page.
+1. Select an account on the **Accounts** page.
 1. Go to **Access control**.
 1. Find the user in the list.
 1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure roles**.
@@ -105,7 +105,7 @@ The owner can grant access to the billing account to any user on the **Users** l
 The billing account owner can revoke roles from users on the list at any time. To do this:
 
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) in the upper-left corner of the page and go to **Billing**.
-1. Select an account on the **List of accounts** page.
+1. Select an account on the **Accounts** page.
 1. Go to **Access control**.
 1. Find the user in the list.
 1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure roles**.

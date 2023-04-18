@@ -1,8 +1,8 @@
 # Logging actions with the bucket
 
-To track operations with the [bucket](../../concepts/bucket.md), enable [logging](../../concepts/server-logs.md). Detailed information about requests to the _source_ bucket will be saved in an [object](../../concepts/object.md) in the _target_ bucket. However, {{ objstorage-name }} [doesn't guarantee](../../concepts/server-logs.md) that the logs are saved in a complete and timely manner.
+To track operations with the [bucket](../../concepts/bucket.md), enable [logging](../../concepts/server-logs.md). Detailed information about requests to the _source_ bucket will be saved in an [object](../../concepts/object.md) in the _target_ bucket. However, {{ objstorage-name }} [does not guarantee](../../concepts/server-logs.md) that the logs are saved in a complete and timely manner.
 
-Logging is disabled by default. After you enable it, {{ objstorage-name }} will save information about actions with the bucket once an hour.
+By default, logging is disabled. After you enable it, {{ objstorage-name }} will save information about actions with the bucket once an hour.
 
 ## Enable logging {#enable}
 
@@ -20,12 +20,46 @@ To log requests to the bucket:
 
    {% list tabs %}
 
+   - AWS CLI
+
+      To enable logging via the [AWS CLI](../../tools/aws-cli.md):
+
+      1. Create a file with logging settings in JSON format. For example:
+
+         ```json
+         {
+            "LoggingEnabled": {
+               "TargetBucket": "<bucket_name>",
+               "TargetPrefix": "<key_prefix>"
+            }
+         }
+         ```
+
+         Where:
+
+         * `TargetBucket`: Target bucket name.
+         * `TargetPrefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`.
+
+      1. Enable logging in the bucket:
+
+         ```bash
+         aws s3api put-bucket-logging \
+           --bucket <bucket_name> \
+           --endpoint-url https://{{ s3-storage-host }} \
+           --bucket-logging-status file://<path_to_settings_file>
+         ```
+
+         Where:
+
+         * `bucket`: Name of the bucket to upload audit logs to.
+         * `bucket-logging-status`: Path to the logging settings file.
+
    - {{ TF }}
 
       {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
       
-      If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
       To enable logging for a bucket that you wish to monitor:
@@ -53,35 +87,18 @@ To log requests to the bucket:
          ```
 
          Where:
-         * `access_key`: The ID of the static access key.
-         * `secret_key`: The value of the secret access key.
+         * `access_key`: ID of the static access key.
+         * `secret_key`: Value of the secret access key.
          * `target_bucket`: Target bucket.
-         * `target_prefix`: Key prefix for objects with logs.
+         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`.
 
          For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#enable-logging).
 
-      1. Make sure that the configuration files are valid.
 
-         1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using the command:
 
-            ```
-            terraform plan
-            ```
+     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
-
-      1. Deploy the cloud resources.
-
-         1. If the configuration doesn't contain any errors, run the command:
-
-            ```
-            terraform apply
-            ```
-
-         1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-            Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+        Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
    - API
 
@@ -101,7 +118,7 @@ To log requests to the bucket:
       Where:
 
       * `<TargetBucket>`: Target bucket name.
-      * `<TargetPrefix>`: Prefix to use with all [keys](../../concepts/object.md#key) of objects with logs. Must end with `/`, such as, `logs/`. Optional.
+      * `<TargetPrefix>`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`. This is an optional parameter.
 
    {% endlist %}
 
@@ -110,6 +127,30 @@ To log requests to the bucket:
 To get the name of the target bucket and the prefix of the key for the log object, follow these steps:
 
 {% list tabs %}
+
+- AWS CLI
+
+   To retrieve the logging settings via the [AWS CLI](../../tools/aws-cli.md):
+
+   1. Run this command:
+
+      ```bash
+      aws s3api get-bucket-logging \
+        --bucket <bucket_name> \
+        --output json \
+        --endpoint-url https://{{ s3-storage-host }}
+      ```
+
+      Result:
+
+      ```json
+      {
+         "LoggingEnabled": {
+            "TargetBucket": "<bucket_name>",
+            "TargetPrefix": "<key_prefix>"
+         }
+      }
+      ```
 
 - API
 
@@ -142,7 +183,7 @@ To get your logs, download the object with the `logs/` prefix from the `bucket-l
    1. Select **{{ objstorage-name }}**.
    1. Click on the `bucket-logs` bucket name.
    1. Click on the object name with the `logs/` prefix.
-   1. Click **Download**.
+   1. Click **{{ ui-key.yacloud.storage.file.button_download }}**.
 
 {% endlist %}
 
@@ -157,7 +198,7 @@ To disable logging, follow these steps:
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To disable the logging mechanism:
@@ -190,37 +231,9 @@ To disable logging, follow these steps:
 
       {% endcut %}
 
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
+  {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   1. Check the configuration using the command:
-
-      ```
-      terraform validate
-      ```
-
-      If the configuration is correct, the following message is returned:
-
-      ```
-      Success! The configuration is valid.
-      ```
-
-   1. Run the command:
-
-      ```
-      terraform plan
-      ```
-
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
-
-   1. Apply the configuration changes:
-
-      ```
-      terraform apply
-      ```
-
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-      You can verify the changes in the [management console]({{ link-console-main }}).
+     You can verify the changes in the [management console]({{ link-console-main }}).
 
 - API
 

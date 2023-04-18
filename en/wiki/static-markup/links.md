@@ -18,9 +18,9 @@ If you paste an address with no markup, it will be converted into a hyperlink an
 --- | ---
 | `{{ link-yandex }}` | [{{ link-yandex }}]({{ link-yandex }}) |
 
-## Links to Wiki pages {#wiki-ref}
+## Links to {{ wiki-name }} pages {#wiki-ref}
 
-If you want to link to a Wiki page, you can use that page's relative address instead of the full page or cluster address.
+To link to a {{ wiki-name }} page, you can use that page's relative address instead of the full page or cluster address.
 
 ### Links to pages {#page-link}
 

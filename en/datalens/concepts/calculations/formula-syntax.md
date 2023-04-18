@@ -164,7 +164,7 @@ END
 ```
 
 
-Full description of the [IF](../../function-ref/CASE.md).
+Full description of the [IF](../../function-ref/IF.md).
 
 - `IFNULL`, `ISNULL`, `ZN`.
 

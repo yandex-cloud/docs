@@ -18,12 +18,12 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
-   1. Click the name of the desired bucket.
-   1. Go to the **HTTPS** tab.
-   1. In the panel that opens on the right, click **Configure**.
-   1. In the **Source** field, select **Your certificate**.
+   1. Click the name of the bucket you need.
+   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
+   1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}**.
    1. Add the certificate and secret key.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 {% endlist %}
 
@@ -35,19 +35,19 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
-   1. Click the name of the desired bucket.
-   1. Go to the **HTTPS** tab.
-   1. In the panel that opens on the right, click **Configure**.
-   1. In the **Source** field, select **Go to {{ certificate-manager-name }}**.
-   1. In the **Certificate** field, select the certificate from the list that opens.
+   1. Click the name of the bucket you need.
+   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
+   1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.button_create-certificate }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** field, select the certificate from the list that opens.
 
       {% note info %}
 
-      If you don't have a certificate in {{ certificate-manager-full-name }}, Click **Go to {{ certificate-manager-name }}** and follow the [instructions](../../../certificate-manager/quickstart/index.md) to create your first certificate.
+      If you do not have a certificate in {{ certificate-manager-full-name }}, click **Go to {{ certificate-manager-name }}** and follow the [instructions](../../../certificate-manager/quickstart/index.md) to create your first certificate.
 
       {% endnote %}
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 - CLI
 
@@ -55,7 +55,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to edit a bucket's ACL:
+  1. View a description of the CLI command to edit a bucket ACL:
 
      ```bash
      yc storage bucket update --help
@@ -82,7 +82,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To select a certificate from {{ certificate-manager-name }}:
@@ -93,7 +93,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
       ...
       resource "yandex_storage_bucket" "b" {
         bucket = "my-policy-bucket"
-      
+
         https {
           certificate_id = "<certificate_ID>"
         }
@@ -106,25 +106,25 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#bucket-https-certificate).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -135,5 +135,34 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can use the [management console]({{ link-console-main }}) to check the selected certificate.
+
+{% endlist %}
+
+## Upload your own security certificate {#own}
+
+To [upload](../../../certificate-manager/operations/import/cert-create.md) a custom certificate, use {{ certificate-manager-name }}.
+
+When you are uploading a chain of certificates, it should start with the domain certificate and end with the root certificate. You can create a chain file using the following command:
+
+```bash
+cat domain.pem intermediate.pem rootca.pem > bundle.pem
+```
+
+Where `domain.pem` is the domain certificate, `intermediate.pem` is the intermediate certificate, `rootca.pem` is the root certificate, and `bundle.pem` is the resulting chain.
+
+To upload a certificate:
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. Select **{{ objstorage-name }}**.
+   1. Click the name of the bucket you need.
+   1. Go to the **HTTPS** tab.
+   1. In the panel that opens on the right, click **Configure**.
+   1. In the **Source** field, select **Your certificate**.
+   1. Add the certificate and secret key.
+   1. Click **Save**.
 
 {% endlist %}

@@ -87,7 +87,7 @@ To create a network:
 
 ## Create security groups {#create-security-groups}
 
-{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that let the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic. Two security groups will be created in the use case: the first one for the load balancer and the second one for all VMs.
 
@@ -537,7 +537,7 @@ To create a load balancer:
 
 ## Test the load balancer {#test-work}
 
-Check that the service is available on the `alb-with-ddos.com` host. To do this, run the command:
+Check that the service is available on the `alb-with-ddos.com` host. To do this, run the following command:
 
 ```bash
 curl -H "Host: alb-with-ddos.com" http://<L7 load balancer IP address>

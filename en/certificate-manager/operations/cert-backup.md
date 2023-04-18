@@ -30,11 +30,16 @@ To save a certificate:
          yc cm certificate list --help
          ```
 
-      1. Run the command:
+      1. Run this command:
 
          ```bash
          yc cm certificate list
          ```
+
+   - API
+
+      To get the certificate ID, use the [list](../api-ref/Certificate/list.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/List](../api-ref/grpc/certificate_service.md#List) gRPC API call.
+
 
    {% endlist %}
 
@@ -54,7 +59,7 @@ To save a certificate:
          yc cm certificate content --help
          ```
 
-      1. Run the command:
+      1. Run this command:
 
          ```bash
          yc cm certificate content \
@@ -63,6 +68,10 @@ To save a certificate:
            --key <path_to_file_to_change_key_to>
          ...
          ```
+
+   - API
+
+      To get the certificate contents, use the [get](../api-ref/CertificateContent/get.md) REST API method for the [CertificateContent](../api-ref/CertificateContent/) resource or the [CertificateContentService/Get](../api-ref/grpc/certificate_content_service.md#Get) gRPC API call.
 
    {% endlist %}
 
@@ -113,7 +122,7 @@ To restore a user certificate from the certificate chain and key files:
          yc cm certificate create --help
          ```
 
-      1. Run the command:
+      1. Run this command:
 
          ```bash
          yc cm certificate create \
@@ -122,6 +131,10 @@ To restore a user certificate from the certificate chain and key files:
            --key <path_to_private_key_file>
          ...
          ```
+
+   - API
+
+      To import a certificate, use the [create](../api-ref/Certificate/create.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/Create](../api-ref/grpc/certificate_service.md#Create) gRPC API call.
 
    {% endlist %}
 

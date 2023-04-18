@@ -5,6 +5,7 @@ You can get a CSV file with your general or per-resource spending details.
 ## Before you start {#before-you-begin}
 
 1. If you do not have any [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create a folder](../../resource-manager/operations/folder/create.md). In the folder name, specify the name of the project or client that is going to use this folder.
+
 1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}. {{ yandex-cloud }} will save detail files to this bucket. You can save details in multiple buckets.
 
    {% note alert %}
@@ -64,12 +65,12 @@ The table contains the following columns:
    * {{ vpc-name }}: ID of the resource that processes incoming or outgoing traffic.
    * {{ kms-short-name }}: ID of the key.
    * {{ network-load-balancer-name }}: ID of the network load balancer.
-   * {{ container-registry-name }}: ID of the container.
+   * {{ container-registry-short-name }}: ID of the container.
    * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
-   * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} and {{ mkf-name }} — ID of the cluster host.
-   * {{ message-queue-name }} : ID of the request.
+   * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: ID of the cluster host.
+   * {{ message-queue-name }}: ID of the request.
    * {{ sf-name }} : ID of the function.
-   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} and {{ vision-short-name }}: An empty value.
+   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }}, and {{ vision-short-name }}: An empty value.
    * Technical support: ID of the subscription.
 * `service_id`: ID of the service that the consumed product belongs to.
 * `service_name`: Name of the service that the consumed product belongs to.
@@ -82,10 +83,10 @@ The table contains the following columns:
 * `cost`: Total cost of consumption. The decimal separator is a dot.
 * `credit`: Discount amount. The decimal separator is a dot.
 * `monetary_grant_credit`: Discount from a grant, including the grant for trying the platform. The decimal separator is a dot.
-* `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a dot.
-* `cud_credit`: Discount for the [committed volume](../concepts/cvos.md) of the resource. The cost of consumption in excess of the commitment equals the difference between the `cost` and `credit` column values. The decimal separator is a dot.
-* `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a dot.
-* `label.user_labels.<label name>`: Labels set for resources. How to manage tags is described in [Service resource labels](../../overview/concepts/services.md#labels).
+* `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a period.
+* `cud_credit`: Discount for the [committed volume](../concepts/cvos.md) of the resource. The cost of consumption in excess of the commitment equals the difference between the `cost` and `credit` column values. The decimal separator is a period.
+* `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a period.
+* `label.user_labels.<label name>`: Labels set for resources. For information about how to manage labels, see [{#T}](../../resource-manager/operations/manage-labels.md).
 * `locale`: Language of each exported line. The value of this field determines the `sku_name` column language. Possible values are `en` and `ru`.
 * `updated_at`: Date and time of the last line update in [Unix Timestamp](https://www.unixtimestamp.com) format.
 * `exported_at`: Date and time when the line was added to the detail file.

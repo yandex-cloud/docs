@@ -42,6 +42,6 @@ description: "In this tutorial, you'll learn how to delete authorized keys in {{
 
 - API
 
-   To delete the authorized key, use the [delete](../../api-ref/Key/delete.md) method for the [Key](../../api-ref/Key/index.md) resource.
+   To delete an authorized key, use the [delete](../../api-ref/Key/delete.md) REST API method for the [Key](../../api-ref/Key/index.md) resource or the [KeyService/Delete](../../api-ref/grpc/key_service.md#Delete) gRPC API call.
 
 {% endlist %}

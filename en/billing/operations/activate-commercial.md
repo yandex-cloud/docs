@@ -1,12 +1,12 @@
 # Activate the paid version
 
-You need to activate the paid version within thirty days after the trial period ends. Otherwise all of your resources are deleted automatically.
+You need to activate the paid version within thirty days after the trial period ends. Otherwise, all of your resources are deleted automatically.
 
 If you didn't spend the entire amount of the [initial grant](../concepts/bonus-account.md) in the trial period, you can use the remaining amount in the future to pay for resources consumed.
 
 To upgrade to the paid version:
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
-1. Select an account on the **List of accounts** page.
+1. Select an account on the **Accounts** page.
 1. On the **Overview** page, click **Upgrade to the paid version**.
 1. Confirm the action by clicking **Upgrade to the paid version** again.
 

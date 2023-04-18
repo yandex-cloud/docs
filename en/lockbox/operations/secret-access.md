@@ -6,7 +6,7 @@
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ lockbox-short-name }}**.
-   1. Click the name of the desired secret.
+   1. Click the name of the secret you need.
    1. On the left-hand panel, select ![image](../../_assets/organization/icon-groups.svg) **Access rights** and click **Assign roles**.
    1. In the window that opens, click ![image](../../_assets/plus-sign.svg) **Select user**.
    1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) to grant access to a secret to.
@@ -35,8 +35,9 @@
       +----------------------+-------------+------------+---------------------+----------------------+--------+
       ```
 
-   1. Assign the role to a secret for a user or a [service account](../../iam/concepts/users/service-accounts.md):
-      * For a user:
+   1. To assign a role for a secret:
+
+      * To a user:
 
          ```bash
          yc lockbox secret add-access-binding \
@@ -47,10 +48,10 @@
 
          Where:
          * `id`: Secret ID.
-         * `user-account-id`: [User id](../../iam/operations/users/get.md).
-         * `role`: The [role](../security/index.md#roles-list) assigned.
+         * `user-account-id`: [User ID](../../iam/operations/users/get.md).
+         * `role`: [Role](../security/index.md#roles-list) being assigned.
 
-      * For a service account:
+      * To a [service account](../../iam/concepts/users/service-accounts.md):
 
          ```bash
          yc lockbox secret add-access-binding \
@@ -61,14 +62,20 @@
 
          Where:
          * `id`: Secret ID.
-         * `service-account-id`: [The ID of your service account](../../iam/operations/sa/get-id.md).
-         * `role`: The [role](../security/index.md#roles-list) assigned.
+         * `service-account-id`: [ID of your service account](../../iam/operations/sa/get-id.md).
+         * `role`: [Role](../security/index.md#roles-list) being assigned.
+
+- API
+
+   To configure access rights to a secret, use the [setAccessBindings](../api-ref/Secret/setAccessBindings.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/SetAccessBindings](../api-ref/grpc/secret_service.md#SetAccessBindings) gRPC API call.
 
 {% endlist %}
 
-{% note info %}
+{% note warning %}
 
-You can also [assign](../../iam/operations/roles/grant.md) the role for a resource from which access rights are inherited, for example, for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) or [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) to a group, user, or service account.
+If you [assign](../../iam/operations/roles/grant.md) a group, user, or service account a role for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) or [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) where the secret is stored, all permissions of this role will also apply to the secret.
+
+For more information, see [How access management works](../../iam/concepts/access-control/#inheritance).
 
 {% endnote %}
 

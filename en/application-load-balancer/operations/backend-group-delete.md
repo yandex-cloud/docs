@@ -1,4 +1,4 @@
-# Delete a backend group
+# Deleting backend group
 
 {% note warning %}
 
@@ -48,7 +48,7 @@ To delete a backend group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and delete the fragment with the backend group description.
 
       Sample backend group description in the {{ TF }} configuration:
@@ -88,5 +88,9 @@ To delete a backend group:
       ```bash
       yc alb backend-group list
       ```
+
+- API
+
+   Use the [delete](../api-ref/BackendGroup/delete.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Delete](../api-ref/grpc/backend_group_service.md#Delete) gRPC API call.
 
 {% endlist %}

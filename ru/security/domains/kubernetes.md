@@ -49,7 +49,7 @@
 
 Выполните ограничение сетевого доступа к API {{ k8s }} (мастер) и группам узлов согласно [инструкции для групп безопасности](../../managed-kubernetes/operations/connect/security-groups.md).
 
-В случае использования ALB в качестве [Ingress Gateway](../../managed-kubernetes/tutorials/alb-ingress-controller.md) также необходимо:
+В случае использования ALB в качестве [Ingress Gateway](../../application-load-balancer/tools/k8s-ingress-controller/index.md) также необходимо:
 
 1. Применить группу безопасности на ALB.
 2. Дополнительно применить группу безопасности на группу узлов:
@@ -85,11 +85,11 @@
 
 Существует как минимум 2 варианта Ingress-контроллера, которые можно использовать в {{ yandex-cloud }}:
 -	[NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
--	[{{ alb-name }} Ingress-контроллера](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+-	[{{ alb-name }} Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 Преимущества {{ alb-name }} Ingress-контроллера:
 * интеграция с облачным сервисом [{{ certificate-manager-full-name }}](../../certificate-manager/);
-* отсутствие необходимости установки контроллера в кластер, так как все разворачивается на стороне [{{ alb-name }}](../../application-load-balancer/)).
+* отсутствие необходимости установки контроллера в кластер, так как все разворачивается на стороне [{{ alb-name }}](../../application-load-balancer/).
 
 #### Ограничение доступа к метаданным ВМ группы узлов {#metadata-access-restriction}
 
