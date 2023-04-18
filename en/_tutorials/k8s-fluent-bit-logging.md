@@ -36,82 +36,82 @@ To set up transfer of logs:
 
 - Manually
 
-  1. Create the objects necessary for Fluent Bit to run:
+   1. Create the objects necessary for Fluent Bit to run:
 
-     {% list tabs %}
+      {% list tabs %}
 
-     - For clusters with {{ k8s }} versions 1.21 and lower:
+      - For clusters with {{ k8s }} versions 1.21 and lower:
 
-       ```bash
-       kubectl create namespace logging && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role.yaml && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding.yaml
-       ```
+         ```bash
+         kubectl create namespace logging && \
+         kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml && \
+         kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role.yaml && \
+         kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding.yaml
+         ```
 
-     - For clusters with {{ k8s }} versions 1.22 and higher:
+      - For clusters with {{ k8s }} versions 1.22 and higher:
 
-       ```bash
-       kubectl create namespace logging && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-1.22.yaml && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding-1.22.yaml
-       ```
+         ```bash
+         kubectl create namespace logging && \
+         kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml && \
+         kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-1.22.yaml && \
+         kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding-1.22.yaml
+         ```
 
-     {% endlist %}
+      {% endlist %}
 
-  1. Create a secret including the key of the service account:
+   1. Create a secret including the key of the service account:
 
-     ```bash
-     kubectl create secret generic secret-key-json \
-       --from-file=key.json \
-       --namespace logging
-     ```
+      ```bash
+      kubectl create secret generic secret-key-json \
+        --from-file=key.json \
+        --namespace logging
+      ```
 
-  1. Download the `config.yaml` configuration file:
+   1. Download the `config.yaml` configuration file:
 
-     ```bash
-     wget https://raw.githubusercontent.com/knpsh/yc-logging-fluent-bit-example/main/config.yaml
-     ```
+   ```bash
+   wget https://raw.githubusercontent.com/knpsh/yc-logging-fluent-bit-example/main/config.yaml
+   ```
 
-  1. Enter the log output parameters in the `data.output-elasticsearch.conf` section in `config.yaml`:
+   1. Enter the log output parameters in the `data.output-elasticsearch.conf` section in `config.yaml`:
 
-     ```yaml
-     ...
-       output-elasticsearch.conf: |
-         [OUTPUT]
-           Name            yc-logging
-           Match           *
-           group_id        <log group ID>
-           resource_id     <optional: cluster ID {{ k8s }}>
-           message_key     log
-           authorization   iam-key-file:/etc/secret/key.json
-     ...
-     ```
+      ```yaml
+      ...
+        output-elasticsearch.conf: |
+          [OUTPUT]
+            Name            yc-logging
+            Match           *
+            group_id        <og group ID>
+            resource_id     <optional: cluster ID {{ k8s }}>
+            message_key     log
+            authorization   iam-key-file:/etc/secret/key.json
+      ...
+      ```
 
-     You can request the log group ID with a [list of log groups in the folder](../logging/operations/list.md).
+      You can request the log group ID with a [list of log groups in the folder](../logging/operations/list.md).
 
-     If necessary, specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for the Fluent Bit.
-  1. Create Fluent Bit objects:
+      If necessary, specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for the Fluent Bit.
+   1. Create Fluent Bit objects:
 
-     ```bash
-     kubectl apply -f config.yaml
-     ```
+      ```bash
+      kubectl apply -f config.yaml
+      ```
 
-     Result:
+      Result:
 
-     ```text
-     configmap/fluent-bit-config created
-     daemonset.apps/fluent-bit created
-     ```
+      ```text
+      configmap/fluent-bit-config created
+      daemonset.apps/fluent-bit created
+      ```
 
-  1. Make sure the Fluent Bit status changed to `Running`:
+   1. Make sure the Fluent Bit status changed to `Running`:
 
-     ```bash
-     kubectl get pods -n logging
-     ```
+      ```bash
+      kubectl get pods -n logging
+      ```
 
-  1. [Check transmission of {{ k8s}} cluster logs](../logging/operations/read-logs.md) to {{ cloud-logging-name }}.
+   1. [Check transmission of {{ k8s}} cluster logs](../logging/operations/read-logs.md) to {{ cloud-logging-name }}.
 
 {% endlist %}
 

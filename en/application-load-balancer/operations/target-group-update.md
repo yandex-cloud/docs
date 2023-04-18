@@ -1,4 +1,4 @@
-# Edit a target group
+# Editing target group
 
 You can add or remove instances from a target group.
 
@@ -52,7 +52,7 @@ To add a VM to a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and add the `target` section with target parameters to the fragment describing the target group:
 
       ```hcl
@@ -97,6 +97,10 @@ To add a VM to a target group:
       ```bash
       yc alb target-group get --name <target group name>
       ```
+
+- API
+
+   Use the [addTargets](../api-ref/TargetGroup/addTargets.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/AddTargets](../api-ref/grpc/target_group_service.md#AddTargets) gRPC API call.
 
 {% endlist %}
 
@@ -150,7 +154,7 @@ To remove a VM from a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and delete the `target` section with the IP address of the VM to be removed in the fragment describing the target group:
 
       Sample target group description in the {{ TF }} configuration:
@@ -186,5 +190,9 @@ To remove a VM from a target group:
       ```bash
       yc alb target-group get --name <target group name>
       ```
+
+- API
+
+   Use the [removeTargets](../api-ref/TargetGroup/removeTargets.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroup/RemoveTargets](../api-ref/grpc/target_group_service.md#RemoveTargets) gRPC API call.
 
 {% endlist %}

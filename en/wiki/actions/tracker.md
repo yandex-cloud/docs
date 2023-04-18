@@ -1,14 +1,13 @@
 # Issues from {{ tracker-full-name }}
 
-[{{ tracker-full-name }}]({{ link-tracker }}) is a service for managing your projects and activities. Read more about the service features in the [{{ tracker-full-name }} documentation](../../tracker/).
+[{{ tracker-full-name }}]({{ link-tracker }}) is a service for managing your projects and activities. You can read more about the service features in the [{{ tracker-full-name }} documentation](../../tracker/).
 
 {{ tracker-full-name }} users can place a link to an issue or a list of issues on {{ wiki-name }} pages.
 
 
-
 ## Issue link {#ticket}
 
-You can add _magic links_ to specific issues directly to the [Wiki page text or using the visual editor](../pages-types.md). These links always include the key, name, status of the issue, and the assignee's username. To insert a link to an issue, copy its key and paste it in the text of the page.
+You can place _magic links_ to specific issues on the [pages created in the new or old editor](../pages-types.md). These links always include the key, name, status of the issue, and the assignee's username. To insert a link to an issue, copy its key and paste it in the text of the page.
 
 Example:
 
@@ -18,7 +17,7 @@ Example:
 
 ## List of issues {#ticket-list}
 
-Using the `not_var{{tasks}}` block, you can add an automatically generated list of issues to your Wiki page. For example:
+Using the `not_var{{tasks}}` block, you can add an automatically generated list of issues to a page created in the old editor. For example:
 
 ```
 {{tasks url="URL of the filter or the queue"}}
@@ -36,19 +35,21 @@ Using the `not_var{{tasks}}` block, you can add an automatically generated list 
 
 ### Issue lists with parameters {#tasks-vars}
 
-Using dynamic tables, you can add a list of issues and their main parameters to your Wiki page:
+Using dynamic tables, you can add a list of issues and their main parameters to your {{ wiki-name }} page:
 
 1. [Create](../create-grid.md) a dynamic table.
 
-1. Create a column with the **Tracker issue** data type.
+1. Create a column with the ![](../../_assets/wiki/svg/type-tracker.svg) **{{ tracker-name }} issue** data type.
 
 1. Add the required number of rows and list the issue keys in them.
 
-1. Create additional columns. Specify the necessary issue parameters as the data type. For example, the issue's **Summary**, **Reporter**, or **Type**.
+1. Create additional columns. As the data type, select ![](../../_assets/wiki/svg/type-task-parameters.svg) **Issue parameters**, such as the issue's **Summary**, **Reporter**, or **Type**.
 
 1. Save the table.
 
-As a result, the columns with the issue parameters are filled in automatically. The resulting table can be [embedded in a Wiki page](../add-grid.md).
+As a result, the columns with the issue parameters are filled in automatically. The resulting table can be [embedded in a {{ wiki-name }} page](../add-grid.md).
 
-Example: 
+Example:
+
 ![](../../_assets/wiki/tickets-grid-example.png)
+

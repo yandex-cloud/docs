@@ -41,7 +41,7 @@ After creating a [custom certificate](../../concepts/imported-certificate.md), y
       +----------------------+--------+-------------+---------------------+----------+--------+
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       yc certificate-manager certificates update \
@@ -69,6 +69,6 @@ After creating a [custom certificate](../../concepts/imported-certificate.md), y
 
 - API
 
-   To update a certificate, use the [update](../../api-ref/Certificate/update.md) method for the [Certificate](../../api-ref/Certificate/) resource.
+   To update a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
 
 {% endlist %}

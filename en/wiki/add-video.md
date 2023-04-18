@@ -1,12 +1,12 @@
 # Adding a video or audio
 
 
-To add a video or audio file to a Wiki page, use the [dynamic block not_var{{iframe}}](actions/iframe.md) It enables you to add media files from external sources, such as Yandex&#160;Music, Vimeo, or YouTube.
+To add a video or audio file to a page, use the [dynamic block not_var{{iframe}}](actions/iframe.md). It enables you to add media files from external sources, such as Yandex&#160;Music, Vimeo, or YouTube.
 
 
-1. Open the Wiki page and click **Edit**.
+1. Open the page and click **Edit**.
 
-1. Add the dynamic block code with a link to the media file to the Wiki page. Use the link for publishing files on external resources. These links are usually referred to as the "Embed code" or "HTML code".
+1. Add the dynamic block code with a link to the media file to the page. Use the link for publishing files on external resources. These links are usually referred to as the "Embed code" or "HTML code".
 
 {% note tip %}
 

@@ -1,6 +1,6 @@
 # Bucket object lifecycle configuration
 
-{{ objstorage-name }} lets you manage [lifecycles of objects](../../../concepts/lifecycles.md) in a bucket. To upload the lifecycle configuration to {{ objstorage-name }}, you need to make an XML document as described in this section. You can obtain a document in this format by downloading an existing configuration.
+{{ objstorage-name }} allows you to manage [object lifecycles](../../../concepts/lifecycles.md) in a bucket. To upload lifecycle configuration to {{ objstorage-name }}, you need to create an XML document as described in this section. You can obtain a document in this format by downloading an existing configuration.
 
 General configuration format:
 
@@ -61,8 +61,8 @@ A configuration may contain up to 1000 rules.
 | `Rule` | Rule description.<br/><br/>Objects that meet the rule are set by the `Filter` element. Actions on objects are defined by the `Transition` and `Expiration` elements. There can be multiple actions of each type.<br/><br/>Path: `LifecycleConfiguration\Rule`. |
 | `Status` | Rule status.<br/><br/>You can activate a rule by setting `<Status>Enabled</Status>` or deactivate it by setting `<Status>Disabled</Status>`.<br/><br/>Path: `LifecycleConfiguration\Rule\Status`. |
 | `StorageClass` | [Storage class](../../../concepts/storage-class.md) of the object.<br/><br/>Path: `LifecycleConfiguration\Rule\Transition\StorageClass`. |
-| `Transition` | Rule for changing the [storage class](../../../concepts/storage-class.md) of an object.<br/><br/>It contains the `StorageClass` element, which defines the target storage class and the `Date` or `Days` element, which determines when the action expires.<br/><br/>You can only move objects from `STANDARD` to `COLD` storage.<br/><br/>Path: `LifecycleConfiguration\Rule\Transition\`. |
-| `NoncurrentVersionTransition` | Rule for changing the [storage class](../../../concepts/storage-class.md) of non-current object versions. This rule only applies to non-current versions of an object rather than the entire object.<br/><br/>Contains the `StorageClass` element that sets the target storage class and the `NoncurrentDays` element that sets the action expiry.<br/><br/>You can only move objects from `STANDARD` to `COLD` storage.<br/><br/>Path: `LifecycleConfiguration\Rule\NoncurrentVersionTransition`. |
+| `Transition` | Rule for changing the [storage class](../../../concepts/storage-class.md) of an object.<br/><br/>It contains the `StorageClass` element that defines the target storage class and the `Date` or `Days` element that determines when the action expires.<br/><br/>You can move objects from `STANDARD` to `COLD` or `ICE` storage and from `COLD` to `ICE` storage.<br/><br/>Path: `LifecycleConfiguration\Rule\Transition\`. |
+| `NoncurrentVersionTransition` | Rule for changing the [storage class](../../../concepts/storage-class.md) of non-current object versions. This rule only applies to non-current versions of an object rather than to the entire object.<br/><br/>It contains the `StorageClass` element that sets the target storage class and the `NoncurrentDays` element that sets the action expiry.<br/><br/>You can move objects from `STANDARD` to `COLD` or `ICE` storage and from `COLD` to `ICE` storage.<br/><br/>Path: `LifecycleConfiguration\Rule\NoncurrentVersionTransition`. |
 | `NoncurrentVersionExpiration` | Rule for deleting non-current object versions from {{ objstorage-name }}. This rule only applies to non-current versions of an object rather than the entire object.<br/><br/>Contains the `NoncurrentDays` element that sets the action expiry.<br/><br/>Path: `LifecycleConfiguration\Rule\NoncurrentVersionExpiration`. |
 
 ## Example {#example}
@@ -71,7 +71,7 @@ The rule below applies to all objects uploaded to the bucket as follows:
 
 - They are moved to cold storage 30 days after being uploaded to {{ objstorage-name }}.
 - They are deleted from {{ objstorage-name }} 365 days after being uploaded.
-- Deleting incomplete uploads from {{ objstorage-name }} 5 days after the start of the object upload.
+- Deleting incomplete uploads from {{ objstorage-name }} five days after the start of the object upload.
 
 ```xml
 <LifecycleConfiguration>

@@ -1,9 +1,9 @@
 ---
 title: "How to edit a backend group in {{ alb-full-name }}"
-description: "Step-by-step instructions for editing a backend group."
+description: "Step-by-step guide for editing a backend group."
 ---
 
-# Edit a backend group
+# Editing backend group
 
 ## Update a group's basic parameters {#update-group}
 
@@ -53,7 +53,7 @@ description: "Step-by-step instructions for editing a backend group."
       yc alb backend-group update --help
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       yc alb backend-group update \
@@ -66,13 +66,13 @@ description: "Step-by-step instructions for editing a backend group."
 
       Where:
       * `--name`: Name of the backend group.
-      * `--new-name`: New name of the backend group. Naming requirements:
+      * `--new-name`: New name of the backend group. The naming requirements are as follows:
 
          {% include [name-format-2](../../_includes/name-format-2.md) %}
 
-      * `--description`: Description of the backend group. Optional.
-      * `--labels key=value`: List of labels in `key=value` format. Optional.
-      * `--connection-affinity source-ip=<true_or_false>`: Mode of [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) based on IP address (`source-ip`). Optional. The `--cookie-affinity` mode (by cookie) and `--header-affinity` mode (by HTTP header) are available. Only one of the modes can be specified. If the backend group has the [Stream](../concepts/backend-group#group-types) type, the affinity mode can only be `--connection-affinity`.
+      * `--description`: Description of the backend group. This is an optional parameter.
+      * `--labels key=value`: List of labels in `key=value` format. This is an optional parameter.
+      * `--connection-affinity source-ip=<true_or_false>`: Mode of [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) based on IP (`source-ip`). This is an optional parameter. The `--cookie-affinity` mode (by cookie) and `--header-affinity` mode (by HTTP header) are available. Only one of the modes can be specified. If the backend group has the [Stream](../concepts/backend-group#group-types) type, the affinity mode can only be `--connection-affinity`.
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
@@ -114,7 +114,7 @@ description: "Step-by-step instructions for editing a backend group."
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and edit the fragment with the backend group description:
 
@@ -136,8 +136,8 @@ description: "Step-by-step instructions for editing a backend group."
 
       `yandex_alb_backend_group` specifies the backend group parameters:
       * `name`: Backend group name.
-      * `description`: Backend group description. Optional.
-      * `labels`: List of labels in `key=value` format. Optional.
+      * `description`: Backend group description. This is an optional parameter.
+      * `labels`: List of labels in `key=value` format. This is an optional parameter.
       * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) (an optional parameter).
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
@@ -154,6 +154,10 @@ description: "Step-by-step instructions for editing a backend group."
       ```bash
       yc alb backend-group get --name <backend_group_name>
       ```
+
+- API
+
+   To change the basic group parameters, use the [update](../api-ref/BackendGroup/update.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -184,7 +188,7 @@ description: "Step-by-step instructions for editing a backend group."
 
    {% cut "HTTP backend" %}
 
-   Run the command:
+   Run this command:
 
    ```bash
    yc alb backend-group add-http-backend \
@@ -225,7 +229,7 @@ description: "Step-by-step instructions for editing a backend group."
 
    {% cut "Stream backend" %}
 
-   Run the command:
+   Run this command:
 
    ```bash
    yc alb backend-group add-stream-backend \
@@ -268,7 +272,7 @@ description: "Step-by-step instructions for editing a backend group."
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and add a section describing a backend (`http_backend`, `grpc_backend`, or `stream_backend`) to the fragment with the backend group description:
 
    ```hcl
@@ -326,6 +330,10 @@ description: "Step-by-step instructions for editing a backend group."
       yc alb backend-group get --name <backend group name>
       ```
 
+- API
+
+   To change the basic group parameters, use the [addBackend](../api-ref/BackendGroup/addBackend.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#AddBackend) gRPC API call.
+
 {% endlist %}
 
 ## Update parameters for a backend in a group {#update-backend}
@@ -358,7 +366,7 @@ description: "Step-by-step instructions for editing a backend group."
 
       {% cut "HTTP backend" %}
 
-      Run the command:
+      Run this command:
 
       ```bash
       yc alb backend-group update-http-backend \
@@ -399,7 +407,7 @@ description: "Step-by-step instructions for editing a backend group."
 
       {% cut "Stream backend" %}
 
-      Run the command:
+      Run this command:
 
       ```bash
       yc alb backend-group update-stream-backend \
@@ -442,7 +450,7 @@ description: "Step-by-step instructions for editing a backend group."
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and update the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) in the fragment with the description of the backend group:
 
       ```hcl
@@ -499,6 +507,10 @@ description: "Step-by-step instructions for editing a backend group."
       ```bash
       yc alb backend-group get --name <backend group name>
       ```
+
+- API
+
+   To change the backend parameters in the group, use the [updateBackend](../api-ref/BackendGroup/updateBackend.md) REST API method for the [UpdateBackend](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/UpdateBackend](../api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call.
 
 {% endlist %}
 
@@ -559,7 +571,7 @@ To remove a backend from a group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and delete the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) from the fragment with the description of the backend group.
 
       Sample backend group description in the {{ TF }} configuration:
@@ -599,5 +611,9 @@ To remove a backend from a group:
       ```bash
       yc alb backend-group get --name <backend group name>
       ```
+
+- API
+
+   Use the [removeBackend](../api-ref/BackendGroup/removeBackend.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/RemoveBackend](../api-ref/grpc/backend_group_service.md#RemoveBackend) gRPC API call.
 
 {% endlist %}

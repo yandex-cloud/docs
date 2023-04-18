@@ -7,13 +7,7 @@ The [limit](../../speechkit/concepts/limits.md#speechkit-limits) on the size of 
 
 #### How do I set up stress and pronunciation? {#tts-stress-pronunciation}
 
-To adjust the pronunciation of individual words and text in general, use [SSML](../../speechkit/tts/ssml.md).
-
-#### Is it possible to test premium voices? {#premium-voices}
-
-You can try voices named **Alena** and **Filipp** on the [service page](/services/speechkit#demo).
-
-For more information about pricing for premium voices, see the [documentation](../../speechkit/pricing.md#prices).
+To adjust the pronunciation of individual words and the text in general, use the [SSML](../../speechkit/tts/markup/ssml.md) or [TTS](../../speechkit/tts/markup/tts-markup.md) markup.
 
 #### Error: unsupported content-type: application/json {#content-type}
 
@@ -37,15 +31,13 @@ Make sure you do not use SSML in the `text` parameter. If you specify text in SS
 
 To set a pause in your text, add a sil tag. Specify the pause duration in milliseconds in parentheses. A pause will appear where you place the tag. For example: `Start sil<[3000]> continue in 3 seconds`.
 
-#### A cURL request doesn't work in Windows PowerShell {#curl-powershell}
+#### A cURL request does not work in Windows PowerShell {#curl-powershell}
 
-In Windows PowerShell `curl` is, by default, an alias for an [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest) system call. To repeat the [example from the documentation](../../speechkit/tts/request.md#ssml), use the code:
+In Windows PowerShell `curl` is, by default, an alias for an [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest) system call. To repeat the [example from the documentation](../../speechkit/tts/request.md#ssml), use the following code:
 
 `Invoke-WebRequest -Method 'Post' -H @{'Authorization' = 'Bearer your_token'} -Body "lang=ru-RU&folderId= your_folder_id&ssml=$([System.Net.WebUtility]::UrlEncode($(Get-Content -Path C:\curl\new.xml)))" -OutFile C:\curl\output.ogg "https://tts.{{ api-host }}/speech/v1/tts:synthesize"`
 
-#### Premium voices start stuttering on long texts {#premium-stutter}
-
-The development team is aware of the issue and is working on fixing it. For now, to voice long texts, break them into shorter fragments.
+You can find more recommendations for Windows users in [{#T}](../../overview/concepts/console-syntax-guide.md).
 
 #### What goes into the cost of using the service? {#tts-cost}
 

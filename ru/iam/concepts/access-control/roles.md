@@ -12,6 +12,10 @@ _Роль_ — это набор разрешений, который опред
 
 ## Примитивные роли {#primitive-roles}
 
+На диаграмме показано, какие примитивные роли есть в {{ yandex-cloud }} и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
+
+![image](../../../_assets/iam/security/primitive-roles-hierarchy.svg)
+
 ### {{ roles-auditor }} {#auditor}
 
 {% include [roles-auditor](../../../_includes/roles-auditor.md) %}

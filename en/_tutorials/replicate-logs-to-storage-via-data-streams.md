@@ -3,7 +3,7 @@
 With [{{ yds-full-name }}](../data-streams/), you can set up automatic replication of service and user application logs to [{{ objstorage-full-name }}](../storage/).
 
 The solution works as described below:
-1. Logs, for example, from a [VM instance](../compute/concepts/vm.md) are sent to a {{ cloud-logging-name }} [log group](../logging/concepts/log-group.md).
+1. Logs, for example, from a [VM instance](../compute/concepts/vm.md), are sent to a {{ cloud-logging-name }} [log group](../logging/concepts/log-group.md).
 1. The log group settings specify the {{ yds-name }} [stream](../data-streams/concepts/glossary.md#stream-concepts) where the logs are transmitted automatically.
 1. A {{ data-transfer-name }} [transfer](../data-transfer/concepts/#transfer) is set up to fetch data from the stream and save it to an {{ objstorage-name }} [bucket](../storage/concepts/bucket.md).
 
@@ -33,7 +33,7 @@ The cost of data storage support includes:
 
 ## Configure the environment {#prepare-environment}
 
-1. [Create](../iam/operations/sa/create.md) a service account, for example, `logs-sa`, assigned the `editor` [role](../iam/concepts/access-control/roles.md#editor) for the folder.
+1. [Create](../iam/operations/sa/create.md) a service account, e.g., `logs-sa`, with the `editor` [role](../iam/concepts/access-control/roles.md#editor) assigned for the folder.
 1. [Set up](../logging/tutorials/) the transfer of logs to the log group. For example, you can [transfer](../logging/tutorials/vm-fluent-bit-logging.md) logs from a VM instance or [add](../logging/operations/write-logs.md) test records to the log group.
 
 {% include [create-bucket](_tutorials_includes/create-bucket.md) %}
@@ -59,7 +59,7 @@ The cost of data storage support includes:
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 
 1. [Delete the transfer](../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../data-transfer/operations/endpoint/#delete).

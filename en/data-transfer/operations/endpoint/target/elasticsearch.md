@@ -19,7 +19,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}. Available only f
 
 - Management console
 
-   {% include [Managed ElasticSearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-elasticsearch.md) %}
+   {% include [Managed Elasticsearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-elasticsearch.md) %}
 
 {% endlist %}
 
@@ -32,7 +32,7 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 - Management console
 
-   {% include [On premise ElasticSearch UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-elasticsearch.md) %}
+   {% include [On premise Elasticsearch UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-elasticsearch.md) %}
 
 {% endlist %}
 

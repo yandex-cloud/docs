@@ -74,9 +74,19 @@ To edit an [origin group](../../concepts/origins.md):
 
       For more information about the `yc cdn origin-group update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/update.md).
 
+- API
+
+   To update a source group, use the [update](../../api-ref/OriginGroup/update.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Update](../../api-ref/grpc/origin_group_service.md#Update) gRPC API call.
+
 {% endlist %}
 
 ## Removing one origin from a group {#group-source-deletion}
+
+{% note info %}
+
+You can only delete backup origins.
+
+{% endnote %}
 
 To remove an origin from an origin group:
 
@@ -88,18 +98,21 @@ To remove an origin from an origin group:
    1. Select **{{ cdn-short-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups** and click the name of the group to delete an origin from.
    1. Select the desired origin and click **Delete** on the bottom panel.
-
-      {% note info %}
-
-      You can only delete a backup origin.
-
-      {% endnote %}
-
    1. In the window that opens, click **Delete**.
+
+- API
+
+   Use the [delete](../../api-ref/Origin/delete.md) REST API method for the [Origin](../../api-ref/Origin/index.md) resource or the [OriginService/Delete](../../api-ref/grpc/origin_service.md#Delete) gRPC API call.
 
 {% endlist %}
 
 ## Removing multiple origins from a group {#summ-group-source-deletion}
+
+{% note info %}
+
+You can only delete backup origins.
+
+{% endnote %}
 
 To remove multiple origins from a group:
 
@@ -111,13 +124,6 @@ To remove multiple origins from a group:
    1. Select **{{ cdn-short-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups** and click the name of the group to delete origins from.
    1. Select the desired origins and click **Delete** on the bottom panel.
-
-      {% note info %}
-
-      You can only delete backup origins.
-
-      {% endnote %}
-
    1. In the window that opens, click **Delete**.
 
 {% endlist %}

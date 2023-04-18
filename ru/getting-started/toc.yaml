@@ -2,9 +2,37 @@ title: Начало работы в {{ yandex-cloud }}
 href: index.yaml
 items:
   - name: Физическим лицам
-    href: quickstart-individuals.md
+    items:
+      - name: Шаг 1. Регистрация
+        href: individuals/registration.md
+      - name: Шаг 2. Оплата
+        href: individuals/payments.md
+      - name: Шаг 3. Выбор тарифного плана
+        href: individuals/service-plan.md
+      - name: Шаг 4. Иерархия ресурсов
+        href: individuals/resources-hierarchy.md
+      - name: Шаг 5. Настройка безопасной сетевой конфигурации
+        href: individuals/configure-network.md
+      - name: Шаг 6. Логирование
+        href: individuals/logs.md
   - name: Юридическим лицам
-    href: quickstart-legal-entity.md
+    items:
+      - name: Шаг 1. Регистрация
+        href: legal-entity/registration.md
+      - name: Шаг 2. Оплата
+        href: legal-entity/payments.md
+      - name: Шаг 3. Выбор тарифного плана
+        href: legal-entity/service-plan.md
+      - name: Шаг 4. Создание организации
+        href: legal-entity/create-organization.md
+      - name: Шаг 5. Управление пользователями
+        href: legal-entity/manage-users.md
+      - name: Шаг 6. Иерархия ресурсов
+        href: legal-entity/resources-hierarchy.md
+      - name: Шаг 7. Настройка безопасной сетевой конфигурации
+        href: legal-entity/configure-network.md
+      - name: Шаг 8. Логирование
+        href: legal-entity/logs.md
   - name: Стартовый грант
     href: usage-grant.md
   - name: Пробный период

@@ -1,0 +1,1 @@
+(Optional) [Add](../../certificate-manager/operations/index.md) your own certificate to Certificate Manager or [issue](../../certificate-manager/operations/managed/cert-create.md) a free-of-charge Let's Encrypt certificate.

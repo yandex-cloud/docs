@@ -21,10 +21,10 @@ To delete an object:
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
-   1. Click the name of the desired bucket.
-   1. To delete a single object, click ![image](../../../_assets/horizontal-ellipsis.svg) to the right of the object name and click **Delete** in the resulting window.
+   1. Click the name of the bucket you need.
+   1. To delete a single object, click ![image](../../../_assets/horizontal-ellipsis.svg) to the right of the object name; in the menu that opens, click **{{ ui-key.yacloud.storage.file.button_delete }}**.
 
-      To do the same with multiple objects, select them in the list and click **Delete** at the bottom of the screen.
+      To do the same with multiple objects, select them in the list and click **{{ ui-key.yacloud.storage.bucket.button_gr-delete }}** at the bottom of the screen.
 
       {% note info %}
 
@@ -32,14 +32,18 @@ To delete an object:
 
       {% endnote %}
 
-   1. In the window that opens, click **Delete**.
+   1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
+
+   In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+
+   In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
 
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To delete an object created with {{ TF }} from a bucket:
@@ -62,25 +66,25 @@ To delete an object:
       {% endcut %}
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```text
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -104,7 +108,7 @@ To check whether lock has been put and delete the object version when possible
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
    1. Get information about an object lock:
 

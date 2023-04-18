@@ -12,14 +12,16 @@ To delete a partially uploaded object:
    1. Select **{{ objstorage-name }}**.
    1. Select a bucket that contains a partially uploaded object.
    1. Hover over the yellow field next to the object count.
-   1. Click the **Show list** button that appears.
+   1. Click the **{{ ui-key.yacloud.storage.buckets.button_open-multipart-uploads }}** button that appears.
    1. Mark incomplete uploads you want to delete.
-   1. Click **Delete**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_delete }}**.
    1. Confirm the deletion.
+
+   In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
 
 - AWS CLI
 
-   If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
    Run the following command:
 

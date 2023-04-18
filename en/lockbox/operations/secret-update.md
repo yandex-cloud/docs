@@ -50,4 +50,8 @@ To update a secret:
         - <key>
       ```
 
+- API
+
+   To update a secret, use the [update](../api-ref/Secret/update.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Update](../api-ref/grpc/secret_service.md#Update) gRPC API call.
+
 {% endlist %}

@@ -42,9 +42,9 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
 - API
 
-   To create an access key, use the [create](../../api-ref/Key/create.md) method for the [Key](../../api-ref/Key/index.md) resource.
+   To create an access key, use the [create](../../api-ref/Key/create.md) REST API method for the [Key](../../api-ref/Key/index.md) resource or the [KeyService/Create](../../api-ref/grpc/key_service.md#Create) gRPC API call.
 
-   Sample request using cURL:
+   Sample request using cURL for the `create` REST API method:
 
    ```bash
    curl -X POST \
@@ -79,16 +79,16 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `service_account_id` = service account [ID](../sa/get-id.md). Required parameter.
-      * `description`: Key description. Optional.
-      * `key_algorithm`: A key generation algorithm. Optional. The default algorithm is `RSA_2048`. For more information about the acceptable parameter values, see the [API documentation](../../api-ref/Key/index.md).
-      * `pgp_key`: An additional PGP key for encrypting a private key. Optional. A public part of the key in base64 encoding or in the `keybase:keybaseusername` form is specified.
+      * `service_account_id` = service account [ID](../sa/get-id.md). This parameter is required.
+      * `description`: Key description. This is an optional parameter.
+      * `key_algorithm`: Key generation algorithm. This is an optional parameter. The default algorithm is `RSA_2048`. For more information about the acceptable parameter values, see the [API documentation](../../api-ref/Key/index.md).
+      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in base64 encoding or in the `keybase:keybaseusername` format.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_iam_service_account_key" "sa-auth-key" {
@@ -101,20 +101,20 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_key).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -122,7 +122,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
+      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
 
       ```
       yc iam key list --service-account-id <service account ID>

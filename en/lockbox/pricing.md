@@ -12,7 +12,7 @@ The cost of {{ lockbox-name }} usage is based on:
 
 
 
-## Pricing for secrets {#secrets}
+## Cost of storing secrets {#secrets}
 
 
 
@@ -23,7 +23,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ lockbox-name }
 
 
 
-## Pricing for requests {#requests}
+## Cost of requests for secrets {#requests}
 
 
 

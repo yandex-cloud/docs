@@ -1,4 +1,4 @@
-1. If the folder doesn't contain any keys yet, click **Create key**. If there are keys but they aren't suitable, click **Create new**.
+1. If the folder does not contain any keys yet, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key }}**. If there are keys but they are not suitable, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 1. Enter a name for the key.
 1. Select an encryption algorithm and a rotation period.
-1. Click **Create**.
+1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_create }}**.

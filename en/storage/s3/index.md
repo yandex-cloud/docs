@@ -1,5 +1,5 @@
 ---
-title: "How to use the {{ objstorage-name }} S3 API?"
+title: "How do I use the {{ objstorage-name }} S3 API?"
 keywords:
   - s3
   - s3 storage
@@ -24,8 +24,10 @@ For a list of supported Amazon S3 HTTP API methods, see the [API reference](api-
 
 ## General API request format {#common-request-form}
 
+General {{ objstorage-name }} API request format:
+
 ```
-{GET|HEAD|PUT|DELETE} /<bucket>/<key> HTTP/2
+{GET|HEAD|PUT|DELETE} /<bucket_name>/<object_key> HTTP/2
 Host: {{ s3-storage-host }}
 Content-Length: length
 Date: date
@@ -34,11 +36,13 @@ Authorization: authorization string (AWS Signature Version 4)
 Request_body
 ```
 
-The name of the bucket can be specified as part of the host name. In this case, the request looks like:
+The request contains an HTTP method, bucket name, and [object key](../concepts/object.md).
+
+The bucket name can be specified as part of the host name. In this case, the request will look like this:
 
 ```
-{GET|HEAD|PUT|DELETE} /<key>} HTTP/2
-Host: <bucket>.{{ s3-storage-host }}
+{GET|HEAD|PUT|DELETE} /<object_key>} HTTP/2
+Host: <bucket_name>.{{ s3-storage-host }}
 ...
 ```
 
@@ -48,10 +52,12 @@ If you use the API directly (without an SDK or apps), you need to generate the `
 
 ### Request URL {#request-url}
 
-URLs can taken one of the following forms:
+URLs can take one of the following forms:
 
-- `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
-- `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
+- `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query parameters>`
+- `http://<bucket_name>.{{ s3-storage-host }}/<object_key>?<query parameters>`
+
+The URL contains the bucket name, object key, and query parameters. See an example of possible query parameters in the [Get object method description](api-ref/object/get.md).
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 

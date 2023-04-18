@@ -4,7 +4,6 @@ description: "A bucket is a logical entity for storing objects. A bucket name is
 keywords:
   - what is a bucket
   - bucket
-  - bucket
   - data storage bucket
   - cloud bucket
 ---
@@ -35,11 +34,15 @@ You can use the following URL formats to access a bucket:
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 
+
+
 ## Accessing a bucket via HTTPS {#bucket-https}
 
 {{ objstorage-name }} supports secure connections over [HTTPS](https://en.wikipedia.org/wiki/HTTPS). When accessing your buckets, use URLs in the `https://{{ s3-storage-host }}/<bucket>?<parameters>` format.
 
 {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
+
+
 
 ## Bucket settings {#bucket-settings}
 
@@ -75,8 +78,10 @@ If required, you can configure permissions to the buckets and objects they conta
 - You cannot rename buckets.
 - The number of buckets does not affect the performance of {{ objstorage-name }}. How many buckets you use to store your data is up to you.
 - Buckets cannot be nested.
-- You can only delete empty buckets.
-- After deleting a bucket, you may not be able to immediately create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you released before you claim it again. Do not delete buckets without a reason.
+- In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+- You can only delete an empty bucket.
+- It may take some time after deleting a bucket before you can create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you released before you claim it again. Do not delete buckets without a reason.
+
 - Uploading objects quickly one by one may lead to exceeding the specified maximum bucket size.
 - After deleting objects from a bucket, their storage capacity is retained for some time.
 

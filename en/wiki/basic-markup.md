@@ -1,18 +1,18 @@
 # Formatting text
 
-To format text of a [Wiki page](pages-types.md#page) or [dynamic table](pages-types.md#grid), you can use markup elements. Using markup, you can highlight text in bold or italics, add titles and lists to your page, insert links, images, tables, and more.
+To format the text of a [page](pages-types.md#page) or [dynamic table](pages-types.md#grid), you can use markup elements. Using markup, you can highlight text in bold or italics, add titles and lists to your page, insert links, images, tables, and more.
 
 You can add markup elements to a page using [formatting panels](#buttons) or enter [markup symbols](#markup) from the keyboard. You can see the result on the right of the view panel.
 
 ## Formatting panel {#buttons}
 
-When you edit a Wiki page, use the formatting panel to add the most common markup elements to your text.
+When editing a page created in the old editor, use the formatting panel to add the most common markup elements to your text.
 
 ![](../_assets/wiki/format_pane.png)
 
 There are two ways to work with the formatting panel:
 
-- To add a markup element to the text, place the cursor in the desired position and click on the formatting panel. A markup template appears in the text. Add your text to it. If you clicked **Add link** or **Insert code**, enter your text and click **Add** in the window that appears.
+- To add a markup element to the text, place the cursor in the desired position and click on the formatting panel. A markup template appears in the text. Add your text to it. If you clicked **Create link** or **Insert code**, enter your text and click **Add** in the window that appears.
 
 - To format text that is already added to the page, select a text fragment and click on the formatting panel.
 
@@ -41,7 +41,7 @@ This section contains frequently used formatting elements. For a complete list o
 | Strikethrough text | `~~Strikethrough text~~` | ![](../_assets/wiki/crossed.png) |
 | Highlighted text | `??Highlighted text??` | ![](../_assets/wiki/red-background.png) |
 | Red text | `!!Red text!!` | ![](../_assets/wiki/red-colored.png) |
-| Colored text.<br/><br/>Supported colors:<br/><br/><ul><li>`red`;</li><li>`green`;</li><li>`blue`;</li><li>`grey`/`gray`;</li><li>`yellow`;</li><li>`cyan`;</li><li>`orang`;</li><li>`violet`.</li></ul> | `!!(blue)Blue text!!` | ![](../_assets/wiki/colored.png) |
+| Colored text.<br/><br/>Supported colors:<br/><br/><ul><li>`red`</li><li>`green`</li><li>`blue`</li><li>`grey`/`gray`</li><li>`yellow`</li><li>`cyan`</li><li>`orange`</li><li>`violet`.</li></ul> | `!!(blue)Blue text!!` | ![](../_assets/wiki/colored.png) |
 | Numbered list | `1. List item`<br/>`2. List item`<br/>`3. List item` | ![](../_assets/wiki/ol-flat.png) |
 | Bulleted list | `- List item`<br/>`- List item`<br/>`- List item` | ![](../_assets/wiki/ul-flat.png) |
 | Link | `[link text](http://example.com/)` | ![](../_assets/wiki/hyperlink.png) |

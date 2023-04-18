@@ -12,3 +12,4 @@
 * [Managing backups](cluster-backups.md)
 * [Viewing cluster logs](cluster-logs.md)
 * [Deleting clusters](cluster-delete.md)
+* [Monitoring the state of clusters and hosts](monitoring.md)

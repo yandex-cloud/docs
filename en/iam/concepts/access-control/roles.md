@@ -4,7 +4,7 @@ A _role_ is a set of user permissions to perform operations with {{ yandex-cloud
 
 There are two types of roles:
 * _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
-* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the role `{{ roles-image-user }}` lets you use images in the {{ compute-full-name }} service.
+* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role allows you to use images in {{ compute-full-name }}.
 
    A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
 
@@ -102,29 +102,11 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 ## {{ container-registry-full-name }} {#cr-roles}
 
-{% include [container-registry-admin](../../../_includes/roles-container-registry-admin.md) %}
+{% include [container-registry-admin](../../../_includes/iam/roles/container-registry-admin.md) %}
 
-{% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md) %}
+{% include [container-registry-puller](../../../_includes/iam/roles/container-registry-puller.md) %}
 
-{% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md) %}
-
-## {{ managed-k8s-full-name }} {#kubernetes-roles}
-
-{% include [k8s-admin](../../../_includes/roles-k8s-admin.md) %}
-
-{% include [k8s-editor](../../../_includes/roles-k8s-editor.md) %}
-
-{% include [k8s-viewer](../../../_includes/roles-k8s-viewer.md) %}
-
-{% include [k8s-clusters-agent](../../../_includes/roles-k8s-clusters-agent.md) %}
-
-{% include [k8s-cluster-api-cluster-admin](../../../_includes/roles-k8s-cluster-api-cluster-admin.md) %}
-
-{% include [k8s-cluster-api-editor](../../../_includes/roles-k8s-cluster-api-editor.md) %}
-
-{% include [k8s-cluster-api-viewer](../../../_includes/roles-k8s-cluster-api-viewer.md) %}
-
-For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
+{% include [container-registry-pusher](../../../_includes/iam/roles/container-registry-pusher.md) %}
 
 ## Managed databases {#mdb-roles}
 
@@ -137,18 +119,28 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 ## {{ dataproc-full-name }} {#dataproc-roles}
 
-{% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
+{% include [mdb.dataproc.agent](../../../_includes/iam/roles/dataproc-agent.md) %}
 
-{% include [data-proc-roles](../../../_includes/data-proc/data-proc-roles.md) %}
+{% include [data-proc-roles](../../../_includes/iam/roles/data-proc-roles.md) %}
 
+
+## {{ yds-full-name }} {#yds-roles}
+
+{% include [yds-viewer](../../../_includes/iam/roles/yds-viewer.md) %}
+
+{% include [yds-writer](../../../_includes/iam/roles/yds-writer.md) %}
+
+{% include [yds-editor](../../../_includes/iam/roles/yds-editor.md) %}
+
+{% include [yds-admin](../../../_includes/iam/roles/yds-admin.md) %}
 
 ## {{ data-transfer-full-name }} {#data-transfer-roles}
 
-{% include [data-transfer-viewer](../../../_includes/roles-data-transfer-viewer.md) %}
+{% include [data-transfer-viewer](../../../_includes/iam/roles/data-transfer-viewer.md) %}
 
-{% include [data-transfer-privateadmin](../../../_includes/roles-data-transfer-privateadmin.md) %}
+{% include [data-transfer-privateadmin](../../../_includes/iam/roles/data-transfer-privateadmin.md) %}
 
-{% include [data-transfer-admin](../../../_includes/roles-data-transfer-admin.md) %}
+{% include [data-transfer-admin](../../../_includes/iam/roles/data-transfer-admin.md) %}
 
 
 ## {{ datalens-full-name }} {#datalens-roles}
@@ -230,15 +222,141 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
 
+## {{ mkf-full-name }} {#mkf-roles}
+
+{% include [mkf-auditor](../../../_includes/iam/roles/mkf-auditor.md) %}
+
+{% include [mkf-viewer](../../../_includes/iam/roles/mkf-viewer.md) %}
+
+{% include [mkf-editor](../../../_includes/iam/roles/mkf-editor.md) %}
+
+{% include [mkf-admin](../../../_includes/iam/roles/mkf-admin.md) %}
+
+## {{ mch-full-name }} {#mch-roles}
+
+{% include [mch-auditor](../../../_includes/iam/roles/mch-auditor.md) %}
+
+{% include [mch-viewer](../../../_includes/iam/roles/mch-viewer.md) %}
+
+{% include [mch-editor](../../../_includes/iam/roles/mch-editor.md) %}
+
+{% include [mch-admin](../../../_includes/iam/roles/mch-admin.md) %}
+
 ## {{ mes-full-name }} {#mes-roles}
 
-{% include [elasticsearch-viewer](../../../_includes/iam/roles/elasticsearch-viewer.md) %}
+{% include [mes-auditor](../../../_includes/iam/roles/mes-auditor.md) %}
 
-{% include [elasticsearch-editor](../../../_includes/iam/roles/elasticsearch-editor.md) %}
+{% include [mes-viewer](../../../_includes/iam/roles/mes-viewer.md) %}
 
-{% include [elasticsearch-admin](../../../_includes/iam/roles/elasticsearch-admin.md) %}
+{% include [mes-editor](../../../_includes/iam/roles/mes-editor.md) %}
 
-{% include [elasticsearch-auditor](../../../_includes/iam/roles/elasticsearch-auditor.md) %}
+{% include [mes-admin](../../../_includes/iam/roles/mes-admin.md) %}
+
+## {{ mgl-full-name }} {#mgl-roles}
+
+{% include [gitlab-viewer](../../../_includes/iam/roles/gitlab-viewer.md) %}
+
+{% include [gitlab-editor](../../../_includes/iam/roles/gitlab-editor.md) %}
+
+{% include [gitlab-admin](../../../_includes/iam/roles/gitlab-admin.md) %}
+
+## {{ mgp-full-name }} {#mgp-roles}
+
+{% include [mgp-auditor](../../../_includes/iam/roles/mgp-auditor.md) %}
+
+{% include [mgp-viewer](../../../_includes/iam/roles/mgp-viewer.md) %}
+
+{% include [mgp-editor](../../../_includes/iam/roles/mgp-editor.md) %}
+
+{% include [mgp-admin](../../../_includes/iam/roles/mgp-admin.md) %}
+
+## {{ managed-k8s-full-name }} {#kubernetes-roles}
+
+{% include [k8s-cluster-api-viewer](../../../_includes/iam/roles/k8s-cluster-api-viewer.md) %}
+
+{% include [k8s-cluster-api-editor](../../../_includes/iam/roles/k8s-cluster-api-editor.md) %}
+
+{% include [k8s-cluster-api-cluster-admin](../../../_includes/iam/roles/k8s-cluster-api-cluster-admin.md) %}
+
+{% include [k8s-tunnel-clusters-agent](../../../_includes/iam/roles/k8s-tunnel-clusters-agent.md) %}
+
+{% include [k8s-clusters-agent](../../../_includes/iam/roles/k8s-clusters-agent.md) %}
+
+{% include [k8s-viewer](../../../_includes/iam/roles/k8s-viewer.md) %}
+
+{% include [k8s-editor](../../../_includes/iam/roles/k8s-editor.md) %}
+
+{% include [k8s-admin](../../../_includes/iam/roles/k8s-admin.md) %}
+
+For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
+
+## {{ mmg-full-name }} {#mmg-roles}
+
+{% include [mmg-auditor](../../../_includes/iam/roles/mmg-auditor.md) %}
+
+{% include [mmg-viewer](../../../_includes/iam/roles/mmg-viewer.md) %}
+
+{% include [mmg-editor](../../../_includes/iam/roles/mmg-editor.md) %}
+
+{% include [mmg-admin](../../../_includes/iam/roles/mmg-admin.md) %}
+
+## {{ mmy-full-name }} {#mmy-roles}
+
+{% include [mmy-auditor](../../../_includes/iam/roles/mmy-auditor.md) %}
+
+{% include [mmy-viewer](../../../_includes/iam/roles/mmy-viewer.md) %}
+
+{% include [mmy-editor](../../../_includes/iam/roles/mmy-editor.md) %}
+
+{% include [mmy-admin](../../../_includes/iam/roles/mmy-admin.md) %}
+
+## {{ mos-full-name }} {#mos-roles}
+
+{% include [mos-auditor](../../../_includes/iam/roles/mos-auditor.md) %}
+
+{% include [mos-viewer](../../../_includes/iam/roles/mos-viewer.md) %}
+
+{% include [mos-editor](../../../_includes/iam/roles/mos-editor.md) %}
+
+{% include [mos-admin](../../../_includes/iam/roles/mos-admin.md) %}
+
+## {{ mpg-full-name }} {#mpg-roles}
+
+{% include [mpg-auditor](../../../_includes/iam/roles/mpg-auditor.md) %}
+
+{% include [mpg-viewer](../../../_includes/iam/roles/mpg-viewer.md) %}
+
+{% include [mpg-editor](../../../_includes/iam/roles/mpg-editor.md) %}
+
+{% include [mpg-admin](../../../_includes/iam/roles/mpg-admin.md) %}
+
+## {{ mrd-full-name }} {#mrd-roles}
+
+{% include [mrd-auditor](../../../_includes/iam/roles/mrd-auditor.md) %}
+
+{% include [mrd-viewer](../../../_includes/iam/roles/mrd-viewer.md) %}
+
+{% include [mrd-editor](../../../_includes/iam/roles/mrd-editor.md) %}
+
+{% include [mrd-admin](../../../_includes/iam/roles/mrd-admin.md) %}
+
+## {{ mms-full-name }} {#mms-roles}
+
+{% include [mms-auditor](../../../_includes/iam/roles/mms-auditor.md) %}
+
+{% include [mms-viewer](../../../_includes/iam/roles/mms-viewer.md) %}
+
+{% include [mms-editor](../../../_includes/iam/roles/mms-editor.md) %}
+
+{% include [mms-admin](../../../_includes/iam/roles/mms-admin.md) %}
+
+## {{ ydb-full-name }} {#ydb-roles}
+
+{% include [ydb-viewer](../../../_includes/iam/roles/ydb-viewer.md) %}
+
+{% include [ydb-editor](../../../_includes/iam/roles/ydb-editor.md) %}
+
+{% include [ydb-admin](../../../_includes/iam/roles/ydb-admin.md) %}
 
 
 ## {{ message-queue-full-name }} {#ymq-roles}
@@ -268,17 +386,17 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 ## {{ objstorage-full-name }} {#object-storage-roles}
 
-{% include [storage.admin](../../../_includes/roles-storage-admin.md) %}
+{% include [storage-viewer](../../../_includes/iam/roles/storage-viewer.md) %}
 
-{% include [storage.configViewer](../../../_includes/roles-storage-config-viewer.md) %}
+{% include [storage-config-viewer](../../../_includes/iam/roles/storage-config-viewer.md) %}
 
-{% include [storage.configurer](../../../_includes/roles-storage-configurer.md) %}
+{% include [storage-configurer](../../../_includes/iam/roles/storage-configurer.md) %}
 
-{% include [storage.editor](../../../_includes/roles-storage-editor.md) %}
+{% include [storage-uploader](../../../_includes/iam/roles/storage-uploader.md) %}
 
-{% include [storage.uploader](../../../_includes/roles-storage-uploader.md) %}
+{% include [storage-editor](../../../_includes/iam/roles/storage-editor.md) %}
 
-{% include [storage.viewer](../../../_includes/roles-storage-viewer.md) %}
+{% include [storage-admin](../../../_includes/iam/roles/storage-admin.md) %}
 
 ## {{ resmgr-full-name }} {#yrm-roles}
 

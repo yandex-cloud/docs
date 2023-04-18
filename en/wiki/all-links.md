@@ -1,6 +1,6 @@
 # Viewing all links to a page
 
-You can view a list of all pages that refer to a Wiki page.
+You can view a list of all pages that refer to your page.
 
 This feature helps you get your page ready for deletion: find and delete all links to it first.
 

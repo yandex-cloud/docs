@@ -1104,7 +1104,7 @@
 ### Приемник {{ ydb-full-name }} {#target-ydb}
 
 
-Создайте сервисный аккаунт с ролью `ydb.editor`.
+[Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `ydb.editor`.
 
 
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}

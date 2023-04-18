@@ -4,7 +4,7 @@
 
 You can connect to {{ mpg-short-name }} cluster hosts:
 * Over the internet, if you configured public access for the appropriate host. You can only connect to such hosts over an SSL connection.
-* From {{ yandex-cloud }} virtual machines located in the same cloud network. If there is no public access to a host, connections from this type of virtual machine don't need to be over SSL.
+* From {{ yandex-cloud }} virtual machines located in the same cloud network. If there is no public access to a host, using SSL for connections from such virtual machines is not required.
 
 For more information, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
@@ -33,11 +33,18 @@ For more information about obtaining a certificate and connecting to a database,
 
    The certificate will be available at `C:\temp\CA.pfx`.
 
-2. [Place the certificate you received in the Windows certificate store](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
+1. [Place the certificate you received in the Windows certificate store](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
+
+#### What should I do if I get the "SSL is required" error? {#ssl-req}
+
+The error occurs because you are trying to connect to the cluster with a [public host](../../managed-postgresql/concepts/network.md#public-access-to-a-host). These hosts only support connections with an SSL certificate. You can:
+
+* [Obtain an SSL certificate](../../managed-postgresql/operations/connect.md#get-ssl-cert) and add it to the application you are using to connect to the cluster.
+* [Disable public access to hosts](../../managed-postgresql/operations/hosts.md#update) and connect to the cluster from a VM located in the same cloud network.
 
 #### What is the maximum allowed number of concurrent connections to a single host in {{ mpg-name }}? {#host-conn}
 
-The number of concurrent connections is specified at the cluster level in the [**Max connections** setting](../../managed-postgresql/concepts/settings-list.md#setting-max-connections). By default, the maximum value is set, which is calculated by the following formula:
+The number of concurrent connections is specified at the cluster level in the [**Max connections** setting](../../managed-postgresql/concepts/settings-list.md#setting-max-connections). By default, the maximum value set is calculated by the following formula:
 
 ```text
 200 × <number of vCPUs per host>

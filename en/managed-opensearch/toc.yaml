@@ -3,15 +3,15 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to a cluster
+      - name: Connecting to cluster
         href: operations/connect.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
@@ -31,10 +31,14 @@ items:
         href: operations/cluster-logs.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
+      - name: Monitoring the state of clusters and hosts
+        href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: Migrating data from {{ ES }}
         href: tutorials/migration-to-opensearch.md
+      - name: Uploading logs from {{ at-name }}
+        href: tutorials/trails-to-opensearch.md
   - name: Concepts
     items:
       - name: Relationships between service resources

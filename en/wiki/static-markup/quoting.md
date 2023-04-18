@@ -1,10 +1,10 @@
 # Quotes
 
-## Quoting a paragraph
+## Quoting a paragraph {#paragraph}
 
-* To quote a paragraph, add the `>` symbol at the start of that paragraph.
+* To quote a paragraph, add the `>` character at the start of that paragraph.
 
-* To create a nested quote, insert the `>>` symbols at the start of the paragraph.
+* To create a nested quote, insert the `>>` characters at the start of the paragraph.
 
 * Separate the quote from the following text with an empty line.
 
@@ -13,7 +13,7 @@
 Sample markups:
 
 * ```
-   >Quote text
+  >Quote text
   ```
 
    {% cut "See the result" %}
@@ -23,10 +23,10 @@ Sample markups:
    {% endcut %}
 
 * ```
-     >First-level quote.
-     >>Second-level quote.
-     >
-     >>First level again.
+    >First-level quote.
+    >>Second-level quote.
+    >
+    >First level again.
   ```
 
    {% cut "See the result" %}
@@ -36,11 +36,11 @@ Sample markups:
    {% endcut %}
 
 * ```
-     >#### Subtitle
-     >* *First* item.
-     >* **Second** item.
-     >
-     >`code snippet`
+    >#### Subtitle
+    >* *First* item.
+    >* **Second** item.
+    >
+    >`code snippet`
   ```
 
    {% cut "See the result" %}
@@ -49,17 +49,17 @@ Sample markups:
 
    {% endcut %}
 
-## Quoting a long text
+## Quoting a long text {#long-text}
 
-To quote a long piece of text, enclose the quote inside `<[` and `]>`.
+To quote a long piece of text, enclose the quote in `<[` and `]>`.
 
 This format also supports nested quotes and other markup elements.
 
 * ```
-    <[First-level quote. 
+    <[First-level quote.
     >Second-level quote
    
-     First level again.]>
+    First level again.]>
   ```
 
    {% cut "See the result" %}
@@ -72,7 +72,7 @@ This format also supports nested quotes and other markup elements.
      <[#### Subtitle
      * *First* item.
      * **Second** item.
-   
+
      `code snippet`]>
   ```
 

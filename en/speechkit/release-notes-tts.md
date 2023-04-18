@@ -2,13 +2,33 @@
 
 {{ speechkit-name }} provides updates based on the system model and version.
 
-In speech synthesis, the service provides [two types of voices](tts/voices.md): standard and premium. Premium voices use new speech synthesis technology.
-
 For more information about voice models, see [About the technology](tts/index.md#voices).
 
 ## Current version {#current}
 
-### Release 07.10.22 {#071022}
+### Release on 21/03/23 {#210323}
+
+1. A normalizer has been added for the Kazakh language. Now the model can pronounce numbers written in Arabic numerals.
+1. Added two types of apostrophes for the Uzbek language: the typographic straight apostrophe `ʼ` and the typographic reversed apostrophe `ʻ`. Now you can synthesize phrases in Uzbek written in Latin script with these apostrophes.
+
+   > Yaʼni mana shu beret kiygan notanish odamni.
+   > Soʻng yana pastga qarab ketiladi.
+
+   {% note warning %}
+
+   Use only these options for apostrophes. The model does not support automatic replace, and the synthesis quality strongly depends on the input quality.
+
+   {% endnote %}
+
+
+## Previous versions {#previous}
+
+### Release on 07/03/23 {#070323}
+
+1. Significantly revised the [{{ brand-voice-name }}](tts/brand-voice/index.md) technology for creating custom voices.
+1. Added support for [pauses](tts/markup/tts-markup.md#pause) in all languages in test mode when using TTS markup. Please report any pausing errors by submitting a request to the support team. Your feedback will help us improve the functionality in future releases.
+
+### Release 07/10/22 {#071022}
 
 The `general` branch has new voices and languages available for testing:
 * `lea` female voice: German.
@@ -16,11 +36,9 @@ The `general` branch has new voices and languages available for testing:
 * `madirus` male voice: Russian.
 * `nigora` female voice: Uzbek.
 
-The `general` branch also has voices `amira` and `john` available now.
+The `general` branch now has `amira` and `john` voices.
 
-## Previous versions {#previous}
-
-### Release 09.06.22 {#090622}
+### Release 09/06/22 {#090622}
 
 1. Intonations and emphasis have been improved in all voices.
 
@@ -31,7 +49,7 @@ The `general` branch also has voices `amira` and `john` available now.
 
 1. Support for `filipp:deprecated` was ceased. `filipp:deprecated` and `filipp` sound the same now.
 
-### Release 19.05.22 {#190522}
+### Release 19/05/22 {#190522}
 
 1. Support for the deprecated voices will cease starting May 31, 2022.
 
@@ -41,23 +59,23 @@ The `general` branch also has voices `amira` and `john` available now.
 
    The voices are only available in API v3 using the `x-service-branch:rc` header.
 
-### Release 30.03.22 {#300322}
+### Release 30/03/22 {#300322}
 
 1. The standard voices are currently only available through the `:deprecated` tag and will continue to be supported through May 31, 2022.
 
 1. Intonations and issues with rare artifacts in texts with many numbers have been fixed following a technical support request (issue CLOUDSUPPORT-138703).
 
-### Release 17.03.22 {#170322}
+### Release 17/03/22 {#170322}
 
 1. Added the ability to synthesize audio files in MP3 format. This feature is available in API v3 and when using premium voices in API v1.
 
-1. For new voices, we added role, which is extended emotional tone. See the `emotion` parameter in [API v1](tts/request.md#body_params) and `role` in [API v3](tts-v3/api-ref/grpc/tts_service.md#Hints) for details. Different roles are available for different voices. For a complete list of values, see [{#T}](tts/voices.md). If an incorrect role is selected, the service will return an error.
+1. For new voices, we added role, which is extended emotional tone. See the `emotion` parameter in [API v1](tts/request.md#body_params)and `role` in [API v3](tts-v3/api-ref/grpc/tts_service.md#Hints)for details. Different roles are available for different voices. For a complete list of values, see [{#T}](tts/voices.md). If an incorrect role is selected, the service will return an error.
 
 1. Degraded quality of emphasis placement has been corrected for `alena` and `filipp`. Emphasis placement and synthesized voice perception have been improved for all voices.
 
-1. A major update of standard voices has begun: `oksana`, `ermil`, `jane`, `omazh`, `zahar` will be replaced with `oksana:rc`, `ermil:rc`, `jane:rc`, `omazh:rc`, `zahar:rc`, respectively. The update will not affect the cost of the regular voices. Existing voices, such as `oksana`, `ermil`, `jane`, `omazh`, and `zahar` are available under the `:deprecated` branch.
+1. Major update of standard voices started: `oksana`, `ermil`, `jane`, `omazh`, `zahar` will be replaced with `oksana:rc`, `ermil:rc`, `jane:rc`, `omazh:rc`, `zahar:rc`, respectively. The update will not affect the cost of the regular voices. Existing voices, such as `oksana`, `ermil`, `jane`, `omazh`, and `zahar`, are available under the `:deprecated` branch.
 
-### Release 24.01.22 {#240122}
+### Release 24/01/22 {#240122}
 
 1. Updated the generation model. The new version improves the way numbers and abbreviations from the finance domain are pronounced.
 
@@ -65,7 +83,7 @@ The `general` branch also has voices `amira` and `john` available now.
 
 1. Processing of SSML pauses and SIL tags has been made consistent to support integration with [Yandex.Dialogs](https://dialogs.yandex.ru). Pauses in text in SSML or SIL notation are considered the end of an utterance, causing intonation representing the end of an utterance to replace the tag in the generated text. SSML pauses and SIL tags are supported when generating both short and long speech segments.
 
-### Release 16.12.21 {#161221}
+### Release 16/12/21 {#161221}
 
 1. Limits for API v3 requests have been increased: length of a synthesized phrase is 250 characters or 24 seconds of audio. Important: request costs remain unchanged for the time being but may increase.
 
@@ -73,7 +91,7 @@ The `general` branch also has voices `amira` and `john` available now.
 
 1. The silence after the last word is synthesized is much shorter. Now, the audio ends almost immediately after the final word is synthesized.
 
-### Release 18.11.21 {#181121}
+### Release 18/11/21 {#181121}
 
 1. Fixes have been made to stabilize the way the `alena` premium voice is synthesized. It sounds consistent now.
 1. Pronunciation errors have been fixed for `alena`.

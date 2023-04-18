@@ -157,6 +157,8 @@ items:
         href: tutorials/index.md
       - name: Интеграция с сервисом {{ dataproc-full-name }}
         href: tutorials/data-proc-integration.md
+      - name: Классификация изображений на видеокадрах
+        href: tutorials/video-recognition.md
       - name: Развертывание сервиса из ячейки с кодом
         href: tutorials/node-from-cell.md
       - name: Развертывание сервиса на основе Docker-образа

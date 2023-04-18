@@ -1,4 +1,4 @@
-# Edit an L7 load balancer
+# Editing L7 load balancer
 
 To update the parameters of an L7 load balancer:
 
@@ -153,7 +153,7 @@ To update the parameters of an L7 load balancer:
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and edit the fragment with the L7 load balancer description:
 
@@ -191,19 +191,19 @@ To update the parameters of an L7 load balancer:
 
       For more information about the `yandex_alb_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/alb_load_balancer).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```
       terraform plan
@@ -224,6 +224,10 @@ To update the parameters of an L7 load balancer:
       ```
       yc alb load-balancer get <L7 load balancer name>
       ```
+
+- API
+
+   Use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -265,7 +269,7 @@ To delete a listener for your L7 load balancer:
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and delete the `listener` section from the L7 load balancer description.
 
@@ -303,19 +307,19 @@ To delete a listener for your L7 load balancer:
 
       For more information about the `yandex_alb_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/alb_load_balancer).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```
       terraform plan
@@ -336,5 +340,9 @@ To delete a listener for your L7 load balancer:
       ```
       yc alb load-balancer get <L7 load balancer name>
       ```
+
+- API
+
+   Use the [removeListener](../api-ref/LoadBalancer/removeListener.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/RemoveListener](../api-ref/grpc/load_balancer_service.md#RemoveListener) gRPC API call.
 
 {% endlist %}

@@ -2,7 +2,7 @@
 
 This functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
 
-A Hardware Security Module ([HSM](https://en.wikipedia.org/wiki/Hardware_security_module)) is a specialized computing device that is designed to perform high-speed cryptographic operations.
+A Hardware Security Module ([HSM](https://en.wikipedia.org/wiki/Hardware_security_module)) is a specialized computing device that is designed to perform cryptographic operations with a high level of security.
 
 Traditionally, HSMs are used in applications where encryption must provide a level of protection at which the cost and complexity of a successful attack limit potential perpetrators to a small number of highly skilled individuals.
 
@@ -14,7 +14,7 @@ This hardware implements a set of solutions to protect a cryptographic asset thr
 * Trusted operating system.
 * Tamper-proof housing.
 * Protection from power supply voltage and ambient temperature fluctuations.
-* Robust random number sensors.
+* Robust random number generators.
 * Protection against human error (minimized chance of hardware misconfiguration).
 * Trusted operating system bootup.
 
@@ -30,7 +30,7 @@ A cryptographic operation using the HSM includes the following steps:
 1. The encrypted key is forwarded to the HSM along with the user data.
 1. The HSM decrypts the user key using the HSM master key.
 1. The HSM performs a cryptographic operation with the user data using the decrypted key.
-1. The HSM destroys the decrypted key.
+1. The HSM destroys the decrypted user key.
 1. The data goes back to the user.
 
 ### Enabling the HSM for a key

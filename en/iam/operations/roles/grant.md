@@ -57,9 +57,10 @@ This section describes how to assign a role to a user with a Yandex account. The
           --subject userAccount:aje6o61dvog2h6g9a33s
       ```
 
+
 - API
 
-   Use the `updateAccessBindings` method for the corresponding resource.
+   Use the `updateAccessBindings` REST API method for the respective resource.
 
    1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
    1. [Get the user ID](../users/get.md).
@@ -91,15 +92,15 @@ This section describes how to assign a role to a user with a Yandex account. The
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Add the resource parameters to the configuration file, specify the required role and a list of cloud users:
 
-      * `cloud_id`: [Cloud ID](../../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
-      * `role`: The role assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
+      * `cloud_id`: [Cloud ID](../../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id`instead of `cloud_id` and the required folder ID in the resource parameters.
+      * `role`: The role assigned. This parameter is required.
+      * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This parameter is required.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
@@ -115,7 +116,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
        For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
        1. In the command line, go to the directory where you created the configuration file.
        1. Run the check using the command:
@@ -124,23 +125,23 @@ This section describes how to assign a role to a user with a Yandex account. The
           terraform plan
           ```
 
-       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
-    
-    1. Deploy the cloud resources.
+       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-       1. If there are no errors in the configuration, run the terraform apply command
+    1. Deploy cloud resources.
+
+        1. If there are no errors in the configuration, run the terraform apply command
 
           ```
           terraform apply
           ```
 
-       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+        1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-       Afterwards, all the necessary resources are created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../../cli/quickstart.md) command:
+        Once you are done, all the resources you need will be created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI] command (../../../cli/quickstart.md):
 
-       ```
-       yc resource-manager folder list-access-bindings <folder name>|<folder ID>
-       ```
+        ```
+        yc resource-manager folder list-access-bindings <folder name>|<folder ID>
+        ```
 
 {% endlist %}
 
@@ -174,11 +175,11 @@ This section describes how to assign a role to a user with a Yandex account. The
    1. Assign roles. For example, assign the `editor` role to one user and the `viewer` role to another user:
 
 
-      ```bash
-      yc resource-manager folder set-access-bindings my-folder \
-        --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
-        --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
-      ```
+        ```bash
+        yc resource-manager folder set-access-bindings my-folder \
+            --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
+            --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
+        ```
 
 - API
 
@@ -211,9 +212,9 @@ This section describes how to assign a role to a user with a Yandex account. The
 
    1. Assign the specified roles, say, for the folder with the `b1gvmob95yysaplct532` ID:
 
-       {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
+        {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
 
-    You can also assign roles using the `setAccessBindings`.
+    You can also assign roles using the [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
 
     {% note alert %}
 
@@ -221,22 +222,22 @@ This section describes how to assign a role to a user with a Yandex account. The
 
     {% endnote %}
 
-   1. List new access bindings in the request body.
+    1. List new access bindings in the request body.
 
-       **body.json:**
-       ```json
-       {
-           "accessBindings": [{
-               "roleId": "editor",
-               "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
-           },{
-               "roleId": "viewer",
-               "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
-           }]
-       }
-       ```
+        **body.json:**
+        ```json
+        {
+            "accessBindings": [{
+                "roleId": "editor",
+                "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+            },{
+                "roleId": "viewer",
+                "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+            }]
+        }
+        ```
 
-   2. Assign roles:
+    2. Assign roles:
 
         ```bash
         export FOLDER_ID=b1gvmob95yysaplct532
@@ -307,7 +308,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
 - API
 
-   Use the `updateAccessBindings` method for the corresponding resource.
+   Use the `updateAccessBindings` REST API method for the respective resource.
 
    1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
    1. [Get the user ID](../users/get.md).

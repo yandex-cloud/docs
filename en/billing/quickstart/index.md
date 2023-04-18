@@ -31,7 +31,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
-   1. On the **List of accounts** page, click **Create account**. Fill in your information:
+   1. On the **Accounts** page, click **Create account**. Fill in your information:
 
       * Select the payer's country.
       * Enter the name of the billing account. The name is displayed in the list of your billing accounts and helps you select the one you need.
@@ -60,7 +60,7 @@ In addition, a trial period is available to new customers. The [trial period](..
       {% endnote %}
 
       * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../operations/activate-commercial.md).
-      * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
+      * If you do not activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../../getting-started/usage-grant.md), you will not have to upgrade to the paid version.
 
    1. Click **Create**.
 
@@ -74,7 +74,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
-   1. On the **List of accounts** page, click **Create account**. Fill in your information:
+   1. On the **Accounts** page, click **Create account**. Fill in your information:
 
       * Select the payer's country.
       * Enter the name of the billing account. The name is displayed in the list of your billing accounts and helps you select the one you need.
@@ -93,7 +93,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
       {% include [pin-card-data](../../_includes/billing/pin-card-data.md) %}
 
-      * Confirm that the card is corporate and you are authorized to use it.
+      * Confirm the card is a corporate one and you are authorized to use it.
 
       {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
@@ -108,11 +108,12 @@ In addition, a trial period is available to new customers. The [trial period](..
          {% endnote %}
 
          * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../operations/activate-commercial.md).
-         * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
+         * If you do not activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../../getting-started/usage-grant.md), you will not have to upgrade to the paid version.
 
    1. Click **Create**.
 
       If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your billing account. If this is your first billing account in {{ yandex-cloud }}, it is automatically created with the trial period enabled. To continue using the resources after your trial period ends, make sure to switch to the [paid version](../operations/activate-commercial.md).
+
 
 {% endlist %}
 

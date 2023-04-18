@@ -6,13 +6,13 @@
 
 ![](../_assets/wiki/wiki-sructure-diagram.png)
 
-1. **{{ wiki-host-name }}**: {{ wiki-name }} homepage. The homepage usually displays links to the main clusters, important links, or news.
+1. **{{ wiki-host-name }}**: {{ wiki-name }} homepage. The home page usually displays links to the main clusters, important links, or news.
 
-1. **{{ wiki-host-name }}/page**: Top-level pages. These are usually pages that relate to a large general topic. For example, the pages of a department, team, or project.
+1. **{{ wiki-host-name }}/page**: Top-level pages. These are usually pages related to a large general topic. For example, this could be the pages of a department, team, or project.
 
    {% note info %}
 
-   The homepage isn't considered the parent page for top-level pages.
+   The home page is not considered the parent page for top-level pages.
 
    {% endnote %}
 
@@ -34,11 +34,7 @@ To [view or change the cluster structure](cluster-overview.md#subpages), click !
 
 Each {{ wiki-name }} user has a _Personal cluster_ (`{{ wiki-username }}`). You can use your personal cluster to store your personal information, schedule, drafts, and more.
 
-To go to your personal cluster:
-
-1. In the {{ wiki-name }} panel on the left, click ![](../_assets/wiki/svg/edited-icon.svg) **Created and edited**.
-
-1. Next, click ![](../_assets/wiki/svg/my-page.svg) **My page** at the top.
+To go to your personal cluster, click ![](../_assets/wiki/svg/go-to-my-page-icon.svg) **My page** in the left-hand {{ wiki-name }} panel.
 
 The pages of a personal cluster are available to all users by default.
 

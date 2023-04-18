@@ -18,6 +18,7 @@ To create an L7 load balancer:
 
       {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
+
    1. (Optional) In the **Autoscaling settings** section, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
 
       The number of units will change automatically depending on the actual load on the load balancer and the limits set. The number of units affects the [load balancer pricing](../pricing.md).
@@ -257,5 +258,9 @@ To create an L7 load balancer:
          ```
          yc alb load-balancer list
          ```
+
+- API
+
+   Use the [create](../api-ref/LoadBalancer/create.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancer/Create](../api-ref/grpc/load_balancer_service.md#Create) gRPC API call.
 
 {% endlist %}

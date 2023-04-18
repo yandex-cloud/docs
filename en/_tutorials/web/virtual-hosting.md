@@ -10,7 +10,7 @@ This use case describes how to set up virtual hosting, that is, how to use {{ al
 As examples for the use case, we'll have three domain names: `site-a.com`, `site-b.com`, and `default.com`.
 
 To create a virtual hosting:
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Create a cloud network](#create-network).
 1. [Reserve a static public IP address](#reserve-ip).
 1. [Create security groups](#create-security-groups).
@@ -23,7 +23,7 @@ To create a virtual hosting:
 1. [Configure the DNS for the sites](#configure-dns).
 1. [Check that the hosting is running properly](#test).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
@@ -34,7 +34,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The cost of virtual hosting includes:
 
-* A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -74,7 +74,7 @@ To reserve an address:
 
 ## Create security groups {#create-security-groups}
 
-{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that let the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic. Two security groups will be created in the use case: the first one for the load balancer and the second one for all VMs.
 
@@ -106,9 +106,9 @@ To create security groups:
          1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
          1. In the **Purpose** or **Source** field, select the purpose of the rule:
 
-            * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-            * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
-            * **Load balancer health checks** is a rule that allows a load balancer to check the health of VMs.
+            * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+            * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
+            * **Load balancer health checks**: Rule that allows a load balancer to check the health of VMs.
 
          1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -166,7 +166,7 @@ To create an instance group for `site-a.com`:
    1. Under **Computing resources**:
 
       - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
-      - Specify the necessary number of vCPUs and amount of RAM.
+      - Specify the required number of vCPUs and the amount of RAM.
 
       The minimum configuration is enough for functional website testing:
       * **Platform**: Intel Ice Lake.

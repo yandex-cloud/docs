@@ -1,6 +1,6 @@
 ---
 title: "Static website hosting (html, css, javascript)"
-description: "Static website hosting enables you to host your static website based on HTML, CSS and JavaScript. Your website should not contain any scripts that run on the web server side."
+description: "Static website hosting enables you to host your static website based on HTML, CSS, or JavaScript. Your website should not contain any scripts that run on the web server side."
 ---
 
 # Static website hosting
@@ -76,6 +76,7 @@ All hosting settings are available through Amazon S3-compatible [HTTP API](../s3
 
 After you configure the bucket for hosting, the website will become accessible at:
 
+
 ```
 http(s)://<bucket_name>.{{ s3-web-host }}
 ```
@@ -86,11 +87,14 @@ or
 http(s)://{{ s3-web-host }}/<bucket name>
 ```
 
+
+
 {% note info %}
 
 By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../operations/hosting/certificate.md) to {{ objstorage-name }}.
 
 {% endnote %}
+
 
 When accessing your website, you will receive responses with the codes described in the [{#T}](../s3/api-ref/hosting/answer-codes.md) section.
 

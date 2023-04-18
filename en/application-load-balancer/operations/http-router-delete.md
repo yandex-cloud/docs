@@ -1,4 +1,4 @@
-# Delete an HTTP router
+# Deleting HTTP router
 
 {% note warning %}
 
@@ -46,7 +46,7 @@ To delete an HTTP router:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete an HTTP router or virtual host created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the HTTP router or virtual host description (the `yandex_alb_http_router` and `yandex_alb_virtual_host` resources, respectively).
@@ -114,5 +114,9 @@ To delete an HTTP router:
       ```bash
       yc alb http-router list
       ```
+
+- API
+
+   Use the [delete](../api-ref/HttpRouter/delete.md) REST API method for the [HttpRouter](../api-ref/HttpRouter/index.md) resource or the [HttpRouter/Delete](../api-ref/grpc/http_router_service.md#Delete) gRPC API call.
 
 {% endlist %}

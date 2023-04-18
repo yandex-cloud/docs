@@ -6,9 +6,9 @@ Add headings to divide a page into clusters. To format the heading, insert 1 to 
 
 You can use a different markup style for the first- and second-level headings:
 
-- For the first-level heading, insert any number of `=` symbols in the line following the heading.
+* For the first-level heading, insert any number of `=` symbols in the line following the heading.
 
-- For the second-level heading, insert any number of hyphens `-` in the line following the heading.
+* For the second-level heading, insert any number of hyphens `-` in the line following the heading.
 
 | Markup | Result |
 --- | ---
@@ -48,7 +48,7 @@ New paragraph.
 
 {% note info %}
 
-To add multiple empty lines between blocks of text, use a backslash `\` at the beginning of each line.
+To add multiple empty lines between text blocks, use a `\` backslash at the beginning of each empty line.
 
 {% endnote %}
 
@@ -90,4 +90,4 @@ To make part of the page's text collapsible:
 
 | Markup | Result |
 --- | ---
-| `<{ Read the entire text`<br>`You can see this text`<br>`by clicking"Read the entire text".`<br>`}>` | ![](../../_assets/wiki/cut.png) |
+| `<{ Read the entire text`<br>`You can see this text`<br>`by clicking "Read the entire text".`<br>`}>` | ![](../../_assets/wiki/cut.png) |

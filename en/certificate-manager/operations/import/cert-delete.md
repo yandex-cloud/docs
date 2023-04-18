@@ -10,7 +10,7 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
    1. In the list of services, select **{{ certificate-manager-name }}**.
    1. Find the certificate to be deleted in the list.
    1. Click ![image](../../../_assets/options.svg).
-   1. In the resulting menu, click **Delete**.
+   1. In the menu that opens, click **Delete**.
    1. In the window that opens, click **Delete**.
 
 - CLI
@@ -41,7 +41,7 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
       +----------------------+---------------+-------------+---------------------+----------+--------+
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       yc certificate-manager certificates delete \
@@ -64,6 +64,6 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
 
 - API
 
-   To delete a certificate, use the [delete](../../api-ref/Certificate/delete.md) method for the [Certificate](../../api-ref/Certificate/) resource.
+   To delete a certificate, use the [delete](../../api-ref/Certificate/delete.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Delete](../../api-ref/grpc/certificate_service.md#Delete) gRPC API call.
 
 {% endlist %}

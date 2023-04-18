@@ -10,15 +10,15 @@ A typical diagram of running UserGate in the proxy server mode in {{ yandex-clou
 
 To deploy a UserGate gateway:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a cloud network and subnet](#create-network).
 1. [Reserve a static public IP address](#get-static-ip).
 1. [Create a UserGate VM](#create-vm).
 1. [Set up the UserGate NGFW via the administrative console](#admin-console).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -27,7 +27,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The price for the UserGate gateway includes:
 
-* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * [UserGate NGFW](/marketplace/products/usergate/ngfw) usage.
 * A fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
@@ -101,7 +101,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
       resource "yandex_vpc_network" "usergate-network" {
         name = "usergate-network"
       }
-      
+
       resource "yandex_vpc_subnet" "usergate-subnet" {
         name           = "usergate-subnet-{{ region-id }}-a"
         zone           = "{{ region-id }}-a"
@@ -112,20 +112,20 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -142,7 +142,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 ## Create a security group {#create-security-group}
 
-{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% list tabs %}
 
@@ -171,8 +171,8 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
       1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
       1. In the **Purpose** or **Source** field, select the purpose of the rule:
 
-         * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
+         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+         * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
 
       1. Click **Save**.
 
@@ -269,37 +269,37 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
       resource "yandex_vpc_security_group" "usergate-sg" {
         name       = "usergate-sg"
         network_id = "${yandex_vpc_network.usergate-network.id}"
-      
+
         egress {
           protocol       = "ANY"
           port           = "ANY"
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol       = "ICMP"
           port           = "ANY"
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol       = "TCP"
           port           = 3389
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol       = "TCP"
           port           = 22
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol       = "TCP"
           port           = 8001
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol       = "TCP"
           port           = 8090
@@ -310,20 +310,20 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       For more information about the `yandex_vpc_security_group` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/vpc_security_group).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -354,7 +354,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - CLI
 
-   Run the command:
+   Run this command:
 
    ```bash
    yc vpc address create --external-ipv4 zone={{ region-id }}-a
@@ -390,7 +390,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    1. Under **Computing resources**:
 
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and amount of RAM:
+      * Specify the number of vCPUs and the amount of RAM:
 
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%
@@ -428,7 +428,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       For more information about the `yc vpc security-group get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/get.md).
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       yc compute instance create \
@@ -494,14 +494,14 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
           core_fraction = 100
           memory        = 8
         }
-      
+
         boot_disk {
           initialize_params {
             image_id = "<ID of the UserGate NGFW image>"
             size     = 110
           }
         }
-      
+
         network_interface {
           subnet_id          = "${yandex_vpc_subnet.usergate-subnet.id}"
           nat                = true
@@ -511,20 +511,20 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       To learn more, see the [yandex_compute_instance]({{ tf-provider-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -667,7 +667,7 @@ To add a certificate:
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 
 1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md) `usergate-proxy`.
 1. [Delete the static public IP address](../../vpc/operations/address-delete.md).

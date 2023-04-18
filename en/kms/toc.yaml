@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart/index.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Key
         href: operations/key.md
@@ -13,6 +13,8 @@ items:
         href: operations/version.md
       - name: Data encryption
         href: operations/encryption.md
+      - name: Encryption key access rights
+        href: operations/key-access.md
   - name: Concepts
     items:
       - name: Overview
@@ -31,7 +33,7 @@ items:
         href: concepts/hsm.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md

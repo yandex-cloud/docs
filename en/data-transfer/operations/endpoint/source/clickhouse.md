@@ -1,9 +1,9 @@
 ---
 title: "How to configure a {{ CH }} source endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you'll learn how to set up a {{ CH }} source endpoint in {{ data-transfer-full-name }}."
+description: "In this tutorial, you will learn how to set up a {{ CH }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring a {{ CH }} source endpoint
+# Configuring {{ CH }} source endpoints
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -190,7 +190,12 @@ Transfers will fail if {{ CH }} source tables contain the following types of col
 | `Array(DateTime64)` | `Can't transfer type 'Array(DateTime64)', column '<column name>'` |
 | `Map(,)` | `unhandled type Map(<type name>, <type name>)` |
 
-### Supported table types
+### Supported table types {#known-limitations-table-types}
 If a {{ CH }} cluster is multi-host, you can transfer tables and materialized views based on `ReplicatedMergeTree` or `Distributed` engines only. Moreover, these tables and views must be present in all cluster hosts.
 
 If the list of included tables contains tables or views with other engines or they're missing in some cluster hosts, a transfer will fail with an error saying `the following tables have not Distributed or Replicated engines and are not yet supported`.
+
+### Database names {#known-limitations-db-names}
+
+{{ data-transfer-full-name }} cannot transfer a {{ CH }} database if its name contains a hyphen.
+

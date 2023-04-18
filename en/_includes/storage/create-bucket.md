@@ -1,4 +1,4 @@
-The minimum role required to create a bucket is `storage.editor`. See the [role description](../../storage/security/#storage-editor).
+The minimum role required to create a bucket is `storage.editor`. See the [role description](../../storage/security/#storage-editor) for details.
 
 {% list tabs %}
 
@@ -6,19 +6,21 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
    1. Select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
    1. On the bucket creation page:
-      1. Enter the bucket name, following the [naming guidelines](../../storage/concepts/bucket.md#naming).
+      1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
 
-         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to{{ objstorage-name }} .
+         
+         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
 
-      1. If necessary, limit the maximum bucket size.
+
+      1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
-      1. Selected the type of [access](../../storage/concepts/bucket.md#bucket-access).
+      1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access).
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
-      1. Click **Create bucket** to complete the operation.
+      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
 - {{ yandex-cloud }} CLI
 
@@ -48,7 +50,10 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       * `--name`: Bucket name. For more information, see [Bucket naming rules](../../storage/concepts/bucket.md#naming).
 
+         
          By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload](../../storage/operations/hosting/certificate.md) your own security certificate to {{ objstorage-name }}.
+
+
       * `--default-storage-class`: [Storage class](../../storage/concepts/storage-class.md). Possible values:
          * `standard`: Standard storage.
          * `cold`: Cold storage.
@@ -79,10 +84,19 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       
       ```
+      terraform {
+        required_providers {
+          yandex = {
+            source = "yandex-cloud/yandex"
+          }
+        }
+        required_version = ">= 0.13"
+      }
+
       provider "yandex" {
         token     = "<IAM_or_OAuth_token>"
         cloud_id  = "<cloud_ID>"
@@ -126,25 +140,25 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
          ```
          terraform apply
          ```
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}

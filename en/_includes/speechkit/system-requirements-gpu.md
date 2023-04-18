@@ -6,36 +6,36 @@ Recommended hardware requirements for running {{ sk-hybrid-name }} containers:
 * RAM: 64 GB.
 * HDD: 200 GB.
 
-{{ sk-hybrid-name }} characteristics are estimated approximately and may change after containers are updated and new functions appear.
+{{ sk-hybrid-name }} specifications are estimated approximately and may change after containers are updated and new features are added.
 
 {% list tabs %}
 
 - Containers with GPU T4
 
-   | Supported languages | Operation mode | The number of<br>simultaneous<br>connections | SPS^1^ |
+   | Supported languages | Operation mode | Number of<br>simultaneous<br>connections | SPS^1^ |
    |---|---|---|---|
    | **Speech recognition** |
    | Multi-language model | Streaming recognition | 13–18 | 13 |
-   | Multi-language model | Audio file recognition | — | 324 |
+   | Multi-language model | Audio file recognition | N/A | 324 |
    | Russian only | Streaming recognition | 27 | 14 |
-   | Russian only | Audio file recognition | — | 369 |
+   | Russian only | Audio file recognition | N/A | 369 |
    | **Speech synthesis** |
    | Russian only | — | — | 80 |
    | Any other language  | — | — | 64 |
 
 - Containers with GPU V100
 
-   | Supported languages | Operation mode | The number of<br>simultaneous<br>connections | SPS^1^ |
+   | Supported languages | Operation mode | Number of<br>simultaneous<br>connections | SPS^1^ |
    |---|---|---|---|
    | **Speech recognition** |
    | Multi-language model | Streaming recognition | 27–31 | 22 |
-   | Multi-language model | Audio file recognition | — | 360 |
+   | Multi-language model | Audio file recognition | N/A | 360 |
    | Russian only | Streaming recognition | 49 | 34 |
-   | Russian only | Audio file recognition | — | 378 |
+   | Russian only | Audio file recognition | N/A | 378 |
    | **Speech synthesis** |
    | Russian only | — | — | 200 |
    | Any other language  | — | — | 160 |
 
 {% endlist %}
 
-^1^ Seconds per second (SPS): The number of seconds of synthesized text generated per runtime second.
+^1^ Seconds per second (SPS): Number of seconds of recognized or synthesized text per runtime second.

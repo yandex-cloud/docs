@@ -92,6 +92,10 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
       For more information about the `yc cdn cache purge` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/cache/purge.md).
 
+- API
+
+   Use the [purge](../../api-ref/Cache/purge.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Purge](../../api-ref/grpc/cache_service.md#Purge) gRPC API call.
+
 {% endlist %}
 
 It may take up to 15 minutes to purge the cache.

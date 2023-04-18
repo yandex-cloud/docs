@@ -9,47 +9,47 @@ items:
         href: operations/index.md
       - name: Community management
         items:
-          - name: Create a community
+          - name: Creating a community
             href: operations/community/create.md
-          - name: Add a user to a community
+          - name: Adding user to a community
             href: operations/community/add-user.md
-          - name: Add a communication channel
+          - name: Adding a communication channel
             href: operations/community/link-channel.md
-          - name: Link a billing account
+          - name: Linking a billing account
             href: operations/community/link-ba.md
           - name: Viewing service usage details
             href: operations/community/billing-details.md
-          - name: Delete a community
+          - name: Deleting a community
             href: operations/community/delete.md
       - name: Project management
         items:
-          - name: Create a project
+          - name: Creating a project
             href: operations/projects/create.md
-          - name: Add a user to a project
+          - name: Adding a user to a project
             href: operations/projects/add-user.md
-          - name: Select a Python version
+          - name: Selecting a Python version
             href: operations/projects/python-version.md
-          - name: Resize project storage
+          - name: Resizing project storage
             href: operations/projects/storage-resize.md
-          - name: Change project settings
+          - name: Changing project settings
             href: operations/projects/update.md
-          - name: Set project limits
+          - name: Setting project limits
             href: operations/projects/restrictions.md
-          - name: Delete a notebook or project
+          - name: Deleting a notebook or project
             href: operations/projects/delete.md
       - name: Working in a notebook
         items:
-          - name: Select computing resources
+          - name: Selecting computing resources
             href: operations/projects/control-compute-resources.md
-          - name: Install packages
+          - name: Installing packages
             href: operations/projects/install-dependencies.md
-          - name: Reset the interpreter state
+          - name: Resetting the interpreter state
             href: operations/projects/clear-kernel-state.md
           - name: Notebook code snippets
             href: operations/projects/snippets.md
           - name: Working with Git
             href: operations/projects/work-with-git.md
-          - name: Run a Docker container in a separate cell
+          - name: Running a Docker container in a separate cell
             href: operations/user-images-cell.md
       - name: Working with resources
         items:
@@ -99,7 +99,7 @@ items:
             href: operations/projects/publication.md
           - name: Exporting a project
             href: operations/projects/export.md
-      - name: How to migrate to the new interface
+      - name: Migrating to new version
         href: operations/migration.md
   - name: Concepts
     items:

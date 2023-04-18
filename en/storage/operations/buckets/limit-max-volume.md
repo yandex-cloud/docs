@@ -1,8 +1,8 @@
 # Limiting the maximum size of a bucket
 
-{{ objstorage-name }} lets you limit the maximum size of a bucket.
+{{ objstorage-name }} allows you to limit the maximum size of a bucket
 
-If, for example, you provide the users of your service the ability to upload objects to {{ objstorage-name }}, then by limiting the maximum volume, you can better control user actions and avoid unnecessary spending.
+If, for example, you provide the users of your service with the ability to upload objects to {{ objstorage-name }}, then, by limiting the maximum volume, you can better control user actions and avoid unnecessary costs.
 
 {% list tabs %}
 
@@ -10,12 +10,12 @@ If, for example, you provide the users of your service the ability to upload obj
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
-   1. Click the name of the desired bucket.
-   1. Go to the **Settings** tab.
-   1. Set the value of **Max size**.
+   1. Click the name of the bucket you need.
+   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
+   1. Set the value of the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field.
 
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -75,7 +75,7 @@ If, for example, you provide the users of your service the ability to upload obj
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To limit the maximum bucket size:
@@ -94,31 +94,31 @@ If, for example, you provide the users of your service the ability to upload obj
       ```
 
       Where:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
       * `max_size`: Maximum bucket size (bytes).
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#bucket-max-size).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

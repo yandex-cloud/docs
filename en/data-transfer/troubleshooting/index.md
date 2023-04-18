@@ -50,6 +50,8 @@ Error example:
 
 {% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables.md) %}
 
+{% include [no-new-tables](../../_includes/data-transfer/troubles/table-names.md) %}
+
 ## {{ MG }} {#mongodb}
 
 {% include [string-size](../../_includes/data-transfer/troubles/mongodb/string-size.md) %}

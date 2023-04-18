@@ -1,21 +1,25 @@
 # Connecting {{ compute-name }} instances to {{ backup-name }}
 
-If you want to back up your [{{ compute-full-name }} instance](../../compute/concepts/vm.md) in the {{ backup-full-name }} service, you need to connect it to this service and set it up properly.
+If you want to back up your [{{ compute-full-name }} instance](../../compute/concepts/vm.md) in the {{ backup-full-name }} service, you need to connect it to this service and set it up properly.
 
-You can connect your instance to {{ backup-name }} at [creation](../../compute/operations/vm-create/create-linux-vm.md) by selecting an appropriate option. The option shows up only if a [supported operating system](#os) is installed on the VM. For more information about the connection, see the [instructions](../operations/create-vm.md).
+To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed: Linux (Ubuntu, CentOS) or Windows Server. If you have a Linux VM, connect it while it is being created by selecting the appropriate option; in case of a Windows Server VM, connect it after it has been created. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
 
-For the connection to work correctly, when creating an instance, you need to assign to it a [service account](#sa) with the `backup.editor` role, a [public IP address](#public-ip-address), and a [security group](#security-groups) with relevant rules (if this functionality is enabled for your cloud).
+For the connection to work properly, you need to assign the VM a [service account](#sa) with the `backup.editor` role, a [public IP address](#public-ip-address), and a [security group](#security-groups) with relevant rules (if this feature is enabled for your cloud).
 
 Once you have connected your instance to {{ backup-name }} and set it up, you need to link it to a [backup policy](policy.md).
 
 
 ## Supported operating systems {#os}
 
-{{ backup-name }} supports backup for instances running Ubuntu OS versions 20.04 or lower.
+{{ backup-name }} supports backing up VMs running the following operating systems:
 
-The OS must be installed from a public image (a {{ marketplace-name }} product). When creating an instance, you can select the OS directly or use an [image](../../compute/concepts/image.md) or [disk snapshot](../../compute/concepts/snapshot.md) from a different instance, if the OS was installed on it from a public image as well.
+* Ubuntu 20.04 or lower
+* CentOS 7
+* Windows Server 2019 and 2022
 
-Ubuntu 22.04 and CentOS 7 will be supported by {{ backup-name }} later.
+Install Ubuntu or CentOS from a public image (a {{ marketplace-name }} product). When creating an instance, you can select the OS directly or use an [image](../../compute/concepts/image.md) or [disk snapshot](../../compute/concepts/snapshot.md) from a different instance, if the OS was installed on it from a public image as well.
+
+Going forward, {{ backup-name }} will support Ubuntu 22.04.
 
 ## Service accounts {#sa}
 
@@ -37,9 +41,9 @@ Using a public IP address is a paid service. For more information, see [{#T}](..
 
 {% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
 
-Security groups let you manage VM access to resources in {{ yandex-cloud }} or on the internet.
+Security groups allow you to manage VM access to resources in {{ yandex-cloud }} or on the web.
 
-For your VM instance to be able to exchange data with the backup provider servers, when creating it and connecting to {{ backup-name }}, you need to select a security group that allows outgoing TCP traffic to the IP range `193.32.199.0/24` on ports  `443`, `7770-7800`, `43234`, and `45284`. For this, you need to create the following (or <q>broader</q>) rules in the group:
+For your VM instance to be able to exchange data with the backup provider servers, when creating it and connecting to {{ backup-name }}, you need to select a security group that allows outgoing TCP traffic to the `193.32.199.0/24` IP range on ports `443`, `7770-7800`, `43234`, and `45284`. For this, you need to create the following (<q>broader</q>) rules in the group:
 
 {% list tabs %}
 

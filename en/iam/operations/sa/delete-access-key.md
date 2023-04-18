@@ -1,6 +1,6 @@
 ---
 title: "How to delete static access keys in {{ iam-full-name }}"
-description: "In this tutorial, you'll learn how to delete static access keys in {{ iam-full-name }} via the management console, CLI, and API."
+description: "In this tutorial, you will learn how to delete static access keys in {{ iam-full-name }} via the management console, CLI, and API."
 ---
 
 # Deleting static access keys
@@ -42,6 +42,6 @@ description: "In this tutorial, you'll learn how to delete static access keys in
 
 - API
 
-   To delete the static key, use the [delete](../../api-ref/AccessKey/delete.md) method for the [AccessKey](../../api-ref/AccessKey/index.md) resource.
+   To delete a static key, use the [delete](../../api-ref/AccessKey/delete.md) REST API method for the [AccessKey](../../api-ref/AccessKey/index.md) REST API resource or the [AccessKeyService/Delete](../../api-ref/grpc/access_key_service.md#Delete) gRPC API call.
 
 {% endlist %}

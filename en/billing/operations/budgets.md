@@ -1,6 +1,6 @@
 # Enable notifications
 
-To control costs in {{ yandex-cloud }}, you can configure notifications using [budgets](../concepts/budget.md).
+To manage costs in {{ yandex-cloud }}, you can configure notifications using [budgets](../concepts/budget.md).
 
 Available budget types:
 * _Usage cost_: A notification goes out when the cost of resources with no discounts applied exceeds an established usage limit.
@@ -27,7 +27,7 @@ To create a budget:
 
 1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
 
-1. Select an account on the **List of accounts** page.
+1. Select an account on the **Accounts** page.
 
 1. Go to the **Budgets** page and click **Create budget**.
 
@@ -57,3 +57,4 @@ To create a budget:
 ## See also
 
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md).
+

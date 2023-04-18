@@ -1,4 +1,4 @@
-# Service account for {{ alb-name }} tools for {{ managed-k8s-name }}
+# A service account for {{ alb-name }} tools for {{ managed-k8s-name }}
 
 {{ alb-name }} tools for {{ managed-k8s-name }}, such as [Ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), deploy the infrastructure on behalf of a [service account](../../../iam/concepts/users/service-accounts.md). This account requires the following permissions:
 
@@ -8,12 +8,12 @@
 - Ingress controller
 
 
-   | Service | Type of permission required | Minimum role |
-   | ----- | ----- | ----- |
-   | {{ alb-name }}<br/>([roles](../../security/index.md)) | Manage service resources | `alb.editor` |
-   | {{ vpc-name }}<br/>([roles](../../../vpc/security/index.md)) | Manage internal or external connectivity depending on load balancer type | `vpc.publicAdmin` (external)<br/>`vpc.privateAdmin` (internal) |
-   | {{ certificate-manager-name }}<br/>([roles](../../../certificate-manager/security/index.md)) | Obtain certificates (for HTTPS load balancers) | `certificate-manager.certificates.downloader` |
-   | {{ compute-name }}<br/>([roles](../../../compute/security/index.md)) | Get information on virtual machines created as {{ managed-k8s-name }} cluster nodes | `compute.viewer` |
+  | Service | Type of permission required | Minimum role |
+  | ----- | ----- | ----- |
+  | {{ alb-name }}<br/>([roles](../../security/index.md)) | Manage service resources | `alb.editor` |
+  | {{ vpc-name }}<br/>([roles](../../../vpc/security/index.md)) | Manage internal or external connectivity depending on load balancer type | `vpc.publicAdmin` (external)<br/>`vpc.privateAdmin` (internal) |
+  | {{ certificate-manager-name }}<br/>([roles](../../../certificate-manager/security/index.md)) | Obtain certificates (for HTTPS load balancers) | `certificate-manager.certificates.downloader` |
+  | {{ compute-name }}<br/>([roles](../../../compute/security/index.md)) | Get information on virtual machines created as {{ managed-k8s-name }} cluster nodes | `compute.viewer` |
 
 
 - Gateway API

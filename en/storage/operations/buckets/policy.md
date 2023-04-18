@@ -15,24 +15,24 @@ To apply or edit a bucket access policy:
    1. In the [management console]({{ link-console-main }}), select the folder where you need to configure a bucket access policy.
    1. Select **{{ objstorage-name }}**.
    1. Select a bucket from the list.
-   1. Click the **Access policy** tab in the menu on the left.
-   1. Click ![pencil](../../../_assets/pencil.svg) **Configure access**.
+   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab in the left-hand menu.
+   1. Click ![pencil](../../../_assets/pencil.svg) **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
    1. Enter a bucket policy ID.
    1. Set up a rule:
       1. Enter a rule ID.
       1. Configure rule settings:
-         * **Result**: Allow or forbid.
-         * **Selection principle**: Include or exclude users.
-         * **User**: All users or a set of specific users.
-         * **Action** for which the rule is being created. You can also select the **All actions** option.
-         * **Resource**: Selected bucket specified by default. To add other resources to the rule, click **Add resource**.
+         * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}**: Allow or forbid.
+         * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}**: Include or exclude users.
+         * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: All users or specific users.
+         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** for which the rule is being created. You can also select the **All actions** option.
+         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}**: Selected bucket specified by default. To add other resources to the rule, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
       1. Add conditions to the rule as required:
-         * Select a **Key** from the list.
-         * Select an **Operator** from the list. For the operator to apply to the existing fields, select **Apply if field exists**. This way, if a field does not exist, the conditions will be considered satisfied.
-         * Enter a **Value**.
-         * Click **Add value** to add another value to a condition.
+         * Choose **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** from the list.
+         * Choose **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** from the list. For the operator to apply to the existing fields, select **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. This way, if a field does not exist, the conditions will be considered satisfied.
+         * Enter **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
+         * Click **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}** to add another value to a condition.
    1. Add and configure rules as required.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.storage.permissions-dialog.button_save }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -40,7 +40,7 @@ To apply or edit a bucket access policy:
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to edit a bucket's ACL:
+   1. View a description of the CLI command to edit a bucket ACL:
 
       ```bash
       yc storage bucket update --help
@@ -100,7 +100,7 @@ To apply or edit a bucket access policy:
 
    {% endnote %}
 
-   If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
    1. Describe your access policy configuration as a [data schema](../../s3/api-ref/policy/scheme.md) in JSON format:
 
@@ -122,7 +122,7 @@ To apply or edit a bucket access policy:
       ```
 
       Once completed, save the configuration to a file named `policy.json`.
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       aws --endpoint https://{{ s3-storage-host }} s3api put-bucket-policy \
@@ -137,7 +137,7 @@ To apply or edit a bucket access policy:
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-name }}.
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_storage_bucket" "b" {
@@ -171,23 +171,23 @@ To apply or edit a bucket access policy:
       ```
 
       Where:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
-      * `bucket`: Bucket name. Required parameter.
-      * `policy`: Policy name. Required parameter.
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
+      * `bucket`: Bucket name. This parameter is required.
+      * `policy`: Policy name. This parameter is required.
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
-   1. Deploy the cloud resources.
-      1. If the configuration doesn't contain any errors, run the command:
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+   1. Deploy cloud resources.
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -195,7 +195,7 @@ To apply or edit a bucket access policy:
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -216,7 +216,7 @@ To view the access policy applied to a bucket:
    1. In the [management console]({{ link-console-main }}), select the folder where you need to view a bucket access policy.
    1. Select **{{ objstorage-name }}**.
    1. Select a bucket from the list.
-   1. Click the **Access policy** tab in the menu on the left.
+   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab in the left-hand menu.
 
 - AWS CLI
 
@@ -257,9 +257,9 @@ To delete a bucket policy:
    1. In the [management console]({{ link-console-main }}), select the folder where you need to configure a bucket access policy.
    1. Select **{{ objstorage-name }}**.
    1. Select a bucket from the list.
-   1. Click the **Access policy** tab in the menu on the left.
-   1. Click ![options](../../../_assets/horizontal-ellipsis.svg) and select **Delete access policy**.
-   1. Click **Delete**.
+   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab in the left-hand menu.
+   1. Click ![options](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
 
 - AWS CLI
 
@@ -309,23 +309,23 @@ To delete a bucket policy:
       ```
 
    1. Delete the `policy` field describing the bucket policy settings from the configuration file.
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
       1. In the command line, change to the folder where you edited the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described properly, the terminal will display a list of the resources being created and their parameters without the bucket policy being deleted. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described properly, the terminal will display a list of the resources being created and their parameters without the bucket policy being deleted. If the configuration contains any errors, {{ TF }} will point them out.
    1. Delete the bucket policy.
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
          ```
 
-      1. Type the word `yes`, then press **Enter**.
+      1. Type `yes` and press **Enter**.
 
       Afterwards, the bucket policy will be deleted from the specified folder. You can verify that the bucket policy is no longer there in the [management console]({{ link-console-main }}).
 

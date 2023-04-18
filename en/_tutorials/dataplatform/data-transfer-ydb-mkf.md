@@ -19,6 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * Manually
 
       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
+
       1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
 
       

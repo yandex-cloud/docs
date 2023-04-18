@@ -31,7 +31,7 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 - Management console
 
    1. Make sure that **{{ datalens-name }}** is [activated](#activate-datalens) in the appropriate folder and [allowed](#allow-access) to access the cluster.
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
    1. Click **Create connection**.
 
@@ -64,7 +64,7 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
 
       {% cut "My connection is not in the list" %}
@@ -81,7 +81,7 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
    1. Select a connection from the list.
 
@@ -103,7 +103,7 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
    1. Select a connection from the list.
 

@@ -31,12 +31,16 @@ items:
         href: tts/templates.md
       - name: Text markup
         items:
+          - name: Overview
+            href: tts/markup/index.md
           - name: TTS markup
-            href: tts/tts-markup.md
+            href: tts/markup/tts-markup.md
           - name: SSML markup
-            href: tts/ssml.md
-          - name: List of supported SSML phonemes
-            href: tts/supported-phonemes.md
+            href: tts/markup/ssml.md
+          - name: List of TTS supported phonemes
+            href: tts/markup/tts-supported-phonemes.md
+          - name: List of SSML supported phonemes
+            href: tts/markup/ssml-supported-phonemes.md
       - name: '{{ brand-voice-name }}'
         href: tts/brand-voice/index.md
   - name: Audio formats

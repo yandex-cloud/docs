@@ -1,12 +1,6 @@
-# Managing object lock in buckets
+# Managing object locks in buckets
 
-You can set up _[object lock](../../concepts/object-lock.md)_ in [versioned](versioning.md) buckets. When object lock is enabled, you can lock an object version so that it can't be deleted or overwritten. You can also set default object locks for a bucket: they will apply to all new object versions.
-
-{% note info %}
-
-To start using locks in your cloud, request this feature from [support](../../../support/overview.md#response-time).
-
-{% endnote %}
+You can set up _[object locks](../../concepts/object-lock.md)_ in [versioned](versioning.md) buckets. When object lock is enabled, you can lock an object version so that it would not be deleted or overwritten. You can also set default object locks for a bucket that will apply to all new object versions.
 
 ## Enabling an object lock {#enable}
 
@@ -20,7 +14,7 @@ To enable object locks:
 
 - AWS CLI
 
-   If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
    Run the following command:
 
@@ -57,7 +51,7 @@ To set up default object locks:
 
 - AWS CLI
 
-   If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
    1. Specify a configuration for default object locks in JSON format:
 
@@ -122,7 +116,7 @@ To disable object locks:
 
 - AWS CLI
 
-   If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
    Run the following command:
 

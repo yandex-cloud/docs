@@ -19,6 +19,8 @@ items:
             href: stt/request.md
           - name: Асинхронное распознавание
             href: stt/transcribation.md
+      - name: Нормализация результатов распознавания
+        href: stt/normalization.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
   - name: Синтез речи

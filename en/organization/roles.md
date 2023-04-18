@@ -41,21 +41,21 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 - {{ org-name }} interface
 
-   1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
+  1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
+  1. In the left-hand panel, select [Access rights]({{ link-org-acl }}) ![icon-acl](../_assets/organization/acl.svg).
 
-   1. Select a user from the list or use the search bar at the top of the page.
+  1. Select a user from the list or use the search bar at the top of the page.
 
-   1. In the right-hand column, click ![icon-context-menu](../_assets/horizontal-ellipsis.svg) and select **Configure access**.
+  1. In the line with the user name, click ![icon-context-menu](../_assets/horizontal-ellipsis.svg) and select **Assign roles**.
 
-   1. In the **Configure access rights** window, click **Add role** and enter the name of the role or select from list.
+  1. In the **Configure access rights** window, click **Add role** and enter the role name or select one from the list.
 
       You can find a description of the available roles in the {{ iam-full-name }} documentation, [{#T}](../iam/concepts/access-control/roles.md).
 
-   1. Click **Save**.
+  1. Click **Save**.
 
 - CLI
 
@@ -111,7 +111,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       }
       ```
 
-   1. Assign the role. For example, for an organization with the ID `bpf3crucp1v28b74p3rk`:
+  1. Assign the role. For example, for an organization with the `bpf3crucp1v28b74p3rk` ID:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
@@ -122,14 +122,14 @@ For information about roles available in {{ yandex-cloud }} and their associated
           -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
-      For detailed instructions on assigning a role to a resource, please see the {{ iam-full-name }} and {{ resmgr-full-name }} documentation:
-      * [{#T}](../iam/operations/sa/set-access-bindings.md)
-      * [{#T}](../resource-manager/operations/cloud/set-access-bindings.md)
-      * [{#T}](../resource-manager/operations/folder/set-access-bindings.md)
+     For detailed instructions on assigning a role to a resource, please see the {{ iam-full-name }} and {{ resmgr-full-name }} documentation:
+     * [{#T}](../iam/operations/sa/set-access-bindings.md)
+     * [{#T}](../resource-manager/operations/cloud/set-access-bindings.md)
+     * [{#T}](../resource-manager/operations/folder/set-access-bindings.md)
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the properties of the roles to be assigned in the configuration file:
 
@@ -140,7 +140,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
          * `serviceAccount:{service_account_id}`: Service account ID.
          * `federatedUser:{federated_user_id}`: Federated user ID.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```
       resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -154,20 +154,20 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   2. Make sure that the configuration files are valid.
+   2. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      2. Run the check using the command:
+      2. Run the check using this command:
 
       ```
       terraform plan
       ```
 
-      If the configuration is described correctly, the terminal displays a list of the roles assigned. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of the roles assigned. If the configuration contains any errors, {{ TF }} will point them out.
 
    3. Assign roles.
 
-      If the configuration doesn't contain any errors, run the command:
+      If the configuration does not contain any errors, run this command:
 
       ```
       terraform apply
@@ -190,7 +190,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
    1. Select a user from the list or use the search bar at the top of the page.
 
@@ -233,12 +233,12 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       ```
 
 
-   1. To delete an access binding, run:
+  1. To delete an access binding, run:
 
       ```bash
       yc <SERVICE-NAME> <RESOURCE> remove-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
           --role <ROLE-ID> \
-       --subject <SUBJECT-TYPE>:<SUBJECT-ID>
+          --subject <SUBJECT-TYPE>:<SUBJECT-ID>
       ```
 
       * `<ROLE-ID>` is the ID of the role to revoke, such as `organization-manager.admin`.
@@ -281,7 +281,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       }
       ```
 
-   1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from user `aje6o61dvog2h6g9a33s`:
+  1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete. The example below shows how to revoke the `organization-manager.admin` role from user `aje6o61dvog2h6g9a33s`.
 
       Example `body.json` file:
 
@@ -300,7 +300,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       }
       ```
 
-   1. Revoke the role by deleting the specified access binding:
+  1. Revoke the role by deleting the specified access binding:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v28b74p3rk

@@ -1,6 +1,6 @@
 # Authentication using Azure Active Directory
 
-With an [identity federation](../../add-federation.md), you can use [Azure Active Directory]({{ link-azure-ad }}) (Azure AD) to authenticate users in an organization.
+With [identity federation](../../add-federation.md), you can use [Azure Active Directory]({{ link-azure-ad }}) to authenticate users in an organization.
 
 Setting up authentication includes the following steps:
 
@@ -76,13 +76,13 @@ Add users to the IdP server:
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
-   1. Enter a name for the federation. The name must be unique within the folder.
+   1. Give your federation a name. It must be unique within the folder.
 
-   1. Add a description if necessary.
+   1. You can also add a description, if required.
 
    1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
 
@@ -98,7 +98,7 @@ Add users to the IdP server:
       https://login.microsoftonline.com/<SAML application ID>/saml2
       ```
 
-   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If this option is disabled, you will need to [manually add](../../add-account.md#add-user-sso).
+   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If this option is disabled, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
 
    1. Click **Create federation**.
 
@@ -128,7 +128,7 @@ Add users to the IdP server:
 
       Where:
 
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
 
       * `organization-id`: Your organization ID.
 
@@ -180,7 +180,7 @@ Add users to the IdP server:
 
       * `folderId`: ID of the folder.
 
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
 
       * `organizationId`: Organization ID.
 
@@ -199,7 +199,7 @@ Add users to the IdP server:
          https://sts.windows.net/<SAML application ID>/
          ```
 
-      * `ssoUrl`: URL of the page that the browser redirects the user to for authentication.
+      * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
 
          Use the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
 
@@ -217,7 +217,7 @@ Add users to the IdP server:
 
    1. Specify the federation parameters in the configuration file:
 
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: Organization ID.
       * `labels`: Set of key/value label pairs assigned to the federation.
@@ -230,7 +230,7 @@ Add users to the IdP server:
          ```
 
       * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
-      * `sso_url`: URL of the page that the browser redirects the user to for authentication.
+      * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
          Use the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
 
@@ -298,13 +298,13 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 - Management console
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
    1. At the bottom of the page, click **Add certificate**.
 
-   1. Enter the certificate's name and description.
+   1. Enter the certificate name and description.
 
    1. Choose how to add the certificate:
 
@@ -376,7 +376,7 @@ Get the link:
 
 1. Copy the Federation ID:
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Copy the ID of the federation you are configuring access for.
 
@@ -426,7 +426,7 @@ If the attribute value exceeds the length limit, the value part that goes beyond
 
 ### Add users to your organization {#add-users-to-org}
 
-If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), federated users must be manually added to your organization.
+If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
 
 To do this, you will need user Name IDs. They are returned by the IdP server along with a response confirming successful authentication.
 
@@ -436,13 +436,13 @@ A user can be added by an organization administrator (the `organization-manager.
 
 - Management console
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
+   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click the arrow next to the **Add user** button. Select **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -479,7 +479,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    To add identity federation users to the cloud:
 
-   1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
+   1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of Name IDs of users you want to add:
 
       ```json
       {
@@ -508,7 +508,7 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the [console login link](#yc-settings) obtained earlier. The browser forwards you to the Microsoft authentication page.
+1. Follow the [console login link](#yc-settings) you obtained previously. The browser forwards you to the Microsoft authentication page.
 
 1. Enter your credentials and click **Next**.
 

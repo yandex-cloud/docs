@@ -26,6 +26,10 @@ To enable log export for a [resource](../../concepts/resource.md):
 
    1. Click **Enable**.
 
+- API
+
+   Use the [activate](../../api-ref/RawLogs/activate.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Activate](../../api-ref/grpc/raw_logs_service.md#Activate) gRPC API call.
+
 {% endlist %}
 
 Once enabled, the export status will change from `NOT_ACTIVATED` to `OK`.
@@ -52,6 +56,10 @@ To edit export parameters:
 
    1. Enter the required parameters and click **Save**.
 
+- API
+
+   Use the [update](../../api-ref/RawLogs/update.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Update](../../api-ref/grpc/raw_logs_service.md#Update) gRPC API call.
+
 {% endlist %}
 
 ## Deactivating export {#disabling}
@@ -70,6 +78,10 @@ To disable export:
 
    1. Go to the **Export logs** tab.
 
-   1. In the upper-right corner, click **Disable**.
+   1. In the top-right corner, click **Disable**.
+
+- API
+
+   Use the [deactivate](../../api-ref/RawLogs/deactivate.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Deactivate](../../api-ref/grpc/raw_logs_service.md#Deactivate) gRPC API call.
 
 {% endlist %}

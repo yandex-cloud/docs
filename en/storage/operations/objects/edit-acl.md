@@ -14,18 +14,18 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the bucket name.
-   1. To edit an ACL, click ![image](../../../_assets/horizontal-ellipsis.svg) to the right of an object name and select the **object ACL**.
+   1. To edit an ACL, click ![image](../../../_assets/horizontal-ellipsis.svg) to the right of the object name and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
-      You can also click the object name, click ![image](../../../_assets/horizontal-ellipsis.svg) on the resulting page, and select the **object ACL**.
+      You can also click the object name, click ![image](../../../_assets/horizontal-ellipsis.svg) on the resulting page, and select **{{ ui-key.yacloud.storage.file.button_permissions }}**.
 
-   1. In the **Edit ACL** window, grant or revoke the desired permissions.
+   1. In the **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
 
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To edit an object ACL:
@@ -46,31 +46,31 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
       ```
 
       Where:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
       * `acl`: [Predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of an object. `private` (default): {{ yandex-cloud }} users are authorized based on their roles in {{ iam-short-name }}.
 
       For more information about the `yandex_storage_object` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_object).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

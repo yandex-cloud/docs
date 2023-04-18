@@ -2,7 +2,7 @@
 
 In this tutorial a {{ objstorage-full-name }} bucket is used as the {{ alb-full-name }} L7 load balancer backend. User requests are transmitted to the load balancer via the {{ cdn-full-name }} content delivery network (CDN) that reduces the time of content delivery.
 
-We'll use the `cdn.yandexcloud.example` domain name as an example.
+We will use the `cdn.yandexcloud.example` domain name as an example.
 
 To perform steps, you can use various [supported tools](#supported-tools).
 
@@ -20,18 +20,18 @@ To build architecture for integrating an L7 load balancer with CDN and Object St
 1. [Configure DNS for the service](#configure-dns).
 1. [Run a health check for the service](#check).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Supported tools {#supported-tools}
 
-Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), [{{ yandex-cloud }}](../../cli/) and [AWS](../../storage/tools/aws-cli.md) CLIs, {{ TF }}, and the [{{ yandex-cloud }} API](../../api-design-guide). Each step lists tools supported for it.
+You can complete most of the steps in the tutorial in any standard tool, such as the [management console]({{ link-console-main }}), [{{ yandex-cloud }}](../../cli/) and [AWS](../../storage/tools/aws-cli.md) CLIs, {{ TF }}, and the [{{ yandex-cloud }} API](../../api-design-guide). Each step lists tools supported for it.
 
-Some steps don't support certain tools:
+Some steps do not support certain tools:
 
-* Currently, you can't use CLIs and {{ TF }} to:
+* Currently, you cannot use CLIs and {{ TF }} to:
    * [Create a {{ alb-name }} backend group with buckets as backends](#create-l7backend).
    * Get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
-* Currently, you can't get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
+* Currently, you cannot get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -45,9 +45,9 @@ We use a folder named `example-folder` as an example.
 The cost of this infrastructure includes:
 
 * A fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* A fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * A fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
-* A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 
 ## Create a cloud network and subnets {#create-network}
@@ -196,7 +196,7 @@ To create a network and subnets:
 
       Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -205,7 +205,7 @@ To create a network and subnets:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -281,7 +281,7 @@ Create a bucket named `example-bucket`:
 
       For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -290,7 +290,7 @@ Create a bucket named `example-bucket`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -370,7 +370,7 @@ Create a bucket named `example-bucket`:
 
          For more information about the `yandex_storage_object` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_object).
 
-      1. Make sure that the configuration files are valid.
+      1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run the check using this command:
@@ -379,7 +379,7 @@ Create a bucket named `example-bucket`:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -399,7 +399,7 @@ Create a bucket named `example-bucket`:
 
 ## Create a security group {#create-security-group}
 
-{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 [Security groups](../../vpc/concepts/security-groups.md) contain rules that allow the L7 load balancer to receive incoming traffic and send it to backend buckets.
 
@@ -429,9 +429,9 @@ To create security groups:
       1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
       1. In the **Purpose** or **Source** field, select the purpose of the rule:
 
-         * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
-         * **Load balancer health checks** is a rule that allows a load balancer to check the health of VMs.
+         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+         * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
+         * **Load balancer health checks**: Rule that allows a load balancer to check the health of VMs.
 
       1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -536,7 +536,7 @@ To create security groups:
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -545,7 +545,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -617,7 +617,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       1. In the **Action** field, leave the **Routing** value.
       1. In the **Backend group** list, select `example-bg`.
 
-   1. Leave the other settings as they are and click **Create**.
+   1. Leave all other settings as they are and click **Create**.
 
 - CLI
 
@@ -715,7 +715,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       Learn more in the description of the [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -724,7 +724,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -938,7 +938,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       For more information about the `yandex_alb_load_balancer` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/alb_load_balancer).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -947,7 +947,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -1088,7 +1088,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -1097,7 +1097,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -1109,7 +1109,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -1226,7 +1226,7 @@ To configure DNS:
 
          Learn more in the description of the [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) resources in the {{ TF }} provider documentation.
 
-      1. Make sure that the configuration files are valid.
+      1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run the check using this command:
@@ -1235,7 +1235,7 @@ To configure DNS:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 

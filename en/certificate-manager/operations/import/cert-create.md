@@ -31,8 +31,8 @@ To create a self-signed certificate using the `OpenSSL` library, run the command
 {% endlist %}
 
 Where:
-* `-x509`: The command will output a certificate file.
-* `-newkey`: A new private key file will be created.
+* `-x509`: Command will output a certificate file.
+* `-newkey`: New private key file will be created.
 * `rsa:4096`: Algorithm and key length.
 * `-nodes`: Do not encrypt the private key file.
 * `-out`: Certificate file name.
@@ -79,7 +79,7 @@ To create a user certificate:
       yc certificate-manager certificate create --help
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       yc certificate-manager certificate create \
@@ -107,7 +107,7 @@ To create a user certificate:
 
 - API
 
-   To create a certificate, use the [create](../../api-ref/Certificate/create.md) method for the [Certificate](../../api-ref/Certificate/) resource.
+   To create a certificate, use the [create](../../api-ref/Certificate/create.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Create](../../api-ref/grpc/certificate_service.md#Create) gRPC API call.
 
 {% endlist %}
 

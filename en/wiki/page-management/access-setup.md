@@ -15,7 +15,7 @@ To configure page permissions:
    
    {% note tip %}
 
-   If you are an administrator of your organization and you can't access the page, you can use a direct link to access the settings. To do this, add `.access` at the end of the page's URL.
+   If you are an organization administrator and you cannot access the page, you can only request access from the page author.
 
    {% endnote %}
 
@@ -28,13 +28,13 @@ To configure page permissions:
 
 * **Specific employees**: Specify the usernames of people or the group to grant access to.
 
-* **Same as parent page**: The access level is inherited from the parent page.
+* **Same as parent page**: Access level is inherited from the parent page.
 
 {% note alert %}
 
 It is not recommended to change the access settings for the [{{ wiki-name }} homepage]({{ link-homepage }}).
 
-By default, the author of the {{ wiki-name }} homepage is a service account. If the "Only authors" access type is selected for this page, other users can't access it. To allow others to access the page, click the link [{{ link-homepage-access }}]({{ link-homepage-access }}) and change the access parameters.
+By default, the author of the {{ wiki-name }} home page is a service account. If the "Only authors" access type is selected for this page, other users can't access it. To allow others to access the page, click the link [{{ link-homepage-access }}]({{ link-homepage-access }}) and change the access parameters.
 
 {% endnote %}
 

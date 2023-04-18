@@ -1,6 +1,6 @@
 # Subscriptions and favorites
 
-Use subscriptions and favorites to stay up-to-date with changes in the pages you're interested in.
+Use subscriptions and favorites to stay up-to-date with changes in the pages you are interested in.
 
 In the {{ wiki-name }} panel on the left, there are buttons to navigate through pages that may be of interest to you.
 
@@ -34,7 +34,7 @@ You can tag a page that is added to [Favorites](#add-fav).
 
 {% endnote %}
 
-To tag a Wiki page:
+To tag a page:
 
 1. In the panel on the left, click ![](../_assets/wiki/svg/fav.svg) **Favorites**.
 

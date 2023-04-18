@@ -4,9 +4,9 @@ A markup language is a set of rules for creating the structure and visual design
 
 {{ wiki-name }} supports additional formatting elements that are not present in the standard Markdown syntax.
 
-You can use Markdown both on [Wiki pages and in dynamic tables](pages-types.md) to:
+You can use Markdown both on [pages and in dynamic tables](pages-types.md) to:
 
-* [Set the Wiki page structure](static-markup/document-structure.md)
+* [Set the page structure](static-markup/document-structure.md)
 
 * [Format the text](static-markup/formatting.md)
 

@@ -1,6 +1,6 @@
 # Deleting origin groups
 
-## Deleting one origin group {#deletion-group-single}
+## Deleting a single origin group {#deletion-group-single}
 
 To delete an [origin group](../../concepts/origins.md):
 
@@ -54,7 +54,7 @@ To delete an [origin group](../../concepts/origins.md):
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    If you created an origin group using {{ TF }}, you can delete it:
    1. In the command line, go to the directory with the {{ TF }} configuration file.
@@ -66,6 +66,10 @@ To delete an [origin group](../../concepts/origins.md):
    1. Delete the origin group.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+- API
+
+   Use the [delete](../../api-ref/OriginGroup/delete.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Delete](../../api-ref/grpc/origin_group_service.md#Delete) gRPC API call.
 
 {% endlist %}
 

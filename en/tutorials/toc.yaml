@@ -27,9 +27,9 @@ items:
         href: web/wordpress-transfer.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
-      - name: Setting up a virtual hosting
+      - name: Setting up virtual hosting
         href: web/virtual-hosting.md
-      - name: Creating a load balancer with DDoS protection
+      - name: Creating load balancer with DDoS protection
         href: web/alb-with-ddos-protection.md
       - name: Publishing game updates using {{ cdn-name }}
         href: web/prefetch.md
@@ -49,14 +49,20 @@ items:
         href: internet-store/bitrix-shop.md
       - name: OpenCart based online store
         href: internet-store/opencart.md
-  - name: Data archive
+  - name: Storing and recovering data
     items:
       - name: All tutorials
         href: archive/index.md
+      - name: Migrating to {{ yandex-cloud }} using Hystax Acura
+        href: infrastructure-management/hystax-migration.md
+      - name: Fault protection with Hystax Acura
+        href: infrastructure-management/hystax-disaster-recovery.md
       - name: Single-node file server
         href: archive/single-node-file-server.md
       - name: Configuring an SFTP server on Centos 7
         href: archive/backup-and-archive-to-sftp.md
+      - name: Creating a VM backup with Hystax Acura Backup
+        href: infrastructure-management/hystax-backup.md
       - name: Backup to {{ objstorage-name }} via Acronis
         href: archive/object-storage-acronis.md
       - name: Backup to {{ objstorage-name }} via CloudBerry Desktop Backup
@@ -113,10 +119,6 @@ items:
           Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
           }} cluster
         href: infrastructure-management/1c-postgresql-linux.md
-      - name: Migrating to {{ yandex-cloud }} using Hystax Acura
-        href: infrastructure-management/hystax-migration.md
-      - name: Fault protection with Hystax Acura
-        href: infrastructure-management/hystax-disaster-recovery.md
       - name: Configuring clock synchronization using NTP
         href: infrastructure-management/ntp.md
       - name: Running instance groups with auto scaling
@@ -131,8 +133,6 @@ items:
         href: infrastructure-management/updating-under-load.md
       - name: Transferring logs from a VM instance to {{ cloud-logging-name }}
         href: infrastructure-management/vm-fluent-bit-logging.md
-      - name: Creating a VM backup with Hystax Acura Backup
-        href: infrastructure-management/hystax-backup.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
       - name: Creating an SAP program in {{ yandex-cloud }}
@@ -263,12 +263,18 @@ items:
         href: dataplatform/mmy-objs-migration.md
       - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
         href: dataplatform/sqoop-mmy.md
+      - name: >-
+          Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/./data-transfer-mmy.md
       - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/./debezium-mmy.md
       - name: >-
           Migrating databases from {{ mmy-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
+      - name: Migrating data from {{ ES }} to {{ mos-name }}
+        href: dataplatform/elasticsearch-to-opensearch.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: '{{ mpg-name }} performance analysis and tuning'

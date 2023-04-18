@@ -20,12 +20,12 @@ If there is a problem with your infrastructure's production environment, specify
 
 The expected support specialist response time is shown in the table below. A dash in a table cell means the corresponding communication channel is not available for the selected service plan.
 
-Channel                                    |                        Basic                                          | Standard | Business | Premium
+Channel | Basic | Standard | Business | Premium
 -------------------------------------------|-----------------------------------------------| --- | --- | ---
-| | For personal and research projects | For development and pilot projects | For professional projects | For business projects with stringent fault tolerance requirements. |
-| Request in console | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 8 hours<br>Critical: 2 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
- Chat                                      |                           -                                             | 15 minutes | 5 minutes | Immediate 
- Phone                                     |                           -                                             | - | On additional request | On additional request 
+| | For personal and research projects | For development and pilot projects | For professional projects | For business projects with stringent fault tolerance requirements
+Request in console | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 8 hours<br>Critical: 2 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes
+Chat | - | 15 minutes | 5 minutes | Immediate
+Phone | - | - | On additional request | On additional request
 
 
 ## Types of requests to {#request-types} support
@@ -63,6 +63,8 @@ The list of services offered under the "Premium" plan isn't fixed and can update
 * Develop software code.
 * Debug your own software.
 
+{% include [end-of-life](../_includes/compute/end-of-life.md) %}
+
 
 ## How to change your service plan {#change-service-plan}
 
@@ -75,4 +77,5 @@ Only the service account's owner can change the service plan. To change your ser
    * Premium plan, complete the form and click **Send**.
 
 Service plan upgrades are activated immediately, while downgrades are applied on the first day of the following month.
+
 

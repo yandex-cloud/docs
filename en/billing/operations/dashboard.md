@@ -8,12 +8,24 @@ You can view information on your {{ yandex-cloud }} service usage by building a 
 
 - Management console
 
-   1. Go to the [connections page]({{ link-datalens-main }}/connections).
-   1. Click **Create connection**.
-   1. Select the **{{ yandex-cloud }} Billing** connector.
-   1. Enter a **Connection name**. The name can be anything.
-   1. In the upper-right corner, in the drop-down list, select who can access the dashboard: only you or the company.
-   1. Click **Create**.
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+
+   1. Select the billing account you need from the list.
+   1. In the **Usage details** tab, click **Details in {{ datalens-name }}**.
+   1. Click **Create connection**.
+   1. In the window that opens, specify the connection name and click **Create**.
+   1. Select **{{ yandex-cloud }} Billing Dashboard** in the list.
+   1. Go to the **Resources** tab.
+   1. In the **Usage date** field, select the period in question.
+   1. Click ![options-grey](../../_assets/options-grey.svg) next to the **Resource total cost** chart and select **Edit**.
+   1. In the editor that opens:
+      1. Under **Columns**, delete the **Cost** and **Credit** columns.
+      1. Under **Filters**, select the **Resouce ID** filter and configure it:
+         1. In the **Operation** field, specify **Belongs to a set**.
+         1. In the **Available** field, select the IDs of the relevant resources.
+         1. Click **Apply filter**.
+
+   As a result, you should see the cost of using resources for the specified period.
 
 {% endlist %}
 

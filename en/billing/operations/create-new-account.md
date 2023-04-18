@@ -32,10 +32,10 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
         {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-    - Business or individual entrepreneur
+    - Business or sole proprietor
 
       7.1. Select a payment method (bank card or bank transfer):
-      - **Bank card**
+      - **Bank card**.
       <br/>Link your corporate bank card:
 
         {% include [pin-card-data](../_includes/pin-card-data.md) %}
@@ -45,13 +45,11 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
         {% include [pin-card-note](../_includes/pin-card-note.md) %}
 
         {% include [yandex-account](../_includes/payment-card-validation.md) %}
-      - **Bank transfer**
+      - **Bank transfer**.
 
       7.2. Enter the legal information of your organization.
 
    {% endlist %}
-
-
 
 1. Make sure that the provided contact details are correct.
 

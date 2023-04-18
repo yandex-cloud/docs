@@ -1,16 +1,16 @@
 # Managing bucket object lifecycles
 
-{{ objstorage-name }} lets you manage [lifecycles of objects](../../concepts/lifecycles.md) in a bucket.
+{{ objstorage-name }} allows you to manage [object lifecycles](../../concepts/lifecycles.md) in a bucket.
 
-Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
+Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
 
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure object lifecycles for.
-   1. Select **Lifecycle**.
-   1. Click **Configure**.
+   1. Select **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.lifecycle.button_lifecycle_empty-create }}**.
    1. On the page that opens, you can add, remove, and edit configuration rules.
 
       {% include [storage-create-rule](../../_includes_service/storage-create-rule.md) %}
@@ -48,30 +48,30 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
       }
       ```
 
-      Supported configuration parameters:
-      * `id`: Unique rule ID. Must be no more than 255 characters. Optional.
-      * `enabled`: Rule status. Required parameter.
-      * `filter`: Object filter. Optional. It may contain:
-         * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. Optional.
-      * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. Optional. It may contain:
-         * `date`: Date after which you want the rule to take effect. Optional.
-         * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. Optional.
-         * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
-      * `expiration`: Object expiration date for deleting non-current object versions. Optional. It may contain:
-         * `date`: Date after which you want the rule to take effect. Optional.
-         * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. Optional.
-      * `noncurrent_version_transition`: Rule of changing storage class from `STANDARD` to `COLD` for non-active object versions. Optional. It may contain:
-         * `days`: The number of days before the transition. Minimum value: 1. Required parameter.
-         * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
-      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. Optional. It may contain:
-         * `days`: The number of days before expiration. Minimum value: 1. Required parameter.
-      * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. Optional.
+      Possible configuration parameters:
+      * `id`: Unique rule ID. Must be no more than 255 characters. This is an optional parameter.
+      * `enabled`: Rule status. This parameter is required.
+      * `filter`: Object filter. This is an optional parameter. It may contain:
+         * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. This is an optional parameter.
+      * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. This is an optional parameter. It may contain:
+         * `date`: Date after which you want the rule to take effect. This is an optional parameter.
+         * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
+         * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. This parameter is required.
+      * `expiration`: Object expiration date for deleting non-current object versions. This is an optional parameter. It may contain:
+         * `date`: Date after which you want the rule to take effect. This is an optional parameter.
+         * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
+      * `noncurrent_version_transition`: Rule of changing storage class from `STANDARD` to `COLD` for non-active object versions. This is an optional parameter. It may contain:
+         * `days`: Number of days before the transition. The minimum value is 1. This parameter is required.
+         * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. This parameter is required.
+      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. This is an optional parameter. It may contain:
+         * `days`: Number of days before expiration. The minimum value is 1. This parameter is required.
+      * `abort_incomplete_multipart_upload_days`: Number of days after the start of a multipart upload when it should be completed. This is an optional parameter.
 
       Make sure to specify at least one of the following parameters: `transition`, `expiration`, `noncurrent_version_transition`, `noncurrent_version_expiration`, or `abort_incomplete_multipart_upload_days`.
 
-      Once completed, save the configuration to a file like `lifecycles.json`.
+      Once completed, save the configuration to a file, such as `lifecycles.json`.
 
-   1. View the description of the CLI command to update a bucket:
+   1. View a description of the CLI command to update a bucket:
 
       ```bash
       yc storage bucket update --help
@@ -93,7 +93,7 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-   1. Save the name of the bucket (the `NAME` column) to set up the lifecycles in.
+   1. Using the `NAME` column, save the name of the bucket to set up the lifecycles in.
    1. Run the following command:
 
       ```bash
@@ -109,7 +109,7 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
 
       The configuration specified in the command overrides the current bucket lifecycle settings. You can retrieve the current settings using the `yc storage bucket get <bucket_name> --full` command.
 
-   To remove the lifecycle configuration, run the command:
+   To remove the lifecycle configuration, run this command:
 
    ```bash
    yc storage bucket update \
@@ -157,7 +157,7 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
 
    Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       
       ```hcl
@@ -230,14 +230,14 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
 
       Where:
 
-      * `bucket`: Bucket name. Required parameter.
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
+      * `bucket`: Bucket name. This parameter is required.
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
 
       `lifecycle_rule` parameters:
       * `id`: Unique rule ID. Must be no more than 255 characters. This is an optional parameter.
       * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. This is an optional parameter.
-      * `enabled`: Rule status. Required parameter.
+      * `enabled`: Rule status. This parameter is required.
       * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. This is an optional parameter.
       * `expiration`: Object expiration date for deleting non-current object versions. This is an optional parameter.
       * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. This is an optional parameter.
@@ -248,34 +248,34 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
 
       `expiration` parameters:
       * `date`: Date after which you want the rule to take effect. This is an optional parameter.
-      * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. This is an optional parameter.
+      * `days`: The number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
 
       `transition` parameters:
       * `date`: Date after which you want the rule to take effect. This is an optional parameter.
-      * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. This is an optional parameter.
-      * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
+      * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
+      * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. This parameter is required.
 
       `noncurrent_version_expiration` parameters:
-      * `days`: The number of days before expiration. Minimum value: 1. Required parameter.
+      * `days`: Number of days before expiration. The minimum value is 1. This parameter is required.
 
       `noncurrent_version_transition` parameters:
-      * `days`: The number of days before the transition. Minimum value: 1. Required parameter.
-      * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
+      * `days`: Number of days before the transition. The minimum value is 1. This parameter is required.
+      * `storage_class`: Storage class to move the object to. The value must be either `COLD` or `STANDARD_IA`. This parameter is required.
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
-      1. If the configuration doesn't contain any errors, run the command:
+   1. Deploy cloud resources.
+      1. If the configuration does not contain any errors, run this command:
 
          ```bash
          terraform apply
@@ -283,6 +283,6 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
 
       1. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}

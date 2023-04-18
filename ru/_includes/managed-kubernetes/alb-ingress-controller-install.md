@@ -21,6 +21,8 @@
      --format=json > sa-key.json
    ```
 
+
+
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
@@ -33,6 +35,8 @@
    * **Идентификатор кластера** — укажите [идентификатор кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
    * **Secret Key** — вставьте содержимое файла `sa-key.json`.
 1. Нажмите кнопку **Установить**.
+
+
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}
 
@@ -52,6 +56,7 @@
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером выполните команды:
 
+   
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
@@ -68,6 +73,8 @@
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/alb-ingress-controller#docker-images).
+
+
 
 ## См. также {#see-also}
 

@@ -20,8 +20,10 @@
 * [{#T}](cdc-mmy.md)
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](cdc-mpg.md)
+* [{#T}](cdc-ydb.md)
 * [{#T}](mpg-to-objstorage.md)
 * [{#T}](trails-to-os.md)
+* [{#T}](ydb-to-yds.md)
 
 ## Asynchronous replication of data
 
@@ -30,6 +32,7 @@
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mpg-to-ydb.md)
 * [{#T}](mpg-to-yds.md)
+* [{#T}](mmy-to-yds.md)
 
 ## Saving data streams
 * [{#T}](yds-to-clickhouse.md)

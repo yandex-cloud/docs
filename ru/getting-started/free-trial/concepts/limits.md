@@ -23,7 +23,7 @@ editable: false
 * Windows Server Standard
 * Windows RDS
 
-Полный список досупен в сервисе [{{ marketplace-full-name }}](/marketplace).
+Полный список доступен в сервисе [{{ marketplace-full-name }}](/marketplace).
 
 ## Квоты и лимиты сервисов {#quotes-and-limits}
 

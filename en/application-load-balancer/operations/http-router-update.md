@@ -58,10 +58,9 @@ To change the HTTP router parameters:
       ```
 
 
-
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and edit the fragment with the HTTP router description.
 
@@ -99,25 +98,25 @@ To change the HTTP router parameters:
 
       For more information about the `yandex_alb_virtual_host` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -132,6 +131,10 @@ To change the HTTP router parameters:
       ```
       yc alb http-router get <HTTP router ID>
       ```
+
+- API
+
+   Use the [update](../api-ref/HttpRouter/update.md) REST API method for the [HttpRouter](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Update](../api-ref/grpc/http_router_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -175,7 +178,7 @@ To add a new route to an HTTP router's virtual host:
          yc alb virtual-host append-http-route --help
          ```
 
-      1. Run the command:
+      1. Run this command:
          ```
          yc alb virtual-host append-http-route <route name> \
            --virtual-host-name <virtual host name> \
@@ -213,7 +216,7 @@ To add a new route to an HTTP router's virtual host:
          yc alb virtual-host prepend-http-route --help
          ```
 
-      1. Run the command:
+      1. Run this command:
          ```
          yc alb virtual-host prepend-http-route <route name> \
            --virtual-host-name <virtual host name> \
@@ -253,7 +256,7 @@ To add a new route to an HTTP router's virtual host:
          yc alb virtual-host insert-http-route --help
          ```
 
-      1. Run the command:
+      1. Run this command:
          ```
          yc alb virtual-host insert-http-route <route name> \
            --virtual-host-name <virtual host name> \
@@ -296,7 +299,7 @@ To add a new route to an HTTP router's virtual host:
          yc alb virtual-host insert-http-route --help
          ```
 
-      1. Run the command:
+      1. Run this command:
          ```
          yc alb virtual-host insert-http-route <route name> \
            --virtual-host-name <virtual host name> \
@@ -342,14 +345,14 @@ To add a new route to an HTTP router's virtual host:
          yc alb virtual-host append-grpc-route --help
          ```
 
-      1. Run the command:
+      1. Run this command:
          ```
          yc alb virtual-host append-grpc-route <route name> \
            --virtual-host-name <virtual host name> \
            --http-router-name <HTTP router name> \
            --prefix-fqmn-match /<first word in service name> \
            --backend-group-name <backend group name> \
-           --request-max-timeout <timeout>s 
+           --request-max-timeout <timeout>s
          ```
 
          Result:
@@ -378,14 +381,14 @@ To add a new route to an HTTP router's virtual host:
          yc alb virtual-host prepend-grpc-route --help
          ```
 
-      1. Run the command:
+      1. Run this command:
          ```
          yc alb virtual-host prepend-grpc-route <route name> \
            --virtual-host-name <virtual host name> \
            --http-router-name <HTTP router name> \
            --prefix-fqmn-match /<first word in service name> \
            --backend-group-name <backend group name> \
-           --request-max-timeout <timeout>s  
+           --request-max-timeout <timeout>s
          ```
 
          Result:
@@ -414,7 +417,7 @@ To add a new route to an HTTP router's virtual host:
          yc alb virtual-host insert-grpc-route --help
          ```
 
-      1. Run the command:
+      1. Run this command:
          ```
          yc alb virtual-host insert-grpc-route <route name> \
            --virtual-host-name <virtual host name> \
@@ -422,7 +425,7 @@ To add a new route to an HTTP router's virtual host:
            --http-router-name <HTTP router name> \
            --prefix-fqmn-match /<first word in service name> \
            --backend-group-name <backend group name> \
-           --request-max-timeout <timeout>s  
+           --request-max-timeout <timeout>s
          ```
 
          Result:
@@ -430,7 +433,7 @@ To add a new route to an HTTP router's virtual host:
          name: grpc-host
          authority:
          - *
-         routes:       
+         routes: 
          ...
          - name: grpc-route-before
            grpc:
@@ -452,7 +455,7 @@ To add a new route to an HTTP router's virtual host:
          yc alb virtual-host insert-grpc-route --help
          ```
 
-      1. Run the command:
+      1. Run this command:
          ```
          yc alb virtual-host insert-grpc-route <route name> \
            --virtual-host-name <virtual host name> \
@@ -460,7 +463,7 @@ To add a new route to an HTTP router's virtual host:
            --http-router-name <HTTP router name> \
            --prefix-fqmn-match /<first word in service name> \
            --backend-group-name <backend group name> \
-           --request-max-timeout <timeout>s  
+           --request-max-timeout <timeout>s
          ```
 
          Result:
@@ -469,7 +472,7 @@ To add a new route to an HTTP router's virtual host:
          name: grpc-host
          authority:
          - *
-         routes:       
+         routes: 
          ...
          - name: grpc-route
          ...
@@ -485,10 +488,9 @@ To add a new route to an HTTP router's virtual host:
          ...
          ```
 
-
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and edit the fragment with the virtual host description by adding the `route` section:
 
@@ -512,25 +514,25 @@ To add a new route to an HTTP router's virtual host:
 
       The sequence of routes inside a virtual host description matters. For more information, see the [concept](../../application-load-balancer/concepts/http-router.md#virtual-host).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -545,6 +547,10 @@ To add a new route to an HTTP router's virtual host:
       ```
       yc alb virtual-host get <virtual host ID>
       ```
+
+- API
+
+   Use the [update](../api-ref/VirtualHost/update.md) REST API method for the [VirtualHost](../api-ref/VirtualHost/index.md) resource or the [VirtualHostService/Update](../api-ref/grpc/virtual_host_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -599,5 +605,9 @@ To change the order of HTTP router routes:
          ```
 
       1. Add the route to a desired position using one of the ways described above.
+
+- API
+
+   Use the [update](../api-ref/VirtualHost/update.md) REST API method for the [VirtualHost](../api-ref/VirtualHost/index.md) resource or the [VirtualHostService/Update](../api-ref/grpc/virtual_host_service.md#Update) gRPC API call.
 
 {% endlist %}

@@ -1,4 +1,4 @@
-# Editing a Let's Encrypt certificate
+# Editing Let's Encrypt certificate
 
 After creating a [Let's Encrypt certificate](../../concepts/managed-certificate.md), you can change its name or description. To edit a certificate:
 
@@ -41,7 +41,7 @@ After creating a [Let's Encrypt certificate](../../concepts/managed-certificate.
       +----------------------+---------------+-------------+-----------+---------+------------+
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       yc certificate-manager certificates update \
@@ -69,6 +69,6 @@ After creating a [Let's Encrypt certificate](../../concepts/managed-certificate.
 
 - API
 
-   To update a certificate, use the [update](../../api-ref/Certificate/update.md) method for the [Certificate](../../api-ref/Certificate/) resource.
+   To update a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
 
 {% endlist %}

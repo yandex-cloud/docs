@@ -7,11 +7,11 @@ To create an external table using a configuration file:
 1. [Set up your web server with a configuration file](#set-web-server).
 1. [Create an external table](#create-ext-table).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-### Prepare the infrastructure {#deploy-infrastructure}
+Prepare the infrastructure:
 
 {% list tabs %}
 
@@ -69,7 +69,7 @@ If you no longer need these resources, [delete them](#clear-out).
       * Folder ID for the same service account as specified in the provider settings.
       * Bucket name that must be unique throughout {{ objstorage-name }}.
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
 
    1. To verify that the config files are correct, run the command below:
 
@@ -77,7 +77,7 @@ If you no longer need these resources, [delete them](#clear-out).
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the infrastructure required to run instructions from this tutorial:
 
@@ -220,7 +220,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete `greenplum-s3-vm.tf`.
    1. Run the following command:
 
@@ -228,9 +228,9 @@ Some resources are not free of charge. Delete the resources you no longer need t
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

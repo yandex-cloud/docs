@@ -618,6 +618,7 @@ default:
   link-datalens-main: https://datalens.yandex.com
   link-datalens-settings: https://datalens.yandex.com/settings
   link-org-main: https://org.cloud.yandex.com/
+  link-org-acl: https://org.cloud.yandex.ru/acl
   link-org-users: https://org.cloud.yandex.ru/users
   link-tracker: https://tracker.yandex.com/
   link-wiki: https://wiki.yandex.com/
@@ -644,6 +645,7 @@ default:
   yds-short-name: Data Streams
   yds: yds
   ch-domain: clickhouse.com
+  captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
   ch:
     docs: https://clickhouse.com/docs/en
   gl:
@@ -740,7 +742,7 @@ default:
   dt-type-copy-repl: '**Snapshot and increment**'
   dt-type-copy: '**Snapshot**'
   dt-type-copy-reg: '**Regular snapshot**'
-  dt-type-repl: '**Increment**'
+  dt-type-repl: '**Replication**'
   dt-copy-snapshot: Single
   dt-copy-regular: Regular
   dt-copy-regular-incremental: Regular incremental
@@ -42418,7 +42420,9 @@ default:
   ui-key:
     yacloud:
       common:
+        add: Add
         create: Create
+        save: Save
       component:
         console-dashboard:
           button_action-create-folder: Create folder
@@ -42461,6 +42465,9 @@ default:
             label_managed-greenplum: Managed Service for Greenplum
           service-account:
             label_add-role: Add role
+            overview:
+              button_create_service-account-key: Create static access key
+              button_create-key-popup: Create new key
             popup-robot_button_add: Create
           service-accounts:
             button_add: Create service account
@@ -42502,6 +42509,7 @@ default:
             button_save: Save
             field_certificate: Certificate
             field_source: Source
+            value_method-custom: Your certificate
           lifecycle:
             button_lifecycle_empty-create: Configure
             button_save: Save
@@ -42576,6 +42584,26 @@ default:
         permissions-dialog:
           button_save: Save
           label_title: ACL editing
+      vpc:
+        gateways:
+          field_type: Type
+          value_gateway-type-egress-nat: Egress NAT
+        network:
+          switch_route-table: Routing tables
+        route-table-form:
+          label_add-static-route: Add a route
+          label_gateway: Gateway
+          label_next-hop-address: Next hop
+        route-table:
+          create:
+            button_create: Create a routing table
+        subnet:
+          add-route-table:
+            button_add: Link
+        subnetworks:
+          button_action-add-route-table: Link routing table
+        switch_gateways: Gateways
+        switch_networks: Subnets
       ydb:
         browse:
           button_sql-query: New SQL query
@@ -42864,14 +42892,20 @@ default:
         default: Default
         delete: Delete
         description: Description
+        edit: Edit
         endpoint: Endpoint
         folder: Folder
         name: Name
         pin: Pin
         prefix: Prefix
         save: Save
+        settings-key-value: Settings
         shared-with-project-resources: Shared
         spaces: Communities
+      edit-project-page:
+        advanced-settings: Advanced settings
+        service-account: Service account
+        subnet: Subnet
       new-alias:
         field:
           label-nodes: Nodes and load balancing
@@ -42903,6 +42937,9 @@ default:
       s3-page:
         mode-read: Read only
         mode-read-write: Read and write
+      secret:
+        content: Value
+        name: Name
       transferring:
         title: Transfer projects
         transfer-selected-projects: Transfer selected projects

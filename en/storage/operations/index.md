@@ -1,9 +1,9 @@
 ---
 title: "Instructions for operations with {{ objstorage-full-name }} (S3)"
-description: "In this article, you'll learn how to work with {{ objstorage-full-name }} (S3) in {{ yandex-cloud }}. Find out how to use buckets (create, delete, and edit them) and objects (upload and download objects, get download links, and delete objects), as well as how to host static websites (set up hosting and your own domain and configure HTTPS)."
+description: "In this article, you will learn how to work with {{ objstorage-full-name }} (S3) in {{ yandex-cloud }}. Find out how to use buckets (create, delete, and edit them) and objects (upload and download objects, get download links, and delete objects), as well as how to host static websites (set up hosting and your own domain and configure HTTPS)."
 ---
 
-# Step-by-step instructions for {{ objstorage-name }}
+# Step-by-step guides for {{ objstorage-name }}
 
 ## Buckets {#buckets}
 

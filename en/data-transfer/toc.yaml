@@ -53,7 +53,7 @@ items:
                 href: operations/endpoint/target/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md
-              - name: ElasticSearch
+              - name: Elasticsearch
                 href: operations/endpoint/target/elasticsearch.md
               - name: Greenplum®
                 href: operations/endpoint/target/greenplum.md
@@ -103,6 +103,10 @@ items:
             href: tutorials/mkf-to-mch.md
           - name: Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }}
             href: tutorials/mkf-to-ydb.md
+          - name: Delivering data from {{ mkf-full-name }} to {{ yds-full-name }}
+            href: tutorials/mkf-to-yds.md
+          - name: Delivering data from {{ mkf-full-name }} to {{ mgp-full-name }}
+            href: tutorials/managed-kafka-to-greenplum.md
           - name: Delivering data from {{ GP }} to {{ CH }}
             href: tutorials/greenplum-to-clickhouse.md
           - name: Delivering data from {{ GP }} to {{ PG }}
@@ -115,12 +119,16 @@ items:
             href: tutorials/mmy-objs-migration.md
           - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }}
             href: tutorials/cdc-mpg.md
+          - name: Delivering data from {{ ydb-full-name }} to {{ mkf-full-name }}
+            href: tutorials/cdc-ydb.md
           - name: >-
               Delivering data from {{ mpg-full-name }} to {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
           - name: Delivering logs from {{ at-full-name }} to {{ mos-full-name }}
             href: tutorials/trails-to-os.md
+          - name: Delivering data from {{ ydb-full-name }} to {{ yds-full-name }}
+            href: tutorials/ydb-to-yds.md
       - name: Asynchronous replication of data
         items:
           - name: >-
@@ -141,6 +149,10 @@ items:
               Asynchronously replicating data from {{ mpg-full-name }} to {{
               yds-full-name }}
             href: tutorials/mpg-to-yds.md
+          - name: >-
+              Asynchronously replicating data from {{ mmy-full-name }} to {{
+              yds-full-name }}
+            href: tutorials/mmy-to-yds.md
           - name: Asynchronously replicating data from {{ metrika } to {{ CH }}
             href: tutorials/metrika-to-clickhouse.md
       - name: Saving data streams

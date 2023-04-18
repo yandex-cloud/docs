@@ -1,6 +1,6 @@
 # Getting the service account ID
 
-If you don't have a service account, [create one](create.md).
+If you do not have a service account, [create one](create.md).
 
 {% list tabs %}
 
@@ -50,7 +50,7 @@ If you don't have a service account, [create one](create.md).
 - API
 
    1. [Find out the ID of the folder](../../../resource-manager/operations/folder/get-id.md) where the service account was created.
-   1. Get information about the service accounts in the folder using the [list](../../api-ref/ServiceAccount/list.md):
+   1. Get information about the service accounts in the folder using the [list](../../api-ref/ServiceAccount/list.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource:
 
       ```bash
       export FOLDER_ID=b1gvmob95yysaplct532
@@ -70,5 +70,7 @@ If you don't have a service account, [create one](create.md).
        ]
       }
       ```
+
+      You can also get information about the service accounts in the folder using the [ServiceAccountService/List](../../api-ref/grpc/service_account_service.md#List) gRPC API call.
 
 {% endlist %}

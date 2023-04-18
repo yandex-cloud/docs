@@ -1,15 +1,14 @@
 # Creating a dynamic table
 
-_Dynamic tables_ are tables where users can specify data types in columns, sort values, and make cells mandatory. You can use a table directly or [embed it in a Wiki page](add-grid.md#grid).
+_Dynamic tables_ are tables where users can specify data types in columns, sort values, and make cells mandatory. You can use a table directly or [embed it in a {{ wiki-name }} page](add-grid.md#grid).
 
-You can create tables in several ways:
+There are multiple ways to create a table:
 
 - [From any {{ wiki-name }} page](#create-page), by setting the address of a new table manually.
 
 - [In a specific cluster](#create-subpage), by creating a subpage.
 
-- [In the Wiki page editing window](#add-table-in-page), by clicking the button in the top panel.
-
+- [In the page editing window](#add-table-in-page), by clicking the button in the top panel.
 
 
 {% note info %}
@@ -17,25 +16,25 @@ You can create tables in several ways:
 The maximum number of pages per organization is 10000.
 
 {% endnote %}
-
+
 
 ## Set the table address manually {#create-page}
 
 To create a new table:
 
-1. In the panel on the left, click ![](../_assets/wiki/svg/create-page.svg) **Create page**.
+1. In the left-hand panel, click ![](../_assets/wiki/svg/create-page.svg) **Create page**.
 
 1. Select the **Table** type.
 
-1. Set the title and address of the table in the same way as when [creating a regular Wiki page](create-page.md).
+1. Specify the title and address of the table in the same way as when [creating a regular page](create-page.md).
 
 1. Click **Create**.
 
-1. Fill in the table:
+1. Fill out the table:
 
    {% cut "Create columns" %}
 
-   1. In the upper-right corner, click **+** **Add column**.
+   1. In the top-right corner, click **+** **Add column**.
 
    1. Configure the column parameters:
 
@@ -53,7 +52,7 @@ To create a new table:
 
    {% note info %}
 
-   After creating a column, you can't edit **Data type** and **Unique ID**.
+   After creating a column, you cannot edit **Data type** and **Unique ID**.
 
    {% endnote %}
 
@@ -80,25 +79,25 @@ You can create a table in a specific cluster:
 
 1. There are two ways to create a table in a cluster:
 
-   * In the ![](../_assets/wiki/svg/structure-icon.svg) **Wiki structure** menu: To the right of the page name, click ![](../_assets/wiki/svg/add.svg) **Create subpage**.
+   * In the ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure** menu, to the right of the page name, click ![](../_assets/wiki/svg/button-add-subpage.svg) **Create subpage**.
 
-   * In the upper-right corner of the cluster page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Create subpage**.
+   * In the top-right corner of the cluster page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Create subpage**.
 
 1. Select the **Table** type.
 
 1. Think up a name.
 
-1. The **Address** field will be populated automatically. If necessary, you can change the page address manually.
+1. The **Address** field will be populated automatically. You can change the page address manually, if required.
 
 1. Click **Create**.
 
-## Adding a table in the Wiki page editing window {#add-table-in-page}
+## Adding a table in the page editing window {#add-table-in-page}
 
-To create a table and embed it in the text of a Wiki page:
+To create a table and embed it in the text of a page:
 
 1. Navigate to the page where you want to add a new table and click **Edit**.
 
-1. On the top panel, click ![](../_assets/wiki/add-dynamic-grid.png). The [table code](actions/grid-reference.md) appears in the text:
+1. On the top panel, click ![](../_assets/wiki/add-dynamic-grid.png). The [table code](actions/grid-reference.md) will appear in the text:
    `{{grid page="{{ wiki-pagename }}/grid-2021-01-24t163048" width="100%"}}`.
    The created table becomes a subsection of the current page.
 

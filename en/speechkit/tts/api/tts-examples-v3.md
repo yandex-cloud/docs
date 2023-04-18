@@ -1,6 +1,6 @@
-# Example use for the synthesis API v3
+# Example use of API v3 synthesis
 
-The example shows how you can synthesize speech from text with [TTS markup](../tts-markup.md) to a [WAV](https://en.wikipedia.org/wiki/WAV) file using the {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/).
+The example shows how you can synthesize speech from text with [TTS markup](../markup/tts-markup.md) to a [WAV](https://en.wikipedia.org/wiki/WAV) file using the {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/).
 
 The example uses the following synthesis parameters:
 * Synthesized audio file [format](../../formats.md): LPCM with a sample rate of 22050 Hz, [WAV](https://en.wikipedia.org/wiki/WAV) container (default).
@@ -19,7 +19,7 @@ To implement an example:
    ```
 
 1. [Create](../../../iam/operations/sa/create.md) a service account to work with the {{ speechkit-short-name }} API.
-1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `{{ roles-speechkit-tts }}` role or a higher role for the folder where it was created.
+1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-tts }}` role, or higher, to the service account, which will allow it to work with {{ speechkit-name }} in the folder it was created in.
 1. [Get](../../../iam/operations/iam-token/create-for-sa.md) an IAM token for the service account.
 1. Create a client application:
 
@@ -38,13 +38,13 @@ To implement an example:
 
          The `pydub` package is needed to process the received audio files.
 
-      1. [Download](https://www.ffmpeg.org/download.html) the FFmpeg utility for correct operation of the `pydub` package. Add the path to the directory with the executable file to the `PATH` variable. To do this, run the command:
+      1. [Download](https://www.ffmpeg.org/download.html) the FFmpeg utility for correct operation of the `pydub` package. Add the path to the directory with the executable file to the `PATH` variable. To do this, run the following command:
 
          ```bash
          export PATH=$PATH:<path_to_directory_with_executable_FFmpeg_file>
          ```
 
-      1. Go to the directory hosting the cloned API repository, create the `output` directory, and generate the client interface code there:
+      1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create the `output` directory, and generate the client interface code there:
 
          ```bash
          cd <path_to_cloudapi_directory>
@@ -124,7 +124,7 @@ To implement an example:
 
          ```bash
          export IAM_TOKEN=<service_account_IAM token>
-         export TEXT='I'm Speech+Kit. I can turn any text into speech. Now y+ou can, too!'
+         export TEXT='I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!'
          python output/test.py \
            --token ${IAM_TOKEN} \
            --output speech.wav \
@@ -134,7 +134,7 @@ To implement an example:
          Where:
 
          * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
-         * `TEXT`: Text in [TTS markup](../tts-markup.md) for synthesis.
+         * `TEXT`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.
          * `--output`: Name of the file for audio recording.
 
          As a result, the `speech.wav` file with synthesized speech will be created in the `cloudapi` directory.

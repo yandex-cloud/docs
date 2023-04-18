@@ -1,4 +1,4 @@
-# Delivering data from {{ mmy-full-name }} to {{ MY }}
+# Migrating databases from {{ mmy-full-name }} to {{ MY }}
 
 To migrate a database deployed in a {{ mmy-full-name }} cluster to a third-party {{ MY }} cluster:
 
@@ -8,7 +8,7 @@ To migrate a database deployed in a {{ mmy-full-name }} cluster to a third-party
 
 Migration across versions is supported. For example, you can move databases from {{ MY }} 5.7 to 8. The {{ MY }} major version on a third-party cluster must be equal to or higher than the version in the {{ mmy-full-name }} cluster.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Create a {{ MY }} cluster with any suitable configuration. In this case:
 
@@ -16,7 +16,7 @@ Create a {{ MY }} cluster with any suitable configuration. In this case:
 
    Transferring data with an increase in the {{ MY }} major version is possible, but not guaranteed. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
-   Migration with a {{ MY }} version downgrade is [impossible](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
+   You [cannot](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html) perform migration while downgrading {{ MY }} version.
 
 * [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
 

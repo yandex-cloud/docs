@@ -76,4 +76,8 @@ To delete a secret:
       +----------------------+-----------------+------------+---------------------+----------------------+--------+
       ```
 
+- API
+
+   To delete a secret, use the [delete](../api-ref/Secret/delete.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Delete](../api-ref/grpc/secret_service.md#Delete) gRPC API call.
+
 {% endlist %}

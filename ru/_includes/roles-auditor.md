@@ -4,3 +4,14 @@
 * Просмотр информации о ресурсе.
 * Просмотр метаданных ресурса.
 * Просмотр списка операций с ресурсом.
+
+{% note info %}
+
+Роль `{{ roles-auditor }}` в настоящее время недоступна в сервисах:
+* {{ container-registry-full-name }};
+* {{ yds-full-name }};
+* {{ data-transfer-full-name }};
+* {{ ydb-full-name }};
+* {{ yq-full-name }}.
+
+{% endnote %}
