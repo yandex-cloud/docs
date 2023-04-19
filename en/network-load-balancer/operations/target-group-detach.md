@@ -14,7 +14,7 @@
 
 - CLI
 
-   If you don't have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -24,37 +24,57 @@
       yc load-balancer network-load-balancer detach-target-group --help
       ```
 
-   1. Get the list of load balancers:
+   1. Detach a [target group](../concepts/target-resources.md) from a network load balancer:
 
       ```bash
-      load-balancer network-load-balancer list
+      yc load-balancer network-load-balancer detach-target-group <load balancer ID or name> \
+         --target-group-id=<target group ID>
       ```
 
-      Result:
+      You can get the load balancer ID and name, as well as the IDs of the attached target groups, with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
-      
-      ```bash
-      +----------------------+--------------------+-----------------+----------+----------------+------------------------+----------+
-      |          ID          |        NAME        |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
-      +----------------------+--------------------+-----------------+----------+----------------+------------------------+----------+
-      ...
-      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | {{ region-id }} | EXTERNAL |              1 | b7roi767je4c574iivrk   | INACTIVE |
-      ...
-      +----------------------+--------------------+-----------------+----------+----------------+------------------------+----------+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To detach a [target group](../concepts/target-resources.md) from a network load balancer created with {{ TF }}:
+   1. Open the {{ TF }} configuration file and delete the fragment with the target group description.
+
+      ```hcl
+      resource "yandex_lb_network_load_balancer" "foo" {
+        name = "<network load balancer name>"
+        ...
+        attached_target_group {
+          target_group_id = "<target group ID>"
+          healthcheck {
+            name = "<health check name>"
+            http_options {
+              port = <port number>
+              path = "<URL for health checks>"
+            }
+          }
+        }
+        ...
+      }
       ```
 
+   1. Make sure the settings are correct.
 
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Choose the `ID` of the load balancer and the target group that is attached to it.
-   1. Detach the selected group from the load balancer:
+   1. Delete the network load balancer.
 
-      ```bash
-      yc load-balancer network-load-balancer detach-target-group b7r97ah2jn5rmo6k1dsk \
-        --target-group-id=b7roi767je4c574iivrk
-      ```
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
-   You can detach a target group from a network load balancer using the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) API method.
+   Use the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) API method and include the following in the request:
+
+   * Load balancer ID in the `networkLoadBalancerId` parameter.
+   * Target group ID in the `targetGroupId` parameter.
+
+   You can get the IDs of the load balancer and attached target groups with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
 {% endlist %}

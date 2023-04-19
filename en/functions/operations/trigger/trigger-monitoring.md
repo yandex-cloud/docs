@@ -5,7 +5,7 @@ description: "You can view a monitoring chart in {{ sf-full-name }} using the ma
 
 # Viewing trigger monitoring charts in {{ sf-name }}
 
- You can monitor triggers using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/). 
+ You can monitor triggers using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../../monitoring/). 
 
 The chart update period is 15 seconds.
 

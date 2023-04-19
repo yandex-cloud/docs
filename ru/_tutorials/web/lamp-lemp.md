@@ -6,6 +6,8 @@
 
 Чтобы настроить LAMP- или LEMP-сайт:
 1. [Подготовьте облако к работе](#before-you-begin).
+1. [Создайте облачную сеть](#create-network).
+1. [Создайте группу безопасности](#create-security-groups).
 1. [Создайте виртуальную машину с предустановленным веб-сервером](#create-vm).
 1. [Загрузите файлы веб-сайта](#upload-files).
 1. [Настройте DNS](#configure-dns).
@@ -24,7 +26,8 @@
 
 В стоимость поддержки LAMP-сервера входит:
 * плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за использование DNS (см. [тарифы {{ dns-full-name }}](../../dns/pricing.md)).
 
 
 ## Создайте облачную сеть {#create-network}
@@ -37,11 +40,11 @@
 
 - Консоль управления 
 
-    1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
-    1. Нажмите кнопку **Создать сеть**.
-    1. Укажите **Имя** сети: `web-network`.
-    1. В поле **Дополнительно** выберите опцию **Создать подсети**.
-    1. Нажмите кнопку **Создать сеть**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
+  1. Нажмите кнопку **Создать сеть**.
+  1. Укажите **Имя** сети: `web-network`.
+  1. В поле **Дополнительно** выберите опцию **Создать подсети**.
+  1. Нажмите кнопку **Создать сеть**.
 
 - {{ TF }}
 
@@ -49,11 +52,11 @@
 
 {% endlist %}
 
-## Создайте группы безопасности {#create-security-groups}
+## Создайте группу безопасности {#create-security-groups}
 
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
-[Группы безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) содержат правила, которые разрешают обращаться к ВМ из интернета. В сценарии будет создана группа безопасности `sg-web`.
+[Группы безопасности](../../application-load-balancer/concepts/application-load-balancer.md) содержат правила, которые разрешают обращаться к ВМ из интернета. В сценарии будет создана группа безопасности `sg-web`.
 
 Чтобы создать группу безопасности:
 
@@ -166,7 +169,7 @@
      Используйте утилиту командной строки `scp`:
 
      ```bash
-     scp -r <путь до директории с файлами> <имя пользователя ВМ>@<IP-адрес виртуальной машины>:/var/www/html
+     scp -r <путь_до_директории_с_файлами> <имя_пользователя_ВМ>@<IP-адрес_виртуальной_машины>:/var/www/html
      ```
 
    - Windows
@@ -191,13 +194,12 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за развернутый сервер, достаточно [удалить](../../compute/operations/vm-control/vm-delete.md) ВМ.
+Чтобы перестать платить за созданные ресурсы:
 
-Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
+* [удалите ВМ](../../compute/operations/vm-control/vm-delete.md);
+* [удалите статический публичный IP-адрес](../../vpc/operations/address-delete.md), если вы зарезервировали его специально для этой ВМ;
+* удалите [зону DNS](../../dns/operations/zone-delete.md), если вы настраивали DNS.
 
-1. Выберите сервис **{{ vpc-name }}** в вашем каталоге.
-1. Перейдите на вкладку **IP-адреса**.
-1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **Удалить**.
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
@@ -208,18 +210,20 @@
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 1. Укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
-   
+
+   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
    {% list tabs %}
    
    - Готовый архив
  
      1. Создайте папку для файлов.
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/lamp-lemp.zip) (1 КБ).
-     1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `lamp-lemp.tf`.
+     1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `lamp-lemp.tf` и файл с пользовательскими данными `lamp-lemp.auto.tfvars`.
 
    - Создание вручную
 
-     1. Создайте папку для файлов.
+     1. Создайте папку для файла с описанием инфраструктуры.
      1. Создайте в папке конфигурационный файл `lamp-lemp.tf`:
   
           {% cut "lamp-lemp.tf" %}
@@ -228,23 +232,34 @@
      
           {% endcut %}
 
+      1. Создайте в папке файл с пользовательскими данными `lamp-lemp.auto.tfvars`:
+
+          {% cut "lamp-lemp.auto.tfvars" %}
+
+          {% include [joomla-postgresql-tf-config](../../_includes/web/lamp-lemp-tf-variables.md) %}
+
+          {% endcut %}
+
    {% endlist %}
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
    * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
    * [yandex_vpc_security_group]({{ tf-provider-link }}/yandex_vpc_security_group)
    * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
    * [yandex_dns_zone]({{ tf-provider-link }}/dns_zone)
    * [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset)
 
-1. В блоке `metadata` укажите имя пользователя и путь к открытому SSH-ключу. Подробнее см. в разделе [{#T}](../../compute/concepts/vm-metadata.md).
-
-1. В блоке `boot_disk` укажите идентификатор одного из [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) ВМ с нужным набором компонентов:
-
-   * [LAMP](/marketplace/products/yc/lamp) (Linux, Apache, MySQL, PHP).
-   * [LEMP](/marketplace/products/yc/lemp) (Linux, Nginx, MySQL, PHP).
+1. В файле `lamp-lemp.auto.tfvars` задайте пользовательские параметры:
+    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
+    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+    * `family_id` — укажите семейство одного из образов ВМ с нужным набором компонентов:
+       * `lamp` — [LAMP](/marketplace/products/yc/lamp) (Linux, Apache, MySQL, PHP).
+       * `lemp` — [LEMP](/marketplace/products/yc/lemp) (Linux, Nginx, MySQL, PHP).
+    * `vm_user` — имя пользователя ВМ.
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `dns_zone` — [зона DNS](../../dns/concepts/dns-zone.md). Укажите ваш зарегистрированный домен с точкой в конце, например `example.com.`.
 
 1. Создайте ресурсы:
 

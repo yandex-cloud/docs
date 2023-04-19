@@ -58,6 +58,8 @@ editable: false
 
 Стоимость использования [сканера уязвимостей](concepts/vulnerability-scanner.md) для Docker-образов зависит от количества сканирований.
 
+Первичное сканирование первых шести разных Docker-образов в месяц не тарифицируется. Последующие шесть сканирований любых Docker-образов в месяц не тарифицируется.
+
 
 
 {% include [rub-scanner.md](../_pricing/container-registry/rub-scanner.md) %}

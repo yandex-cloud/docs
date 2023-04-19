@@ -1,9 +1,9 @@
 ---
-title: "Deleting a ClickHouse cluster"
-description: "After you delete a ClickHouse database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
+title: "Deleting a {{ CH }} cluster"
+description: "After you delete a {{ CH }} database cluster, its backups are kept for seven days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
 ---
 
-# Deleting {{ CH }} clusters
+# Deleting a {{ CH }} cluster
 
 ## Before deleting a cluster {#before-you-delete}
 

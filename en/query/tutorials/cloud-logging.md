@@ -43,7 +43,7 @@ Setup steps:
 
 ### Creating a {{ yds-full-name }} stream {#create_yds_stream}
 
-For detailed information about creating [streams](../../data-streams/operations//manage-streams.md), see the [{{ yds-full-name }} documentation](../../data-streams/operations/manage-streams.md).
+For detailed information about creating [streams](../../data-streams/operations/manage-streams.md), see the [{{ yds-full-name }} documentation](../../data-streams/operations/manage-streams.md).
 
 ### Creating a log group {#create_log_group}
 

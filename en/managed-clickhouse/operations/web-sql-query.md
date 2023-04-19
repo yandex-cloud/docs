@@ -3,7 +3,7 @@ title: "SQL queries in {{ mch-name }}"
 description: "{{ mch-name }} allows you to visualize the data structure in your {{ CH }} cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the management console, open the cluster page you need, and go to the SQL tab."
 ---
 
-# SQL queries in Managed Service for ClickHouse
+# SQL queries in {{ mch-name }}
 
 {{ mch-name }} allows you to visualize the data structure in your ClickHouse cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **SQL** tab.
 

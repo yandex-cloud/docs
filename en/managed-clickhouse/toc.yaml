@@ -5,7 +5,7 @@ items:
     href: quickstart.md
   - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
@@ -19,7 +19,7 @@ items:
         href: operations/web-sql-query.md
       - name: Changing cluster and database settings
         href: operations/update.md
-      - name: Setting up access to ObjectStorage
+      - name: Configuring access to {{ objstorage-name }}
         href: operations/s3-access.md
       - name: Connecting external dictionaries
         href: operations/dictionaries.md
@@ -29,13 +29,13 @@ items:
         href: operations/ml-models.md
       - name: Managing data format schemas
         href: operations/format-schemas.md
-      - name: Connecting to DataLens
+      - name: Connecting to {{ datalens-name }}
         href: operations/datalens-connect.md
-      - name: Changing ClickHouse versions
+      - name: Switching {{ CH }} versions
         href: operations/cluster-version-update.md
-      - name: Managing ZooKeeper hosts
+      - name: Managing {{ ZK }} hosts
         href: operations/zk-hosts.md
-      - name: Managing ClickHouse hosts
+      - name: Managing {{ CH }} hosts
         href: operations/hosts.md
       - name: Managing databases
         href: operations/databases.md
@@ -59,15 +59,15 @@ items:
         href: tutorials/index.md
       - name: Adding data to the database
         href: tutorials/insert.md
-      - name: Migrating data to ClickHouse
+      - name: Migrating data to {{ mch-name }}
         href: tutorials/data-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
       - name: Using hybrid storage
         href: tutorials/hybrid-storage.md
-      - name: Getting data from Managed Service for Apache Kafka®
+      - name: Fetching data from {{ mkf-name }}
         href: tutorials/fetch-data-from-mkf.md
-      - name: Getting data from RabbitMQ
+      - name: Fetching data from RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
       - name: Exchanging data with {{ dataproc-full-name }}
         href: tutorials/exchange-data-with-dp.md
@@ -75,17 +75,17 @@ items:
           Configuring {{ dns-full-name }} for accessing clusters from other
           cloud networks
         href: tutorials/dns-peering.md
-      - name: Analyzing Object Storage logs in DataLens
+      - name: Analyzing {{ objstorage-full-name }} logs in {{ datalens-full-name }}
         href: tutorials/storage-logs-analysis.md
       - name: Configuring {{ mch-name }} for Graphite
         href: tutorials/clickhouse-for-graphite.md
       - name: Saving a {{ yds-full-name }} data stream in {{ mch-name }}
         href: tutorials/yds-to-clickhouse.md
-      - name: Migrating databases from Google BigQuery to {{ mch-name }}
+      - name: Migrating databases from Google BigQuery
         href: tutorials/bigquery-to-clickhouse.md
       - name: >-
-          Delivering data from {{ mkf-full-name }} using {{
-          data-transfer-full-name }}
+          Delivering data from {{ mkf-name }} using {{ data-transfer-full-name
+          }}
         href: tutorials/mkf-to-mch-migration.md
   - name: Concepts
     items:
@@ -119,11 +119,11 @@ items:
         href: concepts/maintenance.md
       - name: Supported clients
         href: concepts/supported-clients.md
-      - name: Managing memory in {{ mch-name }}
+      - name: Memory management
         href: concepts/memory-management.md
-      - name: ClickHouse versioning policy
+      - name: '{{ CH }} versioning policy'
         href: concepts/update-policy.md
-      - name: ClickHouse settings
+      - name: '{{ CH }} settings'
         href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
@@ -333,7 +333,7 @@ items:
     items:
       - name: General questions
         href: qa/general.md
-      - name: Questions about ClickHouse
+      - name: Questions about {{ CH }}
         href: qa/clickhouse.md
       - name: Connection
         href: qa/connection.md

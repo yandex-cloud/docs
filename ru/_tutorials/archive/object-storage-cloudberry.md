@@ -59,9 +59,16 @@
   1. Запустите CloudBerry Backup и выберите опцию **Use Home Edition (free)**. Нажмите кнопку **Next**.
   1. Нажмите кнопку **Start Free Trial**.
 
-- macOS/Linux
+- macOS
 
-  1. [Установите](https://www.msp360.com/cloudberry-backup/download/) CloudBerry Backup. Для загрузки введите необходимые реквизиты и нажмите кнопку **Download**.
+  1. [Установите](https://www.msp360.com/cloudberry-backup/download/cbbmac/) CloudBerry Backup. Для загрузки введите необходимые реквизиты и нажмите кнопку **Download**.
+  1. Запустите CloudBerry Backup и выберите опцию **Use Home Edition (free)**. Нажмите кнопку **Next**.
+  1. Введите адрес электронной почты и нажмите кнопку **Finish**.
+  1. В открывшемся окне нажмите кнопку **OK**.
+
+- Linux
+
+  1. [Установите](https://www.msp360.com/cloudberry-backup/download/cbbub1214/) CloudBerry Backup. Для загрузки введите необходимые реквизиты и нажмите кнопку **Download**.
   1. Запустите CloudBerry Backup и выберите опцию **Use Home Edition (free)**. Нажмите кнопку **Next**.
   1. Введите адрес электронной почты и нажмите кнопку **Finish**.
   1. В открывшемся окне нажмите кнопку **OK**.

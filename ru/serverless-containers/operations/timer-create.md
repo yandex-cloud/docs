@@ -30,9 +30,7 @@
 
     1. В блоке **Настройки таймера** укажите расписание вызова контейнера в формате [cron-выражения](../concepts/trigger/timer.md#cron-expression).
 
-    1. В блоке **Настройки контейнера** выберите его и укажите:
-
-        {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
     1. (опционально) В блоке **Настройки повторных запросов**:
 

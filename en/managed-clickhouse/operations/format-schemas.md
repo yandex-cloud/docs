@@ -1,4 +1,4 @@
-# Managing data format schemas
+# Managing data format schemas in {{ mch-name }}
 
 {% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
@@ -69,7 +69,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Add the `format_schema` block to the {{ mch-name }} cluster description:
 
@@ -98,12 +98,12 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
 - API
 
-   Use the [create](../api-ref/FormatSchema/create.md) API method and pass the following information in the request:
+   Use the [create](../api-ref/FormatSchema/create.md) API method and include the following information in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * The format schema name in the `formatSchemaName` parameter.
+   * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * Format schema name in the `formatSchemaName` parameter.
    * Schema type: `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF` in the `type` parameter.
-   * The link to the file in {{ objstorage-full-name }} in the `uri` parameter.
+   * Link to the file in {{ objstorage-full-name }} in the `uri` parameter.
 
 {% endlist %}
 
@@ -147,7 +147,7 @@ To update the contents of a schema that is already connected to the cluster:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, change the parameter of the `uri` value in the `format_schema` block:
 
@@ -176,11 +176,11 @@ To update the contents of a schema that is already connected to the cluster:
 
 - API
 
-   Use the [update](../api-ref/FormatSchema/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/FormatSchema/update.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * The format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
-   * The new link to the file in {{ objstorage-full-name }} in the `uri` parameter.
+   * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
+   * New link to the file in {{ objstorage-full-name }} in the `uri` parameter.
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
       {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
@@ -224,7 +224,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Delete the `format_schema` block describing the required format schema from the {{ mch-name }} cluster description.
 
@@ -242,10 +242,10 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
 - API
 
-   Use the [delete](../api-ref/FormatSchema/delete.md) API method and pass the following in the request:
+   Use the [delete](../api-ref/FormatSchema/delete.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * The format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
+   * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
 
 {% endlist %}
 
@@ -303,7 +303,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
    Use the [get](../api-ref/FormatSchema/get.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * The format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
+   * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
 
 {% endlist %}

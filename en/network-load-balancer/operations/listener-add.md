@@ -9,212 +9,174 @@
    1. In the [management console]({{ link-console-main }}), select the folder where you need to add a listener to a load balancer.
    1. In the list of services, select **{{ network-load-balancer-name }}**.
    1. In the line of the load balancer to add a listener to, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Add listener**.
-   1. In the window that opens:
+   1. In the window that opens, set the listener parameters:
 
-      * Specify a port in the range of 1 to 32767 that the listener will receive incoming traffic on.
-      * Specify a target port in the range of 1 to 32767 that the load balancer will send traffic to.
+      * **Name**.
+      * **Protocol**: **TCP** or **UDP**.
+
+         {% note info %}
+
+         By default, the listener uses TCP. To use UDP, [submit a request to technical support]({{ link-console-support }}/create-ticket).
+
+         {% endnote %}
+
+      * **Port** where the listener will listen for incoming traffic. The acceptable values are from `1` to `32767`.
+      * **Target port**, to which the load balancer will redirect traffic. The acceptable values are from `1` to `32767`.
       * Click **Add**.
 
 - CLI
 
-   If you don't have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a listener to a network load balancer:
+   To add a [listener](../concepts/listener.md) to a network load balancer, run this command:
 
-   1. Get the list of load balancers:
+   ```bash
+   yc load-balancer network-load-balancer add-listener <load balancer ID or name> \
+      --listener name=<listener name>,`
+                `port=<port>,`
+                `target-port=<target port>,`
+                `protocol=<protocol: TCP or UDP>,`
+                `external-address=<listener external IP>,`
+                `external-ip-version=<IP version: ipv4 or ipv6>
+   ```
 
-      
-      ```
-      yc load-balancer network-load-balancer list
-      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-      |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
-      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-      | c58r8boim8qfkcqtuioj | test-load-balancer | {{ region-id }} | EXTERNAL |              0 |                        | INACTIVE |
-      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
+   Where:
 
-      ```
+   {% include [listener-cli-description](../../_includes/network-load-balancer/listener-cli-description.md) %}
 
-
-
-   1. Add the listener by entering the name, port, and IP address version:
-
-      ```
-      yc load-balancer network-load-balancer add-listener c580id04kvumgn7ssfh1 \
-        --listener name=test-listener,port=80,external-ip-version=ipv4
-      .....done
-      id: c58r8boim8qfkcqtuioj
-      folder_id: aoerb349v3h4bupphtaf
-      created_at: "2019-04-01T09:29:25Z"
-      name: test-load-balancer
-      region_id: {{ region-id }}
-      status: INACTIVE
-      type: EXTERNAL
-      listeners:
-      - name: test-listener
-        address: <listener IP address>
-        port: "80"
-        protocol: TCP
-      ```
-
-- API
-
-   You can add a listener using the [addListener](../api-ref/NetworkLoadBalancer/addListener.md) API method.
+   You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and add the `listener` section to the network load balancer description.
 
       ```hcl
-      ...
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "my-network-load-balancer"
+        name = "<network load balancer name>"
+        ...
         listener {
-          name = "my-listener"
-      	 port = 9000
+          name = "<listener name>"
+          port = <port number>
           external_address_spec {
-            ip_version = "ipv4"
+            ip_version = "<IP version: ipv4 or ipv6>"
           }
         }
-        attached_target_group {
-          target_group_id = "${yandex_lb_target_group.my-target-group.id}"
-          healthcheck {
-            name = "http"
-              http_options {
-                port = 9000
-                path = "/ping"
-              }
-          }
-        }
+        ...
       }
-      ...
       ```
 
       Where:
 
-      * `name`: The name of the network load balancer. Name format:
-
-         {% include [name-format](../../_includes/name-format.md) %}
-
-      * `listener`: Description of the network load balancer's [listener](../concepts/listener.md) parameters:
-         * `name`: The name of the listener. Name format:
-
-            {% include [name-format](../../_includes/name-format.md) %}
-
-         * `Port`: A port in the range of 1 to 32767 that the network load balancer will receive incoming traffic on.
-         * `external_address_spec`: External IP address specification. Set the IP address version (ipv4 or ipv6). Defaults to ipv4.
-      * `attached_target_group`: A description of the network load balancer's target group parameters:
-         * `target_group_id`: Target group ID.
-         * `healthcheck`: Health check parameters. Enter a name, a port number ranging from 1 to 32767, and a path for health checks.
+      * `name`: Name of the network load balancer.
+      * `listener`: Listener parameters:
+         * `name`: Name of the listener.
+         * `port`: Port in the range of `1` to `32767` that the network load balancer will receive incoming traffic on.
+         * `external_address_spec`: Specification of the listener for the external load balancer:
+            * `ip_version`: External IP address specification. Set the IP address version: `ipv4` or `ipv6`. The default value is `ipv4`.
 
       For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Check the configuration using the command:
+   1. Make sure the settings are correct.
 
-      ```
-      terraform validate
-      ```
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      If the configuration is correct, the following message is returned:
+   1. Add a listener.
 
-      ```
-      Success! The configuration is valid.
-      ```
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   1. Run the following command:
+- API
 
-      ```
-      terraform plan
-      ```
+   Use the [addListener](../api-ref/NetworkLoadBalancer/addListener.md) API method and include the following in the request:
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+   * Load balancer ID in the `networkLoadBalancerId` parameter.
+   * Listener name in the `listenerSpec.name` parameter.
+   * Listener port in the `listenerSpec.port` parameter.
+   * Listener protocol in the `listenerSpec.protocol` parameter.
+   * Listener target port in the `listenerSpec.targetPort` parameter.
+   * Listener external address specification in the `listenerSpec.externalAddressSpec` parameter.
 
-   1. Apply the configuration changes:
-
-      ```
-      terraform apply
-      ```
-
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-      You can verify the change to the network load balancer using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
-
-      ```
-      yc load-balancer network-load-balancer get <name of network load balancer>
-      ```
+   You can get the load balancer ID with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Adding a listener to an internal network load balancer {#internal-listener}
+### Adding a listener to a network load balancer {#add-listener}
+
+Add a listener with the following test specifications to the `test-load-balancer`:
+
+* Name: `test-listener`.
+* Port: `80`.
+* Target port: `81`.
+* Protocol: `TCP`.
+* IP version: `ipv4`.
 
 {% list tabs %}
 
 - CLI
 
-   Run the command, indicating the listener name, port, subnet ID, and internal address from the range of subnet addresses:
+   Run the following command:
 
-   ```
-   yc load-balancer network-load-balancer add-listener b7rc2h753djb3a5dej1i \
-     --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14
+   ```bash
+   yc load-balancer network-load-balancer add-listener test-load-balancer \
+      --listener name=test-listener,`
+                `port=80,`
+                `target-port=81,`
+                `protocol=tcp,`
+                `external-ip-version=ipv4
    ```
 
 - {{ TF }}
 
-   1. Open the {{ TF }} configuration file and add the `listener` section to the internal network load balancer description.
+   1. Open the {{ TF }} configuration file and add the `listener` section to the network load balancer description.
 
-      {% cut "Example of adding a listener to an internal network load balancer using {{ TF }}" %}
-
-      ```
-      resource "yandex_lb_network_load_balancer" "internal-lb-test" {
-        name = "internal-lb-test"
-        type = "internal"
+      ```hcl
+      resource "yandex_lb_network_load_balancer" "foo" {
+        name = "test-load-balancer"
         listener {
-          name = "my-listener"
-      	     port = 9000
-          internal_address_spec {
-            subnet_id  = "b0cp4drld130kuprafls"
+          name        = "test-listener"
+          port        = 80
+          target_port = 81
+          protocol    = "tcp"
+          external_address_spec {
             ip_version = "ipv4"
           }
         }
       }
       ```
 
-      {% endcut %}
-
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the settings are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-         ```
-         terraform plan
-         ```
+   1. Create a network load balancer.
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   1. Deploy cloud resources.
+- API
 
-      1. If the configuration does not contain any errors, run this command:
+   Use the [addListener](../api-ref/NetworkLoadBalancer/addListener.md) API method and include the following information in the request body:
 
-         ```
-         terraform apply
-         ```
-
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
-
-         ```
-         yc load-balancer network-load-balancer get <name of internal network load balancer>
-         ```
+   ```api
+   {
+     "listenerSpec": {
+       "name": "test-listener",
+       "port": "80",
+       "protocol": "TCP",
+       "targetPort": "81",
+       "externalAddressSpec": {
+         "ipVersion": "ipv4"
+       }
+     }
+   }
+   ```
 
 {% endlist %}

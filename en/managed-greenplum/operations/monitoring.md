@@ -59,7 +59,7 @@ To view detailed information about the {{ mgp-name }} cluster status:
 
    * **Spill files size**: Total size of temporary files (in bytes).
 
-   * **Xid wraparound**: Using a [sequence of transaction IDs]({{ gp.docs.org }}/6-16/admin_guide/managing/maintain.html) (as a percentage).
+   * **Xid wraparound**: Using a [sequence of transaction IDs]({{ gp.docs.pivotal }}/6-16/admin_guide/managing/maintain.html) (as a percentage).
 
 {% endlist %}
 

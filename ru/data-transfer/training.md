@@ -6,5 +6,6 @@
 * {% include [training-ycloud](../_includes/training/training-csi.md) %}
 * {% include [training-devops](../_includes/training/training-dde.md) %}
 * {% include [training-corpplatform](../_includes/training/training-cdp.md) %}
+* {% include [training-load-testing](../_includes/training/training-load-testing.md) %}
 
 {% include [training-courses](../_includes/training/training-courses.md) %}

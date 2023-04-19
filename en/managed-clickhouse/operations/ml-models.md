@@ -1,6 +1,6 @@
-# Managing machine learning models
+# Managing machine learning models in {{ mch-name }}
 
-{{ mch-short-name }} lets you analyze data by applying [CatBoost](https://catboost.ai/) machine learning models without additional tools. To apply a model, connect to a cluster and access it in a SQL query using the built-in [`modelEvaluate()`]({{ ch.docs }}/sql-reference/functions/other-functions#function-modelevaluate) function. After running this query, you get model predictions for each row of input data. For more information about machine learning in {{ CH }}, see the [documentation]({{ ch.docs }}/guides/apply-catboost-model).
+{{ mch-short-name }} allows you to analyze data by applying [CatBoost](https://catboost.ai/) machine learning models without additional tools. To apply a model, connect to a cluster and access it in a SQL query using the built-in [`modelEvaluate()`]({{ ch.docs }}/sql-reference/functions/other-functions#function-modelevaluate) function. After running this query, you get model predictions for each row of input data. For more information about machine learning in {{ CH }}, see the [documentation]({{ ch.docs }}/guides/apply-catboost-model).
 
 ## Before adding a model {#prereq}
 
@@ -68,7 +68,7 @@
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get model details, run the command:
+   To get model details, run this command:
 
    ```bash
    {{ yc-mdb-ch }} ml-model get <model name> \
@@ -82,7 +82,7 @@
    Use the [get](../api-ref/MlModel/get.md) API method and pass the following in the request:
 
    * Cluster ID in the `clusterID` parameter.
-   * The model name in the `mlModelName` parameter.
+   * Model name in the `mlModelName` parameter.
 
    You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -135,7 +135,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. To the {{ mch-name }} cluster description, add the `ml_model` block with a description of the added machine learning model:
 
@@ -179,7 +179,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
 To apply the model to data stored in a {{ CH }} cluster:
 
-1. Connect to the cluster [using the {{ CH }} CLI client](../../managed-clickhouse/operations/connect.md#cli) or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
+1. Connect to the cluster [using the client](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
 1. Execute an SQL query like:
 
    ```
@@ -234,7 +234,7 @@ To update the contents of a model that is already connected to the cluster:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, change the `uri` parameter value under `ml_model`:
 
@@ -265,7 +265,7 @@ To update the contents of a model that is already connected to the cluster:
 
    Use the [update](../api-ref/MlModel/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Model name in the `mlModelName` parameter.
    * New link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
@@ -311,7 +311,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Delete from the {{ mch-name }} cluster description the appropriate `ml_model` description block.
 
@@ -391,7 +391,7 @@ To upload data to {{ CH }} and test the model:
    * **URL**: `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`.
 
 1. Test the model:
-   1. Connect to the cluster [using the {{ CH }} CLI client](../../managed-clickhouse/operations/connect.md#cli) or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
+   1. Connect to the cluster [using the client](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
    1. Test the model using queries:
       * Predicted values for first 10 rows of the `ACTION` column:
 

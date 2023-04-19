@@ -57,7 +57,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get information about a {{ CH }} cluster, run the command:
+   To get information about a {{ CH }} cluster, run the following command:
 
    ```
    {{ yc-mdb-ch }} cluster get <cluster name or ID>
@@ -91,7 +91,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of operations, run the command:
+   To get a list of operations, run the following command:
 
    ```
    {{ yc-mdb-ch }} cluster list-operations <cluster name and ID>

@@ -59,7 +59,7 @@
 
     * **Spill files size** — суммарный размер временных файлов (в байтах).
 
-    * **Xid wraparound** — использование [последовательности идентификаторов транзакций]({{ gp.docs.org }}/6-16/admin_guide/managing/maintain.html) (в процентах).
+    * **Xid wraparound** — использование [последовательности идентификаторов транзакций]({{ gp.docs.pivotal }}/6-16/admin_guide/managing/maintain.html) (в процентах).
 
 {% endlist %}
 

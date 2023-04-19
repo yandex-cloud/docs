@@ -30,6 +30,6 @@
 
 - API
 
-   You can get detailed information about a broker using the [get](../../iot-core/api-ref/Broker/get) API method.
+   You can get detailed information about a broker using the [get](../../iot-core/broker/api-ref/Broker/get.md) API method.
 
 {% endlist %}

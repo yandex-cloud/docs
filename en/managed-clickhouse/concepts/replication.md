@@ -1,4 +1,4 @@
-# Replication {{ CH }}
+# Replication in {{ mch-name }}
 
 With {{ mch-name }}, you can use one of the following mechanisms to manage replication and distribution of queries:
 
@@ -13,7 +13,7 @@ This lets you use [replicated tables](#replicated-tables) in a cluster with mult
 
 {% include [ClickHouse Keeper preview note](../../_includes/mdb/mch/note-ck-preview.md) %}
 
-{{ CK }}: A service for data replication and execution of distributed DDL queries, implementing the {{ ZK }}-compatible client-server protocol. Unlike {{ ZK }}, {{ CK }} doesn't require separate hosts for its operation and runs on {{ CH }} hosts. You can enable {{ CK }} support only when [creating a cluster](../operations/cluster-create.md).
+{{ CK }}: Service for data replication and execution of distributed DDL queries, implementing the {{ ZK }}-compatible client-server protocol. Unlike {{ ZK }}, {{ CK }} does not require separate hosts for its operation and runs on {{ CH }} hosts. You can enable {{ CK }} support only when [creating a cluster](../operations/cluster-create.md).
 
 Using {{ CK }} is associated with the following limitations:
 
@@ -36,7 +36,7 @@ You can also configure {{ ZK }} hosts immediately when creating a cluster with m
 * If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each of the [availability zones](../../overview/concepts/geo-scope.md), one {{ ZK }} host is automatically added to each subnet if you don't explicitly specify the settings for these hosts. If necessary, you can explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
 * If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
 
-* If you didn't specify any subnets for these hosts, {{ mch-short-name }} automatically distributes them among the subnets of the network that the {{ CH }} cluster is connected to.
+* If you did not specify any subnets for these hosts, {{ mch-short-name }} will automatically distribute them among the subnets of the network the {{ CH }} cluster is connected to.
 
 
 The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts.
@@ -46,7 +46,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 | Less than 48 | 2 |
 | 48 or higher | 4 |
 
-A {{ ZK }} host class can be changed when configuring fault tolerance or [cluster settings](../operations/update.md#change-resource-preset). Changing {{ ZK }} settings or connecting to its hosts is not possible.
+The {{ ZK }} host class can be changed when configuring fault tolerance or [cluster settings](../operations/update.md#change-resource-preset). You cannot change {{ ZK }} settings or connect to such hosts.
 
 {% note warning %}
 
@@ -63,7 +63,7 @@ Note:
 
 {% note warning %}
 
-We recommend creating replicated tables on all cluster hosts. Otherwise, data loss may occur after restoring a cluster from a backup. For more information, see [{#T}](backup.md).
+We recommend creating replicated tables on all cluster hosts. Otherwise, data loss may occur after restoring a cluster from a backup. For more information, see [Backups](backup.md).
 
 {% endnote %}
 
@@ -100,4 +100,4 @@ ORDER BY
 
 The `'{cluster}'` argument is automatically resolved to the {{ CH }} cluster ID.
 
-To learn more about organizing interaction between replicated and distributed tables in a {{ CH }} cluster, see [{#T}](sharding.md).
+To learn more about managing the interaction between replicated and distributed tables in a {{ CH }} cluster, see [Sharding](sharding.md).

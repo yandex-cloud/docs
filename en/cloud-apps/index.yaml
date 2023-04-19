@@ -27,7 +27,7 @@ links:
     href: metrics-collector
   - title: VM Watchdog
     description: Starts and stops VMs on a schedule
-    href: vm-watchdog.m
+    href: vm-watchdog
   - title: Instance Group Scheduled Scaler
     description: Modifies the size of a VM group on a schedule
     href: yc-ig-scheduled-scale

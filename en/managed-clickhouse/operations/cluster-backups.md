@@ -1,17 +1,19 @@
 ---
-title: "Managing {{ CH }} backups"
-description: "You can create backups and restore clusters from existing {{ CH }} backups. When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore from a backup."
+title: "Managing ClickHouse backups"
+description: "You can create backups and restore clusters from existing ClickHouse backups. When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup."
 ---
 
 # Managing backups in {{ mch-name }}
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
+{{ mch-name }} also creates automatic daily backups. You can [set the backup start time](#set-backup-window).
+
 ## Creating a backup {#create-backup}
 
 {% note warning %}
 
-A random replica host is used to create a backup. If there is no cluster host data consistency, restoring clusters from backups does not guarantee complete data recovery. For more information, see [{#T}](../concepts/backup.md).
+A random replica host is used to create a backup. If there is no cluster host data consistency, restoring clusters from backups does not guarantee complete data recovery. For more information, see [Backups](../concepts/backup.md).
 
 {% endnote %}
 
@@ -132,8 +134,8 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Where:
 
-      * `--backup-id`: [backup](../concepts/backup.md) ID
-      * `--name`: The cluster name.
+      * `--backup-id`: [Backup](../concepts/backup.md) ID
+      * `--name`: Cluster name.
       * `--environment`: Environment:
 
          * `PRODUCTION`: For stable versions of your apps.
@@ -169,13 +171,13 @@ For a new cluster, you should set all the parameters that are required at creati
    Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
 
    * Backup ID of the appropriate shard in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
-   * The environment of the cluster, in the `environment` parameter.
-   * Cluster configuration, in the `configSpec` parameter.
+   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+   * Cluster environment in the `environment` parameter.
+   * Cluster configuration in the `configSpec` parameter.
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-   * Network ID, in the `networkId` parameter.
+   * Network ID in the `networkId` parameter.
 
-   To restore the whole cluster, pass backup IDs for the remaining cluster shards in the `additionalBackupIds`parameter:
+   To restore the entire cluster, provide backup IDs for the remaining cluster shards in the `additionalBackupIds` parameter:
 
 {% endlist %}
 
@@ -287,10 +289,10 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can get it together [with a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The new backup start time, in the `configSpec.backupWindowStart` parameter.
+   * Cluster ID in the `clusterId` parameter. You can get it along [with a list of clusters in the folder](cluster-list.md#list-clusters).
+   * New backup start time in the `configSpec.backupWindowStart` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.backupWindowStart` in this case).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

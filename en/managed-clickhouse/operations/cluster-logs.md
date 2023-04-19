@@ -13,7 +13,7 @@
    1. Go to the folder page and select **{{ mch-name }}**.
    1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
    1. Specify the time period for which you want to display logs: enter it manually or select it in the calendar by clicking on the date field.
-   1. If necessary, select the hosts and logging level in the drop-down lists next to the date input field.
+   1. Select the hosts and logging level in the drop-down lists next to the date input field, if required.
 
    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click on the respective entry in the list.
 
@@ -31,7 +31,7 @@
       {{ yc-mdb-ch }} cluster list-logs --help
       ```
 
-   1. Run the command to get cluster logs:
+   1. Run this command to get cluster logs:
 
       ```bash
       {{ yc-mdb-ch }} cluster list-logs <cluster name or ID> \
@@ -60,7 +60,7 @@
 
 - API
 
-   Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -68,7 +68,7 @@
 
 ## Getting a cluster log stream {#get-log-stream}
 
-This method lets you get cluster logs in real time.
+This method allows you to get cluster logs in real time.
 
 {% list tabs %}
 
@@ -78,7 +78,7 @@ This method lets you get cluster logs in real time.
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To view cluster logs as they become available, run the command:
+   To view cluster logs as they become available, run this command:
 
    ```bash
    {{ yc-mdb-ch }} cluster list-logs <cluster name or ID> --follow

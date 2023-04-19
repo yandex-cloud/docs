@@ -1,4 +1,4 @@
-# Adding your own geobase
+# Adding your own geobase in {{ mch-name }}
 
 Geobases in {{ CH }} are text files containing the hierarchy and names of regions. You can add several alternative geobases to {{ CH }} to support different stances on how regions pertain to countries. For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/internal-dicts/).
 
@@ -91,7 +91,7 @@ To add your own geobase to a {{ CH }} cluster:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Add the `geobase_uri` parameter with a link to the archive with the geobase to connect in {{ objstorage-full-name }} to the {{ mch-name }} cluster settings:
 
@@ -113,7 +113,7 @@ To add your own geobase to a {{ CH }} cluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

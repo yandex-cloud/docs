@@ -33,9 +33,9 @@ You can access {{ marketplace-short-name }} products as:
 
 * **Geo layers**: Datasets linked to location (regions, cities, districts, and smaller areas inside cities). You can use these to create various [maps](../visualization-ref/map-chart.md) to add to dashboards.
 
-* **Connectors**: Additional types of connections. They let you create connections to external systems not supported in {{ datalens-short-name }} by default.
+* **Connectors**: Additional types of connections. They allow you to create connections to external systems not supported in {{ datalens-short-name }} by default.
 
-* **Templates**: The dashboard templates that you can use with your data. To do this, replace the connection used for the template.
+* **Templates**: Dashboard templates that you can use with your data. To do this, replace the connection used for the template.
 
 If you are a publisher and wish to offer a new product for the following categories:
 * Datasets, Geo layers, or Templates: on the [{{ marketplace-short-name }}](/marketplace?tab=datalens) home page, click **Offer product** and complete an application.
@@ -60,7 +60,7 @@ There are two types of pricing policy for {{ marketplace-short-name }} products:
 
 #### Partial calculation example {#pricing-example}
 
-As an example, let's say you bought a data subscription for one city (Moscow) and then added another city (Saint Petersburg). After that, you decided to cancel your subscription for one of the cities (Moscow). In this case, the following will happen:
+Let's assume you bought a data subscription for one city (Moscow) and then added another city (Saint Petersburg). After that, you decided to cancel your subscription for one of the cities (Moscow). In this case, the following will happen:
 
 | Date | Event |
 ---- | -----
@@ -68,7 +68,7 @@ As an example, let's say you bought a data subscription for one city (Moscow) an
 | **5/10/2020** | You purchased the data for Saint Petersburg. {{ datalens-short-name }} debits the applicable amount right away. The next payment date is **5/11/2020**. |
 | **15/10/2020** | You canceled the subscription for the Moscow data. {{ datalens-short-name }} considers this data as paid for, so you can access the data until **3/11/2020**. |
 | **3/11/2020** | {{ datalens-short-name }} will not renew your subscription to Moscow data. The data for this city will no longer be available to you. |
-| **5.11.2020** | {{ datalens-short-name }} will renew your subscription to Saint Petersburg data and debit the applicable amount right away. |
+| **5/11/2020** | {{ datalens-short-name }} will renew your subscription to Saint Petersburg data and debit the applicable amount right away. |
 
 ### Adding a product from {{ marketplace-short-name }} {#how-to-add-a-marketplace-product}
 

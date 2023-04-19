@@ -4,7 +4,15 @@ items:
   - name: Сопоставление с другими сервисами {{ yandex-cloud }}
     href: service-comparison.md
   - name: Начало работы
-    href: quickstart.md
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Создание контейнера
+        href: quickstart/container.md
+      - name: Создание триггера
+        items:
+          - name: Таймер
+            href: quickstart/timer.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

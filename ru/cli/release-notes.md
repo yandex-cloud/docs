@@ -2,13 +2,52 @@
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.103.0 (15.03.23) {#version0.103.00}
-
-
+## Версия 0.104.0 (19.04.23) {#version0.104.00}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ api-gw-name }} {#api-gw}
+#### {{ sf-name }} {#serverless-functions}
+
+* В команду `yc serverless trigger timer create` добавлен параметр `--payload` для привязки пользовательских данных к событию от таймера.
+
+#### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* Группа команд `yc cloud-desktop` переименована в `yc desktops`.
+* Добавлена пометка `[PREVIEW]` к группе команд `yc desktops`.
+* Добавлена команда `yc desktops desktop restart`, которая позволяет перезагружать рабочий стол.
+
+#### {{ compute-name }} {#compute}
+
+* Исправлен листинг большого количества объектов в фолдере для всех сущностей {{ compute-short-name }}.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+Добавлена команда `yc managed-clickhouse cluster list-external-dictionaries` для листинга списка добавленных внешних словарей.
+
+#### {{ cloud-logging-name }} {#cloud-logging}
+
+* В команду `yc logging read` добавлены позиционные параметры `SINCE` и `FILTER`, пример: `yc logging read default 1d "level = INFO"`
+* В команду `yc logging write` добавлены позиционные параметры `MESSAGE` и `JSON-PAYLOAD`, пример: `yc logging write default test "{\"key\":\"value\"}"`
+
+#### {{ sf-name }} {#functions}
+
+* В команды `yc serverless function logs` и `yc serverless function version logs` добавлены позиционные параметры `SINCE` и `FILTER`, пример: `yc serverless function logs default 1d "level = INFO"`
+
+#### {{ iot-name }} {#iot}
+
+В команду `yc iot broker logs` добавлены позиционные параметры `SINCE` и `FILTER`, пример: `yc iot broker logs default 1d "level = INFO"`
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.103.0 (15.03.23) {#version0.103.00}
+
+
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ api-gw-name }} {#api-gw}
 В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены параметры:
 
 * `--no-logging` — для выключения логинга из API-шлюза.
@@ -18,12 +57,10 @@
 
 
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 * Добавлена группа команд `yc compute gpu-cluster` для управления GPU-кластерами.
 * Добавлены параметры `--gpu-cluster-id` и `--gpu-cluster-name` в команду `yc compute instance create` для создания виртуальной машины в GPU-кластере.
 
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.102.0 (09.02.23) {#version0.102.0}
 

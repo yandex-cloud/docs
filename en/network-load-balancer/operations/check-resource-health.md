@@ -2,55 +2,33 @@
 
 {% list tabs %}
 
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ network-load-balancer-name }}**.
+   1. Click the name of the required network load balancer.
+
 - CLI
 
-   If you don't have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI's get attached resource status command:
+   Request the status of the target group resources:
 
-      ```
-      yc load-balancer network-load-balancer target-states --help
-      ```
+   ```bash
+   yc load-balancer network-load-balancer target-states <load balancer ID or name> \
+     --target-group-id=<target group ID>
+   ```
 
-   1. Get a list of all network load balancers:
+   You can get the load balancer ID and name, as well as the IDs of the attached target groups, with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
-      ```
-      yc load-balancer network-load-balancer list
-      ```
+- API
 
-      Result:
+   Use the [getTargetStates](../api-ref/NetworkLoadBalancer/getTargetStates.md) API method and include the following in the request:
 
-      
-      ```
-      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-      |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
-      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-      ...
-      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | {{ region-id }} | EXTERNAL |              1 | b7roi767je4c574iivrk   |  ACTIVE  |
-      ...
-      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-      ```
+   * Load balancer ID in the `networkLoadBalancerId` parameter.
+   * Target group ID in the `targetGroupId` parameter.
 
-
-
-   1. Choose the `ID` of the load balancer and the `ID` of the target group that is attached to it.
-   1. Request the status of the target group resources:
-
-      ```
-      yc load-balancer network-load-balancer target-states b7r97ah2jn5rmo6k1dsk --target-group-id b7roi767je4c574iivrk
-      ```
-
-      Result:
-
-      ```
-      +----------------------+-----------+-----------+
-      |      SUBNET ID       |  ADDRESS  |  STATUS   |
-      +----------------------+-----------+-----------+
-      | e9bc0iisdf7b00b7d4v0 | 10.10.0.4 | UNHEALTHY |
-      | e9bc0iisdf7b00b7d4v0 | 10.10.0.7 | UNHEALTHY |
-      +----------------------+-----------+-----------+
-      ```
+   You can get the IDs of the load balancer and attached target groups with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
 {% endlist %}

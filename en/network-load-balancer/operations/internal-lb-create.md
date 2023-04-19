@@ -38,8 +38,8 @@ The internal load balancer's listener is assigned a random IP address from the r
 
             {% endnote %}
 
-         * **Port** where the listener will listen for incoming traffic. Valid values: from `1` to `32767`.
-         * **Target port**, to which the load balancer will redirect traffic. Valid values: from `1` to `32767`.
+         * **Port** where the listener will listen for incoming traffic. The acceptable values are from `1` to `32767`.
+         * **Target port**, to which the load balancer will redirect traffic. The acceptable values are from `1` to `32767`.
       1. Click **Add**.
    1. Under **Target groups** add a [target group](../concepts/target-resources.md):
       1. Click **Add target group**.
@@ -48,50 +48,65 @@ The internal load balancer's listener is assigned a random IP address from the r
          * In the resulting window, enter a target group name.
          * Add virtual machines to the target group.
          * Click **Create**.
-      1. (optional) Under **Health check**, click **Configure**. In the resulting window, specify the [resource health check](../concepts/health-check.md) settings:
+      1. (Optional) Under **Health check**, click **Configure**. In the window that opens, specify the [resource health check](../concepts/health-check.md) settings:
          * **Name**.
          * **Type**: **HTTP** or **TCP**. For health checks to use HTTP, specify the URL to check in the **Path** field.
-         * Health check **port**. Valid values: from `1` to `32767`.
+         * Health check **port**. The acceptable values are from `1` to `32767`.
          * **Timeout**: Response timeout in seconds.
          * **Interval**: Health check interval in seconds.
-         * **Healthy threshold**: The number of successful checks required to consider a virtual machine ready to receive traffic.
-         * **Unhealthy threshold**: The number of failed checks after which no traffic will be routed to a virtual machine.
+         * **Healthy threshold**: Number of successful checks required to consider a virtual machine ready to receive traffic.
+         * **Unhealthy threshold**: Number of failed checks after which no traffic will be routed to a virtual machine.
       1. Click **Apply**.
    1. Click **Create**.
 
 - CLI
 
-   If you don't have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Before creating a load balancer, [create](target-group-create.md) a target group to attach to it.
+   1. Before creating a load balancer, [create a target group](target-group-create.md) to attach to it.
 
    1. View a description of the CLI command to create a network load balancer:
 
-      ```
+      ```bash
       yc load-balancer network-load-balancer create --help
       ```
 
-   1. To create an internal load balancer with a [listener](../concepts/listener.md), run the following command:
+   1. To create an internal load balancer with a [listener](../concepts/listener.md) and a [target group](../concepts/target-resources.md), run this command:
 
+      ```bash
+      yc load-balancer network-load-balancer create <load balancer name> \
+         --type=internal \
+         --listener name=<listener name>,`
+                   `port=<port>,`
+                   `target-port=<target port>,`
+                   `protocol=<protocol: TCP or UDP>,`
+                   `internal-subnet-id=<subnet ID>,`
+                   `internal-ip-version=<IP address version: ipv4 or ipv6> \
+         --target-group target-group-id=<target group ID>,`
+                       `healthcheck-name=<health check name>,`
+                       `healthcheck-interval=<interval between health checks>s,`
+                       `healthcheck-timeout=<health check timeout>s,`
+                       `healthcheck-unhealthythreshold=<number of failed health checks for Unhealthy status>,`
+                       `healthcheck-healthythreshold=<number of successful health checks for Healthy status>,`
+                       `healthcheck-tcp-port=<TCP port>,`
+                       `healthcheck-http-port=<HTTP port>,`
+                       `healthcheck-http-path=<URL for health checks>
       ```
-      yc load-balancer network-load-balancer create \
-        --name internal-lb-test \
-        --type internal \
-        --region-id {{ region-id }} \
-        --listener name=test-listener,port=80,internal-subnet-id=<subnet ID>,internal-address=<internal IP address from subnet address range>
-      ```
 
-   1. Get the list of all load balancers to make sure that the load balancer was created:
+      Where:
 
-      ```
-      yc load-balancer network-load-balancer list
-      ```
+      * `type`: Load balancer type.
+      * `listener`: Listener parameters:
+         * `name`: Name of the listener.
+         * `port`: Port where the load balancer will accept incoming traffic. The acceptable values are from `1` to `32767`.
+         * `target-port`: Port to which the load balancer will redirect traffic. The acceptable values are from `1` to `32767`.
+         * `protocol`: Protocol the listener will use (`TCP` or `UDP`).
+         * `internal-subnet-id`: Subnet ID.
+         * `internal-ip-version`: Version of the internal IP address (`ipv4` or `ipv6`).
 
-- API
-
-   You can create an internal load balancer using the [create](../api-ref/NetworkLoadBalancer/create.md) API method.
+      {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
 
 - {{ TF }}
 
@@ -99,65 +114,71 @@ The internal load balancer's listener is assigned a random IP address from the r
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To create an internal network load balancer with a listener:
+   To create an internal load balancer with a [listener](../concepts/listener.md) and a [target group](../concepts/target-resources.md):
 
-   1. In the configuration file, describe the parameters of the resources you want to create:
-
-      * `name`: The name of the network load balancer.
-      * `type`: The type of the network load balancer. Use internal to create an `internal` network load balancer.
-      * `listener`: The listener parameters.
-         * `name`: The name of the listener.
-         * `port`: The port to receive traffic.
-         * `internal_address_spec`: The specification of the internal load balancer's listener.
-            * `address`: Internal IP address from the range of the selected subnet.
-            * `subnet_id`: The subnet ID.
+   1. Describe the parameters of the network load balancer resource in a configuration file:
 
       Example of the configuration file structure:
 
-      
-      ```
-      provider "yandex" {
-          token     = "<OAuth or static key of service account>"
-          folder_id = "<folder ID>"
-          zone      = "{{ region-id }}-a"
-        }
-
-      resource "yandex_lb_network_load_balancer" "internal-lb-test" {
-        name = "internal-lb-test"
+      ```hcl
+      resource "yandex_lb_network_load_balancer" "foo" {
+        name = "<network load balancer name>"
         type = "internal"
-
         listener {
-          name = "my-listener"
-          port = 8080
+          name = "<listener name>"
+          port = <port number>
           internal_address_spec {
-            address = "<internal IP address>"
             subnet_id = "<subnet ID>"
+            ip_version = "<IP address version: ipv4 or ipv6>"
+          }
+        attached_target_group {
+          target_group_id = "<target group ID>"
+          healthcheck {
+            name = "<health check name>"
+              http_options {
+                port = <port number>
+                path = "<URL for health checks>"
+              }
           }
         }
+      }
       ```
 
+      Where:
 
+      * `name`: Name of the network load balancer.
+      * `type`: Type of the network load balancer. Use `internal` to create an internal network load balancer.
+      * `listener`: Listener parameters:
+         * `name`: Name of the listener.
+         * `port`: Port in the range of `1` to `32767` that the network load balancer will receive incoming traffic on.
+         * `internal_address_spec`: Specification of the listener for the external load balancer:
+            * `subnet_id`: Subnet.
+            * `ip_version`: External IP address specification. Set the IP address version: `ipv4` or `ipv6`. The default value is `ipv4`.
+      * `attached_target_group`: Description of the network load balancer's target group parameters:
+         * `target_group_id`: Target group ID.
+         * `healthcheck`: Health check parameters. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the settings are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
-         ```
-         terraform plan
-         ```
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Deploy cloud resources.
+   1. Create a network load balancer.
 
-      1. If the configuration does not contain any errors, run this command:
-         ```
-         terraform apply
-         ```
-      1. Confirm that you want to create the resources.
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+- API
+
+   Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request:
+
+   * ID of the folder where the network load balancer should be placed, in the `folderId` parameter.
+   * Network load balancer name in the `name` parameter.
+   * Network load balancer type in the `type` parameter. Use `internal` to create an internal network load balancer.
+   * [Listener](../concepts/listener.md) specification in the `listenerSpecs` parameter.
+   * [Target group](../concepts/target-resources.md) IDs and settings of its [resource health checks](../concepts/health-check.md) in the `attachedTargetGroups` parameter.
+
+   You can get the target group IDs with a [list of target groups in the folder](target-group-list.md#list).
 
 {% endlist %}
 
@@ -165,164 +186,185 @@ The internal load balancer's listener is assigned a random IP address from the r
 
 ### Creating an internal load balancer without a listener {#without-listener}
 
+Create an internal network load balancer named `internal-lb-test-1` without a listener and target group.
+
 {% list tabs %}
 
 - CLI
 
    To create an internal load balancer without a listener, run the command:
 
-   ```
-   yc load-balancer network-load-balancer create \
-     --name internal-lb-test-1 \
-     --type internal \
-     --region-id {{ region-id }}
+   ```bash
+   yc load-balancer network-load-balancer create internal-lb-test-1 \
+      --type=internal
    ```
 
 - {{ TF }}
 
-   1. In the configuration file, describe the resource parameters without the `listener` section:
+   1. In the configuration file, describe the resource parameters without the `listener` and `attached_target_group` sections:
 
-      {% cut "Example of creating an internal network load balancer without a listener using {{ TF }}" %}
-
-      ```
-      resource "yandex_lb_network_load_balancer" "internal-lb-test" {
-        name = "internal-lb-test"
+      ```hcl
+      resource "yandex_lb_network_load_balancer" "foo" {
+        name = "internal-lb-test-1"
         type = "internal"
       ```
 
-      {% endcut %}
-
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the settings are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-         ```
-         terraform plan
-         ```
+   1. Create a network load balancer.
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   1. Deploy cloud resources.
+- API
 
-      1. If the configuration does not contain any errors, run this command:
+   Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request body:
 
-         ```
-         terraform apply
-         ```
-
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
-
-         ```
-         yc load-balancer network-load-balancer get <name of internal network load balancer>
-         ```
+   ```api
+   {
+     "folderId": "<folder ID>",
+     "name": "internal-lb-test-1",
+     "type": "INTERNAL"
+   }
+   ```
 
 {% endlist %}
 
 ### Creating an internal load balancer with a listener and attached target group {#with-listener-and-target-group}
 
+Create an internal network load balancer with a listener and attached target group with the following test specifications:
+
+* Name: `internal-lb-test-2`.
+* Listener parameters:
+   * Name: `test-listener`.
+   * Port: `80`.
+   * Target port: `81`.
+   * Protocol: `TCP`.
+   * Subnet ID: `b0cp4drld130kuprafls`.
+   * IP version: `ipv4`.
+* Target group ID: `enpu2l7q9kth8906spjn`.
+* Target group health check parameters:
+   * Name: `HTTP`.
+   * Health check interval: `2` seconds.
+   * Response timeout: `1` second.
+   * Unhealthy threshold: `2`.
+   * Healthy threshold: `2`.
+   * Port for HTTP health checks: `80`.
+   * URL for health checks: `/`.
+
 {% list tabs %}
 
 - CLI
 
-   1. To create an internal load balancer with a [listener](../concepts/listener.md) and immediately attach a target group to it, get the list of target groups:
+   Run the following command:
 
-      ```
-      yc load-balancer target-group list
-      ```
-
-      Result:
-
-      
-      ```
-      +----------------------+------------------+---------------------+-------------+--------------+
-      |          ID          |       NAME       |       CREATED       |  REGION ID  | TARGET COUNT |
-      +----------------------+------------------+---------------------+-------------+--------------+
-      | b7rv80bfibkph3ekqqle | test-internal-tg | 2020-08-09 07:49:18 | {{ region-id }} |            3 |
-      +----------------------+------------------+---------------------+-------------+--------------+
-      ```
-
-
-
-   1. Run the following command:
-
-      ```
-      yc load-balancer network-load-balancer create \
-        --name internal-lb-test-3 \
-        --type internal \
-        --region-id {{ region-id }} \
-        --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14 \
-        --target-group target-group-id=b7rv80bfibkph3ekqqle,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
-      ```
-
-      Where `target-group-id`: Target group ID.
-
-      Note the format of the `healthcheck-interval` and `healthcheck-timeout` parameters: specify their values as `Ns`, where `N` is the value in seconds.
+   ```bash
+   yc load-balancer network-load-balancer create internal-lb-test-2 \
+      --type=internal \
+      --listener name=test-listener,`
+                `port=80,`
+                `target-port=81,`
+                `protocol=tcp,`
+                `internal-subnet-id=b0cp4drld130kuprafls,`
+                `internal-ip-version=ipv4 \
+      --target-group target-group-id=enpu2l7q9kth8906spjn,`
+                    `healthcheck-name=http,`
+                    `healthcheck-interval=2s,`
+                    `healthcheck-timeout=1s,`
+                    `healthcheck-unhealthythreshold=2,`
+                    `healthcheck-healthythreshold=2,`
+                    `healthcheck-http-port=80,`
+                    `healthcheck-http-path=/
+   ```
 
 - {{ TF }}
 
-   1. To create an internal network load balancer with a [listener](../concepts/listener.md), open the {{ TF }} configuration file and add the `listener` section to the internal network load balancer's description. To attach a target group, add the `attached_target_group` section and specify the target group in the `target_group_id` field.
+   1. In the configuration file, describe the resource parameters with the `listener` and `attached_target_group` sections:
 
-      {% cut "Example of creating an internal network load balancer with a listener and attached target group using {{ TF }}" %}
-
-      ```
+      ```hcl
       resource "yandex_lb_network_load_balancer" "internal-lb-test" {
-        name = "internal-lb-test"
+        name = "internal-lb-test-2"
         type = "internal"
         listener {
-          name = "my-listener"
-      	     port = 9000
+          name        = "test-listener"
+          port        = 80
+          target_port = 81
+          protocol    = "tcp"
           internal_address_spec {
             subnet_id  = "b0cp4drld130kuprafls"
             ip_version = "ipv4"
           }
         }
         attached_target_group {
-          target_group_id = "${yandex_lb_target_group.my-target-group.id}"
+          target_group_id = "enpu2l7q9kth8906spjn"
           healthcheck {
-            name = "http"
-              http_options {
-                port = 9000
-                path = "/ping"
-              }
+            name                = "http"
+            interval            = 2
+            timeout             = 1
+            unhealthy_threshold = 2
+            healthy_threshold   = 2
+            http_options {
+              port = 80
+              path = "/"
+            }
           }
         }
       }
       ```
 
-      {% endcut %}
-
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the settings are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-         ```
-         terraform plan
-         ```
+   1. Create a network load balancer.
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   1. Deploy cloud resources.
+- API
 
-      1. If the configuration does not contain any errors, run this command:
+   Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request body:
 
-         ```
-         terraform apply
-         ```
-
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
-
-         ```
-         yc load-balancer network-load-balancer get <name of internal network load balancer>
-         ```
+   ```api
+   {
+     "folderId": "<folder ID>",
+     "name": "internal-lb-test-2",
+     "type": "INTERNAL",
+     "listenerSpecs": [
+       {
+         "name": "test-listener",
+         "port": "80",
+         "protocol": "TCP",
+         "targetPort": "81",
+         "internalAddressSpec": {
+           "subnetId": "b0cp4drld130kuprafls",
+           "ipVersion": "IPV4"
+         }
+       }
+     ],
+     "attachedTargetGroups": [
+       {
+         "targetGroupId": "enpu2l7q9kth8906spjn",
+         "healthChecks": [
+           {
+             "name": "http",
+             "interval": "2s",
+             "timeout": "1s",
+             "unhealthyThreshold": "2",
+             "healthyThreshold": "2",
+             "httpOptions": {
+               "port": "80",
+               "path": "/"
+             }
+           }
+         ]
+       }
+     ]
+   }
+   ```
 
 {% endlist %}

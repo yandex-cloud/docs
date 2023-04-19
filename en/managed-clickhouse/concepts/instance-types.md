@@ -1,9 +1,9 @@
 ---
 title: "{{ mch-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the ClickHouse cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
+description: "The host class determines the computing power allocated for each host in the ClickHouse cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage does not depend on the host class."
 ---
 
-# Host classes in {{ CH }}
+# Host classes in {{ mch-name }}
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
@@ -14,10 +14,10 @@ The host class affects the list of available [disk types](./storage.md):
 * **c3**, **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
 * **b1**, **b2**, **b3**: `network-ssd`, `network-hdd`.
 
-For storage limitations, see [{#T}](limits.md).
+For storage size limitations, see [Quotas and limits](limits.md).
 
 
-The host class affects the **Max server memory usage** DBMS setting that limits the amount of RAM available for {{ CH }} to run. For more information, see [{#T}](memory-management.md).
+The host class affects the **Max server memory usage** DBMS setting that limits the amount of RAM available for {{ CH }} to run. For more information, see [Memory management](memory-management.md).
 
 ## Available host classes {#available-flavors}
 

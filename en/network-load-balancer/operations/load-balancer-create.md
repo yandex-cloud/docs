@@ -20,310 +20,325 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. Assign a public IP address to the load balancer. You can assign an address automatically or select one from the list of reserved addresses.
-   1. Under **Listeners**, click **Add listener**.
-   1. In the window that opens, set the listener parameters:
+   1. Under **Listeners**, add a [listener](../concepts/listener.md):
+      1. Click **Add listener**.
+      1. In the window that opens, set the listener parameters:
 
-      * **Name**.
-      * **Port** in the range of 1 to 32767 that the load balancer will receive incoming traffic on.
-      * **Target port** in the range of 1 to 32767 that the load balancer will send traffic to.
+         * **Name**.
+         * **Protocol**: **TCP** or **UDP**.
 
-   1. Click **Add**.
-   1. Under **Target groups,** click **Add target group**.
-   1. Select a target group or [create a new one](target-group-create.md):
+            {% note info %}
 
-      * Click **Create target group**.
-      * Enter the name of the target group.
+            By default, the listener uses TCP. To use UDP, [submit a request to technical support]({{ link-console-support }}/create-ticket).
 
-         {% include [name-format](../../_includes/name-format.md) %}
+            {% endnote %}
 
-      * Select the VMs to add to the target group.
-      * Click **Create**.
+         * **Port** where the listener will listen for incoming traffic. The acceptable values are from `1` to `32767`.
+         * **Target port**, to which the load balancer will redirect traffic. The acceptable values are from `1` to `32767`.
 
-   1. (optional) Under **Health check**, click **Configure** and in the window that opens:
+      1. Click **Add**.
 
-      * Enter the health check name.
+   1. Under **Target groups** add a [target group](../concepts/target-resources.md):
+      1. Click **Add target group**.
+      1. Select a target group or [create a new one](target-group-create.md):
+         * In the **Target group** field, select ![image](../../_assets/plus-sign.svg) **Create target group**.
+         * In the resulting window, enter a target group name.
+         * Add virtual machines to the target group.
+         * Click **Create**.
+      1. (Optional) Under **Health check**, click **Configure**. In the window that opens, specify the [resource health check](../concepts/health-check.md) settings:
+         * **Name**.
+         * **Type**: **HTTP** or **TCP**. For health checks to use HTTP, specify the URL to check in the **Path** field.
+         * Health check **port**. The acceptable values are from `1` to `32767`.
+         * **Timeout**: Response timeout in seconds.
+         * **Interval**: Health check interval in seconds.
+         * **Healthy threshold**: Number of successful checks required to consider a virtual machine ready to receive traffic.
+         * **Unhealthy threshold**: Number of failed checks after which no traffic will be routed to a virtual machine.
 
-         {% include [name-format](../../_includes/name-format.md) %}
-
-      * Select the check type: **HTTP** or **TCP**.
-      * If you chose HTTP, specify the URL to check in the **Path** field.
-      * Specify a port number from the range 1-32767.
-      * Specify the response timeout in seconds.
-      * Specify the interval, in seconds, for sending health check requests.
-      * Set the performance threshold, meaning the number of successful checks required in order to consider the VM ready to receive traffic.
-      * Specify the failure threshold, which is the number of failed checks after which no traffic will be routed to the VM.
-      * Click **Apply**.
-
+      1. Click **Apply**.
    1. Click **Create**.
 
 - CLI
 
-   If you don't have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    1. View a description of the CLI command to create a network load balancer:
 
-      ```
+      ```bash
       yc load-balancer network-load-balancer create --help
       ```
 
-   1. To create a load balancer with a [listener](../concepts/listener.md), run the following command in the terminal:
+   1. To create a load balancer with a [listener](../concepts/listener.md) and a [target group](../concepts/target-resources.md), run this command:
 
+      ```bash
+      yc load-balancer network-load-balancer create <load balancer name> \
+         --listener name=<listener name>,`
+                   `port=<port>,`
+                   `target-port=<target port>,`
+                   `protocol=<protocol: TCP or UDP>,`
+                   `external-ip-version=<IP address version: ipv4 or ipv6> \
+         --target-group target-group-id=<target group ID>,`
+                       `healthcheck-name=<health check name>,`
+                       `healthcheck-interval=<interval between health checks>s,`
+                       `healthcheck-timeout=<health check timeout>s,`
+                       `healthcheck-unhealthythreshold=<number of failed health checks for Unhealthy status>,`
+                       `healthcheck-healthythreshold=<number of successful health checks for Healthy status>,`
+                       `healthcheck-tcp-port=<TCP port>,`
+                       `healthcheck-http-port=<HTTP port>,`
+                       `healthcheck-http-path=<URL for health checks>
       ```
-      yc load-balancer network-load-balancer create \
-        --region-id {{ region-id }} \
-        --name test-load-balancer-2 \
-        --listener name=test-listener,external-ip-version=ipv4,port=80
-      ```
 
-   1. Get the list of all load balancers to make sure that the load balancer was created:
+      Where:
 
-      ```
-      yc load-balancer network-load-balancer list
-      ```
+      {% include [listener-cli-description](../../_includes/network-load-balancer/listener-cli-description.md) %}
 
-- API
-
-   You can create an new load balancer using the [create](../api-ref/NetworkLoadBalancer/create.md) API method.
+      {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
 
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. Describe the parameters of the network load balancer resource in a configuration file.
 
-      * `name`: The name of the network load balancer. Name format:
-
-         {% include [name-format](../../_includes/name-format.md) %}
-
-      * `listener`: Description of the network load balancer's [listener](../concepts/listener.md) parameters:
-         * `name`: The name of the listener. Name format:
-
-            {% include [name-format](../../_includes/name-format.md) %}
-
-         * `port`: A port in the range of 1 to 32767 that the network load balancer will receive incoming traffic on.
-         * `external_address_spec`: External IP address specification. Set the IP address version (ipv4 or ipv6). Defaults to ipv4.
-      * `attached_target_group`: A description of the network load balancer's target group parameters:
-         * `target_group_id`: Target group ID.
-         * `healthcheck`: Health check parameters. Enter a name, a port number ranging from 1 to 32767, and a path for health checks.
-
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "<name of network load balancer>"
+        name = "<network load balancer name>"
         listener {
           name = "<listener name>"
-      	 port = <port number>
+          port = <port number>
           external_address_spec {
-            ip_version = "ipv4"
+            ip_version = "<IP address version: ipv4 or ipv6>"
           }
         }
         attached_target_group {
           target_group_id = "<target group ID>"
           healthcheck {
             name = "<health check name>"
-              http_options {
-                port = <port number>
-                path = "/ping"
-              }
+            http_options {
+              port = <port number>
+              path = "<URL for health checks>"
+            }
           }
         }
       }
       ```
 
+      Where:
+
+      * `name`: Name of the network load balancer.
+      * `listener`: Listener parameters:
+         * `name`: Name of the listener.
+         * `port`: Port in the range of `1` to `32767` that the network load balancer will receive incoming traffic on.
+         * `external_address_spec`: Specification of the listener for the external load balancer:
+            * `ip_version`: External IP address specification. Set the IP address version: `ipv4` or `ipv6`. The default value is `ipv4`.
+      * `attached_target_group`: Description of the network load balancer's target group parameters:
+         * `target_group_id`: Target group ID.
+         * `healthcheck`: Health check parameters. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
+
       For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the settings are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-         ```
-         terraform plan
-         ```
+   1. Create a network load balancer.
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   1. Deploy the cloud resources.
+- API
 
-      1. If the configuration doesn't contain any errors, run the command:
+   Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request:
 
-         ```
-         terraform apply
-         ```
+   * ID of the folder where the network load balancer should be placed, in the `folderId` parameter.
+   * Network load balancer name in the `name` parameter.
+   * [Listener](../concepts/listener.md) specification in the `listenerSpecs` parameter.
+   * [Target group](../concepts/target-resources.md) IDs and settings of its [resource health checks](../concepts/health-check.md) in the `attachedTargetGroups` parameter.
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
-
-         ```
-         yc load-balancer network-load-balancer get <name of network load balancer>
-         ```
+   You can get the target group IDs with a [list of target groups in the folder](target-group-list.md#list).
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
 ### Creating a network load balancer without a listener {without-listener}
+
+Create a network load balancer named `test-load-balancer-1` without a listener and target group.
 
 {% list tabs %}
 
 - CLI
 
-   To create a load balancer without a listener, run the following command in the terminal:
+   Run the following command:
 
-   ```
-   yc load-balancer network-load-balancer create \
-     --region-id {{ region-id }} \
-     --name test-load-balancer-1
+   ```bash
+   yc load-balancer network-load-balancer create test-load-balancer-1
    ```
 
 - {{ TF }}
 
-   1. In the configuration file, describe the resource parameters without the `listener` section:
+   1. In the configuration file, describe the resource parameters without the `listener` and `attached_target_group` sections:
 
-      {% cut "Example of creating a network load balancer without a listener using {{ TF }}" %}
-
-      ```
+      ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "my-network-load-balancer"
+        name = "test-load-balancer-1"
       }
       ```
 
-      {% endcut %}
-
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the settings are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-         ```
-         terraform plan
-         ```
+   1. Create a network load balancer.
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   1. Deploy the cloud resources.
+- API
 
-      1. If the configuration doesn't contain any errors, run the command:
+   Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request body:
 
-         ```
-         terraform apply
-         ```
-
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
-
-         ```
-         yc load-balancer network-load-balancer get <name of network load balancer>
-         ```
+   ```api
+   {
+     "folderId": "<folder ID>",
+     "name": "test-load-balancer-1",
+     "type": "EXTERNAL"
+   }
+   ```
 
 {% endlist %}
 
 ### Creating a network load balancer with a listener and attached target group {with-listener-and-target-group}
 
+Create a network load balancer with a listener and attached target group with the following test specifications:
+
+* Name: `test-load-balancer-2`.
+* Listener parameters:
+   * Name: `test-listener`.
+   * Port: `80`.
+   * Target port: `81`.
+   * Protocol: `TCP`.
+   * IP version: `ipv4`.
+* Target group ID: `enpu2l7q9kth8906spjn`.
+* Target group resource health check parameters:
+   * Name: `HTTP`.
+   * Health check interval: `2` seconds.
+   * Response timeout: `1` second.
+   * Unhealthy threshold: `2`.
+   * Healthy threshold: `2`.
+   * Port for HTTP health checks: `80`.
+   * URL for health checks: `/`.
+
 {% list tabs %}
 
 - CLI
 
-   1. To create a load balancer with a [listener](../concepts/listener.md) and immediately connect a previously [created](target-group-create.md) target group to it, get the list of target groups:
+   Run the following command:
 
-      ```
-      yc load-balancer target-group list
-      ```
-
-      Result:
-
-      
-      ```
-      +----------------------+-------------------+---------------------+-------------+--------------+
-      |          ID          |       NAME        |       CREATED       |  REGION ID  | TARGET COUNT |
-      +----------------------+-------------------+---------------------+-------------+--------------+
-      | b7roi767je4c574iivrk | test-target-group | 2018-12-03 14:41:04 | {{ region-id }} |            1 |
-      +----------------------+-------------------+---------------------+-------------+--------------+
-      ```
-
-
-
-   1. Run the following command:
-
-      ```
-      yc load-balancer network-load-balancer create \
-        --region-id {{ region-id }} \
-        --name test-load-balancer-3 \
-        --listener name=test-listener,external-ip-version=ipv4,port=80 \
-        --target-group target-group-id=b7rjtf12qdeehrj31hri,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
-      ```
-
-      Where `target-group-id`: Target group ID.
-
-      Mind the `healthcheck-interval` and `healthcheck-timeout` parameter format: the values must be in `Ns` format.
+   ```bash
+   yc load-balancer network-load-balancer create test-load-balancer-2 \
+      --listener name=test-listener,`
+                `port=80,`
+                `target-port=81,`
+                `protocol=tcp,`
+                `external-ip-version=ipv4 \
+      --target-group target-group-id=enpu2l7q9kth8906spjn,`
+                    `healthcheck-name=http,`
+                    `healthcheck-interval=2s,`
+                    `healthcheck-timeout=1s,`
+                    `healthcheck-unhealthythreshold=2,`
+                    `healthcheck-healthythreshold=2,`
+                    `healthcheck-http-port=80,`
+                    `healthcheck-http-path=/
+   ```
 
 - {{ TF }}
 
-   1. To create a network load balancer with a [listener](../concepts/listener.md), open the {{ TF }} configuration file and add the `listener` section to the network load balancer's description. To attach a target group, add the `attached_target_group` section and specify the target group in the `target_group_id` field.
+   1. In the configuration file, describe the resource parameters with the `listener` and `attached_target_group` sections:
 
-      {% cut "Example of creating a network load balancer with a listener and attached target group using {{ TF }}" %}
-
-      ```
+      ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "my-network-load-balancer"
+        name = "test-load-balancer-2"
         listener {
-          name = "my-listener"
-      	     port = 9000
+          name        = "test-listener"
+          port        = 80
+          target_port = 81
+          protocol    = "tcp"
           external_address_spec {
             ip_version = "ipv4"
           }
         }
         attached_target_group {
-          target_group_id = "${yandex_lb_target_group.my-target-group.id}"
+          target_group_id = "enpu2l7q9kth8906spjn"
           healthcheck {
-            name = "http"
-              http_options {
-                port = 9000
-                path = "/ping"
-              }
+            name                = "http"
+            interval            = 2
+            timeout             = 1
+            unhealthy_threshold = 2
+            healthy_threshold   = 2
+            http_options {
+              port = 80
+              path = "/"
+            }
           }
         }
       }
       ```
 
-      {% endcut %}
-
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the settings are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-         ```
-         terraform plan
-         ```
+   1. Create a network load balancer.
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   1. Deploy the cloud resources.
+- API
 
-      1. If the configuration doesn't contain any errors, run the command:
+   Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request body:
 
-         ```
-         terraform apply
-         ```
-
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
-
-         ```
-         yc load-balancer network-load-balancer get <name of network load balancer>
-         ```
+   ```api
+   {
+     "folderId": "<folder ID>",
+     "name": "test-load-balancer-2",
+     "type": "EXTERNAL",
+     "listenerSpecs": [
+       {
+         "name": "test-listener",
+         "port": "80",
+         "protocol": "TCP",
+         "targetPort": "81",
+         "externalAddressSpec": {
+           "ipVersion": "IPV4"
+         }
+       }
+     ],
+     "attachedTargetGroups": [
+       {
+         "targetGroupId": "b7rjtf12qdeehrj31hri",
+         "healthChecks": [
+           {
+             "name": "http",
+             "interval": "2s",
+             "timeout": "1s",
+             "unhealthyThreshold": "2",
+             "healthyThreshold": "2",
+             "httpOptions": {
+               "port": "80",
+               "path": "/"
+             }
+           }
+         ]
+       }
+     ]
+   }
+   ```
 
 {% endlist %}

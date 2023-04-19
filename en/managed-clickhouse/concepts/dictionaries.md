@@ -1,7 +1,7 @@
-# Dictionaries
+# {{ CH }} dictionaries
 
 _Dictionaries_ in {{ CH }} are key-value data stores that are fully or partially loaded to the {{ CH }} server memory.
-Dictionary data is accessed using a [set of functions]({{ ch.docs }}/sql-reference/functions/) that are faster than standard SQL queries. Access to dictionaries is read-only. You can't write data to a dictionary using {{ CH }}.
+Dictionary data is accessed using a [set of functions]({{ ch.docs }}/sql-reference/functions/) that are faster than standard SQL queries. Access to dictionaries is read-only. You cannot write data to a dictionary using {{ CH }}.
 
 The main advantage of dictionaries is that they're faster compared to JOIN operations. Dictionaries are useful when you have to frequently access reference lists to get a set of values from a key.
 
@@ -19,7 +19,7 @@ As their data sources, dictionaries can use [{{ CH }} internal dictionaries]({{ 
 
 Learn more about the built-in dictionary features in the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/functions/ym-dict-functions).
 
-If you're not satisfied with the built-in geobase, add your own to {{ CH }}: For more information about how to do this, see [{#T}](../operations/geobase.md).
+If you are not satisfied with the built-in geobase, add [your own geobase](../operations/geobase.md) to {{ CH }}.
 
 
 ## External dictionaries {#external-dicts}

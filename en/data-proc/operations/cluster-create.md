@@ -120,7 +120,7 @@ A cluster must include a subcluster with a master host and at least one subclust
    1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
          1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
-      To enable this functionality, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+      To enable this feature, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
    1. Configure subclusters: no more than one subcluster with a master host (called **Master**) and subclusters for data storage or processing.
 
@@ -335,7 +335,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       * `URI`: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
       * (Optional) `timeout`: Script execution timeout (in seconds). If your initialization script runs longer than this time, it will be terminated.
-      * (Optional) `args`: Arguments, enclosed in square brackets and separated by commas, with which an initialization script must be executed.
+      * (Optional) `args`: Arguments separated by commas with which an initialization script must be executed.
 
 - {{ TF }}
 

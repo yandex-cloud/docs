@@ -3,7 +3,7 @@ title: "Deleting a target group in the load balancer"
 description: "Before deleting a target group, detach it from the network load balancer. You cannot restore a target group after it is deleted. Open the Load Balancer section in the folder you want to delete the target group from. In the menu that opens, click Delete."
 ---
 
-#  Delete a {{ network-load-balancer-name }} target group
+# Delete a {{ network-load-balancer-name }} target group
 
 {% note alert %}
 
@@ -25,7 +25,7 @@ Before deleting a target group, detach it from the network load balancer. You ca
 
 - CLI
 
-   If you don't have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -35,33 +35,49 @@ Before deleting a target group, detach it from the network load balancer. You ca
       yc load-balancer target-group delete --help
       ```
 
-   1. Get a list of target groups:
-
-      ```bash
-      yc load-balancer target-group list
-      ```
-
-      Result:
-
-      ```bash
-      +----------------------+-------------------+-----+
-      |          ID          |       NAME        | ... |
-      +----------------------+-------------------+-----+
-      ...
-      | b7roi767je4c574iivrk | test-target-group | ... |
-      ...
-      +----------------------+-------------------+-----+
-      ```
-
-   1. Select the `ID` or `NAME` of the target group.
    1. Delete the target group from the default folder:
 
       ```bash
-      yc load-balancer target-group delete b7roi767je4c574iivrk
+      yc load-balancer target-group delete <target group ID or name>
       ```
+
+      You can get the target group ID and name with a [list of target groups in the folder](target-group-list.md#list).
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To delete a target group created with {{ TF }}:
+   1. Open the {{ TF }} configuration file and delete the fragment with the target group description.
+
+      ```hcl
+      resource "yandex_lb_target_group" "foo" {
+        name      = "<target group name>"
+        target {
+          subnet_id = "<subnet ID>"
+          address   = "<internal IP address of resource>"
+        }
+        target {
+          subnet_id = "<subnet ID>"
+          address   = "<internal IP address of resource 2>"
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Delete the network load balancer.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
-   You can delete target groups using the [delete](../api-ref/TargetGroup/delete.md) API method.
+   Use the [delete](../api-ref/TargetGroup/delete.md) API method and provide the target group ID in the `targetGroupId` request parameter.
+
+   You can get the target group ID with a [list of target groups in the folder](target-group-list.md#list).
 
 {% endlist %}

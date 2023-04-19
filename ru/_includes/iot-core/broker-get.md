@@ -30,6 +30,6 @@
 
 - API
 
-  Получить подробную информацию о брокере можно с помощью метода API [get](../../iot-core/api-ref/Broker/get).
+  Получить подробную информацию о брокере можно с помощью метода API [get](../../iot-core/broker/api-ref/Broker/get.md).
 
 {% endlist %}

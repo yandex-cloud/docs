@@ -18,5 +18,5 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 1. Click **Get key**. If this is your first time creating a connection to Yandex Music podcasts, grant the service the required permissions.
 1. Click **Check connection**.
 1. After successfully checking the connection, click **Create connection**.
-1. Enter the connection name and click **Create connection**. The connection appears in the list.
+1. Enter the connection name and click **Create connection**. The connection will appear in the list.
 1. Go to the **Dashboards** menu and open the **Yandex Music podcast analytics** dashboard. If there isn't any data, please make sure your current account has podcast access by writing to [technical support](https://yandex.com/support/music/podcast-authors/statistics.html).

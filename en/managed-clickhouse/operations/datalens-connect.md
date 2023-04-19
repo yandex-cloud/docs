@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on connecting to\_a {{ CH }} cluster from {{ datalens-name }}"
-description: "From this tutorial, you will learn how to connect to a {{ CH }} cluster from {{ datalens-name }}."
+title: "How to connect to a {{ CH }} cluster from {{ datalens-name }}"
+description: "In this tutorial, you will learn how to connect to a {{ CH }} cluster from {{ datalens-name }}."
 ---
 
 # Connecting to a {{ CH }} cluster from {{ datalens-name }}
@@ -55,7 +55,7 @@ Once the connection is created, you can:
 * Visualize the datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
 
-See an [example of data visualization from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
+For details, see an [example of data visualization from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
 
 
 ## Viewing a list of cluster connections {#connectors-list}
@@ -124,7 +124,7 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
 - Management console
 
-   In the [management console]({{ link-console-main }}), when [creating](#create-connector) or [updating](#update-connector) a cluster connection:
+   In the [management console]({{ link-console-main }}) when [creating](#create-connector) or [updating](#update-connector) a cluster connection:
    1. Specify a name for the connection.
    1. Go to the **Select in folder** tab.
    1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the folder with {{ datalens-name }} by clicking **Create new**.
@@ -141,5 +141,4 @@ If the cluster and {{ datalens-name }} are in different folders, use the setting
 
 {% endcut %}
 
-If the [**Read only** setting](cluster-users.md#setting-readonly) is selected for the user, make sure its value is `0` or `2`.
-Otherwise, the connection won't work.
+If the [**Read only** setting](cluster-users.md#setting-readonly) is selected for the user, make sure its value is `0` or `2`. Otherwise, the connection will not work.

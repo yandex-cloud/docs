@@ -13,78 +13,57 @@
 
 - CLI
 
-   If you don't have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To delete a listener for your network load balancer:
+   To delete a listener for your network load balancer, run this command:
 
-   1. Look through the list of load balancers:
+   ```bash
+   yc load-balancer network-load-balancer remove-listener <load balancer ID or name> \
+      --listener-name=<listener name>
+   ```
 
-      ```
-      yc load-balancer network-load-balancer list
-      ```
+   You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list) and the listener name with [network load balancer details](load-balancer-list.md#get).
 
-      Result:
+- {{ TF }}
 
-      
-      ```
-      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-      |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
-      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-      ...
-      | c58r8boim8qfkcqtuioj | test-load-balancer | {{ region-id }} | EXTERNAL |              1 |                        | INACTIVE |
-      ...
-      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-      ```
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
+   To delete a listener of a network load balancer created with {{ TF }}:
+   1. Open the {{ TF }} configuration file and delete the fragment with the listener description.
 
-   1. Choose the `ID` of the load balancer with the listener you want to delete.
-   1. Get information about the selected load balancer:
-
-      ```
-      yc load-balancer network-load-balancer get c58r8boim8qfkcqtuioj
-      ```
-
-      Result:
-
-      ```
-      id: c58r8boim8qfkcqtuioj
-      folder_id: aoerb349v3h4bupphtaf
-      created_at: "2019-04-01T09:29:25Z"
-      name: test-load-balancer
-      region_id: {{ region-id }}
-      status: INACTIVE
-      type: EXTERNAL
-      listeners:
-      - name: test-listener
-        address: 130.193.32.39
-        port: "80"
-        protocol: TCP
+      ```hcl
+      resource "yandex_lb_network_load_balancer" "foo" {
+        ...
+        listener {
+          name = "<listener name>"
+          port = <port number>
+          external_address_spec {
+            ip_version = "<IP version: ipv4 or ipv6>"
+          }
+        }
+        ...
+      }
       ```
 
-   1. To delete the selected listener, specify the load balancer ID and the name of this listener:
+   1. Make sure the settings are correct.
 
-      ```
-      yc load-balancer network-load-balancer remove-listener c58r8boim8qfkcqtuioj --listener-name test-listener
-      ```
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      Result:
+   1. Delete the network load balancer.
 
-      ```
-      .......done
-      id: c58r8boim8qfkcqtuioj
-      folder_id: aoerb349v3h4bupphtaf
-      created_at: "2019-04-01T09:29:25Z"
-      name: test-load-balancer
-      region_id: {{ region-id }}
-      status: INACTIVE
-      type: EXTERNAL
-      ```
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
-   To delete a listener, use the [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md) API method.
+   Use the [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md) API method and include the following in the request:
+
+   * Load balancer ID in the `networkLoadBalancerId` parameter.
+   * Listener name in the `listenerName` parameter.
+
+   You can get the load balancer ID with a [list of network load balancers in the folder](load-balancer-list.md#list) and the listener name with [network load balancer details](load-balancer-list.md#get).
 
 {% endlist %}

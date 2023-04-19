@@ -43,7 +43,7 @@ LIMIT 2;
 
 ### Создание потока данных {{ yds-full-name }} {#create_yds_stream}
 
-Создание [потока данных](../../data-streams/operations//manage-streams.md) подробно описано в [документации {{ yds-full-name }}](../../data-streams/operations/manage-streams.md).
+Создание [потока данных](../../data-streams/operations/manage-streams.md) подробно описано в [документации {{ yds-full-name }}](../../data-streams/operations/manage-streams.md).
 
 ### Создание лог-группы {#create_log_group}
 

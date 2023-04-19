@@ -1,4 +1,4 @@
-# Sharding
+# Sharding in {{ mch-name }}
 
 _Sharding_ is a horizontal cluster scaling strategy that puts parts of one {{ CH }} database on different shards. A _shard_ consists of one or more [replica hosts](replication.md). A write or read request for the shard can be sent to any of its replicas because there is no dedicated master. When data is inserted, it is taken from the replica on which the `INSERT` request was executed and copied to other replicas in the shard in asynchronous mode.
 
@@ -25,7 +25,7 @@ Sharding can help you:
 
 To distribute data across shards, create a _distributed table_ on the [Distributed engine]({{ ch.docs }}/engines/table-engines/special/distributed/), which uses these shards. Some pieces of data in this table are stored on one shard, some on other shards. In fact, pieces of data are stored in the underlying tables that are located on the hosts of each shard. The distributed table only provides routing of queries to these tables.
 
-When executing the `INSERT` query, {{ CH }} uses a _sharding key_ to determine where the data should be placed. Its value determines which shard the query is directed to. The sharding key is similar to the [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/). Ease of use and actual performance improvements with sharding employed significantly depend on the sharding key you choose: the right sharding key ensures that data is logically distributed across shards and isn't linked to data in different shards. Unlike the `INSERT` queries, the `SELECT` queries send subqueries to all shards in the cluster, regardless of how data is distributed across the shards.
+When executing the `INSERT` query, {{ CH }} uses a _sharding key_ to determine where the data should be placed. Its value determines which shard the query is directed to. The sharding key is similar to the [partitioning key]({{ ch.docs }}/engines/table-engines/special/distributed/) Ease of use and actual performance improvements with sharding employed significantly depend on the sharding key you choose: the right sharding key ensures that data is logically distributed across shards and isn't linked to data in different shards. Unlike the `INSERT` queries, the `SELECT` queries send subqueries to all shards in the cluster, regardless of how data is distributed across the shards.
 
 {{ CH }} offers two different approaches to operating distributed tables with flexible data distribution in a cluster:
 - You can create a distributed table that uses [_all shards_](../operations/shards.md) in a cluster ([example](../tutorials/sharding.md#shard-example)).
@@ -57,4 +57,4 @@ To learn more about operating distributed tables, see the [{{ CH }} documentatio
    * Clusters with a multi-host shard have {{ CK }} or {{ ZK }} replication mechanisms already running, which means you can immediately add hosts to the shard.
    * In clusters with single-host shards, you need to [enable fault tolerance using {{ ZK}}](../operations/zk-hosts.md#add-zk), and only then can you add hosts to the shard.
 
-   For more information about replication, {{ CK }}, and {{ ZK }}, see [{#T}](replication.md).
+   For more information about replication, {{ CK }}, and {{ ZK }}, see [Replication](replication.md).

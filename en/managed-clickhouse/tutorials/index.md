@@ -1,13 +1,17 @@
-# {{ mch-name }} practical guidelines
+# {{ mch-name }} tutorials
 
-* [{#T}](insert.md)
+* [Adding data to the database](insert.md)
 * [{#T}](data-migration.md)
-* [{#T}](sharding.md)
-* [{#T}](hybrid-storage.md)
+* [Sharding tables](sharding.md)
+* [Using hybrid storage](hybrid-storage.md)
 * [Getting data from {{ mkf-name }}](fetch-data-from-mkf.md)
-* [{#T}](fetch-data-from-rabbitmq.md)
-* [{#T}](./bigquery-to-clickhouse.md)
-* [{#T}](exchange-data-with-dp.md)
-* [{#T}](dns-peering.md)
+* [Getting data from RabbitMQ](fetch-data-from-rabbitmq.md)
+* [Exchanging data with {{ dataproc-full-name }}](exchange-data-with-dp.md)
+* [Configuring {{ dns-full-name }} for cluster access from other cloud networks](dns-peering.md)
+* * [Analyzing {{ objstorage-full-name }} logs using {{ datalens-full-name }}](storage-logs-analysis.md)
+* 
+* [Configuring {{ mch-name }} for Graphite](clickhouse-for-graphite.md)
 * [{#T}](yds-to-clickhouse.md)
-* [{#T}](mkf-to-mch-migration.md)
+* * [Migrating databases from Google BigQuery](bigquery-to-clickhouse.md)
+* 
+* [Delivering data from {{ mkf-name }} using {{ data-transfer-full-name }}](mkf-to-mch-migration.md)

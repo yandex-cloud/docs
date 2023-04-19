@@ -37,9 +37,7 @@
         * (опционально) В поле **Префикс ключа объекта** введите префикс для фильтрации.
         * (опционально) В поле **Суффикс ключа объекта** введите суффикс для фильтрации.
 
-    1. В блоке **Настройки контейнера** выберите контейнер и укажите:
-
-        {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
     1. (опционально) В блоке **Настройки повторных запросов**:
 

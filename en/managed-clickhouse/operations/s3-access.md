@@ -12,7 +12,7 @@ To access {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) data 
 * Set up a public bucket by [allowing public access to it](../../storage/operations/buckets/bucket-availability.md) for reads or writes.
 
 
-After setting up any of these methods, [get a link to the bucket object](#get-link-to-object), which you can use to perform operations with the cluster data. See [Examples of working with objects](#examples).
+After setting up any of these methods, [get a link to the bucket object](#get-link-to-object), which you can use to perform operations with the cluster data. For details, see [Examples of working with objects](#examples).
 
 ## Connecting a service account to a cluster {#connect-service-account}
 
