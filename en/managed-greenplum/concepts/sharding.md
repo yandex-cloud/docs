@@ -6,7 +6,7 @@ By default, all tables in {{ GP }} are created with random distribution meaning 
 
 ## Distribution key {#distribution-key}
 
-To optimize `JOIN` operations on large tables, you can specify a [distribution key]({{ gp.docs.org }}/6-16/admin_guide/ddl/ddl-table.html) explicitly. In this case, when joining tables by the fields specified in the key, a join operation is performed locally at the segment level and query processing is faster.
+To optimize `JOIN` operations on large tables, you can specify a [distribution key]({{ gp.docs.pivotal }}/6-16/admin_guide/ddl/ddl-table.html) explicitly. In this case, when joining tables by the fields specified in the key, a join operation is performed locally at the segment level and query processing is faster.
 
 To create a table with a distribution key, pass one or more required fields in the `DISTRIBUTED BY` clause:
 

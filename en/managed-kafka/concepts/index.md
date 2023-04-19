@@ -9,7 +9,7 @@ With {{ mkf-full-name }}, you can deploy and maintain {{ KF }} server clusters {
 
 {{ KF }} is a distributed inter-application communication system that uses the "publication-subscription" principle.
 
-Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md), where [topics](topics.md) and topic partitions are located. Cluster hosts may reside in different availability zones. [More about the geo scope of {{ yandex-cloud }}](../../overview/concepts/geo-scope.md).
+Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md), where [topics](topics.md) and topic partitions are located. Cluster hosts may reside in different availability zones. Learn more about the geo scope of {{ yandex-cloud }} in [Yandex Cloud overview](../../overview/concepts/geo-scope.md).
 
 If all broker hosts are created in the same availability zone, you cannot change their number.
 

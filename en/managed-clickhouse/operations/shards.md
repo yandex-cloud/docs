@@ -62,7 +62,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Add a `CLICKHOUSE` type `host` block with the `shard_name` field filled in to the {{ mch-name }} cluster description or change existing hosts:
 
       ```hcl
@@ -81,7 +81,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -177,8 +177,8 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 - API
 
    Use the API [updateShard](../api-ref/Cluster/updateShard.md) method and pass the following in the call:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * In the `shardName` parameter, the name of the shard.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Name of the shard in the `shardName` parameter.
    * Shard settings in the `configSpec` parameter.
    * List of settings to update in the `updateMask` parameter.
 
@@ -188,9 +188,9 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
 ## Deleting a shard {#delete-shard}
 
-You can delete a shard from a {{ CH }} cluster provided that:
-* It's not the only shard.
-* It's not the only shard in a [group of shards](shard-groups.md).
+You can delete a shard from a {{ CH }} cluster in case:
+* It is not the only shard.
+* It is not the only shard in a [shard group](shard-groups.md).
 
 When you delete a shard, all tables and data that are saved on that shard are deleted.
 
@@ -221,13 +221,13 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Delete the `host` block with a shard description from the {{ mch-name }} cluster description.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

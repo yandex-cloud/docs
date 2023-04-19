@@ -25,7 +25,7 @@ For security reasons, {{ mgp-name }} does not support creating [external web tab
 
 ## Connecting to external DBMS {#pxf}
 
-The [{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.org }}/6-4/pxf/overview_pxf.html) is a software platform that provides access to data from external DBMS's. Tables from the following external sources are available to connect to:
+The [{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.pivotal }}/6-4/pxf/overview_pxf.html) is a software platform that provides access to data from external DBMS's. Tables from the following external sources are available to connect to:
 
 * Apache Hive.
 * {{ CH }}.

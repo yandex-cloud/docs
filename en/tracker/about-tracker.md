@@ -47,7 +47,7 @@ Your workflow is linked to your issue queue. If you need to set up multiple work
 
 You can [create unique workflows](manager/add-workflow.md) tailored for specific issues. Try not to overload them with unnecessary statuses: the simpler the workflow, the more easier it is to handle it.
 
-Apart from workflows, you can configure the following in the queue: [access rights to issues](manager/queue-access.md), [automated issue processing](./automation.md), integration with  [{{ forms-full-name }}](manager/forms-integration.md), etc. These features allow you to flexibly configure queues to suit your team's tasks.
+Apart from workflows, you can configure the following in the queue: [access rights to issues](manager/queue-access.md), [automated issue processing](./automation.md), integration with  [{{ forms-full-name }}](manager/forms-integration.md), and so on. These features let you flexibly configure queues to suit your team's tasks.
 
 For some examples on how you can set up workflows in {{ tracker-name }}, see the following sections:
 

@@ -56,5 +56,5 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
 
 #### См. также {#see-also}
 
-* [Описание External Secrets Operator](https://external-secrets.io/provider-yandex-lockbox/).
+* [Описание External Secrets Operator](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/).
 * [Документация {{ lockbox-name }}](../../../lockbox/).

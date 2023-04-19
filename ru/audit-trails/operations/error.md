@@ -21,6 +21,7 @@
 
 * Проверьте, что сервисному аккаунту, от имени которого трейл загружает аудитные логи в бакет, назначена [роль](../../iam/concepts/access-control/roles.md#storage-uploader) `storage.uploader` или выше.
 * Если бакет [зашифрован](../../storage/tutorials/server-side-encryption.md) ключом {{ kms-full-name }}, убедитесь, что у сервисного аккаунта, от имени которого трейл загружает аудитные логи в бакет, есть [роль](../../iam/concepts/access-control/roles.md#kms-keys-encrypterdecrypter) `kms.keys.encrypterDecrypter` на ключ.
+* Если трейл поставляет события в зашифрованный бакет, проверьте существование ключа {{ kms-name }} данного бакета.
 * Проверьте [список управления доступом (ACL)](../../storage/concepts/acl.md) и [политики доступа (bucket policy)](../../storage/concepts/policy.md): в них не должно быть правил, которые запрещают сервисному аккаунту запись в бакет.
 
 ### BUCKET_QUOTA_EXCEEDED {#bucket-quota-exceeded}

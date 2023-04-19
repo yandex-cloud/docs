@@ -68,7 +68,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
    1. View a description of the CLI's update cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} cluster update --help
       ```
 
@@ -77,7 +77,9 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
       
       ```bash
       {{ yc-mdb-ch }} resource-preset list
+      ```
 
+      ```text
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
@@ -90,7 +92,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
    1. Specify the class in the update cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} cluster update <cluster name> \
          --clickhouse-resource-preset <class ID>
       ```
@@ -139,9 +141,9 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.resources.resourcePresetId` parameter (`configSpec.zookeeper.resources.resourcePresetId` for ZooKeeper).
 
       To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
@@ -240,7 +242,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
    To increase storage size, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required size of the {{ CH }} host storage in the `configSpec.clickhouse.resources.diskSize` parameter.
    * Required size of the {{ ZK }} host storage in the `configSpec.zookeeper.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter.
@@ -458,10 +460,10 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.config` parameter.
 
-      All supported settings are described in [{{ CH }} settings](../concepts/settings-list.md#dbms-cluster-settings) and the [API reference](../api-ref/Cluster/update.md).
+      All supported settings are described in the [{{ CH }} settings](../concepts/settings-list.md#dbms-cluster-settings) section and in the [API reference](../api-ref/Cluster/update.md).
 
    * List of settings to update in the `updateMask` parameter.
 
@@ -612,7 +614,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
       * Settings for access from other services  and access to SQL queries from the management console  in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
@@ -673,8 +675,8 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The ID of the destination folder in the `destinationFolderId parameter`.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the destination folder in the `destinationFolderId parameter`.
 
 {% endlist %}
 
@@ -743,7 +745,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
    * List of settings to update in the `updateMask` parameter.
 
@@ -772,7 +774,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    1. View a description of the CLI's update cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} cluster update --help
       ```
 
@@ -802,8 +804,8 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * `true` value in the `configSpec.cloudStorage.enabled` parameter unless hybrid storage is already enabled.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * `true` value in the `configSpec.cloudStorage.enabled` parameter if hybrid storage is not enabled.
 
       {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 

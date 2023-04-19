@@ -1,4 +1,4 @@
-# Connecting external dictionaries
+# Connecting external dictionaries in {{ mch-name }}
 
 You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) to your cluster and remove them. For more information about dictionaries, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/).
 
@@ -40,7 +40,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
       {{ yc-mdb-ch }} cluster get --help
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       {{ yc-mdb-ch }} cluster get <cluster name>

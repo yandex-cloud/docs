@@ -1,2 +1,1 @@
-* [ревизию контейнера](../../serverless-containers/concepts/container.md#revision);
-* [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться контейнер.
+В блоке **Настройки контейнера** выберите его и [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого он будет вызываться.

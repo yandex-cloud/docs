@@ -184,7 +184,7 @@ on two lines
 - Item 4||
 |#
 ```
-See more in the [YFM documentation](https://ydocs.tech/com/syntax/tables/multiline).
+See more in the [YFM documentation](https://ydocs.tech/en/syntax/tables/multiline).
 
 
 ## Links {#links}

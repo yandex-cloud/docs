@@ -7,6 +7,10 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 Сервис доступен по адресу `{{ api-host-sk-tts }}:443`.
 
 
+{% include [try-speechkit](../../_includes/speechkit/try-speechkit.md) %}
+
+
+
 ## Возможности синтеза {#features}
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}

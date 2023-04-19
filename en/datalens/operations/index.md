@@ -1,4 +1,4 @@
-# Step-by-step guide for {{ datalens-full-name }}
+# Step-by-step guides for {{ datalens-full-name }}
 
 ## Creating a connection {#creating-connection}
 
@@ -56,6 +56,7 @@
 - [{#T}](dashboard/publish.md)
 - [{#T}](dashboard/manage-access.md)
 - [{#T}](dashboard/auto-update.md)
+
 
 
 ## Working with organizations {#working-with-organizations}

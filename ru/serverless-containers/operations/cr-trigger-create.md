@@ -37,9 +37,7 @@
         * (опционально) В поле **Имя Docker-образа** введите имя образа для [фильтрации](../concepts/trigger/cr-trigger.md#filter). Чтобы узнать имя Docker-образа, [получите список Docker-образов в реестре](../../container-registry/operations/docker-image/docker-image-list.md).
         * (опционально) В поле **Тег Docker-образа** введите тег образа для фильтрации.
 
-    1. В блоке **Настройки контейнера** выберите контейнер и укажите:
-
-        {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
     1. (опционально) В блоке **Настройки повторных запросов**:
 

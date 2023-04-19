@@ -1,5 +1,5 @@
 ---
-title: "ClickHouse backups"
+title: "{{ CH }} backups"
 description: "{{ mch-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. Backups are automatically created once a day."
 keywords:
   - backup
@@ -39,9 +39,9 @@ A random replica host is used to create a backup. If there is no cluster host da
 
 The backup process start time is set when a cluster is [created](../operations/cluster-create.md) or [updated](../operations/update.md#change-additional-settings). By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
 
-Backups are only created on running clusters. If you don't use a {{ mch-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
+Backups are only created on running clusters. If you do not use a {{ mch-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
-For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
+For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
 
 ## Storing backups {#storage}
 

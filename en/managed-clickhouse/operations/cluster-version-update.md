@@ -5,7 +5,7 @@ You can change the {{ CH }} version used by the cluster to any of the [supported
 * From version 22.0 and higher to a version lower than 22.0.
 * To a version lower than {{ mch-ck-version }} if the cluster was created with {{ CK }} support.
 
-To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
+To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 ## List of available versions
 
@@ -23,7 +23,7 @@ To learn more about updates within one version and host maintenance, see [{#T}](
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of available versions, run the command:
+   To get a list of available versions, run the following command:
 
    ```bash
    yc managed-clickhouse version list
@@ -105,9 +105,9 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
-   1. To the {{ mch-name }} cluster description, add the `version` field or change its value if it's already there:
+   1. To the {{ mch-name }} cluster description, add the `version` field or change its value if it is already there:
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
@@ -120,7 +120,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -132,7 +132,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required value in the `configSpec.clickhouse.config.version` parameter.
    * List of settings to update (`configSpec.clickhouse.config.version` in this case) in the `updateMask` parameter.
 

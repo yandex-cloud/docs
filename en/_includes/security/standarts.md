@@ -4,7 +4,7 @@ Here you'll find information about how the cloud platform operation and security
 
 ## Information security management system {#suib}
 
-{{ yandex-cloud }} has an Information Security Management System (ISMS). It describes policies and procedures for providing information security (IS) and minimizing security risks. The ISMS defines secure development lifecycle processes, software update policies, and incident management action plans.
+{{ yandex-cloud }} has an information security management system (ISMS). It describes policies and procedures for providing information security (IS) and minimizing security risks. The ISMS defines secure development lifecycle processes, software update policies, and incident management action plans.
 
 The {{ yandex-cloud }} information security department is in charge of monitoring and compliance for these processes. The department's experts continually improve ISMS, carry out internal and external audits, annually assess risks, and find ways to reduce them.
 

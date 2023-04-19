@@ -76,4 +76,6 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Обучающие курсы
+    href: training.md
 base: ru/load-testing

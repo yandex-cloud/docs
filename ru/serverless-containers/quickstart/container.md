@@ -1,19 +1,19 @@
 # Начало работы с {{ serverless-containers-name }}
 
-В этой инструкции вы [подготовите](#prepare) [Docker-образ](../container-registry/concepts/docker-image.md) контейнера в {{ container-registry-full-name }} и [добавите](#deploy) его в {{ serverless-containers-name }}.
+В этой инструкции вы [подготовите](#prepare) [Docker-образ](../../container-registry/concepts/docker-image.md) контейнера в {{ container-registry-full-name }} и [добавите](#deploy) его в {{ serverless-containers-name }}.
 
 ## Подготовьте Docker-образ контейнера {#prepare}
 
 Docker-образ — исполняемый пакет, который содержит все необходимое для запуска приложения: код, среду выполнения, библиотеки, переменные окружения и файлы конфигурации.
 
-{% include [port-variable-note.md](../_includes/serverless-containers/port-variable-note.md) %}
+{% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
 Чтобы подготовить Docker-образ контейнера:
-1. [Создайте](../container-registry/operations/registry/registry-create.md) реестр.
-1. [Создайте и соберите](../container-registry/operations/docker-image/docker-image-create.md) Docker-образ на основе [Dockerfile](https://docs.docker.com/engine/reference/builder/).
-1. [Загрузите](../container-registry/operations/docker-image/docker-image-push.md) Docker-образ в реестр.
+1. [Создайте](../../container-registry/operations/registry/registry-create.md) реестр.
+1. [Создайте и соберите](../../container-registry/operations/docker-image/docker-image-create.md) Docker-образ на основе [Dockerfile](https://docs.docker.com/engine/reference/builder/).
+1. [Загрузите](../../container-registry/operations/docker-image/docker-image-push.md) Docker-образ в реестр.
 
-### Примеры приложений и Dockerfile
+### Примеры приложений и Dockerfile {#examples}
 
 {% list tabs %}
 
@@ -139,15 +139,15 @@ Docker-образ — исполняемый пакет, который соде
 
 ### Создайте контейнер {#create-container}
 
-{% include [create-container](../_includes/serverless-containers/create-container.md) %}
+{% include [create-container](../../_includes/serverless-containers/create-container.md) %}
 
 ### Создайте ревизию контейнера {#create-revision}
 
-{% include [create-revision](../_includes/serverless-containers/create-revision.md) %}
+{% include [create-revision](../../_includes/serverless-containers/create-revision.md) %}
 
 ## Вызовите контейнер {#invoke}
 
-После создания контейнера вы получите ссылку для вызова. [Как узнать ее.](./operations/invoke.md#link) Сделайте HTTPS-запрос, передав [IAM-токен](../iam/concepts/authorization/iam-token.md) в заголовке `Authorization`:
+После создания контейнера вы получите ссылку для вызова. [Как узнать ее.](../operations/invoke.md#link) Сделайте HTTPS-запрос, передав [IAM-токен](../../iam/concepts/authorization/iam-token.md) в заголовке `Authorization`:
 
 ```
 curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g********.containers.yandexcloud.net/hello
@@ -161,4 +161,4 @@ Hello!
 
 ## Что дальше {#whats-next}
 
-* Изучите [концепции сервиса](./concepts/invoke.md).
+* Изучите [концепции сервиса](../concepts/invoke.md).

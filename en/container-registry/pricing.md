@@ -56,7 +56,9 @@ Using the vulnerability scanner will stop being free of charge starting **April 
 
 {% endnote %}
 
-The cost of using the [vulnerability scanner](concepts/vulnerability-scanner.md) for Docker images depends on how many scans you run:
+The cost of using the [vulnerability scanner](concepts/vulnerability-scanner.md) for Docker images depends on how many scans you run.
+
+First-time scan of the first six different Docker images per month is free of charge. Further six scans of any Docker images per month are free of charge.
 
 
 

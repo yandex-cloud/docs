@@ -1,6 +1,6 @@
-# Managing groups of shards
+# Managing shards in a {{ CH }} cluster
 
-You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} in a _shard group_ and save tables in this group.
+You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in a _shard group_ and save tables in this group.
 
 ## Listing shard groups in a cluster {#list-shard-groups}
 
@@ -103,7 +103,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Add a `shard_group` description block to the {{ mch-name }} cluster description.
 
       ```hcl
@@ -126,7 +126,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -182,7 +182,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. In the {{ mch-name }} cluster description, change the `shard_group` block to the required shard group:
 
       ```hcl
@@ -205,7 +205,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -262,13 +262,13 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Delete the `shard_group` block describing the required group from the {{ mch-name }} cluster description.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

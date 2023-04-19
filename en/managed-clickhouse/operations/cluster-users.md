@@ -33,7 +33,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of cluster users, run the command:
+   To get a list of cluster users, run the following command:
 
    ```
    {{ yc-mdb-ch }} user list
@@ -84,7 +84,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       1. Configure [{{ CH }}](../concepts/settings-list.md#user-level-settings) in **Additional settings → Settings**.
    1. Click **Add**.
 
-   See the [example of creating a user with read-only access](#example-create-readonly-user).
+   For details, see the [example of creating a user with read-only access](#example-create-readonly-user).
 
 - CLI
 
@@ -105,7 +105,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-   For more information about [quotas](../concepts/settings-list.md#quota-settings) and [{{ CH }} settings](../concepts/settings-list.md#user-level-settings), see [{#T}](../concepts/settings-list.md).
+   For more information about [quotas](../concepts/settings-list.md#quota-settings) and [user-level settings](../concepts/settings-list.md#user-level-settings), see [{#T}](../concepts/settings-list.md).
 
    To set multiple quotas, list them using the required number of `--quota` parameters in the command:
 
@@ -119,13 +119,13 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   See the [example of creating a user with read-only access](#example-create-readonly-user).
+   For details, see the [example of creating a user with read-only access](#example-create-readonly-user).
 
 - {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Add a `user` section to the {{ mch-name }} cluster description:
 
@@ -146,7 +146,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -169,12 +169,12 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - API
 
-   Use the [create](../api-ref/User/create.md) API method and pass the following information in the request:
+   Use the [create](../api-ref/User/create.md) API method and include the following information in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * New username, in the `userSpec.name` parameter.
    * New user password, in the `userSpec.password` parameter.
-   * (Optional) A list of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
+   * (Optional) List of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
    * (Optional) A list of {{ CH }} user settings, in the `userSpec.settings` parameter.
    * (Optional) A list of quota user settings, in the `userSpec.quotas[]` parameter.
 
@@ -215,7 +215,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, find the `user` block for the required user.
 
@@ -238,7 +238,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -263,8 +263,8 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * New password, in the `password` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * New password in the `password` parameter.
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
@@ -306,7 +306,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Change the value of the `admin_password` field:
 
@@ -324,7 +324,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -347,9 +347,9 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new password in the `configSpec.adminPassword` parameter.
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -443,9 +443,9 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
-   1. To configure the user's permissions to access certain databases, add the required number of `permission` blocks to the cluster user description — one for each database:
+   1. To configure the user's permissions to access certain databases, add the required number of `permission` sections to the cluster user description, one for each database:
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
@@ -505,7 +505,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -536,12 +536,12 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - API
 
-   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/User/update.md) API method and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).
-   * (Optional) A list of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
-   * (Optional) A list of {{ CH }} user settings, in the `userSpec.settings` parameter.
+   * (Optional) List of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
+   * (Optional) List of {{ CH }} user settings, in the `userSpec.settings` parameter.
    * (Optional) A list of quota user settings, in the `userSpec.quotas[]` parameter.
    * List of user configuration fields to update in the `updateMask` parameter.
 
@@ -578,7 +578,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Delete the user block with a description of the required `user` from the {{ mch-name }} cluster description.
 
@@ -586,7 +586,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -609,7 +609,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    Use the [delete](../api-ref/User/delete.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).
 
 {% endlist %}
@@ -665,7 +665,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Add a `user` block to the cluster description.
 
@@ -695,7 +695,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

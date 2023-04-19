@@ -10,7 +10,7 @@ In {{ mpg-short-name }} clusters, you can't manage {{ PG }} extensions using SQL
 
 ## Enabling libraries for extensions {#libraries-connection}
 
-For some extensions, you need to enable shared libraries. To link a library when [creating](../cluster-create.md) or [editing](../update.md#change-postgresql-config) a cluster, specify its name in the [Shared preload libraries parameter](../../concepts/settings-list#setting-shared-libraries).
+For some extensions, you need to enable shared libraries. To link a library when [creating](../cluster-create.md) or [editing](../update.md#change-postgresql-config) a cluster, specify its name in the [Shared preload libraries parameter](../../concepts/settings-list.md#setting-shared-libraries).
 
 You can install the following libraries in {{ mpg-short-name }}:
 

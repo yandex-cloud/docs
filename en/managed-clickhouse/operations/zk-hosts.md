@@ -2,9 +2,9 @@
 
 Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer data replication. To make such shards fault-tolerant, increase the number of hosts in them by one or more. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](hosts.md#add-host) to the desired shard. Otherwise, you must first [enable fault tolerance](#add-zk) and only then will you be able to add {{ CH }} hosts.
 
-For more information, see [{#T}](../concepts/sharding.md).
+For more information, see [Sharding](../concepts/sharding.md).
 
-You can [add](#add-zk-host) and [delete](#delete-zk-host) {{ ZK }} hosts in fault-tolerant clusters. A fault-tolerant cluster can contain a total of 3 to 5 {{ ZK }} hosts.
+You can [add](#add-zk-host) and [delete](#delete-zk-host) {{ ZK }} hosts in fault-tolerant clusters. A fault-tolerant cluster can contain a total of three to five {{ ZK }} hosts.
 
 {% note warning %}
 
@@ -12,7 +12,7 @@ If fault tolerance is already enabled for the cluster and {{ ZK }} hosts are cre
 
 {% endnote %}
 
-For more information, see [{#T}](../concepts/replication.md).
+To learn more, see [Replication](../concepts/replication.md).
 
 ## Enabling fault tolerance for the cluster {#add-zk}
 
@@ -25,7 +25,7 @@ For more information, see [{#T}](../concepts/replication.md).
    1. Click **Set up {{ ZK }} hosts** at the top right.
    1. Specify the [host class](../concepts/instance-types.md).
    1. Set up the storage settings.
-   1. Change the settings of a {{ ZK }} host if necessary. To do this, hover over the line of the desired host and click ![image](../../_assets/pencil.svg).
+   1. Change the {{ ZK }} host settings, if required. To do this, hover over the line of the desired host and click ![image](../../_assets/pencil.svg).
    1. Click **Save changes**.
 
 - CLI
@@ -58,8 +58,8 @@ For more information, see [{#T}](../concepts/replication.md).
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Make sure that the configuration file describes three subnets: one for each availability zone. If necessary, add the missing ones:
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+   1. Make sure the configuration file describes three subnets, one for each availability zone. Add the missing ones, if required:
 
       ```hcl
       resource "yandex_vpc_network" "<network name>" {
@@ -158,7 +158,7 @@ For more information, see [{#T}](../concepts/replication.md).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -174,8 +174,8 @@ For more information, see [{#T}](../concepts/replication.md).
 
 {% note info %}
 
-The following characteristics are set for the {{ ZK }} hosts by default:
-* The `b2.medium` host class.
+{{ ZK }} hosts get the following specs by default:
+* `b2.medium` host class.
 * 10 GB of network SSD [storage](../concepts/storage.md) (`{{ disk-type-example }}`).
 
 {% endnote %}
@@ -187,9 +187,9 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click **Add {{ ZK }} hosts**.
-   1. If necessary, change the host settings.
+   1. If required, change the host settings.
    1. Click **Save**.
 
 - CLI
@@ -229,18 +229,18 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Add a `ZOOKEEPER` type `host` block to the {{ mch-name }} cluster description:
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+   1. Add a `host` block of the `ZOOKEEPER` type to the {{ mch-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
-        ...
-        host {
-          type      = "ZOOKEEPER"
-          zone      = "<availability zone>"
-          subnet_id = yandex_vpc_subnet.<subnet in selected availability zone>.id
-        }
-        ...
+       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+         ...
+         host {
+           type      = "ZOOKEEPER"
+           zone      = "<availability zone>"
+           subnet_id = yandex_vpc_subnet.<subnet in selected availability zone>.id
+         }
+         ...
       }
       ```
 
@@ -248,7 +248,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -294,13 +294,13 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. In the {{ mch-name }} cluster description, delete the `ZOOKEEPER` type `host` block.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -3,19 +3,19 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Network load balancers
         items:
-          - name: Create a network load balancer
+          - name: Information about existing network load balancers
+            href: operations/load-balancer-list.md
+          - name: Create a load balancer
             href: operations/load-balancer-create.md
-          - name: Create an internal network load balancer
+          - name: Create an internal load balancer
             href: operations/internal-lb-create.md
-          - name: Start a load balancer
-            href: operations/load-balancer-start.md
-          - name: Stop a load balancer
+          - name: Stopping and starting a load balancer
             href: operations/load-balancer-stop.md
           - name: Delete a load balancer
             href: operations/load-balancer-delete.md
@@ -23,17 +23,19 @@ items:
             href: operations/check-resource-health.md
           - name: Add a listener
             href: operations/listener-add.md
-          - name: Delete a listener
+          - name: Deleting a listener
             href: operations/listener-remove.md
       - name: Target groups
         items:
-          - name: Create a target group
+          - name: Information about existing target groups
+            href: operations/target-group-list.md
+          - name: Creating target group
             href: operations/target-group-create.md
           - name: Attach a target group to a load balancer
             href: operations/target-group-attach.md
           - name: Detach a target group from a load balancer
             href: operations/target-group-detach.md
-          - name: Delete a target group
+          - name: Deleting target group
             href: operations/target-group-delete.md
   - name: Concepts
     items:

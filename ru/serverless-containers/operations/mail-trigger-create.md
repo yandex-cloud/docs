@@ -28,9 +28,7 @@
         * В поле **Тип** выберите **Почта**.
         * В поле **Запускаемый ресурс** выберите **Контейнер**.
 
-    1. В блоке **Настройки контейнера** выберите контейнер и укажите:
-
-        {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
     1. (опционально) В блоке **Настройки повторных запросов**:
 

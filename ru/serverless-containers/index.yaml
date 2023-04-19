@@ -9,7 +9,7 @@ meta:
 links:
   - title: Начало работы
     description: Подготовьте Docker-образ и создайте контейнер
-    href: quickstart
+    href: quickstart/container
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/

@@ -168,7 +168,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New host settings in one or more `hostSpecs` parameters.
 
-   To copy the data schema from a random replica to the new host, pass the `copySchema` parameter set to `true` in the request.
+   To copy the data schema from a random replica to the new host, include the `copySchema` parameter set to `true` in the request.
 
 {% endlist %}
 
@@ -319,6 +319,6 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
    Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) API method and pass the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The name(s) of the host(s) to delete, in the `hostNames` parameter.
+   * Name(s) of the host(s) to delete in the `hostNames` parameter.
 
 {% endlist %}

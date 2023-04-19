@@ -46,9 +46,7 @@
 
        Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в контейнер. Число сообщений при этом не превышает указанный размер группы.
 
-    1. В блоке **Настройки контейнера** выберите контейнер и укажите:
-
-        {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
     1. (опционально) В блоке **Настройки повторных запросов**:
 

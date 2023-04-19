@@ -27,7 +27,7 @@ For more information, see the [Data Processing Addendum](https://yandex.com/lega
 
 The {{ yandex-cloud }} Information Security Management System (ISMS) satisfies the requirements of the International Organization for Standardization (ISO). This is evidenced by certificates of compliance for ISO 27001, ISO 27017, and ISO 27018.
 
-ISO 27001 defines the requirements for information security (IS) management systems, including their implementation, operation, maintenance, and regular improvement. The ISO 27001 guidelines help organizations guarantee a high level of security for their core information assets.
+ISO 27001 defines the requirements for ISMS, including their implementation, operation, maintenance, and regular improvement. The ISO 27001 guidelines help organizations guarantee a high level of security for their core information assets.
 
 ISO 27017 includes a set of practical information security recommendations for cloud providers. These recommendations supplement the ISMS implementation requirements set out in ISO 27001 and are intended for cloud service providers.
 

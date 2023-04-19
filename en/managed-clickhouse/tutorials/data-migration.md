@@ -1,24 +1,24 @@
 # Migrating data to {{ mch-name }}
 
-To migrate your database to {{ mch-name }}, you need to directly transfer the data, acquire a write lock for the old database, and transfer the load on the database cluster in {{ yandex-cloud }}.
+To migrate your database to {{ mch-name }}, you need to directly transfer your data, lock the old database for write access, and transfer the load on the database cluster to {{ yandex-cloud }}.
 
-To transfer data to a {{ mch-name }} cluster, you can use [Apache ZooKeeper](http://zookeeper.apache.org) and [clickhouse-copier]({{ ch.docs }}/operations/utils/clickhouse-copier/).
+To transfer data to a {{ mch-name }} cluster, you can use [Apache {{ ZK }}](http://zookeeper.apache.org) and [clickhouse-copier]({{ ch.docs }}/operations/utils/clickhouse-copier/).
 
-Transfer data to an intermediate virtual machine in Compute Cloud if:
+Transfer your data to an intermediate VM in {{ compute-name }} if:
 
-* The {{ mch-name }} cluster isn't accessible from the internet.
-* The network equipment or connection to the {{ CH }} cluster in {{ yandex-cloud }} isn't reliable enough.
+* The {{ mch-name }} cluster is not accessible from the internet.
+* The network equipment or connection to the {{ CH }} cluster in {{ yandex-cloud }} is not reliable enough.
 * There is no environment to run `clickhouse-copier`.
 
 Migration stages:
 1. [Prepare for migration](#prepare).
-1. [Install Zookeeper](#zookeeper-install).
+1. [Install {{ ZK }}](#zookeeper-install).
 1. [Create a {{ mch-name }} cluster](#create-cluster).
 1. [Create a task](#copier-task) for `clickhouse-copier`.
-1. [Add a task](#zookeeper-task) for `clickhouse-copier` to Zookeeper.
+1. [Add a task](#zookeeper-task) for `clickhouse-copier` to {{ ZK }}.
 1. [Launch](#copier-run) `clickhouse-copier`.
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare for migration {#prepare}
 
@@ -27,23 +27,25 @@ If you no longer need these resources, [delete them](#clear-out).
    * {{ CH }} versions must be the same in both clusters.
    * The `clickhouse-copier` version must be the same as the {{ CH }} version in the cluster
       {{ mch-name }} or higher.
-   * The Zookeeper version must be at least 3.5.
+   * The {{ ZK }} version must be 3.5 or higher.
+
 
 1. Check that the source cluster is ready to migrate:
 
    * SSL is enabled for encrypting traffic.
-   * The load on the database or shard that the data is copied from doesn't cause
-      any problems.
-   * `Clickhouse-copier` has access to the database, and the account used has read-only access.
+   * The load on the database or shard the data is copied from does not cause
+      any issues.
+   * `Clickhouse-copier` has access to the database, and the account used has
+      read-only access.
 
 1. If you are using a virtual machine in {{ yandex-cloud }} for migration:
    * Create your VMs in the same cloud network as the {{ mch-name }} cluster.
    * The computing power of the VM should be chosen based on the amount of data transferred.
 
 
-## Install Zookeeper {#zookeeper-install}
+## Install {{ ZK }} {#zookeeper-install}
 
-To migrate data, start a ZooKeeper node.
+To migrate data, just start a single {{ ZK }} node.
 
 1. Install Java Runtime Environment:
 
@@ -51,39 +53,40 @@ To migrate data, start a ZooKeeper node.
    sudo apt-get install default-jre
    ```
 
-1. Add the user that you want to run ZooKeeper under:
+1. Add the user you want to run {{ ZK }} under:
 
-   ```
+   ```bash
    sudo adduser hadoop
    ```
 
-1. Create a directory for ZooKeeper data:
+1. Create a directory for {{ ZK }} data:
 
    ```bash
-   sudo mkdir -p /var/data/zookeeper
+   sudo mkdir -p /var/data/zookeeper && \
    sudo chown -R hadoop:hadoop /var/data
    ```
 
-1. Install ZooKeeper (single-node setup):
+1. Install {{ ZK }} (single-node setup):
 
    1. Download the latest stable version of the distribution. To learn more, see the [page with releases](https://zookeeper.apache.org/releases.html).
 
       ```bash
-      cd /opt
-      sudo wget https://downloads.apache.org/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz
-      sudo mkdir zookeeper
-      sudo tar -C /opt/zookeeper -xvf apache-zookeeper-3.6.2-bin.tar.gz --strip-components 1
+      cd /opt && \
+      sudo wget https://downloads.apache.org/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz && \
+      sudo mkdir zookeeper && \
+      sudo tar -C /opt/zookeeper -xvf apache-zookeeper-3.6.2-bin.tar.gz --strip-components 1 && \
       sudo chown hadoop:hadoop -R zookeeper
       ```
-   1. Switch to the user you created earlier to launch ZooKeeper:
 
-      ```
+   1. Switch to the user you previously created to run {{ ZK }}:
+
+      ```bash
       su hadoop
       ```
 
    1. Create a file named `zoo.cfg`:
 
-      ```
+      ```bash
       nano /opt/zookeeper/conf/zoo.cfg
       ```
 
@@ -97,19 +100,19 @@ To migrate data, start a ZooKeeper node.
 
    1. The master node must have a unique ID. To configure it, create the `myid` file.
 
-      ```
+      ```bash
       nano /var/data/zookeeper/myid
       ```
 
       Specify a unique ID as the content (for example, "1").
 
-1. To launch ZooKeeper for debugging:
+1. To run {{ ZK }} for debugging:
 
    ```bash
    bash /opt/zookeeper/bin/zkServer.sh start-foreground
    ```
 
-1. To launch ZooKeeper as normal:
+1. To start {{ ZK }} in normal mode:
 
    ```bash
    bash /opt/zookeeper/bin/zkServer.sh start
@@ -124,20 +127,20 @@ where the existing databases are deployed and [create a cluster](../operations/c
 
 ## Create a task for clickhouse-copier {#copier-task}
 
-To launch `clickhouse-copier` using ZooKeeper, you need to prepare:
+To run `clickhouse-copier` using {{ ZK }}, you need to prepare:
 
-* A ZooKeeper configuration file (`config.xml`).
-* A file describing the task (`cp-task.xml`).
+* {{ ZK }} configuration file (`config.xml`).
+* File describing the task (`cp-task.xml`).
 
-Instructions for `clickhouse-copier` can be found in the [ClickHouse documentation]({{ ch.docs }}/operations/utils/clickhouse-copier/).
+You can find the `clickhouse-copier` guide in the [ClickHouse documentation]({{ ch.docs }}/operations/utils/clickhouse-copier/).
 
 
-### Prepare a configuration file for ZooKeeper {#zookeeper-config}
+### Prepare a configuration file for {{ ZK }} {#zookeeper-config}
 
 The configuration file (`config.xml`) has to specify:
 
-* In the `<zookeeper>` element : The address of the host where you installed ZooKeeper.
-* In the `<caConfig>` element: The path to the certificate for connecting to {{ mch-name }}.
+* In the `<zookeeper>` element : Address of the host where you installed {{ ZK }}.
+* In the `<caConfig>` element: Path to the certificate for connecting to {{ mch-name }}.
 
 You can download a certificate at [{{ crt-web-path }}]({{ crt-web-path }}).
 
@@ -253,17 +256,16 @@ Example of data migration task description (`cp-task.xml`):
 ```
 
 
-## Add a task for clickhouse-copier to Zookeeper {#zookeeper-task}
+## Add a task for clickhouse-copier to {{ ZK }} {#zookeeper-task}
 
-To add a task in ZooKeeper, run the following commands:
+To add a task to {{ ZK }}, run the following commands:
 
 ```bash
-/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/description
-/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/task_active_workers
-/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml
-
-fc=$(cat ./cp-task.xml)
-/opt/zookeeper/bin/zkCli.sh -server localhost:2181 create /cp-task.xml ""
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/description && \
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/task_active_workers && \
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml && \
+fc=$(cat ./cp-task.xml) && \
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 create /cp-task.xml "" && \
 /opt/zookeeper/bin/zkCli.sh -server localhost:2181 create /cp-task.xml/description "$fc"
 ```
 
@@ -280,7 +282,7 @@ You can start the copier using the following command (to run in daemon mode
 , add the `--daemon` flag):
 
 ```bash
-clickhouse-copier
+clickhouse-copier \
   --config ./config.xml \
   --task-path ./cp-task.xml \
   --base-dir ./clickhouse \
@@ -292,4 +294,4 @@ copied successfully.
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, delete the [{{ mch-full-name }} cluster](../operations/cluster-delete.md).
+If you no longer need the resources you created, delete the [{{ mch-full-name }} cluster](../operations/cluster-delete.md).

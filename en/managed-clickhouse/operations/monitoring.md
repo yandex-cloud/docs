@@ -1,6 +1,6 @@
 ---
 title: "Monitoring the state of {{ CH }} clusters and hosts"
-description: "In this tutorial, you'll learn how to monitor the state of {{ CH }} cluster and hosts."
+description: "In this tutorial, you will learn how to monitor the state of {{ CH }} clusters and their hosts."
 ---
 
 # Monitoring the state of {{ CH }} clusters and hosts
@@ -150,7 +150,7 @@ To view detailed information about the status of individual {{ mch-name }} hosts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}) select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select.
       * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.

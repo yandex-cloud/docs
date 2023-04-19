@@ -1,6 +1,6 @@
 # Types of data storage in {{ GP }}
 
-{{ GP }} enables you to use two [types of table data storage](https://docs.greenplum.org/6-16/admin_guide/ddl/ddl-storage.html):
+{{ GP }} enables you to use two [types of table data storage](https://{{ gp.docs.pivotal }}/6-16/admin_guide/ddl/ddl-storage.html):
 
 * _Without clustered indexes_ (heap storage).
 

@@ -32,9 +32,7 @@
 
     1. В блоке **Настройки бюджета** выберите платежный аккаунт и бюджет. Можно выбрать **Все бюджеты**.
 
-    1. В блоке **Настройки контейнера** выберите его и укажите:
-
-        {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
     1. (опционально) В блоке **Настройки повторных запросов**:
 

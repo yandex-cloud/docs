@@ -1,6 +1,6 @@
 # Creating a {{ CH }} cluster
 
-A {{ CH }} cluster is one or more database hosts that replication can be configured between.
+A {{ CH }} cluster consists of one or more database hosts you can configure replication between.
 
 {% note info %}
 
@@ -43,8 +43,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the {{ CH }} version from the **Version** drop-down list to use for the {{ mch-name }} cluster:
-      * For most clusters, it's recommended to select the latest LTS version.
-      * If you plan to use hybrid storage in a cluster, it's recommended to select version {{ mch-ck-version }} or higher.
+      * For most clusters, it is recommended to select the latest LTS version.
+      * If you plan to use hybrid storage in a cluster, we recommend selecting version {{ mch-ck-version }} or higher.
    1. If you are expecting to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
    1. Under **Resources**:
 
@@ -79,9 +79,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-      * DB name. The database name may contain Latin letters, numbers, and underscores. The name may not be longer than 63 characters. You can't create a database named `default`.
+      * DB name. The database name may contain Latin letters, numbers, and underscores. The name may not be longer than 63 characters. You cannot create a database named `default`.
 
-      * If necessary, enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster.
+      * Enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster, if required.
 
          {% note alert %}
 
@@ -245,7 +245,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-      1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
       * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you do not need to describe it again.
@@ -532,10 +532,10 @@ If you specified security group IDs when creating a cluster, you may also need t
       These subnets will belong to the `cluster-net` network.
 
       * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
-   * With 32 GB of network SSD storage (`{{ disk-type-example }}`) per each {{ CH }} cluster host.
-   * With 10 GB of network SSD storage (`{{ disk-type-example }}`) per each {{ ZK }} cluster host.
+   * With 32 GB of local SSD storage (`{{ disk-type-example }}`) per each {{ CH }} cluster host.
+   * With 10 GB of local SSD storage (`{{ disk-type-example }}`) per each {{ ZK }} cluster host.
    * Database name `db1`.
-   * With a user named `user1` with the password `user1user1`.
+   * With a user named `user1` with the `user1user1` password.
 
    The configuration files for this cluster look like this:
 

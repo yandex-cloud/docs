@@ -59,9 +59,16 @@ To create a service account:
    1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
    1. Click **Start Free Trial**.
 
-- macOS/Linux
+- macOS
 
-   1. [Install](https://www.msp360.com/cloudberry-backup/download/) CloudBerry Backup. To download the program, enter the required parameters and click **Download**.
+   1. [Install](https://www.msp360.com/cloudberry-backup/download/cbbmac/) CloudBerry Backup. To download the program, enter the required parameters and click **Download**.
+   1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
+   1. Enter your email address, then click **Finish**.
+   1. In the window that opens, click **OK**.
+
+- Linux
+
+   1. [Install](https://www.msp360.com/cloudberry-backup/download/cbbub1214/) CloudBerry Backup. To download the program, enter the required parameters and click **Download**.
    1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
    1. Enter your email address, then click **Finish**.
    1. In the window that opens, click **OK**.

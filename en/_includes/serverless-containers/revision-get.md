@@ -40,7 +40,7 @@
 
 - API
 
-  To get the details about a container revision, use the [getRevision](../../serverless-containers/containers/api-ref/Container/listRevisions.mdAPI) API method.
+  To get the details about a container revision, use the [getRevision](../../serverless-containers/containers/api-ref/Container/listRevisions.md) API method.
 
 
 {% endlist %}
