@@ -167,7 +167,7 @@
 
         if ($httpcode !== 200) {
             echo "Allow access due to an error: code=$httpcode; message=$server_output\n";
-            return true;
+            return false;
         }
         $resp = json_decode($server_output);
         return $resp->status === "ok";
