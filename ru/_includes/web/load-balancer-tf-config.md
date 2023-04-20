@@ -26,7 +26,6 @@ resource "yandex_resourcemanager_folder_iam_member" "editor" {
   folder_id = var.folder_id
   role      = "editor"
   member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
-  ]
 }
 
 resource "yandex_compute_instance_group" "ig-1" {

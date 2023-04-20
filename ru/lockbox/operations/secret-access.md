@@ -79,7 +79,8 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+## См. также {#see-also}
 
+* [{#T}](../concepts/secret.md)
 * [{#T}](../../iam/concepts/access-control/index.md)
 * [{#T}](../security/index.md)

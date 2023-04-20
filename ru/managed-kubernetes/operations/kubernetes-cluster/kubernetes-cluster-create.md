@@ -132,7 +132,7 @@
      * Кластер {{ k8s }} — описание кластера.
      * Сеть — описание [облачной сети](../../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
      * Подсети — описание [подсетей](../../../vpc/concepts/network.md#subnet), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
-     * [Сервисный аккаунт](#before-you-begin) для кластера и узлов и [настройки роли]({{ tf-provider-link }}/resourcemanager_folder_iam_binding) для этого аккаунта. При необходимости создайте отдельные сервисные аккаунты для кластера и узлов. Если у вас уже есть подходящий сервисный аккаунт, описывать его повторно не нужно.
+     * [Сервисный аккаунт](#before-you-begin) для кластера и узлов и [настройки роли]({{ tf-provider-link }}/resourcemanager_folder_iam_member) для этого аккаунта. При необходимости создайте отдельные сервисные аккаунты для кластера и узлов. Если у вас уже есть подходящий сервисный аккаунт, описывать его повторно не нужно.
 
      >Пример структуры конфигурационного файла:
      >
@@ -290,16 +290,14 @@
     # Сервисному аккаунту назначается роль "vpc.publicAdmin".
     folder_id = local.folder_id
     role      = "vpc.publicAdmin"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
     # Сервисному аккаунту назначается роль "container-registry.images.puller".
     folder_id = local.folder_id
     role      = "container-registry.images.puller"
-    members = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
@@ -309,12 +307,10 @@
     rotation_period   = "8760h" # 1 год.
   }
 
-  resource "yandex_kms_symmetric_key_iam_binding" "viewer" {
+  resource "yandex_kms_symmetric_key_iam_member" "viewer" {
     symmetric_key_id = yandex_kms_symmetric_key.kms-key.id
     role             = "viewer"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}",
-    ]
+    member          = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_vpc_security_group" "k8s-public-services" {
@@ -502,12 +498,10 @@
     rotation_period   = "8760h" # 1 год.
   }
 
-  resource "yandex_kms_symmetric_key_iam_binding" "viewer" {
+  resource "yandex_kms_symmetric_key_iam_member" "viewer" {
     symmetric_key_id = yandex_kms_symmetric_key.kms-key.id
     role             = "viewer"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}",
-    ]
+    member           = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_vpc_security_group" "k8s-main-sg" {

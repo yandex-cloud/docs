@@ -15,7 +15,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to delete a [log group](../concepts/log-group.md).
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a [log group](../concepts/log-group.md).
    1. Select **{{ cloud-logging-name }}**.
    1. In the log group's line, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
    1. In the window that opens, click **Delete**.
@@ -47,13 +47,9 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    retention_period: 3600s
    ```
 
-- API
-
-   You can [delete](../api-ref/LogGroup/delete.md) a custom log group using the delete API method.
-
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a log group created with {{ TF }}:
 
@@ -74,25 +70,25 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -107,5 +103,9 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
       ```
       yc logging group list
       ```
+
+- API
+
+   To delete a custom log group, use the [delete](../api-ref/LogGroup/delete.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Delete](../api-ref/grpc/log_group_service.md#Delete) gRPC API call.
 
 {% endlist %}

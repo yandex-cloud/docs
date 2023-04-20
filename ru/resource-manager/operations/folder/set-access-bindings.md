@@ -159,11 +159,11 @@
        
        {% note info %}
 
-       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_binding`.
+       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_member`.
 
        {% endnote %}
 
-     * `members` — список пользователей, которым будет присвоена роль. Обязательный параметр. Каждая запись может иметь одно из следующих значений:
+     * `member` — пользователь, которому будет присвоена роль. Обязательный параметр. Может иметь одно из следующих значений:
        * `userAccount:<ID пользователя>` — [ID пользователя](../../../iam/operations/users/get.md).
        * `serviceAccount:<ID сервисного аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
        * `federatedUser:<ID пользовательского аккаунта>` — [ID пользовательского аккаунта](../../../organization/users-get.md). 
@@ -176,19 +176,17 @@
        folder_id = "<идентификатор каталога>"
      }
 
-     resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "editor" {
        folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
        role      = "editor"
-       members   = [
-         "userAccount:<login@yandex.ru>",
-       ]
+       member    = "userAccount:<login@yandex.ru>"
      }
      ...
      ```
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
   
   1. Проверьте конфигурацию командой:
      ```
@@ -326,11 +324,11 @@
 
        {% note info %}
 
-       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_binding`.
+       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_member`.
 
        {% endnote %}
 
-     * `members` — список пользователей, которым будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `userAccount:<ID пользователя>`, где `<ID пользователя>` — email-адрес аккаунта Яндекс (например, `ivan@yandex.ru`). Обязательный параметр.
+     * `member` — пользователь, которому будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `userAccount:<ID пользователя>`, где `<ID пользователя>` — email-адрес аккаунта Яндекс (например, `ivan@yandex.ru`). Обязательный параметр.
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
@@ -340,19 +338,15 @@
        folder_id = "<идентификатор каталога>"
      }
 
-     resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "editor" {
        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
        role      = "editor"
-       members   = [
-         "userAccount:<login1@yandex.ru>"
-       ]
+       member    = "userAccount:<login1@yandex.ru>"
      }
-     resource "yandex_resourcemanager_folder_iam_binding" "operator" {
+     resource "yandex_resourcemanager_folder_iam_member" "operator" {
        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
        role      = "operator"
-       members   = [
-         "userAccount:<login1@yandex.ru>"
-       ]
+       member    = "userAccount:<login1@yandex.ru>"
      }
      ...
      ```
@@ -360,7 +354,7 @@
     
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
   
   1. Проверьте конфигурацию командой:
      ```
@@ -435,11 +429,11 @@
 
        {% note info %}
 
-       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_binding`.
+       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_member`.
 
        {% endnote %}
 
-     * `members` — список пользователей, которым будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `serviceAccount:<ID сервисного аккаунта>`, где `<ID сервисного аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md). Вы можете перечислить несколько сервисных аккаунтов. Обязательный параметр.
+     * `member` — пользователь, которому будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `serviceAccount:<ID сервисного аккаунта>`, где `<ID сервисного аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md). Вы можете перечислить несколько сервисных аккаунтов. Обязательный параметр.
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
@@ -449,19 +443,17 @@
        folder_id = "<идентификатор каталога>"
      }
 
-     resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "editor" {
        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
        role      = "editor"
-       members   = [
-         "serviceAccount:<идентификатор сервисного аккаунта>"
-       ]
+       member   = "serviceAccount:<идентификатор сервисного аккаунта>"
      }
      ...
      ```
     
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
   
   1. Проверьте конфигурацию командой:
      ```

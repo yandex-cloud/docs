@@ -140,6 +140,10 @@
     1. Выберите пункт **Откатить до этой версии**.
     1. Нажмите кнопку **Откатить**.
 
+- API
+
+  Чтобы откатиться к существующей версии, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) с указанием целевой версии.
+
 {% endlist %}
 
 ## Запланировать удаление версии {#set-deleting-time}
@@ -161,3 +165,7 @@
   Чтобы запланировать удаление версии, воспользуйтесь методом REST API [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ScheduleVersionDestruction](../api-ref/grpc/secret_service.md#ScheduleVersionDestruction).
 
 {% endlist %}
+
+## См. также {#see-also}
+
+* [{#T}](../concepts/secret.md)

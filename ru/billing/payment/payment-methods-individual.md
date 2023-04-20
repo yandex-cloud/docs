@@ -10,7 +10,6 @@
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-
 ## Пополнение счета {#refill}
 
 {% include [refill-by-card](../_includes/refill-by-card.md) %}

@@ -35,6 +35,10 @@ items:
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Построение пайплайна CI/CD с использованием serverless-продуктов
         href: tutorials/ci-cd-serverless.md
+      - name: Тестирование приложений с помощью {{ GL }}
+        href: tutorials/application-testing-with-gitlab.md
+      - name: Создание тестовых виртуальных машин через {{ GL }} CI
+        href: tutorials/test-vms-creation-via-gitlab-ci.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

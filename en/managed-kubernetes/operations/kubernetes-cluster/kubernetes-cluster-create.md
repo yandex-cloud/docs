@@ -129,7 +129,7 @@ To create a {{ k8s }} cluster:
      * {{ k8s }} cluster: Cluster description.
      * Network: A description of the [cloud network](../../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you don't need to describe it again.
      * Subnets: The [subnets](../../../vpc/concepts/network.md#subnet) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
-     * A [service account](#before-you-begin) for the cluster and nodes and [role settings]({{ tf-provider-link }}/resourcemanager_folder_iam_binding) for the account. Create separate service accounts for the cluster and the nodes, as required. If you have a suitable service account already, you do not need to describe it again.
+     * A [service account](#before-you-begin) for the cluster and nodes and [role settings]({{ tf-provider-link }}/resourcemanager_folder_iam_member) for the account. Create separate service accounts for the cluster and the nodes, as required. If you have a suitable service account already, you do not need to describe it again.
 
      > Example configuration file structure:
      >
@@ -145,8 +145,8 @@ To create a {{ k8s }} cluster:
      >  service_account_id      = yandex_iam_service_account.<service account name>.id
      >  node_service_account_id = yandex_iam_service_account.<service account name>.id
      >    depends_on = [
-     >      yandex_resourcemanager_folder_iam_binding.editor,
-     >      yandex_resourcemanager_folder_iam_binding.images-puller
+     >      yandex_resourcemanager_folder_iam_member.editor,
+     >      yandex_resourcemanager_folder_iam_member.images-puller
      >    ]
      > }
      >
@@ -163,22 +163,18 @@ To create a {{ k8s }} cluster:
      >  description = "<service account description>"
      > }
      >
-     > resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+     > resource "yandex_resourcemanager_folder_iam_member" "editor" {
      >  # Service account to be assigned "editor" role.
      >  folder_id = "<folder ID>"
      >  role      = "editor"
-     >  members   = [
-     >    "serviceAccount:${yandex_iam_service_account.<service account name>.id}"
-     >  ]
+     >  member    = "serviceAccount:${yandex_iam_service_account.<service account name>.id}"
      > }
      >
-     > resource "yandex_resourcemanager_folder_iam_binding" "images-puller" {
+     > resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
      >  # Service account to be assigned "container-registry.images.puller" role.
      >  folder_id = "<folder ID>"
      >  role      = "container-registry.images.puller"
-     >  members   = [
-     >    "serviceAccount:${yandex_iam_service_account.<service account name>.id}"
-     >  ]
+     >  member    = "serviceAccount:${yandex_iam_service_account.<service account name>.id}"
      > }
      > ```
 
@@ -256,9 +252,9 @@ To create a {{ k8s }} cluster:
     service_account_id      = yandex_iam_service_account.myaccount.id
     node_service_account_id = yandex_iam_service_account.myaccount.id
     depends_on = [
-      yandex_resourcemanager_folder_iam_binding.k8s-clusters-agent,
-      yandex_resourcemanager_folder_iam_binding.vpc-public-admin,
-      yandex_resourcemanager_folder_iam_binding.images-puller
+      yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
+      yandex_resourcemanager_folder_iam_member.vpc-public-admin,
+      yandex_resourcemanager_folder_iam_member.images-puller
     ]
     kms_provider {
       key_id = yandex_kms_symmetric_key.kms-key.id
@@ -280,31 +276,25 @@ To create a {{ k8s }} cluster:
     description = "K8S zonal service account"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "k8s-clusters-agent" {
+  resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
     # The service account is assigned the k8s.clusters.agent role.
     folder_id = local.folder_id
     role      = "k8s.clusters.agent"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "vpc-public-admin" {
+  resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
     # The service account is assigned the vpc.publicAdmin role.
     folder_id = local.folder_id
     role      = "vpc.publicAdmin"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "images-puller" {
+  resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
     # The service account is assigned the container-registry.images.puller role.
     folder_id = local.folder_id
     role      = "container-registry.images.puller"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
@@ -314,12 +304,10 @@ To create a {{ k8s }} cluster:
     rotation_period   = "8760h" # 1 year.
   }
 
-  resource "yandex_kms_symmetric_key_iam_binding" "viewer" {
+  resource "yandex_kms_symmetric_key_iam_member" "viewer" {
     symmetric_key_id = yandex_kms_symmetric_key.kms-key.id
     role             = "viewer"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}",
-    ]
+    member           = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_vpc_security_group" "k8s-public-services" {
@@ -443,9 +431,9 @@ To create a {{ k8s }} cluster:
     service_account_id      = yandex_iam_service_account.myaccount.id
     node_service_account_id = yandex_iam_service_account.myaccount.id
     depends_on = [
-      yandex_resourcemanager_folder_iam_binding.k8s-clusters-agent,
-      yandex_resourcemanager_folder_iam_binding.vpc-public-admin,
-      yandex_resourcemanager_folder_iam_binding.images-puller
+      yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
+      yandex_resourcemanager_folder_iam_member.vpc-public-admin,
+      yandex_resourcemanager_folder_iam_member.images-puller
     ]
     kms_provider {
       key_id = yandex_kms_symmetric_key.kms-key.id
@@ -479,31 +467,25 @@ To create a {{ k8s }} cluster:
     description = "K8S regional service account"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "k8s-clusters-agent" {
+  resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
     # The service account is assigned the k8s.clusters.agent role.
     folder_id = local.folder_id
     role      = "k8s.clusters.agent"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "vpc-public-admin" {
+  resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
     # The service account is assigned the vpc.publicAdmin role.
     folder_id = local.folder_id
     role      = "vpc.publicAdmin"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
-  resource "yandex_resourcemanager_folder_iam_binding" "images-puller" {
+  resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
     # The service account is assigned the container-registry.images.puller role.
     folder_id = local.folder_id
     role      = "container-registry.images.puller"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-    ]
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
@@ -513,12 +495,10 @@ To create a {{ k8s }} cluster:
     rotation_period   = "8760h" # 1 year.
   }
 
-  resource "yandex_kms_symmetric_key_iam_binding" "viewer" {
+  resource "yandex_kms_symmetric_key_iam_member" "viewer" {
     symmetric_key_id = yandex_kms_symmetric_key.kms-key.id
     role             = "viewer"
-    members = [
-      "serviceAccount:${yandex_iam_service_account.myaccount.id}",
-    ]
+    member           = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_vpc_security_group" "k8s-main-sg" {

@@ -30,7 +30,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
 
    {% note warning %}
 
-   If the secrets were already passed to the previous revision, they are overwritten.
+   If the secrets were already sent to the previous revision, they will be overwritten.
 
    {% endnote %}
 

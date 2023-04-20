@@ -387,17 +387,13 @@
        resource "yandex_resourcemanager_folder_iam_member" "dataproc" {
          folder_id = "<идентификатор каталога>"
          role      = "mdb.dataproc.agent"
-         members   = [
-           "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
-         ]
+         member    = "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
        }
 
        resource "yandex_resourcemanager_folder_iam_member" "bucket-creator" {
          folder_id = "<идентификатор каталога>"
          role      = "editor"
-         members   = [
-           "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
-         ]
+         member    = "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
        }
 
        resource "yandex_iam_service_account_static_access_key" "<имя статического ключа в {{ TF }}>" {

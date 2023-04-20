@@ -395,6 +395,10 @@ items:
           Создание интерактивного serverless-приложения с использованием
           WebSocket
         href: tutorials/websocket-app.md
+      - name: >-
+          Автоматическое копирование объектов из одного бакета {{
+          objstorage-name }} в другой
+        href: tutorials/bucket-to-bucket.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

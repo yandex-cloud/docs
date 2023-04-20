@@ -15,10 +15,10 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your [log group](../concepts/log-group.md).
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../concepts/log-group.md).
    1. Select **{{ cloud-logging-name }}**.
    1. Click **Create group**.
-   1. (optional) Enter a name and description for the log group. Name format:
+   1. (optional) Enter a name and description for the log group using the following format:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -70,10 +70,6 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    data_stream: /{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream
    ```
 
-- API
-
-   You can create a custom log group using the [create](../api-ref/LogGroup/create.md) API method.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -82,7 +78,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Name of the log group. This is an optional parameter. Name format:
+      * `name`: Name of the log group. This is an optional parameter. Using the following format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -137,10 +133,14 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
       ```
       yc logging group list
       ```
+
+- API
+
+   To create a log group, use the [create](../api-ref/LogGroup/create.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Create](../api-ref/grpc/log_group_service.md#Create) gRPC API call.
 
 {% endlist %}

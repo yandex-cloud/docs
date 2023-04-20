@@ -7,7 +7,7 @@ editable: false
 The cost of {{ lockbox-name }} usage is based on:
 
 * The number of secret versions.
-* The number of [get](api-ref/Payload/get) operations performed on a secret.
+* The number of completed [get](api-ref/Payload/get) operations on a secret.
 
 
 

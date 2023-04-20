@@ -159,11 +159,12 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% note info %}
 
-         For each role, only one `yandex_resourcemanager_folder_iam_binding` resource can be used.
+         For each role, only one `yandex_resourcemanager_folder_iam_member` resource can be used.
 
          {% endnote %}
 
-      * `members`: List of users to assign the role to. This parameter is required. Each entry may have one of the following values:
+      * `member`: user to assign the role to. Required parameter. The entry may have one of the following values:
+
          * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<service account ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
          * `federatedUser:<user account ID>`: [User account ID](../../../organization/users-get.md).
@@ -176,19 +177,17 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
         folder_id = "<folder ID>"
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+      resource "yandex_resourcemanager_folder_iam_member" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
         role      = "editor"
-        members   = [
-          "userAccount:<login@yandex.ru>",
-        ]
+        member    = "userAccount:<login@yandex.ru>"
       }
       ...
       ```
 
       {% endcut %}
 
-      For more information about the parameters of the `yandex_resourcemanager_folder_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+      For more information about the parameters of the `yandex_resourcemanager_folder_iam_member` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
 
    1. Check the configuration using this command:
       ```
@@ -326,11 +325,11 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% note info %}
 
-         For each role, only one `yandex_resourcemanager_folder_iam_binding` resource can be used.
+         For each role, only one `yandex_resourcemanager_folder_iam_member` resource can be used.
 
          {% endnote %}
 
-      * `members`: List of users to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user ID>` where `<user ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). This parameter is required.
+      * `member`: List of users to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user ID>` where `<user ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). Required parameter.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -340,19 +339,15 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
         folder_id = "<folder ID>"
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+      resource "yandex_resourcemanager_folder_iam_member" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
         role      = "editor"
-        members   = [
-          "userAccount:<login1@yandex.ru>"
-        ]
+        member    = "userAccount:<login1@yandex.ru>"
       }
-      resource "yandex_resourcemanager_folder_iam_binding" "operator" {
+      resource "yandex_resourcemanager_folder_iam_member" "operator" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
         role      = "operator"
-        members   = [
-          "userAccount:<login1@yandex.ru>"
-        ]
+        member    = "userAccount:<login1@yandex.ru>"
       }
       ...
       ```
@@ -360,7 +355,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       {% endcut %}
 
-      For more information about the parameters of the `yandex_resourcemanager_folder_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+      For more information about the parameters of the `yandex_resourcemanager_folder_iam_member` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
 
    1. Check the configuration using this command:
       ```
@@ -435,11 +430,11 @@ You can only use the management console to assign a service account a role for a
 
          {% note info %}
 
-         For each role, only one `yandex_resourcemanager_folder_iam_binding` resource can be used.
+         For each role, only one `yandex_resourcemanager_folder_iam_member` resource can be used.
 
          {% endnote %}
 
-      * `members`: List of users to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. This parameter is required.
+      * `member`: List of users to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. Required parameter.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -449,19 +444,17 @@ You can only use the management console to assign a service account a role for a
         folder_id = "<folder ID>"
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+      resource "yandex_resourcemanager_folder_iam_member" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
         role      = "editor"
-        members   = [
-          "serviceAccount:<service account ID>"
-        ]
+        member    = "serviceAccount:<service account ID>"
       }
       ...
       ```
 
       {% endcut %}
 
-      For more information about the parameters of the `yandex_resourcemanager_folder_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+      For more information about the parameters of the `yandex_resourcemanager_folder_iam_member` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
 
    1. Check the configuration using this command:
       ```

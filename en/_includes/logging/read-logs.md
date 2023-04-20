@@ -70,6 +70,6 @@ The log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) tim
 
 - API
 
-   You can view the entries in a log group using the API [read](../../logging/api-ref/grpc/log_reading_service.md).
+   To view log group entries, use the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
 
 {% endlist %}

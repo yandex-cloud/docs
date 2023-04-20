@@ -94,9 +94,7 @@
      resource "yandex_resourcemanager_folder_iam_member" "sa-role-yds-editor" {
        folder_id   = "<идентификатор_каталога>"
        role        = "yds.editor"
-       members     = [
-         "serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>",
-       ]
+       member      = "serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>"
      }
      ```
 

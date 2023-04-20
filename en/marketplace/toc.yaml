@@ -1,7 +1,7 @@
 title: Yandex Cloud Marketplace partners
 href: index.md
 items:
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
       - name: Registration
         href: operations/registration.md
@@ -13,13 +13,15 @@ items:
         href: operations/create-new-version.md
       - name: Changing product versions
         href: operations/update-version.md
+      - name: Creating a trial period
+        href: operations/create-trial-period.md
   - name: Concepts
     items:
       - name: Product
         href: concepts/product.md
       - name: Version
         href: concepts/version.md
-      - name: Pricing plan
+      - name: Service plan
         href: concepts/tariff.md
       - name: Requirements for Marketplace products
         expanded: true
@@ -30,6 +32,8 @@ items:
             href: operations/create-container.md
       - name: Billing of products based on publisher metrics
         href: concepts/api-usage.md
+      - name: Trial period
+        href: concepts/trial-period.md
   - name: API reference
     items:
       - name: REST

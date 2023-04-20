@@ -1,4 +1,4 @@
-Чтобы функция получила доступ к секрету, в ее параметрах нужно указать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), у которого есть роли:
+Чтобы функция получила доступ к [секрету](../../lockbox/concepts/secret.md), в ее параметрах нужно указать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), у которого есть роли:
 * `lockbox.payloadViewer` на секрет ([как назначить права доступа на секрет](../../lockbox/operations/secret-access.md));
 * `kms.keys.encrypterDecrypter` на ключ шифрования, если секрет создан с использованием ключа {{ kms-full-name }} ([как назначить права доступа на ключ шифрования](../../kms/operations/key-access.md)).
 

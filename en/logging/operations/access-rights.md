@@ -18,7 +18,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To view the [roles](../security/index.md) assigned for a [custom log group](../concepts/log-group.md), run the command:
+    To view the [roles](../security/index.md) assigned for a [custom log group](../concepts/log-group.md), run this command:
 
     ```
     yc logging group list-access-bindings --name=<log_group_name>
@@ -36,7 +36,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 - API
 
-    To view the [roles](../security/index.md#roles) assigned for a [custom log group](../concepts/log-group.md), use the API [listAccessBindings](../api-ref/LogGroup/listAccessBindings.md) method.
+  To view the roles assigned for a custom log group, use the [listAccessBindings](../api-ref/LogGroup/listAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/ListAccessBindings](../api-ref/grpc/log_group_service.md#ListAccessBindings) gRPC API call.
 
 {% endlist %}
 
@@ -46,7 +46,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 - CLI
 
-    To assign a [role](../security/index.md) for a custom log group, run the command:
+    To assign a [role](../security/index.md) to a custom log group, run this command:
 
     * User:
 
@@ -95,7 +95,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 - API
 
-    To assign [roles](../security/index.md#roles) for a [custom log group](../concepts/log-group.md), use the API [setAccessBindings](../api-ref/LogGroup/setAccessBindings.md) method.
+  To assign roles for a custom log group, use the [setAccessBindings](../api-ref/LogGroup/setAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/SetAccessBindings](../api-ref/grpc/log_group_service.md#SetAccessBindings) gRPC API call.
 
 {% endlist %}
 
@@ -154,7 +154,6 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 - API
 
-    To revoke [roles](../security/index.md#roles) assigned for a [custom log group](../concepts/log-group.md), use the API [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) method.
+  To revoke roles assigned to a custom log group, use the [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/UpdateAccessBindings](../api-ref/grpc/log_group_service.md#UpdateAccessBindings) gRPC API call.
 
 {% endlist %}
-

@@ -69,11 +69,11 @@
 
        {% note info %}
 
-       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_binding`.
+       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_member`.
 
        {% endnote %}
 
-     * `members` — список пользователей, которым будет присвоена роль. Чтобы добавить всех пользователей, создайте запись в формате `system:<allUsers|allAuthenticatedUsers>`, где `<allUsers|allAuthenticatedUsers>` — одна из [системных групп](../../iam/concepts/access-control/system-group.md). Обязательный параметр.
+     * `member` — пользователь, которому будет присвоена роль. Чтобы добавить всех пользователей, создайте запись в формате `system:<allUsers|allAuthenticatedUsers>`, где `<allUsers|allAuthenticatedUsers>` — одна из [системных групп](../../iam/concepts/access-control/system-group.md). Обязательный параметр.
 
      Пример структуры конфигурационного файла:
 
@@ -83,19 +83,15 @@
        folder_id = "<идентификатор каталога>"
      }
 
-     resource "yandex_resourcemanager_folder_iam_binding" "viewer" {
+     resource "yandex_resourcemanager_folder_iam_member" "viewer" {
        folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
-
-       role = "viewer"
-
-     members = [
-       "system:allUsers",
-     ]
+       role      = "viewer"
+       member    = "system:allUsers"
      }
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
   
   1. Проверьте конфигурацию командой:
      ```
