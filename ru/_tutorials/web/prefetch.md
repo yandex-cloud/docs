@@ -41,7 +41,7 @@
 
 ## Создайте бакеты в {{ objstorage-name }} {#create-buckets}
 
-Необходимо создать два бакета: в первом, `ycprojektblue-storage`, будут храниться файлы, а во втором, `ycprojektblue-logs`, — логи запросов к первому.
+Необходимо создать два бакета: в первом, `ycprojectblue-storage`, будут храниться файлы, а во втором, `ycprojectblue-logs`, — логи запросов к первому.
 
 {% list tabs %}
 
@@ -51,14 +51,14 @@
   1. Создайте бакет для файлов:
     
      1. Нажмите кнопку **Создать бакет**.
-     1. Укажите **Имя** бакета: `ycprojektblue-storage`.
+     1. Укажите **Имя** бакета: `ycprojectblue-storage`.
      1. В полях **Доступ на чтение объектов** и **Доступ к списку объектов** выберите **Публичный**.
      1. Нажмите кнопку **Создать бакет**.
      
   1. Создайте бакет для логов:
   
      1. Нажмите кнопку **Создать бакет**.
-     1. Укажите **Имя** бакета: `ycprojektblue-logs`.
+     1. Укажите **Имя** бакета: `ycprojectblue-logs`.
      1. Нажмите кнопку **Создать бакет**.   
   
 - AWS CLI
@@ -68,7 +68,7 @@
      ```bash
      aws --endpoint-url=https://{{ s3-storage-host }} \
        s3api create-bucket \
-       --bucket ycprojektblue-storage \
+       --bucket ycprojectblue-storage \
        --acl public-read
      ```
   
@@ -76,7 +76,7 @@
   
      ```json
      {
-         "Location": "/ycprojektblue-storage"
+         "Location": "/ycprojectblue-storage"
      }
      ```
      
@@ -85,14 +85,14 @@
      ```bash
      aws --endpoint-url=https://{{ s3-storage-host }} \
        s3api create-bucket \
-       --bucket ycprojektblue-logs
+       --bucket ycprojectblue-logs
      ```
   
      Результат:
   
      ```json
      {
-         "Location": "/ycprojektblue-logs"
+         "Location": "/ycprojectblue-logs"
      }
      ```
   
@@ -106,7 +106,7 @@
 
      * `access_key` — идентификатор статического ключа доступа.
      * `secret_key` — значение секретного ключа доступа.
-     * `bucket` — имя создаваемого бакета: `ycprojektblue-storage`.
+     * `bucket` — имя создаваемого бакета: `ycprojectblue-storage`.
 
      Пример структуры конфигурационного файла:
 
@@ -122,14 +122,14 @@
      resource "yandex_storage_bucket" "storage" {
        access_key = "<идентификатор_статического_ключа>"
        secret_key = "<секретный_ключ>"
-       bucket     = "ycprojektblue-storage"
+       bucket     = "ycprojectblue-storage"
        acl        = "public-read"
      }
      
      resource "yandex_storage_bucket" "logs" {
        access_key = "<идентификатор_статического_ключа>"
        secret_key = "<секретный_ключ>"
-       bucket     = "ycprojektblue-logs"
+       bucket     = "ycprojectblue-logs"
      }
      ```
 
@@ -170,17 +170,17 @@
 
 - API
 
-  Используйте метод API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) для бакета `ycprojektblue-storage`. Тело HTTP-запроса:
+  Используйте метод API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) для бакета `ycprojectblue-storage`. Тело HTTP-запроса:
   
   ```xml
   <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
     <LoggingEnabled>
-      <TargetBucket>ycprojektblue-logs</TargetBucket>
+      <TargetBucket>ycprojectblue-logs</TargetBucket>
     </LoggingEnabled>
   </BucketLoggingStatus>
   ```
   
-  Где `TargetBucket` — имя бакета, в который будут записываться логи: `ycprojektblue-logs`.  
+  Где `TargetBucket` — имя бакета, в который будут записываться логи: `ycprojectblue-logs`.  
   
 {% endlist %}
 
@@ -191,7 +191,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ objstorage-name }}**.
-  1. Выберите бакет `ycprojektblue-storage`.
+  1. Выберите бакет `ycprojectblue-storage`.
   1. Нажмите кнопку **Загрузить**.
   1. В появившемся окне выберите файл с патчем `ycgame-update-v1.1.exe` и нажмите кнопку **Открыть**.
   1. Нажмите кнопку **Загрузить**.
@@ -204,20 +204,20 @@
   aws --endpoint-url=https://{{ s3-storage-host }} \
     s3 cp \
     <путь_к_файлу_ycgame-update-v1.1.exe> \
-    s3://ycprojektblue-storage/ycgame-update-v1.1.exe
+    s3://ycprojectblue-storage/ycgame-update-v1.1.exe
   ```
   
   Результат:
   
   ```
-  upload: <путь к файлу ycgame-update-v1.1.exe> to s3://ycprojektblue-storage/ycgame-update-v1.1.exe
+  upload: <путь к файлу ycgame-update-v1.1.exe> to s3://ycprojectblue-storage/ycgame-update-v1.1.exe
   ```
   
 - {{ TF }}
 
   1. Добавьте к конфигурационному файлу из [шага с созданием бакетов](#create-buckets) параметры объекта, который необходимо загрузить:
 
-     * `bucket` — имя бакета для добавления объекта: `ycprojektblue-storage`.
+     * `bucket` — имя бакета для добавления объекта: `ycprojectblue-storage`.
      * `key` — имя объекта в бакете: `ycgame-update-v1.1.exe`. Обязательный параметр.
      * `source` — относительный или абсолютный путь к файлу, загружаемому как объект.
   
@@ -229,7 +229,7 @@
      resource "yandex_storage_object" "patch-v1-1" {
        access_key = "<идентификатор_статического_ключа>"
        secret_key = "<секретный_ключ>"
-       bucket = "ycprojektblue-storage"
+       bucket = "ycprojectblue-storage"
        key    = "ycgame-update-v1.1.exe"
        source = "<путь_к_файлу>/ycgame-update-v1.1.exe"
      }
@@ -277,7 +277,7 @@
 
         * **Запрос контента** — **Из одного источника**.
         * **Тип источника** — **Бакет**.
-        * **Бакет** — `ycprojektblue-storage`.
+        * **Бакет** — `ycprojectblue-storage`.
         * **Доменные имена для раздачи контента** — основное доменное имя, которое вы будете использовать для публикации патчей, например `cdn.ycprojectblue.example`.
 
           {% note alert %}
@@ -289,19 +289,29 @@
         * В блоке **Дополнительно**:
 
           * В поле **Протокол для источников** выберите **HTTPS**. 
-          * В поле **Переадресация клиентов** выберите **С HTTP на HTTPS**.
+          * В поле **Переадресация клиентов** выберите **Не использовать**.
           * Выберите опцию **Доступ конечных пользователей к контенту**.
-          * В поле **Тип сертификата** выберите **Let's Encrypt®**, чтобы автоматически выпустить сертификат для доменного имени `cdn.ycprojektblue.example` после создания CDN-ресурса.
-          * В поле **Заголовок Host** выберите **Свое значение**. В поле **Значение заголовка** укажите доменное имя источника, `ycprojektblue-storage.{{ s3-storage-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
+          * В поле **Тип сертификата** выберите **Let's Encrypt®**, чтобы автоматически выпустить сертификат для доменного имени `cdn.ycprojectblue.example` после создания CDN-ресурса.
+          * В поле **Заголовок Host** выберите **Свое значение**. В поле **Значение заголовка** укажите доменное имя источника, `ycprojectblue-storage.{{ s3-storage-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
 
      1. Нажмите кнопку **Создать**.
-     
+
+     Дождитесь выпуска сертификата Let's Encrypt® для доменного имени. Этот процесс может занять до 30 минут.
+    
+  1. Включите переадресацию клиентов с HTTP на HTTPS:
+
+     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **CDN-ресурсы** выберите ресурс, созданный ранее.
+     1. Убедитесь, что в блоке **Дополнительно** статус сертификата изменился на `Выпущен`.
+     1. Справа сверху нажмите кнопку ![image](../../_assets/pencil.svg) **Редактировать**.
+     1. В блоке **Дополнительно** в поле **Переадресация клиентов** выберите **С HTTP на HTTPS**.
+     1. Нажмите кнопку **Сохранить**.
+
   1. Включите для ресурса кеширование на CDN-серверах:
-  
-     1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojektblue.example`).
-     1. Перейдите на вкладку **Кеширование**.
-     1. Нажмите кнопку **Редактировать**.
-     1. Включите **Кеширование в CDN**.
+
+     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **CDN-ресурсы** выберите ресурс, созданный ранее.
+     1. Перейдите в раздел **Кеширование**.
+     1. Справа сверху нажмите кнопку ![image](../../_assets/pencil.svg) **Редактировать**.
+     1. Включите опцию **Кеширование в CDN**.
      1. Нажмите кнопку **Сохранить**.
 
 - CLI
@@ -321,11 +331,11 @@
      ```bash
      yc cdn resource create \
        --cname cdn.ycprojectblue.example \
-       --origin-bucket-source ycprojektblue-storage.{{ s3-storage-host }} \
-       --origin-bucket-name ycprojektblue-storage \
+       --origin-bucket-source ycprojectblue-storage.{{ s3-storage-host }} \
+       --origin-bucket-name ycprojectblue-storage \
        --origin-protocol https \
        --lets-encrypt-gcore-ssl-cert \
-       --host-header ycprojektblue-storage.{{ s3-storage-host }} \
+       --host-header ycprojectblue-storage.{{ s3-storage-host }} \
      ```
 
      Результат:
@@ -333,7 +343,7 @@
      ```
      id: bc8e3l7s4dhadigoh3jr
      folder_id: b1g86q4m5vej8lkljme5
-     cname: cdn.ycprojektblue.example
+     cname: cdn.ycprojectblue.example
      ...
      active: true
      ...
@@ -358,7 +368,7 @@
        name     = "updates-origin-group"
        use_next = true
        origin {
-         source = "ycprojektblue-storage.{{ s3-storage-host }}"
+         source = "ycprojectblue-storage.{{ s3-storage-host }}"
        }
      }
      
@@ -368,7 +378,7 @@
        origin_protocol     = "https"
        origin_group_id     = yandex_cdn_origin_group.my_group.id
        options {
-         custom_host_header     = "ycprojektblue-storage.{{ s3-storage-host }}"
+         custom_host_header     = "ycprojectblue-storage.{{ s3-storage-host }}"
        }
        ssl_certificate {
          type = "lets_encrypt_gcore"
@@ -443,7 +453,7 @@
    - Консоль управления
    
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ cdn-name }}**.
-     1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojektblue.example`).
+     1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojectblue.example`).
      1. На вкладке **Обзор** в разделе **Настройки DNS** скопируйте в буфер обмена сгенерированное сервисом имя в домене `.edgecdn.ru`.
      
    {% endlist %}
@@ -468,7 +478,7 @@
       
         1. Нажмите кнопку **Создать зону**.
         1. Укажите **Имя** зоны: `cdn-dns-a`.
-        1. В поле **Зона** укажите ваш домен с точкой в конце: `ycprojektblue.example.`
+        1. В поле **Зона** укажите ваш домен с точкой в конце: `ycprojectblue.example.`
         1. Выберите **Тип** зоны — **Публичная**.
         1. Нажмите кнопку **Создать**.
          
@@ -476,7 +486,7 @@
       
         1. В списке зон нажмите на зону `cdn-dns-a`.
         1. Нажмите кнопку **Создать запись**.
-        1. В поле **Имя** укажите `cdn`, чтобы запись соответствовала доменному имени `cdn.ycprojektblue.example`.
+        1. В поле **Имя** укажите `cdn`, чтобы запись соответствовала доменному имени `cdn.ycprojectblue.example`.
         1. Выберите **Тип** записи — **CNAME**.
         1. В поле **Значение** вставьте скопированный адрес в домене `.edgecdn.ru` с точкой на конце.
         1. Нажмите кнопку **Создать**.
@@ -486,7 +496,7 @@
      1. Если у вас нет публичной зоны DNS, создайте ее:
      
         ```bash
-        yc dns zone create --name cdn-dns-a --zone ycprojektblue.example. --public-visibility
+        yc dns zone create --name cdn-dns-a --zone ycprojectblue.example. --public-visibility
         ```
         
         Где:
@@ -502,7 +512,7 @@
         folder_id: aoewzf73jwdlm1xtp4dd
         created_at: "2021-09-28T10:33:31.917Z"
         name: cdn-zone-a
-        zone: ycprojektblue.example.
+        zone: ycprojectblue.example.
         public_visibility: {}
         ```
         
@@ -529,16 +539,16 @@
         +----------------------------+------+-------+--------------------------------+
         |            NAME            | TTL  | TYPE  |              DATA              |
         +----------------------------+------+-------+--------------------------------+
-        | ycprojektblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}.           |
+        | ycprojectblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}.           |
         |                            |      |       | ns2.{{ dns-ns-host-sld }}.           |
-        | ycprojektblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.           |
+        | ycprojectblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.           |
         |                            |      |       | {{ dns-mx-host }}. 1 10800   |
         |                            |      |       | 900 604800 86400               |
-        | cdn.ycprojektblue.example. |  600 | CNAME | cl-.....6bb.edgecdn.ru.           |
+        | cdn.ycprojectblue.example. |  600 | CNAME | cl-.....6bb.edgecdn.ru.           |
         +----------------------------+------+-------+--------------------------------+
         ```
         
-        В списке должна быть запись с именем `cdn.ycprojektblue.example.`
+        В списке должна быть запись с именем `cdn.ycprojectblue.example.`
         
    - API
    
@@ -556,7 +566,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ cdn-name }}**.
-  1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojektblue.example`).
+  1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojectblue.example`).
   1. Перейдите на вкладку **Контент**.
   1. Нажмите кнопку **Предзагрузить контент**.
   1. В поле **Пути к файлам** укажите путь к файлу, хранящемуся в источнике, без доменного имени:
@@ -594,17 +604,17 @@
 1. Скачайте файл по новому URL:
 
    ```
-   https://cdn.ycprojektblue.example/ycgame-update-v1.1.exe
+   https://cdn.ycprojectblue.example/ycgame-update-v1.1.exe
    ```
 
-1. Получите логи запросов к бакету `ycprojektblue-storage`:
+1. Получите логи запросов к бакету `ycprojectblue-storage`:
 
    {% list tabs %}
    
    - Консоль управления
    
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ objstorage-name }}**.
-     1. Выберите бакет `ycprojektblue-logs`.
+     1. Выберите бакет `ycprojectblue-logs`.
      1. Нажмите на имя объекта, соответствующего времени скачивания файла `ycgame-update-v1.1.exe`.
      1. Нажмите кнопку **Скачать**.
      
@@ -614,7 +624,7 @@
      
         ```bash
         aws --endpoint-url=https://{{ s3-storage-host }} \
-          s3 ls s3://ycprojektblue-logs
+          s3 ls s3://ycprojectblue-logs
         ```
         
         Результат:
@@ -632,19 +642,19 @@
         
         ```bash
         aws --endpoint-url=https://{{ s3-storage-host }} \
-          s3 cp s3://ycprojektblue-logs/2021-10-01-13-38-02-E69EAEC1C9083756 \
+          s3 cp s3://ycprojectblue-logs/2021-10-01-13-38-02-E69EAEC1C9083756 \
           2021-10-01-13-38-02-E69EAEC1C9083756
         ```
         
         Результат:
         
         ```
-        download: s3://ycprojektblue-logs/2021-10-01-13-38-02-E69EAEC1C9083756 to 2021-10-01-13-38-02-E69EAEC1C9083756 
+        download: s3://ycprojectblue-logs/2021-10-01-13-38-02-E69EAEC1C9083756 to 2021-10-01-13-38-02-E69EAEC1C9083756 
         ```
         
    - API
    
-     1. Получите список объектов с логами в бакете `ycprojektblue-logs` с помощью метода API [listObjects](../../storage/s3/api-ref/bucket/listobjects.md).
+     1. Получите список объектов с логами в бакете `ycprojectblue-logs` с помощью метода API [listObjects](../../storage/s3/api-ref/bucket/listobjects.md).
      
      1. Найдите в полученном списке объект с логом, сохраненным после скачивания файла `ycgame-update-v1.1.exe`, и скачайте его с помощью метода API [get](../../storage/s3/api-ref/object/get.md).
 
@@ -657,8 +667,8 @@
 Чтобы остановить работу CDN-ресурса и перестать платить за созданные ресурсы: 
 
 1. [Отключите](../../cdn/operations/resources/disable-resource.md) созданный ресурс.
-1. [Удалите](../../storage/operations/objects/delete.md) объект `ycgame-update-v1.1.exe` из бакета `ycprojektblue-storage`.
-1. [Удалите](../../storage/operations/buckets/delete.md) бакет `ycprojektblue-storage`.
-1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета `ycprojektblue-logs`.
-1. [Удалите](../../storage/operations/buckets/delete.md) бакет `ycprojektblue-logs`.  
+1. [Удалите](../../storage/operations/objects/delete.md) объект `ycgame-update-v1.1.exe` из бакета `ycprojectblue-storage`.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет `ycprojectblue-storage`.
+1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета `ycprojectblue-logs`.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет `ycprojectblue-logs`.  
 1. [Удалите](../../dns/operations/zone-delete.md) зону DNS, если вы пользовались ей при [настройке DNS](#dns-setup).

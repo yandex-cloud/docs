@@ -69,11 +69,11 @@ For example, allow any authenticated user to view folder information:
 
          {% note info %}
 
-         For each role, only one `yandex_resourcemanager_folder_iam_binding` resource can be used.
+         For each role, only one `yandex_resourcemanager_folder_iam_member` resource can be used.
 
          {% endnote %}
 
-      * `members`: List of users to assign the role to. To add all users, create an entry in the format `system:<allUsers|allAuthenticatedUsers>`, where `<allUsers|allAuthenticatedUsers>` is one of [system groups](../../iam/concepts/access-control/system-group.md). Required parameter.
+      * `member`: User to assign the role to. To add all users, create an entry in the format `system:<allUsers|allAuthenticatedUsers>`, where `<allUsers|allAuthenticatedUsers>` is one of [system groups](../../iam/concepts/access-control/system-group.md). Required parameter.
 
       Example configuration file structure:
 
@@ -83,19 +83,15 @@ For example, allow any authenticated user to view folder information:
         folder_id = "<folder ID>"
       }
 
-      resource "yandex_resourcemanager_folder_iam_binding" "viewer" {
+      resource "yandex_resourcemanager_folder_iam_member" "viewer" {
         folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
-
-        role = "viewer"
-
-      members = [
-        "system:allUsers",
-      ]
+        role      = "viewer"
+        member    = "system:allUsers"
       }
       ...
       ```
 
-      For more information about the parameters of the `yandex_resourcemanager_folder_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+      For more information about the parameters of the `yandex_resourcemanager_folder_iam_member` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
 
    1. Check the configuration using the command:
       ```

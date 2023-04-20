@@ -15,6 +15,7 @@
 {{ mpg-short-name }} поддерживает подключение библиотек:
 
 * `auto_explain` — необходима для работы [расширения auto_explain]({{ pg-docs }}/auto-explain.html);
+* `pgaudit` — необходима для работы [расширения pgaudit](https://www.pgaudit.org/);
 * `pg_cron` — необходима для работы [расширения pg_cron](https://github.com/citusdata/pg_cron);
 * `pg_hint_plan` — необходима для работы [расширения pg_hint_plan](https://pghintplan.osdn.jp/pg_hint_plan.html);
 * `pg_qualstats` — необходима для работы [расширения pg_qualstats](https://github.com/powa-team/pg_qualstats);
@@ -177,6 +178,7 @@
 || <p>[pg_stat_statements]({{ pg-docs }}/pgstatstatements.html)</p><p>Добавляет возможности отслеживания планирования и сбора статистики выполнения всех SQL-запросов, запущенных в кластере.</p><p>Для использования расширения необходима [роль `mdb_monitor`](../../concepts/roles.md#mdb_monitor).</p> | 1.6 | 1.7 | 1.8 | 1.9 | 1.10 ||
 || <p>[pg_tm_aux](https://github.com/x4m/pg_tm_aux)</p><p>Позволяет создавать логический слот репликации в прошлом.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.1 ||
 || <p>[pg_trgm]({{ pg-docs }}/static/pgtrgm.html)</p><p>Содержит инструменты для быстрого поиска похожих строк на основе сопоставления триграмм.</p> | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 ||
+|| <p>[pgaudit](https://www.pgaudit.org/)</p><p>Предоставляет дополнительные инструменты для логирования и повышает возможности аудита.</p><p>Требует [подключения библиотеки общего пользования](#libraries-connection) `pgaudit`.</p><p>Подробнее см. в разделе [{#T}](./pgaudit.md).</p>  | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 ||
 || <p>[pgcrypto]({{ pg-docs }}/static/pgcrypto.html)</p><p>Предоставляет криптографические функции для {{ PG }}. Подробнее см. в разделе [{#T}](./pgcrypto.md).</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
 || <p>[pglogical](https://github.com/2ndQuadrant/pglogical)</p><p>Добавляет поддержку потоковой логической репликации с использованием механизма публикации/подписки.</p> | 2.4.1 | 2.4.1 | 2.4.1 | 2.4.1 | - ||
 || <p>[pgrouting](http://pgrouting.org/)</p><p>Содержит функции для геопространственной маршрутизации базы данных [PostGIS](https://www.postgis.net/).</p> | 2.6.2 | 2.6.2 | 3.0.2 | 3.3.0 | 3.4.1 ||

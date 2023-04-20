@@ -31,6 +31,8 @@ items:
         href: tutorials/index.md
       - name: Syncing with Managed Service for Kubernetes secrets
         href: tutorials/kubernetes-lockbox-secrets.md
+      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+        href: tutorials/ci-cd-serverless.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management

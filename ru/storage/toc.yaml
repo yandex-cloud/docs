@@ -93,6 +93,8 @@ items:
           Миграция данных из {{ yds-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
+      - name: Автоматическое копирование объектов из бакета в бакет
+        href: tutorials/bucket-to-bucket.md
   - name: Концепции
     items:
       - name: Обзор

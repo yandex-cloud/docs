@@ -46,13 +46,9 @@
    retention_period: 86400s
    ```
 
-- API
-
-   You can edit a log group's record retention period using the API [update](../api-ref/LogGroup/update.md) method.
-
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To edit the record retention time in a log group created with {{ TF }}:
 
@@ -70,8 +66,8 @@
 
       Where:
 
-      * `name`: Name of the log group. Optional.
-      * `folder_id`: ID of the folder. Optional. By default, the value specified in the provider settings is used.
+      * `name`: Name of the log group. This is an optional parameter.
+      * `folder_id`: ID of the folder. This is an optional parameter. By default, the value specified in the provider settings is used.
       * `retention_period`: New log group record retention period.
 
          {% include [retention-period](../../_includes/logging/retention-period.md) %}
@@ -80,25 +76,25 @@
 
       For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -113,5 +109,9 @@
       ```
       yc logging group get <log group name>
       ```
+
+- API
+
+   To change the retention period in a log group, use the [update](../api-ref/LogGroup/update.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Update](../api-ref/grpc/log_group_service.md#Update) gRPC API call.
 
 {% endlist %}

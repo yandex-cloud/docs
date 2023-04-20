@@ -19,7 +19,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
          * Secret ID.
          * Secret version ID.
          * Non-secret key ID.
-   1. Click **Add**. You can transmit several secrets to a function.
+   1. Click **Add**. You can transmit multiple secrets to a function.
    1. Click **Create version**. A new version of the function with the specified secrets will be created.
 
 - CLI
@@ -32,7 +32,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
 
    {% note warning %}
 
-   If the secrets were already sent to the previous function version, they are overwritten.
+   If the secrets were already sent to the previous function version, they will be overwritten.
 
    {% endnote %}
 

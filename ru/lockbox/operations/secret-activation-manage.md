@@ -34,3 +34,7 @@
   Чтобы активировать секрет, воспользуйтесь методом REST API [activate](../api-ref/Secret/activate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Activate](../api-ref/grpc/secret_service.md#Activate).
 
 {% endlist %}
+
+## См. также {#see-also}
+
+* [{#T}](../concepts/secret.md)

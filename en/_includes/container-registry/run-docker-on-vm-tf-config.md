@@ -38,12 +38,10 @@ resource "yandex_iam_service_account" "registry-sa" {
   folder_id = local.target_folder_id
 }
 
-resource "yandex_resourcemanager_folder_iam_binding" "registry-sa-role-images-puller" {
+resource "yandex_resourcemanager_folder_iam_member" "registry-sa-role-images-puller" {
   folder_id = local.target_folder_id
   role      = "container-registry.images.puller"
-  members   = [
-    "serviceAccount:${yandex_iam_service_account.registry-sa.id}"
-  ]
+  member    = "serviceAccount:${yandex_iam_service_account.registry-sa.id}"
 }
 
 resource "yandex_vpc_network" "docker-vm-network" {

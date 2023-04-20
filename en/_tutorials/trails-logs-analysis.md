@@ -87,20 +87,18 @@ The infrastructure support cost includes:
        name = "sa-trail-logs"
      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "sa-role-audit-viewer" {
-       folder_id   = "<folder_ID>"
-       role        = "audit-trails.viewer"
-       member      = "serviceAccount:<sa-trail-logs_service_account_ID>"
-     }
+      resource "yandex_resourcemanager_folder_iam_member" "sa-role-audit-viewer" {
+        folder_id   = "<folder_ID>"
+        role        = "audit-trails.viewer"
+        member      = "serviceAccount:<sa-trail-logs_service_account_ID>"
+      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "sa-role-yds-editor" {
-       folder_id   = "<folder_ID>"
-       role        = "yds.editor"
-       members     = [
-         "serviceAccount:<sa-trail-logs_service_account_ID>",
-       ]
-     }
-     ```
+      resource "yandex_resourcemanager_folder_iam_member" "sa-role-yds-editor" {
+        folder_id   = "<folder_ID>"
+        role        = "yds.editor"
+        member      = "serviceAccount:<sa-trail-logs_service_account_ID>"
+      }
+      ```
 
      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account).
   1. Make sure the configuration files are valid.

@@ -231,7 +231,7 @@ default:
   roles-datalens-instances-user: datalens.instances.user
   roles-datalens-instances-admin: datalens.instances.admin
   roles-datalens-admin: datalens.admin
-  roles-functions-ivoker: serverless.functions.invoker
+  roles-functions-ivoker: functions.functionInvoker
   roles-image-user: compute.images.user
   roles-marketplace-trials-editor: marketplace.trials.editor
   roles-marketplace-trials-viewer: marketplace.trials.viewer
@@ -42431,6 +42431,7 @@ default:
       common:
         add: Добавить
         create: Создать
+        name: Имя
         save: Сохранить
       component:
         console-dashboard:
@@ -42457,6 +42458,8 @@ default:
         button_zone-create: Создать зону
         label_additional-settings: Дополнительные настройки
         label_form-ttl: TTL (в секундах)
+      forms:
+        label_service-account-select: Сервисный аккаунт
       greenplum:
         action_expand-open: Расширить кластер
         action_expand-start: Сохранить
@@ -42477,6 +42480,7 @@ default:
             overview:
               button_create_service-account-key: Создать статический ключ доступа
               button_create-key-popup: Создать новый ключ
+              popup-key_button_create: Создать
             popup-robot_button_add: Создать
           service-accounts:
             button_add: Создать сервисный аккаунт
@@ -42484,6 +42488,13 @@ default:
       kms:
         symmetric-keys:
           button_create: Создать
+      lockbox:
+        button_create-secret: Создать секрет
+        forms:
+          button_add-pair: Добавить пару
+          label_key: Ключ
+          label_value: Значение
+          section_version: Версия
       mdb:
         cluster:
           hosts:
@@ -42498,6 +42509,39 @@ default:
           database_field_user-login: Имя пользователя
           database_field_user-password: Пароль
           section_network-settings: Сетевые настройки
+      serverless-functions:
+        create:
+          button_create: Создать
+        item:
+          editor:
+            button_action-continue: Продолжить
+            button_deploy-version: Создать версию
+            field_environment-variables: Переменные окружения
+            field_resources-memory: Память
+            field_timeout: Таймаут, c
+            label_lockbox-secret: Секреты Yandex Lockbox
+            label_title-params: Параметры
+            value_method-zip-file: ZIP-архив
+        list:
+          button_create: Создать функцию
+        switch_list-triggers: Триггеры
+        triggers:
+          form:
+            button_create-trigger: Создать триггер
+            field_bucket: Бакет
+            field_event-types: Типы событий
+            field_function: Функция
+            field_function_service-account: Сервисный аккаунт
+            field_invoke: Запускаемый ресурс
+            field_type: Тип
+            label_function: Функция
+            label_storage: Object Storage
+            section_base: Базовые параметры
+            section_function: Настройки функции
+            section_storage: Настройки Object Storage
+            value_event-type-create-object: Создание объекта
+          list:
+            button_create: Создать триггер
       storage:
         bucket:
           button_action-delete: Удалить
@@ -42548,6 +42592,7 @@ default:
             label_if-exists: Применить, если поле существует
           settings:
             button_save: Сохранить
+            field_name: Имя
             field_size-limit: Макс. размер
             label_size-limit-disabled: Без ограничения
           switch_encryption: Шифрование
@@ -42574,6 +42619,7 @@ default:
             title_connected-domains: Домены в Cloud DNS
             title_redirect: Переадресация
         buckets:
+          button_create: Создать бакет
           button_delete: Удалить
           button_empty-create: Создать бакет
           button_open-multipart-uploads: Показать список

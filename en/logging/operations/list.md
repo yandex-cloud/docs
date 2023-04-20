@@ -30,6 +30,6 @@
 
 - API
 
-   You can retrieve a list of log groups using the API [list](../api-ref/LogGroup/list.md) method.
+   To get a list of log groups, use the [list](../api-ref/LogGroup/list.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/List](../api-ref/grpc/log_group_service.md#List) gRPC API call.
 
 {% endlist %}

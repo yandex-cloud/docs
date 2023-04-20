@@ -10,7 +10,10 @@
 
 {% include [act-invoice-note](../_includes/act-invoice-note.md) %}
 
+
 {% include [act-invoice-examples](../_includes/act-invoice-examples.md) %}
+
+
 
 ## Учет НДС {#nds}
 

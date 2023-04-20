@@ -54,9 +54,12 @@
 
 ### Настройте группы безопасности {#security-group-setup}
 
+{% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
+
 1. Настройте группу безопасности агента тестирования:
     
     {% include [security-groups-agent](../_includes/load-testing/security-groups-agent.md) %}
+
 1. Настройте группу безопасности цели тестирования:
     
     {% include [security-groups-target](../_includes/load-testing/security-groups-target.md) %}
@@ -120,62 +123,68 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ load-testing-name }}**.
-  1. На панели слева выберите ![image](../_assets/load-testing/test.svg) **Тесты**. Нажмите **Создать тест**. 
-  1. Задайте параметры теста:
-      * **Способ настройки** — выберите **Конфиг**.
-      * **Агент** — выберите агента `agent-008`, [созданного ранее](#create-agent).
-  1. Загрузите файл `data.json` в поле **Файл с тестовыми данными**.
-  1. В поле для ввода конфигурации введите настройки тестирующих потоков в формате `yaml`:
+  1. На панели слева выберите ![image](../_assets/load-testing/test.svg) **Тесты**. 
+  1. Нажмите **Создать тест**. 
+  1. На странице создания теста:
+      1. В поле **Агенты** выберите агент `agent-008`, [созданный ранее](#create-agent).
+      1. В блоке **Тестовые данные** выберите **С компьютера**, нажмите **Прикрепить файл** и выберите сохраненный ранее файл `data.json`.
+      1. В блоке **Настройки теста**:
+          * В поле **Способ настройки** выберите **Конфигурационный файл**.
+          * В поле для ввода конфигурации введите настройки тестирующих потоков в формате `yaml`:
 
-      ```yaml
-      pandora:
-        enabled: true
-        pandora_cmd: /usr/local/bin/pandora
-        package: yandextank.plugins.Pandora
-        config_content:
-          pools:
-              - id: GRPC
-              gun:
-                type: grpc                # протокол
-                target: 172.17.0.10:8080  # адрес цели тестирования
-                tls: false
-              ammo:
-                type: grpc/json
-                file: ammo_123
-              result:
-                type: phout
-                destination: ./phout.log
-              rps:
-                 - duration: 180s         # время теста
-                  type: line              # тип нагрузки
-                  from: 1
-                  to: 1500
-              startup:
-                 - type: once
-                  times: 1500             # количество потоков
-          log:
-            level: debug
-          monitoring:
-            expvar:
-              enabled: true
-              port: 1234
-      uploader:
-        api_address: loadtesting.{{ api-host }}:443
-        enabled: true
-        job_dsc: grpc test
-        job_name: '[pandora][config][grpc]'
-        package: yandextank.plugins.DataUploader
-        ver: '1.1'
-      ```
+              ```yaml
+              pandora:
+                enabled: true
+                pandora_cmd: /usr/local/bin/pandora
+                package: yandextank.plugins.Pandora
+                config_content:
+                  pools:
+                    - id: GRPC
+                      gun:
+                        type: grpc                # протокол
+                        target: 172.17.0.10:8080  # адрес цели тестирования
+                        tls: false
+                      ammo:
+                        type: grpc/json
+                        file: ammo_ddfafc98-19a3-4dbb-b981-aa6787496a97
+                      result:
+                        type: phout
+                        destination: ./phout.log
+                      rps:
+                        - duration: 180s          # время теста  
+                          type: line              # тип нагрузки
+                          from: 1
+                          to: 1500
+                      startup:
+                        type: once                
+                        times: 1500               # количество потоков
+                  log:
+                    level: debug
+                  monitoring:
+                    expvar:
+                      enabled: true
+                      port: 1234
+              uploader:
+                api_address: loadtesting.{{ api-host }}:443
+                enabled: true
+                job_dsc: grpc test
+                job_name: '[pandora][config][grpc]'
+                package: yandextank.plugins.DataUploader
+                ver: '1.1'
+              core: {}
+              ```
 
-      {% note tip %}
+              {% note tip %}
 
-      Посмотрите [пример файла конфигурации](../load-testing/concepts/testing-stream.md#config_example). Также пример файла конфигурации можно посмотреть в уже имеющихся тестах.
+              Посмотрите [пример файла конфигурации](../load-testing/concepts/testing-stream.md#config_example). Также пример файла конфигурации можно посмотреть в уже имеющихся тестах.
 
-      {% endnote %}
+              {% endnote %}
 
-  1. Нажмите **Создать**. После этого конфигурация пройдет проверки, и агент начнет нагружать тестируемый gRPC-сервис. 
-  1. Чтобы наблюдать за результатами выполнения тестирования, выберите созданный тест и перейдите на вкладку **Отчет**.
+      1. Нажмите **Создать**.
+
+    После этого конфигурация пройдет проверки, и агент начнет нагружать тестируемый gRPC-сервис. 
+    
+    Чтобы наблюдать за результатами выполнения тестирования, выберите созданный тест и перейдите на вкладку **Результаты теста**.
 
 {% endlist %}
 

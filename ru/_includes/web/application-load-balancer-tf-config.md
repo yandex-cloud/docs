@@ -25,7 +25,7 @@ resource "yandex_iam_service_account" "ig-sa" {
 resource "yandex_resourcemanager_folder_iam_member" "editor" {
   folder_id = var.folder_id
   role      = "editor"
-  members   = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
+  member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
 }
 
 resource "yandex_vpc_network" "network-1" {

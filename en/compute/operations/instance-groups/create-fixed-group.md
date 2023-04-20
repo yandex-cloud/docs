@@ -177,9 +177,9 @@ To create a fixed-size instance group:
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "editor" {
-        folder_id = "<folder ID>"
-        role      = "editor"
-        members   = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
+        folder_id  = "<folder ID>"
+        role       = "editor"
+        member     = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
         depends_on = [
           yandex_iam_service_account.ig-sa,
         ]

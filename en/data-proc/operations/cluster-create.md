@@ -379,17 +379,13 @@ A cluster must include a subcluster with a master host and at least one subclust
       resource "yandex_resourcemanager_folder_iam_member" "dataproc" {
         folder_id = "<folder ID>"
         role      = "mdb.dataproc.agent"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.<name of service account in {{ TF }}>.id}"
-        ]
+        member    = "serviceAccount:${yandex_iam_service_account.<name of service account in {{ TF }}>.id}"
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "bucket-creator" {
         folder_id = "<folder ID>"
         role      = "editor"
-        members   = [
-          "serviceAccount:${yandex_iam_service_account.<name of service account in {{ TF }}>.id}"
-        ]
+        member    = "serviceAccount:${yandex_iam_service_account.<name of service account in {{ TF }}>.id}"
       }
 
       resource "yandex_iam_service_account_static_access_key" "<static key name in {{ TF }}>" {

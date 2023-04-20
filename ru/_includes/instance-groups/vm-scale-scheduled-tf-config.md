@@ -35,13 +35,13 @@ resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-
 resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-iam" {
   folder_id = "<идентификатор_каталога>"
   role      = "iam.serviceAccounts.user"
-  members   = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
+  member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-functions" {
   folder_id = "<идентификатор_каталога>"
   role      = "serverless.functions.invoker"
-  members   = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
+  member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 
 resource "yandex_vpc_network" "vm-scale-scheduled-network" {

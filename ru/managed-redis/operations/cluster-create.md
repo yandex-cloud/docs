@@ -62,7 +62,9 @@
 
         * Выберите размер хранилища. Доступный размер хранилища ограничен [квотами и лимитами](../concepts/limits.md#mrd-limits).
 
-  1. В блоке **Настройки кластера** в поле **Пароль** укажите пароль пользователя, от 8 до 128 символов.
+  1. В блоке **Настройки кластера** в поле **Пароль** укажите пароль пользователя.
+
+     {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
   
   1. В блоке **Сетевые настройки** выберите:
@@ -148,6 +150,8 @@
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
+      {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
 - {{ TF }}
@@ -214,9 +218,11 @@
 
 
 
+       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
+
        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-       1. {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
+       {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }}).
 

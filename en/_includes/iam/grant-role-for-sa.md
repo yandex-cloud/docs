@@ -51,19 +51,17 @@ In the management console, you can only grant a service account roles to folders
 
       * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Required parameter.
       * `role`: The role assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
+      * `member`: User or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
 
       ```
-      resource "yandex_resourcemanager_folder_iam_binding" "admin-account-iam" {
+      resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
         folder_id   = "<folder ID>"
         role        = "<role>"
-        members     = [
-          "serviceAccount:<Service account ID>",
-        ]
+        member      = "serviceAccount:<Service account ID>"
       }
       ```
 
-      For more information about the parameters of the `yandex_resourcemanager_folder_iam_binding` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+      For more information about the parameters of the `yandex_resourcemanager_folder_iam_member` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_member).
 
    1. Make sure that the configuration files are correct.
 

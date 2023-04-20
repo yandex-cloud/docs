@@ -61,6 +61,29 @@
 
   Подробнее см. в [документации PgBouncer](https://www.pgbouncer.org/usage).
 
+- **Pg audit log**{#setting-pg-audit-log} {{ tag-con }}
+
+  Определяет, какие запросы пользователя попадут в лог для аудита.
+
+  Настройка имеет силу только если:
+
+  * к кластеру [подключена библиотека](../../managed-postgresql/operations/extensions/cluster-extensions.md#libraries-connection) `pgaudit`;
+  * к базе данных [подключено расширение](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) `pgaudit`.
+
+  Возможные значения:
+
+  * `read` — в лог попадут запросы `SELECT` и `COPY`, когда источником данных выступает отношение или запрос.
+  * `write` — в лог попадут запросы `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE` и `COPY`, когда приемником данных выступает отношение.
+  * `function` — в лог попадут вызовы функций и блоки `DO`.
+  * `role` — в лог попадут выражения, связанные с управлением ролями и привилегиями: `GRANT`, `REVOKE`, `CREATE/ALTER/DROP ROLE`.
+  * `ddl` — в лог попадут все `DDL`, которые не входят в класс `ROLE`.
+  * `misc` — в лог попадут вспомогательные команды: `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, `SET`.
+  * `misc_set` — в лог попадут вспомогательные команды `SET`, например, `SET ROLE`.
+
+  Можно выбрать несколько значений. По умолчанию логи аудита для пользователя отключены.
+
+  Подробнее о настройке логов для аудита см. в разделе [{#T}](../../managed-postgresql/operations/extensions/pgaudit.md).
+
 - **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }}
 
   Разрешает использовать подготовленные инструкции с объединением транзакций.

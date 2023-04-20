@@ -22,7 +22,7 @@ The cost of {{ kms-name }} usage is based on:
 
 
 
-You can see service resources consumption in your billing. However, {{ kms-full-name }} can be used free of charge.
+The service keeps track of consumed resources, but you can use {{ kms-full-name }} resources free of charge.
 
 
 

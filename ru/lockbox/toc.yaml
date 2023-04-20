@@ -25,6 +25,12 @@ items:
             href: operations/serverless/containers.md
           - name: Передать секрет в {{ sf-full-name }}
             href: operations/serverless/functions.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Секрет
+        href: concepts/secret.md
   - name: Практические руководства
     items:
       - name: Все руководства

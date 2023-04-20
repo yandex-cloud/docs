@@ -51,21 +51,19 @@
 
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Обязательный параметр.
      * `role` — назначаемая роль. Обязательный параметр.
-     * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+     * `member` — пользователь или сервисный аккаунт, которому назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
 
      Пример структуры конфигурационного файла:
 
      ```
-     resource "yandex_resourcemanager_folder_iam_binding" "admin-account-iam" {
+     resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
        folder_id   = "<идентификатор каталога>"
        role        = "<роль>"
-       members     = [
-         "serviceAccount:<идентификатор сервисного аккаунта>",
-       ]
+       member      = "serviceAccount:<идентификатор сервисного аккаунта>"
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_member).
 
   1. Проверьте корректность конфигурационных файлов.
 

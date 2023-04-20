@@ -42422,6 +42422,7 @@ default:
       common:
         add: Add
         create: Create
+        name: Name
         save: Save
       component:
         console-dashboard:
@@ -42448,6 +42449,8 @@ default:
         button_zone-create: Create zone
         label_additional-settings: Additional settings
         label_form-ttl: TTL (in seconds)
+      forms:
+        label_service-account-select: Service account
       greenplum:
         action_expand-open: Expand cluster
         action_expand-start: Save
@@ -42468,6 +42471,7 @@ default:
             overview:
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
+              popup-key_button_create: Create
             popup-robot_button_add: Create
           service-accounts:
             button_add: Create service account
@@ -42475,6 +42479,13 @@ default:
       kms:
         symmetric-keys:
           button_create: Create
+      lockbox:
+        button_create-secret: Create secret
+        forms:
+          button_add-pair: Add pair
+          label_key: Key
+          label_value: Value
+          section_version: Version
       mdb:
         cluster:
           hosts:
@@ -42489,6 +42500,39 @@ default:
           database_field_user-login: Username
           database_field_user-password: Password
           section_network-settings: Network settings
+      serverless-functions:
+        create:
+          button_create: Create
+        item:
+          editor:
+            button_action-continue: Continue
+            button_deploy-version: Create version
+            field_environment-variables: Environment variables
+            field_resources-memory: Memory
+            field_timeout: Timeout, sec
+            label_lockbox-secret: Yandex Lockbox secrets
+            label_title-params: Parameters
+            value_method-zip-file: ZIP archive
+        list:
+          button_create: Create function
+        switch_list-triggers: Triggers
+        triggers:
+          form:
+            button_create-trigger: Create trigger
+            field_bucket: Bucket
+            field_event-types: Event types
+            field_function: Function
+            field_function_service-account: Service account
+            field_invoke: Launched resource
+            field_type: Type
+            label_function: Function
+            label_storage: Object Storage
+            section_base: Basic settings
+            section_function: Function settings
+            section_storage: Object Storage settings
+            value_event-type-create-object: Create object
+          list:
+            button_create: Create trigger
       storage:
         bucket:
           button_action-delete: Delete
@@ -42539,6 +42583,7 @@ default:
             label_if-exists: Apply if the field exists
           settings:
             button_save: Save
+            field_name: ' Name'
             field_size-limit: Max size
             label_size-limit-disabled: No limit
           switch_encryption: Encryption
@@ -42565,6 +42610,7 @@ default:
             title_connected-domains: Domains in Cloud DNS
             title_redirect: Redirect
         buckets:
+          button_create: Create bucket
           button_delete: Delete
           button_empty-create: Create bucket
           button_open-multipart-uploads: Show uploads

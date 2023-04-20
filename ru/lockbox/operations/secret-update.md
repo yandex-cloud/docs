@@ -90,3 +90,7 @@
   Чтобы изменить секрет, воспользуйтесь методом REST API [update](../api-ref/Secret/update.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Update](../api-ref/grpc/secret_service.md#Update).
 
 {% endlist %}
+
+## См. также {#see-also}
+
+* [{#T}](../concepts/secret.md)
