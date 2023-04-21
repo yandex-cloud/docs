@@ -1,4 +1,4 @@
-# {{ mpg-name }} practical guidelines
+# {{ mpg-name }} tutorials
 
 * [Creating a {{ PG }} cluster for <q>1C:Enterprise</q>](./1c-postgresql.md)
 * [{#T}](./sqoop.md)
@@ -14,3 +14,4 @@
 * [{#T}](./outbound-replication.md)
 * [{#T}](../operations/logical-replica-from-rds.md)
 * [{#T}](./mpg-to-objstorage.md)
+* [{#T}](./mpg-to-yds.md)

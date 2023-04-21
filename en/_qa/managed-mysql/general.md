@@ -1,6 +1,6 @@
 ---
 title: "{{ mmy-name }}. Questions and answers"
-description: "What is {{ mmy-name }}? What tasks should I use {{ mmy-name }} for and for which VMs with databases? What part of database management and maintenance is {{ mmy-name }} responsible for? Find the answers to these and other questions in this article."
+description: "What is {{ mmy-name }}? Which tasks should I use {{ mmy-name }} for and for which are VMs with databases more appropriate? What part of database management and maintenance is {{ mmy-name }} responsible for? Find the answers to these and other questions in this article."
 ---
 
 # General questions about {{ mmy-name }}
@@ -36,7 +36,7 @@ For the created and running databases, {{ mmy-short-name }} automatically create
 {{ yandex-cloud }} offers two ways to work with databases:
 
 - {{ mmy-short-name }} allows you to operate template databases with no need to worry about administration.
-- {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
+- {{ compute-full-name }} virtual machines allow you to create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, etc.
 
 
 #### What is a database host and database cluster? {#what-is-cluster}

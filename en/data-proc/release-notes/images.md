@@ -3,6 +3,19 @@
 For a complete listing of current and deprecated {{ dataproc-name }} images, please see [{#T}](../concepts/environment.md).
 
 
+## 2.0.62 {#2.0.62}
+
+* Fixed an error when the Zeppelin default plugins were missing.
+* Fixed an issue when Hive job errors were handled incorrectly.
+
+## 2.0.61 {#2.0.61}
+
+* Internal changes.
+
+## 2.0.59 {#2.0.59}
+
+* Added support for Spark and MapReduce services in a single-host cluster.
+
 ## 2.0.58 {#2.0.58}
 
 * Added the ability to keep user-defined properties of the Zeppelin interpreter when restarting a cluster. The values of the `spark.submit.deployMode`, `spark.driver.cores`, `spark.driver.memory`, `spark.executor.cores`, `spark.executor.memory`, `spark.files`, `spark.jars`, and `spark.jars.packages` properties are not preserved, they are overwritten from Spark properties.

@@ -3,15 +3,15 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to a cluster
+      - name: Connecting to cluster
         href: operations/cluster-connect.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
@@ -35,11 +35,11 @@ items:
         href: operations/cluster-backups.md
       - name: Viewing cluster logs
         href: operations/cluster-logs.md
-      - name: Deleting a cluster
+      - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Monitoring the state of a cluster and hosts
+      - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md

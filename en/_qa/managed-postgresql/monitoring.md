@@ -4,7 +4,7 @@
 
 You can track your disk space:
 * In the management console using [cluster status monitoring tools](../../managed-postgresql/operations/monitoring.md#monitoring-cluster).
-   * In [{{ monitoring-full-name }}]({{ link-monitoring }}) that lets you [set up notifications](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for specified metrics.
+   * In [{{ monitoring-full-name }}]({{ link-monitoring }}) that allows you to [set up alerts](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for specified metrics.
 
 #### Are logs stored on the same disk as {{ PG }} data? How are they charged? {#logs-storage}
 
@@ -33,7 +33,21 @@ If the amount of RAM used by applications increases, some of the cache memory ma
 For more information about caching disk data in Linux, see the [documentation](https://www.linuxatemyram.com/).
 
 
-#### How do I get notified of critical {{ PG }} cluster parameters? {#notifications}
+#### How do I get alerts on critical {{ PG }} cluster parameters? {#notifications}
 
-Use [{{ monitoring-full-name }}]({{ link-monitoring }}) and [set up notifications](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for those parameters that are critical for you.
+Use [{{ monitoring-full-name }}]({{ link-monitoring }}) and [set up alerts](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for the parameters critical for you.
 
+
+#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
+
+[Create an alert](../../managed-postgresql/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mpg-name }} cluster.
+
+For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+
+* `Alarm`: 90% of disk space.
+* `Warning`: 80% of disk space.
+
+The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).

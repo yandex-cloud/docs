@@ -26,14 +26,14 @@
 
 ## Шаг 1. Создайте подключение и датасет {#step1}
 
-Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) типа **File**.
+Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) типа **Файлы**.
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. Нажмите кнопку **Создать подключение**.
 
    ![image](../../_assets/datalens/solution-01/01-create-connection.png)
 
-1. Выберите **File**.
+1. Выберите **Файлы**.
 
    ![image](../../_assets/datalens/solution-01/select-file-connection.png)
 

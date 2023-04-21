@@ -25,7 +25,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
    To get a list of cluster backups:
    1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
 
    To get a list of all backups in a folder:
    1. Go to the folder page and select **{{ mes-name }}**.
@@ -56,9 +56,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
-   To get a list of backups for all the {{ mes-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of backups for all the {{ mes-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and provide the folder ID in the `folderId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -72,7 +72,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
    To get information about the backup of an existing cluster:
    1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
 
    To get information about the backup of a previously deleted cluster:
    1. Go to the folder page and select **{{ mes-name }}**.
@@ -94,7 +94,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 - API
 
-   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter.
+   Use the [get](../api-ref/Backup/get.md) API method and provide the backup ID in the `backupId` request parameter.
 
    To find out the ID, [retrieve a list of backups](#list-backups).
 
@@ -107,8 +107,10 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 - Management console
 
    1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
    1. Click **Create backup**.
+
+   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
 - CLI
 
@@ -134,11 +136,13 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 ### Restoring clusters from backups {#restore}
 
@@ -152,7 +156,7 @@ When creating a new cluster, set all required parameters.
 
    To restore an existing cluster from a backup:
    1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
    1. Click **Restore cluster**.
@@ -226,7 +230,7 @@ When creating a new cluster, set all required parameters.
       Where:
 
       * `--backup-id`: [Backup](../concepts/backup.md) ID
-      * `--name`: The cluster name.
+      * `--name`: Cluster name.
       * `--environment`: Environment:
 
          * `PRESTABLE`: For testing, including the {{ ES }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -266,7 +270,7 @@ When creating a new cluster, set all required parameters.
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.

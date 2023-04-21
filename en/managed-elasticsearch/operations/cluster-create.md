@@ -41,18 +41,16 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    1. Click **Create cluster**.
    1. Under **Basic parameters**:
 
-      1. Enter a name for the cluster and, if necessary, a description. The cluster name must be unique within the folder.
-      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+      1. Give your cluster a name and add a descritpion, if required. It must be unique within the folder.
+      1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       1. Select the {{ ES }} version from the list.
       1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
-      1. Under **Network settings**, select:
-      * Cloud network for the cluster.
-      * Security groups for the cluster's network traffic. You may also need to [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
+      1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
 
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+      {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
    1. Under **User**, specify the `admin` user password.
 
@@ -107,11 +105,11 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
             {% endnote %}
 
-   1. If necessary, configure additional cluster settings:
+   1. Configure additional cluster settings, if required:
 
       {% include [extra-settings](../../_includes/mdb/mes/extra-settings.md) %}
 
-   1. If necessary, configure the [DBMS settings](../concepts/settings-list.md).
+   1. Configure the [DBMS settings](../concepts/settings-list.md), if required.
 
    1. Click **Create**.
 
@@ -133,7 +131,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
 
 
-   1. View a description of the CLI's create cluster command:
+   1. View a description of the create cluster CLI command:
 
       ```bash
       {{ yc-mdb-es }} cluster create --help
@@ -172,7 +170,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -190,21 +188,6 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       
       
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source = "yandex-cloud/yandex"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<service account OAuth or static key>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
-      }
-
       resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
         name        = "<cluster name>"
         environment = "<environment: PRESTABLE or PRODUCTION>"
@@ -278,17 +261,17 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
    To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and include the following in the request:
 
-   * ID of the folder where the cluster should be placed in the `folderId` parameter.
+   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
    * {{ ES }} version in the `configSpec.version` parameter.
    * {{ ES }} edition in the `configSpec.edition` parameter.
    * Cluster configuration in the `configSpec` parameter, including:
       * Class of hosts with the _Master node_ role in the `configSpec.elasticsearchSpec.masterNode.resources` parameter. If you do not want to create dedicated hosts with the _Master node_ role, do not set values for the group of `configSpec.elasticsearchSpec.masterNode` parameters.
-      * Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
+      * Class of hosts with the _Data node_ role in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
    * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
    * Network ID in the `networkId` parameter.
-      * Security group identifiers in the `securityGroupIds` parameter.
-   * The list of plugins in the `configSpec.elasticsearchSpec.plugins` parameter.
+   * Security group identifiers in the `securityGroupIds` parameter.
+   * List of plugins in the `configSpec.elasticsearchSpec.plugins` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
 
 {% endlist %}
@@ -309,7 +292,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-   To create a cluster with a single host, pass a single `--host` parameter.
+   To create a cluster with a single host, provide a single `--host` parameter.
 
    Create a {{ mes-name }} cluster with test characteristics:
 
@@ -365,21 +348,6 @@ If you specified security group IDs when creating a cluster, you may also need t
    
    
    ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
-
-   provider "yandex" {
-     token     = "<OAuth or static key of the service account>"
-     cloud_id  = "{{ tf-cloud-id }}"
-     folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
-   }
-
    resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
      name        = "my-es-clstr"
      environment = "PRODUCTION"

@@ -1,6 +1,6 @@
 ---
 title: "{{ mch-name }}. Questions and answers"
-description: "What is {{ mch-name }}? What tasks should I use {{ mch-name }} for and for which VMs with databases? What part of database management and maintenance is {{ mch-name }} responsible for? Find the answers to these and other questions in this article."
+description: "What is {{ mch-name }}? Which tasks should I use {{ mch-name }} for and for which are VMs with databases more appropriate? What part of database management and maintenance is {{ mch-name }} responsible for? Find the answers to these and other questions in this article."
 ---
 
 # General questions about {{ mch-name }}
@@ -24,7 +24,7 @@ You interact with database clusters in {{ mch-short-name }} the same way you int
 
 #### What is {{ CH }} used for? Which database should I select? {#why-ch}
 
-{{ CH }} is designed primarily for analytics (OLAP) and only supports adding and reading data. You can update data but with [some limitations](https://stackoverflow.com/questions/37901642/updating-data-in-clickhouse). For other purposes, it's probably more convenient to use other managed DB services.
+{{ CH }} is designed primarily for analytics (OLAP) and only supports adding and reading data. You can update data but with [limitations](https://stackoverflow.com/questions/37901642/updating-data-in-clickhouse). For other purposes, you might want to use other managed DB services.
 
 #### What part of database management and maintenance is {{ mch-short-name }} responsible for? {#services}
 
@@ -39,7 +39,7 @@ For the created and running databases, {{ mch-short-name }} automatically create
 {{ yandex-cloud }} offers two ways to work with databases:
 
 - {{ mch-short-name }} allows you to operate template databases with no need to worry about administration.
-- {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
+- {{ compute-full-name }} virtual machines allow you to create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, etc.
 
 #### What is a database host and database cluster? {#what-is-cluster}
 

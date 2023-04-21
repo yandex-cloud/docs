@@ -5,7 +5,7 @@ items:
     href: quickstart.md
   - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
@@ -87,6 +87,10 @@ items:
               Migrating databases from {{ mpg-full-name }} to {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
+          - name: >-
+              Asynchronously replicating data from {{ mpg-full-name }} to {{
+              yds-full-name }}
+            href: tutorials/mpg-to-yds.md
   - name: Concepts
     items:
       - name: Relationships between service resources

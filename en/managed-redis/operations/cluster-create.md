@@ -23,9 +23,9 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Click **Create cluster**.
    1. Under **Basic parameters**:
 
-      * Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+      * Name the cluster in the **Cluster name** field. It must be unique within the folder.
       * (Optional) Add a cluster description.
-      * Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+      * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       * Select the DBMS version.
@@ -72,6 +72,8 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
          {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
+      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
 
    1. Under **Hosts**:
 
@@ -84,11 +86,11 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * To add hosts to the cluster, click **Add host**.
 
-   1. If necessary, configure additional cluster settings:
+   1. Configure additional cluster settings, if required:
 
       {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
 
-   1. If necessary, configure the [DBMS settings](../concepts/settings-list.md).
+   1. Configure the [DBMS settings](../concepts/settings-list.md), if required.
 
    1. Click **Create cluster**.
 
@@ -110,7 +112,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-   1. View a description of the CLI's create cluster command:
+   1. View a description of the create cluster CLI command:
 
       ```bash
       {{ yc-mdb-rd }} cluster create --help
@@ -153,7 +155,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -172,21 +174,6 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       
       
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source = "yandex-cloud/yandex"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<service account OAuth or static key>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
-      }
-
       resource "yandex_mdb_redis_cluster" "<cluster name>" {
         name                = "<cluster name>"
         environment         = "<environment: PRESTABLE or PRODUCTION>"
@@ -203,13 +190,13 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
         resources {
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
-          disk_size          = <storage size in GB>
+          disk_size          = <storage size, GB>
         }
 
         host {
           zone             = "<availability zone>"
           subnet_id        = "<subnet ID>"
-          assign_public_ip = <public host access: true or false>
+          assign_public_ip = <public access to host: true or false>
           replica_priority = <host priority>
         }
       }
@@ -250,8 +237,8 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
-         * Security group identifiers, in the `securityGroupIds` parameter.
-   * The `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
+         * Security group identifiers in the `securityGroupIds` parameter.
+   * `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
 
 {% endlist %}
 
@@ -271,7 +258,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-   To create a cluster with a single host, pass a single `--host` parameter.
+   To create a cluster with a single host, provide a single `--host` parameter.
 
    Create a {{ mrd-name }} cluster with test characteristics:
 
@@ -327,21 +314,6 @@ If you specified security group IDs when creating a cluster, you may also need t
    
    
    ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
-
-   provider "yandex" {
-     token     = "<An OAuth or static key of the service account>"
-     cloud_id  = "{{ tf-cloud-id }}"
-     folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
-   }
-
    resource "yandex_mdb_redis_cluster" "myredis" {
      name                = "myredis"
      environment         = "PRODUCTION"
@@ -432,21 +404,6 @@ If you specified security group IDs when creating a cluster, you may also need t
    
    
    ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
-
-   provider "yandex" {
-     token     = "<service account OAuth or static key>"
-     cloud_id  = "{{ tf-cloud-id }}"
-     folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
-   }
-
    resource "yandex_mdb_redis_cluster" "myredis" {
      name                = "myredis"
      environment         = "PRODUCTION"

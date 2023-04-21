@@ -121,10 +121,10 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
    In the `recoveryTargetSpec.timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you don't specify the parameter, the cluster is restored to when the backup was completed.
 
@@ -139,6 +139,8 @@ When restoring to the current state, the new cluster will reflect the state of:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
    1. Click on the name of the cluster you need and select ![image](../../_assets/mdb/backup.svg) **Backup copies**.
    1. Click **Create backup**.
+
+   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
 - CLI
 
@@ -164,11 +166,13 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 ## Getting a list of backups {#list-backups}
 
@@ -228,7 +232,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    To get a list of backups for all the {{ mmg-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
 

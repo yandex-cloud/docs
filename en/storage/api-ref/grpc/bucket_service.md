@@ -23,7 +23,7 @@ A set of methods for managing buckets.
 
 ## List {#List}
 
-Retrieves the list of buckets in the specified folder. <br>The following fields will not be returned for buckets in the list: [Bucket.policy](#Bucket), [Bucket.acl](#Bucket), [Bucket.cors](#Bucket), [Bucket.website_settings](#Bucket), [Bucket.lifecycle_rules](#Bucket).
+Retrieves the list of buckets in the specified folder. <br>The following fields will not be returned for buckets in the list: [Bucket.policy](#Bucket), [Bucket.acl](#Bucket), [Bucket.cors](#Bucket), [Bucket.website_settings](#Bucket), [Bucket.lifecycle_rules](#Bucket), [Bucket.tags](#Bucket).
 
 **rpc List ([ListBucketsRequest](#ListBucketsRequest)) returns ([ListBucketsResponse](#ListBucketsResponse))**
 
@@ -58,7 +58,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
-tags[] | **[Tag](#Tag)**<br>List of object tag for the bucket. 
+tags[] | **[Tag](#Tag)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 object_lock | **[ObjectLock](#ObjectLock)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
@@ -211,8 +211,8 @@ object_size_less_than | **[google.protobuf.Int64Value](https://developers.google
 
 Field | Description
 --- | ---
-key | **string**<br> 
-value | **string**<br> 
+key | **string**<br>Key of the bucket tag. 
+value | **string**<br>Value of the bucket tag. 
 
 
 ### ObjectLock {#ObjectLock}
@@ -244,7 +244,7 @@ Returns the specified bucket. <br>To get the list of all available buckets, make
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the bucket to return. <br>To get the bucket name, make a [BucketService.List](#List) request. 
-view | enum **View**<br>Scope of information about the bucket to return. <br>Access to scopes is managed via [Identity and Access Management roles](/docs/storage/security), bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/policy). <ul><li>`VIEW_BASIC`: Returns basic information about a bucket. <br>The following fields will _not_ be returned: [Bucket.acl](#Bucket1), [Bucket.cors](#Bucket1), [Bucket.website_settings](#Bucket1), [Bucket.lifecycle_rules](#Bucket1).</li><li>`VIEW_ACL`: Returns basic information and access control list (ACL) for the bucket. <br>The following fields will _not_ be returned: [Bucket.cors](#Bucket1), [Bucket.website_settings](#Bucket1), [Bucket.lifecycle_rules](#Bucket1).</li><li>`VIEW_FULL`: Returns full information about a bucket.</li></ul>
+view | enum **View**<br>Scope of information about the bucket to return. <br>Access to scopes is managed via [Identity and Access Management roles](/docs/storage/security), bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/policy). <ul><li>`VIEW_BASIC`: Returns basic information about a bucket. <br>The following fields will _not_ be returned: [Bucket.acl](#Bucket1), [Bucket.cors](#Bucket1), [Bucket.website_settings](#Bucket1), [Bucket.lifecycle_rules](#Bucket1), [Bucket.tags](#Bucket1).</li><li>`VIEW_ACL`: Returns basic information and access control list (ACL) for the bucket. <br>The following fields will _not_ be returned: [Bucket.cors](#Bucket1), [Bucket.website_settings](#Bucket1), [Bucket.lifecycle_rules](#Bucket1), [Bucket.tags](#Bucket1).</li><li>`VIEW_FULL`: Returns full information about a bucket.</li></ul>
 
 
 ### Bucket {#Bucket1}
@@ -264,7 +264,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule1)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings1)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule1)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
-tags[] | **[Tag](#Tag1)**<br>List of object tag for the bucket. 
+tags[] | **[Tag](#Tag1)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 object_lock | **[ObjectLock](#ObjectLock1)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
@@ -417,8 +417,8 @@ object_size_less_than | **[google.protobuf.Int64Value](https://developers.google
 
 Field | Description
 --- | ---
-key | **string**<br> 
-value | **string**<br> 
+key | **string**<br>Key of the bucket tag. 
+value | **string**<br>Value of the bucket tag. 
 
 
 ### ObjectLock {#ObjectLock1}
@@ -459,7 +459,7 @@ default_storage_class | **string**<br>Default storage class for objects in the b
 max_size | **int64**<br>Maximum size of the bucket. For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags2)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
 acl | **[ACL](#ACL2)**<br>Access control list (ACL) of the bucket. For details, see [documentation](/docs/storage/concepts/acl). 
-tags[] | **[Tag](#Tag2)**<br>List of object tag for the bucket. 
+tags[] | **[Tag](#Tag2)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags2}
@@ -491,8 +491,8 @@ grantee_id | **string**<br>ID of the account who is a grantee. Required when the
 
 Field | Description
 --- | ---
-key | **string**<br> 
-value | **string**<br> 
+key | **string**<br>Key of the bucket tag. 
+value | **string**<br>Value of the bucket tag. 
 
 
 ### Operation {#Operation}
@@ -535,7 +535,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule2)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings2)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule2)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
-tags[] | **[Tag](#Tag3)**<br>List of object tag for the bucket. 
+tags[] | **[Tag](#Tag3)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 object_lock | **[ObjectLock](#ObjectLock2)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
@@ -702,7 +702,7 @@ versioning | enum **Versioning**<br>Bucket versioning status. For details, see [
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule3)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 policy | **google.protobuf.Struct**<br>Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects. For details, see [documentation](/docs/storage/concepts/policy). 
 acl | **[ACL](#ACL3)**<br>Access control list (ACL) of the bucket. For details, see [documentation](/docs/storage/concepts/acl). 
-tags[] | **[Tag](#Tag3)**<br>List of object tag for the bucket. 
+tags[] | **[Tag](#Tag3)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 object_lock | **[ObjectLock](#ObjectLock3)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
@@ -855,8 +855,8 @@ grantee_id | **string**<br>ID of the account who is a grantee. Required when the
 
 Field | Description
 --- | ---
-key | **string**<br> 
-value | **string**<br> 
+key | **string**<br>Key of the bucket tag. 
+value | **string**<br>Value of the bucket tag. 
 
 
 ### ObjectLock {#ObjectLock3}
@@ -917,7 +917,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule4)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings4)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule4)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
-tags[] | **[Tag](#Tag4)**<br>List of object tag for the bucket. 
+tags[] | **[Tag](#Tag4)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 object_lock | **[ObjectLock](#ObjectLock4)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 

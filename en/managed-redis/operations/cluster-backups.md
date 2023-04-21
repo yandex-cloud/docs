@@ -21,7 +21,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
    1. Select **{{ mrd-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
    1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Restore cluster**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
    1. Click **Restore cluster**.
@@ -100,8 +100,10 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a backup in.
    1. Select **{{ mrd-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
    1. Click **Create backup**.
+
+   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
 - CLI
 
@@ -133,6 +135,8 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 {% endlist %}
 
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
+
 ## Getting a list of backups {#list-backups}
 
 {% list tabs %}
@@ -142,7 +146,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
    To get a list of cluster backups:
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. Select **{{ mrd-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
 
    To get a list of all backups in a folder:
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
@@ -189,7 +193,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
    To get information about the backup of an existing cluster:
    1. In the [management console]({{ link-console-main }}), go to the folder with the cluster to get backup information for.
    1. Select **{{ mrd-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
 
    To get information about the backup of a previously deleted cluster:
    1. In the [management console]({{ link-console-main }}), go to the folder that contained the deleted cluster.
@@ -228,7 +232,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - CLI
 
-   To set the backup start time, use the `--backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
+   To set the backup start time, use the `--backup-window-start` flag. Time is given in `HH:MM:SS` format.
 
    ```bash
    {{ yc-mdb-rd }} cluster create \

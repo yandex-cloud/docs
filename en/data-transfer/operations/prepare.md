@@ -343,7 +343,8 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
                execute_catalog_role,
                SELECT ANY TRANSACTION,
                SELECT ANY DISCTIONARY,
-               CREATE PROCEDURE
+               CREATE PROCEDURE,
+               LOGMINING
            TO <username>.
            ```
 

@@ -3,15 +3,15 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to a cluster
+      - name: Connecting to cluster
         href: operations/connect.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
@@ -33,7 +33,7 @@ items:
         href: operations/cluster-delete.md
       - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
@@ -57,22 +57,30 @@ items:
         href: tutorials/cdc/debezium-mpg.md
       - name: Delivering data from {{ mmy-full-name }} using Debezium
         href: tutorials/cdc/debezium-mmy.md
-      - name: >-
-          Delivering data from {{ mkf-name }} with  {{ data-transfer-full-name
-          }}
+      - name: Delivering data from {{ mkf-name }} with {{ data-transfer-full-name }}
         href: tutorials/cdc/data-transfer-mpg.md
+      - name: >-
+          Delivering data from {{ ydb-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/cdc/data-transfer-ydb.md
       - name: Delivering data to {{ mch-name }}
         href: tutorials/send-data-to-mch.md
       - name: >-
           Delivering data to {{ mch-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-to-mch-migration.md
-      - name: Data delivery in ksqlDB
+      - name: Delivering data to ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
+      - name: Delivering data from {{ mkf-full-name }} to {{ mgp-full-name }}
+        href: tutorials/managed-kafka-to-greenplum.md
       - name: >-
           Delivering data to {{ ydb-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-ydb-stream.md
+      - name: >-
+          Delivering data to {{ yds-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-yds-stream.md
   - name: Concepts
     items:
       - name: Relationships between service resources

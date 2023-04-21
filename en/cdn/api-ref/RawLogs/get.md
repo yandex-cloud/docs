@@ -36,7 +36,7 @@ resourceId | <p>Required. ID of CDN resource to request status and settings.</p>
  
 Field | Description
 --- | ---
-status | **string**<br><p>Raw logs status.</p> <p>Provider side statuses of Raw logs processing.</p> <ul> <li>RAW_LOGS_STATUS_NOT_ACTIVATED: Raw logs wasn't activated.</li> <li>RAW_LOGS_STATUS_OK: Raw logs was activated, and logs storing process works as expected.</li> <li>RAW_LOGS_STATUS_FAILED: Raw logs was activated, but logs CDN provider has been failed to store logs.</li> </ul> 
+status | **string**<br><p>Raw logs status.</p> <p>Provider side statuses of Raw logs processing.</p> <ul> <li>RAW_LOGS_STATUS_NOT_ACTIVATED: Raw logs wasn't activated.</li> <li>RAW_LOGS_STATUS_OK: Raw logs was activated, and logs storing process works as expected.</li> <li>RAW_LOGS_STATUS_FAILED: Raw logs was activated, but CDN provider has been failed to store logs.</li> <li>RAW_LOGS_STATUS_PENDING: Raw logs was activated, but logs storing process is expected.</li> </ul> 
 settings | **object**<br><p>Raw logs settings.</p> <p>User settings for Raw logs.</p> 
 settings.<br>bucketName | **string**<br><p>Required. Destination S3 bucket name, note that the suer should be owner of the bucket.</p> <p>The maximum string length in characters is 1024.</p> 
 settings.<br>bucketRegion | **string**<br><p>Bucket region, unused for now, could be blank.</p> <p>The maximum string length in characters is 50.</p> 

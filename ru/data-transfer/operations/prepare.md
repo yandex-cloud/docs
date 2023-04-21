@@ -343,7 +343,8 @@
                execute_catalog_role,
                SELECT ANY TRANSACTION,
                SELECT ANY DISCTIONARY,
-               CREATE PROCEDURE 
+               CREATE PROCEDURE,
+               LOGMINING 
            TO <имя пользователя>;
            ```
 

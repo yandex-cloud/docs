@@ -1,6 +1,6 @@
 # Создание группы виртуальных машин с {{ coi }} и несколькими Docker-контейнерами
 
-Вы можете создать группу виртуальных машин на базе образа [{{ coi }}](../../cos/concepts/index.md) с несколькими [Docker-контейнерами](/blog/posts/2022/03/docker-containers) внутри.
+Вы можете создать [группу виртуальных машин](../../compute/concepts/instance-groups/index.md) на базе [образа](../../compute/concepts/image.md) [{{ coi }}](../../cos/concepts/index.md) с несколькими [Docker-контейнерами](/blog/posts/2022/03/docker-containers) внутри.
 
 Для создания Docker-контейнеров будет использоваться [Docker Compose спецификация](../../cos/concepts/coi-specifications.md#compose-spec).
 
@@ -14,17 +14,17 @@
 
 ## Подготовьте окружение {#prepare}
 
-1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `group-coi` и назначьте ему роль `editor`:
+1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `group-coi` и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `editor`:
 
    {% list tabs %}
 
    - Консоль управления
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сервисный аккаунт.
+     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
      1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
      1. Нажмите кнопку **Создать сервисный аккаунт**.
      1. Введите имя `group-coi`.
-     1. Чтобы назначить сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) на текущий каталог, нажмите **Добавить роль** и выберите роль `editor`.
+     1. Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите **Добавить роль** и выберите роль `editor`.
      1. Нажмите кнопку **Создать**.
 
    - CLI
@@ -88,7 +88,7 @@
         name: yc-auto-network
         ```
 
-     1. Создайте подсеть в зоне `{{ region-id }}-a`:
+     1. Создайте подсеть в зоне доступности `{{ region-id }}-a`:
 
         ```bash
         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
@@ -172,7 +172,7 @@
 
    {% note info %}
 
-   Передать SSH-ключ в [метаданных ВМ](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) можно с помощью параметра `ssh-keys` или в строке с пользовательскими метаданными `user-data`. В этом практическом руководстве используется первый вариант.
+   Передать [SSH-ключ](../../glossary/ssh-keygen.md) в [метаданных ВМ](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) можно с помощью параметра `ssh-keys` или в строке с пользовательскими метаданными `user-data`. В этом практическом руководстве используется первый вариант.
 
    {% endnote %}
 
@@ -226,12 +226,12 @@
      Результат:
 
      ```bash
-     +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
-     |     INSTANCE ID      |           NAME            |  EXTERNAL IP   | INTERNAL IP |         STATUS         | STATUS MESSAGE |
-     +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
+     +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
+     |     INSTANCE ID      |           NAME            |            EXTERNAL IP           | INTERNAL IP |         STATUS         | STATUS MESSAGE |
+     +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
      | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | {{ cos-external-ip-examples.0 }} | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
      | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | {{ cos-external-ip-examples.1 }} | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
-     +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
+     +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
      ```
 
    - API
@@ -242,7 +242,7 @@
 
 ## Проверьте группу ВМ с {{ coi }} и несколькими Docker-контейнерами {#check}
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к одной из созданных ВМ по [SSH](../../glossary/ssh-keygen.md):
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к одной из созданных ВМ по SSH:
 
    {% list tabs %}
 
@@ -278,9 +278,9 @@
      Результат:
 
      ```bash
-     CONTAINER ID   IMAGE   COMMAND                  CREATED              STATUS              PORTS                NAMES
-     c0a125a1765a   redis   "docker-entrypoint.s…"   About a minute ago   Up About a minute   6379/tcp             redis
-     01288d7e382f   nginx   "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   nginx
+     CONTAINER ID  IMAGE  COMMAND                 CREATED             STATUS             PORTS               NAMES
+     c0a125a1765a  redis  "docker-entrypoint.s…"  About a minute ago  Up About a minute  6379/tcp            redis
+     01288d7e382f  nginx  "/docker-entrypoint.…"  About a minute ago  Up About a minute  0.0.0.0:80->80/tcp  nginx
      ```
 
    {% endlist %}

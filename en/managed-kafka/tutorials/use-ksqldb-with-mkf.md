@@ -1,4 +1,4 @@
-# Data delivery in ksqlDB
+# Delivering data to ksqlDB
 
 ksqlDB is a database designed for stream processing messages from {{ KF }} topics. Working with message streams in ksqlDB is similar to working with tables in a regular database. The ksqlDB table is automatically updated with data from a topic, and the data that you add to the ksqlDB table is sent to the {{ KF }} topic. For more information, see the [ksqlDB documentation](https://docs.ksqldb.io/en/latest).
 
@@ -10,7 +10,7 @@ To set up data delivery from {{ mkf-name }} to ksqlDB:
 1. [Write the test data to ksqlDB](#insert-data-to-ksqldb).
 1. [Check that the test data is present in the {{ KF }} topic](#fetch-data-from-kf).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -99,7 +99,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
    ksql http://0.0.0.0:8088
    ```
 
-1. Run the query:
+1. Run the following query:
 
    ```sql
    CREATE STREAM riderLocations
@@ -115,11 +115,11 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
    );
    ```
 
-   This data stream table will be automatically populated with messages from the {{ mkf-name }} cluster `locations` topic. ksqlDB uses the `ksql` user [settings](#configure-ksqldb-for-kf) to read messages.
+   This data stream table will be automatically populated with messages from the {{ mkf-name }} cluster `locations` topic. KsqlDB uses the `ksql` user [settings](#configure-ksqldb-for-kf) to read messages.
 
    For more information about creating a data stream table in the ksqlDB engine, see the [ksqlDB documentation](https://www.confluent.io/blog/how-real-time-stream-processing-works-with-ksqldb).
 
-1. Run the query:
+1. Run the following query:
 
    ```sql
    SELECT * FROM riderLocations WHERE
@@ -224,4 +224,4 @@ Delete the resources you no longer need to avoid paying for them:
 
 * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
 * If you reserved a public static IP for your virtual machine, [delete it](../../vpc/operations/address-delete.md).
-* [Delete a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+* [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).

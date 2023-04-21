@@ -22,8 +22,10 @@ A random replica host is used to create a backup. If there is no cluster host da
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
    1. Click **Create backup**.
+
+   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
 - CLI
 
@@ -49,11 +51,13 @@ A random replica host is used to create a backup. If there is no cluster host da
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 ## Restoring clusters from backups {#restore}
 
@@ -69,7 +73,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    To restore an existing cluster from a backup:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and click **Restore cluster**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
    1. Click **Restore cluster**.
@@ -168,7 +172,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
 
    * Backup ID of the appropriate shard in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
@@ -189,7 +193,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    To get a list of cluster backups:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
 
    To get a list of all backups in a folder:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
@@ -219,7 +223,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    To get a list of backups for all the {{ mch-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
 
@@ -236,7 +240,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    To get information about the backup of an existing cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the **Backup copies** tab.
 
    To get information about the backup of a previously deleted cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
@@ -282,7 +286,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    ```bash
    {{ yc-mdb-ch }} cluster update <cluster ID or name> \
-      --backup-window-start=<backup start time>
+      --backup-window-start=<time of backup start>
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).

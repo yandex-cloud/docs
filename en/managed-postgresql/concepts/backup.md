@@ -14,9 +14,13 @@ keywords:
 
 {{ mpg-short-name }} provides automatic and manual database backups.
 
-{{ mpg-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the write-ahead logs (WAL) of later backups and the cluster. PITR is enabled by default.
+{{ mpg-name }} allows you to restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the write-ahead logs (WAL) of later cluster backups.
 
-When creating backups and restoring data from them to a given point in time, keep in mind the following:
+For example, if the backup operation ended August 10, 2020, 12:00 pm UTC, the current date is August 15, 2020, 7:00 pm UTC, and the latest write ahead log was saved August 15, 2020, 6:50 pm UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 pm UTC and August 15, 2020, 6:50:00 pm UTC, inclusive.
+
+PITR is enabled by default.
+
+When creating backups and restoring data from them to a given point in time, keep the following in mind:
 
 * A WAL consists of 16 MB files that are archived in a running cluster when the desired size is reached or if the time specified by the [archive timeout](./settings-list.md#setting-archive-timeout) cluster-level DBMS setting has passed since the last archiving. The archive is then uploaded to object storage.
 

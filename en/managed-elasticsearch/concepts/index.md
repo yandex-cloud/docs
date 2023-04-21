@@ -11,7 +11,7 @@ With {{ mes-full-name }}, you can deploy and maintain {{ ES }} server clusters i
 
 When [creating a cluster](../operations/cluster-create.md), specify the following:
 
-- _Host class_: A VM template for deploying the cluster hosts. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
+- _Host class_: VM template for deploying the cluster hosts. For a list of available host classes and their specs, see [{#T}](instance-types.md).
 
 - _Host roles_: [_Data node_](hosts-roles.md#data-node) or [_Master node_](hosts-roles.md#master-node).
 
@@ -29,7 +29,7 @@ When [creating a cluster](../operations/cluster-create.md), specify the followin
 
 An {{ ES }} cluster created in a folder can be accessed by all VMs connected to the same [cloud network](../../vpc/) as the cluster.
 
-A single-host cluster doesn't guarantee fault tolerance. A cluster with multiple hosts automatically provides fault tolerance for the _Master node_ role. To ensure data safety in such a cluster, you need to configure index [sharding and replication](scalability-and-resilience.md).
+A single-host cluster is not fault tolerant. A multi-host cluster automatically provides fault tolerance for the _Master node_ role. To ensure data safety in such a cluster, you need to configure index [sharding and replication](scalability-and-resilience.md).
 
 Cluster hosts may reside in different availability zones. Learn more about the geo scope of {{ yandex-cloud }} in [{#T}](../../overview/concepts/geo-scope.md).
 

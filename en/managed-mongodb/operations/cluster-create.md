@@ -26,9 +26,9 @@
 
    1. Under **Basic parameters**:
 
-      * Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+      * Name the cluster in the **Cluster name** field. It must be unique within the folder.
       * (optional) Enter a cluster **description**.
-      * Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+      * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -57,7 +57,7 @@
       * Cloud network for the cluster.
       * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
-         {% include [preview-pp](../../_includes/preview-pp.md) %}
+         {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 
    1. Under **Hosts**, add the DB hosts created with the cluster:
@@ -73,11 +73,11 @@
 
       By default, hosts are created in different availability zones. See about [host management](hosts.md).
 
-   1. If necessary, configure additional cluster settings:
+   1. Configure additional cluster settings, if required:
 
       {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
 
-   1. If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
+   1. Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
 
       {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
 
@@ -101,7 +101,7 @@
       If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-   1. View a description of the CLI's create cluster command:
+   1. View a description of the create cluster CLI command:
 
       ```
       {{ yc-mdb-mg }} cluster create --help
@@ -134,7 +134,7 @@
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -152,21 +152,6 @@
       
       
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source = "yandex-cloud/yandex"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<service account OAuth or static key>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
-      }
-
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
         name                = "<cluster name>"
         environment         = "<environment: PRESTABLE or PRODUCTION>"
@@ -194,7 +179,7 @@
         resources {
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
-          disk_size          = <storage capacity, GB>
+          disk_size          = <storage size, GB>
         }
 
         host {
@@ -207,7 +192,7 @@
 
       resource "yandex_vpc_subnet" "<subnet name>" {
         name           = "<subnet name>"
-       zone           = "<availability zone>"
+        zone           = "<availability zone>"
         network_id     = "<network ID>"
         v4_cidr_blocks = ["<range>"]
       }
@@ -244,7 +229,7 @@
    * Network ID in the `networkId` parameter.
    * Cluster configuration in the `configSpec` parameter.
    * Configuration of the cluster's hosts in one or more `hostSpecs` parameters.
-      * IDs of [security groups](../concepts/network.md#security-groups) in the `securityGroupIds` parameter.
+      * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
    * Database configuration in one or more `databaseSpecs` parameters.
    * User settings in one or more `userSpecs` parameters.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
@@ -269,7 +254,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-   To create a cluster with a single host, pass a single `--host` parameter.
+   To create a cluster with a single host, provide a single `--host` parameter.
 
    Create a {{ mmg-name }} cluster with test characteristics:
 
@@ -326,21 +311,6 @@ If you specified security group IDs when creating a cluster, you may also need t
    
    
    ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
-
-   provider "yandex" {
-     token     = "<service account's OAuth or static key>"
-     cloud_id  = "{{ tf-cloud-id }}"
-     folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
-   }
-
    resource "yandex_mdb_mongodb_cluster" "mymg" {
      name                = "mymg"
      environment         = "PRODUCTION"

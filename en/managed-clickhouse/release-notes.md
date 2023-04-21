@@ -1,6 +1,6 @@
 # {{ mch-full-name }} releases
 
-This section presents the revision history for {{ mch-name }}.
+This section covers the revision history for {{ mch-name }}.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
@@ -35,7 +35,7 @@ This section presents the revision history for {{ mch-name }}.
 
 ## Q2 2022 {#q2-2022}
 
-* A new version is available: {{ CH }} 22.5 ([changelog](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-225-2022-05-19)).
+* A new version is available: {{ CH }} 22.5 ([revision list](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-225-2022-05-19)).
 * Added `SYSTEM UNFREEZE` query support. The query completely clears cluster storage of the cluster backup, including table data that may take up storage space after deletion. For more information, visit [GitHub](https://github.com/ClickHouse/ClickHouse/pull/36424).
 * Reduced the time required to recover a cluster from a backup.
 * Fixed the bug that caused pre-configured topic access passwords to be deleted when the {{ KF }} topic connection list was edited.

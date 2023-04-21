@@ -154,7 +154,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU usage, disable the **Default scaling** option and set the target CPU utilization level.
       1. Click **Add**.
 
-   1. If necessary, configure additional cluster settings:
+   1. Configure additional cluster settings, if required:
 
       **Deletion protection**: Manages cluster protection from accidental deletion by a user.
 
@@ -180,7 +180,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
 
 
-   1. View a description of the CLI's create cluster command:
+   1. View a description of the create cluster CLI command:
 
       ```bash
       {{ yc-dp }} cluster create --help
@@ -214,8 +214,8 @@ A cluster must include a subcluster with a master host and at least one subclust
                      `assign-public-ip=<public access to subcluster hosts: true or false> \
          --deletion-protection=<cluster deletion protection: true or false> \
          --ui-proxy=<access to component web interfaces: true or false> \
-         --security-group-ids=<list of security group IDs> \
-         --log-group-id=<log group ID>
+         --log-group-id=<log group ID> \
+         --security-group-ids=<list of security group IDs>
       ```
 
 
@@ -263,11 +263,15 @@ A cluster must include a subcluster with a master host and at least one subclust
 
          {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-      * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md).
-      * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
-               * `--log-group-id`: [Log group ID](../concepts/logs.md).
+      * --ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md).
 
-      To create a cluster with multiple data storage or processing subclusters, pass the necessary number of `--subcluster` arguments in the cluster create command:
+      
+      * `--log-group-id`: [Log group ID](../concepts/logs.md).
+
+
+      * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
+
+      To create a cluster with multiple data storage or processing subclusters, provide the required number of `--subcluster` arguments in the cluster create command:
 
       ```bash
       {{ yc-dp }} cluster create <cluster name> \

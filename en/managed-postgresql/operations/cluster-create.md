@@ -23,7 +23,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    1. In the management console, select the folder where you want to create a database cluster.
    1. Select **{{ mpg-name }}**.
    1. Click **Create cluster**.
-   1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+   1. Name the cluster in the **Cluster name** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -66,7 +66,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
-      Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+      Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
 
       To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 
@@ -77,7 +77,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
-   1. If necessary, configure additional cluster settings:
+   1. Configure additional cluster settings, if required:
 
       {% include [Additional cluster settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
@@ -109,7 +109,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-   1. View a description of the CLI's create cluster command:
+   1. View a description of the create cluster CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster create --help
@@ -159,7 +159,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -183,27 +183,12 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       
       
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source = "yandex-cloud/yandex"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<OAuth or static key of the service account>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
-      }
-
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
         name                = "<cluster name>"
         environment         = "<environment, PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         security_group_ids  = [ "<list of security groups>" ]
-        deletion_protection = <protection from cluster deletion: true or false>
+        deletion_protection = <cluster deletion protection: true or false>
 
         config {
           version = "<{{ PG }} version: {{ pg.versions.tf.str }}>"
@@ -284,8 +269,12 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
    * Cluster configuration in the `configSpec` parameter.
-   * Configuration of the cluster's hosts in one or more `hostSpecs` parameters.
-      * IDs of [security groups](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+   * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
+
+   
+   * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
+
+
    * Database configuration in one or more `databaseSpecs` parameters.
    * User settings in one or more `userSpecs` parameters.
 
@@ -317,7 +306,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-   To create a cluster with a single host, pass a single `--host` parameter.
+   To create a cluster with a single host, provide a single `--host` parameter.
 
    Create a {{ mpg-name }} cluster with test characteristics:
 
@@ -378,21 +367,6 @@ If you specified security group IDs when creating a cluster, you may also need t
    
    
    ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
-
-   provider "yandex" {
-     token     = "<OAuth or static key of the service account>"
-     cloud_id  = "{{ tf-cloud-id }}"
-     folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
-   }
-
    resource "yandex_mdb_postgresql_cluster" "mypg" {
      name                = "mypg"
      environment         = "PRESTABLE"

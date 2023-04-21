@@ -40,7 +40,7 @@
 
    ![image](../../_assets/datalens/solution-07/02-create-connection.png)
 
-1. Выберите тип подключения **File**.
+1. Выберите тип подключения **Файлы**.
 
    ![image](../../_assets/datalens/solution-07/select-file-connection.png)
 

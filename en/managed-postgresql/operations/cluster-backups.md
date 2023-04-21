@@ -13,8 +13,6 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time in the interval from creating the oldest full backup to archiving the most recent write ahead log (WAL). For more information, see [{#T}](../concepts/backup.md).
 
-For example, if the backup operation ended August 10, 2020, 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the latest write ahead log was saved August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC inclusive.
-
 When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
 When creating a new cluster, set all required parameters.
@@ -30,7 +28,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    To restore an existing cluster from a backup:
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the tab **Backup copies**.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
    1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC) setting**. You can enter the value manually or select it from the drop-down calendar.
@@ -105,7 +103,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       * `--backup-id`: [backup](../concepts/backup.md) ID
       * `--time`: Point in time to which you need to restore a {{ PG }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format.
-      * `--name`: The cluster name.
+      * `--name`: Cluster name.
       * `--environment`: Environment:
 
          * `PRESTABLE`: For testing, including the {{ PG }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -204,7 +202,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       Don't use resources of the databases (`yandex_mdb_postgresql_database`) and users (`yandex_mdb_postgresql_user`). They will be restored from the backup.
 
-   1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
+   1. In the configuration file, add a `restore` section with the name of the backup to restore the cluster from:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
@@ -227,7 +225,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Timestamp of the point to which you want to recover the cluster, in the `time` parameter.
@@ -244,8 +242,10 @@ When restoring to the current state, the new cluster will reflect the state of:
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the tab **Backup copies**.
    1. Click **Create backup**.
+
+   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
 - CLI
 
@@ -270,12 +270,13 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 ## Getting a list of backups {#list-backups}
 
@@ -285,7 +286,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    To get a list of cluster backups:
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the tab **Backup copies**.
 
    To get a list of all backups in a folder:
    1. Go to the folder page and select **{{ mpg-name }}**.
@@ -312,7 +313,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    To get a list of backups for all the {{ mpg-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
 
@@ -329,7 +330,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    To get information about the backup of an existing cluster:
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the name of the cluster you need and select the tab **Backup copies**.
 
    To get information about the backup of a previously deleted cluster:
    1. Go to the folder page and select **{{ mpg-name }}**.
@@ -428,11 +429,11 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * The new backup start time, in the `configSpec.backupWindowStart` parameter.
+   * Cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * New backup start time in the `configSpec.backupWindowStart` parameter.
    * List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
 
-   {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
+   {% include [Note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

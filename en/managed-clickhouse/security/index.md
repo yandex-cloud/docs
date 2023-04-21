@@ -26,25 +26,19 @@ The chart below shows which roles are available in the service and how they inhe
 
 ![image](../../_assets/mdb/roles-managed-clickhouse.svg)
 
-### {{ roles-mdb-admin }} {#mdb-admin}
+{% include [mch-auditor](../../_includes/iam/roles/mch-auditor.md) %}
 
-{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
+{% include [mch-viewer](../../_includes/iam/roles/mch-viewer.md) %}
 
-### {{ roles-mdb-viewer }} {#mdb-viewer}
+{% include [mch-editor](../../_includes/iam/roles/mch-editor.md) %}
 
-{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+{% include [mch-admin](../../_includes/iam/roles/mch-admin.md) %}
 
-### {{ roles-mdb-auditor }} {#mdb-auditor}
+{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
 
-{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
+{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
 
-### {{ roles-cloud-member }} {#resmgr-clouds-member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
 
 {% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
 
@@ -60,25 +54,17 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 
-### {{ roles.mch.admin }} {#mch-admin}
+### {{ roles-cloud-member }} {#member}
 
-{% include [roles-mch-admin](../../_includes/roles-mch-admin.md) %}
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles.mch.auditor }} {#mch-auditor}
+### {{ roles-cloud-owner }} {#owner}
 
-{% include [roles-mch-auditor](../../_includes/roles-mch-auditor.md) %}
-
-### {{ roles.mch.editor }} {#mch-editor}
-
-{% include [roles-mch-editor](../../_includes/roles-mch-editor.md) %}
-
-### {{ roles.mch.viewer }} {#mch-viewer}
-
-{% include [roles-mch-viewer](../../_includes/roles-mch-viewer.md) %}
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `{{ roles.mch.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher to the folder where a cluster is created. The `{{ roles.mch.viewer }}` role only enables you to view the cluster list.
+To use the service, you need the `{{ roles.mch.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where a cluster is created. The `{{ roles.mch.viewer }}` role only enables you to view the cluster list.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.mch.admin }}` instead of `{{ roles.mch.editor }}`.
 
