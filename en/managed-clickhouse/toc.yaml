@@ -45,7 +45,7 @@ items:
         href: operations/cluster-backups.md
       - name: Managing shards
         href: operations/shards.md
-      - name: Managing groups of shards
+      - name: Managing shard groups
         href: operations/shard-groups.md
       - name: Viewing cluster logs
         href: operations/cluster-logs.md

@@ -61,7 +61,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 - API
 
-   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter.
+   Use the [get](../api-ref/Backup/get.md) API method and provide the backup ID in the `backupId` request parameter.
 
    To find out the backup ID, [retrieve a list of backups](#list-backups).
 
@@ -77,6 +77,8 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    1. Click the name of the cluster you need and select ![backups](../../_assets/mdb/backup.svg) **Backups**.
    1. Click ![image](../../_assets/plus-sign.svg) **Create backup**.
 
+   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
 - API
 
    Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
@@ -84,6 +86,8 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 ### Restoring clusters from backups {#restore}
 

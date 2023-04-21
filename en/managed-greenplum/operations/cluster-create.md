@@ -55,7 +55,7 @@ For more information, see [{#T}](../concepts/index.md).
 
       * **Password** must be between 8 and 128 characters.
 
-   1. If necessary, configure additional cluster settings:
+   1. Configure additional cluster settings, if required:
 
       * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
       * **Maintenance window**: [Maintenance window](../concepts/maintenance.md) settings:
@@ -117,7 +117,7 @@ For more information, see [{#T}](../concepts/index.md).
       If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-   1. View a description of the CLI's create cluster command:
+   1. View a description of the create cluster CLI command:
 
       ```bash
       {{ yc-mdb-gp }} cluster create --help
@@ -268,7 +268,7 @@ For more information, see [{#T}](../concepts/index.md).
         environment         = "<environment>"
         network_id          = yandex_vpc_network.<network name in {{ TF }}>.id
         zone                = "<availability zone>"
-        subnet_id           = yandex_vpc_subnet.<network name in {{ TF }}>.id
+        subnet_id           = yandex_vpc_subnet.<subnet name in {{ TF }}>.id
         assign_public_ip    = <getting a public IP: true or false>
         deletion_protection = <cluster deletion protection: true or false>
         version             = "<{{ GP }} version>"
@@ -325,14 +325,14 @@ For more information, see [{#T}](../concepts/index.md).
    * Username in the `userName` parameter.
    * User password in the `userPassword` parameter.
    * Network ID in the `networkId` parameter.
-      * [Security group](../concepts/network.md#security-groups) identifiers, in the `securityGroupIds` parameter.
-   * Configuration of master hosts, in the `masterConfig` parameter.
-   * Configuration of segment hosts, in the `segmentConfig` parameter.
+      * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
+   * Configuration of master hosts in the `masterConfig` parameter.
+   * Configuration of segment hosts in the `segmentConfig` parameter.
 
-   If necessary, pass additional cluster settings:
+   Provide additional cluster settings, if required:
 
-   * Public access settings, in the `assignPublicIp` parameter.
-   * Backup window settings, in the `config.backupWindowStart` parameter.
+   * Public access settings in the `assignPublicIp` parameter.
+   * Backup window settings in the `config.backupWindowStart` parameter.
    * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md), in the `config.access.dataLens` parameter.
    * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/), in the `config.access.dataTransfer` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.

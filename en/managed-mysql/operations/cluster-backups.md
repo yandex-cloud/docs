@@ -48,7 +48,7 @@ You can create backups and restore clusters from existing backups, including poi
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    To get a list of backups for all the {{ mmy-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
 
@@ -102,6 +102,8 @@ You can create backups and restore clusters from existing backups, including poi
    1. Click the name of the desired cluster and select ![image](../../_assets/mdb/backup.svg) **Backups**.
    1. Click **Create backup**.
 
+   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
 - CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -126,11 +128,13 @@ You can create backups and restore clusters from existing backups, including poi
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 In single-host clusters, you create a backup by reading data from the master host while the solution for multi-host clusters is to read one of the replicas. At the same time, you can [specify host priorities when creating backups](#set-backup-priority).
 
@@ -222,7 +226,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       * `--backup-id`: [Backup](../concepts/backup.md) ID.
       * `--time`: Point in time to which you need to restore a {{ MY }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format.
-      * `--name`: The cluster name.
+      * `--name`: Cluster name.
       * `--environment`: Environment:
 
          * `PRESTABLE`: For testing, including the {{ MY }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -253,10 +257,10 @@ For a new cluster, you should set all the parameters that are required at creati
 
    Use {{ TF }} to restore:
 
-   * An existing cluster from a backup.
-   * A cluster created and deleted via the management console, CLI, or API.
+   * Existing cluster from a backup.
+   * Cluster created and deleted via the management console, CLI, or API.
 
-   To restore a cluster, you'll need the backup ID. Retrieve a list of available {{ MY }} cluster backups [using the CLI](#list-backups):
+   To restore a cluster, you will need the backup ID. Retrieve a list of available {{ MY }} cluster backups [using the CLI](#list-backups):
 
    ```bash
    {{ yc-mdb-my }} backup list
@@ -303,7 +307,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -317,7 +321,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Don't use resources of the databases (`yandex_mdb_mysql_database`) and users (`yandex_mdb_mysql_user`). They will be restored from the backup.
 
-   1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
+   1. In the configuration file, add a `restore` section with the name of the backup to restore the cluster from:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
@@ -332,7 +336,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -344,11 +348,11 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * The timestamp of the point to which you want to recover the cluster, in the `time` parameter.
-   * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+   * Timestamp of the point to which you want to recover the cluster, in the `time` parameter.
+   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
 {% endlist %}
 
@@ -397,7 +401,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -409,9 +413,9 @@ For a new cluster, you should set all the parameters that are required at creati
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can get it together [with a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The new backup start time, in the `configSpec.backupWindowStart` parameter.
-   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.backupWindowStart` in this case).
+   * Cluster ID in the `clusterId` parameter. You can get it together [with a list of clusters in the folder](cluster-list.md#list-clusters).
+   * New backup start time in the `configSpec.backupWindowStart` parameter.
+   * List of the updated cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.backupWindowStart`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -447,7 +451,7 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
    To set the host priority, use the [updateHosts](../api-ref/Cluster/updateHosts.md) method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Host name in the `updateHostSpecs.hostName` parameter. It may be retrieved with a [list of hosts in the cluster](hosts.md#list).
    * New host priority value in the `updateHostSpecs.backupPriority` parameter.
    * List of cluster configuration fields to update (here, `updateHostSpecs.hostName` and `updateHostSpecs.backupPriority`) in the `updateMask` parameter.

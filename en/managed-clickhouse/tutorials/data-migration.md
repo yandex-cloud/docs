@@ -40,7 +40,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. If you are using a virtual machine in {{ yandex-cloud }} for migration:
    * Create your VMs in the same cloud network as the {{ mch-name }} cluster.
-   * The computing power of the VM should be chosen based on the amount of data transferred.
+   * Choose the computing capacity of the VM based on the amount of the data being transferred.
 
 
 ## Install {{ ZK }} {#zookeeper-install}
@@ -132,8 +132,7 @@ To run `clickhouse-copier` using {{ ZK }}, you need to prepare:
 * {{ ZK }} configuration file (`config.xml`).
 * File describing the task (`cp-task.xml`).
 
-You can find the `clickhouse-copier` guide in the [ClickHouse documentation]({{ ch.docs }}/operations/utils/clickhouse-copier/).
-
+You can find the `clickhouse-copier` guide in the [{{ CH }} documentation]({{ ch.docs }}/operations/utils/clickhouse-copier/).
 
 ### Prepare a configuration file for {{ ZK }} {#zookeeper-config}
 

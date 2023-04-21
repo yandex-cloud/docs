@@ -23,7 +23,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click **Create cluster**.
    1. Under **Basic parameters**:
-      1. Enter a name for the cluster and, if necessary, a description. The cluster name must be unique within the folder.
+      1. Give your cluster a name and add a descritpion, if required. It must be unique within the folder.
       1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -94,11 +94,11 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    1. If you specify two or more broker hosts, then under **{{ ZK }} host class**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
 
-   1. If necessary, configure additional cluster settings:
+   1. Configure additional cluster settings, if required:
 
       {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
 
-   1. If necessary, configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings).
+   1. Configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings), if required.
 
    1. Click **Create cluster**.
 
@@ -110,7 +110,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI's create cluster command:
+   1. View a description of the create cluster CLI command:
 
       ```bash
       {{ yc-mdb-kf }} cluster create --help
@@ -137,7 +137,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       {% note tip %}
 
-      If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
+      You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
 
       {% endnote %}
 
@@ -194,14 +194,14 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * {{ KF }} cluster: Description of a cluster and its hosts. If required, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
+      * {{ KF }} cluster: Description of a cluster and its hosts. You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
 
       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -212,21 +212,6 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       
       
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-           source = "yandex-cloud/yandex"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<service account OAuth or static key>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
-      }
-
       resource "yandex_mdb_kafka_cluster" "<cluster name>" {
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         name                = "<cluster name>"
@@ -388,21 +373,6 @@ If you specified security group IDs when creating a cluster, you may also need t
    
    
    ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
-
-   provider "yandex" {
-     token     = "<OAuth or static key of service account>"
-     cloud_id  = "{{ tf-cloud-id }}"
-     folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
-   }
-
    resource "yandex_mdb_kafka_cluster" "mykf" {
      environment         = "PRODUCTION"
      name                = "mykf"

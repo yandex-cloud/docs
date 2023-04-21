@@ -1,1 +1,0 @@
-The `{{ roles-mdb-auditor }}` role enables you to view information about the cluster's managed databases (except for the runtime logs).

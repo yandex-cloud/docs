@@ -18,11 +18,11 @@ For more information, see the [documentation](../../managed-clickhouse/operation
 
 #### Is a cluster available when being updated? {#update-availability}
 
-If it's a multi-host cluster, there is no downtime while updating it, since the hosts are updated one by one. Only individual hosts are unavailable when the cluster is being restarted.
+If it is a multi-host cluster, there is no downtime while updating it, since the hosts are updated one by one. Only individual hosts are unavailable when the cluster is being restarted.
 
 #### How do I change the time zone? {#timezone}
 
-Follow the instructions in [{#T}](../../managed-clickhouse/operations/update.md#change-clickhouse-config).
+Follow the steps described in [{#T}](../../managed-clickhouse/operations/update.md#change-clickhouse-config).
 
 #### Is a cluster unavailable when adding replicas? {#add-replica-availability}
 
@@ -44,6 +44,10 @@ For more information, see the [documentation](../../managed-clickhouse/operation
 
 [Update the user settings](../../managed-clickhouse/operations/cluster-users.md#update-settings) and set the desired `Max memory usage` parameter value.
 
-#### How do I change the disk type? {#disk-type}
+#### Can I change the disk type? {#disk-type}
 
-To change the disk type, [restore the cluster](../../managed-clickhouse/operations/cluster-backups.md#restore) from a backup and specify the desired disk type when configuring the new cluster.
+No, you can only select the disk type when creating a cluster or [restoring it](../../managed-clickhouse/operations/cluster-backups.md#restore) from a backup.
+
+#### Can I change a network and subnets? {#network}
+
+No, you can only select a network and subnets for hosts when creating a cluster or [restoring it](../../managed-clickhouse/operations/cluster-backups.md#restore) from a backup.

@@ -36,7 +36,7 @@ For the created and running databases, {{ mrd-short-name }} automatically create
 {{ yandex-cloud }} offers two ways to work with databases:
 
 - {{ mrd-short-name }} allows you to operate template databases with no need to worry about administration.
-- {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
+- {{ compute-full-name }} virtual machines allow you to create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, etc.
 
 
 #### What is a database host and database cluster? {#what-is-cluster}

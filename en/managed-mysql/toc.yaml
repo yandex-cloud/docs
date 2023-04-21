@@ -5,7 +5,7 @@ items:
     href: quickstart.md
   - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
@@ -95,6 +95,10 @@ items:
         href: tutorials/mmy-ydb-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ objstorage-full-name }}
         href: tutorials/mmy-objs-migration.md
+      - name: >-
+          Asynchronously replicating data from {{ mmy-name }} to {{
+          yds-full-name }}
+        href: tutorials/mmy-to-yds.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

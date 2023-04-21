@@ -1,1 +1,0 @@
-The role `{{ roles-mdb-admin }}` enables you create and edit clusters of managed databases.

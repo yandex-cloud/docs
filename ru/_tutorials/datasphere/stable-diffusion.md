@@ -52,13 +52,13 @@
 1. Обновите библиотеку [TensorFlow](https://www.tensorflow.org/). Вставьте в ячейку указанный ниже код и нажмите значок ![run](../../_assets/datasphere/jupyterlab/run.svg).
 
    ```python
-   %pip install tensorflow -U
+   %pip install tensorflow==2.11.0
    ```
 
 1. Установите библиотеку KerasCV:
 
    ```python
-   %pip install keras_cv
+   %pip install keras_cv==0.4.2
    ```
 
 1. Установите библиотеку [NumPy](https://numpy.org/) версии 1.21:

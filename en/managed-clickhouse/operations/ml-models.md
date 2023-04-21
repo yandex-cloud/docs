@@ -29,7 +29,7 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
+   1. Click the name of the cluster and select the **Machine learning** tab from the left-hand panel.
 
 - CLI
 
@@ -47,7 +47,7 @@
 
 - API
 
-   Use the [list](../api-ref/MlModel/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [list](../api-ref/MlModel/list.md) API method and include the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -60,7 +60,7 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
+   1. Click the name of the cluster and select the **Machine learning** tab from the left-hand panel.
 
 - CLI
 
@@ -79,7 +79,7 @@
 
 - API
 
-   Use the [get](../api-ref/MlModel/get.md) API method and pass the following in the request:
+   Use the [get](../api-ref/MlModel/get.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterID` parameter.
    * Model name in the `mlModelName` parameter.
@@ -103,7 +103,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
    1. Select the cluster:
 
       1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-      1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
+      1. Click the name of the cluster and select the **Machine learning** tab from the left-hand panel.
       1. Click **Add model**.
 
    1. Configure the model parameters:
@@ -154,7 +154,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -203,7 +203,7 @@ To update the contents of a model that is already connected to the cluster:
 
 1. [Upload the file](../../storage/operations/objects/upload.md) with the current model to {{ objstorage-full-name }}.
 1. [Get a link](s3-access.md#get-link-to-object) to this file.
-1. Change the parameters of the model connected to {{ mch-name }} by passing a new link to the model file.
+1. Change the parameters of the model connected to {{ mch-name }} by providing a new link to the model file.
 
 
 {% list tabs %}
@@ -211,7 +211,7 @@ To update the contents of a model that is already connected to the cluster:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
+   1. Click the name of the cluster and select the **Machine learning** tab from the left-hand panel.
    1. Select the appropriate model, click ![image](../../_assets/dots.svg), and select **Edit**.
 
 - CLI
@@ -253,7 +253,7 @@ To update the contents of a model that is already connected to the cluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -289,7 +289,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and select the **Machine learning** tab from the left panel.
+   1. Click the name of the cluster and select the **Machine learning** tab from the left-hand panel.
    1. Select the appropriate model, click ![image](../../_assets/dots.svg), and select **Delete**.
 
 - CLI
@@ -319,7 +319,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -329,7 +329,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
 - API
 
-   Use the [delete](../api-ref/MlModel/delete.md) API method and pass the following in the request:
+   Use the [delete](../api-ref/MlModel/delete.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterID` parameter.
    * Model name in the `mlModelName` parameter.
@@ -344,7 +344,7 @@ If you don't have a suitable data set or model to process it, you can test machi
 
 {% note info %}
 
-In this example, we'll use public data from the [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). The model is trained to predict values in the `ACTION` column. The same data and model are used in the examples provided in the [{{ CH }} documentation]({{ ch.docs }}/guides/apply-catboost-model) and on [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
+In this example, we'll use public data from the [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). The model is trained to predict values in the `ACTION` column. The same data and model are used on [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
 
 {% endnote %}
 

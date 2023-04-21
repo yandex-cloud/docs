@@ -25,31 +25,38 @@ To assign a user a role:
 
 The list below shows all roles that are considered when verifying access rights in the {{ dataproc-name }} service.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+{% include [mdb.dataproc.agent](../../_includes/iam/roles/dataproc-agent.md) %}
 
-{% include [mdb.dataproc.agent](../../_includes/roles-dataproc-agent.md) %}
+{% include [data-proc-roles](../../_includes/iam/roles/data-proc-roles.md) %}
 
-{% include [data-proc-roles](../../_includes/data-proc/data-proc-roles.md) %}
+### {{ roles-mdb-auditor }} {#mdb-auditor}
 
-### {{ roles-viewer }} {#viewer}
+The `{{ roles-mdb-auditor }}` role grants the minimum rights required to view information about {{ dataproc-name }} clusters (without access to data or runtime logs).
 
-A user with the `{{ roles-viewer }}` role can connect to hosts in a {{ dataproc-name }} cluster if their SSH keys are linked to this cluster.
+### {{ roles-mdb-viewer }} {#mdb-viewer}
+
+The `{{ roles-mdb-viewer }}` role enables you to view information about {{ dataproc-name }} clusters and their runtime logs.
 
 ### {{ roles-mdb-admin }} {#mdb-admin}
 
 A user with the role `{{ roles-mdb-admin }}` can manage {{ dataproc-name }} clusters, for example, create a cluster or create or delete a subcluster in a cluster.
 
-The `{{ roles-mdb-admin }}` role also includes all permissions of the `{{ roles-viewer }}` role.
+It includes the `{{ roles-mdb-viewer }}` role.
+
+### {{ roles-viewer }} {#viewer}
+
+A user with the `{{ roles-viewer }}` role can connect to hosts in a {{ dataproc-name }} cluster if their SSH keys are linked to this cluster.
 
 ### {{ roles-editor }} {#editor}
 
 Users with the `{{ roles-editor }}` role can manage any resource, including creating clusters and creating and deleting their subclusters.
 
-The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
+It includes the `{{ roles-viewer }}` role.
 
 ### {{ roles-admin }} {#admin}
 
 Users with the `{{ roles-admin }}` role can manage resource access rights, including allowing other users to create {{ dataproc-name }} clusters and to view information about user rights.
 
-The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.
+It includes the `{{ roles-editor }}` role.
 
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}

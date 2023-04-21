@@ -37,7 +37,7 @@ The following charts open on the page:
 * **Is Primary, [boolean]**: Indicates which host is the master and for how long.
 * **Free space**: Free disk space for each host (in bytes).
 * **Log errors**: Number of logged errors per second.
-* **Memory usage**: The use of RAM in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
+* **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
 * **Network Bytes**: Network data transfer speed (bytes per second).
 * **Packets received/sent**: Network packet transmission activity (packets per second).
 * **Pooler is alive, [boolean]**: Pooler health for each host either as a master or as a replica.
@@ -66,11 +66,11 @@ To view detailed information about the status of individual {{ mpg-name }} hosts
 This page displays charts showing the load on an individual host in the cluster:
 
 * **CPU usage**: Usage of processor cores. As the load goes up, the **Idle** value goes down.
-* **Disk IOPS**: The number of disk operations per second.
-* **Disk read/write bytes**: The speed of disk operations (bytes per second).
-* **Memory usage**: The use of RAM in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
-* **Network Bytes**: The speed of data exchange over the network (bytes per second).
-* **Network Packets**: The number of packets exchanged over the network per second.
+* **Disk IOPS**: Number of disk operations per second.
+* **Disk read/write bytes**: Speed of disk operations, in bytes per second.
+* **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
+* **Network Bytes**: Speed of data exchange over the network, in bytes per second.
+* **Network Packets**: Number of packets exchanged over the network per second.
 
 The **Disk read/write bytes** and the **Disk IOPS** charts show that the **Read** property increases when active database reads are in progress, and that **Write** increases when database writes are in progress.
 
@@ -88,7 +88,7 @@ For hosts with the **Replica** role, it's normal that **Received** is greater th
    1. Under **Service dashboards**, select:
       * **{{ mpg-name }} Cluster Overview** to configure cluster alerts.
       * **{{ mpg-name }} Host Overview** to configure host alerts.
-   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **Create alert**.
@@ -103,12 +103,15 @@ Recommended threshold values:
 |---------------------------------------|:--------------------------:|:-------------------------:|:-------------------------:|
 | Replication delay | `postgres-replication_lag` | `60` | `5`   |
 | Number of healthy hosts | `postgres-is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
-| Average query execution time | `pooler-avg_query_time` | — | `2000` |
+| Average query execution time | `pooler-avg_query_time` | N/A | `2000` |
 | Storage space used | `disk.used_bytes` | 90% of storage size | 80% of storage size |
 
-You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
+For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-postgresql).
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).
+
+You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-postgresql).
 
 
 ## Cluster state and status {#cluster-health-and-status}

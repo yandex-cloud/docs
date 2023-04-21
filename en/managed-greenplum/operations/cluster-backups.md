@@ -43,7 +43,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    To get a list of backups for all the {{ mgp-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
 
@@ -120,7 +120,7 @@ For a new cluster, you should set all the parameters that are required at creati
       {{ yc-mdb-gp }} cluster restore \
          --backup-id=<backup ID> \
          --name=<cluster name> \
-         --environment=< environment: PRESTABLE or PRODUCTION> \
+         --environment=<environment: PRESTABLE or PRODUCTION> \
          --network-name={{ network-name }} \
          --master-resource-preset=<host class> \
          --master-disk-size=<storage size, GB> \
@@ -130,14 +130,14 @@ For a new cluster, you should set all the parameters that are required at creati
          --segment-disk-type=<disk type> \
          --zone-id=<availability zone> \
          --subnet-id=<subnet ID> \
-         --assign-public-ip=< public access to the cluster: true or false>
+         --assign-public-ip=<public access to the cluster: true or false>
       ```
 
 
       Where:
 
       * `--backup-id`: [backup](../concepts/backup.md) ID.
-      * `--name`: The cluster name.
+      * `--name`: Cluster name.
       * `--environment`: Environment:
 
          * `PRESTABLE`: For testing, including the {{ GP }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -159,11 +159,13 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
 {% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

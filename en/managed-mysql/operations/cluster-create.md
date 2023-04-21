@@ -18,10 +18,9 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
-
    1. Select **{{ mmy-name }}**.
    1. Click **Create cluster**.
-   1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+   1. Name the cluster in the **Cluster name** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mmy-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -55,12 +54,14 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
          {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
+      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
 
    1. Under **Hosts**, select the parameters for the DB hosts created with the cluster: If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
       If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage size**, you need to add at least 3 hosts to the cluster. After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
-   1. If necessary, configure additional cluster settings:
+   1. Configure additional cluster settings, if required:
 
       {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
@@ -89,7 +90,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
-   1. View a description of the CLI create cluster command:
+   1. View a description of the create cluster CLI command:
 
       ```bash
       {{ yc-mdb-my }} cluster create --help
@@ -137,6 +138,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
+
       {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
@@ -146,7 +148,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -168,21 +170,6 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       
       
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source = "yandex-cloud/yandex"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<service account OAuth or static key>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
-      }
-
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
         name                = "<cluster name>"
         environment         = "<environment, PRESTABLE or PRODUCTION>"
@@ -194,7 +181,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         resources {
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
-          disk_size          = "<storage size in GB>"
+          disk_size          = "<storage size, GB>"
         }
 
         host {
@@ -257,33 +244,6 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
              ...
              backup_retain_period_days = <retention period for automatic backups (in days)>
              ...
-
-           }
-         ```
-
-         Acceptable values are from `7` to `60`. The default value is `7`.
-
-      * To set the backup start time, add the `backup_window_start` block to the {{ mmy-name }} cluster description:
-
-         ```hcl
-         resource "yandex_mdb_mysql_cluster" "<cluster name>" {
-           ...
-           backup_window_start {
-             hours   = <backup start hour>
-             minutes = <backup start minute>
-           }
-           ...
-         }
-         ```
-
-      * To set the retention period for backup files, define the `backup_retain_period_days` parameter in the cluster description:
-
-         ```hcl
-           resource "yandex_mdb_mysql_cluster" "<cluster name>" {
-             ...
-             backup_retain_period_days = <retention period for automatic backups (in days)>
-             ...
-
            }
          ```
 
@@ -303,17 +263,17 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and provide the following information in the request:
+   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
 
-   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter. It must be unique within the folder.
-   * The environment of the cluster, in the `environment` parameter.
-   * Cluster configuration, in the `configSpec` parameter.
-   * Database configuration, in one or more `databaseSpecs` parameters.
-   * User settings, in one or more `userSpecs` parameters.
-   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-   * Network ID, in the `networkId` parameter.
-   * [Security group](../concepts/network.md#security-groups) identifiers, in the `securityGroupIds` parameter.
+   * Cluster environment in the `environment` parameter.
+   * Cluster configuration in the `configSpec` parameter.
+   * Database configuration in one or more `databaseSpecs` parameters.
+   * User settings in one or more `userSpecs` parameters.
+   * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
+   * Network ID in the `networkId` parameter.
+   * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
 
    If required, provide the backup start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
 
@@ -339,7 +299,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-   To create a cluster with a single host, pass a single `--host` parameter.
+   To create a cluster with a single host, provide a single `--host` parameter.
 
    Create a {{ mmy-name }} cluster with test characteristics:
 
@@ -407,21 +367,6 @@ If you specified security group IDs when creating a cluster, you may also need t
    
    
    ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
-
-   provider "yandex" {
-     token     = "<service account OAuth or static key>"
-     cloud_id  = "{{ tf-cloud-id }}"
-     folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
-   }
-
    resource "yandex_mdb_mysql_cluster" "my-mysql" {
      name                = "my-mysql"
      environment         = "PRESTABLE"

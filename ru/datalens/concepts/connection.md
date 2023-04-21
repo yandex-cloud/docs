@@ -7,7 +7,7 @@ _Подключение_ содержит информацию о парамет
 В {{ datalens-short-name }} доступны следующие типы подключений:
 
 * [{{ CH }}](../operations/connection/create-clickhouse.md)
-* [File (CSV)](../operations/connection/create-file.md)
+* [Файлы](../operations/connection/create-file.md)
 * [Google Sheets](../operations/connection/create-google-sheets.md)
 * [{{ PG }}](../operations/connection/create-postgresql.md)
 * [{{ MY }}](../operations/connection/create-mysql.md)
