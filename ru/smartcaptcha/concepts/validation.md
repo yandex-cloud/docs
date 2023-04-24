@@ -43,10 +43,7 @@ https://smartcaptcha.yandexcloud.net/validate?secret=<ключ_сервера>&i
 
 Где:
 
-* `secret` — [ключ сервера](../operations/get-keys.md);
-* `token` — токен;
-* `ip` — IP-адрес пользователя.
-
+{% include [query-parameters](../../_includes/smartcaptcha/query-parameters.md) %}
 
 ### Ответ сервиса {#service-response}
 
@@ -79,7 +76,6 @@ https://smartcaptcha.yandexcloud.net/validate?secret=<ключ_сервера>&i
     }
     ```
 
-
 ### Ошибки в запросе {#errors}
 
 Если запрос к `https://smartcaptcha.yandexcloud.net/validate` оформлен некорректно, сервис вернет ошибку. Например:
@@ -90,15 +86,6 @@ https://smartcaptcha.yandexcloud.net/validate?secret=<ключ_сервера>&i
     {
         "status": "failed",
         "message": "Authentication failed. Secret has not provided."
-    }
-    ```
-
-1. Запрос без IP-адреса:
-
-    ```JSON
-    {
-        "status": "failed",
-        "message": "Invalid IP."
     }
     ```
 

@@ -10,7 +10,10 @@ Reports are then used as a basis for generating [invoices](../concepts/invoice.m
 
 {% include [act-invoice-note](../_includes/act-invoice-note.md) %}
 
+
 {% include [act-invoice-examples](../_includes/act-invoice-examples.md) %}
+
+
 
 ## VAT accounting {#nds}
 
@@ -25,3 +28,4 @@ Reports are then used as a basis for generating [invoices](../concepts/invoice.m
    A report is not issued to non-residents of Russia and Kazakhstan.
 
 {% endlist %}
+

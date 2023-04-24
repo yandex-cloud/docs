@@ -1,4 +1,6 @@
-  * Click **Add card**.
-  * Enter the bank card details: the 16-digit number, expiration date and CVV (on the back of the card).
+
+  * Click **Change bank card**.
+  * Specify your card details: 16-digit number, expiration date, and CVV (you can find it on the back side of your card).
   * Click **Link**.
+
 

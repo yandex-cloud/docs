@@ -64,9 +64,7 @@
 
 1. После получения токена из метода `captchaDidFinish` отправьте GET-запрос на сервер для проверки `https://smartcaptcha.yandexcloud.net/validate` со следующими параметрами:
 
-   * `secret` — ключ для серверной части (необходимо получить заранее);
-   * `token` — токен, полученный после прохождения проверки;
-   * `ip` — IP-адрес пользователя, от которого пришел запрос на проверку токена.
+   {% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
 
 ### Метод challengeDidAppear для невидимой капчи {#challengeDidAppear-method}
 
