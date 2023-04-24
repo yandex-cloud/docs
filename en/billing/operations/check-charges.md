@@ -72,10 +72,10 @@ The number of columns in the table depends on the selected detail depth. See a d
 
 | Name | Description |
 ----- | -----
-| Cloud | The name of the cloud that resources were used for. <br/>Only shown when usage details for clouds are selected. |
-| Service | The name of the service that resources were used in. <br/>Only shown when usage details for services or products are selected. |
+| Cloud | Name of the cloud that resources were used for. <br/>Only shown when usage details for clouds are selected. |
+| Service | Name of the service that resources were used in. <br/>Only shown when usage details for services or products are selected. |
 | Product | Product name <br/>Only shown when usage details for products are selected. |
 | Consumption unit | Units and amount of resources consumed. <br/>Only shown when usage details for products are selected. |
-| Consumption cost | The amount for the volume of resources consumed before applying discounts. |
-| Discount | The discount amount in the currency of the agreement (excluding VAT or other taxes and fees). |
-| Due and payable | The total amount for resources consumed after applying discounts. |
+| Consumption cost | Amount for the volume of resources consumed before applying discounts. |
+| Discount | Discount amount in the currency of the agreement (excluding VAT or other taxes and fees). |
+| Due and payable | Total amount for resources consumed after applying discounts. |

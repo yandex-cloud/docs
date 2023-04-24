@@ -1,6 +1,6 @@
 # Просмотр логов {{ GP }}-кластера
 
-{{ mgp-name }} позволяет получить фрагмент лога кластера для просмотра и изучения.
+{{ mgp-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -19,11 +19,88 @@
 
     Если записей слишком много и отображается только часть из них, нажмите на ссылку **Загрузить еще** в конце списка.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    1. Просмотрите описание команды CLI для просмотра логов кластера:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster list-logs --help
+        ```
+
+    1. Запустите команду получения логов кластера (в примере приведены не все доступные параметры):
+
+        ```bash
+        {{ yc-mdb-gp }} cluster list-logs <имя или идентификатор кластера> \
+           --limit <ограничение количества записей> \
+           --format <формат вывода> \
+           --columns <список колонок для вывода информации> \
+           --filter <настройки фильтрации записей> \
+           --since <левая граница временного диапазона> \
+           --until <правая граница временного диапазона>
+        ```
+
+        Где:
+
+        * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
+        * {% include [logs output format](../../_includes/cli/logs/format.md) %}
+        * `--service-type` — тип сервиса, для которого требуется вывести записи (`greenplum` или `greenplum-pooler`).
+        * `--columns` — список колонок для вывода информации:
+            * `hostname` — [имя хоста](./hosts/cluster-hosts.md#list-hosts).
+            * `level` — уровень логирования, например, `info`.
+            * `pid` — идентификатор серверного процесса текущей сессии.
+            * `text` — сообщение, которое выводит компонент.
+
+            {% note info %}
+
+            Список выводимых колонок зависит от выбранного типа сервиса `--service-type`. В примере приведены только основные колонки для типа `greenplum-pooler`.
+
+            {% endnote %}
+
+            {% include [logs column format](../../_includes/cli/logs/column-format.md) %}
+
+        * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
+        * {% include [logs since time](../../_includes/cli/logs/since.md) %}
+        * {% include [logs until time](../../_includes/cli/logs/until.md) %}
+
+    Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 - API
 
     Воспользуйтесь методом API [listLogs](../api-ref/Cluster/listLogs.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](../api-ref/Cluster/list.md).
+
+{% endlist %}
+
+## Получить поток логов кластера {#get-log-stream}
+
+Этот способ позволяет получать логи кластера в реальном времени.
+
+{% list tabs %}
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Для просмотра логов кластера по мере их поступления выполните команду:
+
+    ```bash
+    {{ yc-mdb-gp }} cluster list-logs <имя или идентификатор кластера> --follow
+    ```
+
+    Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- API
+
+    Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+
+    Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 

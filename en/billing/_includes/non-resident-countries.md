@@ -7,7 +7,7 @@
 | Belgium | Great Britain | Moldova | Spain |
 | Bulgaria | Iceland | Montenegro | Sweden |
 | Croatia | Ireland | Netherlands | Tajikistan |
-| Cyprus | Israel | Norway | Turkey |
+| Cyprus | Israel | Norway | Türkiye |
 | Czech Republic | Italy | Poland | Turkmenistan |
 | Denmark | Kazakhstan | Portugal | Uzbekistan |
 | Estonia | Kyrgyzstan | Russia |   |

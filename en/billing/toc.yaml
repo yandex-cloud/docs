@@ -4,55 +4,67 @@ editable: false
 items:
   - name: Getting started
     href: quickstart/index.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
-      - name: Activate the paid version
-        href: operations/activate-commercial.md
-      - name: Purchase a committed volume of services (CVoS)
-        href: operations/purchase-cvos.md
-      - name: Activate a promo code
-        href: operations/activate-promocode.md
-      - name: View usage details
-        href: operations/check-charges.md
-      - name: Top up your personal account
-        href: operations/pay-the-bill.md
-      - name: Link another bank card
-        href: operations/pin-card.md
-      - name: Unlink a card
-        href: operations/unlink-card.md
-      - name: Link a cloud to a billing account
-        href: operations/pin-cloud.md
-      - name: Change the payment method
-        href: operations/change-payment-method.md
-      - name: Understand your payment invoice
-        href: operations/spell-out-bill.md
-      - name: View your payment history
-        href: operations/check-bill-history.md
-      - name: Change your billing account data
-        href: operations/change-data.md
-      - name: Create a new billing account
-        href: operations/create-new-account.md
-      - name: Delete billing account
-        href: operations/delete-account.md
-      - name: Get expense details by folder
-        href: operations/get-folder-report.md
-      - name: View details in {{ datalens-full-name }}
-        href: operations/dashboard.md
-      - name: Enable notifications
-        href: operations/budgets.md
-      - name: Enable electronic document management
-        href: operations/edo.md
-      - name: Download reporting documents
-        href: operations/download-reporting-docs.md
-      - name: Integration with {{ yq-full-name }}
-        href: operations/query-integration.md
+      - name: Working with documents
+        items:
+          - name: Understand your payment invoice
+            href: operations/spell-out-bill.md
+          - name: Download reporting documents
+            href: operations/download-reporting-docs.md
+          - name: Enable electronic document management
+            href: operations/edo.md
+      - name: Managing a billing account
+        items:
+          - name: Create a new billing account
+            href: operations/create-new-account.md
+          - name: Change your billing account data
+            href: operations/change-data.md
+          - name: Link a cloud to a billing account
+            href: operations/pin-cloud.md
+          - name: Delete a billing account
+            href: operations/delete-account.md
+          - name: Activate the paid version
+            href: operations/activate-commercial.md
+      - name: Managing payment methods
+        items:
+          - name: Link another bank card
+            href: operations/pin-card.md
+          - name: Unlink a card
+            href: operations/unlink-card.md
+          - name: Changing payment method
+            href: operations/change-payment-method.md
+      - name: Cost optimization
+        items:
+          - name: Enable notifications
+            href: operations/budgets.md
+          - name: Purchase a committed volume of services (CVoS)
+            href: operations/purchase-cvos.md
+      - name: Paying for services
+        items:
+          - name: Activate a promo code
+            href: operations/activate-promocode.md
+          - name: Top up your personal account
+            href: operations/pay-the-bill.md
+      - name: Analyzing {{ yandex-cloud }} service usage
+        items:
+          - name: View your payment history
+            href: operations/check-bill-history.md
+          - name: Viewing usage details in the console
+            href: operations/check-charges.md
+          - name: Get expense details by folder
+            href: operations/get-folder-report.md
+          - name: View details in {{ datalens-full-name }}
+            href: operations/dashboard.md
+          - name: Searching for usage details with {{ yq-full-name }}
+            href: operations/query-integration.md
   - name: Concepts
     items:
       - name: All concepts
         href: concepts/index.md
-      - name: Promo code
+      - name: Promo codes
         href: concepts/promo-code.md
       - name: Billing threshold
         href: concepts/billing-threshold.md
@@ -68,6 +80,8 @@ items:
         href: concepts/bonus-account.md
       - name: Trial period
         href: concepts/trial-period.md
+      - name: Reporting period
+        href: concepts/reporting-period.md
       - name: Committed volume of services (CVoS)
         href: concepts/cvos.md
       - name: Free tier of serverless ecosystem

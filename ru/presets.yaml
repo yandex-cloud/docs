@@ -66,6 +66,7 @@ default:
   cloud-desktop-full-name: Yandex Cloud Desktop
   marketplace-full-name: Yandex Cloud Marketplace
   captcha-full-name: Yandex SmartCaptcha
+  search-api-full-name: Yandex Search API
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
   preview-stage: <code><b><small>Preview</small></b></code>
@@ -149,6 +150,7 @@ default:
   logbroker-name: Logbroker
   logfeller-name: Logfeller
   backup-name: Cloud Backup
+  search-api-name: Search API
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -204,6 +206,7 @@ default:
   cloud-desktop-short-name: Cloud Desktop
   backup-short-name: Cloud Backup
   datalens-public: DataLens Public
+  search-api: Search API
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-alb-viewer: alb.viewer
   roles-alb-editor: alb.editor
@@ -331,6 +334,7 @@ default:
       viewer: managed-redis.viewer
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
+  roles-search-api-executor: search-api.executor
   roles-organization-admin: organization-manager.admin
   roles-organization-owner: organization-manager.organizations.owner
   roles-organization-viewer: organization-manager.viewer
@@ -730,6 +734,8 @@ default:
   taas: TaaS
   ml-project-size: 10 ГБ
   jlab: Jupyter
+  search-api-request-ch: 400 символов
+  search-api-request-w: 40 слов
   ds-api-addr: datasphere.api.cloud.yandex.net:443
   api-host-sk: api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
