@@ -1,16 +1,20 @@
 # Points of presence
 
-A point of presence is a communication object where the {{ yandex-cloud }} equipment is placed. The {{ yandex-cloud }} equipment is located at multiple points of presence.
+A point of presence is a communication object where the {{ yandex-cloud }} equipment is placed. The {{ yandex-cloud }} equipment is installed at multiple points of presence. 
 
 The client equipment can connect to the {{ yandex-cloud }} equipment directly via a cross connection.
 
 The client equipment can connect to the telecom provider equipment which, in its turn, will connect to the {{ yandex-cloud }} equipment directly via a cross connection.
 
+
 To ensure fault tolerance when providing the service, set up communication channels at two points of presence.
+
 
 {{ yandex-cloud }} equipment is located at the following points of presence:
 
 {% include [pops](../../_includes/interconnect/pops.md) %}
+
+
 
 ## Agreement letter {#letter}
 
@@ -30,3 +34,4 @@ You can find agreement letter forms for each point of presence below:
 You can connect {{ interconnect-name }} at the **TEHNO** point of presence starting April 15, 2023.
 
 {% endnote %}
+

@@ -22,6 +22,44 @@
     1. Выберите **Источник**, **Хост** и **Уровень логирования**.
     1. Укажите период времени, за который нужно отобразить лог.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    1. Просмотрите описание команды CLI для просмотра логов кластера:
+
+        ```bash
+        {{ yc-mdb-kf }} cluster list-logs --help
+        ```
+
+    1. Запустите команду получения логов кластера (в примере приведены не все доступные параметры):
+
+        ```bash
+        {{ yc-mdb-kf }} cluster list-logs <имя или идентификатор кластера> \
+           --limit <ограничение количества записей> \
+           --columns <список колонок для вывода информации> \
+           --filter <настройки фильтрации записей> \
+           --since <левая граница временного диапазона> \
+           --until <правая граница временного диапазона>
+        ```
+
+        Где:
+
+        * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
+        * `--columns` — список колонок для вывода информации:
+            * `hostname` — [имя хоста](cluster-hosts.md#list-hosts).
+            * `message` — сообщение, которое выводит компонент.
+            * `severity` — уровень логирования, например, `I` или `W` (`Info` и `Warning` соответственно).
+            * `origin` — источник сообщения, например, `kafka_server` или `kafka_controller`.
+
+        * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
+        * {% include [logs since time](../../_includes/cli/logs/since.md) %}
+        * {% include [logs until time](../../_includes/cli/logs/until.md) %}
+
+    Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 - API
 
     Воспользуйтесь методом API [listLogs](../api-ref/Cluster/listLogs.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
@@ -37,6 +75,20 @@
 Этот способ позволяет получать логи кластера в реальном времени.
 
 {% list tabs %}
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Для просмотра логов кластера по мере их поступления выполните команду:
+
+    ```bash
+    {{ yc-mdb-kf }} cluster list-logs <имя или идентификатор кластера> --follow
+    ```
+
+    Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API
 

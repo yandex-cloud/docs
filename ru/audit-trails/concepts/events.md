@@ -10,28 +10,48 @@
 
 Ниже описаны события для сервисов:
 
+* [{{ api-gw-name }}](#api-gateway)
 * [{{ alb-name }}](#alb)
 * [{{ at-name }}](#audit-trails)
 * [{{ certificate-manager-name }}](#certificate-manager)
 * [{{ dns-name }}](#dns)
+* [{{ sf-name }}](#functions)
+* [{{ cdn-name }}](#cdn)
 * [{{ cloud-logging-name }}](#cloud-logging-name)
 * [{{ compute-name }}](#compute)
+* [{{ container-registry-name }}](#container-registry)
+* [{{ dataproc-name }}](#dataproc)
 * [{{ iam-name }}](#iam)
+* [{{ iot-name }}](#iot)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
+* [{{ managed-k8s-name }}](#managed-service-for-kubernetes)
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
 * [{{ mrd-short-name }}](#managed-service-for-redis)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ serverless-containers-name }}](#serverless-containers)
 * [{{ org-name }}](#organization)
 * [{{ resmgr-name }}](#resmgr)
+* [{{ captcha-name }}](#smartcaptcha)
 * [{{ vpc-name }}](#vpc)
 * [{{ ydb-short-name }}](#ydb)
 * [{{ yq-short-name }}](#yq)
+
+## {{ api-gw-name }} {#api-gateway}
+
+Имя сервиса — `serverless.apigateway`.
+
+Имя события | Описание
+--- | ---
+`CreateApiGateway` | Создание шлюза
+`DeleteApiGateway` | Удаление шлюза
+`UpdateApiGateway` | Изменение шлюза
+
 
 ## {{ alb-name }} {#alb}
 
@@ -82,6 +102,43 @@
 `UpdateTrail` | Изменение трейла
 `UpdateTrailAccessBindings` | Изменение привязок прав доступа для трейла
 
+## {{ sf-name }} {#functions}
+
+Имя сервиса — `serverless.functions`.
+
+Имя события | Описание
+--- | ---
+`CreateFunction` | Создание функции
+`CreateFunctionVersion` | Создание версии функции
+`DeleteFunction` | Удаление функции
+`RemoveFunctionTag` | Удаление тега функции
+`SetFunctionTag` | Назначение тега функции
+`UpdateFunction` | Изменение функции
+`mdbproxy.CreateProxy` | Создание прокси
+`mdbproxy.DeleteProxy` | Удаление прокси
+`mdbproxy.UpdateProxy` | Изменение прокси
+`triggers.CreateTrigger` | Создание триггера
+`triggers.DeleteTrigger` | Удаление триггера
+`triggers.UpdateTrigger` | Изменение триггера
+
+## {{ cdn-name }} {#cdn}
+
+Имя сервиса — `cdn`.
+
+Имя события | Описание
+--- | ---
+`gcore.CachePrefetch` | Предзагрузка кеша
+`gcore.CachePurge` | Очистка кеша
+`gcore.OriginCreate` | Создание источника
+`gcore.OriginDelete` | Удаление источника
+`gcore.OriginGroupCreate` | Создание группы источников
+`gcore.OriginGroupDelete` | Удаление группы источников
+`gcore.OriginGroupUpdate` | Изменение группы источников
+`gcore.OriginUpdate` | Измнение источника
+`gcore.ProviderActivate` | Активация провайдера
+`gcore.ResourceCreate` | Создание ресурса
+`gcore.ResourceUpdate` | Изменение ресурса
+
 ## {{ certificate-manager-name }} {#certificate-manager}
 
 Имя сервиса — `certificatemanager`.
@@ -89,10 +146,14 @@
 Имя события | Описание
 --- | ---
 `CreateCertificate` | Создание сертификата
+`CreateDomain` | Создание домена
 `UpdateCertificate` | Изменение сертификата
+`UpdateDomain` | Изменение домена
 `DeleteCertificate` | Удаление сертификата
+`DeleteDomain` | Удаление домена
 `UpdateCertificateAccessBindings` | Изменение привязок прав доступа для сертификата
 `SetCertificateAccessBindings` | Назначение привязок прав доступа для сертификата
+`SetDomainPrimaryCertificate` | Назначение домену основного сертификата
 
 ## {{ dns-name }} {#dns}
 
@@ -135,13 +196,17 @@
 `CreateImage` | Создание образа диска
 `CreateInstance` | Создание ВМ
 `CreateSnapshot` | Создание снимка диска
+`CreateSnapshotSchedule` | Создание расписания снимков диска
 `DeleteDisk` | Удаление диска
 `DeleteFilesystem` | Удаление файловой системы
 `DeleteImage` | Удаление образа диска
 `DeleteInstance` | Удаление ВМ
 `DeleteSnapshot` | Удаление снимка диска
+`DeleteSnapshotSchedule` | Удаление расписания снимков диска
 `DetachInstanceDisk` | Отключение диска от ВМ
 `DetachInstanceFilesystem` | Отключение файловой системы от ВМ
+`DisableSnapshotSchedule` | Отключение расписания снимков диска
+`EnableSnapshotSchedule` | Включение расписания снимков диска
 `GuestStopInstance` | Остановка ВМ по команде из этой ВМ
 `PreemptInstance` | Прерывание работы ВМ
 `RemoveInstanceOneToOneNat` | Удаление публичного IP-адреса ВМ
@@ -155,6 +220,8 @@
 `UpdateInstanceMetadata` | Изменение метаданных ВМ
 `UpdateInstanceNetworkInterface` | Изменение сетевых настроек ВМ
 `UpdateSnapshot` | Изменение снимка диска
+`UpdateSnapshotSchedule` | Изменение параметров расписания снимков диска
+`UpdateSnapshotScheduleDisks` | Изменение параметров расписания снимков дисков
 `instancegroup.CreateInstanceGroup` | Создание группы ВМ
 `instancegroup.DeleteInstanceGroup` | Удаление группы ВМ
 `instancegroup.DeleteInstanceGroupInstances` | Удаление ВМ из группы
@@ -166,6 +233,41 @@
 `instancegroup.StopInstanceGroupInstances` | Остановка ВМ из группы
 `instancegroup.UpdateInstanceGroup` | Изменение группы ВМ
 `instancegroup.UpdateInstanceGroupAccessBindings` | Изменение ролей для группы ВМ
+
+## {{ container-registry-name }} {#container-registry}
+
+Имя сервиса — `containerregistry`.
+
+Имя события | Описание
+--- | ---
+`CreateImage` | Создание образа
+`CreateImageTag` | Создание тега образа
+`CreateRegistry` | Создание реестра
+`CreateRepository` | Создание репозитория
+`DeleteImage` | Удаление образа
+`DeleteImageTag` | Удаление тега образа
+`DeleteRegistry` | Удаление реестра
+`DeleteRepository` | Удаление репозитория
+`ScanImage` | Сканирование образа
+`UpdateIpPermission` | Изменение политики доступа с IP-адресов
+`UpdateRegistry` | Изменение реестра
+`UpdateRegistryAccessBindings` | Изменение ролей для реестра  
+`UpdateRepositoryAccessBindings` | Изменение ролей для репозитория
+
+## {{ dataproc-name }} {#dataproc}
+
+Имя сервиса — `dataproc`.
+
+Имя события | Описание
+--- | ---
+`CreateCluster` | Создание кластера
+`CreateSubcluster` | Создание подкластера
+`DeleteCluster` | Удаление кластера
+`DeleteSubcluster` | Удаление подкластера
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+`UpdateSubcluster` | Изменение подкластера
 
 ## {{ iam-name }} {#iam}
 
@@ -197,6 +299,19 @@
 `UpdateServiceAccountAccessBindings` | Изменение привязок прав доступа
 
 \* Событие попадает в аудитный лог, только если [область сбора аудитных логов](./trail.md#collecting-area) трейла — `Организация`.
+
+## {{ iot-name }} {#iot}
+
+Имя сервиса — `iot`.
+
+Имя события | Описание
+--- | ---
+`devices.CreateDevice` | Создание устройства
+`devices.CreateRegistry` | Создание реестра
+`devices.DeleteDevice` | Удаление устройства
+`devices.DeleteRegistry` | Удаление реестра
+`devices.UpdateDevice` | Изменение устройства
+`devices.UpdateRegistry` | Изменение реестра
 
 ## {{ kms-name }} {#kms}
 
@@ -288,6 +403,7 @@
 `UpdateInstance` | Изменение инстанса
 `UpdateOmniauthInstance` | Изменение настроек OmniAuth
 `UpgradeInstance` | Обновление версии GitLab
+`CleanupRegistryInstance` | Очистка Docker Registry
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
@@ -315,6 +431,28 @@
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateUser` | Изменение пользователя базы данных
+
+
+## {{ managed-k8s-name }} {#managed-service-for-kubernetes}
+
+Имя сервиса — `k8s`.
+
+Имя события | Описание
+--- | ---
+`AutoUpgradeCluster` | Автообновление кластера
+`AutoUpgradeNodeGroup` | Автообновление группы узлов
+`CreateCluster` | Создание кластера
+`CreateNodeGroup` | Создание группы узлов
+`DeleteCluster` | Удаление кластера
+`DeleteNodeGroup` | Удаление группы узлов
+`DeleteStoppedCluster` | Удаление остановленного кластера
+`InstallHelmRelease` | Установка версии Helm
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UninstallHelmRelease` | Удаление версии Helm
+`UpdateCluster` | Изменение кластера
+`UpdateHelmRelease` | Изменение версии Helm
+`UpdateNodeGroup` | Изменение группы узлов
 
 ## {{ mmy-short-name }} {#managed-service-for-mysql}
 
@@ -421,6 +559,8 @@
 `BucketCorsUpdate` | Изменение конфигурации CORS бакета
 `BucketCreate` | Создание бакета
 `BucketDelete` | Удаление бакета
+`BucketEncryptionUpdate` | Обновление настроек шифрования бакета
+`BucketVersioningUpdate` | Обновление настроек версионирования бакета
 `BucketHttpsUpdate` | Изменение HTTPS-конфигурации для бакета
 `BucketLifecycleUpdate` | Изменение жизненного цикла объекта в бакете
 `BucketPolicyUpdate` | Изменение политик доступа бакета
@@ -432,6 +572,26 @@
 
 \* Указанные события по умолчанию не входят в аудитный лог. Чтобы добавить эти события в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
 «Просьба включить запись событий data plane object storage в audit trail `<id трейла>`».
+
+## {{ serverless-containers-name }} {#serverless-containers}
+
+Имя сервиса — `serverless.containers`.
+
+Имя события | Описание
+--- | ---
+`CreateContainer` | Создание контейнера
+`DeleteContainer` | Удаление контейнера
+`DeployContainerRevision` | Создание ревизии контейнера
+`RollbackContainer` | Откат контейнера к целевой ревизии
+`SetContainerAccessBindings` | Назначение привязок прав доступа к контейнеру 
+`UpdateContainer` | Изменение контейнера
+`UpdateContainerAccessBindings` | Изменение привязок прав доступа к контейнеру
+`mdbproxy.CreateProxy` | Создание прокси
+`mdbproxy.DeleteProxy` | Удаление прокси
+`mdbproxy.UpdateProxy` | Изменение прокси
+`triggers.CreateTrigger` | Создание триггера
+`triggers.DeleteTrigger` | Удаление триггера
+`triggers.UpdateTrigger` | Изменение триггера
 
 ## {{ org-name }} {#organization}
 
@@ -454,14 +614,25 @@
 
 Имя события | Описание
 --- | ---
+`AddCloudToOrganization` | Добавление облака в организацию
 `CreateCloud` | Создание облака
 `CreateFolder` | Создание каталога
 `DeleteCloud` | Удаление облака
 `DeleteFolder` | Удаление каталога
 `UpdateCloud` | Изменение облака
-`UpdateCloudAccessBindings` | Изменение привязок прав доступа для облака
+`UpdateCloudAccessBindings` | Изменение привязок прав доступа на облако
 `UpdateFolder` | Обновление каталога
-`UpdateFolderAccessBindings` | Изменение привязок прав доступа для каталога 
+`UpdateFolderAccessBindings` | Изменение привязок прав доступа на каталог
+
+## {{ captcha-name }} {#smartcaptcha}
+
+Имя сервиса — `smartcaptcha`.
+
+Имя события | Описание
+--- | ---
+`CreateCaptcha` | Создание капчи
+`DeleteCaptcha` | Удаление капчи
+`UpdateCaptcha` | Изменение капчи
 
 ## {{ vpc-name }} {#vpc}
 

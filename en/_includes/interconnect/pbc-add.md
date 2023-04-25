@@ -20,7 +20,7 @@ trunk_id: euus5dfgchu23b81d472
 vlan_id: 101
 ipv4_peering:
   peer_bgp_asn: 65001
-  #yandex_cloud_bgp_asn: 200350
+  #cloud_bgp_asn: {{ cic-bgp-asn }}
 allowed-public-services:
   - {{ s3-storage-host }}
   - transcribe.{{ api-host }}
@@ -43,13 +43,13 @@ Here is how the support team may respond to the request for creating a public co
 ```s
 id: cf3qdug4fsf737g2gpdu
 ipv4_peering:
-  peering_subnet: 178.210.118.46/31
-  peer_ip: 178.210.118.47
-  yandex_cloud_ip: 178.210.118.46
+  peering_subnet: {{ cic-pbc-subnet }}
+  peer_ip: {{ cic-pbc-subnet-client }}
+  cloud_ip: {{ cic-pbc-subnet-cloud }}
   peer_bgp_asn: 65001
-  #yandex_cloud_bgp_asn: 200350
+  #cloud_bgp_asn: {{ cic-bgp-asn }}
 ipv4_nat:
-  nat_subnet: 178.210.118.200/30
+  nat_subnet: {{ cic-pbc-nat-subnet }}
 allowed-public-services:
   - {{ s3-storage-host }}
   - transcribe.{{ api-host }}
@@ -59,7 +59,7 @@ Where:
 * `id`: ID of the created public connection.
 * `peering_subnet`: [Point-to-point subnet](../../interconnect/concepts/pub-con.md#pub-address) for BGP peering, which is allocated from the {{ yandex-cloud }} [address pool](../../vpc/concepts/ips.md).
 * `peer_ip`: IP address of the point-to-point (peering) subnet on the customer's equipment. It is assigned by {{ yandex-cloud }}.
-* `yandex_cloud_ip`: IP address of the point-to-point (peering) subnet on the Yandex Cloud equipment. It is assigned by {{ yandex-cloud }}.
+* `cloud_ip`: IP address of the point-to-point (peering) subnet on the {{ yandex-cloud }} equipment. It is assigned by {{ yandex-cloud }}.
 * `nat_subnet`: Additional subnet allocated from the {{ yandex-cloud }} public address space to implement [NAT functions](../../interconnect/concepts/pub-con.md#pub-nat).
 * `allowed-public-services`: List of `API Endpoint FQDNs` from the customer request for the services to provide access to via the created public connection.
 

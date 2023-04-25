@@ -90,19 +90,19 @@ To log requests to the bucket:
          * `access_key`: ID of the static access key.
          * `secret_key`: Value of the secret access key.
          * `target_bucket`: Target bucket.
-         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`.
+         * `target_prefix`: [Key prefix](../../concepts/server-logs.md#key-prefix) for objects with logs. For example, `logs/`.
 
          For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#enable-logging).
 
 
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-        Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
    - API
 
-      Send the request using the method [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md).
+      To enable logging for your bucket, use the [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md) S3 API method.
 
       Example of the HTTP request body:
 
@@ -118,7 +118,7 @@ To log requests to the bucket:
       Where:
 
       * `<TargetBucket>`: Target bucket name.
-      * `<TargetPrefix>`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`. This is an optional parameter.
+      * `<TargetPrefix>`: [Key prefix](../../concepts/server-logs.md#key-prefix) for objects with logs. For example, `logs/`. This is an optional parameter.
 
    {% endlist %}
 
@@ -130,7 +130,7 @@ To get the name of the target bucket and the prefix of the key for the log objec
 
 - AWS CLI
 
-   To retrieve the logging settings via the [AWS CLI](../../tools/aws-cli.md):
+   To get logging settings via the [AWS CLI](../../tools/aws-cli.md):
 
    1. Run this command:
 
@@ -154,7 +154,7 @@ To get the name of the target bucket and the prefix of the key for the log objec
 
 - API
 
-   Send the request using the method [getBucketLogging](../../s3/api-ref/bucket/getBucketLogging.md).
+   Use the [getBucketLogging](../../s3/api-ref/bucket/getBucketLogging.md) S3 API method.
 
    Example of the HTTP response body:
 
@@ -231,13 +231,13 @@ To disable logging, follow these steps:
 
       {% endcut %}
 
-  {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-     You can verify the changes in the [management console]({{ link-console-main }}).
+   You can verify the changes in the [management console]({{ link-console-main }}).
 
 - API
 
-   Send the request using the method [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md). In the request body, pass the `<BucketLoggingStatus>` parameter with an empty value.
+   Use the [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md) S3 API method. In the request body, provide the `<BucketLoggingStatus>` parameter with an empty value.
 
    Example of the HTTP request body:
 

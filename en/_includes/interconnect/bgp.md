@@ -13,19 +13,18 @@ To maintain continuous BGP connectivity, we recommend setting up policies for ro
 
 ### BGP ASN {#bgp-asn}
 
-To set up BGP connectivity, each side must specify the BGP autonomous system number (ASN). The BGP ASN for {{ yandex-cloud }} is fixed at **200350**.
-On the client side, you can set up a public BGP ASN (if any) or use any number from private BGP ASNs in the range between `64512` and `65534`.
+To set up BGP connectivity, each side must specify the BGP autonomous system number (ASN). The BGP ASN value for {{ yandex-cloud }} is fixed at **{{ cic-bgp-asn }}**. On the client side, you can set up a public BGP ASN (if any) or use any number from private BGP ASNs in the range of `64512 — 65534`.
 
 {% note warning %}
 
-On the {{ yandex-cloud }} side, a `4-byte` BGP ASN value is used: **200350**. When using network equipment from different vendors, using 2-byte BGP ASN values as the most common ones will be prioritized.
+On the {{ yandex-cloud }} side, a 4-byte BGP ASN value, **{{ cic-bgp-asn }}**, is used. When using network equipment from various vendors, using 2-byte BGP ASN values as the most common ones will be prioritized.
 
-When setting up BGP connectivity on the client router side, explicitly allow using `4-byte` BGP ASN values in its configuration.
+When setting up BGP connectivity on the client router side, make sure to explicitly allow 4-byte BGP ASN values in its configuration.
 
 {% endnote %}
 
 ### BGP authentication (optional) {#bgp-auth}
-To increase the security level of a BGP connection, you can use BGP authentication based on the `BGP MD5 password` mechanism. If the feature is enabled, use a string of more than 20 characters as a password, which may include alphanumeric and special characters.
+To increase the security level of a BGP connection, you can use BGP authentication based on the `BGP MD5 password` mechanism. If the feature is enabled, use a string of more than 20 characters as a password, which may include Latin letters, numbers, and special characters.
 
 ### BFD protocol {#bfd}
 

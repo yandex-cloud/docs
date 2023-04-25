@@ -186,4 +186,4 @@ provider "yandex" {
 
 ## См. также {#see-also}
 
-* [{#T}](terraform-state-lock.md).
+* [{#T}](../../tutorials/infrastructure-management/terraform-state-lock.md).

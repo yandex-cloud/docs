@@ -1,3 +1,4 @@
+
 | Service name | API Endpoint FQDN |
 | --- | --- |
 | [{{ objstorage-name }}](../../storage/) | {{ s3-storage-host }} |
@@ -7,3 +8,5 @@
 | [{{ vision-full-name }}](../../vision/) | vision.{{ api-host }} |
 | [{{ translate-full-name }}](../../translate/) | translate.{{ api-host }} |
 | [Management console]({{ link-console-main }}) | {{ api-host }} |
+
+

@@ -1,9 +1,9 @@
 # Создание виртуальной машины с GPU
 
-В этом разделе приведена инструкция для создания виртуальной машины с GPU. Подробнее с конфигурациями ВМ вы можете ознакомиться в разделе [{#T}](../../concepts/gpus.md).
+В этом разделе приведена инструкция для создания [ВМ](../../concepts/vm.md) с GPU. Подробнее с конфигурациями ВМ вы можете ознакомиться в разделе [{#T}](../../concepts/gpus.md).
 
-По умолчанию в облаке установлена нулевая [квота](../../concepts/limits.md#quotas) на создание ВМ с GPU. Чтобы изменить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку]({{ link-console-support }}).
-     
+По умолчанию в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) установлена нулевая [квота](../../concepts/limits.md#quotas) на создание ВМ с GPU. Чтобы изменить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку]({{ link-console-support }}).
+
 
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
@@ -27,15 +27,15 @@
      yc compute instance create --help
      ```
 
-  1. Подготовьте [пару ключей](../vm-connect/ssh.md#creating-ssh-keys) (открытый и закрытый) для SSH-доступа на ВМ.
-  1. Выберите один из публичных образов.
+  1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ.
+  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md).
 
      {% include [gpu-images](../../../_includes/gpu-images.md) %}
 
      {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
-  1. Создайте ВМ в каталоге по умолчанию:
-  
+  1. Создайте ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
+
      
      ```bash
      yc compute instance create \
@@ -49,28 +49,36 @@
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
-     
-     
+
+
 
      Где:
-
      * `name` – имя ВМ.
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
      * `zone` – [зона доступности](../../../overview/concepts/geo-scope.md).
      * `platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
+
+       
        * `gpu-standard-v1` для платформы {{ v100-broadwell }}.
        * `gpu-standard-v2` для платформы {{ v100-cascade-lake }}.
        * `standard-v3-t4` для платформы {{ t4-ice-lake }}.
+
+
        * `gpu-standard-v3` для платформы {{ a100-epyc }}.
      * `cores` – [количество vCPU](../../concepts/gpus.md).
-     * `memory` – [размер RAM](../../concepts/gpus.md).
-     * `gpus` – [количество GPU](../../concepts/gpus.md).
+     * `memory` – размер RAM.
+     * `gpus` – количество GPU.
      * `preemptible` – если нужно сделать ВМ [прерываемой](../../concepts/preemptible-vm.md).
      * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
-     * `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) с драйверами CUDA.
-     * `nat-ip-version=ipv4` – публичный IP. Чтобы создать ВМ без публичного IP, исключите параметр.
+
+       
+       * `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) с драйверами CUDA.
+
+
+
+     * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адреса, исключите параметр.
 
      Получите описание созданной ВМ:
 
@@ -102,7 +110,7 @@
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     ```
+     ```hcl
      resource "yandex_compute_instance" "vm-1" {
 
        name        = "vm-with-gpu"
@@ -143,24 +151,27 @@
      ```
 
      Где:
-
-     * `yandex_compute_instance` — описание [ВМ](../../concepts/vm.md):
+     * `yandex_compute_instance` — описание ВМ:
        * `name` — имя ВМ.
        * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
+
+         
          * `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.
          * `gpu-standard-v2` для платформы Intel Cascade Lake with NVIDIA® Tesla® V100.
          * `standard-v3-t4` для платформы Intel Ice Lake with NVIDIA® Tesla® T4.
+
+
          * `gpu-standard-v3` для платформы AMD Epyc 7662 with NVIDIA® Ampere® A100.
-       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
+       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
+       * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md). Укажите идентификатор выбранного [образа](../../concepts/image.md). Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
 
          {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
-       * `network_interface` — настройка сети. Укажите идентификатор выбранной подсети. Чтобы автоматически назначить ВМ публичный IP-адрес, укажите `nat = true`.
+       * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#network). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
        * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
-     * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
-     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#network), к которой будет подключена ВМ.
+     * `yandex_vpc_network` — описание облачной сети.
+     * `yandex_vpc_subnet` — описание подсети, к которой будет подключена ВМ.
 
      {% note info %}
 
@@ -169,7 +180,6 @@
      {% endnote %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:

@@ -138,5 +138,5 @@ resource "yandex_compute_instance" "vm-1" {
 
 ## См. также {#see-also}
 
-* [{#T}](terraform-state-storage.md).
-* [{#T}](terraform-state-lock.md).
+* [{#T}](../../tutorials/infrastructure-management/terraform-state-storage.md).
+* [{#T}](../../tutorials/infrastructure-management/terraform-state-lock.md).

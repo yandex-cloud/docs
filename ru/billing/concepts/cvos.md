@@ -93,6 +93,7 @@
 ## Сервисы, для которых доступно резервируемое потребление {#cvos-services}
 
 Тарифы сервисов, для которых доступно резервируемое потребление:
+* [{{ compute-name }}](../../compute/pricing.md#cvos)
 * [{{ mch-name }}](../../managed-clickhouse/pricing.md#cvos)
 * [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)

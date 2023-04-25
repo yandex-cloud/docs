@@ -4,7 +4,7 @@ You can set up _[object locks](../../concepts/object-lock.md)_ in [versioned](v
 
 ## Enabling an object lock {#enable}
 
-When you enable locks, previously uploaded object versions aren't locked (but you can lock them).
+Enabling locks does not mean locking previously uploaded object versions. If required, you can lock them manually.
 
 The minimum required role is `storage.admin`.
 
@@ -34,7 +34,7 @@ To enable object locks:
 
 - API
 
-   Use the [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md) method.
+   Use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md) S3 API method.
 
 {% endlist %}
 
@@ -80,8 +80,8 @@ To set up default object locks:
 
       * `Mode` is the [type](../../concepts/object-lock.md#types) of object lock:
 
-         * `GOVERNANCE`: An object lock with a predefined retention period that can be managed.
-         * `COMPLIANCE`: An object lock with a predefined retention period with strict compliance.
+         * `GOVERNANCE`: Object lock with a predefined retention period that can be managed.
+         * `COMPLIANCE`: Object lock with a predefined retention period with strict compliance.
 
       * `Days`: The retention period in days after uploading an object version. It must be a positive integer. You can't set it simultaneously with `Years`.
       * `Years`: The retention period in years after uploading an object version. It must be a positive integer. You can't set it simultaneously with `Days`.
@@ -106,7 +106,7 @@ To set up default object locks:
 
 ## Disabling object locks {#disable}
 
-If you disable object locks, this doesn't disable the locks put previously. Such locks are still in effect, and you can't remove or change them.
+If you disable the object lock feature, this will not disable the existing locks. They will still be there, and you will not be able to remove or change them.
 
 The minimum required role is `storage.admin`.
 
@@ -131,5 +131,9 @@ To disable object locks:
 
    * `bucket`: Bucket name.
    * `object-lock-configuration`: Lock configuration in the bucket. An empty value disables object locks.
+
+- API
+
+   To disable bucket object locks, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
 
 {% endlist %}

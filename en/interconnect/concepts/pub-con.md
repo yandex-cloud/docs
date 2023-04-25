@@ -12,7 +12,7 @@ Each {{ yandex-cloud }} service has its own entry point: `API Endpoint`. You can
 
 In fact, a public connection ensures connectivity between your infrastructure and the IP address the respective service's `API Endpoint FQDN` is converted to. FQDN is converted to IP through DNS.
 
-For example, if you want to get access from your infrastructure to [{{ objstorage-name }}](../../storage/) via a public connection, the `213.180.193.243/32` prefix will be announced over BGP on the side of the {{ yandex-cloud }} equipment to your router. This prefix corresponds to the `{{ s3-storage-host }}` API Endpoint FQDN of the [{{ objstorage-name }}](../../storage/) service.
+For example, if you want to get access from your infrastructure to [{{ objstorage-name }}](../../storage/) via a public connection, the {{ yandex-cloud }} equipment will announce the `{{ cic-pbc-svc1-ip }}` prefix to your router over BGP. This prefix corresponds to the `{{ s3-storage-host }}` API Endpoint FQDN of the [{{ objstorage-name }}](../../storage/) service.
 
 Set up traffic routing in your infrastructure so that the traffic to {{ yandex-cloud }} [public services](#pub-svc-list) is routed to devices that perform [NAT functions](#pub-nat) for a public connection.
 

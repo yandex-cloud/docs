@@ -177,12 +177,16 @@
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
 
-          ```bash
-          terraform apply
-          ```
+         ```bash
+         terraform apply
+         ```
 
       1. Confirm that you want to create the resources.
 
       Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+
+- API
+
+   To manage CORS configurations for buckets, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/cors/upload.md) S3 API method.
 
 {% endlist %}

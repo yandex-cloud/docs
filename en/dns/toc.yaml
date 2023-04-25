@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Zones
         items:
@@ -37,9 +37,9 @@ items:
         href: concepts/compute-integration.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
-      - name: All practical guidelines
+      - name: All tutorials
         href: tutorials/index.md
       - name: Configuring a local caching DNS resolver
         href: tutorials/local-dns-cache.md

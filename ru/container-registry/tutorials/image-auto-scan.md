@@ -1,8 +1,12 @@
 # Автоматическое сканирование Docker-образа при загрузке
 
-_Сервис сканирования находится на стадии [Preview](../../overview/concepts/launch-stages.md)._
+{% note info %}
 
-В этом сценарии описано, как настроить автоматическое [сканирование](../concepts/vulnerability-scanner.md) [Docker-образа](../concepts/docker-image.md) на наличие уязвимостей при загрузке.
+Автоматическое [сканирование](../concepts/vulnerability-scanner.md) [Docker-образов](../concepts/docker-image.md) на наличие уязвимостей при загрузке в {{ container-registry-name }} можно включить в [настройках сканера уязвимостей](../operations/scanning-docker-image.md#automatically) без создания [функций](../../functions/concepts/function.md) и [триггеров](../../functions/concepts/trigger) [{{ sf-full-name }}](../../functions/).
+
+{% endnote %}
+
+В этом сценарии описано, как настроить автоматическое сканирование Docker-образа на наличие уязвимостей при загрузке.
 
 Чтобы настроить автоматическое сканирование Docker-образа при загрузке:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -23,7 +27,6 @@ _Сервис сканирования находится на стадии [Pre
 {% include [cli-install](../../_includes/cli-install.md) %}
 
 1. [Установите](https://www.docker.com) Docker.
-
 1. Создайте [реестр](../concepts/registry.md) для загрузки Docker-образа.
 
    {% list tabs %}
@@ -110,7 +113,7 @@ _Сервис сканирования находится на стадии [Pre
 
 ## Создайте функцию {#create-function}
 
-Создайте [функцию](../../functions/concepts/function.md) в сервисе [{{ sf-full-name }}](../../functions/) с именем `scan-on-push`, которая будет запускать сканирование образа:
+Создайте функцию в сервисе {{ sf-name }} с именем `scan-on-push`, которая будет запускать сканирование Docker-образа:
 
 {% list tabs %}
 
@@ -215,7 +218,7 @@ _Сервис сканирования находится на стадии [Pre
 
 ## Создайте триггер {#create-trigger}
 
-Создайте [триггер](../../functions/concepts/trigger/cr-trigger.md), который будет вызывать вашу функцию при создании [тега](../concepts/docker-image.md#version) образа.
+Создайте триггер, который будет вызывать вашу функцию при создании [тега](../concepts/docker-image.md#version) Docker-образа.
 
 {% list tabs %}
 
@@ -229,7 +232,7 @@ _Сервис сканирования находится на стадии [Pre
      * Введите имя и описание триггера.
      * В поле **Тип** выберите **{{ container-registry-name }}**.
   1. В блоке **Настройки {{ container-registry-name }}**:
-     * В поле **Реестр** выберите реестр, в который будете загружать образ.
+     * В поле **Реестр** выберите реестр, в который будете загружать Docker-образ.
      * В поле **Типы событий** выберите [событие](../../functions/concepts/trigger/cr-trigger.md#event) **Создание тега Docker-образа**.
   1. В блоке **Настройки функции**:
      * Выберите функцию `scan-on-push`.
@@ -252,7 +255,7 @@ _Сервис сканирования находится на стадии [Pre
 
   Где:
   * `name` — имя триггера.
-  * `registry-id` — [идентификатор реестра](../operations/registry/registry-list.md), в который будете загружать образ.
+  * `registry-id` — [идентификатор реестра](../operations/registry/registry-list.md), в который будете загружать Docker-образ.
   * `events` — [события](../../functions/concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается.
   * `invoke-function-id` — идентификатор функции.
   * `invoke-function-service-account-id` — идентификатор сервисного аккаунта с правами на вызов функции.
@@ -275,7 +278,7 @@ _Сервис сканирования находится на стадии [Pre
 
 {% endlist %}
 
-## Загрузите образ {#download-image}
+## Загрузите Docker-образ {#download-image}
 
 1. Запустите Docker Desktop.
 1. Аутентифицируйтесь в реестре от своего имени:
@@ -331,7 +334,7 @@ _Сервис сканирования находится на стадии [Pre
         ```
 
 
-   - С помощью IAM-токена
+   - С помощью {{ iam-full-name }}-токена
 
      {% note info %}
 
@@ -339,7 +342,7 @@ _Сервис сканирования находится на стадии [Pre
 
      {% endnote %}
 
-     1. [Получите](../../iam/operations/iam-token/create.md) [IAM-токен](../../iam/concepts/authorization/iam-token.md).
+     1. [Получите](../../iam/operations/iam-token/create.md) [{{ iam-name }}-токен](../../iam/concepts/authorization/iam-token.md).
      1. Выполните команду:
 
         ```bash
@@ -437,7 +440,7 @@ _Сервис сканирования находится на стадии [Pre
      1. Выберите сервис **{{ container-registry-name }}**.
      1. Выберите реестр, в который загрузили Docker-образ.
      1. Откройте репозиторий, в котором находится Docker-образ.
-     1. Выберите нужный образ и проверьте значение параметра **Дата последнего сканирования**.
+     1. Выберите нужный Docker-образ и проверьте значение параметра **Дата последнего сканирования**.
 
    - CLI
 

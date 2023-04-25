@@ -25,11 +25,9 @@
 
 - Вручную
 
-    
     1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. Этот бакет будет использоваться в качестве репозитория снапшотов.
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`. Сервисный аккаунт необходим для доступа к бакету из кластера-источника и кластера-приемника.
     1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для этого сервисного аккаунта.
-
 
         {% note warning %}
 
@@ -48,11 +46,9 @@
 
 - С помощью {{ TF }}
 
-    
     1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
     1. Скачайте в ту же рабочую директорию файл конфигурации [mes-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/mes-migration.tf). В файле описаны:
-
 
        * сеть;
        * подсеть;
@@ -62,7 +58,7 @@
        * кластер-приемник с установленным плагином [repository-s3](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html);
 
     1. Укажите в файле конфигурации `mes-migration.tf` в блоке `locals`:
-                * [идентификатор каталога](../../resource-manager/operations/folder/get-id.md);
+        * [идентификатор каталога](../../resource-manager/operations/folder/get-id.md);
         * [пароль для пользователя `admin`](../operations/cluster-update.md#change-admin-password);
         * [редакцию кластера-приемника](../concepts/es-editions.md);
         * версию кластера-приемника;
@@ -83,9 +79,7 @@
 
        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-    
     1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `sa-bucket`.
-
 
         {% note warning %}
 
@@ -97,9 +91,7 @@
 
 ### Завершите настройку и проверьте доступ к ресурсам {#complete-setup}
 
-
 1. [Настройте ACL](../../storage/operations/buckets/edit-acl.md) для бакета:
-
 
     1. В выпадающем списке **Выберите пользователя** укажите созданный ранее сервисный аккаунт.
     1. Задайте разрешения `READ + WRITE` для выбранного сервисного аккаунта.
@@ -277,7 +269,7 @@
 
 - Вручную
 
-    * [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
+    * [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md)
     * [Удалите снапшоты](../../storage/operations/objects/delete.md) из бакета и затем удалите [бакет целиком](../../storage/operations/buckets/delete.md).
     * [Удалите кластер {{ mes-name }}](../operations/cluster-delete.md).
 

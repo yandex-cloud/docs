@@ -1,11 +1,11 @@
 ---
 title: "Managing bucket versioning in {{ objstorage-full-name }}"
-description: "Bucket versioning enables storing object history through versions. In this article, you will learn how to manage versioning in {{ objstorage-name }}."
+description: "Bucket versioning makes it possible to store object history through versions. In this article, you will learn how to manage versioning in {{ objstorage-name }}."
 ---
 
 # Managing bucket versioning
 
-Bucket [versioning](../../concepts/versioning.md) enables storing object history through versions.
+[Bucket versioning](../../concepts/versioning.md) makes it possible to store object history through versions.
 
 {% note info %}
 
@@ -23,7 +23,7 @@ Enable bucket versioning:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to edit a bucket's ACL:
+  1. View a description of the CLI command to edit a bucket ACL:
 
      ```bash
      yc storage bucket update --help
@@ -32,7 +32,7 @@ Enable bucket versioning:
   1. Run the following command:
 
      ```bash
-     yc storage bucket update <bucket_name> --versioning versioning-enabled
+     yc storage bucket update --name <bucket_name> --versioning versioning-enabled
      ```
 
      Result:
@@ -81,7 +81,7 @@ Enable bucket versioning:
   }
   ```
 
-   Where:
+  Where:
 
   * `bucket`: Bucket name. This parameter is required.
   * `access_key`: ID of the static access key.
@@ -89,5 +89,9 @@ Enable bucket versioning:
   * `acl`: Applied ACL policy. The default value is `private`. This is an optional parameter.
   * `versioning`: Bucket versioning management:
      * `enabled`: Enables bucket versioning. This is an optional parameter.
+
+- API
+
+   To manage bucket versioning, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [putBucketVersioning](../../s3/api-ref/bucket/putBucketVersioning.md) S3 API method.
 
 {% endlist %}
