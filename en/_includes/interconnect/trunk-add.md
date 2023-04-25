@@ -1,18 +1,19 @@
 ## Setting up a trunk {#trunk-create}
 
-This tutorial describes steps to set up a trunk.
+This guide explains how to set up a trunk.
 
 ### Getting started {#trunk-prep}
 
-* See the [documentation](../../interconnect/concepts/overview.md) to learn how the service works.
-* Contact your {{ yandex-cloud }} manager to agree on the service activation rate ([traffic package](../../interconnect/concepts/bandwidth.md)).
+* See the [documentation](../../interconnect/concepts/index.md) to learn how the service works.
+* Contact your {{ yandex-cloud }} manager to agree upon the service activation rate ([traffic package](../../interconnect/concepts/bandwidth.md)).
 * Select a [point of presence](../../interconnect/concepts/pops.md) for connecting a [trunk](../../interconnect/concepts/trunk.md).
 
-{% note tip %}
+   {% note warning %}
 
-To ensure fault tolerance, connect trunks in two points of presence.
+   To ensure fault tolerance, connect trunks in two points of presence.
 
-{% endnote %}
+   {% endnote %}
+
 
 * Select the type of an [optical transceiver](../../interconnect/concepts/transceivers.md) to enable a cross connect to the {{ yandex-cloud }} equipment in the [point of presence](../../interconnect/concepts/pops.md). A port of the selected type will be reserved for you on the {{ yandex-cloud }} equipment side. For installation on your equipment, purchase the transceiver of the selected type on your own.
 * If a {{ yandex-cloud }} solution architect is working with you, discuss and agree with them how to set up the {{ interconnect-full-name }} service.
@@ -23,11 +24,13 @@ Create a [new support request]({{ link-console-support }}/create-ticket) to rese
 
 {% note warning %}
 
-The trunk attribute values in the request below are given for indicative purposes only. Each customer should have their own attribute values.
+Trunk attribute values in the request below are given as an example. Each customer should have their own attribute values.
 
 {% endnote %}
 
+
 Write a support request as follows:
+
 
 ```s
 Subject: [CIC] Creating a new trunk.
@@ -45,27 +48,34 @@ traffic package: 200mbps
 We will provide information for setting up a private connection later in a separate ticket.
 ```
 
+
+
+
+
 Where:
 
-* `client` is the company name.
-* `cloud-id` is the [ID of the cloud](../../resource-manager/concepts/resources-hierarchy#cloud), the resources of which {{ interconnect-name }} will connect to.
-* `folder-id` is the [ID of the folder](../../resource-manager/concepts/resources-hierarchy#folder) to send {{ interconnect-name }} monitoring metrics to.
-* `point of presence` is the [code of the point of presence](../../interconnect/concepts/pops.md).
-* `transceiver type` is the [type of transceiver](../../interconnect/concepts/transceivers.md) to enable a cross connect.
-* `traffic package` is the [bandwidth](../../interconnect/concepts/bandwidth.md) in Mbps referring to the traffic package selected by the customer.
+* `client`: Company name.
+* `cloud-id`: [ID of the cloud](../../resource-manager/concepts/resources-hierarchy#cloud) whose resources {{ interconnect-name }} will connect to.
+* `folder-id`: [ID of the folder](../../resource-manager/concepts/resources-hierarchy#folder) to send {{ interconnect-name }} monitoring metrics to.
+* `point of presence`: [Code of the point of presence](../../interconnect/concepts/pops.md).
+* `transceiver type`: [Type of transceiver](../../interconnect/concepts/transceivers.md) to enable a cross connect.
+* `traffic package`: [Bandwidth](../../interconnect/concepts/bandwidth.md) in Mbps referring to the package of traffic selected by the customer.
+
 
 {% note warning %}
 
-If you need a fault-tolerant {{ interconnect-name }} connection to set up in multiple points of presence, create a separate support request for each connection.
+If you need to set up a fault-tolerant {{ interconnect-name }} connection in multiple points of presence, create a separate support request for each connection.
 
 {% endnote %}
+
 
 
 ### Support team's response to the customer's request {#trunk-ticket-resp}
 
 Once the requested trunk is set up, the support team will send you information about the created trunk.
 
-Here is how a response from the support team may look like:
+
+Sample response from the support team:
 
 ```s
 trunk_id: euus5dfgchu23b81d472
@@ -77,11 +87,15 @@ port: 18
 
 Where:
 
-* `trunk_id` is the ID of the created {{ interconnect-name }} trunk.
-* `pop` is the [code of the point of presence](../../interconnect/concepts/pops.md) where the {{ interconnect-name }} trunk is created.
-* `rack` is the location of the {{ yandex-cloud }} equipment in the point of presence.
-* `unit` is a number from 1 to 45. Indicates the equipment location in the {{ yandex-cloud }} rack.
-* `port` is a number from 1 to 48. Specifies the port number on the equipment to enable the cross connect for.
+* `trunk_id`: ID of the created {{ interconnect-name }} trunk.
+* `pop`: [Code of the point of presence](../../interconnect/concepts/pops.md) where the {{ interconnect-name }} trunk is created.
+* `rack`: Location of the {{ yandex-cloud }} equipment in the point of presence.
+* `unit`: Number from 1 to 45, which stands for the equipment location in the {{ yandex-cloud }} rack.
+* `port`: Number from 1 to 48, which specifies the port number on the equipment to enable the cross connect for.
+
+
+
+
 
 
 ### How to write an agreement letter for a point of presence {#letter}
@@ -92,7 +106,7 @@ No agreement letter is required for the `STD` point of presence.
 
 {% endnote %}
 
-* Download the [agreement letter form](../../interconnect/concepts/pops.md#letter) for the desired point of presence in `.docx` format.
+* Download the [agreement letter form](../../interconnect/concepts/pops.md#letter) for the point of presence you need in `.docx` format.
 * In the form, specify your company data and equipment location in the point of presence (highlighted in yellow).
 * Using the information received from the support team, set the `unit` and `port` parameter values in the form (highlighted in green).
 * Attach the completed form to the open support request.
@@ -106,9 +120,11 @@ A cross connect to a port of the {{ yandex-cloud }} equipment is enabled by the 
 
 {% note warning %}
 
-If required, the technical staff of the point of presence may request additional approval from Yandex duty engineers to enable the customer's equipment cross connect to the {{ yandex-cloud }} equipment port.
+If required, the technical staff at the point of presence may request additional approval from {{ yandex-cloud }} duty engineers for cross-connecting the client's equipment to the {{ yandex-cloud }} equipment port.
 
 {% endnote %}
+
+
 
 ### Monitoring the trunk status {#trunk-check}
 

@@ -84,7 +84,7 @@
               content:
                 'text/plain': "Hello, {user}!\n"
       ```
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc serverless api-gateway create --name hello-world --spec=hello-world.yaml --description "hello world"
@@ -110,10 +110,6 @@
       log_group_id: ckghq1hm19q7ek5sjnh5
       ```
 
-- API
-
-   You can create an API gateway using the [create](../apigateway/api-ref/ApiGateway/create.md) API method.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -124,6 +120,10 @@
 
 - {{ yandex-cloud }} Toolkit
 
-   You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) by [JetBrains](https://www.jetbrains.com/).
+   You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
+- API
+
+   To create an API gateway, use the [create](../apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../apigateway/api-ref/grpc/apigateway_service.md#Create) gRPC API call.
 
 {% endlist %}

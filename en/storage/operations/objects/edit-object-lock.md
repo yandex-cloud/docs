@@ -17,8 +17,8 @@ To put or configure a retention:
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run the command:
+   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   1. Run the following command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -32,15 +32,15 @@ To put or configure a retention:
 
       Where:
 
-      * `bucket`: Your bucket's name.
+      * `bucket`: Name of your bucket.
       * `key`: Object [key](../../concepts/object.md#key).
       * `version-id`: Object version ID.
       * `retention`: Settings of an object lock with a retention period (both parameters are required):
 
          * `Mode` is the [type](../../concepts/object-lock.md#types) of object lock:
 
-            * `GOVERNANCE`: An object lock with a predefined retention period that can be managed. You can't set this type if an object version is already locked in compliance mode.
-            * `COMPLIANCE`: An object lock with a predefined retention period with strict compliance.
+            * `GOVERNANCE`: Object lock with a predefined retention period that can be managed. You cannot set this type if an object version is already locked in compliance mode.
+            * `COMPLIANCE`: Object lock with a predefined retention period with strict compliance.
 
          * `RetainUntilDate`: Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. If a version object is already locked in compliance mode, you can only extend it by setting new retain until date and time that are later than the current ones.
 
@@ -48,7 +48,7 @@ To put or configure a retention:
 
 - API
 
-   Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) method.
+   Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method.
 
 {% endlist %}
 
@@ -63,8 +63,8 @@ To remove a retention:
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run the command:
+   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   1. Run the following command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -78,7 +78,7 @@ To remove a retention:
 
       Where:
 
-      * `bucket`: Your bucket's name.
+      * `bucket`: Name of your bucket.
       * `key`: Object [key](../../concepts/object.md#key).
       * `version-id`: Object version ID.
       * `retention`: Settings of an object lock with a retention period. In both parameters, empty lines are specified to remove a lock.
@@ -86,7 +86,7 @@ To remove a retention:
 
 - API
 
-   Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) method with the `X-Amz-Bypass-Governance-Retention: true` header and empty `Retention` element.
+   To remove a lock, use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method with the `X-Amz-Bypass-Governance-Retention: true` header and an empty `Retention` element.
 
 {% endlist %}
 
@@ -101,9 +101,9 @@ To put or configure a legal hold:
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -116,7 +116,7 @@ To put or configure a legal hold:
 
       Where:
 
-      * `bucket`: Your bucket's name.
+      * `bucket`: Name of your bucket.
       * `key`: Object [key](../../concepts/object.md#key).
       * `version-id`: Object version ID.
       * `legal-hold`: Legal hold settings:
@@ -128,6 +128,6 @@ To put or configure a legal hold:
 
 - API
 
-   Use the [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md) method.
+   To put or remove a legal hold, use the [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md) S3 API method.
 
 {% endlist %}

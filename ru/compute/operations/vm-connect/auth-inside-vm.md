@@ -1,23 +1,21 @@
 # Работа с {{ yandex-cloud }} изнутри виртуальной машины
 
-В этом разделе описано, как работать с {{ yandex-cloud }} изнутри виртуальной машины через API или CLI.
+В этом разделе описано, как работать с {{ yandex-cloud }} изнутри [ВМ](../../concepts/vm.md) через API или CLI.
 
-Для автоматизации работы с {{ yandex-cloud }} изнутри виртуальной машины рекомендуется использовать [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md). Это безопаснее — вам не надо сохранять свой OAuth-токен на виртуальной машине и вы можете ограничить права доступа для сервисного аккаунта.
+Для автоматизации работы с {{ yandex-cloud }} изнутри ВМ рекомендуется использовать [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md). Это безопаснее — вам не надо сохранять свой [OAuth-токен](../../../iam/concepts/authorization/oauth-token.md) на ВМ и вы можете ограничить права доступа для сервисного аккаунта.
 
-Для сервисного аккаунта сделана упрощенная аутентификация через API и CLI изнутри виртуальной машины. Чтобы пройти аутентификацию:
-
+Для сервисного аккаунта сделана упрощенная аутентификация через API и CLI изнутри ВМ. Чтобы пройти аутентификацию:
 1. Если у вас еще нет сервисного аккаунта, [создайте его](../../../iam/operations/sa/create.md) и [настройте права доступа для него](../../../iam/operations/sa/assign-role-for-sa.md).
-1. [Привяжите сервисный аккаунт](#link-sa-with-instance) к виртуальной машине.
-1. [Аутентифицируйтесь изнутри виртуальной машины](#auth-inside-vm).
-
+1. [Привяжите сервисный аккаунт](#link-sa-with-instance) к ВМ.
+1. [Аутентифицируйтесь изнутри ВМ](#auth-inside-vm).
 
 ## Привяжите сервисный аккаунт {#link-sa-with-instance}
 
-Привяжите сервисный аккаунт к существующей или к создаваемой виртуальной машине. Привязать можно только один сервисный аккаунт.
+Привяжите сервисный аккаунт к существующей или к создаваемой ВМ. Привязать можно только один сервисный аккаунт.
 
-Чтобы привязать сервисный аккаунт к виртуальной машине, необходимо иметь разрешение на использование этого аккаунта. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
+Чтобы привязать сервисный аккаунт к ВМ, необходимо иметь разрешение на использование этого аккаунта. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
 
-### К существующей виртуальной машине {#link-with-exist-instance}
+### К существующей ВМ {#link-with-exist-instance}
 
 {% list tabs %}
 
@@ -27,9 +25,9 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Обновите параметры виртуальной машины, указав сервисный аккаунт с помощью опции `--service-account-name` или `--service-account-id`:
+  Обновите параметры ВМ, указав сервисный аккаунт с помощью опции `--service-account-name` или `--service-account-id`:
 
-  ```
+  ```bash
   yc compute instance update my-instance --service-account-name test
   ```
 
@@ -39,15 +37,15 @@
 
 {% endlist %}
 
-### К создаваемой виртуальной машине {#link-with-new-instance}
+### К создаваемой ВМ {#link-with-new-instance}
 
 {% list tabs %}
 
 - Консоль управления
 
-  В консоли можно привязать сервисный аккаунт из того же каталога, где создается виртуальная машина. Если сервисный аккаунт лежит в другом каталоге, воспользуйтесь CLI или API.
+  В консоли можно привязать сервисный аккаунт из того же [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), где создается ВМ. Если сервисный аккаунт лежит в другом каталоге, воспользуйтесь CLI или API.
 
-  Чтобы привязать сервисный аккаунт, укажите его при [создании виртуальной машины](../index.md#vm-create). Вы можете выбрать один из существующих сервисных аккаунтов или создать новый:
+  Чтобы привязать сервисный аккаунт, укажите его при [создании ВМ](../index.md#vm-create). Вы можете выбрать один из существующих сервисных аккаунтов или создать новый:
 
   ![image](../../../_assets/compute/connect-sa.png)
 
@@ -57,7 +55,7 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Создайте виртуальную машину, указав сервисный аккаунт с помощью опции `--service-account-name` или `--service-account-id`:
+  Создайте ВМ, указав сервисный аккаунт с помощью опции `--service-account-name` или `--service-account-id`:
 
   ```bash
   yc compute instance create \
@@ -73,50 +71,52 @@
 
 {% endlist %}
 
-## Аутентификация изнутри виртуальной машины {#auth-inside-vm}
+## Аутентификация изнутри ВМ {#auth-inside-vm}
 
-Чтобы аутентифицироваться изнутри виртуальной машины от имени привязанного сервисного аккаунта:
+Чтобы аутентифицироваться изнутри ВМ от имени привязанного сервисного аккаунта:
 
 {% list tabs %}
 
 - CLI
 
-  1. Подключитесь к виртуальной машине [по SSH](../vm-connect/ssh.md).
+  1. [Подключитесь](../vm-connect/ssh.md) к ВМ по [SSH](../../../glossary/ssh-keygen.md).
+
   1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
   1. Создайте новый профиль:
 
-      ```
-      yc config profile create my-robot-profile
-      ```
+     ```bash
+     yc config profile create my-robot-profile
+     ```
 
-  
-  1. Настройте профиль для запуска команд. 
-  
-      {% include [add-folder](../../../_includes/cli-add-folder.md) %}
 
-      Вы также можете получить IAM-токен, например, чтобы аутентифицироваться в API:
+  1. Настройте профиль для запуска команд.
 
-      ```
-      yc iam create-token
-      ```
+     {% include [add-folder](../../../_includes/cli-add-folder.md) %}
 
-      [Время жизни IAM-токена](../../../iam/concepts/authorization/iam-token.md#lifetime) в этом случае будет меньше чем {{ iam-token-lifetime }}. Запрашивайте IAM-токен чаще, например каждый час или при каждой операции. Чтобы узнать оставшееся время жизни токена, воспользуйтесь инструкцией для API.
+     Вы также можете получить [{{ iam-full-name }}-токен](../../../iam/concepts/authorization/iam-token.md), например, чтобы аутентифицироваться в API:
+
+     ```bash
+     yc iam create-token
+     ```
+
+     [Время жизни {{ iam-name }}-токена](../../../iam/concepts/authorization/iam-token.md#lifetime) в этом случае будет меньше чем {{ iam-token-lifetime }}. Запрашивайте {{ iam-name }}-токен чаще, например, каждый час или при каждой операции. Чтобы узнать оставшееся время жизни токена, воспользуйтесь инструкцией для API.
+
 - API
 
-  1. Подключитесь к виртуальной машине [по SSH](../vm-connect/ssh.md).
-  1. Получите IAM-токен из метаданных в формате Google Compute Engine:
+  1. Подключитесь к ВМ [по SSH](../vm-connect/ssh.md).
+  1. Получите {{ iam-name }}-токен из метаданных в формате Google Compute Engine:
 
-      ```bash
-      curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+     ```bash
+     curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
 
-      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
-      ```
+     {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
+     ```
 
-      IAM-токен будет указан в ответе в поле `access_token`. Оставшееся время жизни IAM-токена указано в поле `expires_in`.
-       
+     {{ iam-name }}-токен будет указан в ответе в поле `access_token`. Оставшееся время жизни {{ iam-name }}-токена указано в поле `expires_in`.
+
   1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-    Учитывайте время жизни IAM-токена или запрашивайте токен чаще, например каждый час или при каждой операции.
+    Учитывайте время жизни {{ iam-name }}-токена или запрашивайте токен чаще, например, каждый час или при каждой операции.
 
 {% endlist %}

@@ -753,6 +753,12 @@ default:
   k8s-versions-rapid: 1.21, 1.22, 1.23, 1.24
   k8s-versions-regular: 1.21, 1.22, 1.23
   k8s-versions-stable: 1.21, 1.22, 1.23
+  cic-bgp-asn: 200350
+  cic-pbc-subnet: 178.210.118.46/31
+  cic-pbc-subnet-client: 178.210.118.46
+  cic-pbc-subnet-cloud: 178.210.118.47
+  cic-pbc-nat-subnet: 178.210.118.200/30
+  cic-pbc-svc1-ip: 213.180.193.243/32
   tf-provider-link: >-
     https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources
   tf-provider-dt-endpoint: >-
@@ -810,7 +816,7 @@ default:
   port-mch-cli: 9440
   port-mch-http: 8443
   port-mes: 9200
-  port-mgp: 5432
+  port-mgp: 6432
   port-mkf-ssl: 9091
   port-mkf-text: 9092
   port-mmg-sharded: 27017
@@ -42433,6 +42439,21 @@ default:
           button_create-key: Create key
           button_create-key-new: Create new key
           label_no-symmetric-key: Not selected
+      cr:
+        image:
+          label_last-scan-time: Date of last scan
+          label_scan-history: Scan history
+          label_scan-status-READY: Ready
+          label_scan-status-RUNNING: Running
+          label_start-scan: Scan
+        registry:
+          button_change-scan-settings: Edit settings
+          button_select-repositories: Select repositories
+          field_scan-on-upload: Scan images on upload
+          label_all-repositories: All repositories
+          label_only-selected: Only selected
+          label_repositories: Repositories
+          label_vulnerabilities-scanner: Vulnerability scanner
       data-streams:
         label_data-introspection: Data viewer
       data-transfer:
@@ -42464,6 +42485,7 @@ default:
         folder:
           dashboard:
             button_add: Create resource
+            label_container-registry: Container Registry
             label_data-proc: Data Proc
             label_managed-greenplum: Managed Service for Greenplum
           service-account:

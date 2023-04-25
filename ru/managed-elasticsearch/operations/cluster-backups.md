@@ -9,15 +9,19 @@ keywords:
 
 # Управление резервными копиями в {{ mes-name }}
 
+
 {{ mes-short-name }} позволяет создавать резервные копии [индексов](../concepts/indexing.md) как средствами {{ yandex-cloud }}, так и с помощью механизма [снапшотов](https://cloud.yandex.ru/docs/glossary/snapshot) {{ ES }}. Подробнее о механизме снапшотов см. в [документации {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
 ## Резервное копирование средствами {{ yandex-cloud }} {#cloud-backups}
+
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
 Также {{ mes-name }} каждый час создает автоматическую резервную копию.
 
+
 ### Получить список резервных копий {#list-backups}
+
 
 {% list tabs %}
 
@@ -64,7 +68,9 @@ keywords:
 
 {% endlist %}
 
+
 ### Получить информацию о резервной копии {#get-backup}
+
 
 {% list tabs %}
 
@@ -100,7 +106,9 @@ keywords:
 
 {% endlist %}
 
+
 ### Создать резервную копию {#create-backup}
+
 
 {% list tabs %}
 
@@ -144,7 +152,9 @@ keywords:
 
 {% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
+
 ### Восстановить кластер из резервной копии {#restore}
+
 
 Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в каталоге не хватает [ресурсов](../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится. Скорость восстановления можно регулировать [средствами {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/recovery.html).
 
@@ -282,6 +292,7 @@ keywords:
 {% endlist %}
 
 
+
 ## Резервное копирование с помощью снапшотов {#snapshot-backups}
 
 Для работы со снапшотами используется [публичный API {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore-apis.html), а для их хранения — бакет в {{ objstorage-name }}.
@@ -352,3 +363,4 @@ keywords:
 1. [Запустите операцию восстановления](https://www.elastic.co/guide/en/elasticsearch/reference/current/restore-snapshot-api.html) из нужного снапшота всего кластера или отдельных индексов и потоков данных.
 
 Подробнее о восстановлении из снапшотов см. в [документации {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html).
+

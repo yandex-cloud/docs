@@ -51,4 +51,8 @@ To connect a domain to an API gateway:
       1. In the window that opens, go to **Domains**.
       1. Click **Connect**, select a certificate, and enter a domain name (FQDN).
 
+- API
+
+   To add a domain to an API gateway, use the [addDomain](../apigateway/api-ref/ApiGateway/addDomain.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/AddDomain](../apigateway/api-ref/grpc/apigateway_service.md#AddDomain) gRPC API call.
+
 {% endlist %}

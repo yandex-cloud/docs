@@ -1,18 +1,22 @@
 # Как начать работать с {{ dns-name }}
 
-Создайте [зоны DNS](concepts/dns-zone.md), добавьте в них `A`-записи для ваших тестовых ВМ и протестируйте доступность доменных имен.
+Создайте [зоны DNS](concepts/dns-zone.md), добавьте в них `A`-записи для ваших тестовых [виртуальных машин](../compute/concepts/vm.md) и протестируйте доступность доменных имен.
 
 ## Перед началом работы {#before-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+
+
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
+
+
+1. Если у вас еще нет [каталога](../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать [виртуальную сеть](../vpc/concepts/network.md#network) по умолчанию с [подсетями](../vpc/concepts/network.md#subnet) во всех [зонах доступности](../overview/concepts/geo-scope.md).
 1. [Создайте сеть](../vpc/quickstart.md) и подсети для подключения тестовых ВМ.
-1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальные машины `test-vm-1` и `test-vm-2` в зоне доступности `{{ region-id }}-a`. У ВМ `test-vm-1` должен быть публичный IP-адрес. Подключите их к подсетям одной сети.
+1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) ВМ `test-vm-1` и `test-vm-2` в зоне доступности `{{ region-id }}-a`. У ВМ `test-vm-1` должен быть [публичный IP-адрес](../vpc/concepts/address.md#public-addresses). Подключите их к подсетям одной сети.
 
 ## Создайте внутреннюю зону DNS {#create-private-zone}
 
-В доменной зоне будут храниться [ресурсные записи](concepts/resource-record.md). 
+В доменной зоне будут храниться [ресурсные записи](concepts/resource-record.md).
 
 Создайте новую доменную зону:
 
@@ -24,7 +28,7 @@
   1. Нажмите кнопку **Создать зону**.
   1. Задайте настройки зоны:
      1. **Имя**: `test-zone`.
-     1. **Зона**: `testing.`
+     1. **Зона**: `testing`.
      1. **Тип**: `Внутренняя`.
      1. **Сеть**: сеть, в которой находятся ваши ВМ. 
   1. Нажмите кнопку **Создать**.
@@ -33,7 +37,7 @@
 
   Выполните команду:
 
-  ```
+  ```bash
   yc dns zone create --name test-zone \
   --zone testing. \
   --private-visibility network-ids=<идентификатор сети с тестовыми ВМ>
@@ -53,7 +57,7 @@
      1. **Имя**: `test-vm-1`.
      1. **Тип**: `А`.
      1. **TTL**: `600`.
-     1. **Значение**: внутренний IP-адрес ВМ `test-vm1`.
+     1. **Значение**: [внутренний IP-адрес](../vpc/concepts/address.md#internal-addresses) ВМ `test-vm1`.
   1. Нажмите кнопку **Создать**.
   1. Нажмите кнопку **Создать запись** еще раз. Задайте параметры еще одной записи:
      1. **Имя**: `test-vm-2`.
@@ -66,12 +70,12 @@
 
   Выполните команды:
 
-  ```
+  ```bash
   yc dns zone add-records --name test-zone \
   --record "test-vm-1 600 A <внутренний IP-адрес ВМ test-vm-1>"
   ```
 
-  ```
+  ```bash
   yc dns zone add-records --name test-zone \
   --record "test-vm-2 600 A <внутренний IP-адрес ВМ test-vm-2>"
   ```
@@ -80,21 +84,21 @@
 
 ### Протестируйте доступность имен во внутренней зоне {#test-private-resolving}
 
-Подключитесь к `test-vm-1` через SSH:
+Подключитесь к `test-vm-1` через [SSH](../glossary/ssh-keygen.md):
 
-```
+```bash
 ssh <публичный IP-адрес ВМ>
 ```
 
-На виртуальной машине попробуйте обратиться к `test-vm-2` по ее доменному имени:
+На ВМ попробуйте обратиться к `test-vm-2` по ее [доменному имени](../vpc/concepts/address.md#fqdn):
 
-```
+```bash
 host test-vm-2.testing.
 ```
 
 Убедитесь, что в ответ возвращается IP-адрес нужной ВМ:
 
-```
+```bash
 host test-vm-2.testing.
 test-vm-2.testing has address 10.0.0.9
 ```
@@ -121,7 +125,7 @@ test-vm-2.testing has address 10.0.0.9
 
   Выполните команду:
 
-  ```
+  ```bash
   yc dns zone create --name test-public-zone \
   --zone example.com. \
   --public-visibility
@@ -148,7 +152,7 @@ test-vm-2.testing has address 10.0.0.9
 
   Выполните команду:
 
-  ```
+  ```bash
   yc dns zone add-records --name test-public-zone \
   --record "www 600 A <публичный IP-адрес ВМ test-vm-1>"
   ```
@@ -161,13 +165,13 @@ test-vm-2.testing has address 10.0.0.9
 
 Убедитесь, что созданная запись указывает на публичный IP-адрес ВМ. На вашем компьютере выполните команду:
 
-```
+```bash
 host www.example.com ns1.{{ dns-ns-host-sld }}.
 ```
 
 Результат:
 
-```
+```text
 Using domain server:
 Name: ns1.{{ dns-ns-host-sld }}.
 Address: 84.201.185.208#53

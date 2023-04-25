@@ -136,6 +136,10 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
       You can use the [management console]({{ link-console-main }}) to check the selected certificate.
 
+- API
+
+   To select a certificate from {{ certificate-manager-name }}, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig) gRPC API call.
+
 {% endlist %}
 
 ## Upload your own security certificate {#own}
@@ -164,5 +168,9 @@ To upload a certificate:
    1. In the **Source** field, select **Your certificate**.
    1. Add the certificate and secret key.
    1. Click **Save**.
+
+- API
+
+   To upload your own security certificate, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig) gRPC API call.
 
 {% endlist %}

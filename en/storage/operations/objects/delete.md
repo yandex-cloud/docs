@@ -36,8 +36,6 @@ To delete an object:
 
    In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
 
-   In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -95,6 +93,10 @@ To delete an object:
 
       You can verify the changes in the [management console]({{ link-console-main }}).
 
+- API
+
+   Use the [delete](../../s3/api-ref/object/delete.md) S3 API method.
+
 {% endlist %}
 
 
@@ -121,7 +123,7 @@ To check whether lock has been put and delete the object version when possible
       ```
 
       Where:
-      * `bucket`: Your bucket's name.
+      * `bucket`: Name of your bucket.
       * `key`: Object [key](../../concepts/object.md#key).
       * `version-id`: Object version ID.
 
@@ -139,16 +141,16 @@ To check whether lock has been put and delete the object version when possible
 
       Where:
       * `ObjectLockMode`: [Type](../../concepts/object-lock.md#types) of object lock set for a certain period:
-         * `GOVERNANCE`: An object lock with a predefined retention period that can be managed. Users with the `storage.admin` role can delete an object version.
-         * `COMPLIANCE`: An object lock with a predefined retention period with strict compliance. An object version can't be deleted.
+         * `GOVERNANCE`: Object lock with a predefined retention period that can be managed. Users with the `storage.admin` role can delete an object version.
+         * `COMPLIANCE`: Object lock with a predefined retention period with strict compliance. You cannot delete an object version.
 
-      * `ObjectLockRetainUntilDate`: Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`.
+      * `ObjectLockRetainUntilDate`: Date and time until which the object will be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`.
 
       * `ObjectLockLegalHoldStatus`: Status of [legal hold](../../concepts/object-lock.md#types):
-         * `ON`: Enabled. An object version can't be deleted. Users with the `storage.uploader` role can [remove a lock](edit-object-lock.md#remove-legal-hold).
+         * `ON`: Enabled. You cannot delete an object version. To [remove a lock](edit-object-lock.md#remove-legal-hold), a user must have the `storage.uploader` role.
          * `OFF`: Disabled.
 
-      If the object version isn't locked, these fields aren't displayed, and you can delete the object version by following the [instructions on deleting an unlocked version](#wo-object-lock).
+      If the object version is not locked, these fields will not be displayed, and you can delete the object version just as you would do in case of an unlocked version, following [this guide](#wo-object-lock).
 
    1. If you have the `storage.admin` role and `"ObjectLockMode": "GOVERNANCE"` is set, delete an object version:
 
@@ -162,14 +164,14 @@ To check whether lock has been put and delete the object version when possible
       ```
 
       Where:
-      * `bucket`: Your bucket's name.
+      * `bucket`: Name of your bucket.
       * `key`: Object [key](../../concepts/object.md#key).
       * `version-id`: Object version ID.
       * `bypass-governance-retention`: Flag that shows that a lock is bypassed.
 
 - API
 
-   1. Get details of the lock put on the object version by using the methods [getObjectRetention](../../s3/api-ref/object/getobjectretention.md) (retention) and [getObjectLegalHold](../../s3/api-ref/object/getobjectlegalhold.md) (legal hold).
-   1. If you only have governance-mode retention (`GOVERNANCE`) and you have the `storage.admin` role, delete the object version by the [delete](../../s3/api-ref/object/delete.md) method: In your request, specify the version ID and the `X-Amz-Bypass-Governance-Retention` header to confirm lock bypass.
+   1. To get the details of the lock applied to an object version, use the [getObjectRetention](../../s3/api-ref/object/getobjectretention.md) (retention) and [getObjectLegalHold](../../s3/api-ref/object/getobjectlegalhold.md) (legal hold) S3 API methods.
+   1. If you only have `GOVERNANCE` retention set and you have the `storage.admin` role, delete the object version using the [delete](../../s3/api-ref/object/delete.md) S3 API method. In your request, specify the version ID and the `X-Amz-Bypass-Governance-Retention` header to confirm lock bypass.
 
 {% endlist %}

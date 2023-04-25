@@ -11,7 +11,10 @@ keywords:
 
 После создания кластера вы можете:
 
+
 * [{#T}](#change-service-account).
+
+
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-disk-size).
 * [{#T}](#change-elasticsearch-config).
@@ -19,6 +22,7 @@ keywords:
 * [{#T}](#change-additional-settings).
 
 Вы также можете обновить версию и изменить редакцию {{ ES }}. Подробнее см. в разделе [{#T}](./cluster-version-update.md).
+
 
 ## Изменить настройки сервисного аккаунта {#change-service-account}
 
@@ -28,14 +32,71 @@ keywords:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-
-    
     1. Выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
 
+- CLI
 
-       {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить настройки сервисного аккаунта, используемого для работы с кластером:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update --help
+        ```
+
+    1. Укажите идентификатор сервисного аккаунта в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update <имя или идентификатор кластера> \
+          --service-account-id <идентификатор сервисного аккаунта>
+        ```
+
+        Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    {{ mes-short-name }} запустит операцию изменения сервисного аккаунта для кластера.
+
+- {{ TF }}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Укажите в поле описания кластера `service_account_id` идентификатор сервисного аккаунта:
+
+        ```hcl
+        resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+          ...
+          service_account_id = <идентификатор сервисного аккаунта>
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+       {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
+- API
+
+    Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    * Идентификатор сервисного аккаунта, используемого для работы с кластером, в параметре `serviceAccountId`.
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+{% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 
 ## Изменить класс хостов {#change-resource-preset}
@@ -400,7 +461,6 @@ keywords:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-    1. Чтобы изменить сервисный аккаунт, используемый для работы с кластером, выберите его из выпадающего списка.
     1. Измените дополнительные настройки кластера:
 
         {% include [Дополнительные настройки кластера MES](../../_includes/mdb/mes/extra-settings.md) %}
@@ -456,15 +516,6 @@ keywords:
 
       Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
 
-  1. Чтобы изменить сервисный аккаунт, используемый для работы с кластером, укажите в поле `service_account_id` описания кластера идентификатор другого сервисного аккаунта:
-
-      ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
-        ...
-        service_account_id = <идентификатор другого сервисного аккаунта>
-      }
-      ```
-
   1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
   1. Чтобы изменить список [плагинов {{ ES }}](cluster-plugins.md#elasticsearch), измените значение параметра `plugins` в блоке `config` описания кластера:
@@ -508,10 +559,6 @@ keywords:
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
 
     * Список [плагинов {{ ES }}](cluster-plugins.md#elasticsearch) в параметре `plugins`.
-
-    
-    * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером, в параметре `serviceAccountId`.
-
 
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
 

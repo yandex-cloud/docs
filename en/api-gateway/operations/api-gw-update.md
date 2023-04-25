@@ -15,7 +15,7 @@
 
    To change the API gateway specification:
    1. Make your changes in the specification file `hello-world.yaml`.
-   1. Run the command:
+   1. Run this command:
 
       ```
       yc serverless api-gateway update --id d5dug9gkmu187iojcrtr --spec=hello_world.yaml
@@ -40,15 +40,11 @@
       log_group_id: ckghq1hm19q7ek5sjnh5
       ```
 
-- API
-
-   You can change the name, description, or specification of an API gateway using the [update](../apigateway/api-ref/ApiGateway/update.md) API method.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To change the name, description, or specification of the API gateway:
 
@@ -104,19 +100,19 @@
 
       For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
@@ -140,6 +136,10 @@
 
 - {{ yandex-cloud }} Toolkit
 
-   You can edit the name, the description, or the specification of an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can edit the name, description, or specification of an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
+- API
+
+   To change the API gateway name, description, or specification, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
 
 {% endlist %}

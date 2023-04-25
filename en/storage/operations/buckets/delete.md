@@ -107,4 +107,8 @@ You can only delete an empty bucket. In the management console, information abou
 
       You can verify the changes in the [management console]({{ link-console-main }}).
 
+- API
+
+   To delete a bucket, use the [delete](../../api-ref/Bucket/delete.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Delete](../../api-ref/grpc/bucket_service.md#Delete) gRPC API call, or the [deleteBucket](../../s3/api-ref/bucket/delete.md) S3 API method.
+
 {% endlist %}

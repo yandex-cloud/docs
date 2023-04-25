@@ -11,7 +11,11 @@ description: "In this tutorial, you'll learn how to get information about an {{ 
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
-   1. Click the name of the desired bucket.
+   1. Click the name of the bucket you need.
    1. Click the object name.
+
+- API
+
+   To get information about an object, use the [get](../../s3/api-ref/object/get.md) S3 API method.
 
 {% endlist %}

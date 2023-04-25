@@ -49,6 +49,9 @@ links:
   - title: Реляционные базы данных
     description: Принципы построения, структура и характеристики реляционных баз данных
     href: relational-databases
+  - title: OLTP
+    description: Обработка транзакций в реальном времени
+    href: oltp
   - title: DNS
     description: Базовая технология современной всемирной сети
     href: dns

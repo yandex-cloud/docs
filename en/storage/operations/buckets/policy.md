@@ -199,7 +199,7 @@ To apply or edit a bucket access policy:
 
 - API
 
-   Use the [PutBucketPolicy](../../s3/api-ref/policy/put.md). If a previous access policy already exists for a bucket, it will be completely overwritten once you apply the new policy.
+   To manage your bucket policy, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [PutBucketPolicy](../../s3/api-ref/policy/put.md) S3 API method. If a previous access policy already exists for a bucket, it will be completely overwritten once you apply the new policy.
 
 {% endlist %}
 
@@ -240,7 +240,7 @@ To view the access policy applied to a bucket:
 
 - API
 
-   Use the [GetBucketPolicy](../../s3/api-ref/policy/get.md).
+   Use the [GetBucketPolicy](../../s3/api-ref/policy/get.md) S3 API method.
 
 {% endlist %}
 
@@ -331,6 +331,6 @@ To delete a bucket policy:
 
 - API
 
-   Use the [DeleteBucketPolicy](../../s3/api-ref/policy/delete.md).
+   Use the [DeleteBucketPolicy](../../s3/api-ref/policy/delete.md) S3 API method.
 
 {% endlist %}

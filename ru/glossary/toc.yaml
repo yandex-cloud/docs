@@ -29,6 +29,8 @@ items:
     href: cloud-server.md
   - name: Реляционные базы данных
     href: relational-databases.md
+  - name: OLTP
+    href: oltp.md
   - name: Транскрибация
     href: transcribation.md
   - name: S3

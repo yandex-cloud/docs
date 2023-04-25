@@ -49,6 +49,10 @@ description: "Пошаговые инструкции по работе с Docke
 * [{#T}](lifecycle-policy/lifecycle-policy-dry-run.md)
 * [{#T}](lifecycle-policy/lifecycle-policy-delete.md)
 
+## Сканирование Docker-образа на наличие уязвимостей {#scanning}
+
+* [{#T}](scanning-docker-image.md)
+
 ## Работа с ролями {#roles}
 
 * [{#T}](roles/grant.md)

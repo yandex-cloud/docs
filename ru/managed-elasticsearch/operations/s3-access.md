@@ -18,11 +18,9 @@
 
 ## Подключить сервисный аккаунт к кластеру {#connect-service-account}
 
+1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#change-service-account) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
 
-1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#change-additional-settings) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
-
-1. Убедитесь, что этому аккаунту [назначена роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`.
-
+1. Убедитесь, что этому аккаунту [назначена роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor` или выше.
 
 ## Настроить права доступа {#configure-acl}
 
@@ -30,10 +28,7 @@
 
 - Консоль управления
 
-    
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хранится нужный бакет. Если бакета не существует — [создайте](../../storage/operations/buckets/create.md) его.
-
-
     1. Выберите сервис **{{ objstorage-name }}**.
     1. Выберите вкладку **Бакеты**.
     1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md):
@@ -72,7 +67,9 @@
            "type": "s3",
            "settings": {
              "endpoint": "{{ s3-storage-host }}",
-             "bucket": "<имя бакета>"
+             "bucket": "<имя бакета>",
+             "base_path": "<путь к каталогу для снапшотов>",
+             "canned_acl": "bucket-owner-full-control"
            }
          }'
     ```

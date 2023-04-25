@@ -16,7 +16,7 @@ For each optical cross-connect, only single-mode (SM) optical fibers can be used
 
 {% note alert %}
 
-* Other types of transceivers that are not listed in the table above are **not supported**.
+* The types of transceivers that are not listed in the above table are **not supported**.
 * There is **no support** for optical single-fiber transceivers.
 * Copper transceivers operating over twisted pair, such as UTP5 and UTP6, are **not supported**.
 * Multi-mode (MM) optical fibers **are not allowed**.

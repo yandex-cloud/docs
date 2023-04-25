@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Cloud network
         items:
@@ -46,7 +46,7 @@ items:
         items:
           - name: Creating static routes
             href: operations/static-route-create.md
-          - name: Enabling NAT to the internet
+          - name: Enabling egress NAT
             href: operations/enable-nat.md
           - name: Creating and setting up a NAT gateway
             href: operations/create-nat-gateway.md
@@ -76,7 +76,7 @@ items:
             href: operations/enable-ddos-protection.md
       - name: Chart of network connections
         href: operations/connections-view.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md

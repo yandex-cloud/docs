@@ -37,6 +37,8 @@ items:
         href: tutorials/movies-database.md
       - name: Communicating with an API gateway using the WebSocket protocol
         href: tutorials/api-gw-websocket.md
+      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+        href: tutorials/ci-cd-serverless.md
   - name: Concepts
     items:
       - name: Relationships between service resources

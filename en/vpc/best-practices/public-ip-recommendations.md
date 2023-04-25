@@ -39,13 +39,11 @@ Read more:
 
 #### Use {{ interconnect-name }} {#cic}
 
-Connect your local network and cloud infrastructures using {{ interconnect-name }}. This lets you avoid using public IPs on the side of both your network and {{ yandex-cloud }}. Instead, you can use internal IP addresses from a custom range of subnets.
+Connect your local network and cloud infrastructures using {{ interconnect-name }}. This allows you to avoid using public IPs both on your network and {{ yandex-cloud }} side. Instead, you can use internal IP addresses from a custom range of subnets.
 
 Read more:
 
-* [{{ interconnect-name }} documentation](../../interconnect/index.yaml).
 * [Traffic routing with {{ interconnect-name }}](../../interconnect/concepts/routing.md).
-
 
 
 #### Connect to VMs using the serial console {#serial-console}

@@ -829,7 +829,7 @@ default:
   port-mch-cli: 9440
   port-mch-http: 8443
   port-mes: 9200
-  port-mgp: 5432
+  port-mgp: 6432
   port-mkf-ssl: 9091
   port-mkf-text: 9092
   port-mmg-sharded: 27017
@@ -42448,6 +42448,21 @@ default:
           button_create-key: Создать ключ
           button_create-key-new: Создать новый
           label_no-symmetric-key: Не выбрано
+      cr:
+        image:
+          label_last-scan-time: Дата последнего сканирования
+          label_scan-history: История сканирований
+          label_scan-status-READY: Готово
+          label_scan-status-RUNNING: Запущено
+          label_start-scan: Сканировать
+        registry:
+          button_change-scan-settings: Изменить настройки
+          button_select-repositories: Выбрать репозитории
+          field_scan-on-upload: Сканировать образы при загрузке
+          label_all-repositories: Все репозитории
+          label_only-selected: Только выбранные
+          label_repositories: Репозитории
+          label_vulnerabilities-scanner: Сканер уязвимостей
       data-streams:
         label_data-introspection: Просмотр данных
       data-transfer:
@@ -42479,6 +42494,7 @@ default:
         folder:
           dashboard:
             button_add: Создать ресурс
+            label_container-registry: Container Registry
             label_data-proc: Data Proc
             label_managed-greenplum: Managed Service for Greenplum
           service-account:

@@ -133,7 +133,7 @@ items:
         href: concepts/invoke.md
       - name: Networking
         href: concepts/networking.md
-      - name: Runtime environments
+      - name: Runtime environment
         href: concepts/runtime.md
       - name: Trigger
         items:
@@ -167,8 +167,12 @@ items:
         href: concepts/limits.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
+      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+        href: tutorials/ci-cd-serverless.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

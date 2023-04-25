@@ -1,6 +1,6 @@
 # Работа с заданиями MapReduce
 
-[MapReduce](http://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) — инструмент параллельной обработки больших (порядка нескольких десятков ТБ) наборов данных на кластерах в экосистеме Hadoop. Позволяет работать с данными в разных форматах. Ввод и вывод задания хранится в {{ objstorage-full-name }}.
+{% include [MapReduce](../../_includes/data-proc/mapreduce-intro.md) %}
 
 В этой статье на простом примере показывается, как в {{ dataproc-name }} использовать MapReduce. При помощи MapReduce подсчитывается количество жителей 500 самых населенных городов мира из набора данных о городах.
 

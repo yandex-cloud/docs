@@ -12,7 +12,7 @@ For example, to check the status of a trunk physical port:
 * Go to the monitoring service from the resource folder by selecting `Folder → Monitoring`.
 * Select the `Interconnect - Direct Trunk Connection Overview` section.
 * In the drop-down list of the `Resource ID` selector, choose the ID of the trunk in question.
-* Make sure the `Connection State` metric value is **1**, which means the trunk port is up and running.
+* The value of the `Connection State` metric must be **1**. This means the trunk port is up and running.
 
 ## Monitoring the status of a private or public connection {#private-mon}
 

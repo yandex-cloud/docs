@@ -18,36 +18,38 @@ description: "Следуя данной инструкции вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для создания виртуальной машины:
+  1. Посмотрите описание команды CLI для создания ВМ:
 
-      ```
-      yc compute instance create --help
-      ```
+     ```bash
+     yc compute instance create --help
+     ```
 
-  1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
-  1. Выберите один из публичных образов {{ marketplace-name }} на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
+  1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ.
+  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) {{ marketplace-full-name }} на базе ОС Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
-      {% include [standard-images](../../../_includes/standard-images.md) %}
+     {% include [standard-images](../../../_includes/standard-images.md) %}
 
-  1. Выберите подсеть:
+  1. Выберите [подсеть](../../../vpc/concepts/network.md#subnet):
+
+     ```bash
+     yc vpc subnet list
+     ```
+
+     Результат:
+
+     ```text
+     +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+     |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
+     +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+     | b0c6n43f9lgh3695v2k2 | default-{{ region-id }}-c | enpe3m3fa00udao8g5lg |                | {{ region-id }}-c | [10.130.0.0/24] |
+     | e2l2da8a20b33g7o73bv | default-{{ region-id }}-b | enpe3m3fa00udao8g5lg |                | {{ region-id }}-b | [10.129.0.0/24] |
+     | e9bnlm18l70ao30pvfaa | default-{{ region-id }}-a | enpe3m3fa00udao8g5lg |                | {{ region-id }}-a | [10.128.0.0/24] |
+     +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+     ```
+
+  1. Создайте ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
+
       ```bash
-      yc vpc subnet list
-      ```
-
-      Результат:
-
-      ```
-      +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
-      |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
-      +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
-      | b0c6n43f9lgh3695v2k2 | default-{{ region-id }}-c | enpe3m3fa00udao8g5lg |                | {{ region-id }}-c | [10.130.0.0/24] |
-      | e2l2da8a20b33g7o73bv | default-{{ region-id }}-b | enpe3m3fa00udao8g5lg |                | {{ region-id }}-b | [10.129.0.0/24] |
-      | e9bnlm18l70ao30pvfaa | default-{{ region-id }}-a | enpe3m3fa00udao8g5lg |                | {{ region-id }}-a | [10.128.0.0/24] |
-      +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
-      ```
-  1.  Создайте виртуальную машину в каталоге по умолчанию:
-
-      ```
       yc compute instance create \
         --name first-instance \
         --zone {{ region-id }}-a \
@@ -57,145 +59,147 @@ description: "Следуя данной инструкции вы сможете
       ```
 
       Где:
-
-      * `name` — имя виртуальной машины.
+      * `name` — имя ВМ.
 
         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone` — зона доступности, которая соответствует выбранной подсети.
+      * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
       * `subnet-name` — имя выбранной подсети.
-      * `image-family` — [семейство образов](../../concepts/image.md#family), например `centos-7`. Эта опция позволит установить последнюю версию операционной системы из указанного семейства.
-      * `nat-ip-version=ipv4` – публичный IP. Чтобы создать виртуальную машину без публичного IP, исключите параметр.
-      * `ssh-key` — путь до публичного SSH-ключа. Для этого ключа на виртуальной машине будет автоматически создан пользователь `yc-user`.
+      * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+      * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адрес, исключите параметр.
+      * `ssh-key` — путь до публичного SSH-ключа. Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
 - API
 
-  Создайте виртуальную машину с помощью метода REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/):
+  Создайте ВМ с помощью метода REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/):
+  1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ.
+  1. Получите [{{ iam-full-name }}-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
 
-  1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
-  1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
+     
      * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
-     * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
-     * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
-  1. [Получите идентификатор](../../../resource-manager/operations/folder/get-id.md) каталога.
-  1. Получите информацию об образе, из которого надо создать виртуальную машину (идентификатор образа и минимальный размер диска):
-      * Если вы знаете [семейство образа](../../concepts/image.md#family), получите информации о последнем образе в этом семействе:
-          ```bash
-          export IAM_TOKEN=CggaATEVAgA...
-          export FAMILY=ubuntu-1804
-          curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-            "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
-          ```
-      * Вы можете получить информацию об образе из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
-  1. Получите идентификатор подсети и идентификатор зоны доступности. В запросе укажите идентификатор каталога, в котором создана подсеть:
 
-      ```bash
-      export IAM_TOKEN=CggaATEVAgA...
-      export FOLDER_ID=b1gvmob95yysaplct532
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-        "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
-      {
+
+     * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
+     * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
+  1. [Получите идентификатор](../../../resource-manager/operations/folder/get-id.md) [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Получите информацию об [образе](../../concepts/image.md), из которого надо создать ВМ (идентификатор образа и минимальный размер [диска](../../concepts/disk.md)):
+     * Если вы знаете [семейство образа](../../concepts/image.md#family), получите информации о последнем образе в этом семействе:
+
+       ```bash
+       export IAM_TOKEN=CggaATEVAgA...
+       export FAMILY=ubuntu-1804
+       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+         "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
+       ```
+
+     * Вы можете получить информацию об образе из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
+  1. Получите идентификатор [подсети](../../../vpc/concepts/network.md#subnet) и идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md). В запросе укажите идентификатор каталога, в котором создана подсеть:
+
+     ```bash
+     export IAM_TOKEN=CggaATEVAgA...
+     export FOLDER_ID=b1gvmob95yysaplct532
+     curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+       "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
+     {
        "subnets": [
         {
-         "v4CidrBlocks": [
-          "10.130.0.0/24"
-         ],
-         "id": "b0c6n43ftldh30l0vfg2",
-         "folderId": "b1gvmob95yysaplct532",
-         "createdAt": "2018-09-23T12:15:00Z",
-         "name": "default-{{ region-id }}-a",
-         "description": "Auto-created default subnet for zone {{ region-id }}-a",
-         "networkId": "enpe3m3fagludao8aslg",
-         "zoneId": "{{ region-id }}-a"
+          "v4CidrBlocks": [
+            "10.130.0.0/24"
+          ],
+          "id": "b0c6n43ftldh30l0vfg2",
+          "folderId": "b1gvmob95yysaplct532",
+          "createdAt": "2018-09-23T12:15:00Z",
+          "name": "default-{{ region-id }}-a",
+          "description": "Auto-created default subnet for zone {{ region-id }}-a",
+          "networkId": "enpe3m3fagludao8aslg",
+          "zoneId": "{{ region-id }}-a"
         },
         ...
        ]
-      }
-      ```
-  1. Создайте файл с телом запроса на создание виртуальной машины, например `body.json`:
+     }
+     ```
 
-      ```json
-      {
-        "folderId": "b1gvmob95yysaplct532",
-        "name": "instance-demo-no-pwauth",
-        "zoneId": "{{ region-id }}-a",
-        "platformId": "standard-v3",
-        "resourcesSpec": {
-          "memory": "2147483648",
-          "cores": "2",
-        },
-        "metadata": {
-          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
-        },
-        "bootDiskSpec": {
-          "diskSpec": {
-            "size": "2621440000",
-            "imageId": "fd8rc75pn12fe3u2dnmb"
-          }
-        },
-        "networkInterfaceSpecs": [
-          {
-            "subnetId": "b0c6n43ftldh30l0vfg2",
-            "primaryV4AddressSpec": {
-              "oneToOneNatSpec": {
-                "ipVersion": "IPV4"
-              }
-            }
-          }
-        ]
-      }
-      ```
+  1. Создайте файл с телом запроса на создание ВМ, например, `body.json`:
 
-      Где:
+     ```json
+     {
+       "folderId": "b1gvmob95yysaplct532",
+       "name": "instance-demo-no-pwauth",
+       "zoneId": "{{ region-id }}-a",
+       "platformId": "standard-v3",
+       "resourcesSpec": {
+         "memory": "2147483648",
+         "cores": "2"
+       },
+       "metadata": {
+         "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
+       },
+       "bootDiskSpec": {
+         "diskSpec": {
+           "size": "2621440000",
+           "imageId": "fd8rc75pn12fe3u2dnmb"
+         }
+       },
+       "networkInterfaceSpecs": [
+         {
+           "subnetId": "b0c6n43ftldh30l0vfg2",
+           "primaryV4AddressSpec": {
+             "oneToOneNatSpec": {
+               "ipVersion": "IPV4"
+             }
+           }
+         }
+       ]
+     }
+     ```
 
-      * `folderId` — идентификатор каталога.
-      * `name` — имя, которое будет присвоено виртуальной машине при создании.
-      * `zoneId` — зона доступности, которая соответствует выбранной подсети.
-      * `platformId` — [платформа](../../concepts/vm-platforms.md).
-      * `resourceSpec` — ресурсы, доступные виртуальной машине. Значения должны соответствовать выбранной платформе.
-      * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на виртуальную машину. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
-      * `bootDiskSpec` — настройки загрузочного диска. Укажите идентификатор выбранного образа и размер диска.
+     Где:
+     * `folderId` — идентификатор каталога.
+     * `name` — имя, которое будет присвоено ВМ при создании.
+     * `zoneId` — зона доступности, которая соответствует выбранной подсети.
+     * `platformId` — [платформа](../../concepts/vm-platforms.md).
+     * `resourceSpec` — ресурсы, доступные ВМ. Значения должны соответствовать выбранной платформе.
+     * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
+     * `bootDiskSpec` — настройки загрузочного диска. Укажите идентификатор выбранного образа и размер диска.
 
-        {% include [id-info](../../../_includes/compute/id-info.md) %}
+       {% include [id-info](../../../_includes/compute/id-info.md) %}
 
-        Размер диска должен быть не меньше минимального размера диска, указанного в информации об образе.
+       Размер диска должен быть не меньше минимального размера диска, указанного в информации об образе.
+     * `networkInterfaceSpecs` — настройки [сети](../../../vpc/concepts/network.md#network).
+       * `subnetId` — идентификатор выбранной подсети.
+       * `primaryV4AddressSpec` — IP-адрес, который будет присвоен ВМ. Чтобы добавить [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ, укажите:
 
-      * `networkInterfaceSpecs` — настройки сети.
-        * `subnetId` — идентификатор выбранной подсети.
-        * `primaryV4AddressSpec` — IP-адрес, который будет присвоен виртуальной машине. Чтобы добавить [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) виртуальной машине, укажите:
-            ```
-            "primaryV4AddressSpec": {
-                "oneToOneNatSpec": {
-                  "ipVersion": "IPV4"
-                }
-              }
-            ```
+         ```json
+         "primaryV4AddressSpec": {
+           "oneToOneNatSpec": {
+             "ipVersion": "IPV4"
+           }
+         }
+         ```
 
-      Подробнее про формат тела запроса в [справочнике API](../../api-ref/Instance/create.md).
+     Подробнее про формат тела запроса в [справочнике API](../../api-ref/Instance/create.md).
+  1. Создайте ВМ:
 
-  1. Создайте виртуальную машину:
-
-      ```bash
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \
-        https://compute.{{ api-host }}/compute/v1/instances
-      ```
+     ```bash
+     export IAM_TOKEN=CggaATEVAgA...
+     curl -X POST \
+       -H "Content-Type: application/json" \
+       -H "Authorization: Bearer ${IAM_TOKEN}" \
+       -d '@body.json' \
+       https://compute.{{ api-host }}/compute/v1/instances
+     ```
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
 - {{ TF }}
 
-  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
-
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     ```
+     ```hcl
      resource "yandex_compute_instance" "vm-1" {
 
        name        = "linux-vm"
@@ -236,17 +240,16 @@ description: "Следуя данной инструкции вы сможете
      ```
 
      Где:
-
-     * `yandex_compute_instance` — описание [виртуальной машины](../../concepts/vm.md):
-       * `name` — имя виртуальной машины.
+     * `yandex_compute_instance` — описание ВМ:
+       * `name` — имя ВМ.
        * `platform_id` — [платформа](../../concepts/vm-platforms.md).
-       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-       * `resources` — количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
-       * `network_interface` — настройка сети. Укажите идентификатор выбранной подсети. Чтобы автоматически назначить виртуальной машине публичный IP-адрес, укажите `nat = true`.
-       * `metadata` — в метаданных необходимо передать открытый SSH-ключ для доступа на виртуальную машину. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md). 
-     * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
-     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#network), к которой будет подключена виртуальная машина.
+       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+       * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
+       * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md). Укажите идентификатор выбранного [образа](../../concepts/image.md). Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
+       * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
+       * `metadata` — в метаданных необходимо передать открытый SSH-ключ для доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
+     * `yandex_vpc_network` — описание облачной сети.
+     * `yandex_vpc_subnet` — описание подсети, к которой будет подключена ВМ.
 
      {% note info %}
 
@@ -255,23 +258,19 @@ description: "Следуя данной инструкции вы сможете
      {% endnote %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-
   1. Проверьте корректность конфигурационных файлов.
-
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Разверните облачные ресурсы.
-
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 
@@ -285,4 +284,4 @@ description: "Следуя данной инструкции вы сможете
 
 #### См. также {#see-also}
 
-- [{#T}](../vm-connect/ssh.md)
+* [{#T}](../vm-connect/ssh.md).

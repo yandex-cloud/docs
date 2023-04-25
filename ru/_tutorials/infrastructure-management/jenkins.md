@@ -38,7 +38,7 @@
 Подготовьте программы для работы:
 
 * [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}.
-* [Установите](https://www.terraform.io/downloads) {{ TF }}. См. также раздел [{#T}](terraform-quickstart.md).
+* [Установите](https://www.terraform.io/downloads) {{ TF }}. См. также раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Загрузите](https://stedolan.github.io/jq/download/) утилиту jq.
 * [Настройте](https://gitforwindows.org) Git. Если вы работаете под Windows, используйте Git Bash.
 * [Создайте](https://github.com/yandex-cloud/examples) ответвление репозитория с примерами в своем аккаунте на GitHub.

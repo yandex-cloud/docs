@@ -7,7 +7,7 @@ The main functions of a trunk or a trunk connection are:
 
 {% note warning %}
 
-Only one trunk can be set up at a [point of presence](./pops.md) for the client. To ensure fault tolerance, you can set up multiple trunks, one per [point of presence](./pops.md).
+You can only set up a single trunk per [point of presence](./pops.md), per client. To ensure fault tolerance, you can set up multiple trunks, one per [point of presence](./pops.md).
 
 {% endnote %}
 
@@ -46,7 +46,11 @@ A trunk connection in this setup option has the following components:
 * A cross connection that is used to connect to the optical transceiver on your equipment's port and to the optical transceiver on the {{ yandex-cloud }} equipment.
 
 One may outline this connection as follows:
+
+
 ![direct-link](../../_assets/interconnect/interconnect-phy-1.svg)
+
+
 
 The client equipment is located at a [point of presence](./pops.md) and connected to the {{ yandex-cloud }} equipment directly through an optical cross-connection routed within the point of presence.
 
@@ -54,12 +58,16 @@ The transceiver transmitting side (Tx) on the {{ yandex-cloud }} equipment is co
 
 ### Connecting using telecom provider services{#sp-link}
 
-If a client does not have their own equipment at the appropriate [point of presence](./pops.md), to connect to the {{ yandex-cloud }} equipment, the client uses the services of a telecom provider that has equipment at the appropriate point of presence.
+If a client does not have their own equipment at the [point of presence](./pops.md), then, to connect to the {{ yandex-cloud }} equipment, the client will need to use the services of a telecom provider that has equipment at the point of presence.
 
 One may outline this connection as follows:
+
+
 ![direct-link](../../_assets/interconnect/interconnect-phy-2.svg)
 
-A trunk connection in this setup option has the following components:
+
+
+A trunk in this setup option has the following components:
 
 * A physical port on the telecom provider's equipment.
 * An optical transceiver connected to the physical port on the telecom provider's equipment.
@@ -109,13 +117,19 @@ The following multiplexing options (schemes) are possible:
 
 #### A direct connection at a point of presence {#mux-direct}
 
+
 ![trunk-over-direct-link](../../_assets/interconnect/interconnect-trn-1.svg)
+
+
 
 In this setup option, a 802.1Q trunk connection is set up over a direct physical connection between the client equipment at the [point of presence](./pops.md) and the {{ yandex-cloud }} equipment.
 
 #### A connection using telecom provider services (L2 transit) {#mux-sp-L2}
 
+
 ![trunk-over-sp-l2](../../_assets/interconnect/interconnect-trn-2.svg)
+
+
 
 This method is used when the client does not have their own equipment at the point of presence. In this case:
 
@@ -126,7 +140,10 @@ This method is used when the client does not have their own equipment at the poi
 
 #### A connection using telecom provider services (L2 transit) {#mux-sp-L3}
 
+
 ![trunk-over-sp-l3vpn](../../_assets/interconnect/interconnect-trn-3.svg)
+
+
 
 This method is used when the client does not have their own equipment at the point of presence. In this case:
 

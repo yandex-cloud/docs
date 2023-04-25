@@ -12,23 +12,23 @@ keywords:
 
 # Создание виртуальной машины Linux
 
-Создайте [виртуальную машину](../concepts/vm.md) Linux с помощью сервиса {{ compute-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней.
+Создайте [ВМ](../concepts/vm.md) Linux с помощью сервиса {{ compute-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней.
 
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin-linux](../../_includes/compute/before-you-begin-linux.md) %}
 
-## Создайте виртуальную машину {#create-vm}
+## Создайте ВМ {#create-vm}
 
 {% include [create-instance-via-console-linux](../_includes_service/create-instance-via-console-linux.md) %}
 
-## Подключитесь к виртуальной машине {#connect-to-vm}
+## Подключитесь к ВМ {#connect-to-vm}
 
 {% include notitle [vm-connect-ssh](../operations/vm-connect/ssh.md#vm-connect) %}
 
 ## Настройте серийную консоль {#serial-console}
 
-Через [серийную консоль](../operations/serial-console/index.md) можно подключиться к ВМ вне зависимости от состояния сети или операционной системы (например, при проблемах с загрузкой или доступом по SSH).
+Через [серийную консоль](../operations/serial-console/index.md) можно подключиться к ВМ вне зависимости от состояния [сети](../../vpc/concepts/network.md#network) или операционной системы (например, при проблемах с загрузкой или доступом по [SSH](../../glossary/ssh-keygen.md)).
 
 Доступ к ВМ через серийную консоль необходимо настроить заранее.
 

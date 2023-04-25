@@ -229,7 +229,11 @@
    * Network ID in the `networkId` parameter.
    * Cluster configuration in the `configSpec` parameter.
    * Configuration of the cluster's hosts in one or more `hostSpecs` parameters.
-      * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
+
+   
+   * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
+
+
    * Database configuration in one or more `databaseSpecs` parameters.
    * User settings in one or more `userSpecs` parameters.
    * Cluster deletion protection settings in the `deletionProtection` parameter.

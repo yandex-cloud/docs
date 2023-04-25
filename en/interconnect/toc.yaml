@@ -5,7 +5,7 @@ items:
     expanded: true
     items:
       - name: Overview
-        href: concepts/overview.md
+        href: concepts/index.md
       - name: Terminology
         href: concepts/terms.md
       - name: Points of presence
@@ -29,7 +29,7 @@ items:
   - name: Instructions
     expanded: false
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Creating a new trunk and private connection
         href: operations/trunk-prc-add.md

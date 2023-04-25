@@ -149,6 +149,10 @@
 
       Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
+- API
+
+   To set up hosting for a static website, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+
 {% endlist %}
 
 ## Redirect all requests {#redirects}
@@ -237,7 +241,7 @@
         website {
           index_document = "<absolute_path_to_website_homepage_file>"
           error_document = "<absolute_path_to_error_file>"
-          redirect_all_requests_to = "<host_name>"
+      	 redirect_all_requests_to = "<host_name>"
         }
       }
       ...
@@ -284,6 +288,10 @@
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can use the [management console]({{ link-console-main }}) to check the request redirect settings.
+
+- API
+
+   To set up a redirect for all bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 
@@ -462,5 +470,9 @@
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can use the [management console]({{ link-console-main }}) to check the settings for conditionally redirecting requests.
+
+- API
+
+   To set up a conditional redirect of bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}

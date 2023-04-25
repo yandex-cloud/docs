@@ -1,6 +1,6 @@
 # Сделать виртуальную машину прерываемой
 
-Вы можете [создать прерываемую](#create-preemptible) ВМ или [изменить тип](#preemptible-to-regular) существующей ВМ.
+Вы можете [создать прерываемую](#create-preemptible) [ВМ](../../concepts/vm.md) или [изменить тип](#preemptible-to-regular) существующей ВМ.
 
 ## Создать прерываемую ВМ {#create-preemptible}
 
@@ -10,7 +10,7 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
   1. В списке сервисов выберите **{{ compute-name }}**.
   1. Нажмите кнопку **Создать ВМ**.
   1. В блоке **Базовые параметры**:
@@ -21,12 +21,12 @@
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
      * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **Выбор образа/загрузочного диска** выберите один из образов.
-  1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Диски** настройте загрузочный диск:
+  1. В блоке **Выбор образа/загрузочного диска** выберите один из [образов](../../concepts/image.md).
+  1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Диски** настройте загрузочный [диск](../../concepts/disk.md):
      * Выберите [тип диска](../../concepts/disk.md#disks_types).
      * Укажите нужный размер диска.
 
-       Если вы хотите создать ВМ из существующего диска, в блоке **Диски и файловые хранилища** [добавьте диск](./create-from-disks.md):
+       Если вы хотите создать ВМ из существующего диска, в блоке **Диски и файловые хранилища** [добавьте диск](create-from-disks.md):
        * Нажмите кнопку **Добавить диск**.
        * Введите имя диска.
        * Выберите [тип диска](../../concepts/disk.md#disks_types).
@@ -53,7 +53,9 @@
 
      {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-    1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+  
+  1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+
 
   1. В блоке **Доступ** укажите данные для доступа на ВМ:
      * (опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
@@ -83,8 +85,8 @@
      yc compute instance create --help
      ```
 
-  1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
-  1. Выберите один из публичных образов [{{ marketplace-full-name }}](/marketplace) на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
+  1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen) на ВМ.
+  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) {{ marketplace-full-name }} на базе ОС Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
      {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -104,11 +106,11 @@
      Данная команда создаст прерываемую ВМ со следующими характеристиками:
      * С именем `first-preemptible-instance`.
      * С OC CentOS 7.
-     * В зоне доступности `{{ region-id }}-a`.
-     * В подсети `default-a`.
-     * С публичным IP.
+     * В [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+     * В [подсети](../../../vpc/concepts/network.md#subnet) `default-a`.
+     * С [публичным IP-адресом](../../../vpc/concepts/address.md#public-addresses).
 
-     Чтобы создать ВМ без публичного IP, исключите опцию `nat-ip-version=ipv4`.
+     Чтобы создать ВМ без публичного IP-адреса, исключите опцию `nat-ip-version=ipv4`.
 
      Требования к имени ВМ:
 
@@ -122,10 +124,10 @@
 
 - {{ TF }}
 
-  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     ```
+     ```hcl
      resource "yandex_compute_instance" "vm-1" {
 
        name        = "preemptible-vm"
@@ -169,17 +171,17 @@
      ```
 
      Где:
-     * `yandex_compute_instance` — описание [ВМ](../../concepts/vm.md):
+     * `yandex_compute_instance` — описание ВМ:
        * `name` — имя ВМ.
        * `platform_id` — [платформа](../../concepts/vm-platforms.md).
        * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
-       * `network_interface` — настройка сети. Укажите идентификатор выбранной подсети. Чтобы автоматически назначить ВМ публичный IP-адрес, укажите `nat = true`.
-       * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
+       * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md). Укажите идентификатор выбранного [образа](../../concepts/image.md). Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
+       * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
+       * `metadata` — в метаданных необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
        * `scheduling_policy` — политика планирования. Чтобы создать прерываемую ВМ, укажите `preemptible = true`.
-     * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
-     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#network), к которой будет подключена ВМ.
+     * `yandex_vpc_network` — описание облачной сети.
+     * `yandex_vpc_subnet` — описание подсети, к которой будет подключена ВМ.
 
      {% note info %}
 
@@ -301,10 +303,10 @@
 
 - {{ TF }}
 
-  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Найдите в конфигурационном файле описание политики планирования ВМ, которую нужно сделать непрерываемой:
 
-     ```
+     ```hcl
      scheduling_policy {
        preemptible = true
      }
@@ -339,4 +341,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../vm-connect/ssh.md)
+* [{#T}](../vm-connect/ssh.md).

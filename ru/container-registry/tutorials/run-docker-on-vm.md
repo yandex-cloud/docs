@@ -23,7 +23,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 * Плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамического или статического [внешнего IP-адреса](../../vpc/concepts/address.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за использование динамического или статического [внешнего IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы {{ cos-full-name }}](../../cos/pricing.md)).
 
 
@@ -42,7 +42,7 @@
 
    - Консоль управления
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сервисный аккаунт.
+     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
      1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
      1. Нажмите кнопку **Создать сервисный аккаунт**.
      1. Введите имя сервисного аккаунта и нажмите кнопку **Создать**.
@@ -158,7 +158,7 @@
 
           {% endnote %}
 
-        * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh#creating-ssh-keys).
+        * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      1. Нажмите кнопку **Создать ВМ**.
 
    - CLI
@@ -226,7 +226,7 @@
 
      Создайте ВМ с помощью метода [Create](../../compute/api-ref/Instance/create.md) для ресурса `Instance`:
      1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
-     1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
+     1. Получите [{{ iam-full-name }}-токен](../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
 
         
         * [Инструкция](../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
@@ -377,7 +377,7 @@
         ```
 
 
-   - С помощью IAM-токена
+   - С помощью {{ iam-name }}-токена
 
      {% note info %}
 
@@ -582,7 +582,6 @@ Hi, I'm inside
    * `subnet_name` — имя подсети.
    * `vm_name` — имя ВМ.
    * `image_id` — идентификатор образа, из которого будет создана ВМ, например `fd81hgrcv6lsnkremf32` для Ubuntu 20.04 LTS. Подробнее см. [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
-
 1. Создайте ресурсы:
 
    {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}

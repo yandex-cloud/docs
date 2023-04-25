@@ -139,8 +139,8 @@
        * `memory` — количество памяти (RAM).
        * `cores` — количество ядер процессора (vCPU).
        * `mode` — режим доступа к [диску](../../concepts/disk.md).
-       * `READ_ONLY` — доступ на чтение.
-       * `READ_WRITE` — доступ на чтение и запись.
+         * `READ_ONLY` — доступ на чтение.
+         * `READ_WRITE` — доступ на чтение и запись.
        * `image_id` — идентификатор публичного образа. Идентификаторы образа можно посмотреть в [консоли управления]({{ link-console-main }}) при создании ВМ или в [{{ marketplace-name }}](/marketplace) на странице образа в блоке **Идентификаторы продукта**.
        * `type_id` — тип диска.
        * `size` — размер диска.
@@ -148,8 +148,8 @@
        * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. Вы можете предоставить публичный доступ к ВМ группы, указав версию IP для [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses). Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
        * `scheduling_policy` — конфигурация политики планирования.
        * `preemptible` — флаг, указывающий создавать [прерываемые ВМ](../../concepts/preemptible-vm.md).
-       * `true` — будет создана прерываемая ВМ.
-       * `false` (по умолчанию) — обычная.
+         * `true` — будет создана прерываемая ВМ.
+         * `false` (по умолчанию) — обычная.
 
          Создавая группу прерываемых ВМ учитывайте, что ВМ будут останавливаться спустя 24 часа непрерывной работы, а могут быть остановлены еще раньше. При этом возможна ситуация, что {{ ig-name }} не сможет сразу перезапустить их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в {{ yandex-cloud }}.
      * [Политики](../../concepts/instance-groups/policies/index.md):
@@ -170,7 +170,6 @@
        * `deploy_policy` — [политика развертывания](../../concepts/instance-groups/policies/deploy-policy.md) ВМ в группе.
        * `scale_policy` — [политика масштабирования](../../concepts/instance-groups/policies/scale-policy.md) ВМ в группе.
        * `allocation_policy` — [политика распределения](../../concepts/instance-groups/policies/allocation-policy.md) ВМ по [зонам доступности](../../../overview/concepts/geo-scope.md) и регионам.
-
      * [Целевую группу](../../../network-load-balancer/concepts/target-resources.md) {{ network-load-balancer-name }}:
 
        ```yaml
@@ -351,8 +350,8 @@
          * `platform_id` — [платформа](../../concepts/vm-platforms.md).
          * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
          * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md).
-         * Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
-         * Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
+           * Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
+           * Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
          * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификаторы сети и [подсети](../../../vpc/concepts/network.md#subnet).
          * `metadata` — в [метаданных](../../concepts/vm-metadata.md) необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
        * [Политики](../../concepts/instance-groups/policies/index.md):

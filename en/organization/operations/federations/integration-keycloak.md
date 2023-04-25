@@ -4,11 +4,11 @@ With an [identity federation](../../add-federation.md), you can use [Keycloak](h
 
 Setting up authentication includes the following steps:
 
-1. [Creating and setting up a federation in {{org-full-name}}](#yc-settings).
+1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
 
 1. [Creating and setting up a SAML application in Keycloak](#keycloak-settings).
 
-1. [Adding users to {{org-full-name}}](#add-users).
+1. [Adding users to {{ org-full-name }}](#add-users).
 
 1. [Authentication](#test-auth).
 
@@ -90,7 +90,7 @@ To use follow the steps in this section, you will need:​
 
    {% endlist %}
 
-## Creating and setting up a federation in {{org-full-name}} {#yc-settings}
+## Creating and setting up a federation in {{ org-full-name }} {#yc-settings}
 
 ### Create a federation {#create-federation}
 
@@ -98,9 +98,9 @@ To use follow the steps in this section, you will need:​
 
 - Management console
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
@@ -164,7 +164,7 @@ To use follow the steps in this section, you will need:​
 
    1. Enable **Automatically create users** to automatically add a new user to your organization after authentication. If this option is disabled, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
 
-   1. To make sure that all authentication requests from {{ yandex-cloud}} contain a digital signature, enable the **Sign authentication requests** option. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate. You can download the certificate in the **Sign authentication requests** field immediately after creating a federation.
+   1. To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable the **Sign authentication requests** option. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate. You can download the certificate in the **Sign authentication requests** field immediately after creating a federation.
 
    1. Click **Create federation**.
 
@@ -529,13 +529,13 @@ To use follow the steps in this section, you will need:​
          
       1. Confirm you want to create a federation.
 
-      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{link-org-federations}}) section.
+      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
 
 {% endlist %}
 
 ### Add certificates {#add-certificate}
 
-While authenticating, the {{org-name}} service should be able to verify the IdP server certificate. To enable this, add the certificate to the federation:
+While authenticating, the {{ org-name }} service should be able to verify the IdP server certificate. To enable this, add the certificate to the federation:
 
 {% list tabs %}
 
@@ -708,7 +708,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
    1. Click **Save**.
 
-1. If you enabled the **Sign authentication requests** option when [creating a federation](#create-federation) in {{org-full-name}}, set up verifying a digital signature in the SAML application:
+1. If you enabled the **Sign authentication requests** option when [creating a federation](#create-federation) in {{ org-full-name }}, set up digital signature verification in the SAML application:
 
    {% list tabs %}
 
@@ -758,7 +758,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
    1. In the **Credentials** tab, click **Set Password** and enter a password.
 
-## Adding users to {{org-full-name}} {#add-users}
+## Adding users to {{ org-full-name }} {#add-users}
 
 If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
 
@@ -770,11 +770,11 @@ A user can be added by an organization administrator (the `organization-manager.
 
 - Management console
 
-   1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
+   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [Users]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
    1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 
@@ -845,9 +845,9 @@ Following user authentication, the IdP server will send an SAML message to {{ ya
 
 You can set up a mapping between the SAML message attributes and the personal data stored on the IdP server. To do this:
 
-1. Enable the option for mapping the identity provider roles and {{org-full-name}}:
+1. Enable the option for mapping the identity provider roles and {{ org-full-name }}:
 
-   1. In the left-hand panel, select **Client Scopes**  →  **role_list**.
+   1. In the left-hand panel, select **Client Scopes** → **role_list**.
 
    1. Go to the **Mappers** tab and select **role list**.
 

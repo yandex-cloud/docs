@@ -1,8 +1,8 @@
 # Limiting the maximum size of a bucket
 
-{{ objstorage-name }} allows you to limit the maximum size of a bucket
+{{ objstorage-name }} allows you to limit the maximum size of a bucket.
 
-If, for example, you provide the users of your service with the ability to upload objects to {{ objstorage-name }}, then, by limiting the maximum volume, you can better control user actions and avoid unnecessary costs.
+For example, if you provide the users of your service with the ability to upload objects to {{ objstorage-name }}, limiting the maximum volume allows you to better control user actions and avoid unnecessary costs.
 
 {% list tabs %}
 
@@ -129,5 +129,9 @@ If, for example, you provide the users of your service with the ability to uploa
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify changes to your bucket in the [management console]({{ link-console-main }}).
+
+- API
+
+   To limit the maximum bucket size, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
 
 {% endlist %}
