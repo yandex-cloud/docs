@@ -130,8 +130,6 @@ The `render` method is used to draw the widget.
       callback?: (token: string) => void;
       hl?: 'ru' | 'en' | 'be' | 'kk' | 'tt' | 'uk' | 'uz' | 'tr';
       invisible?: boolean;
-      test?: boolean;
-      webview?: boolean;
       shieldPosition?: `top-left` | `center-left` | `bottom-left` | `top-right` | `center-right` | `bottom-right`;
       hideShield?: boolean;
   }
@@ -146,8 +144,6 @@ Where:
    * `callback`: Listener function.
    * `hl`: Widget language.
    * `invisible`: [Invisible CAPTCHA](./invisible-captcha.md).
-   * `test` - Test mode. User will always see the challenge.
-   * `webview` - Use it to increase accuracy of user validation when CAPTCHA is used in a WebVew. If you are not sure, do not use this property.
    * `shieldPosition`: Position of the [block](./invisible-captcha.md#data-processing-notice) with data processing notice.
    * `hideShield`: Hide the [block](./invisible-captcha.md#data-processing-notice) with data processing notice.
 
@@ -161,16 +157,6 @@ The `getResponse` method returns the current value of the user token.
 
 ```ts
 (widgetId: WidgetId | undefined) => string;
-```
-
-`widgetId` argument: Unique widget ID. If no argument is passed, the result of the first rendered widget is returned.
-
-### execute method {#execute}
-
-The `execute` method starts user validation. The main usage scenario - start invisible CAPTCHA validation on an event. For example, after submit button click in a authorization form.
-
-```ts
-(widgetId: WidgetId | undefined) => void;
 ```
 
 `widgetId` argument: Unique widget ID. If no argument is passed, the result of the first rendered widget is returned.

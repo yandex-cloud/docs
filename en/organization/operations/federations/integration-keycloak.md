@@ -215,6 +215,7 @@ To use follow the steps in this section, you will need:​
          * `organization-id`: Your organization ID.
 
          * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
+
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
             If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -526,7 +527,7 @@ To use follow the steps in this section, you will need:​
          ```
          terraform apply
          ```
-         
+
       1. Confirm you want to create a federation.
 
       This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
@@ -708,7 +709,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
    1. Click **Save**.
 
-1. If you enabled the **Sign authentication requests** option when [creating a federation](#create-federation) in {{ org-full-name }}, set up digital signature verification in the SAML application:
+1. If you enabled the **Sign authentication requests** option when [creating a federation](#create-federation) in {{ org-full-name }}, set up verifying a digital signature in the SAML application:
 
    {% list tabs %}
 
@@ -720,6 +721,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the **Archive Format** field, select **Certificate PEM**. (You might need to generate certificates first so that clicking **Import key** makes the **Certificate PEM** option available.)
          {#signature}
+
       1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{org-full-name}} federation information page in the **Sign authentication requests** field.
 
       1. Click **Confirm**.
@@ -770,9 +772,9 @@ A user can be added by an organization administrator (the `organization-manager.
 
 - Management console
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
+   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+   1. Go to [{{org-full-name}}]({{ link-org-main }}).
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
@@ -823,6 +825,7 @@ A user can be added by an organization administrator (the `organization-manager.
         ]
       }
       ```
+
    1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash

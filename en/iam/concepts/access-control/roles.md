@@ -455,3 +455,15 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
+
+
+## {{ yq-full-name }} {#yq-roles}
+
+{% include [yq-invoker](../../../_includes/iam/roles/yq-invoker.md) %}
+
+{% include [yq-viewer](../../../_includes/iam/roles/yq-viewer.md) %}
+
+{% include [yq-editor](../../../_includes/iam/roles/yq-editor.md) %}
+
+{% include [yq-admin](../../../_includes/iam/roles/yq-admin.md) %}
+

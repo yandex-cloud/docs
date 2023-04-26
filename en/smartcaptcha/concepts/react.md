@@ -46,7 +46,6 @@ Available properties:
 | `sitekey` | `string` | Client key. |
 | `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
 | `test` | `boolean` \| `undefined` | Launch a CAPTCHA in test mode. The user will always get a task. The property must only be used during development. |
-|`webview`               | `boolean` \| `undefined`                  | Use when widget will be used in a mobile application using a WebView technology. It increases accuracy of the user classification. If you are not sure, do not use this property. 
 | `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task appears. |
 | `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task closes. |
 | `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
@@ -74,7 +73,6 @@ Available properties:
 | `visible` | `boolean` \| `undefined` | Show a task to the user. |
 | `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
 | `test` | `boolean` \| `undefined` | Launch a CAPTCHA in test mode. The user will always get a task. The property must only be used during development. |
-|`webview`               | `boolean` \| `undefined`                  | Use when widget will be used in a mobile application using a WebView technology. It increases accuracy of the user classification. If you are not sure, do not use this property. 
 | `shieldPosition` | `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined` | Position of the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
 | `hideShield` | `boolean` \| `undefined` | Hide the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
 | `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task appears. |

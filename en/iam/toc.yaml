@@ -7,9 +7,9 @@ items:
         href: quickstart.md
       - name: How to work with service accounts
         href: quickstart-sa.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Handling secrets that are available in the public domain
         href: operations/compromised-credentials.md

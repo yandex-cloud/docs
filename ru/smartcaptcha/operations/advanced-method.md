@@ -30,8 +30,8 @@
             const container = document.getElementById('<id_контейнера>');
 
             const widgetId = window.smartCaptcha.render(container, {
-                sitekey: '<ключ_клиента>',
-                hl: '<язык>',
+            sitekey: '<ключ_клиента>',
+            hl: '<язык>',
             });
         }
         }

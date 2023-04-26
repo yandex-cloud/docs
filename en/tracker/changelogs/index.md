@@ -8,6 +8,7 @@
 * [Retaining a list of projects](#projects-preset)
 * [Displaying files attached to an issue](#attaches)
 * [Dashboard access rights](#access-dashboards)
+* [Additional mailbox settings](#new-mail)
 
 ## Setting up a color palette in a Gantt chart for projects {#gantt-colors}
 
@@ -46,4 +47,14 @@ Now, when setting up a filter for a [list of projects](../manager/my-projects.md
 
 ## Dashboard access rights {#access-dashboards}
 
-The {{ tracker-name }} new interface now also allows you to change the owner of a dashboard and set up user permissions to it.
+The {{ tracker-name }} new interface now also allows you to change the owner of a dashboard and set up user permissions for it.
+
+## Additional mailbox settings {#new-mail}
+
+When setting up [email integration](../manager/queue-mail.md), you can now set additional parameters for processing emails:
+
+* **Inbox folder**.
+* **Archive folder**.
+* **Start date of email processing**.
+
+The settings are only available for [email addresses](../manager/queue-mail.md#sec-mail-yandex) registered with an arbitrary mail server.

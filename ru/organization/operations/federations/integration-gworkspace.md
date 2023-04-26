@@ -59,17 +59,18 @@
   1. В поле **Время жизни cookie** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
   
   1. В поле **IdP Issuer** скопируйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
-      
+
       ```
       https://accounts.google.com/o/saml2?idpid=<ID SAML-приложения>
       ```
-  
+
   1. В поле **Ссылка на страницу для входа в IdP** скопируйте ссылку, указанную в поле **URL системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
-      
+
       ```
       https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>
       ```
-  
+      {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
   1. Включите опцию **Автоматически создавать пользователей**, чтобы аутентифицированный пользователь автоматически добавлялся в организацию. Если вы не включите эту опцию, федеративных пользователей потребуется [добавить вручную](../../add-account.md#add-user-sso).
 
      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
@@ -127,6 +128,8 @@
             https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>
             ```
 
+            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
         * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
 - API
@@ -176,6 +179,9 @@
             ```
             https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>
             ```
+
+            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
         * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
     1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
@@ -206,6 +212,8 @@
             ```
             https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>
             ```
+
+            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
         * `cookie_max_age` — время в секундах, в течение которого браузер не должен требовать у пользователя повторной аутентификации. Значение по умолчанию `8 часов`. 
         * `auto_create_account_on_login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 

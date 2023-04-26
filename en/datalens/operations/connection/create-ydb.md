@@ -24,7 +24,7 @@ To create a {{ ydb-name }} connection:
 
 1. Specify the connection parameters:
 
-   * **Connection name**. Name the connection. The name can be anything.
+   * **Connection name**. Name the connection. You can set any name.
 
    
    * **Cloud and folder**. Select the folder where your service account will be located.
@@ -32,8 +32,14 @@ To create a {{ ydb-name }} connection:
    * **Database**. Specify the name of the database to connect to.
 
 
-   * **Cache lifetime in seconds**: Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-   * **SQL query access level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+   {% note warning %}
+
+   Capital letters are not allowed in {{ ydb-short-name }} database column names.
+
+   {% endnote %}
+
+   * **Cache TTL in seconds**: Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+   * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
 1. Click **Create** in the top right corner. The connection will appear in the list.
 

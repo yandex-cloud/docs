@@ -9,7 +9,7 @@ The tutorial includes the following steps:
 1. [Review the connection and datasets](#step3).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
@@ -18,15 +18,15 @@ The tutorial includes the following steps:
 
 1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page and click **Create connection**.
 
-1. Select a type of connection to [**Bitrix24**](https://datalens.yandex.ru/connections/new/bitrix24).
+1. Select the [**Bitrix24**]({{ link-datalens-main }}/connections/new/bitrix24) connection type.
 
-1. To connect to a demo data source, specify: 
+1. To connect to a demo data source, specify:
    * **Portal**: `gds.office.bitrix.ru`
    * **Token**: `wJZIFjdYtbLRtfewYcnq71oSFyEgxlbQ`
 
    Leave the option **Automatically create a dashboard, charts, and a dataset on the connection** enabled.
 
-1. Check the connection, and if it's OK, click **Create connection**.
+1. Check the connection, and, if everything is fine, click **Create connection**.
 
 1. Enter the name for the connection and click **Create**.
 
@@ -48,11 +48,11 @@ For example on the dashboard's **Lead** page, let's change the **Dynamics in the
 
 1. Open the chart editor: click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Edit**.
 
-2. Change the chart type from **Stacked area chart** to **Bar chart**.
+1. Change the chart type from **Stacked area chart** to **Bar chart**.
 
-3. Drag the **Source** field to the **Colors** section.
+1. Drag the **Source** field to the **Colors** section.
    The chart shows the dynamics of lead generation by channels as a bar chart.
-4. Save the resulting chart as an individual object:
+1. Save the resulting chart as an individual object:
    1. Click ![image](../../_assets/datalens/arrow-down.svg) → **Save as**.
    1. Select the location for the new chart and enter its name.
    1. Click **Save**.
@@ -63,7 +63,7 @@ For example on the dashboard's **Lead** page, let's change the **Dynamics in the
 
    {% endnote %}
 
-5. Add the chart to your dashboard:
+1. Add the chart to your dashboard:
    1. Open the **Bitrix24 dashboard** and click **Edit** → **Add** → **Chart**.
    1. Enter a title for the chart to be shown on the dashboard, such as _Dynamics of leads by channels_.
    1. Select a relevant chart from the folder.

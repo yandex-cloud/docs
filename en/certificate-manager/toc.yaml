@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart/index.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Certificate from Let's Encrypt
         items:
@@ -15,7 +15,7 @@ items:
             href: operations/managed/cert-get-content.md
           - name: Domain rights check procedure
             href: operations/managed/cert-validate.md
-          - name: Renew a certificate
+          - name: Renewing a certificate
             href: operations/managed/cert-update.md
           - name: Edit a certificate
             href: operations/managed/cert-modify.md
@@ -27,7 +27,7 @@ items:
             href: operations/import/cert-create.md
           - name: Get the contents of a certificate
             href: operations/import/cert-get-content.md
-          - name: Renew a certificate
+          - name: Renewing a certificate
             href: operations/import/cert-update.md
           - name: Edit a certificate
             href: operations/import/cert-modify.md
@@ -49,7 +49,7 @@ items:
         href: operations/alert.md
   - name: Tutorials
     items:
-      - name: Install an NGINX Ingress controller in {{ managed-k8s-name }}
+      - name: Installing an NGINX Ingress controller in {{ managed-k8s-name }}
         href: tutorials/nginx-ingress-certificate-manager.md
   - name: Concepts
     items:

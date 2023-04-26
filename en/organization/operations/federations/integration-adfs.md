@@ -1,6 +1,6 @@
 # Authentication using Active Directory
 
-With an [identity federation](../../add-federation.md), you can use [Active Directory Federation Services]({{ link-adfs }}) (ADFS) to authenticate in the cloud.
+With an [identity federation](../../add-federation.md), you can use [Active Directory Federation Services]({{ link-adfs }}) (ADFS) to get authenticated in the cloud.
 
 To set up authentication:
 
@@ -16,11 +16,11 @@ To set up authentication:
 
 1. [Test the authentication process](#test-auth).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-To use the instructions in this section, you will need:​
+To follow the steps in this section, you will need:​
 
-1. A working AD FS farm. If you didn't configure AD FS on your server, [install and configure it now](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). To deploy ADFS, you also need to install and configure Active Directory Domain Services (AD DS).
+1. Working AD FS farm. If you did not configure AD FS on your server, [install and configure it now](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). To deploy ADFS, you also need to install and configure Active Directory Domain Services (AD DS).
 
 
    {% note tip %}
@@ -29,7 +29,7 @@ To use the instructions in this section, you will need:​
 
    {% endnote %}
 
-1. A valid certificate that is used for signing in the ADFS service. If you don't have a valid SSL certificate, get one.
+1. Valid certificate that is used for signing in the ADFS service. If you do not have a valid SSL certificate, get one.
 
    The subject name in the certificate must contain the FQDN of the Identity Provider (IdP) server, for example, `fs.contoso.com`, to prevent the browser from blocking the authentication page.
 
@@ -43,13 +43,13 @@ To use the instructions in this section, you will need:​
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
-   1. Enter a name for the federation. The name must be unique within the folder.
+   1. Give your federation a name. It must be unique within the folder.
 
-   1. Add a description if necessary.
+   1. You can also add a description, if required.
 
    1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
 
@@ -57,9 +57,9 @@ To use the instructions in this section, you will need:​
 
    1. In the **SSO method** field, choose **POST**.
 
-   1. In the **Link to the IdP login page** field, enter a link in `https://<ADFS>/adfs/ls/`, format where `<ADFS>` is the FQDN of your ADFS server.
+   1. In the **Link to the IdP login page** field, enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your ADFS server.
 
-   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you don't enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
+   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
 
 - CLI
 
@@ -87,7 +87,7 @@ To use the instructions in this section, you will need:​
 
       Where:
 
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
       * `organization-id`: Your organization ID.
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
 
@@ -128,7 +128,7 @@ To use the instructions in this section, you will need:​
       Where:
 
       * `folderId`: ID of the folder.
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
       * `organizationId`: Organization ID.
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
@@ -154,7 +154,7 @@ To use the instructions in this section, you will need:​
 
    1. Specify the federation parameters in the configuration file:
 
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: Organization ID.
       * `labels`: Set of key/value label pairs assigned to the federation.
@@ -163,7 +163,7 @@ To use the instructions in this section, you will need:​
          Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your ADFS server.
 
       * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
-      * `sso_url`: URL of the page that the browser redirects the user to for authentication.
+      * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
          Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your ADFS server.
 
@@ -259,7 +259,7 @@ To add a certificate to a federation:
 
    1. At the bottom of the page, click **Add certificate**.
 
-   1. Enter the certificate's name and description.
+   1. Enter the certificate name and description.
 
    1. Choose how to add the certificate:
       * To add a certificate as a file, click **Choose a file** and specify the path to it.
@@ -329,7 +329,7 @@ Obtain and save this link:
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Copy the ID of the federation you are configuring access for.
 
@@ -392,12 +392,12 @@ When ADFS authenticates a user, it sends a SAML message to {{ yandex-cloud }} to
 | User data | Comment | Outgoing Claim Type |
 ------------------- | ----------- | -------------------
 | Unique user ID | Required attribute. We recommend using the **User-Principal-Name** or email address. | Name ID |
-| Last name | Displayed in {{ yandex-cloud }} services. We recommend using the **Surname** attribute. | Surname |
-| Name | Displayed in {{ yandex-cloud }} services. We recommend using the **Given-Name** attribute. | Given Name |
-| Full name | Displayed in {{ yandex-cloud }} services. Example: John Smith.<br>We recommend using the **Display-Name** attribute. | Name |
-| Email | Used to send notifications from {{ yandex-cloud }} services. Example: `smith@example.com`<br>We recommend using the **E-Mail-Address** attribute. | E-Mail Address |
-| Phone | Used to send notifications from {{ yandex-cloud }} services. Example: +71234567890<br>We recommend using the `Telephone-Number` attribute. | Type `phone` in the **Outgoing Claim Type** field. |
-| Profile image | Displayed in {{ yandex-cloud }} services.<br>We recommend using the `thumbnailPhoto` attribute. [How to add a profile image](#add-avatar) | Type `thumbnailPhoto` in the **Outgoing Claim Type** field. |
+| Last name | Displayed in {{ yandex-cloud }} services. We recommend using the **Surname** attribute.<br> Value length limit: {{ saml-limit-last-name }}. | Surname |
+| Name | Displayed in {{ yandex-cloud }} services. We recommend using the **Given-Name** attribute.<br> Value length limit: {{ saml-limit-first-name }}. | Given Name |
+| Full name | Displayed in {{ yandex-cloud }} services. Example: John Smith.<br>We recommend using the **Display-Name** attribute.<br> Value length limit: {{ saml-limit-display-name }}. | Name |
+| Email | Used to send notifications from {{ yandex-cloud }} services. Example:&nbsp;`smith@example.com`<br>We recommend using the **E-Mail-Address** attribute.<br> Value length limit: {{ saml-limit-email }}. | E-Mail Address |
+| Phone | Used to send notifications from {{ yandex-cloud }} services. Example: +71234567890<br>We recommend using the `Telephone-Number` attribute.<br> Value length limit: {{ saml-limit-phone }}. | Type `phone` in the **Outgoing Claim Type** field. |
+| Profile image | Displayed in {{ yandex-cloud }} services.<br>We recommend using the `thumbnailPhoto` attribute. [How to add a profile image](#add-avatar).<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | Type `thumbnailPhoto` in the **Outgoing Claim Type** field. |
 
 {% note warning %}
 
@@ -482,9 +482,9 @@ The `thumbnailPhoto` attribute supports files of up to 100 KB. The recommended f
 
 ## Add users to your organization {#add-users}
 
-If you did not enable the **Automatically create users** option when creating a federation, federated users must be manually added to your organization.
+If you did not enable the **Automatically create users** option when creating a federation, you will have to add federated users to your organization manually.
 
-To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you don't know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
+To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you do not know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
 
 A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
 
@@ -494,13 +494,13 @@ To add federation users to an organization:
 
 - Management console
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
+   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click the arrow next to the **Add user** button and select **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -531,7 +531,7 @@ To add federation users to an organization:
 
    To add identity federation users to the cloud:
 
-   1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
+   1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of Name IDs of users you want to add:
 
       ```json
       {
@@ -566,7 +566,7 @@ Now that you finished configuring authentication with Active Directory, test tha
 
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 
-1. On successful authentication, ADFS redirects you back to the management console login link and then to the management console home page. In the upper-right corner, you can see that you are logged in to the console under an Active Directory account.
+1. On successful authentication, ADFS redirects you back to the management console login link and then to the management console home page. In the top-right corner, you can see that you are logged in to the console under an Active Directory account.
 
 #### What's next {#what-is-next}
 

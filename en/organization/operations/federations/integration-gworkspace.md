@@ -12,9 +12,9 @@ Setting up authentication includes the following steps:
 
 1. [Authentication](#test-auth).
 
-## Before you begin {#before-you-begin}
+## Before you start {#before-you-begin}
 
-To use the instructions in this section, you'll need a subscription to Google Workspace services and a verified domain to set up your SAML application for.
+To follow the steps described in this section, you will need a subscription to Google Workspace services and a verified domain to set up your SAML application for.
 
 ## Creating and setting up a SAML application in Google Workspace {#gworkspace-settings}
 
@@ -24,7 +24,7 @@ A SAML application in Google Workspace acts as an identity provider (IdP). Creat
 
 1. Open the [Google Workspace Admin Console](https://admin.google.com/).
 
-1. In the left panel, select **Mobile and web applications**.
+1. In the left-hand panel, select **Mobile and web applications**.
 
 1. Click **Add** → **Add a custom SAML app**.
 
@@ -52,9 +52,9 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
    1. Click **Create federation**.
 
-   1. Enter a name for the federation. The name must be unique within the folder.
+   1. Give your federation a name. It must be unique within the folder.
 
-   1. Add a description if necessary.
+   1. You can also add a description, if required.
 
    1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
 
@@ -63,12 +63,12 @@ Don't close the page where you create an app in Google Workspace: you'll get the
       https://accounts.google.com/o/saml2?idpid=<SAML app ID>
       ```
 
-   1. In the **Link to the IdP login page** field, enter the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+   1. In the **Link tothe IdP login page** field, enter the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
       ```
       https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
       ```
 
-   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you don't enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
+   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
 
 - CLI
 
@@ -96,7 +96,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
       Where:
 
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
 
       * `organization-id`: Your organization ID.
 
@@ -148,7 +148,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
       * `folderId`: ID of the folder.
 
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
 
       * `organizationId`: Organization ID.
 
@@ -166,7 +166,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
          ```
          https://accounts.google.com/o/saml2?idpid=<SAML app ID>
          ```
-      * `ssoUrl`: URL of the page that the browser redirects the user to for authentication.
+      * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
 
          Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
@@ -183,7 +183,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
    1. Specify the federation parameters in the configuration file:
 
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: Organization ID.
       * `labels`: Set of key/value label pairs assigned to the federation.
@@ -196,7 +196,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
          ```
 
       * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
-      * `sso_url`: URL of the page that the browser redirects the user to for authentication.
+      * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
          Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
@@ -270,7 +270,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
    1. At the bottom of the page, click **Add certificate**.
 
-   1. Enter the certificate's name and description.
+   1. Enter the certificate name and description.
 
    1. Choose how to add the certificate:
 
@@ -341,7 +341,7 @@ Obtain and save this link:
 
 1. Get the federation ID:
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Copy the ID of the federation you are configuring access for.
 
@@ -414,7 +414,7 @@ The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If t
 
 ### Add users to your organization {#add-users-to-org}
 
-If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), federated users must be manually added to your organization.
+If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
 
 To do this, you will need user Name IDs. They are returned by the IdP server along with a response confirming successful authentication.
 
@@ -428,9 +428,9 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -467,7 +467,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    To add identity federation users to the cloud:
 
-   1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
+   1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of Name IDs of users you want to add:
 
       ```json
       {
@@ -496,11 +496,11 @@ When you finish configuring the server, test that everything works properly:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the [console login link](#get-link) obtained earlier. The browser forwards you to the Google authentication page.
+1. Follow the [console login link](#get-link) you obtained previously. The browser will forward you to the Google authentication page.
 
 1. Enter your credentials and click **Sign in**.
 
-If the authentication is successful, the IdP server will redirect you back to the console login link, and then to the [management console]({{ link-console-main }}) home page. In the upper-right corner, you can see that you are logged in to the console as a federated user.
+If the authentication is successful, the IdP server will redirect you back to the console login link, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 
