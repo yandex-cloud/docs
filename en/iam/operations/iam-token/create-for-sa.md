@@ -1,6 +1,6 @@
 # Getting an IAM token for a service account
 
-There are several ways to get an [IAM token](../../concepts/authorization/iam-token.md) for the [service account](../../concepts/users/service-accounts.md):
+There are multiple ways to get an [IAM token](../../concepts/authorization/iam-token.md) for the [service account](../../concepts/users/service-accounts.md):
 
 * [Using the CLI](#via-cli) (the easiest way).
 * [Using JSON Web Token](#via-jwt). This method is good for automating your API operations.

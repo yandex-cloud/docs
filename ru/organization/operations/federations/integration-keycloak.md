@@ -162,6 +162,8 @@
        {{ link-keycloak-example-old }}/protocol/saml
        ```
 
+     {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
   1. Включите опцию **Автоматически создавать пользователей**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../add-account.md#add-user-sso).
 
      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
@@ -277,6 +279,8 @@
               {{ link-keycloak-example-old }}/protocol/saml
               ```
 
+            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
         * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
 - API
@@ -390,6 +394,8 @@
             {{ link-keycloak-example-old }}/protocol/saml
             ```
 
+          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
         * `encryptedAssertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
 
         * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
@@ -462,6 +468,8 @@
           ```
           {{ link-keycloak-example-old }}/protocol/saml
           ```
+
+        {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
       * `cookie_max_age` — время в секундах, в течение которого браузер не должен требовать у пользователя повторной аутентификации. Значение по умолчанию `8 часов`. 
       * `auto_create_account_on_login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 

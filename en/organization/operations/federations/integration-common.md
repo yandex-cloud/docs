@@ -1,12 +1,12 @@
-# Authentication using an SAML-compatible identity federation
+# Authentication using a SAML-compatible identity federation
 
-This is a generic guide to configure authentication in the cloud via an SAML-compatible identity federation. Use this guide if there is no guide for your identity federation.
+This is a common guide to configure authentication in the cloud through a SAML-compatible identity federation. Use this guide if there is no specific guide for your identity federation.
 
 To set up authentication:
 
 1. [Create a federation in your organization](#create-federation).
 
-1. [Add certificates to a federation](#add-certificate).
+1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
 
 1. [Get a console login link](#get-link).
 
@@ -18,9 +18,9 @@ To set up authentication:
 
 1. [Test the authentication process](#test-auth).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-To use the instructions in this section, you will need a valid certificate to sign SAML messages on the Identity Provider's (IdP) server. If you don't have a valid SSL certificate, get one.
+To use the instructions in this section, you will need a valid certificate to sign SAML messages on the Identity Provider's (IdP) server. If you do not have a valid SSL certificate, get one.
 
 The subject name in the certificate must contain the FQDN of the Identity Provider (IdP) server, for example, `fs.contoso.com`, to prevent the browser from blocking the authentication page.
 
@@ -38,7 +38,7 @@ To create a federation:
 
    1. Click **Create federation**.
 
-   1. Enter a name for the federation. The name must be unique within the folder.
+   1. Give your federation a name. It must be unique within the folder.
 
    1. You can also add a description, if required.
 
@@ -58,7 +58,7 @@ To create a federation:
 
    1. Add an [identity provider certificate](#add-certificate) to the created federation.
 
-   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you don't enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
+   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
 
    1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{ yandex-cloud }}.
 
@@ -90,7 +90,7 @@ To create a federation:
 
       Where:
 
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
       * `organization-id`: Your organization ID.
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
 
@@ -123,7 +123,7 @@ To create a federation:
       Where:
 
       * `folderId`: ID of the folder.
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
       * `organizationId`: Organization ID.
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
@@ -131,7 +131,7 @@ To create a federation:
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
-      * `ssoUrl`: URL of the page that the browser redirects the user to for authentication.
+      * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
       * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
@@ -142,13 +142,13 @@ To create a federation:
 
    1. Specify the federation parameters in the configuration file:
 
-      * `name`: Federation name. The name must be unique within the folder.
+      * `name`: Federation name. It must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: Organization ID.
       * `labels`: Set of key/value label pairs assigned to the federation.
       * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
       * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
-      * `sso_url`: URL of the page that the browser redirects the user to for authentication.
+      * `sso_url`: URL of the page the browser redirects the user to for authentication.
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
@@ -221,13 +221,13 @@ To add a certificate to a federation:
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
    1. At the bottom of the page, click **Add certificate**.
 
-   1. Enter the certificate's name and description.
+   1. Enter the certificate name and description.
 
    1. Choose how to add the certificate:
       * To add a certificate as a file, click **Choose a file** and specify the path to it.
@@ -401,12 +401,18 @@ To correctly pass user information to {{ org-full-name }}, map SAML message attr
 | User data | Comment | SAML message elements |
 ------------------- | ----------- | ----------------------
 | Unique user ID | Required attribute. We recommend using the User Principal Name (UPN) or email address. | `<NameID>` |
-| Last name | Displayed in {{ yandex-cloud }} services. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"` parameter |
-| Name | Displayed in {{ yandex-cloud }} services. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"` parameter |
-| Full name | Displayed in {{ yandex-cloud }} services.<br>Example: John Smith | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"` parameter |
-| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `smith@example.com` | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
-| Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890 | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"` parameter |
-| Profile image | Displayed in {{ yandex-cloud }} services.<br>Images are transmitted in Base64 encoding. [Example](#avatar-example) | `<Attribute>` with the<br>`Name="thumbnailPhoto"` parameter |
+| Last name | Displayed in {{yandex-cloud}} services.<br> Value length limit: {{saml-limit-last-name}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"` parameter |
+| Name | Displayed in {{yandex-cloud}} services.<br> Value length limit: {{saml-limit-first-name}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"` parameter |
+| Full name | Displayed in {{yandex-cloud}} services.<br>Example: John Smith.<br> Value length limit: {{saml-limit-display-name}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"` parameter |
+| Email | Used to send notifications from {{yandex-cloud}} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{saml-limit-email}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
+| Phone | Used to send notifications from {{yandex-cloud}} services.<br>Example: +71234567890.<br> Value length limit: {{saml-limit-phone}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"` parameter |
+| Profile image | Displayed in {{yandex-cloud}} services.<br>Images are transmitted in Base64 encoding. [Example](#avatar-example).<br> Value length limit: {{saml-limit-thumbnail-photo}}. | `<Attribute>` with the<br>`Name="thumbnailPhoto"` parameter |
+
+{% note warning %}
+
+The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If the value of a different attribute exceeds the limit, the value part that goes beyond the limit is truncated.
+
+{% endnote %}
 
 ### Sample Base64-encoded image {#avatar-example}
 
@@ -463,9 +469,9 @@ UYGmIgo9HwAAAABJRU5ErkJggg==
 
 ## Add users to your organization {#add-users}
 
-If you did not enable the **Automatically create users** option when creating a federation, federated users must be manually added to your organization.
+If you did not enable the **Automatically create users** option when creating a federation, you will have to add federated users to your organization manually.
 
-To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you don't know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
+To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you do not know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
 
 A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
 
@@ -479,9 +485,9 @@ To add federation users to an organization:
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -512,7 +518,7 @@ To add federation users to an organization:
 
    To add identity federation users to the cloud:
 
-   1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
+   1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of Name IDs of users you want to add:
 
       ```json
       {

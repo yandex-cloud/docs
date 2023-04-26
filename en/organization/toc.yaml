@@ -15,7 +15,7 @@ items:
     items:
       - name: Overview
         href: manage-users.md
-      - name: Add a user
+      - name: Adding a user
         href: add-account.md
       - name: Get the user's ID or email
         href: users-get.md

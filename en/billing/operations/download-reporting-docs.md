@@ -36,8 +36,14 @@ To request a reconciliation report:
    {% cut "Exchanging original documents" %}
 
    To exchange original documents, download an unsigned report, print two copies, sign them, and send them as follows:
-   * By post, to: 121205, Russia, Moscow, 40 Bolshoy Blvd., Amalthea Business Center, Western Administrative District, Mozhaisk District, Skolkovo Innovation Center, Yandex, marked "for the Project Deals Support Group”. Do not specify any employee names.
-   * By delivery service, to: 121205, Russia, Moscow, 40 Bolshoy Blvd., Amalthea Business Center, Western Administrative District, Mozhaisk District, Skolkovo Innovation Center. If no delivery confirmation is required, documents can be submitted 24/7 through a mail drop-off point that is available to visitors of the Amalthea Business Center, 1st floor (between entrances B and C). If delivery confirmation is required, call the office and order a pass beforehand to get access to the reception desk (third floor). Office phone number: +7 495 739-70-00.
+
+   * By post, to: 115035, Russia, Moscow, 82/2, Sadovnicheskaya St.
+      On the envelope, specify <q>For Project Deals Support Group</q> without any employee names.
+
+   * By delivery service, to: 115035, Russia, Moscow, 82/2, Sadovnicheskaya St.
+      Enter the building from Sadovnicheskaya Street, between entrances 5 and 6 of the <q>Aurora</q> Business Center.
+      The delivery reception desk is open from 9 am to 6 pm, GMT+3, Monday to Friday.
+      To call the office phone number, dial +7 495 739-70-00, then press 1; once the voice menu activates, dial 7704.
 
    As soon as the documents are signed, you will be sent your copy.
 

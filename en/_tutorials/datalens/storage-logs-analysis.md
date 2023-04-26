@@ -15,7 +15,7 @@ To analyze the logs and present the results in interactive charts:
 1. [Create charts in {{ datalens-short-name }}](#create-charts).
 1. [Create a dashboard in {{ datalens-short-name }}](#create-dashboard).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -26,8 +26,8 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The cost includes:
 
-* A fee for data storage in {{ objstorage-short-name }}, operations with data, and outgoing traffic (see [{{ objstorage-short-name }} pricing](../../storage/pricing.md)).
-* A fee for the continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for data storage in {{ objstorage-short-name }}, operations with data, and outgoing traffic (see [{{ objstorage-short-name }} pricing](../../storage/pricing.md)).
+* Fees for continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 
 
 ## Create a bucket for storing logs {#create-bucket}
@@ -47,7 +47,7 @@ To create a bucket:
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
+   1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
    1. Create a bucket `bucket-logs`:
 
       ```bash
@@ -83,7 +83,7 @@ To create a bucket:
       }
       ```
 
-      For more information about the `yandex_storage_bucket` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
 
    1. Make sure the settings are correct.
 
@@ -118,12 +118,12 @@ To enable the export of logs to the `bucket-logs` bucket:
       }
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       aws s3api put-bucket-logging \
         --endpoint-url https://{{ s3-storage-host }} \
-       --bucket <target bucket name> \
+       --bucket <name of the target bucket> \
        --bucket-logging-status file://log-config.json
      ```
 
@@ -206,7 +206,7 @@ To enable the export of logs to the `bucket-logs` bucket:
         environment         = "PRODUCTION"
         version             = "21.3"
         network_id          = yandex_vpc_network.<name of network in {{ TF }}>.id
-      
+
         clickhouse {
           resources {
             resource_preset_id = "b2.nano"
@@ -214,11 +214,11 @@ To enable the export of logs to the `bucket-logs` bucket:
             disk_size          = 10
           }
         }
-      
+
         database {
           name = "s3_data"
         }
-      
+
         user {
           name     = "user"
           password = "<password>"
@@ -226,13 +226,13 @@ To enable the export of logs to the `bucket-logs` bucket:
             database_name = "s3_data"
           }
         }
-      
+
         host {
           type      = "CLICKHOUSE"
           zone      = "<availability zone>"
           subnet_id = yandex_vpc_subnet.<name of subnet in {{ TF }}>.id
         }
-      
+
         access {
           datalens  = true
           web_sql   = true
@@ -287,7 +287,7 @@ To enable the export of logs to the `bucket-logs` bucket:
          bucket String,              -- Bucket name.
          bytes_received Int64,       -- Size of request in bytes.
          bytes_send Int64,           -- Size of response in bytes.
-         handler String,             -- Request method in REST format.<HTTP method>.<subject>.
+         handler String,             -- Request method in REST.<HTTP method>.<subject> format.
          http_referer String,        -- URL of request source.
          ip String,                  -- User's IP address.
          method String,              -- HTTP request method.
@@ -311,10 +311,10 @@ To enable the export of logs to the `bucket-logs` bucket:
          version_id String,          -- Version of object.
          vhost String                -- Virtual host of request.
                                      -- Possible values:
-                                     -- * storage.yandexcloud.net.
-                                     -- * <bucket name>.storage.yandexcloud.net.
-                                     -- * website.yandexcloud.net.
-                                     -- * <bucket name>.website.yandexcloud.net.
+                                     -- * {{ s3-storage-host }}.
+                                     -- * <bucket name>.{{ s3-storage-host }}.
+                                     -- * {{ s3-web-host }}.
+                                     -- * <bucket name>.{{ s3-web-host }}.
       )
       ENGINE = S3(
             'https://{{ s3-storage-host }}/bucket-logs/s3-logs/*',
@@ -338,11 +338,11 @@ To enable the export of logs to the `bucket-logs` bucket:
 
       1. Add a connection name: `s3-logs-con`.
       1. In the **Cluster** field, select `s3-logs`.
-      1. In the **Hostname** field, select the {{ CH }} host from the drop-down list.
+      1. In the **Host name** field, select the {{ CH }} host from the drop-down list.
       1. Enter the DB user's name and password.
 
    1. Click **Check connection**.
-   1. After checking the connection, in the upper-right corner, click **Create**.
+   1. After checking the connection, in the top-right corner, click **Create**.
 
 {% endlist %}
 
@@ -358,9 +358,9 @@ To enable the export of logs to the `bucket-logs` bucket:
    * Formula: `SPLIT([object_key], '.', -1)`.
 
 1. Click **Create**.
-1. In the upper-right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 1. Enter the dataset name `s3-dataset` and click **Create**.
-1. When the dataset is saved, in the upper-right corner, click **Create chart**.
+1. When the dataset is saved, click **Create chart** in the top-right corner.
 
 ## Create charts in {{ datalens-short-name }} {#create-charts}
 
@@ -371,7 +371,7 @@ To visualize the number of requests to a bucket using different methods, create 
 1. For the visualization type, select **Pie chart**.
 1. Drag the `method` field from the **Dimensions** section to the **Colors** section.
 1. Drag the `request_id` field from the **Dimensions** section to the **Measures** section.
-1. In the upper right-hand corner, click **Save**.
+1. In the top-right corner, click **Save**.
 1. In the window that opens, enter the name of the chart `S3 - Method pie` and click **Save**.
 
 ### Create the second chart {#create-column-chart}
@@ -380,13 +380,13 @@ To visualize the ratio of the number of requests by object type, create a bar ch
 
 1. Copy the chart from the previous step:
 
-   1. In the upper-right corner, click the down arrow next to the **Save** button.
+   1. In the top-right corner, click the down arrow next to the **Save** button.
    1. Click **Save as**.
    1. In the window that opens, enter the name of the new chart `S3 - Object type bars` and click **Save**.
 
 1. For the visualization type, choose **Bar chart**. The `method` and `request_id` fields will automatically appear in the **X** and **Y** sections, respectively.
 1. Delete the `method` field from the **X** section and drag the `object_type` field there.
-1. In the upper right-hand corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
 ### Create the third chart {#create-column-chart-2}
 
@@ -394,28 +394,31 @@ To visualize the distribution of outgoing traffic by day, create a bar chart:
 
 1. Copy the chart from the previous step:
 
-   1. In the upper-right corner, click the down arrow next to the **Save** button.
+   1. In the top-right corner, click the down arrow next to the **Save** button.
    1. Click **Save as**.
-   1. In the window that opens, enter the name of the new chart `S3: Traffic generated by days` and click **Save**.
+   1. In the window that opens, enter the name of the new chart: `S3 - Traffic generated by days` and click **Save**.
 
 1. Drag the `object_type` field from the **X** section to the **Filters** section.
 1. In the window that opens, select the types of objects that you want to display in the chart and click **Apply filter**.
 1. Drag the `timestamp` field from the **Dimensions** section to the **X** section.
 1. Delete the `request_id` field from the **Y** section and drag the `bytes_send` the field there.
-1. In the upper right-hand corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
 ## Create a dashboard in {{ datalens-short-name }} and add charts there {#create-dashboard}
 
 Create a dashboard to add charts to:
 
-1. Go to the {{ datalens-short-name }} [home page](https://datalens.yandex.com).
+1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
 1. Enter the name of the dashboard `S3 Logs Analysis` and click **Create**.
-1. In the upper-right corner, click **Add** and choose **Chart**.
+1. In the top-right corner, click **Add** and choose **Chart**.
 1. In the **Chart** chart, click **Select** and choose the `S3 - Method pie` chart from the list.
 1. Click **Add**. The chart is displayed on the dashboard.
 1. Repeat the previous steps for the `S3 - Object type bars` and `S3 - Traffic generated by days` charts.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-If you no longer need the resources you created, delete the `bucket-logs` [bucket](../../storage/operations/buckets/delete.md) and `s3-logs` [cluster](../../managed-clickhouse/operations/cluster-delete.md).
+Delete the resources you no longer need to avoid paying for them:
+
+* [Delete the bucket](../../storage/operations/buckets/delete.md) named `bucket-logs`.
+* [Delete the cluster](../../managed-clickhouse/operations/cluster-delete.md) named `s3-logs`.

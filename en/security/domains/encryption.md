@@ -1,8 +1,9 @@
 # Data encryption and key management
 
-{{ yandex-cloud }} provides built-in encryption features for a number of services. It's the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management is done by [{{ kms-full-name }}](../../kms/) ({{ kms-short-name }}).
+{{ yandex-cloud }} provides built-in encryption features for a number of services. It is the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management is done by [{{ kms-full-name }}](../../kms/) ({{ kms-short-name }}).
 
 {{ yandex-cloud }} APIs support cipher suites in specific TLS versions that are compliant with PCI DSS and other standards.
+
 
 
 ## Encryption at rest {#encryption-at-rest}
@@ -18,7 +19,8 @@ If your corporate information security policy sets specific key size and rotatio
 
 ### {{objstorage-full-name}} {#storage-at-rest}
 
-To protect critical data in [{{ objstorage-full-name }}](../../storage/), we recommend using bucket server-side encryption with [{{ kms-full-name }}](../../kms/) keys. This encryption method protects against the accidental or intentional publication of bucket contents on the internet. For more information, see [{#T}](../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
+To protect critical data in [{{ objstorage-full-name }}](../../storage/), we recommend using bucket server-side encryption with [{{ kms-full-name }}](../../kms/) keys. This encryption method enables protection against accidental or intentional publication of the bucket content on the web. For more information, see [{#T}](../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
+
 
 
 ### {{managed-k8s-name}} {#kubernetes}
@@ -59,12 +61,9 @@ When using Object Storage, be sure that support for TLS protocols below version 
 
 Possible options for using encrypted communication channels are described in [{#T}](network.md#remote-access).
 
-
-Please note that [{{interconnect-full-name}}](../../interconnect/) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
-- Installing in the cloud VPN gateways with encryption enabled, such as VMs based on [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}.
-- Using application-level encryption.
-- Using [GOST VPN](network.md#gost-vpn).
-
+Please note: [{{interconnect-full-name}}](../../interconnect/) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
+- Deploying encrypted VPN gateways in the cloud, such as VMs running [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}.
+- Using application-level encryption- Using [GOST VPN](network.md#gost-vpn).
 
 
 

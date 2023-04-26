@@ -19,7 +19,7 @@ The developer selects the event when the service checks the user.
 
 ## Validation result {#validation-result}
 
-After validating a request, {{ captcha-name }} assigns it an ID in the form of a token. You can use the token to retrieve the result of a user request validation from the service. The token is valid during 5 minutes after recieving it. After 5 minutes CAPTCHA will reset and the user should pass validation one more time.
+After validating a request, {{ captcha-name }} assigns it an ID in the form of a token. You can use the token to retrieve the result of a user request validation from the service.
 
 After validation, the token is inserted into the `<input type="hidden" name="smart-token" value="<token>" ...>` element on the user page. For example:
 

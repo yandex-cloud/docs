@@ -23,7 +23,7 @@ The most popular issue statuses are available in {{ tracker-name }} by default. 
 
 1. Make sure you are authorized in {{ tracker-full-name }} as an [administrator](../role-model.md).
 
-1. On the right-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Administration** → **{{ tracker-name }} setting** .
+1. On the right-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Administration** → **{{ tracker-name }} setting**.
 
 1. Go to the **Issue statuses** tab.
 

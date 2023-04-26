@@ -12,9 +12,9 @@ Setting up authentication includes the following steps:
 
 1. [Authentication](#test-auth).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-To use the instructions in this section, you will need an Azure account with an active subscription.
+To follow the steps described in this section, you will need an Azure account with an active subscription.
 
 ## Creating and setting up a SAML application in Azure AD {#azure-settings}
 

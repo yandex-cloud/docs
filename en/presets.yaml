@@ -580,6 +580,7 @@ default:
   mch-backup-retention: 7
   mch-dedup-retention: 30
   yql-full-name: Yandex Query Language
+  yq-name: Query
   yql-short-name: YQL
   k8s: Kubernetes
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt

@@ -5,7 +5,7 @@ items:
     href: quickstart.md
   - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Managing labels
         href: operations/manage-labels.md
