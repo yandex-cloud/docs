@@ -34,7 +34,7 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
 
       {% include [translate-file](../translate/translate-file.md) %}
 
-      Where `IAM_TOKEN`: IAM token received [before starting](translate-instruction.md#before-begin).
+      Where `IAM_TOKEN`: IAM token received [before starting](#before-begin).
 
       The response from the service will contain translated text:
       ```json

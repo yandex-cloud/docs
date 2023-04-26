@@ -491,6 +491,6 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/functions

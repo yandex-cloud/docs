@@ -7,7 +7,7 @@ description: "All terms used in {{ yandex-cloud }} are provided in the Glossary 
 
 {% note info %}
 
-All the terms are given in the Glossary for informational purposes. If there is a conflict between the term definitions in the Agreement and those in the Glossary, the terms of the former shall prevail.
+All terms are provided in the Glossary for informational purposes. If there is a conflict between the term definitions in the Agreement and those in the Glossary, the terms of the former shall prevail.
 
 {% endnote %}
 
@@ -43,9 +43,10 @@ Personal account
 
 Reporting period
 :   The reporting period is equal to one calendar month. At the beginning of each month, you are required to pay for the resources consumed in the previous period. The [payment method](../payment/index.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+<br/>See the [Reporting period](reporting-period.md) section for details.
 
 Offer
-: Method of entering into an agreement.
+:   Method of entering into an agreement.
 <br/>See the [Customer agreement](contract.md) section.
 
 
@@ -70,7 +71,7 @@ Payment invoice
 <br/>See the [Payment invoice](bill.md) section.
 
 Tax invoice
-:  Tax document delivered to a customer at the end of a reporting period.
+:   Tax document delivered to a customer at the end of a reporting period.
 <br/>See the [Tax invoice](invoice.md) section.
 
 

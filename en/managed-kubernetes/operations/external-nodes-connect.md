@@ -116,7 +116,7 @@ You can use one of two methods to install system components and to add nodes to 
 
 #### Automated install {#automatic-setup}
 
-For an automated installation, you need to create a secret containing a private server connection SSH key in your cluster. Create a secret:
+For an automated installation, create a secret containing a private server connection SSH key in your cluster. Create a secret:
 
 ```bash
 kubectl -n system create secret generic <secret name> --from-file=ssh-privatekey=<file path> --type=kubernetes.io/ssh-auth
@@ -161,7 +161,6 @@ Connection as `root` and the specified SSH key must be available on all the exte
 #### Semi-automated install {#semi-automatic-setup}
 
 For a semi-automated installation, you need to set all the external nodes up with the basic component and the configuration that will assure the subsequent installation of the system components.
-
 1. Creating a NodeGroup object makes a secret available in a cluster. The secret contains `kubeconfig` to use on connecting servers. Get it using `kubectl` configured to communicate with the cluster and save it to a file:
 
    ```bash
@@ -213,7 +212,7 @@ If there are issues, review the events in the `system` namespace first:
 
 - Management console
 
-  1. On the cluster page, go to **Events** tab.
+  1. On the cluster page, go to **Events**.
   1. Select the `-system` namespace.
 
 - CLI

@@ -129,9 +129,12 @@
       sitekey: string;
       callback?: (token: string) => void;
       hl?: 'ru' | 'en' | 'be' | 'kk' | 'tt' | 'uk' | 'uz' | 'tr';
+      test?: boolean;
+      webview?: boolean;
       invisible?: boolean;
       shieldPosition?: `top-left` | `center-left` | `bottom-left` | `top-right` | `center-right` | `bottom-right`;
       hideShield?: boolean;
+      test?: boolean;
   }
 ) => WidgetId;
 ```
@@ -143,9 +146,12 @@
     * `sitekey` — ключ клиентской части;
     * `callback` — функция-обработчик;
     * `hl` — язык виджета;
+    * `test` - флаг для включения работы капчи в режиме тестирования. В режиме тестирования пользователь будет всегда видеть задание;
+    * `webview` - флаг для улучшения точности оценки пользователей в WebView. Используется при встраивании {{ captcha-full-name }} в мобильные приложения при помощи технологии WebView. Eсли вы не уверены, нужно ли вам это свойство, то не указывайте его;
     * `invisible` — [невидимая капча](./invisible-captcha.md);
     * `shieldPosition` — расположение [блока](./invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных;
-    * `hideShield` — скрыть [блок](./invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.
+    * `hideShield` — скрыть [блок](./invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных;
+    * `test` — запустить капчу в тестовом режиме, чтобы пользователь всегда получал задание. Используйте это свойство только для тестирования и отладки.
 
 {% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
@@ -160,6 +166,16 @@
 ```
 
 Аргумент `widgetId` — уникальный идентификатор виджета. Если аргумент не передан, будет возвращен результат первого отрисованного виджета.
+
+### Метод execute {#execute}
+
+Метод `execute` запускает проверку пользователя. Главный сценарий использования - начать проверку невидимой капчи при каком-то событии, например, при нажатии на кнопку отправки формы авторизации.
+
+```ts
+(widgetId: WidgetId | undefined) => void;
+```
+
+Аргумент — `widgetId`, уникальный идентификатор виджета. Если аргумент не передан, будет удален первый отрисованный виджет.
 
 ### Метод reset {#reset}
 

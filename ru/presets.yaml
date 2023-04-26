@@ -42433,12 +42433,40 @@ default:
         v1|int|number: '0'
         v1|int|string: Не тарифицируется
   ui-key:
+    yacloud_monitoring:
+      alert-template:
+        threshold-status:
+          alarm: Alarm
+          warn: Warning
+        threshold-type:
+          max: Максимум
+          min: Минимум
+      alert:
+        button_create-alert: Создать алерт
+        label_evaluation-period: Окно вычисления
+        label_evaluation-type: Функция агрегации
+        label_trigger-condition: Условие срабатывания
+        title_comparison-eq: Равно
+        title_comparison-gte: Больше или равно
+        title_comparison-lte: Меньше или равно
+      dashboard:
+        dash:
+          create-alert: Создать алерт
+        tab:
+          service-dashboards: Сервисные дашборды
+      dialog:
+        confirm:
+          button_continue: Продолжить
     yacloud:
       common:
         add: Добавить
         create: Создать
+        description: Описание
+        edit: Редактировать
         name: Имя
+        remove: Удалить
         save: Сохранить
+        section-base: Общая информация
       component:
         console-dashboard:
           button_action-create-folder: Создать каталог
@@ -42466,15 +42494,22 @@ default:
       data-streams:
         label_data-introspection: Просмотр данных
       data-transfer:
+        button_create-transfer: Создать трансфер
         forms:
           label_source-type: Источник
           label_target-type: Приёмник
           label-database_type: Тип базы данных
           section-endpoint: Параметры эндпоинта
+        label_connector-operation-ACTIVATE: Активировать
+        label_connector-operation-DEACTIVATE: Деактивировать
+        label_connector-operation-REUPLOAD: Перезагрузить
         label_connector-status-DONE: Завершен
         label_connector-status-RUNNING: Реплицируется
         label_connector-status-STOPPED: Остановлен
+        label_connectors: Трансферы
+        label_dashboard-link: Ссылка на дашборд
         label_endpoints: Эндпоинты
+        label_monitoring: Мониторинг
       dns:
         button_zone-create: Создать зону
         label_additional-settings: Дополнительные настройки
@@ -42497,6 +42532,8 @@ default:
             label_container-registry: Container Registry
             label_data-proc: Data Proc
             label_managed-greenplum: Managed Service for Greenplum
+            label_monitoring: Monitoring
+            value_data-transfer: Data Transfer
           service-account:
             label_add-role: Добавить роль
             overview:
@@ -42531,6 +42568,8 @@ default:
           database_field_user-login: Имя пользователя
           database_field_user-password: Пароль
           section_network-settings: Сетевые настройки
+      monitoring:
+        button_open-in-monitoring: Открыть в Мониторинге
       serverless-functions:
         create:
           button_create: Создать
@@ -42901,7 +42940,28 @@ default:
               console:
                 form:
                   transfer:
+                    IncrementalTable:
+                      key_column:
+                        title: Ключевая колонка
+                      key_start_value:
+                        title: Начальное значение
+                      table_name:
+                        title: Таблица
+                      table_namespace:
+                        title: Схема
+                    RegularSnapshotIntervalType:
+                      interval:
+                        title: Период
+                    Runtime:
+                      multi_yt:
+                        title: Multi YT
+                      yt:
+                        title: YT
                     Transfer:
+                      data_objects:
+                        title: Список объектов для переноса (Превью)
+                      runtime:
+                        title: Среда выполнения
                       type:
                         title: Тип трансфера
                     TransferType:
@@ -42911,6 +42971,41 @@ default:
                         title: Копирование и репликация
                       snapshot:
                         title: Копирование
+                    TransferTypeIncrement:
+                      increment_settings:
+                        title: Настройки репликации
+                    TransferTypeRegularSnapshot:
+                      snapshot_settings:
+                        title: Настройки копирования
+                    TransferTypeSnapshot:
+                      incremental_tables:
+                        title: Инкрементальные таблицы
+                      regular_snapshot:
+                        title: Периодическое копирование
+                    TransferTypeSnapshotAndIncrement:
+                      increment_settings:
+                        title: Настройки репликации
+                      snapshot_settings:
+                        title: Настройки копирования
+                    YTRuntime:
+                      cpu:
+                        title: CPU
+                      pool:
+                        title: Тип пула
+                      ram:
+                        title: RAM
+                    YtRuntimeCluster:
+                      YT_RUNTIME_CLUSTER_ARNOLD:
+                        title: ARNOLD
+                      YT_RUNTIME_CLUSTER_HAHN:
+                        title: HAHN
+                      YT_RUNTIME_CLUSTER_VANGA:
+                        title: VANGA
+                    YTRuntimePool:
+                      common:
+                        title: Коммунальный
+                      private:
+                        title: Частный
             ydb:
               console:
                 form:
@@ -42953,8 +43048,46 @@ default:
                         title: Настройки подключения
         transfer_service:
           transfer_service:
+            CreateTransferRequest:
+              transformation:
+                title: Трансформация данных (Превью)
             HeaderTitle:
               title: Параметры трансфера
+        transfer:
+          transfer:
+            ColumnsFilter:
+              exclude_columns:
+                title: Список исключенных колонок (регулярные выражения)
+              include_columns:
+                title: Список включенных колонок (регулярные выражения)
+            RenameTable:
+              new_name:
+                title: Имя таблицы приемника
+              original_name:
+                title: Имя таблицы источника
+            Table:
+              name_space:
+                title: Именованная схема
+              name:
+                title: Имя таблицы
+            TablesFilter:
+              exclude_tables:
+                title: Список исключенных таблиц (регулярные выражения)
+              include_tables:
+                title: Список включенных таблиц (регулярные выражения)
+            ToStringTransformer:
+              columns:
+                title: Список колонок
+              tables:
+                title: Список таблиц
+            Transformation:
+              transformers:
+                array_item_label: Преобразование
+            Transformer:
+              filter_columns:
+                title: Фильтр колонок
+              rename_tables:
+                title: Переименование таблиц
     yc-ui-datasphere:
       common:
         access: Доступ

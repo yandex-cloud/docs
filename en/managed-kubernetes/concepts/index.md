@@ -126,7 +126,7 @@ For system pods, tolerations permitting them to run on all available nodes are a
 
 {% endnote %}
 
-For more information about taint policies and tolerations, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+For more information about taints and tolerations, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
 
 ## Pod {#pod}
 
@@ -140,7 +140,7 @@ If a pod needs access to resources outside the cluster, its IP address will be r
 
 By default, IP masquerade is enabled for the entire range of pod IP addresses.
 
-To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, for example, to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, e.g., to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/), specify the IP ranges you need in the `data.config.nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...
@@ -195,7 +195,7 @@ _Node labels_, `node_labels` are a mechanism for grouping nodes together in {{ k
 
 {% note warning %}
 
-Do not confuse [cloud node group labels](../../overview/concepts/services.md#labels) (`labels`) with [{{ k8s }} node labels]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) (`node_labels`) managed by {{ managed-k8s-name }}.
+Do not confuse [cloud node group labels](../../resource-manager/concepts/labels.md) (`labels`) with [{{ k8s }} node labels]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) (`node_labels`) managed by {{ managed-k8s-name }}.
 
 We recommend managing all node labels via the [{{ managed-k8s-name }} API](../api-ref/NodeGroup/index.md) method, because by default, when [updating or changing a node group](../operations/node-group/node-group-update.md) some of the nodes are recreated with different names and some of the old ones are deleted. That is why labels added via the [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) can be lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since such labels will be restored.
 
@@ -205,14 +205,14 @@ Node labels can only be set when creating a node group. Each object can be assig
 
 Node label keys can consist of two parts: an optional prefix and a name separated by a `/`.
 
-A prefix is an optional part of a key. Prefix requirements:
-* It must be a DNS subdomain: a series of DNS tags separated by dots `.`.
-* The length can be up to 253 characters.
+A prefix is an optional part of a key. The prefix requirements are as follows:
+* It must be a DNS subdomain, i.e., a series of DNS tags separated by periods `.`.
+* It may be up to 253 characters long.
 * The last character must be followed by a `/`.
 
-A name is a required part of a key. Naming requirements:
-* The length can be up to 63 characters.
-* May contain lowercase Latin letters, numbers, hyphens, underscores, and periods.
+A name is a required part of a key. The naming requirements are as follows:
+* It may be up to 63 characters long.
+* It may contain lowercase Latin letters, numbers, hyphens, underscores, and periods.
 * The first and the last characters must be a letter or number.
 
 For managing node labels, see [{#T}](../operations/node-group/node-label-management.md).

@@ -11,13 +11,9 @@ To publish an app, use a `LoadBalancer` service. The following options are suppo
 * Access from internal networks by IP address with an [internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md).
 
   The application will be available:
-  * from {{ vpc-full-name }} [subnets](../../vpc/concepts/network.md#subnet);
-
-  
-  * company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/);
-
-
-  * via VPN.
+  * From {{ vpc-full-name }} [subnets](../../vpc/concepts/network.md#subnet).
+  * From the company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/).
+  * Via VPN.
 
 
 To use DDoS protection, [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address and [specify](#advanced) it using the `loadBalancerIP` option.
@@ -261,20 +257,17 @@ metadata:
   annotations:
     # Load balancer type: Internal.
     yandex.cloud/load-balancer-type: internal
-    # ID for the subnet to allocate an IP address for the
-    # internal network load balancer in.
+    # ID of the subnet where an IP address for the internal network load balancer should be allocated.
     yandex.cloud/subnet-id: e1b23q26ab1c0dce8te9
 spec:
   type: LoadBalancer
   ports:
-  # The internal network load balancer port to
-  # handle user requests.
+  # The internal network load balancer port to handle user requests.
   - port: 80
     name: plaintext
     # Container port the application listens on.
     targetPort: 8080
-  # Selector labels used in a pod template when creating
-  # a Deployment object.
+  # Selector labels used in a pod template when creating a Deployment object.
   selector:
     app: hello
 ```
@@ -334,7 +327,6 @@ apiVersion: v1
 ```
 
 Where:
-
 * `yandex.cloud/load-balancer-healthcheck-healthy-threshold` is the number of consecutive successful checks required to consider the node available.
 
   The minimum value is `2` and the maximum is `10`.
@@ -380,14 +372,13 @@ spec:
 ```
 
 Where:
-
 * `metadata.name`: Policy name.
 * `metadata.namespace`: [Namespace](../concepts/index.md#namespace).
 * `spec.podSelector`: Filtering rules for [pods](../concepts/index.md#pod).
 * `spec.policyTypes`: Policy type. Enter `Ingress`.
 * `spec.ingress.from.ipBlock.cidr`: IP ranges allowed to access the load balancer.
 
-  The `198.18.235.0/24` and the `198.19.248.0/24` ranges are [reserved by {{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) for node status checks. They are required in the NetworkPolicy object settings.
+  The `198.18.235.0/24` and `198.18.248.0/24` ranges are [reserved by {{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) for node health checks. They are required in the NetworkPolicy object settings.
 
 {% cut "NetworkPolicy object configuration example" %}
 

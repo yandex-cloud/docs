@@ -31,7 +31,7 @@
 - С помощью {{ TF }}
 
     
-    1. Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../infrastructure-management/terraform-quickstart.md).
+    1. Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
 
     1. Клонируйте репозиторий с примерами:

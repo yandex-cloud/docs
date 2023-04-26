@@ -1,10 +1,11 @@
 # Hosting setup
 
-{{ objstorage-name }} allows you to configure a bucket:
+{{ objstorage-name }} buckets support:
 
-* For [static website hosting](#hosting).
-* To [redirect all requests](#redirects).
-* For [conditionally redirecting requests](#redirects-on-conditions).
+
+* [Static website hosting](#hosting).
+* [Redirects for all requests](#redirects).
+* [Conditional request redirects](#redirects-on-conditions).
 
 ## Static website hosting {#hosting}
 
@@ -13,11 +14,12 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure hosting for.
-   1. Make sure public access is allowed to the bucket. If not, follow the instructions in [{#T}](../buckets/bucket-availability.md).
-   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, specify:
-      * Website home page.
-      * Page to display to the user in the event of 4xx errors. This is optional.
+   1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
+   1. Go to ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
+      * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website homepage.
+      * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to be displayed in the event of 4xx errors. By default, {{ objstorage-name }} returns its own page.
+
    1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI
@@ -162,11 +164,12 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you wish to configure redirection for.
-   1. Make sure public access is allowed to the bucket. If not, follow the instructions in [{#T}](../buckets/bucket-availability.md).
-   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+   1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
+   1. Go to ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
    1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
-      * Domain name of the host to act as the redirect target for all requests to the current bucket.
-      * Protocol if the specified host accepts requests only over a specific protocol.
+      * Domain name of the host to act as the redirect target for all requests to the bucket.
+      * (Optional) Protocol if the specified host accepts requests only over a specific protocol.
+   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -241,7 +244,7 @@
         website {
           index_document = "<absolute_path_to_website_homepage_file>"
           error_document = "<absolute_path_to_error_file>"
-      	 redirect_all_requests_to = "<host_name>"
+          redirect_all_requests_to = "<host_name>"
         }
       }
       ...
@@ -302,15 +305,18 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you wish to configure conditional request redirects for.
-   1. Make sure public access is allowed to the bucket. If not, follow the instructions in [{#T}](../buckets/bucket-availability.md).
-   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, add a redirect rule with the redirect condition and the new address.
-      * Condition. For example, you can do a redirect when you receive a specified response code or if the beginning of the object key in a request matches the specified key.
-      * Redirection:
-         * Domain name of the host where the requests satisfying the condition should be redirected.
-         * The protocol to use to send redirected requests.
-         * Response code to determine the redirect type.
-         * Replace the entire key specified in the condition or its initial sequence only.
+   1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
+   1. Go to ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+   1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}**, click **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
+   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}**, specify at least one condition for redirects:
+      * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}**: HTTP code that {{ objstorage-name }} should have responded with to a request without a redirect.
+      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}**: Object key start in the request.
+   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}**, set redirect parameters:
+      * Protocol to use to send redirected requests.
+      * Domain name of the host where the requests that satisfy the condition should redirect.
+      * Response code to determine the redirect type.
+      * Replace the key: **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}** specified in the condition.
+   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -476,3 +482,9 @@
    To set up a conditional redirect of bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](own-domain.md)
+* [{#T}](multiple-domains.md)
+* [{#T}](certificate.md)

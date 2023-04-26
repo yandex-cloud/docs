@@ -6,7 +6,7 @@ To configure log transfer from a VM instance created from the {{ coi }} image:
 1. [Configure Fluent Bit](#fluent-bit).
 1. [Create a VM from a {{ coi }}](#create-vm).
 
-## Before you begin
+## Getting started
 
 1. [Create a service account](../iam/operations/sa/create.md) with the `logging.writer` and `container-registry.images.puller` roles for the folder.
 1. [Create a registry](../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
@@ -26,7 +26,7 @@ import uuid
 
 logger = logging.getLogger(__name__)
 
-# Set log format.
+# Setting log format.
 formatter = logging.Formatter(
   '[req_id=%(req_id)s] [%(levelname)s] %(code)d %(message)s'
 )
@@ -36,10 +36,10 @@ handler.setFormatter(formatter)
 
 logger.addHandler(handler)
 
-# Configure default logging level, optional.
+# Configuring the default logging level (optional).
 logger.setLevel(logging.DEBUG)
 
-# Generate URL-like values.
+# Generating URL-like values.
 PATHS = [
   '/',
   '/admin',
@@ -67,29 +67,29 @@ def fake_url():
 if __name__ == '__main__':
   while True:
     req_id = uuid.uuid4()
-    # Create a pair of code and URL value.
+    # Creating a pair including a code and URL value.
     path, code = fake_url()
     extra = {"code": code, "req_id": req_id}
-    # If code is 200, write to Info log.
+    # If the code is 200, write a log record with the Info level.
     if code == 200:
       logger.info(
         'Path: %s',
         path,
         extra=extra,
       )
-    # Otherwise, write to Error log.
+    # Otherwise, with the Error level.
     else:
       logger.error(
         'Error: %s',
         path,
-         extra=extra,
+        extra=extra,
       )
-      # For multiple messages with the same request id, in 30% of cases, write the second entry to Debug log.
-      if random.random() > 0.7:
-        logger.debug("some additional debug log record %f", random.random(), extra=extra)
+    # To have multiple messages with the same request ID, in 30% of cases, write the second entry to the Debug log.
+    if random.random() > 0.7:
+      logger.debug("some additional debug log record %f", random.random(), extra=extra)
 
-      # Wait 1 second to avoid log clogging.
-      time.sleep(1)
+    # Wait one second to avoid log clutter.
+    time.sleep(1)
 ```
 
 ## Create a Docker image and push it to the registry {#create-docker}
@@ -143,7 +143,7 @@ if __name__ == '__main__':
          # Fluent Bit understands this log format.
          driver: fluentd
          options:
-           # Fluent Bit listens to logs on 24224.
+           # Fluent Bit listens to logs on port 24224.
            fluentd-address: localhost:24224
            # Tags are used for routing logs.
            tag: app.logs
@@ -156,13 +156,13 @@ if __name__ == '__main__':
          - 24224:24224/udp
        restart: always
        environment:
-         YC_GROUP_ID: <log_group_ID>
+         YC_GROUP_ID: <log group ID>
        volumes:
          - /etc/fluentbit/fluentbit.conf:/fluent-bit/etc/fluent-bit.conf
          - /etc/fluentbit/parsers.conf:/fluent-bit/etc/parsers.conf
    ```
 
-1. Create a `user-data.yaml` file. It describes rules to read container logs. If necessary, in the `users` section, update the username and SSH key. Learn more about how to [generate SSH keys](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+1. Create a `user-data.yaml` file. It describes rules to read container logs. In the `users` section, update the username and SSH key, if required. Learn more about how to generate SSH keys [here](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
    ```yaml
    #cloud-config
@@ -202,7 +202,7 @@ if __name__ == '__main__':
          [PARSER]
              Name   app_log_parser
              Format regex
-             Regex  ^\[req_id=(?<req_id>[0-9a-fA-F\-]+)\] \[(?<severity>.*)\](?<code>\d+) (?<text>.*)$
+             Regex  ^\[req_id=(?<req_id>[0-9a-fA-F\-]+)\] \[(?<severity>.*)\] (?<code>\d+) (?<text>.*)$
              Types  code:integer
        path: /etc/fluentbit/parsers.conf
 
@@ -223,7 +223,7 @@ if __name__ == '__main__':
    * `req_id`: Unique ID of the request.
    * `severity`: Logging level.
    * `code`: HTTP response code.
-   * `text`: All the remaining text.
+   * `text`: All remaining text.
 
    The `FILTER` section shows that only entries tagged `app.logs` are searched for. The `log` field of each entry is processed by the `regex` parser, all other fields are saved in `Reserve_Data On`.
 
@@ -252,7 +252,7 @@ yc compute instance create \
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group whose ID you indicated in `spec.yaml`.
+  1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group, the ID of which you specified in `spec.yaml`.
   1. Select **{{ cloud-logging-name }}**.
   1. Select the `default` log group. The page that opens will show the log group records.
 
@@ -278,7 +278,7 @@ yc compute instance create \
 
 ## Delete the resources you created {#delete-resources}
 
-If you no longer need these resources, delete them:
+If you no longer need the resources you created, delete them:
 1. [Delete a cloud network](../vpc/operations/network-delete.md).
 1. [Delete the Docker image](../container-registry/operations/docker-image/docker-image-delete.md).
 1. [Delete the registry](../container-registry/operations/registry/registry-delete.md).

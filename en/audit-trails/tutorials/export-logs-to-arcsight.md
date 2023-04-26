@@ -113,7 +113,12 @@ Create the `sa-arcsight` service account:
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
    1. Go to the **Service accounts** tab.
    1. Click **Create service account**.
-   1. Enter the service account name following the [naming guidelines](../../_includes/name-format.md), such as `sa-arcsight`.
+   1. Enter the service account name following the naming guidelines:
+
+      {% include [name-format](../../_includes/name-format.md) %}
+
+      E.g. `sa-arcsight`.
+   
    1. Click **Create**.
 
 {% endlist %}

@@ -18,10 +18,10 @@ Local SSD storage doesn't provide fault tolerance for stored data and affects th
 
 ## Choice of disk type during cluster creation {#storage-type-selection}
 
-The number of hosts that can be created together with a {{ PG }} cluster depends on the type of disk selected:
+The number of hosts that can be created along with a {{ PG }} cluster depends on the selected disk type:
 
-* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is necessary).
-* With network HDD `network-hdd` or network SSD `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
+* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is required).
+* With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the [current quota](./limits.md).
 
 For more information about limits on the number of hosts per cluster, see [{#T}](./limits.md).
 

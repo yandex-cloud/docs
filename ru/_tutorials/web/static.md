@@ -184,7 +184,7 @@ ns1.{{ dns-ns-host-sld }}.
 
 ## Загрузите файлы веб-сайта {#upload-files}
 
-После настройки и проверки доступности загрузите в бакет остальные файлы, необходимые для работы сайта. Используйте для этого [консоль управления]({{ link-console-main }}), [S3 API](../../storage/s3/api-ref/object/upload.md), [{{ TF }}](../infrastructure-management/terraform-quickstart.md) или другие [инструменты для работы с {{ objstorage-name }}](../../storage/tools/).
+После настройки и проверки доступности загрузите в бакет остальные файлы, необходимые для работы сайта. Используйте для этого [консоль управления]({{ link-console-main }}), [S3 API](../../storage/s3/api-ref/object/upload.md), [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md) или другие [инструменты для работы с {{ objstorage-name }}](../../storage/tools/).
 
 {% list tabs %}
 

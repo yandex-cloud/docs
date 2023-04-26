@@ -2,7 +2,7 @@
 
 By default, the container is launched in the isolated IPv4 network with the enabled [NAT gateway](../../vpc/concepts/gateways.md). For this reason, only public IPv4 addresses are available from the container.
 
-## User network
+## User network {#user-network}
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 

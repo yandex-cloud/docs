@@ -34,7 +34,7 @@
 
         {% include [translate-file](../translate/translate-file.md) %}
 
-        Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](translate-instruction.md#before-begin).
+        Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
 
         В ответе сервис вернет переведенные строки текста:
         ```json

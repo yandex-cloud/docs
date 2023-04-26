@@ -8,7 +8,6 @@ These instructions describe how to [scan](../concepts/vulnerability-scanner.md) 
 * For some vulnerabilities, there is no information regarding which package versions they will be fixed in. This is because such information is unavailable from current sources.
 * At the moment, you can manually initiate a scan of a Docker image, but we plan to add automatic scanning functionality.
 * The number of image scans you can start per cloud is [limited](../concepts/limits.md#container-registry-quotas).
-* Vulnerability scans launched under Public Preview are free of charge.
 
 {% endnote %}
 

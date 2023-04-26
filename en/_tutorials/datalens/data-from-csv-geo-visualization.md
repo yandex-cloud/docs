@@ -8,7 +8,7 @@ This scenario analyzes public data on road accidents in Russia. In addition to i
 - Work with geodata: geopoints and geopolygons.
 - Create public dashboards that will be available to everyone from any device without authentication.
 
-To visualize and analyze the data, [set up {{ datalens-short-name }}](data-from-csv-geo-visualization.md#before-you-begin) and follow these steps:
+To visualize and analyze the data, [set up {{ datalens-short-name }}](#before-you-begin) and follow these steps:
 
 1. [Create a connection to a CSV file](#step1).
 1. [Create a dataset and configure its fields](#step2).

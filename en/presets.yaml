@@ -42424,12 +42424,40 @@ default:
         v1|int|number: '0'
         v1|int|string: Free
   ui-key:
+    yacloud_monitoring:
+      alert-template:
+        threshold-status:
+          alarm: Alarm
+          warn: Warning
+        threshold-type:
+          max: Maximum
+          min: Minimum
+      alert:
+        button_create-alert: Create alert
+        label_evaluation-period: Evaluation window
+        label_evaluation-type: Aggregation function
+        label_trigger-condition: Condition
+        title_comparison-eq: Equals to
+        title_comparison-gte: Greater than or equals
+        title_comparison-lte: Less than or equals
+      dashboard:
+        dash:
+          create-alert: Create alert
+        tab:
+          service-dashboards: Service dashboards
+      dialog:
+        confirm:
+          button_continue: Continue
     yacloud:
       common:
         add: Add
         create: Create
+        description: Description
+        edit: Edit
         name: Name
+        remove: Delete
         save: Save
+        section-base: General information
       component:
         console-dashboard:
           button_action-create-folder: Create folder
@@ -42457,15 +42485,22 @@ default:
       data-streams:
         label_data-introspection: Data viewer
       data-transfer:
+        button_create-transfer: Create transfer
         forms:
           label_source-type: Source
           label_target-type: Target
           label-database_type: Database type
           section-endpoint: Endpoint parameters
+        label_connector-operation-ACTIVATE: Activate
+        label_connector-operation-DEACTIVATE: Deactivate
+        label_connector-operation-REUPLOAD: Reload
         label_connector-status-DONE: Completed
         label_connector-status-RUNNING: Replicating
         label_connector-status-STOPPED: Stopped
+        label_connectors: Transfers
+        label_dashboard-link: Link to dashboard
         label_endpoints: Endpoints
+        label_monitoring: Monitoring
       dns:
         button_zone-create: Create zone
         label_additional-settings: Additional settings
@@ -42488,6 +42523,8 @@ default:
             label_container-registry: Container Registry
             label_data-proc: Data Proc
             label_managed-greenplum: Managed Service for Greenplum
+            label_monitoring: Monitoring
+            value_data-transfer: Data Transfer
           service-account:
             label_add-role: Add role
             overview:
@@ -42522,6 +42559,8 @@ default:
           database_field_user-login: Username
           database_field_user-password: Password
           section_network-settings: Network settings
+      monitoring:
+        button_open-in-monitoring: Open in Monitoring
       serverless-functions:
         create:
           button_create: Create
@@ -42892,7 +42931,28 @@ default:
               console:
                 form:
                   transfer:
+                    IncrementalTable:
+                      key_column:
+                        title: Key column
+                      key_start_value:
+                        title: Initial value
+                      table_name:
+                        title: Table
+                      table_namespace:
+                        title: Schema
+                    RegularSnapshotIntervalType:
+                      interval:
+                        title: Period
+                    Runtime:
+                      multi_yt:
+                        title: Multi YT
+                      yt:
+                        title: YT
                     Transfer:
+                      data_objects:
+                        title: List of objects to be transferred (Preview)
+                      runtime:
+                        title: Runtime environment
                       type:
                         title: Transfer type
                     TransferType:
@@ -42902,6 +42962,41 @@ default:
                         title: Snapshot and replication
                       snapshot:
                         title: Snapshot
+                    TransferTypeIncrement:
+                      increment_settings:
+                        title: Replication settings
+                    TransferTypeRegularSnapshot:
+                      snapshot_settings:
+                        title: Snapshot settings
+                    TransferTypeSnapshot:
+                      incremental_tables:
+                        title: Incremental tables
+                      regular_snapshot:
+                        title: Periodic snapshot
+                    TransferTypeSnapshotAndIncrement:
+                      increment_settings:
+                        title: Replication settings
+                      snapshot_settings:
+                        title: Snapshot settings
+                    YTRuntime:
+                      cpu:
+                        title: CPU
+                      pool:
+                        title: Pool type
+                      ram:
+                        title: RAM
+                    YtRuntimeCluster:
+                      YT_RUNTIME_CLUSTER_ARNOLD:
+                        title: ARNOLD
+                      YT_RUNTIME_CLUSTER_HAHN:
+                        title: HAHN
+                      YT_RUNTIME_CLUSTER_VANGA:
+                        title: VANGA
+                    YTRuntimePool:
+                      common:
+                        title: Common
+                      private:
+                        title: Private
             ydb:
               console:
                 form:
@@ -42944,8 +43039,46 @@ default:
                         title: Connection settings
         transfer_service:
           transfer_service:
+            CreateTransferRequest:
+              transformation:
+                title: Data transformations (Preview)
             HeaderTitle:
               title: Transfer Parameters
+        transfer:
+          transfer:
+            ColumnsFilter:
+              exclude_columns:
+                title: Excluded columns (regular expressions)
+              include_columns:
+                title: Included columns (regular expressions)
+            RenameTable:
+              new_name:
+                title: Target table name
+              original_name:
+                title: Source table name
+            Table:
+              name_space:
+                title: Named schema
+              name:
+                title: Table name
+            TablesFilter:
+              exclude_tables:
+                title: Excluded tables (regular expressions)
+              include_tables:
+                title: Included tables (regular expressions)
+            ToStringTransformer:
+              columns:
+                title: Columns
+              tables:
+                title: Tables
+            Transformation:
+              transformers:
+                array_item_label: Transformation
+            Transformer:
+              filter_columns:
+                title: Columns filter
+              rename_tables:
+                title: Rename tables
     yc-ui-datasphere:
       common:
         access: Access

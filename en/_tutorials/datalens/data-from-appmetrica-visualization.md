@@ -26,7 +26,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 {% note warning %}
 
-This step is available to users who have an app in AppMetrica. If you don't have any apps, open the standard **AppMetrica dashboard** and go to the [next step](data-from-appmetrica-visualization.md#edit-dashboard).
+This step is available to users who have an app in AppMetrica. If you don't have any apps, open the standard **AppMetrica dashboard** and go to the [next step](#edit-dashboard).
 
 {% endnote %}
 
