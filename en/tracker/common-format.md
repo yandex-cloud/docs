@@ -1,9 +1,9 @@
 ---
 sourcePath: en/tracker/api-ref/common-format.md
 ---
-# General query format
+# Generic request format
 
-General {{ api-name }} query format:
+General {{ api-name }} request format:
 
 ```
 <method> /{{ ver }}/<resources>/<resource_id>/?<param>=<value>
@@ -12,7 +12,7 @@ Authorization: OAuth <token>
 {{ org-id }}
 {
    Request body in JSON format
-} 
+}
 ```
 
 {% note info %}
@@ -23,15 +23,15 @@ Authorization: OAuth <token>
 
 ## Methods {#methods}
 
-{{ api-short-name }} queries use one of the following HTTP methods:
+Requests made to {{ api-short-name }} use one of the following HTTP methods:
 
-`GET`: Get information about an object or list of objects.
+`GET`: Getting information about an object or list of objects.
 
-`POST`: Create an object.
+`POST`: Creating an object.
 
-`PATCH`: Change the parameters of an existing object. Requests sent via the PATCH method only change the parameters explicitly specified in the request body.
+`PATCH`: Editing the parameters of an existing object. Requests executed by the PATCH method only change the parameters that are explicitly specified in the request body.
 
-`DELETE`: Delete an object.
+`DELETE`: Deleting an object.
 
 ## Headers {#headings}
 
@@ -39,29 +39,31 @@ In requests to the {{ api-short-name }} API, specify the following headers:
 
 - `Host: {{ host }}`
 
-- `Authorization: OAuth <your OAuth token>`: If the [OAuth 2.0 protocol](concepts/access.md#section_about_OAauth) is used.
+- `Authorization: OAuth <your OAuth token>`: If [OAuth 2.0 protocol](concepts/access.md#section_about_OAuth) is used.
 
    `Authorization: Bearer <your IAM token>`: If an [IAM token](concepts/access.md#iam-token) is used.
 
 - `X-Org-ID: <organization ID>`
 
-   To find out the organization ID, go to the [{{ tracker-name }} settings]({{ link-settings }}). The ID is shown in **Organization ID for API**.
-
+   To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+
 
 ## Request body format {#body}
 
 The request body passes a JSON object with the IDs of updated fields and their values.
 
 - To add or remove an array value, use the `add` or `remove` command:
-  - ```json
-    {
-        "followers": { "add": ["<id user1>", "<id user2>"] }
-    }
+
+   - ```json
+        {
+            "followers": { "add": ["<1employee ID>", "<2employee ID>"] }
+        }
     ```
 
   The `add` command adds new values to the array. To overwrite the array (delete the old values and add new ones), use the `set` command.
 
-- To reset the field value, set it to `null`. TTo reset the array, use an empty array `[]`. You can change individual values in the array using the `target` and `replacement` commands:
+- To reset the field value, set it to `null`. To reset the array, use an empty array `[]`. You can change individual values in the array using the `target` and `replacement` commands:
+
   - `{"followers": null}`
   - ```json
     {
@@ -74,6 +76,7 @@ The request body passes a JSON object with the IDs of updated fields and their v
     ```
 
 - For example, to change the issue type to <q>Bug</q>, use one of these methods:
+
   - `{"type": 1}`
   - `{"type": "bug"}`
   - ```json
@@ -92,43 +95,42 @@ The request body passes a JSON object with the IDs of updated fields and their v
       }
       ```
 
-## Text formatting and variables {#text-format}
+## Text formats and variables {#text-format}
 
-When handling requests for adding or editing [comments](concepts/issues/add-comment.md), [macros](post-macros.md), [triggers](concepts/queues/create-trigger.md), and [auto actions](concepts/queues/create-autoaction.md), use special text formatting:
-
-* To format text, use the dedicated [markup {{ yfm }}](user/markup.md).
-* To add a line break, enter ``\n``.
-* To add values from issue fields, use [variables](user/vars.md#variable-type).
+When making requests for the creation or update of [comments](concepts/issues/add-comment.md), [macros](post-macros.md), [triggers](concepts/queues/create-trigger.md), and [auto actions](concepts/queues/create-autoaction.md), use the following formatting for the message text:
+* To format the text, use the [markup {{ yfm }}](user/markup.md).
+* To add a line break, use ``\n``.
+* To add values from the issue fields, use [variables](user/vars.md#variable-type).
 
 ## Paginated result output {#displaying-results}
 
-If you request an object list and the response contains more than 50 lines, the request returns a page with the specified number of results. You can make multiple requests to view subsequent pages. To do this, use paginated display.
+If you request a list of objects, and the number of rows in the response exceeds 50, the response returns a page with the specified number of results. You can run more requests to view the next pages. This is where request pagination helps.
 
-With paginated display, the request results are calculated each time a new page is displayed. So if changes occur in the request results when viewing a certain page, this may affect the output of the following pages. For example, the request found 11 issues, 10 of which are displayed. While viewing the results of the first page, one of the issues was changed and no longer meets the requirements of the search query. In this case, when requesting the second page with the results, an empty array is returned, since the remaining 10 issues are on the first page.
+With the paginated output, the request results are calculated each time a new page is returned. So if changes occur in the request results when viewing a certain page, this may affect the output of the following pages. For example, the request found 11 issues, 10 of which are displayed. While viewing the results of the first page, one of the issues was changed and no longer meets the requirements of the search query. In this case, when requesting the second page with the results, an empty array is returned, since the remaining 10 issues are on the first page.
 
-To enable paginated display, use the following parameters in the request:
+For paginated result output, use the following parameters in your request:
 
 - **perPage (optional)**
 
-    The number of objects (issues, queues, and so on) on the page. Default: 50.
+   Number of objects (issues, queues, and so on) on the page. The default value is 50.
 
 - **page (optional)**
 
-    Response page number The default value is 1.
+   Response page number. The default value is 1.
 
 The response will contain the following headers:
 
 - **X-Total-Pages**
 
-    Total number of pages with entries.
+   Total number of pages with entries.
 
 - **X-Total-Count**
 
-    Total number of entries in the response.
+   Total number of entries in the response.
 
-## Examples of requests {#examples}
+## Request examples {#examples}
 
-{% cut "Example 1: Change summary, description, type and priority of the issue." %}
+{% cut "Example 1: Change the name, description, type, and priority of an issue." %}
 
 - An HTTP PATCH method is used.
 - We're editing the TEST-1 issue.
@@ -154,12 +156,11 @@ Authorization: OAuth <OAuth token>
       }
 }
 ```
-
 {% endcut %}
 
-{% cut "Example 2: Request issue data with specified fields." %}
+{% cut "Example 2: Request for a single issue with the required fields specified." %}
 
-- Use the HTTP GET method.
+- An HTTP GET method is used.
 - The response will display attachments.
 
 ```
@@ -168,10 +169,9 @@ Host: {{ host }}
 Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
-
 {% endcut %}
 
-{% cut "Example 3: Create issue." %}
+{% cut "Example 3: Create an issue." %}
 
 - An HTTP POST method is used.
 - We're creating an issue named <q>Test Issue</q> in the queue with the [key](manager/create-queue.md#key) <q>TREK</q>.
@@ -194,13 +194,12 @@ Authorization: OAuth <OAuth token>
   "attachmentIds": [55, 56]
 }
 ```
-
 {% endcut %}
 
-{% cut "Example 4: Find users's issues from the specified queue. Response is displayed paginated." %}
+{% cut "Example 4: Find the issues in the queue that were assigned to a given employee. Paginate the results." %}
 
 - An HTTP POST method is used.
-- Queue key: <q>TREK</q>.
+- Key of the queue: <q>TREK</q>.
 - Assignee: <user_login>.
 
 ```
@@ -216,6 +215,4 @@ Authorization: OAuth <OAuth token>
   }
 }
 ```
-
 {% endcut %}
-

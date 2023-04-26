@@ -19,7 +19,7 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **Трансферы**.
+    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
 
 {% endlist %}
 
@@ -30,27 +30,27 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **Трансферы**.
-    1. Нажмите кнопку **Создать трансфер**.
+    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
     1. Выберите эндпоинт для источника или [создайте](./endpoint/index.md#create) новый.
     1. Выберите эндпоинт для приемника или [создайте](./endpoint/index.md#create) новый.
     1. Укажите параметры трансфера:
 
-        * **Имя трансфера**.
-        * (Опционально) **Описание**.
-        * **Тип трансфера**:
+        * **{{ ui-key.yacloud.common.name }}**.
+        * (Опционально) **{{ ui-key.yacloud.common.description }}**.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**:
 
-            * {{ dt-type-copy }} — создает полную копию данных без дальнейшего получения обновлений из источника. B блоке **Настройки копирования** укажите количество процессов и потоков для организации параллельного копирования.
-                Для создания полной копии данных через определенные интервалы времени, включите настройку **Периодическое копирование** и выберите требуемый интервал копирования в поле **Период**.
+            * {{ dt-type-copy }} — создает полную копию данных без дальнейшего получения обновлений из источника. B блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeRegularSnapshot.snapshot_settings.title }}** укажите количество процессов и потоков для организации параллельного копирования.
+                Для создания полной копии данных через определенные интервалы времени, включите настройку **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}** и выберите требуемый интервал копирования в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.RegularSnapshotIntervalType.interval.title }}**.
 
-                В списке **Инкрементальные таблицы** добавьте таблицы, копирование данных которых осуществляется не полностью, а с места, где копирование завершилось в прошлый раз: укажите значения полей **Схема**, **Таблица**, **Ключевая колонка** и **Начальное состояние** (опционально). Трансфер запомнит максимальное значение колонки курсора и при следующей активации будет считывать только те данные, которые были добавлены или обновлены с момента последнего запуска. Это эффективнее, чем копировать таблицы целиком, но менее эффективно, чем использовать тип трансфера _{{ dt-type-copy-repl }}_. Настройка доступна для источников {{ PG }}, {{ CH }} и Airbyte.
+                В списке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.incremental_tables.title }}** добавьте таблицы, копирование данных которых осуществляется не полностью, а с места, где копирование завершилось в прошлый раз: укажите значения полей **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.table_namespace.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.table_name.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.key_column.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.key_start_value.title }}** (опционально). Трансфер запомнит максимальное значение колонки курсора и при следующей активации будет считывать только те данные, которые были добавлены или обновлены с момента последнего запуска. Это эффективнее, чем копировать таблицы целиком, но менее эффективно, чем использовать тип трансфера _{{ dt-type-copy-repl }}_. Настройка доступна для источников {{ PG }}, {{ CH }} и Airbyte.
 
                 {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
         
-            * {{ dt-type-repl }} — позволяет получать изменения данных от источника и применять их к приемнику (без создания полной копии данных источника). В блоке **Настройки репликации** укажите количество процессов репликации. Настройка доступна для источников {{ KF }} и {{ DS }}. Если запущено несколько процессов репликации, они поделят между собой партиции реплицируемого топика. 
-            * {{ dt-type-copy-repl }} — создает полную копию данных источника и поддерживает ее в актуальном состоянии. В блоке **Настройки копирования** укажите количество процессов и потоков для организации параллельного копирования и репликации. В блоке **Настройки репликации** укажите количество процессов репликации. Настройка доступна для источников {{ KF }} и {{ DS }}. Если запущено несколько процессов репликации, они поделят между собой партиции реплицируемого топика. 
+            * {{ dt-type-repl }} — позволяет получать изменения данных от источника и применять их к приемнику (без создания полной копии данных источника). В блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeIncrement.increment_settings.title }}** укажите количество процессов репликации. Настройка доступна для источников {{ KF }} и {{ DS }}. Если запущено несколько процессов репликации, они поделят между собой партиции реплицируемого топика. 
+            * {{ dt-type-copy-repl }} — создает полную копию данных источника и поддерживает ее в актуальном состоянии. В блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshotAndIncrement.snapshot_settings.title }}** укажите количество процессов и потоков для организации параллельного копирования и репликации. В блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshotAndIncrement.increment_settings.title }}** укажите количество процессов репликации. Настройка доступна для источников {{ KF }} и {{ DS }}. Если запущено несколько процессов репликации, они поделят между собой партиции реплицируемого топика. 
             
-       * (Опционально) **Список объектов для переноса** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников {{ KF }} и {{ DS }}.
+       * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников {{ KF }} и {{ DS }}.
 
             Укажите полное имя объекта. В зависимости от типа источника используйте соответствующую схему именования:
 
@@ -64,22 +64,22 @@
 
             Если указанный объект находится в списке исключенных таблиц или коллекций в настройках эндпоинта-источника, или имя объекта введено некорректно, трансфер завершится с ошибкой. Работающий трансфер типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} завершится сразу, незапущенный трансфер — в момент активации.
 
-       * (Опционально) **Трансформация данных** — правила преобразований данных. Эта настройка появляется только если источник и приемник имеют разные типы. Выберите **Переименование таблиц** или **Фильтр колонок**. 
-            * **Переименование таблиц** — настройки переименования таблиц:
-                * **Имя таблицы источника**:
-                    * **Именованная схема** — схема именования в зависимости от типа источника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
-                    * **Имя таблицы** — имя таблицы в источнике.
-                * **Имя таблицы приемника**:
-                    * **Именованная схема** — схема именования в зависимости от типа приемника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
-                    * **Имя таблицы** — новое имя таблицы в приемнике.
-            * **Фильтр столбцов** — настройки переноса столбцов:
-                * **Список таблиц**:
-                    * **Список включенных таблиц** — имена таблиц, для которых будут действовать настройки переноса столбцов.
-                    * **Список исключенных таблиц** — имена таблиц, для которых настройки переноса столбцов действовать не будут.
-                * **Список столбцов**:
-                    * **Список включенных столбцов** — имена столбцов в списке включенных таблиц, которые должны переноситься.
-                    * **Список исключенных столбцов** — имена столбцов в списке включенных таблиц, которые переноситься не должны.
-    1. Нажмите кнопку **Создать**.
+       * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.transfer_service.transfer_service.CreateTransferRequest.transformation.title }}** — правила преобразований данных. Эта настройка появляется только если источник и приемник имеют разные типы. Выберите **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** или **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**. 
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** — настройки переименования таблиц:
+                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.original_name.title }}**:
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}** — схема именования в зависимости от типа источника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}** — имя таблицы в источнике.
+                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.new_name.title }}**:
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}** — схема именования в зависимости от типа приемника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}** — новое имя таблицы в приемнике.
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}** — настройки переноса столбцов:
+                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.tables.title }}**:
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.include_tables.title }}** — имена таблиц, для которых будут действовать настройки переноса столбцов.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.exclude_tables.title }}** — имена таблиц, для которых настройки переноса столбцов действовать не будут.
+                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.columns.title }}**:
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.include_columns.title }}** — имена столбцов в списке включенных таблиц, которые должны переноситься.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}** — имена столбцов в списке включенных таблиц, которые переноситься не должны.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }}
 
@@ -141,12 +141,12 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **Трансферы**.
-    1. Выберите трансфер и нажмите кнопку ![pencil](../../_assets/pencil.svg) **Редактировать** на панели сверху.
+    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Выберите трансфер и нажмите кнопку ![pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}** на панели сверху.
     1. Измените параметры трансфера:
-        * **Имя трансфера**.
-        * (Опционально) **Описание**.
-        * (Опционально) **Список объектов для переноса** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников {{ KF }} и {{ DS }}.
+        * **{{ ui-key.yacloud.common.name }}**.
+        * (Опционально) **{{ ui-key.yacloud.common.description }}**.
+        * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников {{ KF }} и {{ DS }}.
 
             Добавление новых объектов в трансферах типа {{ dt-type-copy-repl }} или {{ dt-type-repl }} в статусе {{ dt-status-repl }} приведет к загрузке истории данных по этим объектам (таблицам). Для больших таблиц загрузка истории может занять существенное время. Редактирование списка объектов на трансферах в статусе {{ dt-status-copy }} запрещено.
 
@@ -162,22 +162,22 @@
 
             Если указанный объект находится в списке исключенных таблиц или коллекций в настройках эндпоинта-источника, или имя объекта введено некорректно, трансфер завершится с ошибкой. Работающий трансфер типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} завершится сразу, незапущенный трансфер — в момент активации.
 
-        * (Опционально) **Трансформация данных** — правила преобразований данных. Эта настройка появляется только если источник и приемник имеют разные типы. Выберите **Переименование таблиц** или **Фильтр колонок**.
-            * **Переименование таблиц** — настройки переименования таблиц:
-               * **Имя таблицы источника**:
-                   * **Именованная схема** — схема именования в зависимости от типа источника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
-                   * **Имя таблицы** — имя таблицы в источнике.
-               * **Имя таблицы приемника**:
-                   * **Именованная схема** — схема именования в зависимости от типа приемника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
-                   * **Имя таблицы** — новое имя таблицы в приемнике.
-            * **Фильтр столбцов** — настройки переноса столбцов:
-               * **Список таблиц**:
-                   * **Список включенных таблиц** — имена таблиц, для которых будут действовать настройки переноса столбцов.
-                   * **Список исключенных таблиц** — имена таблиц, для которых настройки переноса столбцов действовать не будут.
-               * **Список столбцов**:
-                   * **Список включенных столбцов** — имена столбцов в списке включенных таблиц, которые должны переноситься.
-                   * **Список исключенных столбцов** — имена столбцов в списке включенных таблиц, которые переноситься не должны.    
-    1. Нажмите кнопку **Сохранить**.
+        * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.transfer_service.transfer_service.CreateTransferRequest.transformation.title }}** — правила преобразований данных. Эта настройка появляется только если источник и приемник имеют разные типы. Выберите **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** или **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**.
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** — настройки переименования таблиц:
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.original_name.title }}**:
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}** — схема именования в зависимости от типа источника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}** — имя таблицы в источнике.
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.new_name.title }}**:
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}** — схема именования в зависимости от типа приемника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}** — новое имя таблицы в приемнике.
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}** — настройки переноса столбцов:
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.tables.title }}**:
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.include_tables.title }}** — имена таблиц, для которых будут действовать настройки переноса столбцов.
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.exclude_tables.title }}** — имена таблиц, для которых настройки переноса столбцов действовать не будут.
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.columns.title }}**:
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.include_columns.title }}** — имена столбцов в списке включенных таблиц, которые должны переноситься.
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}** — имена столбцов в списке включенных таблиц, которые переноситься не должны.    
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }}
 
@@ -207,8 +207,8 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **Трансферы**.
-    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Активировать**.
+    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
 {% endlist %}
 
@@ -221,8 +221,8 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **Трансферы**.
-    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Перезагрузить**.
+    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-REUPLOAD }}**.
 
 {% endlist %}
 
@@ -244,8 +244,8 @@
 
     1. Переведите источник в режим <q>только чтение</q> (read-only).
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **Трансферы**.
-    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Деактивировать**.
+    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
     1. Дождитесь перехода трансфера в статус {{ dt-status-stopped }}.
 
 {% endlist %}
@@ -265,10 +265,10 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **Трансферы**.
+    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Если нужный трансфер находится в активном состоянии, [деактивируйте его](#deactivate).
-    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Удалить**.
-    1. Нажмите кнопку **Удалить**.
+    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.common.remove }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.remove }}**.
 
 - {{ TF }}
 

@@ -5,10 +5,11 @@ To integrate a {{ managed-k8s-name }} cluster into a private corporate DNS zone:
 1. [{#T}](#create-pod).
 1. [{#T}](#verify-dns).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
+In this scenario's examples, the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`. Your DNS servers can be part of {{ vpc-full-name }} or accessible via VPN or {{ interconnect-full-name }}. IP connectivity between the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) [nodes](../concepts/index.md#node-group) and the DNS servers is required.
 1. Create {{ k8s }} resources:
 
    {% list tabs %}
@@ -23,7 +24,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    - Using {{ TF }}
 
-     1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
      1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
         * [Network](../../vpc/concepts/network.md#network).
@@ -36,13 +37,13 @@ If you no longer need these resources, [delete them](#clear-out).
         * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
+        If there are any errors in the configuration files, {{ TF }} will point to them.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -79,7 +80,7 @@ When configuring, it is important that there is IP connectivity between the {{ m
        }
    ```
 
-1. Run the command:
+1. Run this command:
 
    ```bash
    kubectl replace -f custom-zone.yaml
@@ -142,8 +143,7 @@ Address:  10.129.0.3
 ## Delete the resources you created {#clear-out}
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
-
-1. Delete a {{ managed-k8s-name }} cluster:
+1. Delete the {{ managed-k8s-name }} cluster:
 
    {% list tabs %}
 
@@ -153,8 +153,8 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    - Using {{ TF }}
 
-     1. In the command line, go to the folder with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete resources using this command:
+     1. In the command line, go to the folder that houses the current {{ TF }} configuration file with an infrastructure plan.
+     1. Delete the resources using this command:
 
         ```bash
         terraform destroy

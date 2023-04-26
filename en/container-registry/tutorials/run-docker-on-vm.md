@@ -8,13 +8,13 @@ To run a Docker image on a VM using the registry:
 1. [Create a VM](#create-vm).
 1. [Build and upload the Docker image to {{ container-registry-name }}](#create-image).
 1. [Download the Docker image to a VM](#run).
-1. [Check the results](#check-result).
+1. [Check the result](#check-result).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 You can also deploy an infrastructure for running a Docker image on a VM via {{ TF }} using a [ready-made configuration file](#terraform).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -22,14 +22,14 @@ You can also deploy an infrastructure for running a Docker image on a VM via {{ 
 ### Required paid resources {#paid-resources}
 
 The cost of this infrastructure includes:
-* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * A fee for storing the Docker image in the registry and for outgoing traffic (see [{{ cos-full-name }} pricing](../../cos/pricing.md)).
 
 
 ### Configure the environment {#prepare}
 
-1. [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command-line interface.
+1. [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface.
 1. [Prepare](../../compute/operations/vm-connect/ssh.md) an SSH key for VM access.
 1. [Create](../../container-registry/operations/registry/registry-create.md) a registry in {{ cos-name }} to store the Docker image.
 1. [Install](https://www.docker.com) Docker.
@@ -99,7 +99,7 @@ The cost of this infrastructure includes:
 
    - {{ TF }}
 
-     See section [{#T}](#terraform).
+      See section [{#T}](#terraform).
 
    - API
 
@@ -119,7 +119,7 @@ The cost of this infrastructure includes:
      1. In the list of services, select **{{ compute-name }}**.
      1. Click **Create VM**.
      1. Under **Basic parameters**:
-        * Enter a name and description for the VM. For naming requirements, see below:
+        * Enter a name and description for the VM. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -129,7 +129,7 @@ The cost of this infrastructure includes:
         * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
      1. Under **Images from {{ marketplace-name }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
      1. (optional) Configure the boot disk under **Disks**:
-        * Specify the necessary [disk](../../compute/concepts/disk.md) size.
+        * Specify the required [disk](../../compute/concepts/disk.md) size.
         * Select the [disk type](../../compute/concepts/disk.md#disks_types).
 
           If you wish to create a VM from an existing disk, under **Disks**, [add a disk](../../compute/operations/vm-create/create-from-disks.md).
@@ -139,11 +139,11 @@ The cost of this infrastructure includes:
         * If required, make your VM [preemptible](../../compute/concepts/preemptible-vm.md).
      1. Under **Network settings**:
         * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. If you don't have a network, click **Create a new network** to create one:
-          * In the window that opens, enter a name for the new network and choose a subnet to connect the VM to. Each network should have a minimum of one [subnet](../../vpc/concepts/network.md#subnet) (if there are no subnets, create one). Then click **Create**.
+          * In the window that opens, enter a name for the new network and choose a subnet to connect the VM to. Each network should have a minimum of one [subnet](../../vpc/concepts/network.md#subnet) (if there are no subnets, create one). and click **Create**.
         * In the **Public IP** field, choose a method for assigning an IP address:
           * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
           * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
-          * **No address**: Don't assign a public IP address.
+          * **No address**: Do not assign a public IP address.
 
           
           * (optional) Enable [DDoS protection](../../vpc/ddos-protection/).
@@ -154,7 +154,7 @@ The cost of this infrastructure includes:
 
           {% note alert %}
 
-          Don't use the username `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the command `sudo`.
+          Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
 
           {% endnote %}
 
@@ -339,7 +339,7 @@ The cost of this infrastructure includes:
           https://compute.{{ api-host }}/compute/v1/instances
         ```
 
-  {% endlist %}
+   {% endlist %}
 
 ## Build and upload the Docker image to {{ container-registry-name }} {#create-image}
 
@@ -363,7 +363,7 @@ The cost of this infrastructure includes:
    
    - Using an OAuth token
 
-     1. If you don't have an OAuth token, get one by following this [link]({{ link-cloud-oauth }}).
+     1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
      1. Run the following command:
 
         ```bash
@@ -396,7 +396,7 @@ The cost of this infrastructure includes:
 
         ```text
         ...
-        Login Succeeded
+        Login succeeded
         ```
 
    - Using a Docker Credential helper
@@ -418,7 +418,7 @@ The cost of this infrastructure includes:
 
         {% note warning %}
 
-        The Credential helper only works when using Docker without `sudo`. Configuring Docker to run as the current user without using `sudo` is described in the [official documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+        Credential helper only works when using Docker without `sudo`. You can learn how to configure Docker to run under current user without `sudo` in the [official documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
         {% endnote %}
 
@@ -520,7 +520,7 @@ The cost of this infrastructure includes:
    {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
    ```
 
-## Check the results {#check-result}
+## Check the result {#check-result}
 
 Run the Docker image on the VM:
 
@@ -534,9 +534,9 @@ Result:
 Hi, I'm inside
 ```
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 * [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.
 * [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the Docker image.
@@ -582,7 +582,6 @@ To create an infrastructure for running a Docker image on a VM using the registr
    * `subnet_name`: Name of the subnet.
    * `vm_name`: VM name.
    * `image_id`: ID of the image to create the VM from, such as `fd81hgrcv6lsnkremf32` for Ubuntu 20.04 LTS. For details, see [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
-
 1. Create resources:
 
    {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}

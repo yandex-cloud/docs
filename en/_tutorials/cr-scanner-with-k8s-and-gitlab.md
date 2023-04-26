@@ -1,9 +1,9 @@
 # Scanning {{ container-registry-name }} for vulnerabilities during continuous deployment of {{ managed-k8s-name }} applications using {{ GL }}
 
-You can scan [Docker images](../container-registry/concepts/docker-image.md) for [vulnerabilities](../container-registry/concepts/vulnerability-scanner.md) in [{{ container-registry-full-name }}](../container-registry/) when continuously deploying [{{ managed-k8s-full-name }}](../managed-kubernetes/) applications via {{ GL }}.
+You can [scan Docker images for vulnerabilities](../container-registry/concepts/vulnerability-scanner.md) in [{{ container-registry-full-name }}](../container-registry/) when continuously deploying [{{ managed-k8s-full-name }}](../managed-kubernetes/) applications via {{ GL }}.
 
 To do this, use Continuous Integration (CI) to create a special script in {{ GL }} to be run after each commit:
-1. Building an application into a Docker image and pushing the image to {{ container-registry-name }}.
+1. Building an application into a [Docker image](../container-registry/concepts/docker-image.md) and pushing the image to {{ container-registry-name }}.
 1. Scanning Docker images in {{ container-registry-name }} for vulnerabilities.
 1. Deploying an application from a Docker image in a {{ managed-k8s-name }} cluster using the {{ yandex-cloud }} tools.
 
@@ -13,7 +13,7 @@ To set up the vulnerability scanner:
 1. [Create a test application](#app-create).
 1. [Create a {{ GLR }}](#runner).
 1. [Configure the CI script](#ci).
-1. [Check the results](#check-result).
+1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -26,8 +26,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Manually
 
   1. [Create service accounts](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) the following roles to them:
-     * A [service account](../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../resource-manager/security/index.md#roles-list) role to the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources that the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
-     * A service account for [nodes](../managed-kubernetes/concepts/index.md#node-group) with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` [roles](../container-registry/security/index.md#service-roles) for the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
+     * [Service account](../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../resource-manager/security/index.md#roles-list) role to the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+     * Service account for [nodes](../managed-kubernetes/concepts/index.md#node-group) with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` [roles](../container-registry/security/index.md#service-roles) for the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
 
      You can use the same service account for both operations.
   1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
@@ -75,9 +75,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Install additional dependencies {#prepare}
 
-Install the following in the local environment:
+Install the following items in the local environment:
 * [{{ yandex-cloud }} command line interface (YC CLI)](../cli/operations/install-cli.md).
-* [The `jq` JSON stream processor](https://stedolan.github.io/jq/).
+* [`jq` JSON stream processor](https://stedolan.github.io/jq/).
 * [The Helm package manager]({{ links.helm.install }}).
 * [The {{ k8s }} command-line tool kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the created cluster](../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
@@ -116,7 +116,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
    1. Log in to {{ GL }}.
    1. On the home page, select a repository.
    1. Select the **Repository** → **Files** section.
-   1. Click **+** and select **New file** from the dropdown menu.
+   1. Click **+** and select **New file** from the drop-down menu.
    1. Name the file as `Dockerfile` and add the following code to it:
 
       ```Dockerfile
@@ -128,7 +128,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
    1. Click **Commit changes**.
 1. Add the manifest for the {{ managed-k8s-name }} cluster resources to the project:
    1. Select the **Repository** → **Files** section.
-   1. Click **+** and select **New file** from the dropdown menu.
+   1. Click **+** and select **New file** from the drop-down menu.
    1. Name the file as `k8s.yaml`:
 
       {% cut "k8s.yaml" %}
@@ -174,7 +174,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
 ## Configure the CI script {#ci}
 
 1. Create the [{{ GL }} environment variables](https://docs.gitlab.com/ee/ci/variables/README.html):
-   1. Go to **Settings** in the left {{ GL }} panel, then select **CI/CD** from the drop-down list.
+   1. Go to **Settings** in the left-hand {{ GL }} panel and select **CI/CD** from the drop-down list.
    1. Click **Expand** next to **Variables**.
    1. Add two environment variables:
       * `KUBE_URL`: The [{{ managed-k8s-name }} master address](../managed-kubernetes/concepts/index.md#master). Retrieve it using the command:
@@ -184,11 +184,12 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
           | jq -r .master.endpoints.external_v4_endpoint
         ```
 
-      * `KUBE_TOKEN`: The token will use {{ GL }} to apply the configuration. Use the token that you received previously.
+      * `KUBE_TOKEN`: The token  will use {{ GL }} to apply the configuration. Use the token that you received previously.
+
       To add a variable:
-      * Click **Add variable**.
-      * In the resulting window, enter the variable name in the **Key** field and the value in the **Value** field.
-      * Click **Add variable**.
+      1. Click **Add variable**.
+      1. In the resulting window, enter the variable name in the **Key** field and the value in the **Value** field.
+      1. Click **Add variable**.
 1. Create the CI script's configuration file:
    1. On the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
    1. To the right of the project name, click **+** and select **New file** from the drop-down menu.
@@ -277,11 +278,11 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
    * Scan the Docker image for vulnerabilities in {{ container-registry-name }}.
    * Set up an environment to work with {{ k8s }} and apply `k8s.yaml` configurations to {{ managed-k8s-name }} clusters. This way the application is deployed on the previously created cluster.
 
-## Check the results {#check-result}
+## Check the result {#check-result}
 
 Once you save the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }}. Vulnerability scanning is performed at the second stage (`test`).
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ mgl-name }} instance](../managed-gitlab/operations/instance/instance-delete.md) or the [created VM with the {{ GL }} image](../compute/operations/vm-control/vm-delete.md).
@@ -310,10 +311,10 @@ Delete the other resources, depending on the method used to create them:
      ```
 
      If there are any errors in the configuration files, {{ TF }} will point to them.
-  1. Confirm the resources have been updated.
+    1. Confirm the resources have been updated.
 
-     {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-     All the resources described in the `cr-scanner-with-k8s-and-gitlab.tf` configuration will be deleted.
+       All the resources described in the `cr-scanner-with-k8s-and-gitlab.tf` configuration will be deleted.
 
 {% endlist %}

@@ -116,7 +116,7 @@ Video conversion is done using the FFmpeg utility. The FFmpeg executable file is
          ```
 
       * The `index.py` file with the contents of `ffmpeg-converter.py` from the archive.
-      * The FFmpeg executable file. To get it, go to the [FFmpeg official website](http://ffmpeg.org/download.html), the **Linux Static Builds** section, and download the archive with the 64-bit FFmpeg version.
+      * The FFmpeg executable file. Go to the [FFmpeg official website](http://ffmpeg.org/download.html), navigate to the **Linux Static Builds** section, download the archive with the 64-bit FFmpeg version, and make the file executable by running the `chmod +x ffmpeg` command.
 
    1. [Upload](../storage/operations/objects/upload.md) `src.zip` to `converter-bucket`.
    1. [Create](../functions/operations/function/version-manage.md) a function version:

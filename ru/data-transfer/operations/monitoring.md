@@ -1,6 +1,6 @@
 # Мониторинг состояния трансфера
 
-Данные о состоянии трансфера доступны в консоли управления. Их можно посмотреть на вкладке **Мониторинг** страницы управления трансфером или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+Данные о состоянии трансфера доступны в консоли управления. Их можно посмотреть на вкладке **{{ ui-key.yacloud.data-transfer.label_monitoring }}** страницы управления трансфером или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
 Диагностическая информация о состоянии трансфера представлена в виде графиков.
 
@@ -16,9 +16,9 @@
 - Консоль управления
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-  1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **Трансферы**.
-  1. Нажмите на имя нужного трансфера и выберите вкладку ![image](../../_assets/monitoring.svg) **Мониторинг**.
-  1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **Открыть в Мониторинге** на панели сверху.
+  1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. Нажмите на имя нужного трансфера и выберите вкладку ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}**.
+  1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
 
 {% endlist %}
 
@@ -81,12 +81,12 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с трансфером, для которого нужно настроить алерты.
-  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-  1. В блоке **Сервисные дашборды** выберите **{{ data-transfer-name }}**.
-  1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
-  1. Нажмите кнопку **Создать алерт**.
+  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}**.
+  1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для срабатывания алерта.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -107,20 +107,20 @@
 
     ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = publisher.data.changeitems` `resource_type = -`
 
-    ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **Преобразование**)
+    ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:
 
-    * Условие срабатывания — `Меньше или равно`.
-    * Alarm — `0`.
-    * Warning — `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
 
-    Можно дополнительно задать условие срабатывания `Warning` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
+    Можно дополнительно задать условие срабатывания `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
 
     Дополнительные настройки:
 
-    * **Функция агрегации** — `Максимум`.
-    * **Окно вычисления** — `5 минут`. Если в базе-источнике изменения происходят реже одного раза в 5 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `5 минут`. Если в базе-источнике изменения происходят реже одного раза в 5 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
 
 ### Число событий приемника {#target-change-items}
 
@@ -137,20 +137,20 @@
 * Метрики:
 
     ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = sinker.pusher.data.changeitems` `resource_type = -`
-    ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **Преобразование**)
+    ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:
 
-    * Условие срабатывания — `Меньше или равно`.
-    * Alarm — `0`.
-    * Warning — `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
 
-    Можно дополнительно задать условие срабатывания `Warning` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
+    Можно дополнительно задать условие срабатывания `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
 
     Дополнительные настройки:
 
-    * **Функция агрегации** — `Максимум`.
-    * **Окно вычисления** — `5 минут`. Если в базе-источнике изменения происходят реже одного раза в 5 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `5 минут`. Если в базе-источнике изменения происходят реже одного раза в 5 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
 
 ### Максимальная задержка передачи данных {#row-max-lag}
 
@@ -170,14 +170,14 @@
 
 * Настройки алерта:
 
-    * Условие срабатывания — `Больше или равно`.
-    * Alarm — `15`. Если база-приемник медленная, или реплицируются сразу большие блоки данных, задайте максимально возможное значение.
-    * Warning — `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
+    *  {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `15`. Если база-приемник медленная, или реплицируются сразу большие блоки данных, задайте максимально возможное значение.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
 
     Дополнительные настройки:
 
-    * **Функция агрегации** — `Минимум`.
-    * **Окно вычисления** — `1 минута`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `1 минута`.
 
 ### Чтение {#reading}
 
@@ -193,18 +193,18 @@
 * Метрики:
 
     ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = publisher.data.bytes` `resource_type = -`
-    ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **Преобразование**)
+    ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:
 
-    * Условие срабатывания — `Равно`.
-    * Alarm — `0`.
-    * Warning — `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
 
     Дополнительные настройки:
 
-    * **Функция агрегации** — `Максимум`.
-    * **Окно вычисления** — `15 минут`. Если в базе-источнике изменения происходят реже одного раза в 15 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `15 минут`. Если в базе-источнике изменения происходят реже одного раза в 15 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
 
 ## Особенности работы с алертами {#alert-specifics}
 

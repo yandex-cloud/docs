@@ -6,31 +6,23 @@ To create a dashboard:
 
 1. Select **Dashboards** → **Create dashboard** on the {{ tracker-name }} top panel.
 
-1. Enter the name of the dashboard and choose a widget arrangement.
+1. Enter a name for the dashboard and click **Create**.
 
-1. Add widgets and configure them. There are several types of widgets:
-    - [Issue list](widgets.md#section_ll1_zdp_pz): This type of widget contains a list of issues that meet a specific filter.
-    - [Pivot table](widgets.md#section_esm_vjp_pz): This type of widget displays a table with statistics for issues.
-    - [Statistics widget](widgets.md#section_htb_kvp_pz): This type of widget shows issue statistics as a chart or graph.
-    - [Notes](widgets.md#section_rtw_3gr_pz): This type of widget is for your notes.
+1. In the upper-right corner, click **Edit** and select widgets one by one from the **Add** list to configure them. The following widgets are available in {{ tracker-name }}:
 
-- [Invitation form](widgets.md#invite_form): This type of widget lets you invite your colleagues to {{ tracker-name }}.
+   - [Issues](widgets.md#tasks)
+   - [Note](widgets.md#note)
+   - [Summary table](widgets.md#summary-table)
+   - [Summary table with totaled values](widgets.md#summary-table-with-totals)
+   - [Events](widgets.md#events)
+   - [Issue statistics](widgets.md#issues-stat)
+   - [<q>Created/Solved</q> chart](widgets.md#created-and-resolved)
 
-    Most widgets contain information about a specific set of issues. The list of issues to include in the widget is set using a filter. You can set filters using [direct links, names](create-filter.md) or the [query language](query-filter.md).
+   Widgets let you view issue analytics. Issues are selected for widgets using a [query language](query-filter.md) or [filter](create-filter.md). You can select a filter from the list of preset and custom filters or set it manually right on the widget creation page.
 
-1. Arrange the widgets however you like and click **Save**.
+1. Arrange the widgets however you like, set their sizes, and click **Save**.
 
-## Cloning a dashboard {#section_cv2_ck3_pz}
 
-You can create a copy of any dashboard and modify it as you wish:
-
-1. Go to the original dashboard page.
-
-1. Select ![](../../_assets/tracker/icon-settings.png) → **Create copy** to the left of the dashboard name.
-
-1. Enter a name for your new dashboard and click **Save**.
-
-You will be the owner of the new dashboard. You can change it, edit the widgets, and set access rights.
 
 ### Next step
 

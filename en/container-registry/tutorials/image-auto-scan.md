@@ -1,13 +1,26 @@
 # Automatic Docker image scan at push
 
-_The scanning service is at the [Preview stage](../../overview/concepts/launch-stages.md)._
-
 This scenario describes how to configure automatic vulnerability [scanning](../concepts/vulnerability-scanner.md) of a [Docker image](../concepts/docker-image.md) at push.
+
+To set up automatic Docker image scan at push:
+1. [Prepare your cloud](#before-you-begin).
+1. [Prepare the environment](#prepare).
+1. [Create a function](#create-function).
+1. [Create a trigger](#create-trigger).
+1. [Push the image](#download-image).
+1. [Check the result](#check-result).
+
+If you no longer need the resources you created, [delete them](#clear-out).
+
+## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 ## Prepare the environment {#prepare}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
+1. [Install](https://www.docker.com) Docker.
 1. Create a [registry](../concepts/registry.md) to push a Docker image to.
 
    {% list tabs %}
@@ -16,12 +29,13 @@ This scenario describes how to configure automatic vulnerability [scanning](../c
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your registry in.
      1. In the list of services, select **{{ container-registry-name }}**.
+     1. Click **Create registry**.
      1. Specify a name for the registry.
      1. Click **Create registry**.
 
    - CLI
 
-     Run the command:
+     Run the following command:
 
      ```bash
      yc container registry create --name my-reg
@@ -29,7 +43,7 @@ This scenario describes how to configure automatic vulnerability [scanning](../c
 
      Result:
 
-     ```bash
+     ```text
      done
      id: crpd50616s9a2t7gr8mi
      folder_id: b1g88tflru0ek1omtsu0
@@ -44,7 +58,7 @@ This scenario describes how to configure automatic vulnerability [scanning](../c
 
    {% endlist %}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `scanner` and assign it the `container-registry.images.scanner` role for the folder where you created the registry.
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `scanner` and assign it the `container-registry.images.scanner` [role](../../iam/concepts/access-control/roles.md) for the folder where you created the registry.
 
    {% list tabs %}
 
@@ -67,7 +81,7 @@ This scenario describes how to configure automatic vulnerability [scanning](../c
 
         Result:
 
-        ```bash
+        ```text
         id: ajelabcde12f33nol1v5
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2021-05-17T14:32:18.900092Z"
@@ -89,23 +103,24 @@ This scenario describes how to configure automatic vulnerability [scanning](../c
    {% endlist %}
 
 1. Similarly create a service account named `invoker` and assign it the `serverless.functions.invoker` role for the folder where you created the registry.
+1. Install Docker.
 
 ## Create a function {#create-function}
 
-Create a [function](../../functions/concepts/function.md) in {{ sf-full-name }} named `scan-on-push` to start the image scan:
+Create a [function](../../functions/concepts/function.md) in [{{ sf-full-name }}](../../functions/) named `scan-on-push` to start the image scan:
 
 {% list tabs %}
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a function.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
   1. Select **{{ sf-name }}**
   1. Click **Create function**.
   1. Enter the name `scan-on-push` and a description of the function.
   1. Click **Create**.
   1. Go to **Editor** and create a version of the function:
      1. Under **Function code**:
-        * Select the `Bash` runtime environment.
+        * Select the `Bash` runtime environment and click **Continue**.
         * Select how you want to edit the function: **Code editor**.
         * In the function edit window, click **Create file**. In the window that opens, enter the name `handler.sh` and click **Create**.
         * Copy the following code to the `handler.sh` file:
@@ -135,7 +150,7 @@ Create a [function](../../functions/concepts/function.md) in {{ sf-full-name }} 
 
      Result:
 
-     ```bash
+     ```text
      id: d4ejb1799eko6re4omb1
      folder_id: aoek49ghmknnpj1ll45e
      created_at: "2021-17-05T14:07:32.134Z"
@@ -169,29 +184,21 @@ Create a [function](../../functions/concepts/function.md) in {{ sf-full-name }} 
      ```
 
      Where:
-     * `function-name`: The name of the function you want to create a version of.
-     * `runtime`: The runtime environment.
+     * `function-name`: Name of the function you want to create a version of.
+     * `runtime`: Runtime environment.
      * `entrypoint`: The entry point specified in the `<function file name>.<handler name>` format.
-     * `memory`: The amount of RAM.
-     * `execution-timeout`: The maximum function execution time before the timeout is reached.
+     * `memory`: Amount of RAM.
+     * `execution-timeout`: Maximum function execution time before the timeout is reached.
      * `source-path`: A file with the function code.
-     * `service-account-id`: The ID of your service account.
+     * `service-account-id`: ID of your service account.
 
      Result:
 
-     ```bash
+     ```text
      done (1s)
      id: d4egi3pmsd1qcdmsqt5n
      function_id: d4e275oj7jtp2o6kdmim
-     created_at: "2021-05-18T20:19:09.605Z"
-     runtime: bash
-     entrypoint: handler.sh
-     resources:
-       memory: "134217728"
-     execution_timeout: 60s
-     service_account_id: aje2stn6id9k43qk7n7l
-     image_size: "4096"
-     status: ACTIVE
+     ...
      tags:
      - $latest
      log_group_id: ckg6nb0c7uf19oo8pvjj
@@ -205,20 +212,20 @@ Create a [function](../../functions/concepts/function.md) in {{ sf-full-name }} 
 
 ## Create a trigger {#create-trigger}
 
-Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will invoke your function when creating an image tag.
+Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will invoke your function when creating an image [tag](../concepts/docker-image.md#version).
 
 {% list tabs %}
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
   1. Select **{{ sf-name }}**.
   1. Go to the **Triggers** tab.
   1. Click **Create trigger**.
   1. Under **Basic parameters**:
      * Enter a name and description for the trigger.
-     * In the **Type** field, select **Container Registry**.
-  1. Under **Container Registry settings**:
+     * In the **Type** field, select **{{ container-registry-name }}**.
+  1. Under **{{ container-registry-name }} settings**:
      * In the **Registry** field, select the registry where you want to push the image.
      * In the **Event types** field, select **Create Docker image tag** as your [event](../../functions/concepts/trigger/cr-trigger.md#event).
   1. Under **Function settings**:
@@ -249,18 +256,11 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
   Result:
 
-  ```bash
+  ```text
   id: a1spt834cjmk40si80sp
   folder_id: b1g86q4m5vej8lkljme5
   created_at: "2021-05-18T20:42:54.898949653Z"
-  name: trig
-  rule:
-    container_registry:
-      event_type:
-      - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
-      registry_id: crpu20rpdc2foid8p8b0
-      invoke_function:
-        function_id: d4e275oj7jtp2o6kdmim
+  ...
         function_tag: $latest
         service_account_id: aje1insoe23e82t9mem2
   status: ACTIVE
@@ -274,13 +274,13 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
 ## Upload an image {#download-image}
 
+1. Run Docker Desktop.
 1. Log in to the registry under your username:
 
    {% list tabs %}
 
    - Using a Docker Credential helper
 
-     1. If you don't have a YC CLI profile yet, [create one](../../cli/quickstart.md#initialize).
      1. Configure Docker to use `docker-credential-yc`:
 
         ```bash
@@ -289,7 +289,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
         Result:
 
-        ```bash
+        ```text
         Credential helper is configured in '/home/<user>/.docker/config.json'
         ```
 
@@ -297,7 +297,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
         {% note warning %}
 
-        The Credential helper only works when using Docker without `sudo`. Configuring Docker to run as the current user without using `sudo` is described in the [official Docker documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+        Credential helper only works when using Docker without `sudo`. Configuring Docker to run as the current user without using `sudo` is described in the [official Docker documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
         {% endnote %}
 
@@ -314,8 +314,8 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
    
    - Using an OAuth token
 
-     1. If you don't have an OAuth token, get one by following this [link]({{ link-cloud-oauth }}).
-     1. Run the command:
+     1. If you do not have an [OAuth token](../../iam/concepts/authorization/oauth-token.md) yet, get one by following [this link]({{ link-cloud-oauth }}).
+     1. Run the following command:
 
         ```bash
         echo <oauth token> | docker login --username oauth --password-stdin {{ registry }}
@@ -323,7 +323,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
         Result:
 
-        ```bash
+        ```text
         Login succeeded
         ```
 
@@ -336,8 +336,8 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
      {% endnote %}
 
-     1. [Get](../../iam/operations/iam-token/create.md) an IAM token.
-     1. Run the command:
+     1. [Get](../../iam/operations/iam-token/create.md) an [IAM token](../../iam/concepts/authorization/iam-token.md).
+     1. Run the following command:
 
         ```bash
         yc iam create-token | docker login --username iam --password-stdin {{ registry }}
@@ -345,7 +345,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
         Result:
 
-        ```bash
+        ```text
         Login succeeded
         ```
 
@@ -359,7 +359,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
    Result:
 
-   ```bash
+   ```text
    20.04: Pulling from library/ubuntu
    Digest: sha256:cf31af331f38d1d7158470e095b132acd126a7180a54f263d386da88eb681d93
    Status: Image is up to date for ubuntu:20.04
@@ -380,7 +380,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
    Result:
 
-   ```bash
+   ```text
    The push refers to repository [{{ registry }}/crpu20rpdc2foid8p8b0/ubuntu]
    2f140462f3bc: Layer already exists
    63c99163f472: Layer already exists
@@ -388,7 +388,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
    20.04: digest: sha256:86ac87f73641c920fb42cc9612d4fb57b5626b56ea2a19b894d0673fd5b4f2e9 size: 943
    ```
 
-## Check the results {#check-result}
+## Check the result {#check-result}
 
 1. View the `scan-on-push` function logs and make sure that it was executed.
 
@@ -412,7 +412,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
      Result:
 
-     ```bash
+     ```text
      2021-05-18 09:27:43  START RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Version: b09i2s85a0c1fisjboft
      2021-05-18 09:27:43  END RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad
      2021-05-18 09:27:43  REPORT RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Duration: 538.610 ms Billed Duration: 538.700 ms Memory Size: 128 MB Max Memory Used: 13 MB
@@ -434,7 +434,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
      1. Select **{{ container-registry-name }}**.
      1. Select the registry where you pushed your Docker image.
      1. Open the repository with the Docker image.
-     1. Select the desired image and go to the **Scan history** tab.
+     1. Select the image you need and check the **Date of last scan** parameter value.
 
    - CLI
 
@@ -446,7 +446,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
      Result:
 
-     ```bash
+     ```text
      +----------------------+----------------------+---------------------+--------+--------------------------------+
      |          ID          |        IMAGE         |     SCANNED AT      | STATUS |        VULNERABILITIES         |
      +----------------------+----------------------+---------------------+--------+--------------------------------+
@@ -455,3 +455,8 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
      ```
 
    {% endlist %}
+
+## How to delete the resources you created {#clear-out}
+
+To stop paying for the resources you created:
+* [Delete the Docker image](../../container-registry/operations/docker-image/docker-image-delete.md) stored in [{{ cos-full-name }}](../../cos/), as well as the [registry](../../container-registry/operations/registry/registry-delete.md).

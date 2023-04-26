@@ -1,6 +1,6 @@
 # Integrating with Argo CD
 
-[Argo CD](https://argo-cd.readthedocs.io) is a declarative, GitOps tool for continuous delivery to {{ k8s }}.
+[Argo CD](https://argo-cd.readthedocs.io) is a declarative GitOps tool for continuous delivery to {{ k8s }}.
 
 This tutorial describes how to integrate a [{{ mgl-full-name }} instance](../../../managed-gitlab/concepts/index.md#instance), a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster), and [Argo CD](/marketplace/products/yc/argo-cd) that is installed in the cluster and builds Docker containers using [Kaniko](https://github.com/GoogleContainerTools/kaniko).
 
@@ -12,7 +12,7 @@ To integrate Argo CD with {{ managed-k8s-name }} and {{ mgl-name }}:
 1. [{#T}](#setup-repo).
 1. [{#T}](#deploy-argo).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -22,7 +22,8 @@ To run the script, install the following in the local environment:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-* [The `jq` JSON stream processor](https://stedolan.github.io/jq/).
+* [`jq` JSON stream processor](https://stedolan.github.io/jq/).
+
 * [The Helm package manager]({{ links.helm.install }}).
 
 ## Create {{ managed-k8s-name }} and {{ container-registry-name }} resources {#k8s-cr-create}
@@ -37,10 +38,10 @@ To run the script, install the following in the local environment:
 
    - Manually
 
-     1. If you don't have a [network](../../../vpc/concepts/network.md#network), [create one](../../../vpc/operations/network-create.md).
-     1. If you don't have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
+     1. If you do not have a [network](../../../vpc/concepts/network.md#network), [create one](../../../vpc/operations/network-create.md).
+     1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
      1. [Create service accounts](../../../iam/operations/sa/create.md):
-        * With the [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) [role](../../../iam/concepts/access-control/roles.md) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you create your {{ k8s }} cluster. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
+        * With the [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) [role](../../../iam/concepts/access-control/roles.md) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you create your {{ k8s }} cluster. The resources the {{ k8s }} cluster needs will be created on behalf of this account.
         * With the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used to push the Docker images that you build to {{ GL }} and pull them to run [pods](../../concepts/index.md#pod).
 
         {% note tip %}
@@ -69,7 +70,7 @@ To run the script, install the following in the local environment:
 
    - Using {{ TF }}
 
-     1. If you don't have {{ TF }}, [install it](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. If you do not have {{ TF }} yet, [install it](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
      1. Download the cluster configuration file [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf) to the same working directory. The file describes:
         * [Network](../../../vpc/concepts/network.md#network).
@@ -90,13 +91,13 @@ To run the script, install the following in the local environment:
         * Name of the cluster service account.
         * Name of the {{ container-registry-name }} registry.
      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
+        If there are any errors in the configuration files, {{ TF }} will point to them.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
@@ -145,7 +146,7 @@ To run the script, install the following in the local environment:
      1. Go to the `gitlab-test` group.
      1. Click **Create a project**.
      1. Click **Create blank project**.
-     1. Complete the fields below:
+     1. Fill out the fields below:
         * **Project name**: `my-app`.
         * **Project URL**: Select `gitlab-test` in the field next to the {{ mgl-name }}instance FQDN.
 
@@ -179,7 +180,7 @@ To run the script, install the following in the local environment:
    ```
 
 1. Create the [{{ GL }} environment variables](https://docs.gitlab.com/ee/ci/variables/README.html):
-   1. Go to **Settings** in the left {{ GL }} panel, then select **CI/CD** from the drop-down list.
+   1. Go to **Settings** in the left-hand {{ GL }} panel and select **CI/CD** from the drop-down list.
    1. Click **Expand** next to **Variables**.
    1. Add three environment variables:
 
@@ -225,13 +226,13 @@ To run the script, install the following in the local environment:
 ### Install Argo CD to the {{ k8s }} cluster {#install}
 
 1. Install Argo CD by following this [guide](../../operations/applications/argo-cd.md).
-1. Configure the `argocd-server` port forwarding to the local machine, then connect to the {{ k8s }} cluster:
+1. Configure the `argocd-server` port forwarding to the local machine, and then connect to the {{ k8s }} cluster:
 
    ```bash
    kubectl port-forward svc/<Argo CD application name>-argocd-server 8080:443
    ```
 
-1. Get the administrator's password from a {{ k8s }} secret:
+1. Get the administrator password from a {{ k8s }} secret:
 
    ```bash
    kubectl get secret argocd-initial-admin-secret \
@@ -267,8 +268,8 @@ To run the script, install the following in the local environment:
    * **Cluster URL**: `https://kubernetes.default.svc`.
    * **Namespace**: `my-app`.
    * **Directory**: Select `Helm` and then, in the **Parameters** section that appears, set the parameters based on the value of the successful {{ GL }} build:
-      * **image.repository**: `{{ registry }}/<registry ID>/gitlab-test/my-app`.
-      * **image.tag**: `main.<commit number>`.
+     * **image.repository**: `{{ registry }}/<registry ID>/gitlab-test/my-app`.
+     * **image.tag**: `main.<commit number>`.
 1. Click **Create** and wait until the syncing completes.
 1. To test how the application runs, execute the following command in the {{ k8s }} cluster:
 
@@ -306,7 +307,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    - Manually
 
-     1. [Delete a {{ k8s }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+     1. [Delete the {{ k8s }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
      1. [Delete the {{ container-registry-name }} registry](../../../container-registry/operations/registry/registry-delete.md).
      1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
      1. [Delete the created service accounts](../../../iam/operations/sa/delete.md).
@@ -315,14 +316,14 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
      1. Delete the `k8s-argocd.tf` configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
-     1. Confirm the update of resources.
+        If there are any errors in the configuration files, {{ TF }} will point to them.
+     1. Confirm the resources have been updated.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

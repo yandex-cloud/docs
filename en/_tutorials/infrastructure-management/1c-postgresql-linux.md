@@ -42,7 +42,7 @@ The infrastructure support cost for 1C-Enterprise in {{ yandex-cloud }} includes
 ## Prepare the infrastructure {#prepare}
 
 1. Make sure that you install the 1C:Enterprise client to check the performance of the infobase and the 1C administration console to manage the server cluster on your computer.
-1. Make sure you have a VM running in your cloud with [OpenVPN configured](../routing/openvpn.md) for a secure connection to the 1C servers.
+1. Make sure you have a VM running in your cloud with [OpenVPN configured](../../tutorials/routing/openvpn.md) for a secure connection to the 1C servers.
 
 {% note info %}
 

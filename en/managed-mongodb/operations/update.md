@@ -113,7 +113,7 @@ After creating a cluster, you can:
 
    * List of settings to update in the `updateMask` parameter.
 
-   {% [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

@@ -1,10 +1,18 @@
 # Configuring security groups
 
-[Security groups](../../../vpc/concepts/security-groups.md) operate on the principle that unless traffic is allowed, it is blocked. For a cluster to run, you need to [create rules](../../../vpc/operations/security-group-add-rule.md) in its security groups to allow:
+{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
+
+[Security groups](../../../vpc/concepts/security-groups.md) follow the "All traffic that is not allowed is prohibited" principle. For a cluster to run, you need to [create rules](../../../vpc/operations/security-group-add-rule.md) in its security groups to allow:
 * [Service traffic within the cluster](#rules-internal).
 * [Connections to services from the internet](#rules-nodes).
 * [Connections to nodes over SSH](#rules-nodes-ssh).
-* [{{ k8s }} API access](#rules-master).
+* [API access{{ k8s }}](#rules-master).
+
+{% note info %}
+
+We recommend creating an independent security group for each of the mentioned sets of rules.
+
+{% endnote %}
 
 You can set more detailed rules for security groups, such as allowing traffic in only specific [subnets](../../../vpc/concepts/network.md#subnet).
 
@@ -67,7 +75,7 @@ To be sure that the services running on nodes are accessible from the internet a
 
 ## Creating a rule for connecting to nodes via SSH {#rules-nodes-ssh}
 
-To access the nodes via SSH, create a rule for the incoming traffic and **apply it to the node group**:
+To access the nodes via SSH, create a rule for incoming traffic and **apply it to the node group**:
 * Port: `{{ port-ssh }}`.
 * Protocol: `TCP`.
 * Source type: `CIDR`.
@@ -95,7 +103,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 
   For example, you need to create rules for an existing {{ k8s }} cluster:
   * With the zonal master located in the `{{ region-id }}-a` availability zone.
-  * With the `worker-nodes-c` node group.
+  * With the `worker-nodes-с` node group.
   * With the address range for pods and services: `10.96.0.0/16` and `10.112.0.0/16`.
   * With access to services:
     * From the load balancer's address range `198.18.235.0/24` and `198.18.248.0/24`.
@@ -131,19 +139,19 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 
   resource "yandex_vpc_security_group" "k8s-main-sg" {
     name        = "k8s-main-sg"
-    description = "Group rules ensure the basic performance of the cluster. Apply it to the cluster and node groups."
+    description = "Group rules support basic cluster functionality. Apply it to the cluster and node groups."
     network_id  = "<cloud network ID>"
     ingress {
       protocol          = "TCP"
-      description       = "Rule allows availability checks from load balancer's address range. It is required for the operation of a fault-tolerant cluster and load balancer services."
+      description       = "The rule allows availability checks from the load balancer address range. It is required for the operation of a fault-tolerant cluster and load balancer services."
       predefined_target = "loadbalancer_healthchecks"
       from_port         = 0
       to_port           = 65535
     }
     ingress {
       protocol          = "ANY"
-      description       = "Rule allows master-node and node-node communication inside a security group."
-      predefined_target = "self security group"
+      description       = "The rule allows master to node and node to node communication inside a security group."
+      predefined_target = "self_security_group"
       from_port         = 0
       to_port           = 65535
     }
@@ -217,12 +225,14 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 
   resource "yandex_kubernetes_cluster" "k8s-cluster" {
     name = "k8s-cluster"
+    cluster_ipv4_range = "10.96.0.0/16"
+    service_ipv4_range = "10.112.0.0/16"
     ...
     master {
       version = "1.20"
       zonal {
         zone      = "{{ region-id }}-a"
-        subnet_id = <cloud subnet ID>
+        subnet_id = <cloud network ID>
       }
 
       security_group_ids = [
@@ -243,7 +253,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
       platform_id = "standard-v3"
       network_interface {
         nat                = true
-        subnet_ids         = [<cloud subnet ID>]
+        subnet_ids         = [<cloud network ID>]
         security_group_ids = [
           yandex_vpc_security_group.k8s-main-sg.id,
           yandex_vpc_security_group.k8s-nodes-ssh-access.id,

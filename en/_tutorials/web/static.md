@@ -184,7 +184,7 @@ ns1.yandexcloud.net.
 
 ## Upload the website files {#upload-files}
 
-After you configure and test availability, upload the remaining files that are necessary for website operation. To do this, use the [management console]({{ link-console-main }}), [S3 API](../../storage/s3/api-ref/object/upload.md), [{{ TF }}](../infrastructure-management/terraform-quickstart.md), or other [tools for working with {{ objstorage-name }}](../../storage/tools/).
+After you configure and test availability, upload the remaining files that are necessary for website operation. To do this, use the [management console]({{ link-console-main }}), [S3 API](../../storage/s3/api-ref/object/upload.md), [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md), or other [tools for working with {{ objstorage-name }}](../../storage/tools/).
 
 {% list tabs %}
 

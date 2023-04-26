@@ -1,12 +1,12 @@
 # Trigger use cases in {{ tracker-name }}
 
-Let's look at some examples of how triggers work in {{ tracker-name }}:
+Here are some examples of how triggers work in {{ tracker-name }}:
 
 - How to [automatically pick assignees](#assign_ticket) based on their status or component.
 
 - How to [automatically invite the assignee to comment](#summon_ticket) depending on the field status and value.
 
-- How to [automatically change an issue's status](#new-link) after adding a certain type of link to it.
+- How to [automatically change an issue status](#new-link) after adding a certain type of link to it.
 
 - How to [automatically notify a user](#notify_mail) after an issue was created based on a request sent to the support team via email.
 
@@ -239,7 +239,6 @@ To create issues based on requests submitted from a form:
 
    1. Save your integration settings.
 
-
    ![image](../../_assets/tracker/trigger-example-form-integration.png)
 
 1. [Publish](../../forms/publish.md#section_link) the form.
@@ -312,7 +311,6 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
    ```
 
 
-
    Where:
    - `<form id>`: ID of the form to add.
 
@@ -351,7 +349,7 @@ When the issue is closed, the robot will create a comment with a form and invite
 
 The [new board version](agile-new.md) allows you to set up adding issues automatically by a filter or [trigger](trigger-examples.md#board).
 
-Instead of a trigger, you can also [set up an auto action](../user/create-autoaction.md) with a similar condition and action. When using an auto action, the issues meeting the condition will be added to the board at the specified time intervals rather than immediately.
+Instead of a trigger, you can also [set up an auto action](../user/create-autoaction.md) with a similar condition and action. When using an auto action, the issues meeting the condition won't be added to the board immediately, but at a given periodicity.
 
 {% note warning %}
 
@@ -437,8 +435,7 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
 
 1. Select [**HTTP request**](../user/set-action.md#create-http) as a target action.
 
-1. Specify the request parameters. In the **Request body** field, set the parameters of a new sub-issue.
-    To substitute the values from the original issue, use [variables](../user/vars.md):
+1. Specify the request parameters. In the **Request body** field, set the parameters of a new sub-issue. To substitute the values from the original issue, use [variables](../user/vars.md):
 
     #|
     || **Field** | **Content** ||

@@ -1,6 +1,7 @@
-# Adding users
+# Managing users
 
-To collaborate on issues with your colleagues, add them to {{ tracker-name }}. There are multiple ways to do this:
+{{ tracker-name }} supports organizations from {{ ya-360 }} and {{ yandex-cloud }}. Users and groups from {{ ya-360 }} are added to and displayed in {{ tracker-name }}. For {{ yandex-cloud }} organizations, a special organization is created in {{ ya-360 }} for syncing users and enabling group creation.
+
 
 - [Inviting users](#invite_user) who already have Yandex accounts to {{ tracker-name }}.
 - [Adding users](../organization/add-account.md) to {{ org-full-name }}.
@@ -65,3 +66,18 @@ To learn more about creating an identity federation, see the [{{ org-full-name }
 
 To [log in to {{ tracker-name }}](user/login.md), an employee with an account on the domain will need to enter their full email address (such as `login@example.com`) and password.
 
+## Deleting a user account {#remove}
+
+To delete a user account from {{ tracker-name }}, remove the employee from the organization they belong to:
+
+- [{{ org-full-name }}](../organization/edit-account.md).
+
+- [{{ ya-360 }}](https://yandex.ru/support/business/users.html#sec_delete).
+
+{% note info %}
+
+To delete a user account registered both in {{ org-full-name }} and {{ ya-360 }}, remove it from the respective organization in {{ org-full-name }}.
+
+{% endnote %}
+
+You can also edit user [permissions](./access.md): <q>Read-only</q> mode is free of charge.

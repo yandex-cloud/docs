@@ -2,9 +2,9 @@
 
 Widgets are small cards with useful information. They can show issue lists, statistics on issue completion, pivot tables, or notes. Widget content is generated automatically. The list of issues used to form a widget is set using [filters](create-filter.md). You can go to [{#T}](../support-process-dashboards.md) to find sample widgets for the support service dashboard.
 
-## Issue lists {#section_ll1_zdp_pz}
+## Issues {#tasks}
 
-![](../../_assets/tracker/widgets/filter.png)
+![](../../_assets/tracker/widgets/filter.png =690x497)
 
 This widget allows you to view a list of issues that meet a specific filter. For example, you can use these widgets to set up a page where you can see both the issues in a particular queue and the issues that you are currently working on.
 
@@ -16,13 +16,15 @@ To configure a widget, set the following:
 - **Columns**: The issue fields to show in the list. You can add multiple fields. To remove a field, click **x**.
 - **Auto-update**: How often to refresh the data in the widget.
 
-## Summary tables {#section_esm_vjp_pz}
+## Note {#note}
 
-Summary tables automatically collect statistics on issues and display them in a table. {{ tracker-name }} supports several types of summary tables:
+![](../../_assets/tracker/widgets/note.png =690x497)
 
-#### Simple pivot table
+Put down your ideas and take notes directly on the dashboard. You can enter notes in plain text or use [markup](markup.md).
 
-![](../../_assets/tracker/widgets/table.png)
+## Summary table {#summary-table}
+
+![](../../_assets/tracker/widgets/table.png =690x386)
 
 A simple pivot table that allows you to view statistics for any two parameters. The number of issues that meet the parameters is shown at intersections in the table. You can use this type of table, for instance, to track the quantity and status of issues for a specific group of assignees.
 
@@ -50,9 +52,9 @@ We don't recommend using the **Issue** value in **Columns** and **Rows**, as wid
 
 {% endnote %}
 
-#### Summary table with totaled values
+## Summary table with totaled values {#summary-table-with-totals}
 
-![](../../_assets/tracker/widgets/table-with-sum.png)
+![](../../_assets/tracker/widgets/table-with-sum.png =690x487)
 
 A special type of pivot table with two parameters. In contrast to a simple pivot table, the intersections show the sum of the values of a third parameter, instead of the number of issues. For instance, you can use this table to track the time spent by assignees working on various components in the queue.
 
@@ -84,39 +86,10 @@ We don't recommend using the **Issue** value in **Columns** and **Rows**, as wid
 
 {% endnote %}
 
-## Statistics {#section_htb_kvp_pz}
+## Events {#events}
 
-Statistics widgets automatically gather information on issues and display it in graphs and charts. {{ tracker-name }} supports multiple statistics widgets:
 
-#### Issue statistics
-
-![](../../_assets/tracker/widgets/stat.png)
-
-The widget displays the distribution of issues by the values of a specific parameter.
-
-To configure the widget, make these settings:
-
-- **Name**: The name to display in the widget title.
-
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
-
-- **Number of rows on page**: The maximum number of chart rows to display in the widget. If there are more rows, you can use the **Show all** button at the bottom of the widget.
-
-- **Key parameter**: The issue field to gather statistics for.
-
-- **Sort by**: The sort order in chart columns.
-
-- **Auto-update**: How often to refresh the data in the widget.
-
-{% note info %}
-
-We don't recommend using the **Issue** value in the **Key parameter** field, as widgets using those settings will soon be disabled. [Learn more](../faq.md#section_del_widget).
-
-{% endnote %}
-
-#### Events
-
-![](../../_assets/tracker/widgets/events.png)
+![](../../_assets/tracker/widgets/events.png =690x423)
 
 The chart displays statistics for _events_ in issues over a certain period of time. You can choose one of the events:
 
@@ -146,9 +119,35 @@ To configure the widget, make these settings:
 
 - **Auto-update**: How often to refresh the data in the widget.
 
-#### <q>Created vs. Resolved chart</q>
+## Issue statistics {#issues-stat}
 
-![](../../_assets/tracker/widgets/create-resolve.png)
+![](../../_assets/tracker/widgets/stat.png =690x448)
+
+The widget displays issue distribution by values of a certain parameter.
+
+To configure a widget, set the following:
+
+- **Name**: The name to display in the widget title.
+
+- **Filter**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+
+- **Number of rows on page**: The maximum number of chart rows to display in the widget. If there are more rows, you can use the **Show all** button at the bottom of the widget.
+
+- **Key parameter**: The issue field to gather statistics for.
+
+- **Sort by**: The sort order in chart columns.
+
+
+
+{% note info %}
+
+In the **Key parameter** field, we don't recommend using the **Issue** value because the widgets with such settings will soon be disabled. [Read more](../faq.md#section_del_widget).
+
+{% endnote %}
+
+## <q>Created/Solved</q> chart {#created-and-resolved}
+
+![](../../_assets/tracker/widgets/create-resolve.png =690x430)
 
 This chart allows you to compare the number of created issues to the number of resolved issues. You can specify the period and step for collecting statistics.
 
@@ -166,18 +165,5 @@ To configure the widget, make these settings:
 
 - **Show versions**: If this option is enabled, the chart shows the versions that issues belong to.
 
-## Notes {#section_rtw_3gr_pz}
 
-![](../../_assets/tracker/widgets/note.png)
-
-Write down your ideas and make notes right on the dashboard. You can enter notes in plain text or use [YFM markup](markup.md).
-
-
-
-## Invitation form {#invite_form}
-
-![](../../_assets/tracker/widgets/invite-form.png)
-
-Invite your employees to {{ tracker-name }} using a widget. To log in, they need a Yandex account. The employees you invited can use {{ tracker-name }} for free in [<q>Read only</q>](../access.md#readonly) mode.
-
 

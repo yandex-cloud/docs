@@ -2,7 +2,7 @@
 
 _Dashboards_ let you track the status of important issues on a single page. You can arrange [widgets](widgets.md) on your dashboard to display useful information. They can show issue lists, statistics on issue completion, pivot tables, or notes.
 
-![](../../_assets/tracker/dashboard-examp.png)
+![](../../_assets/tracker/dashboard-examp.png =690x276)
 
 Widget content is generated automatically. The list of issues used to form a widget is set using [filters](create-filter.md). You can go to [{#T}](../support-process-dashboards.md) to find sample widgets for the support service dashboard.
 

@@ -4,15 +4,15 @@ A Telegram bot on a {{ yandex-cloud }} serverless stack that returns the same me
 
 You can modify the Telegram bot's skills as you see fit.
 
-## Required paid resources
+## Required paid resources {#paid-resources}
 
 The cost of resources for the application includes:
 
-* A fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
-* A fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../api-gateway/pricing.md)).
-* A fee for queue requests (see [{{ message-queue-full-name }} pricing](../message-queue/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
+* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../api-gateway/pricing.md)).
+* Fee for standard queue requests (see [{{ message-queue-full-name }} pricing](../message-queue/pricing.md)).
 
-## Before you begin
+## Getting started {#before-begin}
 
 Register your bot in Telegram and get a token:
 
@@ -24,16 +24,16 @@ Your Telegram bot's token will be displayed.
 
 [Create](../lockbox/operations/secret-create.md) a {{ lockbox-full-name }} secret. In the **Key** field, enter `TG_TOKEN`, and in the **Value** field, enter the returned Telegram bot token.
 
-## Deploy the application
+## Deploy the application {#deploy-app}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you wish to deploy the application.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to deploy the application.
 1. Select **{{ cloud-apps-name }}**.
 1. On the left-hand panel, select **Marketplace**.
 1. Select **Demo Telegram Bot** and click **Use**.
-1. Indicate the following:
+1. Specify the following:
    * Application name.
    * (optional) Application description.
-   * A service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
+   * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
    * ID of the previously created {{ lockbox-full-name }} secret.
 1. Click **Install** and wait for the installation to complete.
 1. On the **Overview** page, find the API gateway under **Application resources**, go to the gateway page, and copy the service domain link.
@@ -79,6 +79,6 @@ Your Telegram bot's token will be displayed.
    {"ok":true,"result":true,"description":"Webhook was set"}
    ```
 
-## Test functionality
+## Test the controller {#check-result}
 
 Write to the bot on Telegram.

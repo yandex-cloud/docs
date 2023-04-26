@@ -1,26 +1,26 @@
 ---
 title: "Getting started with managed {{ k8s }}"
-description: "In this tutorial, you'll create a {{ k8s }} cluster and node group and learn how to manage them using kubectl, the {{ k8s }} command-line interface. To get started, create a {{ k8s }} cluster, add credentials to the kubectl configuration file, and create a node group."
+description: "In this tutorial, you will create a {{ k8s }} cluster and node group and learn how to manage them using kubectl, the {{ k8s }} command line interface. To get started, create a {{ k8s }} cluster, add credentials to the kubectl configuration file, and create a node group."
 ---
 
 # Getting started with {{ managed-k8s-name }}
 
-Create a [{{ managed-k8s-name }} cluster](concepts/index.md#kubernetes-cluster) and [node group](concepts/index.md#node-group) and manage them using kubectl, the {{ k8s }} command-line interface.
+Create a {{ managed-k8s-name }} [cluster](concepts/index.md#kubernetes-cluster) and [node group](concepts/index.md#node-group) and manage them using kubectl, the {{ k8s }} command-line interface.
 
 ## Getting started {#before-you-begin}
 
 To get started with {{ managed-k8s-name }}:
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
 
 
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 
 
-1. If you don't have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder), [create one](../resource-manager/operations/folder/create.md).
+1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
 1. Install the [{{ k8s }} CLI (kubectl)]({{ k8s-docs }}/tasks/tools/install-kubectl/).
 1. Make sure you have enough [resources available in the cloud](concepts/limits.md).
-1. If you don't have a [network](../vpc/concepts/network.md#network), [create one](../vpc/operations/network-create.md).
-1. If you don't have any [subnets](../vpc/concepts/network.md#subnet), [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
+1. If you do not have a [network](../vpc/concepts/network.md#network), [create one](../vpc/operations/network-create.md).
+1. If you do not have any [subnets](../vpc/concepts/network.md#subnet), [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
 1. Create [service accounts](../iam/operations/sa/create.md):
    * With the [{{ roles-editor }}](../iam/concepts/access-control/roles.md#editor) role to the folder where the cluster is being created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster needs.
    * With the [{{ roles-cr-puller }}](../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing a [Docker image](../container-registry/concepts/docker-image.md) [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
@@ -43,11 +43,14 @@ To get started with {{ managed-k8s-name }}:
    * **{{ k8s }} version**: Select a {{ k8s }} version to install on the [master](concepts/index.md#master).
    * **Public address**: Select the IP address assignment method:
      * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-     * **No address**: Don't assign a public IP address.
+     * **No address**: Do not assign a public IP address.
    * **Master type**: Select the type of the master:
      * **Zone**: A single master host will be created in the selected availability zone. Specify a cloud network and select a subnet that the master host will be on.
      * **Region**: A single master host will be created in every availability zone. Specify a cloud network and subnet for each availability zone.
    * Select [security groups](operations/connect/security-groups.md) for the cluster's network traffic.
+
+      {% include [security-groups-note-services](../_includes/vpc/security-groups-note-services.md) %}
+
 1. Under **Cluster network settings**:
    * **Cluster CIDR**: Specify an IP range to allocate addresses to pods from.
    * **Service CIDR**: Specify an IP range to allocate IP addresses to services from.
@@ -122,10 +125,10 @@ To create a node group:
 1. Under **Network settings**:
    * In the **Public IP** field, choose a method for assigning an IP address:
      * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-     * **No address**: Don't assign a public IP address.
+     * **No address**: Do not assign a public IP address.
    * Select [security groups](operations/connect/security-groups.md).
    * Select an availability group and subnet to deploy the group's nodes to.
-1. Under **Access**, specify the credentials to access the group over SSH:
+1. Under **Access**, specify the information required to access the group nodes over SSH:
    * **Login**: Enter the username.
    * **SSH key**: Insert the contents of the [public key](operations/node-connect-ssh.md#creating-ssh-keys) file.
 1. Click **Create**.

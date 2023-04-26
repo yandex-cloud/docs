@@ -1,6 +1,6 @@
 # Connecting to a node over SSH
 
-To connect to a {{ k8s }} [cluster](../concepts/index.md#kubernetes-cluster) [node](../concepts/index.md#node-group) over SSH:
+To connect to a [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster) [node](../concepts/index.md#node-group) over SSH:
 * Add the public key to the meta information when [creating a node group](node-group/node-group-create.md).
 
   {% note info %}
@@ -10,6 +10,10 @@ To connect to a {{ k8s }} [cluster](../concepts/index.md#kubernetes-cluster) [no
   {% endnote %}
 
 * [Configure cluster security groups](connect/security-groups.md).
+
+  Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+
+  To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 
   {% note warning %}
 
@@ -34,20 +38,20 @@ Prepare the keys for use with your {{ k8s }} cluster node. To do this:
      ssh-keygen -t ed25519
      ```
 
-     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `~/.ssh` directory.
+     After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `~/.ssh` directory.
 
      The public part of the key will be saved in a file with the name `<key name>.pub`.
 
 - Windows 10
 
   1. Run `cmd.exe` or `powershell.exe`.
-  1. Use the `ssh-keygen` command to create a new key. Run the following command:
+  1. Use the `ssh-keygen` command to create a new key. Run this command:
 
      ```bash
      ssh-keygen -t ed25519
      ```
 
-     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `C:\Users\<username>\.ssh\` directory.
+     After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `C:\Users\<username>\.ssh\` directory.
 
      The public part of the key will be saved in a file with the name `<key name>.pub`.
 

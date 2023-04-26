@@ -83,7 +83,7 @@
 
 - Terraform
 
-   If you do not have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../_tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Add the resource parameters to the configuration file and specify the required role and a list of groups:
 

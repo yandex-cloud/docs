@@ -14,7 +14,7 @@
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-   To find out the name or unique ID of a function version, get a [list of function versions](./version-list.md) in the folder.
+   To find out the name or unique ID of a function version, get a [list of function versions](../../functions/operations/function/version-list.md) in the folder.
 
    To get detailed information about a function version by:
 

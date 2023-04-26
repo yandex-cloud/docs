@@ -41,7 +41,7 @@ description: "В этой инструкции вы научитесь созд�
    ```bash
    sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
-   echo "deb https://repo.{{ ch-domain }}/deb/stable/ main/" | sudo tee \
+   echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
    /etc/apt/sources.list.d/clickhouse.list
    ```
 

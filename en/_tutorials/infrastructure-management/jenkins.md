@@ -38,7 +38,7 @@ The cost of this infrastructure includes:
 Set the software up to run:
 
 * [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command-line interface.
-* [Install](https://www.terraform.io/downloads) {{ TF }}. See also [{#T}](terraform-quickstart.md).
+* [Install](https://www.terraform.io/downloads) {{ TF }}. See also [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Download](https://stedolan.github.io/jq/download/) the jq utility.
 * [Configure](https://gitforwindows.org) Git. If you are running Windows, use Git Bash.
 * [Create](https://github.com/yandex-cloud/examples) a repository branch with examples in your GitHub account.
