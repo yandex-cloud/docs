@@ -17,7 +17,7 @@
 1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
 1. [Создайте группу узлов](../operations/node-group/node-group-create.md) с настройками:
    * **Платформа** — выберите `Intel Broadwell with Nvidia Tesla v100`.
-   * **GPU** — укажите нужно количество GPU.
+   * **GPU** — укажите нужное количество GPU.
 
 ## Создайте под с GPU {#create-pod-gpu}
 
