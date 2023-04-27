@@ -93,6 +93,9 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
 
 
+### {{ org-full-name }} {#organization}
+
+{% include [org-limits.md](../../_includes/organization/org-limits.md) %}
 
 ### {{ compute-full-name }} {#compute}
 
@@ -260,7 +263,6 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 ### {{ objstorage-full-name }} {#storage}
 
 {% include [storage-limits.md](../../_includes/storage-limits.md) %}
-
 
 
 ### {{ yq-full-name }} {#yq}

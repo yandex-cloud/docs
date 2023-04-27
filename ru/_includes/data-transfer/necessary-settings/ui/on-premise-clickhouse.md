@@ -3,8 +3,14 @@
 * {% include [Field Native Port](../../fields/clickhouse/ui/native-port.md) %}
 * {% include [Field SSL connect](../../fields/clickhouse/ui/ssl-connect.md) %}
 * {% include [Field CA Certificate](../../fields/clickhouse/ui/ca-certificate.md) %}
-* {% include [Field Subnet ID](../../fields/common/ui/subnet-id.md) %}
-* {% include [Field Database Name](../../fields/common/ui/database-name.md) %}
-* {% include [Field Username](../../fields/common/ui/username.md) %}
-* {% include [Field Password](../../fields/common/ui/password.md) %}
-* {% include [Field Security Group](../../fields/common/ui/security-group.md) %}
+* 
+  **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseOnPremise.subnet_id.title }}** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md).
+
+
+  Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — укажите имя базы данных в выбранном кластере.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.password.title }}** — укажите пароль пользователя для доступа к базе данных.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.security_groups.title }}** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
+
+  Это позволит применить к ВМ и кластерам в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и кластеров. Подробнее см. в разделе [{#T}](../../../../data-transfer/concepts/network.md).

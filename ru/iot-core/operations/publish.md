@@ -93,7 +93,7 @@
 
 - API
 
-  Отправить данные с устройства в топик устройства можно с помощью метода API [publish](../api-ref/DeviceData/publish.md).
+  Чтобы отправить данные с устройства в топик устройства, воспользуйтесь методом REST API [publish](../api-ref/DeviceData/publish.md) для ресурса [DeviceData](../api-ref/DeviceData/index.md) или вызовом gRPC API [DeviceDataService/Publish](../api-ref/grpc/device_data_service.md#Publish).
 
 {% endlist %}          
 
@@ -165,7 +165,7 @@
 
 - API
 
-  Отправить данные с устройства в топик реестра можно с помощью метода API [publish](../api-ref/DeviceData/publish.md). 
+  Чтобы отправить данные с устройства в топик реестра, воспользуйтесь методом REST API [publish](../api-ref/DeviceData/publish.md) для ресурса [DeviceData](../api-ref/DeviceData/index.md) или вызовом gRPC API [DeviceDataService/Publish](../api-ref/grpc/device_data_service.md#Publish).
 
 {% endlist %}
 
@@ -240,7 +240,7 @@
 
 - API
 
-  Отправить команду одному устройству можно с помощью метода API [publish](../api-ref/RegistryData/publish.md).
+  Чтобы отправить команду одному устройству, воспользуйтесь методом REST API [publish](../api-ref/RegistryData/publish.md) для ресурса [RegistryData](../api-ref/RegistryData/index.md) или вызовом gRPC API [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish).
 
 {% endlist %}       
 
@@ -310,7 +310,7 @@
 
 - API
 
-  Отправить команду всем устройствам, добавленным в реестр, можно с помощью метода API [publish](../api-ref/RegistryData/publish.md).     
+  Чтобы отправить команду всем устройствам, добавленным в реестр, воспользуйтесь методом REST API [publish](../api-ref/RegistryData/publish.md) для ресурса [RegistryData](../api-ref/RegistryData/index.md) или вызовом gRPC API [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish).
 
 {% endlist %}
 
@@ -360,6 +360,6 @@
 
 - API
 
-  Отправить сообщение в брокере можно с помощью метода API [publish](../broker/api-ref/BrokerData/publish.md).   
+  Чтобы отправить сообщение в брокере, воспользуйтесь методом REST API [publish](../broker/api-ref/BrokerData/publish.md) для ресурса [BrokerData](../broker/api-ref/BrokerData/index.md) или вызовом gRPC API [BrokerDataService/Publish](../broker/api-ref/grpc/broker_data_service.md#Publish).
 
 {% endlist %}

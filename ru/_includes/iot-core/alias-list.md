@@ -35,6 +35,6 @@
 
 - API
 
-   Получить список алиасов устройства можно с помощью метода API [get](../../iot-core/api-ref/Device/get.md).
+   Чтобы получить список алиасов устройства, воспользуйтесь методом REST API [get](../../iot-core/api-ref/Device/get.md) для ресурса [Device](../../iot-core/api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Get](../../iot-core/api-ref/grpc/device_service.md#Get).
 
 {% endlist %}

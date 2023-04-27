@@ -42452,10 +42452,13 @@ default:
     yacloud:
       common:
         add: Add
+        apply: Apply
         create: Create
+        delete: Delete
         description: Description
         edit: Edit
         name: Name
+        password: Password
         remove: Delete
         save: Save
         section-base: General information
@@ -42486,11 +42489,13 @@ default:
       data-streams:
         label_data-introspection: Data viewer
       data-transfer:
+        button_create-endpoint: Create endpoint
         button_create-transfer: Create transfer
         forms:
           label_source-type: Source
           label_target-type: Target
           label-database_type: Database type
+          label-is_source: Direction
           section-endpoint: Endpoint parameters
         label_connector-operation-ACTIVATE: Activate
         label_connector-operation-DEACTIVATE: Deactivate
@@ -42500,6 +42505,12 @@ default:
         label_connector-status-STOPPED: Stopped
         label_connectors: Transfers
         label_dashboard-link: Link to dashboard
+        label_endpoint-type-CLICKHOUSE: ClickHouse
+        label_endpoint-type-GREENPLUM: Greenplum
+        label_endpoint-type-KAFKA: Kafka
+        label_endpoint-type-MONGO_V2: MongoDB
+        label_endpoint-type-MYSQL: MySQL
+        label_endpoint-type-POSTGRES: PostgreSQL
         label_endpoints: Endpoints
         label_monitoring: Monitoring
       dns:
@@ -42737,14 +42748,52 @@ default:
                         title: Database
                       password:
                         title: Password
+                      security_groups:
+                        title: Security groups
                       user:
                         title: User
                     ClickHouseConnectionType:
                       mdb_cluster_id:
                         title: Managed Service for ClickHouse cluster
+                      on_premise:
+                        title: Custom installation
+                    ClickHouseOnPremise:
+                      http_port:
+                        title: HTTP port
+                      native_port:
+                        title: Native port
+                      pem_file_content:
+                        title: CA certificate
+                      shards:
+                        title: Shards
+                      ssl_enabled:
+                        title: SSL
+                      subnet_id:
+                        title: Subnet ID
+                    ClickHouseShard:
+                      hosts:
+                        title: Hosts
+                      shard_name:
+                        title: Shard
+                    ClickHouseShardingByTransferID:
+                      transfer_to_shard:
+                        array_item_label: Mapping
+                        title: Mapping
+                    ClickHouseShardingSettingsOneof:
+                      no_sharding:
+                        title: No sharding
+                      sharding_by_column:
+                        title: Sharding by column value
+                      sharding_by_transfer_id:
+                        title: Sharding by transfer ID
                     ClickHouseSource:
                       connection:
                         title: Connection settings
+                    ClickHouseTableFilter:
+                      exclude_tables:
+                        title: Excluded tables
+                      include_tables:
+                        title: Included tables
                     ClickHouseTarget:
                       advanced_settings:
                         title: Advanced settings
@@ -42752,6 +42801,13 @@ default:
                         title: Cleanup policy
                       connection:
                         title: Connection settings
+                      sharding_settings:
+                        title: Sharding settings
+                    ClickHouseTargetAdvancedSettings:
+                      alt_names:
+                        title: Rename tables
+                      flush_interval:
+                        title: Flush interval
             common:
               console:
                 form:
@@ -42771,15 +42827,84 @@ default:
                       type:
                         title: Type
                     ConvertRecordOptions:
+                      add_rest_column:
+                        title: Add a column for missing keys
                       data_schema:
                         title: Data scheme
                       format:
                         title: Data format
+                      null_keys_allowed:
+                        title: Enable NULL values in keys columns
                     DataSchema:
                       fields:
                         title: Field list
                       json_fields:
                         title: JSON specification
+                    DataTransformationOptions:
+                      buffer_flush_interval:
+                        title: Flush interval
+                      buffer_size:
+                        title: Buffer size for function
+                      cloud_function:
+                        title: Cloud function
+                      invocation_timeout:
+                        title: Invocation timeout
+                      number_of_retries:
+                        title: Number of retries
+                      service_account_id:
+                        title: Service account
+            elasticsearch:
+              console:
+                form:
+                  elasticsearch:
+                    ElasticSearchConnection:
+                      password:
+                        title: Password
+                      security_groups:
+                        title: Security groups
+                      user:
+                        title: User
+                    ElasticSearchConnectionType:
+                      mdb_cluster_id:
+                        title: Managed Service for Elasticsearch cluster
+                    ElasticSearchTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
+                    OnPremiseElasticSearch:
+                      addresses:
+                        title: Data nodes
+                      ca_certificate:
+                        title: CA certificate
+                      subnet_id:
+                        title: Subnet ID
+                    OnPremiseElasticSearchHostPort:
+                      host:
+                        title: Host
+                      port:
+                        title: Port
+            eventhub:
+              console:
+                form:
+                  eventhub:
+                    EventhubAdvancedSettings:
+                      converter:
+                        title: Conversion rules
+                      transformer:
+                        title: Transformation rules
+                    EventhubConnection:
+                      hub_name:
+                        title: Event hub
+                      key_value:
+                        title: Key value
+                      namespace_name:
+                        title: Namespace
+                      topic:
+                        title: Topic
+                    EventhubSource:
+                      consumer_group:
+                        title: Consumer group
+                      starting_offset:
+                        title: Starting offset
             greenplum:
               console:
                 form:
@@ -42787,6 +42912,8 @@ default:
                     GpSourceAdvancedSettings:
                       service_schema:
                         title: Service object schema
+                      strong_consistency:
+                        title: Snapshot consistency
                     GreenplumConnection:
                       connection_type:
                         title: Connection type
@@ -42794,11 +42921,43 @@ default:
                         title: Database
                       password:
                         title: Password
+                      security_groups:
+                        title: Security groups
                       user:
                         title: User
                     GreenplumConnectionType:
                       mdb_cluster_id:
                         title: Managed Service for Greenplum cluster
+                      on_premise:
+                        title: Custom installation
+                    GreenplumSource:
+                      connection:
+                        title: Connection settings
+                    GreenplumTableFilter:
+                      exclude_tables:
+                        title: Excluded tables
+                      include_tables:
+                        title: Included tables
+                    GreenplumTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
+                      connection:
+                        title: Connection settings
+                    OnPremiseGreenplum:
+                      ca_certificate:
+                        title: CA certificate
+                      mirror_host:
+                        title: Coordinator mirror host
+                      mirror_port:
+                        title: Coordinator mirror port
+                      primary_host:
+                        title: Coordinator host
+                      primary_port:
+                        title: Coordinator port
+                      segments:
+                        title: Greenplum cluster segments
+                      subnet_id:
+                        title: Subnet ID
             kafka:
               console:
                 form:
@@ -42811,9 +42970,13 @@ default:
                     KafkaSourceAdvancedSettings:
                       converter:
                         title: Conversion rules
+                      transformer:
+                        title: Transformation rules
                     KafkaSourceConnection:
                       connection_type:
                         title: Connection type
+                      security_groups:
+                        title: Security groups
                       topic_name:
                         title: Topic full name
                     KafkaTarget:
@@ -42825,6 +42988,8 @@ default:
                       topic_settings:
                         title: Topic
                     KafkaTargetTopic:
+                      save_tx_order:
+                        title: Save transactions order
                       topic_name:
                         title: Topic full name
                     KafkaTargetTopicSettings:
@@ -42835,18 +43000,219 @@ default:
                     ManagedKafka:
                       auth:
                         title: Authentication
+                    ManagedKafkaAuth:
+                      no_auth:
+                        title: No authentication
+                      sasl:
+                        title: SASL
                     ManagedKafkaSASLAuth:
                       password:
                         title: Password
                       user:
                         title: Username
+                    OnPremiseKafka:
+                      auth:
+                        title: Authentication
+                      broker_urls:
+                        title: Broker URLs
+                      pem_file_content:
+                        title: PEM Certificate
+                      ssl_enabled:
+                        title: SSL
+                      subnet_id:
+                        title: Endpoint network interface
+                    OnPremiseKafkaAuth:
+                      sasl:
+                        title: SASL
             logbroker:
               console:
                 form:
                   logbroker:
+                    GenericParser:
+                      add_system_cols:
+                        title: Adding Logbroker system columns
+                      data_schema:
+                        title: Data scheme
+                      format:
+                        title: Data format
+                      null_keys_allowed:
+                        title: Enable NULL values in keys
+                      skip_dedupe_keys:
+                        title: User key
+                      timestamp:
+                        title: Column containing timestamp
+                    LogbrokerConnection:
+                      connection_type:
+                        title: Connection type
+                      consumer:
+                        title: Consumer
+                      topics:
+                        array_item_label: Topic
+                    LogbrokerConnectionType:
+                      cluster:
+                        title: Cluster
+                      instance:
+                        title: Instance
+                    LogbrokerReadOptions:
+                      allow_ttl_rewind:
+                        title: >-
+                          Should continue working, if consumer read lag exceed
+                          TTL of topic
+                      buffer_max_size:
+                        title: Read buffer size
+                      mask_secrets:
+                        title: Mask secrets
+                      max_time_lag:
+                        title: Maximum data consumption latency
+                    LogbrokerSource:
+                      parser:
+                        title: Parser rules
+                      read_options:
+                        title: Read options
+                      table_splitter:
+                        title: Split into sub tables
+                    LogfellerParser:
+                      add_system_cols:
+                        title: Adding Logbroker system columns
+                      data_schema:
+                        title: Data scheme
+                      format:
+                        title: Parser name
                     ParserConfigCommon:
                       parser_config_audit_trails_v1:
                         title: AuditTrails.v1 parser
+                    ParserConfigLb:
+                      parser_config_lb_json:
+                        title: json
+                      parser_config_lb_tskv:
+                        title: tskv
+                      parser_config_logfeller:
+                        title: Logfeller parser
+                      parser_config_yql:
+                        title: YQL parser
+                    YQLParser:
+                      add_synthetic_keys:
+                        title: Synthetic keys
+                      output_key_columns:
+                        title: Result key columns
+                      script:
+                        title: YQL script
+            logfeller:
+              console:
+                form:
+                  logfeller:
+                    LogFellerBaseParserOptions:
+                      calc_puid_hash:
+                        title: Enable hashing of the PUID column
+                      precomputers:
+                        title: List of precomputers
+                      time_options:
+                        title: Event time
+                    LogFellerDateTimeFormat:
+                      tz_mode:
+                        title: Time zone
+                    LogFellerParsedRecordTime:
+                      additional_format:
+                        title: Additional time format
+                      format:
+                        title: Format field value with time
+                    LogFellerParser:
+                      parser_name:
+                        title: External parser
+                      parser_options:
+                        title: Embedded parser
+                    LogFellerParserOptions:
+                      common:
+                        title: Basic options
+                      raw_data_format:
+                        title: Raw format description
+                    LogFellerParsingOptions:
+                      chunk_splitter_name:
+                        title: Chunk splitter
+                      parser:
+                        title: Parser
+                      vault_secrets:
+                        title: Secure YT environment variables
+                      yt_resources:
+                        title: Additional resources
+                    LogFellerRawDataFormat:
+                      json_parser:
+                        title: JSON
+                      tskv_parser:
+                        title: TSKV
+                    LogFellerSource:
+                      index_yt_processing_options:
+                        title: YT operations settings for indexing
+                      logbroker_consumer:
+                        title: YT delivery
+                      parsing_options:
+                        title: Parsing options
+                      topic_path:
+                        title: Logbroker topic
+                    LogFellerTskvParserOptions:
+                      schema:
+                        title: Data schema
+            metrika:
+              console:
+                form:
+                  metrika:
+                    MetrikaSource:
+                      counter_ids:
+                        title: Tag numbers
+                      hits:
+                        columns:
+                          title: Fields
+                        title: Hits
+                      token:
+                        title: Token
+                      visits:
+                        columns:
+                          title: Fields
+                        title: Sessions
+            mongo:
+              console:
+                form:
+                  mongo:
+                    MongoCollectionFilter:
+                      collections:
+                        title: Included collections
+                      excluded_collections:
+                        title: Excluded collections
+                    MongoConnection:
+                      auth_source:
+                        title: Authentication source
+                      raw_password:
+                        title: Password
+                      security_groups:
+                        title: Security groups
+                      user:
+                        title: User
+                    MongoConnectionType:
+                      mdb_cluster_id:
+                        title: Managed Service for MongoDB cluster
+                      on_premise:
+                        title: Custom installation
+                    MongoSource:
+                      connection:
+                        title: Connection settings
+                    MongoTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
+                      connection:
+                        title: Connection settings
+                      database:
+                        title: Database
+                    OnPremiseMongo:
+                      ca_certificate:
+                        title: CA certificate
+                      hosts:
+                        title: Hosts
+                      port:
+                        title: Port
+                      replica_set:
+                        title: Replica set
+                      subnet_id:
+                        title: Subnet ID
             mysql:
               console:
                 form:
@@ -42858,23 +43224,67 @@ default:
                         title: Database
                       password:
                         title: Password
+                      security_groups:
+                        title: Security groups
                       user:
                         title: User
                     MysqlConnectionType:
                       mdb_cluster_id:
                         title: Managed Service for MySQL cluster
+                      on_premise:
+                        title: Custom installation
                     MysqlSource:
                       connection:
                         title: Connection settings
+                      object_transfer_settings:
+                        title: Transfer schema
+                    MysqlSourceAdvancedSettings:
+                      service_database:
+                        title: Database for auxiliary tables
+                      timezone:
+                        title: Time zone for connecting to the database
                     MysqlTableFilter:
                       exclude_tables:
                         title: Excluded tables
                       include_tables:
                         title: Included tables
+                    MysqlTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
+                      connection:
+                        title: Connection settings
+                    MysqlTargetAdvancedSettings:
+                      service_database:
+                        title: Database schema for auxiliary tables
+                      skip_constraint_checks:
+                        title: Disable constraint check
+                      sql_mode:
+                        title: SQL modes
+                      timezone:
+                        title: Time zone for connecting to the database
+                    OnPremiseMysql:
+                      ca_certificate:
+                        title: CA certificate
+                      host:
+                        title: Host
+                      port:
+                        title: Port
+                      subnet_id:
+                        title: Subnet ID
             object_storage:
               console:
                 form:
                   object_storage:
+                    ObjectStorageAdvancedSettings:
+                      buffer_interval:
+                        title: Flush interval
+                      buffer_size:
+                        title: Buffer size
+                    ObjectStorageCodecUI:
+                      GZIP:
+                        title: Gzip
+                      UNCOMPRESSED:
+                        title: Uncompressed
                     ObjectStorageConnectionSettings:
                       bucket_layout:
                         title: Folder name
@@ -42882,6 +43292,13 @@ default:
                         title: Bucket
                       service_account_id:
                         title: Service account
+                    ObjectStorageSerializationFormatUI:
+                      OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV:
+                        title: CSV
+                      OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON:
+                        title: JSON
+                      OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW:
+                        title: Raw Data
                     ObjectStorageTarget:
                       connection_settings:
                         title: Connection settings
@@ -42893,23 +43310,81 @@ default:
               console:
                 form:
                   opensearch:
+                    OnPremiseOpenSearch:
+                      addresses:
+                        title: Data nodes
+                      ca_certificate:
+                        title: CA certificate
+                      subnet_id:
+                        title: Subnet ID
+                    OnPremiseOpenSearchHostPort:
+                      host:
+                        title: Host
+                      port:
+                        title: Port
                     OpenSearchConnection:
                       connection_type:
                         title: Connection type
                       password:
                         title: Password
+                      security_groups:
+                        title: Security groups
                       user:
                         title: User
                     OpenSearchConnectionType:
                       mdb_cluster_id:
                         title: Managed Service for OpenSearch cluster
                     OpenSearchTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
                       connection:
                         title: Connection
+            oracle:
+              console:
+                form:
+                  oracle:
+                    OracleAdvancedSettings:
+                      convert_number_to_int64:
+                        title: Convert the "NUMBER" type to "Int64"
+                    OracleConnection:
+                      connection_type:
+                        title: Connection type
+                      password:
+                        title: Password
+                      pdb:
+                        title: PDB container
+                      user:
+                        title: User
+                    OracleConnectionType:
+                      instance:
+                        title: Instance
+                      tns:
+                        title: TNS connect string
+                    OracleInstance:
+                      host:
+                        title: Host
+                      instance_type:
+                        title: Type
+                      port:
+                        title: Port
+                    OracleTableFilter:
+                      exclude_tables:
+                        title: Excluded tables
+                      include_tables:
+                        title: Included tables
             postgres:
               console:
                 form:
                   postgres:
+                    OnPremisePostgres:
+                      ca_certificate:
+                        title: CA certificate
+                      host:
+                        title: Host
+                      port:
+                        title: Port
+                      subnet_id:
+                        title: Subnet ID
                     PostgresConnection:
                       connection_type:
                         title: Connection type
@@ -42917,17 +43392,42 @@ default:
                         title: Database
                       password:
                         title: Password
+                      security_groups:
+                        title: Security groups
                       user:
                         title: User
                     PostgresConnectionType:
                       mdb_cluster_id:
                         title: Managed Service for PostgreSQL cluster
+                      on_premise:
+                        title: Custom installation
                     PostgresSource:
                       connection:
                         title: Connection settings
+                      object_transfer_settings:
+                        title: Schema migration
+                    PostgresSourceAdvancedSettings:
+                      collapse_inherit_table:
+                        title: Merge inherited tables
+                      service_schema:
+                        title: Database schema for auxiliary tables
+                      slot_byte_lag_limit:
+                        title: Maximum WAL size for a replication slot
+                      snapshot_table_sharding_settings:
+                        title: Parallel table copying settings
                     PostgresTableFilter:
+                      exclude_tables:
+                        title: Excluded tables
                       include_tables:
                         title: Included tables
+                    PostgresTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
+                      connection:
+                        title: Connection settings
+                    PostgresTargetAdvancedSettings:
+                      save_tx_boundaries:
+                        title: Save transaction borders
             transfer:
               console:
                 form:
@@ -43005,8 +43505,19 @@ default:
                     YdbConnectionSettings:
                       database:
                         title: Database
+                      instance:
+                        title: YDB endpoint
                       service_account_id:
                         title: Service account ID
+                    YdbPartitionPolicy:
+                      keep_part_count:
+                        title: Number of tables
+                      part_size:
+                        title: Table size
+                      part_type:
+                        title: Size unit
+                      time_column:
+                        title: Partition by column
                     YdbSource:
                       connection:
                         title: Connection settings
@@ -43014,8 +43525,25 @@ default:
                         array_item_label: path
                         title: Included paths list
                     YdbTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
                       connection:
                         title: Connection settings
+                      replace_upload:
+                        title: YQL Writer
+                    YdbTargetAdvancedSettings:
+                      alt_names:
+                        title: Renaming tables
+                      compaction_policy:
+                        title: Compaction policy
+                      partition_policy:
+                        title: Table rotation
+                      path:
+                        title: Sub directory for tables
+                      shard_count:
+                        title: Number of shards
+                      storage_policy:
+                        title: Storage policy
             yds:
               console:
                 form:
@@ -43035,9 +43563,131 @@ default:
                     YDSSourceAdvancedSettings:
                       converter:
                         title: Conversion rules
+                      transformer:
+                        title: Transformation rules
                     YDSTarget:
                       connection:
                         title: Connection settings
+                    YDSTargetAdvancedSettings:
+                      save_tx_order:
+                        title: Save tx order
+            yt:
+              console:
+                form:
+                  yt:
+                    YTSource:
+                      paths:
+                        title: Tables and directory
+                    YTSourceAdvancedSettings:
+                      row_index_column_name:
+                        title: Row index column name
+                    YTSourceConnectionSettings:
+                      token:
+                        title: Token
+                    YTTarget:
+                      path:
+                        title: Path
+        endpoint:
+          airbyte:
+            aws_cloud_trail_source:
+              endpoint:
+                airbyte:
+                  aws_cloud_trail_source:
+                    AWSCloudTrailSource:
+                      aws_key_id:
+                        title: Key ID
+                      aws_region_name:
+                        title: Region name
+                      aws_secret_key:
+                        title: Secret key
+                      start_date:
+                        title: Start date
+            bigquery_source:
+              endpoint:
+                airbyte:
+                  bigquery_source:
+                    BigQuerySource:
+                      credentials_json:
+                        title: Credentials JSON
+                      dataset_id:
+                        title: Default dataset ID
+                      project_id:
+                        title: Project ID
+            mssql_source:
+              endpoint:
+                airbyte:
+                  mssql_source:
+                    MSSQLSource:
+                      database:
+                        title: Database
+                      host:
+                        title: Host
+                      password:
+                        title: Password
+                      port:
+                        title: Port
+                      replication_method:
+                        title: Replication method
+                      ssl_method:
+                        title: SSL Method
+                      username:
+                        title: Username
+            s3_source:
+              endpoint:
+                airbyte:
+                  s3_source:
+                    S3Source:
+                      Csv:
+                        additional_reader_options:
+                          title: Additional reader options
+                        advanced_options:
+                          title: Advanced options
+                        block_size:
+                          title: Block size
+                        delimiter:
+                          title: Delimiter
+                        double_quote:
+                          title: Double quote
+                        encoding:
+                          title: Encoding
+                        escape_char:
+                          title: Escape char
+                        newlines_in_values:
+                          title: Newlines in values
+                        quote_char:
+                          title: Quote char
+                      dataset:
+                        title: Dataset
+                      Parquet:
+                        batch_size:
+                          title: Batch size
+                        buffer_size:
+                          title: Buffer size
+                        columns:
+                          title: Columns
+                      Provider:
+                        aws_access_key_id:
+                          title: AWS Access Key ID
+                        aws_secret_access_key:
+                          title: AWS Secret Access Key
+                        bucket:
+                          title: Bucket
+                        endpoint:
+                          title: Endpoint
+                        path_prefix:
+                          title: Path prefix
+                        use_ssl:
+                          title: Use SSL
+                        verify_ssl_cert:
+                          title: Verify SSL certificate
+                      schema:
+                        title: Schema
+          lfstaging:
+            endpoint:
+              lfstaging:
+                LfStagingTarget:
+                  cluster:
+                    title: YT cluster
         transfer_service:
           transfer_service:
             CreateTransferRequest:

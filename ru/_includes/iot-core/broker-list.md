@@ -30,6 +30,6 @@
 
 - API
 
-  Получить список брокеров можно с помощью метода API [list](../../iot-core/broker/api-ref/Broker/list.md).
-  
+  Чтобы получить список брокеров, воспользуйтесь методом REST API [list](../../iot-core/broker/api-ref/Broker/list.md) для ресурса [Broker](../../iot-core/broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/List](../../iot-core/broker/api-ref/grpc/broker_service.md#List).
+
 {% endlist %}

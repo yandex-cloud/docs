@@ -10,6 +10,8 @@
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
+Отвязать карту от платежного аккаунта нельзя, но вместо этого в настройках платежного аккаунта можно [изменить привязанную карту](../operations/pin-card.md).
+
 ## Пополнение счета {#refill}
 
 {% include [refill-by-card](../_includes/refill-by-card.md) %}

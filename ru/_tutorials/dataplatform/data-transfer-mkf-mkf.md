@@ -105,25 +105,25 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `{{ KF }}`.
-    * **Параметры эндпоинта**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-       * **Настройки подключения** — `Кластер {{ mkf-name }}`.
+       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}** — `Кластер Managed Service for Kafka`.
 
           Выберите кластер-приемник из списка и укажите настройки подключения к нему.
 
-       * **Настройки топика Apache Kafka**.
-          * **Полное имя топика** — `measurements`.
+       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `measurements`.
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `{{ KF }}`.
-    * **Параметры эндпоинта**:
-       * **Настройки подключения** — `Кластер {{ mkf-name }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}** — `Кластер Managed Service for Kafka`.
 
           Выберите кластер-источник из списка и укажите настройки подключения к нему.
 
-       * **Полное имя топика** — `sensors`.
+       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — `sensors`.
 
 1. Создайте трансфер:
 

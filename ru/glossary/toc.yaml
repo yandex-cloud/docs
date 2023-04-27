@@ -45,4 +45,6 @@ items:
     href: containerization.md
   - name: Data Mart
     href: datamart.md
+  - name: Data Lake
+    href: datalake.md
 base: ru/glossary

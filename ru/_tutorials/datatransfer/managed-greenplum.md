@@ -30,15 +30,15 @@
 1. [Подготовьте кластер-приемник](../../data-transfer/operations/prepare.md#target-gp).
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
-    * **Тип базы данных** — `{{ GP }}` или `{{ PG }}`.
-    * **Параметры эндпоинта** → **Настройки подключения** — `Пользовательская инсталляция`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-GREENPLUM }}` или `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.on_premise.title }}`.
 
         Укажите параметры подключения к кластеру-источнику.
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
-    * **Тип базы данных** — `{{ GP }}`.
-    * **Параметры эндпоинта** → **Настройки подключения** — `Кластер MDB`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-GREENPLUM }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
 
         Укажите идентификатор кластера-приемника.
 

@@ -14,12 +14,12 @@ noIndex: true
 
 - Консоль управления
 
-    * **Счетчики** — укажите [номера счетчиков]({{ link-yandex }}/support/metrica/general/tag-id.html), из которых будут поступать данные.
-    * **Токен** — укажите OAuth-токен пользователя, у которого есть доступ к счетчику на редактирование. Его можно получить по [ссылке]({{ ya-oauth-url }}/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a).
-    * **Хиты** — выберите, передавать ли информацию о хитах.
-        * **Поля** — выберите поля хита, которые нужно экспортировать. Помимо выбранных полей, всегда экспортируется несколько обязательных полей.
-    * **Визиты** — выберите, передавать ли информацию о визитах.
-        * **Поля** — выберите поля визита, которые нужно экспортировать. Помимо выбранных полей, всегда экспортируется несколько обязательных полей.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.counter_ids.title }}** — укажите [номера счетчиков](https://yandex.ru/support/metrica/general/tag-id.html), из которых будут поступать данные.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}** — укажите токен для подтверждения доступа к счетчикам. Его можно получить по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.hits.title }}** — выберите, передавать ли информацию о хитах.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.hits.columns.title }}** — выберите поля хита, которые нужно экспортировать. Помимо выбранных полей, всегда экспортируется несколько обязательных полей.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.title }}** — выберите, передавать ли информацию о визитах.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.columns.title }}** — выберите поля визита, которые нужно экспортировать. Помимо выбранных полей, всегда экспортируется несколько обязательных полей.
 
 {% endlist %}
 

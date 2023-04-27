@@ -101,6 +101,6 @@
 
 - API
 
-  Удалить реестр можно с помощью метода API [delete](../../api-ref/Registry/delete.md).
+  Чтобы удалить реестр, воспользуйтесь методом REST API [delete](../../api-ref/Registry/delete.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Delete](../../api-ref/grpc/registry_service.md#Delete).
 
 {% endlist %}

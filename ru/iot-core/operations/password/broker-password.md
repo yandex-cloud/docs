@@ -70,7 +70,7 @@ description: "Из статьи вы узнаете, как получить с�
 
 - API
 
-  Добавить пароль брокеру можно с помощью метода API [addPassword](../../broker/api-ref/Broker/addPassword.md).
+  Чтобы добавить пароль брокеру, воспользуйтесь методом REST API [addPassword](../../broker/api-ref/Broker/addPassword.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/AddPassword](../../broker/api-ref/grpc/broker_service.md#AddPassword).
 
 {% endlist %}
 
@@ -107,7 +107,7 @@ description: "Из статьи вы узнаете, как получить с�
 
 - API
 
-  Задать пароль брокеру при создании можно с помощью метода API [create](../../broker/api-ref/Broker/create.md).
+  Чтобы задать пароль брокеру при создании, воспользуйтесь методом REST API [create](../../broker/api-ref/Broker/create.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Create](../../broker/api-ref/grpc/broker_service.md#Create).
 
 {% endlist %}  
 
@@ -161,7 +161,7 @@ description: "Из статьи вы узнаете, как получить с�
 
 - API
 
-  Получить список паролей брокера можно с помощью метода API [listPasswords](../../broker/api-ref/Broker/listPasswords.md).
+  Чтобы получить список паролей брокера, воспользуйтесь методом REST API [listPasswords](../../broker/api-ref/Broker/listPasswords.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/ListPasswords](../../broker/api-ref/grpc/broker_service.md#ListPasswords).
 
 {% endlist %}     
    
@@ -219,6 +219,6 @@ description: "Из статьи вы узнаете, как получить с�
 
 - API
 
-  Удалить пароль брокера можно с помощью метода API [deletePassword](../../broker/api-ref/Broker/deletePassword.md).
+  Чтобы удалить пароль брокера, воспользуйтесь методом REST API [deletePassword](../../broker/api-ref/Broker/deletePassword.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/DeletePassword](../../broker/api-ref/grpc/broker_service.md#DeletePassword).
 
 {% endlist %}       

@@ -49,6 +49,8 @@ items:
         href: diagnostics.md
       - name: Ошибки в федерациях, работающих по протоколу SAML 2.0
         href: saml-diagnostics.md
+  - name: Квоты и лимиты
+    href: limits.md
   - name: Справочник API
     items:
       - name: Аутентификация

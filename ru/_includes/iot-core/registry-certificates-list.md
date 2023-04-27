@@ -32,6 +32,6 @@
 
 - API
 
-  Получить список сертификатов реестра можно с помощью метода API [listCertificates](../../iot-core/api-ref/Registry/listCertificates.md).
+  Чтобы получить список сертификатов реестра, воспользуйтесь методом REST API [listCertificates](../../iot-core/api-ref/Registry/listCertificates.md) для ресурса [Registry](../../iot-core/api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/ListCertificates](../../iot-core/api-ref/grpc/registry_service.md#ListCertificates).
 
 {% endlist %}

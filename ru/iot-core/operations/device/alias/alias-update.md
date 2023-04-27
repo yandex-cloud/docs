@@ -106,4 +106,8 @@
       yc iot device get <имя_устройства>
       ```
 
+- API
+
+  Чтобы изменить алиас, воспользуйтесь методом REST API [update](../../../api-ref/Device/update.md) для ресурса [Device](../../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Update](../../../api-ref/grpc/device_service.md#Update).
+
 {% endlist %}

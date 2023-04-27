@@ -31,6 +31,6 @@
 
 - API
 
-	Получить список устройств в реестре можно с помощью метода API [list](../../iot-core/api-ref/Device/list).
+    Чтобы получить список устройств в реестре, воспользуйтесь методом REST API [list](../../iot-core/api-ref/Device/list.md) для ресурса [Device](../../iot-core/api-ref/Device/index.md) или вызовом gRPC API [DeviceService/List](../../iot-core/api-ref/grpc/device_service.md#List).
 
 {% endlist %}

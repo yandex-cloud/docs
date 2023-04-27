@@ -203,6 +203,8 @@
 
 {% endlist %}
 
+{% include [storage-note-empty-policy](../../_includes_service/storage-note-empty-policy.md) %}
+
 ## Просмотреть политику {#view-policy}
 
 Минимально необходимая роль для просмотра политики доступа — `storage.configViewer`. См. [описание роли](../../../storage/security/#storage-config-viewer).

@@ -30,6 +30,6 @@
 
 - API
 
-  Получить подробную информацию о брокере можно с помощью метода API [get](../../iot-core/broker/api-ref/Broker/get.md).
+  Чтобы получить подробную информацию о брокере, воспользуйтесь методом REST API [get](../../iot-core/broker/api-ref/Broker/get.md) для ресурса [Broker](../../iot-core/broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Get](../../iot-core/broker/api-ref/grpc/broker_service.md#Get).
 
 {% endlist %}

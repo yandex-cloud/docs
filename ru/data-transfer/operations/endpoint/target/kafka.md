@@ -44,6 +44,6 @@ description: "Из статьи вы узнаете, как задать нас�
 
     {{ data-transfer-full-name }} поддерживает CDC-режим для трансферов из баз данных {{ PG }}, {{ MG }} и {{ MY }} в {{ KF }} и {{ yds-full-name }}. При этом данные в приемник попадают в формате Debezium. Подробнее о CDC-режиме см. в разделе [Захват изменения данных](../../../concepts/cdc.md).
 
-    {% include [On premise Kafka UI](../../../../_includes/data-transfer/fields/common/ui/transaction-order.md) %}
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.save_tx_order.title }}** — не разбивать поток событий на независимые очереди по таблицам.
 
 {% endlist %}

@@ -30,6 +30,6 @@
 
 - API
 
-  Получить список реестров можно с помощью метода API [list](../../iot-core/api-ref/Registry/list.md).
-  
+  Чтобы получить список реестров, воспользуйтесь методом REST API [list](../../iot-core/api-ref/Registry/list.md) для ресурса [Registry](../../iot-core/api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/List](../../iot-core/api-ref/grpc/registry_service.md#List).
+
 {% endlist %}
