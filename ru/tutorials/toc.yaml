@@ -207,6 +207,8 @@ items:
         href: dataplatform/kafka-connect.md
       - name: Поставка данных из {{ mkf-name }} в {{ mgp-name }}
         href: dataplatform/managed-kafka-to-greenplum.md
+      - name: Поставка данных из {{ mkf-name }} в {{ mpg-name }}
+        href: dataplatform/mkf-to-mpg.md
       - name: Управление схемами данных в {{ mkf-name }}
         href: dataplatform/schema-registry-overview.md
       - name: Использование {{ mkf-msr }} с {{ mkf-name }}

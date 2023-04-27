@@ -34,6 +34,6 @@
 
 - API
 
-  Получить список сертификатов устройства можно с помощью метода API [listCertificates](../../iot-core/api-ref/Device/listCertificates.md).
+  Чтобы получить список сертификатов устройства, воспользуйтесь методом REST API [listCertificates](../../iot-core/api-ref/Device/listCertificates.md) для ресурса [Device](../../iot-core/api-ref/Device/index.md) или вызовом gRPC API [DeviceService/ListCertificates](../../iot-core/api-ref/grpc/device_service.md#ListCertificates).
 
 {% endlist %}

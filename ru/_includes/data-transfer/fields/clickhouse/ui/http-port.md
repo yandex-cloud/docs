@@ -1,4 +1,4 @@
-**HTTP порт** — укажите номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения.
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseOnPremise.http_port.title }}** — укажите номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения.
 
 При подключении через HTTP-порт:
 

@@ -1,25 +1,25 @@
 title: Yandex Monitoring
 description:
   - >-
-    Yandex Monitoring allows you to gather, store, and display metrics as charts
+    Yandex Monitoring allows your to gather, store and display metrics as charts
     in dashboards.
   - >-
     The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    href="https://yandex.ru/legal/cloud_sla">Service Level Agreement</a>. The
     service level is defined in the <a
-    href="https://yandex.com/legal/cloud_sla_ym">Service Level for Yandex
+    href="https://yandex.ru/legal/cloud_sla_ym">Service Level for Yandex
     Monitoring</a>.
 meta:
   title: Yandex Monitoring
 links:
   - title: Getting started
-    description: Start monitoring your metrics
+    description: Start tracking your metrics
     href: quickstart
   - title: Step-by-step instructions
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn about basic concepts and service functions
+    description: Learn about the setup and features of the service
     href: concepts/
   - title: Agent for delivering metrics
     description: >-
@@ -32,7 +32,10 @@ links:
   - title: Alerting
     description: Set up metric change alerts
     href: concepts/alerting
-  - title: API reference
+  - title: Metric reference
+    description: Description of metrics for Yandex Cloud service
+    href: metrics-ref/
+  - title: HTTP API method descriptions
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits

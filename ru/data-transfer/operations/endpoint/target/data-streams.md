@@ -21,6 +21,6 @@
 
 - Консоль управления
 
-    {% include [Data Streams UI](../../../../_includes/data-transfer/fields/common/ui/transaction-order.md) %}
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTargetAdvancedSettings.save_tx_order.title }}** — не разбивать поток событий на независимые очереди по таблицам.
 
 {% endlist %}

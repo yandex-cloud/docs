@@ -17,7 +17,7 @@
 * [{{ dns-name }}](#dns)
 * [{{ sf-name }}](#functions)
 * [{{ cdn-name }}](#cdn)
-* [{{ cloud-logging-name }}](#cloud-logging-name)
+* [{{ cloud-logging-name }}](#cloud-logging)
 * [{{ compute-name }}](#compute)
 * [{{ container-registry-name }}](#container-registry)
 * [{{ dataproc-name }}](#dataproc)
@@ -251,8 +251,10 @@
 `ScanImage` | Сканирование образа
 `UpdateIpPermission` | Изменение политики доступа с IP-адресов
 `UpdateRegistry` | Изменение реестра
-`UpdateRegistryAccessBindings` | Изменение ролей для реестра  
-`UpdateRepositoryAccessBindings` | Изменение ролей для репозитория
+`UpdateRegistryAccessBindings` | Изменение привязок прав доступа на реестр  
+`UpdateRepositoryAccessBindings` | Изменение привязок прав доступа на репозиторий
+`SetRegistryAccessBindings`  | Назначение привязок прав доступа на реестр
+`SetRepositoryAccessBindings` | Назначение привязок прав доступа на репозиторий
 
 ## {{ dataproc-name }} {#dataproc}
 
@@ -276,27 +278,28 @@
 Имя события | Описание
 --- | ---
 `AddFederatedUserAccounts` | Добавление пользователя в федерацию
-`CreateAccessKey` | Создание ключа доступа
+`CreateAccessKey` | Создание статического ключа
 `CreateApiKey` | Создание API-ключа
 `CreateCertificate` | Добавление сертификата для федерации
 `CreateFederation` | Создание федерации
 `CreateIamCookieForSubject` | Вход федеративного пользователя ^*^
 `CreateKey` | Создание пары ключей для сервисного аккаунта
 `CreateServiceAccount` | Создание сервисного аккаунта
-`DeleteAccessKey` | Удаление ключа доступа
+`DeleteAccessKey` | Удаление статического ключа
 `DeleteApiKey` | Удаление API-ключа
 `DeleteCertificate` | Удаление сертификата для федерации
 `DeleteFederation` | Удаление федерации
 `DeleteKey` | Удаление пары ключей для сервисного аккаунта
 `DeleteServiceAccount` | Удаление сервисного аккаунта
 `DetectLeakedCredential` | Обнаружение секрета в открытом источнике
-`UpdateAccessKey` | Обновление ключа доступа
+`UpdateAccessKey` | Обновление статического ключа
 `UpdateApiKey` | Обновление API-ключа
 `UpdateCertificate` | Обновление сертификата
 `UpdateFederation` | Обновление федерации
 `UpdateKey` | Обновление пары ключей
 `UpdateServiceAccount` | Обновление сервисного аккаунта
-`UpdateServiceAccountAccessBindings` | Изменение привязок прав доступа
+`UpdateServiceAccountAccessBindings` | Изменение привязок прав доступа для сервисного аккаунта
+`SetServiceAccountAccessBindings` | Назначение привязок прав доступа для сервисного аккаунта
 
 \* Событие попадает в аудитный лог, только если [область сбора аудитных логов](./trail.md#collecting-area) трейла — `Организация`.
 
@@ -527,6 +530,7 @@
 `StartClusterFailover` | Запуск переключения мастера для кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterHosts` | Изменение хостов кластера
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
@@ -599,10 +603,15 @@
 
 Имя события | Описание
 --- | ---
+`AcceptInvitation` | Принятие приглашения
+`CreateInvitations` | Создание приглашения
 `CreateGroup` | Создание группы пользователей
 `CreateMembership` | Добавление пользователя в организацию
+`DeleteInvitation` | Удаление приглашения
 `DeleteGroup` | Удаление группы пользователей
 `DeleteMembership` | Удаление пользователя из организации
+`RejectInvitation` | Отказ от приглашения
+`ResendInvitation` | Повторная отправка приглашения
 `SetGroupAccessBindings` | Назначение привязок прав доступа к группе пользователей
 `UpdateGroup` | Изменение группы пользователей
 `UpdateGroupAccessBindings` | Изменение привязок прав доступа к группе пользователей
@@ -623,6 +632,8 @@
 `UpdateCloudAccessBindings` | Изменение привязок прав доступа на облако
 `UpdateFolder` | Обновление каталога
 `UpdateFolderAccessBindings` | Изменение привязок прав доступа на каталог
+`SetCloudAccessBindings` | Назначение привязок прав доступа на облако
+`SetFolderAccessBindings` | Назначение привязок прав доступа на каталог
 
 ## {{ captcha-name }} {#smartcaptcha}
 

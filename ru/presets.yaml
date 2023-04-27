@@ -42460,10 +42460,13 @@ default:
     yacloud:
       common:
         add: Добавить
+        apply: Применить
         create: Создать
+        delete: Удалить
         description: Описание
         edit: Редактировать
         name: Имя
+        password: Пароль
         remove: Удалить
         save: Сохранить
         section-base: Общая информация
@@ -42494,11 +42497,13 @@ default:
       data-streams:
         label_data-introspection: Просмотр данных
       data-transfer:
+        button_create-endpoint: Создать эндпоинт
         button_create-transfer: Создать трансфер
         forms:
           label_source-type: Источник
           label_target-type: Приёмник
           label-database_type: Тип базы данных
+          label-is_source: Направление
           section-endpoint: Параметры эндпоинта
         label_connector-operation-ACTIVATE: Активировать
         label_connector-operation-DEACTIVATE: Деактивировать
@@ -42508,6 +42513,12 @@ default:
         label_connector-status-STOPPED: Остановлен
         label_connectors: Трансферы
         label_dashboard-link: Ссылка на дашборд
+        label_endpoint-type-CLICKHOUSE: ClickHouse
+        label_endpoint-type-GREENPLUM: Greenplum
+        label_endpoint-type-KAFKA: Kafka
+        label_endpoint-type-MONGO_V2: MongoDB
+        label_endpoint-type-MYSQL: MySQL
+        label_endpoint-type-POSTGRES: PostgreSQL
         label_endpoints: Эндпоинты
         label_monitoring: Мониторинг
       dns:
@@ -42745,14 +42756,52 @@ default:
                         title: База данных
                       password:
                         title: Пароль
+                      security_groups:
+                        title: Группы безопасности
                       user:
                         title: Пользователь
                     ClickHouseConnectionType:
                       mdb_cluster_id:
                         title: Кластер Managed Service for ClickHouse
+                      on_premise:
+                        title: Пользовательская инсталляция
+                    ClickHouseOnPremise:
+                      http_port:
+                        title: HTTP-порт
+                      native_port:
+                        title: Нативный порт
+                      pem_file_content:
+                        title: Сертификат CA
+                      shards:
+                        title: Шарды
+                      ssl_enabled:
+                        title: SSL
+                      subnet_id:
+                        title: Идентификатор подсети
+                    ClickHouseShard:
+                      hosts:
+                        title: Хосты
+                      shard_name:
+                        title: Шард
+                    ClickHouseShardingByTransferID:
+                      transfer_to_shard:
+                        array_item_label: Сопоставление
+                        title: Сопоставление
+                    ClickHouseShardingSettingsOneof:
+                      no_sharding:
+                        title: Без шардирования
+                      sharding_by_column:
+                        title: Шардирование по значению колонки
+                      sharding_by_transfer_id:
+                        title: Шардирование по идентификатору трансфера
                     ClickHouseSource:
                       connection:
                         title: Настройки подключения
+                    ClickHouseTableFilter:
+                      exclude_tables:
+                        title: Список исключённых таблиц
+                      include_tables:
+                        title: Список включённых таблиц
                     ClickHouseTarget:
                       advanced_settings:
                         title: Расширенные настройки
@@ -42760,6 +42809,13 @@ default:
                         title: Политика очистки
                       connection:
                         title: Настройки подключения
+                      sharding_settings:
+                        title: Настройки шардирования
+                    ClickHouseTargetAdvancedSettings:
+                      alt_names:
+                        title: Переименование таблиц
+                      flush_interval:
+                        title: Интервал записи
             common:
               console:
                 form:
@@ -42779,15 +42835,84 @@ default:
                       type:
                         title: Тип
                     ConvertRecordOptions:
+                      add_rest_column:
+                        title: Добавить неразмеченные столбцы
                       data_schema:
                         title: Схема данных
                       format:
                         title: Формат данных
+                      null_keys_allowed:
+                        title: Разрешить NULL в ключевых колонках
                     DataSchema:
                       fields:
                         title: Список полей
                       json_fields:
                         title: JSON спецификация
+                    DataTransformationOptions:
+                      buffer_flush_interval:
+                        title: Интервал отправки
+                      buffer_size:
+                        title: Размер буфера для отправки
+                      cloud_function:
+                        title: Функция обработки
+                      invocation_timeout:
+                        title: Таймаут вызова
+                      number_of_retries:
+                        title: Количество попыток
+                      service_account_id:
+                        title: Сервисный аккаунт
+            elasticsearch:
+              console:
+                form:
+                  elasticsearch:
+                    ElasticSearchConnection:
+                      password:
+                        title: Пароль
+                      security_groups:
+                        title: Группы безопасности
+                      user:
+                        title: Пользователь
+                    ElasticSearchConnectionType:
+                      mdb_cluster_id:
+                        title: Кластер Managed Service for Elasticsearch
+                    ElasticSearchTarget:
+                      cleanup_policy:
+                        title: Политика очистки
+                    OnPremiseElasticSearch:
+                      addresses:
+                        title: Узлы с данными
+                      ca_certificate:
+                        title: Сертификат CA
+                      subnet_id:
+                        title: Идентификатор подсети
+                    OnPremiseElasticSearchHostPort:
+                      host:
+                        title: Хост
+                      port:
+                        title: Порт
+            eventhub:
+              console:
+                form:
+                  eventhub:
+                    EventhubAdvancedSettings:
+                      converter:
+                        title: Правила конвертации
+                      transformer:
+                        title: Правила трансформации
+                    EventhubConnection:
+                      hub_name:
+                        title: Хаб
+                      key_value:
+                        title: Ключ подключения
+                      namespace_name:
+                        title: Пространство имён
+                      topic:
+                        title: Топик
+                    EventhubSource:
+                      consumer_group:
+                        title: Группа потребителей
+                      starting_offset:
+                        title: Начальный отступ
             greenplum:
               console:
                 form:
@@ -42795,6 +42920,8 @@ default:
                     GpSourceAdvancedSettings:
                       service_schema:
                         title: Схема служебных объектов
+                      strong_consistency:
+                        title: Консистентность снапшота
                     GreenplumConnection:
                       connection_type:
                         title: Тип подключения
@@ -42802,11 +42929,43 @@ default:
                         title: База данных
                       password:
                         title: Пароль
+                      security_groups:
+                        title: Группы безопасности
                       user:
                         title: Пользователь
                     GreenplumConnectionType:
                       mdb_cluster_id:
                         title: Кластер Managed Service for Greenplum
+                      on_premise:
+                        title: Пользовательская инсталляция
+                    GreenplumSource:
+                      connection:
+                        title: Настройки подключения
+                    GreenplumTableFilter:
+                      exclude_tables:
+                        title: Список исключённых таблиц
+                      include_tables:
+                        title: Список включённых таблиц
+                    GreenplumTarget:
+                      cleanup_policy:
+                        title: Политика очистки
+                      connection:
+                        title: Настройки подключения
+                    OnPremiseGreenplum:
+                      ca_certificate:
+                        title: Сертификат CA
+                      mirror_host:
+                        title: Хост зеркала координатора
+                      mirror_port:
+                        title: Порт зеркала координатора
+                      primary_host:
+                        title: Хост координатора
+                      primary_port:
+                        title: Порт координатора
+                      segments:
+                        title: Сегменты кластера Greenplum
+                      subnet_id:
+                        title: Идентификатор подсети
             kafka:
               console:
                 form:
@@ -42819,9 +42978,13 @@ default:
                     KafkaSourceAdvancedSettings:
                       converter:
                         title: Правила конвертации
+                      transformer:
+                        title: Правила трансформации
                     KafkaSourceConnection:
                       connection_type:
                         title: Тип подключения
+                      security_groups:
+                        title: Группы безопасности
                       topic_name:
                         title: Полное имя топика
                     KafkaTarget:
@@ -42833,6 +42996,8 @@ default:
                       topic_settings:
                         title: Топик
                     KafkaTargetTopic:
+                      save_tx_order:
+                        title: Сохранять порядок транзакций
                       topic_name:
                         title: Полное имя топика
                     KafkaTargetTopicSettings:
@@ -42843,18 +43008,217 @@ default:
                     ManagedKafka:
                       auth:
                         title: Аутентификация
+                    ManagedKafkaAuth:
+                      no_auth:
+                        title: Без аутентификации
+                      sasl:
+                        title: SASL
                     ManagedKafkaSASLAuth:
                       password:
                         title: Пароль
                       user:
                         title: Имя пользователя
+                    OnPremiseKafka:
+                      auth:
+                        title: Аутентификация
+                      broker_urls:
+                        title: URL-адреса брокеров
+                      pem_file_content:
+                        title: PEM-сертификат
+                      ssl_enabled:
+                        title: SSL
+                      subnet_id:
+                        title: Сетевой интерфейс для эндпоинта
+                    OnPremiseKafkaAuth:
+                      sasl:
+                        title: SASL
             logbroker:
               console:
                 form:
                   logbroker:
+                    GenericParser:
+                      add_system_cols:
+                        title: Добавление системных столбцов Logbroker
+                      data_schema:
+                        title: Схема данных
+                      format:
+                        title: Формат данных
+                      null_keys_allowed:
+                        title: Использовать значение NULL в ключевых столбцах
+                      skip_dedupe_keys:
+                        title: Пользовательские ключевые столбцы
+                      timestamp:
+                        title: Столбец, содержащий дату-время
+                    LogbrokerConnection:
+                      connection_type:
+                        title: Тип подключения
+                      consumer:
+                        title: Консьюмер
+                      topics:
+                        array_item_label: Топик
+                    LogbrokerConnectionType:
+                      cluster:
+                        title: Кластер
+                      instance:
+                        title: Инстанс
+                    LogbrokerReadOptions:
+                      allow_ttl_rewind:
+                        title: Продолжать работу при превышении по TTL топика
+                      buffer_max_size:
+                        title: Размер буфера чтения
+                      mask_secrets:
+                        title: Маскировать секреты
+                      max_time_lag:
+                        title: Максимальная задержка потребления данных
+                    LogbrokerSource:
+                      parser:
+                        title: Правила парсинга
+                      read_options:
+                        title: Настройки чтения
+                      table_splitter:
+                        title: Делить на подтаблицы
+                    LogfellerParser:
+                      add_system_cols:
+                        title: Добавление системных столбцов Logbroker
+                      data_schema:
+                        title: Схема данных
+                      format:
+                        title: Имя парсера
                     ParserConfigCommon:
                       parser_config_audit_trails_v1:
                         title: AuditTrails.v1 парсер
+                    ParserConfigLb:
+                      parser_config_lb_json:
+                        title: json
+                      parser_config_lb_tskv:
+                        title: tskv
+                      parser_config_logfeller:
+                        title: Парсинг Logfeller
+                      parser_config_yql:
+                        title: YQL-парсинг
+                    YQLParser:
+                      add_synthetic_keys:
+                        title: Синтетические ключи
+                      output_key_columns:
+                        title: Ключевые столбцы результаты
+                      script:
+                        title: YQL-скрипт
+            logfeller:
+              console:
+                form:
+                  logfeller:
+                    LogFellerBaseParserOptions:
+                      calc_puid_hash:
+                        title: Включить хеширование столбца PUID
+                      precomputers:
+                        title: Список прекомпьютеров
+                      time_options:
+                        title: Время события
+                    LogFellerDateTimeFormat:
+                      tz_mode:
+                        title: Часовой пояс
+                    LogFellerParsedRecordTime:
+                      additional_format:
+                        title: Дополнительный формат времени
+                      format:
+                        title: Формат значения поля со временем
+                    LogFellerParser:
+                      parser_name:
+                        title: Внешний парсер
+                      parser_options:
+                        title: Встроенный парсер
+                    LogFellerParserOptions:
+                      common:
+                        title: Базовые опции
+                      raw_data_format:
+                        title: Описание необработанного формата
+                    LogFellerParsingOptions:
+                      chunk_splitter_name:
+                        title: Правило разбиения
+                      parser:
+                        title: Парсер
+                      vault_secrets:
+                        title: Защищенные переменные окружения YT
+                      yt_resources:
+                        title: Дополнительные ресурсы
+                    LogFellerRawDataFormat:
+                      json_parser:
+                        title: JSON
+                      tskv_parser:
+                        title: TSKV
+                    LogFellerSource:
+                      index_yt_processing_options:
+                        title: Настройки операций YT для индексации
+                      logbroker_consumer:
+                        title: YT delivery
+                      parsing_options:
+                        title: Настройки парсинга
+                      topic_path:
+                        title: Logbroker-топик
+                    LogFellerTskvParserOptions:
+                      schema:
+                        title: Схема данных
+            metrika:
+              console:
+                form:
+                  metrika:
+                    MetrikaSource:
+                      counter_ids:
+                        title: Счётчики
+                      hits:
+                        columns:
+                          title: Поля
+                        title: Хиты
+                      token:
+                        title: Токен
+                      visits:
+                        columns:
+                          title: Поля
+                        title: Визиты
+            mongo:
+              console:
+                form:
+                  mongo:
+                    MongoCollectionFilter:
+                      collections:
+                        title: Список включённых коллекций
+                      excluded_collections:
+                        title: Список исключённых коллекций
+                    MongoConnection:
+                      auth_source:
+                        title: Источник аутентификации
+                      raw_password:
+                        title: Пароль
+                      security_groups:
+                        title: Группы безопасности
+                      user:
+                        title: Пользователь
+                    MongoConnectionType:
+                      mdb_cluster_id:
+                        title: Кластер Managed Service for MongoDB
+                      on_premise:
+                        title: Пользовательская инсталляция
+                    MongoSource:
+                      connection:
+                        title: Настройки подключения
+                    MongoTarget:
+                      cleanup_policy:
+                        title: Политика очистки
+                      connection:
+                        title: Настройки подключения
+                      database:
+                        title: База данных
+                    OnPremiseMongo:
+                      ca_certificate:
+                        title: Сертификат CA
+                      hosts:
+                        title: Хосты
+                      port:
+                        title: Порт
+                      replica_set:
+                        title: Набор реплик
+                      subnet_id:
+                        title: Идентификатор подсети
             mysql:
               console:
                 form:
@@ -42866,23 +43230,67 @@ default:
                         title: База данных
                       password:
                         title: Пароль
+                      security_groups:
+                        title: Группы безопасности
                       user:
                         title: Пользователь
                     MysqlConnectionType:
                       mdb_cluster_id:
                         title: Кластер Managed Service for MySQL
+                      on_premise:
+                        title: Пользовательская инсталляция
                     MysqlSource:
                       connection:
                         title: Настройки подключения
+                      object_transfer_settings:
+                        title: Перенос схемы
+                    MysqlSourceAdvancedSettings:
+                      service_database:
+                        title: База данных для служебных таблиц
+                      timezone:
+                        title: Часовой пояс для подключения к базе данных
                     MysqlTableFilter:
                       exclude_tables:
                         title: Список исключённых таблиц
                       include_tables:
                         title: Список включённых таблиц
+                    MysqlTarget:
+                      cleanup_policy:
+                        title: Политика очистки
+                      connection:
+                        title: Настройки подключения
+                    MysqlTargetAdvancedSettings:
+                      service_database:
+                        title: Схема базы данных для служебных таблиц
+                      skip_constraint_checks:
+                        title: Отключение проверки ограничений
+                      sql_mode:
+                        title: Режимы работы SQL
+                      timezone:
+                        title: Часовой пояс для подключения к базе данных
+                    OnPremiseMysql:
+                      ca_certificate:
+                        title: Сертификат CA
+                      host:
+                        title: Хост
+                      port:
+                        title: Порт
+                      subnet_id:
+                        title: Идентификатор подсети
             object_storage:
               console:
                 form:
                   object_storage:
+                    ObjectStorageAdvancedSettings:
+                      buffer_interval:
+                        title: Интервал записи
+                      buffer_size:
+                        title: Размер буфера
+                    ObjectStorageCodecUI:
+                      GZIP:
+                        title: Gzip
+                      UNCOMPRESSED:
+                        title: Без сжатия
                     ObjectStorageConnectionSettings:
                       bucket_layout:
                         title: Имя папки
@@ -42890,6 +43298,13 @@ default:
                         title: Бакет
                       service_account_id:
                         title: Сервисный аккаунт
+                    ObjectStorageSerializationFormatUI:
+                      OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV:
+                        title: CSV
+                      OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON:
+                        title: JSON
+                      OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW:
+                        title: Сырые данные
                     ObjectStorageTarget:
                       connection_settings:
                         title: Настройки подключения
@@ -42901,23 +43316,81 @@ default:
               console:
                 form:
                   opensearch:
+                    OnPremiseOpenSearch:
+                      addresses:
+                        title: Узлы с данными
+                      ca_certificate:
+                        title: Сертификат CA
+                      subnet_id:
+                        title: Идентификатор подсети
+                    OnPremiseOpenSearchHostPort:
+                      host:
+                        title: Хост
+                      port:
+                        title: Порт
                     OpenSearchConnection:
                       connection_type:
                         title: Тип подключения
                       password:
                         title: Пароль
+                      security_groups:
+                        title: Группы безопасности
                       user:
                         title: Пользователь
                     OpenSearchConnectionType:
                       mdb_cluster_id:
                         title: Кластер Managed Service for OpenSearch
                     OpenSearchTarget:
+                      cleanup_policy:
+                        title: Политика очистки
                       connection:
                         title: Настройки подключения
+            oracle:
+              console:
+                form:
+                  oracle:
+                    OracleAdvancedSettings:
+                      convert_number_to_int64:
+                        title: Преобразовывать тип "NUMBER" в "Int64"
+                    OracleConnection:
+                      connection_type:
+                        title: Тип подключения
+                      password:
+                        title: Пароль
+                      pdb:
+                        title: PDB-контейнер
+                      user:
+                        title: Пользователь
+                    OracleConnectionType:
+                      instance:
+                        title: Инстанс
+                      tns:
+                        title: Строка подключения TNS
+                    OracleInstance:
+                      host:
+                        title: Хост
+                      instance_type:
+                        title: Тип
+                      port:
+                        title: Порт
+                    OracleTableFilter:
+                      exclude_tables:
+                        title: Список исключённых таблиц
+                      include_tables:
+                        title: Список включённых таблиц
             postgres:
               console:
                 form:
                   postgres:
+                    OnPremisePostgres:
+                      ca_certificate:
+                        title: Сертификат CA
+                      host:
+                        title: Хост
+                      port:
+                        title: Порт
+                      subnet_id:
+                        title: Идентификатор подсети
                     PostgresConnection:
                       connection_type:
                         title: Тип подключения
@@ -42925,17 +43398,42 @@ default:
                         title: База данных
                       password:
                         title: Пароль
+                      security_groups:
+                        title: Группы безопасности
                       user:
                         title: Пользователь
                     PostgresConnectionType:
                       mdb_cluster_id:
                         title: Кластер Managed Service for PostgreSQL
+                      on_premise:
+                        title: Пользовательская инсталляция
                     PostgresSource:
                       connection:
                         title: Настройки подключения
+                      object_transfer_settings:
+                        title: Перенос схемы
+                    PostgresSourceAdvancedSettings:
+                      collapse_inherit_table:
+                        title: Объединить наследуемые таблицы
+                      service_schema:
+                        title: Схема базы данных для служебных таблиц
+                      slot_byte_lag_limit:
+                        title: Максимальный размер WAL для слота репликации
+                      snapshot_table_sharding_settings:
+                        title: Настройки параллельного копирования таблиц
                     PostgresTableFilter:
+                      exclude_tables:
+                        title: Список исключённых таблиц
                       include_tables:
                         title: Список включённых таблиц
+                    PostgresTarget:
+                      cleanup_policy:
+                        title: Политика очистки
+                      connection:
+                        title: Настройки подключения
+                    PostgresTargetAdvancedSettings:
+                      save_tx_boundaries:
+                        title: Сохранение границ транзакций
             transfer:
               console:
                 form:
@@ -43013,8 +43511,19 @@ default:
                     YdbConnectionSettings:
                       database:
                         title: База данных
+                      instance:
+                        title: Эндпоинт YDB
                       service_account_id:
                         title: ID сервисного аккаунта
+                    YdbPartitionPolicy:
+                      keep_part_count:
+                        title: Количество таблиц
+                      part_size:
+                        title: Размер таблицы
+                      part_type:
+                        title: Единица измерения
+                      time_column:
+                        title: Разбивать по столбцу
                     YdbSource:
                       connection:
                         title: Настройки подключения
@@ -43022,8 +43531,25 @@ default:
                         array_item_label: Путь
                         title: Список включенный путей
                     YdbTarget:
+                      cleanup_policy:
+                        title: Политика очистки
                       connection:
                         title: Настройки подключения
+                      replace_upload:
+                        title: YQL для записи
+                    YdbTargetAdvancedSettings:
+                      alt_names:
+                        title: Переименование таблиц
+                      compaction_policy:
+                        title: Политика сжатия
+                      partition_policy:
+                        title: Ротация таблиц
+                      path:
+                        title: Поддиректория для размещения таблиц
+                      shard_count:
+                        title: Количество шардов
+                      storage_policy:
+                        title: Политика хранения
             yds:
               console:
                 form:
@@ -43043,9 +43569,131 @@ default:
                     YDSSourceAdvancedSettings:
                       converter:
                         title: Правила конвертации
+                      transformer:
+                        title: Правила трансформации
                     YDSTarget:
                       connection:
                         title: Настройки подключения
+                    YDSTargetAdvancedSettings:
+                      save_tx_order:
+                        title: Сохранять порядок транзакций
+            yt:
+              console:
+                form:
+                  yt:
+                    YTSource:
+                      paths:
+                        title: Таблицы и директории
+                    YTSourceAdvancedSettings:
+                      row_index_column_name:
+                        title: Название колонки для индекса строки
+                    YTSourceConnectionSettings:
+                      token:
+                        title: Токен
+                    YTTarget:
+                      path:
+                        title: Путь
+        endpoint:
+          airbyte:
+            aws_cloud_trail_source:
+              endpoint:
+                airbyte:
+                  aws_cloud_trail_source:
+                    AWSCloudTrailSource:
+                      aws_key_id:
+                        title: ID ключа
+                      aws_region_name:
+                        title: Имя региона
+                      aws_secret_key:
+                        title: Secret Key
+                      start_date:
+                        title: Начальная дата
+            bigquery_source:
+              endpoint:
+                airbyte:
+                  bigquery_source:
+                    BigQuerySource:
+                      credentials_json:
+                        title: Учетные данные JSON
+                      dataset_id:
+                        title: ID набора данных по умолчанию
+                      project_id:
+                        title: ID проекта
+            mssql_source:
+              endpoint:
+                airbyte:
+                  mssql_source:
+                    MSSQLSource:
+                      database:
+                        title: База данных
+                      host:
+                        title: Хост
+                      password:
+                        title: Пароль
+                      port:
+                        title: Порт
+                      replication_method:
+                        title: Метод репликации
+                      ssl_method:
+                        title: Метод SSL
+                      username:
+                        title: Имя пользователя
+            s3_source:
+              endpoint:
+                airbyte:
+                  s3_source:
+                    S3Source:
+                      Csv:
+                        additional_reader_options:
+                          title: Дополнительные параметры для считывания
+                        advanced_options:
+                          title: Расширенные опции
+                        block_size:
+                          title: Размер блока
+                        delimiter:
+                          title: Разделитель
+                        double_quote:
+                          title: Двойные кавычки
+                        encoding:
+                          title: Кодировка
+                        escape_char:
+                          title: Escape-символ
+                        newlines_in_values:
+                          title: Новые строки в значениях
+                        quote_char:
+                          title: Символ кавычек
+                      dataset:
+                        title: Набор данных
+                      Parquet:
+                        batch_size:
+                          title: Размер пакета
+                        buffer_size:
+                          title: Размер буфера
+                        columns:
+                          title: Столбцы
+                      Provider:
+                        aws_access_key_id:
+                          title: AWS Access Key ID
+                        aws_secret_access_key:
+                          title: AWS Secret Access Key
+                        bucket:
+                          title: Bucket
+                        endpoint:
+                          title: Эндпоинт
+                        path_prefix:
+                          title: Префикс пути
+                        use_ssl:
+                          title: Использовать SSL
+                        verify_ssl_cert:
+                          title: Проверить SSL-сертификат
+                      schema:
+                        title: Схема
+          lfstaging:
+            endpoint:
+              lfstaging:
+                LfStagingTarget:
+                  cluster:
+                    title: Кластер YT
         transfer_service:
           transfer_service:
             CreateTransferRequest:

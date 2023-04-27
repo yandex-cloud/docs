@@ -9,16 +9,21 @@ items:
         href: operations/index.md
       - name: Создание API-шлюза
         href: operations/api-gw-create.md
-      - name: Изменение API-шлюза и его спецификации
-        href: operations/api-gw-update.md
-      - name: Подключение домена
-        href: operations/api-gw-domains.md
-      - name: Удаление API-шлюза
-        href: operations/api-gw-delete.md
-      - name: Мониторинг
-        href: operations/api-gw-monitoring.md
-      - name: Просмотр журнала выполнения
-        href: operations/api-gw-logs.md
+      - name: Управление API-шлюзом
+        expanded: true
+        items:
+          - name: Изменить API-шлюз и его спецификацию
+            href: operations/api-gw-update.md
+          - name: Подключить домен
+            href: operations/api-gw-domains.md
+          - name: Указать облачную сеть
+            href: operations/api-gw-network-add.md
+          - name: Посмотреть графики мониторинга
+            href: operations/api-gw-monitoring.md
+          - name: Посмотреть журнал выполнения
+            href: operations/api-gw-logs.md
+          - name: Удалить API-шлюз
+            href: operations/api-gw-delete.md
   - name: Практические руководства
     items:
       - name: Все практические руководства
@@ -53,6 +58,8 @@ items:
         items:
           - name: Обзор
             href: concepts/extensions/index.md
+          - name: Сетевое взаимодействие
+            href: concepts/networking.md
           - name: Интеграции
             items:
               - name: Статический ответ

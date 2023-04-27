@@ -30,6 +30,6 @@
 
 - API
 
-  Получить подробную информацию о реестре можно с помощью метода API [get](../../iot-core/api-ref/Registry/get).
+  Чтобы получить подробную информацию о реестре, воспользуйтесь методом REST API [get](../../iot-core/api-ref/Registry/get.md) для ресурса [Registry](../../iot-core/api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Get](../../iot-core/api-ref/grpc/registry_service.md#Get).
 
 {% endlist %}

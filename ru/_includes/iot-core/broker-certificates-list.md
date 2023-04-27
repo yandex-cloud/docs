@@ -32,6 +32,6 @@
 
 - API
 
-  Получить список сертификатов брокера можно с помощью метода API [listCertificates](../../iot-core/broker/api-ref/Broker/listCertificates.md).
+  Чтобы получить список сертификатов брокера, воспользуйтесь методом REST API [listCertificates](../../iot-core/broker/api-ref/Broker/listCertificates.md) для ресурса [Broker](../../iot-core/broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/ListCertificates](../../iot-core/broker/api-ref/grpc/broker_service.md#ListCertificates).
 
 {% endlist %}

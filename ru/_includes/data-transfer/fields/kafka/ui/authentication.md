@@ -1,3 +1,3 @@
-**Аутентификация** — выберите тип: `SASL` или `Без аутентификации`.
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — выберите тип: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.OnPremiseKafkaAuth.sasl.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.no_auth.title }}`.
 
-При выборе значения `SASL` укажите пароль и имя учетной записи, от имени которой сервис {{ data-transfer-name }} будет подключаться к топику.
+При выборе значения `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.OnPremiseKafkaAuth.sasl.title }}` укажите пароль и имя учетной записи, от имени которой сервис {{ data-transfer-name }} будет подключаться к топику.

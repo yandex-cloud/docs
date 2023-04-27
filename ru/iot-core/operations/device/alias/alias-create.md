@@ -121,4 +121,8 @@
       yc iot device get <имя_устройства>
       ```
 
+- API
+
+  Чтобы создать алиас, воспользуйтесь методом REST API [create](../../../api-ref/Device/create.md) для ресурса [Device](../../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Create](../../../api-ref/grpc/device_service.md#Create).
+
 {% endlist %}

@@ -33,10 +33,10 @@
 
 ### Скачайте проект {#download-project}
 
-Скопируйте файлы проекта из директории [cicddemo-gitlab](https://github.com/yandex-cloud/examples/tree/master/serverless/cicddemo-gitlab) или клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples) с помощью Git:
+Клонируйте [репозиторий yc-serverless-gitlab-ci-cd](https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd) с помощью Git:
 
 ```bash
-git clone https://github.com/yandex-cloud/examples.git
+git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.git
 ```
 
 ### Установите дополнительные зависимости {#prepare}
@@ -109,7 +109,7 @@ git clone https://github.com/yandex-cloud/examples.git
 
 1. [Добавьте SSH-ключ для безопасного доступа к {{ GL }}](https://docs.gitlab.com/ee/user/ssh.html).
 1. [Склонируйте репозиторий](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-with-ssh) `gitlab-test` с помощью [SSH](../../glossary/ssh-keygen.md).
-1. Скопируйте все файлы из директории `cicddemo-gitlab` в `gitlab-test`.
+1. Скопируйте все файлы из репозитория `yc-serverless-gitlab-ci-cd` в `gitlab-test`.
 1. Перейдите в директорию `gitlab-test`.
 1. Проиндексируйте новые файлы:
 

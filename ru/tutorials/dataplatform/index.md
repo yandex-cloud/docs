@@ -13,6 +13,7 @@
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
 * [{#T}](managed-kafka-to-greenplum.md)
+* [{#T}](mkf-to-mpg.md)
 * [{#T}](mkf-ydb-stream.md)
 * Использование реестра схем форматов данных с {{ mkf-full-name }}:
   * [Управление схемами данных в {{ mkf-name }}](schema-registry-overview.md)

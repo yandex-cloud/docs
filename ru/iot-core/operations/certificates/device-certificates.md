@@ -133,7 +133,7 @@
 
 - API
 
-  Добавить сертификат устройству можно с помощью метода API [addCertificate](../../api-ref/Device/addCertificate.md).
+  Чтобы добавить сертификат устройству, воспользуйтесь методом REST API [addCertificate](../../api-ref/Device/addCertificate.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/AddCertificate](../../api-ref/grpc/device_service.md#AddCertificate).
 
 {% endlist %}
 
@@ -241,6 +241,6 @@
 
 - API
 
-  Удалить сертификат устройства можно с помощью метода API [deleteCertificate](../../api-ref/Device/deleteCertificate.md).
+  Чтобы удалить сертификат устройства, воспользуйтесь методом REST API [deleteCertificate](../../api-ref/Device/deleteCertificate.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/DeleteCertificate](../../api-ref/grpc/device_service.md#DeleteCertificate).
 
 {% endlist %}

@@ -94,7 +94,7 @@
 
 - API
 
-  Изменить имя реестра можно с помощью метода API [update](../../api-ref/Registry/update.md).
+  Чтобы изменить имя реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
 
 {% endlist %}
 
@@ -191,7 +191,7 @@
 
 - API
 
-  Изменить описание реестра можно с помощью метода API [update](../../api-ref/Registry/update.md).
+  Чтобы изменить описание реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
 
 {% endlist %}
 
@@ -302,7 +302,7 @@
 
 - API
 
-  Добавить метку реестру можно с помощью метода API [update](../../api-ref/Registry/update.md).
+  Чтобы добавить метку реестру, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
 
 {% endlist %}
 
@@ -406,7 +406,7 @@
 
 - API
 
-  Изменить метку реестра можно с помощью метода API [update](../../api-ref/Registry/update.md).
+  Чтобы изменить метку реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
 
 {% endlist %}
 
@@ -502,6 +502,6 @@
 
 - API
 
-  Удалить метку реестра можно с помощью метода API [update](../../api-ref/Registry/update.md).
+  Чтобы удалить метку реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
 
 {% endlist %}

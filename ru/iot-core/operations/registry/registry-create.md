@@ -143,6 +143,6 @@
 
 - API
 
-  Создать реестр можно с помощью метода API [create](../../api-ref/Registry/create.md).
+  Чтобы создать реестр, воспользуйтесь методом REST API [create](../../api-ref/Registry/create.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Create](../../api-ref/grpc/registry_service.md#Create).
 
 {% endlist %}

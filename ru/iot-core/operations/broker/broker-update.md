@@ -96,7 +96,7 @@
 
 - API
 
-  Изменить имя брокера можно с помощью метода API [update](../../broker/api-ref/Broker/update.md).
+  Чтобы изменить имя брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
 
 {% endlist %}
 
@@ -193,7 +193,7 @@
 
 - API
 
-  Изменить описание брокера можно с помощью метода API [update](../../broker/api-ref/Broker/update.md).
+  Чтобы изменить описание брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
 
 {% endlist %}
 
@@ -304,7 +304,7 @@
 
 - API
 
-  Добавить метку брокеру можно с помощью метода API [update](../../broker/api-ref/Broker/update.md).
+  Чтобы добавить метку брокеру, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
 
 {% endlist %}
 
@@ -408,7 +408,7 @@
 
 - API
 
-  Изменить метку брокера можно с помощью метода API [update](../../broker/api-ref/Broker/update.md).
+  Чтобы изменить метку брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
 
 {% endlist %}
 
@@ -504,6 +504,6 @@
 
 - API
 
-  Удалить метку брокера можно с помощью метода API [update](../../broker/api-ref/Broker/update.md).
+  Чтобы удалить метку брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
 
 {% endlist %}

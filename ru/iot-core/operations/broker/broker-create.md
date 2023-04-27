@@ -138,6 +138,6 @@
 
 - API
 
-  Создать брокер можно с помощью метода API [create](../../broker/api-ref/Broker/create.md).
+  Чтобы создать брокер, воспользуйтесь методом REST API [create](../../broker/api-ref/Broker/create.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Create](../../broker/api-ref/grpc/broker_service.md#Create).
 
 {% endlist %}
