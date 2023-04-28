@@ -1,6 +1,6 @@
 # Метод deleteBucketTagging
 
-Удаляет [метки](../../../../resource-manager/concepts/labels.md) бакета. 
+Удаляет [метки](../../../concepts/tags.md) бакета. 
 
 ## Запрос {#request}
 

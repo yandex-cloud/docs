@@ -19,6 +19,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](buckets/edit-acl.md)
 * [{#T}](buckets/enable-logging.md)
 * [{#T}](buckets/configure-object-lock.md)
+* [{#T}](buckets/tagging.md)
 
 ## Объекты {#objects}
 

@@ -1,6 +1,6 @@
 # Метод getBucketTagging
 
-Возвращает [метки](../../../../resource-manager/concepts/labels.md) бакета. 
+Возвращает [метки](../../../concepts/tags.md) бакета. 
 
 ## Запрос {#request}
 

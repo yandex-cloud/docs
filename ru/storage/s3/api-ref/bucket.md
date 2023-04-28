@@ -13,7 +13,7 @@
 [putBucketLogging](bucket/putBucketLogging.md) | Включает и выключает механизм логирования действий с бакетом.
 [getBucketLogging](bucket/getBucketLogging.md) | Возвращает настройки логирования действий с бакетом.
 [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
-[putBucketTagging](bucket/putbuckettagging.md) | Добавляет [метки](../../../resource-manager/concepts/labels.md) бакету.
+[putBucketTagging](bucket/putbuckettagging.md) | Добавляет [метки](../../concepts/tags.md) бакету.
 [getBucketTagging](bucket/getbuckettagging.md) | Возвращает метки бакета.
 [deleteBucketTagging](bucket/deletebuckettagging.md) | Удаляет метки бакета.
 

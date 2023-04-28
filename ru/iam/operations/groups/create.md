@@ -7,9 +7,3 @@
 ## Добавьте в группу пользователей {#add-member}
 
 {% include [group-add-member.md](../../../_includes/organization/group-add-member.md) %}
-
-{% note info %}
-
-В группу нельзя добавить [сервисные аккаунты](../../concepts/users/service-accounts.md).
-
-{% endnote %}

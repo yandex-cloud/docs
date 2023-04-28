@@ -1,8 +1,29 @@
 # Creating a lifecycle policy
 
-To create a lifecycle policy, specify the [repository name](../repository/repository-list.md#repository-get).
+You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a [repository](../../concepts/repository.md). To find out the name of a repository, request a [list of repositories in the registry](../repository/repository-list.md#repository-get).
 
 {% list tabs %}
+
+- Management console
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
+  1. In the list of services, select **{{ container-registry-name }}**.
+  1. Select the registry and click the row with its name.
+  1. Select the repository and click the row with its name.
+  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Lifecycle**.
+  1. In the top-right corner, click **Create**.
+  1. Set the lifecycle policy parameters:
+     * (Optional) **Name**.
+     * (Optional) **Description**.
+     * **Status**: Lifecycle policy status after its creation. We do not recommend creating an `ACTIVE` policy right away.
+     * Under **Lifecycle policy rules**, add the following rules:
+       1. Click **Add**.
+       1. Set the rule parameters:
+
+          {% include [lifecycle-rules-console](../../../_includes/container-registry/lifecycle-rules-console.md) %}
+
+          * (Optional) **Description**.
+  1. Click **Create**.
 
 - CLI
 
@@ -36,15 +57,7 @@ To create a lifecycle policy, specify the [repository name](../repository/reposi
 
      {% endnote %}
 
-     ```bash
-     yc container repository lifecycle-policy create \
-       --repository-name crp3cpm16edqql0t30s2/ubuntu \
-       --name test-policy \
-       --description "disabled lifecycle-policy for tests" \
-       --rules ./rules.json
-     ```
-
-     Command output:
+     Result:
 
      ```bash
      id: crp6lg1868p3i0emkv1b
@@ -63,27 +76,27 @@ To create a lifecycle policy, specify the [repository name](../repository/reposi
      yc container repository lifecycle-policy list --repository-name crp3cpm16edqql0t30s2/ubuntu
      ```
 
-     Where `repository-name` is the repository name.
+     Where `repository-name`: Repository name.
 
      Result:
 
      ```bash
-     +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
-     |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION           |
-     +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
-     | crp6lg1868p3i0emkv1b | test-policy | crp3cpm16edqql0t30s2 | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for  |
-     |                      |             |                      |          |                     | tests                          |
-     +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
+     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
+     |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION          |
+     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
+     | crp6lg1868p3i0emkv1b | test-policy | crp3cpm16edqql0t30s2 | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for |
+     |                      |             |                      |          |                     | tests                         |
+     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
      ```
-
-     {% note tip %}
-
-     You can [test the lifecycle policy](lifecycle-policy-dry-run.md) to check what [Docker images](../../concepts/docker-image.md) comply with the policy rules. Docker images are not actually deleted during dry runs.
-
-     {% endnote %}
 
 - API
 
   To create a lifecycle policy, use the [Create](../../api-ref/grpc/lifecycle_policy_service.md#Create) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
 
 {% endlist %}
+
+{% note tip %}
+
+You can [test the lifecycle policy](lifecycle-policy-dry-run.md) to check what [Docker images](../../concepts/docker-image.md) comply with the policy rules. Docker images are not actually deleted during dry runs.
+
+{% endnote %}

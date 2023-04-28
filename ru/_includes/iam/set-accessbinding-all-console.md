@@ -55,12 +55,10 @@
         name = "Project 1"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_binding" "viewer" {
+      resource "yandex_resourcemanager_cloud_iam_member" "viewer" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role = "viewer"
-        members = [
-          "system:allAuthenticatedUsers",
-        ]
+        role     = "viewer"
+        member   = "system:allAuthenticatedUsers"
       }
       ```
 

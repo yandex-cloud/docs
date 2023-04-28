@@ -184,7 +184,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
           | jq -r .master.endpoints.external_v4_endpoint
         ```
 
-      * `KUBE_TOKEN`: The token  will use {{ GL }} to apply the configuration. Use the token that you received previously.
+      * `KUBE_TOKEN`: The token will use {{ GL }} to apply the configuration. Use the token that you received previously.
 
       To add a variable:
       1. Click **Add variable**.
@@ -206,8 +206,8 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
       build_docker_image:
         stage: build
         variables:
-          YC_REGISTRY_ID: "<registry ID>" # Set your registry ID
-          DOCKER_CUSTOM_SUBFOLDER: "" # Specify a custom path (if any) to your folder with docker files
+          YC_REGISTRY_ID: "<registry ID>" # Set your registry ID.
+          DOCKER_CUSTOM_SUBFOLDER: "" # Specify a custom path (if any) to your folder with docker files.
         image:
           name: gcr.io/kaniko-project/executor:debug
           entrypoint: [""]
@@ -236,7 +236,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
           paths:
             - gl-container-scanning-report-yc.json
         variables:
-          YC_REGISTRY_ID: "<registry ID>" # Set your registry ID
+          YC_REGISTRY_ID: "<registry ID>" # Set your registry ID.
         script:
           - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
           # Install YC CLI.
