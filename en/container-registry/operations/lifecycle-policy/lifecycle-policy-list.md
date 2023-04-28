@@ -8,6 +8,20 @@ Find out how to get:
 
 {% list tabs %}
 
+- Management console
+
+  {% note info %}
+
+  In the management console, you can only get a list of [lifecycle policies](../../concepts/lifecycle-policy.md) for a [repository](../../concepts/repository.md).
+
+  {% endnote %}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
+  1. In the list of services, select **{{ container-registry-name }}**.
+  1. Select the registry and click the row with its name.
+  1. Select the repository and click the row with its name.
+  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Lifecycle**.
+
 - CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -18,9 +32,9 @@ Find out how to get:
     yc container repository lifecycle-policy list --repository-name crp2hlbs67tj4ggrfodb/ubuntu
     ```
 
-    Command output:
+    Result:
 
-    ```bash
+    ```text
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
     |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION          |
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
@@ -35,9 +49,9 @@ Find out how to get:
     yc container repository lifecycle-policy list --registry-id crp2hlbs67tj4ggrfodb
     ```
 
-    Command output:
+    Result:
 
-    ```bash
+    ```text
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
     |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION          |
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
@@ -57,6 +71,15 @@ Find out how to get:
 
 {% list tabs %}
 
+- Management console
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the registry was created.
+  1. In the list of services, select **{{ container-registry-name }}**.
+  1. Select the registry and click the row with its name.
+  1. Select the repository and click the row with its name.
+  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Lifecycle**.
+  1. Click the name of the lifecycle policy you need.
+
 - CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -67,7 +90,7 @@ Find out how to get:
   yc container repository lifecycle-policy get crp6lg1868p3i0emkv1b
   ```
 
-  Command output:
+  Result:
 
   ```bash
   id: crp6lg1868p3i0emkv1b

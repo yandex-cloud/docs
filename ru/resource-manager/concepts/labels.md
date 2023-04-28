@@ -41,6 +41,7 @@ _Метка_ — это пара ключ-значение в формате `<�
 * [{{ mrd-full-name }}](../../managed-redis/)
 * [{{ ydb-full-name }}](../../ydb/)
 * [{{ network-load-balancer-full-name }}](../../network-load-balancer/)
+* [{{ objstorage-full-name }}](../../storage/)
 * [{{ resmgr-full-name }}](../../resource-manager/)
 * [{{ serverless-containers-full-name }}](../../serverless-containers/)
 * [{{ vpc-full-name }}](../../vpc/)

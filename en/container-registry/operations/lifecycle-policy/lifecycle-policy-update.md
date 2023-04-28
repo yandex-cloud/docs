@@ -2,9 +2,26 @@
 
 Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you can modify its rules as well as its status, name, or description.
 
-To access the policy, use its ID. For information about getting a policy ID, see [{#T}](lifecycle-policy-list.md).
-
 {% list tabs %}
+
+- Management console
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
+  1. In the list of services, select **{{ container-registry-name }}**.
+  1. Select the registry and click the row with its name.
+  1. Select the repository and click the row with its name.
+  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Lifecycle**.
+  1. In the row with the lifecycle policy you need, click ![image](../../../_assets/options.svg) and select **Edit**.
+  1. Edit the lifecycle policy parameters:
+     * **Name**.
+     * **Description**.
+     * **Status**.
+     * Under **Lifecycle policy rules**, update the rule parameters:
+
+       {% include [lifecycle-rules-console](../../../_includes/container-registry/lifecycle-rules-console.md) %}
+
+     * **Description**.
+   1. Click **Create**.
 
 - CLI
 
@@ -19,8 +36,11 @@ To access the policy, use its ID. For information about getting a policy ID, see
   1. Change the policy parameters, such as by renaming it:
 
      ```bash
-     yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
+     yc container repository lifecycle-policy update <policy ID> \
+       --new-name=new-policy
      ```
+
+     To find out the policy ID, get a [list of lifecycle policies in a repository or registry](lifecycle-policy-list.md#lifecycle-policy-list).
 
 - API
 
@@ -29,8 +49,6 @@ To access the policy, use its ID. For information about getting a policy ID, see
   You can retrieve a list of policies using the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
 
 {% endlist %}
-
-{% include [lifecycle restrictions](../../../_includes/container-registry/lifecycle-restrictions.md) %}
 
 ## Examples {#examples}
 
@@ -57,7 +75,7 @@ To access the policy, use its ID. For information about getting a policy ID, see
      yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-rules ./new-rules.json
      ```
 
-     Command output:
+     Result:
 
      ```bash
      WARN: All current lifecycle rules will be overwritten. Are you sure?[y/N] y
@@ -85,7 +103,7 @@ To access the policy, use its ID. For information about getting a policy ID, see
   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --activate
   ```
 
-  Command output:
+  Result:
 
   ```bash
   id: crp6lg1868p3i0emkv1b
@@ -111,7 +129,7 @@ To access the policy, use its ID. For information about getting a policy ID, see
   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --disable
   ```
 
-  Command output:
+  Result:
 
   ```bash
   id: crp6lg1868p3i0emkv1b
@@ -141,7 +159,7 @@ To access the policy, use its ID. For information about getting a policy ID, see
 
   {% include [name-format](../../../_includes/name-format.md) %}
 
-  Command output:
+  Result:
 
   ```bash
   id: crp6lg1868p3i0emkv1b
@@ -167,9 +185,9 @@ To access the policy, use its ID. For information about getting a policy ID, see
   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-description "new description"
   ```
 
-  Where `new-description` is the new policy description.
+  Where `new-description`: New policy description.
 
-  Command output:
+  Result:
 
   ```bash
   id: crp6lg1868p3i0emkv1b

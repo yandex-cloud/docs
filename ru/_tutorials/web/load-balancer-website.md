@@ -242,7 +242,7 @@
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
    * [yandex_iam_service_account]({{ tf-provider-link }}/iam_service_account)
-   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}/resourcemanager_folder_iam_binding)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}/resourcemanager_folder_iam_member)
    * [yandex_compute_instance_group]({{ tf-provider-link }}/compute_instance_group)
    * [yandex_lb_network_load_balancer]({{ tf-provider-link }}/lb_network_load_balancer)
    * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)

@@ -54,12 +54,12 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Сетевое взаимодействие
+        href: concepts/networking.md
       - name: Расширения спецификации
         items:
           - name: Обзор
             href: concepts/extensions/index.md
-          - name: Сетевое взаимодействие
-            href: concepts/networking.md
           - name: Интеграции
             items:
               - name: Статический ответ

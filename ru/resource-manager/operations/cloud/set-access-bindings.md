@@ -149,8 +149,8 @@
 
   1. Опишите в конфигурационном файле параметры прав доступа к облаку:
       * `cloud_id` — идентификатор облака. Получить список доступных облаков можно с помощью команды [CLI](../../../cli/quickstart.md): `yc resource-manager cloud list`.
-      * `role` — роль, которую нужно назначить. Перечень ролей можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc iam role list`. В одном ресурсе `yandex_resourcemanager_cloud_iam_binding` можно назначить только одну роль.
-      * блок `members` — список пользователей, которым нужно назначить роль. Каждая запись может иметь одно из следующих значений:
+      * `role` — роль, которую нужно назначить. Перечень ролей можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc iam role list`. В одном ресурсе `yandex_resourcemanager_cloud_iam_member` можно назначить только одну роль.
+      * `member` — пользователь, которому нужно назначить роль. Каждый ресурс `yandex_resourcemanager_cloud_iam_member` может иметь одно из следующих значений:
         * `userAccount:<идентификатор пользователя>` — [идентификатор пользователя](../../../iam/operations/users/get.md).
         * `serviceAccount:<идентификатор сервисного аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
         * `federatedUser:<идентификатор федеративного аккаунта>` — [идентификатор федеративного аккаунта](../../../organization/users-get.md).
@@ -162,18 +162,16 @@
         name = "Project 1"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+      resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role = "editor"
-        members = [
-          "userAccount:<идентификатор пользователя>",
-        ]
+        role     = "editor"
+        member   = "userAccount:<идентификатор пользователя>"
       }
       ```
 
 
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_cloud_iam_binding).
+      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_cloud_iam_member).
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
       
@@ -307,20 +305,16 @@
         name = "Project 1"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+      resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role = "editor"
-        members = [
-          "userAccount:<идентификатор первого пользователя>",
-        ]
+        role     = "editor"
+        member   = "userAccount:<идентификатор первого пользователя>"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_binding" "viewer" {
+      resource "yandex_resourcemanager_cloud_iam_member" "viewer" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role = "viewer"
-        members = [
-          "userAccount:<идентификатор второго пользователя>",
-        ]
+        role     = "viewer"
+        member   = "userAccount:<идентификатор второго пользователя>"
       }
       ```
 
@@ -451,12 +445,10 @@
         name = "Project 1"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+      resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role = "editor"
-        members = [
-          "serviceAccount:<идентификатор сервисного аккаунта>",
-        ]
+        role     = "editor"
+        member   = "serviceAccount:<идентификатор сервисного аккаунта>"
       }
       ```
 

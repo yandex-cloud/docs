@@ -22,7 +22,7 @@ To set up DNS query caching:
 1. [{#T}](#dns-queries).
 1. [{#T}](#check-logs).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 ### Create an infrastructure {#create-infrastructure}
 
@@ -38,7 +38,7 @@ To set up DNS query caching:
 
 - Using {{ TF }}
 
-  1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
   1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf) cluster configuration file to the same working directory. The file describes:
      * [Network](../../vpc/concepts/network.md#network).
@@ -54,13 +54,13 @@ To set up DNS query caching:
      * {{ managed-k8s-name }} cluster CIDR.
      * Name of the cluster service account.
   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-  1. Make sure the {{ TF }} configuration files are correct using the command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate
      ```
 
-     If there are errors in the configuration files, {{ TF }} will point to them.
+     If there are any errors in the configuration files, {{ TF }} will point to them.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -365,7 +365,7 @@ To change the configuration, edit the appropriate `configmap`. For instance, to 
    ...
    ```
 
-1. Save the changes.
+1. Save your changes.
 
    Result:
 
@@ -497,14 +497,14 @@ Delete the resources you no longer need to avoid paying for them:
 
      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
      1. Delete the `k8s-node-local-dns.tf` configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
-     1. Confirm the update of resources.
+        If there are any errors in the configuration files, {{ TF }} will point to them.
+     1. Confirm the resources have been updated:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

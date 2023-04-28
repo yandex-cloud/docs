@@ -25,12 +25,6 @@
 
 {% include [group-add-member.md](../_includes/organization/group-add-member.md) %}
 
-{% note info %}
-
-В группу нельзя добавить [сервисные аккаунты](../iam/concepts/users/service-accounts.md).
-
-{% endnote %}
-
 ## Редактировать группу {#edit-group}
 
 {% include [group-edit](../_includes/organization/group-edit.md) %}

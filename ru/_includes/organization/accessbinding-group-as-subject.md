@@ -85,13 +85,13 @@
 
     Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-    1. Добавьте в конфигурационный файл параметры ресурса, укажите нужную роль и перечень групп:
+    1. Добавьте в конфигурационный файл параметры ресурса, укажите нужную роль и группу:
 
        ```
-       resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
+       resource "yandex_resourcemanager_cloud_iam_member" "admin" {
          cloud_id    = "<идентификатор_облака>"
          role        = "<идентификатор_роли>"
-         members     = ["group:<идентификатор_группы>"]
+         member      = "group:<идентификатор_группы>"
        }
        ```
 
@@ -99,9 +99,9 @@
 
        * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Вы также можете назначить роль внутри отдельного каталога. Для этого вместо `cloud_id` укажите `folder_id` и нужный идентификатор каталога в параметрах ресурса.
        * `role` — назначаемая [роль](../../iam/concepts/access-control/roles.md). Обязательный параметр.
-       * `members` — список групп, которым назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
+       * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
 
-       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
+       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member`, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_member).
 
     1. Проверьте корректность конфигурационных файлов.
 

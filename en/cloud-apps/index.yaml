@@ -1,23 +1,23 @@
 title: Yandex Cloud Apps
 description:
+  - |-
+    <em>Yandex Cloud Apps is currently at the <a
+        href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - >-
-    <em>The Yandex Cloud Apps service is at <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
-  - >-
-    Yandex Cloud Apps is a service that enables one-click deployment of a
+    Yandex Cloud Apps is a service that enables the one-click deployment of a
     serverless stack-based application.
   - >-
-    Such an application would consist of two mutually integrated Yandex Cloud
-    resources. A user may change resource settings depending on his or her
-    intended use of the application.
+    This application would consist of two mutually integrated Yandex Cloud
+    resources. A user may change resource settings depending on the intended use
+    of the application.
 meta:
   title: Cloud Apps
 links:
   - title: Demo Telegram Bot
-    description: Telegram bot
+    description: A demo Telegram bot on a serverless stack
     href: telegram-bot
   - title: Django Container
-    description: Django-based website
+    description: A serverless demo website on Django in serverless mode
     href: django-container
   - title: Image Resizer
     description: Modifies image resolution
@@ -26,8 +26,16 @@ links:
     description: Records resource usage information in Monitoring
     href: metrics-collector
   - title: VM Watchdog
-    description: Starts and stops VMs on a schedule
+    description: Starts and stops a VM on a schedule
     href: vm-watchdog
+  - title: VM Folder Watchdog
+    description: Starts and stops VM instances in a folder on a schedule
+    href: vm-folder-watchdog
   - title: Instance Group Scheduled Scaler
-    description: Modifies the size of a VM group on a schedule
+    description: Modifies the size of an instance group on a schedule
     href: yc-ig-scheduled-scale
+  - title: Identity Server based on Ory Kratos
+    description: >-
+      An application for account authorization and management based on Ory
+      Kratos
+    href: kratos

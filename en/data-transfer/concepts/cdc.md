@@ -13,7 +13,7 @@ CDC ([change data capture](https://en.wikipedia.org/wiki/Change_data_capture)) i
 
 In {{ yandex-cloud }}, one way CDC can be implemented is with a transfer from the database to the message broker. All database updates are tracked by the transfer and sent to the message broker, and consumers are connected to the broker and read the incoming messages.
 
-{{ data-transfer-name }} supports CDC for transfers from {{ PG }}, {{ MG }}, and {{ MY }} databases to {{ KF }} and {{ yds-full-name }}^1^. Data is sent to the target in [Debezium](https://debezium.io/) format.
+{{ data-transfer-name }} supports CDC for transfers from {{ PG }}, {{ MG }}, {{ MY }}, and {{ ydb-short-name }} databases to {{ KF }} and {{ yds-full-name }}^1^. Data is sent to the target in [Debezium](https://debezium.io/) format.
 
 ![image](../../_assets/data-transfer/concepts/cdc-flow.png)
 

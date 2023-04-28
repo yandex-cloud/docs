@@ -2,15 +2,24 @@
 
 A dry run helps verify which [Docker images](../../concepts/docker-image.md) meet [lifecycle policy](../../concepts/lifecycle-policy.md) rules. Docker images are not actually deleted during dry runs.
 
-For a policy dry run, you will need the policy ID. For information about getting a policy ID, see [{#T}](lifecycle-policy-list.md).
-
 {% note warning %}
 
-The maximum number of Docker images in a single [repository](../../concepts/repository.md) that a single dry run can verify is 50000. In this case, an active policy with the same rules deletes all Docker images that are suitable for deletion.
+The maximum number of Docker images in a single [repository](../../concepts/repository.md) that a single dry run can verify is 50,000. In this case, an active policy with the same rules deletes all Docker images that are suitable for deletion.
 
 {% endnote %}
 
 {% list tabs %}
+
+- Management console
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
+  1. In the list of services, select **{{ container-registry-name }}**.
+  1. Select the registry and click the row with its name.
+  1. Select the repository and click the row with its name.
+  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Lifecycle**.
+  1. Click the name of the lifecycle policy you need.
+  1. In the top-right corner, click ![image](../../../_assets/compute/run-vm.svg) **Test**. Once the test is completed, the **Lifecycle dry runs** section will contain a line with the policy dry run results.
+  1. To get a list of Docker images to be deleted according to the policy rules, click the line with the policy dry run results.
 
 - CLI
 
@@ -20,10 +29,10 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
   1. Perform a dry run of the policy:
 
      ```bash
-     yc container repository lifecycle-policy dry-run crp6lg1868p3i0emkv1b
+     yc container repository lifecycle-policy dry-run <policy ID>
      ```
 
-     Command output:
+     Result:
 
      ```bash
      dry_run_lifecycle_policy_result_id: crpn27glo1k8r81dveq2
@@ -32,13 +41,14 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
      affected_images_count: "1"
      ```
 
+     To find out the policy ID, get a [list of lifecycle policies in a repository or registry](lifecycle-policy-list.md#lifecycle-policy-list).
   1. Get a list of policy dry runs:
 
      ```bash
      yc container repository lifecycle-policy list-dry-run-results crp6lg1868p3i0emkv1b
      ```
 
-     Command output:
+     Result:
 
      ```bash
      +----------------------+----------------------+-----------------------+---------------------+
@@ -54,7 +64,7 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
      yc container repository lifecycle-policy get-dry-run-result crpn27glo1k8r81dveq2
      ```
 
-     Command output:
+      Result:
 
      ```bash
      dry_run_lifecycle_policy_result_id: crpn27glo1k8r81dveq2
@@ -69,7 +79,7 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
      yc container repository lifecycle-policy list-dry-run-affected-images crpn27glo1k8r81dveq2
      ```
 
-     Command output:
+     Result:
 
      ```bash
      +----------------------+---------------------+-----------------------------+------+-----------------+

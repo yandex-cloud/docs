@@ -149,7 +149,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
    1. Describe the properties of the cloud access rights in a configuration file:
       * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
-      * `role`: Role to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_binding` resource, you can assign only one role.
+      * `role`: Role to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, you can assign only one role.
       * `members` section: List of users to assign the role to. Each entry may have one of the following values:
          * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<ID of service account>`: [ID of the service account](../../../iam/operations/sa/get-id.md).
@@ -162,18 +162,16 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       name = "Project 1"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+      resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role = "editor"
-        members = [
-          "userAccount:<user ID>",
-        ]
+        role     = "editor"
+        member   = "userAccount:<user ID>"
       }
       ```
 
 
 
-      For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud_iam_binding).
+      For more information about the parameters of the `yandex_resourcemanager_cloud_iam_member` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud_iam_member).
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using this command:
 
@@ -307,20 +305,16 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
         name = "Project 1"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+      resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role = "editor"
-        members = [
-          "userAccount:<first user ID>",
-        ]
+        role     = "editor"
+        member   = "userAccount:<first user ID>"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_binding" "viewer" {
+      resource "yandex_resourcemanager_cloud_iam_member" "viewer" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role = "viewer"
-        members = [
-          "userAccount:<second user ID>",
-        ]
+        role     = "viewer"
+        member   = "userAccount:<second user ID>"
       }
       ```
 
@@ -451,12 +445,10 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
         name = "Project 1"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+      resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role = "editor"
-        members = [
-          "serviceAccount:<service account ID>",
-        ]
+        role     = "editor"
+        member   = "serviceAccount:<service account ID>"
       }
       ```
 

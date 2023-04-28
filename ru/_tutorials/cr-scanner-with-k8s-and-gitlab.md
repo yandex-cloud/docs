@@ -206,8 +206,8 @@
       build_docker_image:
         stage: build
         variables:
-          YC_REGISTRY_ID: "<идентификатор реестра>" # Set your registry ID
-          DOCKER_CUSTOM_SUBFOLDER: "" # Specify a custom path (if any) to your folder with docker files
+          YC_REGISTRY_ID: "<идентификатор реестра>" # Set your registry ID.
+          DOCKER_CUSTOM_SUBFOLDER: "" # Specify a custom path (if any) to your folder with docker files.
         image:
           name: gcr.io/kaniko-project/executor:debug
           entrypoint: [""]
@@ -236,7 +236,7 @@
           paths:
             - gl-container-scanning-report-yc.json
         variables:
-          YC_REGISTRY_ID: "<идентификатор реестра>" # Set your registry ID
+          YC_REGISTRY_ID: "<идентификатор реестра>" # Set your registry ID.
         script:
           - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
           # Install YC CLI.

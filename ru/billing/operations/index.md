@@ -24,7 +24,6 @@ description: "Из статьи вы узнаете, как работать с 
 ## Управление способами оплаты {#payment-methods}
 
 * [{#T}](pin-card.md)
-* [{#T}](unlink-card.md)
 * [{#T}](change-payment-method.md)
 
 ## Оптимизация расходов {#cost-optimization}

@@ -33,6 +33,8 @@ items:
             href: operations/buckets/enable-logging.md
           - name: Управление блокировками версий объектов
             href: operations/buckets/configure-object-lock.md
+          - name: Управление метками бакета
+            href: operations/buckets/tagging.md
       - name: Объекты
         items:
           - name: Загрузка объекта
@@ -133,6 +135,8 @@ items:
         href: concepts/backup.md
       - name: Протокол TLS
         href: concepts/tls.md
+      - name: Метки
+        href: concepts/tags.md
       - name: Язык запросов S3 Select
         href: concepts/s3-select-language.md
       - name: Квоты и лимиты

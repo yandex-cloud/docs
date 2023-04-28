@@ -4,7 +4,11 @@ A [Docker image](docker-image.md) lifecycle policy lets you set [rules](#lifecyc
 
 You can [configure a lifecycle policy](../operations/lifecycle-policy/lifecycle-policy-create.md) using the [{{ yandex-cloud }} CLI](../../cli/).
 
-{% include [lifecycle restrictions](../../_includes/container-registry/lifecycle-restrictions.md) %}
+{% note warning %}
+
+You can only set a lifecycle policy for a [repository](repository.md). The policy applies to Docker images whose names match the repository name exactly. There is no support for prefix matching. You cannot set a policy for a repository group, [registry](registry.md), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+
+{% endnote %}
 
 ## Lifecycle policy statuses {#status}
 

@@ -88,10 +88,10 @@
    1. Add the resource parameters to the configuration file and specify the required role and a list of groups:
 
       ```
-      resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
+      resource "yandex_resourcemanager_cloud_iam_member" "admin" {
         cloud_id    = "<cloud_ID>"
         role        = "<role_ID"
-        members     = ["group:<group_ID>"]
+        member     = "group:<group_ID>"
       }
       ```
 
@@ -101,7 +101,7 @@
       * `role`: [Role](../../iam/concepts/access-control/roles.md) being assigned. This parameter is required.
       * `members`: List of groups the role is assigned to. Specified in `group:<group_ ID>` format. This parameter is required.
 
-      For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+      For more information about the parameters of the `yandex_resourcemanager_cloud_iam_member` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_member).
 
    1. Make sure the configuration files are valid.
 
