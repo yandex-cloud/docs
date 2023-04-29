@@ -340,29 +340,58 @@ yc iam create-token
   Пример создания JWT с использованием [node-jose](https://github.com/cisco/node-jose):
 
   ```js
-  var jose = require('node-jose');
-  var fs = require('fs');
+  const jose = require('node-jose')
+    , nf = require('node-fetch') // yarn add node-fetch@2
+    , fs = require('fs')
+    , path = require('path')
 
-  var key = fs.readFileSync(require.resolve('<файл_закрытого_ключа>'));
+  const createTokenIAM = () => 
+    new Promise(async (resolve, reject) => {
+      try {
+        const res = await jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
 
-  var serviceAccountId = '<идентификатор_сервисного_аккаунта>';
-  var keyId = '<идентификатор_открытого_ключа>';
-  var now = Math.floor(new Date().getTime() / 1000);
+        const now = Math.floor(new Date().getTime() / 1000)
 
-  var payload = { aud: "https://iam.{{ api-host }}/iam/v1/tokens",
-                  iss: serviceAccountId,
-                  iat: now,
-                  exp: now + 3600 };
+        const tokenJWK = await jose.JWS.createSign({ format: 'compact' }, res)
+                                .update(
+                                  JSON.stringify({ 
+                                    aud: 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
+                                    iss: serviceAccountId,
+                                    iat: now,
+                                    exp: now + 3600 
+                                  })
+                                )
+                                .final()
+      
+        const iAM = await nf('https://iam.api.cloud.yandex.net/iam/v1/tokens', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: `{"jwt": "${tokenJWK}"}`
+        }).then(data => data.json())
+      
+        resolve(iAM)
+      } catch (error) {
+        reject(error)
+      }
+    })
 
-  jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
-      .then(function(result) {
-          jose.JWS.createSign({ format: 'compact' }, result)
-              .update(JSON.stringify(payload))
-              .final()
-              .then(function(result) {
-                  // result — это сформированный JWT.
-              });
-      });
+  const authKeys = JSON.parse(
+    fs.readFileSync(path.join(__dirname, '<файл_с_ключами>'), 'utf8') 
+  )  
+
+  const key = authKeys.private_key
+      , keyId = authKeys.id
+      , serviceAccountId = '<идентификатор_сервисного_аккаунта>'
+
+  createTokenIAM()
+    .then(({ iamToken }) => {
+      console.log(iamToken) // welcome
+    })
+    .catch(error => {
+      console.log(error) // LOL
+    })
   ```
 
 - PHP
