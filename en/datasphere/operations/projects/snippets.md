@@ -2,7 +2,7 @@
 
 The notebook contains code snippets for simple operations. Use them to extract files from a ZIP archive, to create a dataset, or to connect to file storage. The snippet library is subject to updates, so an up-to-date snippet list is available in the IDE.
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 
@@ -18,4 +18,4 @@ The notebook contains code snippets for simple operations. Use them to extract f
 
 * [{#T}](../data/connect-to-ya-disk.md)
 * [{#T}](../data/connect-to-google-drive.md)
-* [{#T}](./work-with-git.md#clone)
+* [{#T}](./work-with-git.md)

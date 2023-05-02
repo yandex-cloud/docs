@@ -85,7 +85,7 @@ All prices are shown without VAT.
 
 
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 
 

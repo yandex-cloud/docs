@@ -40,7 +40,7 @@ To avoid crashes:
 
 {% endnote %}
 
-Backups are only created on running clusters. If you don't use a {{ mrd-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
+Backups are only created on running clusters. If you do not use a {{ mrd-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
 For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
 

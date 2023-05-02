@@ -2,11 +2,11 @@
 
 
 1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. На панели слева выберите ![community-panel](../../../_assets/datasphere/community.svg) **Сообщества**.
-1. Нажмите кнопку **Создать сообщество**.
+1. На панели слева выберите ![community-panel](../../../_assets/datasphere/communities.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create-community }}**.
 1. Введите имя сообщества.
 1. (опционально) Введите описание сообщества.
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 #### Что дальше {#what-is-next}
 

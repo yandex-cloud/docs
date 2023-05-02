@@ -91,7 +91,7 @@
 
 - API
 
-  Добавить шард в кластер можно с помощью метода [addShard](../api-ref/Cluster/addShard.md).
+  Чтобы добавить шард в кластер, воспользуйтесь методом REST API [addShard](../api-ref/Cluster/addShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard).
 
   Чтобы скопировать схему данных со случайной реплики одного из шардов на хосты нового шарда, передайте в запросе параметр `copySchema` со значением `true`.
 
@@ -128,7 +128,7 @@
 
 - API
 
-  Получить список шардов кластера можно с помощью метода [listShards](../api-ref/Cluster/listShards.md).
+  Чтобы получить список шардов кластера, воспользуйтесь методом REST API [listShards](../api-ref/Cluster/listShards.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListShards](../api-ref/grpc/cluster_service.md#ListShards).
 
 {% endlist %}
 
@@ -176,7 +176,7 @@
 
 - API
 
-  Воспользуйтесь методом API [updateShard](../api-ref/Cluster/updateShard.md) и передайте в запросе:
+  Чтобы изменить шард, воспользуйтесь методом REST API [updateShard](../api-ref/Cluster/updateShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateShard](../api-ref/grpc/cluster_service.md#UpdateShard) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя шарда в параметре `shardName`.
   * Настройки шарда в параметре `configSpec`.
@@ -237,6 +237,6 @@
 
 - API
 
-  Удалить шард можно с помощью метода [deleteShard](../api-ref/Cluster/deleteShard.md).
+  Чтобы удалить шард, воспользуйтесь методом [deleteShard](../api-ref/Cluster/deleteShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard).
 
 {% endlist %}

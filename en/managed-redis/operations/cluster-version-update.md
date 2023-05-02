@@ -2,14 +2,14 @@
 
 You can upgrade a {{ mrd-name }} cluster to any supported version.
 
-You can only upgrade to a version that immediately follows the current one, such as version 5.0 to 6.0. Upgrades to higher versions are performed in steps. To upgrade {{ RD }} from version 5.0 to version 6.2, for instance, follow the steps 5.0 → 6.0 → 6.2.
+You can only upgrade to a version that immediately follows the current one, such as version 6.2 to 7.0. Upgrades to higher versions are performed in steps. For instance, to upgrade {{ RD }} from version 6.0 to version 7.0, you will first need to upgrade to 6.2, and then, to 7.0.
 
 ## Supported versions {#version-supported}
 
 All {{ RD }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see the [{{ RD }} documentation](https://docs.redis.com/latest/rs/release-notes/).
 
 
-As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. You are not be able to create a cluster with these versions. The version of existing clusters was automatically upgraded to 6.2.
+As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are discontinued. You cannot create a cluster with these versions.
 
 
 ### Viewing a list of available {{ RD }} versions {#version-list}
@@ -26,7 +26,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. You a
 
 ## Before upgrading {#before-update}
 
-Prior to upgrading a cluster, make sure this doesn't affect your applications:
+Prior to upgrading a cluster, make sure this does not affect your applications:
 
 1. Review the [change log](https://docs.redis.com/latest/rs/release-notes/) for the {{ RD }} versions that you are upgrading your cluster to, and make sure that changes do not affect your application.
 1. Try upgrading a test cluster (you can try [deploying](cluster-backups.md#restore) it from a backup of the main cluster).
@@ -51,7 +51,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
    1. In the **Version** field, select the new version.
    1. Click **Save changes**.
 
-   Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - CLI
 
@@ -59,7 +59,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Get a list of your {{ RD }} clusters using the command:
+   1. Get a list of your {{ RD }} clusters using this command:
 
       ```bash
       {{ yc-mdb-rd }} cluster list
@@ -78,24 +78,23 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
         --redis-version <new version number>
       ```
 
-      Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+      Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * The {{ RD }} version number in the `configSpec.version` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * {{ RD }} version number in the `configSpec.version` parameter.
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
-
 ## Examples {#examples}
 
-Let's assume that you need to upgrade your cluster from version 5.0 to version 6.0.
+Let's assume you need to upgrade your cluster from version {{ versions.cli.previous }} to version {{ versions.cli.latest }}.
 
 {% list tabs %}
 
@@ -113,7 +112,7 @@ Let's assume that you need to upgrade your cluster from version 5.0 to version 6
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
-      | c9q8p8j2gaih8iti42mh |   redis406    | 2021-11-23 12:44:17 | ALIVE  | RUNNING |
+      | c9q8p8j2gaih8iti42mh |   redis406    | 2022-04-23 12:44:17 | ALIVE  | RUNNING |
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
@@ -129,14 +128,14 @@ Let's assume that you need to upgrade your cluster from version 5.0 to version 6
       id: c9q8p8j2gaih8iti42mh
       ...
       config:
-        version: "5.0"
+        version: "{{ versions.cli.previous }}"
         ...
       ```
 
-   1. To upgrade a cluster named `redis406` to version 6.0, run the following command:
+   1. To upgrade a cluster named `redis406` to version {{ versions.cli.latest }}, run the following command:
 
       ```bash
-      {{ yc-mdb-rd }} cluster update redis406 --redis-version 6.0
+      {{ yc-mdb-rd }} cluster update redis406 --redis-version {{ versions.cli.latest }}
       ```
 
 {% endlist %}

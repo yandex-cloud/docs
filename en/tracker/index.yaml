@@ -47,7 +47,7 @@ links:
     description: >-
       Search issues using filters with any combination of parameters, which you
       can set using the intuitive builder or the query language.
-    href: user/filters
+    href: user/search-task
   - title: Issue control
     description: >-
       Gather all information about important issues in a dashboard with issue

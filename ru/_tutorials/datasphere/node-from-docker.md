@@ -43,9 +43,9 @@
 
 - Консоль управления
 
-   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/plus-sign.svg)**Создать каталог**.
+   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/plus-sign.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
 
@@ -59,8 +59,8 @@
 
   1. Перейдите в каталог `data-folder`.
   1. В списке сервисов выберите **{{ container-registry-name }}**.
-  1. Задайте имя реестра, например `datasphere-registry`.
-  1. Нажмите кнопку **Создать реестр**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.button_create }}**.
+  1. Задайте имя реестра, например `datasphere-registry`, и нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
   
  {% endlist %} 
 
@@ -72,14 +72,14 @@
 - Консоль управления
 
    1. Перейдите в каталог `data-folder`.
-   1. На вкладке **Сервисные аккаунты** нажмите кнопку **Создать сервисный аккаунт**.
+   1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-datasphere`.
-   1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
+   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
       * `container-registry.images.puller` — чтобы разрешить {{ ml-platform-name }} скачивать ваш Docker-образ для создания ноды.
       * `vpc.user` — для работы с сетью {{ ml-platform-name }}.
       * (опционально) `datasphere.user` — чтобы отправлять запросы в ноду.
 
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -94,10 +94,10 @@
 - Консоль управления
 
   1. Перейдите в каталог `data-folder`.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Выберите сервисный аккаунт `sa-for-datasphere` и нажмите на строку с его именем.
-  1. Нажмите кнопку **Создать новый ключ** на верхней панели.
-  1. Выберите пункт **Создать авторизованный ключ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
+  1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Выберите алгоритм шифрования.
   1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
   1. Сохраните открытый и закрытый ключи: закрытый ключ не сохраняется в {{ yandex-cloud }}, открытый ключ нельзя будет посмотреть в консоли управления.
@@ -159,8 +159,6 @@
    docker build -t triton-docker .
    ```
 
-1. 
-
 ### Загрузите Docker-образ в {{ container-registry-name }} {#push-docker}
 
 {% include [install cli](../../_includes/cli-install.md) %}
@@ -217,41 +215,43 @@
 
 ## Разверните сервис в {{ ml-platform-name }} {#deploy}
 
-1. [На главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} в разделе **Сообщества** выберите сообщество с привязанным платежным аккаунтом.
-1. Создайте проект `Node from Docker`.
+1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
+1. На панели слева выберите ![image](../../_assets/datasphere/communities.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. Выберите сообщество с привязанным платежным аккаунтом.
+1. [Создайте проект](../../datasphere/operations/projects/create.md) `Node from Docker`.
 1. [В настройках проекта](../../datasphere/operations/projects/update.md) укажите:
-   *  **Сервисный аккаунт** — `sa-for-datasphere`.
-   *  **Каталог** — `data-folder`.
+   *  **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — `data-folder`.
+   *  **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — `sa-for-datasphere`.
 1. [Создайте секрет](../../datasphere/operations/data/secrets.md) `iam-secret`, содержащий IAM-токен вашего пользовательского аккаунта. 
 1. Создайте секрет `key-for-sa`, хранящий все содержимое файла с авторизованным ключом для сервисного аккаунта `sa-for-datasphere`.
-1. Создайте ноду. Для этого на странице проекта в правом верхнем углу нажмите кнопку **Создать ресурс**. Во всплывающем окне выберите **Нода**. Задайте основные параметры ноды:
-   * **Тип** — выберите **Docker-образ**.
-   * **Имя** — `triton`.
-   * В блоке **Образ Docker** задайте путь к образу {{ container-registry-name }}. Его можно получить в консоли управления или в CLI, выполнив команду `yc container registry list `. 
-   * Нажмите кнопку **Показать дополнительные параметры** и укажите:
-      * **Имя пользователя** — `json_key`.
-      * **Секрет с паролем** — выберите `key-for-sa`.
-   * В блоке **Эндпоинт**:
-      * **Тип** — выберите протокол **HTTP**.
-      * **Порт** — 8000.
-      * **Таймаут** — оставьте значение по умолчанию (15 секунд).
-      * **Idle timeout** — оставьте значение по умолчанию (300 секунд).
-   * В блоке **Телеметрия**:
-      * **Тип** — выберите **Prometheus**. 
-      * **HTTP-адрес** — `/metrics`.
-      * **Порт** — 8000.
-   * В блоке **Проверка**:
-      * **Тип** — выберите **HTTP**.
-      * **Порт** — 8020.
-      * **Путь** — `/v2/health/ready`.
-      * **Таймаут** — 1.
-      * **Интервал** — 20.
-      * **Неудачные проверки** — 3.
-      * **Пройденные проверки** — 3.
-1. В блоке **Каталог** выберите каталог `data-folder`.
-1. В блоке **Обеспечение** выберите [конфигурацию](../../datasphere/concepts/configurations.md) `c1.4`, [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Идентификатор [подсети](../../vpc/concepts/network.md#subnet) оставьте пустым, {{ ml-platform-name }} будет использовать свою сеть по умолчанию. 
-1. В блоке **Список управления доступом (ACL)** оставьте значение каталога по умолчанию.
-1. Нажмите кнопку **Создать**.
+1. Создайте ноду. Для этого на странице проекта в правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**. Задайте основные параметры ноды:
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — выберите **{{ ui-key.yc-ui-datasphere.common.docker }}**.
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** — `triton`.
+   * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** задайте путь к образу {{ container-registry-name }}. Его можно получить в консоли управления или в CLI, выполнив команду `yc container registry list`. 
+   * Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.show-additional-parameters }}** и укажите:
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}** — `json_key`.
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}** — выберите `key-for-sa`.
+   * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
+      * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}** — выберите протокол **HTTP**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}** — 8000.
+      * **{{ ui-key.yc-ui-datasphere.common.timeout }}** — оставьте значение по умолчанию (15 секунд).
+      * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.idle-timeout }}** — оставьте значение по умолчанию (300 секунд).
+   * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}**:
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — выберите **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}**. 
+      * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.http-path }}** — `/metrics`.
+      * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}** — 8000.
+   * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}** — выберите **HTTP**.
+      * **{{ ui-key.yc-ui-datasphere.common.port }}** — 8020.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}** — `/v2/health/ready`.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}** — 1.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}** — 20.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}** — 3.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}** — 3.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}** выберите каталог `data-folder`.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** выберите [конфигурацию](../../datasphere/concepts/configurations.md) `c1.4`, [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Идентификатор [подсети](../../vpc/concepts/network.md#subnet) оставьте пустым, {{ ml-platform-name }} будет использовать свою сеть по умолчанию. 
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}** оставьте значение каталога по умолчанию.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ## Проверьте работу развернутого сервиса {#check-node}
 

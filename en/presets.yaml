@@ -23,7 +23,9 @@ default:
   adv-ddos-protection: Advanced Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
   unified-agent-full-name: Yandex Unified Agent
+  managed-prometheus-full-name: Managed Service for Prometheus
   prometheus-name: Prometheus
+  promql-name: PromQL
   grafana-name: Grafana
   dsvm-full-name: Yandex Data Science Virtual Machine
   translate-full-name: Yandex Translate
@@ -42425,6 +42427,13 @@ default:
         v1|int|number: '0'
         v1|int|string: Free
   ui-key:
+    datalens:
+      collections:
+        action_create: Create
+      connections:
+        connectors-list:
+          view:
+            label_connector-ch_billing_analytics: Yandex Cloud Billing
     yacloud_monitoring:
       alert-template:
         threshold-status:
@@ -42451,7 +42460,6 @@ default:
           button_continue: Continue
     yacloud:
       common:
-        add: Add
         apply: Apply
         create: Create
         delete: Delete
@@ -42478,6 +42486,9 @@ default:
           label_scan-status-READY: Ready
           label_scan-status-RUNNING: Running
           label_start-scan: Scan
+        overview:
+          button_create: Create registry
+          popup-create_button_create: Create registry
         registry:
           button_change-scan-settings: Edit settings
           button_select-repositories: Select repositories
@@ -42529,6 +42540,7 @@ default:
         cloud:
           folders-create:
             button_create: Create
+            field_default-net: Create a default network
         folder:
           dashboard:
             button_add: Create resource
@@ -42536,10 +42548,13 @@ default:
             label_data-proc: Data Proc
             label_managed-greenplum: Managed Service for Greenplum
             label_monitoring: Monitoring
+            label_vpc: Virtual Private Cloud
+            value_data-proc: Data Proc cluster
             value_data-transfer: Data Transfer
           service-account:
             label_add-role: Add role
             overview:
+              button_create_key: Create authorized key
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
               popup-key_button_create: Create
@@ -42564,12 +42579,24 @@ default:
           overview:
             button_action-delete: Delete cluster
         clusters:
+          button_action-delete: Delete
           button_create: Create cluster
+        dialogs:
+          popup-confirm-delete-cluster_button: Delete
         forms:
           base_field_name: Cluster name
+          base_field_service-account: Service account
+          button_create: Create cluster
+          config_field_properties: Properties
+          config_field_public-keys: SSH key
+          config_field_services: Services
+          config_field_ui_proxy: UI Proxy
+          config_field_version: Version
+          config_field_zone: Availability zone
           database_field_name: DB name
           database_field_user-login: Username
           database_field_user-password: Password
+          label_master-subcluster: Master
           section_network-settings: Network settings
       monitoring:
         button_open-in-monitoring: Open in Monitoring
@@ -42704,6 +42731,10 @@ default:
           button_save: Save
           label_title: ACL editing
       vpc:
+        add-static-route:
+          button_add: Add
+          field_next-hop-address: Next hop
+          value_gateway: Gateway
         gateways:
           field_type: Type
           value_gateway-type-egress-nat: Egress NAT
@@ -42711,7 +42742,6 @@ default:
           switch_route-table: Routing tables
         route-table-form:
           label_add-static-route: Add a route
-          label_gateway: Gateway
           label_next-hop-address: Next hop
         route-table:
           create:
@@ -43688,13 +43718,6 @@ default:
                 LfStagingTarget:
                   cluster:
                     title: YT cluster
-        transfer_service:
-          transfer_service:
-            CreateTransferRequest:
-              transformation:
-                title: Data transformations (Preview)
-            HeaderTitle:
-              title: Transfer Parameters
         transfer:
           transfer:
             ColumnsFilter:
@@ -43731,36 +43754,115 @@ default:
               rename_tables:
                 title: Rename tables
     yc-ui-datasphere:
+      autosave-commit-mode:
+        title: Autosave commit mode
+      checkpoint-list-page:
+        page-title: Checkpoints
+      checkpoint:
+        apply: Apply
+        create-project-from-checkpoint: Create project from checkpoint
+        type:
+          rollback: Rollback
       common:
         access: Access
         activate: Activate
+        add: Add
+        add-chanel: Add channel
+        add-member: Add member
         alias: Alias
+        apply: Apply
         backend: Backend
+        billing: Billing
         bucket: Bucket
+        build: Build
         checkpoint: Checkpoint
+        clone: Clone
+        communication: Communication
+        copy-link: Copy link
         create: Create
+        create-community: Create community
         create-resource: Create resource
         deactivate: Deactivate
         default: Default
         delete: Delete
         description: Description
+        docker: Docker
         edit: Edit
         endpoint: Endpoint
         folder: Folder
+        general: General settings
+        link: Link
+        members: Members
+        more: More
         name: Name
+        never: Never
         pin: Pin
+        port: Port
         prefix: Prefix
+        resize: Resize
         save: Save
-        settings-key-value: Settings
+        share: Share
         shared-with-project-resources: Shared
+        show-additional-parameters: Show additional parameters
         spaces: Communities
+        submit: Confirm
+        timeout: Timeout
+        unpin: Unpin
+      data-proc:
+        available-clusters: Available clusters
+        create-template: Create template
+        running: Running
+        template-name: Template name
+      docker:
+        build-path: Build path
+        docker-template: Docker template
+        dockerfile: Docker file
+        repository: Repository
+        tag: Tag
       edit-project-page:
         advanced-settings: Advanced settings
-        service-account: Service account
-        subnet: Subnet
+        balance: Project balance
+        description: Description
+        name: Name
+        per-cell: Unit limit per single execution
+        per-time: Total unit limit per hour
+        period-of-inactivity: Period of inactivity
+        security-group: Security group
+      main-page:
+        recent-projects: Recent projects
       new-alias:
         field:
           label-nodes: Nodes and load balancing
+      new-node:
+        endpoint-form-label:
+          idle-timeout: Idle timeout
+          port: Port
+          type: Type
+        healthcheck-form-label:
+          fails-threshold: Fails threshold
+          interval: Interval
+          passes-threshold: Passes threshold
+          path: Path
+          timeout: Timeout
+          type: Type
+        kdi-form-label:
+          password-secret: Password secret
+          user-name: Username
+        node-form-label:
+          name: Name
+          type: Type
+        telemetry-form-label:
+          http-path: HTTP path
+          port: Port
+          prometheus: Prometheus
+        title:
+          acl: Access control list (ACL)
+          docker-image: Docker image
+          endpoint: Endpoint
+          folder: Folder
+          healthcheck: Healthcheck
+          provisioning: Provisioning
+          telemetry: Telemetry
       new-s3-page:
         access-key-id: Static access key ID
         backend-geesefs: GeeseFS
@@ -43778,11 +43880,24 @@ default:
       project-page:
         project-card:
           create-resource: Create resource
+          go-to-jupyter: Open project in JupyterLab
         project-resources: Project resources
+        settings:
+          default-folder: Default folder
+          limits: Limits
+          service-account: Service account
+          subnet: Subnet
+        tab:
+          members: Members
+          overview: Overview
+          settings: Settings
       projects:
         create-project: Create project
       resources:
+        checkpoint: Checkpoint
+        dataProc: Data Proc
         dataset: Dataset
+        docker: Docker
         node: Node
         s3: S3 Connector
         secret: Secret

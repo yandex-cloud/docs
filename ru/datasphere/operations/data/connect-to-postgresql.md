@@ -56,9 +56,9 @@
 
   1. [Настройте проект](../../operations/projects/update.md). Для этого на странице редактирования проекта в соответствующих полях добавьте или измените:
 
-     * **Каталог по умолчанию**, в котором развернут кластер {{ mpg-short-name }}.
-     * **Сервисный аккаунт** с [ролью](../../../managed-postgresql/security/index.md#required-roles) `managed-postgresql.editor` или выше.
-     * **Подсеть**, в которой расположен хост БД.
+     * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**, в котором развернут кластер {{ mpg-short-name }}.
+     * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** с [ролью](../../../managed-postgresql/security/index.md#required-roles) `managed-postgresql.editor` или выше.
+     * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**, в которой расположен хост БД.
 
        {% note info %}
 

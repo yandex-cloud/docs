@@ -105,10 +105,9 @@
       1. Введите имя, например `route-table`.
       1. Выберите сеть каталога `data-folder`.
       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
-         * В открывшемся окне в поле **{{ ui-key.yacloud.vpc.route-table-form.label_next-hop-address }}** выберите **{{ ui-key.yacloud.vpc.route-table-form.label_gateway }}**.
-         * В поле **{{ ui-key.yacloud.vpc.route-table-form.label_gateway }}** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.
-         * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+         * В открывшемся окне в поле **{{ ui-key.yacloud.vpc.route-table-form.label_next-hop-address }}** выберите **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}**.
+         * В поле **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.
+         * Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
    Привяжите таблицу маршрутизации к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
@@ -152,16 +151,17 @@
 
 ### Измените настройки проекта {#change-settings}
 
-1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.settings-key-value }}** и нажмите **![pencil](../../_assets/pencil.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
-1. В разделе **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}** задайте:
-   * **{{ ui-key.yc-ui-datasphere.common.folder }}** — `data-folder`.
-   * **{{ ui-key.yc-ui-datasphere.edit-project-page.service-account }}** — `sa-for-project`.
-   * **{{ ui-key.yc-ui-datasphere.edit-project-page.subnet }}** — подсеть зоны доступности `{{region-id}}-a` в каталоге `data-folder`.
+1. {% include [include](../../_includes/datasphere/ui-find-project.md) %}
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}** нажмите кнопку **![pencil](../../_assets/pencil-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Укажите параметры:
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — `data-folder`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — `sa-for-project`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** — подсеть зоны доступности `{{region-id}}-a` в каталоге `data-folder`.
 
-     {% include [subnet-create](../../_includes/subnet-create.md) %}
+   {% include [subnet-create](../../_includes/subnet-create.md) %}
 
-   * [Группу безопасности](../../vpc/concepts/security-groups.md), если они используются в вашей организации.
-
+   * **{{ ui-key.yc-ui-datasphere.edit-project-page.security-group }}** — укажите [группу безопасности](../../vpc/concepts/security-groups.md), если они используются в вашей организации.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 ## Создайте секреты {#create-secrets}

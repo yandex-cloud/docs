@@ -52,9 +52,11 @@
       * Облачную сеть для размещения кластера.
       * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
-          {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+          {% note info %}
 
-      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+          {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+          {% endnote %}
 
 
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером. Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.

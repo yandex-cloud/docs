@@ -42,6 +42,12 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- API
+
+    Чтобы получить список пользователей, воспользуйтесь методом REST API [list](../api-ref/User/list.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/List](../api-ref/grpc/user_service.md#List) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+
+    Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
+
 - SQL
 
   1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
@@ -50,12 +56,6 @@
       ```sql
       SHOW USERS;
       ```
-
-- API
-
-    Воспользуйтесь методом API [list](../api-ref/User/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
-
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
 
 {% endlist %}
 
@@ -154,6 +154,17 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+- API
+
+    Чтобы добавить пользователя, воспользуйтесь методом REST API [create](../api-ref/User/create.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Create](../api-ref/grpc/user_service.md#Create) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    * Имя нового пользователя в параметре `userSpec.name`.
+    * Пароль нового пользователя в параметре `userSpec.password`.
+    * (Опционально) Список баз, к которым пользователь должен иметь доступ, в параметре `userSpec.permissions[]`.
+    * (Опционально) Список настроек {{ CH }} для пользователя в параметре `userSpec.settings`.
+    * (Опционально) Список настроек квот для пользователя в параметре `userSpec.quotas[]`.
+
 - SQL
 
   1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
@@ -166,17 +177,6 @@
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
 
   Подробнее о создании пользователей см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/create/user/).
-
-- API
-
-    Воспользуйтесь методом API [create](../api-ref/User/create.md) и передайте в запросе:
-
-    * Идентификатор кластера в параметре `clusterId`. Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя нового пользователя в параметре `userSpec.name`.
-    * Пароль нового пользователя в параметре `userSpec.password`.
-    * (Опционально) Список баз, к которым пользователь должен иметь доступ, в параметре `userSpec.permissions[]`.
-    * (Опционально) Список настроек {{ CH }} для пользователя в параметре `userSpec.settings`.
-    * (Опционально) Список настроек квот для пользователя в параметре `userSpec.quotas[]`.
 
 {% endlist %}
 
@@ -246,6 +246,19 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+- API
+
+    Чтобы изменить пароль, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/user_service.md#Update) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Новый пароль в параметре `password`.
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
+    * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `password`), в параметре `updateMask`.
+
+    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
 - SQL
 
   1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
@@ -258,19 +271,6 @@
       {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
 
   Подробнее об изменении пользователей см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/user/).
-
-- API
-
-    Воспользуйтесь методом API [update](../api-ref/User/update.md) и передайте в запросе:
-
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Новый пароль в параметре `password`.
-
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
-
-    * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `password`), в параметре `updateMask`.
-
-    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -332,6 +332,19 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+- API
+
+    Чтобы изменить пароль пользователя `admin`, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Новый пароль в параметре `configSpec.adminPassword`.
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
+    * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `configSpec.adminPassword`), в параметре `updateMask`.
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
 - SQL
 
     1. [Подключитесь](./connect.md) к кластеру от [имени пользователя `admin`](#sql-user-management).
@@ -344,19 +357,6 @@
         {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
 
     Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/user/).
-
-- API
-
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
-
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Новый пароль в параметре `configSpec.adminPassword`.
-
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
-
-    * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `configSpec.adminPassword`), в параметре `updateMask`.
-
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -513,6 +513,19 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+- API
+
+    Чтобы изменить настройки пользователя, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/user_service.md#Update) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Имя пользователя, настройки которого будут изменены, в параметре `userName`. Чтобы узнать имя, [получите список пользователей](#list-users).
+    * (Опционально) Список баз, к которым пользователь должен иметь доступ, в параметре `userSpec.permissions[]`.
+    * (Опционально) Список настроек {{ CH }} для пользователя в параметре `userSpec.settings`.
+    * (Опционально) Список настроек квот для пользователя в параметре `userSpec.quotas[]`.
+    * Список полей конфигурации пользователя, которые необходимо изменить, в параметре `updateMask`.
+
+    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
 - SQL
 
   1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
@@ -533,19 +546,6 @@
       ```sql
       ALTER USER <имя пользователя> SETTINGS <список настроек {{ CH }}>;
       ```
-
-- API
-
-    Воспользуйтесь методом API [update](../api-ref/User/update.md) и передайте в запросе:
-
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя пользователя, настройки которого будут изменены, в параметре `userName`. Чтобы узнать имя, [получите список пользователей](#list-users).
-    * (Опционально) Список баз, к которым пользователь должен иметь доступ, в параметре `userSpec.permissions[]`.
-    * (Опционально) Список настроек {{ CH }} для пользователя в параметре `userSpec.settings`.
-    * (Опционально) Список настроек квот для пользователя в параметре `userSpec.quotas[]`.
-    * Список полей конфигурации пользователя, которые необходимо изменить, в параметре `updateMask`.
-
-    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -594,6 +594,13 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+- API
+
+    Чтобы удалить пользователя, воспользуйтесь методом REST API [delete](../api-ref/User/delete.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Delete](../api-ref/grpc/user_service.md#Delete) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Имя пользователя, настройки которого будут изменены, в параметре `userName`. Чтобы узнать имя, [получите список пользователей](#list-users).
+
 - SQL
 
   1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
@@ -604,13 +611,6 @@
       ```
 
   Подробнее об удалении объектов см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/drop/).
-
-- API
-
-    Воспользуйтесь методом API [delete](../api-ref/User/delete.md) и передайте в запросе:
-
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя пользователя, настройки которого будут изменены, в параметре `userName`. Чтобы узнать имя, [получите список пользователей](#list-users).
 
 {% endlist %}
 

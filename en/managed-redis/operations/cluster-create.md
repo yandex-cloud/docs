@@ -1,6 +1,6 @@
 # Creating {{ RD }} clusters
 
-{{ RD }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
+A {{ RD }} cluster consists of one or more database hosts you can configure replication between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
 
 For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md).
 
@@ -67,10 +67,10 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
    
    1. Under **Network settings**, select:
-      * Cloud network for the cluster.
-      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+     * Cloud network for the cluster.
+     * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+       {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
       {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
@@ -266,7 +266,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Version `{{ versions.cli.latest }}`.
    * Environment `production`.
    * Network `default`.
-   * A single `hm1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone and security group with ID `{{ security-group }}` with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
+   * A single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone and security group with ID `{{ security-group }}` with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
@@ -302,7 +302,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
-   * A single `{{ host-class }}` class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+   * A single `{{ host-class }}`-class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the range `10.5.0.0/24`.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).

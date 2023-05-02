@@ -359,7 +359,7 @@
 
 - API
 
-  Воспользуйтесь методом API [create](../api-ref/Cluster/create) и передайте в запросе:
+  Чтобы создать кластер, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
   * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
   * Имя кластера в параметре `name`.
   * Окружение кластера в параметре `environment`.
@@ -399,7 +399,7 @@
 
       {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
-      Для использования {{ CK }} необходима версия {{ CH }} не ниже {{ mch-ck-version }}. Список доступных версий {{ CH }} можно получить с помощью метода API [list](../api-ref/Versions/list.md).
+      Для использования {{ CK }} необходима версия {{ CH }} не ниже {{ mch-ck-version }}. Список доступных версий {{ CH }} можно получить с помощью метода REST API [list](../api-ref/Versions/list.md) для ресурса [Versions](../api-ref/Versions/index.md) или вызова gRPC API [VersionsService/List](../api-ref/grpc/versions_service.md#List).
 
   * Если значение параметра `embeddedKeeper` не задано или равно `false`, для управления репликацией и распределением запросов будет использоваться {{ ZK }}.
 

@@ -99,6 +99,7 @@
         result.test = result.test === "true";
         result.invisible = result.invisible === "true";
         result.hideShield = result.hideShield === "true";
+        result.webview = true;
 
         return result;
       }

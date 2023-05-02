@@ -129,10 +129,11 @@
       sitekey: string;
       callback?: (token: string) => void;
       hl?: 'ru' | 'en' | 'be' | 'kk' | 'tt' | 'uk' | 'uz' | 'tr';
+      test?: boolean;
+      webview?: boolean;
       invisible?: boolean;
       shieldPosition?: `top-left` | `center-left` | `bottom-left` | `top-right` | `center-right` | `bottom-right`;
       hideShield?: boolean;
-      test?: boolean;
   }
 ) => WidgetId;
 ```
@@ -141,13 +142,14 @@
 
 * `container` — контейнер для виджета. Можно передать DOM-элемент или идентификатор контейнера.
 * `params` — объект с параметрами для капчи:
-    * `sitekey` — ключ клиентской части;
-    * `callback` — функция-обработчик;
-    * `hl` — язык виджета;
-    * `invisible` — [невидимая капча](./invisible-captcha.md);
-    * `shieldPosition` — расположение [блока](./invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных;
-    * `hideShield` — скрыть [блок](./invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных;
-    * `test` — запустить капчу в тестовом режиме, чтобы пользователь всегда получал задание. Используйте это свойство только для тестирования и отладки.
+    * `sitekey` — ключ клиентской части.
+    * `callback` — функция-обработчик.
+    * `hl` — язык виджета.
+    * `test` — включение работы капчи в режиме тестирования. Пользователь всегда будет получать задание. Используйте это свойство только для отладки и тестирования.
+    * `webview` — запуск капчи в **WebView**. Используется для повышения точности оценки пользователей при добавлении капчи в мобильные приложения с помощью **WebView**.
+    * `invisible` — [невидимая капча](./invisible-captcha.md).
+    * `shieldPosition` — расположение [блока](./invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.
+    * `hideShield` — скрыть [блок](./invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.
 
 {% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
@@ -162,6 +164,16 @@
 ```
 
 Аргумент `widgetId` — уникальный идентификатор виджета. Если аргумент не передан, будет возвращен результат первого отрисованного виджета.
+
+### Метод execute {#execute}
+
+Метод `execute` запускает проверку пользователя. Используется чтобы начать проверку невидимой капчи при каком-то событии, например, при нажатии на кнопку отправки формы авторизации.
+
+```ts
+(widgetId: WidgetId | undefined) => void;
+```
+
+Аргумент `widgetId` — уникальный идентификатор виджета. Если аргумент не передан, проверка будет запущена на первом отрисованном виджете.
 
 ### Метод reset {#reset}
 

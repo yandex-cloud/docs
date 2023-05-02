@@ -70,8 +70,6 @@
 
          {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
-        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
      1. Для доступа к хостам-брокерам из интернета выберите опцию **Публичный доступ**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
 
 

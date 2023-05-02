@@ -23,7 +23,9 @@ default:
   adv-ddos-protection: Advanced Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
   unified-agent-full-name: Yandex Unified Agent
+  managed-prometheus-full-name: Yandex Managed Service for Prometheus
   prometheus-name: Prometheus
+  promql-name: PromQL
   grafana-name: Grafana
   dsvm-full-name: Yandex Data Science Virtual Machine
   translate-full-name: Yandex Translate
@@ -93,7 +95,8 @@ default:
   mms-name: Managed Service for SQL Server
   mgp-name: Managed Service for Greenplum®
   mgl-name: Managed Service for GitLab
-  monitoring-name: Yandex Monitoring
+  monitoring-name: Monitoring
+  managed-prometheus-name: Managed Service for Prometheus
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
   dsvm-name: Data Science Virtual Machine
@@ -42433,6 +42436,13 @@ default:
         v1|int|number: '0'
         v1|int|string: Не тарифицируется
   ui-key:
+    datalens:
+      collections:
+        action_create: Создать
+      connections:
+        connectors-list:
+          view:
+            label_connector-ch_billing_analytics: Yandex Cloud Billing
     yacloud_monitoring:
       alert-template:
         threshold-status:
@@ -42459,7 +42469,6 @@ default:
           button_continue: Продолжить
     yacloud:
       common:
-        add: Добавить
         apply: Применить
         create: Создать
         delete: Удалить
@@ -42486,6 +42495,9 @@ default:
           label_scan-status-READY: Готово
           label_scan-status-RUNNING: Запущено
           label_start-scan: Сканировать
+        overview:
+          button_create: Создать реестр
+          popup-create_button_create: Создать реестр
         registry:
           button_change-scan-settings: Изменить настройки
           button_select-repositories: Выбрать репозитории
@@ -42537,6 +42549,7 @@ default:
         cloud:
           folders-create:
             button_create: Создать
+            field_default-net: Создать сеть по умолчанию
         folder:
           dashboard:
             button_add: Создать ресурс
@@ -42544,10 +42557,13 @@ default:
             label_data-proc: Data Proc
             label_managed-greenplum: Managed Service for Greenplum
             label_monitoring: Monitoring
+            label_vpc: Virtual Private Cloud
+            value_data-proc: Кластер Data Proc
             value_data-transfer: Data Transfer
           service-account:
             label_add-role: Добавить роль
             overview:
+              button_create_key: Создать авторизованный ключ
               button_create_service-account-key: Создать статический ключ доступа
               button_create-key-popup: Создать новый ключ
               popup-key_button_create: Создать
@@ -42572,12 +42588,24 @@ default:
           overview:
             button_action-delete: Удалить кластер
         clusters:
+          button_action-delete: Удалить
           button_create: Создать кластер
+        dialogs:
+          popup-confirm-delete-cluster_button: Удалить
         forms:
           base_field_name: Имя кластера
+          base_field_service-account: Сервисный аккаунт
+          button_create: Создать кластер
+          config_field_properties: Свойства
+          config_field_public-keys: SSH-ключ
+          config_field_services: Сервисы
+          config_field_ui_proxy: UI Proxy
+          config_field_version: Версия
+          config_field_zone: Зона доступности
           database_field_name: Имя БД
           database_field_user-login: Имя пользователя
           database_field_user-password: Пароль
+          label_master-subcluster: Мастер
           section_network-settings: Сетевые настройки
       monitoring:
         button_open-in-monitoring: Открыть в Мониторинге
@@ -42712,6 +42740,10 @@ default:
           button_save: Сохранить
           label_title: Редактирование ACL
       vpc:
+        add-static-route:
+          button_add: Добавить
+          field_next-hop-address: Next hop
+          value_gateway: Шлюз
         gateways:
           field_type: Тип
           value_gateway-type-egress-nat: NAT в интернет
@@ -42719,7 +42751,6 @@ default:
           switch_route-table: Таблицы маршрутизации
         route-table-form:
           label_add-static-route: Добавить маршрут
-          label_gateway: Шлюз
           label_next-hop-address: Next hop
         route-table:
           create:
@@ -43694,13 +43725,6 @@ default:
                 LfStagingTarget:
                   cluster:
                     title: Кластер YT
-        transfer_service:
-          transfer_service:
-            CreateTransferRequest:
-              transformation:
-                title: Трансформация данных (Превью)
-            HeaderTitle:
-              title: Параметры трансфера
         transfer:
           transfer:
             ColumnsFilter:
@@ -43737,36 +43761,115 @@ default:
               rename_tables:
                 title: Переименование таблиц
     yc-ui-datasphere:
+      autosave-commit-mode:
+        title: Автоматическое сохранение состояния
+      checkpoint-list-page:
+        page-title: Контрольные точки
+      checkpoint:
+        apply: Применить
+        create-project-from-checkpoint: Создать проект из контрольной точки
+        type:
+          rollback: Rollback
       common:
         access: Доступ
         activate: Активировать
+        add: Добавить
+        add-chanel: Добавить канал
+        add-member: Добавить участника
         alias: Алиас
+        apply: Применить
         backend: Бэкенд
+        billing: Биллинг
         bucket: Бакет
+        build: Собрать
         checkpoint: Контрольная точка
+        clone: Клонировать
+        communication: Общение
+        copy-link: Копировать ссылку
         create: Создать
+        create-community: Создать сообщество
         create-resource: Создать ресурс
         deactivate: Деактивировать
         default: По умолчанию
         delete: Удалить
         description: Описание
+        docker: Docker-образ
         edit: Редактировать
         endpoint: Эндпоинт
         folder: Каталог
+        general: Общие настройки
+        link: Привязать
+        members: Участники
+        more: Еще
         name: Имя
+        never: Никогда
         pin: Закрепить
+        port: Порт
         prefix: Префикс
+        resize: Изменить размер
         save: Сохранить
-        settings-key-value: Настройки
+        share: Поделиться
         shared-with-project-resources: Доступные
+        show-additional-parameters: Показать дополнительные параметры
         spaces: Сообщества
+        submit: Подтвердить
+        timeout: Таймаут
+        unpin: Открепить
+      data-proc:
+        available-clusters: Доступные кластеры
+        create-template: Создать шаблон
+        running: Running
+        template-name: Имя шаблона
+      docker:
+        build-path: Путь к образу внутри проекта
+        docker-template: Шаблон Docker-образа
+        dockerfile: Файл Docker
+        repository: Имя образа
+        tag: Тег
       edit-project-page:
         advanced-settings: Расширенные настройки
-        service-account: Сервисный аккаунт
-        subnet: Подсеть
+        balance: Баланс проекта
+        description: Описание
+        name: Имя
+        per-cell: На ячейку
+        per-time: На юниты в час
+        period-of-inactivity: Прерывать ячейки с низкой нагрузкой через
+        security-group: Группа безопасности
+      main-page:
+        recent-projects: Недавние проекты
       new-alias:
         field:
           label-nodes: Ноды и распределение нагрузки
+      new-node:
+        endpoint-form-label:
+          idle-timeout: Idle timeout
+          port: Порт
+          type: Тип
+        healthcheck-form-label:
+          fails-threshold: Неудачные проверки
+          interval: Интервал
+          passes-threshold: Пройденные проверки
+          path: Путь
+          timeout: Таймаут
+          type: Тип
+        kdi-form-label:
+          password-secret: Секрет с паролем
+          user-name: Имя пользователя
+        node-form-label:
+          name: Имя
+          type: Тип
+        telemetry-form-label:
+          http-path: HTTP-адрес
+          port: Порт
+          prometheus: Prometheus
+        title:
+          acl: Список управления доступом (ACL)
+          docker-image: Образ Docker
+          endpoint: Эндпоинт
+          folder: Каталог
+          healthcheck: Проверка
+          provisioning: Обеспечение
+          telemetry: Телеметрия
       new-s3-page:
         access-key-id: Идентификатор статического ключа доступа
         backend-geesefs: GeeseFS
@@ -43784,11 +43887,24 @@ default:
       project-page:
         project-card:
           create-resource: Создать ресурс
+          go-to-jupyter: Открыть проект в JupyterLab
         project-resources: Ресурсы проекта
+        settings:
+          default-folder: Каталог по умолчанию
+          limits: Ограничения
+          service-account: Сервисный аккаунт
+          subnet: Подсеть
+        tab:
+          members: Участники
+          overview: Обзор
+          settings: Настройки
       projects:
         create-project: Создать проект
       resources:
+        checkpoint: Контрольная точка
+        dataProc: Data Proc
         dataset: Датасет
+        docker: Docker-образ
         node: Нода
         s3: Коннектор S3
         secret: Секрет

@@ -43,7 +43,7 @@ description: "После удаления кластера баз данных {
 
 - API
 
-    Воспользуйтесь методом API [delete](../api-ref/Cluster/delete.md): передайте идентификатор требуемого кластера в параметре `clusterId` запроса.
+    Чтобы удалить кластер, воспользуйтесь методом REST API [delete](../api-ref/Cluster/delete.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
     Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 

@@ -77,6 +77,62 @@
 
   Любая создаваемая Serverless БД является георезервированной в трех [зонах доступности](../../overview/concepts/geo-scope.md).
 
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры Serverless БД, которую необходимо создать:
+
+      ```hcl
+      resource "yandex_ydb_database_serverless" "database1" {
+        name = "<имя_БД>"
+
+        serverless_database {
+          enable_throttling_rcu_limit = <true_или_false>
+          provisioned_rcu_limit       = <пропускная_способность>
+          storage_size_limit          = <объем_данных>
+          throttling_rcu_limit        = <выделенная_пропускная_способность>
+        }
+      }
+      ```
+
+     Где:
+
+     * `name` — имя БД. Обязательный параметр.
+     * `enable_throttling_rcu_limit` — включить ограничение пропускной способности. Необязательный параметр. Значение по умолчанию `false`.
+     * `provisioned_rcu_limit` — ограничение потребления Request Units в секунду. Необязательный параметр. Значение по умолчанию 0.
+     * `storage_size_limit` — объем данных, ГБ. Необязательный параметр. Значение по умолчанию 50 ГБ.
+     * `throttling_rcu_limit` — устанавленное значение показывает, какое потребление Request Units в секунду оплачивается по часам по тарифу. Ноль выключает почасовую оплату. Необязательный параметр. Значение по умолчанию 0.
+
+  1. Примените изменения:
+  
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      
+    {{ TF }} создаст все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+
+    ```bash
+    yc ydb database get <имя_БД>
+    ```
+
+  **Пример**
+
+  Создание Serverless БД с ограничением пропускной способности 10 RU/c и объемом данных 50 ГБ:
+
+    > ```hcl
+    > resource "yandex_ydb_database_serverless" "database1" {
+    >   name = "test-ydb-serverless"
+    > 
+    >   serverless_database {
+    >     enable_throttling_rcu_limit = false
+    >     provisioned_rcu_limit       = 10
+    >     storage_size_limit          = 50
+    >     throttling_rcu_limit        = 0
+    >   }
+    > }
+    > ```
+
 {% endlist %}
 
 ### Изменить параметры Serverless базы данных {#update-db-serverless}
@@ -123,6 +179,59 @@
       > yc ydb database update db5 \
       >   --sls-throttling-rcu 100
       > ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте конфигурационный файл {{ TF }} и измените фрагмент с описанием Serverless базы данных:
+
+      ```hcl
+      resource "yandex_ydb_database_serverless" "database1" {
+        name = "<имя_БД>"
+
+        serverless_database {
+          enable_throttling_rcu_limit = <true_или_false>
+          provisioned_rcu_limit       = <пропускная_способность>
+          storage_size_limit          = <объем_данных>
+          throttling_rcu_limit        = <выделенная_пропускная_способность>
+        }
+      }
+      ```
+
+     Где:
+
+     * `name` — имя БД. Обязательный параметр.
+     * `enable_throttling_rcu_limit` — включить ограничение пропускной способности. Необязательный параметр. Значение по умолчанию `false`.
+     * `provisioned_rcu_limit` — ограничение потребления Request Units в секунду. Необязательный параметр. Значение по умолчанию 0.
+     * `storage_size_limit` — объем данных, ГБ. Необязательный параметр. Значение по умолчанию 50 ГБ.
+     * `throttling_rcu_limit` — устанавленное значение показывает, какое потребление Request Units в секунду оплачивается по часам по тарифу. Ноль выключает почасовую оплату. Необязательный параметр. Значение по умолчанию 0.
+
+  1. Примените изменения: 
+  
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+    {{ TF }} создаст все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+
+    ```bash
+    yc ydb database get <имя_БД>
+    ```
+  
+  **Пример**
+
+  Изменение выделенной пропускной способности и объема данных для БД `test-ydb-serverless`:
+
+    > ```hcl
+    > resource "yandex_ydb_database_serverless" "database1" {
+    >   name = "test-ydb-serverless"
+    >   serverless_database {
+    >     enable_throttling_rcu_limit = false
+    >     provisioned_rcu_limit       = 10
+    >     storage_size_limit          = 80
+    >     throttling_rcu_limit        = 100
+    >   }
+    > }
+    > ```
 
 {% endlist %}
 
@@ -226,6 +335,77 @@
       >   --async
       > ```
 
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. В конфигурационном файле {{ TF }} опишите параметры Dedicated БД, которую необходимо создать:
+
+     ```hcl
+      resource "yandex_ydb_database_dedicated" "database1" {
+        name                = "<имя_БД>"
+
+        network_id          = "<идентификатор_сети>"
+        subnet_ids          = ["<идентификатор_подсети1>", "<идентификатор_подсети2>", "<идентификатор_подсети3>"]
+
+        resource_preset_id  = "<конфигурация_вычислительных_ресурсов>"      
+
+        scale_policy {
+          fixed_scale {
+            size = <количество_экземпляров_БД>
+          }
+        }
+
+        storage_config {
+          group_count     = <количество_групп_хранения>
+          storage_type_id = "<тип_носителя>"
+        }     
+      }
+     ```
+
+     Где:
+    
+     * `name` — имя БД.
+     * `network_id` — идентификатор сети, к которой подключается БД.
+     * `subnet_ids` — список идентификаторов подсетей. Перечисляются через запятую.
+     * `resource_preset_id` — конфигурация вычислительных ресурсов узла. Возможные значения перечислены в колонке **Имя конфигурации** в таблице раздела [{#T}](../concepts/resources.md#resource-presets).
+     * `scale_policy` — политика масштабирования, где `size` — количество экземпляров БД.
+     * `storage_config` — конфигурация хранилища, где:
+        * `group_count` — количество [групп хранения](../concepts/resources.md#storage-groups).
+        * `storage_type_id` — тип носителя. Для типа `ssd` одна группа хранения вмещает 100 ГБ данных.
+
+  1. Создайте БД: 
+  
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+    {{ TF }} создаст все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+
+    ```bash
+    yc ydb database list
+    ```
+
+  **Пример**
+
+  Создание минимальной одноузловой Dedicated БД {{ ydb-name }} с именем `test-bd`, доступной из интернета:
+
+    > ```hcl
+    > resource "yandex_ydb_database_dedicated" "database2" {
+    >    name               = "test-ydb-dedicated"
+    >    network_id         = yandex_vpc_network.my-net.id
+    >    subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+    >    resource_preset_id = "medium"
+    >    scale_policy {
+    >      fixed_scale {
+    >        size = 1
+    >      }
+    >    }
+    >   storage_config {
+    >     group_count     = 1
+    >     storage_type_id = "ssd"
+    >   }
+    > }
+    > ```
+
 {% endlist %}
 
 ### Изменить параметры Dedicated базы данных {#update-db-dedicated}
@@ -267,6 +447,40 @@
   > ```
 
   Количество групп хранения нельзя уменьшить.
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте конфигурационный файл {{ TF }} и измените фрагмент с описанием БД:
+
+      > ```hcl
+      > resource "yandex_ydb_database_dedicated" "database2" {
+      >   name               = "my-first-ydb-dedicated"
+      >   network_id         = yandex_vpc_network.my-net.id
+      >   subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+      >   resource_preset_id = "medium"
+      >   scale_policy {
+      >     fixed_scale {
+      >       size = 2
+      >     }
+      >   }
+      >   storage_config {
+      >     group_count     = 1
+      >     storage_type_id = "ssd"
+      >   }
+      > }
+      > ```
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+
+  ```bash
+  yc ydb database get <имя_БД>
+  ```
 
 {% endlist %}
 
@@ -312,8 +526,48 @@
 
   Выполните команду:
 
-  ```bash
-  yc ydb database delete <имя_БД>
-  ```
+    ```bash
+    yc ydb database delete <имя_БД>
+    ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигураций {{ TF }} и удалите фрагмент с описанием БД.
+
+     Пример описания БД в конфигурации {{ TF }}:
+
+     ```hcl
+     resource "yandex_ydb_database_dedicated" "database2" {
+       name               = "test-ydb-dedicated"
+
+       network_id         = yandex_vpc_network.my-net.id
+       subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+
+       resource_preset_id = "medium"
+
+       scale_policy {
+         fixed_scale {
+           size = 1
+         }
+       }
+
+       storage_config {
+         group_count     = 1
+         storage_type_id = "ssd"
+       }
+     }
+     ```
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+    {{ TF }} удалит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+
+    ```bash
+    yc ydb database list
+    ```
 
 {% endlist %}

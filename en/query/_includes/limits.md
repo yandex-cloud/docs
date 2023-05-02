@@ -1,4 +1,4 @@
-#### Limits {#yds-limits}
+#### Limits {#yq-limits}
 
 | Type of limit | Value |
 --- | ---
@@ -7,8 +7,7 @@
 | Maximum analytical query duration | 24 hours |
 | Maximum size of a Parquet file | 50 MB |
 
-
-#### Quotas {#yds-quotas}
+#### Quotas {#yq-quotas}
 
 | Type of limit | Value |
 --- | ---

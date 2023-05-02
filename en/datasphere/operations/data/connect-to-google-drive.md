@@ -2,13 +2,9 @@
 
 You can connect to the [Google Drive](https://drive.google.com) file storage service from the {{ ml-platform-name }} interface.
 
-## Before you begin {#before-begin}
+## Before you start {#before-begin}
 
-1. [Allow access to the API](https://developers.google.com/drive/api/guides/enable-drive-api) of your Google Drive.
-1. [Create an OAuth client ID](https://developers.google.com/workspace/guides/create-credentials#tvs-limited-input-devices) and specify the **TVs and Limited Input devices** application type. Save the `client_secret.json` file with a user secret. You'll need it when connecting to Google Drive.
-1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
-
-1. [Create a secret](../data/secrets.md#create) that will store the contents of the `client_secret.json` file.
+{% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
 ## Uploading the contents from a file on Google Drive to a {{ ml-platform-name }} project file {#get-file}
 

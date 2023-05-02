@@ -42,7 +42,7 @@
 
 - API
 
-  Получить список баз данных кластера можно с помощью метода [list](../api-ref/Database/list.md).
+  Чтобы получить список баз данных кластера, воспользуйтесь методом REST API [list](../api-ref/Database/list.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/List](../api-ref/grpc/database_service.md#List).
 
 - SQL
 
@@ -123,7 +123,7 @@
 
 - API
 
-  Создать новую базу данных в кластере можно с помощью метода [create](../api-ref/Database/create.md).
+  Чтобы создать новую базу данных в кластере, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create).
 
 - SQL
 
@@ -187,7 +187,7 @@
 
 - API
 
-  Удалить базу данных можно с помощью метода [delete](../api-ref/Database/delete.md).
+  Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete).
 
 - SQL
 

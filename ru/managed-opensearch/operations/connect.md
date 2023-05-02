@@ -22,7 +22,11 @@ keywords:
 
 ## Настройка групп безопасности {#security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% note info %}
+
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% include notitle [Configuring security groups](../../_includes/mdb/mos/configuring-security-groups.md) %}
 

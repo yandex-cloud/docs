@@ -1,8 +1,6 @@
 # Создать группу безопасности
 
-Группы безопасности находятся на [стадии Preview](../../overview/concepts/launch-stages.md). Если они недоступны в вашей сети, для ресурсов будет разрешен весь входящий и исходящий трафик. Дополнительной настройки не требуется.
-
-Чтобы включить группы безопасности, [запросите в технической поддержке]({{ link-console-support }}/create-ticket) доступ к этой функции.
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 
