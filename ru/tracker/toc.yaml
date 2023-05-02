@@ -207,6 +207,8 @@ items:
         href: manager/planning-poker.md
       - name: Диаграмма сгорания задач
         href: manager/burndown.md
+      - name: Миграция на новые технологии
+        href: manager/boards-convertor.md
   - name: Доски задач (бета)
     items:
       - name: Обзор

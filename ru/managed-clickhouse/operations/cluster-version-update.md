@@ -31,7 +31,7 @@
 
 - API
 
-    Посмотреть список доступных версий можно с помощью метода API [list](../api-ref/Versions/list.md).
+    Чтобы посмотреть список доступных версий, воспользуйтесь методом REST API [list](../api-ref/Versions/list.md) для ресурса [Versions](../api-ref/Versions/index.md) или вызовом gRPC API [VersionsService/List](../api-ref/grpc/versions_service.md#List).
 
 {% endlist %}
 
@@ -130,7 +130,7 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить версию, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Нужное значение в параметре `configSpec.clickhouse.config.version`.

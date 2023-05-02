@@ -38,7 +38,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
    1. Run the created file:
 
       ```bash
-      export IAM_TOKEN=<IAM token>
+      export IAM_TOKEN=<service_account_IAM_token>
       curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d "@body.json" \
@@ -107,7 +107,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
       import json
 
       # Specify your API key and link to the audio file in Object Storage.
-      key = '<IAM token>'
+      key = '<service_account_IAM_token>'
       filelink = 'https://{{ s3-storage-host }}/speechkit/speech.ogg'
 
       POST = "https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize"

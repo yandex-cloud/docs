@@ -48,14 +48,23 @@ items:
           - name: Удаление алерта
             href: operations/alert/delete-alert.md
       - name: Работа с {{ prometheus-name }} API
-        hidden: true
         items:
-          - name: Подключение Remote API
+          - name: Обзор
             href: operations/prometheus/index.md
           - name: Запись метрик
-            href: operations/prometheus/remote-write.md
+            items:
+              - name: Обзор
+                href: operations/prometheus/ingestion/index.md
+              - name: Remote Write
+                href: operations/prometheus/ingestion/remote-write.md
           - name: Чтение метрик
-            href: operations/prometheus/remote-read.md
+            items:
+              - name: Обзор
+                href: operations/prometheus/querying/index.md
+              - name: Remote Read
+                href: operations/prometheus/querying/remote-read.md
+              - name: Grafana
+                href: operations/prometheus/querying/grafana.md
   - name: Концепции
     items:
       - name: Обзор сервиса

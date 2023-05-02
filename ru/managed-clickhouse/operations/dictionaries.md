@@ -16,11 +16,6 @@
 
 {% list tabs %}
 
-- SQL
-
-    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
-
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
@@ -50,34 +45,18 @@
 
 - API
 
-    Просмотреть список словарей можно вместе с остальными параметрами кластера с помощью метода [get](../api-ref/Cluster/get.md).
+    Чтобы просмотреть список словарей, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get).
+
+- SQL
+
+    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+    1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
 
 {% endlist %}
 
 ## Подключить словарь {#add-dictionary}
 
 {% list tabs %}
-
-- SQL
-
-    {% note warning %}
-
-    Если словарь добавлен через SQL, для него недоступно управление через консоль, CLI и API.
-
-    {% endnote %}
-
-    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [DDL-запрос]({{ ch.docs }}/sql-reference/statements/create/dictionary/) и укажите [настройки словаря](#settings-sql):
-
-        ```sql
-        CREATE DICTIONARY <имя словаря>(
-        <столбцы данных>
-        )
-        PRIMARY KEY <имя столбца с ключами>
-        SOURCE(<источник>(<конфигурация источника>))
-        LIFETIME(<интервал обновления>)
-        LAYOUT(<способ размещения в памяти>());
-        ```
 
 - Консоль управления
 
@@ -129,18 +108,34 @@
 
     {% endnote %}
 
-    Подключить словарь можно с помощью метода [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md).
+    Чтобы подключить словарь, воспользуйтесь методом REST API [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/CreateExternalDictionary](../api-ref/grpc/cluster_service.md#CreateExternalDictionary).
+
+- SQL
+
+    {% note warning %}
+
+    Если словарь добавлен через SQL, для него недоступно управление через консоль, CLI и API.
+
+    {% endnote %}
+
+    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+    1. Выполните [DDL-запрос]({{ ch.docs }}/sql-reference/statements/create/dictionary/) и укажите [настройки словаря](#settings-sql):
+
+        ```sql
+        CREATE DICTIONARY <имя словаря>(
+        <столбцы данных>
+        )
+        PRIMARY KEY <имя столбца с ключами>
+        SOURCE(<источник>(<конфигурация источника>))
+        LIFETIME(<интервал обновления>)
+        LAYOUT(<способ размещения в памяти>());
+        ```
 
 {% endlist %}
 
 ## Удалить словарь {#delete-dictionary}
 
 {% list tabs %}
-
-- SQL
-
-    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя БД>.<имя словаря>`.
 
 - Консоль управления
 
@@ -172,7 +167,12 @@
 
 - API
 
-    Удалить словарь можно с помощью метода [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md).
+    Чтобы удалить словарь, воспользуйтесь методом REST API [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteExternalDictionary](../api-ref/grpc/cluster_service.md#DeleteExternalDictionary).
+
+- SQL
+
+    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+    1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя БД>.<имя словаря>`.
 
 {% endlist %}
 

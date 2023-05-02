@@ -38,6 +38,12 @@ To explicitly define a pause between sentences, you can add a special tag, `sil<
 Stop. sil<[300]> Think about it!
 ```
 
+{% note info %}
+
+Text to synthesize may not contain markup characters only. You cannot use {{ speechkit-name }} to generate a file with silence instead of speech.
+
+{% endnote %}
+
 ### Set a pause depending on the context {#context-pause}
 
 Use cue words to automatically select the duration of pauses.

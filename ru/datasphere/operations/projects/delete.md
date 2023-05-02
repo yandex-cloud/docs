@@ -3,9 +3,8 @@
 ## Удалить ноутбук {#delete-notebook}
 
 Чтобы удалить ноутбук из проекта:
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. На вкладке **Недавние проекты** выберите проект с нужным ноутбуком.
-1. Нажмите **Открыть проект в JupyterLab**.
+1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
+1. Нажмите **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}**.
 1. На панели слева нажмите правой кнопкой мыши на имя ноутбука, который вы хотите удалить.
 1. Выберите ![image](../../../_assets/cross.svg) **Delete** и в открывшемся окне нажмите кнопку **Delete**.
 
@@ -18,7 +17,6 @@
 {% endnote %}
 
 Чтобы удалить проект:
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. На вкладке **Недавние проекты** выберите проект, который вы хотите удалить.
-1. Нажмите **Еще** в правом верхнем углу экрана и выберите **Удалить**.
-1. В открывшемся окне нажмите кнопку **Удалить**.
+1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
+1. В правом верхнем углу экрана нажмите **{{ ui-key.yc-ui-datasphere.common.more }}** и выберите ![image](../../../_assets/datasphere/basket.svg) **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. В открывшемся окне нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.delete }}**.

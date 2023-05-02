@@ -45,7 +45,7 @@
 
 - API
 
-  Воспользуйтесь методом API [listHosts](../api-ref/Cluster/listHosts.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы получить список хостов в кластере, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md).
 
@@ -164,7 +164,7 @@
 
 - API
 
-  Воспользуйтесь методом API [addHosts](../api-ref/Cluster/addHosts.md) и передайте в запросе:
+  Чтобы добавить хост, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Настройки нового хоста в одном или нескольких параметрах `hostSpecs`.
 
@@ -175,7 +175,7 @@
 {% note warning %}
 
 
-Если после добавления хоста к нему невозможно [подключиться](connect.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
+Если после добавления хоста к нему невозможно [подключиться](connect.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост. Группы безопасности находятся на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 
 Используйте опцию копирования схемы данных только в том случае, когда схема одинакова на всех хостах-репликах кластера.
@@ -244,7 +244,7 @@
 
 - API
 
-  Чтобы изменить параметры хоста, воспользуйтесь методом API [updateHosts](../api-ref/Cluster/updateHosts.md) и передайте в запросе:
+  Чтобы изменить параметры хоста, воспользуйтесь методом REST API [updateHosts](../api-ref/Cluster/updateHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) и передайте в запросе:
   * Идентификатор кластера, в котором нужно изменить хост, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя хоста, который нужно изменить, в параметре `updateHostSpecs.hostName`. Чтобы узнать имя, получите [список хостов в кластере](#list-hosts).
   * Настройки публичного доступа к хосту в параметре `updateHostSpecs.assignPublicIp`.
@@ -254,15 +254,13 @@
 
 {% endlist %}
 
-Группы безопасности находятся на [стадии Preview](../../overview/concepts/launch-stages.md). Если они недоступны в вашей сети, для ресурсов будет разрешен весь входящий и исходящий трафик. Дополнительной настройки не требуется.
-
-Чтобы включить группы безопасности, [запросите в технической поддержке]({{ link-console-support }}/create-ticket) доступ к этой функции.
 
 {% note warning %}
 
-Если после изменения хоста к нему невозможно [подключиться](connect.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
+Если после изменения хоста к нему невозможно [подключиться](connect.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост. Группы безопасности находятся на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
+
 
 ## Удалить хост {#remove-host}
 
@@ -317,7 +315,7 @@
 
 - API
 
-  Воспользуйтесь методом API [deleteHosts](../api-ref/Cluster/deleteHosts.md) и передайте в запросе:
+  Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя или массив имен удаляемых хостов в параметре `hostNames`.
 

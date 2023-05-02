@@ -9,7 +9,7 @@ You can add and remove cluster hosts and manage their settings.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mrd-name }}**.
-   1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
@@ -44,7 +44,7 @@ You can add and remove cluster hosts and manage their settings.
 
 - API
 
-   Use the [listHosts](../api-ref/Cluster/listHosts.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [listHosts](../api-ref/Cluster/listHosts.md) API method and include the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
 
@@ -104,7 +104,7 @@ Public access to hosts can only be configured for clusters created with enabled 
       | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
-  
+
 
 
       
@@ -130,8 +130,7 @@ Public access to hosts can only be configured for clusters created with enabled 
       ```
 
       Where:
-
-      * `--cluster-name` is the name of a {{ mrd-name }} cluster. You can retrieve it with a [list of clusters in a folder](cluster-list.md#list-clusters).
+      * `--cluster-name`: Name of a {{ mrd-name }} cluster. You can retrieve it with a [list of clusters in a folder](cluster-list.md#list-clusters).
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
@@ -164,7 +163,7 @@ Public access to hosts can only be configured for clusters created with enabled 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -174,8 +173,8 @@ Public access to hosts can only be configured for clusters created with enabled 
 
 - API
 
-   Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and include the following in the request:
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New host settings in one or more `hostSpecs` parameters.
 
 {% endlist %}
@@ -198,7 +197,7 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 
    To change the parameters of the cluster host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mrd-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Edit**.
    1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
    1. Click **Save**.
@@ -245,7 +244,7 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -253,7 +252,7 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 
 - API
 
-   To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
+   To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and include the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, [request a list of hosts in the cluster](#list).
    * Host public access settings as `updateHostSpecs.assignPublicIp`.
@@ -284,7 +283,7 @@ If the host is the master when deleted, {{ mrd-name }} automatically assigns ano
 
    To remove a host from a cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mrd-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. In the row next to the appropriate cluster, click ![image](../../_assets/options.svg) and select **Delete**.
    1. In the window that opens, check **Delete host** and click **Confirm**.
 
@@ -314,7 +313,7 @@ If the host is the master when deleted, {{ mrd-name }} automatically assigns ano
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -324,8 +323,8 @@ If the host is the master when deleted, {{ mrd-name }} automatically assigns ano
 
 - API
 
-   Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The name(s) of the host(s) to delete, in the `hostNames` parameter.
+   Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) API method and include the following in the request:
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Name(s) of the host(s) to delete in the `hostNames` parameter.
 
 {% endlist %}

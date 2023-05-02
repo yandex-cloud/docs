@@ -24,7 +24,11 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 

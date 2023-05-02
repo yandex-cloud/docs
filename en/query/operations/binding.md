@@ -34,26 +34,26 @@ To create a binding:
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Bindings**.
 1. Click ![info](../../_assets/query/info.svg) next to the name of the desired binding.
-   You'll see information about the binding under the list of bindings:
+   You will see information about the binding under the list of bindings:
    **General**:
 
-   * Data paths.
-   * The data format.
-   * Compression.
+     * Data paths.
+     * The data format.
+     * Compression.
 
    **Schema**: List of data binding columns and their types.
 
    **Connection parameters**:
 
-   * Type.
-   * Information about the source.
-   * Authentication.
+     * Type.
+     * Information about the source.
+     * Authentication.
 
    **Meta**:
 
-   * ID.
-   * Creation timestamp.
-   * Author.
+     * ID.
+     * Creation timestamp.
+     * Author.
 
 ## Changing a binding {#update}
 
@@ -61,7 +61,7 @@ To create a binding:
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Bindings**.
 1. Click ![pencil](../../_assets/query/pensil.svg) next to the name of the desired binding.
-1. Specify new parameters for the data binding. You can't edit information in the **Connection parameters** section.
+1. Specify new parameters for the data binding. You cannot edit information in the **Connection parameters** section.
 1. Click **Edit**.
 
 ## Deleting a binding {#delete}

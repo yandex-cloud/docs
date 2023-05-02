@@ -1,10 +1,10 @@
 # Asynchronous Recognition API
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. A recognition request should be sent on behalf of a [service account](../../../iam/concepts/users/service-accounts.md) with the [`{{ roles-speechkit-stt }}`](../../../iam/concepts/access-control/roles.md#speechkit-roles) role for the folder where it was created.
+1. A recognition request should be sent on behalf of a [service account](../../../iam/concepts/users/service-accounts.md) with the `{{ roles-speechkit-stt }}` role for the folder where it was created. You need the `storage.uploader` role to access a {{ objstorage-name }} bucket.
 
-   If necessary, follow the instructions:
+   If required, follow these guides:
    * [{#T}](../../../iam/operations/sa/create.md). In the management console, you can assign roles when creating a service account.
    * [{#T}](../../../iam/operations/roles/get-assigned-roles.md).
    * [{#T}](../../../iam/operations/sa/assign-role-for-sa.md).
@@ -17,7 +17,7 @@
    ```
 1. Upload an audio file to {{ objstorage-full-name }} and get a link to the uploaded file:
 
-   1. If you don't have a bucket in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one.
+   1. If you do not have a bucket in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one.
    1. [Upload an audio file](../../../storage/operations/objects/upload.md) to your bucket. In {{ objstorage-name }}, uploaded files are called _objects_.
    1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded file. Use this link in your audio recognition request.
 

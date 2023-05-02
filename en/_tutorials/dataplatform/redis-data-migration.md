@@ -50,7 +50,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the configuration file for the appropriate cluster type to the same working directory:
 
@@ -71,10 +71,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * Password to access the {{ mrd-name }} cluster.
          * (Optional) Virtual machine parameters:
 
-            * Public virtual machine [image](../../compute/operations/images-with-pre-installed-software/get-list) ID. e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+            * Public virtual machine [image](../../compute/operations/images-with-pre-installed-software/get-list) ID, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
             * Login and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
-      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
+      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash

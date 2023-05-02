@@ -34,3 +34,10 @@
 * [{#T}](alert/delete-alert.md)
 
 
+
+
+## Работа с {{ prometheus-name }} API
+
+* [{#T}](prometheus/ingestion/index.md)
+* [{#T}](prometheus/querying/index.md)
+

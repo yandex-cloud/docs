@@ -26,7 +26,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 {% endnote %}
 
-## Changing the cluster name and description {#change-name-and-description}
+## Change the cluster name and description {#change-name-and-description}
 
 {% list tabs %}
 
@@ -47,7 +47,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
    To change the [host class](../concepts/instance-types.md) for the cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-rd }} cluster update --help
@@ -99,7 +99,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New cluster name in the `name` parameter.
@@ -138,7 +138,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
    To change the [host class](../concepts/instance-types.md) for the cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-rd }} cluster update --help
@@ -213,14 +213,14 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New host class, in the `configSpec.resources.resourcePresetId` parameter.
 
       To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
 
-   * List of fields to update (`configSpec.resources.resourcePresetId` in this case) in the `updateMask` parameter.
+   * List of fields to update (in this case, `configSpec.resources.resourcePresetId`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -251,7 +251,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
    To increase storage size of {{ RD }} hosts:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-rd }} cluster update --help
@@ -300,11 +300,11 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - API
 
-   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.resources.diskSize` parameter.
-   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.resources.diskSize` in this case).
+   * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.resources.diskSize`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -398,7 +398,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    To change additional cluster settings:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-rd }} cluster update --help
@@ -431,7 +431,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Cluster deletion protection settings in the `deletionProtection` parameter.
@@ -481,10 +481,10 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - API
 
-   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+   Use the [move](../api-ref/Cluster/move.md) API method and provide the following in the query:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The ID of the destination folder in the `destinationFolderId parameter`.
+   * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
 
@@ -511,7 +511,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-rd }} cluster update --help
@@ -553,10 +553,10 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The list of security group IDs in the `securityGroupIds` parameter.
+   * List of security group IDs in the `securityGroupIds` parameter.
    * List of settings to update (`securityGroupIds` in this case) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

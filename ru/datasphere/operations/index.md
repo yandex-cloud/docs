@@ -10,15 +10,18 @@ description: "Страница содержит все инструкции дл
 * [{#T}](community/create.md)
 * [{#T}](community/add-user.md)
 * [{#T}](community/link-channel.md)
+* [{#T}](community/link-ba.md)
+* [{#T}](community/billing-details.md)
 * [{#T}](community/delete.md)
 
 ## Управление проектом {#project}
 
 * [{#T}](projects/create.md)
-* [{#T}](projects/storage-resize.md)
 * [{#T}](projects/add-user.md)
-* [{#T}](projects/update.md)
 * [{#T}](projects/python-version.md)
+* [{#T}](projects/storage-resize.md)
+* [{#T}](projects/update.md)
+* [{#T}](projects/restrictions.md)
 * [{#T}](projects/delete.md)
 
 ## Работа в ноутбуке {#notebook}
@@ -27,6 +30,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/gpu-performance-check.md)
 * [{#T}](projects/install-dependencies.md)
 * [{#T}](projects/clear-kernel-state.md)
+* [{#T}](projects/snippets.md)
 * [{#T}](projects/work-with-git.md)
 * [{#T}](user-images-cell.md)
 
@@ -34,17 +38,17 @@ description: "Страница содержит все инструкции дл
 
 * [{#T}](data/secrets.md)
 * [{#T}](projects/checkpoints.md)
+* [{#T}](data-proc-template.md)
 * [{#T}](user-images.md)
 * [{#T}](data/dataset.md)
-* [{#T}](data-proc-template.md)
 
 ## Подключение к источникам данных {#connections-to-data-sources}
 
 * [{#T}](data/connect-to-s3.md)
-* [{#T}](data/connect-to-google-drive.md)
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
 * [{#T}](data/connect-to-ya-disk.md)
+* [{#T}](data/connect-to-google-drive.md)
 
 ## Развертывание эксплуатации моделей {#deploy}
 

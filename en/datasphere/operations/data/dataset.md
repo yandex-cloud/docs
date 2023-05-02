@@ -8,7 +8,7 @@ To create and initialize a dataset, use a Bash or Python cell with the `#pragma 
 
 {% note info %}
 
-The dataset initialization process will allocate the entire requested amount of disk space but the file system will take up a part of this space. Specify the dataset size with room to spare.
+The dataset initialization process will allocate the entire requested amount of disk space but the file system will take up a part of this space. Specify the dataset size in GB rounded up to the nearest integer.
 
 {% endnote %}
 
@@ -106,8 +106,8 @@ To create a dataset named `<dataset_name>` from a [CIFAR-10](https://www.cs.toro
   import boto3
 
   S3_CREDS = {
-       "aws_access_key_id": os.environ['<secret_with_access_key_ID>'],
-       "aws_secret_access_key": os.environ['<secret_with_secret_key>']
+      "aws_access_key_id": os.environ['<secret_with_access_key_ID>'],
+      "aws_secret_access_key": os.environ['<secret_with_secret_key>']
   }
   bucket_name = "<bucket_name>"
 
@@ -118,13 +118,13 @@ To create a dataset named `<dataset_name>` from a [CIFAR-10](https://www.cs.toro
   bucket = s3r.Bucket(bucket_name)
 
   for obj in bucket.objects.filter(Prefix=source_path):
-       if not os.path.relpath(obj.key, source_path).startswith('../'):
+      if not os.path.relpath(obj.key, source_path).startswith('../'):
           os.makedirs(os.path.join(target_path, os.path.dirname(obj.key)), exist_ok=True)
           if obj.key[-1] != '/':
               bucket.download_file(obj.key, os.path.join(target_path, obj.key))
   ```
 
-   Where:
+  Where:
 
   * `aws_access_key_id`: ID of the [static access key](../../../iam/concepts/authorization/access-key.md) [generated](../../../iam/operations/sa/create-access-key.md) for the project service account.
   * `aws_secret_access_key`: Secret key generated for that service account.
@@ -133,26 +133,28 @@ To create a dataset named `<dataset_name>` from a [CIFAR-10](https://www.cs.toro
 
    Initialize the dataset in a cell with the following code:
 
-  ```python
-  #pragma dataset init <dataset_name> --size 8Gb
+   ```python
+   #pragma dataset init <dataset_name> --size 8Gb
 
-  import requests
-  from urllib.parse import urlencode
-  from io import BytesIO
-  from zipfile import ZipFile
+   import requests
+   from urllib.parse import urlencode
+   from io import BytesIO
+   from zipfile import ZipFile
 
-  base_url = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?'
-  public_key = '<Yandex_Disk_folder_URL>'
+   base_url = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?'
+   public_key = '<Yandex_Disk_folder_link>'
 
-  final_url = base_url + urlencode(dict(public_key=public_key))
-  response = requests.get(final_url)
-  download_url = response.json()['href']
-  response = requests.get(download_url)
+   final_url = base_url + urlencode(dict(public_key=public_key))
+   response = requests.get(final_url)
+   download_url = response.json()['href']
+   response = requests.get(download_url)
 
-  dist_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
-  zipfile = ZipFile(BytesIO(response.content))
-  zipfile.extractall(path=dist_path)
-  ```
+   dist_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
+   zipfile = ZipFile(BytesIO(response.content))
+   zipfile.extractall(path=dist_path)
+   ```
+
+   Where `<Yandex_Disk_folder_link>` is the URL of the folder on Yandex Disk whose contents need to be imported to {{ ml-platform-name }}.
 
 - Google Drive
 

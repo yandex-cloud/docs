@@ -36,6 +36,8 @@ items:
             href: concepts/stream-processing-windows.md
       - name: Единый анализ потоковых и аналитических данных
         href: concepts/unified-processing.md
+      - name: Резервное копирование
+        href: concepts/backup.md
   - name: Пошаговые инструкции
     items:
       - name: Управление соединениями
@@ -124,6 +126,8 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Вопросы и ответы
+    href: qa/index.md
   - name: Публичные материалы
     href: public_talks.md
   - name: Обучающие курсы

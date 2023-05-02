@@ -438,7 +438,11 @@
 
 ## Изменить группы безопасности {#change-sg-set}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -512,7 +516,7 @@
 
 {% note warning %}
 
-Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для подключения к кластеру (функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md)).
+Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для подключения к кластеру.
 
 {% endnote %}
 

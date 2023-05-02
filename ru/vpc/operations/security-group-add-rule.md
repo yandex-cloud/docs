@@ -7,8 +7,11 @@ description: "Добавлять правила можно через консо
 
 Если вы добавили или удалили правила, не нужно перезагружать ВМ. Правила применятся сразу ко всем ресурсам, которым назначена группа.
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
+{% endnote %}
 
 {% list tabs %}
 

@@ -9,6 +9,16 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release on 29/03/2023 {#290323}
+
+1. You can now work with [labels](../resource-manager/concepts/labels.md) to label resources.
+1. Fixed bugs and added minor improvements.
+
+## Release on 24/03/2023 {#240323}
+
+1. Added a [tool to migrate](operations/migration.md) projects to the new {{ ml-platform-name }} version.
+1. Fixed bugs and added minor improvements.
+
 ## Release on 02/03/2023 {#020323}
 
 1. You can now use the new {{ ml-platform-name }} version via the API.

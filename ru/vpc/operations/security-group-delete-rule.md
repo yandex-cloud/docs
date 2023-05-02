@@ -1,6 +1,10 @@
 # Удалить правило из группы безопасности
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 

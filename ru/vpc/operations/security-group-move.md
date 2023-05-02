@@ -1,6 +1,10 @@
 # Переместить группу безопасности в другой каталог
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 

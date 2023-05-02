@@ -1,10 +1,10 @@
 # Чтение метрик через Remote API
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+{% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хранятся данные.
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью `{{ roles-monitoring-viewer }}` на выбранный каталог.
-1. [Создайте API-ключ](../../../iam/operations/api-key/create.md) для сервисного аккаунта.
+1. [Создайте сервисный аккаунт](../../../../iam/operations/sa/create.md) с ролью `{{ roles-monitoring-viewer }}` на выбранный каталог.
+1. [Создайте API-ключ](../../../../iam/operations/api-key/create.md) для сервисного аккаунта.
 1. В [конфигурацию Prometheus](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read), в секцию `remote_read`, добавьте эндпоинт (`url`):
    ```yaml
    ...
@@ -27,14 +27,16 @@
    ```
 5. Перезапустите {{ prometheus-name }} или перезагрузите конфигурацию.   
 
-## Примеры ошибок
+## Примеры ошибок {#errors}
 
 * Превышен лимит запросов на чтение
   >```remote_read: remote server https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo916sceer","code":429}```
 
-## Метрики {{ prometheus-name }}
+## Метрики {{ prometheus-name }} {#metrics}
 
 | Имя метрики | Единицы измерения | Пояснения |
 |----|----|----|
 `prometheus_remote_storage_read_queries_total` | Вызовы | Общее количество запросов на чтение.
 `prometheus_remote_storage_read_request_duration_seconds` | Секунды | Гистограмма времени выполнения запросов на чтение.
+
+{% include [trademark](../../../../_includes/monitoring/trademark.md) %}
