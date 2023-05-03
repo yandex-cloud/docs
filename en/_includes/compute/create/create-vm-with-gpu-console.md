@@ -17,7 +17,7 @@ To create a VM:
 
 1. (optional) Under **Disks and file storage**, configure a boot disk:
    * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
-   * Specify the necessary disk size.
+   * Specify the required disk size.
 
 1. (optional) Under **Disks and file storage**, select the **File storage** tab, connect a [file store](../../../compute/concepts/filesystem.md), and enter the device name.
 
@@ -25,9 +25,10 @@ To create a VM:
    * Choose a [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms):
       * {{ v100-broadwell }}.
       * {{ v100-cascade-lake }}.
+      * {{ t4-ice-lake }}.
       * {{ a100-epyc }}.
    * Select a virtual machine [configuration](../../../compute/concepts/gpus.md#config) specifying the required number of GPUs.
-   * If necessary, make your VM [preemptible](../../../compute/concepts/preemptible-vm.md).
+   * Make your VM [preemptible](../../../compute/concepts/preemptible-vm.md), if required.
 
 1. Under **Network settings**:
 
@@ -41,7 +42,7 @@ To create a VM:
 
          {% note alert %}
 
-         Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the command `sudo` command.
+         Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
 
          {% endnote %}
 
@@ -52,8 +53,8 @@ To create a VM:
 
          {% include [password-requirements](../../compute/password-requirements.md) %}
 
-      * (optional) If necessary, enable access to the [serial console](../../../compute/operations/index.md#serial-console).
+      * (optional) Enable access to the [serial console](../../../compute/operations/index.md#serial-console), if required.
 
 1. Click **Create VM**.
 
-The virtual machine appears in the list.
+The virtual machine will appear in the list.

@@ -2,6 +2,17 @@
 
 [Эндпоинт](../../concepts/index.md#endpoint)-источник описывает настройки базы данных, из которой будет передаваться информация с помощью {{ data-transfer-name }}, а эндпоинт-приемник — базы, в которую будет производиться перенос. Вы можете [создать](#create), [изменить](#update) или [удалить](#delete) такие эндпоинты.
 
+## Получить список эндпоинтов {#list}
+
+{% list tabs %}
+
+- Консоль управления
+    
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
+    1. На панели слева выберите ![image](../../../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+
+{% endlist %}
+
 ## Создать эндпоинт {#create}
 
 {% list tabs %}

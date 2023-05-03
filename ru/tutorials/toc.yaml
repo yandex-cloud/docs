@@ -384,6 +384,10 @@ items:
         href: routing/usergate-proxy.md
       - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
         href: routing/usergate-firewall.md
+      - name: >-
+          Реализация защищенной высокодоступной сетевой инфраструктуры с
+          выделением DMZ на основе Next-Generation Firewall
+        href: routing/high-accessible-dmz.md
       - name: Настройка сети для {{ dataproc-name }}
         href: routing/dataproc-nat-instance.md
   - name: Визуализация и анализ данных

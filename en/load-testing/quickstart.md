@@ -8,11 +8,16 @@ This guide will help you create a test agent in your cloud, configure a simple l
    1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md).
 1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 1. Create a [service account](../iam/operations/sa/create.md) in the folder to host the agents that will generate the load. [Assign](../iam/operations/roles/grant.md) it the `loadtesting.generatorClient` [role](./security/#roles-list).
-1. The agent connects to {{ load-testing-name }} using a public API. For security purposes, [create a security group](../vpc/operations/security-group-create.md). To connect to the control service, make sure the agent allows outgoing traffic to port 443. To send requests to the test target, allow access to the desired port.
+1. The agent connects to {{ load-testing-name }} using a public API. For security purposes, [create a security group](../vpc/operations/security-group-create.md). To connect to the control service, make sure the agent allows outgoing traffic to port 443. To do this, [add the following rule](../vpc/operations/security-group-add-rule.md) for outgoing traffic to your security group:
+   * Port range: `443`.
+   * Protocol: `TCP`.
+   * Source type: `CIDR`.
+   * Destination: `0.0.0.0/0`.
 
    {% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
 
-1. The agent will need access to the subnet hosting the test target. For the agent to be able to connect to {{ load-testing-name }}, enable [egress NAT on the s](../vpc/operations/enable-nat.md)ubnet.
+1. The agent will need access to the subnet hosting the test target. For the agent to be able to connect to {{ load-testing-name }}, set up a [NAT gateway](../vpc/operations/create-nat-gateway.md) for the subnet.
+1. If you do not have an SSH key pair yet, [create them](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 ## Create an agent {#create-agent}
 
@@ -21,11 +26,14 @@ This guide will help you create a test agent in your cloud, configure a simple l
 1. On the **Agents** tab, click **Create agent**.
 1. Give your agent the `test-agent` name.
 1. Specify the same availability zone where the test target is located.
-1. Select the service account with the `loadtesting.generatorClient` role. You must have the [permission to use it](../iam/operations/sa/set-access-bindings.md).
 1. Select the appropriate agent type. For more information, see [Agent performance](concepts/agent.md#benchmark).
 1. Specify the subnet where the test target is located. Make sure you [created and set up a NAT gateway](../vpc/operations/create-nat-gateway.md) in the subnet.
-1. Specify the previously created security group.
+1. If security groups are available to you, select a preset group.
+1. Select the service account with the `loadtesting.generatorClient` role. You must have the [permission to use it](../iam/operations/sa/set-access-bindings.md).
+1. Enter a username. It will be created on the VM.
+1. Paste the contents of the [public key](../compute/operations/vm-connect/ssh.md#copy-key) file.
 1. Click **Create**.
+1. Wait for the VM to start. Make sure the agent status changes to `Ready for test`.
 
 This creates a VM in your folder that you will be able to use to load test targets in the selected subnet.
 
@@ -37,7 +45,6 @@ We will use Pandora as load generator, since it is best suited for testing cloud
 
 1. Open the ![image](../_assets/load-testing/test.svg) **Tests** tab in **{{ load-testing-name }}**. Click **Create test**. Set the test parameters:
    1. **Agent**: Select `test-agent`.
-   1. **Log group**: `Default`.
    1. **Setup method**: Select **Form**.
    1. **Load generator**: Select **Pandora**.
    1. **Target address**: Enter the address of the service to test: `example.myservice.ru`.
@@ -52,24 +59,30 @@ We will use Pandora as load generator, since it is best suited for testing cloud
 
       {% endnote %}
 
-   1. In the **Load schedule** menu:
-      * **Load type**: Select **RPS**.
-      * **Load profile**: Add two test stages:
-         * `{type: line, duration: 60s, from: 1, to: 100}`
-         * `{type: const, duration: 300s, ops: 100}`
+   1. **Load type**: Select **RPS**.
+   1. Add a **Load profile**:
+      * **Profile 1**: Select `line`.
+      * **From**: Set `1`.
+      * **To**: Set `100`.
+      * **Duration**: Specify `60s`.
+   1. Add another **Load profile**:
+      * **Profile 2**: Select `const`.
+      * **Requests per second**: Specify `100`.
+      * **Duration**: Specify `300s`.
 
-         This instructs the generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes.
+      This instructs the generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes.
    1. **Request type**: Specify `URI`.
-   1. In the **Requests** menu, add two requests:
-      * `/ index`
-      * `/test?param1=1&param2=2 get_test`
+   1. In the **Set requests via form** menu:
+      * In the **Requests** submenu, add the following requests:
+        * `/ index`
+        * `/test?param1=1&param2=2 get_test`
 
-      The requests are marked with the `index` and `get_test` tags. The load generator will repeat them within a given load profile.
-   1. In the **Request headers** menu, specify the headers:
-      * `[Host: example.myservice.ru]`
-      * `[Connection: Close]`
+        The requests are marked with the `index` and `get_test` tags. The load generator will repeat them within a given load profile.
+      * In the **Request headers** submenu, specify the following headers:
+        * `[Host: example.myservice.ru]`
+        * `[Connection: Close]`
 
-      Please note that the `Connection: Close` header means each connection is terminated after making a request. This mode is heavier on the application and load generator. If you do not need to close connections, set `Keep-Alive`.
+        Please note that the `Connection: Close` header means each connection is terminated after making a request. This mode is heavier on the application and load generator. If you do not need to close connections, set `Keep-Alive`.
    1. Under **Test information**, specify the name, description, and number of the test version. This will make the report easier to read.
    1. Click **Create**.
 

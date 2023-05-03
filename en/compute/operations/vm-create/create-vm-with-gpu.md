@@ -62,6 +62,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       * `platform`: [Platform](../../concepts/vm-platforms.md) ID:
          * `gpu-standard-v1` for {{ v100-broadwell }}.
          * `gpu-standard-v2` for {{ v100-cascade-lake }}.
+         * `standard-v3-t4` for {{ t4-ice-lake }}.
          * `gpu-standard-v3` for {{ a100-epyc }}.
       * `cores`: [The number of vCPUs](../../concepts/gpus.md).
       * `memory`: [The RAM size](../../concepts/gpus.md).
@@ -148,6 +149,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
          * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
             * `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.
             * `gpu-standard-v2` for Intel Cascade Lake with NVIDIA® Tesla® V100.
+            * `standard-v3-t4` for Intel Ice Lake with NVIDIA® Tesla® T4.
             * `gpu-standard-v3` for AMD EPYC 7662 with NVIDIA® Ampere® A100.
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).

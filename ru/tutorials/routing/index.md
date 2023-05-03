@@ -10,6 +10,7 @@
 * [Соединение с облачной сетью при помощи OpenVPN](openvpn.md)
 * [Создание и настройка шлюза UserGate в режиме прокси-сервера](usergate-proxy.md)
 * [Создание и настройка шлюза UserGate в режиме межсетевого экрана](usergate-firewall.md)
+* [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Next-Generation Firewall](high-accessible-dmz.md)
 
 
 * [{#T}](dataproc-nat-instance.md)

@@ -211,7 +211,7 @@
   
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-    {{ TF }} создаст все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+    {{ TF }} применит требуемые изменения к ресурсам. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
 
     ```bash
     yc ydb database get <имя_БД>

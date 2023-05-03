@@ -11,6 +11,7 @@
 * [{#T}](#postgresql)
 * [{#T}](#ydb)
 * [{#T}](#yds)
+* [{#T}](#support)
 
 Особенности подготовки источников и приемников к трансферу описаны в [соответствующем разделе](../operations/prepare.md).
 
@@ -116,4 +117,13 @@
 ## {{ yds-full-name }} {#yds}
 
 {% include [overloaded](../../_includes/data-transfer/troubles/overloaded.md) %}
+
+
+## Куда заявить о проблеме {#support}
+
+
+Если проблему не удалось решить с помощью приведенных советов, обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+
+В обращении укажите идентификатор [трансфера](../operations/transfer.md#list) или [эндпоинта](../operations/endpoint/index.md#list); приложите информацию о [состоянии трансфера](../operations/monitoring.md).
 
