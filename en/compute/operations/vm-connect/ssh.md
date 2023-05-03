@@ -87,11 +87,11 @@ You can also copy the key using the command line:
 
 ## Connecting to a VM {#vm-connect}
 
-You can connect to a virtual machine with the `RUNNING` status over SSH. Some time may be required to initialize all the services after the VM [starts](../vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after several minutes.
+You can connect to a virtual machine with the `RUNNING` status over SSH. Some time may be required to initialize all the services after the VM [starts](../vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after a few minutes.
 
 To connect, you can use the `ssh` utility on Linux/macOS/Windows 10 and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) on Windows 7/8.
 
-Virtual machine [security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic on port 22.
+Virtual machine [security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic to port 22.
 
 {% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
 

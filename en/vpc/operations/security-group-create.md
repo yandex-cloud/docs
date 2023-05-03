@@ -1,6 +1,6 @@
 # Create a security group
 
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
 
 To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 
@@ -107,7 +107,7 @@ To create a new [security group](../concepts/security-groups.md):
 
 
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure the configuration files are valid.
 

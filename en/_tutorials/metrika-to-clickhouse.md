@@ -4,6 +4,8 @@ noIndex: true
 
 # Asynchronously replicating data from {{ metrika }} to {{ CH }} using {{ data-transfer-full-name }}
 
+{% include [note-metrica-pro](../_includes/data-transfer/note-metrica-pro.md) %}
+
 With {{ data-transfer-name }}, you can transfer data from a [{{ metrika }}]({{ metrika-link }}) tag to a {{ CH }} cluster. Such a transfer ensures the data transferred from {{ metrika }} are complete and allows:
 
 * Processing data with {{ CH }} tools.
@@ -33,12 +35,12 @@ Prepare the infrastructure:
 
 1. [Create an endpoint](../data-transfer/operations/endpoint/index.md#create) for the target:
 
-   * **Database type**: `{{ CH }}`.
-   * **Endpoint parameters** → **Connection settings**: `{{ mch-name }} cluster`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ CH }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`.
 
       Select a target cluster from the list and specify its [connection settings](../data-transfer/operations/endpoint/target/clickhouse.md).
 
-1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a _{{ dt-type-repl }}_ type that will use the created endpoints.
+1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
 1. [Activate](../data-transfer/operations/transfer.md#activate) your transfer.
 
 A transfer only moves the current data and does not affect historical data. If you disable and enable a transfer again:
@@ -46,13 +48,13 @@ A transfer only moves the current data and does not affect historical data. If y
 1. Data obtained by the {{ metrika }} tag before the transfer was disabled will not be transferred.
 2. Depending on the cleanup policy selected in the target endpoint, the existing data tables will be:
 
-   * **Drop**: Deleted along with the data and created again with the same names.
-   * **Truncate**: Purged of the data without removing the tables and schemas.
-   * **Don't clean up**: Used for further data writes.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}**: Deleted along with the data and created again with the same names.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}**: Purged of the data without removing the tables and schemas.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}**: Used for further data writes.
 
 ## Test the transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to {{ dt-status-repl }}.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Make sure the data from the {{ metrika }} tag has been moved to the {{ mch-name }} database:
 

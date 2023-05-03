@@ -78,12 +78,14 @@
   
       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
   
-  1. Измените в описании кластера {{ mmg-name }} значение параметра `resource_preset_id` в блоке `resources`:
+  1. Измените в описании кластера {{ mmg-name }} значение параметра `resource_preset_id` для ресурсов `resources_mongod`, `resources_mongoinfra`, `resources_mongos` или `resources_mongocfg`. Тип ресурса зависит от [типа шардирования](../concepts/sharding.md#shard-management).
+
+      Пример:
   
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
         ...
-        resources {
+        resources_mongod {
             resource_preset_id = "<класс хостов {{ MG }}>"
             ...
         }
@@ -163,12 +165,14 @@
     
       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
     
-  1. Измените в описании кластера {{ mmg-name }} значение параметра `disk_size` в блоке `resources`:
+  1. Измените в описании кластера {{ mmg-name }} значение параметра `disk_size` для ресурсов `resources_mongod`, `resources_mongoinfra`, `resources_mongos` или `resources_mongocfg`. Тип ресурса зависит от [типа шардирования](../concepts/sharding.md#shard-management).
+
+      Пример:
     
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
         ...
-        resources {
+        resources_mongod {
           disk_size = <размер хранилища в гигабайтах>
           ...
         }

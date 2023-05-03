@@ -180,7 +180,7 @@
          }
        }
 
-       resources {
+       resources_mongod {
          resource_preset_id = "<класс хоста>"
          disk_type_id       = "<тип диска>"
          disk_size          = <размер хранилища, ГБ>
@@ -207,7 +207,7 @@
 
      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
+     {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmg }}).
 
@@ -342,7 +342,7 @@
       }
     }
 
-    resources {
+    resources_mongod {
       resource_preset_id = "{{ host-class }}"
       disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 20

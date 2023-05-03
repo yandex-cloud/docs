@@ -41,6 +41,8 @@ items:
         items:
           - name: Selecting computing resources
             href: operations/projects/control-compute-resources.md
+          - name: Checking GPU load
+            href: operations/projects/gpu-performance-check.md
           - name: Installing packages
             href: operations/projects/install-dependencies.md
           - name: Resetting the interpreter state
@@ -243,7 +245,7 @@ items:
     href: pricing.md
   - name: Public materials
     href: public-talks.md
-  - name: Revision history
+  - name: Releases
     href: release-notes.md
   - name: Questions and answers
     href: qa/index.md

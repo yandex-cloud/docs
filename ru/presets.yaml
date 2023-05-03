@@ -43491,6 +43491,9 @@ default:
                         title: Список объектов для переноса (Превью)
                       runtime:
                         title: Среда выполнения
+                      title: Параметры трансфера
+                      transformation:
+                        title: Трансформация данных (Превью)
                       type:
                         title: Тип трансфера
                     TransferType:

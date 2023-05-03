@@ -43484,6 +43484,9 @@ default:
                         title: List of objects to be transferred (Preview)
                       runtime:
                         title: Runtime environment
+                      title: Transfer parameters
+                      transformation:
+                        title: Data transformation (Preview)
                       type:
                         title: Transfer type
                     TransferType:

@@ -183,11 +183,11 @@ To do this, follow these steps:
    zone_id: {{ region-id }}-a
    ...
    placement_policy:
-   host_affinity_rules:
-   - key: yc.hostId
-      op: IN
-      values:
-      - fhm1ceqtmivgr0d76fvb
+     host_affinity_rules:
+     - key: yc.hostId
+       op: IN
+       values:
+       - fhm1ceqtmivgr0d76fvb
    ```
 
 {% endlist %}
