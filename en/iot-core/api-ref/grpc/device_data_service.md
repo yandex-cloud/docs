@@ -30,5 +30,5 @@ data | **bytes**<br>Content of the message The maximum string length in characte
 
 ### PublishDeviceDataResponse {#PublishDeviceDataResponse}
 
-
+Empty
 

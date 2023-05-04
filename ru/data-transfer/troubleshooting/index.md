@@ -39,6 +39,8 @@
 
 ## Сеть {#network}
 
+{% include [common-network](../../_includes/data-transfer/troubles/network/common-network.md) %}
+
 {% include [ip-collision](../../_includes/data-transfer/troubles/network/ip-collision.md) %}
 
 {% include [subnet-without-nat](../../_includes/data-transfer/troubles/network/subnet-without-nat.md) %}

@@ -37,10 +37,5 @@ data | **string** (byte)<br><p>Content of the message</p> <p>The maximum string 
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 
-```json 
-{}
-```
 
- 
-Field | Description
---- | ---
+

@@ -60,6 +60,7 @@ website_settings | **[WebsiteSettings](#WebsiteSettings)**<br>Configuration for 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 tags[] | **[Tag](#Tag)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 object_lock | **[ObjectLock](#ObjectLock)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
+encryption | **[Encryption](#Encryption)**<br>Configuration for bucket's encryption For detauls, see [documentation](/docs/storage/concepts/encryption) 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags}
@@ -233,6 +234,21 @@ period | **oneof:** `days` or `years`<br>
 &nbsp;&nbsp;years | **int64**<br>Number of years for locking 
 
 
+### Encryption {#Encryption}
+
+Field | Description
+--- | ---
+rules[] | **[EncryptionRule](#EncryptionRule)**<br> 
+
+
+### EncryptionRule {#EncryptionRule}
+
+Field | Description
+--- | ---
+kms_master_key_id | **string**<br> 
+sse_algorithm | **string**<br> 
+
+
 ## Get {#Get}
 
 Returns the specified bucket. <br>To get the list of all available buckets, make a [List](#List) request.
@@ -266,6 +282,7 @@ website_settings | **[WebsiteSettings](#WebsiteSettings1)**<br>Configuration for
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule1)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 tags[] | **[Tag](#Tag1)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 object_lock | **[ObjectLock](#ObjectLock1)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
+encryption | **[Encryption](#Encryption1)**<br>Configuration for bucket's encryption For detauls, see [documentation](/docs/storage/concepts/encryption) 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags1}
@@ -439,6 +456,21 @@ period | **oneof:** `days` or `years`<br>
 &nbsp;&nbsp;years | **int64**<br>Number of years for locking 
 
 
+### Encryption {#Encryption1}
+
+Field | Description
+--- | ---
+rules[] | **[EncryptionRule](#EncryptionRule1)**<br> 
+
+
+### EncryptionRule {#EncryptionRule1}
+
+Field | Description
+--- | ---
+kms_master_key_id | **string**<br> 
+sse_algorithm | **string**<br> 
+
+
 ## Create {#Create}
 
 Creates a bucket in the specified folder.
@@ -537,6 +569,7 @@ website_settings | **[WebsiteSettings](#WebsiteSettings2)**<br>Configuration for
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule2)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 tags[] | **[Tag](#Tag3)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 object_lock | **[ObjectLock](#ObjectLock2)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
+encryption | **[Encryption](#Encryption2)**<br>Configuration for bucket's encryption For detauls, see [documentation](/docs/storage/concepts/encryption) 
 
 
 ### CorsRule {#CorsRule2}
@@ -677,6 +710,21 @@ period | **oneof:** `days` or `years`<br>
 &nbsp;&nbsp;years | **int64**<br>Number of years for locking 
 
 
+### Encryption {#Encryption2}
+
+Field | Description
+--- | ---
+rules[] | **[EncryptionRule](#EncryptionRule2)**<br> 
+
+
+### EncryptionRule {#EncryptionRule2}
+
+Field | Description
+--- | ---
+kms_master_key_id | **string**<br> 
+sse_algorithm | **string**<br> 
+
+
 ## Update {#Update}
 
 Updates the specified bucket. <br>In most cases, `storage.editor` role (see [documentation](/docs/storage/security/#storage-editor)) should be enough to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
@@ -704,6 +752,7 @@ policy | **google.protobuf.Struct**<br>Bucket policies that set permissions for 
 acl | **[ACL](#ACL3)**<br>Access control list (ACL) of the bucket. For details, see [documentation](/docs/storage/concepts/acl). 
 tags[] | **[Tag](#Tag3)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 object_lock | **[ObjectLock](#ObjectLock3)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
+encryption | **[Encryption](#Encryption3)**<br>Configuration for bucket's encryption For detauls, see [documentation](/docs/storage/concepts/encryption) 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags3}
@@ -877,6 +926,21 @@ period | **oneof:** `days` or `years`<br>
 &nbsp;&nbsp;years | **int64**<br>Number of years for locking 
 
 
+### Encryption {#Encryption3}
+
+Field | Description
+--- | ---
+rules[] | **[EncryptionRule](#EncryptionRule3)**<br> 
+
+
+### EncryptionRule {#EncryptionRule3}
+
+Field | Description
+--- | ---
+kms_master_key_id | **string**<br> 
+sse_algorithm | **string**<br> 
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -919,6 +983,7 @@ website_settings | **[WebsiteSettings](#WebsiteSettings4)**<br>Configuration for
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule4)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 tags[] | **[Tag](#Tag4)**<br>List of tags for the bucket. For details, see [documentation](/docs/resource-manager/concepts/labels). 
 object_lock | **[ObjectLock](#ObjectLock4)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
+encryption | **[Encryption](#Encryption4)**<br>Configuration for bucket's encryption For detauls, see [documentation](/docs/storage/concepts/encryption) 
 
 
 ## Delete {#Delete}

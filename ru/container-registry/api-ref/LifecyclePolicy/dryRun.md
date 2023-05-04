@@ -21,13 +21,7 @@ lifecyclePolicyId | <p>Required. ID of the lifecycle policy.</p> <p>The maximum 
  
 ## Body parameters {#body_params}
  
-```json 
-{}
-```
-
- 
-Field | Description
---- | ---
+Empty
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

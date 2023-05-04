@@ -42888,6 +42888,8 @@ default:
                 form:
                   elasticsearch:
                     ElasticSearchConnection:
+                      connection_type:
+                        title: Connection type
                       password:
                         title: Password
                       security_groups:
@@ -42900,6 +42902,8 @@ default:
                     ElasticSearchTarget:
                       cleanup_policy:
                         title: Cleanup policy
+                      connection:
+                        title: Connection
                     OnPremiseElasticSearch:
                       addresses:
                         title: Data nodes
@@ -42992,6 +42996,9 @@ default:
               console:
                 form:
                   kafka:
+                    KafkaConnectionType:
+                      managed:
+                        title: Managed Service for Kafka cluster
                     KafkaSource:
                       advanced_settings:
                         title: Advanced settings
@@ -43030,6 +43037,8 @@ default:
                     ManagedKafka:
                       auth:
                         title: Authentication
+                      cluster_id:
+                        title: Managed Service for Kafka cluster
                     ManagedKafkaAuth:
                       no_auth:
                         title: No authentication
@@ -43211,6 +43220,8 @@ default:
                     MongoConnection:
                       auth_source:
                         title: Authentication source
+                      connection_type:
+                        title: Connection type
                       raw_password:
                         title: Password
                       security_groups:

@@ -64,7 +64,7 @@ type | enum **DataType**<br>Type of the sending data. <ul><li>`BINARY`: Binary d
 
 ### SendToConnectionResponse {#SendToConnectionResponse}
 
-
+Empty
 
 ## Disconnect {#Disconnect}
 
@@ -81,5 +81,5 @@ connection_id | **string**<br>Required. ID of the connection to disconnect. The 
 
 ### DisconnectResponse {#DisconnectResponse}
 
-
+Empty
 

@@ -111,7 +111,7 @@ max_pause_between_words_hint_ms | **int64**<br>Hint for max pause between words.
 
 ### ExternalEouClassifier {#ExternalEouClassifier}
 
-
+Empty
 
 ### AudioChunk {#AudioChunk}
 
@@ -129,7 +129,7 @@ duration_ms | **int64**<br>Duration of silence chunk in ms.
 
 ### Eou {#Eou}
 
-
+Empty
 
 ### StreamingResponse {#StreamingResponse}
 

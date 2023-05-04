@@ -64,6 +64,7 @@ POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
     ],
     "masterLogging": {
       "enabled": true,
+      "auditEnabled": true,
       "clusterAutoscalerEnabled": true,
       "kubeApiserverEnabled": true,
       "eventsEnabled": true,
@@ -161,6 +162,7 @@ masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWind
 masterSpec.<br>securityGroupIds[] | **string**<br><p>Master security groups.</p> 
 masterSpec.<br>masterLogging | **object**<br>Cloud Logging for master components.
 masterSpec.<br>masterLogging.<br>enabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for master components.</p> 
+masterSpec.<br>masterLogging.<br>auditEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for audit logs.</p> 
 masterSpec.<br>masterLogging.<br>clusterAutoscalerEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for cluster-autoscaler.</p> 
 masterSpec.<br>masterLogging.<br>kubeApiserverEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for kube-apiserver.</p> 
 masterSpec.<br>masterLogging.<br>eventsEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for events.</p> 

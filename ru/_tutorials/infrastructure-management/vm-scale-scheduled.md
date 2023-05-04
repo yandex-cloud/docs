@@ -657,13 +657,9 @@
         * Файл с кодом функции {{ sf-name }} `handler.sh`:
        
           {% cut "handler.sh" %}
- 
-          {% note warning %}
- 
-          Если вы создаете файл в Windows, убедитесь, что переносы строк имеют формат Unix: `\n`, а не `\r\n`. Заменить переносы можно в текстовом редакторе, например [Notepad++](https://notepad-plus-plus.org/), или с помощью утилиты [dos2unix](https://waterlan.home.xs4all.nl/dos2unix.html) или [Tofrodos](https://www.thefreecountry.com/tofrodos/).
- 
-          {% endnote %}
-       
+
+          {% include [warning-unix-lines](../_tutorials_includes/warning-unix-lines.md) %}
+
           {% include [vm-scale-scheduled-function-code](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
        
           {% endcut %}

@@ -22,13 +22,7 @@ connectorName | <p>Required. Name of the Apache Kafka® connector to resume.</p>
  
 ## Body parameters {#body_params}
  
-```json 
-{}
-```
-
- 
-Field | Description
---- | ---
+Empty
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

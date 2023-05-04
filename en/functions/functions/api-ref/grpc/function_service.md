@@ -1381,7 +1381,7 @@ Lists available runtime environments for the specified function.
 
 ### ListRuntimesRequest {#ListRuntimesRequest}
 
-
+Empty
 
 ### ListRuntimesResponse {#ListRuntimesResponse}
 

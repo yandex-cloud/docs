@@ -14,8 +14,12 @@
 ## Поставка данных
 
 * [{#T}](mkf-to-mch.md)
-* [{#T}](mkf-to-mpg.md)
 * [{#T}](managed-kafka-to-greenplum.md)
+* [{#T}](mkf-to-mes.md)
+* [{#T}](mkf-to-mmg.md)
+* [{#T}](mkf-to-mmy.md)
+* [{#T}](mkf-to-mos.md)
+* [{#T}](mkf-to-mpg.md)
 * [{#T}](mkf-to-ydb.md)
 * [{#T}](mkf-to-yds.md)
 * [{#T}](greenplum-to-clickhouse.md)

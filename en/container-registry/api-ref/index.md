@@ -12,4 +12,5 @@ Resource | Description
 [LifecyclePolicy](LifecyclePolicy/index.md) | A set of methods for managing Lifecycle policy resources.
 [Registry](Registry/index.md) | A set of methods for managing Registry resources.
 [Repository](Repository/index.md) | A set of methods for managing Repository resources.
+[ScanPolicy](ScanPolicy/index.md) | A set of methods for managing scan policy resources.
 [Scanner](Scanner/index.md) | A set of methods for scanning Docker images.

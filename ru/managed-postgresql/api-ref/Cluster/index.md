@@ -824,7 +824,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoPoolSize": "integer",
         "geqoGenerations": "integer",
         "geqoSelectionBias": "number",
-        "geqoSeed": "number"
+        "geqoSeed": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -952,7 +953,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoPoolSize": "integer",
         "geqoGenerations": "integer",
         "geqoSelectionBias": "number",
-        "geqoSeed": "number"
+        "geqoSeed": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -1080,7 +1082,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoPoolSize": "integer",
         "geqoGenerations": "integer",
         "geqoSelectionBias": "number",
-        "geqoSeed": "number"
+        "geqoSeed": "number",
+        "maxStandbyArchiveDelay": "integer"
       }
     },
     "postgresqlConfig_11": {
@@ -1221,7 +1224,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -1360,7 +1364,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -1499,7 +1504,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       }
     },
     "postgresqlConfig_11_1C": {
@@ -2067,7 +2073,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -2208,7 +2215,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -2349,7 +2357,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       }
     },
     "postgresqlConfig_12_1C": {
@@ -2935,7 +2944,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -3088,7 +3098,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -3241,7 +3252,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       }
     },
     "postgresqlConfig_13_1C": {
@@ -3865,7 +3877,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -4023,7 +4036,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -4181,7 +4195,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "geqoSeed": "number",
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       }
     },
     "postgresqlConfig_14_1C": {
@@ -4814,7 +4829,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "enableGroupByReordering": true,
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -4966,7 +4982,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "enableGroupByReordering": true,
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -5118,7 +5135,8 @@ A set of methods for managing PostgreSQL Cluster resources.
         "enableGroupByReordering": true,
         "pgTrgmSimilarityThreshold": "number",
         "pgTrgmWordSimilarityThreshold": "number",
-        "pgTrgmStrictWordSimilarityThreshold": "number"
+        "pgTrgmStrictWordSimilarityThreshold": "number",
+        "maxStandbyArchiveDelay": "integer"
       }
     },
     "postgresqlConfig_15_1C": {
@@ -6424,6 +6442,7 @@ config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>geqoPoolSize | **integer*
 config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>geqoGenerations | **integer** (int64)
 config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_10.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 10 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_10.<br>userConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_10.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -6549,6 +6568,7 @@ config.<br>postgresqlConfig_10.<br>userConfig.<br>geqoPoolSize | **integer** (in
 config.<br>postgresqlConfig_10.<br>userConfig.<br>geqoGenerations | **integer** (int64)
 config.<br>postgresqlConfig_10.<br>userConfig.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 config.<br>postgresqlConfig_10.<br>userConfig.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_10.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_10.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 10 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -6674,6 +6694,7 @@ config.<br>postgresqlConfig_10.<br>defaultConfig.<br>geqoPoolSize | **integer** 
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>geqoGenerations | **integer** (int64)
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_11 | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 config.<br>postgresqlConfig_11.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 11 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -6811,6 +6832,7 @@ config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>geqoSeed | **number** (do
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_11.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 11 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_11.<br>userConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_11.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -6947,6 +6969,7 @@ config.<br>postgresqlConfig_11.<br>userConfig.<br>geqoSeed | **number** (double)
 config.<br>postgresqlConfig_11.<br>userConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_11.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_11.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_11.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_11.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 11 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -7083,6 +7106,7 @@ config.<br>postgresqlConfig_11.<br>defaultConfig.<br>geqoSeed | **number** (doub
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_11_1C | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 config.<br>postgresqlConfig_11_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 11 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -7637,6 +7661,7 @@ config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>geqoSeed | **number** (do
 config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_12.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 12 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_12.<br>userConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_12.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -7775,6 +7800,7 @@ config.<br>postgresqlConfig_12.<br>userConfig.<br>geqoSeed | **number** (double)
 config.<br>postgresqlConfig_12.<br>userConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_12.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_12.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_12.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_12.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 12 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -7913,6 +7939,7 @@ config.<br>postgresqlConfig_12.<br>defaultConfig.<br>geqoSeed | **number** (doub
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_12.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_12_1C | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 config.<br>postgresqlConfig_12_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 12 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -8485,6 +8512,7 @@ config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>geqoSeed | **number** (do
 config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_13.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 13 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_13.<br>userConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_13.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -8635,6 +8663,7 @@ config.<br>postgresqlConfig_13.<br>userConfig.<br>geqoSeed | **number** (double)
 config.<br>postgresqlConfig_13.<br>userConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_13.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_13.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 13 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_13.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_13.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -8785,6 +8814,7 @@ config.<br>postgresqlConfig_13.<br>defaultConfig.<br>geqoSeed | **number** (doub
 config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_13.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_13_1C | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 config.<br>postgresqlConfig_13_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 13 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -9395,6 +9425,7 @@ config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>geqoSeed | **number** (do
 config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_14.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 14 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_14.<br>userConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_14.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -9550,6 +9581,7 @@ config.<br>postgresqlConfig_14.<br>userConfig.<br>geqoSeed | **number** (double)
 config.<br>postgresqlConfig_14.<br>userConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_14.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_14.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_14.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_14.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 14 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_14.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_14.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -9705,6 +9737,7 @@ config.<br>postgresqlConfig_14.<br>defaultConfig.<br>geqoSeed | **number** (doub
 config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_14.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_14_1C | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 config.<br>postgresqlConfig_14_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 14 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -10324,6 +10357,7 @@ config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>enableGroupByReordering |
 config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_15.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 15 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_15.<br>userConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_15.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -10473,6 +10507,7 @@ config.<br>postgresqlConfig_15.<br>userConfig.<br>enableGroupByReordering | **bo
 config.<br>postgresqlConfig_15.<br>userConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_15.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_15.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_15.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_15.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 15 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_15.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 config.<br>postgresqlConfig_15.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -10622,6 +10657,7 @@ config.<br>postgresqlConfig_15.<br>defaultConfig.<br>enableGroupByReordering | *
 config.<br>postgresqlConfig_15.<br>defaultConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_15.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_15.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+config.<br>postgresqlConfig_15.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
 config.<br>postgresqlConfig_15_1C | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 config.<br>postgresqlConfig_15_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 15 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)

@@ -85,6 +85,7 @@
     ```bash
     yc lockbox secret get <имя_секрета>
     ```
+
 - API
 
   Чтобы изменить секрет, воспользуйтесь методом REST API [update](../api-ref/Secret/update.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Update](../api-ref/grpc/secret_service.md#Update).

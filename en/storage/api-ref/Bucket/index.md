@@ -123,6 +123,14 @@ A set of methods for managing buckets.
       // end of the list of possible fields`objectLock.defaultRetention`
 
     }
+  },
+  "encryption": {
+    "rules": [
+      {
+        "kmsMasterKeyId": "string",
+        "sseAlgorithm": "string"
+      }
+    ]
   }
 }
 ```
@@ -200,6 +208,10 @@ objectLock.<br>defaultRetention | **object**<br><p>Default lock configuration fo
 objectLock.<br>defaultRetention.<br>mode | **string**<br><p>Lock type</p> 
 objectLock.<br>defaultRetention.<br>days | **string** (int64) <br>`objectLock.defaultRetention` includes only one of the fields `days`, `years`<br><br><p>Number of days for locking</p> 
 objectLock.<br>defaultRetention.<br>years | **string** (int64) <br>`objectLock.defaultRetention` includes only one of the fields `days`, `years`<br><br><p>Number of years for locking</p> 
+encryption | **object**<br><p>Configuration for bucket's encryption For detauls, see <a href="/docs/storage/concepts/encryption">documentation</a></p> 
+encryption.<br>rules[] | **object**
+encryption.<br>rules[].<br>kmsMasterKeyId | **string**
+encryption.<br>rules[].<br>sseAlgorithm | **string**
 
 ## Methods {#methods}
 Method | Description

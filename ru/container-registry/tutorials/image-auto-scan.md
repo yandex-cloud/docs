@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-В этом сценарии описано, как настроить автоматическое сканирование Docker-образа на наличие уязвимостей при загрузке.
+В этом руководстве вы создадите реестр {{ container-registry-full-name }} для хранения [Docker-образа](../concepts/docker-image.md) и настроите автоматическое [сканирование на уязвимости](../concepts/vulnerability-scanner.md), при загрузке образа в реестр. С помощью триггера {{ sf-name}} будут отслеживаться изменения в реестре и при загрузке образа в реестр, будет вызываться функция для запуска сканирования.
 
 Чтобы настроить автоматическое сканирование Docker-образа при загрузке:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -17,6 +17,8 @@
 1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+Также инфраструктуру для автоматического сканирования Docker-образа при загрузке можно развернуть через {{ TF }} с помощью [готового файла конфигурации](#terraform).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -58,6 +60,10 @@
      created_at: "2019-01-09T14:34:06.601Z"
      ```
 
+   - {{ TF }}
+
+     См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
    - API
 
      Воспользуйтесь методом [create](../api-ref/Registry/create.md) для ресурса [Registry](../api-ref/Registry/).
@@ -97,10 +103,14 @@
      1. Назначьте роль сервисному аккаунту:
 
         ```bash
-        yc resource-manager folder add-access-binding <идентификатор каталога> \
+        yc resource-manager folder add-access-binding <идентификатор_каталога> \
           --role container-registry.images.scanner \
-          --subject serviceAccount:<идентификатор сервисного аккаунта>
+          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
         ```
+
+   - {{ TF }}
+
+     См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
    - API
 
@@ -168,35 +178,29 @@
 
   1. Создайте файл `handler.sh` и скопируйте в него следующий код:
 
-     ```bash
-     DATA=$(cat | jq -sr '.[0].messages[0].details')
-     ID=$(echo $DATA | jq -r '.image_id')
-     NAME=$(echo $DATA | jq -r '.repository_name')
-     TAG=$(echo $DATA | jq -r '.tag')
-     yc container image scan --id ${ID} --async 1>&2
-     ```
+     {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
 
   1. Создайте версию функции `scan-on-push`:
 
      ```bash
      yc serverless function version create \
-       --function-name=<scan-on-push> \
+       --function-name=scan-on-push \
        --runtime bash \
        --entrypoint handler.sh \
        --memory 128m \
        --execution-timeout 60s \
        --source-path handler.sh \
-       --service-account-id <идентификатор сервисного аккаунта>
+       --service-account-id <идентификатор_сервисного_аккаунта>
      ```
 
      Где:
-     * `function-name` — имя функции, версию которой вы хотите создать.
-     * `runtime` — среда выполнения.
-     * `entrypoint` — точка входа, указывается в формате `<имя файла с функцией>.<имя обработчика>`.
-     * `memory` — объем RAM.
-     * `execution-timeout` — максимальное время выполнения функции до таймаута.
-     * `source-path` — файл с кодом функции.
-     * `service-account-id` — идентификатор сервисного аккаунта.
+     * `--function-name` — имя функции, версию которой вы хотите создать.
+     * `--runtime` — среда выполнения.
+     * `--entrypoint` — точка входа, указывается в формате `<имя_файла_с_функцией>.<имя_обработчика>`.
+     * `--memory` — объем RAM.
+     * `--execution-timeout` — максимальное время выполнения функции до таймаута.
+     * `--source-path` — файл с кодом функции.
+     * `--service-account-id` — идентификатор сервисного аккаунта.
 
      Результат:
 
@@ -209,6 +213,10 @@
      - $latest
      log_group_id: ckg6nb0c7uf19oo8pvjj
      ```
+
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 - API
 
@@ -246,19 +254,19 @@
 
   ```bash
   yc serverless trigger create container-registry \
-    --name <имя триггера> \
-    --registry-id <идентификатор реестра> \
+    --name <имя_триггера> \
+    --registry-id <идентификатор_реестра> \
     --events 'create-image-tag' \
-    --invoke-function-id <идентификатор функции> \
-    --invoke-function-service-account-id <идентификатор сервисного аккаунта>
+    --invoke-function-id <идентификатор_функции> \
+    --invoke-function-service-account-id <идентификатор_сервисного_аккаунта>
   ```
 
   Где:
-  * `name` — имя триггера.
-  * `registry-id` — [идентификатор реестра](../operations/registry/registry-list.md), в который будете загружать Docker-образ.
-  * `events` — [события](../../functions/concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается.
-  * `invoke-function-id` — идентификатор функции.
-  * `invoke-function-service-account-id` — идентификатор сервисного аккаунта с правами на вызов функции.
+  * `--name` — имя триггера.
+  * `--registry-id` — [идентификатор реестра](../operations/registry/registry-list.md), в который будете загружать Docker-образ.
+  * `--events` — [события](../../functions/concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается.
+  * `--invoke-function-id` — идентификатор функции.
+  * `--invoke-function-service-account-id` — идентификатор сервисного аккаунта с правами на вызов функции.
 
   Результат:
 
@@ -375,13 +383,13 @@
 1. Присвойте тег Docker-образу:
 
    ```bash
-   docker tag ubuntu:20.04 {{ registry }}/<идентификатор реестра>/ubuntu:20.04
+   docker tag ubuntu:20.04 {{ registry }}/<идентификатор_реестра>/ubuntu:20.04
    ```
 
 1. Загрузите Docker-образ в {{ container-registry-name }}:
 
    ```bash
-   docker push {{ registry }}/<идентификатор реестра>/ubuntu:20.04
+   docker push {{ registry }}/<идентификатор_реестра>/ubuntu:20.04
    ```
 
    Результат:
@@ -447,7 +455,7 @@
      Чтобы посмотреть запуски сканирования по Docker-образу, выполните команду:
 
      ```bash
-     yc container image list-scan-results --repository-name=<идентификатор реестра>/<имя Docker-образа>
+     yc container image list-scan-results --repository-name=<идентификатор_реестра>/<имя_Docker-образа>
      ```
 
      Результат:
@@ -462,7 +470,85 @@
 
    {% endlist %}
 
+
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
+
 * [Удалите Docker-образ](../../container-registry/operations/docker-image/docker-image-delete.md), который хранится в [{{ cos-full-name }}](../../cos/) и [реестр](../../container-registry/operations/registry/registry-delete.md).
+* [удалите](../../functions/operations/function/function-delete.md) функцию {{ sf-name }};
+* [удалите](../../functions/operations/function/function-delete.md) триггер {{ sf-name }}.
+
+## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
+
+{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+Чтобы  с помощью {{ TF }}:
+
+1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+1. Укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. Подготовьте файлы с описанием инфраструктуры:
+   
+   {% list tabs %}
+   
+   - Готовый архив
+ 
+     1. Создайте папку для файлов.
+     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/image-auto-scan-tf.zip) (2 КБ).
+     1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `image-auto-scan.tf`, файл с пользовательскими данными `image-auto-scan.auto.tfvars` и zip-архив с кодом функции `function.zip`.
+
+   - Создание вручную
+
+     1. Создайте папку для конфигурационных файлов.
+     1. Создайте в папке конфигурационный файл `image-auto-scan.tf`:
+  
+          {% cut "image-auto-scan.tf" %}
+     
+          {% include [image-auto-scan-tf-config](../../_includes/web/image-auto-scan-tf-config.md) %}
+
+          {% endcut %}
+
+     1. Создайте файл с пользовательскими данными `image-auto-scan.auto.tfvars`:
+
+          {% cut "image-auto-scan.auto.tfvars" %}
+
+          {% include [image-auto-scan-tf-variables](../../_includes/web/image-auto-scan-tf-variables.md) %}
+
+          {% endcut %}
+
+     1. Подготовьте zip-архив с кодом функции:
+
+         1. Создайте файл `handler.sh` и скопируйте в него следующий код:
+
+             {% cut "handler.sh" %}
+
+             {% include [warning-unix-lines](../../_tutorials/_tutorials_includes/warning-unix-lines.md) %}
+
+             {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
+
+             {% endcut %}
+
+         1. Создайте zip-архив `function.zip` с файлом `handler.sh`.
+
+   {% endlist %}
+
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+
+   * [yandex_iam_service_account]({{ tf-provider-link }}/yandex_iam_service_account)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}/yandex_resourcemanager_folder_iam_member)
+   * [yandex_container_registry]({{ tf-provider-link }}/yandex_container_registry)
+   * [yandex_function]({{ tf-provider-link }}/yandex_function)
+
+1. В файле `image-auto-scan.auto.tfvars` задайте пользовательские параметры:
+    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой будет создана инфраструктура.
+    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создана инфраструктура.
+
+1. Создайте ресурсы:
+
+   {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+1. [Создайте триггер](#create-trigger).
+
+1. [Загрузите образ](#download-image).
+
+1. [Проверьте результат](#check-result).

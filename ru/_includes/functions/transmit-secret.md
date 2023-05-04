@@ -64,6 +64,56 @@
         * `version-id` — идентификатор версии секрета;
         * `key` — неконфиденциальный идентификатор ключа.
 
+- {{ TF }}
+
+    Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    1. Откройте файл конфигурации {{ TF }} и добавьте к описанию функции блок `secrets`:
+
+        ```hcl
+        resource "yandex_function" "test-function" {
+          name               = "test-function"
+          description        = "Test function"
+          user_hash          = "first-function"
+          runtime            = "python37"
+          entrypoint         = "main"
+          memory             = "128"
+          execution_timeout  = "10"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          tags               = ["my_tag"]
+          secrets {
+            id                   = "<идентификатор_секрета>"
+            version_id           = "<идентификатор_версии_секрета>"
+            key                  = "<ключ_секрета1>"
+            environment_variable = "<имя_переменной_окружения1>"
+          }
+          secrets {
+            id                   = "<идентификатор_секрета>"
+            version_id           = "<идентификатор_версии_секрета>"
+            key                  = "<ключ_секрета2>"
+            environment_variable = "<имя_переменной_окружения2>"
+          }
+          
+          content {
+            zip_filename = "<путь_к_ZIP-архиву>"
+          }
+        }
+        ```
+
+        Где:
+
+        * `secrets` — блок с настройками секрета. Содержит параметры:
+          * `id` — идентификатор секрета. Обязательный параметр.
+          * `version_id` — идентификатор версии секрета. Обязательный параметр.
+          * `key` — неконфиденциальный идентификатор ключа, который будет храниться в переменной окружения. Обязательный параметр.
+          * `environment_variable` — имя переменной окружения, в которой будет храниться секрет. Обязательный параметр.
+
+    1. Примените изменения:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+    Проверить изменение функции и ее настройки можно в [консоли управления]({{ link-console-main }}).
+
 - API
 
     Чтобы передать секрет {{ lockbox-name }} в функцию, воспользуйтесь методом REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion).

@@ -21,13 +21,7 @@ clusterId | <p>Required. ID of the Kubernetes cluster to stop. To get Kubernetes
  
 ## Body parameters {#body_params}
  
-```json 
-{}
-```
-
- 
-Field | Description
---- | ---
+Empty
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

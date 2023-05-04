@@ -22,13 +22,7 @@ instanceGroupId | <p>ID of the instance group to pause processes in.</p> <p>The 
  
 ## Body parameters {#body_params}
  
-```json 
-{}
-```
-
- 
-Field | Description
---- | ---
+Empty
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

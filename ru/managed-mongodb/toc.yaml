@@ -59,6 +59,10 @@ items:
         href: tutorials/mongodb-migration-with-data-transfer.md
       - name: Анализ производительности и оптимизация {{ MG }}
         href: tutorials/profiling.md
+      - name: >-
+          Поставка данных из {{ mkf-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/migration-from-kafka.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

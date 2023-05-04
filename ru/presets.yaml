@@ -42897,6 +42897,8 @@ default:
                 form:
                   elasticsearch:
                     ElasticSearchConnection:
+                      connection_type:
+                        title: Тип подключения
                       password:
                         title: Пароль
                       security_groups:
@@ -42909,6 +42911,8 @@ default:
                     ElasticSearchTarget:
                       cleanup_policy:
                         title: Политика очистки
+                      connection:
+                        title: Настройки подключения
                     OnPremiseElasticSearch:
                       addresses:
                         title: Узлы с данными
@@ -43001,6 +43005,9 @@ default:
               console:
                 form:
                   kafka:
+                    KafkaConnectionType:
+                      managed:
+                        title: Кластер Managed Service for Kafka
                     KafkaSource:
                       advanced_settings:
                         title: Расширенные настройки
@@ -43039,6 +43046,8 @@ default:
                     ManagedKafka:
                       auth:
                         title: Аутентификация
+                      cluster_id:
+                        title: Кластер Managed Service for Kafka
                     ManagedKafkaAuth:
                       no_auth:
                         title: Без аутентификации
@@ -43218,6 +43227,8 @@ default:
                     MongoConnection:
                       auth_source:
                         title: Источник аутентификации
+                      connection_type:
+                        title: Тип подключения
                       raw_password:
                         title: Пароль
                       security_groups:

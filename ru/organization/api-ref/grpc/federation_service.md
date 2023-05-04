@@ -57,6 +57,7 @@ labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Max
 Field | Description
 --- | ---
 encrypted_assertions | **bool**<br>Enable encrypted assertions. 
+force_authn | **bool**<br>Value parameter ForceAuthn in SAMLRequest. 
 
 
 ## List {#List}
@@ -107,6 +108,7 @@ labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Max
 Field | Description
 --- | ---
 encrypted_assertions | **bool**<br>Enable encrypted assertions. 
+force_authn | **bool**<br>Value parameter ForceAuthn in SAMLRequest. 
 
 
 ## Create {#Create}
@@ -141,6 +143,7 @@ labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No 
 Field | Description
 --- | ---
 encrypted_assertions | **bool**<br>Enable encrypted assertions. 
+force_authn | **bool**<br>Value parameter ForceAuthn in SAMLRequest. 
 
 
 ### Operation {#Operation}
@@ -218,6 +221,7 @@ labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No 
 Field | Description
 --- | ---
 encrypted_assertions | **bool**<br>Enable encrypted assertions. 
+force_authn | **bool**<br>Value parameter ForceAuthn in SAMLRequest. 
 
 
 ### Operation {#Operation1}

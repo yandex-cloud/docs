@@ -24,7 +24,7 @@ instanceGroupId | <p>Required. ID of the InstanceGroup resource to list logs for
 Parameter | Description
 --- | ---
 pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 1000.</p> 
 filter | <p>A filter expression that filters resources listed in the response. Currently you can use filtering only on the <a href="/docs/compute/api-ref/InstanceGroup#representation">InstanceGroup.name</a> field.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}

@@ -94,6 +94,7 @@ filter | <p>A filter expression that filters resources listed in the response. T
         ],
         "masterLogging": {
           "enabled": true,
+          "auditEnabled": true,
           "clusterAutoscalerEnabled": true,
           "kubeApiserverEnabled": true,
           "eventsEnabled": true,
@@ -196,6 +197,7 @@ clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMain
 clusters[].<br>master.<br>securityGroupIds[] | **string**<br><p>Master security groups.</p> 
 clusters[].<br>master.<br>masterLogging | **object**<br>Cloud Logging for master components.
 clusters[].<br>master.<br>masterLogging.<br>enabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for master components.</p> 
+clusters[].<br>master.<br>masterLogging.<br>auditEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for audit logs.</p> 
 clusters[].<br>master.<br>masterLogging.<br>clusterAutoscalerEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for cluster-autoscaler.</p> 
 clusters[].<br>master.<br>masterLogging.<br>kubeApiserverEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for kube-apiserver.</p> 
 clusters[].<br>master.<br>masterLogging.<br>eventsEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for events.</p> 

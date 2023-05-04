@@ -24,13 +24,7 @@ snapshotScheduleId | <p>ID of the snapshot schedule to disable.</p> <p>To get a 
  
 ## Body parameters {#body_params}
  
-```json 
-{}
-```
-
- 
-Field | Description
---- | ---
+Empty
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

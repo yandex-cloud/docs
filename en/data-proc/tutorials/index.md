@@ -1,4 +1,4 @@
-# All practical guidelines
+# All tutorials
 
 * [{#T}](./configure-network.md).
 * [{#T}](./copy-files-from-object-storage.md).
@@ -6,6 +6,7 @@
 * [{#T}](./sqoop-mmy.md)
 * [{#T}](./sqoop-mpg.md)
 * [{#T}](./geesefs-init-actions.md)
+* [{#T}](./s3-dataproc-ch.md)
 
 ## Working with jobs {#jobs}
 
