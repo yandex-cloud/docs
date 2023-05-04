@@ -131,6 +131,8 @@ items:
             href: api-ref/grpc/registry_service.md
           - name: RepositoryService
             href: api-ref/grpc/repository_service.md
+          - name: ScanPolicyService
+            href: api-ref/grpc/scan_policy_service.md
           - name: ScannerService
             href: api-ref/grpc/scanner_service.md
           - name: OperationService
@@ -217,6 +219,20 @@ items:
                 href: api-ref/Repository/updateAccessBindings.md
               - name: upsert
                 href: api-ref/Repository/upsert.md
+          - name: ScanPolicy
+            items:
+              - name: Overview
+                href: api-ref/ScanPolicy/index.md
+              - name: create
+                href: api-ref/ScanPolicy/create.md
+              - name: delete
+                href: api-ref/ScanPolicy/delete.md
+              - name: get
+                href: api-ref/ScanPolicy/get.md
+              - name: getByRegistry
+                href: api-ref/ScanPolicy/getByRegistry.md
+              - name: update
+                href: api-ref/ScanPolicy/update.md
           - name: Scanner
             items:
               - name: Overview

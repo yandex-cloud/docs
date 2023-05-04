@@ -692,7 +692,7 @@ Commercial support is available at
      1. Создайте папку для файла с описанием инфраструктуры.
      1. Создайте в папке конфигурационный файл `alb-with-ddos-protection.tf`:
 
-          {% cut "Содержимое файла alb-with-ddos-protection.tf" %}
+          {% cut "alb-with-ddos-protection.tf" %}
 
           {% include [alb-with-ddos-protection-tf-config](../../_includes/web/alb-with-ddos-protection-tf-config.md) %}
 
@@ -700,7 +700,7 @@ Commercial support is available at
 
      1. Создайте в папке файл с пользовательскими данными `alb-with-ddos-protection.auto.tfvars`:
 
-          {% cut "Содержимое файла alb-with-ddos-protection.auto.tfvars" %}
+          {% cut "alb-with-ddos-protection.auto.tfvars" %}
 
           {% include [alb-with-ddos-protection-tf-variables](../../_includes/web/alb-with-ddos-protection-tf-variables.md) %}
 

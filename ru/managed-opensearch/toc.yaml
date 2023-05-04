@@ -41,6 +41,10 @@ items:
         href: tutorials/migration-to-opensearch.md
       - name: Загрузка логов из {{ at-name }}
         href: tutorials/trails-to-opensearch.md
+      - name: >-
+          Поставка данных из {{ mkf-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/migration-from-mkf.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

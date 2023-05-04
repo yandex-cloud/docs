@@ -48,7 +48,7 @@
      resource "yandex_lockbox_secret_version" "my_version" {
        secret_id = "<идентификатор_секрета>"
        entries {
-         key        = <ключ_секрета1>"
+         key        = "<ключ_секрета1>"
          text_value = "<значение_секрета1>"
        }
        entries {

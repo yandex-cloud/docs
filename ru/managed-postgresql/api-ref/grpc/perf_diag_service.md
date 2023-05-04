@@ -9,13 +9,67 @@ A set of methods for getting PostgreSQL performance diagnostics.
 
 | Call | Description |
 | --- | --- |
-| [ListRawStatements](#ListRawStatements) | Handlers for raw data export |
+| [ListRawSessionStates](#ListRawSessionStates) | Handlers for raw data export |
+| [ListRawStatements](#ListRawStatements) |  |
 
 ## Calls PerformanceDiagnosticsService {#calls}
 
-## ListRawStatements {#ListRawStatements}
+## ListRawSessionStates {#ListRawSessionStates}
 
 Handlers for raw data export
+
+**rpc ListRawSessionStates ([ListRawSessionStatesRequest](#ListRawSessionStatesRequest)) returns ([ListRawSessionStatesResponse](#ListRawSessionStatesResponse))**
+
+### ListRawSessionStatesRequest {#ListRawSessionStatesRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to request statements history for. To get the PostgreSQL cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListRawSessionStatesResponse.next_page_token](#ListRawSessionStatesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 10000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRawSessionStatesResponse.next_page_token](#ListRawSessionStatesResponse) returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListRawSessionStatesResponse {#ListRawSessionStatesResponse}
+
+Field | Description
+--- | ---
+session_states[] | **[SessionState](#SessionState)**<br> 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListRawSessionStatesRequest.page_size](#ListRawSessionStatesRequest), use the `next_page_token` as the value for the [ListRawSessionStatesRequest.page_token](#ListRawSessionStatesRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+
+
+### SessionState {#SessionState}
+
+Field | Description
+--- | ---
+time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Collect timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+host | **string**<br> 
+pid | **int64**<br> 
+database | **string**<br> 
+user | **string**<br> 
+application_name | **string**<br> 
+backend_start | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+xact_start | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+query_start | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+state_change | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+wait_event_type | **string**<br> 
+wait_event | **string**<br> 
+state | **string**<br> 
+query | **string**<br> 
+backend_type | **string**<br> 
+client_addr | **string**<br> 
+client_hostname | **string**<br> 
+client_port | **int64**<br> 
+backend_xid | **int64**<br> 
+backend_xmin | **int64**<br> 
+blocking_pids | **string**<br> 
+query_id | **string**<br> 
+
+
+## ListRawStatements {#ListRawStatements}
+
+
 
 **rpc ListRawStatements ([ListRawStatementsRequest](#ListRawStatementsRequest)) returns ([ListRawStatementsResponse](#ListRawStatementsResponse))**
 

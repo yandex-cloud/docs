@@ -40,7 +40,8 @@ filter | <p>A filter expression that filters resources listed in the response. T
       "ssoBinding": "string",
       "ssoUrl": "string",
       "securitySettings": {
-        "encryptedAssertions": true
+        "encryptedAssertions": true,
+        "forceAuthn": true
       },
       "caseInsensitiveNameIds": true,
       "labels": "object"
@@ -66,6 +67,7 @@ federations[].<br>ssoBinding | **string**<br><p>Single sign-on endpoint binding 
 federations[].<br>ssoUrl | **string**<br><p>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here.</p> <p>The maximum string length in characters is 8000.</p> 
 federations[].<br>securitySettings | **object**<br><p>Federation security settings.</p> <p>Federation security settings.</p> 
 federations[].<br>securitySettings.<br>encryptedAssertions | **boolean** (boolean)<br><p>Enable encrypted assertions.</p> 
+federations[].<br>securitySettings.<br>forceAuthn | **boolean** (boolean)<br><p>Value parameter ForceAuthn in SAMLRequest.</p> 
 federations[].<br>caseInsensitiveNameIds | **boolean** (boolean)<br><p>Use case insensitive Name IDs.</p> 
 federations[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/organization/api-ref/Federation/list#query_params">pageSize</a>, use the <a href="/docs/organization/api-ref/Federation/list#responses">nextPageToken</a> as the value for the <a href="/docs/organization/api-ref/Federation/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/organization/api-ref/Federation/list#responses">nextPageToken</a> to continue paging through the results.</p> 

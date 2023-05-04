@@ -126,24 +126,24 @@ The cost for bucket support includes:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
-   1. Enter the **Name** of the bucket: `bucket-for-win`.
+   1. Enter the **Name** of the bucket: `<your_bucket_name>`.
    1. In the **Object read access** and **Object listing access** fields, select **Public**.
    1. Click **Create bucket**.
 
 - AWS CLI
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
-   1. Create a bucket named `bucket-for-win`:
+   1. Create a bucket named `<your_bucket_name>`:
 
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
-        s3 mb s3://bucket-for-win
+        s3 mb s3://<your_bucket_name>
       ```
 
       Result:
 
       ```
-      make_bucket: bucket-for-win
+      make_bucket: <your_bucket_name>
       ```
 
    1. Enable public access to reading objects and their list:
@@ -151,7 +151,7 @@ The cost for bucket support includes:
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
         s3api put-bucket-acl \
-        --bucket bucket-for-win \
+        --bucket <your_bucket_name> \
         --acl public-read
       ```
 
@@ -159,11 +159,11 @@ The cost for bucket support includes:
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. Add the parameters of the `bucket-for-win` bucket to the configuration file:
+   1. Add the parameters of the `<your_bucket_name>` bucket to the configuration file:
 
       ```
-      resource "yandex_storage_bucket" "bucket-for-win" {
-        bucket = "bucket-for-win"
+      resource "yandex_storage_bucket" "<your_bucket_name>" {
+        bucket = "<your_bucket_name>"
         acl    = "public-read"
       }
       ```
@@ -236,7 +236,7 @@ If needed, you can run an advanced connection setup. For this, at the `Edit adva
 1. Check the connection to the bucket. In the same terminal where you configured your connection, run the command:
 
    ```powershell
-   rclone.exe ls s3-connect:bucket-for-win
+   rclone.exe ls s3-connect:<your_bucket_name>
    ```
 
    If the configuration is set up correctly, the objects in the bucket are listed in the console.
@@ -244,7 +244,7 @@ If needed, you can run an advanced connection setup. For this, at the `Edit adva
 1. Mount the bucket to the file system:
 
    ```powershell
-   rclone.exe mount s3-connect:bucket-for-win <disk letter>: --vfs-cache-mode full
+   rclone.exe mount s3-connect:<your_bucket_name> <disk letter>: --vfs-cache-mode full
    ```
 
    You will see a new disk with the objects from the bucket in Windows Explorer.
@@ -263,7 +263,7 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
    `<name>rclone-s3-disk</name>`
    `<description>This service maps an S3 bucket as a system drive.</description>`
    `<executable>"<path to the working directory>\rclone.exe"</executable>`
-   `<arguments>mount s3-connect:bucket-for-win <disk letter>: --vfs-cache-mode full</arguments>`
+   `<arguments>mount s3-connect:<your_bucket_name> <disk letter>: --vfs-cache-mode full</arguments>`
    `<log mode="roll" />`
    `<onfailure action="restart" />`
    `</service>`
@@ -293,5 +293,5 @@ You can also set up the service to start on behalf of the system user (for more 
 
 To stop paying for the resources you created:
 
-* [Delete objects](../../storage/operations/objects/delete-all.md) from `bucket-for-win`.
-* [Delete](../../storage/operations/buckets/delete.md) `bucket-for-win`.
+* [Delete objects](../../storage/operations/objects/delete-all.md) from `<your_bucket_name>`.
+* [Delete](../../storage/operations/buckets/delete.md) `<your_bucket_name>`.

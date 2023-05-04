@@ -414,7 +414,7 @@ Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to list instance groups in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstanceGroupsResponse.next_page_token](#ListInstanceGroupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupsResponse.next_page_token](#ListInstanceGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupsResponse.next_page_token](#ListInstanceGroupsResponse) returned by a previous list request. The maximum string length in characters is 1000.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](#InstanceGroup1) field. The maximum string length in characters is 1000.
 view | enum **InstanceGroupView**<br>Defines which information about the Instance template should be returned in the server response. <ul><li>`BASIC`: Doesn't include the metadata of the instance template in the server response.</li><li>`FULL`: Returns the metadata of the instance template in the server response.</li></ul>
 
@@ -3247,7 +3247,7 @@ Field | Description
 --- | ---
 instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to list instances for. To get the instance group ID, use a [InstanceGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstanceGroupInstancesResponse.next_page_token](#ListInstanceGroupInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupInstancesResponse.next_page_token](#ListInstanceGroupInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupInstancesResponse.next_page_token](#ListInstanceGroupInstancesResponse) returned by a previous list request. The maximum string length in characters is 1000.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [ManagedInstance.name](#ManagedInstance) field. The maximum string length in characters is 1000.
 
 
@@ -4122,7 +4122,7 @@ Field | Description
 --- | ---
 instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to list operations for. To get the instance group ID, use a [InstanceGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is more than `page_size`, the service returns a [ListInstanceGroupOperationsResponse.next_page_token](#ListInstanceGroupOperationsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupOperationsResponse.next_page_token](#ListInstanceGroupOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupOperationsResponse.next_page_token](#ListInstanceGroupOperationsResponse) returned by a previous list request. The maximum string length in characters is 1000.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](#InstanceGroup10) field. The maximum string length in characters is 1000.
 
 
@@ -4162,7 +4162,7 @@ Field | Description
 --- | ---
 instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to list logs for. To get the instance group ID, use a [InstanceGroupService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstanceGroupLogRecordsResponse.next_page_token](#ListInstanceGroupLogRecordsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupLogRecordsResponse.next_page_token](#ListInstanceGroupLogRecordsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupLogRecordsResponse.next_page_token](#ListInstanceGroupLogRecordsResponse) returned by a previous list request. The maximum string length in characters is 1000.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](#InstanceGroup10) field. The maximum string length in characters is 1000.
 
 

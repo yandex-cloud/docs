@@ -97,6 +97,10 @@ items:
         href: tutorials/geesefs-init-actions.md
       - name: Integration with {{ ml-platform-full-name }}
         href: tutorials/datasphere-integration.md
+      - name: >-
+          Importing data from {{ objstorage-full-name }}, processing and
+          exporting it to {{ mch-full-name }}
+        href: tutorials/s3-dataproc-ch.md
   - name: Concepts
     items:
       - name: Relationships between service resources

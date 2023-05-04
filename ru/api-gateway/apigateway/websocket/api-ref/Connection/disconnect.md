@@ -22,10 +22,5 @@ connectionId | <p>Required. ID of the connection to disconnect.</p> <p>The maxim
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 
-```json 
-{}
-```
 
- 
-Field | Description
---- | ---
+

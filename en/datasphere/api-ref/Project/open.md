@@ -21,13 +21,7 @@ projectId | <p>Required. ID of the Project resource to open. To get the project 
  
 ## Body parameters {#body_params}
  
-```json 
-{}
-```
-
- 
-Field | Description
---- | ---
+Empty
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

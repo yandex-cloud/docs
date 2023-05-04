@@ -174,21 +174,53 @@ items:
       - name: Миграция БД из стороннего кластера {{ KF }} в {{ mkf-name }}
         href: dataplatform/kafka-connector.md
       - name: >-
+          Перенос данных между кластерами {{ mkf-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/data-transfer-mkf.md
+      - name: >-
           Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mmy.md
+      - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
+        href: dataplatform/debezium-mmy.md
       - name: >-
           Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mpg.md
+      - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью Debezium
+        href: dataplatform/debezium-mpg.md
+      - name: >-
+          Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/ydb-mkf-replication.md
       - name: >-
           Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mch.md
       - name: >-
-          Перенос данных между кластерами {{ mkf-name }} с помощью {{
+          Поставка данных из {{ mkf-name }} в {{ mgp-name }} с помощью {{
           data-transfer-name }}
-        href: dataplatform/data-transfer-mkf.md
+        href: dataplatform/managed-kafka-to-greenplum.md
+      - name: >-
+          Поставка данных из {{ mkf-name }} в {{ mes-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/data-transfer-mkf-mes.md
+      - name: >-
+          Поставка данных из {{ mkf-name }} в {{ mmg-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/data-transfer-mkf-mmg.md
+      - name: >-
+          Поставка данных из {{ mkf-name }} в {{ mmy-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/data-transfer-mkf-mmy.md
+      - name: >-
+          Поставка данных из {{ mkf-name }} в {{ mos-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/data-transfer-mkf-mos.md
+      - name: >-
+          Поставка данных из {{ mkf-name }} в {{ mpg-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/mkf-to-mpg.md
       - name: >-
           Поставка данных из {{ mkf-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
@@ -197,20 +229,8 @@ items:
           Поставка данных из {{ mkf-name }} в {{ yds-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
-      - name: >-
-          Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/ydb-mkf-replication.md
-      - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
-        href: dataplatform/debezium-mmy.md
-      - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью Debezium
-        href: dataplatform/debezium-mpg.md
       - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
         href: dataplatform/kafka-connect.md
-      - name: Поставка данных из {{ mkf-name }} в {{ mgp-name }}
-        href: dataplatform/managed-kafka-to-greenplum.md
-      - name: Поставка данных из {{ mkf-name }} в {{ mpg-name }}
-        href: dataplatform/mkf-to-mpg.md
       - name: Управление схемами данных в {{ mkf-name }}
         href: dataplatform/schema-registry-overview.md
       - name: Использование {{ mkf-msr }} с {{ mkf-name }}

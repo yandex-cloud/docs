@@ -126,24 +126,24 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. В списке сервисов выберите **{{ objstorage-name }}**.
   1. Нажмите кнопку **Создать бакет**.
-  1. Укажите **Имя** бакета: `bucket-for-win`.
+  1. Укажите **Имя** бакета: `<your_bucket_name>`.
   1. В полях **Доступ на чтение объектов** и **Доступ к списку объектов** выберите **Публичный**.
   1. Нажмите кнопку **Создать бакет**.
   
 - AWS CLI
   
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
-  1. Создайте бакет `bucket-for-win`:
+  1. Создайте бакет `<your_bucket_name>`:
   
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
-       s3 mb s3://bucket-for-win
+       s3 mb s3://<your_bucket_name>
      ```
      
      Результат:
      
      ```
-     make_bucket: bucket-for-win
+     make_bucket: <your_bucket_name>
      ```
      
   1. Включите публичный доступ к чтению объектов и их списка:
@@ -151,7 +151,7 @@
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3api put-bucket-acl \
-       --bucket bucket-for-win \
+       --bucket <your_bucket_name> \
        --acl public-read
      ```
   
@@ -159,11 +159,11 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Добавьте в конфигурационный файл параметры бакета `bucket-for-win`:
+  1. Добавьте в конфигурационный файл параметры бакета `<your_bucket_name>`:
   
      ```
-     resource "yandex_storage_bucket" "bucket-for-win" {
-       bucket = "bucket-for-win"
+     resource "yandex_storage_bucket" "<your_bucket_name>" {
+       bucket = "<your_bucket_name>"
        acl    = "public-read"
      }
      ```
@@ -236,7 +236,7 @@
 1. Проверьте подключение к бакету. В той же командной строке, где выполнялась настройка подключения, выполните команду:
 
    ```powershell
-   rclone.exe ls s3-connect:bucket-for-win
+   rclone.exe ls s3-connect:<your_bucket_name>
    ```
 
    Если конфигурация настроена правильно, в консоль будет выведен список объектов бакета.
@@ -244,7 +244,7 @@
 1. Смонтируйте бакет в файловую систему:
 
    ```powershell
-   rclone.exe mount s3-connect:bucket-for-win <буква диска>: --vfs-cache-mode full
+   rclone.exe mount s3-connect:<your_bucket_name> <буква диска>: --vfs-cache-mode full
    ```
    
    В проводнике Windows появится новый диск с объектами из бакета.
@@ -263,7 +263,7 @@
      <name>rclone-s3-disk</name>
      <description>This service maps an S3 bucket as a system drive.</description>
      <executable>"<расположение рабочей директории>\rclone.exe"</executable>
-     <arguments>mount s3-connect:bucket-for-win <буква диска>: --vfs-cache-mode full</arguments>
+     <arguments>mount s3-connect:<your_bucket_name> <буква диска>: --vfs-cache-mode full</arguments>
      <log mode="roll" />
      <onfailure action="restart" />
    </service>
@@ -293,5 +293,5 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-* [удалите объекты](../../storage/operations/objects/delete-all.md) из бакета `bucket-for-win`;
-* [удалите бакет](../../storage/operations/buckets/delete.md) `bucket-for-win`.
+* [удалите объекты](../../storage/operations/objects/delete-all.md) из бакета `<your_bucket_name>`;
+* [удалите бакет](../../storage/operations/buckets/delete.md) `<your_bucket_name>`.

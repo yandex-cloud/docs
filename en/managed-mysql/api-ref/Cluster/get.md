@@ -153,7 +153,8 @@ clusterId | <p>Required. ID of the cluster to return information about.</p> <p>T
         "lockWaitTimeout": "integer",
         "maxPreparedStmtCount": "integer",
         "optimizerSwitch": "string",
-        "optimizerSearchDepth": "integer"
+        "optimizerSearchDepth": "integer",
+        "queryResponseTimeStats": true
       },
       "userConfig": {
         "innodbBufferPoolSize": "integer",
@@ -243,7 +244,8 @@ clusterId | <p>Required. ID of the cluster to return information about.</p> <p>T
         "lockWaitTimeout": "integer",
         "maxPreparedStmtCount": "integer",
         "optimizerSwitch": "string",
-        "optimizerSearchDepth": "integer"
+        "optimizerSearchDepth": "integer",
+        "queryResponseTimeStats": true
       },
       "defaultConfig": {
         "innodbBufferPoolSize": "integer",
@@ -333,7 +335,8 @@ clusterId | <p>Required. ID of the cluster to return information about.</p> <p>T
         "lockWaitTimeout": "integer",
         "maxPreparedStmtCount": "integer",
         "optimizerSwitch": "string",
-        "optimizerSearchDepth": "integer"
+        "optimizerSearchDepth": "integer",
+        "queryResponseTimeStats": true
       }
     },
     "mysqlConfig_8_0": {
@@ -752,6 +755,7 @@ config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>lockWaitTimeout | **integer**
 config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>maxPreparedStmtCount | **integer** (int64)<br><p>This variable limits the total number of prepared statements in the server.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1048576, inclusive.</p> 
 config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see [MySQL documentation for the variable] https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html</p> 
 config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
+config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>queryResponseTimeStats | **boolean** (boolean)<br><p>Enables and disables collection of query times</p> <p>For details, see <a href="https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html#query_response_time_stats">Percona documentation for the variable</a>.</p> 
 config.<br>mysqlConfig_5_7.<br>userConfig | **object**<br><p>User-defined settings for a MySQL 5.7 cluster.</p> <p>Options and structure of ``MysqlConfig5_7`` reflects MySQL 5.7 configuration file.</p> 
 config.<br>mysqlConfig_5_7.<br>userConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 config.<br>mysqlConfig_5_7.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -837,6 +841,7 @@ config.<br>mysqlConfig_5_7.<br>userConfig.<br>lockWaitTimeout | **integer** (int
 config.<br>mysqlConfig_5_7.<br>userConfig.<br>maxPreparedStmtCount | **integer** (int64)<br><p>This variable limits the total number of prepared statements in the server.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1048576, inclusive.</p> 
 config.<br>mysqlConfig_5_7.<br>userConfig.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see [MySQL documentation for the variable] https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html</p> 
 config.<br>mysqlConfig_5_7.<br>userConfig.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
+config.<br>mysqlConfig_5_7.<br>userConfig.<br>queryResponseTimeStats | **boolean** (boolean)<br><p>Enables and disables collection of query times</p> <p>For details, see <a href="https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html#query_response_time_stats">Percona documentation for the variable</a>.</p> 
 config.<br>mysqlConfig_5_7.<br>defaultConfig | **object**<br><p>Default configuration for a MySQL 5.7 cluster.</p> <p>Options and structure of ``MysqlConfig5_7`` reflects MySQL 5.7 configuration file.</p> 
 config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -922,6 +927,7 @@ config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>lockWaitTimeout | **integer** (
 config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>maxPreparedStmtCount | **integer** (int64)<br><p>This variable limits the total number of prepared statements in the server.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1048576, inclusive.</p> 
 config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see [MySQL documentation for the variable] https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html</p> 
 config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
+config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>queryResponseTimeStats | **boolean** (boolean)<br><p>Enables and disables collection of query times</p> <p>For details, see <a href="https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html#query_response_time_stats">Percona documentation for the variable</a>.</p> 
 config.<br>mysqlConfig_8_0 | **object**<br>Configuration of a MySQL 8.0 server. <br>`config` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br>
 config.<br>mysqlConfig_8_0.<br>effectiveConfig | **object**<br><p>Effective settings for a MySQL 8.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file.</p> 
 config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 

@@ -90,6 +90,9 @@ A set of methods for managing node groups.
     },
     "containerRuntimeSettings": {
       "type": "string"
+    },
+    "containerNetworkSettings": {
+      "podMtu": "string"
     }
   },
   "scalePolicy": {
@@ -233,6 +236,8 @@ nodeTemplate.<br>networkSettings | **object**<br><p>this parameter allows to spe
 nodeTemplate.<br>networkSettings.<br>type | **string**<br><p>Required.</p> 
 nodeTemplate.<br>containerRuntimeSettings | **object**
 nodeTemplate.<br>containerRuntimeSettings.<br>type | **string**<br><p>Required.</p> 
+nodeTemplate.<br>containerNetworkSettings | **object**
+nodeTemplate.<br>containerNetworkSettings.<br>podMtu | **string** (int64)
 scalePolicy | **object**<br><p>Scale policy of the node group.  For more information, see <a href="/docs/compute/concepts/instance-groups/policies#scale-policy">Scaling policy</a>.</p> 
 scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 

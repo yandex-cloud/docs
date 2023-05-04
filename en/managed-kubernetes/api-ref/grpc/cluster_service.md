@@ -143,7 +143,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow}
 
@@ -177,6 +177,7 @@ enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master com
 destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
 &nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+audit_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for audit logs. 
 cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
 kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
 events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
@@ -346,7 +347,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow1}
 
@@ -380,6 +381,7 @@ enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master com
 destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
 &nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+audit_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for audit logs. 
 cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
 kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
 events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
@@ -523,7 +525,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow2}
 
@@ -557,6 +559,7 @@ enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master com
 destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
 &nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+audit_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for audit logs. 
 cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
 kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
 events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
@@ -772,7 +775,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow3}
 
@@ -806,6 +809,7 @@ enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master com
 destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
 &nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+audit_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for audit logs. 
 cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
 kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
 events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
@@ -1142,7 +1146,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow4}
 
@@ -1176,6 +1180,7 @@ enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master com
 destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
 &nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+audit_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for audit logs. 
 cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
 kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
 events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
@@ -1361,7 +1366,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow5}
 
@@ -1395,6 +1400,7 @@ enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master com
 destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
 &nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 &nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+audit_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for audit logs. 
 cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
 kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
 events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
@@ -1496,6 +1502,7 @@ network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br> 
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
 container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings)**<br> 
+container_network_settings | **[ContainerNetworkSettings](#ContainerNetworkSettings)**<br> 
 
 
 ### NetworkSettings {#NetworkSettings}
@@ -1510,6 +1517,13 @@ type | enum **Type**<br>Required.
 Field | Description
 --- | ---
 type | enum **Type**<br>Required.  
+
+
+### ContainerNetworkSettings {#ContainerNetworkSettings}
+
+Field | Description
+--- | ---
+pod_mtu | **int64**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -1658,7 +1672,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow6}
 

@@ -9,7 +9,9 @@ In the subnet the subcluster with master host will connect to, [set up an NAT ga
 
 ## Configure security groups {#change-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic for the resources will be allowed. No additional setup is required.
+
+To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 
 {% note warning %}
 
@@ -37,14 +39,14 @@ Security groups must be created and configured before creating a cluster. If the
 
          * Port range: `{{ port-https }}`.
          * Protocol: `TCP`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
       - To the addresses used by {{ yandex-cloud }}
 
          * Port range: `{{ port-https }}`.
          * Protocol: `TCP`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks:
             * `84.201.181.26/32`: Getting cluster status, running jobs, UI Proxy.
             * `213.180.193.8/32`: Monitoring cluster status, autoscaling.
@@ -118,30 +120,32 @@ A cluster must include a subcluster with a master host and at least one subclust
       {% endnote %}
 
    1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
+
          1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
       To enable this feature, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+
 
    1. Configure subclusters: no more than one subcluster with a master host (called **Master**) and subclusters for data storage or processing.
 
       Storage and processing subcluster roles are different: you can deploy data storage components on data storage subclusters and computing components on data processing subclusters. Storage on a data processing subcluster is only used to temporarily store processed files.
 
-   1. For each subcluster, you can configure:
+      For each subcluster, you can configure:
 
-      * The number of hosts.
+      * Number of hosts.
       * [Host class](../concepts/instance-types.md): The platform and computing resources available to the host.
       * [Storage](../concepts/storage.md) size and type.
-      * The subnet of the network where the cluster is located.
+      * Subnet of the network where the cluster is located.
 
-      In the subnet, you need to [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subcluster with the master host. For more information, see [{#T}](#setup-network).
+         In the subnet, you need to [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subcluster with the master host. For more information, see [{#T}](#setup-network).
 
-      1. To access subcluster hosts from the internet, select **Public access**. In this case, you can only connect to subcluster hosts over an SSL connection. For more information, see [{#T}](connect.md).
+      * To access subcluster hosts from the internet, select **Public access**. In this case, you can only connect to subcluster hosts over an SSL connection. For more information, see [{#T}](connect.md).
 
-      {% note warning %}
+         {% note warning %}
 
-      After you create your cluster, you can't request or disable public access to the subcluster. However, you can delete a data processing subcluster and then create it again with a relevant public access setting.
+         After you create your cluster, you cannot request or disable public access to the subcluster. However, you can delete a data processing subcluster and then create it again with the relevant public access setting.
 
-      {% endnote %}
+         {% endnote %}
 
    1. For data processing subclusters, you can specify the [autoscaling](../concepts/autoscaling.md) parameters.
 
@@ -263,7 +267,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
          {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-      * --ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md).
+      * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md).
 
       
       * `--log-group-id`: [Log group ID](../concepts/logs.md).
@@ -271,7 +275,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
 
-      To create a cluster with multiple data storage or processing subclusters, provide the required number of `--subcluster` arguments in the cluster create command:
+      To create a cluster with multiple data storage or processing subclusters, provide the required number of `--subcluster` arguments in the `cluster create` command:
 
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
@@ -281,36 +285,36 @@ A cluster must include a subcluster with a master host and at least one subclust
          ...
       ```
 
-      1. To enable [autoscaling](../concepts/autoscaling.md) in data processing subclusters, specify the following parameters:
+   1. To enable [autoscaling](../concepts/autoscaling.md) in data processing subclusters, specify the following parameters:
 
-         ```bash
-         {{ yc-dp }} cluster create <cluster name> \
-            ...
-            --subcluster name=<subcluster name>,`
-                        `role=computenode`
-                        `...`
-                        `hosts-count=<minimum number of hosts>`
-                        `max-hosts-count=<maximum number of hosts>,`
-                        `preemptible=<use preemptible VMs: true or false>,`
-                        `warmup-duration=<instance warmup period>,`
-                        `stabilization-duration=<stabilization period>,`
-                        `measurement-duration=<utilization measurement period>,`
-                        `cpu-utilization-target=<target CPU utilization level, %>,`
-                        `autoscaling-decommission-timeout=<decommissioning timeout, seconds>
-         ```
+      ```bash
+      {{ yc-dp }} cluster create <cluster name> \
+         ...
+         --subcluster name=<subcluster name>,`
+                     `role=computenode`
+                     `...`
+                     `hosts-count=<minimum number of hosts>`
+                     `max-hosts-count=<maximum number of hosts>,`
+                     `preemptible=<use preemptible VMs: true or false>,`
+                     `warmup-duration=<instance warmup period>,`
+                     `stabilization-duration=<stabilization period>,`
+                     `measurement-duration=<utilization measurement period>,`
+                     `cpu-utilization-target=<target CPU utilization level, %>,`
+                     `autoscaling-decommission-timeout=<decommissioning timeout, seconds>
+      ```
 
-         Where:
+      Where:
 
-         * `hosts-count`: The minimum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `32`.
-         * `max-hosts-count`: The maximum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `100`.
-         * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used.
-         * `warmup-duration`: The time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
-         * `stabilization-duration`: The interval, in seconds, during which the required number of instances can't be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
-         * `measurement-duration`: The period, in seconds, for which utilization measurements should be averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
-         * `cpu-utilization-target`: The target CPU utilization level, %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
-         * `autoscaling-decommission-timeout`: The [decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24h).
+      * `hosts-count`: Minimum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `32`.
+      * `max-hosts-count`: Maximum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `100`.
+      * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used.
+      * `warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
+      * `stabilization-duration`: Interval in seconds, during which the required number of instances cannot be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
+      * `measurement-duration`: Period in seconds, for which utilization measurements should be averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
+      * `cpu-utilization-target`: Target CPU utilization level, %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
+      * `autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24 hours).
 
-         {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
+      {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
 
    
@@ -350,7 +354,7 @@ A cluster must include a subcluster with a master host and at least one subclust
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
    
-   1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
@@ -570,7 +574,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
 After your cluster's status changes to **Running**, you can [connect](connect.md) to subcluster hosts using the specified SSH key.
 
-## Examples {#examples}
+## Example {#example}
 
 ### Creating a lightweight cluster for Spark and PySpark jobs {#creating-a-light-weight-cluster}
 

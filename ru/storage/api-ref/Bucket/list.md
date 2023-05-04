@@ -142,6 +142,14 @@ folderId | <p>Required. ID of the folder to list buckets in.</p> <p>To get the f
           // end of the list of possible fields`buckets[].objectLock.defaultRetention`
 
         }
+      },
+      "encryption": {
+        "rules": [
+          {
+            "kmsMasterKeyId": "string",
+            "sseAlgorithm": "string"
+          }
+        ]
       }
     }
   ]
@@ -223,3 +231,7 @@ buckets[].<br>objectLock.<br>defaultRetention | **object**<br><p>Default lock co
 buckets[].<br>objectLock.<br>defaultRetention.<br>mode | **string**<br><p>Lock type</p> 
 buckets[].<br>objectLock.<br>defaultRetention.<br>days | **string** (int64) <br>`buckets[].objectLock.defaultRetention` includes only one of the fields `days`, `years`<br><br><p>Number of days for locking</p> 
 buckets[].<br>objectLock.<br>defaultRetention.<br>years | **string** (int64) <br>`buckets[].objectLock.defaultRetention` includes only one of the fields `days`, `years`<br><br><p>Number of years for locking</p> 
+buckets[].<br>encryption | **object**<br><p>Configuration for bucket's encryption For detauls, see <a href="/docs/storage/concepts/encryption">documentation</a></p> 
+buckets[].<br>encryption.<br>rules[] | **object**
+buckets[].<br>encryption.<br>rules[].<br>kmsMasterKeyId | **string**
+buckets[].<br>encryption.<br>rules[].<br>sseAlgorithm | **string**

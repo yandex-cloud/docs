@@ -347,7 +347,7 @@ keywords:
       1. Создайте папку для файла с описанием инфраструктуры.
       1. Создайте в папке конфигурационный файл `joomla-postgresql-terraform.tf`:
 
-          {% cut "Содержимое файла joomla-postgresql-terraform.tf" %}
+          {% cut "joomla-postgresql-terraform.tf" %}
 
           {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-config.md) %}
 
@@ -355,7 +355,7 @@ keywords:
 
       1. Создайте в папке файл с пользовательскими данными `joomla-postgresql-terraform.auto.tfvars`:
 
-          {% cut "Содержимое файла joomla-postgresql-terraform.auto.tfvars" %}
+          {% cut "joomla-postgresql-terraform.auto.tfvars" %}
 
           {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-variables.md) %}
 

@@ -70,7 +70,7 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 ### ThisCluster {#ThisCluster}
 
-
+Empty
 
 ### ExternalClusterConnection {#ExternalClusterConnection}
 
@@ -170,7 +170,7 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 ### ThisCluster {#ThisCluster1}
 
-
+Empty
 
 ### ExternalClusterConnection {#ExternalClusterConnection1}
 
@@ -262,7 +262,7 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 ### ThisClusterSpec {#ThisClusterSpec}
 
-
+Empty
 
 ### ExternalClusterConnectionSpec {#ExternalClusterConnectionSpec}
 
@@ -366,7 +366,7 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 ### ThisCluster {#ThisCluster2}
 
-
+Empty
 
 ### ExternalClusterConnection {#ExternalClusterConnection2}
 
@@ -459,7 +459,7 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 ### ThisClusterSpec {#ThisClusterSpec1}
 
-
+Empty
 
 ### ExternalClusterConnectionSpec {#ExternalClusterConnectionSpec1}
 
@@ -562,7 +562,7 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 ### ThisCluster {#ThisCluster3}
 
-
+Empty
 
 ### ExternalClusterConnection {#ExternalClusterConnection3}
 
@@ -723,7 +723,7 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 ### ThisCluster {#ThisCluster4}
 
-
+Empty
 
 ### ExternalClusterConnection {#ExternalClusterConnection4}
 
@@ -842,7 +842,7 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 ### ThisCluster {#ThisCluster5}
 
-
+Empty
 
 ### ExternalClusterConnection {#ExternalClusterConnection5}
 

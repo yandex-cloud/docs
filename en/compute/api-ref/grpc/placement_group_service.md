@@ -49,7 +49,7 @@ placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placem
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-
+Empty
 
 ### PartitionPlacementStrategy {#PartitionPlacementStrategy}
 
@@ -99,7 +99,7 @@ placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placem
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy1}
 
-
+Empty
 
 ### PartitionPlacementStrategy {#PartitionPlacementStrategy1}
 
@@ -132,7 +132,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy2}
 
-
+Empty
 
 ### Operation {#Operation}
 
@@ -240,7 +240,7 @@ placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placem
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy3}
 
-
+Empty
 
 ### PartitionPlacementStrategy {#PartitionPlacementStrategy3}
 

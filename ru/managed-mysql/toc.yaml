@@ -84,6 +84,10 @@ items:
       - name: Миграция базы данных из {{ mmy-name }} в {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
       - name: >-
+          Поставка данных из {{ mkf-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-mmy-data-transfer.md
+      - name: >-
           Поставка данных в {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md

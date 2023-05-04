@@ -237,7 +237,7 @@ mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication
 
 ### NoAuth {#NoAuth}
 
-
+Empty
 
 ### DataTransformationOptions {#DataTransformationOptions}
 
@@ -300,11 +300,11 @@ path | **string**<br>
 
 ### AuditTrailsV1Parser {#AuditTrailsV1Parser}
 
-
+Empty
 
 ### CloudLoggingParser {#CloudLoggingParser}
 
-
+Empty
 
 ### MongoSource {#MongoSource}
 
@@ -763,7 +763,7 @@ mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication
 
 ### NoAuth {#NoAuth1}
 
-
+Empty
 
 ### DataTransformationOptions {#DataTransformationOptions1}
 
@@ -826,11 +826,11 @@ path | **string**<br>
 
 ### AuditTrailsV1Parser {#AuditTrailsV1Parser1}
 
-
+Empty
 
 ### CloudLoggingParser {#CloudLoggingParser1}
 
-
+Empty
 
 ### MongoSource {#MongoSource1}
 
@@ -1271,7 +1271,7 @@ mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication
 
 ### NoAuth {#NoAuth2}
 
-
+Empty
 
 ### DataTransformationOptions {#DataTransformationOptions2}
 
@@ -1334,11 +1334,11 @@ path | **string**<br>
 
 ### AuditTrailsV1Parser {#AuditTrailsV1Parser2}
 
-
+Empty
 
 ### CloudLoggingParser {#CloudLoggingParser2}
 
-
+Empty
 
 ### MongoSource {#MongoSource2}
 
@@ -1796,7 +1796,7 @@ mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication
 
 ### NoAuth {#NoAuth3}
 
-
+Empty
 
 ### DataTransformationOptions {#DataTransformationOptions3}
 
@@ -1859,11 +1859,11 @@ path | **string**<br>
 
 ### AuditTrailsV1Parser {#AuditTrailsV1Parser3}
 
-
+Empty
 
 ### CloudLoggingParser {#CloudLoggingParser3}
 
-
+Empty
 
 ### MongoSource {#MongoSource3}
 

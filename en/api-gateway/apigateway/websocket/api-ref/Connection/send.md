@@ -37,10 +37,5 @@ type | **string**<br><p>Type of the sending data.</p> <ul> <li>BINARY: Binary da
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 
-```json 
-{}
-```
 
- 
-Field | Description
---- | ---
+

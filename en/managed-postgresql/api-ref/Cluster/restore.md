@@ -395,7 +395,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "maxStandbyArchiveDelay": "integer"
     },
     "postgresqlConfig_11": {
       "maxConnections": "integer",
@@ -534,7 +535,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "geqoSeed": "number",
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
-      "pgTrgmStrictWordSimilarityThreshold": "number"
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer"
     },
     "postgresqlConfig_11_1C": {
       "maxConnections": "integer",
@@ -816,7 +818,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "geqoSeed": "number",
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
-      "pgTrgmStrictWordSimilarityThreshold": "number"
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer"
     },
     "postgresqlConfig_12_1C": {
       "maxConnections": "integer",
@@ -1112,7 +1115,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "geqoSeed": "number",
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
-      "pgTrgmStrictWordSimilarityThreshold": "number"
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer"
     },
     "postgresqlConfig_13_1C": {
       "maxConnections": "integer",
@@ -1424,7 +1428,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "geqoSeed": "number",
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
-      "pgTrgmStrictWordSimilarityThreshold": "number"
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer"
     },
     "postgresqlConfig_14_1C": {
       "maxConnections": "integer",
@@ -1735,7 +1740,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "enableGroupByReordering": true,
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
-      "pgTrgmStrictWordSimilarityThreshold": "number"
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer"
     },
     "postgresqlConfig_15_1C": {
       "maxConnections": "integer",
@@ -3178,6 +3184,7 @@ configSpec.<br>postgresqlConfig_10.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_11 | **object**<br>Configuration for a PostgreSQL 11 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_11.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)
@@ -3314,6 +3321,7 @@ configSpec.<br>postgresqlConfig_11.<br>geqoSeed | **number** (double)<br><p>Acce
 configSpec.<br>postgresqlConfig_11.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a PostgreSQL 11 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_11_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>sharedBuffers | **integer** (int64)
@@ -3590,6 +3598,7 @@ configSpec.<br>postgresqlConfig_12.<br>geqoSeed | **number** (double)<br><p>Acce
 configSpec.<br>postgresqlConfig_12.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a PostgreSQL 12 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_12_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>sharedBuffers | **integer** (int64)
@@ -3880,6 +3889,7 @@ configSpec.<br>postgresqlConfig_13.<br>geqoSeed | **number** (double)<br><p>Acce
 configSpec.<br>postgresqlConfig_13.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C | **object**<br>Configuration for a PostgreSQL 13 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_13_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>sharedBuffers | **integer** (int64)
@@ -4186,6 +4196,7 @@ configSpec.<br>postgresqlConfig_14.<br>geqoSeed | **number** (double)<br><p>Acce
 configSpec.<br>postgresqlConfig_14.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C | **object**<br>Configuration for a PostgreSQL 14 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_14_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>sharedBuffers | **integer** (int64)
@@ -4491,6 +4502,7 @@ configSpec.<br>postgresqlConfig_15.<br>enableGroupByReordering | **boolean** (bo
 configSpec.<br>postgresqlConfig_15.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C | **object**<br>Configuration for a PostgreSQL 15 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_15_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>sharedBuffers | **integer** (int64)

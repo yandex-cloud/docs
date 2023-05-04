@@ -22,13 +22,7 @@ jobId | <p>Required. Required. ID of the Dataproc job to cancel.</p> <p>The maxi
  
 ## Body parameters {#body_params}
  
-```json 
-{}
-```
-
- 
-Field | Description
---- | ---
+Empty
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

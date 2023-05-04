@@ -21,13 +21,7 @@ triggerId | <p>Required. ID of the trigger to pause</p> <p>To get a trigger ID m
  
 ## Body parameters {#body_params}
  
-```json 
-{}
-```
-
- 
-Field | Description
---- | ---
+Empty
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -101,14 +101,22 @@ items:
         items:
           - name: Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }}
             href: tutorials/mkf-to-mch.md
+          - name: Поставка данных из {{ mkf-full-name }} в {{ mgp-full-name }}
+            href: tutorials/managed-kafka-to-greenplum.md
+          - name: Поставка данных из {{ mkf-full-name }} в {{ mes-full-name }}
+            href: tutorials/mkf-to-mes.md
+          - name: Поставка данных из {{ mkf-full-name }} в {{ mmg-full-name }}
+            href: tutorials/mkf-to-mmg.md
+          - name: Поставка данных из {{ mkf-full-name }} в {{ mmy-full-name }}
+            href: tutorials/mkf-to-mmy.md
+          - name: Поставка данных из {{ mkf-full-name }} в {{ mos-full-name }}
+            href: tutorials/mkf-to-mos.md
           - name: Поставка данных из {{ mkf-full-name }} в {{ mpg-full-name }}
             href: tutorials/mkf-to-mpg.md
           - name: Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }}
             href: tutorials/mkf-to-ydb.md
           - name: Поставка данных из {{ mkf-full-name }} в {{ yds-full-name }}
             href: tutorials/mkf-to-yds.md
-          - name: Поставка данных из {{ mkf-full-name }} в {{ mgp-full-name }}
-            href: tutorials/managed-kafka-to-greenplum.md
           - name: Поставка данных из {{ GP }} в {{ CH }}
             href: tutorials/greenplum-to-clickhouse.md
           - name: Поставка данных из {{ GP }} в {{ PG }}

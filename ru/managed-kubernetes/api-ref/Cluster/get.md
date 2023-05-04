@@ -89,6 +89,7 @@ clusterId | <p>Required. ID of the Kubernetes cluster to return.</p>
     ],
     "masterLogging": {
       "enabled": true,
+      "auditEnabled": true,
       "clusterAutoscalerEnabled": true,
       "kubeApiserverEnabled": true,
       "eventsEnabled": true,
@@ -187,6 +188,7 @@ master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<
 master.<br>securityGroupIds[] | **string**<br><p>Master security groups.</p> 
 master.<br>masterLogging | **object**<br>Cloud Logging for master components.
 master.<br>masterLogging.<br>enabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for master components.</p> 
+master.<br>masterLogging.<br>auditEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for audit logs.</p> 
 master.<br>masterLogging.<br>clusterAutoscalerEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for cluster-autoscaler.</p> 
 master.<br>masterLogging.<br>kubeApiserverEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for kube-apiserver.</p> 
 master.<br>masterLogging.<br>eventsEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for events.</p> 

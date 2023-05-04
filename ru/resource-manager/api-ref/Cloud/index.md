@@ -30,6 +30,7 @@ labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 
 Method | Description
 --- | ---
 [create](create.md) | Creates a cloud in the specified organization.
+[delete](delete.md) | Deletes the specified cloud.
 [get](get.md) | Returns the specified Cloud resource.
 [list](list.md) | Retrieves the list of Cloud resources.
 [listAccessBindings](listAccessBindings.md) | Lists access bindings for the specified cloud.

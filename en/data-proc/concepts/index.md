@@ -2,7 +2,7 @@
 
 {{ dataproc-name }} helps implement distributed data storage and processing using the [Apache Hadoop](http://hadoop.apache.org) service ecosystem.
 
-## Resources
+## Resources {#resources}
 
 The main entity used in the service is a _cluster_. It groups together all the resources available in Hadoop, including storage and computing capabilities.
 
@@ -37,12 +37,14 @@ VMs corresponding to cluster hosts can be hosted:
 
    This placement option ensures physical isolation of VMs. A {{ dataproc-name }} cluster using dedicated hosts includes all the features of a regular cluster.
 
-   For more information, see the [{{ compute-full-name }} documentation on dedicated hosts](../../compute/concepts/dedicated-host.md).
+   For more information about dedicated hosts, see the [{{ compute-full-name }} documentation](../../compute/concepts/dedicated-host.md).
 
 
 For information about network configuration and network access to clusters, see [{#T}](network.md).
 
-## Lightweight clusters {#light-weight}
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+
+## Leightweight clusters {#light-weight-clusters}
 
 Starting from [image version](./environment.md) `2.0.39`, you can use a lightweight cluster configuration without HDFS and data storage subclusters. These clusters can, for example, only support YARN and SPARK. They are faster to create and use host computing resources more efficiently. We recommend using lightweight clusters to run single jobs for processing data in Spark or PySpark.
 
@@ -63,7 +65,7 @@ Requirements for using lightweight clusters:
 
 Since a {{ dataproc-name }} cluster can run jobs without directly accessing clusters over SSH, the cluster logs the job execution results to an S3 bucket. This is done for the user's convenience. Logging to the bucket is performed under the service account specified during cluster creation. For more information about the concept, go to [Service accounts](../../iam/concepts/users/service-accounts.md).
 
-We recommend using at least two different S3 buckets for a {{ dataproc-name }} cluster:
+We recommend using at least two separate S3 buckets for a {{ dataproc-name }} cluster:
 
 1. For the source data that the service account has read-only access to.
 1. For the operation logs and results, the service account has full access.

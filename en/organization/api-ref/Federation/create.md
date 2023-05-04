@@ -26,7 +26,8 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fe
   "ssoBinding": "string",
   "ssoUrl": "string",
   "securitySettings": {
-    "encryptedAssertions": true
+    "encryptedAssertions": true,
+    "forceAuthn": true
   },
   "caseInsensitiveNameIds": true,
   "labels": "object"
@@ -46,6 +47,7 @@ ssoBinding | **string**<br><p>Single sign-on endpoint binding type. Most Identit
 ssoUrl | **string**<br><p>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here.</p> <p>The maximum string length in characters is 8000.</p> 
 securitySettings | **object**<br><p>Federation security settings.</p> <p>Federation security settings.</p> 
 securitySettings.<br>encryptedAssertions | **boolean** (boolean)<br><p>Enable encrypted assertions.</p> 
+securitySettings.<br>forceAuthn | **boolean** (boolean)<br><p>Value parameter ForceAuthn in SAMLRequest.</p> 
 caseInsensitiveNameIds | **boolean** (boolean)<br><p>Use case insensitive Name IDs.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
  

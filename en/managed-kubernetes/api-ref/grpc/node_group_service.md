@@ -72,6 +72,7 @@ network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br> 
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
 container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings)**<br> 
+container_network_settings | **[ContainerNetworkSettings](#ContainerNetworkSettings)**<br> 
 
 
 ### NetworkSettings {#NetworkSettings}
@@ -86,6 +87,13 @@ type | enum **Type**<br>Required.
 Field | Description
 --- | ---
 type | enum **Type**<br>Required.  
+
+
+### ContainerNetworkSettings {#ContainerNetworkSettings}
+
+Field | Description
+--- | ---
+pod_mtu | **int64**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -234,7 +242,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow}
 
@@ -333,6 +341,7 @@ network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec1)**<b
 placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br> 
 network_settings | **[NetworkSettings](#NetworkSettings1)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
 container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings1)**<br> 
+container_network_settings | **[ContainerNetworkSettings](#ContainerNetworkSettings1)**<br> 
 
 
 ### NetworkSettings {#NetworkSettings1}
@@ -347,6 +356,13 @@ type | enum **Type**<br>Required.
 Field | Description
 --- | ---
 type | enum **Type**<br>Required.  
+
+
+### ContainerNetworkSettings {#ContainerNetworkSettings1}
+
+Field | Description
+--- | ---
+pod_mtu | **int64**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec1}
@@ -495,7 +511,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow1}
 
@@ -575,6 +591,7 @@ network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec2)**<b
 placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br> 
 network_settings | **[NetworkSettings](#NetworkSettings2)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
 container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings2)**<br> 
+container_network_settings | **[ContainerNetworkSettings](#ContainerNetworkSettings2)**<br> 
 
 
 ### NetworkSettings {#NetworkSettings2}
@@ -589,6 +606,13 @@ type | enum **Type**<br>Required.
 Field | Description
 --- | ---
 type | enum **Type**<br>Required.  
+
+
+### ContainerNetworkSettings {#ContainerNetworkSettings2}
+
+Field | Description
+--- | ---
+pod_mtu | **int64**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec2}
@@ -727,7 +751,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow2}
 
@@ -865,6 +889,7 @@ network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec3)**<b
 placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br> 
 network_settings | **[NetworkSettings](#NetworkSettings3)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
 container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings3)**<br> 
+container_network_settings | **[ContainerNetworkSettings](#ContainerNetworkSettings3)**<br> 
 
 
 ### NetworkSettings {#NetworkSettings3}
@@ -879,6 +904,13 @@ type | enum **Type**<br>Required.
 Field | Description
 --- | ---
 type | enum **Type**<br>Required.  
+
+
+### ContainerNetworkSettings {#ContainerNetworkSettings3}
+
+Field | Description
+--- | ---
+pod_mtu | **int64**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec3}
@@ -1026,7 +1058,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
-
+Empty
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow3}
 

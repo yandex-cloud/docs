@@ -130,7 +130,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
@@ -257,7 +257,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
@@ -360,7 +360,7 @@ Field | Description
 name | **string**<br>Required. Name of the user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 password | **string**<br>Required. Password of the user. The string length in characters must be 8-128.
 permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to the user to access specific databases. One permission per database. <br>When a permission for a database is set, the user will have access to the database. 
-global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li></ul>
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><li>`FLUSH_OPTIMIZER_COSTS`: Enables use of the `FLUSH OPTIMIZER_COSTS` statement.</li><li>`SHOW_ROUTINE`: Enables a user to access definitions and properties of all stored routines (stored procedures and functions), even those for which the user is not named as the routine DEFINER. This access includes: The contents of the Information Schema `ROUTINES` table. The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements. The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements. The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.</li></ul>
 connection_limits | **[ConnectionLimits](#ConnectionLimits)**<br>Set of user connection limits. 
 authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li></ul>
 
@@ -476,7 +476,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
@@ -572,7 +572,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
@@ -825,7 +825,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
@@ -968,7 +968,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
@@ -1114,7 +1114,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
@@ -1258,7 +1258,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
@@ -1441,7 +1441,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
 
@@ -1587,7 +1587,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
 
@@ -1731,7 +1731,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
 
-
+Empty
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
 

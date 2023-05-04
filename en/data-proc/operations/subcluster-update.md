@@ -75,6 +75,8 @@ You can change the number of hosts in data storage and processing subclusters:
 
 ## Changing the host class {#change-resource-preset}
 
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+
 You can change the computing power of hosts in a separate subcluster:
 
 {% list tabs %}
@@ -284,6 +286,8 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
 ## Increasing storage size {#change-disk-size}
 
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+
 You can increase the amount of storage available to each host in a particular subcluster.
 
 {% note info %}
@@ -387,7 +391,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click on the name of the host you want.
    1. Under **Network**, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit network interface**.
    1. Select the appropriate security groups.
