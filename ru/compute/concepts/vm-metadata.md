@@ -131,7 +131,7 @@
     {% include [user-data](../../_includes/compute/user-data.md) %}
 
     Чтобы передать эти данные в запросе, замените переносы строки символом `\n`:
-
+`Комментарий для коммита. Ошибка в блоке ниже:`
     ```json
     "metadata": {
       "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop"
