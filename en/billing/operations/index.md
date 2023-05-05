@@ -5,38 +5,41 @@ description: "In this article, you'll learn how to perform operations with billi
 
 # All instructions for Billing
 
-[{#T}](activate-commercial.md)
 
-[{#T}](purchase-cvos.md)
+## Working with documents {#docs}
 
-[{#T}](activate-promocode.md)
+* [{#T}](spell-out-bill.md)
+* [{#T}](download-reporting-docs.md)
+* [{#T}](edo.md)
 
-[{#T}](check-charges.md)
 
-[{#T}](pay-the-bill.md)
+## Managing a billing account {#account}
 
-[{#T}](pin-card.md)
+* [{#T}](create-new-account.md)
+* [{#T}](change-data.md)
+* [{#T}](pin-cloud.md)
+* [{#T}](delete-account.md)
+* [{#T}](activate-commercial.md)
 
-[{#T}](pin-cloud.md)
+## Managing payment methods {#payment-methods}
 
-[{#T}](change-payment-method.md)
+* [{#T}](pin-card.md)
+* [{#T}](change-payment-method.md)
 
-[{#T}](spell-out-bill.md)
+## Cost optimization {#cost-optimization}
 
-[{#T}](check-bill-history.md)
+* [{#T}](budgets.md)
+* [{#T}](purchase-cvos.md)
 
-[{#T}](change-data.md)
+## Paying for services {#payment}
 
-[{#T}](create-new-account.md)
+* [{#T}](activate-promocode.md)
+* [{#T}](pay-the-bill.md)
 
-[{#T}](delete-account.md)
+## Analyzing {{ yandex-cloud }} service usage {#details}
 
-[{#T}](get-folder-report.md)
-
-[{#T}](dashboard.md)
-
-[{#T}](budgets.md)
-
-[{#T}](edo.md)
-
-[{#T}](query-integration.md)
+* [{#T}](check-bill-history.md)
+* [{#T}](check-charges.md)
+* [{#T}](get-folder-report.md)
+* [{#T}](dashboard.md)
+* [{#T}](query-integration.md)

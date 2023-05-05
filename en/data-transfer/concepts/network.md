@@ -5,7 +5,7 @@ When creating endpoints of certain types, you can select a [cloud subnet](../../
 
 You can specify the subnet manually in the endpoint settings (for **On-Premise** endpoints) or have one selected automatically for [MDB endpoints](#managed-cluster-subnets). This subnet is referred to as the __selected subnet__. The network that the selected subnet belongs to is referred to as the __selected network__.
 
-If hosts are referenced by domain names in the endpoint settings, the DNS servers specified in the selected subnet DHCP settings will be used to resolve them into IP addresses. For more information, see [IP addresses and domain names in endpoint settings](#ip-addresses-and-domain-names).
+If hosts are referenced by domain names in the endpoint settings, the DNS servers specified in the selected subnet DHCP settings will be used to resolve them into IP addresses. All subnet's DNS servers must resolve the host domain name into an IP address; otherwise, the transfer may fail, since an arbitrary DNS server is used for transfer service name resolution in the subnet. For more information, see [IP addresses and domain names in endpoint settings](#ip-addresses-and-domain-names).
 
 {% note info %}
 

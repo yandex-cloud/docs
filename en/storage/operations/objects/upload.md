@@ -59,7 +59,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
       * `<bucket_name>`: Your bucket's name.
       * `<prefix>`: ID of a folder in storage, described in [{#T}](../../concepts/object.md#folder).
 
-   The `aws s3 cp` command is high-level, its functionality is limited. For more information, see the [AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html). All the upload functionality that {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html) command (see sample operations with [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
+   The `aws s3 cp` command is high-level, its functionality is limited. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). All upload features {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command (see sample operations with [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
 
 - {{ TF }}
 
@@ -146,12 +146,12 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
       Where:
 
       * `body`: Path to the file to be uploaded to the bucket.
-      * `bucket`: Your bucket's name.
+      * `bucket`: Name of your bucket.
       * `key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
       * `object-lock-mode`: [Type](../../concepts/object-lock.md#types) of object lock set for a certain period:
 
-         * `GOVERNANCE`: An object lock with a predefined retention period that can be managed.
-         * `COMPLIANCE`: An object lock with a predefined retention period with strict compliance.
+         * `GOVERNANCE`: Object lock with a predefined retention period that can be managed.
+         * `COMPLIANCE`: Object lock with a predefined retention period with strict compliance.
 
       * `object-lock-retain-until-date` Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. Can only be set together with the `object-lock-mode` parameter.
 
@@ -192,7 +192,7 @@ If a bucket already has the [default object locks set for a certain period](../.
       Where:
 
       * `body`: Path to the file to be uploaded to the bucket.
-      * `bucket`: Your bucket's name.
+      * `bucket`: Name of your bucket.
       * `key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
       * `content-md5`: Object's encoded MD5 hash.
 

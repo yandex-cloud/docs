@@ -33,6 +33,8 @@ items:
             href: operations/resources/enable-segmentation.md
           - name: Включить экранирование источников
             href: operations/resources/enable-shielding.md
+          - name: Управлять дополнительными настройками ресурса
+            href: operations/resources/configure-additions.md
           - name: Отключить ресурс
             href: operations/resources/disable-resource.md
           - name: Удалить ресурс

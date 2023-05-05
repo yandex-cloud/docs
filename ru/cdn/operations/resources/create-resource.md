@@ -215,6 +215,8 @@
 
 {% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}
 
+{% include [edge-center-features-note](../../../_includes/cdn/edge-center-features-note.md) %}
+
 ## Примеры {#examples}
 
 {% list tabs %}

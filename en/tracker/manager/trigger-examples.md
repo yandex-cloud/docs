@@ -28,7 +28,7 @@ Here are some examples of how triggers work in {{ tracker-name }}:
 
 It might often be the case that different employees are assigned to perform specific work stages. When an employee has completed their part of the work, they hand over the issue to the next assignee. In {{ tracker-name }}, each issue stage has its own status. When the issue switches over to a certain status, you can use a trigger to automatically set the assignee for the next work stage.
 
-Another way to organize the workflow is to set certain employees responsible for certain work areas. For example, each support employee is responsible for requests relating to their products. To manage this kind of workflow, you can [configure components](components.md) so that they correspond to specific products. When a certain component is added to the issue, you can use a trigger to automatically set the assignee responsible for the given product.
+Another way to organize the workflow is to make certain employees responsible for certain work areas. For example, each support employee is responsible for requests relating to their products. To manage this kind of workflow, you can [configure components](components.md) that correspond to specific products. When a certain component is added to an issue, you can use a trigger to automatically set the assignee responsible for the given product.
 
 Let's set up a trigger to automatically assign the issue:
 
@@ -239,6 +239,7 @@ To create issues based on requests submitted from a form:
 
    1. Save your integration settings.
 
+
    ![image](../../_assets/tracker/trigger-example-form-integration.png)
 
 1. [Publish](../../forms/publish.md#section_link) the form.
@@ -349,7 +350,7 @@ When the issue is closed, the robot will create a comment with a form and invite
 
 The [new board version](agile-new.md) allows you to set up adding issues automatically by a filter or [trigger](trigger-examples.md#board).
 
-Instead of a trigger, you can also [set up an auto action](../user/create-autoaction.md) with a similar condition and action. When using an auto action, the issues meeting the condition won't be added to the board immediately, but at a given periodicity.
+Instead of a trigger, you can also [set up an auto action](../user/create-autoaction.md) with a similar condition and action. When using an auto action, the issues meeting the condition will be added to the board at the specified time intervals rather than immediately.
 
 {% note warning %}
 
@@ -435,46 +436,47 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
 
 1. Select [**HTTP request**](../user/set-action.md#create-http) as a target action.
 
-1. Specify the request parameters. In the **Request body** field, set the parameters of a new sub-issue. To substitute the values from the original issue, use [variables](../user/vars.md):
+1. Specify the request parameters. In the **Request body** field, set the parameters of a new sub-issue.
+    To substitute the values from the original issue, use [variables](../user/vars.md):
 
-    #|
-    || **Field** | **Content** ||
-    || Method | POST ||
-    || Address | `{{ host }}/{{ ver }}/issues` ||
-    || Authorization method | OAuth 2.0 ||
-    || Token | [How to get a token](../concepts/access.md#section_about_OAauth) ||
-    || Authorization header | Authorization ||
-    || Token type | OAuth ||
-    || Content type | application/json ||
-    || Request body |
+   #|
+   || **Field** | **Content** ||
+   || Method | POST ||
+   || Address | `{{ host }}/{{ ver }}/issues` ||
+   || Authorization method | OAuth 2.0 ||
+   || Token | [How to get a token](../concepts/access.md#section_about_OAuth) ||
+   || Authorization header | Authorization ||
+   || Token type | OAuth ||
+   || Content type | application/json ||
+   || Request body |
 
-    > Example: Creating a sub-issue and transmitting to it field values from the original issue, such as description, assignee, followers, and tags.
-    >
-    > ```
-    > {
-    >    "summary": "Issue name",
-    >    "queue": "<Key of the queue to create a new issue in>",
-    >    "description": not_var{{issue.description.json}},
-    >    "links": [
-    >        {
-    >            "relationship": "is subtask for",
-    >            "issue": "not_var{{issue.key}}"
-    >        }
-    >    ],
-    >    "assignee": "not_var{{issue.assignee.login}}",
-    >    "tags": not_var{{issue.tags.json}},
-    >    "followers": not_var{{issue.followers.uid.json}}
-    > }
-    > ```
-    For more information about the request, see [{#T}](../concepts/issues/create-issue.md) and [{#T}](../concepts/issues/link-issue.md). ||
-    || Headers | Header: `X-Org-ID`.
-    Value: Organization ID. The ID is shown in the **Organization ID for API** field on the [{{ tracker-name }} settings]({{ link-settings }}) page. ||
-    |#
+   > Example: Creating a sub-issue and transmitting to it field values from the original issue, such as description, assignee, followers, and tags.
+   >
+   > ```
+   > {
+   >    "summary": "Issue name",
+   >    "queue": "<Key of the queue to create a new issue in>",
+   >    "description": not_var{{issue.description.json}},
+   >    "links": [
+   >        {
+   >            "relationship": "is subtask for",
+   >            "issue": "not_var{{issue.key}}"
+   >        }
+   >    ],
+   >    "assignee": "not_var{{issue.assignee.login}}",
+   >    "tags": not_var{{issue.tags.json}},
+   >    "followers": not_var{{issue.followers.uid.json}}
+   > }
+   > ```
+   For more information about the request, see [{#T}](../concepts/issues/create-issue.md) and [{#T}](../concepts/issues/link-issue.md). ||
+   || Headers | Header: `X-Org-ID`.
+   Value: Organization ID. The ID is shown in the **Organization ID for API** field on the [{{ tracker-name }} settings]({{ link-settings }}) page. ||
+   |#
 
-    {% note info %}
+   {% note info %}
 
-    Make sure the parameters you send to the request body using variables are set in the original issue; otherwise, the trigger will not work.
+   Make sure the parameters you send to the request body using variables are set in the original issue; otherwise, the trigger will not work.
 
-    {% endnote %}
+   {% endnote %}
 
 1. Click **Create**.

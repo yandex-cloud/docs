@@ -1,15 +1,7 @@
-# {{ forms-full-name }} revision history for February 2023
+# {{ forms-full-name }} revision history for March 2023
 
-* [Setting up access to forms and form groups](#updated-access)
+* [Access to forms for user groups](#access-teams)
 
-## Setting up access to forms and form groups {#updated-access}
+## Access to forms for user groups {#access-teams}
 
-You cannot grant access to **All employees** in the {{ forms-full-name }} access settings.
-
-{% note info %}
-
-You will soon be able to grant access to groups, departments, or teams from {{ org-full-name }}.
-
-{% endnote %}
-
-![new-acceess](../../_assets/forms/new-access.png)
+It is now easier to grant access to a form or a group of forms: if access is required for a group of users from an organization, you can grant it to this specific group instead of assigning it manually to each user in the group. This way, you can configure access permissions for user groups from {{ ya-360 }} and {{ org-full-name }} organizations.

@@ -5,7 +5,7 @@ To configure data export and import between {{ mch-name }} and {{ dataproc-name 
 1. [Export data from {{ mch-name }}](#export-from-mch).
 1. [Upload the data to {{ mch-name }}](#import-to-mch).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -45,7 +45,7 @@ Create resources:
          * **ZOOKEEPER**
    1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) to connect to {{ mch-name }} and {{ dataproc-name }} clusters.
    1. [Connect](../../compute/operations/vm-connect/ssh.md) to a virtual machine over SSH and configure the cluster connection:
-      * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md);
+      * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md).
       * [{{ dataproc-name }}](../../data-proc/operations/connect.md).
    1. (Optional) To export data to a [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md):
       1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
@@ -53,7 +53,7 @@ Create resources:
 
 - Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [data-proc-data-exchange-with-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-proc-data-exchange-with-mch.tf) configuration file to the same working directory.
 
@@ -80,13 +80,13 @@ Create resources:
       * `bucket_name`: {{ objstorage-name }} bucket name. It must be unique throughout {{ yandex-cloud }}.
 
    1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration file and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -101,14 +101,14 @@ Create resources:
 
 The cost of support for data exchange between {{ mch-name }} and {{ dataproc-name }} includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Export data from {{ mch-name }} {#export-from-mch}
 
 ### Prepare the {{ mch-name }} cluster {#prepare-mch}
 
-1. [Connect to the](../../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-name }} cluster on behalf of `user1`.
+1. [Connect to the](../../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-name }} cluster as `user1`.
 1. Add test data to the database. As an example, a simple table is used with people's names and ages.
 
    1. Create a table:
@@ -289,8 +289,8 @@ Maria,28
 
 ### Verify the data import in {{ mch-name }} {#check-mch-export}
 
-1. [Connect to the](../../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-name }} cluster on behalf of `user1`.
-1. Run the query:
+1. [Connect to the](../../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-name }} cluster as `user1`.
+1. Run the following query:
 
    ```sql
    SELECT * FROM example;
@@ -317,17 +317,17 @@ Delete the resources you no longer need to avoid paying for them:
 
    If you created your resources using {{ TF }}:
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `data-proc-data-exchange-with-mch.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -159,10 +159,12 @@ items:
     href: organization-changes.md
   - name: Pricing policy
     href: pricing.md
-  - name: Revision history
+  - name: Releases
     items:
-      - name: February 2023
+      - name: March 2023
         href: changelogs/index.md
+      - name: February 2023
+        href: changelogs/2302.md
       - name: January 2023
         href: changelogs/2301.md
       - name: December 2022

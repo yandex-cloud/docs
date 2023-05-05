@@ -4,7 +4,7 @@ With {{ data-transfer-name }}, you can move data from a [{{ yds-name }} data str
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -20,7 +20,7 @@ Prepare the infrastructure:
 
 * Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file [data-transfer-yds-obj.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-yds-obj.tf) to the same working directory.
 
@@ -38,14 +38,14 @@ Prepare the infrastructure:
       * `source_db_name`: {{ ydb-name }} database name.
       * `bucket_name`: {{ objstorage-name }} bucket name.
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -79,19 +79,19 @@ Prepare the infrastructure:
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **Database type**: `{{ yds-full-name }}`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-      * **Connection settings**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-         * **Database**: Select a {{ ydb-name }} database from the list.
-         * **Data stream**: Specify the name of the {{ yds-name }} data stream.
-         * **Service account**: Select or create a service account with the `yds.editor` role.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
-      * (optional) **Advanced settings** → **Conversions rules**:
+      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-         * **Data format**: `JSON`.
-         * **Data schema**: `JSON specification`:
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
             Create and upload the `json_schema.json` file in JSON format:
 
@@ -142,15 +142,15 @@ Prepare the infrastructure:
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **Database type**: `{{ objstorage-name }}`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ objstorage-name }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-      * **Connection settings**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.connection_settings.title }}**:
 
-         * **Bucket**: Specify the name of the bucket {{ objstorage-name }}.
-         * **Service account**: Select or create a service account with the `storage.uploader` role.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}**: Enter the name of the bucket in {{ objstorage-name }}.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: Select or create a service account with the `storage.uploader` role.
 
-      * **Output format**: Select `JSON` or `CSV` if you have enabled **Conversion rules** in the source endpoint settings.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: Select `JSON` or `CSV` if you have enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** in the advanced settings for the source endpoint.
 
 1. Create a transfer:
 
@@ -158,8 +158,8 @@ Prepare the infrastructure:
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-repl }}_ type that will use the created endpoints.
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) it.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+      1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
 
@@ -172,25 +172,25 @@ Prepare the infrastructure:
 
          * `yandex_datatransfer_transfer` resource.
 
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
       1. Create the required infrastructure:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         Once created, a transfer is activated automatically.
+         Once created, your transfer will be activated automatically.
 
    {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to {{ dt-status-repl }}.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Make sure that the data from the {{ yds-name }} stream has been moved to the bucket {{ objstorage-name }}:
 
@@ -233,7 +233,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
 1. [Delete](../../storage/operations/objects/delete.md) the objects from the {{ objstorage-name }} bucket:
 
 Delete the other resources, depending on the method used to create them:
@@ -248,17 +248,17 @@ Delete the other resources, depending on the method used to create them:
 
 * Using {{ TF }}
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the configuration file `data-transfer-yds-obj.tf`.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

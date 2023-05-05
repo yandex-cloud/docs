@@ -88,6 +88,7 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 | 404 | `NoSuchBucket` | The specified bucket does not exist. |
 | 404 | `NoSuchKey` | The specified key does not exist. |
 | 404 | `NoSuchUpload` | The specified multipart upload does not exist.<br/><br/>This error occurs in the following cases:<br/>— An invalid upload ID is specified.<br/>— The upload is aborted.<br/>— The upload is complete. |
+| 404 | `NoSuchTagSet` | The specified bucket does not have any tag assigned. |
 | 405 | `MethodNotAllowed` | The HTTP method is not allowed for the specified resource. |
 | 409 | `BucketAlreadyExists` | A bucket with the same name already exists. Choose a different name. |
 | 409 | `BucketNotEmpty` | The bucket you are trying to delete is not empty. |

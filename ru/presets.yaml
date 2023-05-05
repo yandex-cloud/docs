@@ -42545,6 +42545,8 @@ default:
         field_expand-add-segments-per-host-count: Добавить сегментов на хост
         field_expand-duration: Таймаут редистрибуции
         field_expand-segment-host-count: Количество новых хостов-сегментов
+        wizard:
+          action_open-wizard: Открыть визард
       iam:
         cloud:
           folders-create:

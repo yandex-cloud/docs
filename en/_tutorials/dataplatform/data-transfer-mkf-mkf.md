@@ -13,7 +13,7 @@ To migrate data:
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -30,7 +30,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    * Using {{ TF }}
 
-      1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the [data-transfer-mkf-mkf.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mkf.tf) configuration file to the same working directory.
 
@@ -52,14 +52,14 @@ If you no longer need these resources, [delete them](#clear-out).
          * `target_kf_version`: {{ KF }} version in the target cluster.
          * `transfer_enabled`: Set `0` to ensure that no transfer is created before the [source and target endpoints are created manually](#prepare-transfer).
 
-      1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
       1. Create the required infrastructure:
 
@@ -110,7 +110,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       * **Connection settings**: `{{ mkf-name }} cluster`.
 
-         Select a target cluster from the list and specify the cluster connection settings.
+         Select a target cluster from the list and specify its connection settings.
 
       * **Apache Kafka topic settings**.
          * **Topic full name**: `measurements`.
@@ -131,8 +131,8 @@ If you no longer need these resources, [delete them](#clear-out).
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the {{ dt-type-repl }} type that will use the created endpoints.
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) it.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a {{ dt-type-repl }} type that will use the created endpoints.
+      1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
 
@@ -142,19 +142,19 @@ If you no longer need these resources, [delete them](#clear-out).
          * `target_endpoint_id`: ID of the target endpoint.
          * `transfer_enabled`: Set `1` to enable transfer creation.
 
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
       1. Create the required infrastructure:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         Once created, a transfer is activated automatically.
+         Once created, your transfer will be activated automatically.
 
    {% endlist %}
 
@@ -243,7 +243,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
 
 Delete the other resources, depending on the method used to create them:
 
@@ -255,17 +255,17 @@ Delete the other resources, depending on the method used to create them:
 
 * Using {{ TF }}
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-mkf-mkf.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
