@@ -52,7 +52,7 @@ Logs are saved to a JSON file. For every action with the bucket, a record is wri
 | `http_referer` | String | URL of the request source. |
 | `ip` | String | User IP address. |
 | `method` | String | HTTP request method. |
-| `object_key` | String | [Object key](#key-format) in [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding) format. |
+| `object_key` | String | [Object key](#key-format) in [URL-encoded](https://en.wikipedia.org/wiki/Percent-encoding) format. |
 | `protocol` | String | Data transfer protocol version. |
 | `range` | String | HTTP header that defines the range of bytes to load from the object. |
 | `requester` | String | User ID. |
@@ -113,7 +113,7 @@ The log file provides an overview of the nature of traffic in the bucket, but is
 
 ### Enabling logging takes time {#long-engagement}
 
-It takes around an hour to enable logging and change the settings. The first log object is saved to the bucket in two hours after logging is enabled sometimes, however, it may take longer.
+It takes around an hour to enable logging and change the settings. The first log object is saved to the bucket in two hours after logging is enabled; sometimes, however, it may take longer.
 
 When you change the target bucket, some logs will still be delivered to the previous target bucket, while others will be delivered to the new one.
 

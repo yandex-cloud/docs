@@ -1,6 +1,6 @@
 ---
 title: "Bucket"
-description: "A bucket is a logical entity for storing objects. A bucket name is used as part of a URL to access data. Bucket names are unique throughout Object Storage, which means you cannot create two buckets with the same name, even in different folders belonging to different clouds. You should keep this in mind if you are going to create buckets automatically through the API."
+description: "A bucket is a logical entity for storing objects. A bucket name is used as part of a URL to access data. Bucket names are unique throughout Object Storage; this means you cannot create two buckets with the same name, even in two different folders residing in different clouds. You should keep this in mind if you are going to create buckets automatically through the API."
 keywords:
   - what is a bucket
   - bucket
@@ -10,7 +10,7 @@ keywords:
 
 # Bucket in {{ objstorage-name }}
 
-A bucket is a logical entity that handles storing objects.
+A bucket is a logical entity for storing objects.
 
 ## Naming buckets {#naming}
 
@@ -62,7 +62,6 @@ You can:
 
    By default, objects added to the bucket are encrypted with the specified [{{ kms-short-name }} key](../../kms/concepts/key.md).
 
-
 - Set up [object lifecycles](lifecycles.md).
 
 ## Bucket access {#bucket-access}
@@ -80,8 +79,7 @@ If required, you can configure permissions to the buckets and objects they conta
 - Buckets cannot be nested.
 - In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
 - You can only delete an empty bucket.
-- It may take some time after deleting a bucket before you can create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you released before you claim it again. Do not delete buckets without a reason.
-
+- After deleting a bucket, you may not be able to immediately create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you released before you claim it again. Do not delete buckets without a reason.
 - Uploading objects quickly one by one may lead to exceeding the specified maximum bucket size.
 - After deleting objects from a bucket, their storage capacity is retained for some time.
 

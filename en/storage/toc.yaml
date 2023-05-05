@@ -75,7 +75,7 @@ items:
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
         href: tutorials/server-side-encryption.md
-      - name: Integrating an L7 load balancer with the CDN and Object Storage
+      - name: Integrating L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
@@ -221,6 +221,12 @@ items:
                     href: s3/api-ref/bucket/putobjectlockconfiguration.md
                   - name: getObjectLockConfiguration
                     href: s3/api-ref/bucket/getobjectlockconfiguration.md
+                  - name: putBucketTagging
+                    href: s3/api-ref/bucket/putbuckettagging.md
+                  - name: getBucketTagging
+                    href: s3/api-ref/bucket/getbuckettagging.md
+                  - name: deleteBucketTagging
+                    href: s3/api-ref/bucket/deletebuckettagging.md
               - name: Object
                 items:
                   - name: All methods

@@ -126,45 +126,35 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. В списке сервисов выберите **{{ objstorage-name }}**.
   1. Нажмите кнопку **Создать бакет**.
-  1. Укажите **Имя** бакета: `<your_bucket_name>`.
-  1. В полях **Доступ на чтение объектов** и **Доступ к списку объектов** выберите **Публичный**.
+  1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+  1. В полях **Доступ на чтение объектов**, **Доступ к списку объектов** и **Доступ на чтение настроек** выберите **Ограниченный**.
   1. Нажмите кнопку **Создать бакет**.
   
 - AWS CLI
   
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
-  1. Создайте бакет `<your_bucket_name>`:
+  1. Создайте бакет, указав имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming):
   
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
-       s3 mb s3://<your_bucket_name>
+       s3 mb s3://<имя_бакета>
      ```
-     
+
      Результат:
      
-     ```
-     make_bucket: <your_bucket_name>
-     ```
-     
-  1. Включите публичный доступ к чтению объектов и их списка:
-  
-     ```bash
-     aws --endpoint-url https://{{ s3-storage-host }} \
-       s3api put-bucket-acl \
-       --bucket <your_bucket_name> \
-       --acl public-read
+     ```text
+     make_bucket: <имя_бакета>
      ```
   
 - {{ TF }}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Добавьте в конфигурационный файл параметры бакета `<your_bucket_name>`:
+  1. Добавьте в конфигурационный файл блок с параметрами бакета, указав имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming):
   
-     ```
-     resource "yandex_storage_bucket" "<your_bucket_name>" {
-       bucket = "<your_bucket_name>"
-       acl    = "public-read"
+     ```hcl
+     resource "yandex_storage_bucket" "<имя_бакета>" {
+       bucket = "<имя_бакета>"
      }
      ```
      
@@ -193,8 +183,8 @@
      
 - API
 
-  Используйте метод REST API [create](../../storage/s3/api-ref/bucket/create.md).
-       
+   Используйте метод REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызов gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или метод S3 API [create](../../storage/s3/api-ref/bucket/create.md).
+
 {% endlist %}
 
 ## Настройте подключение к {{ objstorage-name }} {#rclone-config}
@@ -233,18 +223,18 @@
 
 ## Смонтируйте бакет {#bucket-mount}
 
-1. Проверьте подключение к бакету. В той же командной строке, где выполнялась настройка подключения, выполните команду:
+1. Проверьте подключение к бакету. В той же командной строке, где выполнялась настройка подключения, выполните команду, указав имя бакета:
 
    ```powershell
-   rclone.exe ls s3-connect:<your_bucket_name>
+   rclone.exe ls s3-connect:<имя_бакета>
    ```
 
    Если конфигурация настроена правильно, в консоль будет выведен список объектов бакета.
 
-1. Смонтируйте бакет в файловую систему:
+1. Смонтируйте бакет в файловую систему, указав имя бакета и свободную букву диска в файловой системе:
 
    ```powershell
-   rclone.exe mount s3-connect:<your_bucket_name> <буква диска>: --vfs-cache-mode full
+   rclone.exe mount s3-connect:<имя_бакета> <буква_диска>: --vfs-cache-mode full
    ```
    
    В проводнике Windows появится новый диск с объектами из бакета.
@@ -262,8 +252,8 @@
      <id>rclone</id>
      <name>rclone-s3-disk</name>
      <description>This service maps an S3 bucket as a system drive.</description>
-     <executable>"<расположение рабочей директории>\rclone.exe"</executable>
-     <arguments>mount s3-connect:<your_bucket_name> <буква диска>: --vfs-cache-mode full</arguments>
+     <executable>"<расположение_рабочей_директории>\rclone.exe"</executable>
+     <arguments>mount s3-connect:<<имя_бакета> <буква_диска>: --vfs-cache-mode full</arguments>
      <log mode="roll" />
      <onfailure action="restart" />
    </service>

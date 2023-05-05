@@ -42536,6 +42536,8 @@ default:
         field_expand-add-segments-per-host-count: Add segments to host
         field_expand-duration: Redistribution timeout
         field_expand-segment-host-count: Number of new segment hosts
+        wizard:
+          action_open-wizard: Open wizard
       iam:
         cloud:
           folders-create:

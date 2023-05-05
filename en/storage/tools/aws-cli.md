@@ -1,16 +1,16 @@
 # AWS Command Line Interface (AWS CLI)
 
-[AWS CLI](https://aws.amazon.com/cli/) is a command line interface for working with AWS services. To learn [how to run commands](https://docs.aws.amazon.com/cli/latest/reference/), see the official Amazon documentation.
+[AWS CLI](https://aws.amazon.com/cli/) is a command line interface for working with AWS services. To learn [how to run commands](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html), see the official Amazon documentation.
 
 To work with {{ objstorage-name }} via the AWS CLI, you can use the following sets of commands:
-* [s3api](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html): Commands corresponding to operations in the REST API. Before you start, look through the [list of supported operations](../s3/api-ref/index.md).
-* [s3](https://docs.aws.amazon.com/cli/latest/reference/s3/index.html): Additional commands that make it easier to work with a large number of objects.
+* [s3api](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/index.html): Commands corresponding to operations in the REST API. Before you start, look through the [list of supported operations](../s3/api-ref/index.md).
+* [s3](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/index.html): Additional commands that make it easier to work with a large number of objects.
 
 ## Before you start {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-## Installation {#installation}
+## Installing {#installation}
 
 {% include [install-aws-cli](../../_includes/aws-tools/install-aws-cli.md) %}
 
@@ -83,7 +83,7 @@ To enable debug output in the console, use the `--debug` key.
 
 {% endnote %}
 
-### Creating a bucket {#creating-bucket}
+### Create a bucket {#creating-bucket}
 
 ```bash
 aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name

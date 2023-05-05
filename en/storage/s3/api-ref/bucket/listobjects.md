@@ -2,7 +2,9 @@
 
 Returns a list of bucket objects.
 
-Pagination is used for output. You can get a list of up to 1000 objects per request. If there are more objects, make several consecutive requests.
+It does not return object contents. To get them, use the [get](../object/get.md) method.
+
+Pagination is used for output. You can get a list of up to 1,000 objects per request. If there are more objects, make multiple consecutive requests.
 
 {% note info %}
 

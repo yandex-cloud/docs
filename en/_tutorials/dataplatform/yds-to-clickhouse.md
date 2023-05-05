@@ -8,7 +8,7 @@ To transfer data:
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -22,21 +22,21 @@ Prepare the infrastructure:
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration.
    1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-      * **Database type**: `{{ CH }}`.
-      * **Endpoint parameters**:
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ CH }}`.
+      * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-         * **Connection settings**:
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.connection.title }}**:
 
-            * **Connection settings**: `{{ mch-name }} cluster`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`.
 
-               * **{{ mch-name }} cluster**: Select the source cluster from the list.
+               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}**: Select the source cluster from the list.
 
-            * **Database**: Enter the name of the database.
-            * **User** and **Password**: Enter the name and password of the user who has access to the database, for example, the database owner.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.password.title }}**: Enter the name and password of the user who has access to the database, for example, the database owner.
 
 * Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
    1. Download the configuration file [data-transfer-yds-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-yds-mch.tf) to the same working directory.
@@ -61,14 +61,14 @@ Prepare the infrastructure:
       * `target_user` and `target_password`: {{ CH }} database owner username and password.
       * `transfer_enabled`: Set `0` to ensure that no transfer is created before [a source endpoint is created manually](#prepare-transfer).
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -101,24 +101,24 @@ Prepare the infrastructure:
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **Database type**: `{{ yds-full-name }}`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-      * **Connection settings**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-         * **Database**: Select a {{ ydb-name }} database from the list.
-         * **Data stream**: Specify the name of the {{ yds-name }} data stream.
-         * **Service account**: Select or create a service account with the `yds.editor` role.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
-      * **Advanced settings** → **Conversion rules**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-         * **Data format**: `JSON`.
-         * **Data schema**: You can specify a schema in two ways:
-            * `Field list`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema in two ways:
+            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
                Set a list of topic fields manually:
 
-               | Name | Type | Key |
+               | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.name.title }} | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.type.title }} | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.key.title }} |
                | :-- | :-- | :--- |
                | `device_id` | `STRING` | Yes |
                | `datetime` | `DATETIME` |  |
@@ -130,7 +130,7 @@ Prepare the infrastructure:
                | `cabin_temperature` | `DOUBLE` |
                | `fuel_level` | `ANY` |
 
-            * `JSON specification`.
+            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
                Create and upload the `json_schema.json` file in JSON format:
 
@@ -186,8 +186,8 @@ Prepare the infrastructure:
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the {{ dt-type-repl }} type that will use the created endpoints.
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) it.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
+      1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
 
@@ -196,25 +196,25 @@ Prepare the infrastructure:
          * `source_endpoint_id`: ID of the source endpoint.
          * `transfer_enabled`: Set `1` to enable transfer creation.
 
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
       1. Create the required infrastructure:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         Once created, a transfer is activated automatically.
+         Once created, your transfer will be activated automatically.
 
    {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to {{ dt-status-repl }}.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. [Send a new message to the data stream](../../data-streams/operations/aws-cli/send.md) {{ yds-name }}:
 
@@ -232,7 +232,7 @@ Prepare the infrastructure:
    }
    ```
 
-1. Make sure that the data from the {{ yds-name }} data stream has been moved to the {{ mch-name }} cluster database:
+1. Make sure the data from the {{ yds-name }} stream has been moved to the {{ mch-name }} cluster database:
 
    1. [Connect to the {{ mch-name }} target cluster](../../managed-clickhouse/operations/connect.md).
    1. Check that the {{ CH }} database contains a table with the name of the [created {{ yds-name }} data stream](#prepare-source) with the same columns as the [data schema in the source endpoint](#prepare-transfer) and the sent test data.
@@ -260,17 +260,17 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    * Using {{ TF }}
 
-      1. In the terminal window, change to the directory containing the infrastructure plan.
+      1. In the terminal window, switch to the directory containing the infrastructure plan.
       1. Delete the configuration file `data-transfer-yds-mch.tf`.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
-      1. Confirm the update of resources.
+      1. Confirm the resources have been updated.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

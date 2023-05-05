@@ -36,6 +36,9 @@
 | [listObjectVersions](bucket/listObjectVersions.md) | Returns metadata for all versions of objects in the bucket. |
 | [putObjectLockConfiguration](bucket/putobjectlockconfiguration.md) | Sets up the mechanism of [object version locks](../../concepts/object-lock.md) in a [versioned bucket](../../concepts/versioning.md). |
 | [getObjectLockConfiguration](bucket/getobjectlockconfiguration.md) | Returns the lock configuration. |
+| [putBucketTagging](bucket/putbuckettagging.md) | Adds [tags](../../../resource-manager/concepts/labels.md) to a bucket. |
+| [getBucketTagging](bucket/getbuckettagging.md) | Returns bucket tags. |
+| [deleteBucketTagging](bucket/deletebuckettagging.md) | Deletes bucket tags. |
 
 
 

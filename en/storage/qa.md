@@ -17,7 +17,6 @@ With {{ objstorage-name }}, you can:
 To get started with {{ objstorage-name }}:
 1. Sign up for {{ yandex-cloud }}.
 1. Create a folder.
-
    At this step, you can already use {{ objstorage-name }} via the {{ yandex-cloud }} management console. You can create and delete buckets, as well as upload objects to and download them from buckets.
 1. Get static keys to use the {{ objstorage-name }} HTTP API or available SDKs and apps.
 
@@ -110,11 +109,7 @@ By default, the storage is accessed via HTTPS.
 
 #### How do you guarantee the performance of {{ objstorage-full-name }}? {#qa-timings}
 
-<<<<<<< HEAD
-{{ objstorage-name }} has internal SLA and SLO that guarantee a specific speed of sending data to the customer, which, among other things, depend on the storage class.
-=======
 {{ objstorage-name }} has internal SLAs and SLOs that guarantee a specific speed of sending data to the customer, which, among other things, depend on the storage class.
->>>>>>> l10n/DOCSUP-44712
 
 The {{ objstorage-name }} response time depends on multiple factors:
 * Client-side performance (network speed, CPU load, or disk subsystem load).

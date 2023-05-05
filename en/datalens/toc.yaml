@@ -695,6 +695,8 @@ items:
         href: concepts/window-function-tutorial.md
       - name: LOD expressions and filtering in aggregate functions
         href: concepts/lod-aggregation.md
+  - name: Courses
+    href: training.md
   - name: Troubleshooting
     expanded: true
     items:
