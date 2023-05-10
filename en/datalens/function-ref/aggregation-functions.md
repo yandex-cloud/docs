@@ -114,7 +114,7 @@ There are the following features of using aggregations:
             [ BEFORE FILTER BY ... ]
           )`
 
-Returns a string that contains all grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
+Returns a string that contains all unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 
 
@@ -350,7 +350,7 @@ Returns the sum of all the expression values that meet the `condition` condition
             [ BEFORE FILTER BY ... ]
           )`
 
-Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
+Returns a string that contains top `amount` unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 
 

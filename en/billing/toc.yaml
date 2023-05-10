@@ -32,7 +32,7 @@ items:
         items:
           - name: Link another bank card
             href: operations/pin-card.md
-          - name: Changing payment method
+          - name: Change the payment method
             href: operations/change-payment-method.md
       - name: Cost optimization
         items:

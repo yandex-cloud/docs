@@ -2,9 +2,6 @@
 
 Companies and individual entrepreneurs that are residents of Russia and Kazakhstan can download closing documents in the {{ yandex-cloud }} management console.
 
-## For residents of Russia {#for-russian-residents}
-
-Companies and individual entrepreneurs that are Russian residents can download [reports](../concepts/act.md) and [invoices](../concepts/invoice.md) and request reconciliation reports.
 
 ### Download closing documents {#download-closing-docs}
 

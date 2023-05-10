@@ -253,7 +253,7 @@
      <name>rclone-s3-disk</name>
      <description>This service maps an S3 bucket as a system drive.</description>
      <executable>"<расположение_рабочей_директории>\rclone.exe"</executable>
-     <arguments>mount s3-connect:<<имя_бакета> <буква_диска>: --vfs-cache-mode full</arguments>
+     <arguments>mount s3-connect:<имя_бакета> <буква_диска>: --vfs-cache-mode full</arguments>
      <log mode="roll" />
      <onfailure action="restart" />
    </service>
@@ -283,5 +283,5 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-* [удалите объекты](../../storage/operations/objects/delete-all.md) из бакета `<your_bucket_name>`;
-* [удалите бакет](../../storage/operations/buckets/delete.md) `<your_bucket_name>`.
+* [удалите объекты](../../storage/operations/objects/delete-all.md) из бакета;
+* [удалите бакет](../../storage/operations/buckets/delete.md).

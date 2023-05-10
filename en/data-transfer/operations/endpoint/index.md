@@ -78,33 +78,33 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
 - {{ TF }}
-        {% note info %}
+      {% note info %}
 
-    You can create endpoints with {{ TF }} only for {{ MY }}, {{ PG }}, {{ MG }}, and {{ CH }} sources and targets.
+   You can create endpoints with {{ TF }} only for {{ MY }}, {{ PG }}, {{ MG }}, and {{ CH }} sources and targets.
 
-    {% endnote %}
+   {% endnote %}
 
-    
-    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-    To create an endpoint:
+   To create an endpoint:
 
-    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
-        1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-    1. Create a configuration file with a description of your endpoint.
+   1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
+       1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Create a configuration file with a description of your endpoint.
 
-       Example of the configuration file structure:
+      Example of the configuration file structure:
 
-       ```hcl
-       resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-         name = "<endpoint name>"
-         settings {
-           <endpoint type> {
-             <endpoint parameters>
-           }
-         }
-       }
-       ```
+      ```hcl
+      resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+        name = "<endpoint name>"
+        settings {
+          <endpoint type> {
+            <endpoint parameters>
+          }
+        }
+      }
+      ```
 
     1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
@@ -158,7 +158,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ CH }}](source/clickhouse.md)
          * [{{ eventhub-name }}](source/eventhub.md)
          * [{{ GP }}](source/greenplum.md)
-        * [{{ metrika }}](source/metrika.md)
+         * [{{ metrika }}](source/metrika.md)
          * [{{ MG }}](source/mongodb.md)
          * [{{ MY }}](source/mysql.md)
          * [Oracle](source/oracle.md)
@@ -175,11 +175,11 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ PG }}](target/postgresql.md)
          * [{{ yds-full-name }}](target/data-streams.md)
          * [{{ ydb-full-name }}](target/yandex-database.md)
-    1. Click **Apply**.
+   1. Click **Apply**.
 
 - {{ TF }}
 
-    1. Open the current {{ TF }} configuration file with the endpoint description.
+   1. Open the current {{ TF }} configuration file with the endpoint description.
 
         To learn how to create such a file, see [Create endpoint](#create).
 

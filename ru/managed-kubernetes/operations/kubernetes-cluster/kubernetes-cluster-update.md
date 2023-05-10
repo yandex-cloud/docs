@@ -1,24 +1,25 @@
-# Изменение кластера {{ k8s }}
+# Изменение кластера {{ managed-k8s-name }}
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}
 
-## Изменить кластер {{ k8s }} {#update-cluster}
+## Изменить кластер {{ managed-k8s-name }} {#update-cluster}
 
-Вы можете изменить следующие параметры [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster):
+Вы можете изменить следующие параметры [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster):
 * Имя.
 * Описание.
 * [Сервисные аккаунты](../../../iam/operations/sa/create.md).
-* Версию {{ k8s }}.
+* [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md).
 * Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
 * Список [групп безопасности](../connect/security-groups.md).
+* Настройки отправки логов в [{{ cloud-logging-full-name }}](../../../logging/).
 
-  Группы безопасности находятся на [стадии Preview](../../../overview/concepts/launch-stages.md). Если они недоступны в вашей сети, для ресурсов будет разрешен весь входящий и исходящий трафик. Дополнительной настройки не требуется.
+  [Группы безопасности](../../../vpc/concepts/security-groups.md) находятся на [стадии Preview](../../../overview/concepts/launch-stages.md). Если они недоступны в вашей [сети](../../../vpc/concepts/network.md#network), для ресурсов будет разрешен весь входящий и исходящий трафик. Дополнительной настройки не требуется.
 
   Чтобы включить группы безопасности, [запросите в технической поддержке]({{ link-console-support }}/create-ticket) доступ к этой функции.
 
   {% note alert %}
 
-  Не удаляйте группы безопасности, привязанные к работающему кластеру: это может привести к нарушению его работы и потере данных.
+  Не удаляйте группы безопасности, привязанные к работающему кластеру {{ managed-k8s-name }}: это может привести к нарушению его работы и потере данных.
 
   {% endnote %}
 
@@ -26,9 +27,9 @@
 
 - Консоль управления
 
-  Чтобы изменить [кластер {{ k8s }}](../../concepts/index.md#kubernetes-cluster):
-  1. Откройте раздел **{{ managed-k8s-name }}** в каталоге, где требуется изменить кластер {{ k8s }}.
-  1. Нажмите на имя нужного кластера {{ k8s }}.
+  Чтобы изменить кластер {{ managed-k8s-name }}:
+  1. Откройте раздел **{{ managed-k8s-name }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
+  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
   1. Нажмите кнопку **Редактировать** в правом верхнем углу.
   1. В открывшемся окне измените необходимые параметры.
   1. Нажмите кнопку **Сохранить изменения**.
@@ -39,8 +40,8 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Чтобы изменить кластер:
-  1. Посмотрите описание команды CLI для изменения кластера:
+  Чтобы изменить кластер {{ managed-k8s-name }}:
+  1. Посмотрите описание команды CLI для изменения кластера {{ managed-k8s-name }}:
 
      ```bash
      {{ yc-k8s }} cluster update --help
@@ -49,27 +50,37 @@
   1. Выполните команду, передав список изменяемых настроек (в примере приведены не все настройки):
 
      ```bash
-     {{ yc-k8s }} cluster update <имя кластера> \
-       --new-name <новое имя кластера> \
-       --description <описание кластера> \
+     {{ yc-k8s }} cluster update <имя кластера {{ managed-k8s-name }}> \
+       --new-name <новое имя кластера {{ managed-k8s-name }}> \
+       --description <описание кластера {{ managed-k8s-name }}> \
        --service-account-id <идентификатор сервисного аккаунта для ресурсов> \
        --service-account-name <имя сервисного аккаунта для ресурсов> \
        --node-service-account-id <идентификатор сервисного аккаунта для узлов> \
-       --security-group-ids <список идентификаторов групп безопасности>
+       --security-group-ids <список идентификаторов групп безопасности> \
+       --master-logging enabled=<отправка логов: true или false>,`
+           `log-group-id=<идентификатор лог-группы>,`
+           `folder-id=<идентификатор каталога>,`
+           `kube-apiserver-enabled=<отправка логов kube-apiserver: true или false>,`
+           `cluster-autoscaler-enabled=<отправка логов cluster-autoscaler: true или false>,`
+           `events-enabled=<отправка событий {{ k8s }}: true или false>
      ```
 
      Где:
-     * `--new-name` — имя кластера.
-     * `--description` — описание кластера.
-     * `--service-account-id`, `--service-account-name` — сервисный аккаунт для управления кластером.
-     * `--node-service-account-id`, `--node-service-account-name` — сервисный аккаунт для управления узлами.
-     * `--security-group-ids` — группы безопасности кластера.
+     * `--new-name` — имя кластера {{ managed-k8s-name }}.
+     * `--description` — описание кластера {{ managed-k8s-name }}.
+     * `--service-account-id`, `--service-account-name` — сервисный аккаунт для управления кластером {{ managed-k8s-name }}.
+     * `--node-service-account-id`, `--node-service-account-name` — сервисный аккаунт для управления [узлами](../../concepts/index.md#node-group).
+     * `--security-group-ids` — группы безопасности кластера {{ managed-k8s-name }}.
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
+     * `--master-logging` — отправка логов в {{ cloud-logging-name }}:
+
+       {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+
      * `--version` — версию {{ k8s }}.
      * `--latest-revision` — получить все доступные обновления для текущей версии мастера.
-     * `--auto-upgrade` — управлять автоматическими обновлениями кластера.
+     * `--auto-upgrade` — управлять автоматическими обновлениями кластера {{ managed-k8s-name }}.
      * Управление окном обновлений:
        * `--anytime-maintenance-window` — обновлять в любое время.
        * `--daily-maintenance-window` — обновлять ежедневно в выбранное время.
@@ -77,11 +88,20 @@
 
 - {{ TF }}
 
-  Чтобы изменить [кластер {{ k8s }}](../../concepts/index.md#kubernetes-cluster):
-  1. Откройте актуальный конфигурационный файл с описанием кластера.
+  Чтобы изменить кластер {{ managed-k8s-name }}:
+  1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
 
      О том, как создать такой файл, см. в разделе [{#T}](kubernetes-cluster-create.md).
-  1. Измените нужные параметры в описании кластера {{ k8s }}.
+  1. Измените нужные параметры в описании кластера {{ managed-k8s-name }}.
+
+     Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените значения параметров в блоке `master_logging`. Если такого блока нет — создайте его.
+
+     {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
+
+     Где:
+
+     {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
+
   1. Проверьте корректность конфигурационных файлов.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
@@ -94,16 +114,18 @@
 
 - API
 
-  Чтобы изменить параметры кластера {{ k8s }}, воспользуйтесь методом [update](../../api-ref/Cluster/update.md) для ресурса [Cluster](../../api-ref/Cluster/).
+  Чтобы изменить параметры кластера {{ managed-k8s-name }}, воспользуйтесь методом [update](../../api-ref/Cluster/update.md) для ресурса [Cluster](../../api-ref/Cluster/).
+
+  Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените их значения в параметре `masterSpec.masterLogging`.
 
 {% endlist %}
 
-## Управлять метками кластера {{ k8s }} {#manage-label}
+## Управлять метками кластера {{ managed-k8s-name }} {#manage-label}
 
-Вы можете выполнять следующие действия с [метками кластера {{ k8s }}](../../concepts/index.md#node-labels):
-* [Добавить](#add-label)
-* [Изменить](#update-label)
-* [Удалить](#remove-label)
+Вы можете выполнять следующие действия с [метками кластера {{ managed-k8s-name }}](../../concepts/index.md#node-labels):
+* [Добавить](#add-label).
+* [Изменить](#update-label).
+* [Удалить](#remove-label).
 
 ### Добавить метку {#add-label}
 
@@ -111,7 +133,7 @@
 
 - CLI
 
-  Добавьте метку кластеру {{ k8s }}:
+  Добавьте метку кластеру {{ managed-k8s-name }}:
 
   ```bash
   yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
@@ -139,7 +161,7 @@
 
 - CLI
 
-  Измените метку кластера {{ k8s }}:
+  Измените метку кластера {{ managed-k8s-name }}:
 
   {% note warning %}
 
@@ -173,7 +195,7 @@
 
 - CLI
 
-  Удалите метку кластера {{ k8s }}:
+  Удалите метку кластера {{ managed-k8s-name }}:
 
   ```bash
   yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label

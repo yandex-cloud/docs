@@ -13,9 +13,11 @@ CDC (change data capture — [захват изменения данных](http
 
 В {{ yandex-cloud }} одним из способов реализации CDC-подхода может быть трансфер из базы данных в брокер сообщений. Все обновления в базе отслеживаются трансфером и отправляются в брокер сообщений, а потребители подключаются к брокеру и считывают поступающие сообщения.
 
-{{ data-transfer-name }} поддерживает CDC-режим для трансферов из баз данных {{ PG }}, {{ MG }}, {{ MY }} и {{ ydb-short-name }} в {{ KF }} и {{ yds-full-name }}^1^. При этом данные в приемник попадают в формате [Debezium](https://debezium.io/).
+{{ data-transfer-name }} поддерживает CDC-режим для трансферов из баз данных {{ PG }}, {{ MY }} и {{ ydb-short-name }} в {{ KF }} и {{ yds-full-name }}^1^. При этом данные в приемник попадают в формате [Debezium](https://debezium.io/).
 
 ![image](../../_assets/data-transfer/concepts/cdc-flow.png)
+
+{% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 

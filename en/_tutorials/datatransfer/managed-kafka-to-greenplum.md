@@ -215,7 +215,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 * Make sure the transfer has the {{ dt-status-finished }} status and [delete](../../data-transfer/operations/transfer.md#delete) it.
 * [Delete both the source endpoint and the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).

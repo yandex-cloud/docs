@@ -143,6 +143,10 @@
           multipart_upload.abort()
   ```
 
+- API
+
+  Воспользуйтесь методом S3 API [deleteMultipleObjects](../../s3/api-ref/object/deletemultipleobjects.md).
+
 {% endlist %}
 
 В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.

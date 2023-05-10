@@ -8,7 +8,7 @@
 * создать кластер в {{ ml-platform-name }}, используя специальный ресурс — [шаблон {{ dataproc-name }}](data-proc-template.md);
 * самостоятельно создать кластер в [сервисе {{ dataproc-full-name }}](../../data-proc/) и интегрировать его в проект {{ ml-platform-name }}.
 
-Все кластеры {{ dataproc-name }} вне зависимости от варианта развертывания тарифицируются по [правилам сервиса {{ dataproc-full-name }}](../../data-proc/pricing.md). Все кластеры, доступные в проекте, можно посмотреть в разделе **Ресурсы проекта** ⟶ ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ dataproc-name }}** на странице проекта.
+Все кластеры {{ dataproc-name }} вне зависимости от варианта развертывания тарифицируются по [правилам сервиса {{ dataproc-full-name }}](../../data-proc/pricing.md). Все кластеры, доступные в проекте, можно посмотреть в разделе **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** ⟶ ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}** на странице проекта.
 
 ### Шаблоны {{ dataproc-name }} {#template}
 

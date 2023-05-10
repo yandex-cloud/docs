@@ -82,4 +82,10 @@ description: "Для управления доступом к объекту в 
 
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}).
 
+- API
+
+  Чтобы отредактировать ACL объекта, воспользуйтесь методом S3 API [objectPutAcl](../../s3/api-ref/acl/objectput.md).
+
+  Чтобы загрузить объект с установкой ACL, воспользуйтесь методом S3 API [upload](../../s3/api-ref/object/upload.md) с заголовками `X-Amz-Acl`, `X-Amz-Grant-Read`, `X-Amz-Grant-Read-Acp`, `X-Amz-Grant-Write-Acp` и `X-Amz-Grant-Full-Control`.
+
 {% endlist %}

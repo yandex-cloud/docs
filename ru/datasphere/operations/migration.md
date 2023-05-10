@@ -41,7 +41,7 @@
 
 ### Перенести данные с помощью удаленного Git-репозитория {#transfer-git}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в раздел **{{ ml-platform-name }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datasphere }}**.
 1. Откройте старый проект, данные из которого нужно перенести.
 1. [Создайте](./projects/work-with-git.md#init) в проекте локальный репозиторий.
 1. [Отправьте](./projects/work-with-git.md#push) изменения в удаленный репозиторий.
@@ -49,7 +49,7 @@
 
 ### Сохранить файлы старого проекта на локальный диск {#transfer-local}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в раздел **{{ ml-platform-name }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datasphere }}**.
 1. Откройте старый проект, данные из которого нужно перенести.
 1. На панели слева выберите вкладку ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**.
 1. Нажмите правой кнопкой мыши на файл, который нужно сохранить, и выберите пункт ![download](../../_assets/datasphere/jupyterlab/download.svg) **Download**. Последовательно сохраните все нужные файлы.
@@ -65,7 +65,7 @@
 
 ### Перенести данные с помощью объектного хранилища {#transfer-s3}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в раздел **{{ ml-platform-name }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datasphere }}**.
 1. Откройте старый проект, данные из которого нужно перенести.
 1. Если у вас еще нет подключения к S3, создайте его.
 
@@ -115,7 +115,7 @@
 {% endnote %}
 
 Чтобы перенести состояние интерпретатора старого проекта в новую версию с помощью контрольной точки:
-1. В [консоли управления]({{ link-console-main }}) перейдите в раздел **{{ ml-platform-name }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datasphere }}**.
 1. Откройте старый проект и создайте контрольную точку проекта:
     * В [стандартном](../concepts/save-state.md#default-save) режиме сохранения состояний:
         1. Откройте панель ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints**.
@@ -146,7 +146,7 @@
         * Введите имя проекта.
         * (Опционально) Введите описание проекта.
         * Выберите [сообщество](../concepts/community.md) для проекта.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 #### См. также {#see-also}
 

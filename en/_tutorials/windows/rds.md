@@ -4,7 +4,7 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
-This scenario describes how to deploy Microsoft Windows Server 2019 Datacenter with pre-installed Remote Desktop Services in {{ yandex-cloud }}. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server where Remote Desktop Services and Active Directory will be installed. Images are available with quotas for 5/10/25/50/100/250/500 users. Select the version with the necessary quota. All examples are given for a server with a quota for 5 users.
+This scenario describes how to deploy Microsoft Windows Server Datacenter with pre-installed Remote Desktop Services in {{ yandex-cloud }}. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server where Remote Desktop Services and Active Directory will be installed. Images are available with quotas for 5/10/25/50/100/250/500 users. Select the version with the necessary quota. All examples are given for a server with a quota for 5 users.
 
 {% note warning %}
 
@@ -130,7 +130,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter a name for the VM: `my-rds-vm`.
    1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-   1. Under **{{ marketplace-name }}**, click **Show more**. In the window that opens, select the [Windows RDS](/marketplace?tab=software&search=windows+rds) image.
+   1. Under **{{ marketplace-name }}**, click **Show more**. In the window that opens, select the [RDS](/marketplace?tab=software&search=windows+rds) image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
       - Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
@@ -154,13 +154,35 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       --cores 4 \
       --zone {{ region-id }}-a \
       --network-interface subnet-name=my-subnet-a,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
-      --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk-rds-5 \
+      --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk-rds-5 \
       --metadata-from-file user-data=setpass
    ```
 
 {% endlist %}
 
 ## Install and configure Active Directory domain controllers {#install-ad}
+
+1. Restart `my-rds-vm`:
+
+   {% list tabs %}
+
+   - Management console
+  
+     1. On the folder page in the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
+     1. Select `my-rds-vm`.
+     1. Click ![image](../../_assets/options.svg) and select **Restart**.
+  
+   - CLI
+  
+     ```
+     yc compute instance restart my-rds-vm
+     ```
+  
+   - API
+
+     Use the [restart](../../compute/api-ref/Instance/restart.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Restart](../../compute/api-ref/grpc/instance_service.md#Restart) gRPC API call.
+
+   {% endlist %}
 
 1. Connect to `my-rds-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
 1. Assign Active Directory roles:
@@ -216,9 +238,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 ## Set up the license server in the domain {#license-server}
 
-1. Authorize the license server in the domain.
-
-   The role is on the domain controller, so add `Network Service` to the `BUILTIN` group:
+1. Add the system user `Network Service` to the Active Directory security group Terminal Server License Servers:
 
    {% list tabs %}
 
@@ -298,6 +318,26 @@ Install the Remote Desktop Session Host role on the server:
    ```
 
 {% endlist %}
+
+
+## Add the server to the AD security group and register it as SCP {#ad-sg-scp}
+
+Add the server to the Active Directory security group Terminal Server License Servers and register it as the licensing service connection point (SCP):
+
+{% list tabs %}
+
+- Windows Server
+
+  1. Click **Start**.
+  1. In the search box, type `Remote Desktop Licensing Manager`.
+  1. Right-click the server in the list and select **Review Configuration...**
+  1. Next to the first warning, about the `Terminal Server License Servers` group, click **Add to Group**, then click **Continue**.
+  1. Next to the second warning, about the service connection point, click **Register as SCP**.
+  1. Click **OK**.
+  1. Restart the VM.
+
+{% endlist %}
+
 
 ## Create users {#create-users}
 

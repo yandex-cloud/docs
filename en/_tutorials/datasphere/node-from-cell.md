@@ -31,7 +31,10 @@ For more information, see [{{ ml-platform-full-name }} pricing](../../datasphere
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
+{% include [intro](../../_includes/datasphere/federation-disclaimer.md) %}
+
 ### Create a folder {#create-folder}
+
 
 Create a folder to store logs of your service.
 
@@ -76,7 +79,7 @@ In this example, we will use the basic [c1.4 configuration](../../datasphere/con
 
 {% endnote %}
 
-In this example, you will use an image classification model based on [fully connected layers](https://en.wikipedia.org/wiki/Convolutional_neural_network#Fully_connected_layers). The model returns ten probability values that show how confident the network is about the input image matching a certain class.
+In this example, you will use an image classification model based on [fully connected layers](https://en.wikipedia.org/wiki/Convolutional_neural_network#Fully_connected_layers). The model returns 10 probability values that show how confident the network is about the input image matching a certain class.
 
 1. Import the required libraries to the project. To do this, copy and paste the code into the appropriate cell by selecting **Run → Run Selected Cells** or pressing **Shift** + **Enter**. Wait for the operation to complete.
 
@@ -139,55 +142,61 @@ In this example, you will use an image classification model based on [fully conn
     np.argmax(predictions[0])
     ```
 
-   A prediction is an array of 10 numbers. They describe the probability of an image match to each of 10 types of clothes.
+   A prediction is an array of 10 numbers. They describe the probability of an image match to each of the 10 types of clothes.
 
 1. (Optional) Test the model.
-   * Create functions to display an image to classify and prediction results in a graphical view:
+   * Create functions to display the image being classified and the prediction results in a graphical view:
 
-        ```python
-        def plot_image(i, predictions_array, true_label, img):
-            true_label, img = true_label[i], img[i]
-            plt.grid(False)
-            plt.xticks([])
-            plt.yticks([])
+      ```python
+      def plot_image(i, predictions_array, true_label, img):
+          (true_label, img) = (true_label[i], img[i])
+          plt.grid(False)
+          plt.xticks([])
+          plt.yticks([])
 
-            plt.imshow(img, cmap=plt.cm.binary)
+          plt.imshow(img, cmap=plt.cm.binary)
 
-            predicted_label = np.argmax(predictions_array)
-            if predicted_label == true_label:
-                color = 'blue'
-            else:
-                color = 'red'
+          predicted_label = np.argmax(predictions_array)
+          if predicted_label == true_label:
+              color = "blue"
+          else:
+              color = "red"
 
-            plt.xlabel("{} {:2.0f}% ({})".format(class_names[predicted_label],
-                                    100*np.max(predictions_array),
-                                    class_names[true_label]),
-                                    color=color)
+          plt.xlabel(
+              "{} {:2.0f}% ({})".format(
+                  class_names[predicted_label],
+                  100 * np.max(predictions_array),
+                  class_names[true_label],
+              ),
+              color=color,
+          )
 
-        def plot_value_array(i, predictions_array, true_label):
-            true_label = true_label[i]
-            plt.grid(False)
-            plt.xticks(range(10))
-            plt.yticks([])
-            thisplot = plt.bar(range(10), predictions_array, color="#777777")
-            plt.ylim([0, 1])
-            predicted_label = np.argmax(predictions_array)
 
-            thisplot[predicted_label].set_color('red')
-            thisplot[true_label].set_color('blue')
-        ```
+      def plot_value_array(i, predictions_array, true_label):
+          true_label = true_label[i]
+          plt.grid(False)
+          plt.xticks(range(10))
+          plt.yticks([])
+          thisplot = plt.bar(range(10), predictions_array, color="#777777")
+          plt.ylim([0, 1])
+          predicted_label = np.argmax(predictions_array)
 
-    * Display the sixth image and prediction results:
+          thisplot[predicted_label].set_color("red")
+          thisplot[true_label].set_color("blue")
 
-        ```python
-        i = 6
-        plt.figure(figsize=(6,3))
-        plt.subplot(1,2,1)
-        plot_image(i, predictions[i], test_labels, test_images)
-        plt.subplot(1,2,2)
-        plot_value_array(i, predictions[i],  test_labels)
-        plt.show()
-        ```
+      ```
+
+   * Display the sixth image and prediction results:
+
+      ```python
+      i = 6
+      plt.figure(figsize=(6,3))
+      plt.subplot(1,2,1)
+      plot_image(i, predictions[i], test_labels, test_images)
+      plt.subplot(1,2,2)
+      plot_value_array(i, predictions[i],  test_labels)
+      plt.show()
+      ```
 
 
 ## Create a checkpoint for deploying your microservice {#checkpoint}
@@ -291,7 +300,7 @@ You can send requests from the {{ ml-platform-name }} interface or the notebook 
         import requests
 
         resp = requests.post(
-            "https://datasphere.api.cloud.yandex.net/datasphere/v1/nodes/<node_ID>",
+            "https://datasphere.api.cloud.yandex.net/datasphere/v1/nodes/<node_ID>:execute",
             data = json.dumps({
                 'node_id': '<node_ID>',
                 'folder_id': '<folder_ID>',
@@ -362,7 +371,7 @@ To check whether the alias is working, click its name and go to the **{{ ui-key.
 
 Use the alias instead of the node endpoint to make sure the service is always up and running.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 * [Delete](../../datasphere/operations/deploy/alias-delete.md) the alias.

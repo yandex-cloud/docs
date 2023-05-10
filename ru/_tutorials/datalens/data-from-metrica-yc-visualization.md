@@ -62,11 +62,11 @@
 ### 1.1. Подключите {{ CH }} {#ch-connection}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог для создания кластера {{ CH }}.
-1. Выберите **{{ mch-name }}**.
-1. В открывшемся окне нажмите **Создать кластер ClickHouse**.
+1. Выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. В открывшемся окне нажмите **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Укажите настройки кластера {{ CH }}:
-   1. В блоке **Базовые параметры** укажите произвольное имя кластера. 
-   1. В блоке **Ресурсы** выберите платформу `Intel Cascade Lake`, тип `burstable` и класс хоста `b2.medium`.
+   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите произвольное имя кластера. 
+   1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** выберите платформу `Intel Cascade Lake`, тип `burstable` и класс хоста `b2.medium`.
    
       {% note warning %}
    
@@ -74,27 +74,29 @@
 
       {% endnote %}
 
-   1. В блоке **Размер хранилища** оставьте значение `10 ГБ`.
-   1. В блоке **Хосты** нажмите значок ![pencil](../../_assets/pencil.svg). Включите опцию **Публичный доступ** и нажмите кнопку **Сохранить**.
-   1. В блоке **Настройки СУБД** выключите управление пользователями через SQL, укажите имя пользователя, пароль и имя БД, например `metrica_data`.
+   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** оставьте значение `10 {{ ui-key.yacloud.mdb.forms.label_max-size-units }}`.
+   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите значок ![pencil](../../_assets/pencil.svg). Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** выключите управление пользователями через SQL, укажите имя пользователя, пароль и имя БД, например `metrica_data`.
  
-   1. В блоке **Сервисные настройки** включите опции:
-        * Доступ из {{ datalens-short-name }}
-        * Доступ из консоли управления
-        * Доступ из Метрики и AppMetrica
-        * Доступ из Serverless
-   1. Нажмите кнопку **Создать кластер**.
+   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции:
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**
+   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 ### 1.2. Подключите {{ ml-platform-short-name }} {#datasphere-connection}
 
 1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. В открывшемся окне нажмите кнопку **Создать** → **Создать проект**.
-1. Укажите произвольное имя проекта. Требования к имени:
+1. На панели слева выберите ![image](../../_assets/datasphere/communities.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. Выберите сообщество, в котором вы хотите создать проект.
+1. На странице сообщества нажмите кнопку ![image](../../_assets/datasphere/create-project.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
+1. В открывшемся окне укажите имя и (опционально) описание проекта. Требования к имени:
 
-   {% include [name-format](../../_includes/name-format.md) %}  
+   {% include [name-format](../../_includes/name-format.md) %}
 
-1. Выберите [сообщество](../../datasphere/concepts/community.md) для проекта и нажмите кнопку **Создать**. 
-1. Нажмите кнопку **Открыть проект в {{ jlab }}Lab**.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}**.
 
 Перед вами среда разработки {{ jlab }}Lab, в которой вы будете работать дальше.
 
@@ -116,8 +118,8 @@
 1. Создайте приложение:
      1. Перейдите на страницу [https://oauth.yandex.ru/client/new](https://oauth.yandex.ru/client/new).
      1. Укажите произвольное название сервиса. 
-     1. Перейдите к блоку **Для какой платформы нужно приложение?** → **Веб-сервисы**. В поле **Callback URL** вставьте `https://oauth.yandex.ru/verification_code`.
-     1. Перейдите к блоку **Какие данные вам нужны?** → **Яндекс Метрика (metrika)**. Активируйте опцию **Получение статистики, чтение параметров своих и доверенных счётчиков (metrika:read)**.
+     1. Перейдите к блоку **Платформы приложения** → **Веб-сервисы**. В поле **Redirect URI** вставьте `https://oauth.yandex.ru/verification_code`.
+     1. В блоке **Доступ к данным** введите `metrika` и выберите **Получение статистики, чтение параметров своих и доверенных счётчиков (metrika:read)**.
      1. Нажмите кнопку **Создать приложение**.
      1. В открывшемся окне появится описание нашего приложения. Сохраните ClientID вашего приложения.
 
@@ -157,9 +159,9 @@
 
 ### 2.4. {{ CH }}. Получите адрес кластера {#getting-ch-cluster-host}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в уже созданный кластер {{ CH }}. Дождитесь, когда у кластера появится статус **Alive**. После этого откройте кластер, кликнув на сам кластер.
-1. Выберите из списка слева ![hosts](../../_assets/datalens/hosts.svg) **Хосты**.
-1. На вкладке **Обзор** скопируйте имя хоста. 
+1. В [консоли управления]({{ link-console-main }}) перейдите в уже созданный кластер {{ CH }}. Дождитесь, когда у кластера появится статус `Alive`. После этого откройте кластер, кликнув на сам кластер.
+1. Выберите из списка слева ![hosts](../../_assets/datalens/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+1. На вкладке **{{ ui-key.yacloud.mdb.cluster.hosts.switch_overview }}** скопируйте имя хоста. 
 
 ### 2.5. {{ ml-platform-short-name }}. Загрузите данные в {{ CH }} {#uploading-data-counter-to-ch}
 
@@ -168,8 +170,8 @@
     1. В переменную `CH_USER` вставьте имя пользователя, которое вы задали при [создании кластера {{ CH }}](#ch-connection).
     1. В переменную `CH_DB_NAME` вставьте имя БД, которое вы задали при [создании кластера {{ CH }}](#ch-connection).
     
-1. В корневой директории создайте новый текстовый файл с названием **.chpass.txt**.
-1. Запишите в файл **.chpass.txt** пароль заведенного пользователя, который вы задали при [создании кластера {{ CH }}](#ch-connection). Сохраните и закройте файл.
+1. В корневой директории создайте новый текстовый файл с названием `.chpass.txt`.
+1. Запишите в файл `.chpass.txt` пароль заведенного пользователя, который вы задали при [создании кластера {{ CH }}](#ch-connection). Сохраните и закройте файл.
 1. Выполните все шаги (ячейки с кодом) в ноутбуке.
 
 ## 3. Подключите {{ datalens-short-name }} и создайте чарты {#datalens-connection-chart-creation}
@@ -177,89 +179,89 @@
 ### 3.1. Подключитесь к {{ datalens-short-name }} {#datalens-connection}
 
 1. В [консоли управления]({{ link-console-main }}) откройте страницу созданного кластера {{ CH }}.
-1. В списке слева выберите ![datalens](../../_assets/datalens/datalens.svg) **{{ datalens-short-name }}**.
-1. В открывшемся окне выберите каталог, в котором находится ваш {{ datalens-short-name }}, и нажмите кнопку **Активировать**.
+1. В списке слева выберите ![datalens](../../_assets/datalens/datalens.svg) **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+1. В открывшемся окне выберите каталог, в котором находится ваш {{ datalens-short-name }}, и нажмите кнопку **{{ ui-key.yacloud.mdb.datalens.button-action_activate }}**.
 
 ### 3.2. Создайте подключение к {{ CH }} в {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
 
-1. Нажмите кнопку **Создать подключение**.
-1. Выберите подключение **{{ CH }}**.
+1. Нажмите кнопку **{{ ui-key.datalens.main.landing.view.button_connect-data-source }}**.
+1. Выберите подключение **{{ ui-key.datalens.connections.connectors-list.view.label_connector-clickhouse }}**.
 1. Заполните настройки подключения:
-   1. Выберите кластер из выпадающего списка **Кластер** или создайте новый. Если нужный кластер в списке отсутствует, нажмите **Указать вручную** и укажите имя [кластера {{ CH }}](#ch-connection).
-   1. Выберите [хост {{ CH }}](#ch-connection) из выпадающего списка **Имя хоста**. 
+   1. Выберите кластер из выпадающего списка **{{ ui-key.datalens.connections.form.field_cluster }}** или создайте новый. Если нужный кластер в списке отсутствует, нажмите **{{ ui-key.datalens.connections.form.button_specify-manually }}** и укажите имя [кластера {{ CH }}](#ch-connection).
+   1. Выберите [хост {{ CH }}](#ch-connection) из выпадающего списка **{{ ui-key.datalens.connections.form.field_host-name }}**. 
    1. Выберите [имя пользователя](#ch-connection).
-   1. Введите [пароль](#ch-connection) и нажмите **Проверить подключение**.
-   1. После успешной проверки подключения нажмите **Создать подключение**, затем в открывшемся окне введите имя подключения и нажмите кнопку **Создать**.
+   1. Введите [пароль](#ch-connection) и нажмите **{{ ui-key.datalens.connections.form.button_verify }}**.
+   1. После успешной проверки подключения нажмите **{{ ui-key.datalens.connections.form.button_create-connection }}**, затем в открывшемся окне введите имя подключения и нажмите кнопку **{{ ui-key.datalens.connections.form.button_create }}**.
 
 ### 3.3. Создайте датасет на базе подключения {#creating-dataset-based-on-connection}
 
-1. В правом верхнем углу нажмите **Создать датасет**.
+1. В правом верхнем углу нажмите **{{ ui-key.datalens.connections.form.button_create-dataset }}**.
 1. Выберите таблицу `metrica_data.hits` в качестве источника. Для этого перетащите таблицу из списка слева в область редактирования.
-1. Откройте вкладку **Поля**.
-1. В правом верхнем углу нажмите кнопку **Добавить поле**.
-1. Для подсчета числа хитов создайте вычисляемое поле: в **Поле** укажите `Хиты`, в рабочей области укажите `1` и нажмите кнопку **Создать**. 
-1. Для поля **Хиты** выберите значение **Сумма** в столбце **Агрегация**.
-1. Переименуйте поле **Browser** в **Браузер**.
-1. В правом верхнем углу нажмите кнопку **Сохранить**.
-1. Назовите датасет `ch_metrica_data_hits` и нажмите кнопку **Создать**.
+1. Откройте вкладку **{{ ui-key.datalens.dataset.dataset-editor.modify.value_dataset }}**.
+1. В правом верхнем углу нажмите кнопку ![plus](../../_assets/datalens/plus.svg) **{{ ui-key.datalens.dataset.dataset-editor.modify.button_add-field }}**.
+1. Для подсчета числа хитов создайте вычисляемое поле: укажите название поля `Хиты`, в рабочей области укажите `1` и нажмите кнопку **{{ ui-key.datalens.component.dl-field-editor.view.button_create }}**. 
+1. Для поля `Хиты` выберите значение **{{ ui-key.datalens.dataset.dataset-editor.modify.value_sum }}** в столбце **{{ ui-key.datalens.dataset.dataset-editor.modify.column_aggregation }}**.
+1. Переименуйте поле `Browser` в `Браузер`.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
+1. Назовите датасет `ch_metrica_data_hits` и нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
 
 ### 3.4. Создайте чарт — накопительная диаграмма с областями {#creating-area-chart}
 
-1. В правом верхнем углу нажмите кнопку **Создать чарт**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create-widget }}**.
 1. В открывшемся окне перетащите поля в области чарта:
-    * **EventDate** — в область **X**.
-    * **Браузер** — в область **Цвета**.
-    * **Хиты** — в область **Y**.
-1. Измените тип чарта cо **Столбчатая диаграмма** на **Накопительная диаграмма с областями**. 
-1. Нажмите кнопку **Сохранить**. 
-1. В появившемся окне укажите имя чарта `ch_metrica_data_hits_area` и нажмите кнопку **Сохранить**.
+    * `EventDate` — в область **{{ ui-key.datalens.wizard.section_x }}**.
+    * `Браузер` — в область **{{ ui-key.datalens.wizard.section_colors }}**.
+    * `Хиты` — в область **{{ ui-key.datalens.wizard.section_y }}**.
+1. Измените тип чарта cо **{{ ui-key.datalens.wizard.label_visualization-column }}** на **{{ ui-key.datalens.wizard.label_visualization-area }}**. 
+1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_save }}**. 
+1. В появившемся окне укажите имя чарта `ch_metrica_data_hits_area` и нажмите кнопку **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
 
 ### 3.5. Создайте чарт — сводная таблица {#creating-pivot-table}
 
-1. В правом верхнем углу нажмите значок ![save-button](../../_assets/datalens/save-button.svg) → **Сохранить как**.
-1. Укажите новое имя для копии чарта `ch_metrica_data_hits_table` и нажмите кнопку **Сохранить**.
-1. Выберите новый тип чарта **Сводная таблица**.
+1. В правом верхнем углу нажмите значок ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.component.chart-save-controls.button_save-as-new }}**.
+1. Укажите новое имя для копии чарта `ch_metrica_data_hits_table` и нажмите кнопку **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+1. Выберите новый тип чарта **{{ ui-key.datalens.wizard.label_visualization-pivot-table }}**.
 1. Добавьте или перетащите поля в области чарта:
-    * **Браузер** — в область **Строки**.
-    * **Хиты** — в область **Сортировка**.
-1. Нажмите кнопку **Сохранить**.
+    * `Браузер` — в область **{{ ui-key.datalens.wizard.section_rows }}**.
+    * `Хиты` — в область **{{ ui-key.datalens.wizard.section_sort }}**.
+1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_save }}**.
 
 ## 4. Создайте и настройте дашборд в {{ datalens-short-name }} {#creating-configuring-dashboard}
 
 ### 4.1. Создайте дашборд {#creating-dashboard}
 
-1. Выберите значок ![dashboards](../../_assets/datalens/dashboard.svg) **Дашборды** на панели слева и нажмите кнопку **Создать дашборд**.
-1. Укажите название дашборда `ch_metrica_data` и нажмите кнопку **Создать**.
-1. Добавьте первый чарт на дашборд. Для этого в правом верхнем углу нажмите **Добавить** → **Чарт**:
-    1. Из выпадающего списка **Чарт** выберите чарт **ch_metrica_data_hits_area**.
-    1. В поле **Название** укажите имя чарта **Хиты в разбивке на браузеры** и нажмите кнопку **Добавить**.
-1. По аналогии добавьте чарт **ch_metrica_data_hits_table** с именем **Хиты в разбивке на браузеры за период**.
+1. Выберите значок ![dashboards](../../_assets/datalens/dashboard-0523.svg) **{{ ui-key.datalens.component.navigation.view.switch_dashboards }}** на панели слева и нажмите кнопку **{{ ui-key.datalens.component.navigation.view.button_create-dashboard }}**.
+1. Укажите название дашборда `ch_metrica_data` и нажмите кнопку **{{ ui-key.datalens.component.navigation.view.button_create }}**.
+1. Добавьте первый чарт на дашборд. Для этого в правом верхнем углу нажмите **{{ ui-key.datalens.dash.action-panel.view.button_add }}** ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**:
+    1. Из выпадающего списка **{{ ui-key.datalens.dash.widget-dialog.edit.field_widget }}** выберите чарт `ch_metrica_data_hits_area`.
+    1. В поле **{{ ui-key.datalens.dash.widget-dialog.edit.field_title }}** укажите имя чарта **Хиты в разбивке на браузеры** и нажмите кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**.
+1. По аналогии добавьте чарт `ch_metrica_data_hits_table` с именем **Хиты в разбивке на браузеры за период**.
 1. Переместите чарты и измените их размеры на дашборде:
     1. Перетащите чарт с таблицей справа от чарта с диаграммой.
     1. Измените вертикальные размеры чартов, потянув каждый из них за правый нижний угол.
-1. В правом верхнем углу нажмите кнопку **Сохранить**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_save }}**.
 
 ### 4.2. Настройте дашборд {#configuring-dashboard}
 
-1. Добавьте фильтрацию, чтобы выбирать определенный браузер. Для этого в правом верхнем углу нажмите **Редактировать** → **Добавить** → **Селектор**.
-1. Селектор можно привязать к полю из какого-либо датасета. Выберите из списка **Датасет** созданный датасет **ch_metrica_data_hits**.
-1. В списке **Поле** выберите **Браузер**. 
-1. Включите опцию **Множественный выбор**.
-1. В поле **Значение по умолчанию** выберите браузеры:
-    * android_browser
-    * chrome
-    * chromemobile
-    * firefox
-    * opera
-    * safari
-    * safari_mobile
-    * samsung_internet
-    * yandex_browser
-    * yandexsearch
-1. В поле **Название** укажите имя селектора и включите опцию **Показывать**.
-1. Нажмите кнопку **Добавить**. 
+1. Добавьте фильтрацию, чтобы выбирать определенный браузер. Для этого в правом верхнем углу нажмите **{{ ui-key.datalens.dash.action-panel.view.button_add }}** ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
+1. Селектор можно привязать к полю из какого-либо датасета. Выберите из списка **{{ ui-key.datalens.dash.control-dialog.edit.field_dataset }}** созданный датасет `ch_metrica_data_hits`.
+1. В списке **{{ ui-key.datalens.dash.control-dialog.edit.field_field }}** выберите `Браузер`. 
+1. Включите опцию **{{ ui-key.datalens.dash.control-dialog.edit.field_multiselectable }}**.
+1. В поле **{{ ui-key.datalens.dash.control-dialog.edit.label_default-value }}** выберите браузеры:
+    * `android_browser`
+    * `chrome`
+    * `chromemobile`
+    * `firefox`
+    * `opera`
+    * `safari`
+    * `safari_mobile`
+    * `samsung_internet`
+    * `yandex_browser`
+    * `yandexsearch`
+1. В поле **{{ ui-key.datalens.dash.control-dialog.edit.field_title }}** укажите имя селектора и включите опцию.
+1. Нажмите кнопку **{{ ui-key.datalens.dash.control-dialog.edit.button_add }}**. 
 1. Перетащите селектор на верх дашборда и растяните по горизонтали.
-1. В правом верхнем углу нажмите кнопку **Сохранить**. 
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.datalens.dash.control-dialog.edit.button_save }}**. 
 
 ## 5. Постройте воронки конверсий {#funnels}
  
@@ -274,50 +276,50 @@
 
 Создайте новый датасет на основе новой таблицы и подключения к {{ CH }}:
 
-1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}/) (или нажмите ![datasets](../../_assets/datalens/datasets.svg) **DataLens** на панели слева) и нажмите **Создать датасет**.
-1. Перейдите в область **Подключения** и нажмите кнопку **Добавить**.
+1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}/) (или нажмите ![datalens-console](../../_assets/datalens-console.svg) **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** на панели слева) и нажмите **{{ ui-key.datalens.main.landing.view.button_create-dataset }}**.
+1. Перейдите в область **{{ ui-key.datalens.dataset.sources-tab.modify.label_sources }}** и нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.datalens.dataset.sources-tab.modify.button_add-connection }}**.
 1. Из списка подключений выберите имя подключения, созданного на шаге [3.2](#creation-datalens-connection-to-ch).
 1. Перетащите новую таблицу `metrica_data.funnels_by_bro` в область редактирования.
-1. Откройте вкладку **Поля**:
-   1. Переименуйте поля **step X** в **Шаг X**, где X — порядковый номер шага.
-   1. Выберите значение **Сумма** в столбце **Агрегация** для полей **Шаг X** и нажмите кнопку **Сохранить**.
-1. Назовите датасет **ch_metrica_data_funnels_by_bro** и нажмите кнопку **Создать**.
+1. Откройте вкладку **{{ ui-key.datalens.dataset.dataset-editor.modify.value_dataset }}**:
+   1. Переименуйте поля `step X` в `Шаг X`, где X — порядковый номер шага.
+   1. Выберите значение **{{ ui-key.datalens.dataset.dataset-editor.modify.value_sum }}** в столбце **{{ ui-key.datalens.dataset.dataset-editor.modify.column_aggregation }}** для полей `Шаг X` и нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
+1. Назовите датасет `ch_metrica_data_funnels_by_bro` и нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
 
 ### 5.3. {{ datalens-short-name }}. Воронки по браузерам. Создайте чарт {#calculating-browser-funnels-chart}
 
-Создайте на основе датасета **ch_metrica_data_funnels_by_bro** чарт:
+Создайте на основе датасета `ch_metrica_data_funnels_by_bro` чарт:
 
-1. Нажмите кнопку **Создать чарт**.
-1. Выберите тип чарта **Сводная таблица**.
+1. Нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create-widget }}**.
+1. Выберите тип чарта **{{ ui-key.datalens.wizard.label_visualization-pivot-table }}**.
 1. Перетащите поля в области чарта:
-    * **Браузер** — в область **Строки**.
-    * **Шаг X** — в область **Показатели**, где X — порядковый номер шага.
-    * **Шаг 1** — в область **Сортировка**.
-1. Нажмите кнопку **Сохранить**.
-1. Укажите название чарта **ch_metrica_data_funnels_by_bro_table** и нажмите кнопку **Сохранить**.
+    * `Браузер` — в область **{{ ui-key.datalens.wizard.section_rows }}**.
+    * `Шаг X` — в область **{{ ui-key.datalens.wizard.section_measures }}**, где X — порядковый номер шага.
+    * `Шаг 1` — в область **{{ ui-key.datalens.wizard.section_sort }}**.
+1. Нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
+1. Укажите название чарта `ch_metrica_data_funnels_by_bro_table` и нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
 
 ### 5.4. {{ datalens-short-name }}. Воронки по браузерам. Добавьте чарт на дашборд {#add-browser-funnels-chart-on-dashboard}
 
 1. Перейдите на созданный дашборд (со страницы [дашбордов]({{ link-datalens-main }}/dashboards)).
-1. Добавьте новый чарт. В правом верхнем углу нажмите кнопку **Редактировать**:
-    1. Нажмите **Добавить** → **Чарты**.
-    1. Из выпадающего списка **Чарт** выберите чарт **ch_metrica_data_funnels_by_bro_table**.
-    1. В поле **Название** укажите имя чарта **Воронки по браузерам** и нажмите кнопку **Добавить**.
+1. Добавьте новый чарт. В правом верхнем углу нажмите кнопку **{{ ui-key.datalens.dash.action-panel.view.button_edit }}**:
+    1. Нажмите **{{ ui-key.datalens.dash.action-panel.view.button_add }}** ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
+    1. Из выпадающего списка **{{ ui-key.datalens.dash.widget-dialog.edit.field_widget }}** выберите чарт `ch_metrica_data_funnels_by_bro_table`.
+    1. В поле **{{ ui-key.datalens.dash.widget-dialog.edit.field_title }}** укажите имя чарта `Воронки по браузерам` и нажмите кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**.
 1. Расположите новый чарт справа от уже имеющихся двух. Растяните чарт так, чтобы он совпадал с остальными по вертикали и доходил справа до края страницы. 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_save }}**.
 
 ### 5.5. {{ datalens-short-name }}. Воронки по браузерам. Настройте дашборд {#setting-browser-funnels-chart-on-dashboard}
 
 Чтобы селектор влиял на новый чарт из другого датасета, настройте связи: 
 
-1. Нажмите **Редактировать** → **Связи**.
-1. В открывшемся окне выберите из списка селектор **Браузер**.
-1. На странице с другими элементами дашборда прокрутите вниз до чарта **Воронки по браузерам** и нажмите на список со связью.
-1. Выберите тип связи **Исх. связь**.
-1. Из каждого списка выберите поля для связи **Браузер**. Нажмите кнопку **Добавить**.
-1. Нажмите кнопку **Сохранить**.
-1. В левом верхнем углу нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Переименовать**.
-1. Укажите название **Supermarket.ru — анализ воронок и когорт**. Нажмите кнопку **Готово**.
+1. Нажмите **{{ ui-key.datalens.dash.action-panel.view.button_edit }}** → **{{ ui-key.datalens.dash.action-panel.view.button_connections }}**.
+1. В открывшемся окне выберите из списка селектор `Браузер`.
+1. На странице с другими элементами дашборда прокрутите вниз до чарта `Воронки по браузерам` и нажмите на список со связью.
+1. Выберите тип связи **{{ ui-key.datalens.dash.connections-dialog.edit.value_output }}**.
+1. Из каждого списка выберите поля для связи `Браузер`. Нажмите кнопку **{{ ui-key.datalens.dash.connections-dialog.edit.button_add }}**.
+1. Нажмите кнопку **{{ ui-key.datalens.dash.connections-dialog.edit.button_save }}**.
+1. В левом верхнем углу нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **{{ ui-key.datalens.dash.action-panel.view.value_rename }}**.
+1. Укажите название `Supermarket.ru — анализ воронок и когорт`. Нажмите кнопку **{{ ui-key.datalens.component.dialog-rename-entry.view.button_apply }}**.
 
 ## 6. Проведите когортный анализ {#cohorts}
 
@@ -332,101 +334,100 @@
 
 Создайте датасет на основе новой таблицы и подключения к {{ CH }}: 
 
-1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}/) и нажмите **Создать датасет**.
-1. В области **Подключения** нажмите кнопку **Добавить**.
+1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}/) и нажмите **{{ ui-key.datalens.component.navigation.view.button_create-dataset }}**.
+1. В области **{{ ui-key.datalens.dataset.sources-tab.modify.label_sources }}** нажмите кнопку **{{ ui-key.datalens.component.navigation.view.button_create-dataset }}** и нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.datalens.dataset.sources-tab.modify.button_add-connection }}**.
 1. Выберите из списка созданное [подключение](#creation-datalens-connection-to-ch).
 1. Перетащите новую таблицу `metrica_data.retention_users` в рабочую зону, чтобы подключиться к ней.
-1. Откройте вкладку **Поля** и создайте новое вычисляемое поле **week_num**, которое равно `([date]-[min_date])/7`.
+1. Откройте вкладку **{{ ui-key.datalens.dataset.dataset-editor.modify.value_dataset }}** и создайте новое вычисляемое поле `week_num`, которое равно `([date]-[min_date])/7`.
    Поле будет означать число недель с момента первого посещения пользователя.
-1. Нажмите кнопку **Создать**.
-1. Для полей **visits**, **purchases** и **revenue** выберите значение **Сумма** в столбце **Агрегация**.
-1. Переименуйте поля в **Визиты**, **Покупки** и **Доход** соответственно. 
+1. Нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
+1. Для полей `visits`, `purchases` и `revenue` выберите значение **{{ ui-key.datalens.dataset.dataset-editor.modify.value_sum }}** в столбце **{{ ui-key.datalens.dataset.dataset-editor.modify.column_aggregation }}**.
+1. Переименуйте поля в `Визиты`, `Покупки` и `Доход` соответственно. 
 1. Сохраните датасет:
-    1. Назовите датасет **ch_metrica_data_users_visits**.
-    1. Нажмите кнопку **Создать**.
+    1. Назовите датасет `ch_metrica_data_users_visits`.
+    1. Нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
 1. На основе датасета создайте новый чарт: 
-    1. Измените тип чарта на **Сводная таблица**.
-    1. Перетащите поле **week_num** в область **Столбцы**.
-    1. Перетащите поле **min_date** в область **Строки**.
-    1. Перетащите поле **Визиты** в область **Показатели**.
+    1. Измените тип чарта на **{{ ui-key.datalens.wizard.label_visualization-pivot-table }}**.
+    1. Перетащите поле `week_num` в область **{{ ui-key.datalens.wizard.section_columns }}**.
+    1. Перетащите поле `min_date` в область **{{ ui-key.datalens.wizard.section_rows }}**.
+    1. Перетащите поле `Визиты` в область **{{ ui-key.datalens.wizard.section_measures }}**.
 
 ### 6.3. {{ datalens-short-name }}. Настройте чарт с визуализацией когорт {#creating-chart-with-cohort}
 
 Отфильтруйте неполные недели 29.06.2020 и 28.09.2020:
 
-1. Перетащите поле **min_date** в область **Фильтры**.
-1. В поле **min_date** нажмите значок календаря:
-    1. В открывшемся окне выберите начало и конец диапазона дат для фильтрации:
-        * Дата начала — `29.06.2020`.
-        * Дата завершения — `27.09.2020`.
-    1. Нажмите кнопку **Применить фильтр**.
-1. Отформатируйте числа в значениях поля **week_num** — уберите знаки после запятой. Для этого в области **Столбцы** в поле **week_num** нажмите значок ![image](../../_assets/datalens/mesh.svg). В открывшемся окне выполните настройку:
-    1. Установите для показателя **Знаков после запятой** значение `0`. 
-    1. Установите для показателя **Отображать группы разрядов** значение **Слитно**.
-    1. Нажмите кнопку **Применить**.
-1. Чтобы сделать таблицу цветной, добавьте поле **Визиты** в область **Цвета** и нажмите нажмите ![gear](../../_assets/datalens/gear.svg). В открывшемся окне выполните настройку цвета:
-    1. Выберите **Тип градиента** — `Трехцветный`.
-    1. Выберите **Цвет** — `Оранжевый-Фиолетовый-Голубой`.
-    1. Включите настройку **Задать пороговые значения** и укажите значения `100`, `1000` и `5000`.
-    1. Нажмите кнопку **Применить**.
-1. Нажмите кнопку **Сохранить**.
-1. Назовите чарт **ch_metrica_data_users_visits_cohorts_abs** и нажмите **Сохранить**.
+1. Перетащите поле `min_date` в область **{{ ui-key.datalens.wizard.section_filters }}**.
+   1. В открывшемся окне выберите начало и конец диапазона дат для фильтрации:
+      * Дата начала — `29.06.2020`.
+      * Дата завершения — `27.09.2020`.
+   1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_apply-filter }}**.
+1. Отформатируйте числа в значениях поля `week_num` — уберите знаки после запятой. Для этого в области **{{ ui-key.datalens.wizard.section_rows }}** в поле `week_num` нажмите значок ![image](../../_assets/datalens/mesh.svg). В открывшемся окне выполните настройку:
+    1. Установите для показателя **{{ ui-key.datalens.wizard.number-field-formatting.view.field_precision }}** значение `0`. 
+    1. Установите для показателя **{{ ui-key.datalens.wizard.number-field-formatting.view.field_rank-delimiter }}** значение `{{ ui-key.datalens.wizard.number-field-formatting.view.value_rank-delimiter-hide }}`.
+    1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_apply }}**.
+1. Чтобы сделать таблицу цветной, добавьте поле `Визиты` в область **{{ ui-key.datalens.wizard.section_colors }}** и нажмите нажмите ![gear](../../_assets/datalens/gear.svg). В открывшемся окне выполните настройку цвета:
+    1. Выберите **{{ ui-key.datalens.wizard.label_gradient-type }}** — `Трехцветный`.
+    1. Выберите **{{ ui-key.datalens.wizard.label_bars-color }}** — `Оранжевый-Фиолетовый-Голубой`.
+    1. Включите настройку **{{ ui-key.datalens.wizard.label_thresholds }}** и укажите значения `100`, `1000` и `5000`.
+    1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_apply }}**.
+1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_save }}**.
+1. Назовите чарт `ch_metrica_data_users_visits_cohorts_abs` и нажмите **{{ ui-key.datalens.component.dialog-create-editor-chart.view.button_apply }}**.
 
 ### 6.4. {{ datalens-short-name }}. Создайте чарт с ретеншеном {#creating-chart-with-retention}
 
-Создайте чарт с ретеншеном на основе чарта **ch_metrica_data_users_visits_cohorts_abs**. Чарт можно открыть с дашборда или найти в [списке чартов]({{ link-datalens-main }}/widgets).
+Создайте чарт с ретеншеном на основе чарта `ch_metrica_data_users_visits_cohorts_abs`. Чарт можно открыть с дашборда или найти в [списке чартов]({{ link-datalens-main }}/widgets).
 
-1. В правом верхнем углу нажмите значок ![save-button](../../_assets/datalens/save-button.svg) → **Сохранить как**.
-1. Укажите имя чарта **ch_metrica_data_users_visits_cohorts_rel** и нажмите кнопку **Сохранить**.
+1. В правом верхнем углу нажмите значок ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.component.chart-save-controls.button_save-as-new }}**.
+1. Укажите имя чарта `ch_metrica_data_users_visits_cohorts_rel` и нажмите кнопку **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
 1. Создайте новое вычисляемое поле для расчета ретеншена относительно первой недели:
-    1. В левой части экрана нажмите значок ![image](../../_assets/plus-sign.svg), который находится над списком полей датасета, и выберите **Добавить поле**.
-    1. Назовите поле **Визиты от первой недели**.
+    1. В левой части экрана нажмите значок ![image](../../_assets/plus-sign.svg), который находится над списком полей датасета, и выберите **{{ ui-key.datalens.wizard.add_field_item }}**.
+    1. Назовите поле `Визиты от первой недели`.
     1. Вставьте формулу `SUM([Визиты])/RMAX(SUM([Визиты]) among [week_num])`.
-    1. Нажмите кнопку **Создать**.
-1. Перетащите поле **Визиты от первой недели** в секцию **Показатели**.
-1. Перетащите поле **Визиты от первой недели** в секцию **Цвета** вместо поля **Визиты**.
-1. Настройте формат поля **Визиты от первой недели**. Для этого в секции **Показатели** в поле **Визиты от первой недели** нажмите значок ![image](../../_assets/datalens/mesh.svg). В открывшемся окне выполните настройку:
-    1. Установите показатель **Формат** в значение **Процент**. 
-    1. Нажмите кнопку **Применить**.
-1. Отредактируйте пороговые значения для цветов показателя. В секции **Цвета** нажмите значок ![gear](../../_assets/datalens/gear.svg). В открывшемся окне включите опцию **Задать пороговые значения** и укажите пороговые значения `0,01`, `0,025` и `0,1` и нажмите кнопку **Применить**.
-1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
+1. Перетащите поле `Визиты от первой недели` в секцию **{{ ui-key.datalens.wizard.section_measures }}**.
+1. Перетащите поле `Визиты от первой недели` в секцию **{{ ui-key.datalens.wizard.section_colors }}** вместо поля `Визиты`.
+1. Настройте формат поля `Визиты от первой недели`. Для этого в секции **{{ ui-key.datalens.wizard.section_measures }}** в поле `Визиты от первой недели` нажмите значок ![image](../../_assets/datalens/mesh.svg). В открывшемся окне выполните настройку:
+    1. Установите показатель **{{ ui-key.datalens.wizard.number-field-formatting.view.field_format }}** в значение `{{ ui-key.datalens.wizard.number-field-formatting.view.value_format-percent }}`.
+    1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_apply }}**.
+1. Отредактируйте пороговые значения для цветов показателя. В секции **{{ ui-key.datalens.wizard.section_colors }}** нажмите значок ![gear](../../_assets/datalens/gear.svg). В открывшемся окне включите опцию **{{ ui-key.datalens.wizard.label_thresholds }}** и укажите пороговые значения `0,01`, `0,025` и `0,1` и нажмите кнопку **{{ ui-key.datalens.wizard.button_apply }}**.
+1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_save }}**.
 
 ### 6.5. {{ datalens-short-name }}. Добавьте чарты на новую вкладку дашборда {#adding-charts-to-dashboard-tab}
- 
-1. Нажмите кнопку ![dashboards](../../_assets/datalens/dashboard.svg) **Дашборды** на панели слева и откройте дашборд.
-1. Нажмите кнопку **Редактировать** → **Вкладки**.
-1. Переименуйте существующую вкладку как **Обзор + Воронки**.
-1. Добавьте новую вкладку и назовите ее **Когорты**. Нажмите **Сохранить**.
-1. Перейдите на новую вкладку **Когорты**: 
-    1. Добавьте на дашборд чарт **ch_metrica_data_users_visits_cohorts_abs**.
-    1. В поле **Название** укажите **Визиты по когортам (абсолюты)**.
-1. Чтобы добавить новую вкладку, нажмите слева кнопку **Добавить**:
-    1. В новой вкладке добавьте чарт **ch_metrica_data_users_visits_cohorts_rel**.
-    1. Укажите название **Визиты по когортам (относительные)**.
-    1. Нажмите кнопку **Добавить**.
-    1. Нажмите кнопку **Сохранить**.
-   
+
+1. Нажмите кнопку ![dashboards](../../_assets/datalens/dashboard-0523.svg) **{{ ui-key.datalens.component.navigation.view.switch_dashboards }}** на панели слева и откройте дашборд.
+1. Нажмите кнопку **{{ ui-key.datalens.dash.action-panel.view.button_edit }}** → **{{ ui-key.datalens.dash.action-panel.view.button_tabs }}**.
+1. Переименуйте существующую вкладку как `Обзор + Воронки`.
+1. Добавьте новую вкладку и назовите ее `Когорты`. Нажмите **{{ ui-key.datalens.dash.control-dialog.edit.button_save }}**.
+1. Перейдите на новую вкладку `Когорты`:
+    1. Добавьте на дашборд чарт `ch_metrica_data_users_visits_cohorts_abs`.
+    1. В поле **{{ ui-key.datalens.dash.widget-dialog.edit.field_title }}** укажите `Визиты по когортам (абсолюты)`.
+1. Чтобы добавить новую вкладку, нажмите слева кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**:
+    1. В новой вкладке добавьте чарт `ch_metrica_data_users_visits_cohorts_rel`.
+    1. Укажите название `Визиты по когортам (относительные)`.
+    1. Нажмите кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**.
+    1. Нажмите кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_save }}**.
+
 Вы получите чарт с двумя вкладками, между которыми можно переключаться.
 
 ### 6.6. {{ datalens-short-name }}. Создайте чарты {#creating-chart}
 
-Создайте новый чарт на основе чарта **ch_metrica_data_users_visits_cohorts_abs**. Чарт можно открыть с дашборда или найти в [списке чартов]({{ link-datalens-main }}/widgets).
+Создайте новый чарт на основе чарта `ch_metrica_data_users_visits_cohorts_abs`. Чарт можно открыть с дашборда или найти в [списке чартов]({{ link-datalens-main }}/widgets).
 
-1. В правом верхнем углу нажмите значок ![image](../../_assets/datalens/save-button.svg) **Сохранить**.
-1. Укажите имя чарта **ch_metrica_data_users_revenue_cohorts_abs** и нажмите кнопку **Сохранить**.
-1. Перетащите поле **Доход** в области **Показатели** и **Цвета** поверх поля **Визиты**.
-1. В области поля **Доход** нажмите значок ![image](../../_assets/datalens/mesh.svg). Измените форматирование поля: 
-    1. Выберите **1 знак после запятой**.
-    1. Выберите размерность **Миллионы**.
+1. В правом верхнем углу нажмите значок ![image](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.component.chart-save-controls.button_save-as-new }}**.
+1. Укажите имя чарта `ch_metrica_data_users_revenue_cohorts_abs` и нажмите кнопку **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+1. Перетащите поле `Доход` в области **{{ ui-key.datalens.wizard.section_measures }}** и **{{ ui-key.datalens.wizard.section_colors }}** поверх поля `Визиты`.
+1. В области поля `Доход` нажмите значок ![image](../../_assets/datalens/mesh.svg). Измените форматирование поля: 
+    1. Выберите `1` знак после запятой.
+    1. Выберите размерность `{{ ui-key.datalens.wizard.number-field-formatting.view.value_unit-m }}`.
     1. Замените пороги градации цветов для нового поля на `500000`, `1500000` и `10000000`.
 1. Сохраните чарт.
 
-Создайте еще один чарт на основе чарта **ch_metrica_data_users_visits_cohorts_rel**:
+Создайте еще один чарт на основе чарта `ch_metrica_data_users_visits_cohorts_rel`:
 
-1. В правом верхнем углу нажмите значок ![image](../../_assets/datalens/save-button.svg) **Сохранить**.
-1. Укажите имя чарта **ch_metrica_data_users_revenue_cohorts_rel** и нажмите кнопку **Сохранить**.
-1. Измените поле **Визиты от первой недели**:
-    1. Переименуйте поле как **Доход от первой недели**.
+1. В правом верхнем углу нажмите значок ![image](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.component.chart-save-controls.button_save-as-new }}**.
+1. Укажите имя чарта `ch_metrica_data_users_revenue_cohorts_rel` и нажмите кнопку **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+1. Измените поле `Визиты от первой недели`:
+    1. Переименуйте поле как `Доход от первой недели`.
     1. Измените формулу на `SUM([Доход])/RMAX(SUM([Доход]) among [week_num])`.
     1. Измените пороги градации цветов для нового поля на `0.01`, `0.2` и `0.3`.
 1. Сохраните чарт.
@@ -435,15 +436,14 @@
 
 Добавьте на дашборд чарты с визуализацией когорт:
 
-1. Нажмите кнопку **Редактировать**.
-1. Нажмите кнопку **Добавить**.
-1. Выберите **Чарт**.
-1. Из списка чартов выберите чарт **ch_metrica_data_users_revenue_cohorts_abs**.
-1. Укажите имя **Доход по когортам (абсолюты)**.
-1. С помощью кнопки **+ Добавить** создайте новую вкладку:
-    1. В новой вкладке в списке чартов выберите чарт **ch_metrica_data_users_revenue_cohorts_rel**.
-    1. Укажите имя **Доход по когортам (относительный)**.
-    1. В правом верхнем углу нажмите значок ![image](../../_assets/datalens/save-button.svg) **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.datalens.dash.action-panel.view.button_edit }}**.
+1. Нажмите кнопку **{{ ui-key.datalens.dash.action-panel.view.button_add }}** ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
+1. Из списка чартов выберите чарт `ch_metrica_data_users_revenue_cohorts_abs`.
+1. Укажите имя `Доход по когортам (абсолюты)`.
+1. С помощью кнопки ![plus](../../_assets/datalens/plus.svg) **{{ ui-key.datalens.dash.tabs-dialog.edit.button_add-tab }}** создайте новую вкладку:
+    1. В новой вкладке в списке чартов выберите чарт `ch_metrica_data_users_revenue_cohorts_rel`.
+    1. Укажите имя `Доход по когортам (относительный)`.
+    1. В правом верхнем углу нажмите значок **{{ ui-key.datalens.dash.tabs-dialog.edit.button_save }}**.
 1. Расположите чарты на одном уровне.
 
 ## Как удалить созданные ресурсы {#clear-out}

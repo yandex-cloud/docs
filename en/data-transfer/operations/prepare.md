@@ -45,7 +45,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. [Configure access to the source cluster from {{ yandex-cloud }}](../concepts/network.md#source-external).
 
-   1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the necessary topic.
+   1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the topic you need.
 
    1. (Optional) To log in with username and password, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
 
@@ -184,7 +184,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
          sudo systemctl restart mongod.service
          ```
 
-      1. Connect to {{ MG }} and initialize the replica set with the command:
+      1. Connect to {{ MG }} and initialize the replica set with this command:
 
          ```javascript
          rs.initiate({
@@ -251,7 +251,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       1. [Grant the user](../../managed-mysql/operations/grant.md#grant-privilege) the `ALL_PRIVILEGES` privilege for the source database.
 
-      1. [Grant the user](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges.
+      1. [Grant the user](../../managed-mysql/concepts/settings-list#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges.
 
    1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-mysql.md) %}
 
@@ -281,7 +281,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. (optional) [Set a limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) on the size of data chunks to be sent using the `max_allowed_packet` parameter.
 
-   1. Create a user to connect to the source and grant them the necessary privileges:
+   1. Create a user to connect to the source and grant them the required privileges:
 
       ```sql
       CREATE USER '<username>'@'%' IDENTIFIED BY '<password>';
@@ -318,14 +318,14 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       1. Grant privileges to the created user:
 
-            ```sql
-            GRANT SELECT ON V$DATABASE TO <username>;
-            GRANT SELECT ON DBA_EXTENTS TO <username>;
-            GRANT SELECT ON DBA_OBJECTS TO <username>;
-            GRANT FLASHBACK ANY TABLE TO <username>;
-            ```
+           ```sql
+           GRANT SELECT ON V$DATABASE TO <username>;
+           GRANT SELECT ON DBA_EXTENTS TO <username>;
+           GRANT SELECT ON DBA_OBJECTS TO <username>;
+           GRANT FLASHBACK ANY TABLE TO <username>;
+           ```
 
-         If required, you can only grant the `FLASHBACK` privileges to the tables you need to copy rather than to all (`ANY TABLE`).
+           If required, you can only grant the `FLASHBACK` privileges to the tables you need to copy rather than to `ANY TABLE`.
 
       1. Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be copied.
 
@@ -345,7 +345,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
                SELECT ANY DISCTIONARY,
                CREATE PROCEDURE,
                LOGMINING
-           TO <username>.
+           TO <username>;
            ```
 
       1. Grant privileges to the created user:
@@ -364,7 +364,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
             GRANT SELECT ON SYSTEM.LOGMNR_OBJ$ TO <username>;
             GRANT SELECT ON SYSTEM.LOGMNR_USER$ TO <username>;
             GRANT SELECT ON SYSTEM.LOGMNR_UID$ TO <username>;
-            ```
+           ```
 
         1. Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be replicated.
         1. Enable [Minimal Supplemental Logging](https://docs.oracle.com/database/121/SUTIL/GUID-D2DDD67C-E1CC-45A6-A2A7-198E4C142FA3.htm#SUTIL1583) with primary keys as follows:
@@ -394,26 +394,15 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
             TO C##<username> CONTAINER=ALL;
             ```
 
-         If required, you can only specify the `cdb$root` container and the container with the tables to transfer.
+            If required, you can only specify the `cdb$root` container and the container with the tables to transfer.
+
+        1. To allow the user to switch to the `cdb$root` container, grant them the `ALTER SESSION` privileges:
 
             ```sql
-            CREATE USER C##<username> IDENTIFIED BY <password> CONTAINER=all;
-            ALTER USER C##<username> DEFAULT TABLESPACE USERS temporary tablespace TEMP CONTAINER=all;
-            ALTER USER C##<username> quota unlimited on USERS CONTAINER=all;
-            ALTER USER C##<username> SET container_data = (cdb$root, <your PCB name>) CONTAINER=current;
-
-            GRANT
-                CREATE SESSION,
-                execute_catalog_role,
-                SELECT ANY TRANSACTION,
-                SELECT ANY DICTIONALY,
-                CREATE PROCEDURE,
-                LOGMINING,
-                SET CONTAINER
-            TO C##<username> CONTAINER=all;
+            GRANT ALTER SESSION TO C##<username>;
             ```
 
-      1. Grant privileges to the created user:
+        1. Grant privileges to the created user:
 
             ```sql
             GRANT SELECT ON V$DATABASE TO C##<username> CONTAINER=ALL;
@@ -480,7 +469,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
     1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-      Then specify the number of jobs and threads in the [transfer parameters](transfer.md#create) under **Runtime environment**.
+        Then specify the number of jobs and threads in the [transfer parameters](transfer.md#create) under **Runtime environment**.
 
 - {{ PG }}
 
@@ -534,7 +523,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
             * The latest version of the Windows SDK for the active OS version.
             * Other dependencies that are installed automatically for selected components.
 
-            Remember the version number of the installed Windows SDK. You'll need it when you're asked to specify the wal2json build parameters.
+            Take note of the version number of the installed Windows SDK. You will need it when you are asked to specify the wal2json build parameters.
 
          1. Download the wal2json source code from the [project page](https://github.com/eulerto/wal2json/releases).
          1. Unpack the archive with the source code to the `C:\wal2json\` folder.
@@ -593,7 +582,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
 
-   1. Find and terminate DDL queries that are running for too long. To do this, make a Select from the {{ PG }} `pg_stat_activity` housekeeping table:
+   1. Find and terminate DDL queries that are running for too long. To do this, run a `SELECT` query against the {{ PG }} `pg_stat_activity` housekeeping table:
 
       ```sql
       SELECT NOW() - query_start AS duration, query, state
@@ -601,7 +590,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
       WHERE state != 'idle' ORDER BY 1 DESC;
       ```
 
-      A list of queries running on the server is returned. Check queries with a large `duration`.
+      This will return a list of queries running on the server. Check queries that have a large value for the `duration` parameter.
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
@@ -904,7 +893,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
          sudo systemctl restart mongod.service
          ```
 
-      1. Connect to {{ MG }} and initialize the replica set with the command:
+      1. Connect to {{ MG }} and initialize the replica set with this command:
 
          ```javascript
          rs.initiate({
@@ -1006,7 +995,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. [Set SQL Mode](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting), which matches the source.
 
-   1. Create a user to connect to the target and grant them the necessary privileges:
+   1. Create a user to connect to the target and grant them the required privileges:
 
       ```sql
       CREATE USER '<username>'@'%' IDENTIFIED BY '<password>';

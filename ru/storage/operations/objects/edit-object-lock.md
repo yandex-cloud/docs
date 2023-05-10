@@ -86,7 +86,7 @@
 
 - API
 
-  Чтобы снять блокировку, воспользуйтесь методом S3 API [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) с заголовком `X-Amz-Bypass-Governance-Retention: true` и пустым элементом `Retention`.
+  Воспользуйтесь методом S3 API [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) с заголовком `X-Amz-Bypass-Governance-Retention: true` и пустым элементом `Retention`.
 
 {% endlist %}
 
@@ -128,6 +128,6 @@
 
 - API
 
-  Чтобы установить или удалить блокировку, воспользуйтесь методом S3 API [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md).
+  Воспользуйтесь методом S3 API [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md).
 
 {% endlist %}

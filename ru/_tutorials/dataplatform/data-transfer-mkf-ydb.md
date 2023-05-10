@@ -110,7 +110,7 @@
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ KF }}`.
     * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}** — `Кластер Managed Service for Kafka`.
+       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
           Выберите кластер-источник из списка и укажите настройки подключения к нему.
        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.

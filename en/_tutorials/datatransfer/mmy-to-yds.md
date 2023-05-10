@@ -154,7 +154,7 @@ Prepare the infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 * [Deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate) and wait for its status to change to _{{ dt-status-stopped }}_.
 * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).

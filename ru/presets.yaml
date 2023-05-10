@@ -716,6 +716,7 @@ default:
     name-dedicated: ydb-dedicated
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
+    version-cdc: 22.5
   yq-full-name: Yandex Query
   yq-name: Query
   yq-short-name: YQ
@@ -42439,10 +42440,119 @@ default:
     datalens:
       collections:
         action_create: Создать
+      component:
+        chart-save-controls:
+          button_save-as-new: Сохранить как копию
+        chartkit-alerts:
+          view:
+            button_save: Сохранить
+        dialog-create-editor-chart:
+          view:
+            button_apply: Сохранить
+        dialog-rename-entry:
+          view:
+            button_apply: Готово
+        dl-field-editor:
+          view:
+            button_create: Создать
+        navigation:
+          view:
+            button_create: Создать
+            button_create-dashboard: Создать дашборд
+            button_create-dataset: Создать датасет
+            switch_dashboards: Дашборды
       connections:
         connectors-list:
           view:
             label_connector-ch_billing_analytics: Yandex Cloud Billing
+            label_connector-clickhouse: ClickHouse
+        form:
+          button_create: Создать
+          button_create-connection: Создать подключение
+          button_create-dataset: Создать датасет
+          button_specify-manually: Указать вручную
+          button_verify: Проверить подключение
+          field_cluster: Кластер
+          field_host-name: Имя хоста
+      dash:
+        action-panel:
+          view:
+            button_add: Добавить
+            button_connections: Связи
+            button_edit: Редактировать
+            button_tabs: Вкладки
+            value_rename: Переименовать
+            value_widget: Чарт
+        connections-dialog:
+          edit:
+            button_add: Добавить
+            button_save: Сохранить
+            value_output: Исх. связь
+        control-dialog:
+          edit:
+            button_add: Добавить
+            button_save: Сохранить
+            field_dataset: Датасет
+            field_field: Поле
+            field_multiselectable: Множественный выбор
+            field_title: Название
+            label_default-value: Значение по умолчанию
+        tabs-dialog:
+          edit:
+            button_add-tab: Добавить
+            button_save: Сохранить
+        widget-dialog:
+          edit:
+            button_add: Добавить
+            button_save: Сохранить
+            field_title: Название
+            field_widget: Чарт
+      dataset:
+        dataset-editor:
+          modify:
+            button_add-field: Добавить поле
+            button_create: Создать
+            button_create-widget: Создать чарт
+            button_save: Сохранить
+            column_aggregation: Агрегация
+            value_dataset: Поля
+            value_sum: Сумма
+        sources-tab:
+          modify:
+            button_add-connection: Добавить
+            label_sources: Подключения
+      main:
+        landing:
+          view:
+            button_connect-data-source: Создать подключение
+            button_create-dataset: Создать датасет
+      wizard:
+        add_field_item: Поле
+        button_apply: Применить
+        button_apply-filter: Применить фильтр
+        button_save: Сохранить
+        label_bars-color: Цвет
+        label_gradient-type: Тип градиента
+        label_thresholds: Задать пороговые значения
+        label_visualization-area: Накопительная диаграмма с областями
+        label_visualization-column: Столбчатая диаграмма
+        label_visualization-pivot-table: Сводная таблица
+        number-field-formatting:
+          view:
+            field_format: Формат
+            field_precision: Знаков после запятой
+            field_rank-delimiter: Отображать группы разрядов
+            value_format-percent: Процент
+            value_rank-delimiter-hide: Слитно
+            value_unit-m: Миллионы, M
+        section_colors: Цвета
+        section_columns: Столбцы
+        section_filters: Фильтры
+        section_measures: Показатели
+        section_rows: Строки
+        section_sort: Сортировка
+        section_x: X
+        section_y: 'Y'
     yacloud_monitoring:
       alert-template:
         threshold-status:
@@ -42468,6 +42578,10 @@ default:
         confirm:
           button_continue: Продолжить
     yacloud:
+      clickhouse:
+        button_create-cluster: Создать кластер ClickHouse
+        cluster:
+          switch_datalens: DataLens
       common:
         apply: Применить
         create: Создать
@@ -42557,6 +42671,8 @@ default:
             button_add: Создать ресурс
             label_container-registry: Container Registry
             label_data-proc: Data Proc
+            label_datasphere: DataSphere
+            label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-greenplum: Managed Service for Greenplum
             label_monitoring: Monitoring
             label_vpc: Virtual Private Cloud
@@ -42587,14 +42703,21 @@ default:
         cluster:
           hosts:
             label_title: Хосты
+            switch_overview: Обзор
           overview:
             button_action-delete: Удалить кластер
         clusters:
           button_action-delete: Удалить
           button_create: Создать кластер
+        datalens:
+          button-action_activate: Активировать
         dialogs:
           popup-confirm-delete-cluster_button: Удалить
         forms:
+          additional-field-datalens: Доступ из DataLens
+          additional-field-metrika: Доступ из Метрики и AppMetrica
+          additional-field-serverless: Доступ из Serverless
+          additional-field-websql: Доступ из консоли управления
           base_field_name: Имя кластера
           base_field_service-account: Сервисный аккаунт
           button_create: Создать кластер
@@ -42608,7 +42731,18 @@ default:
           database_field_user-login: Имя пользователя
           database_field_user-password: Пароль
           label_master-subcluster: Мастер
+          label_max-size-units: ГБ
+          new_section_resource: Ресурсы
+          section_base: Базовые параметры
+          section_disk: Размер хранилища
+          section_host: Хосты
           section_network-settings: Сетевые настройки
+          section_service-settings: Сервисные настройки
+          section_settings: Настройки СУБД
+        hosts:
+          dialog:
+            button_choose: Сохранить
+            field_public_ip: Публичный доступ
       monitoring:
         button_open-in-monitoring: Открыть в Мониторинге
       serverless-functions:
@@ -43783,21 +43917,25 @@ default:
         page-title: Контрольные точки
       checkpoint:
         apply: Применить
+        cell-code: Код ячейки
         create-project-from-checkpoint: Создать проект из контрольной точки
         type:
           rollback: Rollback
+        variables: Переменные
       common:
         access: Доступ
         activate: Активировать
         add: Добавить
         add-chanel: Добавить канал
         add-member: Добавить участника
+        add-new: Добавить
         alias: Алиас
         apply: Применить
         backend: Бэкенд
         billing: Биллинг
         bucket: Бакет
         build: Собрать
+        cell: Ячейка
         checkpoint: Контрольная точка
         clone: Клонировать
         communication: Общение
@@ -43819,6 +43957,7 @@ default:
         more: Еще
         name: Имя
         never: Никогда
+        overview: Обзор
         pin: Закрепить
         port: Порт
         prefix: Префикс
@@ -43829,6 +43968,7 @@ default:
         show-additional-parameters: Показать дополнительные параметры
         spaces: Сообщества
         submit: Подтвердить
+        subnet: Подсеть
         timeout: Таймаут
         unpin: Открепить
       data-proc:
@@ -43872,8 +44012,11 @@ default:
           password-secret: Секрет с паролем
           user-name: Имя пользователя
         node-form-label:
+          checkpoint: Контрольная точка
           name: Имя
           type: Тип
+        provisioning-form-label:
+          instance-spec: Конфигурация инстанса
         telemetry-form-label:
           http-path: HTTP-адрес
           port: Порт
@@ -43884,8 +44027,13 @@ default:
           endpoint: Эндпоинт
           folder: Каталог
           healthcheck: Проверка
+          input-variables: Входные переменные
+          kernel-docker-image: Системный Docker-образ
+          output-variables: Выходные переменные
           provisioning: Обеспечение
           telemetry: Телеметрия
+        variables-form-placeholder:
+          name: Имя
       new-s3-page:
         access-key-id: Идентификатор статического ключа доступа
         backend-geesefs: GeeseFS
@@ -43894,13 +44042,18 @@ default:
         mount-name: Имя раздела при подключении
         static-access-key: Статический ключ доступа
       node-page:
+        provisioning:
+          distribution-by-zones: Распределение по зонам
         request:
           create-test-request: Создать тестовый запрос
         tab:
           logs: Логи
           monitoring: Мониторинг
           request: Запрос
+        type:
+          list: list
       project-page:
+        executions: Запущенные операции
         project-card:
           create-resource: Создать ресурс
           go-to-jupyter: Открыть проект в JupyterLab
@@ -43910,6 +44063,7 @@ default:
           limits: Ограничения
           service-account: Сервисный аккаунт
           subnet: Подсеть
+        stop-ide-executions: Остановить JupyterLab и ВМ
         tab:
           members: Участники
           overview: Обзор
@@ -43930,6 +44084,8 @@ default:
       secret:
         content: Значение
         name: Имя
+      spaces-page:
+        community-resources: Ресурсы сообщества
       transferring:
         title: Перенос проектов
         transfer-selected-projects: Перенести выбранные проекты

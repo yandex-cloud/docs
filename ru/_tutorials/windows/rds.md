@@ -4,7 +4,7 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
-В сценарии описывается развертывание Microsoft Windows Server 2019 Datacenter с предустановленной службой Remote Desktop Services в {{ yandex-cloud }}. Инсталляция Microsoft Windows Server with Remote Desktop Services будет состоять из одного сервера, на котором будут установлены службы Remote Desktop Services и Active Directory. Образы представлены с подготовленными квотами на 5/10/25/50/100/250/500 пользователей. Выберите версию с необходимой квотой. Все примеры приводятся для сервера с квотой на 5 пользователей.
+В сценарии описывается развертывание Microsoft Windows Server Datacenter с предустановленной службой Remote Desktop Services в {{ yandex-cloud }}. Инсталляция Microsoft Windows Server with Remote Desktop Services будет состоять из одного сервера, на котором будут установлены службы Remote Desktop Services и Active Directory. Образы представлены с подготовленными квотами на 5/10/25/50/100/250/500 пользователей. Выберите версию с необходимой квотой. Все примеры приводятся для сервера с квотой на 5 пользователей.
 
 {% note warning %}
 
@@ -138,7 +138,7 @@
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `my-rds-vm`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-  1. В блоке **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [Windows RDS](/marketplace?tab=software&search=windows+rds).
+  1. В блоке **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [RDS](/marketplace?tab=software&search=windows+rds).
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
       - Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
@@ -162,7 +162,7 @@
      --cores 4 \
      --zone {{ region-id }}-a \
      --network-interface subnet-name=my-subnet-a,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
-     --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk-rds-5 \
+     --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk-rds-5 \
      --metadata-from-file user-data=setpass
   ```
 
@@ -173,6 +173,28 @@
 {% endlist %}
 
 ## Установите и настройте службу контроллера домена (Active Directory) {#install-ad}
+
+1. Перезапустите ВМ `my-rds-vm`:
+
+   {% list tabs %}
+   
+   - Консоль управления
+   
+     1. На странице каталога в [консоли управления]({{ link-console-main }}) выберите сервис **{{ compute-name }}**.
+     1. Выберите виртуальную машину `my-rds-vm`.
+     1. Нажмите ![image](../../_assets/options.svg) и выберите пункт **Перезапустить**.
+   
+   - CLI
+   
+     ```
+     yc compute instance restart my-rds-vm
+     ```
+   
+   - API
+   
+     Воспользуйтесь методом REST API [restart](../../compute/api-ref/Instance/restart.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Restart](../../compute/api-ref/grpc/instance_service.md#Restart).
+   
+   {% endlist %}
 
 1. Подключитесь к ВМ `my-rds-vm` с [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 1. Установите роли Active Directory:
@@ -228,9 +250,7 @@
 
 ## Настройте сервер лицензирования в домене {#license-server}
 
-1. Авторизуйте сервер лицензирования в домене. 
-    
-    Роль находится на контроллере домена, поэтому в `BUILTIN` группу необходимо добавить `Network Service`:
+1. Добавьте системного пользователя Network Service в Terminal Server License Servers, группу безопасности Active Directory:
     
     {% list tabs %}
     
@@ -310,6 +330,26 @@
     ```
 
 {% endlist %}
+
+
+## Добавьте сервер в группу безопасности AD и зарегистрируйте его как SCP {#ad-sg-scp}
+
+Добавьте сервер в Terminal Server License Servers, группу безопасности Active Directory, и зарегистрируйте его как точку подключения пользователей к сервису лицензирования (service connection point, SCP):
+
+{% list tabs %}
+
+- Windows Server
+
+  1. Нажмите **Start**.
+  1. В поле поиска введите `Remote Desktop Licensing Manager`.
+  1. Нажмите правой кнопкой мыши на сервер в списке и выберите **Review Configuration...**
+  1. Напротив первого предупреждения, о группе `Terminal Server License Servers`, нажмите **Add to Group**, а затем — **Continue**.
+  1. Напротив второго предупреждения, о точке подключения к сервису, нажмите **Register as SCP**.
+  1. Нажмите **OK**.
+  1. Перезапустите ВМ.
+
+{% endlist %}
+
 
 ## Создайте пользователей {#create-users}
 
