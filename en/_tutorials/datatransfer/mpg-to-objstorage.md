@@ -15,9 +15,9 @@ Prepare the infrastructure:
 * Manually
 
    1. Create a source {{ mpg-name }} cluster in any applicable [configuration](../../managed-postgresql/concepts/instance-types.md) with publicly available hosts and the following settings:
-      * Database name: `db1`.
-      * Username: `pg-user`.
-      * Password: `<password for the source>`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<password for the source>`.
 
    
    1. If you are using [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups) in your cluster, make sure they have been set up correctly and allow connecting to the cluster:
@@ -50,7 +50,7 @@ Prepare the infrastructure:
       * {{ PG }} user password.
       * Bucket name meeting the [naming conventions](../../storage/concepts/bucket.md#naming).
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -87,11 +87,11 @@ Prepare the infrastructure:
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
-   * Bucket: `<Name of the previously created bucket>`
-   * Service account: `service-sa`.
-   * Output format: `CSV`.
-   * Compression format: `UNCOMPRESSED`.
-   * Directory name: `from_PostgreSQL`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}**: `<name of the created bucket>`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `storage-sa`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `CSV`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `UNCOMPRESSED`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket_layout.title }}**: `from_PostgreSQL`.
 
 1. Create a source endpoint and a transfer.
 
@@ -101,13 +101,13 @@ Prepare the infrastructure:
 
    1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
 
-      * **Connection type**: `Managed Service for PostgreSQL cluster`.
-      * **Cluster**: `<{{ PG }} source cluster name>` from the drop-down list.
-      * **Database**: `db1`.
-      * **Password**: `pg-user`.
-      * **Password**: `<user password>`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }} source cluster name>` from the drop-down list.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user password>`.
 
-   1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy }}_ type that will use the created endpoints.
+   1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
 
 * Using {{ TF }}
 
@@ -132,7 +132,7 @@ Prepare the infrastructure:
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to _{{ dt-status-finished }}_.
+1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 
 1. Make sure that the {{ objstorage-name }} bucket now includes the `public_x_tab.csv` file with the data from the `x_tab` table.
 
@@ -145,14 +145,14 @@ Prepare the infrastructure:
    UPDATE x_tab SET name = 'Key3' WHERE id = 42;
    ```
 
-1. [Re-activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to _{{ dt-status-finished }}_.
+1. [Reactivate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 1. Make sure that the changes now show up in the `public_x_tab.csv` file in the target cluster.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-* Make sure the transfer status is _{{ dt-status-finished }}_.
+* Make sure the transfer status is **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 * Delete the transfer, source endpoint, cluster, and bucket:
 

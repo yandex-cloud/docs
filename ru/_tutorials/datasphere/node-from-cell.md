@@ -248,21 +248,20 @@
     1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
     1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
     1. Задайте параметры ноды:
-        * **Тип** — **Ячейка**.
-        * **Имя** — имя ноды, например `classifier-node`.
-        * В поле **Контрольная точка** выберите контрольную точку `checkpoint-for-node`.
-        * В блоке **Входные переменные** нажмите кнопку ![Add](../../_assets/plus-sign.svg) **Добавить** и создайте переменную со следующими параметрами:
-          * **Имя** — `encoded_images`.
-          * **Тип** — `list`.
-        * В блоке **Выходные переменные** нажмите кнопку ![Add](../../_assets/plus-sign.svg) **Добавить** и создайте переменную со следующими параметрами:
-          * **Имя** — `labels`.
-          * **Тип** — `list`.
-        * В блоке **Docker-образ** выберите `Default Python 3.8`.
-    1. В блоке **Каталог** выберите `data-folder`.
-    1. В блоке **Обеспечение** выберите:
-        * **Конфигурацию инстанса** — `c1.4`.
-        * **Зона доступности** — укажите [зону доступности](../../overview/concepts/geo-scope.md), например `{{region-id}}-a`.
-        * **Идентификатор подсети** оставьте пустым, {{ ml-platform-name }} заполнит его значением по умолчанию.
+        * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — **{{ ui-key.yc-ui-datasphere.common.cell }}**.
+        * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** — имя ноды, например `classifier-node`.
+        * В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.checkpoint }}** выберите контрольную точку `checkpoint-for-node`.
+        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** нажмите кнопку ![Add](../../_assets/plus-sign.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** и создайте переменную со следующими параметрами:
+          * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}** — `encoded_images`.
+          * **Тип** — `{{ ui-key.yc-ui-datasphere.node-page.type.list }}`.
+        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}** нажмите кнопку ![Add](../../_assets/plus-sign.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** и создайте переменную со следующими параметрами:
+          * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}** — `labels`.
+          * **Тип** — `{{ ui-key.yc-ui-datasphere.node-page.type.list }}`.
+        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.kernel-docker-image }}** выберите `{{ ui-key.yc-ui-datasphere.common.default }} Python 3.8`.
+    1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}** выберите `data-folder`.
+    1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** выберите:
+        * **{{ ui-key.yc-ui-datasphere.new-node.provisioning-form-label.instance-spec }}** — `c1.4`.
+        * В блоке настроек **{{ ui-key.yc-ui-datasphere.node-page.provisioning.distribution-by-zones }}** у вас уже выбрана зона доступности. Поле **{{ ui-key.yc-ui-datasphere.common.subnet }}** оставьте пустым, {{ ml-platform-name }} заполнит его значением по умолчанию.
         
           {% note info %}
 

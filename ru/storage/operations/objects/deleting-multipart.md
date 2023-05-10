@@ -39,4 +39,8 @@
     --bucket <имя_бакета>
   ```
 
+- API
+
+  Воспользуйтесь методом S3 API [abortUpload](../../s3/api-ref/multipart/abortupload.md).
+
 {% endlist %}

@@ -42430,10 +42430,119 @@ default:
     datalens:
       collections:
         action_create: Create
+      component:
+        chart-save-controls:
+          button_save-as-new: Save as copy
+        chartkit-alerts:
+          view:
+            button_save: Save
+        dialog-create-editor-chart:
+          view:
+            button_apply: Save
+        dialog-rename-entry:
+          view:
+            button_apply: Done
+        dl-field-editor:
+          view:
+            button_create: Create
+        navigation:
+          view:
+            button_create: Create
+            button_create-dashboard: Create dashboard
+            button_create-dataset: Create dataset
+            switch_dashboards: Dashboards
       connections:
         connectors-list:
           view:
             label_connector-ch_billing_analytics: Yandex Cloud Billing
+            label_connector-clickhouse: ClickHouse
+        form:
+          button_create: Create
+          button_create-connection: Create connection
+          button_create-dataset: Create dataset
+          button_specify-manually: Specify manually
+          button_verify: Check connection
+          field_cluster: Cluster
+          field_host-name: Hostname
+      dash:
+        action-panel:
+          view:
+            button_add: Add
+            button_connections: Links
+            button_edit: Edit
+            button_tabs: Tabs
+            value_rename: Rename
+            value_widget: Chart
+        connections-dialog:
+          edit:
+            button_add: Add
+            button_save: Save
+            value_output: Outgoing link
+        control-dialog:
+          edit:
+            button_add: Add
+            button_save: Save
+            field_dataset: Dataset
+            field_field: Field
+            field_multiselectable: Multiple choice
+            field_title: Title
+            label_default-value: Default value
+        tabs-dialog:
+          edit:
+            button_add-tab: Add
+            button_save: Save
+        widget-dialog:
+          edit:
+            button_add: Add
+            button_save: Save
+            field_title: Title
+            field_widget: Chart
+      dataset:
+        dataset-editor:
+          modify:
+            button_add-field: Add field
+            button_create: Create
+            button_create-widget: Create chart
+            button_save: Save
+            column_aggregation: Aggregation
+            value_dataset: Fields
+            value_sum: Sum
+        sources-tab:
+          modify:
+            button_add-connection: Add
+            label_sources: Connections
+      main:
+        landing:
+          view:
+            button_connect-data-source: Create connection
+            button_create-dataset: Create dataset
+      wizard:
+        add_field_item: Field
+        button_apply: Apply
+        button_apply-filter: Apply filter
+        button_save: Save
+        label_bars-color: Color
+        label_gradient-type: Gradient type
+        label_thresholds: Set threshold values
+        label_visualization-area: Stacked area chart
+        label_visualization-column: Column chart
+        label_visualization-pivot-table: Pivot table
+        number-field-formatting:
+          view:
+            field_format: Format
+            field_precision: Precision
+            field_rank-delimiter: Show thousands separator
+            value_format-percent: Percent
+            value_rank-delimiter-hide: Hide
+            value_unit-m: Millions, M
+        section_colors: Colors
+        section_columns: Columns
+        section_filters: Chart filters
+        section_measures: Measures
+        section_rows: Rows
+        section_sort: Sorting
+        section_x: X
+        section_y: 'Y'
     yacloud_monitoring:
       alert-template:
         threshold-status:
@@ -42459,6 +42568,10 @@ default:
         confirm:
           button_continue: Continue
     yacloud:
+      clickhouse:
+        button_create-cluster: Create ClickHouse cluster
+        cluster:
+          switch_datalens: DataLens
       common:
         apply: Apply
         create: Create
@@ -42548,6 +42661,8 @@ default:
             button_add: Create resource
             label_container-registry: Container Registry
             label_data-proc: Data Proc
+            label_datasphere: DataSphere
+            label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-greenplum: Managed Service for Greenplum
             label_monitoring: Monitoring
             label_vpc: Virtual Private Cloud
@@ -42578,14 +42693,21 @@ default:
         cluster:
           hosts:
             label_title: Hosts
+            switch_overview: Overview
           overview:
             button_action-delete: Delete cluster
         clusters:
           button_action-delete: Delete
           button_create: Create cluster
+        datalens:
+          button-action_activate: Activate
         dialogs:
           popup-confirm-delete-cluster_button: Delete
         forms:
+          additional-field-datalens: DataLens access
+          additional-field-metrika: Access from Metrica and AppMetrica
+          additional-field-serverless: Serverless access
+          additional-field-websql: Access from the management console
           base_field_name: Cluster name
           base_field_service-account: Service account
           button_create: Create cluster
@@ -42599,7 +42721,18 @@ default:
           database_field_user-login: Username
           database_field_user-password: Password
           label_master-subcluster: Master
+          label_max-size-units: GB
+          new_section_resource: Resources
+          section_base: Basic parameters
+          section_disk: Size of storage
+          section_host: Hosts
           section_network-settings: Network settings
+          section_service-settings: Service settings
+          section_settings: DBMS settings
+        hosts:
+          dialog:
+            button_choose: Save
+            field_public_ip: Public access
       monitoring:
         button_open-in-monitoring: Open in Monitoring
       serverless-functions:
@@ -43776,21 +43909,25 @@ default:
         page-title: Checkpoints
       checkpoint:
         apply: Apply
+        cell-code: Cell code
         create-project-from-checkpoint: Create project from checkpoint
         type:
           rollback: Rollback
+        variables: Variables
       common:
         access: Access
         activate: Activate
         add: Add
         add-chanel: Add channel
         add-member: Add member
+        add-new: Add
         alias: Alias
         apply: Apply
         backend: Backend
         billing: Billing
         bucket: Bucket
         build: Build
+        cell: Cell
         checkpoint: Checkpoint
         clone: Clone
         communication: Communication
@@ -43812,6 +43949,7 @@ default:
         more: More
         name: Name
         never: Never
+        overview: Overview
         pin: Pin
         port: Port
         prefix: Prefix
@@ -43822,6 +43960,7 @@ default:
         show-additional-parameters: Show additional parameters
         spaces: Communities
         submit: Confirm
+        subnet: Subnet
         timeout: Timeout
         unpin: Unpin
       data-proc:
@@ -43865,8 +44004,11 @@ default:
           password-secret: Password secret
           user-name: Username
         node-form-label:
+          checkpoint: Checkpoint
           name: Name
           type: Type
+        provisioning-form-label:
+          instance-spec: Instance configuration
         telemetry-form-label:
           http-path: HTTP path
           port: Port
@@ -43877,8 +44019,13 @@ default:
           endpoint: Endpoint
           folder: Folder
           healthcheck: Healthcheck
+          input-variables: Input variables
+          kernel-docker-image: Kernel Docker image
+          output-variables: Output variables
           provisioning: Provisioning
           telemetry: Telemetry
+        variables-form-placeholder:
+          name: Name
       new-s3-page:
         access-key-id: Static access key ID
         backend-geesefs: GeeseFS
@@ -43887,13 +44034,18 @@ default:
         mount-name: Mount name
         static-access-key: Static access key
       node-page:
+        provisioning:
+          distribution-by-zones: Distribution by zones
         request:
           create-test-request: Create test request
         tab:
           logs: Logs
           monitoring: Monitoring
           request: Request
+        type:
+          list: list
       project-page:
+        executions: Running executions
         project-card:
           create-resource: Create resource
           go-to-jupyter: Open project in JupyterLab
@@ -43903,6 +44055,7 @@ default:
           limits: Limits
           service-account: Service account
           subnet: Subnet
+        stop-ide-executions: Stop JupyterLab and VM
         tab:
           members: Members
           overview: Overview
@@ -43923,6 +44076,8 @@ default:
       secret:
         content: Value
         name: Name
+      spaces-page:
+        community-resources: Community resources
       transferring:
         title: Transfer projects
         transfer-selected-projects: Transfer selected projects

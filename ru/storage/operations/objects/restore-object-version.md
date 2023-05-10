@@ -130,7 +130,9 @@
 
 - API
 
-  1. Чтобы получить идентификатор нужной версии объекта, воспользуйтесь методом S3 API [listObjectVersions](../../s3/api-ref/bucket/listObjectVersions.md).
-  1. Чтобы скопировать версию с сохранением ключа объекта, воспользуйтесь методом S3 API [copy](../../s3/api-ref/object/copy.md).
+  Чтобы восстановить версию объекта:
+
+  1. Получите идентификатор нужной версии объекта с помощью метода S3 API [listObjectVersions](../../s3/api-ref/bucket/listObjectVersions.md).
+  1. Скопируйте версию объекта в тот же бакет с тем же ключом с помощью метода S3 API [copy](../../s3/api-ref/object/copy.md).
 
 {% endlist %}

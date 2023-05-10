@@ -33,7 +33,7 @@ sourcePath: en/_api-ref/datalens/function-ref/TOP_CONCAT.md
 {% endlist %}
 
 #### Description {#description}
-Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
+Returns a string that contains top `amount` unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 **Argument types:**
 - `expression` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`

@@ -169,7 +169,7 @@ See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
             [ BEFORE FILTER BY ... ]
           )`
 
-Returns a string that contains all grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
+Returns a string that contains all unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 
 
@@ -1897,7 +1897,7 @@ Returns the current date, depending on the data source and connection type.
             [ BEFORE FILTER BY ... ]
           )`
 
-Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
+Returns a string that contains top `amount` unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 
 

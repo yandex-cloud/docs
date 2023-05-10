@@ -20,17 +20,24 @@
   1. Введите идентификатор политики доступа.
   1. Настройте правило:
      1. Введите идентификатор правила.
-	 1. Настройте параметры правила:
+     1. Настройте параметры правила:
         * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}** — разрешить или запретить.
-	    * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}** — включить или исключить пользователей.
-	    * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}** — все пользователи или набор конкретных пользователей.
-	    * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}**, для которого создается правило. Вы также можете выбрать опцию **Все действия**.
-	    * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}** — по умолчанию указан выбранный бакет. Чтобы добавить другие ресурсы в правило, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}** — включить или исключить пользователей.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}** — все пользователи или набор конкретных пользователей.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}**, для которого создается правило. Вы также можете выбрать опцию **Все действия**.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}** — по умолчанию указан выбранный бакет. Чтобы добавить другие ресурсы в правило, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
+ 
+          {% note info %}
+         
+          {% include [policy-bucket-objects](../../../_includes/storage/policy-bucket-objects.md) %}
+ 
+          {% endnote %}
+
      1. При необходимости добавьте условие для правила:
         * Выберите **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** из списка.
         * Выберите **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** из списка. Чтобы оператор действовал в существующих полях, выберите опцию **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. Тогда, если поля не существует, условие будет считаться выполненным.
         * Введите **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
-	    * Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}**, чтобы добавить дополнительное значение в условие.
+        * Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}**, чтобы добавить дополнительное значение в условие.
   1. При необходимости добавьте правила и настройте их.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.permissions-dialog.button_save }}**.
 

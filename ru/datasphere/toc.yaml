@@ -97,9 +97,9 @@ items:
             href: operations/deploy/alias-delete.md
       - name: Совместный доступ
         items:
-          - name: Публикация ноутбука
+          - name: Опубликовать ноутбук
             href: operations/projects/publication.md
-          - name: Экспорт проекта
+          - name: Экспортировать проект
             href: operations/projects/export.md
       - name: Как перенести работу в новую версию
         href: operations/migration.md

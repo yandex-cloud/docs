@@ -581,6 +581,12 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install pyMongo
 ```
 
+Чтобы узнать имя набора реплик, подключитесь к базе данных через [MongoDB Shell](#bash) и выполните команду:
+
+```bash
+rs.status().set
+```
+
 {% list tabs %}
 
 - Подключение с SSL

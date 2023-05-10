@@ -1,6 +1,8 @@
 # Поставка данных из {{ ydb-full-name }} в {{ yds-full-name }} с помощью {{ data-transfer-full-name }}
 
-В поток {{ yds-name }} можно в реальном времени поставлять данные из базы данных {{ ydb-name }}.
+В поток {{ yds-name }} можно в реальном времени поставлять данные из базы данных {{ ydb-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
+
+{% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
 
 Чтобы запустить поставку данных:
 

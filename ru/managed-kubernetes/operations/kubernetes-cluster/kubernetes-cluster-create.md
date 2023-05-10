@@ -1,10 +1,10 @@
-# Создание кластера {{ k8s }}
+# Создание кластера {{ managed-k8s-name }}
 
-Создайте [кластер {{ k8s }}](../../concepts/index.md#kubernetes-cluster), а затем [создайте группу узлов](../node-group/node-group-create.md).
+Создайте [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), а затем [создайте группу узлов](../node-group/node-group-create.md).
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы создать кластер {{ k8s }}:
+Чтобы создать кластер {{ managed-k8s-name }}:
 
 {% list tabs %}
 
@@ -22,24 +22,24 @@
 
   1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md).
   1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
-  1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и [группа узлов](../../concepts/index.md#node-group).
+  1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../concepts/index.md#node-group).
   1. Создайте [сервисные аккаунты](../../../iam/operations/sa/create.md):
-     * Сервисный аккаунт с ролью [{{ roles-editor }}](../../../resource-manager/security/index.md#roles-list) на каталог, в котором создается кластер {{ k8s }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
+     * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../../resource-manager/security/index.md#roles-list) на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
      * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../../container-registry/concepts/registry.md) [Docker-образов](../../../container-registry/concepts/docker-image.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 
-      {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
+     {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
 
   1. Создайте нужные [группы безопасности](../connect/security-groups.md).
 
-      {% include [security-groups-note-services](../../../_includes/vpc/security-groups-note-services.md) %}
+     {% include [security-groups-note-services](../../../_includes/vpc/security-groups-note-services.md) %}
 
   1. Изучите [рекомендации по использованию {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
 {% endlist %}
 
-## Создайте кластер {{ k8s }} {#kubernetes-cluster-create}
+## Создайте кластер {{ managed-k8s-name }} {#kubernetes-cluster-create}
 
 {% list tabs %}
 
@@ -53,7 +53,7 @@
 
   1. {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
+  1. Укажите параметры кластера {{ managed-k8s-name }} в команде создания (в примере приведены не все параметры):
 
      ```bash
      {{ yc-k8s }} cluster create \
@@ -73,21 +73,21 @@
      ```
 
      Где:
-     * `--name` — имя кластера {{ k8s }}.
-     * `--network-name` — имя сети.
-     * `--zone` — зона доступности.
-     * `--subnet-name` — имя подсети.
-     * `--public-ip` — флаг, который указывает, если кластеру {{ k8s }} требуется публичный IP-адрес.
+     * `--name` — имя кластера {{ managed-k8s-name }}.
+     * `--network-name` — имя [сети](../../../vpc/concepts/network.md#network).
+     * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md).
+     * `--subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet).
+     * `--public-ip` — флаг, который указывает, если кластеру {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#release-channels).
      * `--version` — версия {{ k8s }}.
-     * `--cluster-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../../concepts/index.md#pod).
+     * `--cluster-ipv4-range` — диапазон [IP-адресов](../../../vpc/concepts/address.md), из которого будут выделяться IP-адреса для [подов](../../concepts/index.md#pod).
      * `--service-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для [сервисов](../../concepts/index.md#service).
-     * `--security-group-ids` — список идентификаторов групп безопасности кластера.
+     * `--security-group-ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md) кластера {{ managed-k8s-name }}.
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-     * `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
-     * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+     * `--service-account-id` — уникальный идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+     * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для [узлов](../../concepts/index.md#node-group). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
      * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
 
      Результат выполнения команды:
@@ -102,7 +102,7 @@
        release_channel: REGULAR
      ```
 
-  1. Чтобы включить [контроллер сетевых политик](../../concepts/network-policy.md) Calico, передайте в команде создания кластера параметр `--enable-network-policy`:
+  1. Чтобы включить [контроллер сетевых политик](../../concepts/network-policy.md) Calico, передайте в команде создания кластера {{ managed-k8s-name }} параметр `--enable-network-policy`:
 
      ```bash
      {{ yc-k8s }} cluster create \
@@ -110,7 +110,7 @@
        --enable-network-policy
      ```
 
-  1. Чтобы использовать [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md) для защиты конфиденциальной информации, передайте в команде создания кластера его имя или идентификатор:
+  1. Чтобы использовать [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md) для защиты конфиденциальной информации, передайте в команде создания кластера {{ managed-k8s-name }} его имя или идентификатор:
 
      ```bash
      {{ yc-k8s }} cluster create \
@@ -121,23 +121,40 @@
 
      {% include [write-once-setting.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
+  1. Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), передайте настройки отправки в команде создания кластера {{ managed-k8s-name }} в параметре `--master-logging`:
+
+     ```bash
+     {{ yc-k8s }} cluster create \
+     ...
+       --master-logging enabled=<отправка логов: true или false>,`
+         `log-group-id=<идентификатор лог-группы>,`
+         `folder-id=<идентификатор каталога>,`
+         `kube-apiserver-enabled=<отправка логов kube-apiserver: true или false>,`
+         `cluster-autoscaler-enabled=<отправка логов cluster-autoscaler: true или false>,`
+         `events-enabled=<отправка событий {{ k8s }}: true или false>
+     ```
+
+     Где:
+
+     {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+
 - {{ TF }}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Чтобы создать кластер:
+  Чтобы создать кластер {{ managed-k8s-name }}:
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-     * Кластер {{ k8s }} — описание кластера.
-     * Сеть — описание [облачной сети](../../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
-     * Подсети — описание [подсетей](../../../vpc/concepts/network.md#subnet), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
-     * [Сервисный аккаунт](#before-you-begin) для кластера и узлов и [настройки роли]({{ tf-provider-link }}/resourcemanager_folder_iam_member) для этого аккаунта. При необходимости создайте отдельные сервисные аккаунты для кластера и узлов. Если у вас уже есть подходящий сервисный аккаунт, описывать его повторно не нужно.
+     * Кластер {{ managed-k8s-name }} — описание кластера.
+     * Сеть — описание [облачной сети](../../../vpc/concepts/network.md#network), в которой будет расположен кластер {{ managed-k8s-name }}. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+     * Подсети — описание [подсетей](../../../vpc/concepts/network.md#subnet), к которым будут подключены хосты кластера {{ managed-k8s-name }}. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+     * [Сервисный аккаунт](#before-you-begin) для кластера {{ managed-k8s-name }} и [узлов](../../concepts/index.md#node-group) и [настройки роли]({{ tf-provider-link }}/resourcemanager_folder_iam_member) для этого аккаунта. При необходимости создайте отдельные [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) для кластера {{ managed-k8s-name }} и узлов. Если у вас уже есть подходящий сервисный аккаунт, описывать его повторно не нужно.
 
      >Пример структуры конфигурационного файла:
      >
      >```hcl
-     >resource "yandex_kubernetes_cluster" "<имя кластера>" {
+     >resource "yandex_kubernetes_cluster" "<имя кластера {{ managed-k8s-name }}>" {
      >  network_id = yandex_vpc_network.<имя сети>.id
      >  master {
      >    zonal {
@@ -181,45 +198,55 @@
      >}
      >```
 
+     Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), добавьте к описанию кластера {{ managed-k8s-name }} блок `master_logging`:
+
+     {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
+
+     Где:
+
+     {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
+
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
   1. Проверьте корректность конфигурационных файлов.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
-  1. Создайте кластер.
+  1. Создайте кластер {{ managed-k8s-name }}.
 
      {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 - API
 
-  Чтобы создать кластер {{ k8s }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md) для ресурса [Cluster](../../api-ref/Cluster).
+  Чтобы создать кластер {{ managed-k8s-name }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md) для ресурса [Cluster](../../api-ref/Cluster).
 
-  Чтобы использовать для защиты секретов [ключ шифрования {{ kms-name }}](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
+  Чтобы использовать для защиты секретов [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
+
+  Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), передайте настройки отправки в параметре `masterSpec.masterLogging`.
 
 {% endlist %}
 
 ## Примеры {#examples}
 
-### Создание зонального кластера {#example-zonal-cluster}
+### Создание зонального кластера {{ managed-k8s-name }} {#example-zonal-cluster}
 
 {% list tabs %}
 
 - {{ TF }}
 
-  Допустим, нужно создать кластер {{ k8s }} и сеть для него со следующими характеристиками:
+  Допустим, нужно создать кластер {{ managed-k8s-name }} и сеть для него со следующими характеристиками:
   * С именем `k8s-zonal`.
   * Версии `1.22`.
-  * В облаке с идентификатором `{{ tf-cloud-id }}`.
-  * В каталоге с идентификатором `{{ tf-folder-id }}`.
+  * В [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) с идентификатором `{{ tf-cloud-id }}`.
+  * В [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) с идентификатором `{{ tf-folder-id }}`.
   * В новой сети `mynet`.
-  * В новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.1.0.0/16`.
+  * В новой подсети `mysubnet`, в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.1.0.0/16`.
   * С новым сервисным аккаунтом `myaccount`, имеющим права `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.viewer`.
-  * С ключом шифрования {{ kms-name }} `kms-key`.
-  * В новой группе безопасности `k8s-public-services`, разрешающей [подключение к сервисам из интернета](../connect/security-groups.md#rules-nodes).
-  
+  * С [ключом шифрования {{ kms-full-name }}](../../concepts/encryption.md) `kms-key`.
+  * В новой [группе безопасности](../../../vpc/concepts/security-groups.md) `k8s-public-services`, разрешающей [подключение к сервисам из интернета](../connect/security-groups.md#rules-nodes).
+
   Для этого установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
-  {% cut "Конфигурационный файл для кластера:" %}
+  {% cut "Конфигурационный файл для кластера {{ managed-k8s-name }}:" %}
 
   
   ```hcl
@@ -319,7 +346,7 @@
     network_id  = yandex_vpc_network.mynet.id
     ingress {
       protocol          = "TCP"
-      description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера и сервисов балансировщика."
+      description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера {{ managed-k8s-name }} и сервисов балансировщика."
       predefined_target = "loadbalancer_healthchecks"
       from_port         = 0
       to_port           = 65535
@@ -333,7 +360,7 @@
     }
     ingress {
       protocol          = "ANY"
-      description       = "Правило разрешает взаимодействие под-под и сервис-сервис. Укажите подсети вашего кластера и сервисов."
+      description       = "Правило разрешает взаимодействие под-под и сервис-сервис. Укажите подсети вашего кластера {{ managed-k8s-name }} и сервисов."
       v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet-a.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-b.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-c.v4_cidr_blocks)
       from_port         = 0
       to_port           = 65535
@@ -366,13 +393,13 @@
 
 {% endlist %}
 
-### Создание регионального кластера {#example-regional-cluster}
+### Создание регионального кластера {{ managed-k8s-name }} {#example-regional-cluster}
 
 {% list tabs %}
 
 - {{ TF }}
 
-  Допустим, нужно создать кластер {{ k8s }} и сеть для него со следующими характеристиками:
+  Допустим, нужно создать кластер {{ managed-k8s-name }} и сеть для него со следующими характеристиками:
   * С именем `k8s-regional`.
   * Версии `1.22`.
   * В облаке с идентификатором `{{ tf-cloud-id }}`.
@@ -387,7 +414,7 @@
 
   Для этого установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
-  {% cut "Конфигурационный файл для кластера:" %}
+  {% cut "Конфигурационный файл для кластера {{ managed-k8s-name }}:" %}
 
   
   ```hcl
@@ -506,11 +533,11 @@
 
   resource "yandex_vpc_security_group" "k8s-main-sg" {
     name        = "k8s-main-sg"
-    description = "Правила группы обеспечивают базовую работоспособность кластера. Примените ее к кластеру и группам узлов."
+    description = "Правила группы обеспечивают базовую работоспособность кластера {{ managed-k8s-name }}. Примените ее к кластеру {{ managed-k8s-name }} и группам узлов."
     network_id  = yandex_vpc_network.mynet.id
     ingress {
       protocol          = "TCP"
-      description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера и сервисов балансировщика."
+      description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера {{ managed-k8s-name }} и сервисов балансировщика."
       predefined_target = "loadbalancer_healthchecks"
       from_port         = 0
       to_port           = 65535
@@ -524,7 +551,7 @@
     }
     ingress {
       protocol          = "ANY"
-      description       = "Правило разрешает взаимодействие под-под и сервис-сервис. Укажите подсети вашего кластера и сервисов."
+      description       = "Правило разрешает взаимодействие под-под и сервис-сервис. Укажите подсети вашего кластера {{ managed-k8s-name }} и сервисов."
       v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet-a.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-b.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-c.v4_cidr_blocks)
       from_port         = 0
       to_port           = 65535

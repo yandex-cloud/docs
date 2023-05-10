@@ -590,10 +590,10 @@ pip3 install pyMongo
     DB_PASS = '<пароль пользователя БД>'
 
     url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
-              user = quote(DB_USER),
-              pw = quote(DB_PASS),
-              hosts = DB_HOSTS,
-              auth_src = DB_NAME)
+              user=quote(DB_USER),
+              pw=quote(DB_PASS),
+              hosts=DB_HOSTS,
+              auth_src=DB_NAME)
 
     conn = pymongo.MongoClient(
         url,
@@ -625,10 +625,10 @@ pip3 install pyMongo
     DB_PASS = '<пароль пользователя БД>'
 
     url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
-              user = quote(DB_USER),
-              pw = quote(DB_PASS),
-              hosts = DB_HOSTS,
-              auth_src = DB_NAME)
+              user=quote(DB_USER),
+              pw=quote(DB_PASS),
+              hosts=DB_HOSTS,
+              auth_src=DB_NAME)
 
     conn = pymongo.MongoClient(url)
 

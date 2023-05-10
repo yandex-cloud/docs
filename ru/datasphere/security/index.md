@@ -28,35 +28,35 @@ description: "Управление доступом в сервисе, пред�
 
 {% include [projects-viewer](../../_includes/roles-datasphere-project-viewer.md) %}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-viewer }}` имеют роль `Viewer` на вкладке **Участники** на странице проекта.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-viewer }}` имеют роль `Viewer` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
 
 {% include [projects-developer](../../_includes/roles-datasphere-projects-developer.md) %}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-developer }}` имеют роль `Developer` на вкладке **Участники** на странице проекта.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-developer }}` имеют роль `Developer` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
 
 {% include [projects-editor](../../_includes/roles-datasphere-projects-editor.md) %}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-editor }}` имеют роль `Editor` на вкладке **Участники** на странице проекта.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-editor }}` имеют роль `Editor` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
 
 {% include [projects-admin](../../_includes/roles-datasphere-projects-admin.md) %}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-admin }}` имеют роль `Admin` на вкладке **Участники** на странице проекта.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-admin }}` имеют роль `Admin` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
 
 {% include [communities-viewer](../../_includes/roles-datasphere-communities-viewer.md) %}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-viewer }}` имеют роль `Viewer` на вкладке **Участники** на странице сообщества.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-viewer }}` имеют роль `Viewer` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
 
 {% include [communities-developer](../../_includes/roles-datasphere-communities-developer.md) %}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-developer }}` имеют роль `Developer` на вкладке **Участники** на странице сообщества.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-developer }}` имеют роль `Developer` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
 
 {% include [communities-editor](../../_includes/roles-datasphere-communities-editor.md) %}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-editor }}` имеют роль `Editor` на вкладке **Участники** на странице сообщества.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-editor }}` имеют роль `Editor` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
 
 {% include [communities-admin](../../_includes/roles-datasphere-communities-admin.md) %}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-admin }}` имеют роль `Admin` на вкладке **Участники** на странице сообщества.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-admin }}` имеют роль `Admin` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
 
 > {% include [example-for-sharing](../../_includes/datasphere/roles-for-sharing-example.md) %}
 

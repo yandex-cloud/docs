@@ -2,6 +2,8 @@
 
 Вы можете отслеживать изменения данных в _источнике_ {{ ydb-name }} и отправлять их в _кластер-приемник_ {{ mkf-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC). Эти данные будут автоматически добавлены в топики {{ mkf-short-name }} с именами таблиц {{ ydb-name }}.
 
+{% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
+
 Чтобы запустить поставку данных:
 
 1. [Подготовьте источник](#prepare-source).
@@ -163,8 +165,8 @@
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
     * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `Кластер Managed Service for Kafka`.
-            * **Кластер Managed Service for Kafka** — выберите [созданный ранее](#before-you-begin) кластер-источник {{ mkf-name }}.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер-источник {{ mkf-name }}.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — укажите данные [созданного ранее](#before-you-begin) пользователя {{ KF }}.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `Полное имя топика`.

@@ -1,11 +1,11 @@
 # Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
-To migrate the database from {{ MY }} to {{ mmy-name }}:
+To transfer a database from {{ MY }} to {{ mmy-name }}:
 
 1. [Start a data transfer](#start-transfer).
 1. [Complete the data transfer](#finish-transfer).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Start a data transfer {#start-transfer}
 
@@ -22,7 +22,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
             Transferring data with an increase in the {{ MY }} major version is possible, but not guaranteed. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
-            Migration with a {{ MY }} version downgrade is [impossible](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
+            You [cannot](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html) perform migration while downgrading {{ MY }} version.
 
          * [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
 
@@ -40,10 +40,10 @@ If you no longer need these resources, [delete them](#clear-out).
          * **Data base type**: `MySQL`.
          * **Endpoint parameters** → **Connection settings**: `MDB cluster`.
 
-            Select a target cluster from the list and specify the cluster connection settings.
+            Select a target cluster from the list and specify its connection settings.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) it.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
+      1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
          {% note warning %}
 
@@ -54,7 +54,7 @@ If you no longer need these resources, [delete them](#clear-out).
    * Using {{ TF }}
 
       1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-my).
-      1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the configuration file [data-transfer-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-transfer-mysql-mmy.tf) to the same working directory.
 
@@ -73,19 +73,19 @@ If you no longer need these resources, [delete them](#clear-out).
          * [Source endpoint parameters](../../data-transfer/operations/endpoint/source/mysql.md#on-premise).
          * Target cluster parameters also used as [target endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
-            * `target_mysql_version`: The {{ MY }} version must be the same or higher than the version in the source cluster.
+            * `target_mysql_version`: {{ MY }} version must be the same or higher than the version in the source cluster.
             * `target_sql_mode`: [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
             * `target_db_name`: Database name.
-            * `target_user` and `target_password`: Username and password of the database owner.
+            * `target_user` and `target_password`: Database owner username and password.
 
-      1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
       1. Create the required infrastructure:
 
@@ -93,7 +93,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
          {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-         Once created, a transfer is activated automatically.
+         Once created, your transfer will be activated automatically.
 
    {% endlist %}
 
@@ -108,7 +108,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs %}
 
@@ -116,21 +116,21 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
    * [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
-   * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
+   * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
 
 * Using {{ TF }}
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
-   1. Delete the configuration file `data-transfer-mysql-mmy.tf`.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. Delete the `data-transfer-mysql-mmy.tf` configuration file.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
