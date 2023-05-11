@@ -19,9 +19,9 @@ sudo apt update && sudo apt install -y kafkacat
                -b <FQDN брокера>:9092 \
                -t <имя топика> \
                -X security.protocol=SASL_PLAINTEXT \
-               -X sasl.mechanisms=SCRAM-SHA-512 \
+               -X sasl.mechanism=SCRAM-SHA-512 \
                -X sasl.username="<логин потребителя>" \
-               -X sasl.password="<пароль потребителя>" -Z -K:
+               -X sasl.password="<пароль потребителя>" -Z
       ```
 
      Команда будет непрерывно считывать новые сообщения из топика.
@@ -34,7 +34,7 @@ sudo apt update && sudo apt install -y kafkacat
              -t <имя топика> \
              -k key \
              -X security.protocol=SASL_PLAINTEXT \
-             -X sasl.mechanisms=SCRAM-SHA-512 \
+             -X sasl.mechanism=SCRAM-SHA-512 \
              -X sasl.username="<логин производителя>" \
              -X sasl.password="<пароль производителя>" -Z
       ```
@@ -127,7 +127,7 @@ sudo apt update && sudo apt install -y kafkacat
                         new Dictionary<string,string>{
                             {"bootstrap.servers", HOST},
                             {"security.protocol", "SASL_PLAINTEXT"},
-                            {"sasl.mechanisms", "SCRAM-SHA-512"},
+                            {"sasl.mechanism", "SCRAM-SHA-512"},
                             {"sasl.username", USER},
                             {"sasl.password", PASS}
                         }
@@ -180,7 +180,7 @@ sudo apt update && sudo apt install -y kafkacat
                         new Dictionary<string,string>{
                             {"bootstrap.servers", HOST},
                             {"security.protocol", "SASL_PLAINTEXT"},
-                            {"sasl.mechanisms", "SCRAM-SHA-512"},
+                            {"sasl.mechanism", "SCRAM-SHA-512"},
                             {"sasl.username", USER},
                             {"sasl.password", PASS},
                             {"group.id", "demo"}
@@ -252,7 +252,7 @@ sudo apt update && sudo apt install -y kafkacat
                             {"bootstrap.servers", HOST},
                             {"security.protocol", "SASL_SSL"},
                             {"ssl.ca.location", CA_FILE},
-                            {"sasl.mechanisms", "SCRAM-SHA-512"},
+                            {"sasl.mechanism", "SCRAM-SHA-512"},
                             {"sasl.username", USER},
                             {"sasl.password", PASS}
                         }
@@ -307,7 +307,7 @@ sudo apt update && sudo apt install -y kafkacat
                             {"bootstrap.servers", HOST},
                             {"security.protocol", "SASL_SSL"},
                             {"ssl.ca.location", CA_FILE},
-                            {"sasl.mechanisms", "SCRAM-SHA-512"},
+                            {"sasl.mechanism", "SCRAM-SHA-512"},
                             {"sasl.username", USER},
                             {"sasl.password", PASS},
                             {"group.id", "demo"}
@@ -1178,7 +1178,7 @@ npm install node-rdkafka
         'sasl.username': USER,
         'sasl.password': PASS,
         'security.protocol': "SASL_PLAINTEXT",
-        'sasl.mechanisms': "SCRAM-SHA-512"
+        'sasl.mechanism': "SCRAM-SHA-512"
       });
 
       producer.connect();
@@ -1220,7 +1220,7 @@ npm install node-rdkafka
         'sasl.username': USER,
         'sasl.password': PASS,
         'security.protocol': "SASL_PLAINTEXT",
-        'sasl.mechanisms': "SCRAM-SHA-512",
+        'sasl.mechanism': "SCRAM-SHA-512",
         'group.id': "demo"
       });
 
@@ -1275,7 +1275,7 @@ npm install node-rdkafka
         'sasl.password': PASS,
         'security.protocol': "SASL_SSL",
         'ssl.ca.location': CA_FILE,
-        'sasl.mechanisms': "SCRAM-SHA-512"
+        'sasl.mechanism': "SCRAM-SHA-512"
       });
 
       producer.connect();
@@ -1319,7 +1319,7 @@ npm install node-rdkafka
         'sasl.password': PASS,
         'security.protocol': "SASL_SSL",
         'ssl.ca.location': CA_FILE,
-        'sasl.mechanisms': "SCRAM-SHA-512",
+        'sasl.mechanism': "SCRAM-SHA-512",
         'group.id': "demo"
       });
 

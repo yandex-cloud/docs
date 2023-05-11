@@ -17,6 +17,8 @@ items:
             href: operations/instance/instance-stop.md
           - name: Изменение настроек инстанса
             href: operations/instance/instance-update.md
+          - name: Управление резервными копиями
+            href: operations/instance/instance-backups.md
           - name: Удаление инстанса
             href: operations/instance/instance-delete.md
       - name: Подключение к инстансу
@@ -43,6 +45,8 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Резервные копии
+        href: concepts/backup.md
       - name: Безопасность в {{ GL }}
         href: concepts/security.md
       - name: Квоты и лимиты

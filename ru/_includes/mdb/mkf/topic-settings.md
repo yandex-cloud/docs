@@ -1,4 +1,4 @@
-* **Cleanup policy** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-topic-cleanup-policy}
+* **Cleanup policy** {{ tag-all }} {#settings-topic-cleanup-policy}
 
     В консоли управления этой настройке соответствует **Политика очистки лога**.
 
@@ -26,7 +26,7 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#file.delete.delay.ms).
 
-* **Delete retention** {{ tag-con }} {#settings-delete-retention}
+* **Delete retention** {{ tag-all }} {#settings-delete-retention}
 
     Время (в миллисекундах), в течение которого нужно хранить tombstone-маркеры удаления для топиков со сжатым логом. Эта настройка применяется только в том случае, если [политика очистки лога](#settings-topic-cleanup-policy) установлена в режим `Compact` или `CompactAndDelete`.
 
@@ -48,7 +48,7 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#topicconfigs_flush.ms).
 
-* **Message max bytes** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-topic-message-max-bytes}
+* **Message max bytes** {{ tag-all }} {#settings-topic-message-max-bytes}
 
     В консоли управления этой настройке соответствует **Максимальный размер группы сообщений**.
 
@@ -66,7 +66,7 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#min.compaction.lag.ms).
 
-* **Minimum number of in-sync replicas** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-topic-min-insync-replicas}
+* **Minimum number of in-sync replicas** {{ tag-all }} {#settings-topic-min-insync-replicas}
 
     В консоли управления этой настройке соответствует **Минимальное число синхронных реплик**.
 
@@ -91,7 +91,7 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 
-* **Pre-allocation of the segment file** {{ tag-cli }} {{ tag-tf }} {#settings-topic-preallocate}
+* **Pre-allocation of the segment file** {{ tag-all }} {#settings-topic-preallocate}
 
     В консоли управления этой настройке соответствует **Предварительное выделение файла сегмента**.
 

@@ -4,7 +4,7 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
-This scenario describes how to deploy Microsoft Windows Server Datacenter with pre-installed Remote Desktop Services in {{ yandex-cloud }}. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server where Remote Desktop Services and Active Directory will be installed. Images are available with quotas for 5/10/25/50/100/250/500 users. Select the version with the necessary quota. All examples are given for a server with a quota for 5 users.
+This scenario describes how to deploy Microsoft Windows Server Datacenter with pre-installed Remote Desktop Services in {{ yandex-cloud }}. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server where Remote Desktop Services and Active Directory will be installed. Images are available with quotas for 5, 10, 25, 50, and 100 users. Select the version with the necessary quota. All examples are given for a server with a quota for 5 users.
 
 {% note warning %}
 

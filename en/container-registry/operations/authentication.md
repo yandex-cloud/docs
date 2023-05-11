@@ -8,14 +8,16 @@ Assign the proper role to a {{ yandex-cloud }} user or service account. Read abo
 
 For more information about roles, see [{#T}](../security/index.md).
 
+{% include [cli-install](../../_includes/cli-install.md) %}
+
 ## Authentication methods {#method}
 
 You can authenticate:
 
 
 * As a user:
-  * [Using an OAuth token](#oauth) (lifetime is **one year**).
-  * [Using a {{ iam-full-name }} token](#iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
+  * [Using an OAuth token](#user-oauth) (lifetime is **one year**).
+  * [Using an {{ iam-full-name }} token](#user-iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
 
 
 
@@ -50,8 +52,8 @@ Where:
 
 {% endnote %}
 
-1. If you don't have an OAuth token, get one by following this [link]({{ link-cloud-oauth }}).
-1. Run the following command:
+1. If you do not have an OAuth token yet, get one by following this [link]({{ link-cloud-oauth }}).
+1. Run this command:
 
    ```bash
    docker login \
@@ -70,7 +72,7 @@ Where:
 {% endnote %}
 
 1. [Get an {{ iam-name }} token](../../iam/operations/iam-token/create.md).
-1. Run the following command:
+1. Run this command:
 
    ```bash
    docker login \
@@ -83,11 +85,7 @@ Where:
 
 ### Authentication using authorized keys {#sa-json}
 
-{% note info %}
-
-Authorized keys do not expire, but you can always get new authorized keys and authenticate again if something goes wrong.
-
-{% endnote %}
+{% include [disclaimer](../../_includes/iam/authorized-keys-disclaimer.md) %}
 
 Your programs can get access to {{ yandex-cloud }} resources using [service accounts](../../iam/concepts/users/service-accounts.md). Get a file with authorized keys for your service account via the {{ yandex-cloud }} CLI.
 1. Get and save [authorized keys](../../iam/concepts/users/service-accounts.md#sa-key) for your service account in the `key.json` file:
@@ -96,7 +94,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
    yc iam key create --service-account-name default-sa -o key.json
    ```
 
-   Command result:
+   Result:
 
    ```bash
    id: aje8a87g4e...
@@ -105,7 +103,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
    key_algorithm: RSA_2048
    ```
 
-1. Run the following command:
+1. Run this command:
 
    ```bash
    cat key.json | docker login \
@@ -118,7 +116,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
    * The `cat key.json` command writes the contents of the key file to the output stream.
    * The `--password-stdin` flag allows the password to be read from the input stream.
 
-   Command result:
+   Result:
 
    ```text
    Login succeeded
@@ -133,7 +131,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
 {% endnote %}
 
 1. [Get an {{ iam-name }} token](../../iam/operations/iam-token/create-for-sa.md).
-1. Run the following command:
+1. Run this command:
 
    ```bash
    docker login \
@@ -170,7 +168,7 @@ To prepare this secret:
      {{ registry }}
    ```
 
-   Command result:
+   Result:
 
    ```text
    Login succeeded
@@ -182,7 +180,7 @@ To prepare this secret:
    cat $HOME/.docker/config.json
    ```
 
-   Command result:
+   Result:
 
    ```json
    {
@@ -246,7 +244,7 @@ The Docker Engine can keep user credentials in an external credentials store. Th
    yc container registry configure-docker
    ```
 
-   Command result:
+   Result:
 
    ```bash
    Credential helper is configured in '/home/<user>/.docker/config.json'
@@ -256,7 +254,7 @@ The Docker Engine can keep user credentials in an external credentials store. Th
 
    {% note warning %}
 
-   The Credential helper only works when using Docker without `sudo`. Configuring Docker to run as the current user without using `sudo` is described in the [official documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+   Credential helper only works when using Docker without `sudo`. You can learn how to configure Docker to run under current user without `sudo` in the [official documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
    {% endnote %}
 
