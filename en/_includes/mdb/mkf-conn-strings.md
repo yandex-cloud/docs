@@ -19,9 +19,9 @@ sudo apt update && sudo apt install -y kafkacat
                -b <broker FQDN>:9092 \
                -t <topic name> \
                -X security.protocol=SASL_PLAINTEXT \
-               -X sasl.mechanisms=SCRAM-SHA-512 \
+               -X sasl.mechanism=SCRAM-SHA-512 \
                -X sasl.username="<consumer username>" \
-               -X sasl.password="<consumer password>" -Z -K:
+               -X sasl.password="<consumer password>" -Z
       ```
 
       The command will continuously read new messages from the topic.
@@ -34,7 +34,7 @@ sudo apt update && sudo apt install -y kafkacat
              -t <topic name> \
              -k key \
              -X security.protocol=SASL_PLAINTEXT \
-             -X sasl.mechanisms=SCRAM-SHA-512 \
+             -X sasl.mechanism=SCRAM-SHA-512 \
              -X sasl.username="<consumer username>" \
              -X sasl.password="<producer username>" -Z
       ```
@@ -127,7 +127,7 @@ Before connecting:
                       new Dictionary<string,string>{
                           {"bootstrap.servers", HOST},
                           {"security.protocol", "SASL_PLAINTEXT"},
-                          {"sasl.mechanisms", "SCRAM-SHA-512"},
+                          {"sasl.mechanism", "SCRAM-SHA-512"},
                           {"sasl.username", USER},
                           {"sasl.password", PASS}
                       }
@@ -180,7 +180,7 @@ Before connecting:
                       new Dictionary<string,string>{
                           {"bootstrap.servers", HOST},
                           {"security.protocol", "SASL_PLAINTEXT"},
-                          {"sasl.mechanisms", "SCRAM-SHA-512"},
+                          {"sasl.mechanism", "SCRAM-SHA-512"},
                           {"sasl.username", USER},
                           {"sasl.password", PASS},
                           {"group.id", "demo"}
@@ -252,7 +252,7 @@ Before connecting:
                           {"bootstrap.servers", HOST},
                           {"security.protocol", "SASL_SSL"},
                           {"ssl.ca.location", CA_FILE},
-                          {"sasl.mechanisms", "SCRAM-SHA-512"},
+                          {"sasl.mechanism", "SCRAM-SHA-512"},
                           {"sasl.username", USER},
                           {"sasl.password", PASS}
                       }
@@ -307,7 +307,7 @@ Before connecting:
                           {"bootstrap.servers", HOST},
                           {"security.protocol", "SASL_SSL"},
                           {"ssl.ca.location", CA_FILE},
-                          {"sasl.mechanisms", "SCRAM-SHA-512"},
+                          {"sasl.mechanism", "SCRAM-SHA-512"},
                           {"sasl.username", USER},
                           {"sasl.password", PASS},
                           {"group.id", "demo"}
@@ -1176,7 +1176,7 @@ npm install node-rdkafka
         'sasl.username': USER,
         'sasl.password': PASS,
         'security.protocol': "SASL_PLAINTEXT",
-        'sasl.mechanisms': "SCRAM-SHA-512"
+        'sasl.mechanism': "SCRAM-SHA-512"
       });
 
       producer.connect();
@@ -1218,7 +1218,7 @@ npm install node-rdkafka
         'sasl.username': USER,
         'sasl.password': PASS,
         'security.protocol': "SASL_PLAINTEXT",
-        'sasl.mechanisms': "SCRAM-SHA-512",
+        'sasl.mechanism': "SCRAM-SHA-512",
         'group.id': "demo"
       });
 
@@ -1273,7 +1273,7 @@ npm install node-rdkafka
         'sasl.password': PASS,
         'security.protocol': "SASL_SSL",
         'ssl.ca.location': CA_FILE,
-        'sasl.mechanisms': "SCRAM-SHA-512"
+        'sasl.mechanism': "SCRAM-SHA-512"
       });
 
       producer.connect();
@@ -1317,7 +1317,7 @@ npm install node-rdkafka
         'sasl.password': PASS,
         'security.protocol': "SASL_SSL",
         'ssl.ca.location': CA_FILE,
-        'sasl.mechanisms': "SCRAM-SHA-512",
+        'sasl.mechanism': "SCRAM-SHA-512",
         'group.id': "demo"
       });
 

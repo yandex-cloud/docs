@@ -1,4 +1,4 @@
-* **Auto create topics enable** {{ tag-con }} {#settings-auto-create-topics}
+* **Auto create topics enable** {{ tag-all }}{#settings-auto-create-topics}
 
     Управляет автоматическим созданием топиков.
 
@@ -69,7 +69,7 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_log.flush.scheduler.interval.ms).
 
-* **Log preallocate** {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {#settings-log-preallocate}
+* **Log preallocate** {{ tag-all }} {#settings-log-preallocate}
 
     Определяет, будет ли заранее выделяться место под файлы сегментов лога.
 
@@ -131,7 +131,7 @@
 
     См. также настройку [Log retention bytes](#settings-log-retention-bytes).
 
-* **Log segment bytes** {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {#settings-log-segment-bytes}
+* **Log segment bytes** {{ tag-all }} {#settings-log-segment-bytes}
 
     Размер сегмента для файлов лога (в байтах).
 
@@ -143,7 +143,7 @@
 
     Подробнее см. в разделе [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) и в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_log.segment.bytes).
 
-* **Message max bytes** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-message-max-bytes}
+* **Message max bytes** {{ tag-all }} {#settings-message-max-bytes}
 
     Максимальный размер сообщения от производителя (в байтах).
 
@@ -165,7 +165,7 @@
 
     Подробнее см. в [документации {{ KF }}](http://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 
-* **Offsets retention minutes** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-offsets-retention-minutes}
+* **Offsets retention minutes** {{ tag-all }} {#settings-offsets-retention-minutes}
 
     Компенсация времени хранения после потери группой всех потребителей (в минутах).
 
@@ -175,7 +175,7 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_offsets.retention.minutes).
 
-* **Replica fetch max bytes** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-replica-fetch-max-bytes}
+* **Replica fetch max bytes** {{ tag-all }} {#settings-replica-fetch-max-bytes}
 
     Размер буфера межброкерных сообщений (в байтах).
 
@@ -200,7 +200,7 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_sasl.enabled.mechanisms).
 
-* **Socket receive buffer bytes** {{ tag-con }} {#settings-socket-receive-buffer-bytes}
+* **Socket receive buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-receive-buffer-bytes}
 
     Размер буфера для сокета приема (в байтах).
 
@@ -208,7 +208,7 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_socket.receive.buffer.bytes).
 
-* **Socket send buffer bytes** {{ tag-con }} {#settings-socket-send-buffer-bytes}
+* **Socket send buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-send-buffer-bytes}
 
     Размер буфера для сокета отправки (в байтах).
 
@@ -216,7 +216,7 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_socket.send.buffer.bytes).
 
-* **Ssl cipher suites** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-ssl-cipher-suites}
+* **Ssl cipher suites** {{ tag-all }} {#settings-ssl-cipher-suites}
 
     Список алгоритмов шифрования кластера.
 
