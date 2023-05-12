@@ -157,6 +157,8 @@ items:
         href: tutorials/index.md
       - name: Integrating with {{ dataproc-full-name }}
         href: tutorials/data-proc-integration.md
+      - name: Classification of images in video frames
+        href: tutorials/video-recognition.md
       - name: Deploying a service from a code cell
         href: tutorials/node-from-cell.md
       - name: Deploying a service based on a Docker image

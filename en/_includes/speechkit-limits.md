@@ -1,5 +1,4 @@
 
-
 #### Quotas {#speechkit-quotas}
 
 | Type of limit | Value |
@@ -15,10 +14,9 @@
 | Billable hours of audio per day | 10,000 |
 | [**Speech synthesis**](../speechkit/tts/request.md) |
 | Requests per second | 40 |
-
+
 
 #### Limits {#speechkit-limits}
-
 
 
 | Type of limit | Value |
@@ -38,4 +36,4 @@
 | [**Speech synthesis**](../speechkit/tts/index.md) |
 | Maximum REST request size | 5000 characters |
 | Maximum gRPC request size | {{ tts-v3-count }} and {{ tts-v3-time }} |
-
+| Maximum gRPC request size in [unsafe](../speechkit/tts-v3/api-ref/grpc/tts_service#UtteranceSynthesisRequest) mode | 5000 characters |

@@ -9,6 +9,8 @@ items:
     items:
       - name: About the technology
         href: stt/index.md
+      - name: Supported languages
+        href: stt/models.md
       - name: Streaming recognition
         href: stt/streaming.md
       - name: Audio file recognition
@@ -17,8 +19,8 @@ items:
             href: stt/request.md
           - name: Asynchronous recognition
             href: stt/transcribation.md
-      - name: Supported languages
-        href: stt/models.md
+      - name: Recognition result normalization
+        href: stt/normalization.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
   - name: Speech synthesis
@@ -27,8 +29,6 @@ items:
         href: tts/index.md
       - name: List of voices
         href: tts/voices.md
-      - name: Pattern-based synthesis
-        href: tts/templates.md
       - name: Text markup
         items:
           - name: Overview
@@ -43,19 +43,19 @@ items:
             href: tts/markup/ssml-supported-phonemes.md
       - name: '{{ brand-voice-name }}'
         href: tts/brand-voice/index.md
-  - name: Audio formats
-    href: formats.md
-  - name: IVR integration
-    href: concepts/ivr-integration.md
-  - name: Using the API
+      - name: Pattern-based synthesis
+        href: tts/templates.md
+  - name: SpeechKit Hybrid
+    items:
+      - name: About the technology
+        href: hybrid-speechkit/index.md
+      - name: System requirements
+        href: hybrid-speechkit/system-requirements.md
+  - name: API Reference
     items:
       - name: Authentication in the API
         href: concepts/auth.md
-      - name: Response format
-        href: concepts/response.md
-      - name: Troubleshooting
-        href: concepts/support-headers.md
-      - name: Recognition API reference guides
+      - name: Speech recognition
         items:
           - name: API v2
             items:
@@ -71,21 +71,7 @@ items:
                 href: stt-v3/api-ref/grpc/index.md
               - name: Recognizer
                 href: stt-v3/api-ref/grpc/stt_service.md
-      - name: Example uses for the recognition API
-        items:
-          - name: Streaming recognition, API v3
-            href: stt/api/streaming-examples-v3.md
-          - name: Automatic language detection, API v3
-            href: stt/api/stt-language-labels-example.md
-          - name: Streaming recognition, API v2
-            href: stt/api/streaming-examples.md
-          - name: Synchronous recognition, API v2
-            href: stt/api/request-examples.md
-          - name: Asynchronous recognition of LPCM format, API v2
-            href: stt/api/transcribation-lpcm.md
-          - name: Asynchronous recognition of OggOpus format, API v2
-            href: stt/api/transcribation-ogg.md
-      - name: Synthesis API reference guides
+      - name: Speech synthesis
         items:
           - name: API v1
             href: tts/request.md
@@ -95,31 +81,41 @@ items:
                 href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
                 href: tts-v3/api-ref/grpc/tts_service.md
-      - name: Example uses for the synthesis API
-        items:
-          - name: Synthesis API v3
-            href: tts/api/tts-examples-v3.md
-          - name: Pattern-based synthesis
-            href: tts/api/tts-templates.md
-          - name: "Speech synthesis in WAV format using API\_v1"
-            href: tts/api/tts-wav.md
-          - name: "Speech synthesis in OggOpus format using API\_v1"
-            href: tts/api/tts-ogg.md
-          - name: "Synthesis from SSML text using API\_v3"
-            href: tts/api/tts-ssml.md
-  - name: SpeechKit Hybrid
+  - name: Tutorials
     items:
-      - name: About the technology
-        href: hybrid-speechkit/index.md
-      - name: System requirements
-        href: hybrid-speechkit/system-requirements.md
+      - name: Streaming recognition, API v3
+        href: stt/api/streaming-examples-v3.md
+      - name: Automatic language detection, API v3
+        href: stt/api/stt-language-labels-example.md
+      - name: Streaming recognition, API v2
+        href: stt/api/streaming-examples.md
+      - name: Synchronous recognition, API v2
+        href: stt/api/request-examples.md
+      - name: Asynchronous recognition of LPCM format, API v2
+        href: stt/api/transcribation-lpcm.md
+      - name: Asynchronous recognition of OggOpus format, API v2
+        href: stt/api/transcribation-ogg.md
+      - name: Synthesis API v3
+        href: tts/api/tts-examples-v3.md
+      - name: Pattern-based synthesis
+        href: tts/api/tts-templates.md
+      - name: "Speech synthesis in WAV format using API\_v1"
+        href: tts/api/tts-wav.md
+      - name: "Speech synthesis in OggOpus format using API\_v1"
+        href: tts/api/tts-ogg.md
+      - name: "Synthesis from SSML text using API\_v3"
+        href: tts/api/tts-ssml.md
+  - name: Supported audio formats
+    href: formats.md
+  - name: IVR integration
+    href: concepts/ivr-integration.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Revision history
+  - name: Releases
     items:
       - name: Recognition releases
         href: release-notes-stt.md
@@ -127,8 +123,12 @@ items:
         href: release-notes-tts.md
       - name: Release archive
         href: release-notes.md
-  - name: Questions and answers
+  - name: Troubleshooting
     items:
+      - name: Response format
+        href: concepts/response.md
+      - name: Troubleshooting
+        href: concepts/support-headers.md
       - name: General questions
         href: qa/general.md
       - name: Speech recognition

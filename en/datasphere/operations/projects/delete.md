@@ -4,10 +4,10 @@
 
 To delete a notebook from a project:
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Go to the **Projects** tab.
-1. Click the project name with the required notebook. Wait for the project to open.
+1. In the **Recent projects** tab, select the project with the appropriate notebook.
+1. Click **Open project in JupyterLab**.
 1. On the left-hand panel, right-click the name of the notebook you want to delete.
-1. Select ![image](../../../_assets/cross.svg) **Delete**, then, in the window that opens, click **Confirm**.
+1. Select ![image](../../../_assets/cross.svg) **Delete** and click **Delete** in the window that opens.
 
 ## Deleting a project {#delete-project}
 
@@ -19,7 +19,6 @@ After you delete a project, the entire notebook code and the state of the interp
 
 To delete a project:
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Go to the **Projects** tab.
-1. Select the project you want to delete and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
-1. Select **Delete**.
+1. In the **Recent projects** tab, select the project to delete.
+1. In the top-right corner, click **More** and select **Delete**.
 1. In the window that opens, click **Delete**.

@@ -42583,7 +42583,9 @@ default:
         cluster:
           switch_datalens: DataLens
       common:
+        add: Добавить
         apply: Применить
+        clone: Клонировать
         create: Создать
         delete: Удалить
         description: Описание
@@ -42887,6 +42889,7 @@ default:
           switch_route-table: Таблицы маршрутизации
         route-table-form:
           label_add-static-route: Добавить маршрут
+          label_gateway: Шлюз
           label_next-hop-address: Next hop
         route-table:
           create:
@@ -43963,6 +43966,7 @@ default:
         prefix: Префикс
         resize: Изменить размер
         save: Сохранить
+        settings-key-value: Настройки
         share: Поделиться
         shared-with-project-resources: Доступные
         show-additional-parameters: Показать дополнительные параметры
@@ -43991,6 +43995,8 @@ default:
         per-time: На юниты в час
         period-of-inactivity: Прерывать ячейки с низкой нагрузкой через
         security-group: Группа безопасности
+        service-account: Сервисный аккаунт
+        subnet: Подсеть
       main-page:
         recent-projects: Недавние проекты
       new-alias:

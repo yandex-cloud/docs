@@ -42,7 +42,7 @@
 
 - API
 
-    Воспользуйтесь методами API [listMasterHosts](../../api-ref/Cluster/listMasterHosts.md) и [listSegmentHosts](../../api-ref/Cluster/listSegmentHosts.md) и передайте значение идентификатора кластера в параметре `clusterId` запроса.
+    Чтобы получить список хостов в кластере, воспользуйтесь методами REST API [listMasterHosts](../../api-ref/Cluster/listMasterHosts.md) и [listSegmentHosts](../../api-ref/Cluster/listSegmentHosts.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовами gRPC API [ClusterService/ListMasterHosts](../../api-ref/grpc/cluster_service.md#ListMasterHosts) и [ClusterService/ListSegmentHosts](../../api-ref/grpc/cluster_service.md#ListSegmentHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 

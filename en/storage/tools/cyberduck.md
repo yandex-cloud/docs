@@ -1,26 +1,33 @@
 # CyberDuck
 
-CyberDuck is a GUI-based cloud storage client for Mac and Windows that is available as a console client for all operating systems.
+[CyberDuck](https://cyberduck.io/) is a GUI client that allows you to work with cloud storages, including those compatible with the Amazon S3 API. CyberDuck is available for macOS and Windows and as a [console client](https://duck.sh/) for Linux.
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
-{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
+{% include [aws-tools-prepare-with-bucket](../../_includes/aws-tools/aws-tools-prepare-with-bucket.md) %}
 
-## Installation {#installation}
+## Installing {#installation}
 
-To install CyberDuck, go to the [manufacturer's website](https://cyberduck.io) and download the necessary distribution.
+[Download](https://cyberduck.io/download/) the CyberDuck distribution for your OS and run it.
 
 ## Connection {#connection}
 
-Create a connection with the following parameters:
+1. Run CyberDuck.
+1. Click **Open Connection**.
+1. Select the **Amazon S3** connection type.
+1. Specify the connection parameters:
+   * **Server**: `{{ s3-storage-host }}`.
+   * **Port**: `443`.
+   * **Access key ID**: Previously obtained ID of the static key.
+   * **Secret access key**: Previously obtained secret key.
+1. Click **Connect**.
 
-  - Connection type: `Amazon S3`.
-  - Server and port: `{{ s3-storage-host }}:443`.
-  - Access Key ID: The `id` that you received when generating the static key.
-  - Password: The `secretKey` that you received when generating the static key.
+Once the connection is established, the previously created bucket will open.
 
 {% note info %}
 
-CyberDuck treats {{ objstorage-name }} like a hierarchical file system. This means that keys for objects uploaded via CyberDuck look like file paths. For example, `prefix/subprefix/picture.jpg`.
+CyberDuck treats {{ objstorage-name }} as a hierarchical file system. This means that keys for objects uploaded via CyberDuck look like file paths, e.g., `prefix/subprefix/picture.jpg`.
 
 {% endnote %}
+
+To learn more about how to use CyberDuck with S3-compatible storage, see the [CyberDuck documentation](https://docs.cyberduck.io/protocols/s3/).

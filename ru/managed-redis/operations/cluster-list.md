@@ -39,7 +39,11 @@ description: "Вы можете запросить детальную инфор
   | ...                                                                                   |
   +----------------------+---------------+-----------------------------+--------+---------+
   ```
-  
+
+- API
+
+  Чтобы получить список кластеров БД в каталоге, воспользуйтесь методом REST API [list](../api-ref/Cluster/list.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/List](../api-ref/grpc/cluster_service.md#List).
+
 {% endlist %}
 
 
@@ -66,5 +70,9 @@ description: "Вы можете запросить детальную инфор
   ```
   
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
-  
+
+- API
+
+  Чтобы получить детальную информацию о кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get).
+
 {% endlist %}

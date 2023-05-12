@@ -1,4 +1,4 @@
-# Resize project storage
+# Resizing project storage
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Information about the project storage size is available on the **Overview** page. Click ![pencil](../../../_assets/pencil.svg).

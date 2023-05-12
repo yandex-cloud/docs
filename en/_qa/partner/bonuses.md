@@ -2,13 +2,13 @@
 
 #### What is a partner bonus? {#bonus}
 
-A partner bonus is a discount on {{ yandex-cloud }} services that is applied to the payment invoice issued to the {{ yandex-cloud }} partner's billing account at month-end. The certificate, payment invoice, and invoice issued to the partner indicate the final amount including the discount.
+A partner bonus is a discount on {{ yandex-cloud }} services that is applied to the payment invoice issued to the {{ yandex-cloud }} partner's billing account at the end of month. The certificate, payment invoice, and invoice issued to the partner indicate the final amount including the discount.
 
 #### What determines the discount amount, the way it is credited, and how it is calculated? {#discount}
 
-The discount amount depends on the total monthly consumption of {{ yandex-cloud }} services by all [sub-accounts](start-grant.md#sub-account) linked to the partner's billing account.
+The discount amount depends on the total monthly consumption of {{ yandex-cloud }} services by all [sub-accounts](../../partner/qa/start-grant.md#sub-account) linked to the partner's billing account.
 
-You can link a customer's sub-account to your partner account in the [partner portal](https://partners.cloud.yandex.ru/). Linking a sub-account is grounds for crediting a bonus. It's displayed in the partner portal, in the partner's {{ yandex-cloud }} management console, and in the linked customer's management console.
+You can link a customer's sub-account to your partner account in the [partner portal](https://partners.cloud.yandex.ru/). Linking a sub-account is grounds for crediting a bonus. It is displayed in the partner portal, in the partner's {{ yandex-cloud }} management console, and in the linked customer's management console.
 
 The partner discount is not shown to the linked sub-accounts in the management console. {{ yandex-cloud }} does not issue separate payment invoices to sub-accounts.
 

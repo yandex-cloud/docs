@@ -1,6 +1,6 @@
 # Управление эндпоинтами
 
-[Эндпоинт](../../concepts/index.md#endpoint)-источник описывает настройки базы данных, из которой будет передаваться информация с помощью {{ data-transfer-name }}, а эндпоинт-приемник — базы, в которую будет производиться перенос. Вы можете [создать](#create), [изменить](#update) или [удалить](#delete) такие эндпоинты.
+[Эндпоинт](../../concepts/index.md#endpoint)-источник описывает настройки базы данных, из которой будет передаваться информация с помощью {{ data-transfer-name }}, а эндпоинт-приемник — базы, в которую будет производиться перенос. Вы можете [создать](#create), [изменить](#update), [клонировать](#clone) или [удалить](#delete) такие эндпоинты.
 
 ## Получить список эндпоинтов {#list}
 
@@ -26,35 +26,9 @@
     1. (опционально) Укажите описание эндпоинта.
     1. Выберите нужное значение в поле **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**. Будет создан эндпоинт соответствующего типа.
     1. Задайте параметры эндпоинта:
-        * Источники:
-            * Airbyte®:
-                * [AWS CloudTrail](source/aws-cloudtrail.md)
-                * [BigQuery](source/bigquery.md)
-                * [MS SQL Server](source/mssql.md)
-                * [S3](source/s3.md)
-            * [{{ KF }}](source/kafka.md)
-            * [{{ CH }}](source/clickhouse.md)
-            * [{{ eventhub-name }}](source/eventhub.md)
-            * [{{ GP }}](source/greenplum.md)
-            * [{{ metrika }}](source/metrika.md)
-            * [{{ MG }}](source/mongodb.md)
-            * [{{ MY }}](source/mysql.md)
-            * [Oracle](source/oracle.md)
-            * [{{ PG }}](source/postgresql.md)
-            * [{{ yds-full-name }}](source/data-streams.md)
-            * [{{ ydb-full-name }}](source/ydb.md)
-        * Приемники:
-            * [{{ KF }}](target/kafka.md)
-            * [{{ CH }}](target/clickhouse.md)
-            * [{{ ES }}](target/elasticsearch.md)
-            * [{{ GP }}](target/greenplum.md)
-            * [{{ MG }}](target/mongodb.md)
-            * [{{ MY }}](target/mysql.md)
-            * [{{ objstorage-name }}](target/object-storage.md)
-            * [{{ OS }}](target/opensearch.md)
-            * [{{ PG }}](target/postgresql.md)
-            * [{{ yds-full-name }}](target/data-streams.md)
-            * [{{ ydb-full-name }}](target/yandex-database.md)
+
+        {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
+
     1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
 
 - CLI
@@ -153,6 +127,12 @@
 
 ## Изменить эндпоинт {#update}
 
+{% note info %}
+
+Тип эндпоинта и тип базы данных нельзя изменить. Для ряда эндпоинтов невозможно также изменить тип подключения.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Консоль управления
@@ -160,33 +140,9 @@
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
     1. Выберите эндпоинт и нажмите кнопку ![pencil](../../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}** на панели сверху.
     1. Отредактируйте параметры эндпоинта:
-        * Источники:
-            * Airbyte®:
-                * [AWS CloudTrail](source/aws-cloudtrail.md)
-                * [BigQuery](source/bigquery.md)
-                * [MS SQL Server](source/mssql.md)
-                * [S3](source/s3.md)
-            * [{{ KF }}](source/kafka.md)
-            * [{{ CH }}](source/clickhouse.md)
-            * [{{ eventhub-name }}](source/eventhub.md)
-            * [{{ GP }}](source/greenplum.md)
-            * [{{ metrika }}](source/metrika.md)
-            * [{{ MG }}](source/mongodb.md)
-            * [{{ MY }}](source/mysql.md)
-            * [Oracle](source/oracle.md)
-            * [{{ PG }}](source/postgresql.md)
-            * [{{ yds-full-name }}](source/data-streams.md)
-            * [{{ ydb-full-name }}](source/ydb.md) 
-        * Приемники:
-            * [{{ KF }}](target/kafka.md)
-            * [{{ CH }}](target/clickhouse.md)
-            * [{{ GP }}](target/greenplum.md)
-            * [{{ MG }}](target/mongodb.md)
-            * [{{ MY }}](target/mysql.md)
-            * [{{ objstorage-name }}](target/object-storage.md)
-            * [{{ PG }}](target/postgresql.md)
-            * [{{ yds-full-name }}](target/data-streams.md)
-            * [{{ ydb-full-name }}](target/yandex-database.md)
+
+        {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
+
     1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
 
 - {{ TF }}
@@ -231,6 +187,29 @@
 {% endlist %}
 
 Изменение настроек эндпоинта для трансфера с типом {{ dt-type-repl }} в статусе {{ dt-status-repl }} приведет к перезапуску трансфера.
+
+## Клонировать эндпоинт {#clone}
+
+{% note info %}
+
+При клонировании нельзя изменить тип эндпоинта и тип базы данных.
+
+{% endnote %}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
+    1. Выберите эндпоинт, который нужно клонировать.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.clone }}** на панели сверху.
+    1. Задайте имя нового эндпоинта и при необходимости отредактируйте остальные параметры:
+
+        {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+
+{% endlist %}
 
 ## Удалить эндпоинт {#delete}
 

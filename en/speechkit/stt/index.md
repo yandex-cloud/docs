@@ -6,6 +6,10 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 
 The service is available at `{{ api-host-sk-stt }}:443`.
 
+
+{% include [try-speechkit](../../_includes/speechkit/try-speechkit.md) %}
+
+
 ## Recognition methods {#stt-ways}
 
 
@@ -58,6 +62,7 @@ The accuracy of speech recognition is also affected by:
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](streaming.md)
+* [{#T}](normalization.md)
 * [{#T}](request.md)
 * [{#T}](transcribation.md)
 * [{#T}](additional-training.md)

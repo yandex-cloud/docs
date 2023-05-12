@@ -1,4 +1,4 @@
-## Before you start {#before-begin}
+## Getting started {#before-begin}
 
 {% include [curl](../curl.md) %}
 
@@ -61,7 +61,7 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
    ```python
    import requests
 
-   IAM_TOKEN = '<IAM-токен>'
+   IAM_TOKEN = '<IAM token>'
    folder_id = '<Folder ID>'
    target_language = 'ru'
    texts = ["Hello", "World"]
@@ -99,7 +99,7 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
    Create a file with the request body (for example, `body.php`).
 
    ```php
-   $IAM_TOKEN = '<IAM-токен>';
+   $IAM_TOKEN = '<IAM token>';
    $folder_id = '<Folder ID>';
    $target_language = 'ru';
    $texts = ["Hello", "World"];

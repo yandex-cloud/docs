@@ -6,6 +6,8 @@ TTS markup is supported for Russian in [API v3](../../tts-v3/api-ref/grpc/) and 
 
 Pausing is available for testing in all languages the speech synthesis is supported for.
 
+{% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}
+
 ## Markup components {#markup-elements}
 
 | Description | Special characters and tags |
@@ -65,6 +67,7 @@ or
 ```text
 You become responsible **forever** for what you have tamed.
 ```
+
 
 ### Use phonetic pronunciation {#phoneme}
 

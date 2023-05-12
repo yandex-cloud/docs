@@ -6,6 +6,13 @@ For more information about voice models, see [About the technology](tts/index.md
 
 ## Current version {#current}
 
+### Release on 18/04/23 {#180423}
+
+1. Speech synthesis for Uzbek now supports [phoneme-based format](tts/markup/tts-markup.md#phoneme) to transcribe text (see the list of supported phonemes [here](tts/markup/tts-supported-phonemes.md#phonemes-uz)). In addition, the Uzbek model can now automatically replace apostrophes. However, for efficient speech synthesis, you should only use the straight `ʼ` and reversed `ʻ` typographic apostrophes.
+1. For [pattern-based synthesis](tts/templates.md), the default volume normalization has been changed. Now, if the normalization type is not set explicitly, the volume of variables is normalized using the initial pattern.
+
+## Previous versions {#previous}
+
 ### Release on 21/03/23 {#210323}
 
 1. A normalizer has been added for the Kazakh language. Now the model can pronounce numbers written in Arabic numerals.
@@ -19,9 +26,6 @@ For more information about voice models, see [About the technology](tts/index.md
    Use only these options for apostrophes. The model does not support automatic replace, and the synthesis quality strongly depends on the input quality.
 
    {% endnote %}
-
-
-## Previous versions {#previous}
 
 ### Release on 07/03/23 {#070323}
 

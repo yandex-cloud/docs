@@ -31,7 +31,7 @@
 
 - API
 
-    Воспользуйтесь методом API [stop](../api-ref/Cluster/stop.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы остановить кластер, воспользуйтесь методом REST API [stop](../api-ref/Cluster/stop.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Stop](../api-ref/grpc/cluster_service.md#Stop) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -66,7 +66,7 @@
 
 - API
 
-    Воспользуйтесь методом API [start](../api-ref/Cluster/start.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы запустить кластер, воспользуйтесь методом REST API [start](../api-ref/Cluster/start.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Start](../api-ref/grpc/cluster_service.md#Start) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 

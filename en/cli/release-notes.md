@@ -2,13 +2,52 @@
 
 ## Current version {#latest-release}
 
-## Version 0.103.0 (15/03/23) {#version0.103.00}
-
-
+## Version 0.104.0 (19/04/23) {#version0.104.00}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ api-gw-name }} {#api-gw}
+#### {{ sf-name }} {#serverless-functions}
+
+* Added the `--payload` parameter to the `yc serverless trigger timer create` command to link user-defined data to an event triggered by a timer.
+
+#### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* Renamed the `yc cloud-desktop` group of commands to `yc desktops`.
+* Added the `[PREVIEW]` mark to the `yc desktops` group of commands.
+* Added the `yc desktops desktop restart` command to restart desktops.
+
+#### {{ compute-name }} {#compute}
+
+* Fixed listing for a large number of folder objects for all {{ compute-short-name }} entities.
+
+#### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+Added the `yc managed-clickhouse cluster list-external-dictionaries` command to list the added external dictionaries.
+
+#### {{ cloud-logging-name }} {#cloud-logging}
+
+* Added the `SINCE` and `FILTER` positional parameters to the `yc logging read` command, e.g., `yc logging read default 1d "level = INFO"`.
+* Added the `MESSAGE` and `JSON-PAYLOAD` positional parameters to the `yc logging write` command, e.g., `yc logging write default test "{\"key\":\"value\"}"`.
+
+#### {{ sf-name }} {#functions}
+
+* Added the `SINCE` and `FILTER` positional parameters to the `yc serverless function logs` and `yc serverless function version logs` commands, e.g., `yc serverless function logs default 1d "level = INFO"`.
+
+#### {{ iot-name }} {#iot}
+
+Added the `SINCE` and `FILTER` positional parameters to the `yc iot broker logs` command, e.g., `yc iot broker logs default 1d "level = INFO"`.
+
+## Previous releases {#previous-releases}
+
+### Version 0.103.0 (15/03/23) {#version0.103.00}
+
+
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ api-gw-name }} {#api-gw}
 Added the following parameters to the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands:
 
 * `--no-logging` to disable logging from an API gateway.
@@ -18,12 +57,10 @@ Added the following parameters to the `yc serverless api-gateway create` and `yc
 
 
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 * Added the `yc compute gpu-cluster` group of commands to manage GPU clusters.
 * Added the `--gpu-cluster-id` and `--gpu-cluster-name` parameters to the `yc compute instance create` command to create a VM instance in a GPU cluster.
 
-
-## Previous releases {#previous-releases}
 
 ### Version 0.102.0 (09/02/23) {#version0.102.0}
 
@@ -139,7 +176,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 ##### {{ alb-name }} {#alb}
 
-* Added the command `yc application-load-balancer load-balancer logging` to set up load balancer logs. Command parameters:
+* Added the `yc application-load-balancer load-balancer logging` command to set up load balancer logs. Command parameters:
    * `--log-group-id`, `--log-group-name`: Specify a log group from {{ cloud-logging-name }}.
    * `--enable` and `--disable`: Enable and disable load balancer logging to a log group from {{ cloud-logging-name }}.
    * `--discard`: Set up discard rules for certain logs based on HTTP or GRPC codes.
@@ -1066,7 +1103,8 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 
 * Added the `yc managed-sqlserver database restore` command.
 
-   It lets you restore the specified database on an existing cluster from a backup. You can restore it under a different name.
+
+   It allows you to restore the specified database on an existing cluster from a backup. You can restore it under a different name.
 
 
 **{{ mkf-name }}**
@@ -1079,6 +1117,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 * `yc dataproc cluster create` and `yc dataproc cluster update` commands.
 
    The `--deletion-protection` flag allows you to enable/disable cluster protection against accidental deletion.
+
 
    To disable cluster protection from deletion, specify `--deletion-protection=false`.
 
@@ -1190,7 +1229,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 **{{ mrd-name }}**
 
-* `yc managed-redis cluster create\update` commands.
+* `yc managed-redis cluster create\update` command.
 
    Added the `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases`, and `--notify-keyspace-events` flags (see description in redis.conf).
 
@@ -1523,7 +1562,7 @@ Added primary support for {{ mkf-name }}:
    Added the `--security-group-ids` flag to set cluster security groups.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-   Added the `--network-interface` flag that lets you configure more detailed network specifications for nodes. For example, manage security group settings for network interfaces and configure node interfaces for concurrent use of IPv4 and IPv6 in {{ k8s }} clusters.
+   Added the `--network-interface` flag that allows you to configure more detailed network specifications for nodes. For example, you can manage security group settings for network interfaces and configure node interfaces for concurrent use of IPv4 and IPv6 in {{ k8s }} clusters.
 
 
 ### Version 0.67.0 (05/10/20) {#version0.67.0}
@@ -1716,9 +1755,9 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
 * `yc compute instance create-with-container` and `yc compute instance update-container` commands.
 
-   Added the `--coi-spec-file` flag to pass an [image specification](../cos/concepts/coi-specifications.md#coi-spec-example).
+   Added the `--coi-spec-file` flag to provide the [image specification](../cos/concepts/coi-specifications.md#coi-spec-example).
 
-   Added the `--coi-spec-file` flag to pass an image specification.
+   Added the `--coi-spec-file` flag to provide the image specification.
 
 ##### {{ vpc-name }} {#vpc}
 
@@ -2089,7 +2128,7 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ iam-name }} {#iam}
 
-* Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in our [documentation](../organization/add-federation.md).
+* Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in [our documentation](../organization/add-federation.md).
 
 
 ### Version 0.50.0 (27/01/20) {#version0.50.0}
@@ -2583,7 +2622,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### {{ network-load-balancer-name }} {#load-balancer}
 
-* `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update` command.
+* `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update` commands.
 
    For the `--listener` flag, you can now set the `target-port` parameter, which lets you configure NAT so that target resources receive traffic on a port other than `listener`.
 
@@ -2626,7 +2665,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### Changes to the CLI {#cli}
 
-* Added automatic reconnect if any resource involved in the execution of a command is unavailable. The CLI will try to reconnect 5 times, and the retry frequency is calculated using exponential backoff.
+* Added automatic reconnect if any resource involved in the execution of a command is unavailable. The CLI will try to reconnect five times; the retry frequency is calculated using exponential backoff.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 

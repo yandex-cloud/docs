@@ -44,7 +44,7 @@
 
 - API
 
-  Воспользуйтесь методом API [listShards](../api-ref/Cluster/listShards.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы получить список шардов в кластере, воспользуйтесь методом REST API [listShards](../api-ref/Cluster/listShards.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListShards](../api-ref/grpc/cluster_service.md#ListShards) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
@@ -68,7 +68,7 @@
 
 - API
 
-  Воспользуйтесь методом API [getShard](../api-ref/Cluster/getShard.md) и передайте в запросе:
+  Чтобы получить детальную информацию о шарде, воспользуйтесь методом REST API [getShard](../api-ref/Cluster/getShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/GetShard](../api-ref/grpc/cluster_service.md#GetShard) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`.
   * Имя нужного шарда в параметре `shardName`.
 
@@ -153,7 +153,7 @@
 
 - API
 
-  Воспользуйтесь методом API [addShard](../api-ref/Cluster/addShard.md) и передайте в запросе:
+  Чтобы добавить шард, воспользуйтесь методом REST API [addShard](../api-ref/Cluster/addShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`.
   * Имя шарда в параметре `shardName`.
   * Конфигурацию хоста для шарда в массиве параметров `hostSpecs`.
@@ -217,7 +217,7 @@
 
 - API
 
-  Воспользуйтесь методом API [deleteShard](../api-ref/Cluster/deleteShard.md) и передайте в запросе:
+  Чтобы удалить шард, воспользуйтесь методом REST API [deleteShard](../api-ref/Cluster/deleteShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`.
   * Имя удаляемого шарда в параметре `shardName`.
 
@@ -264,6 +264,6 @@
 
 - API
 
-  Ребалансировать кластер можно с помощью метода [rebalance](../api-ref/Cluster/rebalance.md).
+  Чтобы ребалансировать кластер, воспользуйтесь методом REST API [rebalance](../api-ref/Cluster/rebalance.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Rebalance](../api-ref/grpc/cluster_service.md#Rebalance).
 
 {% endlist %}

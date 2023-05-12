@@ -15,6 +15,7 @@
 * SDK
 
    * [AWS SDK for Java](aws-sdk-java.md)
+   * [AWS SDK for JavaScript](aws-sdk-js.md)
    * [SDK for Python (boto)](boto.md)
    * [AWS SDK for .NET](aws-sdk-net.md)
    * [AWS SDK for C++](aws-sdk-cpp.md)
