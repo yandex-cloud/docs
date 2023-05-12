@@ -3,6 +3,5 @@
 1. On the community page, click **Create project**.
 1. In the **Create project** window:
    * Enter the name of the project.
-   * (Optional) Enter a description of the project.
-   * Select a [community](../../datasphere/concepts/community.md) for the project.
+   * (Optional) Enter a description of the project.    
 1. Click **Create**.

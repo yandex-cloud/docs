@@ -68,7 +68,7 @@ To apply or edit a bucket access policy:
    1. Run the following command:
 
       ```bash
-      yc storage bucket update <bucket_name> --policy-from-file <policy_file_path>
+      yc storage bucket update --name <bucket_name> --policy-from-file <policy_file_path>
       ```
       Result:
 
@@ -176,7 +176,7 @@ To apply or edit a bucket access policy:
       * `bucket`: Bucket name. This parameter is required.
       * `policy`: Policy name. This parameter is required.
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:

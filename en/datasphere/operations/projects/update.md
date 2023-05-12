@@ -4,13 +4,13 @@ On the project editing page, you can change the project name and description, se
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 1. Go to the **Settings** tab and click **![pencil](../../../_assets/pencil.svg) Edit**.
-1. If necessary, add or change in the relevant fields:
+1. Add or change the values in the relevant fields, if required:
 
    * **Name** and **Description** of the project.
-   * **Idle time**: How soon the cells with a CPU or GPU load less than 1% will stop running (the default value is `Never`).
-   * The default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to store [node](../../concepts/deploy/index.md#node) logs.
-   * The [service account](../../../iam/concepts/users/service-accounts.md) on behalf of which S3 connectors or Data Proc clusters will be created. The service account must have the required [roles](../../../iam/concepts/access-control/roles).
-   * A [subnet](../../../vpc/concepts/network#subnet) if you need it to connect to other {{ yandex-cloud }} services. Along with the subnet, be sure to specify a service account with the minimum role `{{ roles-vpc-user }}`.
+   * **Period of inactivity**: How soon the cells with a CPU or GPU load less than 1% will stop running (the default value is `Never`).
+   * Default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to store [node](../../concepts/deploy/index.md#node) logs.
+   * [Service account](../../../iam/concepts/users/service-accounts.md) on behalf of which S3 connectors or Data Proc clusters will be created. The service account must have the required [roles](../../../iam/concepts/access-control/roles).
+   * [Subnet](../../../vpc/concepts/network#subnet) if you need it to connect to other {{ yandex-cloud }} services. Along with the subnet, make sure to specify a service account with the `{{ roles-vpc-user }}` role or higher.
 
       {% include [subnet-create](../../../_includes/subnet-create.md) %}
 

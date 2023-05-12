@@ -93,6 +93,10 @@ description: "Вы можете создавать резервные копии
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
+- API
+
+    Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore).
+
 {% endlist %}
 
 ## Создать резервную копию {#create-backup}
@@ -132,7 +136,7 @@ description: "Вы можете создавать резервные копии
 
 - API
 
-    Воспользуйтесь методом API [backup](../api-ref/Cluster/backup.md) и передайте идентификатор кластера в параметре `clusterId`.
+    Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
 
@@ -181,9 +185,11 @@ description: "Вы можете создавать резервные копии
 
 - API
 
-    Чтобы получить список резервных копий кластера, воспользуйтесь методом API [listBackups](../api-ref/Cluster/listBackups.md) и передайте идентификатор кластера в параметре `clusterId`. Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
+    Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
-    Чтобы получить список всех резервных копий в каталоге, воспользуйтесь методом API [list](../api-ref/Backup/list.md) и передайте идентификатор каталога в параметре `folderId`.
+    Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
+
+    Чтобы получить список всех резервных копий в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/backup_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
 {% endlist %}
 
@@ -219,7 +225,7 @@ description: "Вы можете создавать резервные копии
 
 - API
 
-    Воспользуйтесь методом API [get](../api-ref/Backup/get.md) и передайте идентификатор резервной копии в параметре `backupId`.
+    Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 
     Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
@@ -253,5 +259,9 @@ description: "Вы можете создавать резервные копии
      --name <имя кластера> \
      --backup-window-start 11:25:00
   ```
+
+- API
+
+  Чтобы задать время начала резервного копирования, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update).
 
 {% endlist %}

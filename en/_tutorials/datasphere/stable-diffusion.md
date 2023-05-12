@@ -52,13 +52,13 @@ In this tutorial, all computations are made in the g1.1 configuration. However, 
 1. Update the [TensorFlow](https://www.tensorflow.org/) library. Paste the below code into the cell and click ![run](../../_assets/datasphere/jupyterlab/run.svg):
 
    ```python
-   %pip install tensorflow -U
+   %pip install tensorflow==2.11.0
    ```
 
 1. Install the KerasCV library:
 
    ```python
-   %pip install keras_cv
+   %pip install keras_cv==0.4.2
    ```
 
 1. Install the [NumPy](https://numpy.org/) library, version 1.21:
@@ -118,6 +118,6 @@ In this tutorial, all computations are made in the g1.1 configuration. However, 
 
    ![generate-image](../../_assets/datasphere/generated-image.png)
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 If you no longer plan to use the `Stable Diffusion` project, [delete it](../../datasphere/operations/projects/delete.md#delete-project).

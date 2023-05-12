@@ -99,7 +99,7 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить имя и описание кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Новое имя кластера в параметре `name`.
@@ -213,12 +213,12 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить класс хостов, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Новый класс хостов в параметре `configSpec.resources.resourcePresetId`.
 
-        Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
+        Чтобы получить список поддерживаемых значений, воспользуйтесь методом REST API [list](../api-ref/ResourcePreset/list.md) для ресурса [ResourcePreset](../api-ref/ResourcePreset/index.md) или вызовом gRPC API [ResourcePresetService/List](../api-ref/grpc/resource_preset_service.md#List).
 
     * Список полей, которые необходимо изменить (в данном случае — `configSpec.resources.resourcePresetId`), в параметре `updateMask`.
 
@@ -300,7 +300,7 @@
 
 - API
 
-  Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
   * Новый размер хранилища в параметре `configSpec.resources.diskSize`.
@@ -366,7 +366,7 @@
 
 - API
 
-    Чтобы изменить настройки {{ RD }}, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить настройки {{ RD }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Нужные значения настроек {{ RD }} в параметре `configSpec.redisConfig_<версия {{ RD }}>`.
@@ -433,7 +433,7 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить дополнительные настройки кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
@@ -483,7 +483,7 @@
 
 - API
 
-    Воспользуйтесь методом API [move](../api-ref/Cluster/move.md) и передайте в запросе:
+    Чтобы переместить кластер, воспользуйтесь методом REST API [move](../api-ref/Cluster/move.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Идентификатор каталога назначения в параметре `destinationFolderId`.
@@ -559,7 +559,7 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить группы безопасности, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Список идентификаторов групп безопасности в параметре `securityGroupIds`.

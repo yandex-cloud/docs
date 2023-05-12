@@ -42573,7 +42573,9 @@ default:
         cluster:
           switch_datalens: DataLens
       common:
+        add: Add
         apply: Apply
+        clone: Clone
         create: Create
         delete: Delete
         description: Description
@@ -42877,6 +42879,7 @@ default:
           switch_route-table: Routing tables
         route-table-form:
           label_add-static-route: Add a route
+          label_gateway: Gateway
           label_next-hop-address: Next hop
         route-table:
           create:
@@ -43955,6 +43958,7 @@ default:
         prefix: Prefix
         resize: Resize
         save: Save
+        settings-key-value: Settings
         share: Share
         shared-with-project-resources: Shared
         show-additional-parameters: Show additional parameters
@@ -43983,6 +43987,8 @@ default:
         per-time: Total unit limit per hour
         period-of-inactivity: Period of inactivity
         security-group: Security group
+        service-account: Service account
+        subnet: Subnet
       main-page:
         recent-projects: Recent projects
       new-alias:

@@ -115,7 +115,7 @@
 
 - API
 
-  Воспользуйтесь методом API [create](../api-ref/User/create.md) и передайте в запросе:
+  Чтобы создать пользователя, воспользуйтесь методом REST API [create](../api-ref/User/create.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Create](../api-ref/grpc/user_service.md#Create) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Настройки пользователя в параметре `userSpec`:
     * Имя пользователя в параметре `name`.
@@ -198,7 +198,7 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/User/update.md) и передайте в запросе:
+  Чтобы изменить пароль пользователя, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/user_service.md#Update) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя пользователя в параметре `userName`. Чтобы узнать имя, [получите список пользователей в кластере](#list-accounts).
   * Название настройки `password` в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки пользователя, которые не были явно указаны в запросе.
@@ -253,7 +253,7 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/User/update.md) и передайте в запросе:
+  Чтобы изменить настройки пользователя, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/user_service.md#Update) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя пользователя в параметре `userName`. Чтобы узнать имя, [получите список пользователей в кластере](#list-accounts).
   * Список настроек, которые необходимо изменить, в параметре `updateMask` (одной строкой через запятую). Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки пользователя, которые не были явно указаны в запросе.
@@ -372,7 +372,7 @@
 
 - API
 
-  Воспользуйтесь методом API [grantPermission](../api-ref/User/grantPermission.md) и передайте в запросе:
+  Чтобы выдать пользователю права, воспользуйтесь методом REST API [grantPermission](../api-ref/User/grantPermission.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/GrantPermission](../api-ref/grpc/user_service.md#GrantPermission) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя пользователя в параметре `userName`. Чтобы узнать имя, [получите список пользователей в кластере](#list-accounts).
   * Новое право на доступ к топику в параметре `permission`.
@@ -435,7 +435,7 @@
 
 - API
 
-  Воспользуйтесь методом API [revokePermission](../api-ref/User/revokePermission.md) и передайте в запросе:
+  Чтобы отозвать права у пользователя, воспользуйтесь методом REST API [revokePermission](../api-ref/User/revokePermission.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/RevokePermission](../api-ref/grpc/user_service.md#RevokePermission) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя пользователя в параметре `userName`. Чтобы узнать имя, [получите список пользователя в кластере](#list-accounts).
   * Право на доступ к топику, которое требуется отозвать, в параметре `permission`.
@@ -490,7 +490,7 @@
 
 - API
 
-  Воспользуйтесь методом API [delete](../api-ref/User/delete.md) и передайте в запросе:
+  Чтобы удалить пользователя, воспользуйтесь методом REST API [delete](../api-ref/User/delete.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Delete](../api-ref/grpc/user_service.md#Delete) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя пользователя, которого требуется удалить, в параметре `userName`. Чтобы узнать имя, [получите список пользователей в кластере](#list-accounts).
 
@@ -529,7 +529,7 @@
 
 - API
 
-  Воспользуйтесь методом API [list](../api-ref/User/list.md): передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+  Чтобы получить список пользователей, воспользуйтесь методом REST API [list](../api-ref/User/list.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/List](../api-ref/grpc/user_service.md#List) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
   Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](#list-clusters).
 

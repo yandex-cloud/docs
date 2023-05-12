@@ -2,7 +2,7 @@
 
 {{ ml-platform-name }} позволяет разворачивать и эксплуатировать сервисы на основе произвольного Docker-образа. 
 
-В этом практическом руководстве с помощью [ноды из Docker-образа](../../datasphere/concepts/deploy/index.md#docker-node) вы развернете сервис обнаружения объектов на изображении, основанный на  [NVIDIA Triton Inference Server](https://github.com/triton-inference-server). 
+В этом практическом руководстве с помощью [ноды из Docker-образа](../../datasphere/concepts/deploy/index.md#docker-node) вы развернете сервис обнаружения объектов на изображении, основанный на [NVIDIA Triton Inference Server](https://github.com/triton-inference-server). 
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Подготовьте Docker-образ для развертывания сервиса](#docker).
@@ -103,9 +103,9 @@
   1. Сохраните открытый и закрытый ключи: закрытый ключ не сохраняется в {{ yandex-cloud }}, открытый ключ нельзя будет посмотреть в консоли управления.
 
      {% note tip %}
-      
+
      Вы можете сохранить файл с ключом на свой компьютер. Его содержимое понадобится позднее при создании секрета для доступа {{ ml-platform-name }} в {{ container-registry-name }}.
-      
+
      {% endnote %}
 
 {% endlist %}

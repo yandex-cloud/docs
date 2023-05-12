@@ -53,7 +53,7 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить имя и описание кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новое имя в параметре `name`.
@@ -141,7 +141,7 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить дополнительные настройки кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Настройки публичного доступа в параметре `config.assignPublicIp`.
@@ -205,7 +205,7 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить настройки {{ GP }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Новые значения в параметре `configSpec.greenplumConfig_<версия>`.
     * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
@@ -235,7 +235,7 @@
 
 - API
 
-  Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
   * Новый размер хранилища мастера и сегмента в параметрах `masterConfig.resources.diskSize` и `masterConfig.resources.diskSize`.

@@ -2,6 +2,8 @@
 
 With the Speech Synthesis Markup Language (SSML), you can control how {{ speechkit-name }} synthesizes speech from text.
 
+{% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}
+
 SSML is supported only when using [API v1](../request.md).
 
 To provide text in SSML format, use the `ssml` parameter in the request body and wrap the text in the `<speak>` tag:
@@ -52,7 +54,7 @@ A pause after a paragraph is longer than a pause after a [sentence](#s) or perio
 </speak>
 ```
 
-All pauses inside the tag are also taken into account. For example, an additional pause will be added in place of a period even if it's before the closing tag.
+All pauses inside the tag are also taken into account. For example, an additional pause will be added in place of a period even if it is before the closing tag.
 
 ### phoneme {#phoneme}
 

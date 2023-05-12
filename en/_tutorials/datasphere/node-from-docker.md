@@ -27,13 +27,16 @@ What the cost of deploying a service based on a Docker image includes:
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
+{% include [intro](../../_includes/datasphere/federation-disclaimer.md) %}
+
 ### Create a folder {#create-folder}
+
 
 Create a folder to host the infrastructure and store logs of your service.
 
 {% note info %}
 
-In our example, both the {{ yandex-cloud }} infrastructure and the deployed service run in the same {{ yandex-cloud }} folder; however, this is not required.
+In our example, both the {{ yandex-cloud }} infrastructure and the deployed service run in the same {{ yandex-cloud }} folder; however, this is not required.
 
 {% endnote %}
 
@@ -91,7 +94,8 @@ To allow your service account to [get authenticated in {{ container-registry-ful
 
 - Management console
 
-   1. In the `data-folder` folder, go to the **Service accounts** tab.
+   1. Go to the `data-folder` folder.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose the `sa-for-datasphere` service account and click the line with its name.
    1. Click **Create new key** in the top panel.
    1. Click **Create authorized key**.
@@ -101,7 +105,7 @@ To allow your service account to [get authenticated in {{ container-registry-ful
 
       {% note tip %}
 
-      You can save the file with the key on your computer. You will need its contents later when creating a secret to access {{ ml-platform-name }} in {{ container-registry-name }}
+      You can save the file with the key on your computer. You will need its contents later when creating a secret to access {{ ml-platform-name }} in {{ container-registry-name }}.
 
       {% endnote %}
 

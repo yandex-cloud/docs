@@ -2,7 +2,7 @@
 
 This scenario describes the steps required to get a report containing information on the amount of spending on resources in a folder. Data is retrieved using the [S3 Select](../concepts/s3-select-language.md) query language.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Install and configure the [AWS CLI](../tools/aws-cli.md).
 
@@ -48,7 +48,7 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
             query="select service_name,resource_id,sku_id,sku_name,\"date\",cost from S3Object where service_name='Compute Cloud'"
             ```
 
-    1. Run the command:
+    1. Run this command:
 
         ```bash
         aws --endpoint https://{{ s3-storage-host }} s3api select-object-content \
@@ -56,7 +56,7 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
           --key $key \
           --expression "$query" \
           --expression-type 'SQL' \
-          --input-serialization '{"CSV": {"FileHeaderInfo": "USE", "FieldDelimiter":";"}}' \
+          --input-serialization '{"CSV": {"FileHeaderInfo": "USE", "FieldDelimiter":","}}' \
           --output-serialization '{"CSV": {}}' \
           "output.csv"
         ```

@@ -8,7 +8,7 @@
 
 ## Установка {#installation}
 
-{% include [install-js-sdk](../../_includes/aws-tools/install-js-sdk.md)%}
+{% include [install-js-sdk](../../_includes/aws-tools/install-js-sdk.md) %}
 
 ## Настройка {#setup}
 

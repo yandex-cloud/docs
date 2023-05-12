@@ -43,7 +43,7 @@ To activate the service:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the name of the service account. Name format requirements:
 
@@ -69,7 +69,7 @@ To activate the service:
    1. Under **Image/boot disk selection**, choose [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
    1. Under **Network settings**:
       1. Select the [cloud network](../vpc/concepts/network.md#network) and [subnet](../vpc/concepts/network.md#subnet) to connect the VM to. If you don't have a network, click ![plus-sign](../_assets/plus-sign.svg) **Create network**:
-         1. In the window that opens, enter the network name and the folder to host the network.
+         1. In the window that opens, enter the network name and specify the folder to host the network.
          1. Click **Create**.
 
          Each network must have at least one subnet. If there is no subnet, create one by selecting ![plus-sign](../_assets/plus-sign.svg) **Add subnet**.

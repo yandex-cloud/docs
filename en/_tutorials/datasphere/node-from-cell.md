@@ -145,7 +145,7 @@ In this example, you will use an image classification model based on [fully conn
    A prediction is an array of 10 numbers. They describe the probability of an image match to each of the 10 types of clothes.
 
 1. (Optional) Test the model.
-   * Create functions to display the image being classified and the prediction results in a graphical view:
+    * Create functions to display the image being classified and the prediction results in a graphical view:
 
       ```python
       def plot_image(i, predictions_array, true_label, img):
@@ -238,33 +238,42 @@ In this example, you will use an image classification model based on [fully conn
     This automatically creates a checkpoint in the project.
 
 1. Pin the checkpoint:
-    1. In the top left corner of the navigation chain, click {{ jlab }}Lab and go to **{{ ui-key.yc-ui-datasphere.common.checkpoint }}**.
+    1. In the top-left corner of the navigation chain, click {{ jlab }}Lab and go to **{{ ui-key.yc-ui-datasphere.common.checkpoint }}**.
     1. In the list, choose the last added checkpoint named `Cell run` and make sure it contains the appropriate code from the previous step.
-    1. In the top right corner, click ![Pin](../../_assets/datasphere/pin.svg) **{{ ui-key.yc-ui-datasphere.common.pin }}**.
+    1. In the top-right corner, click ![Pin](../../_assets/datasphere/pin.svg) **{{ ui-key.yc-ui-datasphere.common.pin }}**.
     1. In the window that appears, enter a name for the checkpoint, such as `checkpoint-for-node`, and click **{{ ui-key.yc-ui-datasphere.common.pin }}**.
 
 ## Create a node {#create-node}
 
 1. To create a node:
-    1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-    1. In the top right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
-    1. Specify the node parameters:
-        * **Type**: **Cell**.
-        * **Name**: Node name, e.g., `classifier-node`.
-        * In the **Checkpoint** field, select the checkpoint named `checkpoint-for-node`.
-        * Under **Input variables**, click ![Add](../../_assets/plus-sign.svg) **Add** and create a variable with the following parameters:
-           * **Name**: `encoded_images`.
-           * **Type**: `list`.
-        * Under **Output variables**, click ![Add](../../_assets/plus-sign.svg) **Add** and create a variable with the following parameters:
-           * **Name**: `labels`.
-           * **Type**: `list`.
-        * Under **Docker image**, select `Default Python 3.8`.
-     1. Under **Folder**, select `data-folder`.
-     1. Under **Maintenance**, select:
-        * **Instance configuration**: `c1.4`.
-        * **Availability zone**: Set an [availability zone](../../overview/concepts/geo-scope.md), such as `{{region-id}}-a`.
-        * Leave the **subnet ID** empty, as {{ ml-platform-name }} will set the default subnet ID.
-     1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
+   1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+   1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+   1. Specify the node parameters:
+      * **Type**: **Cell**.
+      * **Name**: Node name, e.g., `classifier-node`.
+      * In the **Checkpoint** field, select the checkpoint named `checkpoint-for-node`.
+      * Under **Input variables**, click ![Add](../../_assets/plus-sign.svg) **Add** and create a variable with the following parameters:
+         * **Name**: `encoded_images`.
+         * **Type**: `list`.
+      * Under **Output variables**, click ![Add](../../_assets/plus-sign.svg) **Add** and create a variable with the following parameters:
+         * **Name**: `labels`.
+         * **Type**: `list`.
+      * Under **Docker image**, select `Default Python 3.8`.
+   1. Under **Folder**, select `data-folder`.
+   1. Under **Maintenance**, select:
+      * **Instance configuration**: `c1.4`.
+      * **Availability zone**: Set an [availability zone](../../overview/concepts/geo-scope.md), such as `{{region-id}}-a`.
+      * Leave the **subnet ID** empty, as {{ ml-platform-name }} will set the default subnet ID.
+
+         {% note info %}
+
+         If there is a subnet in the project settings, you can specify it, too. Make sure the subnet has a [NAT gateway](../../vpc/concepts/gateways.md).
+
+         If you specified a subnet in the project settings, the time to allocate resources may be increased.
+
+         {% endnote %}
+
+   1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ## Send a test request to the node {#test-query}
 
@@ -359,7 +368,7 @@ You can distribute the load across nodes and update the deployed services on the
 
 To create an alias:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. In the top right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.common.alias }}**.
+1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.common.alias }}**.
 1. Specify the alias parameters:
    * In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, specify `fashion`.
    * In the **{{ ui-key.yc-ui-datasphere.common.prefix }}** field, select an available alias prefix.

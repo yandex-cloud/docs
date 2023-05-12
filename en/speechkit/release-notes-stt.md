@@ -6,11 +6,15 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release on 14/04/2023 {#140423}
+
+Improved recognition quality for abbreviations in Russian on client scenarios for the `general:rc` model.
+
+## Previous versions {#previous}
+
 ### Release on 16/03/23 {#070323}
 
 Upgrades to the [release on March 7, 2023](#070323) are now available in the `general` model.
-
-## Previous versions {#previous}
 
 ### Release on 07/03/23 {#070323}
 
@@ -30,7 +34,7 @@ In the `general:rc` model:
 1. Based on user requests, we improved recognition quality for the names of medications and first, last, and middle names.
 1. Slightly improved the accuracy of recognition for Kazakh and Turkish.
 
-### Release 20.10.22 {#201022}
+### Release on 20/10/2022 {#201022}
 
 In the `general:rc` model:
 1. Added recognition of Brazilian Portuguese, the language code is `pt-BR`.

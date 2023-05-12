@@ -28,7 +28,7 @@
 
 - API
 
-  Воспользуйтесь методом API [listHosts](../api-ref/Cluster/listHosts.md): передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+  Чтобы получить список хостов кластера, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
   Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 

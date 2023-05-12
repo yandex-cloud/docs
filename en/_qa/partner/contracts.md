@@ -24,9 +24,9 @@ If your customer pays VAT, you can re-issue them invoices from your organization
 
 #### What service payment system is used in {{ yandex-cloud }} for partners? What happens if there is no money in the account? {#payments}
 
-{{ yandex-cloud }} uses a postpaid settlements system. To get started, you should switch to paid consumption mode. Your account or [sub-accounts](start-grant.md#sub-account) may start consumption without any top-up immediately after activation. Money for consumption across all sub-accounts linked to the partner account is debited from the partner's personal account.
+{{ yandex-cloud }} uses a postpaid settlements system. To get started, you should switch to paid consumption mode. Your account or [sub-accounts](../../partner/qa/start-grant.md#sub-account) may start consumption without any top-up immediately after activation. Money for consumption across all sub-accounts linked to the partner account is debited from the partner's personal account.
 
-At the end of each month, we'll send a service certificate to your email address indicating the amount minus the partner bonus for the last (reporting) month.
+At the end of each month, we will send a service certificate to your email address indicating the amount minus the partner bonus for the last (reporting) month.
 
 At the end of the reporting month, starting from the second month of paid consumption, you have 15 days to settle the payment invoice received. During this period, until the account is topped up, your [billing threshold](../../billing/concepts/billing-threshold.md) is activated. The billing threshold is calculated automatically based on the average monthly consumption over the past few months.
 

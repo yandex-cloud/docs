@@ -153,6 +153,8 @@ items:
         items:
           - name: AWS SDK for Java
             href: tools/aws-sdk-java.md
+          - name: AWS SDK for JavaScript
+            href: tools/aws-sdk-js.md
           - name: Python SDK (boto)
             href: tools/boto.md
           - name: AWS SDK for .NET
