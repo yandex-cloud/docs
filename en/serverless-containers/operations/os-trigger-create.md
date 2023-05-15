@@ -2,7 +2,7 @@
 
 Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) when you create, move, or delete an [object](../../storage/concepts/object.md) in a bucket.
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
@@ -16,7 +16,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Open **{{ serverless-containers-name }}**.
 
@@ -37,9 +37,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
       * (optional) In the **Object key prefix** field, enter a prefix for filtering.
       * (optional) In the **Object key suffix** field, enter a suffix for filtering.
 
-   1. Under **Container settings**, select a container and specify:
-
-      {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+   1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
    1. (optional) Under **Repeat request settings**:
 
@@ -55,7 +53,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a trigger that invokes a container, run the command:
+   To create a trigger that invokes a container, run this command:
 
    ```bash
    yc serverless trigger create object-storage \
@@ -76,8 +74,8 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
    * `--name`: Trigger name.
    * `--bucket-id`: Bucket ID.
-   * `--prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). Optional. Used for filtering.
-   * `--suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). Optional. Used for filtering.
+   * `--prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. Used for filtering.
+   * `--suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. Used for filtering.
    * `--events`: [Events](../concepts/trigger/os-trigger.md#event) after which the trigger activates.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
@@ -112,7 +110,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
 - API
 
-   You can create a trigger for {{ objstorage-name }} using the [create](../triggers/api-ref/Trigger/create.md).
+   To create a trigger for {{ objstorage-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 

@@ -40,12 +40,8 @@ When you add environment variables, a new container revision is created. You can
    Where:
 
    * `--cores`: Number of cores available for the container.
-   * `--memory`: Required memory. The default is 128 MB.
+   * `--memory`: Required memory. The default value is 128 MB.
    * `--environment`: Environment variables in `key=value` format. You can specify multiple pairs separated by commas.
-
-- API
-
-   To add an environment variable to a container revision, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) API method.
 
 - {{ TF }}
 
@@ -82,7 +78,7 @@ When you add environment variables, a new container revision is created. You can
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
@@ -107,6 +103,10 @@ When you add environment variables, a new container revision is created. You can
    ```
    yc serverless container revision get <revision_ID>
    ```
+
+- API
+
+   To add an environment variable, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
 
 {% endlist %}
 

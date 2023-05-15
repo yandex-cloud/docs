@@ -36,13 +36,14 @@ You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [buc
 1. In the [management console]({{ link-console-main }}), select the folder for testing.
 1. In the list of services, select **{{ load-testing-name }}**.
 1. On the ![image](../../_assets/load-testing/test.svg) **Tests** tab, click **Create test**.
-1. Select a test agent and [log group](../../logging/concepts/log-group.md) or create them.
+1. Select a test agent or create a new one.
+1. (Optional) Select or create a [log group](../../logging/concepts/log-group.md).
 1. Under **Test data**:
    1. Select a data transfer method: **Bucket**.
    1. Find the bucket in the drop-down list and specify the path to the payload file. If the file was not uploaded before:
 
-      1. Select a data transfer method: **Local file**.
-      1. Click **Select file** and upload a payload file from your computer.
+      1. Select the data transfer method: **From computer**.
+      1. Click **Attach file** and upload a file with test data from your computer.
       1. Enable the **Save to {{ objstorage-name }}** option.
       1. Select or [create](../../storage/operations/buckets/create.md) a bucket to save data to.
 

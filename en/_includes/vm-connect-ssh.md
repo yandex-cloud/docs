@@ -1,4 +1,4 @@
-The recommended method for connecting to a virtual machine over SSH is based on using a key pair: the open key is placed on the virtual machine, and the private key is stored on the user's device. Connecting with a key pair is more secure than connecting with a username and password.
+The recommended method for connecting to a [VM](../compute/concepts/vm.md) over SSH is based on using a key pair: the public key is placed on the VM, while the private one is stored on the user's device. Connecting with a key pair is more secure than doing so with a username and password.
 
 {% include [vm-connect-ssh-linux-note](vm-connect-ssh-linux-note.md) %}
 
@@ -8,7 +8,6 @@ The recommended method for connecting to a virtual machine over SSH is based on 
 
 ## Connecting to a VM {#vm-connect}
 
-You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). You can use the `ssh` tool in Linux and macOS or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
+You can connect to a VM over SSH once it is started (i.e., has the `RUNNING` status). You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
-To connect, you have to specify the address of the VM. This can be its IP address or the FQDN. Access via FQDN is possible from another {{ yandex-cloud }} VM, if it is connected to the same virtual network. You can find out the IP address in the management console. Go to the **Network** section on the virtual machine's page.
-
+To connect, specify the VM address. This can be either its [IP address](../vpc/concepts/address.md) or [FQDN](../vpc/concepts/address.md#fqdn). You can also connect from another {{ yandex-cloud }} using FQDN if this VM is connected to the same [virtual network](../vpc/concepts/network.md#network). You can find out the IP address in the management console by going to the **Network** section on the VM's page.

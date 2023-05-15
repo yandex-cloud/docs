@@ -1,6 +1,6 @@
 # Connecting to a Linux VM via SSH
 
-The recommended method for connecting to a virtual machine over SSH is based on using a key pair: the public key is placed on the virtual machine, and the private key is stored on the user's device. Connecting with a key pair is more secure than connecting with a username and password.
+The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH is based on using a key pair: the public key is placed on the VM and the private key is stored on the user's device. Connecting with a key pair is more secure than connecting with a username and password.
 
 ## Creating an SSH key pair {#creating-ssh-keys}
 
@@ -23,81 +23,80 @@ You can also copy the key using the command line:
 - Windows
 
    1. Run `cmd.exe` or `powershell.exe`.
-
    1. Output the file contents:
 
       ```bash
-      type C:\Users\<username>\.ssh\<key_name>.pub
+      type C:\Users\<username>\.ssh\<key name>.pub
       ```
-      Where:
 
+      Where:
       * `<username>`: Your Windows account name, such as `User`.
       * `<key_name>`: Key name, such as `id_ed25519` or `id_rsa`.
 
       The command will output the public key. To copy the key, select and right-click it. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz`.
-
    1. You can copy the file contents right to the clipboard:
 
       ```bash
       type C:\Users\User\.ssh\id_ed25519.pub | clip
       ```
+
       Paste the public key into the **SSH key** field when creating a new VM in the [management console]({{ link-console-main }}).
 
 - Linux
 
    1. Run the terminal.
-
    1. Output the file contents:
 
       ```bash
-      cat ~/.ssh/<key_name>.pub
+      cat ~/.ssh/<key name>.pub
       ```
+
       Where `<key_name>` is the key name, such as `id_ed25519` or `id_rsa`.
 
       The command will output the public key. Select and copy its text to the clipboard. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz user@Desktop`.
-
    1. You can copy the file contents right to the clipboard:
 
       ```bash
       cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
       ```
+
       Paste the public key into the **SSH key** field when creating a new VM in the [management console]({{ link-console-main }}).
 
 - MacOS
 
    1. Run the terminal.
-
    1. Output the file contents:
 
       ```bash
-      cat ~/.ssh/<key_name>.pub
+      cat ~/.ssh/<key name>.pub
       ```
+
       Where `<key_name>` is the key name, such as `id_ed25519` or `id_rsa`.
 
       The command will output the public key. Select and copy its text to the clipboard. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz user@Desktop`.
-
    1. You can copy the file contents right to the clipboard:
 
       ```bash
       cat ~/.ssh/id_ed25519.pub | pbcopy
       ```
+
       Paste the public key into the **SSH key** field when creating a new VM in the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
 ## Connecting to a VM {#vm-connect}
 
-You can connect to a virtual machine with the `RUNNING` status over SSH. Some time may be required to initialize all the services after the VM [starts](../vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after a few minutes.
+You can connect to a VM with the `RUNNING` status over SSH. Some time may be required to initialize all the services after the VM [starts](../vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after a few minutes.
 
 To connect, you can use the `ssh` utility on Linux/macOS/Windows 10 and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) on Windows 7/8.
 
-Virtual machine [security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic to port 22.
+VM [security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic to port 22.
 
 {% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
 
-To connect to the VM, specify its public address. You can find out the public IP address in the management console. On the VM's page, go to the **Network** section and find the **Public IPv4** field. If you created a virtual machine with a private address only, [bind it to a public address](../vm-control/vm-attach-public-ip.md).
+To connect, specify the VM's [public IP address](../../../vpc/concepts/address.md#public-addresses). You can find out the public IP address in the management console. On the VM's page, go to the **Network** section and find the **Public IPv4** field. If you created a VM with an internal IP address only, [bind it to a public IP address](../vm-control/vm-attach-public-ip.md).
 
-You can also use the internal IP addresses and FQDNs to establish an SSH connection between the VMs on a single {{ yandex-cloud }} cloud network.
+You can also use the [internal IP addresses](../../../vpc/concepts/address.md#internal-addresses) and [FQDNs](../../../vpc/concepts/address.md#fqdn) to establish an SSH connection between the VMs on a single [cloud network](../../../vpc/concepts/network.md#network) in {{ yandex-cloud }}.
 
 {% list tabs %}
 
@@ -106,18 +105,18 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
    In the terminal, run this command:
 
    ```bash
-   ssh <username>@<VM_public_IP_address>
+   ssh <username>@<VM public IP>
    ```
 
    If you have multiple private keys, specify the one you need:
 
    ```bash
-   ssh -i <key_path/key_file_name><username>@<VM_public_IP_address>
+   ssh -i <key path/key file name> <username>@<VM public IP>
    ```
 
    If this is the first time you connect to a VM, you'll see a warning about an unknown host:
 
-   ```
+   ```text
    The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.
    ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHkGgpLELJ8.
    Are you sure you want to continue connecting (yes/no)?
@@ -129,21 +128,21 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
 
    Make sure that the Windows account has read privileges on the folder containing the keys.
 
-   To connect to the virtual machine, execute the following command in the command line:
+   To connect to the VM, execute the following command in the command line:
 
-   ```powershell
-   ssh <username>@<VM_public_IP_address>
+   ```shell
+   ssh <username>@<VM public IP>
    ```
 
    If you have multiple private keys, specify the one you need:
 
-   ```powershell
-   ssh -i <key_path\key_file_name> <username>@<VM_public_IP_address>
+   ```shell
+   ssh -i <key path/key file name> <username>@<VM public IP>
    ```
 
    If this is the first time you connect to a VM, you'll see a warning about an unknown host:
 
-   ```
+   ```text
    The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.
    ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHkGgpLELJ8.
    Are you sure you want to continue connecting (yes/no)?
@@ -151,11 +150,9 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
 
    Type `yes` in the command prompt and press **Enter**.
 
-
 - Windows 7/8
 
    In Windows, a connection is established using the PuTTY application.
-
    1. Run the Pageant application.
       1. Right-click on the Pageant icon in the task bar.
       1. In the context menu, select **Add key**.
@@ -184,7 +181,6 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
          ![ssh_login](../../../_assets/compute/ssh-putty/ssh_login.png)
 
    If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
-
    1. Right-click on the Pageant icon in the task bar.
    1. Select the **Saved sessions** menu item.
    1. In the saved sessions list, select the necessary session.
@@ -194,15 +190,14 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
 ## Adding SSH keys for other users {#vm-authorized-keys}
 
 You can add SSH keys for another VM user. To do this, create a new user and add a file with the authorized keys for this user.
-
-1. Log in to the VM under the username that you specified when creating the VM in the management console. If the VM is created via the CLI, the default `yc-user` user will be used.
+1. Log in to the VM under the username that you specified when creating the VM in the management console. If the VM is created via the CLI, the default `yc-user` is used.
 
    {% note info %}
 
    To get information about a VM with user metadata, run the command:
 
    ```bash
-   yc compute instance get --full <VM-name>
+   yc compute instance get --full <VM_name>
    ```
 
    {% endnote %}
@@ -254,4 +249,4 @@ You can add SSH keys for another VM user. To do this, create a new user and add 
 
 #### What's next {#what-is-next}
 
-* [Learn how to work with {{ yandex-cloud }} from inside a VM](auth-inside-vm.md)
+* [Learn how to work with {{ yandex-cloud }} from inside a VM](auth-inside-vm.md).

@@ -8,7 +8,7 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To revoke a [role](../../security/index.md#roles) for a function, run the command:
+   To revoke a [role](../../security/index.md#roles) for a function, run this command:
 
    * User:
       ```
@@ -46,6 +46,6 @@
 
 - API
 
-   You can revoke roles for a function using the [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) API method.
+   To revoke function roles, use the [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/function_service.md#UpdateAccessBindings) gRPC API call.
 
 {% endlist %}

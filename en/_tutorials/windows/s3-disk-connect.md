@@ -1,6 +1,6 @@
 # Mounting a bucket as a disk on Windows
 
-In this tutorial, you'll use [rclone](https://rclone.org) to set up synchronization of data between an {{ objstorage-full-name }} bucket and your local desktop. The bucket will be mounted as a disk in Windows.
+In this tutorial, you will use [rclone](https://rclone.org) to set up synchronization of data between an {{ objstorage-full-name }} bucket and your local desktop. The bucket will be mounted as a disk in Windows.
 
 To mount your bucket as a disk:
 
@@ -43,8 +43,8 @@ The cost for bucket support includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a service account.
-   1. Go to the **Service accounts** tab.
+   1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the service account name: `sa-win-disk-connect`.
    1. Click ![](../../_assets/plus-sign.svg) **Add role** and select the `storage.editor` role.
@@ -81,12 +81,12 @@ The cost for bucket support includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose `sa-win-disk-connect` and click the line with its name.
    1. Click ![](../../_assets/plus-sign.svg) **Create new key** in the top panel.
    1. Select **Create static access key**.
    1. Specify the key description and click **Create**.
-   1. Save the ID and private key. After the dialog is closed, the private key value will be unavailable.
+   1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
 
 - CLI
 
@@ -248,21 +248,21 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
 1. In the working directory, create `rclone.xml` with the following contents:
 
    ```xml
-   `<service>`
-   `<id>rclone</id>`
-   `<name>rclone-s3-disk</name>`
-   `<description>This service maps an S3 bucket as a system drive.</description>`
-   `<executable>"<path_to_the_working_directory>\rclone.exe"</executable>`
-   `<arguments>mount s3-connect:<bucket_name> <disk_letter>: --vfs-cache-mode full</arguments>`
-   `<log mode="roll" />`
-   `<onfailure action="restart" />`
-   `</service>`
+   <service>
+     <id>rclone</id>
+     <name>rclone-s3-disk</name>
+     <description>This service maps an S3 bucket as a system drive.</description>
+     <executable>"<path to the working directory>\rclone.exe"</executable>
+     <arguments>mount s3-connect:bucket-for-win <disk letter>: --vfs-cache-mode full</arguments>
+     <log mode="roll" />
+     <onfailure action="restart" />
+   </service>
    ```
 
 1. Open the command prompt as a system administrator and execute the command:
 
    ```powershell
-   WinSW-x64.exe install .\\rclone.xml
+   WinSW-x64.exe install .\rclone.xml
    ```
 
 1. Open the Windows services panel and make sure that `rclone-s3-disk` is listed:
@@ -279,7 +279,7 @@ You can also set up the service to start on behalf of the system user (for more 
 
 {% endnote %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 

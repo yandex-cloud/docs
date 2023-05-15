@@ -391,6 +391,8 @@ items:
           Creating a trigger for budgets that invokes a function to stop VM
           instances
         href: tutorials/serverless-trigger-budget-vm.md
+      - name: Creating an interactive serverless application using WebSocket
+        href: tutorials/websocket-app.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

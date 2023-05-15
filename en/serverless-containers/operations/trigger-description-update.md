@@ -50,6 +50,6 @@
 
 - API
 
-   You can update the trigger description using the [update](../triggers/api-ref/Trigger/update.md) API method.
+   To update a trigger description, use the [update](../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../triggers/api-ref/grpc/trigger_service.md#Update) gRPC API call.
 
 {% endlist %}

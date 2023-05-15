@@ -54,6 +54,7 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
+* [{#T}](vm-control/vm-change-security-groups-set.md)
 * [{#T}](vm-control/vm-delete.md)
 
 ## Working on VMs {#vm-use}
@@ -161,4 +162,11 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](dedicated-host/create-host-group.md)
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
+
+# GPU clusters {#gpu-cluster}
+
+* [{#T}](gpu-cluster/gpu-cluster-create.md)
+* [{#T}](gpu-cluster/gpu-add-to-cluster.md)
+* [{#T}](gpu-cluster/gpu-cluster-update.md)
+* [{#T}](gpu-cluster/gpu-cluster-delete.md)
 

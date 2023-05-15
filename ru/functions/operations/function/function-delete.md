@@ -24,7 +24,7 @@
     ```
     Результат:
     ```
-    done (1s)    
+    done (1s)
     id: b09kk2ujb8js********
     folder_id: aoek49ghmknn********
     created_at: "2019-06-13T13:21:40.022Z"

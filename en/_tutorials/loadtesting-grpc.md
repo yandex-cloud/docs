@@ -1,48 +1,46 @@
-# gRPC service load testing
+# Load testing of the gRPC service
 
-You can use {{ load-testing-full-name }} for service load testing via [gRPC](https://grpc.io/docs/) using the [Pandora](../load-testing/concepts/load-generator.md#pandora) load generator.
+You can use {{ load-testing-full-name }} for service load testing via [gRPC](https://grpc.io/docs/) with the [Pandora](../load-testing/concepts/load-generator.md#pandora) load generator.
 
 To perform load testing:
-
-1. [Before you start](#before-begin).
-1. [Prepare the test target](#target-prepare).
+1. [Prepare your cloud](#before-begin).
+1. [Prepare a test target](#target-prepare).
 1. [Prepare the infrastructure](#infrastructure-prepare).
 1. [Create an agent](#create-agent).
 1. [Test gRPC Server Reflection](#reflection-check).
 1. [Prepare a file with test data](#test-file).
-1. [Run the test](#run-test).
+1. [Run a test](#run-test).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
 
 ### Required paid resources {#paid-resources}
 
-If the agent is hosted on the {{ yandex-cloud }} platform, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../compute/pricing.md)).
+If the agent is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../compute/pricing.md)).
 
-During the [Preview stage](../overview/concepts/launch-stages), {{ load-testing-name }} can be used free of charge.
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} can be used free of charge.
 
 
-## Prepare the test target {#target-prepare}
+## Prepare a test target {#target-prepare}
 
-In the given example, we'll use the gRPC service with the internal IP `172.17.0.10` in the same subnet as the agent.
+In this example, we'll use a gRPC-service with the `172.17.0.10` internal IP address in the same subnet as the agent.
 
 For instructions on how to integrate the gRPC framework for different programming languages, see the [documentation](https://grpc.io/docs/languages/).
 
 1. Configure support for gRPC Server Reflection. For instructions on how to configure gRPC Server Reflection for different programming languages, see the [documentation](https://grpc.github.io/grpc/core/md_doc_server-reflection.html).
 
     With gRPC Server Reflection, the load generator polls the server at the start of a test to collect information about services and their methods and uses this data to generate correct gRPC requests during the test.
+1. Install a port for accessing the gRPC-service: `8080`.
 
-1. Set the port to access the gRPC service to `8080`.
-
-You can also use {{ load-testing-name }} for load testing of a public service or a service hosted in a different subnet and security group than those of the agent.
+You can also use {{ load-testing-name }} for loading testing of a service that is public or located in a subnet and security group other than those of the agent.
 
 For a public service, allow incoming HTTPS traffic to port `8080`.
 
-For a service hosted in a subnet and security group other than those of the agent, [create](#security-group-setup) a rule for incoming HTTPS traffic to port `8080` in the security group with the test target.
+For a service whose subnet and security group differ from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic to port `8080` in the security group where the test target is located.
 
 ## Prepare the infrastructure {#infrastructure-prepare}
 
@@ -56,11 +54,13 @@ For a service hosted in a subnet and security group other than those of the agen
 
 ### Configure security groups {#security-group-setup}
 
-1. Set up the security group of your test agent:
+{% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
+
+1. Set up the test agent's security group:
 
     {% include [security-groups-agent](../_includes/load-testing/security-groups-agent.md) %}
 
-1. Set up the security group of the test target:
+1. Set up the test target's security group:
 
     {% include [security-groups-target](../_includes/load-testing/security-groups-target.md) %}
 
@@ -70,8 +70,7 @@ For a service hosted in a subnet and security group other than those of the agen
 
 ## Test gRPC Server Reflection {#reflection-check}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md#vm-connect) to the agent over SSH.
-
+1. [Connect](../compute/operations/vm-connect/ssh.md#vm-connect) to the agent via SSH.
 1. Run the command to test gRPC Server Reflection on the gRPC service:
 
     {% list tabs %}
@@ -113,82 +112,82 @@ For a service hosted in a subnet and security group other than those of the agen
     * `call`: The method being called.
     * `payload`: A dictionary with call parameters passed to the test target.
 
-    In the given example, two-thirds of requests will be tagged as `/Add` and one third as `/Add2`.
+    In the given example, two thirds of requests will be tagged as `/Add` and one third as `/Add2`.
 
 1. Save the payloads to a file named `data.json`.
 
-## Run the test {#run-test}
+## Run a test {#run-test}
 
 {% list tabs %}
 
 - Management console
 
-  1. Select **{{ load-testing-name }}** in [management console]({{ link-console-main }}).
+  1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
+  1. On the left-hand panel, select ![image](../_assets/load-testing/test.svg) **Tests**.
+  1. Click **Create test**.
+  1. On the test creation page:
+      1. In the **Agents** field, select `agent-008` [you created earlier](#create-agent).
+      1. Under **Test data**, select **From computer**, click **Attach file**, and select the `data.json` file you previously saved.
+      1. Under **Test settings**:
+         * In the **Configuration method** field, select **Configuration file**.
+         * In the configuration input field, specify the testing thread settings in `yaml` format:
 
-  1. In the left-hand panel, select ![image](../_assets/load-testing/test.svg) **Tests**. Click **Create test**.
+              ```yaml
+              pandora:
+                enabled: true
+                pandora_cmd: /usr/local/bin/pandora
+                package: yandextank.plugins.Pandora
+                config_content:
+                   pools:
+                    - id: GRPC
+                      gun:
+                        type: grpc                # protocol
+                        target: 172.17.0.10:8080  # test target address
+                        tls: false
+                      ammo:
+                        type: grpc/json
+                        file: ammo_ddfafc98-19a3-4dbb-b981-aa6787496a97
+                    result:
+                        type: phout
+                        destination: ./phout.log
+                    rps:
+                        - duration: 180s          # test time
+                          type: line              # load type
+                          from: 1
+                        to: 1500
+                      startup:
+                        type: once                
+                        times: 1500               # number of threads
+                  log:
+                    level: debug
+                  monitoring:
+                    expvar:
+                      enabled: true
+                      port: 1234
+              uploader:
+                api_address: loadtesting.{{ api-host }}:443
+                enabled: true
+                job_dsc: grpc test
+                job_name: '[pandora][config][grpc]'
+                package: yandextank.plugins.DataUploader
+                ver: '1.1'
+              core: {}
+              ```
 
-  1. Set the test parameters:
-      * **Configuration method**: Select **Config**.
-      * **Agent**: Select the [previously created](#create-agent) `agent-008`.
+              {% note tip %}
 
-  1. Upload the `data.json` file in the **File with test data** field.
+              View a [sample configuration file](../load-testing/concepts/testing-stream.md#config_example). You can also find sample configuration files in existing tests.
 
-  1. In the configuration input field, enter the testing thread settings in `yaml` format:
+              {% endnote %}
 
-      ```yaml
-      pandora:
-        enabled: true
-        pandora_cmd: /usr/local/bin/pandora
-        package: yandextank.plugins.Pandora
-        config_content:
-          pools:
-              - id: GRPC
-              gun:
-                type: grpc                # protocol
-                target: 172.17.0.10:8080  # test target IP address
-                tls: false
-              ammo:
-                type: grpc/json
-                file: ammo_123
-              result:
-                type: phout
-                destination: ./phout.log
-              rps:
-                 - duration: 180s         # test duration
-                  type: line              # load type
-                  from: 1
-                  to: 1500
-              startup:
-                 - type: once
-                  times: 1500             # number of threads
-          log:
-            level: debug
-          monitoring:
-            expvar:
-              enabled: true
-              port: 1234
-      uploader:
-        api_address: loadtesting.{{ api-host }}:443
-        enabled: true
-        job_dsc: grpc test
-        job_name: '[pandora][config][grpc]'
-        package: yandextank.plugins.DataUploader
-        ver: '1.1'
-      ```
+      1. Click **Create**.
 
-      {% note tip %}
+    Afterwards, the configuration will be verified, and the agent will start loading the gRPC-service being tested.
 
-      Below is a [sample configuration file](../load-testing/concepts/testing-stream.md#config_example). You can also find sample configuration files in existing tests.
-
-      {% endnote %}
-
-  1. Click **Create**. Afterwards, the configuration will be verified, and the agent will start loading the gRPC service being tested.
-
-  1. To monitor the results of testing, select the created test and go to the **Report** tab.
+    To see the testing progress, select the created test and go to the **Test results** tab.
 
 {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the created resources, just [delete the agent](../compute/operations/vm-control/vm-delete.md).
-
+To stop paying for the resources created, just [delete the agent](../compute/operations/vm-control/vm-delete.md).

@@ -57,7 +57,7 @@ To use the AWS tools, follow these steps:
    - Management console
 
       1. Go to the folder that the service account belongs to.
-      1. Go to the **Service accounts** tab.
+      1. At the top of the screen, go to the **Service accounts** tab.
       1. Choose a service account and click the line with its name.
       1. Click **Create new key** in the top panel.
       1. Click **Create static access key**.
@@ -66,7 +66,7 @@ To use the AWS tools, follow these steps:
 
          {% note alert %}
 
-         After the dialog is closed, the private key value will be unavailable.
+         Once you close the dialog, the private key value will be unavailable.
 
          {% endnote %}
 

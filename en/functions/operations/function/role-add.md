@@ -8,7 +8,7 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To assign a [role](../../security/index.md#roles) to a function, run the command:
+   To assign a [role](../../security/index.md#roles) to a function, run this command:
 
    * User:
       ```
@@ -46,6 +46,6 @@
 
 - API
 
-   You can assign roles to a function using the [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) API method.
+   To assign roles for a function, use the [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/function_service.md#SetAccessBindings) gRPC API call.
 
 {% endlist %}

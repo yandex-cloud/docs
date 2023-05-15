@@ -37,7 +37,7 @@ To create a trigger, you need:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Select **{{ sf-name }}**.
 
@@ -72,7 +72,7 @@ To create a trigger, you need:
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To create a trigger that invokes a function, run the command:
+   To create a trigger that invokes a function, run this command:
 
    ```bash
    yc serverless trigger create message-queue \
@@ -122,10 +122,6 @@ To create a trigger, you need:
          service_account_id: bfbqqeo6j**********
    status: ACTIVE
    ```
-
-- API
-
-   You can create a trigger for {{ message-queue-full-name }} using the [create](../../triggers/api-ref/Trigger/create.md).
 
 - {{ TF }}
 
@@ -199,11 +195,15 @@ To create a trigger, you need:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
          ```
          yc serverless trigger get <trigger ID>
          ```
+
+- API
+
+   To create a trigger for {{ message-queue-full-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 

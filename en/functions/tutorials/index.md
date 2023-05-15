@@ -1,4 +1,4 @@
-# {{ sf-name }} practical guidelines
+# {{ sf-name }} tutorials
 
 * [{#T}](alice-skill.md)
 * [{#T}](java-servlet-todo-list.md)
@@ -11,3 +11,5 @@
 * [{#T}](video-converting-queue.md)
 * [{#T}](nodejs-typescript.md)
 * [{#T}](api-gw-integration.md)
+* [{#T}](serverless-trigger-budget-vm.md)
+* [{#T}](websocket-app.md)

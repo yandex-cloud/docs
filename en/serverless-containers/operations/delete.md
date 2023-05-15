@@ -7,12 +7,12 @@
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ serverless-containers-name }}**.
    1. In the line with the container, click ![image](../../_assets/horizontal-ellipsis.svg).
-   1. In the resulting menu, click **Delete**.
+   1. In the menu that opens, click **Delete**.
    1. In the window that opens, click **Delete**.
 
 - CLI
 
-   To delete a container, run the command:
+   To delete a container, run this command:
 
    ```
    yc serverless container delete --name <container_name>
@@ -24,15 +24,11 @@
    done (2s)
    ```
 
-- API
-
-   You can delete a container using the [delete](../containers/api-ref/Container/delete.md) API method.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a container created with {{ TF }}:
 
@@ -55,18 +51,18 @@
 
       For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
       ```
       terraform plan
       ```
@@ -85,5 +81,9 @@
    ```
    yc serverless container list
    ```
+
+- API
+
+   To delete a container, use the [delete](../containers/api-ref/Container/delete.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Delete](../containers/api-ref/grpc/container_service.md#Delete) gRPC API call.
 
 {% endlist %}

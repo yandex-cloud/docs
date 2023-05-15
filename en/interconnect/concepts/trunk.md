@@ -1,6 +1,6 @@
 # Trunk
 
-The main functions of a trunk or a trunk connection are:
+Trunks are mainly used for:
 
 * Providing a [physical connection](#links) from external equipment to the {{ yandex-cloud }} equipment at a [point of presence](./pops.md).
 * Enabling [traffic multiplexing](#mux) for private and public connections using **Ethernet 802.1Q**.
@@ -37,13 +37,13 @@ The following physical connection setup options are supported on the {{ yandex-c
 ### Direct client connection {#direct-link}
 This is a connection of your own equipment at a [point of presence](./pops.md) directly to the {{ yandex-cloud }} equipment.
 
-A trunk connection in this setup option has the following components:
+A trunk in this setup option has the following components:
 
-* A physical port on your equipment.
-* An optical transceiver connected to the physical port on your equipment.
-* A physical port reserved on the {{ yandex-cloud }} equipment.
-* An optical transceiver connected to the physical port on the {{ yandex-cloud }} equipment.
-* A cross connection that is used to connect to the optical transceiver on your equipment's port and to the optical transceiver on the {{ yandex-cloud }} equipment.
+* Physical port on your equipment.
+* Optical transceiver connected to the physical port on your equipment.
+* Physical port reserved on the {{ yandex-cloud }} equipment.
+* Optical transceiver connected to the physical port on the {{ yandex-cloud }} equipment.
+* Cross connection that is used to connect to the optical transceiver on your equipment's port and to the optical transceiver on the {{ yandex-cloud }} equipment.
 
 One may outline this connection as follows:
 
@@ -69,11 +69,11 @@ One may outline this connection as follows:
 
 A trunk in this setup option has the following components:
 
-* A physical port on the telecom provider's equipment.
-* An optical transceiver connected to the physical port on the telecom provider's equipment.
-* A physical port reserved on the {{ yandex-cloud }} equipment.
-* An optical transceiver connected to the physical port on the {{ yandex-cloud }} equipment.
-* A cross connection that is used to connect to the optical transceiver on the telecom provider's equipment and to the optical transceiver on the {{ yandex-cloud }} equipment.
+* Physical port on the telecom provider's equipment.
+* Optical transceiver connected to the physical port on the telecom provider's equipment.
+* Physical port reserved on the {{ yandex-cloud }} equipment.
+* Optical transceiver connected to the physical port on the {{ yandex-cloud }} equipment.
+* Cross connection that is used to connect to the optical transceiver on the telecom provider's equipment and to the optical transceiver on the {{ yandex-cloud }} equipment.
 
 {% note info %}
 
@@ -111,20 +111,20 @@ Multiple public connections in a single trunk are not supported.
 
 The following multiplexing options (schemes) are possible:
 
-* [A direct connection at a point of presence](#mux-direct).
-* [A connection using telecom provider services (L2 transit)](#mux-sp-L2).
-* [A connection using telecom provider services (L3VPN)](#mux-sp-L3).
+* [Direct connection at a point of presence](#mux-direct).
+* [Connection using telecom provider services (L2 transit)](#mux-sp-L2).
+* [Connection using telecom provider services (L3VPN)](#mux-sp-L3).
 
-#### A direct connection at a point of presence {#mux-direct}
+#### Direct connection at a point of presence {#mux-direct}
 
 
 ![trunk-over-direct-link](../../_assets/interconnect/interconnect-trn-1.svg)
 
 
 
-In this setup option, a 802.1Q trunk connection is set up over a direct physical connection between the client equipment at the [point of presence](./pops.md) and the {{ yandex-cloud }} equipment.
+In this setup option, a 802.1Q trunk is set up over a direct physical connection between the client equipment at the [point of presence](./pops.md) and the {{ yandex-cloud }} equipment.
 
-#### A connection using telecom provider services (L2 transit) {#mux-sp-L2}
+#### Connection using telecom provider services (L2 transit) {#mux-sp-L2}
 
 
 ![trunk-over-sp-l2](../../_assets/interconnect/interconnect-trn-2.svg)
@@ -133,12 +133,12 @@ In this setup option, a 802.1Q trunk connection is set up over a direct physical
 
 This method is used when the client does not have their own equipment at the point of presence. In this case:
 
-* A 802.1Q trunk connection is set up at the point of presence through a telecom provider that provides L2 transit.
-* The 802.1Q trunk connection is set up between the client equipment and the {{ yandex-cloud }} equipment.
-* When connecting the client equipment, the provider uses its own communication channels. If the client needs to change connection VLAN IDs (enable VLAN ID translation) on their equipment, the telecom provider needs to agree upon the translation scheme with the client for consistent operation of the client and telecom provider equipment.
+* The 802.1Q trunk is set up at the point of presence through a telecom provider that provides L2 transit.
+* The 802.1Q trunk is set up between the client equipment and the {{ yandex-cloud }} equipment.
+* When connecting the client equipment, the provider uses its own communication circuits. If the client needs to change connection VLAN IDs (enable VLAN ID translation) on their equipment, the telecom provider needs to agree upon the translation scheme with the client for consistent operation of the client and telecom provider equipment.
 
 
-#### A connection using telecom provider services (L2 transit) {#mux-sp-L3}
+#### Connection using telecom provider services (L2 transit) {#mux-sp-L3}
 
 
 ![trunk-over-sp-l3vpn](../../_assets/interconnect/interconnect-trn-3.svg)
@@ -147,14 +147,14 @@ This method is used when the client does not have their own equipment at the poi
 
 This method is used when the client does not have their own equipment at the point of presence. In this case:
 
-* A 802.1Q trunk connection is set up at the point of presence through a telecom provider.
-* The 802.1Q trunk connection is set up between the telecom provider's equipment at the point of presence and the {{ yandex-cloud }} equipment.
+* The 802.1Q trunk is set up at the point of presence through a telecom provider.
+* The 802.1Q trunk is set up between the telecom provider's equipment at the point of presence and the {{ yandex-cloud }} equipment.
 * Connectivity between the telecom provider's equipment at the point of presence and the client equipment is ensured by providing an L3VPN service to the client. This setup option is usually used when the client cannot technically ensure BGP connectivity to the {{ yandex-cloud }} equipment on their own and delegates this to a telecom provider that ensures connectivity by providing an L3VPN service to the client.
 
 
 ## Bandwidth and rate limit {#policer}
 
-At the trunk connection level, the {{ yandex-cloud }} equipment uses a rate limit for receiving and sending data from or to the external equipment in bits per second and in packets per second according to the [traffic package](./bandwidth.md) (bandwidth) selected by the client.
+At the trunk level, the {{ yandex-cloud }} equipment uses a rate limit for receiving and sending data from or to the external equipment in bits per second and in packets per second according to the [traffic package](./bandwidth.md) (bandwidth) selected by the client.
 
 To limit the rate of receiving and sending data on the {{ yandex-cloud }} equipment, the **RateLimit (Policing)** mechanism is used. When the data transfer speed in bits per second or packets per second is exceeded, the data may be rejected. As a result, uniform traffic may be transmitted at a faster speed than the traffic transmitted in sudden bursts.
 

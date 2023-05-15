@@ -43,6 +43,8 @@ Subnets can only use private IPv4 addresses from the ranges defined by [RFC 1918
 
 Prepare this information and send it to [technical support]({{ link-console-support }}).
 
+{% include [cli-period.md](../../_qa/cli-period.md) %}
+
 #### What do I do if email traffic is blocked? {#if-traffic-blocked}
 
 {{ yandex-cloud }} only [blocks](../concepts/limits.md#vpc-egress-traffic-filter) traffic sent from pubic IPs on port 25. Traffic sent to Yandex email servers is the exception. 

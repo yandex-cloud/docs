@@ -2,7 +2,7 @@
 
 ## Getting started {#before-you-begin}
 
-[Prepare and upload](../image-create/upload.md) the image to create a VM from.
+[Prepare and upload](../image-create/upload.md) the [image](../../concepts/image.md) to create a [VM](../../concepts/vm.md) from.
 
 Make sure the uploaded image is in the `READY` status.
 
@@ -13,7 +13,7 @@ Make sure the uploaded image is in the `READY` status.
 - Management console
 
    To create a VM:
-   1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
    1. In the list of services, select **{{ compute-name }}**.
    1. Click **Create VM**.
    1. Under **Basic parameters**:
@@ -23,34 +23,32 @@ Make sure the uploaded image is in the `READY` status.
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * Select an [availability zone](../../../overview/concepts/geo-scope.md) to put your virtual machine in.
-
+      * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place the VM in.
    1. Under **Image/boot disk selection**, select one of the images.
-
-   1. Under **Disks and file storage**, [add a disk](./create-from-disks.md):
+   1. Under **Disks and file storage**, [add a disk](create-from-disks.md):
       * Click **Add disk**.
-      * Enter the disk name.
+      * Enter the [disk](../../concepts/disk.md) name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the desired block size.
-      * Specify the necessary disk size.
+      * Specify the required disk size.
       * (optional) Enable the **Delete with the VM** option if you need to automatically delete the disk when deleting the VM it will be attached to.
       * Select `Image` as content.
       * Select the necessary image.
       * Click **Add**.
-
    1. Under **Computing resources**:
       * Choose a [platform](../../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
-      * If necessary, make your VM [preemptible](../../concepts/preemptible-vm.md).
+      * If required, make your VM [preemptible](../../concepts/preemptible-vm.md).
       * (optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
-
    1. Under **Network settings**:
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-      1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+   
+   1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
 
-   1. Under **Access**, specify the data required to access the VM:
+
+   1. Under **Access**, specify the information required to access the instance:
       * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
       * Enter the username in the **Login** field.
 
@@ -62,10 +60,9 @@ Make sure the uploaded image is in the `READY` status.
 
       * In the **SSH key** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * If required, grant access to the [serial console](../../operations/serial-console/index.md).
-
    1. Click **Create VM**.
 
-   The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../../vpc/concepts/address.md) and [hostname](../../../vpc/concepts/address.md#fqdn) (FQDN).
+   The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name](../../../vpc/concepts/address.md#fqdn) (FQDN).
 
 - CLI
 
@@ -73,34 +70,34 @@ Make sure the uploaded image is in the `READY` status.
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI command for creating a VM:
+   1. View a description of the CLI create VM command:
 
-      ```
+      ```bash
       yc compute instance create --help
       ```
 
-   1. Get a list of images in the default folder:
+   1. Get a list of images in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-      ```
+      ```bash
       yc compute image list
       ```
 
       Result:
 
-      ```
-      +----------------------+-------------------+--------+-------------+--------+
-      |          ID          |       NAME        | FAMILY | PRODUCT IDS | STATUS |
-      +----------------------+-------------------+--------+-------------+--------+
-      |         ...          |         ...       |        |             |  ...   |
-      | fd8gkcd3l6ov84aon8s1 |  your-test-image  |        |             | READY  |
-      |         ...          |         ...       |        |             |  ...   |
-      +----------------------+-------------------+--------+-------------+--------+
+      ```text
+      +----------------------+-----------------+--------+-------------+--------+
+      |          ID          |      NAME       | FAMILY | PRODUCT IDS | STATUS |
+      +----------------------+-----------------+--------+-------------+--------+
+      |         ...          |        ...      |        |             |  ...   |
+      | fd8gkcd3l6ov84aon8s1 | your-test-image |        |             | READY  |
+      |         ...          |        ...      |        |             |  ...   |
+      +----------------------+-----------------+--------+-------------+--------+
       ```
 
    1. Select the identifier (`ID`) or name (`NAME`) of the desired image.
    1. Create a VM in the default folder:
 
-      ```
+      ```bash
       yc compute instance create \
         --name test-vm-from-image \
         --zone {{ region-id }}-a \
@@ -113,7 +110,7 @@ Make sure the uploaded image is in the `READY` status.
 
       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      The `yc-user` user will be created on the VM with the public key from the `~/.ssh/id_ed25519.pub` file. The VM gets a public IP address. To create a VM without a public IP, remove the `--public-ip` flag.
+      The `yc-user` user will be created on the VM with the public key from the `~/.ssh/id_ed25519.pub` file. The VM gets a [public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP, remove the `--public-ip` flag.
 
 
 - API
@@ -125,10 +122,9 @@ Make sure the uploaded image is in the `READY` status.
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a VM from a custom image:
-
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      ```
+      ```hcl
       resource "yandex_compute_instance" "vm-1" {
 
         name        = "vm-from-image"
@@ -168,17 +164,16 @@ Make sure the uploaded image is in the `READY` status.
       ```
 
       Where:
-
-      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
+      * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name.
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the identifier of the [uploaded](../image-create/upload.md) image.
-         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
-         * `metadata`: In metadata, provide the public SSH key for accessing the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
-      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
-      * `yandex_vpc_subnet`: Description of [subnet](../../../vpc/concepts/network.md#network) your virtual machine will connect to.
+         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+         * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+      * `yandex_vpc_network`: Description of the cloud network.
+      * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
 
       {% note info %}
 
@@ -187,23 +182,19 @@ Make sure the uploaded image is in the `READY` status.
       {% endnote %}
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
    1. Make sure the configuration files are valid.
-
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
 
-         ```
+         ```bash
          terraform plan
          ```
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Deploy cloud resources.
-
       1. If the configuration does not contain any errors, run this command:
 
-         ```
+         ```bash
          terraform apply
          ```
 

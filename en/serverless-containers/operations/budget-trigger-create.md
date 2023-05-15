@@ -2,7 +2,7 @@
 
 Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) when threshold values are exceeded.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
@@ -16,7 +16,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Open **{{ serverless-containers-name }}**.
 
@@ -32,9 +32,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
    1. Under **Budget settings**, select your billing account and budget. You can select **All budgets**.
 
-   1. Under **Container settings**, select a container and specify:
-
-      {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+   1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
    1. (optional) Under **Repeat request settings**:
 
@@ -50,7 +48,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a trigger that invokes a container, run the command:
+   To create a trigger that invokes a container, run this command:
 
    ```bash
    yc serverless trigger create billing-budget \
@@ -98,7 +96,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
 - API
 
-   You can create a trigger for budgets using the API [create](../triggers/api-ref/Trigger/create.md) method.
+   To create a trigger for budgets, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 

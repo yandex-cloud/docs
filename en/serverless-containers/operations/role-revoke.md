@@ -42,6 +42,6 @@
 
 - API
 
-   You can revoke roles assigned to a container using the [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) API method.
+   To revoke container roles, use the [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/container_service.md#UpdateAccessBindings) gRPC API call.
 
 {% endlist %}

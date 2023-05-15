@@ -240,7 +240,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
 {% note warning %}
 
-This functionality is only available when agreed by your account manager.
+This feature is only available upon agreement with your account manager.
 
 {% endnote %}
 

@@ -7,7 +7,7 @@ description: "The main {{ iot-full-name }} service elements are devices, registr
 
 The service provides two resource management models: brokers and device registries. The main service elements are [devices](index.md#device), [registries](index.md#registry), and [brokers](index.md#broker). They can exchange various data and commands using the [MQTT server](index.md#mqtt-server).
 
-Registries and devices are related to each other and devices can exchange data with the registry in which they are created. The broker isn't related to registries and devices and implements a separate messaging management model.
+Registries and devices are related to each other in a way that devices can exchange data with the registry in which they are created. The broker is not related to registries or devices and implements a separate messaging management model.
 
 Data is exchanged via [MQTT](https://mqtt.org) version 3.1.1. This simplified network protocol for device communication is based on the publisher/subscriber pattern.
 
@@ -38,14 +38,13 @@ _MQTT clients_ are devices, registries, and broker clients that exchange message
 To make sure devices, registries, and broker clients receive each other's messages via the MQTT server, [subscribe them to the appropriate topics](../operations/subscribe.md).
 
 If you have devices with sensor readings that you need to quickly respond to and you may face network communication problems and a broken connection between your devices and the MQTT server, you can subscribe your devices and registries to [permanent topics](./topic/index.md).
-
 For example, use permanent topics for temperature sensors on devices that need to be turned off quickly when heated to a certain temperature.
 
 ## QoS levels {#qos}
 
 When exchanging messages, {{ iot-name }} supports the following quality of service (QoS) levels for MQTT:
 
-* `QoS 0: At most once`. A message is sent no more than once and there is no guarantee of delivery.
+* `QoS 0: At most once`: Message is sent no more than once and there is no guarantee of delivery.
 
 * `QoS 1: At least once`. This level guarantees that a message is delivered to a client at least once. There is a chance of receiving duplicate messages.
 

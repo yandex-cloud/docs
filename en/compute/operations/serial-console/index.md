@@ -1,6 +1,6 @@
 # Getting started with the serial console
 
-The serial console allows you to access a VM regardless of the network or OS status. For example, you can use the console for troubleshooting VM issues or when there are problems with SSH access.
+The serial console allows you to access a [VM](../../concepts/vm.md) regardless of the [network](../../../vpc/concepts/network.md#network) or OS status. For example, you can use the console to troubleshoot VM issues or when there are problems with SSH access.
 
 Serial console access is disabled by default.
 
@@ -9,9 +9,7 @@ Serial console access is disabled by default.
 ## Getting started {#before-you-begin}
 
 Before you enable serial console access on a VM:
-
 1. Prepare the key pair (public and private keys) for SSH access to the VM. The serial console authenticates users via SSH keys.
-
 1. Create a text file (for example, `sshkeys.txt`) and specify the following:
 
    ```txt
@@ -28,7 +26,7 @@ Before you enable serial console access on a VM:
 
 ## Enabling the console when creating a VM from a public image {#turn-on-for-new-instance}
 
-To enable access to the serial console when creating a VM, set the `serial-port-enable` parameter in the metadata to `1`.
+To enable access to the serial console when creating a VM, set the `serial-port-enable` parameter in the [metadata](../../concepts/vm-metadata.md) to `1`.
 
 {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -44,11 +42,11 @@ To enable access to the serial console when creating a VM, set the `serial-port-
       yc compute instance create --help
       ```
 
-   1. Select a public image based on a Linux OS (such as Ubuntu).
+   1. Select a public [image](../../concepts/image.md) based on a Linux OS (such as Ubuntu).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 
-   1. Create a VM in the default folder:
+   1. Create a VM in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
       yc compute instance create \
@@ -63,7 +61,7 @@ To enable access to the serial console when creating a VM, set the `serial-port-
       This command will create a VM:
       * With Ubuntu.
       * Named `first-instance`.
-      * In the `{{ region-id }}-a` zone.
+      * In the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md).
       * With the serial console active.
 
       A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
@@ -74,11 +72,6 @@ To enable access to the serial console when creating a VM, set the `serial-port-
 ## Enabling the console when updating a VM {#turn-on-for-current-instance}
 
 To enable access to the serial console when updating a VM, set the `serial-port-enable` parameter in the metadata to `1`.
-
-{% include [cli-install](../../../_includes/cli-install.md) %}
-
-{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
 1. Get a list of VMs in the default folder:
 
    {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
@@ -98,10 +91,11 @@ To enable access to the serial console when updating a VM, set the `serial-port-
 
 ## Configuring a VM for serial port access {#configuration}
 
-To configure access via the serial console, a virtual machine must have a public IP address. You can look up the address in the [management console]({{ link-console-main }}) in the **Compute Cloud** section on the **Virtual machines** page. If you created a virtual machine without a public IP address, you can [assign it one](../vm-control/vm-attach-public-ip.md). Once the configuration is complete, you can release the address. You do not need it for connections via the serial console.
+To configure access via the serial console, a VM must have a [public IP address](../../../vpc/concepts/address.md#public-addresses). You can look up the address in the [management console]({{ link-console-main }}) in the **{{ compute-name }}** section on the **Virtual machines** page. If you created a VM without a public IP address, you can [assign one](../vm-control/vm-attach-public-ip.md). Once the configuration is complete, you can release the address. You do not need it for connections via the serial console.
 
 For the serial console to be available from the OS, the OS must be configured properly:
 * [Linux](#linux-configuration)
+
 
 ### Linux {#linux-configuration}
 
@@ -127,17 +121,11 @@ To disable SSH password authentication:
 Sometimes an OS might request user credentials to access the VM. Before connecting to such VMs, create a local password for the default user.
 
 To create a local password, use the CLI.
-
-{% include [cli-install](../../../_includes/cli-install.md) %}
-
-{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
 1. Get a list of VMs in the default folder:
 
    {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
 1. Select the VM `ID` or `NAME` (for example, `first-instance`).
-
 1. Get the public IP address of the VM.
 
    ```bash
@@ -155,7 +143,6 @@ To create a local password, use the CLI.
    ```
 
 1. Connect to the VM. For more information, see [{#T}](../vm-connect/ssh.md#vm-connect).
-
 1. Create a local password. In Linux, you can set a password using the `passwd` command:
 
    ```bash

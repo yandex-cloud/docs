@@ -25,7 +25,7 @@ The {{ compute-name }} usage cost is based on:
    * Disks
    * Images
    * Snapshots
-* The amount of outgoing traffic
+* Amount of outgoing traffic
 * Public IP address
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
@@ -38,9 +38,10 @@ The cost of a VM depends on the allocated computing resources, operating system,
 
 The cost is calculated for the time of using the VM, from the moment it is started (when its status changes to `RUNNING`) until it is completely stopped. The time when the VM is stopped is not charged.
 
-The VM starts automatically once it's created.
+The VM starts automatically once it is created.
 
 When creating a VM, you can specify a public IP address for it.
+
 
 For information about external IP address usage pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
 
@@ -72,7 +73,7 @@ Both VMs have been running for 30 days.
 > Total: $8.064000 is the cost of using a VM with 2 × 5% vCPUs and 2 GB of RAM during 30 days.
 
 Where:
-* 720 is the number of hours in 30 days.
+* 720: Number of hours in 30 days.
 * 2 is the number of 5% vCPUs.
 * $0.002480 is the cost of using 5% vCPU per hour.
 * 2 is the amount of RAM (in GB).
@@ -87,7 +88,7 @@ Where:
 > Total: $17.395200 is the cost of using a VM with 2 × 100% vCPUs and 2 GB of RAM during 30 days.
 
 Where:
-* 720 is the number of hours in 30 days.
+* 720: Number of hours in 30 days.
 * 2 is the number of 100% vCPUs.
 * $0.008960 is the cost of using 100% vCPU per hour.
 * 2 is the amount of RAM (in GB).
@@ -166,11 +167,26 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 
 
+## Discount for committed volumes of services (CVoS) {#cvos}
+
+{% include [cvos](../_includes/mdb/cvos.md) %}
+
+{{ compute-name }} provides two types of CVoS: on vCPUs and RAM. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+
+{% note info %}
+
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+
+{% endnote %}
+
+
 ## Pricing {#prices}
 
 
 All prices are shown without VAT.
 
+
+The price with a CVoS is only available for regular VMs.
 
 ### VM computing resources {#prices-instance-resources}
 

@@ -9,14 +9,12 @@ The source code used in this scenario is available on [GitHub](https://github.co
 {% endnote %}
 
 Once connected, you can exchange messages between your device and registry:
-
 * [Send messages](../operations/publish.md).
 * [Subscribe a device or registry to receive messages](../operations/subscribe.md).
 
 To connect to {{ iot-full-name }} and start messaging:
-
-* [Before you start](#before-you-begin)
-* [Create the necessary {{ iot-full-name }} resources](#resources)
+* [Get started](#before-you-begin)
+* [Create the required {{ iot-full-name }} resources](#resources)
     * [Create a registry and add a certificate to it](#registry)
     * [Create a device and add a certificate to it](#device)
 * [Connect to {{ iot-full-name }}](#connect)
@@ -28,12 +26,12 @@ To connect to {{ iot-full-name }} and start messaging:
 * [Send a data message](#publish)
 * [Terminate the connection](#disconnect)
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. If you don't have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
+1. If you do not have the command line interface {{ yandex-cloud }} yet, [install and initialize it](../../cli/quickstart.md#install).
 1. Download and install [Android Studio](https://developer.android.com/studio), a development environment for Android.
 
-## Create the necessary {{ iot-full-name }} resources{#resources}
+## Create the required {{ iot-full-name }} resources{#resources}
 
 ### Create a registry and add a certificate to it {#registry}
 
@@ -42,28 +40,27 @@ If you already have a certificate, go directly to the second step.
 1. Create a certificate for the registry (skip this step if you already have a registry certificate):
 
    ```shell script
-    openssl req -x509 \
-      -newkey rsa:4096 \
-      -keyout registry-key.pem \
-      -out registry-cert.pem \
-      -nodes \
-      -days 365 \
-      -subj '/CN=localhost'
+   openssl req -x509 \
+     -newkey rsa:4096 \
+     -keyout registry-key.pem \
+     -out registry-cert.pem \
+     -nodes \
+     -days 365 \
+     -subj '/CN=localhost'
    ```
-
 1. Create a registry:
 
-    ```
-    yc iot registry create --name my-registry
-    ```
+   ```
+   yc iot registry create --name my-registry
+   ```
 
 1. Add a certificate to the registry:
 
-    ```
-    yc iot registry certificate add \
-      --registry-name my-registry \ # Registry name.
-      --certificate-file registry-cert.pem # Path to the public part of the certificate.
-    ```
+   ```
+   yc iot registry certificate add \
+   --registry-name my-registry \ # Registry name.
+     --certificate-file registry-cert.pem # Path to the public part of the certificate.
+   ```
 
 ### Create a device and add a certificate to it {#device}
 
@@ -72,28 +69,28 @@ If you already have a certificate, go directly to the second step.
 1. (optional) Create a certificate for the device:
 
    ```shell script
-    openssl req -x509 \
-      -newkey rsa:4096 \
-      -keyout device-key.pem \
-      -out device-cert.pem \
-      -nodes \
-      -days 365 \
-      -subj '/CN=localhost'
+   openssl req -x509 \
+     -newkey rsa:4096 \
+     -keyout device-key.pem \
+     -out device-cert.pem \
+     -nodes \
+     -days 365 \
+     -subj '/CN=localhost'
    ```
 
 1. Create a device:
 
-    ```
-    yc iot device create --name my-device
-    ```
+   ```
+   yc iot device create --name my-device
+   ```
 
 1. Add a certificate to the device:
 
-    ```
-    yc iot device certificate add \
-      --device-name my-device \ # Device name.
-      --certificate-file device-cert.pem # Path to the public part of the certificate.
-    ```
+   ```
+   yc iot device certificate add \
+     --device-name my-device \ # Device name.
+     --certificate-file device-cert.pem # Path to the public part of the certificate.
+   ```
 
 ## Connect to {{ iot-full-name }} {#connect}
 
@@ -111,14 +108,12 @@ options.setKeepAliveInterval(keepAliveInterval);
 ```
 
 Where:
-
 * `MqttAndroidClient` is a class that specifies the {{ iot-full-name }} connection parameters. Client address, port, and ID.
 * `MqttConnectOptions` is a class that sets the connection options. You can use the default settings, but we recommend setting the `keepAliveInterval` parameter. Its value determines the frequency of sending `PINGREQ` commands. The lower this parameter value, the faster the client realizes that a connection terminated abnormally. However, this increases the frequency of sending payable `PINGREQ` commands.
 
 ## Log in to {{ iot-full-name }} {#auth}
 
 There are two [authorization](../concepts/authorization.md) methods:
-
 * [Using X.509 certificates](#certs).
 * [Using a username and password](#log-pass).
 
@@ -131,20 +126,17 @@ openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
 ```
 
 To load certificates in your project, use the following method:
-
 ```java
 private SSLSocketFactory getSocketFactory(final InputStream caCrtFile, final InputStream devCert, final String password)
 ```
-
 Certificates are loaded in several stages:
-
 1. Load the certificate used for server authentication:
 
     ```java
     // Loading the CA certificate.
     CertificateFactory cf = CertificateFactory.getInstance("X.509");
     X509Certificate caCert = (X509Certificate) cf.generateCertificate(caCrtFile);
-    
+
     // Using the CA certificate for server authentication.
     KeyStore serverCaKeyStore = KeyStore.getInstance(KeyStore.getDefaultType());
     serverCaKeyStore.load(null, null);
@@ -152,9 +144,7 @@ Certificates are loaded in several stages:
     TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
     tmf.init(serverCaKeyStore);
     ```
-
 1. Load the client certificate used for server authorization:
-
     ```
     KeyStore clientKeystore = KeyStore.getInstance("PKCS12");
     clientKeystore.load(devCert, password.toCharArray());
@@ -203,7 +193,6 @@ In the connection settings, specify the username (registry or device ID) and pas
 options.setUserName(mqttUserName);
 options.setPassword(mqttPassword.toCharArray());
 ```
-
 and the `SSLSocketFactory` from the code above:
 
 ```java
@@ -237,7 +226,7 @@ mqttAndroidClient.setCallback(new MqttCallback() {
 });
 ```
 
-Subscribe to a topic using the following code. In the `subscribe` method, specify the topic that you want to subscribe to and the QoS.
+Subscribe to a topic using the following code. In the `subscribe` method, specify the topic you want to subscribe to and the QoS level.
 
 ```java
 IMqttToken subToken = mqttAndroidClient.subscribe(topic, qos);
@@ -295,3 +284,4 @@ Where:
 
 * The `disconnect` method terminates the server connection.
 * The `close` method releases `MqttAndroidClient` class resources.
+

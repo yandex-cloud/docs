@@ -1,6 +1,6 @@
 # Preparing your disk image
 
-You can use your own file with a Linux-based VM disk image. After preparing your image, [upload it](upload.md) to {{ compute-name }}.
+You can use your own file with a Linux-based [VM](../../concepts/vm.md) [disk](../../concepts/disk.md) [image](../../concepts/image.md). Once your image is prepared, [upload it](upload.md) to {{ compute-name }}.
 
 {% note info %}
 
@@ -9,7 +9,7 @@ To speed up creating VMs from an image, you can [optimize](../../concepts/image.
 {% endnote %}
 
 
-If you made software that might be helpful to other others, [offer](../../../marketplace/operations/create-product.md) it in {{ marketplace-name }}.
+If you made software that might be helpful to other others, [offer](../../../marketplace/operations/create-product.md) it in {{ marketplace-full-name }}.
 
 
 ## Configure the OS to meet the requirements {#requirements}
@@ -18,17 +18,17 @@ If you made software that might be helpful to other others, [offer](../../../mar
 
 ### Install the virtio drivers {#virtio}
 
-To successfully upload your image, make sure to install the `virtio-blk`, `virtio-net`, and `virtio-pci` drivers. To use {{ compute-name }} file storage, install the `virtiofs` drivers.
+To successfully upload your image, make sure to install the `virtio-blk`, `virtio-net`, and `virtio-pci` drivers. To use {{ compute-name }} [file storage](../../concepts/filesystem.md), install `virtiofs` drivers.
 
 Most modern distributions contain the `virtio` drivers by default. They can be compiled as separate `.ko` files or be part of the kernel itself.
 
-Follow the instructions below to check if the drivers are installed and, if not, add them.
-
-1. Find out if the drivers are included in the kernel configuration:
+Follow the guide below to check if the drivers are installed; if they are not, add them.
+1. Find out whether the drivers are included in the kernel configuration:
 
    {% cut "How do I find out?" %}
 
-   Run the command:
+   Run the following command:
+
    ```sh
    grep -E -i "VIRTIO_(BLK|NET|PCI|FS)" /boot/config-$(uname -r)
    ```
@@ -41,7 +41,8 @@ Follow the instructions below to check if the drivers are installed and, if not,
 
    {% cut "How to check if drivers are included in a kernel" %}
 
-   Run the command:
+   Run the following command:
+
    ```sh
    grep -E "virtio(_blk|_net|_pci|fs)" /lib/modules/"$(uname -r)"/modules.builtin
    ```
@@ -113,17 +114,16 @@ Follow the instructions below to check if the drivers are installed and, if not,
 
 ### Configure the serial console {#serial-console}
 
-The serial console allows you to access your VM regardless of the network or OS status. Use the serial console, for example, for troubleshooting VM issues or when there are problems with SSH access. For more information, see [{#T}](../serial-console/index.md).
+The [serial console](../serial-console/index.md) allows you to access your VM regardless of the [network](../../../vpc/concepts/network.md#network) or OS status. Use the serial console to troubleshoot your VM or when you have issues with SSH access. For more information, see [{#T}](../serial-console/index.md).
 
 To connect to your VM using the serial console, set up the `ttyS0` terminal (COM1 port) as a system console for your image:
-
 1. In the `/etc/default/grub` file with GRUB settings, add `console=ttyS0` to the `GRUB_CMDLINE_LINUX` parameter value. The line with this parameter should look like this:
 
    ```sh
    GRUB_CMDLINE_LINUX="foo=bar baz console=ttyS0"
    ```
 
-1. Check that the `/etc/securetty` file with a list of terminals that the `root` user can log in to the system through contains the `ttyS0` line. If the file doesn't exist, create it.
+1. Check that the `/etc/securetty` file with a list of terminals, through which the `root` user can log in to the OS, contains the `ttyS0` line. If the file doesn't exist, create it.
 
    {% note info %}
 
@@ -137,21 +137,21 @@ To connect to your VM using the serial console, set up the `ttyS0` terminal (COM
 
    - CentOS, Fedora
 
-      ```sh
-      sudo stty -F /dev/ttyS0 9600                 # Sets the recommended baud rate for the ttyS0 terminal at 9600
-      sudo grub2-mkconfig -o /boot/grub2/grub.cfg  # Generates a configuration file for GRUB
-      sudo systemctl start getty@ttyS0             # Starts getty on the ttyS0 terminal
-      sudo systemctl enable getty@ttyS0            # Specifies that getty should be run every time the OS is started
-      ```
+     ```sh
+     sudo stty -F /dev/ttyS0 9600 # Sets the recommended baud rate for the ttyS0 terminal at 9600.
+     sudo grub2-mkconfig -o /boot/grub2/grub.cfg # Generates a configuration file for GRUB.
+     sudo systemctl start getty@ttyS0 # Starts getty on the ttyS0 terminal.
+     sudo systemctl enable getty@ttyS0 # Specifies that getty should be run every time the OS is started.
+     ```
 
    - Debian, Ubuntu
 
-      ```sh
-      sudo stty -F /dev/ttyS0 9600        # Sets the recommended baud rate for the ttyS0 terminal at 9600
-      sudo grub2-mkconfig -o /boot/grub2/grub.cfg                    # Generates a configuration file for GRUB
-      sudo systemctl start getty@ttyS0    # Starts getty on the ttyS0 terminal
-      sudo systemctl enable getty@ttyS0   # Specifies that getty should be run every time the OS is started
-      ```
+     ```sh
+     sudo stty -F /dev/ttyS0 9600 # Sets the recommended baud rate for the ttyS0 terminal at 9600.
+     sudo update-grub # Generates a configuration file for GRUB.
+     sudo systemctl start getty@ttyS0 # Starts getty on the ttyS0 terminal.
+     sudo systemctl enable getty@ttyS0 # Specifies that getty should be run every time the OS is started.
+     ```
 
    {% endlist %}
 
@@ -182,7 +182,7 @@ Supported formats: `Qcow2`, `VMDK`, and `VHD`.
 
 We recommend that you use `Qcow2` format with an optimized cluster size for faster import. To convert your image from other formats, use the `qemu-img` utility:
 
-```
+```bash
 qemu-img convert -p -O qcow2 -o cluster_size=2M <name of your image file> <name of the new image file>
 ```
 

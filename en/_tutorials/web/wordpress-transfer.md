@@ -10,27 +10,27 @@ In {{ yandex-cloud }}, you can quickly [create a website on WordPress](../../tut
 
 To transfer a WordPress CMS website to {{ yandex-cloud }}:
 
-1. [Create a backup of the site](#create-backup).
-1. [Before you start](#before-begin).
-1. [Create a VM for WordPress](#create-vm).
+1. [Make a backup of the site](#create-backup).
+1. [Prepare your cloud](#before-begin).
+1. [Create a virtual machine for WordPress](#create-vm).
 1. [Connect to the VM](#connect-vm).
 1. [Install and configure additional components](#additional-components).
 1. [Import the database](#import-db).
 1. [Transfer the site files](#transfer-files).
-1. [Configure DNS](#configure-dns).
-1. [Create an SSL certificate](#setting-ssl).
-1. [Check the operability of the site](#check-site).
+1. [Configure the DNS](#configure-dns).
+1. [Create a SSL certificate](#setting-ssl).
+1. [Check that the website is running](#check-site).
 
 ## Make a backup of the site {#create-backup}
 
 Make a backup of the site and database files using one of the following methods:
 
-* Using various plugins for WordPress (for example, [BackWPup](  https://wordpress.org/plugins/backwpup ) or [Updraft Plus](  https://wordpress.org/plugins/updraftplus )).
+* Using various plugins for WordPress (for example [BackWPup](  https://wordpress.org/plugins/backwpup ) or [Updraft Plus](  https://wordpress.org/plugins/updraftplus )).
 * Using built-in tools from the hosting control panel for your website.
 * Copying all the files to your hard drive using an FTP client and exporting the database using the [phpMyAdmin](https://www.phpmyadmin.net/) panel.
   This method is longer and will take 5 to 20 minutes because you need to copy numerous small files that make up your site.
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -41,7 +41,7 @@ Make sure the selected folder has a cloud network with a subnet in at least one 
 
 The cost of hosting a website in WordPress includes:
 
-* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * A fee for public DNS queries and zones (see [{{ dns-full-name }} pricing](https://cloud.yandex.com/en/docs/dns/pricing)).
 
@@ -58,15 +58,15 @@ To create a VM:
 
    {% include [name-format](../../_includes/name-format.md) %}
 
-1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM. If you don't know which availability zone you need, leave the default.
+1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in. If you do not know which availability zone you need, leave the default one.
 
-1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [LAMP](/marketplace/products/yc/lamp): an image with a set of necessary components: Linux OS, Apache web server, MySQL DBMS, and a PHP interpreter.
+1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select [LAMP](/marketplace/products/yc/lamp), an image that includes the appropriate set of components: the Linux OS, Apache web server, MySQL DBMS, and PHP interpreter.
 
 1. Under **Disks**, select the disk type and set the size.
 
 1. Under **Computing resources**:
-   * Choose a [platform](../../compute/concepts/vm-platforms.md) for your VM.
-   * Specify the necessary number of vCPUs and amount of RAM.
+   * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
+   * Specify the required number of vCPUs and the amount of RAM.
 
    For a regular WordPress site, the minimum configuration is enough:
    * **Platform**: Intel Ice Lake.
@@ -74,7 +74,7 @@ To create a VM:
    * **vCPU**: 2.
    * **RAM**: 1 GB.
 
-1. Under **Network settings**, select the network and subnet to connect the VM to. If you don't have a network or subnet, create them on the VM creation page.
+1. Under **Network settings**, select the network and subnet to connect the VM to. If you do not have a network or subnet, create them on the VM creation page.
 
 1. Under **Public address**, keep **Auto** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
@@ -82,7 +82,7 @@ To create a VM:
    * Select a service account or create a new one.
    * Enter the username in the **Login** field.
    * In the **SSH key** field, paste the contents of the public key file.
-     You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md).
+      You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md).
 
    {% note alert %}
 
@@ -90,13 +90,13 @@ To create a VM:
 
    {% endnote %}
 
-1. Click **Create VM**.
+1. Click **Create VM**.
 
-   The VM may take several minutes to create. When the VM status changes to `RUNNING`, you can [upload the website files](#upload-files).
+   It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can [upload the website files](#upload-files).
 
 ## Connect to the VM {#connect-vm}
 
-You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). You can use the `ssh` tool in Linux/macOS/Windows 10 or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows 7/8.
+You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). To do this, you can use the `ssh` utility in Linux/macOS/Windows 10 and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows 7/8.
 
 To connect to a VM, you must specify its public address.
 
@@ -127,10 +127,10 @@ Before you transfer your files, do the following:
 
 - Ubuntu
 
-  Run the command:
+  Run this command:
 
   ```bash
-    sudo apt install nano
+  sudo apt install nano
   ```
 
   Wait for the editor to be installed.
@@ -204,7 +204,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. To enable the
 
 - Ubuntu
 
-    1. Run the command:
+    1. Run this command:
 
         ```bash
         sudo nano /etc/apache2/conf-available/phpmyadmin.conf
@@ -219,7 +219,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. To enable the
         AllowOverride All
         ```
 
-    1. Save the changes in the `phpmyadmin.conf` file. To do this, click **Ctrl** + **O** and **Enter**. To exit the file, click **Ctrl** + **X**.
+    1. Save the changes in the `phpmyadmin.conf` file. To do this, click **Ctrl** + **O** and **Enter**. To exit the file, press **Ctrl** + **X**.
 
     1. Restart Apache:
 
@@ -242,7 +242,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. To enable the
         Require valid-user
         ```
 
-    1. Save the changes in the file.
+    1. Save the changes to the file.
 
     1. Create `.htpasswd`:
 
@@ -298,7 +298,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. To enable the
         * In the left column, select the database you created.
         * Click **Import** and select the saved database backup. If the database backup exceeds the default limit of 2 MB, edit the configuration file `php.ini` where this restriction is set.
 
-        1. Run the command:
+        1. Run this command:
 
            ```bash
 	        sudo nano /etc/php/X.X/apache2/php.ini
@@ -314,7 +314,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. To enable the
            upload_max_filesize = 80M
            post_max_size = 80M
            ```
-        1. Save the changes: press **Ctrl** + **O** and **Enter**. To exit the file, press **Ctrl** + **X**.
+        1. Save the changes: Press **Ctrl** + **O** and **Enter**. To exit the file, press **Ctrl** + **X**.
 
         1. Restart Apache:
 
@@ -352,9 +352,9 @@ To transfer backup files to a virtual machine, use the [FileZilla](https://filez
 
 1. Select SFTP and enter the public IP address of the virtual machine. Under **Logon type**, select **File with the key**.
 
-1. Specify the user created when configuring the VM and select the key file (located in the `/Users/<user_name>/.ssh/`).
+1. Specify the user created when configuring the VM and select the key file (located in the `/Users/<user_name>/.ssh/` folder).
 
-   The FTP client doesn't see the hidden folder by default. Press the keyboard shortcut **Cmd** + **Shift** + **G** and select the file `id_rsa` without the `pub` extension. A message is displayed that the file is not supported. The FTP client will offer to convert it to the desired format. Click **Yes**. Save the converted file in a convenient location.
+   The FTP client doesn't see the hidden folder by default. Press **Cmd** + **Shift** + **G** and select the `id_ed25519` file without the `pub` extension. A message is displayed that the file is not supported. The FTP client will offer to convert it to the desired format. Click **Yes**. Save the converted file in a convenient location.
 
 1. Click **Connect** and enter the passphrase that you created at the beginning of the work. You'll be connected to the VM.
 
@@ -404,7 +404,7 @@ To transfer backup files to a virtual machine, use the [FileZilla](https://filez
      sudo chmod 600 wp-config.php
      ```
 
-     The `f` parameter: searches for all files inside folders. The `d` parameter: searches for all folders inside `html`.
+     The `f` parameter: Searches for all files inside folders. The `d` parameter: Searches for all folders inside `html`.
 
    {% endlist %}
 
@@ -423,7 +423,7 @@ To check that the site is up, enter its IP address or domain name in your browse
 
 ## Install the SSL certificate using Let's Encrypt® {#setting-ssl}
 
-To install the certificate, use [Let’s Encrypt](https://letsencrypt.org/). Let's Encrypt is a certificate authority that offers free [SSL certificates](  https://wikipedia.org/wiki/SSL ).
+To install the certificate, use [Let’s Encrypt](https://letsencrypt.org/). Let's Encrypt is a certificate authority that offers free [SSL certificates](  https://wikipedia.org/wiki/SSL ).
 
 ### Install the Let's Encrypt client {#install-client}
 
@@ -469,9 +469,9 @@ To install the certificate, use [Let’s Encrypt](https://letsencrypt.org/). Let
 
     1. In the interface, enter the name of your domain `example.com` or `www.example.com`.
 
-    1. Decide if you need to redirect all pages from `http` on `https` when opening a website. Select `2`: redirect to https.
+    1. Decide if you need to redirect all pages from `http` on `https` when opening a website. Select `2`: Redirect to https.
 
-    1. Test your site: enter `https://www.ssllabs.com/ssltest/analyze.html?d=example.com` in the address bar of the browser.
+    1. Test your site: Enter `https://www.ssllabs.com/ssltest/analyze.html?d=example.com` in the address bar of the browser.
 
 {% endlist %}
 
@@ -515,7 +515,7 @@ If there is no file, create it.
 
     1. Enter the following command in the terminal:
 
-        ```bash    
+        ```bash
         sudo nano /var/www/html/.htaccess
         ```
 

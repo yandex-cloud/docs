@@ -37,7 +37,7 @@ The cost of this infrastructure includes:
 
 Set the software up to run:
 
-* [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command-line interface.
+* [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface.
 * [Install](https://www.terraform.io/downloads) {{ TF }}. See also [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Download](https://stedolan.github.io/jq/download/) the jq utility.
 * [Configure](https://gitforwindows.org) Git. If you are running Windows, use Git Bash.
@@ -85,7 +85,7 @@ To create a virtual machine with Jenkins:
 1. Under **Disks**, enter 15 GB for the size of the boot disk:
 1. Under **Computing resources**:
    - Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-   - Specify the number of vCPUs and amount of RAM:
+   - Specify the number of vCPUs and the amount of RAM:
       * **vCPU**: 2.
       * **Guaranteed vCPU share**: 20%
       * **RAM**: 2 GB.
@@ -276,9 +276,9 @@ This will create:
 1. Subnets in all availability zones.
 1. Virtual machines from images created by Packer. Virtual machines with nginx get public IP addresses. All virtual machines are connected to subnets.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 * [Delete the created VMs](../../compute/operations/vm-control/vm-delete.md).
 * [Delete the created images](../../compute/operations/image-control/delete.md).

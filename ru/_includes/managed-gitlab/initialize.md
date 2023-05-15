@@ -1,10 +1,12 @@
+## Настройте {{ GL }} {#configure-gitlab}
+
 Чтобы настроить {{ GL }} и подготовить процесс непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI), создайте новый проект и введите параметры для авторизации в CI:
 
 {% list tabs %}
 
 - Инстанс {{ mgl-name }}
 
-  1. Авторизуйтесь в веб-интерфейсе инстанса {{ mgl-name }}.
+  1. Авторизуйтесь в веб-интерфейсе [инстанса {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance).
   1. Нажмите кнопку **Create a project**.
   1. Нажмите кнопку **Create blank project**.
   1. Заполните поля:

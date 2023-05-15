@@ -11,9 +11,9 @@ keywords:
 
 # Uploading a disk image to {{ yandex-cloud }}
 
-These instructions describe the procedure for uploading a Linux OS image file to {{ objstorage-full-name }} as well as for creating an [image](../../concepts/image.md) from it and a virtual machine in {{ compute-name }}.
+This tutorial will tell you how to upload a Linux OS image file to [{{ objstorage-full-name }}](../../../storage/) and use it to create an [image](../../concepts/image.md) and a [VM](../../concepts/vm.md) in {{ compute-name }}.
 
-Popular virtualization systems are supported.
+Major virtualization systems are supported.
 
 {% note warning %}
 
@@ -30,7 +30,7 @@ For setup instructions, see [{#T}](custom-image.md).
 ## Upload an image file to {{ objstorage-name }} {#upload-file}
 
 Upload your image to {{ objstorage-name }} and get a link to the uploaded image:
-1. If you do not have a bucket in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one.
+1. If you do not have a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one.
 1. Upload the image [using the management console](../../../storage/operations/objects/upload.md), the [AWS CLI](../../../storage/tools/aws-cli.md), or [WinSCP](../../../storage/tools/winscp.md), for example. In {{ objstorage-name }} terms, the uploaded image is called an _object_.
 1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in {{ compute-name }}.
 
@@ -42,16 +42,14 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
 - Management console
 
-   1. In the management console, select the folder where you want to create an image.
+   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **Images**.
    1. Click **Upload image**.
-   1. Enter the image name.
-
+   1. Enter the image name:
       * Its length can be from 2 to 63 characters.
       * It may contain lowercase Latin letters, numbers, and hyphens.
-      * The first character must be a letter. The last character can't be a hyphen.
-
+      * It must start with a letter. The last character cannot be a hyphen.
    1. If necessary, add a description of the image.
    1. Insert the link to the image you received in {{ objstorage-name }}.
    1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable **Optimize for deployment**.
@@ -66,7 +64,6 @@ Create a new image from the link obtained in {{ objstorage-name }}:
    ```
 
    Where:
-
    * `<image-name>` is the name to assign to the image.
    * `<image-URL>` is the link to the image obtained in {{ objstorage-name }}.
 
@@ -80,7 +77,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
      --source-uri "https://{{ s3-storage-host }}/mybucket/cosmic-server-cloudimg-amd64.vmdk"
    ```
 
-   If you know the minimum requirements for the size of a disk that will be created from this image, specify the size in GB:
+   If you know the minimum requirements for the size of a [disk](../../concepts/disk.md) that will be created from this image, specify the size in GB:
 
    ```bash
    yc compute image create \
@@ -100,12 +97,11 @@ Create a new image from the link obtained in {{ objstorage-name }}:
    If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create an image:
-
    1. Describe the resource parameters in the `yandex_compute_image` configuration file.
 
       Example of the configuration file structure:
 
-      ```
+      ```hcl
       resource "yandex_compute_image" "image-1" {
         name       = "ubuntu-cosmic"
         os_type    = "LINUX"
@@ -115,9 +111,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
       ```
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
    1. Make sure the configuration files are valid.
-
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
 
@@ -126,9 +120,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
          ```
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Deploy cloud resources.
-
       1. Run this command:
 
          ```bash

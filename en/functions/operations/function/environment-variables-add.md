@@ -1,6 +1,6 @@
 # Adding function environment variables
 
-When you add environment variables, a new version of the function is created. You can't add variables to an existing version.
+When you add environment variables, a new version of the function is created. You cannot add variables to an existing version.
 
 {% list tabs %}
 
@@ -11,7 +11,7 @@ When you add environment variables, a new version of the function is created. Yo
    1. Select the function whose version you want to add an environment variable for.
    1. Go to the **Editor** tab.
    1. Under **Parameters**, specify the environment variable and click **Add**. You can add multiple environment variables.
-   1. Click **Create version**. A new version of the function with the specified environment variables is created.
+   1. Click **Create version**. This will create a new version of the function with the specified environment variables.
 
 - CLI
 
@@ -40,23 +40,19 @@ When you add environment variables, a new version of the function is created. Yo
 
    Where:
 
-   * `--function-name`: The function name.
-   * `--runtime`: The runtime environment.
-   * `--entrypoint`: The entry point specified in the `<function_file_name>.<handler_name>` format.
-   * `--memory`: The amount of RAM.
-   * `--execution-timeout`: The maximum function execution time before the timeout is reached.
-   * `--source-version-id`: The ID of the function version to copy the code of.
+   * `--function-name`: Function name.
+   * `--runtime`: Runtime environment.
+   * `entrypoint`: Entry point specified in the `<function_file_name>.\<handler_name>` format.
+   * `--memory`: Amount of RAM.
+   * `--execution-timeout`: Maximum function execution time before the timeout is reached.
+   * `--source-version-id`: ID of the function version to copy the code of.
    * `--environment`: Environment variables in `key=value` format. You can specify multiple pairs separated by commas.
-
-- API
-
-   You can add environment variables using the [createVersion](../../functions/api-ref/Function/createVersion.md).
 
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add environment variables:
 
@@ -86,25 +82,25 @@ When you add environment variables, a new version of the function is created. Yo
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-link }}/function).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```text
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -116,9 +112,13 @@ When you add environment variables, a new version of the function is created. Yo
 
    You can verify that the environment variables are there in the [management console]({{ link-console-main }}).
 
+- API
+
+   To add environment variables, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call.
+
 - {{ yandex-cloud }} Toolkit
 
-   You can add environment variables using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can add environment variables using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 

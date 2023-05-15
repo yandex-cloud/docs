@@ -1,23 +1,23 @@
 # Connection
 
 
-#### How do I connect to a Linux VM {#conn-vm-linux}
+#### How do I connect to a Linux VM? {#conn-vm-linux}
 
-See: [{#T}](../../compute/operations/vm-connect/ssh.md). If the computer you're connecting from has an older version of Windows (7, 8, and the first releases of Windows 10) and there is no built-in SSH console client, use [PuTTY](https://www.putty.org/).
+See: [{#T}](../../compute/operations/vm-connect/ssh.md). If the computer you are connecting from has an older version of Windows (7, 8, and the first releases of Windows 10) and there is no built-in SSH console client, use [PuTTY](https://www.putty.org/).
 
 The Linux images from {{ yandex-cloud }} are initially supplied without a graphical shell. Connection via SSH using a username and a password is disabled by default because this method is outdated and unsafe.
 
 #### What should I do if I can't connect after creating a VM? {#fail-connection}
 
-Your device should "see" the VM over the network:
-* If you're connecting from the outside, a public IP address must be assigned to the VM or connectivity must be configured via another VM with a public IP address (for example, via an [NAT instance](../../tutorials/routing/nat-instance.md)).
+Your device should see the VM over the [network](../../vpc/concepts/network.md#network):
+* If you are connecting from the outside, a [public IP address](../../vpc/concepts/address.md#public-addresses) must be assigned to the VM or connectivity must be configured via another VM with a public IP address (for example, via a [NAT instance](../../tutorials/routing/nat-instance.md)).
 * Outgoing traffic to and from the VM must be allowed on your device.
 
 Do not turn off or restart the VM immediately after creating it. For VMs with a small guaranteed vCPU performance, the initial launch process may take a long time (up to half an hour). If the VM is terminated prematurely, the initialization scripts might not have time to execute. In this case, delete the VM and create a new one.
 
 #### How do I use root on a Linux VM? {#use-root-linux}
 
-When creating a Linux VM, do not use usernames reserved by the system, such as `root`, `admin`, etc, because `cloud-init` will not be able to add a user with this kind of username. Try creating a VM by specifying the `user` username instead.
+When [creating a Linux VM](../../compute/operations/vm-create/create-linux-vm.md), do not use usernames reserved by the system, such as `root`, `admin`, etc, because `cloud-init` will not be able to add a user with this kind of username. Try creating a VM by specifying the `user` username instead.
 
 To upgrade your rights to `root`, use `sudo`. The user specified when creating the VM is a member of the `sudo` group. `root` doesn't have a password, so you can simply connect to the VM via SSH (see [{#T}](../../compute/operations/vm-connect/ssh.md)) and enter the command:
 
@@ -33,7 +33,7 @@ sudo poweroff
 
 #### What should I do if I can't connect to the VM, even though the connection was working before? {#new-fail-connection}
 
-Your data was likely taken over and third parties gained access to the VM. Take a snapshot of the VM's disk (see [{#T}](../../compute/operations/disk-control/create-snapshot.md)) and create a new VM from it (see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md)). If you were able to connect to the new VM, use stronger passwords and don't share your private data.
+Your data was likely taken over and third parties gained access to the VM. Take a [snapshot](../../compute/concepts/snapshot.md) of the VM's disk (see [{#T}](../../compute/operations/disk-control/create-snapshot.md)) and create a new VM from it (see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md)). If you were able to connect to the new VM, use stronger passwords and don't share your private data.
 
 If the VM created from the snapshot is also unavailable for connection, see [How do I get important data from a broken VM](#get-data-from-fail-vm).
 
@@ -45,7 +45,7 @@ There are two options for enabling the graphical interface on Linux VMs:
    1. Install the xrdp or VNC server to connect via RDP or VNC, respectively.
    1. Configure the software.
 
-      We recommend using a combination of a VNC server that only listens to localhost and an SSH tunnel. In this case, you eliminate the risk of attackers connecting to your VM via VNC and also encrypt the VNC traffic. 
+      We recommend using a combination of a VNC server that only listens to localhost and an SSH tunnel. In this case, you eliminate the risk of attackers connecting to your VM via VNC and also encrypt the VNC traffic.
 * Configure X11 forwarding onto the local computer. For Windows, use [Xming](https://sourceforge.net/projects/xming/).
    1. Install the desktop environment.
    1. Configure X11 forwarding and connect via SSH.
@@ -65,16 +65,16 @@ The VM may stop working after a reboot for one of the following reasons:
 * The VM was forcibly restarted while writing to the system disk. In this case, the file system could be damaged.
 * The firewall and/or network was incorrectly configured.
 * Changes were made to the `cloud-init` settings.
-* Changes were made to the python system version, which is used by `cloud-init` as well.
+* Changes were made to the Python system version, which is used by `cloud-init` as well.
 * There was a problem with the service.
 
 If you performed one of these actions, see [How do I get important data from a broken VM](#get-data-from-fail-vm). Otherwise, contact support.
 
-#### How do I get important data from a broken VM? {#get-data-from-fail-vm}
+#### How do I get important data from a VM that crashed? {#get-data-from-fail-vm}
 
 When a VM crashes:
-1. Take a snapshot of the problem disk: see [{#T}](../../compute/operations/disk-control/create-snapshot.md).
-1. Create a new VM with an additional (non-bootable) disk that was restored from the snapshot: see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md).
+1. Take a snapshot of the problematic disk (see [{#T}](../../compute/operations/disk-control/create-snapshot.md) for details).
+1. Create a new VM with an additional (non-bootable) disk that was restored from the snapshot (see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md) for details).
 1. Connect to the VM (see [{#T}](../../compute/operations/index.md#vm-use) for details).
 1. Mount the disk (see [{#T}](../../compute/operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid) for details).
 1. Run a check of the disk file system.

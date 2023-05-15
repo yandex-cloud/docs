@@ -5,7 +5,9 @@
 In this tutorial, you will learn to deploy LAMP (LEMP) in the {{ yandex-cloud }} infrastructure. At the end, you will launch a VM running your website's web server.
 
 To set up a LAMP or LEMP-based website:
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
+1. [Create a cloud network](#create-network).
+1. [Create a security group](#create-security-groups).
 1. [Create a VM with a pre-installed web server](#create-vm).
 1. [Upload the website files](#upload-files).
 1. [Configure the DNS](#configure-dns).
@@ -24,7 +26,8 @@ You can also deploy an infrastructure for a LAMP web server or a LEMP site in {{
 
 The cost for maintaining a LAMP server includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using DNS (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
 
 
 ## Create a cloud network {#create-network}
@@ -49,11 +52,11 @@ To create a network:
 
 {% endlist %}
 
-## Create security groups {#create-security-groups}
+## Create a security group {#create-security-groups}
 
-{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
-[Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow accessing your VMs from the internet. In the tutorial, you'll create a security group called `sg-web`.
+[Security groups](../../application-load-balancer/concepts/application-load-balancer.md) include rules that allow your VMs to be accessed from the internet. In this tutorial, you will create a security group called `sg-web`.
 
 To create a security group:
 
@@ -82,8 +85,8 @@ To create a security group:
          1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
          1. In the **Purpose** or **Source** field, select the purpose of the rule:
 
-            * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-            * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
+            * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+            * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
 
          1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -107,7 +110,7 @@ To create a security group:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in. If you don't know which availability zone you need, leave the default.
+   1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in. If you do not know which availability zone you need, leave the default one.
    1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select a VM image with the desired set of components:
       * [LAMP](/marketplace/products/yc/lamp) for Linux, Apache, MySQL, and PHP
       * [LEMP](/marketplace/products/yc/lemp) for Linux, Nginx, MySQL, and PHP.
@@ -115,7 +118,7 @@ To create a security group:
          For static websites, we recommend using LEMP.
    1. Under **Computing resources**:
       * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
-      * Specify the necessary number of vCPUs and amount of RAM.
+      * Specify the required number of vCPUs and the amount of RAM.
 
       The minimum configuration is enough for functional website testing:
       * **Platform**: Intel Ice Lake.
@@ -136,9 +139,9 @@ To create a security group:
 
       {% endnote %}
 
-   1. Click **Create VM**.
+   1. Click **Create VM**.
 
-      The VM may take several minutes to create. When the VM status changes to `RUNNING`, you can [upload the website files](#upload-files).
+      It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can [upload the website files](#upload-files).
 
 - {{ TF }}
 
@@ -148,7 +151,7 @@ To create a security group:
 
 ## Upload the website files {#upload-files}
 
-To test the web server, upload the `index.html` file to the VM. You can use the [test file](https://storage.yandexcloud.net/doc-files/index.html.zip), download and unpack the archive.
+To test the web server, upload the `index.html` file to the VM. You can use a [test file](https://{{ s3-storage-host }}/doc-files/index.html.zip). Download and unzip the archive.
 1. Under **Network** on the VM page in the [management console]({{ link-console-main }}) find the VM's public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 1. Grant your user write access to the directory `/var/www/html`:
@@ -166,7 +169,7 @@ To test the web server, upload the `index.html` file to the VM. You can use the 
       Use the `scp` command-line utility:
 
       ```bash
-      scp -r <path to the file directory> <VM username>@<VM IP address>:/var/www/html
+      scp -r <path_to_file_directory> <VM_username>@<VM_IP_address>:/var/www/html
       ```
 
    - Windows
@@ -189,15 +192,14 @@ To check that the site is up, enter its IP address or domain name in your browse
 * `http://<public_IP_of_VM>`.
 * `http://www.example.com`.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for your deployed server, [delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+To stop paying for the resources you created:
 
-If you reserved a static public IP address specifically for this VM:
+* [delete the VM](../../compute/operations/vm-control/vm-delete.md).
+* [Delete the static public IP](../../vpc/operations/address-delete.md) if you reserved one specifically for this VM.
+* Delete the [DNS zone](../../dns/operations/zone-delete.md) if you set up the DNS.
 
-1. Select **{{ vpc-name }}** in your folder.
-1. Go to the **IP addresses** tab.
-1. Find the required address, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
@@ -209,17 +211,19 @@ To use {{ TF }} to deploy a LAMP or LEMP web server for your site running on a V
 1. Specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare files with the infrastructure description:
 
+   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
    {% list tabs %}
 
    - Ready-made archive
 
       1. Create a directory for files:
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/lamp-lemp.zip) (1 KB).
-      1. Unpack the archive to the directory. The `lamp-lemp.tf` file should be added to the directory.
+      1. Unpack the archive to the directory. As a result, it should contain the `lamp-lemp.tf` configuration file and the `lamp-lemp.auto.tfvars` file with user data.
 
    - Creating files manually
 
-      1. Create a directory for files:
+      1. Create a directory for the file with the infrastructure description.
       1. Create the `lamp-lemp.tf` configuration file in the directory:
 
          {% cut "lamp-lemp.tf" %}
@@ -228,23 +232,34 @@ To use {{ TF }} to deploy a LAMP or LEMP web server for your site running on a V
 
          {% endcut %}
 
+      1. In the directory, create a `lamp-lemp.auto.tfvars` file with user data:
+
+         {% cut "lamp-lemp.auto.tfvars" %}
+
+         {% include [joomla-postgresql-tf-config](../../_includes/web/lamp-lemp-tf-variables.md) %}
+
+         {% endcut %}
+
    {% endlist %}
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
    * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
    * [yandex_vpc_security_group]({{ tf-provider-link }}/yandex_vpc_security_group)
    * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
    * [yandex_dns_zone]({{ tf-provider-link }}/dns_zone)
    * [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset)
 
-1. Under `metadata`, enter your username and path to the public SSH key. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
-
-1. Under `boot_disk`, specify the ID of a VM [image](../../compute/operations/images-with-pre-installed-software/get-list.md) with a relevant set of components:
-
-   * [LAMP](/marketplace/products/yc/lamp) (Linux, Apache, MySQL, PHP).
-   * [LEMP](/marketplace/products/yc/lemp) (Linux, Nginx, MySQL, PHP).
+1. In the `lamp-lemp.auto.tfvars` file, set the user-defined parameters:
+   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) that will host your VM.
+   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
+   * `family_id`: Specify the family of a VM image with a relevant set of components:
+      * `lamp`: [LAMP](/marketplace/products/yc/lamp) (Linux, Apache, MySQL, and PHP).
+      * `lemp`: [LEMP](/marketplace/products/yc/lemp) (Linux, Nginx, MySQL, and PHP).
+   * `vm_user`: VM username.
+   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `dns_zone`: [DNS zone](../../dns/concepts/dns-zone.md). Specify your registered domain with a period at the end, e.g., `example.com.`.
 
 1. Create resources:
 

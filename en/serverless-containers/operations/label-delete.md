@@ -22,10 +22,6 @@
    status: ACTIVE
    ```
 
-- API
-
-   You can delete a container label using the [update](../containers/api-ref/Container/update.md) API method.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -57,7 +53,7 @@
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
@@ -82,5 +78,9 @@
    ```
    yc serverless container get <container_ID>|<container_name>
    ```
+
+- API
+
+   To delete a container label, use the [update](../containers/api-ref/Container/update.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update) gRPC API call.
 
 {% endlist %}

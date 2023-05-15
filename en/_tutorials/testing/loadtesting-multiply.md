@@ -4,21 +4,21 @@ You can use {{ load-testing-full-name }} to test the service with multiple [tes
 
 Load testing using multiple agents is used when:
 * The testing target includes several instances, and the total inbound and outgoing traffic from them doesn't exceed the [capacity of one agent](../../load-testing/concepts/agent.md#benchmark).
-* The requests that are sent to the testing target require a lot of computing capacity.
+* The requests being sent to the testing target require large computing capacity.
 * Using a testing target is much more effective than a [load generator](../../load-testing/concepts/load-generator.md).
 
 Agents start and apply the load on the testing target synchronously. The [testing results](../../load-testing/concepts/load-test-results.md) are available as generalized and independent [reports](../../load-testing/concepts/reports.md) on each agent.
 
 To run the load testing using multiple agents:
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Prepare the infrastructure](#infrastructure-prepare).
 1. [Create a test agent](#create-agents).
 1. [Run a test](#run-test).
 1. [View the testing results](#see-results).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -51,7 +51,7 @@ To enable security groups, request access to this feature from the [support team
 
 1. For the agents, [create](../../vpc/operations/security-group-create.md) a security group named `agent-sg`.
 1. [Add rules](../../vpc/operations/security-group-add-rule.md):
-   * A rule for outgoing HTTPS traffic to the {{ load-testing-full-name }} public API:
+   * Rule for outgoing HTTPS traffic to the {{ load-testing-full-name }} public API:
       * Port range: `443`.
       * Protocol: `TCP`.
       * Source type: `CIDR`.
@@ -79,43 +79,46 @@ In this example, the load will be applied to an external service named `example.
 
 ## Create test agents {#create-agents}
 
-1. [Generate](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a pair of SSH keys to connect to the agents over SSH.
+1. If you do not have an SSH key pair yet, [create them](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Create the first agent:
 
-   {% list tabs %}
+    {% list tabs %}
 
-   - Management console
+    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create your agent.
       1. In the list of services, select **{{ load-testing-name }}**.
-      1. In the panel on the left, go to the ![image](../../_assets/load-testing/agent.svg) **Agents** tab. Click **Create agent**.
-      1. Name the agent, such as `agent-008`.
+      1. In the ![image](../../_assets/load-testing/agent.svg) **Agents** tab, click **Create agent**.
+      1. Give your agent a name, e.g., `agent-008`.
       1. Select an availability zone to place the agent in.
       1. Under **Agent**:
          * Select the appropriate agent type. For more information, see [Agent performance](../../load-testing/concepts/agent.md#benchmark).
-         * Specify the subnet to place the agent in.
-         * Specify the test agent's security group.
+          * Specify the subnet to place the agent in. Make sure you created and set up a [NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet.
+          * If security groups are available to you, select a security group preset for the agent.
       1. Under **Access**, specify the information required to access the agent:
-         * Select the `sa-loadtest` service account.
-         * Enter the username in the **Login** field.
+          * Select the `sa-loadtest` service account.
+          * Enter the username in the **Login** field.
 
-            {% note alert %}
+              {% note alert %}
 
-            Don't use the username `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the command `sudo`.
+              Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
 
-            {% endnote %}
+              {% endnote %}
 
-         * In the **SSH key** field, paste the contents of the public key file.
+          * In the **SSH key** field, paste the contents of the public key file.
       1. Click **Create**.
-      1. Wait for the VM instance to create. Make sure the agent status changes to `READY_FOR_TEST`.
+      1. Wait for the VM instance to create. Make sure the agent status changes to `Ready for test`.
 
-         {% note info %}
+          {% note info %}
 
-         The agent creation process may stop at the `INITIALIZING_CONNECTION` status if the agent has no [access](../../load-testing/operations/security-groups-agent.md) to `loadtesting.{{ api-host }}:443` or the service account assigned to the agent has no required [roles](../../load-testing/operations/create-agent.md#infrastructure-prepare).
+          The agent creation process may stop at the `Initializing connection` status unless the following conditions are met:
+          * The agent has [access](../../load-testing/operations/security-groups-agent.md) to `loadtesting.{{ api-host }}:443` and is assigned a public IP address.
+          * A NAT gateway is [set up](../../vpc/operations/create-nat-gateway.md) in the target subnet.
+          * The service account assigned to the agent has the required [roles](../../load-testing/operations/create-agent.md#infrastructure-prepare).
 
-         {% endnote %}
+          {% endnote %}
 
-   {% endlist %}
+    {% endlist %}
 
 1. Create the second agent named `agent-009`.
 
@@ -128,51 +131,69 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-   1. In the panel on the left, go to the ![image](../../_assets/load-testing/test.svg) **Tests** tab. Click **Create test**.
+   1. On the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **Tests**.
+   1. Click **Create test**.
    1. Under **Configuration 1**, specify the test parameters for the first agent:
       1. **Agents**: Select the `agent-008` agent.
 
-         In this example, we're going to use different test configurations for the agents. To use the same configuration, select, in the **Agents** field, all the agents that you need to use.
+          In this example, the agents will have different test configurations. To use the same configuration, in the **Agents** field, select all the agents you need to use.
       1. Under **Test settings**:
-         * **Setup method**: Select **Form**.
-         * **Load generator**: Select **Pandora**.
-         * **Target address**: Enter the address of the service to test: `example.myservice.ru`.
-         * **Target port**: Set to `80` (default port for the HTTP protocol).
-         * **Testing threads**: `1000`.
+          * **Setup method**: Select **Form**.
+          * **Load generator**: Select **Pandora**.
+          * **Target address**: Enter the address of the service to test: `example.myservice.ru`.
+          * **Target port**: Set to `80` (default port for the HTTP protocol).
+          * **Testing threads**: `1000`.
 
             This means that the load generator can simultaneously process 1000 operations (create 1000 connections or wait for 1000 responses from the service at the same time). [Learn more about testing pipelines](../../load-testing/concepts/testing-stream.md).
-         * In the **Load schedule** menu:
-            * **Load type**: Select **RPS**.
-            * **Load profile**: Add two test stages:
-               * `{type: line, duration: 60s, from: 1, to: 100}`
-               * `{type: const, duration: 300s, ops: 100}`
 
-               This instructs the generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes. [Learn more about the load profile](../../load-testing/concepts/load-profile.md).
-         * **Request type**: Specify `URI` as the [type](../../load-testing/concepts/payload.md).
-         * In the **Requests** menu, add two requests:
-            * `/ index`
-            * `/test?param1=1&param2=2 get_test`
+            {% note warning %}
 
-            The requests are marked with the `index` and `get_test` tags. The load generator will repeat them within a given load profile.
-         * In the **Request headers** menu, specify the headers:
+            Make sure the agent has access to `example.myservice.ru:80`.
+
+            {% endnote %}
+
+          * In the **Load type** menu:
+            * Select the `RPS` type.
+            * Add a **Load profile**:
+               * **Profile 1**: Select `line`.
+               * **From**: Set `1`.
+               * **To**: Set `100`.
+               * **Duration**: Specify `60s`.
+
+            * Add another **Load profile**:
+               * **Profile 2**: Select `const`.
+               * **Requests per second**: Specify `100`.
+               * **Duration**: Specify `300s`.
+
+              This instructs the generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes. [Learn more about the load profile](../../load-testing/concepts/load-profile.md).
+          * **Request type**: Specify `URI` as the [type](../../load-testing/concepts/payload.md).
+          * In the **Set requests via form** menu:
+            * In the **Requests** submenu, add the following requests:
+
+               * `/ index`
+               * `/test?param1=1&param2=2 get_test`
+
+               The requests are marked with the `index` and `get_test` tags. The load generator will repeat them within a given load profile.
+         * In the **Request headers** submenu, specify the following headers:
             * `[Host: example.myservice.ru]`
             * `[Connection: Close]`
 
-            Please note that the `Connection: Close` header means each connection is terminated after making a request. This mode is heavier on the tested service and load generator. If you don't need to close connections, set `Keep-Alive`.
+            Please note that the `Connection: Close` header means each connection is terminated after making a request. This mode is heavier on the tested service and load generator. If you do not need to close connections, set `Keep-Alive`.
    1. Click ![image](../../_assets/plus-sign.svg) **Duplicate configuration**. The testing parameters will be copied to the **Configuration 2** settings.
    1. Under **Configuration 2**, specify the test parameters for the second agent:
       1. **Agents**: Select the `agent-009` agent.
       1. Under **Test settings**, change the testing parameters.
 
          For example, in the **Autostop** menu, click ![image](../../_assets/plus-sign.svg) **Autostop** and enter the following description:
-         * Autostop type: `INSTANCES`.
-         * Autostop criteria: `90%,60s`.
+         * **Autostop type**: `INSTANCES`.
+         * Set **Limit** to `90%`.
+         * **Window duration**: `60s`.
 
-         This means a test will be stopped if 90% of testing threads are used for 60 seconds, which indicates a testing issue. [Learn more about autostop](../../load-testing/concepts/auto-stop.md).
+          This means a test will be stopped if 90% of testing threads are used for 60 seconds, which indicates a testing issue. [Learn more about autostop](../../load-testing/concepts/auto-stop.md).
    1. Under **Test information**, specify the name, description, and number of the test version. This will make the reports readable.
    1. Click **Create**.
 
-   The configurations will be checked, and the agents will start applying the load against the tested service.
+   Once you are done, the configurations will be verified and the agents will start loading the application being tested. You can view the report on the **Tests** tab.
 
 {% endlist %}
 
@@ -183,7 +204,7 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-   1. In the panel on the left, go to the ![image](../../_assets/load-testing/test.svg) **Tests** tab.
+   1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **Tests** tab.
    1. Select the test that you created previously. Test with multiple agents have the `Multi` label.
    1. To view generalized results, go to the tab ![image](../../_assets/load-testing/results.svg) **Test results**.
    1. To view the test results for each agent individually:
@@ -193,6 +214,6 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
 
 {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources created, [delete](../../compute/operations/vm-control/vm-delete.md) the testing agents.

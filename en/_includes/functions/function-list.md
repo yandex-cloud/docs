@@ -12,28 +12,28 @@
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-   To get a list of functions, run the command:
+    To get a list of functions, run the following command:
 
-   ```
-   yc serverless function list
-   ```
+    ```
+    yc serverless function list
+    ```
 
    Result:
 
    ```
-   +----------------------+--------------------+----------------------+--------+
-   |          ID          |        NAME        |      FOLDER ID       | STATUS |
-   +----------------------+--------------------+----------------------+--------+
-   | b097d9ous3gep99khe83 | my-beta-function   | aoek49ghmknnpj1ll45e | ACTIVE |
-   +----------------------+--------------------+----------------------+--------+
-   ```
+    +----------------------+--------------------+----------------------+--------+
+    |          ID          |        NAME        |      FOLDER ID       | STATUS |
+    +----------------------+--------------------+----------------------+--------+
+    | b097d9ous3gep99khe83 | my-beta-function   | aoek49ghmknnpj1ll45e | ACTIVE |
+    +----------------------+--------------------+----------------------+--------+
+    ```
 
 - API
 
-   You can get a list of functions using the [list](../../functions/functions/api-ref/Function/list.md).
+   To get a list of functions, use the [list](../../functions/functions/api-ref/Function/list.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/List](../../functions/functions/api-ref/grpc/function_service.md#List) gRPC API call.
 
 - {{ yandex-cloud }} Toolkit
 
-   You can get a list of versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can get a list of versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

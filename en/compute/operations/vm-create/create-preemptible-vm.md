@@ -1,6 +1,6 @@
 # Making a VM preemptible
 
-You can [create a preemptible](#create-preemptible) VM or [change the type](#preemptible-to-regular) of an existing one.
+You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) or [change the type](#preemptible-to-regular) of an existing one.
 
 ## Creating a preemptible VM {#create-preemptible}
 
@@ -10,7 +10,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
    1. In the list of services, select **{{ compute-name }}**.
    1. Click **Create VM**.
    1. Under **Basic parameters**:
@@ -21,17 +21,17 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place the VM in.
-   1. Under **Image/boot disk selection**, select one of the images.
-   1. (optional) Under **Disk and file storage**, click the **Disks** tab and configure a boot disk:
+   1. Under **Image/boot disk selection**, select one of the [images](../../concepts/image.md).
+   1. (Optional) Under **Disks and file storage**, select the **Disks** tab and configure a boot [disk](../../concepts/disk.md):
       * Select the [disk type](../../concepts/disk.md#disks_types).
-      * Specify the necessary disk size.
+      * Specify the required disk size.
 
-         If you wish to create a VM from an existing disk, under **Disks and file storage**, [add a disk](./create-from-disks.md):
+         If you wish to create a VM from an existing disk, under **Disks and file storage**, [add a disk](create-from-disks.md):
          * Click **Add disk**.
          * Enter the disk name.
          * Select the [disk type](../../concepts/disk.md#disks_types).
          * Specify the desired block size.
-         * Specify the necessary disk size.
+         * Specify the required disk size.
          * (optional) Enable the **Delete with the VM** option if you need to automatically delete the disk when deleting the VM it will be attached to.
          * Select `Disk` as content.
          * Click **Add**.
@@ -53,7 +53,9 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-      1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+   
+   1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+
 
    1. Under **Access**, specify the information required to access the instance:
       * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
@@ -83,8 +85,8 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       yc compute instance create --help
       ```
 
-   1. Prepare the key pair (public and private keys) for SSH access to the VM.
-   1. Select a Linux-based public image from [{{ marketplace-full-name }}](/marketplace), e.g., [CentOS 7](/marketplace/products/yc/centos-7).
+   1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
+   1. Select a Linux-based public [image](../images-with-pre-installed-software/get-list.md) from {{ marketplace-full-name }}, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -104,9 +106,9 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       This command creates a preemptible VM with the following characteristics:
       * Named `first-preemptible-instance`.
       * Running CentOS 7.
-      * In the `{{ region-id }}-a` availability zone.
-      * In the `default-a` subnet.
-      * With a public IP address.
+      * In the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md).
+      * In the `default-a` [subnet](../../../vpc/concepts/network.md#subnet).
+      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses).
 
       To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
 
@@ -125,7 +127,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      ```
+      ```hcl
       resource "yandex_compute_instance" "vm-1" {
 
         name        = "preemptible-vm"
@@ -169,17 +171,17 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       ```
 
       Where:
-      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
+      * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name.
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
-         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
-         * `metadata`: In the metadata, pass the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+         * `boot_disk`: Boot [disk](../../concepts/disk.md) settings. Specify the ID of the selected [image](../../concepts/image.md). You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+         * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
          * `scheduling_policy`: Scheduling policy. To create a preemptible VM, set `preemptible = true`.
-      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
-      * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#network) your VM will connect to.
+      * `yandex_vpc_network`: Description of the cloud network.
+      * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
 
       {% note info %}
 
@@ -304,7 +306,7 @@ To change the type of a VM, for example, make it preemptible:
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, find a description of the scheduling policy of the VM you want to make preemptible:
 
-      ```
+      ```hcl
       scheduling_policy {
         preemptible = true
       }
@@ -312,7 +314,7 @@ To change the type of a VM, for example, make it preemptible:
 
    1. Delete the `scheduling_policy` field set to `preemptible = true`:
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -339,4 +341,4 @@ This will affect your bill for the VM usage. More about [VM pricing](../../prici
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md)
+* [{#T}](../vm-connect/ssh.md).

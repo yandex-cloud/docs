@@ -62,11 +62,11 @@ If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} pro
      - name: yc-user
        sudo: ALL=(ALL) NOPASSWD:ALL
        shell: /bin/bash
-       ssh_authorized_keys:
+       ssh-authorized-keys:
          - "<public SSH key>"
    ```
 
-   Where `ssh_authorized_keys` is the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   Where `ssh-authorized-keys` is the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Create a specification file {{ coi }} named `declaration.yaml` in the `~/cloud-terraform` directory. Describe the specification:
 

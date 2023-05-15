@@ -60,7 +60,7 @@ To create an instance group:
       * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one.
       * If you selected a Linux-based public image:
          * Enter the username in the **Login** field.
-         * In the **SSH key** field, paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for SSH connection yourself.
+         * In the **SSH key** field, paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
       * If you selected a Windows-based public image:
          * In the **Password** field, set a password for the `Administrator` user. The `Administrator` user is created automatically.
       * Click **Add**.

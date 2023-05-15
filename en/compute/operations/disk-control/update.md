@@ -1,8 +1,8 @@
 # Updating a disk
 
-After you create a disk, you can:
+After you create a [disk](../../concepts/disk.md), you can:
 * [Changing the name and description of a disk](#change-disk-name).
-* [Increase disk size](#change-disk-size) (available only on a stopped virtual machine).
+* [Increase disk size](#change-disk-size) (available only on a [stopped](../../concepts/vm-statuses.md#list-of-statuses) [virtual machine](../../concepts/vm.md)).
 
 ## Changing the name and description of a disk {#change-disk-name}
 
@@ -12,7 +12,7 @@ To change the name and description of a disk:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you will be editing a disk.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you will be editing a disk.
    1. In the list of services, select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
    1. Click ![image](../../../_assets/dots.svg) next to the desired disk and select **Edit**.
@@ -113,7 +113,6 @@ You can only increase the size of a disk that is not attached to a running VM. T
       ```
 
       {{ compute-name }} will launch the operation to change the disk size.
-
    1. Run the VM:
 
       ```bash
@@ -140,7 +139,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
 
 - Linux
 
-   1. Connect to the VM [via SSH](../../operations/vm-connect/ssh.md):
+   1. [Connect](../../operations/vm-connect/ssh.md) to the VM over SSH:
 
       ```bash
       ssh <username>@<VM public IP>

@@ -1,4 +1,4 @@
-To connect to a virtual machine over SSH, you need a key pair: the public key is put on the virtual machine, while the private key is stored on the user device. This method is more secure than connecting with a username and password.
+To connect to a [VM](../compute/concepts/vm.md) over SSH, you need a key pair: the public key is placed on the VM, while the private one is stored on the user's device. This method is more secure than connecting with a username and password.
 
 {% include [vm-connect-ssh-linux-note](vm-connect-ssh-linux-note.md) %}
 
@@ -13,11 +13,11 @@ To create a key pair:
    1. Open the terminal.
    1. Use the `ssh-keygen` command to create a new key:
 
-      ```
+      ```bash
       ssh-keygen -t rsa -b 2048
       ```
 
-      After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~/.ssh` directory.
+      After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~/.ssh` directory.
 
       The public part of the key will be saved in the `<key_name>.pub` file.
 
@@ -26,19 +26,17 @@ To create a key pair:
    1. Run `cmd.exe` or `powershell.exe`.
    1. Use the `ssh-keygen` command to create a new key:
 
-      ```
+      ```shell
       ssh-keygen -t rsa -b 2048
       ```
 
-      After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. The keys are created in `C:\Users\<username>\.ssh\` or `C:\Users\<username>\` depending on the command-line interface.
+      After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. The keys are created in `C:\Users\<username>\.ssh\` or `C:\Users\<username>\` depending on the command-line interface.
 
       The public part of the key will be saved in a file with the name `<key name>.pub`.
-
 
 - Windows 7/8
 
    To create keys for Windows, use the PuTTY application.
-
    1. [Download](https://www.putty.org) and install PuTTY.
    1. Make sure that the directory where you installed PuTTY is included in `PATH`:
       1. Right-click on **My computer**. Click **Properties**.

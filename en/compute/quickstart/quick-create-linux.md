@@ -12,9 +12,9 @@ keywords:
 
 # Creating a Linux VM
 
-Create a Linux [virtual machine](../concepts/vm.md) using {{ compute-name }} from the {{ yandex-cloud }} management console and connect to it.
+Create a Linux [VM](../concepts/vm.md) using {{ compute-name }} from the {{ yandex-cloud }} management console and connect to it.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin-linux](../../_includes/compute/before-you-begin-linux.md) %}
 
@@ -28,7 +28,7 @@ Create a Linux [virtual machine](../concepts/vm.md) using {{ compute-name }} fro
 
 ## Configure the serial console {#serial-console}
 
-Using the [serial console](../operations/serial-console/index.md), you can connect to a VM regardless of the network or OS state (for example, if there are SSH loading or access issues).
+Using the [serial console](../operations/serial-console/index.md), you can connect to a VM regardless of the [network](../../vpc/concepts/network.md#network) or OS state (for example, if there are loading or SSH access issues).
 
 Make sure you configure access to the VM via the serial console in advance.
 

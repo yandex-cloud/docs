@@ -8,12 +8,13 @@
 
     Чтобы добавить записи в лог-группу, выполните команду:
 
+    
     * Linux, MacOS:
         ```
         yc logging write \
           --group-name=default \
           --message="My message" \
-          --timestamp="2021-06-08T19:10:40.000Z" \
+          --timestamp="2023-06-08T19:10:40.000Z" \
           --level=INFO \
           --json-payload='{"request_id": "1234"}'
         ```
@@ -22,7 +23,7 @@
         yc logging write ^
           --group-name=default ^
           --message="My message" ^
-          --timestamp="2021-06-08T19:10:40.000Z" ^
+          --timestamp="2023-06-08T19:10:40.000Z" ^
           --level=INFO ^
           --json-payload="{"request_id": "1234"}"
         ```
@@ -31,10 +32,12 @@
         yc logging write `
           --group-name=default `
           --message="My message" `
-          --timestamp="2021-06-08T19:10:40.000Z" `
+          --timestamp="2023-06-08T19:10:40.000Z" `
           --level=INFO `
           --json-payload='"{ \"request_id\": \"1234\" }"'
         ```
+
+
 
         Где:
 

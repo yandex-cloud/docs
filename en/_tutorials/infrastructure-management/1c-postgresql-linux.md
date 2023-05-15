@@ -23,9 +23,9 @@ To configure 1C:Enterprise servers:
 1. [Set up the infobase](#setup-infobase).
 1. [Connect to the infobase](#connect-to-infobase).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -34,9 +34,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The infrastructure support cost for 1C-Enterprise in {{ yandex-cloud }} includes:
 
-* A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for the continuously running {{ mpg-name }} cluster (see [pricing for {{ mpg-full-name }}](../../managed-postgresql/pricing.md)).
-* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running cluster {{ mpg-name }} (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Prepare the infrastructure {#prepare}
@@ -144,11 +144,11 @@ To create a {{ mpg-name }} cluster optimized for 1C:
 
 1. Click **Create cluster**.
 
-Creating the DB cluster may take several minutes.
+Creating a DB cluster may take a few minutes.
 
 ## Set up a Samba server {#set-up-samba}
 
-[Connect](../../compute/operations/vm-connect/ssh.md) to the `server-1c` VM via SSH.
+[Connect](../../compute/operations/vm-connect/ssh.md) to the VM `server-1c` over SSH.
 
 1. Install Samba, the necessary dependencies, and the `nano` text editor:
 
@@ -242,10 +242,10 @@ Install the 1C:Enterprise server on the VM:
 1. Upload the distribution archive to your VM's `1c-files` directory.
 1. Unpack the distribution and run the installation:
 
-   ```
-   sudo tar –xvf  /1c-files/<archive name>
-   sudo yum localinstall /1c-files/*.rpm
-   ```
+```
+sudo tar –xvf  /1c-files/<archive name>
+sudo yum localinstall /1c-files/*.rpm
+```
 
 1. Start the 1C server:
 

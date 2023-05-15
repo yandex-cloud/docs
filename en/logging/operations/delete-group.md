@@ -41,7 +41,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    id: af3flf29t8**********
    folder_id: aoek6qrs8t**********
    cloud_id: aoegtvhtp8**********
-   created_at: "2021-06-24T09:56:38.970Z"
+   created_at: "2023-06-24T09:56:38.970Z"
    name: group
    status: ACTIVE
    retention_period: 3600s

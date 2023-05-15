@@ -253,7 +253,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
 
    {% endnote %}
 
-1. By default, a Hystax Acura VM has a self-signed certificate installed. If you need to replace this certificate, follow the steps described [here](https://support.hystax.com/portal/en/kb/articles/how-to-update-ssl-certificate-on-acura).
+1. By default, a Hystax Acura VM has a self-signed certificate installed.
 1. On the page that opens, fill out the following fields:
    * **Organization**: Name of your organization.
    * **Admin user login**: Email address for logging in to Hystax Acura Control Panel.
@@ -479,9 +479,9 @@ A real disaster recovery is no different than a test one:
 
 Repeat the [test recovery](#run-tests) steps.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the `hystax-acura-vm` VM.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the supplemental `cloud-agent` VMs.

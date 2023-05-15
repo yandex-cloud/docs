@@ -45,6 +45,6 @@
 
 - API
 
-   You can get detailed information about a trigger using the [get](../../functions/triggers/api-ref/Trigger/get.md) API method.
+   To get detailed information about a trigger, use the [get](../../functions/triggers/api-ref/Trigger/get.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Get](../../functions/triggers/api-ref/grpc/trigger_service.md#Get) gRPC API call.
 
 {% endlist %}

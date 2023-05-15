@@ -4,7 +4,7 @@ In this guide, you will learn how to upload your website [static files](../../st
 
 To host a static website in Object Storage:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a public bucket](#create-public-bucket).
 1. [Enable a website for a bucket](#turn-on-hosting).
 1. [Configure the DNS](#configure-dns).
@@ -24,9 +24,9 @@ You can also deploy the infrastructure for hosting a static website in {{ objsto
 
 The cost of hosting a static website includes:
 
-* A fee for storing data for a static website (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
-* A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
-* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
+* Fee for storing data for a static website (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
+* Fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
+* Cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
 * A fee for public DNS queries and zones (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
 
 
@@ -160,13 +160,13 @@ The tutorial below describes configuring DNS for the third-level `www.example.co
 
 ### Delegate the domain name {#delegate-domain}
 
-Delegation is the transfer of authority from the registrar's servers to yours. For a domain, [NS](../../dns/concepts/resource-record.md#ns) (`ns1.yandexcloud.net` and `ns2.yandexcloud.net`) resource records are created.
+Delegation is the transfer of authority from the registrar's servers to yours. For a domain, [NS](../../dns/concepts/resource-record.md#ns) resource records are created (`ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`).
 
 To delegate a domain, specify its DNS servers in the registrar's account.
 
 Delegation does not take effect immediately. It normally takes internet service providers up to 24 hours (86400 seconds) to update records. This depends on the TTL value that determines how long domain records are cached.
 
-You can verify domain delegation using the [Whois](https://www.reg.com/whois/check_site) service or the `dig` utiltiy:
+You can verify domain delegation using the [Whois](https://www.reg.com/whois/check_site) service or the `dig` utility:
 
 ```bash
 dig +short NS example.com
@@ -176,8 +176,8 @@ Result:
 
 
 ```text
-ns2.yandexcloud.net.
-ns1.yandexcloud.net.
+ns2.{{ dns-ns-host-sld }}.
+ns1.{{ dns-ns-host-sld }}.
 ```
 
 
@@ -203,7 +203,7 @@ To check that the website is running, use one of the standard {{ objstorage-name
 
 If you configured your own domain, use `http://www.example.com`.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources:
 

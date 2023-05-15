@@ -30,15 +30,11 @@
    	status: ACTIVE
    ```
 
-- API
-
-   You can update a container label using the [update](../containers/api-ref/Container/update.md) API method.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To modify the label of a container created with {{ TF }}:
 
@@ -66,7 +62,7 @@
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
@@ -91,5 +87,9 @@
    ```
    yc serverless container get <container_ID>|<container_name>
    ```
+
+- API
+
+   To update a container label, use the [update](../containers/api-ref/Container/update.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update) gRPC API call.
 
 {% endlist %}

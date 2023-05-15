@@ -1,12 +1,12 @@
 # Building and managing Java function dependencies
 
-{{ sf-name }} supports two ways to manage dependencies for a Java function: automatic installation using `maven` from source code and manual dependency bundling along with the code. However, you can't configure dependencies using both methods at the same time.
+{{ sf-name }} supports two ways to manage dependencies for a Java function: automatic installation from the source code using `Maven` and adding dependencies manually to a project archive. However, you cannot configure dependencies using both methods at the same time.
 
 ### Maven
 
 [Maven](https://maven.apache.org/) is a system for managing dependencies in `Java`.
 
-To deliver dependencies using `maven`, just upload your own `maven` project by configuring dependencies in `pom.xml`. No other actions are required (including project compilation).
+To deliver dependencies using `Maven`, just upload your own `Maven` project by configuring dependencies in `pom.xml`. No other actions, including project compilation, are required.
 
 If you want to set the order of loading dependencies, upload a file named `classpath.txt` to the project root. This file lists the dependencies one by one in the required order.
 

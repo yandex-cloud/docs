@@ -29,8 +29,8 @@
    Where:
 
    * `--cores`: Number of cores available for the container.
-   * `--memory`: Required memory. The default is 128 MB.
-   * `--concurrency`: Maximum number of concurrent requests to a single container instance. Default is 1 and maximum value is 16. If the number of requests to a container exceeds the value of `concurrency`, {{ serverless-containers-name }} scales the container up by launching additional copies.
+   * `--memory`: Required memory. The default value is 128 MB.
+   * `--concurrency`: Maximum number of concurrent requests to a single container instance. May be in the range between 1 (default) and 16. If the number of requests to a container exceeds the value of `concurrency`, {{ serverless-containers-name }} scales the container up by launching additional copies.
 
       {% note info %}
 
@@ -38,8 +38,8 @@
 
       {% endnote %}
 
-   * `--execution-timeout`: Timeout. Default is 3 seconds.
-   * `--service-account-id`: [ID of service account](../../iam/operations/sa/get-id.md) with authorization to download an image.
+   * `--execution-timeout`: Timeout. The default value is 3 seconds.
+   * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) authorized to download an image.
 
    Result:
 
@@ -57,10 +57,6 @@
    service_account_id: ajeqnasj95o7********
    status: ACTIVE
    ```
-
-- API
-
-   You can create a container revision using the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) API method.
 
 - {{ TF }}
 
@@ -100,16 +96,16 @@
    1. Make sure the configuration files are valid.
 
       1. In the command line, switch to the folder where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of resources being created or updated and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of resources being created or updated and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
 
-   1. If the configuration does not contain any errors, run the command:
+   1. If the configuration does not contain any errors, run this command:
       ```
       terraform apply
       ```
@@ -121,5 +117,9 @@
       ```
       yc serverless container revision list
       ```
+
+- API
+
+   To create a container revision, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
 
 {% endlist %}

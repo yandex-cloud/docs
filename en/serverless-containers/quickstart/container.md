@@ -1,19 +1,19 @@
 # Getting started with {{ serverless-containers-name }}
 
-In this tutorial, you'll [prepare](#prepare) a [Docker image](../container-registry/concepts/docker-image.md) for a container in {{ container-registry-full-name }} and [add](#deploy) it to {{ serverless-containers-name }}.
+In this tutorial, you will [prepare](#prepare) a [Docker image](../../container-registry/concepts/docker-image.md) for a container in {{ container-registry-full-name }} and [add](#deploy) it to {{ serverless-containers-name }}.
 
 ## Prepare a Docker image for a container {#prepare}
 
 A Docker image is an executable package that contains everything you need to run an application: code, runtime environment, libraries, environment variables, and configuration files.
 
-{% include [port-variable-note.md](../_includes/serverless-containers/port-variable-note.md) %}
+{% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
 To prepare a container's Docker image:
-1. [Create](../container-registry/operations/registry/registry-create.md) a registry.
-1. [Create and build](../container-registry/operations/docker-image/docker-image-create.md) a Docker image based on [Dockerfile](https://docs.docker.com/engine/reference/builder/).
-1. [Push](../container-registry/operations/docker-image/docker-image-push.md) the Docker image to the registry.
+1. [Create](../../container-registry/operations/registry/registry-create.md) a registry.
+1. [Create and build](../../container-registry/operations/docker-image/docker-image-create.md) a Docker image based on [Dockerfile](https://docs.docker.com/engine/reference/builder/).
+1. [Push](../../container-registry/operations/docker-image/docker-image-push.md) the Docker image to the registry.
 
-### Applications and Dockerfile examples
+### Application and Dockerfile examples {#examples}
 
 {% list tabs %}
 
@@ -139,15 +139,15 @@ To prepare a container's Docker image:
 
 ### Create a container {#create-container}
 
-{% include [create-container](../_includes/serverless-containers/create-container.md) %}
+{% include [create-container](../../_includes/serverless-containers/create-container.md) %}
 
 ### Create a container revision {#create-revision}
 
-{% include [create-revision](../_includes/serverless-containers/create-revision.md) %}
+{% include [create-revision](../../_includes/serverless-containers/create-revision.md) %}
 
 ## Invoke the container {#invoke}
 
-After creating the container, you'll get the invocation link. [Retrieving the link.](./operations/invoke.md#link) Make an HTTPS request by sending an [IAM token](../iam/concepts/authorization/iam-token.md) in the `Authorization` header:
+After creating the container, you will get the invocation link. Here is how you can [retrieve it](../operations/invoke.md#link). Make an HTTPS request by sending an [IAM token](../../iam/concepts/authorization/iam-token.md) in the `Authorization` header:
 
 ```
 curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g********.containers.yandexcloud.net/hello
@@ -161,4 +161,4 @@ Hello!
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](./concepts/invoke.md).
+* Read about [service concepts](../concepts/invoke.md).

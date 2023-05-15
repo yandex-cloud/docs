@@ -4,10 +4,10 @@
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a function.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
    1. Select **{{ sf-name }}**.
    1. Click **Create function**.
-   1. Enter a name and description for the function. Name format:
+   1. Enter a name and description for the function. The name format is as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -37,19 +37,15 @@
    status: ACTIVE
    ```
 
-- API
-
-   You can create a function using the [create](../../functions/api-ref/Function/create.md).
-
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a function:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * `yandex_function`: Description of the function being created and its source code:
          * `name`: Function name.
@@ -74,7 +70,7 @@
          * `content`: Function source code. You can only use either the `content` or `package` field.
          * `content.0.zip_filename`: Name of the ZIP archive that contains the function source code.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       
       ```
@@ -108,25 +104,25 @@
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-link }}/function).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -135,14 +131,18 @@
       ```
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc serverless function list
       ```
 
+- API
+
+   To create a function, use the [create](../../functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/api-ref/grpc/function_service.md#Create) gRPC API call.
+
 - {{ yandex-cloud }} Toolkit
 
-   You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
