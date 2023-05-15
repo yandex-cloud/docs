@@ -39,11 +39,6 @@
    status: ACTIVE
    ```
 
-- API
-
-   You can update the container description using the [update](../containers/api-ref/Container/update.md) API method.
-
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -70,18 +65,18 @@
 
    For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
       ```
       terraform plan
       ```
@@ -100,5 +95,9 @@
    ```
    yc serverless container get <container_ID>|<container_name>
    ```
+
+- API
+
+   To update a container description, use the [update](../containers/api-ref/Container/update.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update) gRPC API call.
 
 {% endlist %}

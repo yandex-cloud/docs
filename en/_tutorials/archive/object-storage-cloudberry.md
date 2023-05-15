@@ -5,16 +5,16 @@ You can use {{ objstorage-full-name }} for backup and recovery via [CloudBerry D
 The free version of CloudBerry Desktop Backup allows you to create a maximum of 200 GB of backups.
 
 To set up backups in {{ objstorage-name }} via CloudBerry Desktop Backup:
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Set up a service account](#prepare-service-account).
 1. [Create a bucket](#create-bucket).
 1. [Install CloudBerry Desktop Backup](#install-cloudberry).
 1. [Configure CloudBerry Desktop Backup](#configure-cloudberry).
 1. [Test the backup process](#test-backup).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -31,7 +31,7 @@ Learn more about [{{ objstorage-full-name }} pricing plans](../../storage/pricin
 
 ## Set up a service account {#prepare-service-account}
 
-Backups in {{ objstorage-name }} are performed on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you don't have a service account, [create](../../iam/operations/sa/create.md) one.
+Backups in {{ objstorage-name }} are performed on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you do not have a service account, [create](../../iam/operations/sa/create.md) one.
 
 To create a service account:
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` [role](../../iam/concepts/access-control/roles.md#editor) to your service account.
@@ -59,7 +59,7 @@ To create a service account:
    1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
    1. Click **Start Free Trial**.
 
-- macOS
+- MacOS
 
    1. [Install](https://www.msp360.com/cloudberry-backup/download/cbbmac/) CloudBerry Backup. To download the program, enter the required parameters and click **Download**.
    1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
@@ -134,7 +134,7 @@ To create a service account:
    1. By default, backups are made manually. If you need to set a backup schedule, select **Enable schedule** and set up the schedule. Click **Continue**.
    1. To get notified about the backup results, enable **I want to receive a notification email when plan completes** and specify the cases:
       * **In all cases**.
-      * **When plan fails**: When the plan fails fatally or completes with warnings. 
+      * **When plan fails**: When the plan fails fatally or completes with warnings.
 
       Enter the email address, recipient name, and email subject. Click **Next**. Check your mailbox. In the message that you received, click a link to confirm your email address.
    1. Check the backup plan and click **Done**.
@@ -165,6 +165,6 @@ To create a service account:
 
 {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 {% include [clear-out](../_tutorials_includes/storage-clear-out.md) %}

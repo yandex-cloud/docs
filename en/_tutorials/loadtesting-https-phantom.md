@@ -10,7 +10,7 @@ To perform load testing:
 1. [Prepare a file with test data](#test-file).
 1. [Run a test](#run-test).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
@@ -46,6 +46,8 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure security groups {#security-group-setup}
 
+{% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
+
 1. Set up the test agent's security group:
 
    {% include [security-groups-agent](../_includes/load-testing/security-groups-agent.md) %}
@@ -68,7 +70,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
    /test?param1=1&param2=2 get_test
    ```
 
-   Please note that the `Connection: Close` header means each connection is terminated after making a request. This mode is heavier on the application and load generator. If you don't need to close connections, set `Keep-Alive`.
+   Please note that the `Connection: Close` header means each connection is terminated after making a request. This mode is heavier on the application and load generator. If you do not need to close connections, set `Keep-Alive`.
 
    There are also two requests tagged `index` and `get_test`. The load generator will repeat them within a given load profile.
 
@@ -78,58 +80,55 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
 1. On the left-hand panel, select ![image](../_assets/load-testing/test.svg) **Tests**. Click **Create test**.
-1. Select a setup method: **Form** or **Config**.
+1. In the **Agents** parameter, select `agent-008`.
+1. Under **Test data**, select **From computer**, click **Attach file**, and select the `data.uri` file.
+1. Under **Test settings**, select a configuration method: **Form** or **Configuration file**.
 1. Depending on the selected method, specify the test parameters:
 
    {% list tabs %}
 
    - Form
 
-      1. In the **Agent** parameter, select `agent-008`.
-      1. Under **Test data**, upload the `data.uri` file to the **File with test data** field.
-      1. Under **Load generator settings**:
-         * In the **Load generator** field, select **PHANTOM**.
-         * In the **Target address** field, specify the address of the service to test: `172.17.0.10`.
-         * In the **Target port** field, set `443` (default HTTPS port). Allow using a secure connection.
-         * In the **Testing threads** field, specify `5000`.
+      1. In the **Load generator** field, select **PHANTOM**.
+      1. In the **Target address** field, specify the address of the service to test: `172.17.0.10`.
+      1. In the **Target port** field, set `443` (default HTTPS port). Allow using a secure connection.
+      1. In the **Testing threads** field, specify `5000`.
 
-            This means that the load generator can simultaneously process 5000 operations: create 5000 connections or wait for 5000 responses from the service at the same time.
+          This means that the load generator can simultaneously process 5000 operations: create 5000 connections or wait for 5000 responses from the service at the same time.
 
-            {% note tip %}
+          {% note tip %}
 
-            For most tests, 1000–10000 threads are enough.
+          For most tests, 1000–10000 threads are enough.
 
-            Using a larger number of threads requires more resources of the VM the agent is running on. {{ compute-name }} also has a limit of 50000 of concurrent connections to a VM.
+          Using a larger number of threads requires more resources of the VM the agent is running on. {{ compute-name }} also has a limit of 50000 of concurrent connections to a VM.
 
-            [Learn more about working with threads](../load-testing/concepts/testing-stream.md).
+          [Learn more about working with threads](../load-testing/concepts/testing-stream.md).
 
-            {% endnote %}
+          {% endnote %}
 
-         * Expand the **Load schedule** menu:
-            * In the **Load type** field, select `RPS`.
-            * In the **Load profile** menu, click ![image](../_assets/plus-sign.svg) **Load profile** and enter the following description:
+      1. In the **Load type** menu, select `RPS`.
+      1. Add a **Load profile**:
 
-               ```
-               const(2000,10m)
-               ```
+          * **Profile**: Select `const`.
+          * **Requests per second**: Specify `2000`.
+          * **Duration**: Specify `10m`.
 
-               This instructs the load generator to maintain a load of 2000 requests per second for 10 minutes.
+          This instructs the load generator to maintain a load of 2000 requests per second for 10 minutes.
 
-               [Learn more about load profiles](../load-testing/concepts/load-profile.md).
-         * In the **Request type** field, select `URI`.
-         * In the **Autostop** menu, click ![image](../_assets/plus-sign.svg) **Autostop** and enter the following description:
-            * Autostop type: `INSTANCES`.
-            * Autostop criteria: `90%,60s`.
+          [Learn more about load profiles](../load-testing/concepts/load-profile.md).
+      1. In the **Request type** field, select `URI`.
+      1. In the **Autostop** menu, click ![image](../_assets/plus-sign.svg) **Autostop** and enter the following description:
+          * **Autostop type**: `INSTANCES`.
+          * **Limit**: Set `90%`.
+          * **Window duration**: Specify `60s`.
 
-               This means a test will be stopped if 90% of testing threads are used for 60 seconds, which indicates a testing issue.
+              This means a test will be stopped if 90% of testing threads are used for 60 seconds, which indicates a testing issue.
 
-               [Learn more about autostop](../load-testing/concepts/auto-stop.md).
+              [Learn more about autostop](../load-testing/concepts/auto-stop.md).
       1. Under **Test information**, specify the name, description, and number of the test version. This will make the report easier to read.
 
-   - Config
+   - Configuration file
 
-      1. In the **Agent** parameter, select `agent-008`.
-      1. Under **Test data**, upload the `data.uri` file to the **File with test data** field.
       1. In the configuration input field, specify the testing thread settings in `yaml` format:
 
          ```yaml
@@ -169,9 +168,12 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
    {% endlist %}
 
-1. Click **Create**. Once the configuration is verified, the agent starts loading the tested service.
-1. To see the testing progress, select the created test and go to the **Report** tab.
+1. Click **Create**.
 
-## How to delete created resources {#clear-out}
+Afterwards, the configuration will be verified, and the agent will start loading the service being tested.
+
+To see the testing progress, select the created test and go to the **Test results** tab.
+
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources created, just [delete the agent](../compute/operations/vm-control/vm-delete.md).

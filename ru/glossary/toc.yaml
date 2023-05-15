@@ -47,4 +47,6 @@ items:
     href: datamart.md
   - name: Data Lake
     href: datalake.md
+  - name: Бэклог
+    href: backlog.md
 base: ru/glossary

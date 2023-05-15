@@ -2,7 +2,7 @@
 
  Create a [trigger for {{ yds-name }}](../concepts/trigger/data-streams-trigger.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) when data is sent to a [stream](../../data-streams/concepts/glossary.md#stream-concepts). 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 To create a trigger, you need:
 
@@ -31,7 +31,7 @@ To create a trigger, you need:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Open **{{ serverless-containers-name }}**.
 
@@ -54,9 +54,7 @@ To create a trigger, you need:
 
       The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. The total amount of data passed to a container may exceed the specified group size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the group size.
 
-   1. Under **Container settings**, select a container and specify:
-
-      {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+   1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
    1. (optional) Under **Repeat request settings**:
 
@@ -72,7 +70,7 @@ To create a trigger, you need:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a trigger that invokes a container, run the command:
+   To create a trigger that invokes a container, run this command:
 
    ```bash
    yc serverless trigger create yds \
@@ -98,8 +96,8 @@ To create a trigger, you need:
       To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, the `database` parameter, such as `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
 
    * `--stream`: Data stream name.
-   * `--batch-size`: Message batch size. Optional. Valid values range from 1 B to 64 KB. The default is 1 B.
-   * `--batch-cutoff`: Maximum waiting time. Optional. Valid values range from 1 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The total amount of data passed to a container may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+   * `--batch-size`: Message batch size. This is an optional parameter. Valid values range from 1 B to 64 KB. The default is 1 B.
+   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Valid values range from 1 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The total amount of data passed to a container may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
    * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
@@ -133,7 +131,7 @@ To create a trigger, you need:
 
 - API
 
-   You can create a trigger for {{ yds-name }} using the [create](../triggers/api-ref/Trigger/create.md).
+   To create a trigger for {{ yds-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 

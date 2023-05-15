@@ -54,7 +54,10 @@
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gitlab-runner#docker-images).
 
-1. Вернитесь на страницу Runners инстанса {{ GL }}, обновите ее и убедитесь, что появился новый {{ GLR }}.
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/gitlab-containers.md).
+* [{#T}](../../tutorials/cr-scanner-with-k8s-and-gitlab.md).
 
 ## См. также {#see-also}
 

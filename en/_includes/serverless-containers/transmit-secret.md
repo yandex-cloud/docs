@@ -26,7 +26,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-   To transmit {{ lockbox-name }} secrets to a container, run the command:
+   To transmit {{ lockbox-name }} secrets to a container, run this command:
 
    {% note warning %}
 
@@ -59,6 +59,6 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
 
 - API
 
-   To transmit a {{ lockbox-name }} secret to a container, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) API method.
+   To transmit a {{ lockbox-name }} secret to a container, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
 
 {% endlist %}

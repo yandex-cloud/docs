@@ -1,14 +1,14 @@
 # Creating a test agent
 
-## Preparing the infrastructure {#infrastructure-prepare}
+## Preparing an infrastructure {#infrastructure-prepare}
 
-1. Create a service account for a test agent:
+1. Create a service account for test agent:
 
-    {% include [sa-create](../../_includes/load-testing/sa-create.md) %}
+   {% include [sa-create](../../_includes/load-testing/sa-create.md) %}
+1. [Set up](../../load-testing/operations/security-groups-agent.md) the test agent's security group.
 
-1. [Configure](../../load-testing/operations/security-groups-agent.md) the test agent's security group.
+   {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 ## Creating a test agent {#create-agent}
 
 {% include [create-agent](../../_includes/load-testing/create-agent.md) %}
-

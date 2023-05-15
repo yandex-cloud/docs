@@ -2,44 +2,66 @@
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.104.0 (19.04.23) {#version0.104.00}
+## Версия 0.105.0 (15.05.23) {#version0.105.00}
+
+### Изменения в CLI {#cli}
+
+* Добавлен параметр `--impersonate-service-account-id` для выполнения действий от имени сервисного аккаунта. В параметре передается идентификатор сервисного аккаунта, тип данных значения — string.
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ sf-name }} {#serverless-functions}
+#### {{ cloud-logging-name }} {#cloud-logging}
+
+* Исправлена работа команды `yc logging read` при указании флага `--follow`.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+В команду `yc k8s node-group create` добавлен параметр `--container-network-settings` для конфигурации контейнерной сети узлов кластера. В этом параметре в свойстве `pod-mtu` можно передать значение MTU для подов.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+* Добавлена поддержка {{ KF }} версий 3.x, начиная с 3.3.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.104.0 (19.04.23) {#version0.104.00}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ sf-name }} {#serverless-functions}
 
 * В команду `yc serverless trigger timer create` добавлен параметр `--payload` для привязки пользовательских данных к событию от таймера.
 
-#### {{ cloud-desktop-name }} {#cloud-desktop}
+##### {{ cloud-desktop-name }} {#cloud-desktop}
 
 * Группа команд `yc cloud-desktop` переименована в `yc desktops`.
 * Добавлена пометка `[PREVIEW]` к группе команд `yc desktops`.
 * Добавлена команда `yc desktops desktop restart`, которая позволяет перезагружать рабочий стол.
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * Исправлен листинг большого количества объектов в фолдере для всех сущностей {{ compute-short-name }}.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}**
 
 Добавлена команда `yc managed-clickhouse cluster list-external-dictionaries` для листинга списка добавленных внешних словарей.
 
-#### {{ cloud-logging-name }} {#cloud-logging}
+##### {{ cloud-logging-name }} {#cloud-logging}
 
 * В команду `yc logging read` добавлены позиционные параметры `SINCE` и `FILTER`, пример: `yc logging read default 1d "level = INFO"`
 * В команду `yc logging write` добавлены позиционные параметры `MESSAGE` и `JSON-PAYLOAD`, пример: `yc logging write default test "{\"key\":\"value\"}"`
 
-#### {{ sf-name }} {#functions}
+##### {{ sf-name }} {#functions}
 
 * В команды `yc serverless function logs` и `yc serverless function version logs` добавлены позиционные параметры `SINCE` и `FILTER`, пример: `yc serverless function logs default 1d "level = INFO"`
 
-#### {{ iot-name }} {#iot}
+##### {{ iot-name }} {#iot}
 
 В команду `yc iot broker logs` добавлены позиционные параметры `SINCE` и `FILTER`, пример: `yc iot broker logs default 1d "level = INFO"`
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.103.0 (15.03.23) {#version0.103.00}
 

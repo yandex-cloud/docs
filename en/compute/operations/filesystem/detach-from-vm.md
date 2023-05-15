@@ -1,8 +1,7 @@
 # Detaching file storage from a VM
 
-1. Dismount your file store from the VM:
-
-   1. [Connect to the VM via SSH](../vm-connect/ssh.md).
+1. Dismount your [file store](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
+   1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
    1. If you added a line to the `/etc/fstab` file for automatically mounting file storage to the VM at startup (for example, when [attaching storage to a VM](attach-to-vm.md)), delete the line.
    1. Run this command:
 
@@ -18,7 +17,7 @@
 
       As a result, there should be no `virtiofs`-type file system corresponding to file storage:
 
-      ```
+      ```text
       Filesystem        Type         1K-blocks    Used Available Use% Mounted on
       udev              devtmpfs        988600       0    988600   0% /dev
       tmpfs             tmpfs           203524     780    202744   1% /run
@@ -36,7 +35,7 @@
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the folder where your file store is located.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file store is located.
       1. Select **{{ compute-name }}**.
       1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
       1. Select the desired storage.

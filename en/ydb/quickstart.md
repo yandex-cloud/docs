@@ -231,7 +231,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
 {% endlist %}
 
-## Make a query to the database {#query}
+## Run a query to the database {#query}
 
 {% list tabs %}
 

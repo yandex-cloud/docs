@@ -18,7 +18,7 @@
 
    {% include [note](../../../_includes/functions/function-list-note.md) %}
 
-   To get detailed information about a function, run the command:
+   To get detailed information about a function, run this command:
 
    ```
    yc serverless function get <function_ID>
@@ -36,10 +36,10 @@
 
 - API
 
-   You can get detailed information about a function using the [get](../../functions/api-ref/Function/get.md) API method.
+   To get detailed information about a function, use the [get](../../functions/api-ref/Function/get.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Get](../../functions/api-ref/grpc/function_service.md#Get) gRPC API call.
 
 - {{ yandex-cloud }} Toolkit
 
-   You can get details about a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can learn more about a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

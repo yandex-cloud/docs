@@ -1,2 +1,1 @@
-* A [container revision](../../serverless-containers/concepts/container.md#revision).
-* A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the container.
+Under **Container settings**, select a container and specify a [service account](../../iam/concepts/users/service-accounts.md) to invoke it under.

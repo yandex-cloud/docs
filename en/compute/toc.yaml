@@ -85,6 +85,8 @@ items:
             href: operations/vm-control/vm-update.md
           - name: Changing VM computing resources
             href: operations/vm-control/vm-update-resources.md
+          - name: Changing VM security groups
+            href: operations/vm-control/vm-change-security-groups-set.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
       - name: Working on VMs
@@ -241,6 +243,16 @@ items:
             href: operations/dedicated-host/running-host-group-vms.md
           - name: Creating a VM on a dedicated host
             href: operations/dedicated-host/running-host-vms.md
+      - name: GPU clusters
+        items:
+          - name: Creating a GPU cluster
+            href: operations/gpu-cluster/gpu-cluster-create.md
+          - name: Adding a VM to a GPU cluster
+            href: operations/gpu-cluster/gpu-add-to-cluster.md
+          - name: Updating a GPU cluster
+            href: operations/gpu-cluster/gpu-cluster-update.md
+          - name: Deleting a GPU cluster
+            href: operations/gpu-cluster/gpu-cluster-delete.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Tutorials

@@ -31,6 +31,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+   
    To create a log group, run the command:
 
    ```
@@ -40,6 +41,8 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
      --data-stream=<stream_ID>
    ```
 
+
+
    Where:
    * `--name`: Name of the log group.
    * `--retention-period`: Log group record retention period. This is an optional parameter.
@@ -48,6 +51,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
+   
    * `data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID. This is an optional parameter. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
       > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
@@ -63,12 +67,14 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    id: af3flf29t8**********
    folder_id: aoek6qrs8t**********
    cloud_id: aoegtvhtp8**********
-   created_at: "2021-06-24T09:56:38.970Z"
+   created_at: "2023-06-24T09:56:38.970Z"
    name: group
    status: ACTIVE
    retention_period: 3600s
    data_stream: /{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream
    ```
+   
+
 
 - {{ TF }}
 

@@ -39,6 +39,8 @@ items:
         href: tutorials/api-gw-websocket.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
+      - name: Creating an interactive serverless application using WebSocket
+        href: tutorials/websocket-app.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -153,6 +155,6 @@ items:
                 href: apigateway/websocket/api-ref/Connection/get.md
               - name: send
                 href: apigateway/websocket/api-ref/Connection/send.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/api-gateway

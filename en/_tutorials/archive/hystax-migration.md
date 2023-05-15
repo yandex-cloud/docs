@@ -169,7 +169,7 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
 
    {% endnote %}
 
-1. By default, a Hystax Acura VM has a self-signed certificate installed. If you need to replace this certificate, follow the steps described [here](https://support.hystax.com/portal/en/kb/articles/how-to-update-ssl-certificate-on-acura).
+1. By default, a Hystax Acura VM has a self-signed certificate installed.
 1. When you are prompted to fill out the fields, use the values below:
    * **Organization**: Name of your organization.
    * **Admin user login**: Email address for logging in to Hystax Acura Control Panel.
@@ -274,7 +274,7 @@ Perform the migration as per the created plan:
 
 The migration process might take about 10 minutes. The status of the VM being migrated will be displayed in the **Status** column under **Machines**. Wait for the status to change to `Running`, then make sure all required resources have been transferred and your applications are ready to run. If the migrated infrastructure is running as expected, click **Detach** on the **CloudSite** page and confirm the detach action.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the migration infrastructure:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the `hystax-acura-vm` VM.

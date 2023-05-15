@@ -1,6 +1,6 @@
 Create a [trigger for {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md) to call a {{ sf-name }} [function](../../functions/concepts/function.md) when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or Docker image tags.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
@@ -14,7 +14,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Select **{{ sf-name }}**.
 
@@ -53,7 +53,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-   To create a trigger that invokes a function, run the command:
+   To create a trigger that invokes a function, run this command:
 
    ```bash
    yc serverless trigger create container-registry \
@@ -103,9 +103,10 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
+
 - API
 
-   You can create a trigger for {{ container-registry-name }} using the [create](../../functions/triggers/api-ref/Trigger/create.md).
+   To create a trigger for {{ container-registry-name }}, use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 

@@ -4,7 +4,15 @@ items:
   - name: Comparison with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
-    href: quickstart.md
+    items:
+      - name: Overview
+        href: quickstart/index.md
+      - name: Creating a container
+        href: quickstart/container.md
+      - name: Creating a trigger
+        items:
+          - name: Timer
+            href: quickstart/timer.md
   - name: Step-by-step guides
     items:
       - name: All guides

@@ -1,6 +1,6 @@
 # Creating a fixed-size instance group with a network load balancer
 
-You can create a group of fixed-size instances along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see the [Network load balancer](../../../network-load-balancer/concepts/index.md) section of the {{ network-load-balancer-full-name }} documentation.
+You can create a fixed-size [instance group](../../concepts/instance-groups/index.md) along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see the [Network load balancer](../../../network-load-balancer/concepts/index.md) section of the {{ network-load-balancer-full-name }} documentation.
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
@@ -12,7 +12,7 @@ To create an instance group with a network load balancer:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a folder to create your instance group in.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your instance group in.
    1. In the list of services, select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
    1. Click **Create group**.
@@ -23,13 +23,12 @@ To create an instance group with a network load balancer:
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
-      * Enable **Deletion protection** if needed. You cannot delete a group with this option enabled.
-   1. In the **Allocation** section, select the desired **Availability zones**. Group instances may reside in different availability zones and regions. [More about the geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
-   1. In the **Instance template** section, click **Define** to set the base instance configuration:
-      * Under **Basic parameters**, enter the template **Description**:
-      * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
-
+      * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
+      * Enable **Deletion protection** if needed. You cannot delete an instance group with this option enabled.
+   1. In the **Allocation** section, select the desired **availability zones**. Instances of a group may reside in different availability zones and regions. [More about the geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
+   1. Under **Instance template**, click **Define** to set up the configuration for a basic instance:
+      * Under **Basic parameters**, enter the [template](../../concepts/instance-groups/instance-template.md) **Description**:
+      * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot [disk](../../concepts/disk.md).
       * In the **Disks** section:
          * Select the [disk type](../../concepts/disk.md#disks_types).
          * Specify the **Size** of the disk.
@@ -37,20 +36,22 @@ To create an instance group with a network load balancer:
       * Under **Computing resources**:
          * Choose a [platform](../../concepts/vm-platforms.md).
          * Enter the required number of **vCPUs**, [guaranteed vCPU performance](../../concepts/performance-levels.md), and the amount of **RAM**.
+
          * {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
+
       * Under **Network settings**:
 
          {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}
 
-      * Under **Access**, specify the data required to access the VM:
+      * Under **Access**, specify the information required to access the instance:
          * Specify a **Service account** to be linked to the instance.
-         * If you selected a Linux image, fill out **Login** and **SSH key**. As the key, use the [public key](../vm-connect/ssh.md#creating-ssh-keys) file contents.
+         * If you selected a Linux [image](../../concepts/image.md), fill out **Login** and **SSH key**. As the key, use the [public key](../vm-connect/ssh.md#creating-ssh-keys) file contents.
          * If you selected a Windows image, enter the **Password** for your `Administrator` user.
-         * If needed, **Grant access to the serial console**.
+         * **Enable access to the serial console**, if required.
       * Click **Save**.
    1. Under **Allow when creating and updating**:
       * In the **Add above target value** field, specify the number of instances you can exceed the group size by.
-      * In the field **Reduce below target value**, specify the number of instances you can reduce the group size by.
+      * In the field **Reduce below target value**, specify the number of instances you can decrease the group size by.
       * In the **Create simultaneously** field, specify how many instances can be created at the same time.
       * In **Start time**, specify the period after which the VM instance will start receiving the load.
       * In the **Stop simultaneously** field, specify how many instances can be stopped at the same time.
@@ -59,7 +60,7 @@ To create an instance group with a network load balancer:
          * **Opportunistic**: {{ ig-name }} waits for the instances to stop on their own or by the user.
    1. In the **Scalability** section:
       * Select the **Fixed** [scaling type](../../concepts/instance-groups/scale.md).
-      * Specify the group size.
+      * Specify the instance group size.
    1. Under **Integration with {{ network-load-balancer-name }}**, enable **Create target group**.
    1. Enter the **Name of the target group** and **Description of the target group**.
    1. If needed, enable the **Health check** to get information about the state of instances and their automatic recovery on failure.
@@ -79,161 +80,149 @@ To create an instance group with a network load balancer:
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the create instance group command in the CLI:
+   1. View a description of the CLI command to create an instance group:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} create --help
       ```
 
-   1. Check whether there are networks in the folder:
+   1. Check whether there are [networks](../../../vpc/concepts/network.md#network) in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-      ```
+      ```bash
       yc vpc network list
       ```
 
       If there are not any, [create one](../../../vpc/operations/network-create.md).
-
-   1. Select one of the {{ marketplace-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
+   1. Select one of the {{ marketplace-full-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
    1. Create a YAML file with any name (for example, `specification.yaml`).
-
    1. In the created file, indicate the following:
+      * General information about the instance group:
 
-      * General information about the group:
-
-         ```
+         ```yaml
          name: first-fixed-group-with-balancer
          service_account_id: <ID>
          description: "This instance group was created from YAML config."
          ```
 
          Where:
-
-         | Key | Value |
-         ----- | -----
-         | `name` | Name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters. |
-         | `service_account_id` | Service account ID. |
-         | `description` | Description of the instance group. |
-
+         * `name`: Name of the instance group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters.
+         * `service_account_id`: Service account ID.
+         * `description`: Description of the instance group.
       * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
 
-         ```
+         ```yaml
          instance_template:
-             platform_id: standard-v3
-             resources_spec:
-                 memory: 2g
-                 cores: 2
-             boot_disk_spec:
-                 mode: READ_WRITE
-                 disk_spec:
-                     image_id: fdvk34al8k5nltb58shr
-                     type_id: network-hdd
-                     size: 32g
-             network_interface_specs:
-                 - network_id: c64mknqgnd8avp6edhbt
-                   primary_v4_address_spec: {}
-             scheduling_policy:
-                 preemptible: false
+           platform_id: standard-v3
+           resources_spec:
+             memory: 2g
+             cores: 2
+           boot_disk_spec:
+             mode: READ_WRITE
+             disk_spec:
+               image_id: fdvk34al8k5nltb58shr
+               type_id: network-hdd
+               size: 32g
+           network_interface_specs:
+             - network_id: c64mknqgnd8avp6edhbt
+               primary_v4_address_spec: {}
+           scheduling_policy:
+             preemptible: false
          ```
 
          {% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
 
-         Where (the table contains the keys that directly define the instance parameters):
+         Where:
+         * `platform_id`: [Platform](../../concepts/vm-platforms.md) ID.
+         * `memory`: Amount of RAM.
+         * `cores`: Number of processor cores (vCPUs).
+         * `mode`: [Disk](../../concepts/disk.md) access mode.
+            * `READ_ONLY`: Read-only access.
+            * `READ_WRITE`: Read/write access.
+         * `image_id`: ID of the public image. You can view image IDs in the [management console]({{ link-console-main }}) when creating a VM or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**.
+         * `type_id`: Disk type.
+         * `size`: Disk size.
+         * `network_id`: ID of `default-net`.
+         * `primary_v4_address_spec`: IPv4 specification. You can allow public access to group instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+         * `scheduling_policy`: Scheduling policy configuration.
+         * `preemptible`: Flag indicating that [preemptible VMs](../../concepts/preemptible-vm.md) are created.
+            * `true`: Create a preemptible VM.
+            * `false` (default): Create a regular VM.
 
-         | Key | Value |
-         ----- | -----
-         | `platform_id` | Platform ID. |
-         | `memory` | Amount of memory (RAM). |
-         | `cores` | Number of processor cores (vCPUs). |
-         | `mode` | Disk access mode.</br> - `READ_ONLY`: Read-only access.</br>- `READ_WRITE`: Read and write access. |
-         | `image_id` | ID of the public image. You can view it in the [management console]({{ link-console-main }}) when creating a VM or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**. |
-         | `type_id` | Disk type. |
-         | `size` | Disk size. |
-         | `network_id` | The `default-net` ID. |
-         | `primary_v4_address_spec` | IPv4 specification. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template). |
-         | `scheduling_policy` | Scheduling policy configuration. |
-         | `preemptible` | A flag that enables the creation of [preemptible instances](../../concepts/preemptible-vm.md). If the value is `true`, a preemptible instance is created, if `false` (default), a regular instance is created.<br>When creating a preemptible instance group, keep in mind that the instances will terminate after 24 hours of continuous operation or earlier. It's possible that {{ ig-name }} won't be able to restart them immediately due to insufficient resources. This may occur in the event of a drastic increase in {{ yandex-cloud }} computing resource utilization. |
+            When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. It's possible that {{ ig-name }} won't be able to restart them immediately due to insufficient resources. This may occur in the event of a drastic increase in {{ yandex-cloud }} computing resource utilization.
       * [Policies](../../concepts/instance-groups/policies/index.md):
 
-         ```
+         ```yaml
          deploy_policy:
-             max_unavailable: 1
-             max_expansion: 0
+           max_unavailable: 1
+           max_expansion: 0
          scale_policy:
-             fixed_scale:
-                 size: 3
+           fixed_scale:
+             size: 3
          allocation_policy:
-             zones:
-                 - zone_id: {{ region-id }}-a
+           zones:
+             - zone_id: {{ region-id }}-a
          ```
 
          Where:
+         * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group.
+         * `scale_policy`: [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group.
+         * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) VM instances by [availability zone](../../../overview/concepts/geo-scope.md) and region.
+      * {{ network-load-balancer-name }} [target group](../../../network-load-balancer/concepts/target-resources.md):
 
-         | Key | Value |
-         ----- | -----
-         | `deploy_policy` | [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group. |
-         | `scale_policy` | [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group. |
-         | `allocation_policy` | [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) instances across zones and regions. |
-
-      * {{ network-load-balancer-name }} target group:
-
-         ```
+         ```yaml
          load_balancer_spec:
-             target_group_spec:
-                 name: first-target-group
+           target_group_spec:
+             name: first-target-group
          ```
 
          Where:
+         * `target_group_spec`: Specification of the {{ network-load-balancer-name }} target group associated with the instance group.
+         * `name`: Any name of the {{ network-load-balancer-name }} target group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters.
 
-         | Key | Value |
-         ----- | -----
-         | `target_group_spec` | Specification of the {{ network-load-balancer-name }} target group associated with the instance group. |
-         | `name` | A name for the {{ network-load-balancer-name }} target group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters. |
+   Full code for the `specification.yaml` file:
 
-         Full code for the `specification.yaml` file:
-
-         ```
-         name: first-fixed-group-with-balancer
-         service_account_id: <ID>
-         description: "This instance group was created from YAML config."
-         instance_template:
-             platform_id: standard-v3
-             resources_spec:
-                 memory: 2g
-                 cores: 2
-             boot_disk_spec:
-                 mode: READ_WRITE
-                 disk_spec:
-                     image_id: fdvk34al8k5nltb58shr
-                     type_id: network-hdd
-                     size: 32g
-             network_interface_specs:
-                 - network_id: c64mknqgnd8avp6edhbt
-                   primary_v4_address_spec: {}
-         deploy_policy:
-             max_unavailable: 1
-             max_expansion: 0
-         scale_policy:
-             fixed_scale:
-                 size: 3
-         allocation_policy:
-             zones:
-                 - zone_id: {{ region-id }}-a
-         load_balancer_spec:
-             target_group_spec:
-                 name: first-target-group
-         ```
+   ```yaml
+   name: first-fixed-group-with-balancer
+   service_account_id: <ID>
+   description: "This instance group was created from YAML config."
+   instance_template:
+     platform_id: standard-v3
+     resources_spec:
+       memory: 2g
+       cores: 2
+     boot_disk_spec:
+       mode: READ_WRITE
+       disk_spec:
+         image_id: fdvk34al8k5nltb58shr
+         type_id: network-hdd
+         size: 32g
+     network_interface_specs:
+       - network_id: c64mknqgnd8avp6edhbt
+         primary_v4_address_spec: {}
+     deploy_policy:
+       max_unavailable: 1
+       max_expansion: 0
+     scale_policy:
+       fixed_scale:
+         size: 3
+     allocation_policy:
+       zones:
+         - zone_id: {{ region-id }}-a
+     load_balancer_spec:
+       target_group_spec:
+         name: first-target-group
+   ```
 
    1. Create an instance group in the default folder:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} create --file specification.yaml
       ```
 
       This command creates a group of three similar instances with the following characteristics:
-
       * Named `first-fixed-group-with-balancer`.
       * Running CentOS 7.
       * In the `default-net` network.
@@ -242,7 +231,7 @@ To create an instance group with a network load balancer:
       * With a 32 GB network HDD.
       * With a target group named `first-target-group`.
 
-   1. Create a [load balancer](../../../network-load-balancer/operations/load-balancer-create.md) and add to it your `first-target-group` target group.
+   1. [Create a network load balancer](../../../network-load-balancer/operations/load-balancer-create.md) and add the `first-target-group` to it.
 
 - API
 
@@ -250,11 +239,10 @@ To create an instance group with a network load balancer:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      ```
+      ```yaml
       resource "yandex_iam_service_account" "ig-sa" {
         name        = "ig-sa"
         description = "service account to manage IG"
@@ -351,72 +339,52 @@ To create an instance group with a network load balancer:
       ```
 
       Where:
-
       * `yandex_iam_service_account`: Description of a [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
-      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the folder the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
-      * `yandex_compute_instance_group`: Description of an [instance group](../../concepts/index.md):
-
-         * General information about the group:
-
-            | Field | Description |
-            ----- | -----
-            | `name` | Name of the instance group. |
-            | `folder_id` | Folder ID. |
-            | `service_account_id` | Service account ID. |
-
-         * [The instance template](../../concepts/instance-groups/instance-template.md):
-
-            | Field | Description |
-            ----- | -----
-            | `platform_id` | [Platform](../../concepts/vm-platforms.md). |
-            | `resources` | The number of vCPU cores and the amount of RAM available to the instance. The values must match the selected [platform](../../concepts/vm-platforms.md). |
-            | `boot_disk` | Boot disk settings. Enter:</br> - The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).</br> Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
-            | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
-            | `metadata` | In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
-
+      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+      * `yandex_compute_instance_group`: Description of the instance group:
+         * General information about the instance group:
+            * `name`: Name of the instance group.
+            * `folder_id`: ID of the folder.
+            * `service_account_id`: Service account ID.
+         * [Instance template](../../concepts/instance-groups/instance-template.md):
+            * `platform_id`: [Platform](../../concepts/vm-platforms.md).
+            * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+            * `boot_disk`: Boot [disk](../../concepts/disk.md) settings.
+               * ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+               * Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write).
+            * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the network ID and [subnet](../../../vpc/concepts/network.md#subnet) ID.
+            * `metadata`: In the [metadata](../../concepts/vm-metadata.md), provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
          * [Policies](../../concepts/instance-groups/policies/index.md):
-
-            | Field | Description |
-            ----- | -----
-            | `deploy_policy` | [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group. |
-            | `scale_policy` | [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group. |
-            | `allocation_policy` | [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) instances across zones and regions. |
-
-         * {{ network-load-balancer-name }} target group:
-
-            | Field | Description |
-            ----- | -----
-            | `target_group_name` | Name of the {{ network-load-balancer-name }} target group. |
-            | `target_group_description` | Description of the {{ network-load-balancer-name }} target group. |
-
-      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
-      * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) the instance group will connect to.
+            * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group.
+            * `scale_policy`: [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group.
+            * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) VM instances by [availability zone](../../../overview/concepts/geo-scope.md) and region.
+         * {{ network-load-balancer-name }} [target group](../../../network-load-balancer/concepts/target-resources.md):
+            * `target_group_name`: {{ network-load-balancer-name }} target group name.
+            * `target_group_description`: {{ network-load-balancer-name }} target group description.
+      * `yandex_vpc_network`: Description of the cloud network.
+      * `yandex_vpc_subnet`: Description of the subnet the instance group will connect to.
       * `yandex_lb_network_load_balancer`: Description of the [{{ network-load-balancer-name }} load balancer](../../../network-load-balancer/concepts/index.md) to attach the target group to.
 
-         {% note info %}
+      {% note info %}
 
-         If you already have suitable resources, such as a service account, cloud network, and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
+      If you already have suitable resources, such as a service account, cloud network, subnet, and load balancer, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
 
-         {% endnote %}
+      {% endnote %}
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
    1. Make sure the configuration files are valid.
-
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
 
-         ```
+         ```bash
          terraform plan
          ```
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Deploy cloud resources.
-
       1. If the configuration does not contain any errors, run this command:
 
-         ```
+         ```bash
          terraform apply
          ```
 

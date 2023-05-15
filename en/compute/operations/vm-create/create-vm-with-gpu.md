@@ -1,8 +1,8 @@
 # Creating a VM with a GPU
 
-This section provides guidelines for creating VMs with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).
+This section provides guidelines for creating a [VM](../../concepts/vm.md) with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).
 
-By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
+By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has a zero [quota](../../concepts/limits.md#quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
 
 
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
@@ -27,14 +27,14 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       yc compute instance create --help
       ```
 
-   1. Prepare the [key pair](../vm-connect/ssh.md#creating-ssh-keys) (public and private keys) for SSH access to the VM.
-   1. Select a public image.
+   1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
+   1. Select a public [image](../images-with-pre-installed-software/get-list.md).
 
       {% include [gpu-images](../../../_includes/gpu-images.md) %}
 
       {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
-   1. Create a VM in the default folder:
+   1. Create a VM in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       
       ```bash
@@ -53,24 +53,32 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
 
       Where:
-
       * `name`: VM name.
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
-      * `platform`: [Platform](../../concepts/vm-platforms.md) ID:
+      * `zone`: [availability zone](../../../overview/concepts/geo-scope.md).
+      * `platform`: ID of the [platform](../../concepts/vm-platforms.md):
+
+         
          * `gpu-standard-v1` for {{ v100-broadwell }}.
          * `gpu-standard-v2` for {{ v100-cascade-lake }}.
          * `standard-v3-t4` for {{ t4-ice-lake }}.
+
+
          * `gpu-standard-v3` for {{ a100-epyc }}.
       * `cores`: [The number of vCPUs](../../concepts/gpus.md).
-      * `memory`: [The RAM size](../../concepts/gpus.md).
-      * `gpus`: [Number of GPUs](../../concepts/gpus.md).
+      * `memory`: Amount of RAM.
+      * `gpus`: Number of GPUs.
       * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
       * `create-boot-disk`: [Image](../images-with-pre-installed-software/get-list.md) of the OS.
-      * `ubuntu-1604-lts-gpu`: [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) with CUDA drivers.
-      * `nat-ip-version=ipv4`: Public IP. To create a VM without a public IP, disable a parameter.
+
+         
+         * `ubuntu-1604-lts-gpu`: [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) with CUDA drivers.
+
+
+
+      * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
 
       Get a description of the created VM:
 
@@ -102,7 +110,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
    If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      ```
+      ```hcl
       resource "yandex_compute_instance" "vm-1" {
 
         name        = "vm-with-gpu"
@@ -143,24 +151,27 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       ```
 
       Where:
-
-      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
+      * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name.
          * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
+
+            
             * `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.
-            * `gpu-standard-v2` for Intel Cascade Lake with NVIDIA® Tesla® V100.
+            * `gpu-standard-v2`for Intel Cascade Lake with NVIDIA® Tesla® V100.
             * `standard-v3-t4` for Intel Ice Lake with NVIDIA® Tesla® T4.
+
+
             * `gpu-standard-v3` for AMD EPYC 7662 with NVIDIA® Ampere® A100.
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+         * `boot_disk`: Boot [disk](../../concepts/disk.md) settings. Specify the ID of the selected [image](../../concepts/image.md). You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
             {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
-         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
+         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
          * `metadata`: In the metadata, pass the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
-      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
-      * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#network) your VM will connect to.
+      * `yandex_vpc_network`: Description of the cloud network.
+      * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
 
       {% note info %}
 
@@ -169,7 +180,6 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       {% endnote %}
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:

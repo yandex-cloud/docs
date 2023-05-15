@@ -31,7 +31,7 @@ To create a trigger, you need:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Select **{{ sf-name }}**.
 
@@ -72,7 +72,7 @@ To create a trigger, you need:
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To create a trigger that invokes a function, run the command:
+   To create a trigger that invokes a function, run this command:
 
    ```bash
    yc serverless trigger create yds \
@@ -134,7 +134,7 @@ To create a trigger, you need:
 
 - API
 
-   You can create a trigger for {{ yds-name }} using the [create](../../triggers/api-ref/Trigger/create.md).
+   To create a trigger for {{ yds-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 

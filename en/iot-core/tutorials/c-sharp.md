@@ -9,20 +9,18 @@ The source code used in this scenario is available on [GitHub](https://github.co
 {% endnote %}
 
 Once connected, you can:
-
 * [Send messages](../operations/publish.md).
 * [Subscribe a device or registry to receive messages](../operations/subscribe.md).
 
 To connect to {{ iot-full-name }} and start messaging:
-
-* [Before you start](#before-you-begin)
-* [Create the necessary {{ iot-full-name }} resources](#resources)
-    * [Create a registry and add a certificate to it](#registry)
-    * [Create a device and add a certificate to it](#device)
+* [Get started](#before-you-begin).
+* [Create the required {{ iot-full-name }} resources](#resources)
+   * [Create a registry and add a certificate to it](#registry)
+   * [Create a device and add a certificate to it](#device)
 * [Connect to {{ iot-full-name }}](#connect)
 * [Log in to {{ iot-full-name }}](#auth)
-    * [Authorization using certificates](#certs)
-    * [Authorization using a username and password](#log-pass)
+   * [Authorization using certificates](#certs)
+   * [Authorization using a username and password](#log-pass)
 * [Establish a connection](#establish-connection)
 * [Subscribe to a topic and get messages](#subscribe)
 * [Send a message](#publish)
@@ -30,10 +28,10 @@ To connect to {{ iot-full-name }} and start messaging:
 
 ## Before you start {#before-you-begin}
 
-1. If you don't have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
-1. Download and install a development environment for .Net. For example, [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/).
+1. If you do not have the command line interface {{ yandex-cloud }} yet, [install and initialize it](../../cli/quickstart.md#install).
+1. Download and install a development environment for .Net. For instance, [Microsoft Visual Studio](https://visualstudio.microsoft.com/ru/vs/).
 
-## Create the necessary {{ iot-full-name }} resources{#resources}
+## Create the required {{ iot-full-name }} resources{#resources}
 
 ### Create a registry and add a certificate to it {#registry}
 
@@ -53,17 +51,17 @@ If you already have a certificate, start with the second step.
 
 1. Create a registry:
 
-    ```shell script
-    yc iot registry create --name my-registry
-    ```
+   ```shell script
+   yc iot registry create --name my-registry
+   ```
 
 1. Add a certificate to the registry:
 
-    ```shell script
-    yc iot registry certificate add \
-      --registry-name my-registry \ # Registry name.
-      --certificate-file registry-cert.pem # Path to the public part of the certificate.
-    ```
+   ```shell script
+   yc iot registry certificate add \
+     --registry-name my-registry \ # Registry name.
+     --certificate-file registry-cert.pem # Path to the public part of the certificate.
+   ```
 
 ### Create a device and add a certificate to it {#device}
 
@@ -81,21 +79,20 @@ If you already have a certificate, start with the second step.
      -subj '/CN=localhost'
    ```
 
-1. [View the list of registries](../operations/registry/registry-list.md#registry-list) where you can create a device or [create a new registry](../operations/registry/registry-create.md).
-
+1. [Review a list of the registries](../operations/registry/registry-list.md#registry-list) where you can create a device or [create a new registry](../operations/registry/registry-create.md).
 1. Create a device:
 
-    ```shell script
-    yc iot device create --registry-name my-registry --name my-device
-    ```
+   ```shell script
+   yc iot device create --registry-name my-registry --name my-device
+   ```
 
 1. Add a certificate to the device:
 
-    ```shell script
-    yc iot device certificate add \
-      --device-name my-device \ # Device name.
-      --certificate-file device-cert.pem # Path to the public part of the certificate.
-    ```
+   ```shell script
+   yc iot device certificate add \
+     --device-name my-device \ # Device name.
+     --certificate-file device-cert.pem # Path to the public part of the certificate.
+   ```
 
 ## Connect to {{ iot-full-name }} {#connect}
 
@@ -141,7 +138,6 @@ Where:
 * `MqttClientOptionsBuilderTlsParameters` is a class that specifies the parameters for using TLS when connecting to {{ iot-full-name }}.
 * `MqttClientOptionsBuilder` is a constructor class for setting connection options. You can use the default settings, but we recommend setting the `WithKeepAlivePeriod` and `WithKeepAliveSendInterval` parameters. The values of these parameters determine:
     * The frequency of sending `PINGREQ` commands.
-
     * The client's response time to a broken connection.
 
         The lower the values of these parameters, the faster the client realizes that a connection terminated abnormally. However, this increases the frequency of sending payable `PINGREQ` commands.
@@ -149,7 +145,6 @@ Where:
 ## Log in to {{ iot-full-name }} {#auth}
 
 There are two [authorization](../concepts/authorization.md) methods:
-
 * [Using X.509 certificates](#certs).
 * [Using a username and password](#log-pass).
 
@@ -231,7 +226,7 @@ MqttClientOptionsBuilderTlsParameters tlsOptions = new MqttClientOptionsBuilderT
 tlsOptions.CertificateValidationCallback += CertificateValidationCallback;
 ```
 
-In the connection settings, using the `WithCredentials` method, set the username to `id` (registry or device ID) and the password to `password`:
+In the connection settings, using the `WithCredentials` method, set the username to `id` (registry or device ID) and the `password` to password:
 
 ```C#
 // Setting up the connection parameters
@@ -269,7 +264,7 @@ private Task DataHandler(MqttApplicationMessageReceivedEventArgs arg)
 }
 ```
 
-Subscribe to a topic using the following code. In the `SubscribeAsync` method, specify the `topic` that you want to subscribe to and the level of quality of service (`qos`).
+Subscribe to a topic using the following code. In the `SubscribeAsync` method, specify the `topic` that you want to subscribe to and the level of quality of service (`QoS`).
 
 ```C#
 mqttClient.SubscribeAsync(topic, qos);

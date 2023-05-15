@@ -97,6 +97,8 @@ Make sure the data from {{ at-name }} is successfully uploaded to {{ OS }}:
 
 ![opensearch-discover](../_assets/mdb/opensearch-discover.png)
 
+{% include [primary-key](../_includes/data-transfer/notes/os-es-transfer-conditions.md) %}
+
 ## Upload additional content {#additional-content}
 
 For your convenience, the {{ yandex-cloud }} security team created Solution Library with a set of examples and recommendations for building a secure infrastructure in {{ yandex-cloud }}. The library is available in this [public GitHub repository](https://github.com/yandex-cloud/yc-solution-library-for-security). It contains the following objects to upload to {{ OS }}:

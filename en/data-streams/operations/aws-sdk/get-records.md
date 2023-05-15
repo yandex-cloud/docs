@@ -1,12 +1,12 @@
-# Reading data from a stream in AWS SDK
+# Reading data from a stream in the AWS SDK
 
 {% list tabs %}
 
 - Python
 
-  You can get data from a stream using the `get_shard_iterator` and `get_record/get_records` methods. When calling this method, specify the following parameters:
-  * The name of a stream, for example, `example-stream`.
-  * [ID of the folder](../../../resource-manager/operations/folder/get-id.md) in which the stream is located, for example, `aoeu1kuj2dhtaupdb5es`.
+  You can get data from a stream using the `get_shard_iterator` and `get_record/get_records` methods. When you invoke this method, you should specify the following parameters:
+  * Name of the stream, e.g., `example-stream`.
+  * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) the stream is located in, such as `b1gi1kuj2dhtaupdb5es`.
   * {{ ydb-full-name }} database ID with the stream, for example, `cc8028jgtuabcqutgtbv`.
 
   To read records from a stream with the parameters specified above:
@@ -17,10 +17,10 @@
      from pprint import pprint
      import itertools
 
-     def get_records(folder, database, stream_name):
+     def get_records(cloud, database, stream_name):
          client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
 
-         StreamName = "/{{ region-id }}/{folder}/{database}/{stream}".format(folder=folder,
+         StreamName = "/{{ region-id }}/{cloud}/{database}/{stream}".format(cloud=cloud,
                                                                       database=database,
                                                                       stream=stream_name)
 
@@ -46,7 +46,7 @@
 
 
      if __name__ == '__main__':
-         for record in get_records(folder="aoeu1kuj2dhtaupdb5es",
+         for record in get_records(cloud="b1gi1kuj2dhtaupdb5es",
                                    database="cc8028jgtuabcqutgtbv",
                                    stream_name="example-stream"):
              pprint(record)    

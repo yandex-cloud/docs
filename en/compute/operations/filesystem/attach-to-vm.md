@@ -1,20 +1,19 @@
 # Attaching file storage to a VM
 
-1. If a virtual machine has been launched and is running (the `RUNNING` [status](../../concepts/vm-statuses.md)), [stop it](../vm-control/vm-stop-and-start.md#stop).
-1. Attach file storage to the VM in {{ compute-name }}:
+1. If the [VM](../../concepts/vm.md) is started and running (its [status](../../concepts/vm-statuses.md) is `RUNNING`), [stop it](../vm-control/vm-stop-and-start.md#stop).
+1. Attach [file storage](../../concepts/filesystem.md) to the VM in {{ compute-name }}:
 
    {% list tabs %}
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you created the file store.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the file store.
       1. Select **{{ compute-name }}**.
       1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
       1. Select the desired storage.
       1. Go to the **Virtual machines** tab.
       1. Click **Attach to VM**.
       1. In the window that opens:
-
          1. Select the **VM**.
          1. Specify the **Device name** for accessing file storage in the VM.
          1. Click **Attach to VM**.
@@ -26,15 +25,14 @@
    {% endlist %}
 
 1. Mount file storage to the VM:
-
-   1. [Connect to the VM via SSH](../vm-connect/ssh.md).
+   1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
    1. Run this command:
 
       ```bash
       sudo mount -t virtiofs <device name> <mount path>
       ```
 
-   1. To check that your file store is mounted, run the command:
+   1. Check that the file storage has been mounted:
 
       ```bash
       df -T
@@ -42,7 +40,7 @@
 
       Result:
 
-      ```
+      ```text
       Filesystem        Type         1K-blocks    Used Available Use% Mounted on
       udev              devtmpfs        988600       0    988600   0% /dev
       tmpfs             tmpfs           203524     780    202744   1% /run
@@ -56,6 +54,6 @@
 
    1. In order for file storage to be mounted every time the VM is started, add a line to the `/etc/fstab` file in the following format:
 
-      ```
+      ```text
       <device name>  <mount path> virtiofs    rw    0   0
       ```

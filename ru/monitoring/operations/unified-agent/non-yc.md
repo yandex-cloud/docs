@@ -34,9 +34,9 @@
        }
        ```
 
-1. Установите и настройте {{unified-agent-full-name}}.
+1. Установите и настройте {{unified-agent-full-name}}:
 
-   1. Создайте в домашнем каталоге файл **config.yml**:
+   1. Создайте в домашнем каталоге файл **config.yml**.
 
        **config.yml:**
        ```yaml
@@ -111,7 +111,7 @@
 
        Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
-1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}.
+1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}:
 
     1. На [главной странице]({{ link-monitoring }}) сервиса {{ monitoring-full-name }} перейдите в раздел **Обзор метрик**.
 

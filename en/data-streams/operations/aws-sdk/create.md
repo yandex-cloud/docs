@@ -1,14 +1,14 @@
-# Creating a stream in AWS SDK
+# Creating a stream in the AWS SDK
 
 {% list tabs %}
 
 - Python
 
-   Use the `create_stream` method to create a stream. When calling this method, specify the following parameters:
-   * The name of a stream to create, for example, `example-stream`.
-   * [ID of the folder](../../../resource-manager/operations/folder/get-id.md) in which the stream is created, for example, `aoeu1kuj2dhtaupdb5es`.
-   * ID of an existing [serverless](../../../ydb/pricing/serverless.md) {{ ydb-full-name }} database, for example, `cc8028jgtuabcqutgtbv`. For information about how to create a database, see [{{ ydb-short-name }} documentation](../../../ydb/quickstart.md#create-db).
-   * The number of shards, for example, `1`.
+   Use the `create_stream` method to create a stream. When you invoke this method, you should specify the following parameters:
+   * Name of a stream being created, e.g., `example-stream`.
+   * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) to create the stream in, such as `b1gi1kuj2dhtaupdb5es`.
+   * ID of an existing [serverless](../../../ydb/pricing/serverless.md) {{ ydb-full-name }} database, for example, `cc8028jgtuabcqutgtbv`. For information about how to create a database, see the [{{ ydb-short-name }} documentation](../../../ydb/quickstart.md#create-db).
+   * Number of shards, e.g., `1`.
 
    To create a stream with the parameters specified above:
 
@@ -18,10 +18,10 @@
       import boto3
       from pprint import pprint
 
-      def create_stream(folder, database, stream_name, shard_count):
+      def create_stream(cloud, database, stream_name, shard_count):
           client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
           response = client.create_stream(
-            StreamName="/{{ region-id }}/{folder}/{database}/{stream}".format(folder=folder,
+            StreamName="/{{ region-id }}/{cloud}/{database}/{stream}".format(cloud=cloud,
                                                                           database=database,
                                                                           stream=stream_name),
             ShardCount=shard_count
@@ -30,7 +30,7 @@
 
       if __name__ == '__main__':
         create_stream_response = create_stream(
-          folder="aoeu1kuj2dhtaupdb5es",
+          cloud="b1gi1kuj2dhtaupdb5es",
           database="cc8028jgtuabcqutgtbv",
           stream_name="example-stream",
           shard_count=1)

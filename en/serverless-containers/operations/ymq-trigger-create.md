@@ -1,4 +1,4 @@
-# Creating a trigger for {{ message-queue-name }} that sends messages to a {{ serverless-containers-name }} container
+# Creating trigger for {{ message-queue-name }} that sends messages to {{ serverless-containers-name }} container
 
 Create a [trigger for a {{ message-queue-short-name }} message queue](../concepts/trigger/ymq-trigger.md) and process the messages using the {{ serverless-containers-name }} [container](../concepts/container.md).
 
@@ -10,7 +10,7 @@ Create a [trigger for a {{ message-queue-short-name }} message queue](../concept
 
 {% endnote %}
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 To create a trigger, you need:
 
@@ -37,7 +37,7 @@ To create a trigger, you need:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Open **{{ serverless-containers-name }}**.
 
@@ -60,9 +60,7 @@ To create a trigger, you need:
 
       The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. However, the number of messages does not exceed the specified group size.
 
-   1. Under **Container settings**, select a container and specify:
-
-      {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+   1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
    1. Click **Create trigger**.
 
@@ -72,7 +70,7 @@ To create a trigger, you need:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a trigger that invokes a container, run the command:
+   To create a trigger that invokes a container, run this command:
 
    ```bash
    yc serverless trigger create message-queue \
@@ -125,7 +123,7 @@ To create a trigger, you need:
 
 - API
 
-   You can create a trigger for {{ message-queue-name }} using the [create](../triggers/api-ref/Trigger/create.md).
+   To create a trigger for {{ message-queue-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -149,4 +147,4 @@ To create a trigger, you need:
 
 ## See also {#see-also}
 
-* Trigger for [{{ message-queue-name }} that sends messages to the {{ sf-name }} function](../../functions/operations/trigger/ymq-trigger-create.md).
+* [Trigger for {{ message-queue-name }} that sends messages to the {{ sf-name }} function](../../functions/operations/trigger/ymq-trigger-create.md).

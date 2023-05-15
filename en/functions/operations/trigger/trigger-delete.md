@@ -52,10 +52,6 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
    status: PAUSED
    ```
 
-- API
-
-   You can delete a trigger using the [delete](../../triggers/api-ref/Trigger/delete.md) API method.
-
 - {{ TF }}
 
    For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -85,25 +81,25 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -118,5 +114,9 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
       ```
       yc serverless trigger list
       ```
+
+- API
+
+   To delete a trigger, use the [delete](../../triggers/api-ref/Trigger/delete.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Delete](../../triggers/api-ref/grpc/trigger_service.md#Delete) gRPC API call.
 
 {% endlist %}

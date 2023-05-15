@@ -30,6 +30,6 @@
 
 - API
 
-   You can get a list of triggers using the [list](../../serverless-containers/triggers/api-ref/Trigger/list.md) API method.
+   To get a list of triggers, use the [list](../../serverless-containers/triggers/api-ref/Trigger/list.md) REST API method for the [Trigger](../../serverless-containers/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/List](../../serverless-containers/triggers/api-ref/grpc/trigger_service.md#List) gRPC API call.
 
 {% endlist %}

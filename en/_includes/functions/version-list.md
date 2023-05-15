@@ -16,7 +16,7 @@
 
    {% include [note](function-list-note.md) %}
 
-   To get a list of function versions, run the command:
+   To get a list of function versions, run the following command:
 
    ```
    yc serverless function version list --function-name <function_name>
@@ -35,10 +35,10 @@
 
 - API
 
-   You can get a list of function versions using the [listVersions](../../functions/functions/api-ref/Function/listVersions.md) API method.
+   To get a list of function versions, use the [listVersions](../../functions/functions/api-ref/Function/listVersions.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/ListVersions](../../functions/functions/api-ref/grpc/function_service.md#ListVersions) gRPC API call.
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-   You can get a list of versions using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can get a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

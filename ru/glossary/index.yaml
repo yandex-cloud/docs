@@ -73,3 +73,9 @@ links:
   - title: Data Mart
     description: Витрина данных
     href: datamart
+  - title: Data Lake
+    description: Озеро данных
+    href: datalake
+  - title: Бэклог
+    description: Список задач проекта по степени приоритетности
+    href: backlog

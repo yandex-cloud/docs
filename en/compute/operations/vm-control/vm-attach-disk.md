@@ -1,6 +1,6 @@
 # Attaching a disk to a VM
 
-You can attach a disk to either a running or stopped VM.
+You can attach a [disk](../../concepts/disk.md) to either a [running or stopped](../../concepts/vm-statuses.md) [VM](../../concepts/vm.md).
 
 For a disk to be successfully attached to a running VM, the VM's operating system must be ready to accept commands to attach disks. Before attaching a disk, either make sure the OS is loaded up or stop the VM; otherwise, the attach disk operation will fail. If an error occurs, stop the VM and try again.
 
@@ -11,7 +11,7 @@ For a disk to be successfully attached to a running VM, the VM's operating syste
 
 {% note info %}
 
-You can only attach a local disk to a VM on a [dedicated host](../../concepts/dedicated-host.md) while creating it. For more information, see this [guide](../index.md#dedicated-host).
+You can only attach a local disk to a VM on a [dedicated host](../../concepts/dedicated-host.md) while creating it. For more information, see [this guide](../index.md#dedicated-host).
 
 {% endnote %}
 
@@ -22,7 +22,7 @@ To attach a network disk to a VM:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
    1. Select an unattached disk or [create](../disk-create/empty.md) a new one.
@@ -45,12 +45,11 @@ To attach a network disk to a VM:
       yc compute instance attach-disk --help
       ```
 
-   1. Get a list of VMs in the default folder:
+   1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
    1. Select the VM `ID` or `NAME` (for example, `first-instance`).
-
    1. Get a list of disks in the default folder:
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
@@ -80,7 +79,6 @@ To attach a network disk to a VM:
       ```
 
       Then reattach the disk.
-
    1. If the VM was stopped, restart it:
 
       ```bash
@@ -102,14 +100,15 @@ To use the attached disk:
 - Linux
 
    Mount the disk:
-
-   1. Connect to the VM via [SSH](../vm-connect/ssh.md).
+   1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
    1. Run the `blkid` command and make sure that there are no partitions with duplicate UUIDs:
 
       ```bash
       sudo blkid
       ```
+
       Result:
+
       ```text
       /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
       /dev/vdb2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
@@ -136,7 +135,9 @@ To use the attached disk:
       ```bash
       sudo blkid
       ```
+
       Result:
+
       ```text
       /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
       /dev/vdb2: UUID="ea004485-07fb-4128-b20d-e408db1e8ae8" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
@@ -160,7 +161,7 @@ To partition and mount an empty disk yourself:
 
 - Linux
 
-   1. Connect to the VM via [SSH](../vm-connect/ssh.md).
+   1. [Connect to the VM via SSH](../vm-connect/ssh.md).
    1. Check whether the disk is attached as a device and get its path in the system:
 
       ```bash
@@ -181,14 +182,11 @@ To partition and mount an empty disk yourself:
       ```
 
       Where:
-
-      * Network disk links look like `virtio-<disk_ID>`. For example, `virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc` means that the unpartitioned disk with the `fhm1dn62tm5dnaspeh8n` ID is labeled as `/dev/vdc`.
+      * Network disk links look like `virtio-<disk ID>`. For example, `virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc` means that the unpartitioned disk with the `fhm1dn62tm5dnaspeh8n` ID is labeled as `/dev/vdc`.
       * Local disks on [dedicated hosts](../../concepts/dedicated-host.md) have links like `virtio-nvme-disk-<disk_number>` (you will have local disks only in case you attached those to your VM while creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled as `/dev/vda`.
-
    1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) using the `cfdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), the `fdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or the `parted` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
 
       For example, here is how to create partitions using the `fdisk` command. Use the `sudo` command or run commands on behalf of the `root` user: to do this, run `sudo su -`.
-
       1. Run the utility:
 
          ```bash
@@ -196,7 +194,6 @@ To partition and mount an empty disk yourself:
          ```
 
          You will be taken to the `fdisk` menu. For a list of available commands, press **M**.
-
       1. To create a new partition, press **N**.
       1. Specify that the partition will be the primary one by pressing **P**.
       1. You will be prompted to select a partition number. Press **Enter** to create the first partition.
@@ -209,7 +206,6 @@ To partition and mount an empty disk yourself:
          ```
 
       1. Press **W** to save changes.
-
    1. Format the disk for the desired file system, for example, using the `mkfs` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html). To format the partition for ext4, enter:
 
       ```bash

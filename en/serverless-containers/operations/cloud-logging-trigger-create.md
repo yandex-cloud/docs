@@ -2,7 +2,7 @@
 
 Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-logging-trigger.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) when entries are added to a [log group](../../logging/concepts/log-group.md).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
@@ -16,7 +16,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Open **{{ serverless-containers-name }}**.
 
@@ -46,9 +46,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. However, the number of messages does not exceed the specified group size.
 
-   1. Under **Container settings**, select a container and specify:
-
-      {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+   1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
    1. (optional) Under **Repeat request settings**:
 
@@ -64,7 +62,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a trigger that invokes a container, run the command:
+   To create a trigger that invokes a container, run this command:
 
    ```bash
    yc serverless trigger create logging \
@@ -84,8 +82,8 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    * `--name`: Trigger name.
    * `--log-group-name`: Name of the log group that invokes a container when records are added.
-   * `--batch-size`: Message batch size. Optional. Valid values range from 1 to 100. The default is 1.
-   * `--batch-cutoff`: Maximum waiting time. Optional. Valid values range from 0 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. At the same time, the number of messages does not exceed `batch-size`.
+   * `--batch-size`: Message batch size. This is an optional parameter. Valid values range from 1 to 100. The default is 1.
+   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Valid values range from 0 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. At the same time, the number of messages does not exceed `batch-size`.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -116,7 +114,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
 - API
 
-   You can create a trigger for {{ cloud-logging-name }} using the [create](../triggers/api-ref/Trigger/create.md).
+   To create a trigger for {{ cloud-logging-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 

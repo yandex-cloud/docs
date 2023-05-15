@@ -34,11 +34,14 @@ You can filter log group records using the language of filter expressions. With 
 
     You can filter records using the `--filter` and other flags of the `yc logging read` command at the same time. This combines the conditions with the `AND` operator. For example, you can set a filter using the `--resource-types` flag and the `level` parameter of the `--filter` flag:
 
+    
     ```
     yc logging read --group-name=default --resource-types=serverless.function --filter="level=INFO"
     ```
 
     This filter will output records with the `INFO` logging level sent in the previous hour by {{ sf-name }} functions.
+
+
 
     {% endnote %}
 
@@ -54,9 +57,9 @@ You can filter log group records using the language of filter expressions. With 
 >   ```
 >   message: warning "error dialing endpoint"
 >   ```
->* Records sent after June 8, 2021:
+>* Records sent after June 8, 2023:
 >   ```
->   timestamp > "2021-06-08T00:00:00Z"
+>   timestamp > "2023-06-08T00:00:00Z"
 >   ```
 >* Records whose logging level is higher than or equal to `INFO`:
 >   ```
@@ -74,8 +77,8 @@ You can filter log group records using the language of filter expressions. With 
 | `resource_id` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records sent by the specified resource, such as a function. | ```resource_id: "d4e155orh3nu********"``` |
 | `json_payload` | ```parameter: "value"``` | Search for records with `json_payload` set to certain values. Based on text. | ```json_payload: "error"``` |
 | `json_payload.<element>` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records by `json_payload` elements. If the filter uses a comparison operator, the element can be a string, a number, or a Boolean value. Otherwise, only a string. You can omit the `json_payload` prefix if the tree root element doesn't match any of the parameters. Check if `json_payload` contains a certain element using the `EXISTS` operator. For example: ```json_payload.result EXISTS```. This filter outputs records whose `json_payload` contains the `result` element. | ```json_payload.flag = FALSE``` |
-| `timestamp` | ```parameter <comparison operator> "value"``` | Search for records sent within the specified interval. | ```timestamp >= "2021-06-08T00:00:00Z"``` |
-| `ingested_at` | ```parameter <comparison operator> "value"``` | Search for records delivered to the {{ cloud-logging-name }} system within the specified interval. | ```ingested_at = "2021-06-22T05:15:03Z"``` |
+| `timestamp` | ```parameter <comparison operator> "value"``` | Search for records sent within the specified interval. | ```timestamp >= "2023-06-08T00:00:00Z"``` |
+| `ingested_at` | ```parameter <comparison operator> "value"``` | Search for records delivered to the {{ cloud-logging-name }} system within the specified interval. | ```ingested_at = "2023-06-22T05:15:03Z"``` |
 | `saved_at` | ```parameter <comparison operator> "value"``` | Search for records saved to the {{ cloud-logging-name }} database within the specified interval. | ```saved_at >= 1622198048``` |
 | `level` | ```parameter <comparison operator> value``` | Search for records with the specified logging levels. Possible logging levels: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. | ```level >= WARN``` |
 

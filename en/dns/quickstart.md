@@ -1,14 +1,18 @@
 # Getting started with {{ dns-name }}
 
-Create [DNS zones](concepts/dns-zone.md), add `A` records for your test VMs to them, and test the availability of domain names.
+Create [DNS zones](concepts/dns-zone.md), add `A` records for your test [VMs](../compute/concepts/vm.md) to them, and test the availability of domain names.
 
 ## Getting started {#before-begin}
 
-1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
+1. Sign in or sign up to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
+
+
 1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
+
+
+1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default [virtual network](../vpc/concepts/network.md#network) with [subnets](../vpc/concepts/network.md#subnet) in all [availability zones](../overview/concepts/geo-scope.md).
 1. [Create a network](../vpc/quickstart.md) and subnets to connect your test VMs.
-1. [Create](../compute/operations/vm-create/create-linux-vm.md) VMs named `test-vm-1` and `test-vm-2` in the `{{ region-id }}-a` availability zone. Make sure that `test-vm-1` has a public IP address. Connect them to subnets of the same network.
+1. [Create](../compute/operations/vm-create/create-linux-vm.md) VMs named `test-vm-1` and `test-vm-2` in the `{{ region-id }}-a` availability zone. Make sure that `test-vm-1` has a [public IP address](../vpc/concepts/address.md#public-addresses). Connect them to subnets of the same network.
 
 ## Create an internal DNS zone {#create-private-zone}
 
@@ -24,16 +28,16 @@ Create a new domain zone:
    1. Click **Create zone**.
    1. Specify the zone settings:
       1. **Name**: `test-zone`.
-      1. **Zone**: `testing.`
+      1. **Zone**: `testing`.
       1. **Type**: `Internal`.
       1. **Network**: The network where your VMs reside.
    1. Click **Create**.
 
 - CLI
 
-   Run the following command:
+   Run this command:
 
-   ```
+   ```bash
    yc dns zone create --name test-zone \
    --zone testing. \
    --private-visibility network-ids=<ID of the network with test VMs>
@@ -53,7 +57,7 @@ Create a new domain zone:
       1. **Name**: `test-vm-1`.
       1. **Type**: `A`.
       1. **TTL**: `600`.
-      1. **Value**: Internal IP address of `test-vm1`.
+      1. **Value**: [Internal IP address](../vpc/concepts/address.md#internal-addresses) of `test-vm1`.
    1. Click **Create**.
    1. Click **Create record** once again. Set parameters for another record:
       1. **Name**: `test-vm-2`.
@@ -66,12 +70,12 @@ Create a new domain zone:
 
    Run the following commands:
 
-   ```
+   ```bash
    yc dns zone add-records --name test-zone \
    --record "test-vm-1 600 A <internal IP address of test-vm-1>"
    ```
 
-   ```
+   ```bash
    yc dns zone add-records --name test-zone \
    --record "test-vm-2 600 A <internal IP address of test-vm-2>"
    ```
@@ -80,21 +84,21 @@ Create a new domain zone:
 
 ### Test the availability of domain names in the internal zone {#test-private-resolving}
 
-Connect to `test-vm-1` via SSH:
+Connect to `test-vm-1` over SSH:
 
-```
+```bash
 ssh <VM public IP>
 ```
 
-On your VM, try accessing `test-vm-2` by its domain name:
+On your VM, try accessing `test-vm-2` by its [domain name](../vpc/concepts/address.md#fqdn):
 
-```
+```bash
 host test-vm-2.testing.
 ```
 
 Make sure that the IP address of the appropriate VM is returned in response:
 
-```
+```bash
 host test-vm-2.testing.
 test-vm-2.testing has address 10.0.0.9
 ```
@@ -119,9 +123,9 @@ Create a new public domain zone:
 
 - CLI
 
-   Run the following command:
+   Run this command:
 
-   ```
+   ```bash
    yc dns zone create --name test-public-zone \
    --zone example.com. \
    --public-visibility
@@ -146,9 +150,9 @@ Create a new public domain zone:
 
 - CLI
 
-   Run the following command:
+   Run this command:
 
-   ```
+   ```bash
    yc dns zone add-records --name test-public-zone \
    --record "www 600 A <public IP address of test-vm-1>"
    ```
@@ -161,13 +165,13 @@ Delegate your domain name by specifying the addresses of `ns1.{{ dns-ns-host-sld
 
 Make sure that the created record points to the VM's public IP address. Run the following command on your computer:
 
-```
+```bash
 host www.example.com ns1.{{ dns-ns-host-sld }}.
 ```
 
 Result:
 
-```
+```text
 Using domain server:
 Name: ns1.{{ dns-ns-host-sld }}.
 Address: 84.201.185.208#53

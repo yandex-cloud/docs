@@ -1,8 +1,8 @@
 # VM instance metadata
 
-The VM instance details are available in the metadata service. You can use the metadata to pass any keys and values, and then request metadata from [inside](../operations/vm-info/get-info.md#inside-instance) or [outside](../operations/vm-info/get-info.md#outside-instance) an instance. For more information about setting up a metadata service, see [{#T}](../operations/vm-info/get-info.md#metadata-options).
+[VM](vm.md) instance details are available in the metadata service. You can use metadata to provide any keys and values, and then request the metadata from [inside](../operations/vm-info/get-info.md#inside-instance) or [outside](../operations/vm-info/get-info.md#outside-instance) a VM instance. For more information about setting up a metadata service, see [{#T}](../operations/vm-info/get-info.md#metadata-options).
 
-Metadata is also used by programs launched on VM start.
+Metadata is also used by apps that launch at VM startup.
 
 ## Metadata formats supported inside VM {#metadata-formats}
 
@@ -12,8 +12,9 @@ From inside a VM instance, metadata is available in the following formats:
 
 ## How to send metadata {#how-to-send-metadata}
 
-You can pass metadata when you create or [change](../operations/vm-control/vm-update.md#change-metadata) your virtual machine. VM connection data can't change, so it must be passed during creation:
-* [For a Linux VM](../operations/vm-create/create-linux-vm.md), you must pass the public SSH key to be able to connect to it.
+You can provide metadata when creating or [updating](../operations/vm-control/vm-update.md#change-metadata) VMs. VM connection data cannot be changed, so it must be provided during VM creation:
+* [For a Linux VM](../operations/vm-create/create-linux-vm.md), provide the public SSH key to be able to connect to it.
+
 
 {% list tabs %}
 
@@ -23,10 +24,10 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
    * `--metadata-from-file` as a file, for example, `--metadata-from-file key=path/to/file`. This is convenient when passing values consisting of multiple strings.
    * `--metadata` is the list of `key-value` pairs separated by commas, for example, `--metadata foo1=bar,foo2=baz`.
 
-      If the value is multiline, use `\n` to split lines: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`
-   * `--ssh-key` with an SSH key. Only for Linux-based virtual machines.
+      If the value is multiline, use `\n` to split lines: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.
+   * `--ssh-key` with an SSH key. For Linux VMs only.
 
-      {{ compute-short-name }} creates a user named `yc-user` and adds the specified SSH key to the list of authorized keys. After the VM is created, you can use this key to connect to it over SSH.
+      {{ compute-name }} creates a user named `yc-user` and adds the specified SSH key to the list of authorized keys. After the VM is created, you can use this key to connect to it over SSH.
 
    You can combine these parameters, for example:
 
@@ -41,7 +42,6 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 - {{ TF }}
 
    In the {{ TF }}, you can specify metadata in three ways:
-
    * As a separate file with user metadata to be processed by the cloud-init agent. Under `metadata`, specify the path to the file with user metadata, such as `cloud-init.yaml`:
 
       ```hcl
@@ -61,7 +61,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
           groups: sudo
           shell: /bin/bash
           sudo: ['ALL=(ALL) NOPASSWD:ALL']
-          ssh_authorized_keys:
+          ssh-authorized-keys:
             - <SSH_key_contents>
       ```
 
@@ -77,7 +77,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
       ...
       ```
 
-   * Only for Linux-based virtual machines. Under `ssh-keys`, specify the username and the SSH key to access Linux VMs. Enter your username and the contents of your SSH key as follows:
+   * For Linux VMs only. Under `ssh-keys`, specify the username and the SSH key to access Linux VMs. Enter your username and the contents of your SSH key as follows:
 
       ```hcl
       ...
@@ -87,8 +87,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
       ...
       ```
 
-      If you are using an out-of-the-box public image from {{ marketplace-name }}, the specified username does not matter. The key will be assigned to the user specified in the `cloud-init` configuration by default. In different images, these users differ.
-
+      If you are using an out-of-the-box public [image](../concepts/image.md) from {{ marketplace-full-name }}, the specified username does not matter. The key will be assigned to the user specified in the `cloud-init` configuration by default. In different images, these users differ.
 
       If you don't know the default user, find the string containing `Authorized keys from` in the [serial port output](../operations/vm-info/get-serial-port-output.md). It contains the name of the user assigned the authorized keys.
 
@@ -97,6 +96,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 - API
 
    In the API, specify the metadata in the `metadata` property as a JSON object, e.g.:
+
    ```json
    "metadata": {
      "ssh-keys": "ssh-ed25519 AAAAB3Nza... user@example.com",
@@ -122,10 +122,10 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
 - Linux
 
-   * `serial-port-enable`: A flag that enables access to the serial console. 1: enable, 0 (default): disable.
-   * `user-data`: A string with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a virtual machine.
+   * `serial-port-enable`: Flag that enables access to the [serial console](../operations/serial-console/index.md). `1` means it is enabled, while `0`, which is the default value, means it is disabled.
+   * `user-data`: String with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a VM instance.
 
-      Cloud-init supports different [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) for passing metadata, such as [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can pass SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh_authorized_keys` element.
+      Cloud-init supports different [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) for passing metadata, such as [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can pass SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh-authorized-keys` element.
 
       {% include [user-data](../../_includes/compute/user-data.md) %}
 

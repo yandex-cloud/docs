@@ -99,6 +99,13 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
    * `<secret_name>`: Name of the secret with the authorized keys, such as `secret-loadtest`.
    * `<secret_key>`: Non-secret ID of the secret with the authorized keys, such as `key-loadtest`.
    * `<filename>`: Name of the file where the authorized keys are saved, such as `secret-key.json`.
+
+   {% note warning %}
+
+   In Windows, use **CMD** to run the above command. If you use **PowerShell**, the file will have incorrect encoding. Make sure the encoding of the downloaded file is `UTF-8`.
+
+   {% endnote %}
+
 1. Create a configuration file for the external agent, e.g., `config.yaml`, and copy the following parameters into it:
 
    ```text
@@ -224,7 +231,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To delete the external agent from {{ load-testing-name }}:
 

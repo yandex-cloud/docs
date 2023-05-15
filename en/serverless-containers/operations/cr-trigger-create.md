@@ -2,7 +2,7 @@
 
 Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trigger.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or Docker image tags.
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
@@ -16,7 +16,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Select **{{ serverless-containers-name }}**.
 
@@ -37,9 +37,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
       * (optional) In the **Docker image name** field, enter an image name [to filter for](../concepts/trigger/cr-trigger.md#filter). To get the name of a Docker image, [retrieve a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
       * (optional) In the **Docker image tag** field, enter the image tag for filtering.
 
-   1. Under **Container settings**, select a container and specify:
-
-      {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+   1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
    1. (optional) Under **Repeat request settings**:
 
@@ -55,7 +53,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a trigger that invokes a container, run the command:
+   To create a trigger that invokes a container, run this command:
 
    ```bash
    yc serverless trigger create container-registry \
@@ -107,7 +105,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
 - API
 
-   You can create a trigger for {{ container-registry-name }} using the [create](../triggers/api-ref/Trigger/create.md).
+   To create a trigger for {{ container-registry-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 

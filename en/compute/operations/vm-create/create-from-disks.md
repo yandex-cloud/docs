@@ -1,6 +1,6 @@
 # Creating a VM from a set of disks
 
-You can create a VM from existing disks. The disks must reside in one of the availability zones and not be added to other VMs.
+You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts/disk.md). Make sure the disks reside in one of the [availability zones](../../../overview/concepts/geo-scope.md) and are not added to other VMs.
 
 {% include [disk-auto-delete](../../_includes_service/disk-auto-delete.md) %}
 
@@ -11,52 +11,50 @@ To create a VM from a set of disks:
 - Management console
 
   To create a VM:
-  1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ compute-name }}**.
   1. Click **Create VM**.
   1. Under **Basic parameters**:
       * Enter a name and description for the VM. The naming requirements are as follows:
 
-          {% include [name-format](../../../_includes/name-format.md) %}
+        {% include [name-format](../../../_includes/name-format.md) %}
 
-          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * Select an [availability zone](../../../overview/concepts/geo-scope.md) to put your virtual machine in.
-
-  1. Under **Image/boot disk selection**, select one of the images.
-
-  1. Under **Disks and file storage**, [add a disk](./create-from-disks.md):
+      * Select the availability zone to place the VM in.
+  1. Under **Image/boot disk selection**, select one of the [images](../../concepts/image.md).
+  1. Under **Disks and file storage**, [add a disk](create-from-disks.md):
       * Click **Add disk**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the desired block size.
-      * Specify the necessary disk size.
+      * Specify the required disk size.
       * (optional) Enable the **Delete with the VM** option if you need to automatically delete the disk when deleting the VM it will be attached to.
       * Select `Disk` as content.
       * Click **Add**.
 
-
+  
   1. (optional) Under **Disks and file storage**, click the **File storage tab** and connect a [file store](../../concepts/filesystem.md):
+      * Click **Connect file storage**.
+      * In the window that opens, select a file store.
+      * Enter a device name.
+      * Click **Connect file storage**.
 
-     * Click **Connect file storage**.
-     * In the window that opens, select a file store.
-     * Enter a device name.
-     * Click **Connect file storage**.
 
-
-   1. Under **Computing resources**:
+  1. Under **Computing resources**:
       * Choose a [platform](../../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
-      * If necessary, make your VM [preemptible](../../concepts/preemptible-vm.md).
+      * If required, make your VM [preemptible](../../concepts/preemptible-vm.md).
       * (optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
-
   1. Under **Network settings**:
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-    1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+  
+  1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
 
-  1. Under **Access**, specify the data required to access the VM:
+
+  1. Under **Access**, specify the information required to access the instance:
       * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
       * Enter the username in the **Login** field.
 
@@ -68,10 +66,9 @@ To create a VM from a set of disks:
 
       * In the **SSH key** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * If required, grant access to the [serial console](../../operations/serial-console/index.md).
-
   1. Click **Create VM**.
 
-  The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../../vpc/concepts/address.md) and [hostname](../../../vpc/concepts/address.md#fqdn) (FQDN).
+  The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name (FQDN)](../../../vpc/concepts/address.md#fqdn).
 
 - CLI
 
@@ -79,20 +76,20 @@ To create a VM from a set of disks:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for creating a VM:
+  1. View a description of the CLI create VM command:
 
-      ```
+      ```bash
       yc compute instance create --help
       ```
 
-  1. Get a list of disks in the default folder:
+  1. Get a list of disks in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
   1. Select the identifier (`ID`) or name (`NAME`) of the necessary disks.
   1. Create a VM in the default folder:
 
-      ```
+      ```bash
       yc compute instance create \
         --name first-instance \
         --zone {{ region-id }}-a \
@@ -103,19 +100,18 @@ To create a VM from a set of disks:
       ```
 
       This command creates the VM:
-
-      - Named `first-instance`.
+      * Named `first-instance`.
 
         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      - In the `{{ region-id }}-a` availability zone.
-      - In the `default-a` subnet.
-      - With a public IP address and two disks.
+      * In the `{{ region-id }}-a` availability zone.
+      * In the `default-a` subnet.
+      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses) and two disks.
 
 
       To specify whether to delete the disk when deleting the VM, set the `--auto-delete` flag:
 
-      ```
+      ```bash
       yc compute instance create \
         --name first-instance \
         --zone {{ region-id }}-a \
@@ -134,10 +130,9 @@ To create a VM from a set of disks:
   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a VM from a set of disks:
-
   1. In the configuration file, describe the parameters of the resources you want to create:
 
-     ```
+     ```yaml
      resource "yandex_compute_instance" "vm-1" {
 
        name        = "vm-from-disks"
@@ -192,10 +187,10 @@ To create a VM from a set of disks:
          {% include [id-info](../../../_includes/compute/id-info.md) %}
 
        * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you do not have a disk, [create](../disk-create/empty.md) one.
-       * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
+       * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
        * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
-     * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
-     * `yandex_vpc_subnet`: Description of [subnet](../../../vpc/concepts/network.md#network) your virtual machine will connect to.
+     * `yandex_vpc_network`: Description of the cloud network.
+     * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
 
      {% note info %}
 
@@ -204,27 +199,23 @@ To create a VM from a set of disks:
      {% endnote %}
 
      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
-  2. Make sure the configuration files are valid.
-
+  1. Make sure the configuration files are valid.
      1. In the command line, go to the directory where you created the configuration file.
-     2. Run the check using this command:
+     1. Run the check using this command:
 
-        ```
+        ```bash
         terraform plan
         ```
 
      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
-  3. Deploy cloud resources.
-
+  1. Deploy cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
-        ```
+        ```bash
         terraform apply
         ```
 
-     2. Confirm that you want to create the resources.
+     1. Confirm that you want to create the resources.
 
      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 

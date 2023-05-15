@@ -97,9 +97,9 @@
 Перед подключением настройте параметры соединения с помощью следующего кода:
 
 ```java
-String clientId = "YandexIoTCoreAndroidTextClient";  
+String clientId = "YandexIoTCoreAndroidTextClient";
 int connectionTimeout = 60;
-int keepAliveInterval = 60;      
+int keepAliveInterval = 60;
 MqttAndroidClient mqttAndroidClient = new MqttAndroidClient(getApplicationContext(),"ssl://mqtt.cloud.yandex.net:8883", clientId);
 
 // Настройка параметров соединения.
@@ -173,7 +173,7 @@ private SSLSocketFactory getSocketFactory(final InputStream caCrtFile, final Inp
 В качестве `devCert` передайте значение `null`. В этом случае будет загружен только сертификат удостоверяющего центра сервера:
 
 ```java
-// Load CA certificate    
+// Load CA certificate
 CertificateFactory cf = CertificateFactory.getInstance("X.509");
         X509Certificate caCert = (X509Certificate) cf.generateCertificate(caCrtFile);
 

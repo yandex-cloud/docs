@@ -31,7 +31,7 @@
    * `--cores`: Number of cores available for the container.
    * `--memory`: Required memory. The default value is 128 MB.
    * `--execution-timeout`: Timeout. The default value is 3 seconds.
-   * `--service-account-id`: [ID of service account](../../iam/operations/sa/get-id.md) with authorization to download an image.
+   * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) authorized to download an image.
    * `--min-instances`: Number of provisioned instances.
 
    Result:
@@ -53,7 +53,7 @@
 
 - API
 
-   You can delete scaling settings for a container using the [deployRevision](../containers/api-ref/Container/deployRevision.md) API method.
+   To delete container scaling settings, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
 
 {% endlist %}
 

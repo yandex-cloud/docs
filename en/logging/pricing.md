@@ -10,13 +10,8 @@ In {{ cloud-logging-name }}, you're billed for the amount of data written and st
 
 ## Pricing {#prices}
 
-{% note info %}
-
-The prices are in effect as of November 1, 2022.
-
-{% endnote %}
-
 ### Data writes {#data-ingested}
+
 
 
 
@@ -24,10 +19,15 @@ The prices are in effect as of November 1, 2022.
 {% include [usd-data-ingested.md](../_pricing/logging/usd-data-ingested.md) %}
 
 
+
+
 ### Data storage {#storage}
 
 
 
 
+
 {% include [usd-storage.md](../_pricing/logging/usd-storage.md) %}
+
+
 

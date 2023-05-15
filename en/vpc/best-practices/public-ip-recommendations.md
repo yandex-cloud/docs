@@ -8,7 +8,7 @@ If your cloud resources need to exchange data with the internet and other extern
 
 #### Set up routing through a NAT instance {#nat-instance-routing}
 
-To enable access to the internet from specific addresses, [use a dedicated NAT instance](../../tutorials/routing/nat-instance.md) and register its address as static. This is suitable, for example, for setting up access policies or firewalls when interacting with partner companies. This way your VMs can use a shared internet access point via a fixed address as part of the access [network](../../vpc/concepts/network.md#network).
+To enable access to the internet from specific IP addresses, [use a dedicated NAT instance](../../tutorials/routing/nat-instance.md) and register its address as static. This is suitable, for example, for setting up access policies or firewalls when interacting with partner companies. This way your VMs can use a shared internet access point via a fixed IP address as part of the access [network](../../vpc/concepts/network.md#network).
 
 This model also lets you enable secure access to [{{ objstorage-full-name }}](../../storage/) without accessing the internet. To do this, set up an [access policy](../../storage/concepts/policy.md) for a [bucket](../../storage/concepts/bucket.md) by only adding your NAT instance's fixed IP address to the white list (see [sample settings](https://github.com/alex-vlasov-l1/nat-insatnce-terraform-example)).
 
@@ -39,7 +39,7 @@ Read more:
 
 #### Use {{ interconnect-name }} {#cic}
 
-Connect your local network and cloud infrastructures using {{ interconnect-name }}. This allows you to avoid using public IPs both on your network and {{ yandex-cloud }} side. Instead, you can use internal IP addresses from a custom range of subnets.
+Connect your local network and cloud infrastructures using [{{ interconnect-name }}](../../interconnect/). This allows you to avoid using public IPs both in your network and in {{ yandex-cloud }}. Instead, you can use [internal IP addresses](../concepts/address.md#internal-addresses) from a custom range of [subnets](../../vpc/concepts/network.md#subnet).
 
 Read more:
 

@@ -168,6 +168,9 @@ This instruction will use a gRPC service as a test target.
    Where:
 
    * `ingress.alb.yc.io/subnets`: List of comma-separated subnet IDs.
+   * `ingress.alb.yc.io/external-ipv4-address`: Providing public online access to {{ alb-name }}.
+
+      If set to `auto`, the Ingress controller is assigned a public IP address automatically. Deleting the Ingress controller also deletes the IP address from the cloud.
    * `ingress.alb.yc.io/security-groups`: ID of the security group created when [preparing your cloud](#prepare-cloud). If security groups are not enabled in your cloud, delete this annotation.
    * `secretName`: Reference to a TLS certificate from {{ certificate-manager-full-name }} as `yc-certmgr-cert-id-<certificate ID>`.
    * `hosts`, `host`: Domain name the TLS certificate corresponds to.
@@ -324,8 +327,10 @@ This instruction will use a gRPC service as a test target.
 
 6. [Run a test](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
-   * Upload the `ammo.json` file to the **File with test data** field.
-   * Upload the `load.yaml` file to the **Configuration file** field.
+   * In the **Test data** settings section, select **From computer**, click **Attach file**, and upload the prepared `ammo.json` file.
+   * Under **Test settings**:
+      * In the **Configuration method** field, select **Configuration file**.
+      * In the **Configuration file** field, click **Attach file** and upload the prepared `load.yaml` file.
 
 7. Monitor the test:
 
@@ -338,9 +343,9 @@ This instruction will use a gRPC service as a test target.
    1. Go to the **Monitoring** tab.
    1. View the test load chart.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. If you set up CNAME records in {{ dns-name }}, [delete](../../dns/operations/zone-delete.md) the DNS zone.
 1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the L7 load balancer.

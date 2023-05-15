@@ -62,11 +62,11 @@
      - name: yc-user
        sudo: ALL=(ALL) NOPASSWD:ALL
        shell: /bin/bash
-       ssh_authorized_keys:
+       ssh-authorized-keys:
          - "<публичный SSH-ключ>"
    ```
 
-   Где `ssh_authorized_keys` — значение [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   Где `ssh-authorized-keys` — значение [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Создайте файл спецификации {{ coi }} с именем `declaration.yaml` в директории `~/cloud-terraform`. Опишите спецификацию:
 

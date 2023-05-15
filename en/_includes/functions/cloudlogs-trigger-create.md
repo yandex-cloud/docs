@@ -25,7 +25,7 @@ To create a trigger, you need:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Select **{{ sf-name }}**.
 
@@ -60,8 +60,8 @@ To create a trigger, you need:
 
    1. (optional) Under **Repeat request settings**:
 
-      * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
-      * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
+      * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. You can specify values from 10 to 60 seconds, 10 being default.
+      * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can specify values from 1 to 5, 1 being default.
 
    1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges for this queue.
 
@@ -89,18 +89,18 @@ To create a trigger, you need:
      --dlq-service-account-id <service account ID>
    ```
 
-   where:
+   Where:
 
    * `--name`: Trigger name.
    * `--log-groups`: List of IDs of log groups.
-   * `--batch-size`: Message batch size. Optional. Values can be from 1 to 10. The default is 1.
-   * `--batch-cutoff`: Maximum waiting time. Optional. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the log group reaches the `batch-size` or the `batch-cutoff` expires.
+   * `--batch-size`: Message batch size. This is an optional parameter. Values can be from 1 to 10. The default is 1.
+   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the log group reaches the `batch-size` or the `batch-cutoff` expires.
    * `--invoke-function-id`: Function ID.
    * `--invoke-function-service-account-id`: Service account with rights to invoke the function.
-   * `--retry-attempts`: The time after which the function will be invoked again if the current attempt fails. Optional. Values can be from 10 to 60 seconds. The default is 10 seconds.
-   * `--retry-interval`: The number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional. Values can be from 1 to 5. The default is 1.
-   * `--dlq-queue-id`: [Dead Letter Queue](../../functions/concepts/dlq.md) ID. Optional.
-   * `--dlq-service-account-id`: Service account with rights to write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional.
+   * `--retry-attempts`: Time after which the function will be invoked again if the current attempt fails. This is an optional parameter. You can specify values from 10 to 60 seconds, 10 being default.
+   * `--retry-interval`: Number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). This is an optional parameter. You can specify values from 1 to 5, 1 being default.
+   * `--dlq-queue-id`: [Dead Letter Queue](../../functions/concepts/dlq.md) ID. This is an optional parameter.
+   * `--dlq-service-account-id`: Service account with the permission to write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). This is an optional parameter.
 
 
    Result:
@@ -133,7 +133,7 @@ To create a trigger, you need:
 
 - API
 
-   You can create a trigger for {{ cloud-logs-name }} using the [create](../../functions/triggers/api-ref/Trigger/create.md).
+   To create a trigger for {{ cloud-logs-name }}, use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 

@@ -24,7 +24,7 @@ Create a [new support request]({{ link-console-support }}/create-ticket) to rese
 
 {% note warning %}
 
-Trunk attribute values in the request below are given as an example. Each customer should have their own attribute values.
+The trunk attribute values in the request below are provided for indicative purposes only. Each customer should have their own attribute values.
 
 {% endnote %}
 
@@ -59,7 +59,7 @@ Where:
 * `folder-id`: [ID of the folder](../../resource-manager/concepts/resources-hierarchy#folder) to send {{ interconnect-name }} monitoring metrics to.
 * `point of presence`: [Code of the point of presence](../../interconnect/concepts/pops.md).
 * `transceiver type`: [Type of transceiver](../../interconnect/concepts/transceivers.md) to enable a cross connect.
-* `traffic package`: [Bandwidth](../../interconnect/concepts/bandwidth.md) in Mbps referring to the package of traffic selected by the customer.
+* `traffic package`: [Bandwidth](../../interconnect/concepts/bandwidth.md) in Mbps corresponding to the package of traffic selected by the customer.
 
 
 {% note warning %}
@@ -90,8 +90,8 @@ Where:
 * `trunk_id`: ID of the created {{ interconnect-name }} trunk.
 * `pop`: [Code of the point of presence](../../interconnect/concepts/pops.md) where the {{ interconnect-name }} trunk is created.
 * `rack`: Location of the {{ yandex-cloud }} equipment in the point of presence.
-* `unit`: Number from 1 to 45, which stands for the equipment location in the {{ yandex-cloud }} rack.
-* `port`: Number from 1 to 48, which specifies the port number on the equipment to enable the cross connect for.
+* `unit`: Number from 1 to 45 that indicates the equipment location in the {{ yandex-cloud }} rack.
+* `port`: Number from 1 to 48 that specifies the port number on the equipment to enable the cross connect for.
 
 
 
@@ -114,7 +114,7 @@ No agreement letter is required for the `STD` point of presence.
 
 ### Setting up a cross connect in a point of presence {#trunk-cross}
 
-Request and set up a cross connect between your equipment and {{ yandex-cloud }} in the desired point of presence using the agreement letter you received.
+Request and set up a cross connect between your equipment and {{ yandex-cloud }} in the point of presence you need using the agreement letter you received.
 
 A cross connect to a port of the {{ yandex-cloud }} equipment is enabled by the technical staff of the point of presence or by the customer without involving the {{ yandex-cloud }} technical staff.
 

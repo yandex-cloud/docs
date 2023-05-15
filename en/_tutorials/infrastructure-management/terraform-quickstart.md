@@ -3,8 +3,7 @@
 {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
 To create your first infrastructure in {{ yandex-cloud }} using {{ TF }}:
-
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Install {{ TF }}](#install-terraform).
 1. [Get the authentication data](#get-credentials)
 1. [Create a {{ TF }} configuration file](#configure-terraform).
@@ -23,9 +22,8 @@ If you no longer need the resources, [delete them](#delete-resources).
 ### Required paid resources {#paid-resources}
 
 The cost of resources created with {{ TF }} includes:
-
-* A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for continuously running [virtual machines](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Install {{ TF }} {#install-terraform}
@@ -55,21 +53,25 @@ The cost of resources created with {{ TF }} includes:
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
-Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type, such as VMs, disks, and images. For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type, such as VMs, [disks](../../compute/concepts/disk.md), and [images](../../compute/concepts/image.md). For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
 To create a resource, specify a set of required and optional parameters that define the resource properties. Such resource descriptions make up an infrastructure plan.
 
-The plan includes creating two virtual machines: `terraform1` and `terraform2`, as well as a cloud network called `network-1` with a subnet named `subnet-1`.
+The plan includes creating two VMs: `terraform1` and `terraform2`, as well as a [cloud network](../../vpc/concepts/network.md#network) called `network-1` with a [subnet](../../vpc/concepts/network.md#subnet) named `subnet-1`.
 
 Resource names must meet the following requirements:
 
 {% include [names](../../_includes/name-format.md) %}
 
-The machines will have different vCPU and memory configurations: 2 vCPUs and 2 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. The VMs will automatically get public and private IP addresses from the `192.168.10.0/24` range in the `subnet-1` subnet located in the `{{ region-id }}-a` availability zone and belonging to the `network-1` cloud network. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
+The VMs will have different [vCPU and memory configurations](../../compute/concepts/vm.md#types): 2 vCPUs and 2 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. The VMs will be automatically assigned public and [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1` located in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) and belonging to the `network-1` cloud network. The VMs will run Ubuntu OS and host the public part of the key to enable SSH access to the VMs.
 
-In the VM configuration, you'll need to specify the boot disk image ID. You can retrieve a list of available public images by using the [CLI](../../cli/quickstart.md) command `yc compute image list --folder-id standard-images`.
+In the VM configuration, you will need to specify the boot disk image ID. You can get a list of available public images using this [CLI](../../cli/quickstart.md) command:
 
-To access the VMs over SSH, generate an [SSH key pair](../../compute/operations/vm-connect/ssh#creating-ssh-keys) and pass the public key to the virtual machine in the `ssh-keys` parameter in the `metadata` section.
+```bash
+yc compute image list --folder-id standard-images
+```
+
+To access the VMs over SSH, [generate an SSH key pair](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) and include the public key to the VM in the `ssh-keys` parameter in the `metadata` section.
 
 Resource configurations are specified immediately after the provider's configuration:
 
@@ -128,8 +130,15 @@ resource "yandex_compute_instance" "vm-1" {
 
 {% include [create-resources](../../_tutorials/terraform-create-resources.md) %}
 
-## How to delete created resources {#delete-resources}
+## How to delete the resources you created {#delete-resources}
 
 {% include [delete-resources](../../_tutorials/terraform-delete-resources.md) %}
 
 You can use the [management console]({{ link-console-main }}) to check that the resources have been deleted.
+
+
+## See also {#see-also}
+
+* [{#T}](../../tutorials/infrastructure-management/terraform-state-storage.md).
+* [{#T}](../../tutorials/infrastructure-management/terraform-state-lock.md).
+

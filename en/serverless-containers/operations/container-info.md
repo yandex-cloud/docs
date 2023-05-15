@@ -35,6 +35,6 @@
 
 - API
 
-   You can get detailed information about a container using the [get](../containers/api-ref/Container/get.md) API method.
+   To get detailed information about a container, use the [get](../containers/api-ref/Container/get.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Get](../containers/api-ref/grpc/container_service.md#Get) gRPC API call.
 
 {% endlist %}

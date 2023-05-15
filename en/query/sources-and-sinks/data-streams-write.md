@@ -58,7 +58,7 @@ $data =
 SELECT
     JSON_VALUE(Data, "$.host") AS host,
     CAST(JSON_VALUE(Data, "$.count") AS Int) AS count,
-    JSON_VALUE(Data, "$.tag") AS tag,    
+    JSON_VALUE(Data, "$.tag") AS tag,
 FROM
 (
     SELECT

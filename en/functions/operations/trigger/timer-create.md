@@ -1,8 +1,8 @@
 # Creating a timer that invokes a {{ sf-name }} function
 
-Create a [timer](../../concepts/trigger/timer.md) — a trigger that calls a [{{ sf-name }} function](../../concepts/function.md) on a schedule.
+Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a [{{ sf-name }} function](../../concepts/function.md) based on a schedule.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](../../../_includes/functions/trigger-before-you-begin.md) %}
 
@@ -14,7 +14,7 @@ Create a [timer](../../concepts/trigger/timer.md) — a trigger that calls a [{{
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
    1. Select **{{ sf-name }}**.
 
@@ -48,7 +48,7 @@ Create a [timer](../../concepts/trigger/timer.md) — a trigger that calls a [{{
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To create a trigger that invokes a function, run the command:
+   To create a trigger that invokes a function, run this command:
 
    ```bash
    yc serverless trigger create timer \
@@ -65,7 +65,7 @@ Create a [timer](../../concepts/trigger/timer.md) — a trigger that calls a [{{
    Where:
 
    * `--name`: Timer name.
-   * `--cron-expression`: Function invocation schedule in [cron expression](../../concepts/trigger/timer.md#cron-expression).
+   * `--cron-expression`: Function invocation schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -92,21 +92,17 @@ Create a [timer](../../concepts/trigger/timer.md) — a trigger that calls a [{{
    status: ACTIVE
    ```
 
-- API
-
-   You can create a timer using the [create](../../triggers/api-ref/Trigger/create.md).
-
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a trigger that launches a function:
 
    1. In the configuration file, describe the trigger parameters:
 
-      * `name`: Timer name. Name format:
+      * `name`: Timer name in the following format:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -116,7 +112,7 @@ Create a [timer](../../concepts/trigger/timer.md) — a trigger that calls a [{{
       * `function`: Settings for the function, which will be activated by the trigger:
          * `id`: Function ID.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -133,20 +129,20 @@ Create a [timer](../../concepts/trigger/timer.md) — a trigger that calls a [{{
 
       For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -154,11 +150,15 @@ Create a [timer](../../concepts/trigger/timer.md) — a trigger that calls a [{{
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
          ```
          yc serverless trigger get <trigger ID>
          ```
+
+- API
+
+   To create a timer, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
 
