@@ -1,6 +1,6 @@
 # Creating an instance group from a {{ coi }} with multiple Docker containers
 
-You can create an instance group built on a [{{ coi }}](../../cos/concepts/index.md) with multiple Docker containers inside.
+You can create an [instance group](../../compute/concepts/instance-groups/index.md) based on a [{{ coi }}](../../cos/concepts/index.md) [image](../../compute/concepts/image.md) with multiple Docker containers inside.
 
 Docker containers are created based on the [Docker Compose](../../cos/concepts/coi-specifications.md#compose-spec) specification.
 
@@ -14,17 +14,17 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 ## Prepare the environment {#prepare}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) with the name `group-coi` and assign it the `editor` role:
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) with the name `group-coi` and assign it the `editor` [role](../../iam/concepts/access-control/roles.md):
 
    {% list tabs %}
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a service account.
-      1. Go to the **Service accounts** tab.
+      1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you wish to create a service account.
+      1. At the top of the screen, go to the **Service accounts** tab.
       1. Click **Create service account**.
       1. Enter the name: `group-coi`.
-      1. To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click **Add role** and select the role `editor`.
+      1. To assign the service account a role for the current folder, click **Add role** and select the role `editor`.
       1. Click **Create**.
 
    - CLI
@@ -88,7 +88,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
          name: yc-auto-network
          ```
 
-      1. Create a subnet in the `{{ region-id }}-a` zone:
+      1. Create a subnet in the `{{ region-id }}-a` availability zone:
 
          ```bash
          yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
@@ -108,7 +108,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    - API
 
-      1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the `Networks` resource.
+      1. Create a network using the [Create](../../vpc/api-ref/Network/create.md) method for the `Networks` resource.
       1. Create a subnet in the `{{ region-id }}-a` availability zone using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
 
    {% endlist %}
@@ -120,7 +120,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 1. Save the specification of the instance group with the {{ coi }} and multiple Docker containers to a file named `specification.yaml`:
 
    ```yaml
-   name: group-coi-containers # The instance group name that must be unique within the folder.
+   name: group-coi-containers # Instance group name that must be unique within the folder.
    service_account_id: ajeabccde01d23efl1v5 # Service account ID.
    instance_template:
      service_account_id: ajeabccde01d23efl1v5 # ID of the service account to access private Docker images.
@@ -176,7 +176,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    {% endnote %}
 
-1. Create an instance group named `group-coi-containers` using the specification `specification.yaml`:
+1. Create an instance group named `group-coi-containers` using the `specification.yaml` specification:
 
    {% list tabs %}
 
@@ -206,7 +206,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    {% endlist %}
 
-1. Make sure that the instance group from the {{ coi }} and with multiple Docker containers was created:
+1. Make sure the instance group from the {{ coi }} and with multiple Docker containers was created:
 
    {% list tabs %}
 
@@ -226,12 +226,12 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
       Result:
 
       ```bash
-      +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
-      |     INSTANCE ID      |           NAME            |  EXTERNAL IP   | INTERNAL IP |         STATUS         | STATUS MESSAGE |
-      +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
+      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
+      |     INSTANCE ID      |           NAME            |            EXTERNAL IP           | INTERNAL IP |         STATUS         | STATUS MESSAGE |
+      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
       | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | {{ cos-external-ip-examples.0 }} | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
       | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | {{ cos-external-ip-examples.1 }} | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
-      +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
+      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
       ```
 
    - API
@@ -278,9 +278,9 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
       Result:
 
       ```bash
-      CONTAINER ID   IMAGE   COMMAND                  CREATED              STATUS              PORTS                NAMES
-      c0a125a1765a   redis   "docker-entrypoint.s…"   About a minute ago   Up About a minute   6379/tcp             redis
-      01288d7e382f   nginx   "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   nginx
+      CONTAINER ID  IMAGE  COMMAND                 CREATED             STATUS             PORTS               NAMES
+      c0a125a1765a  redis  "docker-entrypoint.s…"  About a minute ago  Up About a minute  6379/tcp            redis
+      01288d7e382f  nginx  "/docker-entrypoint.…"  About a minute ago  Up About a minute  0.0.0.0:80->80/tcp  nginx
       ```
 
    {% endlist %}

@@ -153,11 +153,16 @@ For DB hosts, you can track metrics specific to the corresponding type of DBMS. 
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
+#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
 
+[Create an alert](../../managed-mongodb/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mmg-name }} cluster.
 
-{% include [fz-152.md](../../_qa/fz-152.md) %}
+For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
 
+* `Alarm`: 90% of disk space.
+* `Warning`: 70% of disk space.
 
-{% include [logs](../logs.md) %}
+The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
 
-{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `75161927680` bytes (70%).

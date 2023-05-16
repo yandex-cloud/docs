@@ -54,7 +54,11 @@
 
 ### Настройте группы безопасности {#security-group-setup}
 
+{% note info %}
+
 {% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 1. Настройте группу безопасности агента тестирования:
     
@@ -122,14 +126,14 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ load-testing-name }}**.
-  1. На панели слева выберите ![image](../_assets/load-testing/test.svg) **Тесты**. 
-  1. Нажмите **Создать тест**. 
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. На панели слева выберите ![image](../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. 
+  1. Нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**. 
   1. На странице создания теста:
-      1. В поле **Агенты** выберите агент `agent-008`, [созданный ранее](#create-agent).
-      1. В блоке **Тестовые данные** выберите **С компьютера**, нажмите **Прикрепить файл** и выберите сохраненный ранее файл `data.json`.
-      1. В блоке **Настройки теста**:
-          * В поле **Способ настройки** выберите **Конфигурационный файл**.
+      1. В поле **{{ ui-key.yacloud.load-testing.label_agents-list }}** выберите агент `agent-008`, [созданный ранее](#create-agent).
+      1. В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** выберите **{{ ui-key.yacloud.load-testing.label_local-source }}**, нажмите **Прикрепить файл** и выберите сохраненный ранее файл `data.json`.
+      1. В блоке **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
+          * В поле **{{ ui-key.yacloud.load-testing.field_settings-type }}** выберите **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
           * В поле для ввода конфигурации введите настройки тестирующих потоков в формате `yaml`:
 
               ```yaml
@@ -180,11 +184,11 @@
 
               {% endnote %}
 
-      1. Нажмите **Создать**.
+      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
     После этого конфигурация пройдет проверки, и агент начнет нагружать тестируемый gRPC-сервис. 
     
-    Чтобы наблюдать за результатами выполнения тестирования, выберите созданный тест и перейдите на вкладку **Результаты теста**.
+    Чтобы наблюдать за результатами выполнения тестирования, выберите созданный тест и перейдите на вкладку **{{ ui-key.yacloud.load-testing.label_test-report }}**.
 
 {% endlist %}
 

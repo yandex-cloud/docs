@@ -39,7 +39,7 @@ _Внешний агент_ — физический или виртуальны
 1. [Назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту [роли](../../load-testing/security/#roles-list) `loadtesting.editor` и `loadtesting.generatorClient`.
 1. [Создайте](../../iam/operations/authorized-key/create.md) авторизованные ключи для сервисного аккаунта.
 
-    Сохраните открытый и закрытый ключи единым файлом, для этого нажмите кнопку **Скачать файл с ключами**.
+    Сохраните открытый и закрытый ключи единым файлом, для этого нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 
 ### Создайте секрет с авторизованными ключами {#create-authorized-key-secret}
 
@@ -48,13 +48,14 @@ _Внешний агент_ — физический или виртуальны
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где будет подключен внешний агент.
-  1. В списке сервисов выберите **{{ lockbox-short-name }}**.
-  1. Нажмите кнопку **Создать секрет**.
-  1. В поле **Имя** введите имя секрета, например `secret-loadtest`.
-  1. В блоке **Версия**:
-      * в поле **Ключ** введите неконфиденциальный идентификатор, например `key-loadtest`;
-      * в поле **Значение** загрузите файл с открытым и закрытым авторизованными ключами.
-  1. Нажмите кнопку **Создать**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета, например `secret-loadtest`.
+  1. В блоке **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+      * в поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите неконфиденциальный идентификатор, например `key-loadtest`;
+      * в поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** загрузите файл с открытым и закрытым авторизованными ключами.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
       Сохраните имя и ключ секрета.
 
@@ -207,17 +208,19 @@ _Внешний агент_ — физический или виртуальны
 
     - Консоль управления
 
-      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ load-testing-name }}**.
-      1. На панели слева перейдите на вкладку ![operations](../../_assets/mdb/operations.svg) **Операции**.
+      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+      1. На панели слева перейдите на вкладку ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+
       1. Убедитесь, что операция **Register an agent** успешно завершена.
-      1. На панели слева перейдите на вкладку ![agents](../../_assets/load-testing/agent.svg) **Агенты**.
+      1. На панели слева перейдите на вкладку ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}**.
       1. Убедитесь, что внешний агент, например `external-agent`, находится в статусе `Ready for test`.
 
     {% endlist %}
 
 ## Создайте тест {#run-test}
 
-[Выполните](../../load-testing/quickstart.md#run-test) нагрузочное тестирование. В поле **Агент** выберите внешний агент, например `external-agent`.
+[Выполните](../../load-testing/quickstart.md#run-test) нагрузочное тестирование. В поле **{{ ui-key.yacloud.load-testing.label_agents-list }}** выберите внешний агент, например `external-agent`.
+
 
 ## Посмотрите результаты тестирования {#see-results}
 
@@ -225,8 +228,8 @@ _Внешний агент_ — физический или виртуальны
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ load-testing-name }}**.
-  1. На панели слева перейдите на вкладку ![image](../../_assets/load-testing/test.svg) **Тесты**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. На панели слева перейдите на вкладку ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
   1. Выберите созданный ранее тест и посмотрите результаты. 
 
 {% endlist %}
@@ -239,9 +242,9 @@ _Внешний агент_ — физический или виртуальны
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ load-testing-name }}**.
-  1. На панели слева перейдите на вкладку ![agents](../../_assets/load-testing/agent.svg) **Агенты**.
-  1. Напротив агента, который вы хотите удалить, нажмите ![options](../../_assets/options.svg) и выберите **Удалить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. На панели слева перейдите на вкладку ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}**.
+  1. Напротив агента, который вы хотите удалить, нажмите ![options](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 {% endlist %}

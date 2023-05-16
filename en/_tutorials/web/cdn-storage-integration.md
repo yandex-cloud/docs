@@ -44,9 +44,9 @@ We use a folder named `example-folder` as an example.
 
 The cost of this infrastructure includes:
 
-* A fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* A fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
+* Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
 * Fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 
@@ -60,7 +60,7 @@ To create a network and subnets:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ vpc-name }}**.
    1. Click **Create network**.
    1. Specify the **Name** of the network: `example-network`.
@@ -95,7 +95,7 @@ To create a network and subnets:
 
       * In `{{ region-id }}-a`:
 
-         ```
+         ```bash
          yc vpc subnet create example-subnet-{{ region-id }}-a \
            --zone {{ region-id }}-a \
            --network-name example-network \
@@ -117,7 +117,7 @@ To create a network and subnets:
 
       * In `{{ region-id }}-b`:
 
-         ```
+         ```bash
          yc vpc subnet create example-subnet-{{ region-id }}-b \
            --zone {{ region-id }}-b \
            --network-name example-network \
@@ -139,7 +139,7 @@ To create a network and subnets:
 
       * In `{{ region-id }}-c`:
 
-         ```
+         ```bash
          yc vpc subnet create example-subnet-{{ region-id }}-c \
            --zone {{ region-id }}-c \
            --network-name example-network \
@@ -167,7 +167,7 @@ To create a network and subnets:
 
    1. In the configuration file, describe the parameters of `example-network` and its subnets: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`:
 
-      ```
+      ```hcl
       resource "yandex_vpc_network" "example-network" {
         name = "example-network"
       }
@@ -219,7 +219,7 @@ To create a network and subnets:
 
 - API
 
-   1. Create the `example-network` network using the gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) call or the REST API [create](../../vpc/api-ref/Network/create.md) method.
+   1. Create a network named `example-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
    1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` and `example-subnet-{{ region-id }}-c` in the three availability zones by calling the gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../../vpc/api-ref/Subnet/create.md) method.
 
 {% endlist %}
@@ -232,7 +232,7 @@ Create a bucket named `example-bucket`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Create a bucket named `example-bucket`:
 
@@ -270,7 +270,7 @@ Create a bucket named `example-bucket`:
 
    1. Add the parameters of the `example-bucket` bucket to the configuration file:
 
-      ```
+      ```hcl
       ...
 
       resource "yandex_storage_bucket" "example-bucket" {
@@ -334,7 +334,7 @@ Create a bucket named `example-bucket`:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ objstorage-name }}**.
       1. In the bucket list, select `example-bucket`.
       1. Click **Upload** and select the `index.html` file for uploading.
@@ -358,7 +358,7 @@ Create a bucket named `example-bucket`:
 
       1. Add the parameters of the `v1/index.html` file uploaded to the `example-bucket`, to the configuration file:
 
-         ```
+         ```hcl
          ...
 
          resource "yandex_storage_object" "example-bucket-index" {
@@ -421,7 +421,7 @@ To create security groups:
       | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
       | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
       | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-      | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
+      | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | N/A |
 
       1. Go to the **Outgoing traffic** or **Incoming traffic** tab.
       1. Click **Add rule**.
@@ -503,7 +503,7 @@ To create security groups:
 
    1. Add the `example-sg` security group parameters to the configuration file:
 
-      ```
+      ```hcl
       resource "yandex_vpc_security_group" "example-sg" {
         name       = "example-sg"
         network_id = "yandex_vpc_network.example-network.id"
@@ -561,7 +561,7 @@ To create security groups:
 
    Use the [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method.
 
-   To add the rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#body_params) field for the REST API.
+   To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#body_params) field for the REST API.
 
 {% endlist %}
 
@@ -573,7 +573,7 @@ To create security groups:
 
    1. Create the `example-bg` backend group with the `example-backend` backend:
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ alb-name }}** and go to the **Backend groups** tab.
       1. Click **Create backend group**.
       1. Name the backend group: `example-bg`.
@@ -589,7 +589,7 @@ To create security groups:
 
 - API
 
-   Use the gRPC API [BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) call or the [create](../../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
+   Use the [BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) gRPC API call or the [create](../../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
 
 {% endlist %}
 
@@ -601,7 +601,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ alb-name }}** and go to the **HTTP routers** tab.
    1. Click **Create HTTP router**.
    1. Enter the router name: `example-router`.
@@ -690,7 +690,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
    1. Add parameters of the `example-router` HTTP router, its virtual hosts and routes, to the configuration file:
 
-      ```
+      ```hcl
       ...
 
       resource "yandex_alb_http_router" "example-router" {
@@ -706,7 +706,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
           name = "example-route"
           http_route {
             http_route_action {
-              backend_group_id = "<example-bg backend group ID>"
+              backend_group_id = "<ID_of_example-bg_backend_group>"
             }
           }
         }  
@@ -749,14 +749,14 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ alb-name }}**, then click **Load balancers**.
    1. Click **Create L7 load balancer**.
    1. Enter the load balancer name: `example-balancer`.
    1. Under **Network settings**:
 
       1. Select the `example-network` **network**:
-      1. Select the `example-sg` **security group**. If this field is omitted, any incoming and outgoing traffic is allowed for the load balancer.
+      1. Select the `example-sg` **security group**. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
 
    1. Under **Allocation**, select three subnets for the load balancer nodes: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`, then enable traffic to these subnets.
    1. Click **Add listener** under **Listeners**. Set the listener settings:
@@ -810,15 +810,15 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       ```bash
       yc alb load-balancer create example-balancer \
         --network-name example-network \
-        --security-group-id <ID of the example-sg security group> \
-        --location zone={{ region-id }}-a,subnet-id=<ID of the example-subnet-{{ region-id }}-a subnet> \
-        --location zone={{ region-id }}-b,subnet-id=<ID of the example-subnet-{{ region-id }}-b subnet> \
-        --location zone={{ region-id }}-c,subnet-id=<ID of the example-subnet-{{ region-id }}-c subnet>
+        --security-group-id <example-sg_security_group_ID> \
+        --location zone={{ region-id }}-a,subnet-id=<example-subnet-{{ region-id }}-a_subnet_ID> \
+        --location zone={{ region-id }}-b,subnet-id=<example-subnet-{{ region-id }}-b_subnet_ID> \
+        --location zone={{ region-id }}-c,subnet-id=<example-subnet-{{ region-id }}-c_subnet_ID>
       ```
 
       Result:
 
-      ```
+      ```hcl
       done (3m0s)
       id: ds77q7v39b4ubg8ta2n4
       name: example-balancer
@@ -893,7 +893,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
    1. Add the parameters of the `example-balancer` L7 load balancer to the configuration file:
 
-      ```
+      ```hcl
       ...
 
       resource "yandex_alb_load_balancer" "example-balancer" {
@@ -961,7 +961,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
 - API
 
-   Use the gRPC API [LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) call or the [create](../../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
+   Use the [LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) gRPC API call or the [create](../../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
 
 {% endlist %}
 
@@ -971,7 +971,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ cdn-name }}**.
    1. If the CDN provider hasn't been activated yet, click **Activate provider**.
    1. Create a CDN resource:
@@ -994,27 +994,40 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          * In the **Advanced** section:
 
             * In the **Source protocol** field, select **HTTP**.
-            * In the **Redirect clients** field, select **HTTP to HTTPS**.
+            * In the **Redirect clients** field, select **Don't use**.
             * Enable **End-user access to content**.
             * In the **Certificate type** field, select **Let's Encrypt® **to automatically issue a certificate for the `cdn.yandexcloud.example` domain name after creating your CDN resource.
             * In the **Host header** field, select **Forward**.
 
       1. Click **Create**.
 
+      Wait until the Let's Encrypt® certificate is issued for the domain name. This may take up to 30 minutes.
+
+   1. Enable a client redirect from HTTP to HTTPS:
+
+      1. In the ![image](../../_assets/cdn/cdn-res.svg) **CDN resources** tab, select the previously created resource.
+      1. Make sure the certificate status under **Additional** changes to `Issued`.
+      1. At the top right, click ![image](../../_assets/pencil.svg) **Edit**.
+      1. Under **Additional**, in the **Redirect clients** field, select **HTTP to HTTPS**.
+      1. Click **Save**.
+
 - CLI
 
    1. If the CDN provider hasn't been activated yet, run the command:
-      ```
-      yc cdn provider activate --folder-id <folder ID> --type gcore
+
+      ```bash
+      yc cdn provider activate --folder-id <folder_ID> --type gcore
       ```
 
    1. Create the `example-origin-group` origin group by indicating the IP address of the load balancer:
+
       ```bash
       yc cdn origin-group create --name "example-origin-group" \
-        --origin source=<load balancer IP address>:80,enabled=true
+        --origin source=<load_balancer_IP_address>:80,enabled=true
       ```
 
       Result:
+
       ```
       id: "90748"
       folder_id: b1geoelk7fldts6chmjq
@@ -1035,13 +1048,14 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       ```bash
       yc cdn resource create \
         --cname cdn.yandexcloud.example \
-        --origin-group-id <origin group ID> \
+        --origin-group-id <origin_group_ID> \
         --origin-protocol http \
-        --redirect-http-to-https \
+        --lets-encrypt-gcore-ssl-cert \
         --forward-host-header
       ```
 
       Result:
+
       ```
       id: bc843k2yinvq5fhgvuvc
       folder_id: b1ge1elk72ldts6chmjq
@@ -1055,6 +1069,12 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
+   1. Enable a client redirect for a resource:
+
+      ```bash
+      yc cdn resource update <resource_ID> --redirect-http-to-https
+      ```
+
 - {{ TF }}
 
    1. Add parameters of CDN resources to the configuration file:
@@ -1065,7 +1085,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
         name     = "example-origin-group"
         use_next = true
         origin {
-         source = "<load balancer IP address>:80"
+         source = "<load_balancer_IP_address>:80"
          backup = false
         }
       }
@@ -1076,6 +1096,9 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
           active              = true
           origin_protocol     = "http"
           origin_group_id     = yandex_cdn_origin_group.my_group.id
+          ssl_certificate {
+            type = "lets_encrypt_gcore"
+          }
           options {
               edge_cache_settings    = "345600"
               browser_cache_settings = "1800"
@@ -1093,7 +1116,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
 
-         ```
+         ```bash
          terraform plan
          ```
 
@@ -1103,7 +1126,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       1. If the configuration does not contain any errors, run this command:
 
-         ```
+         ```bash
          terraform apply
          ```
 
@@ -1111,9 +1134,36 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
+   1. Enable client redirect for a resource. Add the following field at the beginning of the `options` section for a CDN resource:
+
+      ```hcl
+      ...
+      options {
+        redirect_https_to_http = true
+      ...
+      ```
+
+   1. Run the check using this command:
+
+      ```bash
+      terraform plan
+      ```
+
+      If the configuration is described correctly, the terminal will display a list of updated resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+
+   1. If there are no errors, run this command:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the resource update: type `yes` in the terminal and press **Enter**.
+
+   This enables a redirect for the resource.
+
 - API
 
-   Use the gRPC API [ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create) call or the [create](../../cdn/api-ref/Resource/create.md) REST API method.
+   Use the [ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create) gRPC API call or the [create](../../cdn/api-ref/Resource/create.md) REST API method.
 
 {% endlist %}
 
@@ -1129,7 +1179,7 @@ To configure DNS:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ cdn-name }}**.
       1. In the list of CDN resources, select the resource with the `cdn.yandexcloud.example` primary domain name.
       1. From **DNS settings**, copy the domain name in `cl-....edgecdn.ru` format.
@@ -1220,7 +1270,7 @@ To configure DNS:
            zone_id = ${yandex_dns_zone.example-dns-zone.id}
            name    = "cdn"
            type    = "CNAME"
-           data    = ["<copied value in the format cl-....edgecdn.ru>"]
+           data    = ["<copied_value_in_the_ format_cl-....edgecdn.ru>"]
          }
          ```
 
@@ -1274,7 +1324,7 @@ To check the service performance, open `https://cdn.yandexcloud.example/index.ht
 </html>
 ```
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To shut down the infrastructure and stop paying for the created resources:
 

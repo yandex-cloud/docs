@@ -28,15 +28,15 @@ To build an architecture for the blue-green and canary deployment:
 1. [Configure DNS for the service](#configure-dns).
 1. [Run a health check and test the switching between versions](#check).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Supported tools {#supported-tools}
 
-Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), [{{ yandex-cloud }}](../cli/) and [AWS](../storage/tools/aws-cli.md) CLIs, {{ TF }}, and the [{{ yandex-cloud }} API](../api-design-guide). Each step lists tools supported for it.
+You can complete most of the steps in the tutorial in any standard tool, such as the [management console]({{ link-console-main }}), [{{ yandex-cloud }}](../cli/) and [AWS](../storage/tools/aws-cli.md) CLIs, {{ TF }}, and the [{{ yandex-cloud }} API](../api-design-guide). Each step lists tools supported for it.
 
-Some steps don't support certain tools:
+Some steps do not support certain tools:
 
-* Currently, you can't use CLIs and {{ TF }} to:
+* Currently, you cannot use CLIs and {{ TF }} to:
    * [Create a {{ alb-name }} backend group with buckets as backends](#create-l7backend).
    * Get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
    * Disable and enable caching of a CDN resource when [running a health check and testing version switching](#check).
@@ -53,10 +53,10 @@ We use a folder named `example-folder` as an example.
 
 The cost of this infrastructure includes:
 
-* A fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
-* A fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../application-load-balancer/pricing.md)).
-* A fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../cdn/pricing.md)).
-* A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../dns/pricing.md)).
+* Fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
+* Fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../application-load-balancer/pricing.md)).
+* Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../cdn/pricing.md)).
+* Fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../dns/pricing.md)).
 
 
 ## Create a cloud network and subnets {#create-network}
@@ -69,7 +69,7 @@ To create a network and subnets:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ vpc-name }}**.
    1. Click **Create network**.
    1. Specify the **Name** of the network: `canary-network`.
@@ -104,7 +104,7 @@ To create a network and subnets:
 
       * In `{{ region-id }}-a`:
 
-         ```
+         ```bash
          yc vpc subnet create canary-subnet-{{ region-id }}-a \
            --zone {{ region-id }}-a \
            --network-name canary-network \
@@ -126,7 +126,7 @@ To create a network and subnets:
 
       * In `{{ region-id }}-b`:
 
-         ```
+         ```bash
          yc vpc subnet create canary-subnet-{{ region-id }}-b \
            --zone {{ region-id }}-b \
            --network-name canary-network \
@@ -148,7 +148,7 @@ To create a network and subnets:
 
       * In `{{ region-id }}-c`:
 
-         ```
+         ```bash
          yc vpc subnet create canary-subnet-{{ region-id }}-c \
            --zone {{ region-id }}-c \
            --network-name canary-network \
@@ -176,7 +176,7 @@ To create a network and subnets:
 
    1. In the configuration file, describe the parameters of `canary-network` and its subnets: `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-c`:
 
-      ```
+      ```hcl
       resource "yandex_vpc_network" "canary-network" {
         name = "canary-network"
       }
@@ -205,7 +205,7 @@ To create a network and subnets:
 
       Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -228,8 +228,8 @@ To create a network and subnets:
 
 - API
 
-   1. Create the `canary-network` network using the gRPC API [NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create) or REST API [create](../vpc/api-ref/Network/create.md) method.
-   1. Create the `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` and `canary-subnet-{{ region-id }}-c` in the three availability zones by calling the gRPC API [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../vpc/api-ref/Subnet/create.md) method.
+   1. Create the `canary-network` network using the [NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create) or REST API [create](../vpc/api-ref/Network/create.md) gRPC API method.
+   1. Create the `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` and `canary-subnet-{{ region-id }}-c` in the three availability zones by calling the [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../vpc/api-ref/Subnet/create.md) gRPC API method.
 
 {% endlist %}
 
@@ -241,7 +241,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Create a bucket named `canary-bucket-blue`:
 
@@ -282,7 +282,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
    1. Add the parameters of the `canary-bucket-blue` and `canary-bucket-green` buckets to the configuration file:
 
-      ```
+      ```hcl
       ...
 
       resource "yandex_storage_bucket" "canary-bucket-blue" {
@@ -298,7 +298,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
       For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -367,7 +367,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ objstorage-name }}**.
       1. In the bucket list, select `canary-bucket-blue`.
       1. Click **Upload** and select the `index.html` file for version 1.
@@ -405,7 +405,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
       1. To the configuration file, add the parameters of the `v1/index.html` and `v2/index.html` files uploaded to `canary-bucket-blue` and `canary-bucket-green`, respectively:
 
-         ```
+         ```hcl
          ...
 
          resource "yandex_storage_object" "canary-bucket-blue-index" {
@@ -423,7 +423,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
          For more information about the `yandex_storage_object` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_object).
 
-      1. Make sure that the configuration files are valid.
+      1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run the check using this command:
@@ -452,7 +452,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
 ## Create a security group {#create-security-group}
 
-{% include [security-groups-note](../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
 
 [Security groups](../vpc/concepts/security-groups.md) contain rules that allow the L7 load balancer to receive incoming traffic and send it to backend buckets.
 
@@ -474,7 +474,7 @@ To create security groups:
       | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
       | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
       | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-      | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
+      | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | N/A |
 
       1. Go to the **Outgoing traffic** or **Incoming traffic** tab.
       1. Click **Add rule**.
@@ -482,9 +482,9 @@ To create security groups:
       1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
       1. In the **Purpose** or **Source** field, select the purpose of the rule:
 
-         * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
-         * **Load balancer's health checks** is a rule that allows an L7 load balancer to check the health of VMs.
+         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+         * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
+         * **Load balancer health checks**: Rule that allows an L7 load balancer to check the health of VMs.
 
       1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -556,7 +556,7 @@ To create security groups:
 
    1. Add the `canary-sg` security group parameters to the configuration file:
 
-      ```
+      ```hcl
       resource "yandex_vpc_security_group" "canary-sg" {
         name       = "canary-sg"
         network_id = yandex_vpc_network.canary-network.id
@@ -589,7 +589,7 @@ To create security groups:
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -626,7 +626,7 @@ To create security groups:
 
    1. Create a backend group named `canary-bg-production` with the` canary-backend-blue` and `canary-backend-green` backends:
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ alb-name }}** and go to the **Backend groups** tab.
       1. Click **Create backend group**.
       1. Enter the backend group name: `canary-bg-production`.
@@ -638,12 +638,12 @@ To create security groups:
       1. Click **Add** and similarly enter settings for the `canary-backend-green` backend with the weight of `0` and the `canary-bucket-green` bucket.
       1. Click **Create**.
 
-   1. In a similar way, create a backend group named `canary-bg-staging`. For the `canary-backend-blue` backend, set the weight to `0`, for `canary-backend-green`, set the weight to `100`.
-   1. If you're going to complete the next steps in {{ TF }}, copy the IDs of the backend groups `canary-bg-production` and `canary-bg-staging` from the **Backend groups** tab.
+   1. In a similar way, create a backend group named `canary-bg-staging`. For the `canary-backend-blue` backend, set the weight to `0`; for `canary-backend-green`, set the weight to `100`.
+   1. If you are going to complete the next steps in {{ TF }}, copy the IDs of the `canary-bg-production` and `canary-bg-staging` backend groups from the **Backend groups** tab.
 
 - API
 
-   Use the gRPC API [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) call or the [create](../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
+   Use the [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
 
 {% endlist %}
 
@@ -655,7 +655,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ alb-name }}** and go to the **HTTP routers** tab.
    1. Click **Create HTTP router**.
    1. Enter the router name: `canary-router`.
@@ -674,11 +674,11 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
    1. In a similar way, create a virtual host named `canary-vh-staging` with the following parameters:
 
       * **Authority**: `cdn-staging.yandexcloud.example`.
-      * **Route name**: `canary-route-staging`.
+      * Route **Name**: `canary-route-staging`.
       * **Backend group**: `canary-bg-staging`.
       * The other parameters are the same as for `canary-vh-production`.
 
-   1. Leave the other settings as they are and click **Create**.
+   1. Leave all other settings as they are and click **Create**.
 
 - CLI
 
@@ -795,7 +795,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
    1. To the configuration file, add parameters of the `canary-router` HTTP router, its virtual hosts and routes:
 
-      ```
+      ```hcl
       ...
 
       resource "yandex_alb_http_router" "canary-router" {
@@ -811,7 +811,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
           name = "canary-route-production"
           http_route {
             http_route_action {
-              backend_group_id = "<canary-bg-production backend group ID>"
+              backend_group_id = "<ID_of_the_backend_group_canary-bg-production>"
             }
           }
         }  
@@ -826,7 +826,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
           name = "canary-route-staging"
           http_route {
             http_route_action {
-              backend_group_id = "<canary-bg-staging backend group ID>"
+              backend_group_id = "<ID_of the_backend_group_canary-bg-staging>"
             }
           }
         }  
@@ -835,7 +835,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       Learn more in the description of the [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -858,8 +858,8 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
 - API
 
-   1. Create the example-router HTTP `canary-router` using the gRPC API [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create) call or the [create](../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
-   1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts linked to the router, then create their routes using the gRPC API [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) call or the [create](../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
+   1. Create the example-router HTTP `canary-router` using the [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
+   1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts linked to the router, then create their routes using the [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
 
 {% endlist %}
 
@@ -869,7 +869,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ alb-name }}**, then click **Load balancers**.
    1. Click **Create L7 load balancer**.
    1. Enter the load balancer name: `canary-balancer`.
@@ -878,7 +878,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
       1. Select the `canary-network` **Network**.
       1. Select the `canary-sg` **Security group**. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
 
-   1. Under **Allocation**, select three subnets for the load balancer nodes: `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-c`, then enable traffic for these subnets.
+   1. Under **Allocation**, select three subnets for the load balancer nodes: `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-c`, then enable traffic to these subnets.
    1. Click **Add listener** under **Listeners**. Set the listener settings:
 
       1. Enter the listener name: `canary-listener`.
@@ -930,10 +930,10 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
       ```bash
       yc alb load-balancer create canary-balancer \
         --network-name canary-network \
-        --security-group-id <canary-sg security group ID> \
-        --location zone={{ region-id }}-a,subnet-id=<canary-subnet-{{ region-id }}-a subnet ID> \
-        --location zone={{ region-id }}-b,subnet-id=<canary-subnet-{{ region-id }}-b subnet ID> \
-        --location zone={{ region-id }}-c,subnet-id=<canary-subnet-{{ region-id }}-c subnet ID>
+        --security-group-id <canary-sg_security_group_ID> \
+        --location zone={{ region-id }}-a,subnet-id=<canary-subnet-{{ region-id }}-a_subnet_ID> \
+        --location zone={{ region-id }}-b,subnet-id=<canary-subnet-{{ region-id }}-b_subnet_ID> \
+        --location zone={{ region-id }}-c,subnet-id=<canary-subnet-{{ region-id }}-c_subnet_ID>
       ```
 
       Result:
@@ -1013,7 +1013,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
    1. Add the parameters of the `canary-balancer` L7 load balancer to the configuration file:
 
-      ```
+      ```hcl
       ...
 
       resource "yandex_alb_load_balancer" "canary-balancer" {
@@ -1058,7 +1058,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       For more information about the `yandex_alb_load_balancer` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/alb_load_balancer).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -1081,7 +1081,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
 - API
 
-   Use the gRPC API [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) call or the [create](../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
+   Use the [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
 
 {% endlist %}
 
@@ -1091,7 +1091,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ cdn-name }}**.
    1. If the CDN provider hasn't been activated yet, click **Activate provider**.
    1. Create a CDN resource:
@@ -1114,34 +1114,48 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
          * In the **Advanced** section:
 
             * In the **Source protocol** field, select **HTTP**.
-            * In the **Redirect clients** field, select **HTTP to HTTPS**.
+            * In the **Redirect clients** field, select **Don't use**.
             * Enable **End-user access to content**.
             * In the **Certificate type** field, select **Let's Encrypt®** to automatically issue a certificate for the `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names after creating the CDN resource.
             * In the **Host header** field, select **Forward**.
 
       1. Click **Create**.
-      1. Enable CDN caching:
 
-         1. In the list of CDN resources, select the resource with the `cdn.yandexcloud.example` primary domain name.
-         1. Go to the **Caching** tab
-         1. Click **Edit**.
-         1. Enable **CDN caching**.
-         1. Click **Save**.
+      Wait until the Let's Encrypt® certificate is issued for the domain name. This may take up to 30 minutes.
+
+   1. Enable a client redirect from HTTP to HTTPS:
+
+      1. In the ![image](../_assets/cdn/cdn-res.svg) **CDN resources** tab, select the previously created resource.
+      1. Make sure the certificate status under **Additional** changes to `Issued`.
+      1. At the top right, click ![image](../_assets/pencil.svg) **Edit**.
+      1. Under **Additional**, in the **Redirect clients** field, select **HTTP to HTTPS**.
+      1. Click **Save**.
+
+   1. Enable caching on CDN servers for the resource:
+
+      1. In the ![image](../_assets/cdn/cdn-res.svg) **CDN resources** tab, select the previously created resource.
+      1. Go to **Caching**.
+      1. At the top right, click ![image](../_assets/pencil.svg) **Edit**.
+      1. Enable **CDN caching**.
+      1. Click **Save**.
 
 - CLI
 
    1. If the CDN provider hasn't been activated yet, run the command:
-      ```
-      yc cdn provider activate --folder-id <folder ID> --type gcore
+
+      ```bash
+      yc cdn provider activate --folder-id <folder_ID> --type gcore
       ```
 
    1. Create the `canary-origin-group`origin group by indicating the IP address of the load balancer:
+
       ```bash
       yc cdn origin-group create --name "canary-origin-group" \
-        --origin source=<load balancer IP address>:80,enabled=true
+        --origin source=<load_balancer_IP_address>:80,enabled=true
       ```
 
       Result:
+
       ```
       id: "90748"
       folder_id: b1geoelk7fldts6chmjq
@@ -1162,14 +1176,15 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
       ```bash
       yc cdn resource create \
         --cname cdn.yandexcloud.example \
-        --origin-group-id <origin group ID> \
+        --origin-group-id <origin_group_ID> \
         --secondary-hostnames cdn-staging.yandexcloud.example \
         --origin-protocol http \
-        --redirect-http-to-https \
+        --lets-encrypt-gcore-ssl-cert \
         --forward-host-header
       ```
 
       Result:
+
       ```
       id: bc843k2yinvq5fhgvuvc
       folder_id: b1ge1elk72ldts6chmjq
@@ -1185,9 +1200,16 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../cli/cli-ref/managed-services/cdn/resource/create.md).
 
+   1. Enable a client redirect for a resource:
+
+      ```bash
+      yc cdn resource update <resource_ID> --redirect-http-to-https
+      ```
+
 - {{ TF }}
 
    1. Add parameters of CDN resources to the configuration file:
+
       ```hcl
       ...
 
@@ -1195,7 +1217,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
         name     = "canary-origin-group"
         use_next = true
         origin {
-         source = "<load balancer ID>:80"
+         source = "<load_balancer_IP_address>:80"
          backup = false
         }
       }
@@ -1207,6 +1229,9 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
           origin_protocol     = "http"
           secondary_hostnames = ["cdn-staging.yandexcloud.example"]
           origin_group_id     = yandex_cdn_origin_group.my_group.id
+          ssl_certificate {
+            type = "lets_encrypt_gcore"
+          }
           options {
               edge_cache_settings    = "345600"
               browser_cache_settings = "1800"
@@ -1219,12 +1244,12 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
 
-         ```
+         ```bash
          terraform plan
          ```
 
@@ -1234,17 +1259,44 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       1. If the configuration does not contain any errors, run this command:
 
-         ```
+         ```bash
          terraform apply
          ```
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}).
+      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+
+   1. Enable client redirect for a resource. Add the following field at the beginning of the `options` section for a CDN resource:
+
+      ```hcl
+      ...
+      options {
+        redirect_https_to_http = true
+      ...
+      ```
+
+   1. Run the check using this command:
+
+      ```bash
+      terraform plan
+      ```
+
+      If the configuration is described correctly, the terminal will display a list of updated resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+
+   1. If there are no errors, run this command:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the resource update: type `yes` in the terminal and press **Enter**.
+
+   This enables redirect for the resource.
 
 - API
 
-   Use the gRPC API [ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create) call or the [create](../cdn/api-ref/Resource/create.md) REST API method.
+   Use the [ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create) gRPC API call or the [create](../cdn/api-ref/Resource/create.md) REST API method.
 
 {% endlist %}
 
@@ -1260,7 +1312,7 @@ To configure DNS:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ cdn-name }}**.
       1. In the list of CDN resources, select the resource with the `cdn.yandexcloud.example` primary domain name.
       1. From **DNS settings**, copy the domain name in `cl-....edgecdn.ru` format.
@@ -1355,20 +1407,20 @@ To configure DNS:
            zone_id = ${yandex_dns_zone.canary-dns-zone.id}
            name    = "cdn"
            type    = "CNAME"
-           data    = ["<copied value in the format cl-....edgecdn.ru>"]
+           data    = ["<copied_value_in_the_format_cl-....edgecdn.ru>"]
          }
 
          resource "yandex_dns_recordset" "canary-recordset-staging" {
            zone_id = ${yandex_dns_zone.canary-dns-zone.id}
            name    = "cdn-staging"
            type    = "CNAME"
-           data    = ["<copied value in the format cl-....edgecdn.ru>"]
+           data    = ["<copied_value_in_the_format_cl-....edgecdn.ru>"]
          }
          ```
 
          Learn more in the description of the [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) resources in the {{ TF }} provider documentation.
 
-      1. Make sure that the configuration files are valid.
+      1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run the check using this command:
@@ -1391,7 +1443,7 @@ To configure DNS:
 
    - API
 
-      1. Create a DNS zone named `canary-dns-zone` using the gRPC API [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) call or the [create](../dns/api-ref/DnsZone/create.md) REST API method.
+      1. Create a DNS zone named `canary-dns-zone` using the [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) gRPC API call or the [create](../dns/api-ref/DnsZone/create.md) REST API method.
       1. Add the `cdn` and `cdn-staging` CNAME records to the zone with a copied `cl-....edgecdn.ru` value by using the [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
@@ -1413,7 +1465,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ cdn-name }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
       1. Go to the **Content** tab.
@@ -1460,7 +1512,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          ```bash
          yc cdn cache purge \
-           --resource-id <CDN resource ID> \
+           --resource-id <CDN_resource_ID> \
            --path "/index.html"
          ```
 
@@ -1468,8 +1520,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API
 
-      1. Get the ID of the CDN resource that you created using the gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) call or the REST API [list](../cdn/api-ref/Resource/list.md) method.
-      1. Delete the `index.html` file from the cache using the gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) call or the [purge](../cdn/api-ref/Cache/purge.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
 
    {% endlist %}
 
@@ -1483,7 +1535,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ cdn-name }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
       1. Go to the **Caching** tab
@@ -1493,8 +1545,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API
 
-      1. Get the ID of the CDN resource that you created using the gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) call or the REST API [list](../cdn/api-ref/Resource/list.md) method.
-      1. Disable caching using the gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) call or the REST API [list](../cdn/api-ref/Resource/update.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 
@@ -1504,7 +1556,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ cdn-name }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
       1. Go to the **Content** tab.
@@ -1549,14 +1601,14 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          ```bash
          yc cdn cache purge \
-           --resource-id <CDN resource ID> \
+           --resource-id <CDN_resource_ID> \
            --path "/index.html"
          ```
 
    - API
 
-      1. Get the ID of the CDN resource that you created using the gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) call or the REST API [list](../cdn/api-ref/Resource/list.md) method.
-      1. Delete the `index.html` file from the cache using the gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) call or the [purge](../cdn/api-ref/Cache/purge.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
 
    {% endlist %}
 
@@ -1566,7 +1618,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ alb-name }}** and go to the **Backend groups** tab.
       1. Select `canary-bg-production` in the backend group list.
       1. For the `canary-backend-blue` backend, set the weight to 80 instead of 100:
@@ -1634,7 +1686,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API
 
-      Use the gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) call of the REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) method.
+      Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
 
    {% endlist %}
 
@@ -1651,7 +1703,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ cdn-name }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
       1. Go to the **Caching** tab
@@ -1661,8 +1713,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API
 
-      1. Get the ID of the CDN resource that you created using the gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) call or the REST API [list](../cdn/api-ref/Resource/list.md) method.
-      1. Enable caching using the gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) call or the REST API [list](../cdn/api-ref/Resource/update.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 
@@ -1674,7 +1726,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ cdn-name }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
       1. Go to the **Caching** tab
@@ -1684,8 +1736,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API
 
-      1. Get the ID of the CDN resource that you created using the gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) call or the REST API [list](../cdn/api-ref/Resource/list.md) method.
-      1. Disable caching using the gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) call or the REST API [list](../cdn/api-ref/Resource/update.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 
@@ -1695,7 +1747,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ cdn-name }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
       1. Go to the **Content** tab.
@@ -1740,14 +1792,14 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          ```bash
          yc cdn cache purge \
-           --resource-id <CDN resource ID> \
+           --resource-id <CDN_resource_ID> \
            --path "/index.html"
          ```
 
    - API
 
-      1. Get the ID of the CDN resource that you created using the gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) call or the REST API [list](../cdn/api-ref/Resource/list.md) method.
-      1. Delete the `index.html` file from the cache using the gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) call or the [purge](../cdn/api-ref/Cache/purge.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
 
    {% endlist %}
 
@@ -1757,7 +1809,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ alb-name }}** and go to the **Backend groups** tab.
       1. Select `canary-bg-production` in the backend group list.
       1. For the `canary-backend-blue` backend, set the weight to 100 instead of 0:
@@ -1823,7 +1875,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API
 
-      Use the gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) call of the REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) method.
+      Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
 
    {% endlist %}
 
@@ -1835,7 +1887,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+      1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ cdn-name }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
       1. Go to the **Caching** tab
@@ -1845,12 +1897,12 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API
 
-      1. Get the ID of the CDN resource that you created using the gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) call or the REST API [list](../cdn/api-ref/Resource/list.md) method.
-      1. Enable caching using the gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) call or the REST API [list](../cdn/api-ref/Resource/update.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To shut down the infrastructure and stop paying for the created resources:
 

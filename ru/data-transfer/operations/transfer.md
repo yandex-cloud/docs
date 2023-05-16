@@ -6,8 +6,8 @@
 * [создать трансфер](#create);
 * [изменить трансфер](#update);
 * [активировать трансфер](#activate);
-* [деактивировать трансфер](#deactivate);
 * [перезагрузить трансфер](#reupload);
+* [деактивировать трансфер](#deactivate);
 * [удалить трансфер](#delete).
 
 Подробнее о состояниях трансфера, возможных действиях с ним и имеющихся ограничениях см. в разделе [{#T}](../concepts/transfer-lifecycle.md).
@@ -20,6 +20,22 @@
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
     1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить список трансферов в каталоге, выполните команду:
+
+    ```bash
+    {{ yc-dt }} transfer list
+    ```
+
+- API
+
+    Воспользуйтесь методом API [list](../api-ref/Transfer/list.md).
 
 {% endlist %}
 
@@ -40,16 +56,23 @@
         * (Опционально) **{{ ui-key.yacloud.common.description }}**.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**:
 
-            * {{ dt-type-copy }} — создает полную копию данных без дальнейшего получения обновлений из источника. B блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeRegularSnapshot.snapshot_settings.title }}** укажите количество процессов и потоков для организации параллельного копирования.
-                Для создания полной копии данных через определенные интервалы времени, включите настройку **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}** и выберите требуемый интервал копирования в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.RegularSnapshotIntervalType.interval.title }}**.
+            * {{ dt-type-copy }} — создает полную копию данных без дальнейшего получения обновлений из источника.
 
-                В списке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.incremental_tables.title }}** добавьте таблицы, копирование данных которых осуществляется не полностью, а с места, где копирование завершилось в прошлый раз: укажите значения полей **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.table_namespace.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.table_name.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.key_column.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.key_start_value.title }}** (опционально). Трансфер запомнит максимальное значение колонки курсора и при следующей активации будет считывать только те данные, которые были добавлены или обновлены с момента последнего запуска. Это эффективнее, чем копировать таблицы целиком, но менее эффективно, чем использовать тип трансфера _{{ dt-type-copy-repl }}_. Настройка доступна для источников {{ PG }}, {{ CH }} и Airbyte.
+                * {% include [field periodic snapshot](../../_includes/data-transfer/fields/periodic-snapshot.md) %}
 
-                {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
-        
-            * {{ dt-type-repl }} — позволяет получать изменения данных от источника и применять их к приемнику (без создания полной копии данных источника). В блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeIncrement.increment_settings.title }}** укажите количество процессов репликации. Настройка доступна для источников {{ KF }} и {{ DS }}. Если запущено несколько процессов репликации, они поделят между собой партиции реплицируемого топика. 
-            * {{ dt-type-copy-repl }} — создает полную копию данных источника и поддерживает ее в актуальном состоянии. В блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshotAndIncrement.snapshot_settings.title }}** укажите количество процессов и потоков для организации параллельного копирования и репликации. В блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshotAndIncrement.increment_settings.title }}** укажите количество процессов репликации. Настройка доступна для источников {{ KF }} и {{ DS }}. Если запущено несколько процессов репликации, они поделят между собой партиции реплицируемого топика. 
-            
+                * {% include [field incremental tables](../../_includes/data-transfer/fields/incremental-tables.md) %}
+
+                * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
+
+            * {{ dt-type-repl }} — позволяет получать изменения данных от источника и применять их к приемнику (без создания полной копии данных источника).
+
+                * {% include [field parallel repl](../../_includes/data-transfer/fields/parallel-repl.md) %}
+
+            * {{ dt-type-copy-repl }} — создает полную копию данных источника и поддерживает ее в актуальном состоянии.
+
+                * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
+
+
        * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников {{ KF }} и {{ DS }}.
 
             Укажите полное имя объекта. В зависимости от типа источника используйте соответствующую схему именования:
@@ -81,15 +104,54 @@
                     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}** — имена столбцов в списке включенных таблиц, которые переноситься не должны.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать трансфер:
+
+    1. Посмотрите описание команды CLI для создания трансфера:
+
+        ```bash
+        {{ yc-dt }} transfer create --help
+        ```
+
+    1. Укажите параметры трансфера в команде создания:
+
+        ```bash
+        {{ yc-dt }} transfer create <имя трансфера> \
+           --source-id=<идентификатор эндпоинта-источника> \
+           --target-id=<идентификатор эндпоинта-приемника> \
+           --type=<тип трансфера: snapshot-only, increment-only или snapshot-and-increment>
+        ```
+
+        {% note info %}
+
+        Имя трансфера должно быть уникальным в каталоге. Оно может содержать латинские буквы, цифры и дефис. Максимальная длина имени 63 символа.
+
+        {% endnote %}
+
+        Где:
+
+        * `--source-id` — идентификатор эндпоинта-источника.
+        * `--target-id` — идентификатор эндпоинта-приемника.
+        * `--type` — [тип трансфера](../concepts/transfer-lifecycle.md#transfer-types):
+            * `snapshot-only` — [копирование](../concepts/transfer-lifecycle.md#copy).
+            * `increment-only` — [репликация](../concepts/transfer-lifecycle.md#replication).
+            * `snapshot-and-increment` — [копирование и репликация](../concepts/transfer-lifecycle.md#copy-and-replication).
+
 - {{ TF }}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
+    
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+
     Чтобы создать трансфер:
 
-    1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
-
-        1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. Создайте конфигурационный файл с описанием трансфера.
 
        Пример структуры конфигурационного файла:
@@ -132,6 +194,16 @@
 
     В этом случае копирование выполнится только один раз в момент создания трансфера.
 
+- API
+
+    Воспользуйтесь методом API [create](../api-ref/Transfer/create.md) и передайте в запросе:
+
+    * Идентификатор каталога, в котором должен быть размещен трансфер, в параметре `folderId`.
+    * Имя трансфера в параметре `name`.
+    * Идентификатор эндпоинта-источника в параметре `sourceId`.
+    * Идентификатор эндпоинта-приемника в параметре `targetId`.
+    * Тип трансфера в параметре `type`.
+
 {% endlist %}
 
 ## Изменить трансфер {#update}
@@ -145,8 +217,25 @@
     1. Выберите трансфер и нажмите кнопку ![pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}** на панели сверху.
     1. Измените параметры трансфера:
         * **{{ ui-key.yacloud.common.name }}**.
-        * (Опционально) **{{ ui-key.yacloud.common.description }}**.
-        * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников {{ KF }} и {{ DS }}.
+        * **{{ ui-key.yacloud.common.description }}**.
+        * Для трансфера типа {{ dt-type-copy }}:
+
+            * {% include [field periodic snapshot](../../_includes/data-transfer/fields/periodic-snapshot.md) %}
+
+            * {% include [field incremental tables](../../_includes/data-transfer/fields/incremental-tables.md) %}
+
+            * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
+
+        * Для трансфера типа {{ dt-type-repl }}:
+
+            * {% include [field parallel repl](../../_includes/data-transfer/fields/parallel-repl.md) %}
+
+        * Для трансфера типа {{ dt-type-copy-repl }}:
+
+            * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
+
+
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников {{ KF }} и {{ DS }}.
 
             Добавление новых объектов в трансферах типа {{ dt-type-copy-repl }} или {{ dt-type-repl }} в статусе {{ dt-status-repl }} приведет к загрузке истории данных по этим объектам (таблицам). Для больших таблиц загрузка истории может занять существенное время. Редактирование списка объектов на трансферах в статусе {{ dt-status-copy }} запрещено.
 
@@ -162,7 +251,7 @@
 
             Если указанный объект находится в списке исключенных таблиц или коллекций в настройках эндпоинта-источника, или имя объекта введено некорректно, трансфер завершится с ошибкой. Работающий трансфер типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} завершится сразу, незапущенный трансфер — в момент активации.
 
-        * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}** — правила преобразований данных. Эта настройка появляется только если источник и приемник имеют разные типы. Выберите **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** или **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}** — правила преобразований данных. Эта настройка появляется только если источник и приемник имеют разные типы. Выберите **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** или **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**.
             * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** — настройки переименования таблиц:
                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.original_name.title }}**:
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}** — схема именования в зависимости от типа источника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
@@ -178,6 +267,30 @@
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.include_columns.title }}** — имена столбцов в списке включенных таблиц, которые должны переноситься.
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}** — имена столбцов в списке включенных таблиц, которые переноситься не должны.    
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить настройки трансфера:
+
+    1. Посмотрите описание команды CLI для изменения трансфера:
+
+        ```bash
+        {{ yc-dt }} transfer update --help
+        ```
+
+    1. Выполните команду, передав список настроек, которые хотите изменить:
+
+        ```bash
+        {{ yc-dt }} transfer update <идентификатор трансфера> \
+           --name=<имя трансфера> \
+           --description=<описание трансфера>
+        ```
+
+        Идентификатор трансфера можно получить со [списком трансферов в каталоге](#list).
 
 - {{ TF }}
 
@@ -196,6 +309,17 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
 
+- API
+
+    Воспользуйтесь методом API [update](../api-ref/Transfer/update.md) и передайте в запросе:
+
+    * Идентификатор трансфера в параметре `transferId`. Чтобы узнать идентификатор, [получите список трансферов в каталоге](#list).
+    * Имя трансфера в параметре `name`.
+    * Описание трансфера в параметре `description`.
+    * Список изменяемых полей конфигурации трансфера в параметре `updateMask`.
+
+    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
+
 {% endlist %}
 
 При изменении трансфера настройки применяются сразу. Изменение настроек трансфера с типом {{ dt-type-copy-repl }} или {{ dt-type-repl }} в статусе {{ dt-status-repl }} приведет к перезапуску трансфера.
@@ -209,6 +333,26 @@
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
     1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы активировать трансфер, выполните команду:
+
+    ```bash
+    {{ yc-dt }} transfer activate <идентификатор трансфера>
+    ```
+
+    Идентификатор трансфера можно получить со [списком трансферов в каталоге](#list).
+
+- API
+
+    Воспользуйтесь методом API [activate](../api-ref/Transfer/activate.md) и передайте значение идентификатора трансфера в параметре `transferId` запроса.
+
+    Чтобы узнать идентификатор трансфера, [получите список трансферов в каталоге](#list).
 
 {% endlist %}
 
@@ -248,6 +392,26 @@
     1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
     1. Дождитесь перехода трансфера в статус {{ dt-status-stopped }}.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы деактивировать трансфер, выполните команду:
+
+    ```bash
+    {{ yc-dt }} transfer deactivate <идентификатор трансфера>
+    ```
+
+    Идентификатор трансфера можно получить со [списком трансферов в каталоге](#list).
+
+- API
+
+    Воспользуйтесь методом API [deactivate](../api-ref/Transfer/deactivate.md) и передайте значение идентификатора трансфера в параметре `transferId` запроса.
+
+    Чтобы узнать идентификатор трансфера, [получите список трансферов в каталоге](#list).
+
 {% endlist %}
 
 {% note warning %}
@@ -270,8 +434,30 @@
     1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.common.remove }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.remove }}**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить трансфер, выполните команду:
+
+    ```bash
+    {{ yc-dt }} transfer delete <идентификатор трансфера>
+    ```
+
+    Идентификатор трансфера можно получить со [списком трансферов в каталоге](#list).
+
 - {{ TF }}
 
     {% include [terraform-delete](../../_includes/data-transfer/terraform-delete-transfer.md) %}
 
+- API
+
+    Воспользуйтесь методом API [delete](../api-ref/Transfer/delete.md) и передайте значение идентификатора трансфера в параметре `transferId` запроса.
+
+    Чтобы узнать идентификатор трансфера, [получите список трансферов в каталоге](#list).
+
 {% endlist %}
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

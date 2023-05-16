@@ -31,7 +31,7 @@
 
 - API
 
-    Воспользуйтесь методом API [stepdownHosts](../api-ref/Cluster/stepdownHosts.md) и передайте в запросе:
+    Чтобы переключить первичную реплику, воспользуйтесь методом REST API [stepdownHosts](../api-ref/Cluster/stepdownHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StepdownHosts](../api-ref/grpc/cluster_service.md#StepdownHosts) и передайте в запросе:
 
     * Идентификатор кластера, в котором нужно переключить первичную реплику, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя текущей первичной реплики в параметре `hostNames`. Чтобы узнать имя, получите [список хостов в кластере](hosts.md#list).

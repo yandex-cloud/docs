@@ -3,7 +3,7 @@ locals {
   token            = "<OAuth_or_IAM_token>"
   cloud_id         = "<cloud_ID>"
   folder_id        = "<folder_ID>"
-  username         = "<name_of_VM_user>"
+  username         = "<VM_username>"
   ssh_key_path     = "<path_to_public_SSH_key>"
 }
 

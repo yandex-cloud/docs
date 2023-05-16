@@ -10,7 +10,7 @@
 Чтобы настроить передачу логов в {{ cloud-logging-name }}:
 1. [Создайте лог-группу](../../logging/operations/create-group.md) в том же каталоге, в котором находится [агент тестирования](../concepts/agent.md).
 1. [Назначьте роль](../../logging/operations/access-rights.md#add-access) `{{ roles-logging-writer }}` на лог-группу сервисному аккаунту, который использовался при [создании агента](create-agent.md) тестирования.
-1. [Создайте новый тест](../quickstart.md#run-test), в поле **Лог-группа** укажите созданную лог-группу.
+1. [Создайте новый тест](../quickstart.md#run-test), в поле **{{ ui-key.yacloud.load-testing.field_logging-group }}** укажите созданную лог-группу.
 
     Или перезапустите имеющийся тест:
 
@@ -18,12 +18,12 @@
 
     - Консоль управления
 
-      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ load-testing-name }}**.
-      1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **Тесты**.
-      1. Выберите необходимый тест. В правом верхнем угле нажмите кнопку **Перезапустить**.    
-      1. В поле **Лог-группа** выберите созданную лог-группу.
-      1. В блоке **Тестовые данные** загрузите файл с [тестовыми данными](../concepts/payload.md).
-      1. Нажмите кнопку **Создать**. 
+      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+      1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+      1. Выберите необходимый тест. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.load-testing.restart }}**.
+      1. В поле **{{ ui-key.yacloud.load-testing.field_logging-group }}** выберите созданную лог-группу.
+      1. В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** загрузите файл с [тестовыми данными](../concepts/payload.md).
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. 
 
     {% endlist %}
 

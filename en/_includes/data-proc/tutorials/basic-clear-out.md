@@ -1,4 +1,4 @@
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the cluster](../../../data-proc/operations/cluster-delete.md).
 1. [Delete buckets](../../../storage/operations/buckets/delete.md).

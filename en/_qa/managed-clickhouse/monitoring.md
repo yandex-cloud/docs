@@ -24,3 +24,17 @@ Logs of any level are written to a disk's system partition with 20 GB allocated,
 #### How do I track the amount of free storage space on ZooKeeper hosts? {#zookeeper-storage}
 
 Follow the instructions in [{#T}](../../managed-clickhouse/operations/monitoring.md) to track the host state or set up alerts.
+
+#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
+
+[Create an alert](../../managed-clickhouse/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mch-name }} cluster.
+
+For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+
+* `Alarm`: 95% of disk space.
+* `Warning`: 80% of disk space.
+
+The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+
+* `Alarm`: `102005473280` bytes (95%).
+* `Warning`: `85899345920` bytes (80%).

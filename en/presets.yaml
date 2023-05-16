@@ -42580,12 +42580,21 @@ default:
         delete: Delete
         description: Description
         edit: Edit
+        import: Import
+        monitoring: Monitoring
         name: Name
+        operations-key-value: Operations
+        overview: Overview
         password: Password
         remove: Delete
         save: Save
         section-base: General information
       component:
+        compute:
+          one-to-one-nat-form:
+            button_submit: Add
+            field_external-type: Public address
+            switch_auto: Auto
         console-dashboard:
           button_action-create-folder: Create folder
         dns-integration:
@@ -42594,6 +42603,16 @@ default:
           button_create-key: Create key
           button_create-key-new: Create new key
           label_no-symmetric-key: Not selected
+      compute:
+        instance:
+          overview:
+            button_add-public-ip: Add public IP address
+            label_network-interface: Network interface
+        instances:
+          create:
+            field_key: SSH key
+            field_user: Login
+            section_access: Access
       cr:
         image:
           label_last-scan-time: Date of last scan
@@ -42661,18 +42680,25 @@ default:
         folder:
           dashboard:
             button_add: Create resource
+            label_application-load-balancer: Application Load Balancer
+            label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
             label_datasphere: DataSphere
+            label_load-testing: Load Testing
+            label_lockbox: Lockbox
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-greenplum: Managed Service for Greenplum
+            label_managed-kubernetes: Managed Service for Kubernetes
             label_monitoring: Monitoring
+            label_storage: Object Storage
             label_vpc: Virtual Private Cloud
             value_data-proc: Data Proc cluster
             value_data-transfer: Data Transfer
           service-account:
             label_add-role: Add role
             overview:
+              action_download-keys-file: Download file with keys
               button_create_key: Create authorized key
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
@@ -42681,9 +42707,44 @@ default:
           service-accounts:
             button_add: Create service account
           switch_service-accounts: Service accounts
+      k8s:
+        cluster:
+          switch_workloads: Workload
       kms:
         symmetric-keys:
           button_create: Create
+      load-testing:
+        button_add-bucket: Link bucket
+        button_add-overload-test-id: Add ID
+        button_create-agent: Create agent
+        button_create-test: Create test
+        button_duplicate-configuration: Duplicate configuration
+        field_config-file: Configuration file
+        field_load-generator: Load generator
+        field_logging-group: Log group
+        field_overload-test-id: Test ID
+        field_overload-token: Token
+        field_settings-type: Configuration method
+        field_target-address: Target address
+        field_target-port: Target port
+        label_agents-list: Agents
+        label_bucket-source: Bucket
+        label_import-tests-from-overload: Import tests from Overload
+        label_local-source: From computer
+        label_monitoring-report: Monitoring
+        label_rps: Responses per second
+        label_save-source: Save to Object Storage
+        label_settings-type-config: Config
+        label_settings-type-form: Form
+        label_test-config: Config
+        label_test-data_list: Test data storage
+        label_test-report: Test results
+        label_test-settings: Test settings
+        label_tests-list: Tests
+        meta-section: Test information
+        restart: Restart
+        section_agent: Agent
+        test-data-section: Test data
       lockbox:
         button_create-secret: Create secret
         forms:
@@ -42876,6 +42937,17 @@ default:
           field_type: Type
           value_gateway-type-egress-nat: Egress NAT
         network:
+          security-groups:
+            forms:
+              field_sg-rule-cidr-blocks: CIDR blocks
+              field_sg-rule-destination: Destination name
+              field_sg-rule-port-range: Port range
+              field_sg-rule-protocol: Protocol
+              value_any: Any
+              value_sg-rule-destination-cidr: CIDR
+              value_sg-rule-destination-sg: Security group
+              value_sg-rule-sg-type-list: From list
+              value_tcp: TCP
           switch_route-table: Routing tables
         route-table-form:
           label_add-static-route: Add a route
@@ -43620,7 +43692,12 @@ default:
                         title: Table
                       table_namespace:
                         title: Schema
+                    IncrementSettings:
+                      parallel_settings:
+                        title: Parallel replication settings
                     RegularSnapshotIntervalType:
+                      cron_expression:
+                        title: Cron expression
                       interval:
                         title: Period
                     Runtime:
@@ -43628,6 +43705,9 @@ default:
                         title: Multi YT
                       yt:
                         title: YT
+                    SnapshotSettings:
+                      parallel_settings:
+                        title: Parallel snapshot settings
                     Transfer:
                       data_objects:
                         title: List of objects to be transferred (Preview)
@@ -43656,11 +43736,6 @@ default:
                         title: Incremental tables
                       regular_snapshot:
                         title: Periodic snapshot
-                    TransferTypeSnapshotAndIncrement:
-                      increment_settings:
-                        title: Replication settings
-                      snapshot_settings:
-                        title: Snapshot settings
                     YTRuntime:
                       cpu:
                         title: CPU

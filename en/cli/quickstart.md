@@ -4,7 +4,7 @@
 The _{{ yandex-cloud }} command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
 
 
-## Installation {#install}
+## Installing {#install}
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
@@ -15,20 +15,24 @@ The _{{ yandex-cloud }} command-line interface (CLI)_ provides downloadable soft
 
 ## Examples of commands {#example}
 
-The following steps describe how to create a cloud network, subnet, and virtual machine that is connected to this subnet.
-
+The following steps describe how to create a [cloud network](../vpc/concepts/network.md#network), [subnet](../vpc/concepts/network.md#subnet), and [virtual machine](../compute/concepts/vm.md) that is connected to this subnet.
 1. View the description of the CLI commands for working with cloud networks:
+
    ```bash
    yc vpc network --help
    ```
-1. Create a cloud network in the folder specified in your CLI profile:
+
+1. Create a cloud network in the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) specified in your CLI profile:
+
    ```bash
    yc vpc network create \
      --name my-yc-network \
      --labels my-label=my-value \
      --description "my first network via yc"
    ```
+
 1. Create a subnet in the cloud network `my-yc-network`:
+
    ```bash
    yc vpc subnet create \
      --name my-yc-subnet-a \
@@ -37,10 +41,16 @@ The following steps describe how to create a cloud network, subnet, and virtual 
      --network-name my-yc-network \
      --description "my first subnet via yc"
    ```
+
 1. Get a list of all cloud networks in the directory specified in your CLI profile:
+
    ```bash
    yc vpc network list
+   ```
 
+   Result:
+
+   ```text
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
@@ -48,7 +58,9 @@ The following steps describe how to create a cloud network, subnet, and virtual 
    | c6449hbqqar1skesdqhk | my-yc-network    | my first network via yc |
    +----------------------+------------------+-------------------------+
    ```
+
    Get the same list with more details in YAML format:
+
    ```bash
    yc vpc network list --format yaml
    ```
@@ -70,9 +82,11 @@ The following steps describe how to create a cloud network, subnet, and virtual 
      labels:
        my-label: my-value
    ```
-1. Create a VM and connect it to the subnet `my-yc-subnet-a`:
-   1. [Prepare](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a pair of keys (public and private) for accessing the VM over SSH.
-   1. Create a Linux VM instance:
+
+1. Create a VM and connect it to the `my-yc-subnet-a` subnet:
+   1. [Prepare](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
+   1. Create a Linux VM:
+
       ```bash
       yc compute instance create \
         --name my-yc-instance \
@@ -80,24 +94,27 @@ The following steps describe how to create a cloud network, subnet, and virtual 
         --zone {{ region-id }}-a \
         --ssh-key ~/.ssh/id_ed25519.pub
       ```
+
       Where `ssh-key` is the path to a public key for SSH access. A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
-1. Connect to the virtual machine over SSH:
-   1. Find out the public IP address of the virtual machine. To do this, view detailed information about your virtual machine:
+1. Connect to the VM over SSH:
+   1. Find out the VM's [public IP address](../vpc/concepts/address.md#public-addresses). To do this, view detailed information about your VM:
+
       ```bash
       yc compute instance get my-yc-instance
       ```
-      In the command result, find the address of the VM in the `one_to_one_nat` section:
+
+      In the command output, find the address of the VM in the `one_to_one_nat` section:
 
       
       ```yaml
       one_to_one_nat:
-          address: 130.193.32.90
-          ip_version: IPV4
+        address: 130.193.32.90
+        ip_version: IPV4
       ```
 
 
 
-   1. Connect to the virtual machine over SSH on behalf of the `yc-user` user, using the private key:
+   1. Connect to the VM over SSH as `yc-user`, using the private key:
 
       
       ```bash
@@ -106,7 +123,8 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
 
 
-1. Delete the `my-yc-instance` VM, the `my-yc-subnet-a` subnet, and the `my-yc-network` network:
+1. Delete the `my-yc-instance` VM, `my-yc-subnet-a`, and `my-yc-network`:
+
    ```bash
    yc compute instance delete my-yc-instance
    yc vpc subnet delete my-yc-subnet-a

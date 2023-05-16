@@ -23,18 +23,18 @@ To view detailed information about the {{ mes-name }} cluster status:
 
    The page displays the following charts:
 
-   * **Active shards**: The number of active [primary shards](../concepts/scalability-and-resilience.md) and the total number of active shards in the cluster.
+   * **Active shards**: Number of active [primary shards](../concepts/scalability-and-resilience.md) and the total number of active shards in the cluster.
    * **Deletion rate**: The number of delete operations per second per host.
    * **Disk space usage percent**: Shows how much disk space is used on each host (%).
    * **Flushes**: The number of transaction log flush operations per host.
 
    * **Health status**: Shows the cluster's health and technical condition:
 
-      * 0 (<q>red</q>): The cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.
-      * 1 (<q>yellow</q>): The cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there're more unavailable shards, the cluster's performance will be disrupted.
-      * 2 (<q>green</q>): The cluster is healthy. All cluster shards are available.
+      * 0 (<q>red</q>): Cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, the search results will be incomplete.
+      * 1 (<q>yellow</q>): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete; however, if there are more unavailable shards, cluster performance will be disrupted.
+      * 2 (<q>green</q>): Cluster is healthy. All cluster shards are available.
 
-   * **Indexing rate**: The number of indexing operations per second per host.
+   * **Indexing rate**: Number of indexing operations per second, per host.
    * **JVM heap**: The use of JVM heap memory per host (in bytes).
    * **JVM heap pressure**: The use of a pool of long-lived JVM objects per host (%).
    * **JVM old collections**: The number of garbage collection cycles in the pool of long-lived JVM objects per host.
@@ -42,7 +42,7 @@ To view detailed information about the {{ mes-name }} cluster status:
    * **Merges**: The number of index segment merges per host.
    * **Nodes**: The number of hosts with the [`Data node` role](../concepts/hosts-roles.md) and the total number of hosts in the cluster.
    * **Open file descriptors**: The number of open file descriptors per host.
-   * **Other shards**: The number of inactive shards in each of the following states:
+   * **Other shards**: Number of inactive shards in each of the following states:
 
       * Delayed unassigned: Host assignment is delayed.
       * Unassigned: There is no assigned host.
@@ -52,13 +52,13 @@ To view detailed information about the {{ mes-name }} cluster status:
    * **Process CPU**: Usage of processor cores on each host due to the JVM {{ ES }} process.
    * **Query cache**: The number of queries in the cache on each host.
    * **Read bytes**: Disk read rate on each host (bytes per second).
-   * **Read operations**: The number of read operations per second per host.
+   * **Read operations**: Number of read operations per second, per host.
    * **Refreshes**: The number of index segment refresh operations per host.
    * **Search queries**: The number of search queries per second per host.
-   * **Segments**: The number of index segments per host.
+   * **Segments**: Number of index segments per host.
    * **Store size**: The size of index storage on disk (in bytes).
    * **Write bytes**: Disk write rate on each host (bytes per second).
-   * **Write operations**: The number of write operations per second per host.
+   * **Write operations**: Number of write operations per second, per host.
 
    {% note info %}
 
@@ -77,7 +77,7 @@ To view detailed information about the status of individual {{ mes-name }} hosts
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{mes-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Select the **Monitoring** tab.
    1. Select the host from the drop-down list.
 
@@ -85,10 +85,10 @@ To view detailed information about the status of individual {{ mes-name }} hosts
 
    * **CPU**: The load on processor cores. As the load goes up, the `Idle` value goes down.
    * **Disk bytes**: The speed of disk operations (bytes per second).
-   * **Disk IOPS**: The number of disk operations per second.
-   * **Memory**: The use of RAM in bytes. At high loads, the value of `Free` goes down while the other values go up.
-   * **Network Bytes**: The speed of data exchange over the network (bytes per second).
-   * **Network Packets**: The number of packets exchanged over the network per second.
+   * **Disk IOPS**: Number of disk operations per second.
+   * **Memory**: Use of RAM, in bytes. At high loads, the value of `Free` goes down while the other values go up.
+   * **Network bytes**: Speed of data exchange over the network, in bytes per second.
+   * **Network packets**: Number of packets exchanged over the network, per second.
 
 {% endlist %}
 
@@ -127,10 +127,14 @@ Recommended threshold values:
 | JVM heap memory used | `elasticsearch_jvm_mem_heap_used_percent` | `top_last(1)` | Over 90% of host RAM |                                   |
 | Storage space used | `elasticsearch_fs_total_used_percent` | `top_last(1)` | Over 90% of the storage size | Over 85% of the storage size |
 | Using the JVM long-lived object pool | `elasticsearch_jvm_mem_heap_pressure` | `top_last(1)` | Over 90% of host RAM | Over 75% of host RAM |
+| Storage space used | `disk.used_bytes` | N/A | 90% of storage size | 80% of storage size |
 
-You can view the host's current storage size and RAM amount in the [detailed information about the cluster](cluster-list.md#get-cluster).
+For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-elasticsearch).
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).
+
+You can view the host's current storage size and RAM amount in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-elasticsearch).
 
 
 ## Cluster state and status {#cluster-health-and-status}

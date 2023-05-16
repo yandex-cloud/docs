@@ -15,7 +15,7 @@
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-1. Зарегистрируйте доменное имя для вашего сайта. 
+1. Зарегистрируйте доменное имя для вашего сайта.
 
 1. Если для вашего облака включены [группы безопасности](../../vpc/concepts/security-groups.md), [создайте](../../vpc/operations/security-group-create.md) группу с правилами, описанными в разделе [{#T}](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
@@ -102,7 +102,7 @@
          port: 80
          targetPort: 8080
          protocol: TCP
-         nodePort: 30085    
+         nodePort: 30085
    ```
 
 2. Создайте приложение:
@@ -287,7 +287,7 @@
      package: yandextank.plugins.Pandora
      config_content:
       pools:
-        - id: Gun
+       - id: Gun
          gun:
            type: grpc
            target: <your-site-name>:<port>
@@ -300,12 +300,12 @@
            destination: ./phout.log
          rps:
            - duration: 60s
-            type: line
-            from: 1
-            to: 10
+             type: line
+             from: 1
+             to: 10
          startup:
            - type: once
-            times: 1000
+             times: 1000
       log:
         level: debug
       monitoring:
@@ -327,20 +327,20 @@
    
 6. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
-   * В блоке настроек **Тестовые данные** выберите **С компьютера**, нажмите **Прикрепить файл** и загрузите подготовленный ранее файл `ammo.json`.
-   * В блоке настроек **Настройка теста**:
-     * В поле **Способ настройки** выберите **Конфигурационный файл**.
-     * В поле **Файл конфигурации** нажмите **Прикрепить файл** и загрузите подготовленный ранее файл `load.yaml`.
+   * В блоке настроек **{{ ui-key.yacloud.load-testing.test-data-section }}** выберите **{{ ui-key.yacloud.load-testing.label_local-source }}**, нажмите **Прикрепить файл** и загрузите подготовленный ранее файл `ammo.json`.
+   * В блоке настроек **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
+     * В поле **{{ ui-key.yacloud.load-testing.field_settings-type }}** выберите **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
+     * В поле **{{ ui-key.yacloud.load-testing.field_config-file }}** нажмите **Прикрепить файл** и загрузите подготовленный ранее файл `load.yaml`.
 
 7. Наблюдайте за прохождением теста:
 
-   1. В [консоли управления]({{ link-console-main }}) выберите сервис {{managed-k8s-name}}.
+   1. В [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}.
    1. Выберите ваш тестовый кластер.
-   1. Перейдите на вкладку **Рабочая нагрузка**.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
    1. Наблюдайте за изменением количества подов приложения по мере увеличения и уменьшения нагрузки.
-   1. По завершении теста в [консоли управления]({{ link-console-main }}) выберите сервис {{alb-name}}.
+   1. По завершении теста в [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}.
    1. Выберите созданный L7-балансировщик.
-   1. Перейдите на вкладку **Мониторинг**.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
    1. Просмотрите графики нагрузки за время работы теста. 
 
 ## Как удалить созданные ресурсы {#clear-out}

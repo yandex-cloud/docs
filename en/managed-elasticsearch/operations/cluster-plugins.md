@@ -12,7 +12,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of cluster plugins, run the command:
+   To get a list of cluster plugins, run the following command:
 
    ```bash
    {{ yc-mdb-es }} cluster get <cluster ID or name>
@@ -24,7 +24,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
 - API
 
-   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [get](../api-ref/Cluster/get.md) API method and include the cluster ID in the `clusterId` request parameter.
 
    Enabled plugins will be shown in the `plugins` list.
 
@@ -75,7 +75,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -83,10 +83,10 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The list of plugins in the `configSpec.elasticsearchSpec.plugins` parameter. Plugins that are not included in the list will be disabled.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * List of plugins in the `configSpec.elasticsearchSpec.plugins` parameter. Plugins that are not included in the list will be disabled.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

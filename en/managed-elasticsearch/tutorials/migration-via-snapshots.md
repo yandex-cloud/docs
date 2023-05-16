@@ -1,6 +1,6 @@
 # Migrating to {{ mes-name }} using snapshots
 
-{{ mes-name }} clusters support the [snapshot](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) mechanism. This lets you migrate to it data from another {{ ES }} cluster.
+{{ mes-name }} clusters support the snapshot mechanism. This lets you migrate data from another {{ ES }} cluster to it. For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
 To migrate data from the *source cluster* in {{ ES }} to the *target cluster* in {{ mes-name }}:
 
@@ -9,7 +9,7 @@ To migrate data from the *source cluster* in {{ ES }} to the *target cluster* in
 1. [{#T}](#restore-snapshot).
 1. [{#T}](#finish-migration).
 
-If you no longer need the used resources, [delete them](#clear-out).
+If you no longer need the resources in use, [delete them](#clear-out).
 
 {% note warning %}
 
@@ -19,7 +19,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 ## Set up a working environment {#before-you-begin}
 
-### Create the necessary resources {#create-resources}
+### Create the required resources {#create-resources}
 
 {% list tabs %}
 
@@ -27,7 +27,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
    
    1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
-   1. [Create a service account](../../iam/operations/sa/create.md) and [assign it the](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor` role. A service account is required to access the bucket from the source and target clusters.
+   1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role to it. A service account is required to access the bucket from the source and target clusters.
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account.
 
 
@@ -49,7 +49,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 - Using {{ TF }}
 
    
-   1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [mes-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/mes-migration.tf) configuration file to the same working directory. The file describes:
 
@@ -69,13 +69,13 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
       * {{ objstorage-name }} bucket name.
 
    1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -184,7 +184,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 ## Restore a snapshot on the target cluster {#restore-snapshot}
 
-1. [Configure access to the bucket with snapshots](../operations/s3-access.md) for the target cluster. Use the service account you [created earlier](#before-you-begin).
+1. [Configure access to the bucket with snapshots](../operations/s3-access.md) for the target cluster. Use the service account you [previously created](#before-you-begin).
 
 1. Connect the {{ objstorage-name }} bucket to the target cluster as snapshot storage:
 
@@ -261,7 +261,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
         "https://admin:<admin user password>@<target cluster's FQDN>:9200/_all/_open?pretty"
    ```
 
-## Finish the migration {#finish-migration}
+## Complete your migration {#finish-migration}
 
 1. Make sure that all the necessary data has been transferred to the {{ mes-name }} target cluster.
 
@@ -271,7 +271,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs %}
 
@@ -285,17 +285,17 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    To delete the infrastructure created with {{ TF }}:
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `mes-migration.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -1,16 +1,15 @@
-# Getting started with {{ backup-full-name }}
+# Getting started with {{ backup-name }}
 
 {{ backup-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. The service is at the [Preview stage](../overview/concepts/launch-stages.md).
 
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server. For more information, see [{#T}](concepts/vm-connection.md#os).
 
 To get started with {{ backup-name }}:
-
 1. [Request access to the service](#write-to-support).
 1. [Activate the service](#activate-provider).
 1. [Set up a service account](#prepare-service-account).
 1. [Create a VM](#vm-create).
-1. [Attach your VM to a backup policy](#add-policy).
+1. [Link your VM to a backup policy](#add-policy).
 
 ## Request access to the service {#write-to-support}
 
@@ -20,7 +19,7 @@ To activate {{ backup-name }}, [request access to the service from the support t
 
 {% note info %}
 
-The minimum folder role required for [activating the service](concepts/index.md#providers) is `backup.editor` (see the [role description](security/index.md#backup-editor)).
+The minimum [folder](../resource-manager/concepts/resources-hierarchy.md#folder) role required for [activating the service](concepts/index.md#providers) is `backup.editor` (see the [role description](security/index.md#backup-editor)).
 
 {% endnote %}
 
@@ -45,7 +44,7 @@ To activate the service:
    1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
    1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
-   1. Enter the name of the service account. Name format requirements:
+   1. Enter a name for the [service account](../iam/concepts/users/service-accounts.md). Name format requirements:
 
       {% include [name-format](../_includes/name-format.md) %}
 
@@ -72,7 +71,7 @@ To activate the service:
          1. In the window that opens, enter the network name and specify the folder to host the network.
          1. Click **Create**.
 
-         Each network must have at least one subnet. If there is no subnet, create one by selecting ![plus-sign](../_assets/plus-sign.svg) **Add subnet**.
+           Each network must have at least one subnet. If there is no subnet, create one by selecting ![plus-sign](../_assets/plus-sign.svg) **Add subnet**.
       1. In the **Public address** field, select **Auto**.
       1. Select [appropriate security groups](../vpc/concepts/security-groups.md) (if there is no corresponding field, the VM will be enabled for all incoming and outgoing traffic).
    1. Under **Backup**, select the {{ backup-name }} connection option for your VM.
@@ -88,9 +87,9 @@ To activate the service:
 
 For more information, see [{#T}](../compute/operations/index.md#vm-create).
 
-## Attach your VM to a {#add-policy} backup policy
+## Link your VM to a backup policy {#add-policy}
 
-When the VM changes to the `Running` status, a {{ backup-name }} agent starts getting installed on it. The installation will take several minutes. After that, you can link your instance to [backup policies](./concepts/policy.md).
+When the VM changes to the `Running` status, a {{ backup-name }} agent starts getting installed on it. The installation will take several minutes. After that, you can link your instance to [backup policies](concepts/policy.md).
 
 To link an instance to a backup policy:
 

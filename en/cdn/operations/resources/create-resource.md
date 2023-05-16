@@ -30,7 +30,7 @@ To create a [resource](../../concepts/resource.md):
 
       For more information, see [{#T}](../../concepts/origins.md).
 
-   1. Under **Domain names for content distribution**, enter the **Domain name**. You can add multiple **Domain names**. Names containing characters other than ASCII (for example, Cyrillic) and [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) are supported. The first name is considered the primary domain name.
+   1. Under **Domain names for content distribution**, enter the **Domain name**. You can add multiple **Domain names**. Names containing characters other than ASCII (for example, Сyrillic) and [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) are supported. The first name is considered the primary domain name.
 
       {% note warning %}
 
@@ -43,7 +43,10 @@ To create a [resource](../../concepts/resource.md):
    1. In the **Advanced** section:
 
       1. Select **Origin request protocol**.
-      1. Select a client redirect method: `Don't use`, `HTTP to HTTPS`, or `HTTPS to HTTP`.
+      1. Select a client redirect method: `Don't use` or `HTTPS to HTTP`.
+
+         To enable a client redirect from HTTP to HTTPS, create a CDN resource without a redirect and get a TLS certificate for your domain name. Next, in the CDN resource settings, [select](configure-basics.md) the `HTTP to HTTPS` client redirect method.
+
       1. Enable or disable **End-user access to content**.
       1. If you selected the `HTTP` protocol, under **Certificate type**, select `Don't use`. Otherwise, select `Let's Encrypt®` or `Your certificate`. For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
       1. Select a **Host header** value: `Primary domain name`, `Forward`, or select `Custom` and input the **Header value**. For more information, see [{#T}](../../concepts/servers-to-origins-host.md).

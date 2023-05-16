@@ -9,7 +9,8 @@ keywords:
 
 # Managing backups in {{ mos-name }}
 
-{{ mos-short-name }} enables you to create [index](../concepts/indexing.md) backups using both {{ yandex-cloud }} tools and the {{ OS }} [snapshot]({{ os.docs }}/opensearch/snapshots/snapshot-restore/) mechanism.
+{{ mos-short-name }} enables you to create [index](../concepts/indexing.md) backups using both {{ yandex-cloud }} tools and the {{ OS }} snapshot mechanism. To learn more about snapshots, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
+
 
 ## Creating backups with {{ yandex-cloud }} tools {#cloud-backups}
 
@@ -123,7 +124,7 @@ When creating a new cluster, set all required parameters.
    Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
    * Cluster configuration in the `configSpec` parameter.
    * Network ID in the `networkId` parameter.
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.

@@ -1,6 +1,6 @@
 ---
 title: "Monitoring the state of {{ KF }} clusters and hosts"
-description: "In this tutorial, you'll learn how to monitor the state of {{ KF }} cluster and hosts"
+description: "In this tutorial, you'll learn how to monitor the state of {{ KF }} cluster and hosts."
 ---
 
 # Monitoring the state of {{ KF }} clusters and hosts
@@ -64,10 +64,10 @@ To view detailed information about the status of individual {{ mkf-name }} hosts
 
    * **CPU**: The load on processor cores. As the load goes up, the `Idle` value goes down.
    * **Disk bytes**: The speed of disk operations (bytes per second).
-   * **Disk IOPS**: The number of disk operations per second.
-   * **Memory**: The use of RAM in bytes. At high loads, the value of `Free` goes down while the other values go up.
-   * **Network Bytes**: The speed of data exchange over the network (bytes per second).
-   * **Network Packets**: The number of packets exchanged over the network per second.
+   * **Disk IOPS**: Number of disk operations per second.
+   * **Memory**: Use of RAM, in bytes. At high loads, the value of `Free` goes down while the other values go up.
+   * **Network bytes**: Speed of data exchange over the network, in bytes per second.
+   * **Network packets**: Number of packets exchanged over the network per second.
 
 {% endlist %}
 
@@ -83,7 +83,7 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select **{{ mkf-name }} — Cluster Overview**.
-   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **Create alert**.
@@ -97,13 +97,16 @@ Recommended threshold values:
 | Metric | Parameter | `Alarm` | `Warning` |
 |------------------------------------|---------------------------------------------------------|----------------------------|----------------------------|
 | Number of healthy hosts | `kafka_is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
-| Partition replication status | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | — | `Greater than 0` |
-| Number of lagging replicas | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `Greater than 0` | — |
-| Storage space used | `disk.used_bytes` | `90% of storage size` | `80% of storage size` |
+| Partition replication status | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | N/A | `Greater than 0` |
+| Number of lagging replicas | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `Greater than 0` | N/A |
+| Storage space used | `disk.used_bytes` | 90% of storage size | 80% of storage size |
 
-You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
+For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-kafka).
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).
+
+You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-kafka).
 
 
 ## Cluster state and status {#cluster-health-and-status}

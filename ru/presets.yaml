@@ -42590,12 +42590,21 @@ default:
         delete: Удалить
         description: Описание
         edit: Редактировать
+        import: Импортировать
+        monitoring: Мониторинг
         name: Имя
+        operations-key-value: Операции
+        overview: Обзор
         password: Пароль
         remove: Удалить
         save: Сохранить
         section-base: Общая информация
       component:
+        compute:
+          one-to-one-nat-form:
+            button_submit: Добавить
+            field_external-type: Публичный адрес
+            switch_auto: Автоматически
         console-dashboard:
           button_action-create-folder: Создать каталог
         dns-integration:
@@ -42604,6 +42613,16 @@ default:
           button_create-key: Создать ключ
           button_create-key-new: Создать новый
           label_no-symmetric-key: Не выбрано
+      compute:
+        instance:
+          overview:
+            button_add-public-ip: Добавить публичный IP-адрес
+            label_network-interface: Сетевой интерфейс
+        instances:
+          create:
+            field_key: SSH-ключ
+            field_user: Логин
+            section_access: Доступ
       cr:
         image:
           label_last-scan-time: Дата последнего сканирования
@@ -42671,18 +42690,25 @@ default:
         folder:
           dashboard:
             button_add: Создать ресурс
+            label_application-load-balancer: Application Load Balancer
+            label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
             label_datasphere: DataSphere
+            label_load-testing: Load Testing
+            label_lockbox: Lockbox
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-greenplum: Managed Service for Greenplum
+            label_managed-kubernetes: Managed Service for Kubernetes
             label_monitoring: Monitoring
+            label_storage: Object Storage
             label_vpc: Virtual Private Cloud
             value_data-proc: Кластер Data Proc
             value_data-transfer: Data Transfer
           service-account:
             label_add-role: Добавить роль
             overview:
+              action_download-keys-file: Скачать файл с ключами
               button_create_key: Создать авторизованный ключ
               button_create_service-account-key: Создать статический ключ доступа
               button_create-key-popup: Создать новый ключ
@@ -42691,9 +42717,44 @@ default:
           service-accounts:
             button_add: Создать сервисный аккаунт
           switch_service-accounts: Сервисные аккаунты
+      k8s:
+        cluster:
+          switch_workloads: Рабочая нагрузка
       kms:
         symmetric-keys:
           button_create: Создать
+      load-testing:
+        button_add-bucket: Привязать бакет
+        button_add-overload-test-id: Добавить ID
+        button_create-agent: Создать агент
+        button_create-test: Создать тест
+        button_duplicate-configuration: Дублировать конфигурацию
+        field_config-file: Файл конфигурации
+        field_load-generator: Генератор нагрузки
+        field_logging-group: Лог-группа
+        field_overload-test-id: ID теста
+        field_overload-token: Токен
+        field_settings-type: Способ настройки
+        field_target-address: Адрес цели
+        field_target-port: Порт цели
+        label_agents-list: Агенты
+        label_bucket-source: Из бакета
+        label_import-tests-from-overload: Импортировать тесты из Overload
+        label_local-source: С компьютера
+        label_monitoring-report: Мониторинг
+        label_rps: Запросов в секунду
+        label_save-source: Сохранить в Object Storage
+        label_settings-type-config: Конфигурационный файл
+        label_settings-type-form: Форма
+        label_test-config: Конфигурация
+        label_test-data_list: Хранилище тестовых данных
+        label_test-report: Результаты теста
+        label_test-settings: Настройки теста
+        label_tests-list: Тесты
+        meta-section: Информация о тесте
+        restart: Перезапустить
+        section_agent: Агент
+        test-data-section: Тестовые данные
       lockbox:
         button_create-secret: Создать секрет
         forms:
@@ -42886,6 +42947,17 @@ default:
           field_type: Тип
           value_gateway-type-egress-nat: NAT в интернет
         network:
+          security-groups:
+            forms:
+              field_sg-rule-cidr-blocks: CIDR блоки
+              field_sg-rule-destination: Назначение
+              field_sg-rule-port-range: Диапазон портов
+              field_sg-rule-protocol: Протокол
+              value_any: Любой
+              value_sg-rule-destination-cidr: CIDR
+              value_sg-rule-destination-sg: Группа безопасности
+              value_sg-rule-sg-type-list: Из списка
+              value_tcp: TCP
           switch_route-table: Таблицы маршрутизации
         route-table-form:
           label_add-static-route: Добавить маршрут
@@ -43628,7 +43700,12 @@ default:
                         title: Таблица
                       table_namespace:
                         title: Схема
+                    IncrementSettings:
+                      parallel_settings:
+                        title: Настройки параллельной репликации
                     RegularSnapshotIntervalType:
+                      cron_expression:
+                        title: Cron выражение
                       interval:
                         title: Период
                     Runtime:
@@ -43636,6 +43713,9 @@ default:
                         title: Multi YT
                       yt:
                         title: YT
+                    SnapshotSettings:
+                      parallel_settings:
+                        title: Настройки параллельного копирования
                     Transfer:
                       data_objects:
                         title: Список объектов для переноса (Превью)
@@ -43664,11 +43744,6 @@ default:
                         title: Инкрементальные таблицы
                       regular_snapshot:
                         title: Периодическое копирование
-                    TransferTypeSnapshotAndIncrement:
-                      increment_settings:
-                        title: Настройки репликации
-                      snapshot_settings:
-                        title: Настройки копирования
                     YTRuntime:
                       cpu:
                         title: CPU

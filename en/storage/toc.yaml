@@ -91,6 +91,8 @@ items:
           Migrating data from {{ yds-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
+      - name: Automatically copying objects from one bucket to another
+        href: tutorials/bucket-to-bucket.md
   - name: Concepts
     items:
       - name: Overview

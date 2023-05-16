@@ -51,7 +51,7 @@ To view detailed information about the {{ mrd-name }} cluster status:
 
       If a cluster is [sharded](../concepts/sharding.md) or uses [replication](../concepts/replication.md), some of the connections will be used for exchanging data between cluster hosts.
 
-      Errors occurring when connecting to a cluster may result from inactive applications keeping connections open too long. If this is the case, [modify the {{ RD }} settings](../operations/update.md#change-redis-config) to change the value of the [Timeout](../concepts/settings-list.md#settings-timeout) parameter.
+      Errors occuring when connecting to a cluster may result from inactive applications keeping connections open too long. If this is the case, [modify the {{ RD }} settings](../operations/update.md#change-redis-config) to change the value of the [Timeout](../concepts/settings-list.md#settings-timeout) parameter.
 
    * **Copy-on-write allocation**: Memory usage (in bytes) by {{ RD }} processes when using the [COW (Copy-on-write)](https://en.wikipedia.org/wiki/Copy-on-write) mechanism.
 
@@ -167,10 +167,10 @@ To view detailed information about the status of individual {{ mrd-name }} hosts
 
    * **CPU**: The load on processor cores. As the load goes up, the `Idle` value goes down.
    * **Disk bytes**: The speed of disk operations (bytes per second).
-   * **Disk IOPS**: The number of disk operations per second.
-   * **Memory**: The use of RAM in bytes. At high loads, the value of `Free` goes down while the other values go up.
-   * **Network Bytes**: The speed of data exchange over the network (bytes per second).
-   * **Network Packets**: The number of packets exchanged over the network per second.
+   * **Disk IOPS**: Number of disk operations per second.
+   * **Memory**: Use of RAM, in bytes. At high loads, the value of `Free` goes down while the other values go up.
+   * **Network bytes**: Speed of data exchange over the network, in bytes per second.
+   * **Network packets**: Number of packets exchanged over the network, per second.
 
    The **Disk bytes** and the **Disk IOPS** charts show that the **Read** property increases when active database reads are in progress, and that **Write** increases when database writes are in progress.
 
@@ -192,7 +192,7 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
    1. Under **Service dashboards**, select:
       * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mpg-name }} — Host Overview** to configure host alerts.
-   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **Create alert**.
@@ -205,13 +205,17 @@ Recommended threshold values:
 
 | Metric                                                                                                    | Parameter          | `Alarm`              | `Warning` |
 |----------------------------------------------------------------------------------------------------------:|:-------------------:|:-------------------:|:-------------------:|
-| DB write availability                                                                                   | `can_write`         | `Equal to 0`            | — |
-| Number of Out of Memory errors, per hour                                                                    | `redis_oom_count`   | `More than 2`          | `More than 0`           |
-| RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory`  | 90% RAM    | 75% RAM    |
+| DB write availability                                                                                   | `can_write`         | `Equal to 0`            | N/A |
+| Number of Out of Memory errors, per hour                                                                    | `redis_oom_count`   | `More than 2`          | `More than 0`                  |
+| RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory`  | 90% RAM           | 75% RAM         |
+| Storage space used                 | `disk.used_bytes`    | 90% of storage size | 80% of storage size |
 
-You can view a host's current RAM amount in the [cluster details](cluster-list.md#get-cluster).
+For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-redis).
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).
+
+You can view a host's current RAM amount in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-redis).
 
 
 ## Cluster state and status {#cluster-health-and-status}

@@ -150,10 +150,22 @@ For DB hosts, you can track metrics specific to the corresponding type of DBMS. 
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
+#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
+
+[Create an alert](../../managed-redis/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mrd-name }} cluster.
+
+For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+
+* `Alarm`: 90% of disk space.
+* `Warning`: 80% of disk space.
+
+The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).
 
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}
-
 
 
 {% include [logs](../../_qa/logs.md) %}

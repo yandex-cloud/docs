@@ -1,6 +1,6 @@
 # Types of data storage in {{ GP }}
 
-{{ GP }} enables you to use two [types of table data storage](https://{{ gp.docs.pivotal }}/6-16/admin_guide/ddl/ddl-storage.html):
+{{ GP }} enables you to use two [types of table data storage]({{ gp.docs.pivotal }}/6-16/admin_guide/ddl/ddl-storage.html):
 
 * _Without clustered indexes_ (heap storage).
 
@@ -10,7 +10,7 @@
 
 * _Append-optimized storage_.
 
-   Tables of this type support both _row_ and _column_-oriented storage. They are good for analytical processing of large data arrays (OLAP), when data is loaded in large batches and accessed by read-only queries. `UPDATE` and `DELETE` operations are not allowed on append-optimized tables in {{ GP }}.
+   Tables of this type support both _row_ and _column_-oriented storage. They are good for online analytical processing (OLAP) of large data arrays, when data is loaded in large batches and mainly accessed by read queries.
 
    Column-oriented data storage reduces read and write overhead significantly when a query only accesses a small number of columns from the entire table field set. Column-oriented tables also compress better.
 

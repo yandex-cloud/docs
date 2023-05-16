@@ -23,3 +23,17 @@ Here is an alternative solution:
 
 1. Create a new cluster with the same configuration in the new network.
 1. Use [MirrorMaker](../tutorials/kafka-connectors.md#kf-mirrormaker) to move the topics of the source cluster to the new one.
+
+#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
+
+[Create an alert](../../managed-kafka/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mkf-name }} cluster.
+
+For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+
+* `Alarm`: 90% of disk space.
+* `Warning`: 80% of disk space.
+
+The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).
