@@ -14,7 +14,7 @@ provider "yandex" {
 }
 
 variable "folder_id" {
-  description = "ID of the Yandex Cloud folder where resources will be created"
+  description = "Yandex Cloud Folder ID where resources will be created"
   default     = "<folder_ID>"
 }
 

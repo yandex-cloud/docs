@@ -35,6 +35,10 @@ description: "Вы можете запросить детальную инфор
   +----------------------+------------+-----------------------------+--------+---------+
   ```
 
+- API
+
+  Чтобы получить список кластеров БД в каталоге, воспользуйтесь методом REST API [list](../api-ref/Cluster/list.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/List](../api-ref/grpc/cluster_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
+
 {% endlist %}
 
 
@@ -68,6 +72,12 @@ description: "Вы можете запросить детальную инфор
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
+- API
+
+  Чтобы получить детальную информацию о кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+
+Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
+
 {% endlist %}
 
 ## Посмотреть список операций в кластере {#list-operations}
@@ -98,6 +108,8 @@ description: "Вы можете запросить детальную инфор
 
 - API
 
-  Получить список операций можно с помощью метода [listOperations](../api-ref/Cluster/listOperations.md).
+  Чтобы получить список операций, воспользуйтесь методом REST API [listOperations](../api-ref/Cluster/listOperations.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+
+Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
 
 {% endlist %}

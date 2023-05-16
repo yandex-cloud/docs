@@ -44,13 +44,14 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ load-testing-name }}**.
-  1. На панели слева перейдите на вкладку ![tests](../../_assets/load-testing/test.svg) **Тесты**.
-  1. Справа сверху нажмите ![options](../../_assets/options.svg) и выберите **Импортировать тесты из Overload**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+
+  1. На панели слева перейдите на вкладку ![tests](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+  1. Справа сверху нажмите ![options](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.load-testing.label_import-tests-from-overload }}**.
   1. В открывшемся окне введите параметры импортирования:
-      * **Токен** — API-токен OverLoad, полученный ранее.
-      * **ID теста** — идентификатор теста в OverLoad, результаты которого вы хотите перенести. Если тестов несколько, нажмите кнопку **Добавить ID** и введите следующий идентификатор. 
-  1. Нажмите кнопку **Импортировать**.
+      * **{{ ui-key.yacloud.load-testing.field_overload-token }}** — API-токен OverLoad, полученный ранее.
+      * **{{ ui-key.yacloud.load-testing.field_overload-test-id }}** — идентификатор теста в OverLoad, результаты которого вы хотите перенести. Если тестов несколько, нажмите кнопку **{{ ui-key.yacloud.load-testing.button_add-overload-test-id }}** и введите следующий идентификатор. 
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.import }}**.
 
   Для переноса результатов нагрузочного тестирования потребуется некоторое время. 
 
@@ -62,12 +63,13 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ load-testing-name }}**.
-  1. На панели слева перейдите на вкладку ![operations](../../_assets/mdb/operations.svg) **Операции**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+
+  1. На панели слева перейдите на вкладку ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
   1. Убедитесь, что следующие операции успешно завершены:
       * **Overload Migration**;
       * **Overload Migrate Test** по каждому переносимому тесту.
-  1. На панели слева перейдите на вкладку ![image](../../_assets/load-testing/test.svg) **Тесты**.
+  1. На панели слева перейдите на вкладку ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
   1. Проверьте, что в списке появились тесты с именем вида `[overload <идентификатор_теста>]<описание_теста>`.
   1. Выберите один из перенесенных тестов и посмотрите результаты. 
 
@@ -81,9 +83,10 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ load-testing-name }}**.
-  1. На панели слева перейдите на вкладку ![tests](../../_assets/load-testing/test.svg) **Тесты**.
-  1. Напротив теста, результаты которого вы хотите удалить, нажмите ![options](../../_assets/options.svg) и выберите **Удалить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+
+  1. На панели слева перейдите на вкладку ![tests](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+  1. Напротив теста, результаты которого вы хотите удалить, нажмите ![options](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 {% endlist %}

@@ -46,3 +46,17 @@ The owners of the affected clusters receive advanced notice of expected work tim
 {% include [logs](../../_qa/logs.md) %}
 
 {% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
+
+#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
+
+[Create an alert](../../managed-elasticsearch/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mes-name }} cluster.
+
+For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+
+* `Alarm`: 90% of disk space.
+* `Warning`: 80% of disk space.
+
+The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).

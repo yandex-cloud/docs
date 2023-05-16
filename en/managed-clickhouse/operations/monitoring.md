@@ -65,7 +65,7 @@ To view detailed information about the {{ mch-name }} cluster status:
    * **Inserted rows per host**: Row insertion rate on each host (rows per second).
    * **Max data parts per partition**: The largest number of data parts per partition across tables. The limit for this value is set in the [DBMS settings](../concepts/settings-list#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
    * **Max replication delay across tables**: The longest replication delay across tables. Values greater than a few seconds may indicate excessive load or replication issues.
-   * **Memory usage**: The use of RAM in bytes.
+   * **Memory usage**: Use of RAM, in bytes.
    * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed: in bytes and %).
    * **Merged data**: Data merge rate (bytes per second).
    * **Merged data per host**: Data merge rate on each host (bytes per second).
@@ -106,7 +106,7 @@ To view detailed information about the {{ mch-name }} cluster status:
 
    {% endnote %}
 
-   * **Memory usage**: The use of RAM in bytes.
+   * **Memory usage**: Use of RAM, in bytes.
    * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed: in bytes and %).
    * **Network data received per host**: Network data receipt rate on each host (bytes per second).
    * **Network data sent per host**: Network data send rate on each host (bytes per second).
@@ -128,18 +128,18 @@ To view detailed information about the status of individual {{ mch-name }} hosts
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Select the **Monitoring** tab.
    1. Select the host from the drop-down list. The host type is shown next to its name: `CLICKHOUSE` or `ZOOKEEPER`.
 
    This page displays charts showing the load on an individual host in the cluster:
 
    * **CPU usage**: Usage of processor cores. As the load goes up, the **Idle** value goes down.
-   * **Disk read/write bytes**: The speed of disk operations (bytes per second).
-   * **Disk IOPS**: The number of disk operations per second.
-   * **Memory usage**: The use of RAM in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
-   * **Network Bytes**: The speed of data exchange over the network (bytes per second).
-   * **Network Packets**: The number of packets exchanged over the network per second.
+   * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
+   * **Disk IOPS**: Number of disk operations per second.
+   * **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
+   * **Network bytes**: Speed of data exchange over the network, in bytes per second.
+   * **Network packets**: Number of packets exchanged over the network per second.
 
 {% endlist %}
 
@@ -150,9 +150,9 @@ To view detailed information about the status of individual {{ mch-name }} hosts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-   1. Under **Service dashboards**, select.
+   1. Under **Service dashboards**, select:
       * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mch-name }} — ZooKeeper** to configure ZooKeeper host alerts.
       * **{{ mch-name }} — Host Overview** to configure host alerts.
@@ -176,9 +176,12 @@ Recommended threshold values:
 
 To determine the threshold values for the `ch_system_events_FailedQuery_rate` metric, use `Total queries` [for the cluster](#monitoring-cluster).
 
-You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
+For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-clickhouse).
+* `Alarm`: `102005473280` bytes (95%).
+* `Warning`: `85899345920` bytes (80%).
+
+You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-clickhouse).
 
 
 ## Cluster state and status {#cluster-health-and-status}

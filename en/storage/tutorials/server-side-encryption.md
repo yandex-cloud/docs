@@ -24,7 +24,7 @@ If you no longer need to encrypt new bucket objects, [disable encryption](#disab
 
 The cost of maintaining a bucket with encryption includes:
 
-* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../pricing.md#prices-storage)).
+* Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../pricing.md#prices-storage)).
 * A fee for data operations (see [{{ objstorage-name }} pricing](../pricing.md#prices-operations)).
 * A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 

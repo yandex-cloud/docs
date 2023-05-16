@@ -6,14 +6,6 @@ In the [management console]({{ link-console-main }}), go to the cluster page. To
 
 To view charts in [{{ monitoring-full-name }}]({{ link-monitoring }}), on the home page, select the **{{ mmy-short-name }}** service dashboard. To view the individual metrics, go to the **Metric Explorer** section and set the `service` parameter to **{{ mmy-short-name }}**.
 
-
-#### How do I set up alerts? {#alerts}
-
-You can configure alerts using [{{ monitoring-full-name }}]({{ link-monitoring }}): To do this, follow the instructions under [{#T}](../../monitoring/operations/alert/create-alert.md).
-
-When selecting a metric, set the `service` parameter to **{{ mmy-short-name }}**.
-
-
 #### How do I view logs? {#logs}
 
 {% list tabs %}
@@ -69,3 +61,25 @@ To grant a user the `PROCESS` privilege, run the [CLI](../../cli/) command below
     --global-permissions PROCESS <username> \
     --cluster-id <cluster ID>
 ```
+
+
+#### How do I set up alerts? {#alerts}
+
+Use [{{ monitoring-full-name }}]({{ link-monitoring }}). For the setup guide, see [{#T}](../../monitoring/operations/alert/create-alert.md).
+
+When selecting a metric, set the `service` parameter to **{{ mmy-short-name }}**.
+
+
+#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
+
+[Create an alert](../../managed-mysql/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mmy-name }} cluster.
+
+For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+
+* `Alarm`: 90% of disk space.
+* `Warning`: 80% of disk space.
+
+The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).

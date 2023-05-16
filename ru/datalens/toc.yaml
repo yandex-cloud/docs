@@ -35,7 +35,7 @@ items:
         href: tutorials/data-from-monitoring-visualization.md
       - name: Построение чартов customer journeys на данных AppMetrica
         href: tutorials/data-from-appmetrica-yc-visualization.md
-      - name: Создание подключения к Битрикс24
+      - name: Визуализация данных Битрикс24
         href: tutorials/data-from-bitrix24-visualization.md
   - name: Концепции
     items:

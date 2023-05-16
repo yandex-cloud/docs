@@ -5,27 +5,25 @@ description: "For an Ingress controller or Gateway API to work properly, you nee
 
 # Configuring security groups for {{ alb-name }} tools for {{ managed-k8s-name }}
 
-For the [Ingress controller](index.md) or [Gateway API](../k8s-gateway-api/index.md) to work properly, you need to configure [security groups](../../../vpc/concepts/security-groups.md) for your [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [{{ managed-k8s-full-name }} node groups](../../../managed-kubernetes/concepts/index.md#node-group), and the {{ alb-name }} load balancer.
+For the [Ingress controller](index.md) or [Gateway API](../k8s-gateway-api/index.md) to work properly, you need to configure [security groups](../../../vpc/concepts/security-groups.md) for your [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [{{ managed-k8s-full-name }} node groups](../../../managed-kubernetes/concepts/index.md#node-group), and {{ alb-name }} [load balancer](../../concepts/application-load-balancer.md).
 
 {% include [security-groups-note-services](../../../_includes/vpc/security-groups-note-services.md) %}
 
 You can use different security groups (recommended) or the same group for the cluster, the node groups, and the load balancer.
 
 Within the security groups, you must configure:
-* All the standard rules described in the relevant documentation sections:
-   * For a cluster and node groups: see {{ managed-k8s-name }} documentation, [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).
-   * For a load balancer: see [{#T}](../../concepts/application-load-balancer.md#security-groups). The final rule for outgoing traffic to the VM backends must allow connections to the cluster [node group](../../../managed-kubernetes/concepts/index.md#node-group) subnets and security groups.
+* All standard rules described in the relevant documentation sections:
+   * For a cluster and node groups: see the {{ managed-k8s-name }} documentation, [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).
+   * For a load balancer: see [{#T}](../../concepts/application-load-balancer.md#security-groups). The final rule for outgoing traffic to the VM [backends](../../concepts/backend-group.md) must allow connections to the cluster [node group](../../../managed-kubernetes/concepts/index.md#node-group) [subnets](../../../vpc/concepts/network.md#subnet) and security groups.
 * Backend state check rules, allowing:
    * The load balancer to send traffic to cluster nodes via TCP port 10501 (destination: cluster node group subnets or security groups).
    * Node groups to receive this traffic (traffic originates in the load balancer subnets or security group).
-
-Cluster and node group security groups are specified in their settings. For more information, see the instructions below:
-* [Creating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [updating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) a cluster.
-* [Creating](../../../managed-kubernetes/operations/node-group/node-group-create.md) and [updating](../../../managed-kubernetes/operations/node-group/node-group-update.md) a group of nodes.
+      Cluster and node group security groups are specified in their settings. For more information, see the guides below:
+* [Creating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [updating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) a cluster
+* [Creating](../../../managed-kubernetes/operations/node-group/node-group-create.md) and [updating](../../../managed-kubernetes/operations/node-group/node-group-update.md) a node group
 
 
 Security group IDs are specified in:
-
 * The `Ingress` resource: In the `ingress.alb.yc.io/security-groups` annotation. If you create a load balancer for several `Ingress` resources, it is assigned all the security groups specified for these `Ingress` resources.
 * The `Gateway` resource: In the `gateway.alb.yc.io/security-groups` annotation.
 
@@ -34,7 +32,7 @@ Security group IDs are specified in:
 ## Example configuration {#example}
 
 Let us provide an example for the following conditions:
-* You need to deploy a load balancer with a public IP to accept HTTPS traffic, on 3 subnets with CIDRs `10.128.0.0/24`, `10.129.0.0/24`, and `10.130.0.0/24`, hereafter marked \[B\].
+* You need to deploy a load balancer with a [public IP](../../../vpc/concepts/address.md#public-addresses) to accept HTTPS traffic, on 3 subnets with CIDRs `10.128.0.0/24`, `10.129.0.0/24`, and `10.130.0.0/24`, hereafter marked \[B\].
 * When creating the cluster, its CIDR was specified as `10.96.0.0/16` \[C\], and the service CIDR as `10.112.0.0/16` \[S\].
 * The cluster's node group is located on a subnet with CIDR `10.140.0.0/24` \[Nod\].
 * You can only [connect](../../../managed-kubernetes/operations/node-connect-ssh.md) to the nodes via SSH and control the cluster using the API, `kubectl`, and other utilities from CIDR `203.0.113.0/24` \[Con\].
@@ -54,7 +52,7 @@ Then, you need to create the following rules in the security groups:
 
       | Port range | Protocol | Source type | Source | Description |
       --- | --- | --- | --- | ---
-      | All (`{{ port-any }}`) | TCP | Load balancer health checks | — | For a network load balancer |
+      | All (`{{ port-any }}`) | TCP | Load balancer health checks | N/A | For a network load balancer |
       | All (`{{ port-any }}`) | `Any` | Security group | `Self` | For traffic between [master](../../../managed-kubernetes/concepts/index.md#master) and nodes |
       | All (`{{ port-any }}`) | `Any` | CIDR | `10.96.0.0/16`[^\[C\]^](#example)<br>`10.112.0.0/16`[^\[S\]^](#example) | For traffic between [pods](../../../managed-kubernetes/concepts/index.md#pod) and [services](../../../managed-kubernetes/concepts/index.md#service) |
       | All (`{{ port-any }}`) | ICMP | CIDR | `10.0.0.0/8`<br>`192.168.0.0/16`<br>`172.16.0.0/12` | For functionality verification of nodes from subnets within {{ yandex-cloud }} |
@@ -126,6 +124,6 @@ Then, you need to create the following rules in the security groups:
       --- | --- | --- | --- | ---
       | `80` | TCP | CIDR | `0.0.0.0/0` | For receiving incoming HTTP traffic |
       | `443` | TCP | CIDR | `0.0.0.0/0` | For receiving outgoing HTTP traffic |
-      | `30080` | TCP | Load balancer health checks | — | For load balancer node status checks |
+      | `30080` | TCP | Load balancer health checks | N/A | For load balancer node status checks |
 
    {% endlist %}

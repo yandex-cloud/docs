@@ -1,12 +1,14 @@
 # Configuring access to {{ objstorage-name }} from an {{ ES }} cluster
 
-{{ mes-name }} supports using {{ objstorage-full-name }} as an {{ ES }} [snapshot repository](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html). This lets you use {{ objstorage-name }} to:
+{{ mes-name }} supports using {{ objstorage-full-name }} as an {{ ES }} snapshot repository. This lets you use {{ objstorage-name }} to:
 
 * [Transfer data from a third-party {{ ES }} cluster to {{ mes-name }}](../tutorials/migration-via-snapshots.md).
 
 * Add [user extensions](cluster-extensions.md#add).
 
 * [Store backups](./cluster-backups.md).
+
+For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
 To access {{ objstorage-name }} bucket data from a cluster:
 

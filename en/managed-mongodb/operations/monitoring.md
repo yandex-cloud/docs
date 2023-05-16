@@ -80,11 +80,11 @@ To view detailed information about the status of individual {{ mmg-name }} hosts
 This page displays charts showing the load on an individual host in the cluster:
 
 * **CPU**: The load on processor cores. As the load goes up, the **Idle** value goes down.
-* **Memory**: The use of RAM in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
+* **Memory**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
 * **Disk bytes**: The speed of disk operations (bytes per second).
-* **Disk IOPS**: The number of disk operations per second.
-* **Network Bytes**: The speed of data exchange over the network (bytes per second).
-* **Network Packets**: The number of packets exchanged over the network per second.
+* **Disk IOPS**: Number of disk operations per second.
+* **Network bytes**: Speed of data exchange over the network, in bytes per second.
+* **Network packets**: Number of packets exchanged over the network, per second.
 
 
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
@@ -99,10 +99,10 @@ This page displays charts showing the load on an individual host in the cluster:
 
    1. Under **Service dashboards**, select:
 
-      * **{{ mes-name }}** to configure cluster alerts.
-      * **{{ mes-name }} Host Overview** to configure host alerts.
+        * **{{ mes-name }}** to configure cluster alerts.
+        * **{{ mes-name }} Host Overview** to configure host alerts.
 
-   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 
@@ -122,9 +122,12 @@ Recommended threshold values:
 | Replication delay              | `replset_status-replicationLag` | `180`,,,,,,,,,,,,,,,,,,,, | `30`,,,,,,,,,,,,,,,,,,,,, |
 | Storage space used | `disk.used_bytes`                | 90% of storage size  | 70% of storage size  |
 
-You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
+For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mongodb).
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `75161927680` bytes (70%).
+
+You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mongodb).
 
 
 ### Monitoring the switch to read-only mode {#read-only-alert}

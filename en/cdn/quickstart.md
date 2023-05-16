@@ -7,20 +7,20 @@ Configure content sharing via a CDN using a {{ objstorage-name }} bucket as an e
 1. [{#T}](#setup-cname).
 1. [{#T}](#check-cdn-working).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Make sure you have a domain name and can access the DNS settings on the website of your DNS hosting provider. This is usually the company that registered your domain.
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
 1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. If you haven't activated the CDN provider, activate it:
 
-   1. Go to the folder page and select **{{ cdn-full-name }}**.
+   1. Go to the folder page and select **{{ cdn-name }}**.
    1. Click **Activate provider**.
 
-1. If you don't have a {{ objstorage-name }} bucket yet:
+1. If you do not have a {{ objstorage-name }} bucket yet:
 
    1. [Create a bucket](../storage/operations/buckets/create.md).
    1. [Enable public access](../storage/operations/buckets/bucket-availability.md) to the objects in the bucket and the object list.
@@ -28,7 +28,7 @@ Configure content sharing via a CDN using a {{ objstorage-name }} bucket as an e
 
 ## Create a CDN resource {#create-cdn-resource}
 
-1. Go to the folder page and select **{{ cdn-full-name }}**.
+1. Go to the folder page and select **{{ cdn-name }}**.
 1. On the **CDN resources** tab, click **Create resource**.
 1. Configure your CDN resource as follows:
 

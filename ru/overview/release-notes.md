@@ -21,6 +21,7 @@
 
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
 * {{ speechkit-full-name }}: [распознавание](../speechkit/release-notes-stt.md) и [синтез](../speechkit/release-notes-tts.md)
+* [{{ vision-full-name }}](../vision/release-notes.md)
 
 ## Бизнес-инструменты {#business-tools}
 

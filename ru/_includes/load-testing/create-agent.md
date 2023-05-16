@@ -6,17 +6,17 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [агент](../../load-testing/concepts/agent.md).
-     1. В списке сервисов выберите **{{ load-testing-name }}**.
-     1. На вкладке **Агенты** нажмите кнопку **Создать агент**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+     1. На вкладке **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите кнопку **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
      1. Укажите имя агента, например `agent-008`.
      1. Укажите ту же [зону доступности](../../overview/concepts/geo-scope.md), в которой находится цель тестирования.
-     1. В блоке **Агент**:
+     1. В блоке **{{ ui-key.yacloud.load-testing.section_agent }}**:
         * Выберите подходящий тип агента. Подробнее см. в разделе [Производительность агентов](../../load-testing/concepts/agent.md#benchmark).
         * Укажите [подсеть](../../vpc/concepts/network.md#subnet), в которой находится цель тестирования. В подсети должен быть создан и [настроен NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
         * Если вам доступны [группы безопасности](../../vpc/concepts/security-groups.md), выберите заранее настроенную группу безопасности агента.
-     1. В блоке **Доступ** укажите данные для доступа к агенту:
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к агенту:
         * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `sa-loadtest`.
-        * В поле **Логин** введите имя пользователя.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
 
           {% note alert %}
 
@@ -24,8 +24,8 @@
 
           {% endnote %}
               
-        * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     1. Нажмите **Создать**.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
      1. Дождитесь завершения процесса создания [виртуальной машины](../../compute/concepts/vm.md). Статус агента должен смениться на `Ready for test`.
 
         {% note info %}
@@ -46,11 +46,11 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен агент.
-     1. Выберите сервис **{{ compute-name }}**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. Выберите ВМ с именем `agent-008`.
-     1. В блоке **Сетевой интерфейс** в правом верхнем углу нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Добавить публичный IP-адрес**.
+     1. В блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** в правом верхнем углу нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
      1. В открывшемся окне:
-        * В поле **Публичный адрес** выберите получение адреса **Автоматически**.
-        * Нажмите **Добавить**.
+        * В поле **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** выберите получение адреса **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}**.
+        * Нажмите **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
    {% endlist %}

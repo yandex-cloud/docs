@@ -101,8 +101,8 @@ This page displays charts showing the load on an individual host in the cluster.
    * **Memory usage**: Use of RAM, in bytes.
    * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
    * **Disk IOPS**: Number of disk operations per second.
-   * **Network Packets**: Number of packets exchanged over the network per second.
-   * **Network Bytes**: Speed of data exchange over the network, in bytes per second.
+   * **Network packets**: Number of packets exchanged over the network, per second.
+   * **Network bytes**: Speed of data exchange over the network, in bytes per second.
 
 {% endlist %}
 
@@ -154,10 +154,14 @@ Recommended threshold values:
 | JVM heap memory used | `opensearch_jvm_mem_heap_used_percent` | `top_last(1)` | Over 90% of host RAM |                                   |
 | Storage space used | `opensearch_fs_total_used_percent` | `top_last(1)` | Over 90% of the storage size | Over 85% of the storage size |
 | Using the JVM long-lived object pool | `opensearch_jvm_mem_heap_pressure` | `top_last(1)` | Over 90% of host RAM | Over 75% of host RAM |
+| Storage space used | `disk.used_bytes` | N/A | 90% of storage size | 80% of storage size |
 
-You can view the host's current storage size and RAM amount in the [detailed information about the cluster](cluster-list.md#get-cluster).
+For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-opensearch).
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).
+
+You can view the host's current storage size and RAM amount in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-opensearch).
 
 
 ## Cluster state and status {#cluster-health-and-status}
