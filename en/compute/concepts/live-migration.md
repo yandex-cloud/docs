@@ -1,8 +1,8 @@
 # Live migration
 
-{{ compute-full-name }} uses a live migration mechanism that allows the service to move running VMs between physical servers without stopping or restarting them. Pauses don't usually exceed 10 seconds.
+{{ compute-full-name }} uses the live migration feature that allows you to move running VMs across physical servers without stopping or restarting them. The downtime usually does not exceed 10 seconds.
 
-Live migration doesn't change any VM settings. The real-time migration process moves a running VM from one server to another in the same availability zone. This doesn't affect any VM properties, including internal and external IP addresses, metadata, memory, network, OS, or application status.
+Live migration does not change any VM settings. The live migration process moves a running VM from one server to another in the same availability zone. This does not affect any VM properties, including internal and external IP addresses, metadata, memory, network, OS's, or application status.
 
 {{ compute-short-name }} starts live migration in the following cases:
 
@@ -14,12 +14,12 @@ Live migration doesn't change any VM settings. The real-time migration process m
 
 ## Limitations {#limitations}
 
-The following types of virtual machines can't be moved:
+The following types of virtual machines cannot be moved:
 
 * Virtual machines with [GPUs](../concepts/gpus.md)*.
-* [Preemptible](../concepts/preemptible-vm.md) virtual machines*.
+* [Preemptible](../concepts/preemptible-vm.md)* virtual machines.
 * {{ sf-name }} virtual machines.
 * Managed DBMS virtual machines with local SSDs.
-* Virtual machines with migration disabled.
+* Virtual machines with disabled migration.
 
 \* These VMs are dynamically moved after a [manual stop](../operations/vm-control/vm-stop-and-start.md#stop).

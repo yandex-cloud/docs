@@ -142,27 +142,37 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console
 
-   * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 
-   * **Sharding configuration**: Specify the settings for [sharding](../../../../managed-clickhouse/concepts/sharding.md):
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
 
-      * **No sharding**: No sharding is used.
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Fully delete tables included in the transfer (used by default).
 
-      * **Shard by column value**: The name of the table column that data will be sharded by. A uniform distribution across shards will be determined by a hash from this column value. Specify the name of the column to be sharded in the appropriate field.
+         Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
 
-         For sharding by specific column values, specify them in the **Mapping** field. This field defines the mapping between the column and shard index values (the sequential number of the shard in the name-sorted list of shards), to enable sharding by specific data values.
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but leave the schema.
 
-      * **Shard by transfer ID**: Data will be distributed across shards based on the transfer ID value. The transfer will ignore the **Mapping** setting and will only shard the data based on the transfer ID.
+         Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
+
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.sharding_settings.title }}**: Specify the settings for [sharding](../../../../managed-clickhouse/concepts/sharding.md):
+
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.no_sharding.title }}**: No sharding is used.
+
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_column.title }}**: The name of the column in tables that data will be sharded by. A uniform distribution across shards will be determined by a hash from this column value. Specify the name of the column to be sharded in the appropriate field.
+
+         For sharding by specific column values, specify them in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingByTransferID.transfer_to_shard.array_item_label }}** field. This field defines the mapping between the column and shard index values (the sequential number of the shard in the name-sorted list of shards), to enable sharding by specific data values.
+
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_transfer_id.title }}**: Data will be distributed across shards based on the transfer ID value. The transfer will ignore the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingByTransferID.transfer_to_shard.title }}** setting and will only shard the data based on the transfer ID.
 
          {% note warning %}
 
-         If you omit the sharding columns and the **Shard by transfer ID** setting, all the data will be transferred to the same shard.
+         If you omit the sharding columns and the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_transfer_id.title }}** setting, all the data will be moved to the same shard.
 
          {% endnote %}
 
-   * **Rename tables**: If necessary, specify the settings for renaming tables during a transfer.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}**: Specify the settings for renaming tables during a transfer, if required.
 
-   * **Write interval**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if ClickHouse fails to merge data parts.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.flush_interval.title }}**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if ClickHouse fails to merge data parts.
 
 - {{ TF }}
 

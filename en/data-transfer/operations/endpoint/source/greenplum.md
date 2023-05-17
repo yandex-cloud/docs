@@ -44,7 +44,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console
 
-   * **List of included tables**: Data is only transferred from the listed tables.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTableFilter.include_tables.title }}**: Data is only transferred from listed tables.
 
       If a table is partitioned, you can use this field to specify both the entire table and individual partitions.
 
@@ -52,7 +52,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * **List of excluded tables**: Data from these listed tables is not transferred.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
 
       If a table is partitioned, to exclude it from the list, make sure to list all of its partitions.
 
@@ -62,9 +62,9 @@ Connecting to the database with explicitly specified network addresses and ports
       * `<schema name>.*`: All tables in the specified schema.
       * `<table name>`: Table in the default schema.
 
-   * **Snapshot consistency**: When enabled, {{ data-transfer-name }} will apply additional steps to the source to assure [snapshot consistency](#snapshot-consistency).
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.strong_consistency.title }}**: When enabled, {{ data-transfer-name }} will apply additional steps to the source to assure [snapshot consistency](#snapshot-consistency).
 
-   * **Auxiliary object schema**: A schema for placing auxiliary objects of the transfer.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.service_schema.title }}**: Schema for placing auxiliary objects of the transfer.
 
 {% endlist %}
 
@@ -72,19 +72,19 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {{ data-transfer-name }} only supports {{ GP }} version 6. {{ GP }} versions 4 and 5 are not supported.
 
-The service performs operations with a {{ GP }} cluster with the `READ COMMITTED` [level of isolation]({{ gp.docs.pivotal }}/6-19/ref_guide/sql_commands/SET_TRANSACTION.html).
+The service performs operations on a {{ GP }} cluster with the [READ COMMITTED]({{ gp.docs.pivotal }}/6-19/ref_guide/sql_commands/SET_TRANSACTION.html) `level of isolation`.
 
 {{ data-transfer-name }} supports operation with activated [sharded copy](../../../concepts/sharded.md) for a {{ GP }} source.
 
 During operation with enabled sharded copy, {{ data-transfer-name }} maintains an open transaction on the {{ GP }} master host. If this transaction is interrupted, a transfer will return an error.
 
-With sharded copy disabled, a transfer will move data from such {{ GP }} objects as `TABLE`, `VIEW`, `FOREIGN TABLE`, and `EXTERNAL TABLE`. Data from these objects will be treated as data from ordinary tables and processed by the target accordingly. With activated sharded copy, a transfer will only move tables (`TABLE` objects). Tables with the `DISTRIBUTED REPLICATED` [allocation policy]({{ gp.docs.pivotal }}/6-19/admin_guide/distribution.html) are not transferred.
+With sharded copy disabled, a transfer will move data from such {{ GP }} objects as `TABLE`, `VIEW`, `FOREIGN TABLE`, and `EXTERNAL TABLE`. Data from these objects will be treated as data from ordinary tables and processed by the target accordingly. With activated sharded copy, a transfer will only move tables (`TABLE` objects). Tables with the [DISTRIBUTED REPLICATED]({{ gp.docs.pivotal }}/6-19/admin_guide/distribution.html) `allocation policy` are not transferred.
 
 ### Snapshot consistency {#snapshot-consistency}
 
-When starting a transfer with disabled sharded copy (default), the service creates the copy working only with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md). The tables being copied are accessed in `ACCESS SHARE` [lock mode]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
+When starting a transfer with disabled sharded copy (default), the service creates the copy working only with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md). The tables being copied are accessed in [ACCESS SHARE]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-LOCK.html) `lock mode`. Snapshot consistency is achieved through {{ GP }} mechanisms.
 
-When starting a transfer with sharded copy enabled, the service will create the copy working both with the {{ GP }} cluster's master host and [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode. Access to the tables to be copied locks the tables in `ACCESS SHARE` or `SHARE` mode depending on the "Snapshot consistency" setting.
+When starting a transfer with sharded copy enabled, the service will create the copy working both with the {{ GP }} cluster's master host and [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode. Access to the tables to be copied locks the tables in `ACCESS SHARE` or `SHARE` mode depending on the Snapshot consistency setting.
 
 To guarantee snapshot consistency, transfers with sharded copy enabled need to assure that data in the tables being transferred remains static. For `ACCESS SHARE` locks (default), the service does not guarantee that the data will remain static: this must be assured externally. For `SHARE` locks, the {{ GP }} mechanisms guarantee that data in the source tables remains static.
 

@@ -4,7 +4,7 @@ When creating an instance group, you can choose how the instances will be deploy
 
 The deployment policy is a set of restrictions defined in the `deploy_policy` key in the YAML file. Each restriction is set in its own key as a `key-value` pair.
 
-Example of a YAML file entry:
+Here is how a YAML file entry may look like:
 
 ```
 ...
@@ -33,16 +33,16 @@ Where:
 
 If a proactive strategy is selected, {{ ig-name }} selects which instances to stop on its own.
 
-With an opportunistic strategy, {{ ig-name }} doesn't stop the instances, but waits until at least one of the following conditions are met:
-* The user [stopped](../../../operations/vm-control/vm-stop-and-start.md#stop) an instance in {{ compute-name }}.
-* The application or user stopped the instance internally.
-* The instance failed the application [health check](../autohealing.md#functional-healthcheck).
+With the opportunistic strategy, {{ ig-name }}, rather than stopping the instances, will wait until at least one of the following conditions are met:
+* User [stops](../../../operations/vm-control/vm-stop-and-start.md#stop) an instance in {{ compute-name }}.
+* Application or user stops the instance internally.
+* Instance fails the application [health check](../autohealing.md#functional-healthcheck).
 
-For example, you created an instance group with automatic scaling based on the [custom metric](../scale.md#custom-metrics) of the number of jobs in the queue. {{ ig-name }} creates an instance group that executes the jobs from the queue. As soon as the queue runs out of jobs, {{ ig-name }} must reduce the group size from the actual size to the target size according to the [scaling policy](scale-policy.md).
-* If you selected proactive stop, {{ ig-name }} changes the target group size and decreases the actual number of instances in the group to the target amount.
-* Under the opportunistic strategy, {{ ig-name }} changes the target group size, but does not stop the instances until they are stopped by themselves or by the user.
+For example, let's assume you created an instance group with automatic scaling based on the [custom metric](../scale.md#custom-metrics) of the number of jobs in the queue. {{ ig-name }} will create an instance group to run the jobs from the queue. As soon as there are no more jobs, {{ ig-name }} must reduce the group size from the actual size to the target one according to the [scaling policy](scale-policy.md).
+  * If you selected proactive stop, {{ ig-name }} will change the target group size and decrease the actual number of instances in the group to the target amount.
+  * Under the opportunistic strategy, {{ ig-name }} will change the target group size, but will not stop the instances until they are stopped by themselves or by the user.
 
-Example of a YAML file entry:
+Here is how a YAML file entry may look like:
 
 ```
 ...

@@ -1,6 +1,6 @@
 # View service usage details
 
-You can view graphs and tables with information about {{ yandex-cloud }} service usage. To do this:
+You can view charts and tables with information about {{ yandex-cloud }} service usage. To do this:
 
 1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
@@ -36,7 +36,7 @@ You can view graphs and tables with information about {{ yandex-cloud }} service
 
 {% endlist %}
 
-By default, data is uploaded for the last 30 days. To change the period to view usage details for, click ![image](../../_assets/billing/calendar.svg) and set the **From** and **To** dates or select a time interval, such as three days. Data may be updated with a slight delay (up to several hours).
+By default, data is uploaded for the last 30 days. To change the period to view usage details for, click ![image](../../_assets/billing/calendar.svg) and set the **From** and **To** dates or select a time interval, such as three days. Dates are set as a range from 0:00 to 23:59 (UTC+3). Data may be updated with a slight delay (up to several hours).
 
 You can select the following to display on charts:
 
@@ -72,10 +72,10 @@ The number of columns in the table depends on the selected detail depth. See a d
 
 | Name | Description |
 ----- | -----
-| Cloud | Name of the cloud that resources were used for. <br/>Only shown when usage details for clouds are selected. |
-| Service | Name of the service that resources were used in. <br/>Only shown when usage details for services or products are selected. |
+| Cloud | The name of the cloud that resources were used for. <br/>Only shown when usage details for clouds are selected. |
+| Service | The name of the service that resources were used in. <br/>Only shown when usage details for services or products are selected. |
 | Product | Product name <br/>Only shown when usage details for products are selected. |
 | Consumption unit | Units and amount of resources consumed. <br/>Only shown when usage details for products are selected. |
-| Consumption cost | Amount for the volume of resources consumed before applying discounts. |
-| Discount | Discount amount in the currency of the agreement (excluding VAT or other taxes and fees). |
-| Due and payable | Total amount for resources consumed after applying discounts. |
+| Consumption cost | The amount for the volume of resources consumed before applying discounts. |
+| Discount | The discount amount in the currency of the agreement (excluding VAT or other taxes and fees). |
+| Due and payable | The total amount for resources consumed after applying discounts. |

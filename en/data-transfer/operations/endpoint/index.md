@@ -9,11 +9,11 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. Click **Create endpoint**.
-   1. In the **Direction** field, select **Source** or **Target**.
+   1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+   1. In the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field, select **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** or **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**.
    1. Enter a name for the endpoint. Use lowercase Latin letters and numbers.
    1. (optional) Enter a description of the endpoint.
-   1. In the **Database** type field, select the appropriate value. An endpoint of the corresponding type will be created.
+   1. Select the appropriate value in the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** field. An endpoint of the corresponding type will be created.
    1. Set the endpoint parameters:
       * Sources:
          * Airbyte®:
@@ -44,7 +44,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ PG }}](target/postgresql.md)
          * [{{ yds-full-name }}](target/data-streams.md)
          * [{{ ydb-full-name }}](target/yandex-database.md)
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
 
 - CLI
 
@@ -146,7 +146,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. Select an endpoint and click ![pencil](../../../_assets/pencil.svg) **Edit** on the top panel.
+   1. Select an endpoint and click ![pencil](../../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}** in the top panel.
    1. Edit the endpoint parameters:
       * Sources:
          * Airbyte®:
@@ -175,7 +175,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ PG }}](target/postgresql.md)
          * [{{ yds-full-name }}](target/data-streams.md)
          * [{{ ydb-full-name }}](target/yandex-database.md)
-   1. Click **Apply**.
+   1. Click **{{ ui-key.yacloud.common.apply }}**.
 
 - {{ TF }}
 
@@ -236,8 +236,8 @@ To delete an endpoint:
 
     1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
     1. Select the endpoint to delete.
-    1. Click **Delete** on the panel above.
-    1. In the window that opens, click **Delete**.
+    1. Click **{{ ui-key.yacloud.common.delete }}** in the top panel.
+    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

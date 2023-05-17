@@ -4,19 +4,19 @@
 1. [Prepare the target cluster](../../data-transfer/operations/prepare.md#target-mg).
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-   * **Database type**: `{{ MG }}`.
-   * **Endpoint parameters** → **Connection settings**: `Custom installation`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MONGO_V2 }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`.
 
       Specify the parameters for connecting to the source cluster.
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-   * **Database type**: `{{ MG }}`.
-   * **Endpoint parameters** → **Connection settings**: `MDB cluster`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MONGO_V2 }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
 
       Specify the ID of the target cluster.
 
-1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
+1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
 
    To make large collections (over 1 GB) copy more quickly, enable sharding in the transfer settings: **Runtime environment** → **{{ yandex-cloud }}** → **Sharded copying parameters** → **Number of instances**. Specify a value of `2` or more. The collection will split into the specified number of parts that will be copied concurrently.
 
@@ -37,4 +37,4 @@
    For more information about transfer statuses, see [Transfer lifecycle](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 1. [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.

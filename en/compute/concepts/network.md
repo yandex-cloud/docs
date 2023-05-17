@@ -1,30 +1,30 @@
-# Network on a VM
+# VM networking
 
-When creating a VM, you should specify settings for the network interface connected to it: select the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to, configure [internal](#internal-ip) and [public IP addresses](#public-ip), and add the necessary [security groups](../../vpc/concepts/security-groups.md). This allows the VM to interact with other services on the intranet and internet.
+When creating a VM, you need to specify its network interface settings by selecting the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to, configuring an [internal](#internal-ip) and [public IP address](#public-ip), and adding the required [security groups](../../vpc/concepts/security-groups.md). This will allow the VM to connect to other services on the intranet and internet.
 
 {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
 
-When the network interface is connected, the VM will be assigned the internal IP address in the subnet and the [internal FQDN](#hostname). The public IP address will only be assigned if this was set when creating the VM.
+Once the network interface is connected, the VM will be assigned an internal IP address in the subnet and an [internal FQDN](#hostname). A public IP address will only be assigned in case it was specified when creating the VM.
 
-You can find out the IP addresses, FQDN and other information in the management console (go to the **Network** section on the virtual machine's page). This data can be used to connect to the VM.
+You can find out the IP addresses, FQDNs, and other information in the management console by going to the **Network** section on the virtual machine page. This data can be used to connect to the VM.
 
-On VMs created from public Linux images, the IP address and hostname (FQDN) are not automatically written to the `/etc/hosts` file. This can affect the execution of the `sudo` command.
+On VMs created from public Linux images, the IP address and hostname (FQDN) are not automatically written to the `/etc/hosts` file. This may affect running the `sudo` command.
 
-You can change the network interface settings on stopped VMs: assign a public IP address, change the subnet, select other security groups, or configure the DNS settings.
+You can change the network interface settings on stopped VMs by assigning a public IP address, changing the subnet, selecting other security groups, or configuring the DNS settings.
 
 ## Internal IP address {#internal-ip}
 
-You can specify the internal IP address at which the VM will be accessible after being created. If no internal IP address is specified, it will be assigned automatically.
+You can specify the internal IP address at which the VM will be accessible after being created. If do not specify any internal IP, it will be assigned automatically.
 
 {% note info %}
 
-Only IPv4 addresses are currently supported. {{ compute-full-name }} VMs and DB hosts provide access to and from the internet via public IP addresses only.
+Currently, only IPv4 addresses are supported. {{ compute-full-name }} VMs and DB hosts provide access to and from the internet via public IP addresses only.
 
 {% endnote %}
 
-The internal IP address can be used to access a VM from another VM. You can use the internal IP address only to connect to the VMs that belong to the same [cloud network](../../vpc/concepts/network.md#network).
+An internal IP address can be used to access a VM from another VM. You can use an internal IP address only to connect to the VMs that belong to the same [cloud network](../../vpc/concepts/network.md#network).
 
-The internal IP address cannot be changed.
+You cannot change an internal IP address.
 
 ## Public IP address {#public-ip}
 
@@ -34,31 +34,31 @@ A public IP address is assigned automatically and cannot be chosen. The address 
 
 {% include notitle [public-ip-reset](../../_includes/public-ip-reset.md) %}
 
-The VM's public IP address is mapped to its internal IP address via NAT. Therefore, all requests to the VM from the external IP address are sent to the internal IP address. For more information about NAT, see [RFC 3022](https://www.ietf.org/rfc/rfc3022.txt).
+The VM's public IP address is mapped to its internal IP address through NAT. This means all requests to the VM from an external IP address are sent to an internal IP address. For more information about NAT, see [RFC 3022](https://www.ietf.org/rfc/rfc3022.txt).
 
-## Hostname and internal FQDN {#hostname}
+## Host name and internal FQDN {#hostname}
 
-When creating a VM, it's assigned a hostname and internal FQDN that can be used to access a certain VM from another VM within the same [cloud network](../../vpc/concepts/network.md).
+When creating a VM, it is assigned a host name and internal FQDN that can be used to access a certain VM from another VM within the same [cloud network](../../vpc/concepts/network.md).
 
-Once the VM is created, you can't change its hostname and internal FQDN.
+Once the VM is created, you cannot change its host name and internal FQDN.
 
-The assigned FQDN depends on the set hostname `(CreateInstanceSpec.hostname)`. The hostname must be unique in your virtual network.
+The assigned FQDN depends on the specified host name `(CreateInstanceSpec.hostname)`. The host name must be unique in your virtual network.
 
-1. The `hostname` parameter can't be specified in the management console for a new VM. The user-defined VM name is used as the hostname:
+1. You cannot specify the `hostname` parameter in the management console for a new VM. Instead, the user-defined VM name is used:
 
-   * If you leave the **Name** field empty when creating a VM, it will be assigned an internal FQDN like `<VM ID>.auto.internal`.
-   * If you enter a name for the VM in the **Name** field, it will be assigned an internal FQDN like `<VM name>.<region>.internal`.
+	* If you leave the **Name** field blank when creating a VM, it will be assigned an internal FQDN in the `<VM ID>.auto.internal` format.
+   * If you provide a VM name in the **Name** field, it will be assigned an internal FQDN in the `<VM name>.<region>.internal` format.
 
 1. When using the CLI, API, and {{ TF }}, FQDNs are created as follows:
 
-   * If you don't specify any `hostname`, the VM will be assigned a unique FQDN like `<VM ID>.auto.internal`.
-   * If the `hostname` is specified and contains no "`.`", it's treated as an FQDN prefix. The VM will be assigned an internal FQDN like `<hostname>.<region>.internal`.
-   * If the `hostname` is set and contains a dot "`.`" in the middle or at the end, it's treated as the FQDN. The internal FQDN assigned to the VM is the same as the `hostname`. FQDNs can't start with a dot "`.`" or contain dots "`.`" only.
+   * If you do not specify any `hostname`, the VM will be assigned a unique FQDN in the `<VM ID>.auto.internal` format.
+   * If the `hostname` is specified and contains no periods (`.`), it is treated as an FQDN prefix. The VM will be assigned an internal FQDN in the `<hostname>.<region>.internal` format.
+   * If the `hostname` is specified and contains a period (`.`) in the middle or at the end, it is treated as an FQDN. The internal FQDN assigned to the VM is the same as the `hostname`. FQDNs cannot start with a period (`.`) or only contain periods (`.`).
 
 ### Examples {#examples}
 
-| The set hostname | FQDN of the VM |
-:--- | :---
+| Specified host name | VM FQDN |
+| :--- | :--- |
 | `<not specified>` | `<VM ID>.auto.internal` |
 | `breathtaking` | `breathtaking.{{ region-id }}.internal` |
 | `this-is-sparta` | `this-is-sparta.{{ region-id }}.internal` |
@@ -68,8 +68,8 @@ The assigned FQDN depends on the set hostname `(CreateInstanceSpec.hostname)`. T
 | <span style="color: red">`.`</span> | <span style="color: red">error (FQDN contains dots "." only)</span> |
 
 
-## MAC Address {#mac-address}
+## MAC address {#mac-address}
 
-After the network interface is connected to a VM, it will be assigned the MAC address of the device.
+Once the network interface is connected to a VM, it will be assigned the device MAC address.
 
-You can find out the MAC address from inside the VM or in the resource information using the {{ yandex-cloud }} API.
+You can find out the MAC address from a VM or in the resource information using the {{ yandex-cloud }} API.

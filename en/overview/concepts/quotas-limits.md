@@ -93,6 +93,9 @@ Quotas are listed with default values that match the quotas of the [trial period
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
 
 
+### {{ org-full-name }} {#organization}
+
+{% include [org-limits.md](../../_includes/organization/org-limits.md) %}
 
 ### {{ compute-full-name }} {#compute}
 
@@ -260,7 +263,6 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 ### {{ objstorage-full-name }} {#storage}
 
 {% include [storage-limits.md](../../_includes/storage-limits.md) %}
-
 
 
 ### {{ yq-full-name }} {#yq}

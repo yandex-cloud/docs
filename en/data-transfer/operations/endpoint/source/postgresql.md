@@ -127,11 +127,11 @@ For OnPremise, all fields are filled in manually.
 
 - Management console
 
-   * **List of included tables**: Data is only transferred from the listed tables.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Data is only transferred from listed tables.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * **List of excluded tables**: Data from these listed tables is not transferred.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
 
       Both lists support expressions in the following format:
 
@@ -140,15 +140,15 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * **Schema migration**: If necessary, select the DB schema elements to be transferred when activating or deactivating a transfer.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.object_transfer_settings.title }}**: If necessary, select the DB schema elements to be transferred when activating or deactivating a transfer.
 
-   * **Maximum WAL size per replication slot**: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
 
-   * **Database schema for service tables**: Specify the name of the schema to store service tables (`__consumer_keeper` and `__data_transfer_mole_finder`).
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.service_schema.title }}**: Specify the name of the schema to store service tables (`__consumer_keeper` and `__data_transfer_mole_finder`).
 
-   * **Merge inherited tables**: Select to merge the contents of tables. For more detail, please review [Service specifics for sources and targets](../../../concepts/index.md#postgresql).
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}**: Select to merge the contents of tables. For more information, see [Service specifics for sources and targets](../../../concepts/index.md#postgresql).
 
-   * **Parallel table copying settings**: If necessary, set detailed settings for parallel copying of tables (if parallel copying parameters are set in the transfer).
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}**: If necessary, set detailed settings for parallel copying of tables (if parallel copying parameters are set in the transfer).
 
 - CLI
 

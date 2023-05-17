@@ -36,6 +36,7 @@ Aliases:
 - [yc managed-clickhouse cluster list-operations](list-operations.md) — List operations for a ClickHouse cluster.
 - [yc managed-clickhouse cluster clear-compression](clear-compression.md) — Clear compression settings for a ClickHouse cluster.
 - [yc managed-clickhouse cluster set-compression](set-compression.md) — Set compression settings for a ClickHouse cluster.
+- [yc managed-clickhouse cluster list-external-dictionaries](list-external-dictionaries.md) — Retrieve a list of external dictionaries that belong to ClickHouse cluster.
 - [yc managed-clickhouse cluster add-external-dictionary](add-external-dictionary.md) — Add an external dictionary to a ClickHouse cluster.
 - [yc managed-clickhouse cluster remove-external-dictionary](remove-external-dictionary.md) — Remove an external dictionary from a ClickHouse cluster.
 - [yc managed-clickhouse cluster add-graphite-rollup](add-graphite-rollup.md) — Apply graphite configuration to a ClickHouse cluster.
@@ -58,5 +59,6 @@ Aliases:
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
+|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

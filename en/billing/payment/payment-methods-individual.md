@@ -10,6 +10,8 @@ Individuals are required to link a bank card to their billing account when [crea
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
+You cannot unlink a bank card from a billing account. Instead, you can change the [linked bank card](../operations/pin-card.md) in the billing account settings.
+
 ## Personal account top-up {#refill}
 
 {% include [refill-by-card](../_includes/refill-by-card.md) %}

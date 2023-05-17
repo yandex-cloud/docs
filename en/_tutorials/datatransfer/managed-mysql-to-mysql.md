@@ -10,26 +10,26 @@
 
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-         * **Database type**: `{{ MY }}`.
-         * **Connection settings**: `MDB cluster`.
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MYSQL }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
             Specify the source cluster ID.
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-         * **Database type**: `{{ MY }}`.
-         * **Connection settings**: `Custom installation`.
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MYSQL }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`.
 
             Specify the target cluster connection settings.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
 
       1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate).
 
    * Using {{ TF }}
 
-      1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the transfer and endpoint configuration file called [data-transfer-mmy-mysql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-mysql.tf) to the same working directory.
 
       1. Specify the following in the configuration file:
@@ -37,14 +37,14 @@
          * [Source endpoint parameters](../../data-transfer/operations/endpoint/source/mysql.md#managed-service).
          * [Target endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#on-premise).
 
-      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
       1. Create the required infrastructure:
 
@@ -52,7 +52,7 @@
 
          {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-         Once created, a transfer is activated automatically.
+         Once created, your transfer will be activated automatically.
 
    {% endlist %}
 
@@ -78,23 +78,23 @@
       If you created your endpoints and transfer manually:
 
       1. [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
-      1. [Delete endpoints for the source and target](../../data-transfer/operations/endpoint/index.md#delete).
+      1. [Delete endpoints for both source and target](../../data-transfer/operations/endpoint/index.md#delete).
 
    * Using {{ TF }}
 
       If you used {{ TF }} to create your endpoints and transfer:
 
-      1. In the command line, go to the folder with the current {{ TF }} configuration file with an infrastructure plan.
+      1. In the command line, go to the folder that houses the current {{ TF }} configuration file with an infrastructure plan.
       1. Delete the `data-transfer-mmy-mysql.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point to them.
 
-      1. Confirm the update of resources.
+      1. Confirm the resources have been updated:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

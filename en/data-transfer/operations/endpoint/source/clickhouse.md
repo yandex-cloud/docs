@@ -142,11 +142,11 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console
 
-   * **List of included tables**: Data is only transferred from the listed tables.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.include_tables.title }}**: Data is only transferred from listed tables.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * **List of excluded tables**: Data from these listed tables is not transferred.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
 
    Both lists support expressions in the following format:
 

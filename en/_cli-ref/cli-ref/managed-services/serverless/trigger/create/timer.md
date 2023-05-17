@@ -20,6 +20,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Trigger description.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--cron-expression`|<b>`string`</b><br/>Timer cron expression. Example: '0/1 * * * ? *'.|
+|`--payload`|<b>`string`</b><br/>Payload that will be passed with the timer event.|
 |`--invoke-function-id`|<b>`string`</b><br/>Function to be invoked by worker on each Timer event.|
 |`--invoke-function-name`|<b>`string`</b><br/>Function to be invoked by worker on each Timer event.|
 |`--invoke-function-tag`|<b>`string`</b><br/>Function tag.|
@@ -51,5 +52,6 @@ Syntax:
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
+|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

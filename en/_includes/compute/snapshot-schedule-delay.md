@@ -1,1 +1,1 @@
-Snapshots can be created with a little delay from the schedule, depending on the current load on the service.
+Scheduled snapshots may be created with a slight delay depending on the current load on the service.

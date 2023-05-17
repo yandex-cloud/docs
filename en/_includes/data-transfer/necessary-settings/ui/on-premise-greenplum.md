@@ -3,9 +3,15 @@
 * {% include [Field Mirror IP FQDN](../../fields/greenplum/ui/mirror-host.md) %}
 * {% include [Field Mirror port](../../fields/greenplum/ui/mirror-port.md) %}
 * {% include [Field Segments](../../fields/greenplum/ui/segments.md) %}
-* {% include [Field Security Group](../../fields/common/ui/security-group.md) %}
-* {% include [Field Database Name](../../fields/greenplum/ui/database-name.md) %}
-* {% include [Field Username](../../fields/common/ui/username.md) %}
-* {% include [Field Password](../../fields/common/ui/password.md) %}
 * {% include [Field CA certificate](../../fields/greenplum/ui/ca-certificate.md) %}
-* {% include [Field Subnet ID](../../fields/common/ui/subnet-id.md) %}
+* 
+   **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.OnPremiseGreenplum.subnet_id.title }}**: Select or [create](../../../../vpc/operations/subnet-create.md) a subnet in the desired [availability zone](../../../../overview/concepts/geo-scope.md).
+
+
+   If the value in this field is specified for both endpoints, both subnets must be hosted in the same availability zone.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}**: Specify the name of the database in the selected cluster.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: Specify the username that {{ data-transfer-name }} will use to connect to the database.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: Enter the user's password to the database.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.security_groups.title }}**: Select the cloud network to host the endpoint and security groups for network traffic.
+
+   This will let you apply the specified security group rules to the VMs and clusters in the selected network without changing the settings of these VMs and clusters. For more information, see [{#T}](../../../../data-transfer/concepts/network.md).

@@ -34,5 +34,6 @@ Syntax:
 |`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
+|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

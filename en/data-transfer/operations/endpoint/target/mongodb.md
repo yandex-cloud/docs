@@ -33,7 +33,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
    {% include [Managed MongodDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -91,7 +91,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -141,9 +141,19 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console
 
-   * **Database**: Specify the database name if you want to create collections in a database that is different from the source database.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}**: Specify the database name if you want to create collections in a database that is different from the source database.
 
-   * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Fully delete tables included in the transfer (used by default).
+
+         Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
+
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but leave the schema.
+
+         Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
 
 - {{ TF }}
 

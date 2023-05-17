@@ -32,7 +32,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -85,7 +85,7 @@ For OnPremise, all fields are filled in manually.
 
    {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -125,9 +125,19 @@ For OnPremise, all fields are filled in manually.
 
 - Management console
 
-   * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 
-   * **Save transaction boundaries**: Enable so that the service writes data to the target database only after fully reading the transaction data from the source database.
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Fully delete tables included in the transfer (used by default).
+
+         Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
+
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but leave the schema.
+
+         Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
+
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTargetAdvancedSettings.save_tx_boundaries.title }}**: Enable so that the service writes data to the target database only after fully reading the transaction data from the source database.
 
       
       {% note warning %}

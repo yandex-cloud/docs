@@ -71,10 +71,10 @@ service_account_id: ajefnb8427bhl9t0pvf8
 
 ## Fields {#fields}
 
-The list, structure, and  descriptions of specification fields are provided:
+The list, structure, and descriptions of specification fields are provided:
 
 * In the specification of the [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) structure and other [structures used in it](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto), in the API repository on GitHub ([Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) format).
-* In the description of the  [create](../../api-ref/InstanceGroup/create) method of the `InstanceGroup` resource in the REST API ([JSON](https://en.wikipedia.org/wiki/JSON) format).
+* In the description of the [create](../../api-ref/InstanceGroup/create) REST API method of the `InstanceGroup` resource ([JSON](https://en.wikipedia.org/wiki/JSON) format).
 * In the description of the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
 
 API references are generated from specifications published on GitHub.
@@ -93,113 +93,113 @@ These sections are updated manually. They may be less up-to-date than the API re
 
 You can create a YAML specification from a JSON or Protobuf specification using the following rules:
 
-* The objects (JSON), `message` structures, and such fields as `map` (Protobuf) are converted to YAML dictionary objects (key-value pairs). The object keys and field names are converted from `lowerCamelCase` and `CamelCase` to `snake_case`.
+* Objects (JSON), `message` structures, and such fields as `map` (Protobuf) are converted to YAML dictionary objects (key-value pairs). The object keys and field names are converted from `lowerCamelCase` and `CamelCase` to `snake_case`:
 
-   {% list tabs %}
+  {% list tabs %}
 
-   - JSON
+  - JSON
 
-      ```json
-      "targetGroupSpec": {
-        "name": "spec-example-tg",
-        "description": "ALB target group for example instance group",
-        "labels": {
-          "foo": "bar",
-          "environment": "production"
-        }
+    ```json
+    "targetGroupSpec": {
+      "name": "spec-example-tg",
+      "description": "ALB target group for example instance group",
+      "labels": {
+        "foo": "bar",
+        "environment": "production"
       }
-      ```
+    }
+    ```
 
-   - Protobuf
+  - Protobuf
 
-      ```protobuf
-      message TargetGroupSpec {
-        string name = 1;
-        string description = 2;
-        map<string, string> labels = 3;
+    ```protobuf
+    message TargetGroupSpec {
+      string name = 1;
+      string description = 2;
+      map<string, string> labels = 3;
+    }
+    ```
+
+  - YAML
+
+    ```yaml
+    target_group_spec:
+      name: spec-example-tg
+      description: ALB target group for example instance group
+      labels:
+        foo: bar
+        environment: production
+    ```
+
+  {% endlist %}
+
+* Arrays (JSON) and fields of the `repeated` type (Protobuf) are converted to YAML lists:
+
+  {% list tabs %}
+
+  - JSON
+
+    ```json
+    "variables": [
+      {
+        "key": "foo",
+        "value": "bar"
+      },
+      {
+        "key": "baz",
+        "value": "foobar"
       }
-      ```
+    ]
+    ```
 
-   - YAML
+  - Protobuf
 
-      ```yaml
-      target_group_spec:
-        name: spec-example-tg
-        description: ALB target group for example instance group
-        labels:
-          foo: bar
-          environment: production
-      ```
+    ```protobuf
+    message Variable {
+      string key = 1;
+      string value = 2;
+    }
 
-   {% endlist %}
+    repeated Variable variables = 1;
+    ```
 
-* Arrays (JSON) and fields of the `repeated` type (Protobuf) are converted to YAML lists.
+  - YAML
 
-   {% list tabs %}
+    ```yaml
+    variables:
+      - key: foo
+        value: bar
+      - key: baz
+        value: foobar
+    ```
 
-   - JSON
+  {% endlist %}
 
-      ```json
-      "variables": [
-        {
-          "key": "foo",
-          "value": "bar"
-        },
-        {
-          "key": "baz",
-          "value": "foobar"
-        }
-      ]
-      ```
+* The `enum` (Protobuf) structures are converted to scalar YAML values, i.e., strings corresponding to field names in Protobuf:
 
-   - Protobuf
+  {% list tabs %}
 
-      ```protobuf
-      message Variable {
-        string key = 1;
-        string value = 2;
+  - Protobuf
+
+    ```protobuf
+    message AttachedDiskSpec {
+      enum Mode {
+        MODE_UNSPECIFIED = 0;
+        READ_ONLY = 1;
+        READ_WRITE = 2;
       }
+      Mode mode = 1;
+    }
+    ```
 
-      repeated Variable variables = 1;
-      ```
+  - YAML
 
-   - YAML
+    ```yaml
+    attached_disk_spec:
+      mode: READ_WRITE
+    ```
 
-      ```yaml
-      variables:
-        - key: foo
-          value: bar
-        - key: baz
-          value: foobar
-      ```
-
-   {% endlist %}
-
-* The `enum` (Protobuf) structures are converted to scalar YAML values, that is, strings corresponding to field names in Protobuf.
-
-   {% list tabs %}
-
-   - Protobuf
-
-      ```protobuf
-      message AttachedDiskSpec {
-        enum Mode {
-          MODE_UNSPECIFIED = 0;
-          READ_ONLY = 1;
-          READ_WRITE = 2;
-        }
-        Mode mode = 1;
-      }
-      ```
-
-   - YAML
-
-      ```yaml
-      attached_disk_spec:
-        mode: READ_WRITE
-      ```
-
-   {% endlist %}
+  {% endlist %}
 
 ## Value format {#values}
 

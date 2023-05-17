@@ -1,1 +1,1 @@
-**Coordinator port**: Specify the port for {{ data-transfer-name }} to use to connect to the primary master host.
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.OnPremiseGreenplum.primary_port.title }}**: Specify the port for {{ data-transfer-name }} to use to connect to the primary master host.

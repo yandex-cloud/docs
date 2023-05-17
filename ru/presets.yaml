@@ -43744,6 +43744,11 @@ default:
                         title: Инкрементальные таблицы
                       regular_snapshot:
                         title: Периодическое копирование
+                    TransferTypeSnapshotAndIncrement:
+                      increment_settings:
+                        title: Настройки репликации
+                      snapshot_settings:
+                        title: Настройки копирования
                     YTRuntime:
                       cpu:
                         title: CPU

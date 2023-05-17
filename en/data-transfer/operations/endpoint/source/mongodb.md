@@ -141,13 +141,11 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
 - Management console
 
-   * **List of included collections**: Data is only transferred from the listed collections. All collections are transferred by default.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.collections.title }}**: Data is only transferred from listed collections. All collections are transferred by default.
 
       {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 
-      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
-
-   * **List of excluded collections**: Data is transferred from all collections except the specified ones.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.excluded_collections.title }}**: Data is transferred from all collections except the specified ones.
 
 - {{ TF }}
 
