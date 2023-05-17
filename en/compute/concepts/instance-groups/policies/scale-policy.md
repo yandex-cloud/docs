@@ -4,11 +4,11 @@ When creating an instance group, you can choose how to increase and decrease the
 
 The policy is defined in the `scale_policy` key in the YAML file.
 
-## fixed_scale {#fixed-scale-policy}
+## `fixed_scale` key {#fixed-scale-policy}
 
-The `fixed_scale` key defines a group of fixed-size instances. The size of the group is defined in the `size` key. You can create a group with the desired number of instances within the available [quotas and limits](../../limits.md).
+The `fixed_scale` key defines a group of fixed-size instances. The size of the group is defined in the `size` key. You can create a group with the required number of instances within the available [quotas and limits](../../limits.md).
 
-Example of a YAML file entry:
+Here is how a YAML file entry may look like:
 
 ```yaml
 ...
@@ -21,19 +21,19 @@ scale_policy:
 Where:
 
 | Key | Value |
---- | ---
-| `fixed_scale` | A group of fixed-size instances. |
-| `size`* | Number of instances in the group.<br>Valid values are from 0 to 100. |
+| --- | --- |
+| `fixed_scale` | Fixed-size instance group |
+| `size`* | Number of instances in the group.<br>Valid values range from 0 to 100. |
 
 \* Required field.
 
-## auto_scale {#auto-scale-policy}
+## `auto_scale` key {#auto-scale-policy}
 
 The `auto_scale` key defines an automatically scalable instance group. The initial size of the group is defined in the `initial_size` key. You can create a group with the desired number of instances within the available [quotas and limits](../../limits.md).
 
-The VM instance group will be scaled based on specified metrics: [CPU utilization](../scale.md#cpu-utilization) (the `cpu_utilization_rule` key) and/or [metrics from {{ monitoring-full-name }}](../scale.md#monitoring-metrics). If multiple metrics are specified in the file, then the largest estimated VM instance group size is used.
+The VM instance group will be scaled based on specified metrics: [CPU utilization](../scale.md#cpu-utilization) (the `cpu_utilization_rule` key) and/or [metrics from {{ monitoring-full-name }}](../scale.md#monitoring-metrics). If multiple metrics are specified in the file, the largest estimated VM instance group size is used.
 
-Example of a YAML file entry:
+Here is how a YAML file entry may look like:
 
 ```yaml
 scale_policy:
@@ -59,9 +59,9 @@ scale_policy:
 Where:
 
 | Key | Value |
---- | ---
-| `auto_scale` | An automatically scaled instance group. |
-| `auto_scale_type` | [Type of automatic scaling](../scale.md#auto-scale-type).<br/>Valid values: <ul><li>`ZONAL`: For each [availability zone](../../../../overview/concepts/geo-scope.md), its own average metric value for scaling and the required number of instances are calculated.</li><li>`REGIONAL`: The metric value and the number of instances are calculated for the entire group.</li></ul> Default value: `ZONAL`. |
+| --- | --- |
+| `auto_scale` | Automatically scaled instance group |
+| `auto_scale_type` | [Type of automatic scaling](../scale.md#auto-scale-type).<br/>Valid values: <ul><li>`ZONAL`: For each [availability zone](../../../../overview/concepts/geo-scope.md), its own average metric value for scaling and the required number of instances are calculated.</li><li>`REGIONAL`: The metric value and the number of instances are calculated for the entire group.</li></ul> The default value is `ZONAL`. |
 | `initial_size`* | Initial number of instances in the group.<br>Valid values are from 0 to 100. |
 | `max_size` | Maximum number of instances in the group.<br>Valid values are from 0 to 100. |
 | `min_zone_size` | Minimum number of instances in one availability zone.<br>Valid values are from 0 to 100. |
@@ -79,7 +79,7 @@ Where:
 
 \* Required field.
 
-## test_auto_scale {#test-auto-scale-policy}
+## `test_auto_scale` key {#test-auto-scale-policy}
 
 The `test_auto_scale` key defines a group of fixed-size instances with auto scaling testing enabled. The **Monitoring** tab charts display the recommended increase or decrease in the number of instances depending on the value of the selected metric, while the actual number of instances always remains equal to the value specified in the `size` key. You can create a group with the desired number of instances within the available [quotas and limits](../../limits.md).
 

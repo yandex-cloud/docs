@@ -32,7 +32,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-target.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -86,7 +86,7 @@ For OnPremise, all fields are filled in manually.
 
    {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-target.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -125,7 +125,7 @@ For OnPremise, all fields are filled in manually.
 
 {% note warning %}
 
-You can configure **Cleanup policy** and **DB schema for service tables** only via the management console.
+You can configure **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.cleanup_policy.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.service_database.title }}** only via the management console.
 
 {% endnote %}
 
@@ -133,17 +133,27 @@ You can configure **Cleanup policy** and **DB schema for service tables** only v
 
 - Management console
 
-   * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 
-   * **DB time zone**: Specify the [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. The server's local time zone is used by default.
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
 
-   * **SQL modes**: Specify the settings that override the [standard {{ MY }} behavior](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html).
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Fully delete tables included in the transfer (used by default).
 
-   * **Disable constraint checks**: Used to speed up replication: the `FOREIGN_KEY_CHECKS` and `UNIQUE_CHECKS` settings are set to `0` (no checks are performed).
+         Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
+
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but leave the schema.
+
+         Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
+
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.timezone.title }}**: Specify the [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. By default, the server local time zone is used.
+
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.sql_mode.title }}**: Specify settings to override [standard {{ MY }} behavior](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html).
+
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.skip_constraint_checks.title }}**: Used to speed up replication: the `FOREIGN_KEY_CHECKS` and the `UNIQUE_CHECKS` values are set to `0` (no checks are performed).
 
       {% include [Note turn-off-mysql-constraints](../../../../_includes/data-transfer/notes/mysql-turn-off-constraints.md) %}
 
-   * **Database schema for auxiliary tables**: Specify the name of the schema where service tables needed for the transfer operation will be created.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.service_database.title }}**: Specify the name of the schema where service tables needed for the transfer operation will be created.
 
 - CLI
 
@@ -169,7 +179,7 @@ You can configure **Cleanup policy** and **DB schema for service tables** only v
 
 - API
 
-   * `sqlMode`: Specify the settings that override the [{{ MY }} standard behavior](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html).
+   * `sqlMode`: Specify settings to override [standard {{ MY }} behavior](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html).
 
    * `skipConstraintChecks`: Used to speed up replication: the `FOREIGN_KEY_CHECKS `and `UNIQUE_CHECKS` settings are set to `0` (no checks are performed).
 

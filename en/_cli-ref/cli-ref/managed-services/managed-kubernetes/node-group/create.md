@@ -53,6 +53,7 @@ Syntax:
 |`--network-acceleration-type`|<b>`string`</b><br/>Type of a network acceleration for nodes. Values: 'standard', 'software-accelerated'|
 |`--container-runtime`|<b>`string`</b><br/>Type of a container runtime for nodes. Values: 'docker', 'containerd'|
 |`--node-name`|<b>`string`</b><br/>Name of the node.<br/>In order to be unique it must contain at least one of the instance unique placeholders like {instance_group.id}, {instance.short_id}, {instance.index}.<br/>See Compute service Instance-group metadata doc for full list.<br/>Example: --node-name=prod-node-{instance.short_id}|
+|`--container-network-settings`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Container network settings for nodes.<br/><br/>Possible property names:<br/><ul> <li><code>pod-mtu</code>:     MTU for pods. Value must be in interval 1000 - 8910 if set. Can't be used on clusters with Cilium or Calico.</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
@@ -69,5 +70,6 @@ Syntax:
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
+|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

@@ -1,6 +1,6 @@
-# Monitoring the transfer status
+# Monitoring transfer status
 
-Transfer status details are available in the management console. You can view them on the **Monitoring** tab of the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+Transfer status details are available in the management console. You can view them in the **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab on the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
 Diagnostic information about the transfer status is presented as charts.
 
@@ -16,9 +16,9 @@ You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-   1. Click the name of the desired transfer and open the ![image](../../_assets/monitoring.svg) **Monitoring** tab.
-   1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **Open in Monitoring** in the top panel.
+   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Click the name of the transfer you need and open the ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab.
+   1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** in the top panel.
 
 {% endlist %}
 
@@ -72,7 +72,7 @@ The number of rows awaiting transfer.
 ### Snapshot task status {#task.status}
 `task.status`
 
-Type of the operation in progress: `1` meaning the task is active.
+Type of the operation in progress: `1`, meaning the task is active.
 
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
@@ -81,12 +81,12 @@ Type of the operation in progress: `1` meaning the task is active.
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder with the transfer you want to set up alerts for.
-  1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-  1. Under **Service dashboards**, select **{{ data-transfer-name }}**.
-  1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-  1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-  1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
-  1. Click **Create alert**.
+  1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}**.
+  1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
+  1. If there are multiple metrics on a chart, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+  1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` threshold values to trigger the alert.
+  1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -105,22 +105,22 @@ Alert parameters:
 
 * Metrics:
 
-  ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.changeitems` `resource_type = -`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.changeitems` `resource_type = -`
 
-  ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
+    ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
-  * Triggering condition: `Less than or equal to`.
-  * Alarm: `0`.
-  * Warning: `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
-  You can additionally set the `Warning` triggering condition for the situations when the number of replicated operations is below the expected value.
+    You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
 
-  Additional settings:
+    Additional settings:
 
-  * **Aggregation function**: `Maximum`.
-  * **Evaluation window**: `5 minutes`. If the source base changes less frequently than once every 5 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `5 minutes`. If the source database changes less frequently than once every five minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
 
 ### Number of target events {#target-change-items}
 
@@ -130,27 +130,27 @@ Possible causes:
 
 * The source or target base is not available over the network for {{ data-transfer-name }}. For example, due to revoked accesses or a source/target base failure.
 * The source base has no data to replicate.
-* Data from the source base cannot be replicated to the target base. For example, due to target data type limitations in the target base.
+* The data from the source database cannot be replicated to the target one, for example, due to the target data type limitations in the target database.
 
 Alert parameters:
 
 * Metrics:
 
-  ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.data.changeitems` `resource_type = -`
-  ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.data.changeitems` `resource_type = -`
+    ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
-  * Triggering condition: `Less than or equal to`.
-  * Alarm: `0`.
-  * Warning: `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
-  You can additionally set the `Warning` triggering condition for the situations when the number of replicated operations is below the expected value.
+    You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
 
-  Additional settings:
+    Additional settings:
 
-  * **Aggregation function**: `Maximum`.
-  * **Evaluation window**: `5 minutes`. If the source base changes less frequently than once every 5 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `5 minutes`. If the source database changes less frequently than once every five minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
 
 ### Maximum data transfer delay {#row-max-lag}
 
@@ -158,26 +158,26 @@ Alert triggering means that the time difference between execution of the operati
 
 Possible causes:
 
-* The target base is not available over the network for {{ data-transfer-name }}. For example, due to revoked accesses or a target base failure.
-* Not enough resources for replication. For example, the load on the source database exceeds the capacity of the VM instance that {{ data-transfer-name }} replication is running on.
-* Data from the source base cannot be replicated to the target base. For example, due to target data type limitations in the target base.
+* The target database is not available over the network for {{ data-transfer-name }}, for example, due to revoked accesses or a target database failure.
+* Not enough resources for replication. For example, the load on the source database exceeds the capacity of the VM instance the {{ data-transfer-name }} replication is running on.
+* The data from the source database cannot be replicated to the target one, for example, due to the target data type limitations in the target database.
 
 Alert parameters:
 
 * Metrics:
 
-  ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec` `resource_type = -`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec` `resource_type = -`
 
 * Alert settings:
 
-  * Triggering condition: `More than or equal to`.
-  * Alarm: `15`. If the target database is slow, or large blocks of data are being replicated at a time, set the maximum possible value.
-  * Warning: `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `15`. If the target database is slow, or large blocks of data are being replicated at a time, set the maximum possible value.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
-  Additional settings:
+    Additional settings:
 
-  * **Aggregation function**: `Minimum`.
-  * **Evaluation window**: `1 minute`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `1 minute`.
 
 ### Reads {#reading}
 
@@ -192,21 +192,20 @@ Alert parameters:
 
 * Metrics:
 
-  ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.bytes` `resource_type = -`
-  ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.bytes` `resource_type = -`
+    ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
-  * Trigger condition: `Equal`.
-  * Alarm: `0`.
-  * Warning: `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
-  Additional settings:
+    Additional settings:
 
-  * **Aggregation function**: `Maximum`.
-  * **Evaluation window**: `15 minutes`. If the source database changes less frequently than once every 15 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `15 minutes`. If the source database changes less frequently than once every 15 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
 
 ## Specifics of working with alerts {#alert-specifics}
 
 * To determine the causes of the transfer failure, check all available alerts. Information about which alerts worked and which did not will enable you to determine the cause more accurately. For example, if alert [{#T}](#source-change-items) is triggered, and alert[{#T}](#target-change-items) is not triggered, the problem is probably not on the source.
-

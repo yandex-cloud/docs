@@ -9,7 +9,7 @@ To have funds transferred, you should first receive a [payment invoice](../conce
 
 * Payment amount.
 * Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Republic of Kazakhstan), SAG (outside the Russian Federation and the Republic of Kazakhstan).
-* Your company TIN or sole proprietor TIN.
+* Your company or individual entrepreneur TIN.
 * [Personal account number](../concepts/personal-account.md#id) in the payment details.
 * [Contract number](../concepts/contract.md) in the payment details.
 

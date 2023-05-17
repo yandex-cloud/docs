@@ -1,8 +1,19 @@
-* {% include [Field Database port](../../fields/common/ui/database-port.md) %}
+* {% include [Field Host IP or FQDN](../../fields/mysql/ui/host.md) %}
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.OnPremiseMysql.port.title }}**: Set the number of the port that {{ data-transfer-name }} will use for the connection.
+
 * {% include [Field CA certificate](../../fields/mysql/ui/ca-certificate.md) %}
-* {% include [Field Host IP or FQDN](../../fields/common/ui/host.md) %}
-* {% include [Field Subnet ID](../../fields/common/ui/subnet-id.md) %}
-* {% include [Field Security Group](../../fields/common/ui/security-group.md) %}
-* {% include [Field Database Name](../../fields/mysql/ui/database-name-source.md) %}
-* {% include [Field Username](../../fields/common/ui/username.md) %}
-* {% include [Field Password](../../fields/common/ui/password.md) %}
+* 
+   **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.OnPremiseMysql.subnet_id.title }}**: Select or [create](../../../../vpc/operations/subnet-create.md) a subnet in the desired [availability zone](../../../../overview/concepts/geo-scope.md).
+
+
+   If the value in this field is specified for both endpoints, both subnets must be hosted in the same availability zone.
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}**: Specify the name of the database in the selected cluster. Leave the field empty if you want to transfer tables from multiple databases at the same time.
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: Specify the username that {{ data-transfer-name }} will use to connect to the database.
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: Enter the user's password to the database.
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.security_groups.title }}**: Select the cloud network to host the endpoint and security groups for network traffic.
+
+   This will let you apply the specified security group rules to the VMs and clusters in the selected network without changing the settings of these VMs and clusters. For more information, see [{#T}](../../../../data-transfer/concepts/network.md).

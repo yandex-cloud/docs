@@ -6,6 +6,7 @@
 
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
 1. Make sure your billing account consumption type is `Paid version`. For more information about activating the paid version, see [{#T}](activate-commercial.md).
+1. Make sure your billing account has the `billing.accounts.owner`, `editor`, or `admin` role. For more information about roles, see [{#T}](../security/index.md).
 1. Go to the **Commitments** page.
 1. Review the offers:
     1. Select a service and click the section with the new offer.

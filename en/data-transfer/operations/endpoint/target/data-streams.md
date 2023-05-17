@@ -21,6 +21,6 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 - Management console
 
-   {% include [Data Streams UI](../../../../_includes/data-transfer/fields/common/ui/transaction-order.md) %}
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTargetAdvancedSettings.save_tx_order.title }}**: Do not split an event stream into independent queues by table.
 
 {% endlist %}

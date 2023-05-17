@@ -29,28 +29,28 @@ For automatically scaled groups, assign [common scaling settings](#auto-scale-se
 
 ### Type of automatic scaling {#auto-scale-type}
 
-The service can adjust the number of instances separately in each [availability zone](../../../overview/concepts/geo-scope.md) specified in the group settings or in the entire instance group:
+{{ ig-name }} can adjust the number of instances separately in each [availability zone](../../../overview/concepts/geo-scope.md) specified in the group settings or in the entire instance group:
 
-* If _zonal_ scaling is used, the service calculates for each availability zone its own average metric value for scaling and the required number of instances. The default type of automatic scaling is zonal.
-* If _regional_ scaling is used, the metric value and the number of instances are calculated for the entire group. To change the group auto scaling type to regional, [pass the `auto_scale` scaling policy](policies/scale-policy.md#auto-scale-policy) with the `auto_scale_type: REGIONAL` key.
+* With _zonal_ scaling, {{ ig-name }} will calculate an average metric value for scaling and the required number of instances for each availability zone. This type of automatic scaling is used by default.
+* With _regional_ scaling, the metric value and the number of instances are calculated for the entire group. To change the group auto scaling type to regional, [specify the `auto_scale` scaling policy](policies/scale-policy.md#auto-scale-policy) with the `auto_scale_type: REGIONAL` key.
 
 
 ### General settings {#auto-scale-settings}
 
-To reduce adjustment sensitivity, {{ ig-name }} lets you configure:
-* *Stabilization period*: After the number of VMs increases, group size does not decrease until the end of a stabilization period, even if the average value of the metric has become sufficiently low.
-* *Warm-up period*: The period during which the following isn't used after an instance starts.
+To reduce adjustment sensitivity, with {{ ig-name }}, you can configure:
+* *Stabilization period*: After the number of VMs increases, the group size will not decrease until the end of a stabilization period, even if the average value of the metric has become sufficiently low.
+* *Warm-up period*: Period during which the VM, upon its start, will not use:
 
-   * [CPU utilization](#cpu-utilization).
-   * [Monitoring metric](#monitoring-metrics) values that are applied according to the `UTILIZATION` rule.
+  * [CPU load capacity](#cpu-utilization).
+  * [Monitoring metric](#monitoring-metrics) values that are applied according to the `UTILIZATION` rule.
 
-   Average metric values for the group are used instead.
-* *Utilization measurement period*: The metric value is calculated as the average of all measurements made during the specified period.
+  Average metric values for the group will be used instead.
+* *Utilization measurement period*: Metric value will be calculated as an average of all measurements taken during the specified period.
 
-   > For example, the CPU load may rise to 100% one second and drop to 10% the next. To ignore such surges, {{ ig-name }} uses average values for a given period, such as 1 minute.
+  > For example, the CPU load may rise to 100% in one second and then drop to 10%. To ignore such surges, {{ ig-name }} will use average values for the specified period, such as one minute.
 
 You can also set limits on the number of instances per group:
-* *Maximum group size*: {{ ig-name }} won't create more instances if a group already contains this many.
+* *Maximum group size*: {{ ig-name }} will not create more instances if a group already contains this many.
 * *Minimum size in a single availability zone*: {{ ig-name }} won't delete instances from an availability zone if there are only this many instances in the zone.
 
 ### Metrics for automatic scaling {#metrics}
@@ -85,33 +85,33 @@ After the number of instances is calculated and changed (if necessary), {{ ig-na
 You can use up to any three {{ monitoring-name }} metrics for automatic scaling in {{ ig-name }}.
 
 When using monitoring metrics, specify the following in {{ ig-name }}:
-* _Metric name_ that you specified in {{ monitoring-name }}.
- * _[Labels](../../../monitoring/concepts/data-model.md#label)_ that you specified in {{ monitoring-name }}:
-   * (optional) `folder_id`: ID of the folder. By default, it's the ID of the folder that the group belongs to.
-   * (optional) `service`: ID of the service. By default, `custom`. Labels can be used to specify service metrics, such as `service` with the `compute` value for {{ compute-short-name }}.
+* _Metric name_ you specified in {{ monitoring-name }}.
+ * _[Labels](../../../monitoring/concepts/data-model.md#label)_ you specified in {{ monitoring-name }}:
+  * (optional) `folder_id`: ID of the folder. By default, it is the ID of the folder the group belongs to.
+  * (optional) `service`: ID of the service. The default value is `custom`. Labels can be used to specify service metrics, such as `service` with the `compute` value for {{ compute-short-name }}.
 
-   Also specify other labels that characterize this metric.
+  You will also need specify other labels for this metric:
 
-* The _metric type_ that affects how {{ ig-name }} computes the average metric value:
-   * `GAUGE`: Used for metrics that show the metric value at a specific point in time, such as the number of requests per second to a server running on an instance. {{ ig-name }} computes the average metric value for the specified averaging period.
-   * `COUNTER`: Used for metrics that grow uniformly over time, such as the total number of requests to a server running on an instance. {{ ig-name }} calculates the average metric growth for the specified averaging period.
+* _Metric type_ that affects how {{ ig-name }} computes the average metric value:
+  * `GAUGE`: Used for metrics that show the metric value at a specific point in time, such as the number of requests per second to a server running on an instance. {{ ig-name }} computes the average metric value for the specified averaging period.
+  * `COUNTER`: Used for metrics that grow uniformly over time, such as the total number of requests to a server running on an instance. {{ ig-name }} calculates the average metric growth for the specified averaging period.
 * _Metric rule type_:
-   * `UTILIZATION`: The metric characterizes resource consumption by a single instance.
+  * `UTILIZATION`: Metric will show resource consumption by a single instance.
 
-      The number of instances per availability zone or in the entire group (for the [zonal or regional scaling type](#auto-scale-type), respectively) by the `UTILIZATION` metric is calculated in the same way as the number of instances by [CPU utilization](#cpu-utilization).
+    The number of instances per availability zone or in the entire group (for the [zonal or regional scaling type](#auto-scale-type), respectively) by the `UTILIZATION` metric is calculated in the same way as the number of instances by [CPU utilization](#cpu-utilization).
 
-      When delivered in {{ monitoring-name }}, the `UTILIZATION` metric must have the `instance_id` label.
+    When delivered in {{ monitoring-name }}, the `UTILIZATION` metric must have the `instance_id` label.
 
-   * `WORKLOAD`: The metric characterizes the total workload on all instances in a single availability zone or the entire group (for the [zonal or regional scaling type](#auto-scale-type), respectively).
+  * `WORKLOAD`: Metric will show the total workload on all instances in a single availability zone or the entire group (for the [zonal or regional scaling type](#auto-scale-type), respectively).
 
-      To calculate the number of instances per availability zone or in the entire group by the `WORKLOAD` metric, the average metric value is divided by the target value and the result is rounded up.
+    To calculate the number of instances per availability zone or in the entire group by the `WORKLOAD` metric, the average metric value is divided by the target value, and the result is rounded up.
 
-      > For example, there are two instances in an availability zone. The metric characterizes the total number of requests per second (RPS) to all instances. If the target metric value is 200, then, with an average value of 450, {{ ig-name }} will increase the number of instances in the availability zone to three: 450/200 = 2.25 ~ 3 instances.
+    > For example, let's assume there are two instances in an availability zone. The metric shows the total number of requests per second (RPS) to all instances. If the target metric value is 200, then, with an average value of 450, {{ ig-name }} will increase the number of instances in the availability zone to three: 450/200 = 2.25 ~ 3 instances.
 
-      The metric value is calculated and used including during the instance warm-up period specified in the [general settings](#auto-scale-settings).
+    The metric value is also calculated and used during the instance warm-up period specified in the [general settings](#auto-scale-settings).
 
-      If zonal scaling is applied to the group, when delivered in {{ monitoring-name }}, the `WORKLOAD` metric must have the `zone_id` label.
-* The _target metric value_ by which {{ ig-name }} calculates the number of VM instances needed. For `UTILIZATION` metrics, the target value is the desired level of resource consumption by each instance. For `WORKLOAD` metrics, it's the maximum allowed workload on each instance.
+    If zonal scaling is applied to the group, when delivered in {{ monitoring-name }}, the `WORKLOAD` metric must have the `zone_id` label.
+* _Target metric value_ by which {{ ig-name }} calculates the required number of VM instances. For `UTILIZATION` metrics, the target value is the required level of resource consumption by each instance. For `WORKLOAD` metrics, it is the maximum allowed workload on each instance.
 
 #### See also {#see-also}
 

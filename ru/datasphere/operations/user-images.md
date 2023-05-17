@@ -32,7 +32,8 @@
        apt-key adv --fetch-keys <публичный GPG-ключ> &&\
        add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
        apt-get update &&\
-       apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
+       apt-get -y install libnvidia-common-450 cuda-drivers-450 nvidia-driver-450 &&\
+       apt-get -y install cuda-11-2 libcudnn8=8.1.1.33-1+cuda11.2 cuda-toolkit-11-2 &&\
        exit
       RUN pip install tensorflow-gpu==2.4.1
       ```

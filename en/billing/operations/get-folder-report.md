@@ -2,7 +2,7 @@
 
 You can get a CSV file with your general or per-resource spending details.
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. If you do not have any [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create a folder](../../resource-manager/operations/folder/create.md). In the folder name, specify the name of the project or client that is going to use this folder.
 
@@ -10,7 +10,7 @@ You can get a CSV file with your general or per-resource spending details.
 
    {% note alert %}
 
-   Don't make your bucket public, otherwise anyone can download your expense details from the bucket link.
+   Do not make your bucket public; otherwise, anyone will be able to download your expense details from the bucket link.
 
    {% endnote %}
 
@@ -61,7 +61,7 @@ The table contains the following columns:
 * `folder_name`: Name of the folder at the time of exporting details. This field value may be empty if you deleted the folder before exporting the details.
 * `resource_id`: Resource ID, resource name, or subscription ID. The value of this field may be empty if the use of the service refers to the entire folder or it doesn't contain any resources. Correlation between services and `resource_id` column values:
    * {{ compute-name }} and {{ marketplace-name }}: ID of the VM, disk snapshot, disk image, or other resource installed using {{ marketplace-name }}.
-   * {{ objstorage-name }}: Name of the bucket.
+   * {{ objstorage-name }}: Bucket name.
    * {{ vpc-name }}: ID of the resource that processes incoming or outgoing traffic.
    * {{ kms-short-name }}: ID of the key.
    * {{ network-load-balancer-name }}: ID of the network load balancer.
@@ -76,13 +76,13 @@ The table contains the following columns:
 * `service_name`: Name of the service that the consumed product belongs to.
 * `sku_id`: ID of the consumed product.
 * `sku_name`: Name of the product.
-* `date`: Date that the cost of consumption is charged for.
+* `date`: Date that the cost of consumption is charged for. Dates are set as a range from 0:00 to 23:59 (UTC+3).
 * `currency`: Billing account currency. Possible values: `RUB`, `USD`, and `KZT`.
-* `pricing_quantity`: Amount of product units consumed. The decimal separator is a dot.
+* `pricing_quantity`: Amount of product units consumed. The decimal separator is a period.
 * `pricing_unit`: Unit of product consumption.
-* `cost`: Total cost of consumption. The decimal separator is a dot.
-* `credit`: Discount amount. The decimal separator is a dot.
-* `monetary_grant_credit`: Discount from a grant, including the grant for trying the platform. The decimal separator is a dot.
+* `cost`: Total cost of consumption. The decimal separator is a period.
+* `credit`: Discount amount. The decimal separator is a period.
+* `monetary_grant_credit`: Discount from a grant, including the grant for trying the platform. The decimal separator is a period.
 * `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a period.
 * `cud_credit`: Discount for the [committed volume](../concepts/cvos.md) of the resource. The cost of consumption in excess of the commitment equals the difference between the `cost` and `credit` column values. The decimal separator is a period.
 * `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a period.

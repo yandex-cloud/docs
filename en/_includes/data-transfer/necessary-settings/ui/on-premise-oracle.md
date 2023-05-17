@@ -1,15 +1,18 @@
-* **Connection**: Select the Oracle cluster [connection type](https://docs.oracle.com/cd/E11882_01/network.112/e41945/concepts.htm#NETAG002).
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnection.connection_type.title }}**: Select the Oracle cluster [connection type](https://docs.oracle.com/cd/E11882_01/network.112/e41945/concepts.htm#NETAG002).
 
-* For the **Instance** connection type:
+* For the **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnectionType.instance.title }}** connection type:
 
    * {% include [Field Host](../../fields/oracle/ui/database-host.md) %}
-   * {% include [Field Port](../../fields/common/ui/database-port.md) %}
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleInstance.port.title }}**: Set the number of the port that {{ data-transfer-name }} will use for the connection.
+
    * {% include [Field Type](../../fields/oracle/ui/type.md) %}
 
-* For the **TNS connect string** connection type, specify the Oracle RDBMS connection string in the respective field below.
+* For the **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnectionType.tns.title }}** connection type, specify the Oracle RDBMS connection string in the respective field below.
 
-* {% include [Field Username](../../fields/common/ui/username.md) %}
-* {% include [Field Password](../../fields/common/ui/password.md) %}
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnection.user.title }}**: Specify the username that {{ data-transfer-name }} will use to connect to the database.
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnection.password.title }}**: Enter the user's password to the database.
+
 * {% include [PDB Container](../../fields/oracle/ui/pdb-container.md) %}
 * {% include [Field Included Tables](../../fields/oracle/ui/included-tables.md) %}
 * {% include [Field Excluded Tables](../../fields/oracle/ui/excluded-tables.md) %}

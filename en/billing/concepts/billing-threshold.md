@@ -6,11 +6,11 @@ The billing threshold is a negative [personal account balance](../concepts/perso
 
 Your billing threshold is valid for 1 month.
 
-The billing threshold is only valid when you select a bank card as your payment method. If you do, when you reach your limit, an attempt will be made to debit your card to cover what you owe.
+The billing threshold is only valid when you select a bank card as your payment method. If you do, when you reach your threshold, an attempt will be made to debit your card to cover what you owe.
 
 {% note alert %}
 
-The billing threshold amount and the total arrears when you are blocked may be different, since access to resources is not suspended immediately. The fact that you have a billing threshold does not guarantee that you will not spend over your limit.
+The billing threshold amount and the total arrears when you are blocked may be different, since access to resources is not suspended immediately. The fact that you have a billing threshold does not guarantee that you will not spend over your threshold.
 
 {% endnote %}
 
@@ -24,11 +24,15 @@ The billing threshold amount is calculated individually and depends on a combina
 
 You can find information about the billing threshold amount in the [management console]({{ link-console-billing }}).
 
-
 ## Enabling a billing threshold {#enable}
 
 The billing threshold is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first reporting period ends.
 
+{% note info %}
+
+The billing threshold cannot be disabled and is valid until [the billing account is deleted](../operations/delete-account.md).
+
+{% endnote %}
 
 ## Using a billing threshold {#using}
 

@@ -23,22 +23,22 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
 - Management console
 
-   * **Number of shards**: Specify the required `N` number of shards.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.shard_count.title }}**: Specify the required `N` number of shards.
 
       If the setting is specified, the `_shard_col` column is added to tables. The values in it are calculated as the remainder of `H/N`, where `H` is the result of the hash function at the current time and `N` is the number of shards specified by the setting.
 
 
-    * **Table rotation**:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.partition_policy.title }}**:
 
-        * **Time measurement unit**: Hour, day, or month.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.part_type.title }}**: Hour, day, or month.
 
-        * **Table size**: In the selected units.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.part_size.title }}**: In the selected units.
 
             When the time interval equal to the selected unit of measurement ends, the oldest database table will be deleted and a new one will be created.
 
-        * **Number of tables**: Required number of tables in the target database.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.keep_part_count.title }}**: Required number of tables in the target database.
 
-        * **Split by column**: Split (_partition_) a table by the specified column's values. The column must be of the <q>time</q> type.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Split (_partition_) a table by the specified column's values. The column must be of the <q>time</q> type.
 
             
             For more information about table partitioning, see the [{{ ydb-full-name }}](https://ydb.tech/en/docs/concepts/datamodel/table#partitioning) documentation.
@@ -46,9 +46,9 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
         If this setting is used, the specified number of data tables for different intervals is created in the target database. The name of each table is selected automatically by the date and time of the start of the interval. Depending on the values in the specified column of the source table, the original rows are distributed across the respective tables in the target database.
 
-    * **Rename tables**: Fill it in if you need to rename tables in the source database when transferring data to the target database.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.alt_names.title }}**: Fill it in if you need to rename tables in the source database when transferring data to the target database.
 
-    * **Subdirectory for tables**: Specify the [subdirectory](https://ydb.tech/en/docs/concepts/datamodel/dir) to place tables in.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}**: Specify the [subdirectory](https://ydb.tech/en/docs/concepts/datamodel/dir) to place tables in.
 
         The table path you should get is `<path in Yandex Database>/<subdirectory>/<table>`.
 

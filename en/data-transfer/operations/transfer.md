@@ -19,7 +19,7 @@ For more information about transfer states, operations applicable to transfers, 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
+   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
 
 {% endlist %}
 
@@ -30,27 +30,27 @@ For more information about transfer states, operations applicable to transfers, 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-   1. Click **Create transfer**.
+   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
    1. Select the source endpoint or [create](./endpoint/index.md#create) a new one.
    1. Select the target endpoint or [create](./endpoint/index.md#create) a new one.
    1. Specify the transfer parameters:
 
-      * **Transfer name**.
-      * (Optional) **Description**.
-      * **Transfer type**:
+      * **{{ ui-key.yacloud.common.name }}**.
+      * (Optional) **{{ ui-key.yacloud.common.description }}**.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**:
 
-         * {{ dt-type-copy }}: Creates a full copy of data without receiving further updates from the source. Under **Snapshot settings**, specify the number of parallel copy processes and threads.
-            To have a full copy of data created at certain intervals of time, enable **Periodic snapshot** and select the required copy interval in the **Period** field.
+         * {{ dt-type-copy }}: Creates a full copy of data without receiving further updates from the source. Under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeRegularSnapshot.snapshot_settings.title }}**, specify the number of parallel copy processes and threads.
+            To have a full copy of data created at certain intervals of time, enable **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}** and select the required copy interval in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.RegularSnapshotIntervalType.interval.title }}** field.
 
-            In the **Incremental tables** list, add tables whose data is copied incrementally, i.e. from where the copy process stopped previously; set values for the **Schema**, **Table**, **Key column**, and **Initial state** (optional) fields. The transfer will remember the maximum value of the cursor column and, when run next time, will only read the data added or updated since the last run. This is more efficient than copying entire tables but less efficient than using transfers of the _{{ dt-type-copy-repl }}_ type. This setting is available for such sources as {{ PG }}, {{ CH }}, and Airbyte.
+            In the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.incremental_tables.title }}** list, add tables whose data is copied incrementally, i.e. from where the copy process stopped previously; set values for the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.table_namespace.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.table_name.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.key_column.title }}**, and **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.key_start_value.title }}** (optional) fields. The transfer will remember the maximum value of the cursor column and, when run next time, will only read the data added or updated since the last run. This is more efficient than copying entire tables but less efficient than using transfers of the _{{ dt-type-copy-repl }}_ type. This setting is available for such sources as {{ PG }}, {{ CH }}, and Airbyte.
 
             {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
 
-         * {{ dt-type-repl }}: Allows you to receive data updates from the source and apply them to the target (without creating a full copy of the source data). Under **Replication settings**, specify the number of replication processes. This setting is available for such sources as {{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. 
-         * {{ dt-type-copy-repl }}: Creates a full copy of the source data and keeps it up-to-date. Under **Snapshot settings**, specify the number of parallel copy and replication processes and threads. Under **Replication settings**, specify the number of replication processes. This setting is available for such sources as {{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. 
+         * {{ dt-type-repl }}: Allows you to receive data updates from the source and apply them to the target (without creating a full copy of the source data). Under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeIncrement.increment_settings.title }}**, specify the number of replication processes. This setting is available for such sources as {{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. 
+         * {{ dt-type-copy-repl }}: Creates a full copy of the source data and keeps it up-to-date. Under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshotAndIncrement.snapshot_settings.title }}**, specify the number of parallel copy and replication processes and threads. Under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshotAndIncrement.increment_settings.title }}**, specify the number of replication processes. This setting is available for such sources as {{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. 
 
-       * (Optional) **List of objects to be transferred**: Specify the full path to each object being transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
+       * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object being transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
             Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
 
@@ -64,22 +64,22 @@ For more information about transfer states, operations applicable to transfers, 
 
             If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
 
-       * (Optional) **Data transformations**: Rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
-            * **Rename tables**: Settings for renaming tables:
-                * **Source table name**:
-                     * **Named schema**: Naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
-                    * **Table name**: Source table name.
-                * **Target table name**:
-                    * **Named schema**: Naming convention depending on the target type, e.g., a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
-                    * **Table name**: New name for the target table.
-            * **Columns filter**: Specifies column transfer settings:
-                * **Tables**:
-                    * **Included tables**: Names of the tables the column transfer settings apply to.
-                    * **Excluded tables**: Names of the tables the column transfer settings do not apply to.
-                * **List of columns**:
-                    * **Included columns**: Names of the columns in the list of included tables to transfer.
-                    * **Excluded columns**: Names of the columns in the list of included tables not to transfer.
-    1. Click **Create**.
+       * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for transforming data. This setting only appears when the source and target are of different types. Select **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** or **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**.
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}**: Settings for renaming tables:
+                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.original_name.title }}**:
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the source type. e.g., a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}**: Source table name.
+                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.new_name.title }}**:
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the target type. e.g., a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}**: New name for the target table.
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**: Specifies column transfer settings:
+                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.tables.title }}**:
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.include_tables.title }}**: Names of the tables the column transfer settings apply to.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.exclude_tables.title }}**: Names of the tables the column transfer settings do not apply to.
+                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.columns.title }}**:
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.include_columns.title }}**: Names of the columns included in the list of tables to transfer.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}**: Names of the columns included in the list of tables not to be transferred.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }}
 
@@ -141,12 +141,12 @@ For more information about transfer states, operations applicable to transfers, 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-   1. Select a transfer and click ![pencil](../../_assets/pencil.svg) **Edit** on the top panel.
+   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Select a transfer and click ![pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}** in the top panel.
    1. Edit the transfer parameters:
-      * **Transfer name**.
-      * (Optional) **Description**.
-        * (Optional) **List of objects to be transferred**: Specify the full path to each object being transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
+      * **{{ ui-key.yacloud.common.name }}**.
+      * (Optional) **{{ ui-key.yacloud.common.description }}**.
+        * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to be transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
          Adding new objects to {{ dt-type-copy-repl }} or {{ dt-type-repl }} transfers in the {{ dt-status-repl }} status will result in uploading data history for these objects or tables. If a table is large, uploading the history may take a long time. You can't edit the list of objects for transfers in the {{ dt-status-copy }} status.
 
@@ -162,22 +162,22 @@ For more information about transfer states, operations applicable to transfers, 
 
             If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
 
-        * (Optional) **Data transformations** are rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
-            * **Rename tables**: Settings for renaming tables:
-               * **Source table name**:
-                   * **Named schema**: Naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
-                   * **Table name**: Source table name.
-               * **Target table name**:
-                   * **Named schema**: Naming convention depending on the target type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
-                   * **Table name**: New name for the target table.
-            * **Column filter** specifies column transfer settings:
-               * **List of tables**:
-                   * **Included tables**: Names of the tables the column transfer settings apply to.
-                   * **Excluded tables**: Names of tables the column transfer settings do not apply to.
-               * **List of columns**:
-                   * **Included columns**: Names of the columns in the list of included tables to transfer.
-                   * **Excluded columns**: Names of the columns in the list of included tables not to transfer.
-   1. Click **Save**.
+        * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for transforming data. This setting only appears when the source and target are of different types. Select **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** or **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**.
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}**: Settings for renaming tables:
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.original_name.title }}**:
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the source type. e.g., a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}**: Source table name.
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.new_name.title }}**:
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the target type. e.g., a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}**: New name for the target table.
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}** specifies column transfer settings:
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.tables.title }}**:
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.include_tables.title }}**: Names of the tables the column transfer settings apply to.
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.exclude_tables.title }}**: Names of the tables the column transfer settings do not apply to.
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.columns.title }}**:
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.include_columns.title }}**: Names of the columns included in the list of tables to transfer.
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}**: Names of the columns included in the list of tables not to be transferred.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }}
 
@@ -207,8 +207,8 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Activate**.
+   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
 {% endlist %}
 
@@ -221,8 +221,8 @@ If you assume that the transfer replication stage may fail (for example, due to 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Restart**.
+   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-REUPLOAD }}**.
 
 {% endlist %}
 
@@ -244,8 +244,8 @@ During transfer deactivation:
 
    1. Switch the source to <q>read-only</q>.
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Deactivate**.
+   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
    1. Wait for the transfer status to change to {{ dt-status-stopped }}.
 
 {% endlist %}
@@ -265,10 +265,10 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
+   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
    1. If the desired transfer is active, [deactivate it](#deactivate).
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Delete**.
-   1. Click **Delete**.
+   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.common.remove }}**.
+   1. Click **{{ ui-key.yacloud.common.remove }}**.
 
 - {{ TF }}
 

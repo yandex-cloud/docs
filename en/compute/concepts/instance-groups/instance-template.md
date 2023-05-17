@@ -14,9 +14,9 @@ You can also use the template to enable the creation of [preemptible](../preempt
 
 ## Disks {#disks}
 
-At least one disk must be attached to each instance: the boot disk. Each boot disk is created automatically and attached to only one instance when creating an instance group.
+Each instance must have at least one disk attached, which is a boot disk. Each boot disk is created automatically and attached to a single instance when creating an instance group.
 
-You can also attach additional disks to each instance. You can create an additional disk along with an instance group. The new disk can be empty, or you can restore it from a snapshot or image. You can only attach or detach additional disks when creating or updating a group. For more information, see [{#T}](../disk.md).
+You can also attach additional disks to each instance. You can create an additional disk along with an instance group. You can create an empty disk or restore it from a snapshot or an image. You can only attach or detach additional disks when creating or updating a group. For more information, see [{#T}](../disk.md).
 
 {% note alert %}
 
@@ -41,13 +41,13 @@ You can specify the [appropriate security groups](../../../vpc/concepts/security
 
 ## Metadata {#metadata}
 
-The template can be used to describe the metadata for the instances in the group. For example, you can use the `user-data` key to describe the system users to be created on new instance startup. Read more about the metadata supported by {{compute-name}} in [{#T}](../vm-metadata.md).
+You can use a template to describe the metadata for the instances in the group. For example, you can use the `user-data` key to describe the system users to be created on new instance startup. For more information about the metadata supported by {{ compute-name }}, see [{#T}](../vm-metadata.md).
 
 ## Template description in a YAML file {#instance-template}
 
 A template describes the configuration of the base instance. It is defined in the `instance_template` key in a YAML file.
 
-Example of a YAML file entry:
+Here is how a YAML file entry may look like:
 
 ```yaml
 ...
@@ -93,13 +93,13 @@ instance_template:
 
 {% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
 
-Keys (the table lists keys that directly define the base instance's configuration):
+Keys (the table lists keys that directly define the base instance configuration):
 
 | Key | Value |
------ | -----
+| ----- | ----- |
 | `platform_id` | ID of the instance's hardware platform. |
-| `memory` | The amount of RAM available to the instance, specified in bytes. The maximum value is 274877906944 (275 GB). |
-| `cores` | The number of cores available to the instance. The value depends on the [platform](../vm-platforms.md) type. |
+| `memory` | Amount of RAM available to the instance, specified in bytes. The maximum value is 274877906944 (275 GB). |
+| `cores` | Number of cores available to the instance. The value depends on the [platform](../vm-platforms.md) type. |
 | `core_fraction` | Basic [vCPU performance level](../performance-levels.md). |
 | `mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access. |
 | `image_id` | ID of the image that will be used for disk creation. |

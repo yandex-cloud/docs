@@ -1,11 +1,11 @@
 ```bash
 #cloud-config
 users:
-  - name: <username>
+  - name: <user name>
     groups: sudo
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3Nza......OjbSMRX user@example.com
-      - ssh-rsa AAAAB3Nza......Pu00jRN user@desktop
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com
+      - ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop
 ```

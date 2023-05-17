@@ -90,6 +90,7 @@ However, you can purchase a new CVoS if you have any offers available in the man
 ## Services that you can purchase a CVoS for {#cvos-services}
 
 Prices for services that you can purchase a CVoS for:
+* [{{ compute-name }}](../../compute/pricing.md#cvos)
 * [{{ mch-name }}](../../managed-clickhouse/pricing.md#cvos)
 * [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)

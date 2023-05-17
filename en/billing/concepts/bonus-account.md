@@ -1,6 +1,6 @@
 # Grant
 
-Grant: Discount given to a sole proprietor, a business, or an individual on use of any {{ yandex-cloud }} services. The discount amount corresponds to the grant amount. The discount is applied to the total cost of services consumed.
+Grant is a discount for using any {{ yandex-cloud }} services provided to a sole proprietor, a business, or an individual. The discount amount is equal to the grant amount. It is applied to the total cost of the consumed services.
 
 
 {% note info %}
@@ -28,4 +28,4 @@ Additional grants can be provided upon a {{ yandex-cloud }} manager's decision, 
 
 
 ## Using grants {#how-to-use}
-The grant priority depends on its validity period: the earlier it expires, the earlier the grant is used.
+The grant priority depends on its validity period: the earlier it expires, the earlier the grant is used. For more information about using grants, see the [billing cycle description](../payment/billing-cycle-individual).

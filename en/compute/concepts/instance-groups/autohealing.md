@@ -4,7 +4,7 @@
 
 {% note info %}
 
-If for an instance group, [processes are paused](stopping-pausing.md) ([status](statuses.md#group-statuses) is `PAUSED`), instances aren't healed.
+If you [pause processes](stopping-pausing.md) (switch them to the `PAUSED` [status](statuses.md#group-statuses)) in an instance group, your instances will not be healed.
 
 {% endnote %}
 
@@ -36,30 +36,30 @@ If you [created an instance group with a network load balancer](../../operations
 
 ### Auto-healing and deployment policies {#healthcheck-and-deploy}
 
-To auto-heal instances, {{ ig-name }} may restart instances or create new ones. The healing method is set in the [deployment policies](policies/deploy-policy.md).
+To autoheal instances, {{ ig-name }} may restart them or create new ones. The healing method is defined by the [deployment policies](policies/deploy-policy.md).
 
 * Creating new instances
-   {{ ig-name }} will create new instances to replace those that failed the health check, provided that the deployment policy permits expanding the target size of the instance group. You can set the maximum number of instances that can be allocated to expand the target size of the group by using the `max_expansion` parameter. Acceptable values: from `0` to `100`. In this case, {{ ig-name }} will first create a new instance, wait until it passes all the checks, and then undeploy the instance that failed the check.
+  {{ ig-name }} will create new instances to replace those that failed the health check, provided that the deployment policy permits expanding the target size of the instance group. You can set the maximum number of instances that can be allocated to expand the target size of the group by using the `max_expansion` parameter, which may take values from `0` to `100`. In this case, {{ ig-name }} will first create a new instance, wait until it passes all checks, and then undeploy the instance that failed the check.
 
 * Restarting the instance
-   {{ ig-name }} will restart instances that failed the health check if the deployment policy permits reducing the target size of the instance group. You can use the `max_unavailable` parameter to set the maximum number of instances that can be made unavailable at the same time. Acceptable values: from `0` to `100`. {{ ig-name }} will try not to exceed this value during auto-healing.
+  {{ ig-name }} will restart instances that failed the health check if the deployment policy permits reducing the target size of the instance group. You can use the `max_unavailable` parameter to set the maximum number of instances that can be made unavailable at the same time. The acceptable values range from `0` to `100`. {{ ig-name }} will try not to exceed this value during autohealing.
 
-   This restriction does not apply to instances with the [statuses](../vm-statuses.md) `CRASHED`, `ERROR`, and `STOPPED`, because in these cases the instance is already unavailable and must be restarted immediately.
+  This restriction does not apply to instances with the `CRASHED`, `ERROR`, and `STOPPED` [statuses](../vm-statuses.md), because, in these cases, the instance is already unavailable and must be restarted immediately.
 
-If you set both `max_expansion` and `max_unavailable`, {{ ig-name }} will use both auto-healing methods.
+If you set both `max_expansion` and `max_unavailable`, {{ ig-name }} will use both autohealing methods.
 
 > For example, you set `max_expansion = 1` and `max_unavailable = 1`. When one instance fails the check, {{ ig-name }} begins restarting this instance and creating a new one at the same time. The instance that passes all the checks successfully continues running and the other instance is undeployed.
 
-To limit the speed of auto-healing and deployment, you can also set:
-* The maximum number of instances that are deployed at the same time using the `max_creating` parameter. This includes the created and started instances with the statuses `CREATING` and `STARTING`.
+To limit the autohealing and deployment speed, you can also set:
+* Maximum number of instances deployed simultaneously, using the `max_creating` parameter. This includes the instances being created and started with the `CREATING` and `STARTING` statuses.
 
-   Acceptable values: from `0` to `100`. Value `0`: Any number of instances within the allowed range.
+  The acceptable values range from `0` to `100`. `0` means any number of instances within the allowed range.
 
-* The maximum number of instances that are undeployed at the same time, using the `max_deleting` parameter. This includes the instances being stopped with the `STOPPING` status, since {{ ig-name }} always stops instances before undeploying them.
+* Maximum number of instances undeployed simulateneously, using the `max_deleting` parameter. This includes the instances being stopped with the `STOPPING` status, since {{ ig-name }} always stops instances before undeploying them.
 
-   Acceptable values: from `0` to `100`. Value `0`: Any number of instances within the allowed range.
+  The acceptable values range from `0` to `100`. `0` means any number of instances within the allowed range.
 
-### Changing instance status during auto-healing {#healtcheck-and-vm-state}
+### Changing instance status during autohealing {#healtcheck-and-vm-state}
 
 {{ ig-name }} won't try to heal an instance if it is no longer needed.
 
@@ -85,11 +85,11 @@ If you increase the target size of the instance group, new instances will be cre
 >
 > If `max_expansion = 1` and `max_creating` is not set, then {{ ig-name }} will start creating three instances in parallel: two under the instance group expansion, and one under the auto-healing process.
 
-### Auto-healing preemptible instances {#healthcheck-preemptible-vm}
+### Autohealing preemptible instances {#healthcheck-preemptible-vm}
 
-[Preemptible](../preemptible-vm.md) instances can only be auto-healed if the computing resources in the availability zone allow for this. If the resources are insufficient, {{ ig-name }} will resume auto-healing as soon as the resources become available, but this may take a long time.
+[Preemptible instances](../preemptible-vm.md) can only be autohealed if the computing resources in the availability zone allow for this. If the resources are insufficient, {{ ig-name }} will resume autohealing as soon as the resources become available; this, however, may take a long time.
 
-Preemptible VMs must be terminated within 24 hours of their launch. In this case, there is a risk that the entire instance group will restart at the same time and stop handling the load of running applications. To avoid this, {{ ig-name }} stops preemptible instances in the group not exactly after 24 hours, but after a random interval from 22 to 24 hours.
+Preemptible VMs must be terminated within 24 hours of their launch. In this case, there is a risk that the entire instance group will restart at the same time and stop handling the load of running applications. To avoid this, {{ ig-name }} stops preemptible instances after a random interval of 22 to 24 hours, rather than exactly after 24 hours.
 
 #### See also {#see-also}
 

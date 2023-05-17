@@ -10,4 +10,3 @@ On the last day of the month, [Yandex Balance](https://balance.yandex.com/) will
 Learn more about billing cycles:
 - [For individuals](../payment/billing-cycle-individual.md)
 - [For businesses and individual entrepreneurs](../payment/billing-cycle-business.md)
-

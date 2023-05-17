@@ -11,7 +11,7 @@ Show logs for the specified function
 
 Syntax: 
 
-`yc serverless function logs <FUNCTION-NAME>|<FUNCTION-ID> [--tag <TAG>] [Flags...] [Global Flags...]`
+`yc serverless function logs <FUNCTION-NAME>|<FUNCTION-ID> [SINCE] [FILTER] [--tag <TAG>] [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -21,8 +21,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Function name.|
 |`--tag`|<b>`string`</b><br/>Tag. Default $latest.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--since`|<b>`timestamp`</b><br/>Show logs since this time|
-|`--until`|<b>`timestamp`</b><br/>Show logs until this time|
+|`--since`|<b>`timestamp`</b><br/>Show logs since this time in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|
+|`--until`|<b>`timestamp`</b><br/>Show logs until this time in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|
 |`-f`,`--follow`|Output logs as they arrive|
 |`--levels`|<b>`value[,value]`</b><br/>Show logs with these levels (comma-separated)|
 |`--filter`|<b>`string`</b><br/>Use this filter|
@@ -42,5 +42,6 @@ Syntax:
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
+|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|
