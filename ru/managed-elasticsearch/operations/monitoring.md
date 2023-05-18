@@ -150,6 +150,14 @@
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите **{{ mes-name }}**.
     1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
 
+- API
+
+    Воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+
+    Состояние и статус кластера будут указаны в параметрах `health` и `status`.
+
+    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
 {% endlist %}
 
 ### Состояния кластера {#cluster-health}

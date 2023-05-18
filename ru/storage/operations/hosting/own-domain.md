@@ -68,6 +68,8 @@
 
     1. {% include [create-cert.md](../../../_includes/storage/create-cert.md) %}
     1. {% include [add-cert.md](../../../_includes/storage/add-cert.md) %}
+
+    {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
    
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}

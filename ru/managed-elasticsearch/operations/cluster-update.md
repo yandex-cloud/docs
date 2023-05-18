@@ -86,9 +86,11 @@ keywords:
 
 - API
 
-    Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить настройки сервисного аккаунта, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+    * Идентификатор кластера в параметре `clusterId`.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
     * Идентификатор сервисного аккаунта, используемого для работы с кластером, в параметре `serviceAccountId`.
 
@@ -182,9 +184,12 @@ keywords:
 
 - API
 
-  Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Чтобы изменить класс хостов, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Идентификатор кластера в параметре `clusterId`.
+
+    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
   * Класс хостов в параметрах:
       * `configSpec.elasticsearchSpec.dataNode.resources.resourcePresetId`  — для хостов с ролью *Data node*.
       * `configSpec.elasticsearchSpec.masterNode.resources.resourcePresetId` — для хостов с ролью *Master node*.
@@ -287,9 +292,12 @@ keywords:
 
 - API
 
-  Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Идентификатор кластера в параметре `clusterId`.
+
+    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
   * Необходимый размер хранилища (в байтах) в параметрах:
     * `configSpec.elasticsearchSpec.dataNode.resources.diskSize`  — для хостов с ролью *Data node*.
     * `configSpec.elasticsearchSpec.masterNode.resources.diskSize` — для хостов с ролью *Master node*.
@@ -351,9 +359,12 @@ keywords:
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить настройки {{ ES }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
-    * Идентификатор кластера в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+    * Идентификатор кластера в параметре `clusterId`.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
     * Нужные значения настроек СУБД в параметре `configSpec.elasticsearchSpec.dataNode.elastcsearchConfig_7`.
     * Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
 
@@ -443,9 +454,12 @@ keywords:
 
 - API
 
-  Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Чтобы изменить пароль пользователя `admin`, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Идентификатор кластера в параметре `clusterId`.
+
+    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
   * Новый пароль в параметре `configSpec.adminPassword`. Длина пароля — до 128 символов.
   * Список настроек, которые необходимо изменить (в данном случае — `configSpec.adminPassword`), в параметре `updateMask`.
 
@@ -554,9 +568,11 @@ keywords:
 
 - API
 
-    Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Чтобы изменить дополнительные настройки кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+    * Идентификатор кластера в параметре `clusterId`.
+    
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
     * Список [плагинов {{ ES }}](cluster-plugins.md#elasticsearch) в параметре `plugins`.
 

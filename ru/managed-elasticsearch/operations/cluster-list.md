@@ -33,9 +33,7 @@ keywords:
 
 - API
 
-  Воспользуйтесь методом API `list`: передайте значение идентификатора требуемого каталога в параметре `folderId` запроса.
-
-  В ответе будут содержаться имена и идентификаторы кластеров.
+  Чтобы получить список кластеров в каталоге, воспользуйтесь методом REST API [list](../api-ref/Cluster/list.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/List](../api-ref/grpc/cluster_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
 {% endlist %}
 
@@ -64,9 +62,9 @@ keywords:
 
 - API
 
-  Воспользуйтесь методом API `get`: передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+  Чтобы получить детальную информацию о кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](#list-clusters).
+  {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -98,8 +96,8 @@ keywords:
 
 - API
 
-  Воспользуйтесь методом API `listOperations`: передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+  Чтобы получить список операций, воспользуйтесь методом REST API [listOperations](../api-ref/Cluster/listOperations.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](#list-clusters).
+  {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}

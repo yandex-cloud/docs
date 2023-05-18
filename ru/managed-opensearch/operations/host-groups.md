@@ -27,9 +27,9 @@ keywords:
 
 - API
 
-  Воспользуйтесь методом API [get](../api-ref/Cluster/get.md) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+  Чтобы получить список групп хостов в кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](#list-clusters).
+  {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -73,7 +73,11 @@ keywords:
 
 - API
 
-    Чтобы добавить группу хостов типа `{{ OS }}` или `Dashboards`, воспользуйтесь методом API [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) или [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md), соответственно, и передайте в запросе конфигурацию группы в блоке `nodeGroupSpec`:
+    Чтобы добавить группу хостов типа `{{ OS }}`, воспользуйтесь методом REST API [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup).
+
+    Чтобы добавить группу хостов типа `Dashboards`, воспользуйтесь методом REST API [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#AddDashboardsNodeGroup).
+
+    Передайте в запросе конфигурацию группы в блоке `nodeGroupSpec`:
 
     * Имя группы хостов в параметре `name`.
     * [Класс хостов](../concepts/instance-types.md) в параметре `resources.resourcePresetId`.
@@ -97,7 +101,11 @@ keywords:
 
 - API
 
-    Чтобы изменить конфигурацию группы хостов типа `{{ OS }}` или `Dashboards`, воспользуйтесь методом API [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) или [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md), соответственно, и передайте в запросе новую конфигурацию в блоке `nodeGroupSpec`:
+    Чтобы изменить конфигурацию группы хостов типа `{{ OS }}`, воспользуйтесь методом REST API [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#UpdateOpenSearchNodeGroup).
+
+    Чтобы изменить конфигурацию группы хостов типа `Dashboards`, воспользуйтесь методом REST API [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#UpdateDashboardsNodeGroup).
+
+    Передайте в запросе новую конфигурацию в блоке `nodeGroupSpec`:
 
     * [Класс хостов](../concepts/instance-types.md) в параметре `resources.resourcePresetId`.
     * [Тип диска](../concepts/storage.md) в параметре `resources.diskTypeId`.
@@ -123,9 +131,16 @@ keywords:
 
 - API
 
-    Чтобы удалить группу хостов типа `{{ OS }}` или `Dashboards`, воспользуйтесь методом API [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) или [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md), соответственно, и передайте в запросе:
+    Чтобы удалить группу хостов типа `{{ OS }}`, воспользуйтесь методом REST API [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#DeleteOpenSearchNodeGroup).
 
-    * Идентификатор кластера в параметре `clusterID`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    Чтобы удалить группу хостов типа `Dashboards`, воспользуйтесь методом REST API [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#DeleteDashboardsNodeGroup).
+
+    Передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterID`.
+
+      {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+
     * Имя группы хостов, которую вы хотите удалить из кластера, в параметре `name`.
 
 {% endlist %}

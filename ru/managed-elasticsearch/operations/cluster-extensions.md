@@ -22,9 +22,9 @@
 
 - API
 
-    Воспользуйтесь методом API [list](../api-ref/Extension/list) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить список установленных пользовательских расширений, воспользуйтесь методом REST API [list](../api-ref/Extension/list.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/List](../api-ref/grpc/extension_service.md#List) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
-    Идентификатор кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -53,10 +53,12 @@
 
 
 - API
+    
+    Чтобы добавить пользовательское расширение, воспользуйтесь методом REST API [create](../api-ref/Extension/create.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/Create](../api-ref/grpc/extension_service.md#Create) и передайте в запросе:
+    * Идентификатор кластера в параметре `clusterId`.
 
-    Воспользуйтесь методом API [create](../api-ref/Extension/create) и передайте в запросе:
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя расширения в параметре `name`.
 
     
@@ -91,9 +93,12 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Extension/update) и передайте в запросе:
+    Чтобы включить или выключить пользовательское расширение, воспользуйтесь методом REST API [update](../api-ref/Extension/update.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/Update](../api-ref/grpc/extension_service.md#Update) и передайте в запросе:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор кластера в параметре `clusterId`.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
     * Идентификатор пользовательского расширения в параметре `extensionId`. Чтобы узнать идентификатор, [получите список установленных пользовательских расширений](#list).
     * Статус пользовательского расширения в параметре `active`: `true` — включено, `false` — выключено.
     * Список полей конфигурации расширения, которые необходимо изменить, в параметре `updateMask`.
@@ -123,9 +128,12 @@
 
 - API
 
-    Воспользуйтесь методом API [delete](../api-ref/Extension/delete) и передайте в запросе:
+    Чтобы удалить пользовательское расширение, воспользуйтесь методом REST API [delete](../api-ref/Extension/delete.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/Delete](../api-ref/grpc/extension_service.md#Delete) и передайте в запросе:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор кластера в параметре `clusterId`.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+      
     * Идентификатор пользовательского расширения в параметре `extensionId`. Чтобы узнать идентификатор, [получите список установленных пользовательских расширений](#list).
 
 {% endlist %}

@@ -93,6 +93,8 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 
 По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../operations/hosting/certificate.md) в {{ objstorage-name }}.
 
+{% include [redirect-https](../../_includes/storage/redirect-https.md) %}
+
 {% endnote %}
 
 

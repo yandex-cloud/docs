@@ -8,6 +8,8 @@
 
 Доступ к бакету по HTTPS открывается в течение получаса после загрузки сертификата.
 
+{% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
+
 {% endnote %}
 
 ## Выбор сертификата из {{ certificate-manager-name }} {#cert-manager}

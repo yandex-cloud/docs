@@ -296,6 +296,8 @@
 
 {% endlist %}
 
+{% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
+
 ## Условная переадресация запросов {#redirects-on-conditions}
 
 {% list tabs %}
@@ -480,6 +482,8 @@
   Чтобы настроить условную переадресацию запросов к бакету, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
 
 {% endlist %}
+
+{% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
 #### См. также {#see-also}
 

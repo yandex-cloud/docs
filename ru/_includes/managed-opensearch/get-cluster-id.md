@@ -1,0 +1,1 @@
+Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-opensearch/operations/cluster-list.md#list-clusters).
