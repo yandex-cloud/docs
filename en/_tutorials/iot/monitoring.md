@@ -2,19 +2,19 @@
 
 In this scenario, you'll set up monitoring and notifications about changes in sensor readings connected to {{ iot-full-name }}. Sensors are emulated using the {{ sf-full-name }} service. If your sensors are connected, use them.
 
-You don't need to create or configure any VMs for this use case: all operations are based on serverless computing in {{ sf-name }}. The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios/ServerRoomMonitoring).
+You do not need to create or configure any VMs to work with tutorial, as all operations are based on serverless computing in {{ sf-name }}. The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios/ServerRoomMonitoring).
 
 To configure monitoring of sensor readings in the server room:
 1. [Prepare your cloud](#before-you-begin)
 1. [Required paid resources](#paid-resources)
-1. [Create the necessary resources {{ iot-full-name }}](#resources-step)
+1. [Create the required {{ iot-full-name }} resources](#resources-step)
    1. [Create a registry](#registry-step)
    1. [Create a device](#device-step)
 1. [Create a device emulator based on {{ sf-full-name }}](#emulator-step)
    1. [Create a function that emulates transmitting data from the device](#emulation-function)
    1. [Test the data transmission emulation function](#test-emulation-function)
    1. [Create a trigger to call the emulation function once per minute](#minute-trigger)
-   1. [Create a function for processing data received](#processing-function)
+   1. [Create a function for processing received data](#processing-function)
    1. [Test the data processing function](#test-processing-function)
    1. [Create a trigger to call the data processing function with a signal](#signal-trigger)
 1. [Set up sensor reading monitoring](#configure-monitoring)
@@ -28,7 +28,7 @@ To configure monitoring of sensor readings in the server room:
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-If you don't have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
+If you do not have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
 
 
 ### Required paid resources {#paid-resources}
@@ -36,10 +36,10 @@ If you don't have the {{ yandex-cloud }} command line interface yet, [install an
 The cost includes:
 * Fee for the number of messages {{ iot-full-name }} (see [pricing](../../iot-core/pricing.md)).
 * Fee for the number of function calls {{ sf-full-name }} (see [pricing](../../functions/pricing.md)).
-* Fee for logging user metrics via the service API {{ monitoring-full-name }} .
+* Fee for logging user metrics via the service API {{ monitoring-full-name }}.
 
 
-## Create the necessary {{ iot-short-name }} resources {#resources-step}
+## Create the required {{ iot-short-name }} resources {#resources-step}
 
 [Registry](../../iot-core/concepts/index.md#registry) and [device](../../iot-core/concepts/index.md#device) are the main components of the service {{ iot-short-name }} used for exchanging data and commands. Devices can only exchange data if they were created in the same registry.
 
@@ -49,11 +49,11 @@ To create a registry:
 1. In the [management console]({{ link-console-main }}), select the folder where you are running the scenario.
 1. Select **{{ iot-short-name }}**.
 1. Click **Create registry**.
-1. In the **Name** field, enter a name for the registry. For example, `my-registry`.
+1. In the **Name** field, enter a name for the registry, e.g., `my-registry`.
 1. In the **Password** field, set the password to access the registry.
 
    To create a password, you can use the [password generator](https://passwordsgenerator.net/).
-   Don't forget to save your password, you'll need it.
+   Make sure to save your password, as you will need it later.
 1. (optional) In the **Description** field, add additional information about the registry.
 1. Click **Create**.
 
@@ -71,11 +71,11 @@ To create a device:
 1. In the **Password** field, set the password to access the device.
 
    To create a password, you can use the [password generator](https://passwordsgenerator.net/).
-   Don't forget to save your password, you'll need it.
+   Make sure to save your password, as you will need it later.
 1. (optional) In the **Description** field, add additional information about the device.
 1. (optional) Add an alias:
    1. Click **Add alias**.
-   1. Fill in the fields: enter an alias (for example, `events`) and the topic type after `$devices/<deviceID>` (for example, `events`).
+   1. Fill out the fields by providing an alias, e.g., `events`, and the topic type after `$devices/<deviceID>`, e.g., `events`.
 
       You can use the `events` alias instead of the `$devices/<deviceID>/events` topic.
    1. Repeat the steps for each alias you add.
@@ -88,7 +88,7 @@ You can also complete authorization using certificates. Learn more [about author
 
 The emulator sends data from device sensors and handles data for monitoring and alerts.
 
-You'll need:
+You will need to:
 * Create and test a [function](../../functions/concepts/function.md) that emulates transmitting data from each device sensor.
 * Create a [trigger](../../functions/concepts/trigger/index.md) to call the emulation function once per minute.
 * Create and test a function for processing received data.
@@ -101,7 +101,7 @@ To create a function:
 1. Select **{{ sf-name }}**.
 1. In the left part of the window, select **Functions**.
 1. Click **Create function**.
-1. In the **Name** field, enter the name of the function. For example, `my-device-emulator-function`.
+1. In the **Name** field, enter the name of the function, e.g., `my-device-emulator-function`.
 1. (optional) In the **Description** field, add additional information about the function.
 1. Click **Create**.
 1. In the **Editor** window that opens, select `nodejs12` from the **Runtime environment** list.
@@ -111,14 +111,26 @@ To create a function:
 1. Click **Create**.
 1. Select the created file in the left part of the **Code editor** window.
 1. In the right part of the **Code editor** window, insert the function code from [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/ServerRoomMonitoring/device-emulator.js).
+1. Repeat steps 10-14 and, in a similar way, create a `package.json` file containing the following:
+
+   ```json
+   {
+     "name": "my-app",
+     "version": "1.0.0",
+     "dependencies": {
+       "yandex-cloud": "*"
+     }
+   }
+   ```
+
 1. In the **Entry point** field, enter `device-emulator.handler`.
 1. In the **Timeout, sec** field, enter `10`.
 1. In the **Memory** field, leave the value `128 MB`.
 1. Create a service account that the function will use to send data to {{ iot-short-name }}:
    1. Click **Create an account**.
-   1. In the **Create service account** window that opens, enter an account name in the **Name** field. For example, `my-emulator-function-service-account`.
+   1. In the **Create service account** window that opens, enter the account name in the **Name** field, e.g., `my-emulator-function-service-account`.
    1. Add the `serverless.functions.invoker` and `iot.devices.writer` roles for invoking the function and writing data to resources:
-      1. Click the ![image](../../_assets/plus-sign.svg).
+      1. Click the ![image](../../_assets/plus-sign.svg) icon.
       1. Select a role from the list.
       1. Click **Create**.
 1. Set **Environment variables** for each sensor in the server room:
@@ -135,7 +147,7 @@ To create a function:
       | `WATER_SENSOR_VALUE` | State of the water sensor. | `False` |
       | `IOT_CORE_DEVICE_ID` | ID of the device you created. | See in the management console for <br>**{{ iot-short-name }}**. |
       | `DEVICE_ID` | User-defined device name. | Specified by the user. |
-1. In the upper-right part of the window, click **Create version**.
+1. In the top-right part of the window, click **Create version**.
 
 ### Test the emulation function {#test-emulation-function}
 
@@ -148,7 +160,7 @@ To test the function:
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
-      Run the command:
+      Run this command:
 
       ```
       yc iot mqtt subscribe \
@@ -208,7 +220,7 @@ To create a trigger:
 1. Select **{{ sf-name }}**.
 1. Select **Triggers**.
 1. Click **Create trigger**.
-1. In the **Name** field, enter a name for the trigger. For example, `my-emulator-function-trigger`.
+1. In the **Name** field, enter a name for the trigger, e.g., `my-emulator-function-trigger`.
 1. (optional) In the **Description** field, add additional information about the trigger.
 1. Select **Type**: **Timer**.
 1. In the **Cron expression** field, enter `* * * * ? *` (invoke once per minute).
@@ -217,12 +229,12 @@ To create a trigger:
    * **Function version tag**: `$latest`.
    * **Service account**: `my-emulator-function-service-account`.
 1. (optional) Set parameters under **Repeat request settings** and **Dead Letter Queue settings**. They provide data security.
-   * **Repeat request settings** are useful if you want to recall the function when the current function request fails.
-   * **Dead Letter Queue settings** are necessary to forward messages that consumers couldn't process in standard queues.
-      You can configure a standard message queue as a DLQ. If you haven't created a message queue yet, [create one in {{ message-queue-full-name }}](../../message-queue/operations/message-queue-new-queue.md).
+   * **Repeat request settings** are useful if you want to call the function again when the current function request fails.
+   * **Dead Letter Queue settings** are required to forward messages that consumers could not process in standard queues.
+      You can configure a standard message queue as a DLQ. If you do not have a message queue yet, [create one in {{ message-queue-full-name }}](../../message-queue/operations/message-queue-new-queue.md).
 1. Click **Create trigger**.
 
-### Create a function for processing data received {#processing-function}
+### Create a function for processing received data {#processing-function}
 
 To create a function:
 1. In the [management console]({{ link-console-main }}), select the folder where you are running the scenario.
@@ -246,9 +258,9 @@ To create a function:
 1. In the **Memory** field, leave the value `128 MB`.
 1. Create a service account to be used for the function to process data from the device:
    1. Click **Create an account**.
-   1. In the **Create service account** window that opens, enter an account name in the **Name** field. For example, `my-metrics-function-service-account`.
+   1. In the **Create service account** window that opens, enter the account name in the **Name** field. For example, `my-metrics-function-service-account`.
    1. Add the `serverless.functions.invoker` and `editor` roles for invoking functions and editing resources:
-      1. Click the ![image](../../_assets/plus-sign.svg).
+      1. Click the ![image](../../_assets/plus-sign.svg) icon.
       1. Select a role from the list.
       1. Click **Create**.
    1. Configure **Environment variables**:
@@ -257,8 +269,8 @@ To create a function:
          Key | Description | Value
          :----- | :----- | :-----
          `VERBOSE_LOG` | Enabling and disabling data logging. | `True`
-         `METRICS_FOLDER_ID` | ID of the folder where the services are deployed and for which you'll create a dashboard in {{ monitoring-full-name }}. | See the management console.
-1. In the upper-right part of the window, click **Create version**.
+         `METRICS_FOLDER_ID` | ID of the folder where the services are deployed and for which you will create a dashboard in {{ monitoring-full-name }}. | See the management console for details.
+1. In the top-right part of the window, click **Create version**.
 
 ### Test the data processing function {#test-processing-function}
 
@@ -324,9 +336,9 @@ To create a trigger:
    * **Function version tag**: `$latest`.
    * **Service account**: `my-metrics-function-service-account`.
 1. (optional) Set parameters under **Repeat request settings** and **Dead Letter Queue settings**. They provide data security.
-   * **Repeat request settings** are useful if you want to recall the function when the current function request fails.
-   * **Dead Letter Queue settings** are necessary to forward messages that consumers couldn't process in standard queues.
-      You can configure a standard message queue as a DLQ. If you haven't created a message queue yet, [create one in {{ message-queue-full-name }}](../../message-queue/operations/message-queue-new-queue.md).
+   * **Repeat request settings** are useful if you want to call the function again when the current function request fails.
+   * **Dead Letter Queue settings** are required to forward messages that consumers could not process in standard queues.
+      You can configure a standard message queue as a DLQ. If you do not have a message queue yet, [create one in {{ message-queue-full-name }}](../../message-queue/operations/message-queue-new-queue.md).
 1. Click **Create trigger**.
 
 All data from the device will be automatically sent to **{{ monitoring-name }}**.
