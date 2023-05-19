@@ -4,19 +4,19 @@
 
 Чтобы создать алиас:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В правом верхнем углу нажмите кнопку **Создать ресурс**. Во всплывающем окне выберите **Алиас**.
+1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.common.alias }}**.
 1. Задайте параметры алиаса:
-    * В поле **Имя** укажите имя алиаса.
-    * В поле **Префикс** выберите доступный префикс алиаса.
-    * В блоке **Ноды** выберите ноду, на которую будут перенаправляться запросы к алиасу. Укажите процент запросов, который будет перенаправляться к ноде. Чтобы добавить еще одну ноду нажмите ![Add](../../../_assets/plus.svg) **Добавить**.
-    * (Опционально) В блоке **Метаданные** нажмите ![Add](../../../_assets/plus.svg) **Добавить** и укажите метаданные алиаса в формате ключ-значение.
-    * В блоке **Список управления доступом** нажмите ![Add](../../../_assets/plus.svg) **Добавить** и укажите [идентификаторы каталогов](../../../resource-manager/operations/folder/get-id.md), из которых можно будет подключаться к алиасу.
-    * В блоке **Каталог** выберите каталог, в котором будут создаваться новые ресурсы.
-1. Нажмите кнопку **Сохранить**.
+    * В поле **{{ ui-key.yc-ui-datasphere.common.name }}** укажите имя алиаса.
+    * В поле **{{ ui-key.yc-ui-datasphere.common.prefix }}** выберите доступный префикс алиаса.
+    * В блоке **{{ ui-key.yc-ui-datasphere.new-alias.field.label-nodes }}** выберите ноду, на которую будут перенаправляться запросы к алиасу. Укажите процент запросов, который будет перенаправляться к ноде. Чтобы добавить еще одну ноду нажмите ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.new-alias.add-new }}**.
+    * (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-alias.field.label-metadata }}** нажмите ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.new-alias.add-new }}** и укажите метаданные алиаса в формате ключ-значение.
+    * В блоке **{{ ui-key.yc-ui-datasphere.common.folder }}** выберите каталог, в котором будут создаваться новые ресурсы.
+    * В блоке **{{ ui-key.yc-ui-datasphere.new-alias.field.label-acl }}** выберите **{{ ui-key.yc-ui-datasphere.common.type }}** — **{{ ui-key.yc-ui-datasphere.alias.public }}** или **{{ ui-key.yc-ui-datasphere.alias.private }}**.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 Чтобы посмотреть все созданные алиасы:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **Ресурсы** выберите **Алиас**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.common.alias }}**.
 
 #### Что дальше {#what-is-next}
 

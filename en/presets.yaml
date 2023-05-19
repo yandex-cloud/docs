@@ -43986,6 +43986,9 @@ default:
               rename_tables:
                 title: Rename tables
     yc-ui-datasphere:
+      alias:
+        private: Private
+        public: Public
       autosave-commit-mode:
         title: Autosave commit mode
       checkpoint-list-page:
@@ -44025,6 +44028,7 @@ default:
         docker: Docker
         edit: Edit
         endpoint: Endpoint
+        execute: Execute
         folder: Folder
         general: General settings
         link: Link
@@ -44037,6 +44041,7 @@ default:
         port: Port
         prefix: Prefix
         resize: Resize
+        response: Response
         save: Save
         settings-key-value: Settings
         share: Share
@@ -44046,6 +44051,7 @@ default:
         submit: Confirm
         subnet: Subnet
         timeout: Timeout
+        type: Type
         unpin: Unpin
       data-proc:
         available-clusters: Available clusters
@@ -44072,9 +44078,14 @@ default:
       main-page:
         recent-projects: Recent projects
       new-alias:
+        add-new: Add
         field:
+          label-acl: Access control list (ACL)
+          label-metadata: Metadata
           label-nodes: Nodes and load balancing
       new-node:
+        add-acl: Add ACL
+        add-new-zone: Add new availability zone
         endpoint-form-label:
           idle-timeout: Idle timeout
           port: Port
@@ -44091,6 +44102,7 @@ default:
           user-name: Username
         node-form-label:
           checkpoint: Checkpoint
+          Description: Description
           name: Name
           type: Type
         provisioning-form-label:
@@ -44099,6 +44111,7 @@ default:
           http-path: HTTP path
           port: Port
           prometheus: Prometheus
+          yandex-monitoring: Yandex Monitoring
         title:
           acl: Access control list (ACL)
           docker-image: Docker image
@@ -44110,6 +44123,7 @@ default:
           output-variables: Output variables
           provisioning: Provisioning
           telemetry: Telemetry
+        user-custom: Custom
         variables-form-placeholder:
           name: Name
       new-s3-page:
@@ -44124,11 +44138,13 @@ default:
           distribution-by-zones: Distribution by zones
         request:
           create-test-request: Create test request
+          server-response: Server response
         tab:
           logs: Logs
           monitoring: Monitoring
           request: Request
         type:
+          dict: dict
           list: list
       project-page:
         executions: Running executions

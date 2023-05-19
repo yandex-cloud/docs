@@ -1,6 +1,6 @@
 Узнайте идентификатор последней версии [публичного образа](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
 
-Образ {{ coi }} в реестре [{{ container-registry-full-name }}](../../container-registry/) может обновляться и меняться в соответствии с релизами. При этом образ на виртуальной машине не обновится автоматически до последней версии. Чтобы создать группу ВМ с последней версией {{ coi }}, необходимо самостоятельно проверить ее наличие:
+Образ {{ coi }} в реестре [{{ container-registry-name }}](../../container-registry/) может обновляться и меняться в соответствии с релизами. При этом образ на [виртуальной машине](../../compute/concepts/vm.md) не обновится автоматически до последней версии. Чтобы создать [группу ВМ](../../compute/concepts/instance-groups/index.md) с последней версией {{ coi }}, необходимо самостоятельно проверить ее наличие:
 
 {% list tabs %}
 
@@ -18,7 +18,7 @@
   ...
   ```
 
-- Marketplace
+- {{ marketplace-full-name }}
 
   1. Перейдите на страницу {{ marketplace-name }} и выберите образ с нужной конфигурацией:
      * [{{ coi }}](/marketplace/products/yc/container-optimized-image).

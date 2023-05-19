@@ -7,7 +7,6 @@
 {% endnote %}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **Ресурсы** выберите **Нода**.
-1. Выберите [ноду](../../concepts/deploy/index.md#node), которую нужно удалить.
-1. В правом верхнем углу нажмите кнопку **Еще** и выберите ![Delete](../../../_assets/datasphere/delete.svg) **Удалить**.
-1. Во всплывающем окне нажмите кнопку **Подтвердить**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+1. В строке с нужной [нодой](../../concepts/deploy/index.md#node) нажмите ![options](../../../_assets/options.svg) и выберите ![Delete](../../../_assets/datasphere/delete.svg) **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Во всплывающем окне нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.submit }}**.
