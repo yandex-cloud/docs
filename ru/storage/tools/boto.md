@@ -109,7 +109,7 @@
     # Получить список объектов в бакете
     keys_list=bucket.list()
     for key in keys_list:
-        print key.key
+        print (key.key)
     
     # Удалить несколько объектов
     response = bucket.delete_keys(['test-string', 'py_script.py'])
