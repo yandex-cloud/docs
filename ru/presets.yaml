@@ -43994,6 +43994,9 @@ default:
               rename_tables:
                 title: Переименование таблиц
     yc-ui-datasphere:
+      alias:
+        private: Приватный
+        public: Публичный
       autosave-commit-mode:
         title: Автоматическое сохранение состояния
       checkpoint-list-page:
@@ -44033,6 +44036,7 @@ default:
         docker: Docker-образ
         edit: Редактировать
         endpoint: Эндпоинт
+        execute: Выполнить
         folder: Каталог
         general: Общие настройки
         link: Привязать
@@ -44045,6 +44049,7 @@ default:
         port: Порт
         prefix: Префикс
         resize: Изменить размер
+        response: Ответ
         save: Сохранить
         settings-key-value: Настройки
         share: Поделиться
@@ -44054,6 +44059,7 @@ default:
         submit: Подтвердить
         subnet: Подсеть
         timeout: Таймаут
+        type: Тип
         unpin: Открепить
       data-proc:
         available-clusters: Доступные кластеры
@@ -44080,9 +44086,14 @@ default:
       main-page:
         recent-projects: Недавние проекты
       new-alias:
+        add-new: Добавить
         field:
+          label-acl: Список управления доступом (ACL)
+          label-metadata: Метаданные
           label-nodes: Ноды и распределение нагрузки
       new-node:
+        add-acl: Добавить ACL
+        add-new-zone: Добавить новую зону доступности
         endpoint-form-label:
           idle-timeout: Idle timeout
           port: Порт
@@ -44099,6 +44110,7 @@ default:
           user-name: Имя пользователя
         node-form-label:
           checkpoint: Контрольная точка
+          Description: Описание
           name: Имя
           type: Тип
         provisioning-form-label:
@@ -44107,6 +44119,7 @@ default:
           http-path: HTTP-адрес
           port: Порт
           prometheus: Prometheus
+          yandex-monitoring: Yandex Monitoring
         title:
           acl: Список управления доступом (ACL)
           docker-image: Образ Docker
@@ -44118,6 +44131,7 @@ default:
           output-variables: Выходные переменные
           provisioning: Обеспечение
           telemetry: Телеметрия
+        user-custom: Пользовательский
         variables-form-placeholder:
           name: Имя
       new-s3-page:
@@ -44132,11 +44146,13 @@ default:
           distribution-by-zones: Распределение по зонам
         request:
           create-test-request: Создать тестовый запрос
+          server-response: Ответ сервера
         tab:
           logs: Логи
           monitoring: Мониторинг
           request: Запрос
         type:
+          dict: dict
           list: list
       project-page:
         executions: Запущенные операции

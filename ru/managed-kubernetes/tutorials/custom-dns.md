@@ -1,6 +1,6 @@
 # Интеграция с корпоративной зоной DNS
 
-Чтобы интегрировать кластер {{ managed-k8s-name }} с приватной корпоративной зоной DNS:
+Чтобы интегрировать [кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) с приватной корпоративной [зоной](../../dns/concepts/dns-zone.md) [DNS](../../glossary/dns.md):
 1. [{#T}](#setup-zone).
 1. [{#T}](#create-pod).
 1. [{#T}](#verify-dns).
@@ -9,8 +9,8 @@
 
 ## Перед началом работы {#before-you-begin}
 
-В примерах этого сценария DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`. Ваши DNS-серверы могут находиться в {{ vpc-full-name }} или быть доступны через [VPN](../../glossary/vpn.md) или {{ interconnect-full-name }}. Необходимое условие — IP-связность между [узлами](../concepts/index.md#node-group) [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) и DNS-серверами.
-1. Создайте ресурсы {{ k8s }}:
+В примерах этого сценария DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`. Ваши DNS-серверы могут находиться в [{{ vpc-full-name }}](../../vpc/) или быть доступны через [VPN](../../glossary/vpn.md) или [{{ interconnect-full-name }}](../../interconnect/). Необходимое условие — IP-связность между [узлами](../concepts/index.md#node-group) кластера {{ managed-k8s-name }} и DNS-серверами.
+1. Создайте ресурсы {{ managed-k8s-name }}:
 
    {% list tabs %}
 
@@ -20,18 +20,18 @@
 
      1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-     1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md). Группа безопасности кластера должна разрешать входящие подключения к портам `443` и `6443`.
+     1. [Настройте группы безопасности кластера и группы узлов {{ managed-k8s-name }}](../operations/connect/security-groups.md). [Группа безопасности](../../vpc/concepts/security-groups.md) кластера {{ managed-k8s-name }} должна разрешать входящие подключения к портам `443` и `6443`.
 
    - С помощью {{ TF }}
 
      1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-     1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
+     1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
         * [Сеть](../../vpc/concepts/network.md#network).
         * [Подсеть](../../vpc/concepts/network.md#subnet).
         * [Группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию и [правила](../operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
           * Правила для служебного трафика.
-          * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` (через порты 443 и 6443).
+          * Правила для доступа к API {{ k8s }} и управления кластером {{ managed-k8s-name }} с помощью `kubectl` (через порты 443 и 6443).
         * Кластер {{ managed-k8s-name }}.
         * Группа узлов {{ managed-k8s-name }}.
         * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для создания кластера и группы узлов {{ managed-k8s-name }}.
@@ -56,7 +56,7 @@
 
 ## Настройте DNS-сервер {#setup-dns}
 
-При настройке важно, чтобы была IP-связность между узлами кластера {{ managed-k8s-name }} и DNS-серверами. Сами DNS-серверы могут находиться как в [{{ vpc-full-name }}](../../vpc/), так и быть доступными через VPN или [{{ interconnect-full-name }}](../../interconnect/). Далее рассматривается случай, когда DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`.
+При настройке важно, чтобы была IP-связность между узлами кластера {{ managed-k8s-name }} и DNS-серверами. Сами DNS-серверы могут находиться как в {{ vpc-name }}, так и быть доступными через VPN или {{ interconnect-name }}. Далее рассматривается случай, когда DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`.
 
 ## Укажите корпоративную зону DNS {#setup-zone}
 
@@ -94,7 +94,7 @@
 
 ## Создайте под dns-utils {#create-pod}
 
-1. Создайте под:
+1. Создайте [под](../concepts/index.md#pod):
 
    ```bash
    kubectl run jessie-dnsutils \
@@ -143,7 +143,6 @@ Address:  10.129.0.3
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-
 1. Удалите кластер {{ managed-k8s-name }}:
 
    {% list tabs %}
@@ -154,7 +153,7 @@ Address:  10.129.0.3
 
    - С помощью {{ TF }}
 
-     1. В командной строке перейдите в каталог, в котором расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
      1. Удалите ресурсы с помощью команды:
 
         ```bash
@@ -163,7 +162,7 @@ Address:  10.129.0.3
 
         {% note alert %}
 
-        {{ TF }} удалит все ресурсы, которые были созданы с его помощью: кластеры, сети, подсети, виртуальные машины и т. д.
+        {{ TF }} удалит все ресурсы, которые были созданы с его помощью: кластеры {{ managed-k8s-name }}, сети, подсети, [виртуальные машины](../../compute/concepts/vm.md) и т. д.
 
         {% endnote %}
 

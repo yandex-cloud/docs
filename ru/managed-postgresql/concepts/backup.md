@@ -45,6 +45,8 @@ keywords:
 
 О том, как вручную создать резервную копию, читайте в разделе [{#T}](../operations/cluster-backups.md).
 
+{% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
+
 ## Хранение резервной копии {#storage}
 
 Особенности хранения резервных копий в {{ mpg-name }}:

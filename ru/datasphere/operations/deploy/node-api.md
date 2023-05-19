@@ -2,17 +2,17 @@
 
 Отправьте тестовый запрос в [ноду](../../concepts/deploy/index.md#node) из интерфейса {{ ml-platform-name }}:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **Ресурсы** выберите **Нода**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
 1. Выберите ноду, к которой нужно отправить запрос.
-1. Перейдите на вкладку **Запрос**.
-1. В блоке **Создать тестовый запрос** в поле **Input** введите входные переменные запроса в формате `{"a":2,"b":3}` и нажмите кнопку **Выполнить**.
-1. Посмотрите результат обработки запроса в блоке **Ответ**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.node-page.tab.request }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.create-test-request }}** в поле **Input** введите входные переменные запроса в формате `{"a":2,"b":3}` и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.execute }}**.
+1. Посмотрите результат обработки запроса в блоке **{{ ui-key.yc-ui-datasphere.common.response }}**.
 
 {% note info %}
 
 В блоке **Запросы командной строки** приведены примеры запросов в ноду для утилит cURL и gRPCurl.
 
-В блоке **Ответ сервера** приведены коды и описание ответов ноды.
+В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.server-response }}** приведены коды и описание ответов ноды.
 
 {% endnote %}
 

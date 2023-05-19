@@ -1,18 +1,18 @@
 # Настройка NodeLocal DNS Cache
 
-Чтобы снизить нагрузку по DNS-запросам в [кластере {{ k8s }}](../concepts/index.md#kubernetes-cluster), включите NodeLocal DNS Cache. 
+Чтобы снизить нагрузку по [DNS-запросам](../../glossary/dns.md) в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster), включите NodeLocal DNS Cache. 
 
 {% note tip %}
 
-Если кластер содержит более 50 узлов, используйте [автоматическое масштабирование DNS](dns-autoscaler.md).
+Если кластер {{ managed-k8s-name }} содержит более 50 [узлов](../concepts/index.md#node-group), используйте [автоматическое масштабирование DNS](dns-autoscaler.md).
 
 {% endnote %}
 
 По умолчанию [поды](../concepts/index.md#pod) отправляют запросы к [сервису](../concepts/service.md) `kube-dns`. В поле `nameserver` в `/etc/resolv.conf` установлено значение `ClusterIp` сервиса `kube-dns`. Для того, чтобы установить соединение с `ClusterIP`, используется [iptables](https://ru.wikipedia.org/wiki/Iptables) или [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
 
-При включении NodeLocal DNS Cache в кластере разворачивается [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/). На каждом узле начинает работу кеширующий агент (под `node-local-dns`). Поды пользователя теперь отправляют запросы к агенту на своем узле.
+При включении NodeLocal DNS Cache в кластере {{ managed-k8s-name }} разворачивается [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/). На каждом узле {{ managed-k8s-name }} начинает работу кеширующий агент (под `node-local-dns`). Поды пользователя теперь отправляют запросы к агенту на своем узле {{ managed-k8s-name }}.
 
-Если запрос в кеше агента, он возвращает прямой ответ. В ином случае создается TCP-соединение с `kube-dns` `ClusterIP`. По умолчанию кеширующий агент делает cache-miss запросы к `kube-dns` для зоны кластера `cluster.local`.
+Если запрос в кеше агента, он возвращает прямой ответ. В ином случае создается TCP-соединение с `kube-dns` `ClusterIP`. По умолчанию кеширующий агент делает cache-miss запросы к `kube-dns` для [DNS-зоны](../../dns/concepts/dns-zone.md) кластера {{ managed-k8s-name }} `cluster.local`.
 
 С помощью такого плана удается избежать правил DNAT, [connection tracking](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#motivation) и ограничений по [количеству соединений](../../vpc/concepts/limits.md#vpc-limits). Подробнее о NodeLocal DNS Cache смотрите в [документации](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md).
 
@@ -31,28 +31,28 @@
 - Вручную
 
   1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
-  1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `editor`.
-  1. [Создайте кластер {{ k8s }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) с параметрами:
-     * Версия {{ k8s }} — 1.20 или выше.
+  1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `editor`.
+  1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) с параметрами:
+     * [Версия {{ k8s }}](../concepts/release-channels-and-updates.md) — 1.20 или выше.
      * Публичный доступ в интернет.
 
 - С помощью {{ TF }}
 
   1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-  1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf). В файле описаны:
+  1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf). В файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).
      * [Подсеть](../../vpc/concepts/network.md#subnet).
      * [Группа безопасности](../../vpc/concepts/security-groups.md) и [правила](../operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
        * Правила для служебного трафика.
-       * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
+       * Правила для доступа к API {{ k8s }} и управления кластером {{ managed-k8s-name }} с помощью `kubectl` через порты 443 и 6443.
      * Кластер {{ managed-k8s-name }}.
      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов {{ managed-k8s-name }}](../concepts/index.md#node-group).
   1. Укажите в файле конфигурации:
      * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
      * [Версии {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
      * CIDR кластера {{ managed-k8s-name }}.
-     * Имя сервисного аккаунта кластера.
+     * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
   1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -77,7 +77,7 @@
 
 1. {% include [Install kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Узнайте IP-адрес сервиса `kube-dns`:
+1. Узнайте [IP-адрес](../../vpc/concepts/address.md) сервиса `kube-dns`:
 
    ```bash
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
@@ -512,4 +512,4 @@ service "node-local-dns" deleted
 
    {% endlist %}
 
-1. Если для доступа к кластеру или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.
+1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), освободите и [удалите](../../vpc/operations/address-delete.md) их.

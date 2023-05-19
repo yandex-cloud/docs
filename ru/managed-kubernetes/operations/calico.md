@@ -1,9 +1,9 @@
 # Настройка контроллера сетевых политик Calico
 
 [Calico](https://www.projectcalico.org/) — это плагин для {{ k8s }} с открытым исходным кодом, с помощью которого можно управлять сетевыми политиками {{ k8s }}. Calico расширяет стандартные возможности сетевых политик {{ k8s }}, что позволяет:
-* Применять политики к любому объекту: поду, контейнеру, виртуальной машине или интерфейсу.
+* Применять политики к любому объекту: [поду](../concepts/index.md#pod), контейнеру, [виртуальной машине](../../compute/concepts/vm.md) или интерфейсу.
 * Указывать в правилах политики конкретное действие: запретить, разрешить, логировать.
-* Указывать в качестве цели или источника: порт, диапазон портов, протоколы, HTTP- и ICMP-атрибуты, IP-адрес или подсеть и другие объекты.
+* Указывать в качестве цели или источника: порт, диапазон портов, протоколы, HTTP- и ICMP-атрибуты, [IP-адрес](../../vpc/concepts/address.md) или [подсеть](../../vpc/concepts/network.md#subnet) и другие объекты.
 * Регулировать прохождение трафика с помощью настроек DNAT и политик проброса трафика.
 
 Чтобы настроить контроллер сетевых политик Calico:
@@ -31,19 +31,19 @@
 
      1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-     1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-calico.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-calico.tf). В файле описаны:
-        * Сеть.
+     1. Скачайте в ту же рабочую директорию файл конфигурации [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) [k8s-calico.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-calico.tf). В файле описаны:
+        * [Сеть](../../vpc/operations/network-create.md).
         * Подсеть.
-        * Группа безопасности и правила, необходимые для работы кластера:
+        * [Группа безопасности](connect/security-groups.md) и правила, необходимые для работы кластера {{ managed-k8s-name }}:
           * Правила для служебного трафика.
-          * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
+          * Правила для доступа к API {{ k8s }} и управления кластером {{ managed-k8s-name }} с помощью `kubectl` через порты 443 и 6443.
         * Кластер {{ managed-k8s-name }}.
-        * Сервисный аккаунт, необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
+        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов {{ managed-k8s-name }}](../concepts/index.md#node-group).
      1. Укажите в файле конфигурации:
         * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-        * Версию {{ k8s }} для кластера и групп узлов {{ managed-k8s-name }}.
+        * [Версию {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
         * CIDR кластера {{ managed-k8s-name }}.
-        * Имя сервисного аккаунта кластера.
+        * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
      1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -64,7 +64,7 @@
 
 ## Создайте сервис nginx {#create-pod}
 
-1. Создайте под с веб-сервером nginx в пространстве имен `policy-test`. Используйте объект API {{ k8s }} [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
+1. Создайте под с веб-сервером nginx в [пространстве имен](../concepts/index.md#namespace) `policy-test`. Используйте объект API {{ k8s }} [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
 
    ```bash
    kubectl create deployment --namespace=policy-test nginx --image=nginx
@@ -199,7 +199,6 @@ networkpolicy.networking.k8s.io/default-deny created
 ## Создайте сетевые политики, разрешающие доступ к сервису {#create-policy}
 
 Разрешите доступ к веб-серверу nginx с помощью сетевых политик. Сетевые политики разрешат подключаться только поду `access`.
-
 1. Создайте сетевые политики `access-nginx`:
 
    ```yaml
@@ -223,7 +222,7 @@ networkpolicy.networking.k8s.io/default-deny created
 
    {% note info %}
 
-   Сетевые политики разрешат трафик от подов с меткой `run: access` к подам с меткой `app: nginx`. Метки автоматически добавляются утилитой kubectl и основаны на имени ресурса.
+   Сетевые политики разрешат трафик от подов с [меткой](../concepts/index.md#node-labels) `run: access` к подам с меткой `app: nginx`. Метки автоматически добавляются утилитой kubectl и основаны на имени ресурса.
 
    {% endnote %}
 
@@ -338,7 +337,7 @@ networkpolicy.networking.k8s.io/default-deny created
 - Вручную
 
   1. [Удалите кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+  1. Если вы зарезервировали для кластера {{ managed-k8s-name }} публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
 
 - С помощью {{ TF }}
 

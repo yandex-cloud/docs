@@ -659,8 +659,7 @@
 
     * Новые значения [настроек {{ KF }}](../concepts/settings-list.md#cluster-settings) в параметре:
         * `configSpec.kafka.kafkaConfig_2_8`, если используете {{ KF }} версии `2.8`;
-        * `configSpec.kafka.kafkaConfig_3_0`, если используете {{ KF }} версии `3.0`;
-        * `configSpec.kafka.kafkaConfig_3_1`, если используете {{ KF }} версии `3.1`.
+        * `configSpec.kafka.kafkaConfig_3`, если используете {{ KF }} версий `3.x`.
 
     * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 

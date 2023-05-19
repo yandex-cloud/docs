@@ -1,5 +1,5 @@
-1. На [стартовой странице]({{ link-console-cloud }}) выберите облако и нажмите кнопку ![Create icon](../_assets/create.png) **Создать каталог**.
-1. Введите имя каталога. Требования к имени:
+1. В [консоли управления]({{ link-console-main }}) выберите [облако](../resource-manager/concepts/resources-hierarchy.md#cloud) и нажмите кнопку ![Create icon](../_assets/create.png) **Создать каталог**.
+1. Введите имя [каталога](../resource-manager/concepts/resources-hierarchy.md#folder). Требования к имени:
 
     {% include [name-format](name-format.md) %}
 

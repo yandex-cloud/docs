@@ -1,8 +1,8 @@
 # Автоматическое масштабирование DNS по размеру кластера
 
-В {{ managed-k8s-name }} поддерживается автоматическое масштабирование сервиса DNS. В [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) работает приложение `kube-dns-autoscaler`, которое регулирует количество реплик CoreDNS в зависимости от:
-* Количества [узлов](../concepts/index.md#node-group) в кластере.
-* [Количества ядер (vCPU)](../../compute/concepts/performance-levels.md) в кластере.
+В {{ managed-k8s-name }} поддерживается автоматическое масштабирование сервиса [DNS](../../glossary/dns.md). В [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) работает приложение `kube-dns-autoscaler`, которое регулирует количество реплик CoreDNS в зависимости от:
+* Количества [узлов](../concepts/index.md#node-group) в кластере {{ managed-k8s-name }}.
+* [Количества ядер (vCPU)](../../compute/concepts/performance-levels.md) в кластере {{ managed-k8s-name }}.
 
 Количество реплик рассчитывается [с помощью формул](#parameters).
 
@@ -16,7 +16,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Создайте ресурсы {{ k8s }}:
+1. Создайте ресурсы {{ managed-k8s-name }}:
 
    {% list tabs %}
 
@@ -26,20 +26,20 @@
 
      1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-     1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md). [Группа безопасности](../../vpc/concepts/security-groups.md) кластера должна разрешать входящие подключения к портам `443` и `6443`.
+     1. [Настройте группы безопасности кластера и группы узлов {{ managed-k8s-name }}](../operations/connect/security-groups.md). [Группа безопасности](../../vpc/concepts/security-groups.md) кластера {{ managed-k8s-name }} должна разрешать входящие подключения к портам `443` и `6443`.
 
    - С помощью {{ TF }}
 
      1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-     1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
+     1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
         * [Сеть](../../vpc/concepts/network.md#network).
         * [Подсеть](../../vpc/concepts/network.md#subnet).
         * [Группа безопасности по умолчанию и правила](../operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
           * Правила для служебного трафика.
-          * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` (через порты 443 и 6443).
+          * Правила для доступа к API {{ k8s }} и управления кластером {{ managed-k8s-name }} с помощью `kubectl` (через порты 443 и 6443).
         * Кластер {{ managed-k8s-name }}.
-        * [Группа узлов {{ managed-k8s-name }}](../concepts/index.md#node-group).
+        * Группа узлов {{ managed-k8s-name }}.
         * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для создания кластера и группы узлов {{ managed-k8s-name }}.
      1. Укажите в файле конфигурации [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
      1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
@@ -80,7 +80,7 @@ kube-dns-autoscaler  1/1    1           1          52m
 
 ### Определите параметры масштабирования {#parameters}
 
-[Под](../concepts/index.md#pod) `kube-dns-autoscaler` периодически запрашивает у сервера {{ k8s }} данные о количестве узлов и ядер в кластере. На основании этих данных выполняется расчет количества реплик CoreDNS.
+[Под](../concepts/index.md#pod) `kube-dns-autoscaler` периодически запрашивает у сервера {{ k8s }} данные о количестве узлов и ядер в кластере {{ managed-k8s-name }}. На основании этих данных выполняется расчет количества реплик CoreDNS.
 
 Возможны два вида расчета:
 * Linear (линейный режим).
@@ -95,16 +95,16 @@ replicas = max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerRepl
 ```
 
 Где:
-* `coresPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждое ядро (vCPU) кластера.
-* `nodesPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждый узел (Node) кластера.
-* `cores` — фактическое количество ядер (vCPU) в кластере.
-* `nodes` — фактическое количество узлов (Node) в кластере.
+* `coresPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждое ядро (vCPU) кластера {{ managed-k8s-name }}.
+* `nodesPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждый узел (Node) кластера {{ managed-k8s-name }}.
+* `cores` — фактическое количество ядер (vCPU) в кластере {{ managed-k8s-name }}.
+* `nodes` — фактическое количество узлов (Node) в кластере {{ managed-k8s-name }}.
 * `ceil` — функция округления дроби до целого.
 * `max` — функция определения максимума из двух значений.
 
-Дополнительный параметр `preventSinglePointFailure` актуален, если в кластере больше одного узла. Когда параметр установлен в `true`, минимальное количество реплик DNS равно двум.
+Дополнительный параметр `preventSinglePointFailure` актуален, если в кластере {{ managed-k8s-name }} больше одного узла. Когда параметр установлен в `true`, минимальное количество реплик DNS равно двум.
 
-Также можно определить параметры конфигурации `min` и `max`, которые задают минимальное и максимальное количество реплик CoreDNS в кластере:
+Также можно определить параметры конфигурации `min` и `max`, которые задают минимальное и максимальное количество реплик CoreDNS в кластере {{ managed-k8s-name }}:
 
 ```text
 replicas = min(replicas, max)
@@ -117,8 +117,8 @@ replicas = max(replicas, min)
 
 1. Проверьте текущие параметры.
 
-   В этом примере создана группа узлов `node-group-1` с параметрами:
-   * Количество узлов — `3`.
+   В этом примере создана группа узлов {{ managed-k8s-name }} `node-group-1` с параметрами:
+   * Количество узлов {{ managed-k8s-name }} — `3`.
    * Количество ядер (vCPU) — `12`.
 
    По умолчанию установлен режим `linear` и следующие параметры масштабирования:
@@ -180,9 +180,9 @@ replicas = max(replicas, min)
 
 ## Проверьте масштабирование {#test-autoscaler}
 
-### Измените размер кластера {#resize-cluster}
+### Измените размер кластера {{ managed-k8s-name }} {#resize-cluster}
 
-Создайте вторую группу узлов с помощью команды:
+Создайте вторую группу узлов {{ managed-k8s-name }} с помощью команды:
 
 ```bash
 yc managed-kubernetes node-group create \
@@ -202,7 +202,7 @@ done (2m43s)
 ...
 ```
 
-Теперь в кластере 5 узлов с 20 ядрами. Рассчитайте количество реплик:
+Теперь в кластере {{ managed-k8s-name }} 5 узлов с 20 ядрами. Рассчитайте количество реплик:
 
 ```text
 replicas = max( ceil( 20 * 1/4 ), ceil( 5 * 1/2 ) ) = 5
@@ -228,11 +228,11 @@ coredns-7c646474c9-r2lss  1/1    Running  0         49m
 coredns-7c646474c9-s5jgz  1/1    Running  0         57m
 ```
 
-### Настройте уменьшение количества узлов {#reduce-nodes}
+### Настройте уменьшение количества узлов {{ managed-k8s-name }} {#reduce-nodes}
 
-По умолчанию {{ k8s-ca }} не уменьшает количество узлов в группе узлов с автоматическим масштабированием, если на этих узлах присутствуют поды из пространства имен `kube-system` под управлением контроллеров репликаций приложений [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) или [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/), например, поды CoreDNS. В этом случае количество узлов в группе не может стать меньше числа подов CoreDNS.
+По умолчанию {{ k8s-ca }} не уменьшает количество узлов в группе узлов {{ managed-k8s-name }} с автоматическим масштабированием, если на этих узлах присутствуют поды из пространства имен `kube-system` под управлением контроллеров репликаций приложений [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) или [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/), например, поды CoreDNS. В этом случае количество узлов {{ managed-k8s-name }} в группе не может стать меньше числа подов CoreDNS.
 
-Чтобы разрешить уменьшение числа узлов, сконфигурируйте для них объект [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/), в котором есть возможность останавливать до двух подов CoreDNS одновременно:
+Чтобы разрешить уменьшение числа узлов {{ managed-k8s-name }}, сконфигурируйте для них объект [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/), в котором есть возможность останавливать до двух подов CoreDNS одновременно:
 
 ```bash
 kubectl create poddisruptionbudget <имя pdb> \

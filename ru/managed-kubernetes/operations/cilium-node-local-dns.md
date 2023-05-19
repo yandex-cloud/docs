@@ -1,8 +1,8 @@
 # Настройка NodeLocal DNS для контроллера сетевых политик Cilium
 
-Из этой статьи вы узнаете, как настроить локальный DNS для [контроллера сетевых политик Cilium](../concepts/network-policy.md#cilium) с помощью [Local Redirect Policy](https://docs.cilium.io/en/v1.9/gettingstarted/local-redirect-policy/).
+Из этой статьи вы узнаете, как настроить локальный [DNS](../../glossary/dns.md) для [контроллера сетевых политик Cilium](../concepts/network-policy.md#cilium) с помощью [Local Redirect Policy](https://docs.cilium.io/en/v1.9/gettingstarted/local-redirect-policy/).
 
-Чтобы настроить локальный DNS в кластере {{ k8s }}:
+Чтобы настроить локальный DNS в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster):
 1. [Подготовьте спецификации для NodeLocal DNS и Local Redirect Policy](#create-manifests).
 1. [Создайте тестовое окружение](#create-test-environment).
 1. [Проверьте работу NodeLocal DNS](#test-nodelocaldns).
@@ -10,14 +10,14 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) `k8s.tunnelClusters.agent` и `vpc.publicAdmin`.
-1. [Создайте кластер](kubernetes-cluster/kubernetes-cluster-create.md) {{ k8s }} любой подходящей конфигурации.
+1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
 
    В блоке **Сетевые настройки кластера** выберите опцию **Включить туннельный режим**.
 1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей конфигурации.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Узнайте IP-адрес сервиса `kube-dns`:
+1. Узнайте [IP-адрес](../../vpc/concepts/address.md) сервиса `kube-dns`:
 
    ```bash
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
@@ -259,7 +259,7 @@
 
 ## Создайте тестовое окружение {#create-test-environment}
 
-Для проверки работы локального DNS в кластере будет запущен [под](../concepts/index.md#pod) `nettool`, содержащий в себе пакет сетевых утилит `dnsutils`.
+Для проверки работы локального DNS в кластере {{ managed-k8s-name }} будет запущен [под](../concepts/index.md#pod) `nettool`, содержащий в себе пакет сетевых утилит `dnsutils`.
 1. Запустите под `nettool`:
 
    
@@ -275,7 +275,7 @@
    kubectl get pods
    ```
 
-1. Выясните, на каком узле кластера {{ k8s }} развернут под `nettool`:
+1. Выясните, на каком [узле](../concepts/index.md#node-group) кластера {{ managed-k8s-name }} развернут под `nettool`:
 
    ```bash
    kubectl get pod nettool -o wide
@@ -371,6 +371,5 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
-
-1. [Удалите кластер {{ k8s }}](kubernetes-cluster/kubernetes-cluster-delete.md).
-1. Если для доступа к кластеру или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.
+1. [Удалите кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-delete.md).
+1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.
