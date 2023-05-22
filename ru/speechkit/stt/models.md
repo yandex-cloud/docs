@@ -34,6 +34,7 @@
 | `es-ES` | испанский                                                   |
 | `fi-FI` | финский                                                     |
 | `fr-FR` | французский                                                 |
+| `he-HE`| иврит |
 | `it-IT` | итальянский                                                 |
 | `kk-KZ` | казахский                                                   |
 | `nl-NL` | голландский                                                 |
@@ -55,6 +56,6 @@
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](streaming.md)
-  * [{#T}](request.md)
+* [{#T}](request.md)
 * [{#T}](transcribation.md)
 * [{#T}](additional-training.md)

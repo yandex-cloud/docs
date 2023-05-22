@@ -31,6 +31,7 @@ Syntax:
 |`--slowlog-max-len`|<b>`int`</b><br/>Maximum length of slow operations log.|
 |`--slowlog-log-slower-than`|<b>`int`</b><br/>Threshold in milliseconds to log slow operations.|
 |`--databases`|<b>`int`</b><br/>Number of Redis databases.|
+|`--maxmemory-percent`|<b>`int`</b><br/>Redis maxmemory usage in percent. Values: 1-75|
 |`--client-output-buffer-limit-normal`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Redis client output buffer limit normal limits.<br/><br/>Possible property names:<br/><ul> <li><code>hard</code>:     Redis client output buffer limit normal hard limit.</li> <li><code>soft</code>:     Redis client output buffer limit normal soft limit.</li> <li><code>secs</code>:     Redis client output buffer limit normal soft seconds.</li> </ul>|
 |`--client-output-buffer-limit-pubsub`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Redis client output buffer limit pubsub limits.<br/><br/>Possible property names:<br/><ul> <li><code>hard</code>:     Redis client output buffer limit pubsub hard limit.</li> <li><code>soft</code>:     Redis client output buffer limit pubsub soft limit.</li> <li><code>secs</code>:     Redis client output buffer limit pubsub soft seconds.</li> </ul>|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|

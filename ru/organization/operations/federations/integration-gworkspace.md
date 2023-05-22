@@ -75,6 +75,8 @@
 
      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
+  1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
+
 - CLI
 
     {% include [cli-install](../../../_includes/cli-install.md) %}

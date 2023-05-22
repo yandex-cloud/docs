@@ -64,6 +64,8 @@
 
      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
+  1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
+
   1. Настройте сервер поставщика удостоверений, чтобы он передавал в {{ yandex-cloud }} информацию об успешной аутентификации и атрибуты пользователя.
 
    Атрибуты пользователей, которые поддерживают сервисы {{ org-full-name }}, перечислены в разделе [{#T}](#claims-mapping).

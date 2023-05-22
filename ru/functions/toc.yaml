@@ -399,6 +399,8 @@ items:
           Автоматическое копирование объектов из одного бакета {{
           objstorage-name }} в другой
         href: tutorials/bucket-to-bucket.md
+      - name: Запуск вычислений по расписанию в {{ ml-platform-name }}
+        href: tutorials/regular-launch-datasphere.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом
