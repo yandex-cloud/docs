@@ -116,7 +116,7 @@
     
     # Получить объект
     key = bucket.get_key('script/py_script.py')
-    print key.get_contents_as_string()
+    print (key.get_contents_as_string())
     ```
 
   {% endcut %}
