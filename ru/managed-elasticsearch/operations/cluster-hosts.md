@@ -42,9 +42,9 @@ keywords:
 
 - API
 
-  Воспользуйтесь методом API `listHosts`: передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+  Чтобы получить список хостов в кластере, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -122,11 +122,14 @@ keywords:
 
 - API
 
-  Воспользуйтесь методом API `addHosts`: передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+  Чтобы добавить хосты в кластер, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и передайте в запросе:
+  * Идентификатор кластера в параметре `clusterId`.
 
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
-  Добавьте требуемое количество параметров `hostSpecs` с настройками хоста (по одному параметру на каждый добавляемый хост).
+  * Настройки нового хоста в одном или нескольких параметрах `hostSpecs`.
+
+  {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -191,10 +194,11 @@ keywords:
 
 - API
 
-  Воспользуйтесь методом API `deleteHosts`: передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+  Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) и передайте в запросе:
+  * Идентификатор кластера в параметре `clusterId`.
 
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-
-  В одном или более параметре `hostNames[]` укажите имена хостов, которые вы хотите удалить из кластера.
+    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+    
+  * Имя или массив имен удаляемых хостов в параметре `hostNames`.
 
 {% endlist %}

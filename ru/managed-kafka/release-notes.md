@@ -4,6 +4,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## I квартал 2023 {#q1-2023}
+
+* Новая версия {{ KF }} 3.3 доступна в окружении `PRODUCTION`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+
 ## IV квартал 2022 {#q4-2022}
 
 * Добавлена поддержка настройки [Sasl enabled mechanisms](concepts/settings-list.md#settings-sasl-enabled-mechanisms), позволяющей задать доступные при подключении к кластеру механизмы шифрования.

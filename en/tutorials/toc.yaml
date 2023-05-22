@@ -415,4 +415,8 @@ items:
         href: serverless/movies-database.md
       - name: Developing a skill for Alice and a website with authorization
         href: serverless/alice-shareable-todolist.md
+      - name: Building a CI/CD pipeline in {{ GL }}
+        href: serverless/ci-cd-serverless.md
+      - name: Creating an interactive serverless application using WebSocket
+        href: serverless/websocket-app.md
 base: en/tutorials
