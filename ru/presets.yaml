@@ -738,6 +738,8 @@ default:
   taas: TaaS
   ml-project-size: 10 ГБ
   jlab: Jupyter
+  dd: Dedicated
+  ds: Serverlesss
   search-api-request-ch: 400 символов
   search-api-request-w: 40 слов
   ds-api-addr: datasphere.api.cloud.yandex.net:443
