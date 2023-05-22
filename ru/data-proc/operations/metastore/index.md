@@ -20,4 +20,5 @@ noIndex: true
 Вы можете:
 
 * [Создать сервер {{ metastore-name }}](./cluster-create.md).
+* [Подключить {{ dataproc-name }} к {{ metastore-name }}](./dataproc-connect.md).
 * [Удалить сервер {{ metastore-name }}](./cluster-delete.md).

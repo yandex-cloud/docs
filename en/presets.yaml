@@ -42658,6 +42658,9 @@ default:
         label_endpoint-type-POSTGRES: PostgreSQL
         label_endpoints: Endpoints
         label_monitoring: Monitoring
+      dataproc:
+        jobs:
+          field_main-python-file: Main python file
       dns:
         button_zone-create: Create zone
         label_additional-settings: Additional settings
@@ -42691,6 +42694,7 @@ default:
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
             label_monitoring: Monitoring
+            label_serverless-functions: Cloud Functions
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
             value_data-proc: Data Proc cluster
@@ -42805,17 +42809,26 @@ default:
           editor:
             button_action-continue: Continue
             button_deploy-version: Create version
+            create-file: Create file
             field_environment-variables: Environment variables
             field_resources-memory: Memory
             field_timeout: Timeout, sec
+            label_lang-python: Python
             label_lockbox-secret: Yandex Lockbox secrets
             label_title-params: Parameters
+            label_with-template: Add files with code examples
+            value_method-editor: Code editor
             value_method-zip-file: ZIP archive
+          logs:
+            button_editor-create: Create in editor
+          overview:
+            label_title-latest-version: Last version
         list:
           button_create: Create function
         switch_list-triggers: Triggers
         triggers:
           form:
+            button_create-function: Create function
             button_create-trigger: Create trigger
             field_bucket: Bucket
             field_event-types: Event types
@@ -42825,9 +42838,11 @@ default:
             field_type: Type
             label_function: Function
             label_storage: Object Storage
+            label_timer: Timer
             section_base: Basic settings
             section_function: Function settings
             section_storage: Object Storage settings
+            section_timer: Timer settings
             value_event-type-create-object: Create object
           list:
             button_create: Create trigger

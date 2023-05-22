@@ -44,6 +44,9 @@ items:
           - name: Создание сервера {{ metastore-name }}
             hidden: true
             href: operations/metastore/cluster-create.md
+          - name: Подключение {{ dataproc-name }} к {{ metastore-name }}
+            hidden: true
+            href: operations/metastore/dataproc-connect.md
           - name: Удаление сервера {{ metastore-name }}
             hidden: true
             href: operations/metastore/cluster-delete.md
@@ -99,6 +102,9 @@ items:
           Импорт данных из {{ objstorage-full-name }}, обработка и экспорт в {{
           mch-full-name }}
         href: tutorials/s3-dataproc-ch.md
+      - name: Совместная работа с таблицами с использованием {{ metastore-name }}
+        hidden: true
+        href: tutorials/dataproc-to-dataproc.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

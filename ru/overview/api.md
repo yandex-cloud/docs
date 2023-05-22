@@ -28,7 +28,7 @@
 | {{ iam-full-name }}                     | [gRPC](../iam/api-ref/grpc/)<br>[REST](../iam/api-ref/) |
 | {{ iot-full-name }}                     | [Devices gRPC](../iot-core/api-ref/grpc/)<br>[Devices REST](../iot-core/api-ref/)<br>[Broker gRPC](../iot-core/broker/api-ref/grpc/)<br>[Broker REST](../iot-core/broker/api-ref/) |
 | {{ kms-full-name }}                     | [gRPC](../kms/api-ref/grpc/)<br>[REST](../kms/api-ref/) |
-| {{ lockbox-name }} {{ tag-preview }} | [gRPC](../lockbox/api-ref/grpc/)<br>[REST](../lockbox/api-ref/) |
+| {{ lockbox-name }}  | [gRPC](../lockbox/api-ref/grpc/)<br>[REST](../lockbox/api-ref/) |
 | {{ mkf-full-name }}                     | [gRPC](../managed-kafka/api-ref/grpc/)<br>[REST](../managed-kafka/api-ref/) |
 | {{ mch-full-name }}                     | [gRPC](../managed-clickhouse/api-ref/grpc/)<br>[REST](../managed-clickhouse/api-ref/) |
 | {{ mes-full-name }}                     | [gRPC](../managed-elasticsearch/api-ref/grpc/)<br>[REST](../managed-elasticsearch/api-ref/) |

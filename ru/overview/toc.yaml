@@ -6,13 +6,7 @@ items:
   - name: Начало работы
     href: quickstart.md
   - name: Мобильное приложение
-    items:
-      - name: Обзор
-        href: mobile-app/index.md
-      - name: Для Android
-        href: mobile-app/android.md
-      - name: Для iOS
-        href: mobile-app/ios.md
+    href: mobile-app/index.md
   - name: Сопоставление с другими платформами
     items:
       - name: Обзор

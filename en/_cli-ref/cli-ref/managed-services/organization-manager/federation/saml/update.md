@@ -27,6 +27,7 @@ Syntax:
 |`--auto-create-account-on-login`|Controls whether to create federated user accounts on first login to the federation.|
 |`--sso-url`|<b>`string`</b><br/>Specifies a SSO URL of the federation.|
 |`--encrypted-assertions`|Controls whether to encrypt SAML assertions.|
+|`--force-authn`|Controls parameter ForceAuthn in SAMLRequest.|
 |`--case-insensitive-name-ids`|Controls whether federated users Name IDs should be case insensitive.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

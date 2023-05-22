@@ -104,6 +104,8 @@
 
      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
+  1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
+
   1. Нажмите кнопку **Создать федерацию**.
 
 - CLI

@@ -847,6 +847,7 @@ default:
   port-mrd-tls: 6380
   port-mrd: 6379
   port-ssh: 22
+  port-metastore: 9083
   objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
   objstorage-sftps-gateway-version: '1.0'
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
@@ -42668,6 +42669,9 @@ default:
         label_endpoint-type-POSTGRES: PostgreSQL
         label_endpoints: Эндпоинты
         label_monitoring: Мониторинг
+      dataproc:
+        jobs:
+          field_main-python-file: Main python файл
       dns:
         button_zone-create: Создать зону
         label_additional-settings: Дополнительные настройки
@@ -42701,6 +42705,7 @@ default:
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
             label_monitoring: Monitoring
+            label_serverless-functions: Cloud Functions
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
             value_data-proc: Кластер Data Proc
@@ -42815,17 +42820,26 @@ default:
           editor:
             button_action-continue: Продолжить
             button_deploy-version: Создать версию
+            create-file: Создать файл
             field_environment-variables: Переменные окружения
             field_resources-memory: Память
             field_timeout: Таймаут, c
+            label_lang-python: Python
             label_lockbox-secret: Секреты Yandex Lockbox
             label_title-params: Параметры
+            label_with-template: Добавить файлы с примерами кода
+            value_method-editor: Редактор кода
             value_method-zip-file: ZIP-архив
+          logs:
+            button_editor-create: Создать в редакторе
+          overview:
+            label_title-latest-version: Последняя версия
         list:
           button_create: Создать функцию
         switch_list-triggers: Триггеры
         triggers:
           form:
+            button_create-function: Создать функцию
             button_create-trigger: Создать триггер
             field_bucket: Бакет
             field_event-types: Типы событий
@@ -42835,9 +42849,11 @@ default:
             field_type: Тип
             label_function: Функция
             label_storage: Object Storage
+            label_timer: Таймер
             section_base: Базовые параметры
             section_function: Настройки функции
             section_storage: Настройки Object Storage
+            section_timer: Настройки таймера
             value_event-type-create-object: Создание объекта
           list:
             button_create: Создать триггер

@@ -167,6 +167,8 @@ items:
         href: tutorials/stable-diffusion.md
       - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
         href: tutorials/data-from-metrica-yc-visualization.md
+      - name: Запуск вычислений по расписанию
+        href: tutorials/regular-launch.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

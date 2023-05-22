@@ -60,3 +60,4 @@ Syntax:
 - [yc organization-manager](managed-services/organization-manager/index.md) — Manage Yandex Organization Manager resources
 - [yc desktops](managed-services/desktops/index.md) — [PREVIEW] Manage Desktop resources
 - [yc storage](managed-services/storage/index.md) — Manage Yandex Object Storage resources
+- [yc backup](managed-services/backup/index.md) — Manage Yandex Cloud Backup resources
