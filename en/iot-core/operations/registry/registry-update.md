@@ -40,7 +40,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the name of a registry created using {{ TF }}:
 
@@ -59,25 +59,25 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
       For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -94,7 +94,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
 - API
 
-   You can change the registry name using the API [update](../../api-ref/Registry/update.md) method.
+   To rename a registry, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -137,7 +137,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the description of a registry created using {{ TF }}:
 
@@ -156,25 +156,25 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
       For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -191,7 +191,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
 - API
 
-   You can update the registry description using the API [update](../../api-ref/Registry/update.md) method.
+   To update a registry description, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -241,7 +241,7 @@ You can perform the following actions related to registry labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add a label to a registry created using {{ TF }}:
 
@@ -267,25 +267,25 @@ You can perform the following actions related to registry labels:
 
       For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -302,11 +302,11 @@ You can perform the following actions related to registry labels:
 
 - API
 
-   You can add a label to a registry using the API [update](../../api-ref/Registry/update.md) method.
+   To add a label to a registry, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
 
 {% endlist %}
 
-### Updating a label {#update-label}
+### Editing a label {#update-label}
 
 {% list tabs %}
 
@@ -350,7 +350,7 @@ You can perform the following actions related to registry labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the label of a registry created using {{ TF }}:
 
@@ -371,25 +371,25 @@ You can perform the following actions related to registry labels:
 
       For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -406,7 +406,7 @@ You can perform the following actions related to registry labels:
 
 - API
 
-   You can update a registry label using the API [update](../../api-ref/Registry/update.md) method.
+   To update a registry label, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -446,7 +446,7 @@ You can perform the following actions related to registry labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete the label of a registry created using {{ TF }}:
 
@@ -467,25 +467,25 @@ You can perform the following actions related to registry labels:
 
       For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -502,6 +502,6 @@ You can perform the following actions related to registry labels:
 
 - API
 
-   You can delete a registry label using the API [update](../../api-ref/Registry/update.md) method.
+   To delete a registry label, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
 
 {% endlist %}

@@ -93,7 +93,7 @@ Registries subscribed to this topic will know which device sent the data, becaus
 
 - API
 
-   You can send data from a device to a device topic using the API [publish](../api-ref/DeviceData/publish.md) method.
+   To send device data to a device topic, use the [publish](../api-ref/DeviceData/publish.md) REST API method for the [DeviceData](../api-ref/DeviceData/index.md) resource or the [DeviceDataService/Publish](../api-ref/grpc/device_data_service.md#Publish) gRPC API call.
 
 {% endlist %}
 
@@ -165,7 +165,7 @@ The registry subscribed to this topic will not know which device sent the data, 
 
 - API
 
-   You can send data from a device to a registry topic using the API [publish](../api-ref/DeviceData/publish.md) method.
+  To send device data to a registry topic, use the [publish](../api-ref/DeviceData/publish.md) REST API method for the [DeviceData](../api-ref/DeviceData/index.md) resource or the [DeviceDataService/Publish](../api-ref/grpc/device_data_service.md#Publish) gRPC API call.
 
 {% endlist %}
 
@@ -240,7 +240,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 - API
 
-   You can send a command to a single device using the API [publish](../api-ref/RegistryData/publish.md) method.
+  To send a command to a single device, use the [publish](../api-ref/RegistryData/publish.md) REST API method for the [RegistryData](../api-ref/RegistryData/index.md) resource or the [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish) gRPC API call.
 
 {% endlist %}
 
@@ -310,7 +310,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 - API
 
-   You can send a command to all devices added to a registry using the API [publish](../api-ref/RegistryData/publish.md) method.
+  To send a command to all devices added to a registry, use the [publish](../api-ref/RegistryData/publish.md) REST API method for the [RegistryData](../api-ref/RegistryData/index.md) resource or the [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish) gRPC API call.
 
 {% endlist %}
 
@@ -360,6 +360,6 @@ When using a broker, you can send a message to a random topic using your usernam
 
 - API
 
-   You can send a message in a broker using the API [publish](../broker/api-ref/BrokerData/publish.md) method.
+  To send a message in a broker, use the [publish](../broker/api-ref/BrokerData/publish.md) REST API method for the [BrokerData](../broker/api-ref/BrokerData/index.md) resource or the [BrokerDataService/Publish](../broker/api-ref/grpc/broker_data_service.md#Publish) gRPC API call.
 
 {% endlist %}

@@ -56,7 +56,7 @@
         registry_id = "<идентификатор реестра>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
-      ...  
+      ...
       }
       ```
 

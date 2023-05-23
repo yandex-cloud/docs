@@ -20,7 +20,7 @@ In addition, there is a common folder named `infra`. It contains a [{{ container
 
 To build a CI/CD pipeline using serverless products:
 1. [Create a {{ GL }} instance](#create-gitlab).
-1. [Configure {{ GL }} ](#configure-gitlab).
+1. [Configure {{ GL }}](#configure-gitlab).
 1. [Create a {{ GLR }}](#runner).
 1. [Upload files to the {{ GL }} repository](#add-files).
 1. [Create {{ GL }} environment variables](#add-variables).
@@ -33,10 +33,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Download a project {#download-project}
 
-Copy the project files from the [cicddemo-gitlab](https://github.com/yandex-cloud/examples/tree/master/serverless/cicddemo-gitlab) directory or clone the [examples](https://github.com/yandex-cloud/examples) repository using Git:
+Clone the [yc-serverless-gitlab-ci-cd repository](https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd) using Git:
 
 ```bash
-git clone https://github.com/yandex-cloud/examples.git
+git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.git
 ```
 
 ### Install additional dependencies {#prepare}
@@ -109,7 +109,7 @@ Install the {{ GLR }} application by following [this guide](../../managed-kubern
 
 1. [Add an SSH key to securely access {{ GL }}](https://docs.gitlab.com/ee/user/ssh.html).
 1. [Clone the `gitlab-test` repository](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-with-ssh) using SSH.
-1. Copy all files from the `cicddemo-gitlab` directory to `gitlab-test`.
+1. Copy all files from the `yc-serverless-gitlab-ci-cd` repository to `gitlab-test`.
 1. Go to the `gitlab-test` directory.
 1. Index the new files:
 
@@ -149,7 +149,7 @@ Install the {{ GLR }} application by following [this guide](../../managed-kubern
 
    To add a variable:
    1. Click **Add variable**.
-   1. In the resulting window, enter the variable name in the **Key** field and the value in the **Value** field.
+   1. In the window that opens, enter the variable name in the **Key** field and the value in the **Value** field.
    1. Disable the **Protect variable** option.
    1. Click **Add variable**.
 
@@ -288,7 +288,7 @@ The app will be available at the URL of the {{ api-gw-name }} API gateway's serv
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 1. [Delete the folders](../../resource-manager/operations/folder/delete.md) named `prod`, `testing`, and `infra` along with their resources.
 1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [created VM with the {{ GL }} image](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).

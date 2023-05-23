@@ -31,12 +31,12 @@
     {% endnote %}
     
     ```
-    yc iot device update first  --topic-aliases 'events=$devices/areqjd6un3afc3cefcvm/events,commands=$devices/areqjd6un3afc3cefcvm/commands'
+    yc iot device update first --topic-aliases 'events=$devices/areqjd6un3afc3cefcvm/events,commands=$devices/areqjd6un3afc3cefcvm/commands'
     ```
 	
-	  Результат:
-	  ```
-	  id: areqjd6un3afc3cefcvm
+    Результат:
+    ```
+    id: areqjd6un3afc3cefcvm
     registry_id: arenou2oj4ct42eq8g3n
     created_at: "2019-09-16T10:41:06.489Z"
     name: first

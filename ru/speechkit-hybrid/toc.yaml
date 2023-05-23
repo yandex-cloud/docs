@@ -7,6 +7,8 @@ items:
   - name: Системные требования CPU
     href: system-requirements-cpu.md
     hidden: true
+  - name: Архитектура сервиса
+    href: architecture.md
   - name: Синтез речи
     items:
       - name: О технологии
@@ -21,6 +23,8 @@ items:
         href: stt/testing.md
   - name: Администрирование {{ sk-hybrid-name }}
     items:
+      - name: Настройки сервиса
+        href: settings.md
       - name: Мониторинг
         href: monitoring.md
       - name: Уровни логирования

@@ -34,6 +34,6 @@
 
 - API
 
-  You can get a list of device certificates using the [listCertificates](../../iot-core/api-ref/Device/listCertificates.md) API method.
+  To get a list of device certificates, use the [listCertificates](../../iot-core/api-ref/Device/listCertificates.md) REST API method for the [Device](../../iot-core/api-ref/Device/index.md) resource or the [DeviceService/ListCertificates](../../iot-core/api-ref/grpc/device_service.md#ListCertificates) gRPC API call.
 
 {% endlist %}

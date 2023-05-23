@@ -24,7 +24,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the device certificate to.
    1. Select **{{ iot-short-name }}**.
-   1. Click on the name of the registry.
+   1. Click the name of the registry.
    1. In the left menu, select **Devices**.
    1. Select the desired device from the list.
    1. On the **Overview** page, go to the **Certificates** section and click **Add certificate**.
@@ -69,11 +69,11 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add a certificate to a device created using {{ TF }}:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * `yandex_iot_core_device`: Device parameters:
          * `registry_id`: [ID of the registry](../registry/registry-list.md#registry-list) to create a device in.
@@ -92,31 +92,31 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
         certificates = [
           file("<path_to_certificate_file>")
         ]
-      ...  
+      ...
       }
       ```
 
       For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -133,7 +133,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
 - API
 
-   You can add a certificate to a device using the API [addCertificate](../../api-ref/Device/addCertificate.md) method.
+   To add a certificate to a device, use the [addCertificate](../../api-ref/Device/addCertificate.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/AddCertificate](../../api-ref/grpc/device_service.md#AddCertificate) gRPC API call.
 
 {% endlist %}
 
@@ -147,7 +147,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the device certificate from.
    1. Select **{{ iot-short-name }}**.
-   1. Click on the name of the registry.
+   1. Click the name of the registry.
    1. In the left menu, select **Devices**.
    1. Select the desired device from the list.
    1. On the **Overview** page, go to the **Certificates** section.
@@ -183,7 +183,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete the certificate of a device created using {{ TF }}:
 
@@ -200,31 +200,31 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
         certificates = [
           file("<path_to_certificate_file>")
         ]
-      ...  
+      ...
       }
       ```
 
       For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -241,6 +241,6 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
 - API
 
-   You can delete a device certificate using the API [deleteCertificate](../../api-ref/Device/deleteCertificate.md) method.
+   To delete a device certificate, use the [deleteCertificate](../../api-ref/Device/deleteCertificate.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/DeleteCertificate](../../api-ref/grpc/device_service.md#DeleteCertificate) gRPC API call.
 
 {% endlist %}

@@ -6,12 +6,15 @@ The `x-yc-apigateway-integration:http` extension redirects a request to the spec
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Parameter | Type | Description |
+Parameter | Type | Description
 ----|----|----
-| `url` | `string` | URL to redirect the invocation to (must be accessible from the internet).<br>Parameters are substituted in `url`. |
-| `method` | `enum` | Optional. HTTP method used for the invocation. If the parameter is omitted, it defaults to the method of request to {{ api-gw-short-name }}. |
-| `headers` | `map[string]string` | HTTP headers to be passed. Original request headers are not passed.<br>Parameters are substituted in `headers`. |
-| `timeouts` | `object` | Optional. The `read` and `connect` invocation timeouts, in seconds. |
+`url` | `string` | URL to redirect the invocation to (must be accessible from the internet).<br>Parameters are substituted in `url`.
+`method` | `enum` | This is an optional parameter. HTTP method used for the invocation. If the parameter is omitted, it defaults to the method of request to {{ api-gw-short-name }}.
+`headers` | `map[string](string \| string[])` | HTTP headers to be sent. By default, the headers of the original request are not sent. <br>Parameters are substituted in `headers`.
+`query` | `map[string](string \| string[])` | Query parameters to be sent. By default, the query parameters of the original request are not passed. <br>Parameters are substituted in `query`.
+`timeouts` | `object` | This is an optional parameter. The `read` and `connect` invocation timeouts, in seconds.
+`omitEmptyHeaders` | `boolean` | This is an optional parameter. If `true`, empty headers are not sent. |
+`omitEmptyQueryParameters` | `boolean` | This is an optional parameter. If `true`, empty query parameters are not sent.
 
 ## Extension specification {#spec}
 
@@ -24,25 +27,31 @@ x-yc-apigateway-integration:
   method: POST
   headers:
     Authorization: Basic ZjTqBB3f$IF9gdYAGlMrs2fuINjHsz
+  query:
+    my_param: myInfo
   timeouts:
     connect: 0.5
     read: 5
 ```
-Extension specifics:
-* By default, headers other than `User-Agent` and the original request parameters are not passed. List them in the specification. The `User-Agent` header is passed unless overridden in the specification.
-* By default, the query parameters of the original request are not passed. Declare them under `parameters` and set them in the `url` field.
-* To redirect all requests, you can use [greedy parameters](./greedy-parameters.md) and a [generalized HTTP method](./any-method.md).
 
-An example of proxying all requests to `https://example.com` with `Content-Type` header forwarding and the `param` query parameter:
+Extension specifics:
+* If the value of a header or query parameter is an array, it is sent as a single line, separated by commas.
+* By default, headers other than `User-Agent` and the original request's query parameters are not sent. To send all the original request's headers and query parameters that are not overridden in the specification, add `'*': '*'` to the `query` and `headers` sections. To omit some headers, set them to Null and the `omitEmptyHeaders` field value to `true`. Similarly, you can omit some query parameters by using the `omitEmptyQueryParameters` field.
+* The `User-Agent` header is sent by default unless overridden in the specification.
+* To redirect all requests, use [greedy parameters](./greedy-parameters.md) and a [generalized HTTP method](./any-method.md).
+
+An example of proxying all requests to `https://example.com` with the `Content-Type` header and the `param` query parameter sent:
 ```yaml
 paths:
   /{path+}:
     x-yc-apigateway-any-method:
       x-yc-apigateway-integration:
         type: http
-        url: https://example.com/{path}?param={param}
+        url: https://example.com/{path}
         headers:
           Content-Type: '{Content-Type}'
+        query:
+          param: '{param}'
         timeouts:
           connect: 0.5
           read: 5
@@ -61,5 +70,29 @@ paths:
         in: query
         required: false
         schema:
-          type: string
+          type: string      
+```
+
+An example of proxying all requests to `https://example.com`, where:
+* All headers, except `Foo-Header`, and all query parameters, except `foo_param`, are sent.
+* The `Bar-Header` header and the `bar_param` query parameter with an array as a value are added.
+```yaml
+paths:
+  /{path+}:
+    x-yc-apigateway-any-method:
+      x-yc-apigateway-integration:
+        type: http
+        url: https://example.com/{path}
+        query:
+          '*': '*'
+          foo_param: ""
+          bar_param: [ "one", "two" ]
+          single_param: three
+        headers:
+          '*': '*'
+          Foo-Header: ""
+          Bar-Header: [ "one", "two" ]
+          Single-header: three
+        omitEmptyHeaders: true
+        omitEmptyQueryParameters: true  
 ```

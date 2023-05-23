@@ -55,7 +55,7 @@
         registry_id = "<идентификатор реестра>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
-      ...  
+      ...
       }
       ```
 
@@ -153,7 +153,7 @@
         registry_id = "<идентификатор реестра>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
-      ...  
+      ...
       }
       ```
 

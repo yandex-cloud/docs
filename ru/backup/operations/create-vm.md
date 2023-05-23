@@ -25,7 +25,11 @@
 
 {% endlist %}
 
-После перехода ВМ в статус `Running` начнется установка агента {{ backup-name }}. Этот процесс может занять несколько минут. После этого ВМ можно будет добавлять в [политики резервного копирования](../concepts/policy.md).
+{% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan.md) %}
+
+{% include [vm-list](../../_includes/backup/vm-list.md) %}
+
+{% include [agent-installation-failure](../../_includes/backup/agent-installation-failure.md) %}
 
 #### См. также {#see-also}
 

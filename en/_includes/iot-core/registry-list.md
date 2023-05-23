@@ -1,9 +1,10 @@
 {% list tabs %}
 
 - Management console
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of registries.
-  1. Select the **{{ iot-short-name }}**.
-  1. The **Registries** page shows the list of registries.
+
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of registries.
+   1. Select **{{ iot-short-name }}**.
+   1. The **Registries** page shows the list of registries.
 
 - CLI
 
@@ -29,6 +30,6 @@
 
 - API
 
-  You can get a list of registries using the [list](../../iot-core/api-ref/Registry/list.md) API method.
+  To get a list of registries, use the [list](../../iot-core/api-ref/Registry/list.md) REST API method for the [Registry](../../iot-core/api-ref/Registry/index.md) resource or the [RegistryService/List](../../iot-core/api-ref/grpc/registry_service.md#List) gRPC API call.
 
 {% endlist %}

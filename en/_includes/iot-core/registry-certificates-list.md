@@ -1,8 +1,9 @@
 {% list tabs %}
 
 - Management console
+
    1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
-   1. Select the **{{ iot-short-name }}**.
+   1. Select **{{ iot-short-name }}**.
    1. Select the registry.
    1. On the **Overview** page, go to the **Certificates** section.
 
@@ -31,6 +32,6 @@
 
 - API
 
-  You can get a list of registry certificates using the [listCertificates](../../iot-core/api-ref/Registry/listCertificates.md) API method.
+  To get a list of registry certificates, use the [listCertificates](../../iot-core/api-ref/Registry/listCertificates.md) REST API method for the [Registry](../../iot-core/api-ref/Registry/index.md) resource or the [RegistryService/ListCertificates](../../iot-core/api-ref/grpc/registry_service.md#ListCertificates) gRPC API call.
 
 {% endlist %}

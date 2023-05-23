@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-You can only delete an empty registry. Don't forget to [delete devices from the registry](../device/device-delete.md) before performing the operation.
+You can only delete an empty registry. Make sure to [delete devices from the registry](../device/device-delete.md) before deleting the registry itself.
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a registry created using {{ TF }}:
 
@@ -66,25 +66,25 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
       For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -101,6 +101,6 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 - API
 
-   You can delete a registry using the API [delete](../../api-ref/Registry/delete.md) method.
+   To delete a registry, use the [delete](../../api-ref/Registry/delete.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Delete](../../api-ref/grpc/registry_service.md#Delete) gRPC API call.
 
 {% endlist %}

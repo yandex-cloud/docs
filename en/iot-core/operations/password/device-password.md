@@ -68,7 +68,7 @@ You can add a password to an already created device or set it when creating a de
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add a password to a device created using {{ TF }}:
 
@@ -97,25 +97,25 @@ You can add a password to an already created device or set it when creating a de
 
       For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -132,7 +132,7 @@ You can add a password to an already created device or set it when creating a de
 
 - API
 
-   You can add a device password using the API [addPassword](../../api-ref/Device/addPassword.md) method.
+   To add a password to a device, use the [addPassword](../../api-ref/Device/addPassword.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/AddPassword](../../api-ref/grpc/device_service.md#AddPassword) gRPC API call.
 
 {% endlist %}
 
@@ -185,7 +185,7 @@ You can add a password to an already created device or set it when creating a de
 
 - API
 
-   You can set a device password when creating it using the API [create](../../api-ref/Device/create.md) method.
+   To set a password for a device when creating it, use the [create](../../api-ref/Device/create.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../api-ref/grpc/device_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -246,7 +246,7 @@ You can add a password to an already created device or set it when creating a de
 
 - API
 
-   You can get a list of device passwords using the API [listPasswords](../../api-ref/Device/listPasswords.md) method.
+   To get a list of device passwords, use the [listPasswords](../../api-ref/Device/listPasswords.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/ListPasswords](../../api-ref/grpc/device_service.md#ListPasswords) gRPC API call.
 
 {% endlist %}
 
@@ -309,7 +309,7 @@ You can add a password to an already created device or set it when creating a de
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete the password of a device created using {{ TF }}:
 
@@ -326,31 +326,31 @@ You can add a password to an already created device or set it when creating a de
         passwords = [
           "<password>",
         ]
-      ...  
+      ...
       }
       ```
 
       For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -367,6 +367,6 @@ You can add a password to an already created device or set it when creating a de
 
 - API
 
-   You can delete a device password using the API [deletePassword](../../api-ref/Device/deletePassword.md) method.
+   To delete a device password, use the [deletePassword](../../api-ref/Device/deletePassword.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/DeletePassword](../../api-ref/grpc/device_service.md#DeletePassword) gRPC API call.
 
 {% endlist %}

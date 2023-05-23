@@ -78,11 +78,11 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add a certificate to a broker created using {{ TF }}:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * `yandex_iot_core_broker`: Broker parameters:
          * `name`: Broker name.
@@ -106,25 +106,25 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
       For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_broker).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -141,7 +141,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 - API
 
-   You can add a certificate to a broker using the API [addCertificate](../../broker/api-ref/Broker/addCertificate.md) method.
+   To add a certificate to a broker, use the [addCertificate](../../broker/api-ref/Broker/addCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddCertificate](../../broker/api-ref/grpc/broker_service.md#AddCertificate) gRPC API call.
 
 {% endlist %}
 
@@ -189,7 +189,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a broker certificate created using {{ TF }}:
 
@@ -212,25 +212,25 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
       For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_broker).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -247,6 +247,6 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 - API
 
-   You can delete a broker certificate using the API [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) method.
+   To delete a broker certificate, use the [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeleteCertificate](../../broker/api-ref/grpc/broker_service.md#DeleteCertificate) gRPC API call.
 
 {% endlist %}

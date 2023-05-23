@@ -31,7 +31,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
    {% endnote %}
 
    ```
-   yc iot device update first  --topic-aliases 'events=$devices/areqjd6un3afc3cefcvm/events,commands=$devices/areqjd6un3afc3cefcvm/commands'
+   yc iot device update first --topic-aliases 'events=$devices/areqjd6un3afc3cefcvm/events,commands=$devices/areqjd6un3afc3cefcvm/commands'
    ```
 
    Result:
@@ -50,11 +50,11 @@ Aliases are linked to specific devices. To update an alias, you [need the device
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update an alias created with {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and update the value of the alias in the `aliases` block, in the fragment with the device description.
+   1. Open the {{ TF }} configuration file and update the value of the `alias` in the aliases block, in the fragment with the device description.
 
       Example device description in the {{ TF }} configuration:
 
@@ -74,19 +74,19 @@ Aliases are linked to specific devices. To update an alias, you [need the device
 
       For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
@@ -106,5 +106,9 @@ Aliases are linked to specific devices. To update an alias, you [need the device
       ```bash
       yc iot device get <device_name>
       ```
+
+- API
+
+   To update an alias, use the [update](../../../api-ref/Device/update.md) REST API method for the [Device](../../../api-ref/Device/index.md) resource or the [DeviceService/Update](../../../api-ref/grpc/device_service.md#Update) gRPC API call.
 
 {% endlist %}

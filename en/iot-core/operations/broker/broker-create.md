@@ -13,7 +13,7 @@
    1. Under **General information**, specify:
       * Broker **name**. For example, `my-broker`.
       * (optional) **Description**: Additional information about the broker.
-      * (optional) **Password** that you will use to access the broker. To create a password, you can use the [password generator](https://passwordsgenerator.net/). Don't forget to save your password, you'll need it.
+      * (optional) **Password** that you will use to access the broker. To create a password, you can use the [password generator](https://passwordsgenerator.net/). Make sure to save your password, as you will need it later.
       * (optional) To assign a label to the broker, fill in the **Key** and **Value** fields and click **Add label**.
    1. (optional) Add [certificates](../../operations/certificates/create-certificates.md):
       * To add a file:
@@ -130,7 +130,7 @@
 
       1. Confirm that you want to create the resources.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
          ```bash
          yc iot broker list
@@ -138,6 +138,6 @@
 
 - API
 
-   You can create a broker using the API [create](../../broker/api-ref/Broker/create.md) method.
+   To create a broker, use the [create](../../broker/api-ref/Broker/create.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Create](../../broker/api-ref/grpc/broker_service.md#Create) gRPC API call.
 
 {% endlist %}

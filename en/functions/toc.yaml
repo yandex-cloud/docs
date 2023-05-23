@@ -393,6 +393,10 @@ items:
         href: tutorials/serverless-trigger-budget-vm.md
       - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
+      - name: >-
+          Automatically copying objects from one {{ objstorage-name }} bucket to
+          another
+        href: tutorials/bucket-to-bucket.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management
