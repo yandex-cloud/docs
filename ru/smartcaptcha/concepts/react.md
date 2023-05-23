@@ -145,9 +145,9 @@ export const SubscriptionToCaptcha = () => {
       <SmartCaptcha
         sitekey="<your sitekey>"
         onChallengeVisilbe={handleChallengeVisible}
-        onChallengeHidden={handleChallengeVisible}
-        onNetworkError={handleChallengeVisible}
-        onSuccess={handleChallengeVisible}
+        onChallengeHidden={handleChallengeHidden}
+        onNetworkError={handleNetworkError}
+        onSuccess={handleSuccess}
       />
     </>
   );
