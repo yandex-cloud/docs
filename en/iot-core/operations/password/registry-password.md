@@ -65,11 +65,11 @@ You can add a password to an existing registry or set it when creating a registr
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add a password to a registry created using {{ TF }}:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * `yandex_iot_core_registry`: Registry parameters:
          * `name`: Registry name.
@@ -93,25 +93,25 @@ You can add a password to an existing registry or set it when creating a registr
 
       For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -128,7 +128,7 @@ You can add a password to an existing registry or set it when creating a registr
 
 - API
 
-   You can add a registry password using the API [addPassword](../../api-ref/Registry/addPassword.md) method.
+   To add a password to a registry, use the [addPassword](../../api-ref/Registry/addPassword.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/AddPassword](../../api-ref/grpc/registry_service.md#AddPassword) gRPC API call.
 
 {% endlist %}
 
@@ -169,7 +169,7 @@ You can add a password to an existing registry or set it when creating a registr
 
 - API
 
-   You can set a registry password when creating it using the API [create](../../api-ref/Registry/create.md) method.
+   To set a password for a registry when creating it, use the [create](../../api-ref/Registry/create.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Create](../../api-ref/grpc/registry_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -225,7 +225,7 @@ You can add a password to an existing registry or set it when creating a registr
 
 - API
 
-   You can get a list of registry passwords using the API [listPasswords](../../api-ref/Registry/listPasswords.md) method.
+   To get a list of registry passwords, use the [listPasswords](../../api-ref/Registry/listPasswords.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/ListPasswords](../../api-ref/grpc/registry_service.md#ListPasswords) gRPC API call.
 
 {% endlist %}
 
@@ -287,7 +287,7 @@ You can add a password to an existing registry or set it when creating a registr
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete the password of a registry created using {{ TF }}:
 
@@ -310,25 +310,25 @@ You can add a password to an existing registry or set it when creating a registr
 
       For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -345,6 +345,6 @@ You can add a password to an existing registry or set it when creating a registr
 
 - API
 
-   You can delete a registry password using the API [deletePassword](../../api-ref/Registry/deletePassword.md) method.
+   To delete a registry password, use the [deletePassword](../../api-ref/Registry/deletePassword.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeletePassword](../../api-ref/grpc/registry_service.md#DeletePassword) gRPC API call.
 
 {% endlist %}

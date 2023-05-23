@@ -9,16 +9,21 @@ items:
         href: operations/index.md
       - name: Creating API gateways
         href: operations/api-gw-create.md
-      - name: Updating API gateways and their specifications
-        href: operations/api-gw-update.md
-      - name: Connecting a domain
-        href: operations/api-gw-domains.md
-      - name: Deleting API gateways
-        href: operations/api-gw-delete.md
-      - name: Monitoring
-        href: operations/api-gw-monitoring.md
-      - name: Viewing the execution log
-        href: operations/api-gw-logs.md
+      - name: Managing API gateways
+        expanded: true
+        items:
+          - name: Updating API gateways and their specifications
+            href: operations/api-gw-update.md
+          - name: Connecting a domain
+            href: operations/api-gw-domains.md
+          - name: Specifying a cloud network
+            href: operations/api-gw-network-add.md
+          - name: Viewing monitoring charts
+            href: operations/api-gw-monitoring.md
+          - name: Viewing execution logs
+            href: operations/api-gw-logs.md
+          - name: Deleting API gateways
+            href: operations/api-gw-delete.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -45,6 +50,8 @@ items:
     items:
       - name: Relationships between service resources
         href: concepts/index.md
+      - name: Networking
+        href: concepts/networking.md
       - name: Specification extensions
         items:
           - name: Overview

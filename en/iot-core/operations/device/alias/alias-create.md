@@ -58,7 +58,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add an alias to a device created using {{ TF }}:
 
@@ -88,19 +88,19 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
       For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
@@ -120,5 +120,9 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       ```bash
       yc iot device get <device_name>
       ```
+
+- API
+
+   To create an alias, use the [create](../../../api-ref/Device/create.md) REST API method for the [Device](../../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../../api-ref/grpc/device_service.md#Create) gRPC API call.
 
 {% endlist %}

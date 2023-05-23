@@ -55,7 +55,7 @@
   1. Проверьте, что устройство создалось:
   
       ```
-      yc iot device list --registry-name  my-registry
+      yc iot device list --registry-name my-registry
 	   ```
 	  
 	   Результат:

@@ -1,8 +1,9 @@
 {% list tabs %}
 
 - Management console
+
    1. In the [management console]({{ link-console-main }}), select the folder where the device is located.
-   1. Select the **{{ iot-short-name }}**.
+   1. Select **{{ iot-short-name }}**.
    1. Select the registry where the device is located.
    1. Go to the **Devices** tab.
    1. Select the device.
@@ -31,6 +32,6 @@
 
 - API
 
-  You can get detailed information about a device using the [get](../../iot-core/api-ref/Device/get.md) API method.
+  To get detailed information about a device, use the [get](../../iot-core/api-ref/Device/get.md) REST API method for the [Device](../../iot-core/api-ref/Device/index.md) resource or the [DeviceService/Get](../../iot-core/api-ref/grpc/device_service.md#Get) gRPC API call.
 
 {% endlist %}

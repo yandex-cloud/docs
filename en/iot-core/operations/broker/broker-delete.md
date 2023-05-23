@@ -48,7 +48,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a broker created using {{ TF }}:
 
@@ -67,25 +67,25 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
       For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_broker).
    1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using the command:
+   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -102,6 +102,6 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 - API
 
-   You can delete a broker using the API [delete](../../broker/api-ref/Broker/delete.md) method.
+   To delete a broker, use the [delete](../../broker/api-ref/Broker/delete.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Delete](../../broker/api-ref/grpc/broker_service.md#Delete) gRPC API call.
 
 {% endlist %}

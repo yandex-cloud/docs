@@ -76,16 +76,10 @@
 
 ## Создайте ноутбук {#create-notebook}
 
-{% list tabs %}
-
-- Консоль управления
-
-    1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-    1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
-    1. В верхней панели нажмите **File** и выберите **New** и **Notebook**.
-    1. Выберите ядро и нажмите **Sellect**.
-
-{% endlist %}
+1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
+1. В верхней панели нажмите **File** и выберите **New** → **Notebook**.
+1. Выберите ядро и нажмите **Select**.
 
 ## Загрузите и обработайте данные {#load-data}
 

@@ -10,7 +10,7 @@
    1. Select **{{ iot-short-name }}**.
    1. Click **Create registry**.
    1. Under **General information**, add:
-      * A **name** for the registry. For example, `my-registry`.
+      * A **name** for the registry, e.g., `my-registry`.
       * (optional) A **description** with further information about the registry.
       * A **password** that you will be using for registry access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password - you will need it later.
       * (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
@@ -135,7 +135,7 @@
 
       1. Confirm that you want to create the resources.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
          ```bash
          yc iot registry list
@@ -143,6 +143,6 @@
 
 - API
 
-   You can create a registry using the API [create](../../api-ref/Registry/create.md) method.
+   To create a registry, use the [create](../../api-ref/Registry/create.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Create](../../api-ref/grpc/registry_service.md#Create) gRPC API call.
 
 {% endlist %}
