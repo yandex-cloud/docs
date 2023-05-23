@@ -133,11 +133,11 @@ export const SubscriptionToCaptcha = () => {
 
   const handleChallengeVisible = useCallback(() => setStatus('visible'), []);
   const handleChallengeHidden = useCallback(() => setStatus('hidden'), []);
-  const handleNetworkError = useCallback(() => setStatus('network-error'));
+  const handleNetworkError = useCallback(() => setStatus('network-error'), []);
   const handleSuccess = useCallback((token: string) => {
     setStatus('success');
     setToken(token);
-  });
+  }, []);
 
   return (
     <>
