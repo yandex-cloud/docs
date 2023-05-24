@@ -50,7 +50,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To change the [host class](../concepts/instance-types.md) for the cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```
       {{ yc-mdb-my }} cluster update --help
@@ -117,7 +117,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - API
 
-   To change the [host class](../concepts/instance-types.md), use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To change the [host class](../concepts/instance-types.md), use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Host class you need in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
@@ -150,7 +150,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To increase the cluster storage size:
 
-   1. View a description of the CLI update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -197,11 +197,11 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - API
 
-   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and include the following in the call:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Storage size in the `configSpec.resources.diskSize` parameter.
-   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.resources.diskSize` in this case).
+   * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.resources.diskSize`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -229,7 +229,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To update the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings):
 
-   1. View a description of the CLI's update cluster configuration command:
+   1. View a description of the update cluster configuration CLI command:
 
       ```
       {{ yc-mdb-my }} cluster update-config --help
@@ -278,7 +278,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To change {{ MY }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Array with new {{ MY }} settings in the following parameter:
@@ -310,7 +310,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To change additional cluster settings:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -345,7 +345,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   *`--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
+   *`--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. The default value is `false`.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -416,13 +416,13 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Settings for access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
-   * The retention period of automatic backups in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
+   * Retention period of automatic backups in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -501,9 +501,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - API
 
-   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+   To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
@@ -529,7 +529,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -571,11 +571,11 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To edit the list of cluster security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
-   * List of settings to update (`securityGroupIds` in this case) in the `updateMask` parameter.
+   * List of settings to update (in this case, `securityGroupIds`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

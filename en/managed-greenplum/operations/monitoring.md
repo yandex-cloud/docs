@@ -83,7 +83,7 @@ To view detailed information about the status of individual {{ mgp-name }} hosts
    * **Disk read and write**: amount of data (in bytes) in disk operations.
    * **Disk read and write time**: duration of disk reads and writes.
    * **Disk usage**: disk space usage (two graphs are displayed: bytes and percent).
-   * **Memory usage**: The use of RAM in bytes. At high loads, the value of `Free` goes down while the other values go up.
+   * **Memory usage**: Use of RAM in bytes. At high loads, the value of `Free` goes down while the other values go up.
    * **Network**: amount of network traffic (in bytes).
 
 {% endlist %}
@@ -99,7 +99,7 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-   1. Under **Service dashboards**, select.
+   1. Under **Service dashboards**, select:
       * **{{ mes-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mes-name }} — Host Overview** to configure host alerts.
    1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.

@@ -1,4 +1,4 @@
-# Managing databases in {{ mpg-name }}
+# Database management in {{ mpg-name }}
 
 You can add and remove databases, as well as view information about them.
 
@@ -31,7 +31,7 @@ You can add and remove databases, as well as view information about them.
 
 - API
 
-   Use the [list](../api-ref/Database/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of databases in a cluster, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -46,7 +46,7 @@ You can add and remove databases, as well as view information about them.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mpg-name }}**.
-   1. Click on the name of the desired cluster.
+   1. Click the name of the cluster you need.
    1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
    1. Select the **Databases** tab.
    1. Click ![image](../../_assets/plus-sign.svg) **Add**.
@@ -134,15 +134,15 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
-   Use the [create](../api-ref/Database/create.md) API method and pass the following information in the request:
+   To create a database in a cluster, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new database settings in the `databaseSpec` parameter.
 
 {% endlist %}
@@ -186,16 +186,16 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
-   Use the [delete](../api-ref/Database/delete.md) API method and pass the following in the request:
+   To delete a database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Name of the deleted database in the `databaseName` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Name of the deleted database in the `databaseName` parameter. To find out the database name, [retrieve a list of databases in the cluster](#list-db).
 
 {% endlist %}
 

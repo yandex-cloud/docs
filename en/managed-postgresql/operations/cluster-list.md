@@ -7,7 +7,6 @@ description: "You can request detailed information about each {{ mpg-short-name 
 
 You can request detailed information about each {{ mpg-short-name }} cluster you created.
 
-
 ## Getting a list of database clusters in a folder {#list-clusters}
 
 {% list tabs %}
@@ -24,9 +23,11 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
    To request a list of {{ PG }} clusters in the default folder, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-pg }} cluster list
+   ```
 
+   ```text
    +----------------------+---------------+-----------------------------+--------+---------+
    |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
    +----------------------+---------------+-----------------------------+--------+---------+
@@ -37,10 +38,9 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - API
 
-   Use the [list](../api-ref/Cluster/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of DB clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
 {% endlist %}
-
 
 ## Getting detailed information about a cluster {#get-cluster}
 
@@ -49,7 +49,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the desired cluster.
+   1. Click the name of the cluster you need.
 
 - CLI
 
@@ -57,9 +57,9 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get information about a {{ PG }} cluster, run the command:
+   To get information about a {{ PG }} cluster, run the following command:
 
-   ```
+   ```bash
    {{ yc-mdb-pg }} cluster get <cluster name or ID>
    ```
 
@@ -67,7 +67,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - API
 
-   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -82,7 +82,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the desired cluster.
+   1. Click the name of the cluster you need.
    1. Go to the **Operations** tab.
 
 - CLI
@@ -91,17 +91,17 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of operations, run the command:
+   To get a list of operations, run the following command:
 
-   ```
-   {{ yc-mdb-pg }} cluster list-operations <cluster name or ID>
+   ```bash
+   {{ yc-mdb-pg }} cluster list-operations <cluster name and ID>
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 
-   Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 

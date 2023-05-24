@@ -62,7 +62,7 @@ Where:
 
 The `WRITABLE` option enables you to write data to an external object. To be able to read data from an external object, create a table with the `READABLE` option.
 
-This SQL query does not contain an exhaustive list of available parameters. For more information, see the [{{ GP }} documentation]({{ gp.docs.org }}/6-4/pxf/intro_pxf.html) and examples for creating external tables.
+This SQL query does not contain an exhaustive list of available parameters. For more information, see the [{{ GP }} documentation]({{ gp.docs.pivotal }}/6-4/pxf/intro_pxf.html) and examples for creating external tables.
 
 ### Examples for creating external tables {#pxf-examples}
 

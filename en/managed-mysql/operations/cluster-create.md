@@ -18,10 +18,11 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
+
    1. Select **{{ mmy-name }}**.
    1. Click **Create cluster**.
    1. Name the cluster in the **Cluster name** field. It must be unique within the folder.
-   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+   1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mmy-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the DBMS version.
@@ -59,7 +60,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    1. Under **Hosts**, select the parameters for the DB hosts created with the cluster: If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
-      If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage size**, you need to add at least 3 hosts to the cluster. After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
+      If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage size**, you need to add at least three hosts to the cluster. After creating a cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
 
    1. Configure additional cluster settings, if required:
 
@@ -135,7 +136,6 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --websql-access=<queries from the management console: true or false> \
         --deletion-protection=<cluster deletion protection: true or false>
       ```
-
 
 
 
@@ -222,7 +222,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
-            * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+      * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
       * To set the backup start time, add the `backup_window_start` section to the {{ mmy-name }} cluster description:
 
@@ -244,6 +244,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
              ...
              backup_retain_period_days = <retention period for automatic backups (in days)>
              ...
+
            }
          ```
 
@@ -263,7 +264,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
+   To create a {{ MY }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter. It must be unique within the folder.
@@ -316,7 +317,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With protection against accidental cluster deletion.
 
 
-   1. Run the command to create a cluster:
+   1. Run this command to create a cluster:
 
       
       ```bash
@@ -352,8 +353,8 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Named `my-mysql`.
    * Versions `{{ versions.tf.latest }}`.
    * In the `PRESTABLE` environment.
-   * In the cloud with the ID `{{ tf-cloud-id }}`.
-   * In the folder with the ID `{{ tf-folder-id }}`.
+   * In the cloud with the `{{ tf-cloud-id }}` ID.
+   * In the folder with the `{{ tf-folder-id }}` ID.
    * In the new `mynet` network.
    * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
       * In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.

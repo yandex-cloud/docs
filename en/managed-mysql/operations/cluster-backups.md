@@ -48,9 +48,9 @@ You can create backups and restore clusters from existing backups, including poi
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To get a list of backups for all the {{ mmy-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of backups for all the {{ mmy-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/backup_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
    {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
@@ -86,7 +86,7 @@ You can create backups and restore clusters from existing backups, including poi
 
 - API
 
-   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter.
+   To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
    To find out the ID, [retrieve a list of backups](#list-backups).
 
@@ -128,7 +128,7 @@ You can create backups and restore clusters from existing backups, including poi
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
@@ -154,7 +154,7 @@ For a new cluster, you should set all the parameters that are required at creati
    1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
    1. To restore the cluster state [at the required point in time](../concepts/backup.md) after creating this backup (Point-in-Time-Recovery), set the desired setting value **Recovery date and time (UTC)**.
 
-      If you don't change the setting, the cluster is restored to the state when the backup was completed.
+      If you do not change the setting, the cluster is restored to the state when the backup was completed.
    1. Click **Restore cluster**.
 
    To restore a previously deleted cluster from a backup:
@@ -165,7 +165,7 @@ For a new cluster, you should set all the parameters that are required at creati
    1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
    1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC) setting**. You can enter the value manually or select it from the drop-down calendar.
 
-      If you don't change the setting, the cluster is restored to the state when the backup was completed.
+      If you do not change the setting, the cluster is restored to the state when the backup was completed.
    1. Click **Restore cluster**.
 
    {{ mmy-name }} launches the operation to create a cluster from the backup.
@@ -348,7 +348,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
+   To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Timestamp of the point to which you want to recover the cluster, in the `time` parameter.
@@ -411,7 +411,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To set the backup start time, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can get it together [with a list of clusters in the folder](cluster-list.md#list-clusters).
    * New backup start time in the `configSpec.backupWindowStart` parameter.
@@ -449,7 +449,7 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
 - API
 
-   To set the host priority, use the [updateHosts](../api-ref/Cluster/updateHosts.md) method and pass the following in the request:
+   To set the host priority, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Host name in the `updateHostSpecs.hostName` parameter. It may be retrieved with a [list of hosts in the cluster](hosts.md#list).

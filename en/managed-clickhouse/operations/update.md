@@ -66,7 +66,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
    To change the [host class](../concepts/instance-types.md) for the cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --help
@@ -77,9 +77,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
       
       ```bash
       {{ yc-mdb-ch }} resource-preset list
-      ```
 
-      ```text
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
@@ -99,7 +97,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
       {{ mch-short-name }} will run the update host class command for the cluster.
 
-   1. To change the class of a {{ ZK }} host, pass the desired value in the `--zookeeper-resource-preset` parameter.
+   1. To change the class of a {{ ZK }} host, provide the value you need in the `--zookeeper-resource-preset` parameter.
 
 - {{ TF }}
 
@@ -183,7 +181,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
    To increase the cluster storage size:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --help
@@ -196,7 +194,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
        --clickhouse-disk-size <storage size in GB>
       ```
 
-   1. To increase the storage capacity of {{ ZK }} hosts, pass the desired value in the `--zookeeper-disk-size` parameter.
+   1. To increase the storage capacity of {{ ZK }} hosts, provide the value you need in the `--zookeeper-disk-size` parameter.
 
 - {{ TF }}
 
@@ -240,7 +238,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
 - API
 
-   To increase storage size, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
+   To increase storage size, use the [update](../api-ref/Cluster/update.md) API method and include the following in the call:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required size of the {{ CH }} host storage in the `configSpec.clickhouse.resources.diskSize` parameter.
@@ -328,7 +326,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 - API
 
-   Use the API [update](../api-ref/Cluster/update.md) method and pass all the requisite values in the `configSpec.clickhouse.config` parameter:
+   Use the API [update](../api-ref/Cluster/update.md) method and provide all values you need in the `configSpec.clickhouse.config` parameter:
 
    * `sqlUserManagement`: Set to `true` to enable [user management via SQL](cluster-users.md#sql-user-management).
    * `sqlDatabaseManagement`: Set to `true` to enable [database management via SQL](databases.md#sql-database-management). User management via SQL needs to be enabled.
@@ -369,7 +367,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
       {{ yc-mdb-ch }} cluster get <cluster ID or name> --full
       ```
 
-   1. View a description of the CLI's update cluster configuration command:
+   1. View a description of the update cluster configuration CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config --help
@@ -493,7 +491,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    To change additional cluster settings:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --help
@@ -508,9 +506,9 @@ For more information, see [Memory management](../concepts/memory-management.md).
          --datalens-access=<true or false> \
          --datatransfer-access=<true or false> \
          --deletion-protection=<cluster deletion protection: true or false> \
-         --maintenance-window type=<maintenance window type: anytime or weekly>,`
-                             `day=<day of the week for the weekly type>,`
-                             `hour=<hour of the day for the weekly type> \
+         --maintenance-window type=<maintenance type: anytime or weekly>,`
+                             `day=<day of week for weekly>,`
+                             `hour=<hour for weekly> \
          --metrika-access=<true or false> \
          --serverless-access=<true or false> \
          --websql-access=<true or false>
@@ -523,7 +521,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
    
-   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
+   * `--datalens-access`: Enables DataLens access. The default value is `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
 
    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
@@ -531,7 +529,6 @@ For more information, see [Memory management](../concepts/memory-management.md).
    * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
-
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
@@ -542,7 +539,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
 
-   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }} documentation](../../functions/operations/database-connection.md).
+   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
 
@@ -574,10 +571,10 @@ For more information, see [Memory management](../concepts/memory-management.md).
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
         ...
         access {
-          data_lens  = <Access from DataLens: true or false>
-          metrika    = <Access from Yandex.Metrica and AppMetrica: true or false>
-          serverless = <Access from Cloud Functions: true or false>
-          web_sql    = <Run SQL queries from the management console: true or false>
+          data_lens  = <access from DataLens: true or false>
+          metrika    = <access from Yandex Metrica and AppMetrika: true or false>
+          serverless = <access from Cloud Functions: true or false>
+          web_sql    = <executing SQL queries from the management console: true or false>
         }
         ...
       }
@@ -612,10 +609,10 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-      * Settings for access from other services  and access to SQL queries from the management console  in the `configSpec.access` parameter.
+      * Settings for access from other  services and access to SQL queries from the  management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
@@ -628,7 +625,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    
    
-   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
+   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
 
@@ -673,7 +670,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
 - API
 
-   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+   Use the [move](../api-ref/Cluster/move.md) API method and provide the following in the query:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the destination folder in the `destinationFolderId parameter`.
@@ -701,15 +698,15 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} cluster update --help
       ```
 
    1. Specify the security groups in the update cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} cluster update <cluster name> \
          --security-group-ids <security group ID list>
       ```
@@ -772,7 +769,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    To change [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --help
@@ -787,7 +784,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
-   1. Pass a list of settings to update:
+   1. Provide a list of settings to update:
 
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster name> \
