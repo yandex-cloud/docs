@@ -41,7 +41,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 - API
 
-   Use the [list](../api-ref/Cluster/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of DB clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
 {% endlist %}
 
@@ -53,7 +53,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the desired cluster.
+   1. Click the name of the cluster you need.
 
 - CLI
 
@@ -61,7 +61,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get information about a {{ MY }} cluster, run the command:
+   To get information about a {{ MY }} cluster, run the following command:
 
    ```
    {{ yc-mdb-my }} cluster get <cluster name or ID>
@@ -71,7 +71,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 - API
 
-   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
@@ -86,7 +86,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the desired cluster.
+   1. Click the name of the cluster you need.
    1. On the left-hand panel, select ![image](../../_assets/mdb/operations.svg) **Operations**.
 
 - CLI
@@ -95,7 +95,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of operations, run the command:
+   To get a list of operations, run the following command:
 
    ```
    {{ yc-mdb-my }} cluster list-operations <cluster name or ID>
@@ -105,7 +105,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 - API
 
-   Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 

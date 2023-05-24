@@ -49,7 +49,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
    To change the [host class](../concepts/instance-types.md) for the cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -116,11 +116,11 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To change the class of cluster hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Host class ID in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
-   * List of settings to update (`configSpec.resources.resourcePresetId` in this case) in the `updateMask` parameter.
+   * List of settings to update (in this case, `configSpec.resources.resourcePresetId`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -161,7 +161,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
       {{ yc-mdb-pg }} cluster update --help
       ```
 
-   1. Specify the required storage in the  cluster update command (it must be at least as large as `disk_size` in the cluster properties):
+   1. Specify the required storage in the cluster update command (it must be at least as large as `disk_size` in the cluster properties):
 
       ```bash
       {{ yc-mdb-pg }} cluster update <cluster ID or name> \
@@ -204,11 +204,11 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 - API
 
-   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.resources.diskSize` parameter.
-   * List of settings to update (`configSpec.resources.diskSize` in this case) in the `updateMask` parameter.
+   * List of settings to update (in this case, `configSpec.resources.diskSize`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -249,7 +249,7 @@ You can change the DBMS settings of the hosts in your cluster.
       {{ yc-mdb-pg }} cluster get <cluster ID or name> --full
       ```
 
-   1. View a description of the CLI's update cluster configuration command:
+   1. View a description of the update cluster configuration CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update-config --help
@@ -303,7 +303,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To change {{ PG }} server settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required setting values in the `configSpec.postgresqlConfig_<{{ PG }} version>` parameter.
@@ -333,7 +333,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To change additional cluster settings:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -372,7 +372,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
   
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
-   
+
    
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
@@ -424,7 +424,7 @@ You can change the DBMS settings of the hosts in your cluster.
         config {
           access {
             data_lens = <access from DataLens: true or false>
-            web_sql   = <execution of queries from the management console: true or false>
+            web_sql   = <executing SQL queries from the management console: true or false>
             ...
         }
         ...
@@ -475,7 +475,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Settings for access from other services  and access to SQL queries from the management console  in the `configSpec.access` parameter.
@@ -491,7 +491,7 @@ You can change the DBMS settings of the hosts in your cluster.
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
       
-   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
+   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
    To enable [statistics collection](./performance-diagnostics.md#activate-stats-collector):
@@ -570,9 +570,9 @@ To switch the master:
 
 - API
 
-   Use the API [startFailover](../api-ref/Cluster/startFailover.md) method and pass the following in the request:
+   To switch the master host, use the [startFailover](../api-ref/Cluster/startFailover.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) gRPC API call and provide the following in the request:
 
-   * In the `clusterId` parameter, the ID of the cluster where you want to switch the master. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster where you want to switch the master, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * (Optional) In the `hostName` parameter, the name of the replica host to switch to. To find out the name, [request a list of hosts in the cluster](hosts.md#list).
 
 {% endlist %}
@@ -614,10 +614,10 @@ To switch the master:
 
 - API
 
-   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+   To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * ID of the destination folder in the `destinationFolderId` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the destination folder in the `destinationFolderId parameter`.
 
 {% endlist %}
 
@@ -648,7 +648,7 @@ After the cluster is moved, it will continue using the cloud network from the so
 
    To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -690,9 +690,9 @@ After the cluster is moved, it will continue using the cloud network from the so
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To edit the list of cluster security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
    * List of settings to update (in this case, `securityGroupIds`) in the `updateMask` parameter.
 

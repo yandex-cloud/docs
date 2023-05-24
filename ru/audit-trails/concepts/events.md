@@ -378,6 +378,7 @@
 `DeleteDatabase` | Удаление базы данных
 `DeleteFormatSchema` | Удаление схемы формата данных
 `DeleteMlModel` | Удаление модели машинного обучения
+`DeleteShardGroup` | Удаление группы шардов
 `DeleteUser` | Удаление пользователя базы данных
 `GrantUserPermission` | Назначение прав пользователю базы данных
 `MoveCluster` | Перемещение кластера
@@ -389,6 +390,7 @@
 `UpdateClusterShard` | Изменение шарда в кластере
 `UpdateFormatSchema` | Изменение схемы формата данных
 `UpdateMlModel` | Изменение модели машинного обучения
+`UpdateShardGroup` | Изменение группы шардов
 `UpdateUser` | Изменение пользователя базы данных
 
 

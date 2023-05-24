@@ -5,10 +5,9 @@ description: "If necessary, you can stop and restart a {{ PG }} database cluster
 
 # Stopping and starting {{ PG }} clusters
 
-If necessary, you can stop and restart a {{ PG }} DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
+You can stop and restart a {{ PG }} DB cluster, if required. You are not charged while your cluster is stopped: you continue to pay only for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
-
 
 ## Stopping a cluster {#stop-cluster}
 
@@ -38,7 +37,7 @@ If necessary, you can stop and restart a {{ PG }} DB cluster. You are not charge
 
 - API
 
-   Use the [stop](../api-ref/Cluster/stop.md) API method and pass the ID of the required cluster in the `clusterId` request parameter.
+   To stop a cluster, use the [stop](../api-ref/Cluster/stop.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Stop](../api-ref/grpc/cluster_service.md#Stop) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -72,7 +71,7 @@ You can restart **STOPPED** clusters.
 
 - API
 
-   Use the [start](../api-ref/Cluster/start.md) API method and pass the ID of the required cluster in the `clusterId` request parameter.
+   To start a cluster, use the [start](../api-ref/Cluster/start.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Start](../api-ref/grpc/cluster_service.md#Start) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 

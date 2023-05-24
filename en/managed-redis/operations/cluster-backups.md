@@ -1,6 +1,6 @@
 ---
 title: "Managing {{ RD }} backups"
-description: "You can create backups and restore clusters from existing {{ RD }} backups. When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore from a backup."
+description: "You can create backups and restore clusters from existing {{ RD }} backups. When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup."
 ---
 
 # Managing backups in {{ mrd-name }}
@@ -69,7 +69,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
       +--------------------------+----------------------+----------------------+----------------------+
       ```
 
-   1. Request the creation of a cluster from a backup:
+   1. Request the [creation of a cluster](cluster-create.md) from a backup:
 
       ```bash
       {{ yc-mdb-rd }} cluster restore \
@@ -88,7 +88,10 @@ When you restore a cluster from a backup, you create a new cluster with data fro
       * In the `PRODUCTION` environment.
       * In the `default` network.
       * With a single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch63` subnet in the `{{ region-id }}-a` availability zone with public access and a replica priority of `50`.
+      * With the `P@ssWord` password.
       * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
+
+      {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
 {% endlist %}
 
@@ -129,7 +132,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and pass the cluster ID in the `clusterId` parameter.
+   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
 

@@ -63,7 +63,9 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
 
-   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
+   1. Under **Cluster settings**, in the **Password** field, set the user password.
+
+      {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
    
    1. Under **Network settings**, select:
@@ -148,6 +150,8 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
+      {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
 - {{ TF }}
@@ -190,7 +194,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
         resources {
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
-          disk_size          = <storage size, GB>
+          disk_size          = <storage size in GB>
         }
 
         host {
@@ -214,9 +218,11 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
+      {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
+      {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mrd }}).
 

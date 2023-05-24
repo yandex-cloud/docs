@@ -7,9 +7,9 @@
 * Request public IP addresses to access the cluster from outside {{ yandex-cloud }}.
 
 
-You can connect to a {{ mgp-short-name }} cluster only via the master hosts.
+You can only connect to {{ mgp-short-name }} clusters via master hosts. You cannot connect to segment hosts directly.
 
-For high-speed communication between cluster hosts, {{ mgp-short-name }} uses a separate _intra-cluster network_ (interconnect). Access to the intra-cluster network and direct connection to the host segments are not provided.
+Segment hosts are combined into a virtual network, where each of them is a cloud resource. Data is replicated and rebalanced across the segments within this network.
 
 
 By default, master hosts are available for connection from VMs located in the same cloud network. For more information about network functionality, see the [{{ vpc-full-name }} documentation](../../vpc/concepts/index.md).
@@ -30,7 +30,7 @@ After creating a cluster, you cannot request or disable public addresses.
 
 ## Security groups {#security-groups}
 
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic for the resources will be allowed. No additional setup is required.
 
 To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 

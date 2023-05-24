@@ -7,7 +7,7 @@ After creating a cluster, you can:
 * [Change the host class](#change-resource-preset).
 
 
-* [Increase storage size](#change-disk-size).
+* [Increasing storage size](#change-disk-size).
 
 
 * Configure [{{ RD }} servers](#change-redis-config) according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
@@ -17,7 +17,7 @@ After creating a cluster, you can:
 * [Move a cluster](#move-cluster) to another folder.
 
 
-* [Change security groups](#change-sg-set).
+* [Changing security groups](#change-sg-set).
 
 
 {% note info %}
@@ -32,7 +32,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -116,7 +116,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -216,7 +216,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * New host class, in the `configSpec.resources.resourcePresetId` parameter.
+   * New host class in the `configSpec.resources.resourcePresetId` parameter.
 
       To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
 
@@ -236,7 +236,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
    To increase the cluster storage size:
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -318,9 +318,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - Management console
 
-   To modify the DBMS settings for a cluster:
+   To update the [DBMS settings](../concepts/settings-list.md) for the cluster:
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -350,6 +350,8 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
       }
       ```
 
+      {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
+
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -364,7 +366,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - API
 
-   To update {{ RD }} settings, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
+   To change the {{ RD }} settings, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required {{ RD }} setting values in the `configSpec.redisConfig_<{{ RD }} version>` parameter.
@@ -380,7 +382,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -497,7 +499,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -557,7 +559,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
-   * List of settings to update (`securityGroupIds` in this case) in the `updateMask` parameter.
+   * List of settings to update (in this case, `securityGroupIds`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

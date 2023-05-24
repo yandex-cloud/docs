@@ -36,7 +36,7 @@
 * **Шифрование дисков ВМ (если требуется)**.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
 * **Client-side encryption (если требуется)**: используйте шифрование данных с помощью ключей {{ kms-name }}, см. [обзор способов шифрования](../../kms/tutorials/encrypt/index.md).
-* **Защита ключей {{ kms-name }}**: выдавайте только гранулярные доступы к отдельным ключам {{ kms-name }} — роль `kms.keys.encrypterDecrypter`; используйте [ротацию ключей](../../kms/concepts/version.md).
+* **Защита ключей {{ kms-name }}**: выдавайте только гранулярные доступы к отдельным ключам {{ kms-name }} — роли `kms.keys.encrypter`, `kms.keys.decrypter` или `kms.keys.encrypterDecrypter`; используйте [ротацию ключей](../../kms/concepts/version.md).
 * **Управление секретами**: используйте сервисы управления секретами, такие как [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер {{ registry }}/yc/vault -->
 
 ## Безопасная конфигурация {#secure-configuration}

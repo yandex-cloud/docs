@@ -20,7 +20,7 @@
 ### ACCESS_DENIED {#bucket-access-denied}
 
 * Проверьте, что сервисному аккаунту, от имени которого трейл загружает аудитные логи в бакет, назначена [роль](../../iam/concepts/access-control/roles.md#storage-uploader) `storage.uploader` или выше.
-* Если бакет [зашифрован](../../storage/tutorials/server-side-encryption.md) ключом {{ kms-full-name }}, убедитесь, что у сервисного аккаунта, от имени которого трейл загружает аудитные логи в бакет, есть [роль](../../iam/concepts/access-control/roles.md#kms-keys-encrypterdecrypter) `kms.keys.encrypterDecrypter` на ключ.
+* Если бакет [зашифрован](../../storage/tutorials/server-side-encryption.md) ключом {{ kms-full-name }}, убедитесь, что у сервисного аккаунта, от имени которого трейл загружает аудитные логи в бакет, есть [роль](../../iam/concepts/access-control/roles.md#kms-keys-decrypter) `kms.keys.decrypter` на ключ.
 * Если трейл поставляет события в зашифрованный бакет, проверьте существование ключа {{ kms-name }} данного бакета.
 * Проверьте [список управления доступом (ACL)](../../storage/concepts/acl.md) и [политики доступа (bucket policy)](../../storage/concepts/policy.md): в них не должно быть правил, которые запрещают сервисному аккаунту запись в бакет.
 
@@ -38,7 +38,7 @@
 1. [Создайте](../../storage/operations/buckets/create.md) новый бакет с тем же именем, которое было указано в настройках трейла.
 
     Также вы можете изменить настройки трейла, указав в блоке **Назначение** другой бакет.
-1. Если бакет [зашифрован](../../storage/tutorials/server-side-encryption.md) ключом {{ kms-full-name }}, выдайте сервисному аккаунту, от имени которого трейл загружает аудитные логи в бакет, [роль](../../iam/concepts/access-control/roles.md#kms-keys-encrypterdecrypter) `kms.keys.encrypterDecrypter` на ключ.
+1. Если бакет [зашифрован](../../storage/tutorials/server-side-encryption.md) ключом {{ kms-full-name }}, выдайте сервисному аккаунту, от имени которого трейл загружает аудитные логи в бакет, [роль](../../iam/concepts/access-control/roles.md#kms-keys-decrypter) `kms.keys.decrypter` на ключ.
 
 
 ### BUCKET_INVALID_ENCRYPTION {#bucket-invalid-encryption}

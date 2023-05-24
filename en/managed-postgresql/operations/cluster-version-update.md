@@ -11,7 +11,7 @@ You can upgrade a {{ mpg-name }} cluster to any supported version.
 
 You can only upgrade to a version that immediately follows the current one, such as version 11 to 12. Upgrades to higher versions are performed in steps. To upgrade {{ PG }} from version 11 to version 13, for instance, follow the steps: 11 → 12 → 13.
 
-In single-host clusters, the only master host is brought out of its running state for upgrades. During an update, such clusters will be unavailable for reading and writing.
+In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, these clusters will be unavailable for reading and writing.
 
 In multi-host clusters, upgrades follow the procedure below:
 
@@ -26,7 +26,7 @@ To learn more about updates within one version and host maintenance, see [{#T}](
 
 ## Before upgrading {#before-update}
 
-Prior to upgrading a cluster, make sure this doesn't affect your applications:
+Prior to upgrading a cluster, make sure this does not affect your applications:
 
 1. Review the [change log](https://www.postgresql.org/docs/release/) for the {{ PG }} versions that you are upgrading your cluster to, and make sure they do not affect your applications or the [{{ PG }} extensions](./extensions/cluster-extensions.md) installed.
 1. Try upgrading a test cluster (you can try [deploying](cluster-backups.md#restore) it from a backup of the main cluster).
@@ -37,7 +37,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 {% note alert %}
 
 * Once your DBMS is upgraded, you cannot roll a cluster back to the previous version.
-* The success of {{ PG }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [upgrade a test cluster](#before-update) that uses the same data and settings.
+* The success of a {{ PG }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [upgrade a test cluster](#before-update) that uses the same data and settings.
 
 {% endnote %}
 
@@ -50,9 +50,9 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
    1. In the **Version** field, select a new version number.
    1. Click **Save changes**.
 
-   Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
-   The time it takes a cluster to update depends on database size and normally is a few minutes. If a database is very large, an update may take 10 or more minutes.
+   The time it takes a cluster to upgrade depends on database size and normally is a few minutes. If a database is very large, an upgrade may take 10 or more minutes.
 
 - CLI
 
@@ -60,7 +60,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Get a list of your {{ PG }} clusters using the command:
+   1. Get a list of your {{ PG }} clusters using this command:
 
       ```bash
       {{ yc-mdb-pg }} cluster list
@@ -79,9 +79,9 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
          --postgresql-version <new version number>
       ```
 
-   Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
-   The time it takes a cluster to update depends on database size and normally is a few minutes. If the database is very large, an update may take up to 10 minutes.
+   The time it takes a cluster to upgrade depends on database size and normally is a few minutes. If the database is very large, an upgrade may take up to 10 minutes.
 
 - {{ TF }}
 
@@ -106,7 +106,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -114,9 +114,9 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To upgrade a cluster to a specific {{ PG }} version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * The {{ PG }} version number in the `configSpec.version` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -160,7 +160,7 @@ Let's say you need to upgrade your cluster from version 11 to version 12.
           ...
       ```
 
-   1. To upgrade the `postgre406` cluster to version 12, run the command:
+   1. To upgrade the `postgre406` cluster to version 12, run this command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update postgre406 --postgresql-version 12

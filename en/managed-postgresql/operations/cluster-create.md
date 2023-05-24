@@ -1,6 +1,6 @@
 # Creating {{ PG }} clusters
 
-{{ PG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to disk both on the master host and on a certain number of replicas sufficient [to establish a quorum](../concepts/replication.md).
+A {{ PG }} cluster consists of one or more database hosts you can configure replication between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to disk both on the master host and on a certain number of replicas sufficient [to establish a quorum](../concepts/replication.md).
 
 {% note info %}
 
@@ -24,7 +24,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    1. Select **{{ mpg-name }}**.
    1. Click **Create cluster**.
    1. Name the cluster in the **Cluster name** field. It must be unique within the folder.
-   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+   1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the DBMS version.
@@ -126,11 +126,11 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
          --resource-preset <host class> \
          --user name=<username>,password=<user password> \
-         --database name=<database name>,owner=<name of the database owner> \
+         --database name=<database name>,owner=<database owner name> \
          --disk-size <storage size, GB> \
          --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --security-group-ids <list of security group IDs> \
-         --connection-pooling-mode=<connection manager operating mode> \
+         --connection-pooling-mode=<connection manager mode> \
          --deletion-protection=<cluster deletion protection: true or false>
       ```
 
@@ -142,7 +142,6 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       Available [connection pooler modes](../concepts/pooling.md): `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
-
       You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
       * Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
       * Host priority in the `priority` option in order to [modify the selection of master](../concepts/replication.md#selecting-the-master):
@@ -259,7 +258,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
+   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
@@ -281,7 +280,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
       
-   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `true` value for the `configSpec.access.serverless` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
    To enable [statistics collection](./performance-diagnostics.md#activate-stats-collector):
@@ -348,8 +347,8 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Named `mypg`.
    * Versions `{{ pg.versions.tf.latest }}`.
    * In the `PRESTABLE` environment.
-   * In the cloud with the ID `{{ tf-cloud-id }}`.
-   * In the folder with the ID `{{ tf-folder-id }}`.
+   * In the cloud with the `{{ tf-cloud-id }}` ID.
+   * In the folder with the `{{ tf-folder-id }}` ID.
    * In the new `mynet` network.
 
    

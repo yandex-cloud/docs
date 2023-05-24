@@ -46,7 +46,7 @@
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -54,9 +54,9 @@
 
 * API
 
-   Use the [create](../api-ref/Cluster/create.md) or [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To enable statistics collection, use the [create](../api-ref/Cluster/create.md) or [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) or [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter.
+   * Cluster ID in the `clusterId` parameter.
    * The `true` value in the `config.performanceDiagnostics.enabled` parameter.
    * A sessions sampling interval, in the `config.performanceDiagnostics.sessionsSamplingInterval` parameter. Acceptable values are between `1` and `86400` seconds.
    * A statements sampling interval, in the `config.performanceDiagnostics.statementsSamplingInterval` parameter. Acceptable values are between `60` and `86400` seconds.

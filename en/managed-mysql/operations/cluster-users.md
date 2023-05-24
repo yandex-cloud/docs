@@ -19,7 +19,7 @@ You can add and remove users, as well as manage their settings.
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of cluster users, run the command:
+   To get a list of cluster users, run the following command:
 
    ```
    {{ yc-mdb-my }} user list --cluster-name=<cluster name>
@@ -29,7 +29,7 @@ You can add and remove users, as well as manage their settings.
 
 - API
 
-   Use the [list](../api-ref/User/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
@@ -107,7 +107,7 @@ You can add and remove users, as well as manage their settings.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -115,11 +115,11 @@ You can add and remove users, as well as manage their settings.
 
 - API
 
-   Use the [create](../api-ref/User/create.md) API method and pass the following information in the request:
+   To add a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
 
    * The ID of the cluster where you want to create a user, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userSpec.name` parameter.
-   * User password, in the `userSpec.password` parameter.
+   * Username in the `userSpec.name` parameter.
+   * User password in the `userSpec.password` parameter.
 
       {% include [username-and-password-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
@@ -184,7 +184,7 @@ You can add and remove users, as well as manage their settings.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -192,10 +192,10 @@ You can add and remove users, as well as manage their settings.
 
 - API
 
-   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+   To update a user's password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
    * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
+   * Username in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
    * New user password, in the `password` parameter.
 
       {% include [password-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
@@ -281,7 +281,7 @@ To change the user's permissions to access certain databases, follow the [instru
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -289,10 +289,10 @@ To change the user's permissions to access certain databases, follow the [instru
 
 - API
 
-   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+   To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
    * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
+   * Username in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
    * New values for user settings.
    * List of user configuration fields to update in the `updateMask` parameter.
 
@@ -336,7 +336,7 @@ To change the user's permissions to access certain databases, follow the [instru
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -344,9 +344,10 @@ To change the user's permissions to access certain databases, follow the [instru
 
 - API
 
-   Use the [delete](../api-ref/User/delete.md) API method and pass the following in the request:
+   To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
+
    * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
+   * Username in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
 
 {% endlist %}
 

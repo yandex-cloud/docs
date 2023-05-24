@@ -14,7 +14,7 @@ You can add and remove cluster hosts and manage their settings.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
@@ -46,7 +46,7 @@ You can add and remove cluster hosts and manage their settings.
 
 - API
 
-   Use the [listHosts](../api-ref/Cluster/listHosts.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
 
@@ -124,7 +124,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       ```
 
       Where:
-      * `--cluster-name` is the name of a {{ mmy-name }} cluster.
+      * `--cluster-name`: Name of a {{ mmy-name }} cluster.
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
@@ -159,7 +159,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -169,8 +169,9 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
 - API
 
-   Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   To add a host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * New host settings in one or more `hostSpecs` parameters.
 
 {% endlist %}
@@ -197,7 +198,7 @@ For each host in a {{ mmy-name }} cluster, you can:
 
    To change the parameters of the cluster host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Edit**.
    1. Set new settings for the host:
       1. Select a replication source for the host to control replication threads manually.
@@ -224,7 +225,7 @@ For each host in a {{ mmy-name }} cluster, you can:
    ```
 
    Where:
-   * `--cluster-name` is the name of a {{ mmy-name }} cluster.
+   * `--cluster-name`: Name of a {{ mmy-name }} cluster.
    * `--replication-source` is the [replication](../concepts/replication.md) source for the host.
    * `--assign-public-ip` indicates whether the host is reachable from the internet over a public IP address.
    * `--backup-priority` is host priority for [backups](../concepts/backup.md#size).
@@ -255,7 +256,7 @@ For each host in a {{ mmy-name }} cluster, you can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -265,8 +266,9 @@ For each host in a {{ mmy-name }} cluster, you can:
 
 - API
 
-   To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To update host parameters, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Configuration array for hosts to update in the `updateHostsSpecs` parameter.
 
       For each host, specify:
@@ -296,7 +298,7 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Delete**.
 
 - CLI
@@ -324,7 +326,7 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -334,8 +336,9 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
 
 - API
 
-   Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   * The name(s) of the host(s) to delete, in the `hostNames` parameter.
+   To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Name(s) of the host(s) to delete in the `hostNames` parameter.
 
 {% endlist %}

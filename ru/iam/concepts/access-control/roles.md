@@ -232,6 +232,10 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md) %}
 
+{% include [kms-keys-encrypter](../../../_includes/roles-kms-keys-encrypter.md) %}
+
+{% include [kms-keys-decrypter](../../../_includes/roles-kms-keys-decrypter.md) %}
+
 {% include [kms-editor](../../../_includes/roles-kms-editor.md) %}
 
 {% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}

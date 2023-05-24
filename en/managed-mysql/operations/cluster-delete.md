@@ -3,7 +3,7 @@ title: "Deleting a MySQL cluster"
 description: "After you delete a MySQL database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
 ---
 
-# Deleting a {{ MY }} cluster
+# Deleting {{ MY }} cluster
 
 ## Before deleting a cluster {#before-you-delete}
 
@@ -44,7 +44,7 @@ description: "After you delete a MySQL database cluster, its backups are kept fo
 
 - API
 
-   Use the [delete](../api-ref/Cluster/delete.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 

@@ -27,7 +27,7 @@ items:
         href: operations/update.md
       - name: Управление ролями и пользователями
         href: operations/roles-and-users.md
-      - name: Управление клиентскими процессами
+      - name: Управление клиентскими процессами и сессиями пользователей
         href: operations/cluster-process.md
       - name: Использование внешних таблиц
         href: operations/external-tables.md
@@ -187,8 +187,6 @@ items:
         href: qa/cluster-hosts.md
       - name: Работа с внешними таблицами
         href: qa/pxf.md
-      - name: Управление пользователями
-        href: qa/users.md
       - name: Мониторинг и логи
         href: qa/monitoring.md
       - name: Все вопросы на одной странице

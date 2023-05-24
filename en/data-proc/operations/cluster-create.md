@@ -121,9 +121,10 @@ A cluster must include a subcluster with a master host and at least one subclust
 
    1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
 
-         1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
+   
+   1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
-      To enable this feature, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+      To enable this functionality, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
 
    1. Configure subclusters: no more than one subcluster with a master host (called **Master**) and subclusters for data storage or processing.
@@ -133,7 +134,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       For each subcluster, you can configure:
 
       * Number of hosts.
-      * [Host class](../concepts/instance-types.md): The platform and computing resources available to the host.
+      * [Host class](../concepts/instance-types.md): Platform and computing resources available to the host.
       * [Storage](../concepts/storage.md) size and type.
       * Subnet of the network where the cluster is located.
 
@@ -311,11 +312,10 @@ A cluster must include a subcluster with a master host and at least one subclust
       * `warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
       * `stabilization-duration`: Interval in seconds, during which the required number of instances cannot be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
       * `measurement-duration`: Period in seconds, for which utilization measurements should be averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
-      * `cpu-utilization-target`: Target CPU utilization level, %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
+      * `cpu-utilization-target`: Target CPU utilization level in percentage. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
       * `autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24 hours).
 
       {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
-
 
    
    1. To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter:
@@ -560,10 +560,10 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   To assign a public IP address to all subcluster hosts, pass the `true` value in the `configSpec.subclustersSpec.assignPublicIp` parameter.
+   To assign a public IP address to all subcluster hosts, provide the `true` value in the `configSpec.subclustersSpec.assignPublicIp` parameter.
 
    
-   To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host group IDs in the `hostGroupIds` parameter.
+   To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), provide a list of host group IDs in the `hostGroupIds` parameter.
 
    {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
 
@@ -594,7 +594,7 @@ After your cluster's status changes to **Running**, you can [connect](connect.md
    * With the `master` subcluster for master hosts and a single `compute` subcluster for processing data:
 
       * Of the `{{ host-class }}` class.
-      * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+      * With network SSD storage (`{{ disk-type-example }}`) of 20 GB.
       * In the `{{ subnet-name }}` subnet.
       * With public access.
 
