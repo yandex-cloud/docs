@@ -162,8 +162,7 @@
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }} \
-     --use-restic
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Где:
