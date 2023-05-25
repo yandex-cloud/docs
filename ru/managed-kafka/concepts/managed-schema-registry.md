@@ -38,7 +38,6 @@
 
 * [Avro](https://avro.apache.org/).
 * [JSON Schema](https://json-schema.org/).
-* [Protobuf](https://protobuf.dev/).
 
 Сведения о схемах помещаются в [служебный топик](./topics.md#service-topics) `_schemas`. В этот топик нельзя писать данные стандартными средствами.
 

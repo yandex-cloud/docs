@@ -2,7 +2,7 @@
 
 ## Support {#support}
 
-{{ yandex-cloud }} provides 24/7 technical support. Depending on your [service plan](../support/overview.md), you can contact support for various issues. To do this, open [Support]({{ link-console-support }}) in the management console. For a detailed description of the support service, see our [documentation](../support/index.yaml).
+{{ yandex-cloud }} provides 24/7 technical support. Depending on your [service plan](../support/overview.md), you can contact support for various issues. To do this, open [Support]({{ link-console-support }}) in the management console. For a detailed description of the support service, see our [documentation](../support/).
 
 If you did not find an answer to your question about using {{ yandex-cloud }} in the documentation, contact the support team.
 
@@ -10,6 +10,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 * [Billing](../billing/qa/all.md)
 * [Technical support](../support/qa.md)
+
 
 ## {{ yandex-cloud }} services {#services}
 

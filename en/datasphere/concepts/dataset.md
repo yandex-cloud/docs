@@ -10,11 +10,11 @@ The larger is the [disk](../../compute/concepts/disk.md) allocated for the datas
 
 A dataset is created and populated during initialization. Once initialized, you can't change a dataset, it becomes read-only. If you want to add files to a dataset, create it once again.
 
-Datasets aren't included in the main project storage and are [rated](../pricing.md#prices-datasets) separately.
+Datasets are not included in the main project storage and are [priced](../pricing.md#prices-datasets) separately.
 
-To use your data in multiple projects, you can [share](../operations/data/dataset.md#share) your datasets within your community, like any other resources.
+To use your data in multiple projects, you can [share](../operations/data/dataset.md#share) your datasets within your community, just like any other resources.
 
-When activated in the project, a disk with a dataset is mounted to the project storage. You can read the files of your activated dataset as local files in your project storage, at the path: `/home/jupyter/mnt/datasets/<dataset_name>`.
+When activated in the project, a disk with a dataset is mounted to the project storage. You can read the files of your activated dataset as local files in your project storage, at the following path: `/home/jupyter/mnt/datasets/<dataset_name>`.
 
 Up to three datasets can be activated in a project at the same time. You can activate and deactivate datasets in your projects during your work, without having to restart them. For a complete list of {{ ml-platform-name }} restrictions, see [{#T}](limits.md).
 
@@ -27,9 +27,9 @@ The following information is stored about each dataset:
 * Name of the user who created the dataset.
 * Dataset creation date in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, such as `July 18, 2022, 14:23`.
 
-To view dataset details, click its name in the project's dataset list. On the dataset's **Overview** tab, you can see:
+To view dataset details, click its name in the project's dataset list. On the dataset's **{{ ui-key.yc-ui-datasphere.common.overview }}** tab, you can see:
 
-* The [availability zone](../../overview/concepts/geo-scope.md) that the dataset is stored in.
+* [Availability zone](../../overview/concepts/geo-scope.md) the dataset is stored in.
 * Size.
 * Initialization code.
 

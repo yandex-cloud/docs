@@ -105,10 +105,9 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
       1. Enter the name, for example `route-table`.
       1. Select the `data-folder` folder's network.
       1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
-         * In the window that opens, select **{{ ui-key.yacloud.vpc.route-table-form.label_gateway }}** in the **{{ ui-key.yacloud.vpc.route-table-form.label_next-hop-address }}** field.
-         * In the **{{ ui-key.yacloud.vpc.route-table-form.label_gateway }}** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
-         * Click **{{ ui-key.yacloud.common.add }}**.
-      1. Click **{{ ui-key.yacloud.common.save }}**.
+         * In the window that opens, select **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** in the **{{ ui-key.yacloud.vpc.route-table-form.label_next-hop-address }}** field.
+         * In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
+         * Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
    1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
    Link the route table to a subnet to route traffic from it via the NAT gateway:
@@ -152,16 +151,17 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 ### Edit the project settings {#change-settings}
 
-1. Go to the **{{ ui-key.yc-ui-datasphere.common.settings-key-value }}** tab and click **![pencil](../../_assets/pencil.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
-1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, specify:
-   * **{{ ui-key.yc-ui-datasphere.common.folder }}**: `data-folder`.
-   * **{{ ui-key.yc-ui-datasphere.edit-project-page.service-account }}**: `sa-for-project`.
-   * **{{ ui-key.yc-ui-datasphere.edit-project-page.subnet }}**: A subnet of the `{{region-id}}-a` availability zone in the `data-folder` folder.
+1. {% include [include](../../_includes/datasphere/ui-find-project.md) %}
+1. Click the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
+1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, click **![pencil](../../_assets/pencil-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Specify the parameters:
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-project`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: A subnet of the `{{region-id}}-a` availability zone in the `data-folder` folder.
 
-      {% include [subnet-create](../../_includes/subnet-create.md) %}
+   {% include [subnet-create](../../_includes/subnet-create.md) %}
 
-   * [Security groups](../../vpc/concepts/security-groups.md) if you use them in your organization.
-
+   * **{{ ui-key.yc-ui-datasphere.edit-project-page.security-group }}**: Specify a [security group](../../vpc/concepts/security-groups.md) if you use them in your organization.
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 ## Create secrets {#create-secrets}
@@ -218,13 +218,13 @@ The packages listed in the cell are already installed in {{ ml-platform-name }} 
 
 ## Upload and label the data {#load-dataset}
 
-Go to the **Connect S3** section. You can use it to:
+Go to the **Connect S3** section. The following operations are performed there:
 
-1. Set up a connection to the S3 bucket.
-1. Load a list of objects, i.e., images of cars and buses. They will be used for training the model.
-1. Define the function to extract an image using a key (name).
+1. Connection to the S3 bucket is set up.
+1. A list of objects, i.e., images of cars and buses, is loaded. They will be used for training the model.
+1. The function to extract an image using a key (name) is defined.
 
-The next section, **Labeling**, is used for labeling data:
+In the next section, **Labeling**, the data is labeled:
 * Images are labeled according to the key value (folder name).
 * Bus images are labeled with `0`, and car images are labeled with `1`.
 
@@ -245,11 +245,11 @@ To upload and label the data:
 
 ## Prepare the ML model and calculate the properties {#get-cnn-model}
 
-Go to the **Calculating the characteristics** section. It is used to:
+Go to the **Calculating the characteristics** section. The following operations are performed there:
 
-1. Load the ResNet50 model from the Keras package with weights pre-selected using the ImageNet dataset. This set contains 1.2 million images classified into 1,000 categories.
-1. Define the `featurize_images` function. It splits the list of images into chunks with 32 images in each, converts their size to 224×224 pixels, and then converts them to a four-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) to upload to the Keras model. Next, the function calculates their properties and returns them in a NumPy array.
-1. Leverage the function to calculate binary properties (`1` means car, `0` means other) and save them to a file. This step may take 10-15 minutes. You can read more about the ResNet50 model [here](https://www.kaggle.com/keras/resnet50).
+1. The ResNet50 model is loaded from the Keras package with weights pre-selected using the ImageNet dataset. This set contains 1.2 million images classified into 1000 categories.
+1. The `featurize_images` function is defined. It splits the list of images into chunks with 32 images in each, converts their size to 224×224 pixels, and then converts them to a four-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) to upload to the Keras model. Next, the function calculates their properties and returns them in a NumPy array.
+1. This function is used to calculate binary properties (`1` — car, `0` — other) and save them to a file. This step may take 10-15 minutes. [More about the ResNet50 model](https://www.kaggle.com/keras/resnet50).
 
 To prepare the model and calculate the properties:
 

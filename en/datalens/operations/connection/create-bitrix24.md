@@ -1,7 +1,5 @@
 # Creating a Bitrix24 connection
 
-## Connecting to Bitrix24 {#bitrix24-connection}
-
 To create a Bitrix24 connection:
 
 
@@ -16,5 +14,7 @@ To create a Bitrix24 connection:
    * **Token**: Get it in Bitrix24 by selecting **Analytics** → **BI analytics** → **Manage keys**.
    * Leave the option **Automatically create a dashboard, charts, and a dataset on the connection** enabled if you need a folder with a standard set of datasets and charts and a ready-made dashboard.
 
-1. Check the connection and click **Create connection**.
+1. Click **Create connection**.
 1. Enter the name for the connection and click **Create**.
+
+{% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}

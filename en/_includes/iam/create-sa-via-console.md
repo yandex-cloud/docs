@@ -1,6 +1,6 @@
 1. Log in to the [management console]({{link-console-main}}).
 1. Click the line with the name of the folder where you want to create a service account.
-1. Go to the **Service accounts** tab.
+1. At the top of the screen, go to the **Service accounts** tab.
 1. Click **Create service account**.
 1. Enter the name of the service account.
 

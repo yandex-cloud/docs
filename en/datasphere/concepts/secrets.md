@@ -27,7 +27,7 @@ The secret page also contains sample bash and Python code for running the resour
 
 ## Scope of secrets {#scope}
 
-Once created, a secret is available for a project. A community admin can [share](../operations/data/secrets.md#share) the secret with other community projects by granting access to it in the **Access** tab on the secret viewing page. Secrets available to the community appear on the community page under **Resources**.
+Once created, a secret is available for a project. A community admin can [share](../operations/data/secrets.md#share) the secret with other community projects by granting access to it in the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the secret viewing page. Secrets available to the community appear on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
 #### What's next? {#what-is-next}
 

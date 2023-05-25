@@ -33,6 +33,12 @@ The following subnet ranges are available for the pods, nodes, and services of s
 
 The node subnet mask and the subnet size for the pods determines the maximum number of nodes in the cluster and the maximum number of pods per node.
 
+{% note info %}
+
+Changes to the node subnet mask or the size of cluster pod subnets only affect the parameters of newly created node groups. The parameters of the existing node groups remain unchanged.
+
+{% endnote %}
+
 For clusters in [tunnel mode](network-policy.md#cilium), the following subnet ranges are available:
 * `10.0.0.0/8`.
 * `172.16.0.0/12`.

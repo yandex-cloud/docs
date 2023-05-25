@@ -14,8 +14,7 @@
 
 * [Создание балансировщика с защитой от DDoS](alb-with-ddos-protection.md)
 * [Публикация обновлений для игр с помощью {{ cdn-full-name }}](prefetch.md)
-* [Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }}](cdn-storage-integration.md)
-* [Организация сине-зеленого и канареечного развертывания версий веб-сервиса](blue-green-canary-deployment.md)
+* [Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}](cdn-storage-integration.md)
 
 
 * [Терминирование TLS-соединений](tls-termination.md)

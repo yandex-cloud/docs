@@ -2,22 +2,16 @@
 
 To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role or a higher role in that cloud. You can't rename a suspended cloud. If you can't do this, please contact the cloud [administrator](../../../iam/concepts/access-control/roles.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).
 
-{% note info %}
-
-In the [management console]({{ link-console-main }}), you can select the interface of navigating resources and services. To switch to another navigation mode: in the account information section, click ![image](../../../_assets/settings.svg), then select ![image](../../../_assets/experiments.svg) **Experiments** and enable **New navigation**.
-
-{% endnote %}
-
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
-   1. Click ![***](../../../_assets/pencil.svg) **Edit** in the upper-right corner.
+   1. Click ![***](../../../_assets/pencil.svg) **Edit** in the top-right corner.
 
       ![image](../../../_assets/iam/cloud-actions-n-n.png)
 
-   1. In the window that opens, enter a new cloud name. For naming requirements, see below:
+   1. In the window that opens, enter a new cloud name. The naming requirements are as follows:
 
       {% include [name-format.md](../../../_includes/name-format.md) %}
 
@@ -29,7 +23,7 @@ In the [management console]({{ link-console-main }}), you can select the interfa
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To rename a cloud created using {{ TF }}:
 
@@ -56,7 +50,7 @@ In the [management console]({{ link-console-main }}), you can select the interfa
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.

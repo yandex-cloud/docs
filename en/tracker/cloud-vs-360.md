@@ -25,7 +25,7 @@ Starting April 17, 2023, the free {{ ya-360 }} version will be disabled and the 
 || **Connecting a domain** | You can connect a domain for an organization. | You cannot connect a domain. ||
 || **Groups** | Support for hierarchy-based divisions and one-level groups. | You can only set up [one-level groups](../organization/manage-groups.md) of users. ||
 || **Organization administrator privileges** | The {{ ya-360 }} administrator becomes an administrator in {{ tracker-name }}. | Starting March 2023, {{ org-full-name }} administrators will also be administrators in {{ tracker-name }}. You will also be able to appoint administrators by [granting](../organization/roles.md) them the `tracker.admin` role. ||
-|| **Additional features** | {{ ya-360 }} services | [{{ yandex-cloud }}]({{ link-cloud-services }}) services ||
+|| **Additional features** | {{ ya-360 }} services | [{{ yandex-cloud }} services]({{ link-cloud-services }}) ||
 |#
 
 ## Selecting an organization for {{ tracker-name }} {#connect}

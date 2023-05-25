@@ -9,8 +9,6 @@
 
 * [Начало работы с Packer](packer-quickstart.md)
 * [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](packer-custom-image.md)
-* [Автоматизация сборки образов с помощью Jenkins и Packer](jenkins.md)
-* [{#T}](gitlab-containers.md)
 * [Создание кластера Linux-серверов «1С:Предприятия» с кластером {{ mpg-full-name }}](1c-postgresql-linux.md)
 
 
@@ -26,12 +24,12 @@
 
 
 
-* [Масштабирование группы виртуальных машин по расписанию](vm-scale-scheduled.md)
-* [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди {{ message-queue-full-name }}](autoscale-monitoring.md)
+* [Масштабирование группы ВМ по расписанию](vm-scale-scheduled.md)
+* [Автоматическое масштабирование группы ВМ для обработки сообщений из очереди {{ message-queue-full-name }}](autoscale-monitoring.md)
 
 
 
-* [Обновление группы виртуальных машин под нагрузкой](updating-under-load.md)
+* [Обновление группы ВМ под нагрузкой](updating-under-load.md)
 
 
 

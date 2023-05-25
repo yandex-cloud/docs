@@ -31,9 +31,9 @@ To collect folder audit logs:
          ```
 
          Where:
-         * `role`: The role assigned.
-         * `id`: The ID of the folder from which audit logs will be collected.
-         * `service-account-id`: The ID of your service account.
+         * `role`: Role being assigned.
+         * `id`: ID of the folder from which audit logs will be collected.
+         * `service-account-id`: ID of your service account.
 
       * Assign the [`storage.uploader`](../../storage/security/index.md#storage-uploader) role for the folder to host the trail:
 
@@ -45,9 +45,9 @@ To collect folder audit logs:
          ```
 
          Where:
-         * `role`: The role assigned.
-         * `id`: The ID of the folder to host the trail.
-         * `service-account-id`: The ID of your service account.
+         * `role`: Role being assigned.
+         * `id`: ID of the folder to host the trail.
+         * `service-account-id`: ID of your service account.
 
    {% endlist %}
 

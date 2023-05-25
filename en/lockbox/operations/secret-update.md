@@ -50,8 +50,47 @@ To update a secret:
         - <key>
       ```
 
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the Terraform configuration file and edit the fragment with the secret description:
+
+      {% cut "Sample secret description in the {{ TF }} configuration" %}
+
+      ```
+      ...
+      resource "yandex_lockbox_secret" "my_secret" {
+        name                = "My secret"
+        description         = "test secret from tf"
+        folder_id           = "b1gmitvfx321d3kr4mhjmo"
+        kms_key_id          = "abjp8q2fjfg0sedaqfkl0"
+        deletion_protection = true
+        labels              = {
+          tf-label    = "tf-label-value",
+          empty-label = ""
+        }
+      }
+      ...
+      ```
+
+      {% endcut %}
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   You can verify that the secret has been changed and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+
+   ```bash
+   yc lockbox secret get <secret_name>
+   ```
 - API
 
    To update a secret, use the [update](../api-ref/Secret/update.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Update](../api-ref/grpc/secret_service.md#Update) gRPC API call.
 
 {% endlist %}
+
+## See also {#see-also}
+
+* [{#T}](../concepts/secret.md)

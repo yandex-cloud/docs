@@ -22,7 +22,7 @@ To configure delivery of audit log files to ArcSight:
 1. [Mount the bucket](#mount-bucket).
 1. [Connect ArcSight SmartConnector](#configure-arcsight).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-begin}
 
@@ -61,7 +61,7 @@ You can use a VM that has access to an ArcSight instance or create a new one:
    1. Click **Create bucket**.
    1. On the bucket creation page:
       1. Enter the bucket name following the [naming guidelines](../../storage/concepts/bucket.md#naming), such as `arcsight-bucket`.
-      1. If necessary, limit the maximum bucket size.
+      1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
@@ -111,14 +111,9 @@ Create the `sa-arcsight` service account:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
-   1. Enter the service account name following the naming guidelines:
-
-      {% include [name-format](../../_includes/name-format.md) %}
-
-      E.g. `sa-arcsight`.
-   
+   1. Enter the service account name following the [naming guidelines](../../_includes/name-format.md), such as `sa-arcsight`.
    1. Click **Create**.
 
 {% endlist %}
@@ -134,7 +129,7 @@ You will need the key ID and secret key when mounting the bucket.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose `sa-arcsight-bucket` and click the line with its name.
    1. Click **Create new key** on the top panel.
    1. Select **Create static access key**.
@@ -143,7 +138,7 @@ You will need the key ID and secret key when mounting the bucket.
 
       {% note alert %}
 
-      After the dialog is closed, the private key value will be unavailable.
+      Once you close the dialog, the private key value will be unavailable.
 
       {% endnote %}
 
@@ -189,7 +184,7 @@ Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.key
 
       Where:
 
-      * `role`: The role assigned.
+      * `role`: Role being assigned.
       * `id`: The ID of `example-folder`.
       * `service-account-id`: The ID of `sa-arcsight`.
 
@@ -206,7 +201,7 @@ Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.key
 
       Where:
 
-      * `role`: The role assigned.
+      * `role`: Role being assigned.
       * `id`: The ID of `example-folder`.
       * `service-account-id`: The ID of `sa-arcsight`.
 
@@ -221,7 +216,7 @@ Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.key
 
       Where:
 
-      * `role`: The role assigned.
+      * `role`: Role being assigned.
       * `id`: The ID of the `arcsight-kms` {{ kms-short-name }} key.
       * `service-account-id`: The ID of `sa-arcsight`.
 
@@ -244,7 +239,7 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
 
       Where:
 
-      * `role`: The role assigned.
+      * `role`: Role being assigned.
       * `id`: The ID of `example-folder`.
       * `service-account-id`: The ID of `sa-arcsight-bucket`.
 
@@ -259,7 +254,7 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
 
       Where:
 
-      * `role`: The role assigned.
+      * `role`: Role being assigned.
       * `id`: The ID of the `arcsight-kms` {{ kms-short-name }} key.
       * `service-account-id`: The ID of `sa-arcsight-bucket`.
 
@@ -367,9 +362,9 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
 
    ![image](../../_assets/audit-trails/tutorials/arcsight-events.png)
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket {{ objstorage-name }}.
 1. [Destroy](../../kms/operations/key.md#delete) the {{ kms-name }} key.

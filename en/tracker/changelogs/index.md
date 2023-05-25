@@ -1,60 +1,103 @@
-# {{ tracker-full-name }} revision history for February 2023
+# {{ tracker-full-name }} revision history for March 2023
 
-* [Setting up a color palette in a Gantt chart for projects](#gantt-colors)
-* [Displaying external blockers in a list of issues on a project's Gantt chart](#ext-blockers-gannt)
-* [Workflow templates](#work-templates)
-* [Automatically adding issues to a board](#auto-add-to-board)
-* [Using a planning poker on a board](#poker)
-* [Retaining a list of projects](#projects-preset)
-* [Displaying files attached to an issue](#attaches)
-* [Dashboard access rights](#access-dashboards)
-* [Additional mailbox settings](#new-mail)
+* [Ideas from our users](#your-ideas)
+* [Updates](#top-news)
+* [Fixes and improvements](#fixes)
 
-## Setting up a color palette in a Gantt chart for projects {#gantt-colors}
+## Ideas from our users {#your-ideas}
 
-You can now set up the issue color manually in a [project's Gantt chart](../manager/gantt-project.md). To enable this, click **Chart settings** and select **Color: manual**. To choose the issue color, hover over its name in the table row on the left and click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/gannt-palette.svg) **Choose color**.
 
-## Displaying external blockers in a list of issues on a project's Gantt chart {#ext-blockers-gannt}
+While working on our main goals, we also try to listen to our users' ideas. This month, we implemented the two most popular ideas:
 
-If an issue has blockers outside the current project, you will see the ![](../../_assets/tracker/svg/blocker.svg) icon with their number to the left of the issue bar.
 
-You can now enable displaying external blockers in the issue list. To do so, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**Chart settings** and select **Show external blockers**. They will be shown in gray under the dependent issue in the issue list. If you selected to display issues as a hierarchy, the blockers will be shown under the issue branch.
+### Canceling the sending of an email {#mail-timer}
 
-## Workflow templates {#work-templates}
+**158 votes**
 
-To set up your workflow, you can now use templates that contain ready-made sets of tools. Currently, the **Project management**, **Development**, **Support**, and **Basic** templates are available.
+You can now cancel an email sent from an [issue comment](../user/comments.md). Click **Cancel** at the bottom of the screen within 5 seconds of sending an email: your email will not be sent and you will be able to edit the comment.
 
-You can create a workflow from a template under [**My page**]({{ link-tracker }}pages/my) using the **Workflow templates** widget.
+### New workflow editor {#workflow-editor}
 
-## Automatically adding issues to a board {#auto-add-to-board}
+**154 votes**
 
-You can now set up [new boards](../manager/agile-new.md) so that they automatically display new issues from a filter.
-To do this, click ![](../../_assets/tracker/svg/settings.svg) **Settings** in the top right corner of your board and select **Automatic issues import and removal**. Next, set the filter parameters under **Adding issues to the board**.
+[Queue](../queue-intro.md) settings now have a visual editor for [workflows](../manager/create-work-process.md). All statuses and transitions are now displayed in the diagram. We also added some new settings, for example, you can now enable transitions to a status from all other statuses with just a single click.
 
-## Using a planning poker on a board {#poker}
+ 
 
-<q>Scrum</q> boards in the [new interface](../manager/agile-new.md) now support [planning poker]({{ link-wiki-poker }}), a tool for estimating issue complexity in collaboration with team members. Estimates are made using a deck of cards with a different number of [Story Points](../manager/agile.md#dlen_sp).
+## Updates {#top-news}
 
-To set the planning poker parameters, click ![](../../_assets/tracker/svg/settings.svg) **Settings** in the top-right corner of the board and select **Poker**.
+### Updated All Boards page {#new-boadrs-page}
 
-## Retaining a list of projects {#projects-preset}
+The **All Boards** page has a new design.
 
-Now, when setting up a filter for a [list of projects](../manager/my-projects.md), both the filter parameters and the selected preset (**My projects**, **Created by me**, etc.) are retained. The preset is restored when you open the **All projects** page again.
 
-## Displaying files attached to an issue {#attaches}
+### Inviting users to your organization {#invite-org}
 
-[Files attached](../user/attach-file.md) from comments are now displayed in the **Attachments** tab. If files are added directly to an issue, they are only displayed in its summary.
+You can now send users invitations to {{ org-full-name }} from the {{ tracker-name }} interface. You can send invitations to any email address, not just Yandex. Once a user accepts your invitation, they can select a Yandex account to use to join your organization or create a new account.
 
-## Dashboard access rights {#access-dashboards}
 
-The {{ tracker-name }} new interface now also allows you to change the owner of a dashboard and set up user permissions for it.
+### Burn down chart {#burnout-diagramm}
 
-## Additional mailbox settings {#new-mail}
+[New boards](../manager/agile-new.md) with a [backlog](../manager/backlog.md) now have a **Burn down chart** tab available for the sprint selected. By default, the chart shows the current sprint.
 
-When setting up [email integration](../manager/queue-mail.md), you can now set additional parameters for processing emails:
+### Saving Gantt chart settings to filter issues {#gantt-preset-colors}
 
-* **Inbox folder**.
-* **Archive folder**.
-* **Start date of email processing**.
+[Gantt chart](../manager/gantt.md) settings for issue system filters (**My projects**, **Created by me**, and other) are saved even after you refresh the page with the respective filter.
 
-The settings are only available for [email addresses](../manager/queue-mail.md#sec-mail-yandex) registered with an arbitrary mail server.
+
+### Managing organizations {#org-add}
+
+{{ tracker-name }} now lets you [change an organization](../cloud-vs-360.md#reconnect) from {{ ya-360 }} to {{ org-full-name }}.
+
+
+### Color settings for filter and queue Gantt charts {#gantt-colors-queue}
+
+You can now select a color for a specific issue in a [Gantt chart](../manager/gantt.md) for an issue filter or queue.
+
+### Invitations to comments in projects {#project-summons}
+
+You can now invite users to comment on the [project](../manager/project-new.md) either on the page or in the project card.
+
+### Access to projects for customers {#customer-access}
+
+We updated [project](../manager/project-new.md) access settings: now, when selecting the **All participants** access level, access is granted to the reporter, responsible employee, project participants, and customers.
+
+### Displaying an issue list in a Gantt chart by filter or queue {#gantt-settings-columns}
+
+In a Gantt chart created based on an issue filter or queue, you can select the issue parameters to be displayed in the list to the left of the chart. To select the desired parameters, click ![](../../_assets/tracker/svg/settings-old.svg) in the top-right corner of the issue list in the chart.
+
+
+### Onboarding for new {{ tracker-name }} users {#onboarding}
+
+Onboarding is now available for new {{ tracker-name }} users: when they log in to {{ tracker-name }}for the first time, they can select a suitable [workflow template](../manager/create-work-process.md) and get a set of required tools.
+
+![](../../_assets/tracker/onboarding.png =690x395)
+
+
+
+### New boards in workflow templates {#new-boards-presets}
+
+We updated [workflow templates](../manager/create-work-process.md): now, [new issue boards](../manager/agile-new.md) are created in them.
+
+
+### Migrating to new boards {#create-board-popup}
+
+Now, you can only create [new issue boards](../manager/agile-new.md). You can no longer create old boards, but you can continue to use all previously created ones.
+
+## Fixes and improvements {#fixes}
+
+### Retaining a sprint after you edit a board {#spint-saved}
+
+Now, after you rename fields or update a set of fields in a card, the selected sprint remains on your [issue board](../manager/agile-new.md).
+
+### Displaying issue links in a Gantt chart for projects {#gantt-linked-tasks}
+
+In a [Gantt chart for projects](../manager/gantt-project.md), you can now more effectively edit issue links by adding or removing blockers, dependent issues, or sub-issues. Now, changes you make to the chart apply to issues and immediately appear on charts opened by other users.
+
+### Selecting a end date for a sprint {#sprint-end-date}
+
+We fixed the error that prevented users from specifying an end date for a [sprint](../manager/create-agile-sprint.md). The **Other** option now works properly.
+
+### Grouping issues on a board {#tasks-groups}
+
+The [issue grouping](../manager/agile-new-use.md#group) on the selected board remains after you refresh and open the page again.

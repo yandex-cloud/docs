@@ -1,14 +1,13 @@
-# Uploading audit logs to {{ mch-full-name }} and data visualization in {{ datalens-full-name }}
+# Uploading audit logs to {{ mch-name }} and data visualization in {{ datalens-name }}
 
-Upload [audit logs](../audit-trails/concepts/format.md) from a folder to {{ mch-full-name }} and analyze resource use in [{{ datalens-full-name }}]({{ link-datalens-main }}).
-
+Upload [audit logs](../audit-trails/concepts/format.md) from a folder to [{{ mch-full-name }}](../managed-clickhouse/) and analyze resource use in [{{ datalens-full-name }}]({{ link-datalens-main }}).
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#environment-preparing).
 1. [Create a trail](#create-trail).
-1. [Create a source endpoint for a {{ yds-name }} data stream](#create-source-endpoint).
+1. [Create a source endpoint for a {{ yds-full-name }} data stream](#create-source-endpoint).
 1. [Create a target endpoint for a {{ CH }} database](#create-target-endpoint).
 1. [Create a transfer](#create-datatransfer).
-1. [Visualize your data in {{ datalens-full-name }}](#datalens-visualization).
+1. [Visualize your data in {{ datalens-name }}](#datalens-visualization).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -19,8 +18,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
-* Data stream usage costs (see [{{ yds-name }} pricing](../data-streams/pricing.md)).
-* fees for continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../managed-clickhouse/pricing.md)).
+* Fee for using a [data stream](../data-streams/concepts/glossary.md#stream-concepts) (see [{{ yds-name }} pricing](../data-streams/pricing.md)).
+* Fee for continuously running [{{ mch-name }} cluster](../managed-clickhouse/concepts/index.md) (see [{{ mch-name }} pricing](../managed-clickhouse/pricing.md)).
 
 ## Prepare the environment {#environment-preparing}
 
@@ -30,11 +29,11 @@ The infrastructure support cost includes:
 
 - Management console
 
-  1. In [the management console]({{ link-console-main }}), select a folder where you wish to create a service account.
+  1. In the [management console]({{ link-console-main }}), select a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [service account](../iam/concepts/users/service-accounts.md).
   1. Go to the **Service accounts** tab.
   1. Click **Create service account**.
   1. Enter the service account name: `sa-trail-logs`.
-  1. Click ![](../_assets/plus-sign.svg) **Add role** and select `audit-trails.viewer` and `yds.editor`.
+  1. Click ![](../_assets/plus-sign.svg) **Add role** and select the `audit-trails.viewer` and `yds.editor` [roles](../iam/concepts/access-control/roles.md).
   1. Click **Create**.
 
 - CLI
@@ -43,7 +42,7 @@ The infrastructure support cost includes:
 
   {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-  1. Create a service account with the name `sa-trail-logs`:
+  1. [Create a service account](../iam/operations/sa/create.md) with the name `sa-trail-logs`:
 
      ```bash
      yc iam service-account create --name sa-trail-logs
@@ -59,7 +58,7 @@ The infrastructure support cost includes:
      ```
 
      For more information about the `yc iam service-account create` command, see the [CLI reference](../cli/cli-ref/managed-services/iam/service-account/create.md).
-  1. Assign the service account the `audit-trails.viewer` role:
+  1. [Assign the service account](../iam/operations/sa/assign-role-for-sa.md) the `audit-trails.viewer` role:
 
      ```bash
      yc resource-manager folder add-access-binding <folder_name> \
@@ -78,9 +77,8 @@ The infrastructure support cost includes:
 
 - {{ TF }}
 
-  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-  1. In the configuration file, describe the service account parameters:
+   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. In the configuration file, describe the service account parameters:
 
      ```hcl
      resource "yandex_iam_service_account" "sa" {
@@ -140,7 +138,7 @@ The infrastructure support cost includes:
         "id": "aje6o61*****h6g9a33s",
         "folderId": "b1gvmob*****aplct532",
         "createdAt": "2022-07-25T18:01:25Z",
-        "name": "sa-trail-logs",
+        "name": "sa-trail-logs"
        }
       ]
      }
@@ -150,32 +148,32 @@ The infrastructure support cost includes:
 
      **body.json:**
 
-     ```json
-     {
-      "accessBindingDeltas": [
-       {
-        "action": "ADD",
-        "accessBinding": {
-          "roleId": "audit-trails.viewer",
-          "subject": {
-            "id": "<sa-trail-logs_service_account_ID>",
-            "type": "serviceAccount"
-            }
-          }
-        }
+      ```json
+      {
+       "accessBindingDeltas": [
         {
          "action": "ADD",
          "accessBinding": {
-           "roleId": "yds.writer",
+           "roleId": "audit-trails.viewer",
            "subject": {
              "id": "<sa-trail-logs_service_account_ID>",
              "type": "serviceAccount"
              }
            }
-        }
-      ]
-     }
-     ```
+         }
+         {
+          "action": "ADD",
+          "accessBinding": {
+            "roleId": "yds.writer",
+            "subject": {
+              "id": "<sa-trail-logs_service_account_ID>",
+              "type": "serviceAccount"
+              }
+            }
+         }
+       ]
+      }
+      ```
 
   1. Assign roles to the service account:
 
@@ -200,18 +198,18 @@ The infrastructure support cost includes:
   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ CH }} cluster**.
   1. Specify the settings for a {{ CH }} cluster:
      1. Under **General parameters**, enter the cluster name `trail-logs`.
-     1. Under **Host class**, select the type of virtual machine **burstable** and the **b2.nano** host type.
+     1. Under **Host class**, select **burstable** as the [virtual machine](../compute/concepts/vm.md) type and **b2.nano** as the [host type](../managed-clickhouse/concepts/instance-types.md).
      1. Under **Database**, enter the DB name `trail_data`, the username `user` and the password. Remember the database name.
      1. Under **Hosts**, click ![pencil](../_assets/pencil.svg). Enable **Public access** and click **Save**.
      1. Under **Additional settings**, enable the following options:
         * Access from {{ datalens-name }}.
         * Access from management console.
-        * Access from {{ data-transfer-name }}.
+        * Access from [{{ data-transfer-full-name }}](../data-transfer/).
   1. After configuring all the settings, click **Create cluster**.
 
 - CLI
 
-  1. Check whether the folder has any subnets for the cluster hosts:
+  1. Check whether the folder has any [subnets](../vpc/concepts/network.md#subnet) for the cluster hosts:
 
      ```bash
      yc vpc subnet list
@@ -315,11 +313,11 @@ A data stream is used to upload audit logs.
 - Management console
 
   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ yds-name }}**.
-  1. In the **Database** field, click **Create new**. A new {{ ydb-full-name }} database creation page opens:
+  1. In the **Database** field, click **Create new**. A new {{ ydb-name }} database creation page will open.
   1. Enter the database **Name**: `stream-db`.
   1. Under **Database type**, select `Serverless`.
   1. Click **Create database**.
-  1. Return to the stream creation page. Click **Update** and select the created database from the list.
+  1. Return to the stream creation page. Click **Update** and select the created DB from the list.
   1. Enter the data stream name: `trail-logs-stream`.
   1. Click **Create**.
 
@@ -327,10 +325,9 @@ A data stream is used to upload audit logs.
 
 {% endlist %}
 
-
 ## Create a trail {#create-trail}
 
-A trail uploads audit logs of all the resources in your folder to a {{ yds-name }} stream.
+A [trail](../audit-trails/concepts/trail.md) will be uploading [audit logs](../audit-trails/concepts/format.md) of all resources in your folder to a {{ yds-name }} stream.
 
 {% list tabs %}
 
@@ -351,7 +348,7 @@ A trail uploads audit logs of all the resources in your folder to a {{ yds-name 
 
 ## Create a source endpoint for a {{ yds-name }} data stream {#create-source-endpoint}
 
-To create transfer, you need to specify the source endpoint that leads to a {{ yds-name }} stream.
+To create a [transfer](../data-transfer/concepts/index.md#transfer), you need to specify the source [endpoint](../data-transfer/concepts/index.md#endpoint) that leads to a {{ yds-name }} stream.
 
 {% list tabs %}
 
@@ -364,7 +361,7 @@ To create transfer, you need to specify the source endpoint that leads to a {{ y
   1. Enter the endpoint name: `source-logs-stream`.
   1. Under **Database type**, select `{{ yds-full-name }}`.
   1. Configure the endpoint parameters:
-     * **Database**: Select the database registered for the `trail-logs-stream` stream.
+     * **Database**: Select the DB registered for the `trail-logs-stream`.
      * **Stream**: `trail-logs-stream`.
      * **Service account**: `sa-trail-logs`.
   1. Set up conversion rules:
@@ -373,23 +370,23 @@ To create transfer, you need to specify the source endpoint that leads to a {{ y
 
        Specify the list of fields from the table below:
 
-       Name | Type     | Key  | Required | Path
+       Name | Type | Key | Required | Path
        --- | --- | --- | --- | ---
-       event_id | STRING   | -    | - | event_id
-       event_source | STRING   | -    | - | event_source
-       event_type | STRING   | -    | - | event_type
-       event_time | DATETIME | -    | - | event_time
-       authenticated | ANY      | -    | - | authentication.authenticated
-       subject_type | STRING   | -    | - | authentication.subject_type
-       subject_id | STRING   | -    | - | authentication.subject_id
-       subject_name | STRING   | -    | - | authentication.subject_name
-       authorized | ANY      | -    | - | authorization.authorized
-       resource_metadata | ANY      | -    | - | resource_metadata
-       remote_address | STRING   | -    | - | request_metadata.remote_address
-       user_agent | STRING   | -    | - | request_metadata.user_agent
-       request_id | STRING   | -    | - | request_metadata.request_id
-       event_status | STRING   | -    | - | event_status
-       details | ANY      | -    | - | details
+       event_id | STRING | - | - | event_id
+       event_source | STRING | - | - | event_source
+       event_type | STRING | - | - | event_type
+       event_time | DATETIME | - | - | event_time
+       authenticated | ANY | - | - | authentication.authenticated
+       subject_type | STRING | - | - | authentication.subject_type
+       subject_id | STRING | - | - | authentication.subject_id
+       subject_name | STRING | - | - | authentication.subject_name
+       authorized | ANY | - | - | authorization.authorized
+       resource_metadata | ANY | - | - | resource_metadata
+       remote_address | STRING | - | - | request_metadata.remote_address
+       user_agent | STRING | - | - | request_metadata.user_agent
+       request_id | STRING | - | - | request_metadata.request_id
+       event_status | STRING | - | - | event_status
+       details | ANY | - | - | details
 
      * Enable **Add columns with no markup**.
   1. Click **Create**.
@@ -427,7 +424,7 @@ Using transfer, data is migrated between the source service (a stream) and the t
 
 - Management console
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-name }}**.
   1. On the left-hand panel, select ![image](../_assets/data-transfer/transfer.svg) **Transfers**.
   1. Click **Create transfer**.
   1. Enter the transfer name: `logs-transfer`.
@@ -485,7 +482,7 @@ Using transfer, data is migrated between the source service (a stream) and the t
 
 {% endlist %}
 
-After enabling the transfer, go to {{ mch-name }} and make sure the `trail_logs_stream` table with {{ at-name }} events is present in the `trail_data` database.
+After enabling the transfer, go to {{ mch-name }} and make sure the `trail_logs_stream` table with {{ at-full-name }} events is present in the `trail_data` database.
 
 You can run queries to the `trail_data` database to search for security events of interest.
 
@@ -505,7 +502,7 @@ You can run queries to the `trail_data` database to search for security events o
   where subject_name = '<Name_ID_user>' and event_time >= 2022-06-26
   ```
 
-* Trigger when creating keys for service accounts:
+* Trigger when creating [keys](../iam/concepts/index.md#keys) for service accounts:
 
   ```sql
   select * from trail_data.trail_logs_stream
@@ -516,13 +513,13 @@ All events of interest are collected in the [solution](https://github.com/yandex
 
 {% endcut %}
 
-## Visualize your data in {{ datalens-full-name }} {#datalens-visualization}
+## Visualize your data in {{ datalens-name }} {#datalens-visualization}
 
-To visualize data, you need to connect to the {{ CH }} database where the logs were moved and create a dataset based on the data there.
+To visualize data, you need to [connect](../datalens/concepts/connection.md) to the {{ CH }} database where the logs were moved and create a [dataset](../datalens/concepts/dataset/index.md) based on the data there.
 
 ### Create a connection {#create-connection}
 
-1. Go to the **{{ datalens-full-name }}** [homepage]({{ link-datalens-main }}).
+1. Go to the **{{ datalens-name }}** [homepage]({{ link-datalens-main }}).
 1. In the window that opens, click **Create connection**.
 1. Select a **{{ CH }}** connection.
 1. Select the **Select in folder** connection type and enter the connection settings:
@@ -539,36 +536,36 @@ To visualize data, you need to connect to the {{ CH }} database where the logs w
 1. Drag the `trail_data.trail_logs_stream` table from the **Tables** section on the left of the screen to the workspace.
 1. In the top right corner, click **Save**.
 1. Enter the dataset name `trail-logs-dataset` and click **Create**.
-1. When the dataset is saved, in the upper-right corner, click **Create chart**.
+1. When the dataset is saved, click **Create chart** in the top-right corner.
 
 ### Create a line chart {#create-bar-chart}
 
-To display the number of events for each source, create a line chart:
+To display the number of events for each source, create a line [chart](../datalens/concepts/chart/index.md):
 1. For the visualization type, select **Line chart**.
 1. Drag the `event_source` field from the **Dimensions** section to the **Y** section.
 1. Drag the `event_id` field from the **Dimensions** section to the **X** section.
 1. Drag the `event_source` field from the **Dimensions** section to the **Colors** section.
-1. In the upper right-hand corner, click **Save**.
+1. In the top-right corner, click **Save**.
 1. In the window that opens, enter the name `Trail logs: events` for the chart and click **Save**.
 
 ### Create a pie chart {#create-pir-chart}
 
 To show numerical proportion by event status, create a pie chart:
 1. Copy the chart from the previous step:
-   1. In the upper-right corner, click the down arrow next to the **Save** button.
+   1. In the top-right corner, click the down arrow next to the **Save** button.
    1. Click **Save as**.
    1. In the window that opens, enter the name `Trail logs: statuses` for the new chart and click **Save**.
 1. For the visualization type, select **Pie chart**. The `event_source` and `event_id` are automatically copied to the **Color** and **Measures** sections, respectively.
 1. Delete the `event_source` field from the **Color** section and drag the `event_status` field there.
-1. In the upper right-hand corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
 ### Create a dashboard and add charts there {#create-dashboard}
 
-Create a dashboard to add charts to:
-1. Go to the **{{ datalens-full-name }}** [homepage]({{ link-datalens-main }}).
+Create a [dashboard](../datalens/concepts/dashboard.md) to add charts to:
+1. Go to the **{{ datalens-name }}** [homepage]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
 1. Enter the name `Trail logs dashboard` for the dashboard and click **Create**.
-1. In the upper-right corner, click **Add** and choose **Chart**.
+1. In the top-right corner, click **Add** and choose **Chart**.
 1. In the **Chart** chart, click **Select** and choose the `Trail logs: events` pie chart from the list.
 1. Click **Add**. The chart is displayed on the dashboard.
 1. Repeat the previous steps for the `Trail logs: statuses` chart.
@@ -578,11 +575,10 @@ Example dashboard:
 
 ![image](../_assets/audit-trails/tutorials/dashboard.png)
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
-
-* [Delete the cluster](../managed-postgresql/operations/cluster-delete.md) `trail-logs`.
-* [Delete the stream](../data-streams/operations/manage-streams.md#delete-data-stream) `trail-logs-stream`.
+* [Delete the cluster](../managed-postgresql/operations/cluster-delete.md) named `trail-logs`.
+* [Delete the stream](../data-streams/operations/manage-streams.md#delete-data-stream) named `trail-logs-stream`.
 * [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both source and target.
-* [Delete the transfer](../data-transfer/operations/transfer.md#delete) `logs-transfer`.
+* [Delete the transfer](../data-transfer/operations/transfer.md#delete) named `logs-transfer`.

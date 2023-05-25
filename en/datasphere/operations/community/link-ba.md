@@ -1,4 +1,4 @@
-# Link a billing account
+# Linking a billing account
 
 [Billing account](../../../billing/concepts/billing-account.md) is used to assign the user who pays for the computing resources, operation of [nodes](../../concepts/deploy/index.md#node), and storing of resources for all the community's projects.
 
@@ -22,10 +22,10 @@ Billing account management can only be performed by users with a [Yandex account
 
 The community's administrator can change the billing account used to pay for projects and resources of the community.
 
-1. On the community's page, click **Settings**.
-1. Under **Billing**, select **![pencil](../../../_assets/pencil.svg) Edit**.
+1. On the community's page, click **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.common.billing }}**, click **![pencil](../../../_assets/pencil.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Select an existing billing account or create a new billing account by following the prompts in the interface.
-1. Click **Link**.
+1. Click **{{ ui-key.yc-ui-datasphere.common.link }}**.
 
 ### Who pays for shared resources {#who-pays}
 

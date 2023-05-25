@@ -1,0 +1,1 @@
+If you specified your {{ kms-short-name }} key when creating a secret, assign the [kms.keys.encrypterDecrypter](../../kms/security/index.md#service) and [lockbox.payloadViewer](../../lockbox/security/index.md#roles-list) roles to your secret. They are required to access the key, as well as to encrypt and decrypt it.

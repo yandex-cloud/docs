@@ -5,7 +5,7 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click ![image](../../../_assets/options.svg) next to the service account and select **Edit**.
    1. Change the name of your service account.
 

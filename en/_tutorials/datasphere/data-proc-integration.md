@@ -7,7 +7,7 @@ You can use the Apache Spark™ clusters deployed in {{ dataproc-full-name }}, i
 3. [Set up the {{ ml-platform-name }} project](#project).
 4. [Run your computations](#run-code).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -23,6 +23,8 @@ The {{ dataproc-name }} cluster support cost covers the computing resources of t
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
+{% include [intro](../../_includes/datasphere/federation-disclaimer.md) %}
+
 ### Create a folder and network {#create-folder}
 
 Create a folder where your {{ dataproc-name }} cluster will run.
@@ -31,10 +33,10 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **Create folder**.
+   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
-   1. Select the **Create a default network** option. A [network](../../vpc/concepts/network.md#network) is created with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
-   1. Click **Create**.
+   1. Select the **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** option. A [network](../../vpc/concepts/network.md#network) is created with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
+   1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
 
@@ -46,31 +48,29 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
 - Management console
 
-   1. In the `data-folder` folder, select **{{ vpc-name }}**.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select **Gateways**.
-   1. Click **Create** and set the gateway parameters:
+   1. In the `data-folder` folder, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/gateways.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}** and set the gateway parameters:
       * Enter the gateway name, for example `nat-for-cluster`.
-      * Gateway **Type**: **Egress NAT**.
-      * Click **Save**.
-   1. On the left-hand panel, select **Route tables**.
-   1. Click **Create** and set up the routing table parameters:
+      * Gateway **{{ ui-key.yacloud.vpc.gateways.field_type }}**: **{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}**.
+      * Click **{{ ui-key.yacloud.common.save }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}** and specify the route table parameters:
       1. Enter the name, for example `route-table`.
       1. Select the `data-network` network.
-      1. Click **Add route**.
-         * In the window that opens, select **Gateway** in the **Next hop** field.
-         * In the **Gateway** field, select the NAT gateway you created. The destination prefix is set automatically.
-         * Click **Add**.
-      1. Click **Save**.
-   1. Click **Create route table**.
+      1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+         * In the window that opens, select **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** in the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field.
+         * In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
+         * Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+   1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
    Next, link the route table to a subnet to route traffic from it via the NAT gateway:
 
-   1. On the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **Subnets**.
-   1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
-   1. In the menu that opens, select **Link route table**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. In the line with the subnet you need, click ![image](../../_assets/options.svg).
+   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table from the list.
-   1. Click **Link**.
+   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 {% endlist %}
 
@@ -81,13 +81,14 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 - Management console
 
    1. Go to the `data-folder` folder.
-   1. In the **Service accounts** tab, click **Create service account**.
+   1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter the name of the [service account](../../iam/concepts/users/service-accounts.md), for example, `sa-for-data-proc`.
-   1. Click **Add role** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `dataproc.agent` to create and use {{ dataproc-name }} clusters.
       * `vpc.user` to use the {{ dataproc-name }} cluster network.
+      * `iam.serviceAccounts.user` to create resources in the folder on behalf of the service account.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -101,7 +102,7 @@ To ensure a safe connection to the {{ dataproc-name }} cluster hosts, you'll nee
 
 {% note warning %}
 
-Save the private key in a secure location: you won't be able to connect to the VM without it.
+Save the private key in a secure location, as you will not be able to connect to the VM without it.
 
 {% endnote %}
 
@@ -117,17 +118,18 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, create and 
 
 ### Edit the project settings {#change-settings}
 
-1. Go to the **Settings** tab and click **![pencil](../../_assets/pencil.svg) Edit**.
-1. Under **Advanced settings**, set up:
-   * **Folder**: `data-folder`.
-   * **Service account**: `sa-for-data-proc`.
-   * **Subnet**: A subnet in the `{{ region-id }}-a` availability zone in the `data-folder` folder.
+1. Click the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
+1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, click **![pencil](../../_assets/pencil-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Specify the parameters:
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-data-proc`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: A subnet of the `{{ region-id }}-a` availability zone in the `data-folder` folder.
 
       {% include [subnet-create](../../_includes/subnet-create.md) %}
 
    * [Security groups](../../vpc/concepts/security-groups.md) if you use them in your organization.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 ## Create a {{ dataproc-name }} cluster {#cluster}
 
@@ -140,14 +142,14 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-   1. Click **Create resource** and select **{{ dataproc-name }} cluster** from the drop-down list.
-   1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-   1. In the **Version** field, select `2.0`.
-   1. In the **Services** field, select: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
-   1. Enter the public part of your SSH key in the **Public key** field.
-   1. In the **Service account** field, select `sa-for-data-proc`.
-   1. In the **Availability** zone field, select `{{ region-id }}-a`.
-   1. If necessary, set the properties of Hadoop and its components, for example:
+   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** from the drop-down list.
+   1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
+   1. In the **{{ ui-key.yacloud.mdb.forms.config_field_version }}** field, select `2.0`.
+   1. In the **{{ ui-key.yacloud.mdb.forms.config_field_services }}** field, select: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
+   1. Enter the public part of your SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select `sa-for-data-proc`.
+   1. In the **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** field, select `{{ region-id }}-a`.
+   1. If required, set the properties of Hadoop and its components in the **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** field, such as:
 
       ```
       hdfs:dfs.replication : 2
@@ -173,8 +175,8 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
       {% endcut %}
 
    1. Select a network for the cluster.
-   1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../../data-proc/concepts/interfaces.md).
-   1. Configure subclusters: no more than one main subcluster with a **Master** host and subclusters for data storage or computing.
+   1. Enable the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** option to access the [web interfaces of {{ dataproc-name }} components](../../data-proc/concepts/interfaces.md).
+   1. Configure subclusters: no more than one main subcluster with a **{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}** host and subclusters for data storage or computing.
 
       {% note info %}
 
@@ -184,18 +186,18 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
 
       The roles of `Compute` and `Data` subcluster are different: you can deploy data storage components on `Data` subclusters, and data processing components on `Compute` subclusters. Storage on a `Compute` subcluster is only used to temporarily store processed files.
    1. For each subcluster, you can configure:
-      * The number of hosts.
-      * The [host class](../../data-proc/concepts/instance-types.md), which dictates the platform and computing resources available to the host.
+      * Number of hosts.
+      * [Host class](../../data-proc/concepts/instance-types.md): Platform and computing resources available to the host.
       * Storage size and type.
-      * The subnet of the network where the cluster is located.
+      * Subnet of the network where the cluster is located.
    1. For `Compute` subclusters, you can specify the [autoscaling](../../data-proc/concepts/autoscaling.md) parameters.
-   1. When you set up all the subclusters, click **Create cluster**.
+   1. When you have set up all the subclusters, click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
 
-{{ dataproc-name }} runs the create cluster operation. After the cluster status changes to **Running**, you can [connect](../../data-proc/operations/connect.md) to any active subcluster using the specified SSH key.
+{{ dataproc-name }} runs the create cluster operation. After the cluster status changes to **{{ ui-key.yc-ui-datasphere.data-proc.running }}**, you can [connect](../../data-proc/operations/connect.md) to any active subcluster using the specified SSH key.
 
-The {{ dataproc-name }} cluster that you created will be added to your {{ ml-platform-name }} project under **Resources** ⟶ **{{ dataproc-name }}** ⟶ **Available clusters**.
+The {{ dataproc-name }} cluster you created will be added to your {{ ml-platform-name }} project under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** ⟶ **{{ ui-key.yc-ui-datasphere.resources.dataProc }}** ⟶ **{{ ui-key.yc-ui-datasphere.data-proc.available-clusters }}**.
 
 ## Run your computations on the cluster {#run-code}
 
@@ -242,9 +244,9 @@ Delete the resources you no longer need to avoid paying for them:
    To delete a cluster:
    1. In the [management console]({{ link-console-main }}), open the folder with the cluster that you want to delete.
    1. [Disable deletion protection](../../data-proc/operations/cluster-update.md) for the cluster if it is enabled.
-   1. Select **{{ dataproc-name }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
    {{ dataproc-name }} runs the delete cluster operation.
 

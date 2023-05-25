@@ -6,7 +6,7 @@ To set up authentication:
 
 1. [Create a federation in your organization](#create-federation).
 
-1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
+1. [Add certificates to a federation](#add-certificate).
 
 1. [Get a console login link](#get-link).
 
@@ -59,6 +59,8 @@ To create a federation:
    1. Add an [identity provider certificate](#add-certificate) to the created federation.
 
    1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
+
+      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
    1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{ yandex-cloud }}.
 
@@ -182,7 +184,7 @@ To create a federation:
       1. Run the check using this command:
 
          ```
-         terraform plan
+         $ terraform plan
          ```
 
       If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
@@ -192,7 +194,7 @@ To create a federation:
       1. If the configuration does not contain any errors, run this command:
 
          ```
-         terraform apply
+         $ terraform apply
          ```
 
       1. Confirm you want to create a federation.
@@ -219,7 +221,7 @@ To add a certificate to a federation:
 
    {% endnote %}
 
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+   1. Go to [{{org-full-name}}]({{ link-org-main }}).
 
    1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
@@ -271,8 +273,8 @@ To add a certificate to a federation:
    1. Send the add certificate request:
 
       ```bash
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
+      $ export IAM_TOKEN=CggaATEVAgA...
+      $ curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
@@ -297,7 +299,7 @@ Obtain and save this link:
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Copy the ID of the federation you are configuring access for.
 
@@ -378,7 +380,7 @@ When setting up the message:
 * Specify the link to the IdP page in the `Issuer` element. The user was forwarded to this page for authentication).
 * Enter a signed message in the `SignatureValue` element and the certificate it was signed with in the `KeyInfo` element.
 * Note that {{ yandex-cloud }} validates that the response was received in the interval specified in the `Conditions` or `SubjectConfirmationData` element attributes.
-* For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), pass the user's name and email address in the `AttributeStatement` property. Email, first name, and last name are passed in separate `Attribute` elements. You can also pass the first name and last name together, for example:
+* For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), provide the user's name and email address in the `AttributeStatement` property. Email, first name, and last name are sent in separate `Attribute` elements. You can also send the first name and last name together, for example:
    ```
    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
      <AttributeValue>John Doe</AttributeValue>
@@ -401,12 +403,12 @@ To correctly pass user information to {{ org-full-name }}, map SAML message attr
 | User data | Comment | SAML message elements |
 ------------------- | ----------- | ----------------------
 | Unique user ID | Required attribute. We recommend using the User Principal Name (UPN) or email address. | `<NameID>` |
-| Last name | Displayed in {{yandex-cloud}} services.<br> Value length limit: {{saml-limit-last-name}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"` parameter |
-| Name | Displayed in {{yandex-cloud}} services.<br> Value length limit: {{saml-limit-first-name}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"` parameter |
-| Full name | Displayed in {{yandex-cloud}} services.<br>Example: John Smith.<br> Value length limit: {{saml-limit-display-name}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"` parameter |
-| Email | Used to send notifications from {{yandex-cloud}} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{saml-limit-email}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
-| Phone | Used to send notifications from {{yandex-cloud}} services.<br>Example: +71234567890.<br> Value length limit: {{saml-limit-phone}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"` parameter |
-| Profile image | Displayed in {{yandex-cloud}} services.<br>Images are transmitted in Base64 encoding. [Example](#avatar-example).<br> Value length limit: {{saml-limit-thumbnail-photo}}. | `<Attribute>` with the<br>`Name="thumbnailPhoto"` parameter |
+| Last name | Displayed in {{yandex-cloud}} services.<br> Value length limit: {{ saml-limit-last-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"` parameter |
+| Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"` parameter |
+| Full name | Displayed in {{ yandex-cloud }} services.<br>Example: John Smith.<br> Value length limit: {{ saml-limit-display-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"` parameter |
+| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `<Attribute>`  with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
+| Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"` parameter |
+| Profile image | Displayed in {{ yandex-cloud }} services.<br>Images are transmitted in Base64 encoding. [Example](#avatar-example).<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `<Attribute>` with the<br>`Name="thumbnailPhoto"` parameter |
 
 {% note warning %}
 
@@ -473,6 +475,8 @@ If you did not enable the **Automatically create users** option when creating a 
 
 To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you do not know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
 
+{% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
+
 A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
 
 To add federation users to an organization:
@@ -481,7 +485,7 @@ To add federation users to an organization:
 
 - Management console
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator account.
+   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -532,7 +536,7 @@ To add federation users to an organization:
    1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
-      curl -X POST \
+      $ curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \

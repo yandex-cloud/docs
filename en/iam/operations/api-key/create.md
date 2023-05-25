@@ -11,7 +11,7 @@ To create an API key:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
    1. Click **Create new key** in the top panel.
    1. Click **Create API key**.
@@ -93,7 +93,7 @@ To create an API key:
 
       * `service_account_id` = service account [ID](../sa/get-id.md). This parameter is required.
       * `-description`: Key description. This is an optional parameter.
-      * `pgp_key`: An additional PGP key for encrypting a private key. This is an optional parameter. A public part of the key in base64 encoding or in the `keybase:keybaseusername` form is specified.
+      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
 
       Example of the configuration file structure:
 
@@ -105,7 +105,7 @@ To create an API key:
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
 
    1. Make sure the configuration files are valid.
 
@@ -170,7 +170,7 @@ To make it easier to find an API key without knowing its ID, add a description w
 
    1. Add parameters of resource to the configuration file:
 
-      * `service_account_id` = service account ID. This parameter is required.
+      * `service_account_id`: Service account ID. This parameter is required.
       * `-description`: Key description. This is an optional parameter.
 
       {% cut "Example of adding a description when creating a service account API key using {{ TF }}" %}
@@ -184,7 +184,7 @@ To make it easier to find an API key without knowing its ID, add a description w
 
       {% endcut %}
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
 
    1. Make sure the configuration files are valid.
 

@@ -223,7 +223,7 @@ The cloud entities with service accounts assigned must be registered and limited
    1. Go to the desired folder and open the settings of the appropriate VM.
    1. Click **Edit**.
    1. The service account data is displayed.
-   1. Repeat the steps for all the VMs in all the folders.
+   1. Repeat the steps for all VMs in all folders.
 
 - Performing a check via the CLI
 
@@ -377,7 +377,8 @@ Follow the principle of minimum privileges and [assign to the service account](.
 - Performing a check in the management console
 
    1. Open the {{ yandex-cloud }} console in your browser.
-   1. Go to the desired folder and open the **Service accounts** tab.
+   1. Go to the appropriate folder.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Check the list of service accounts.
    1. Repeat the steps for other folders.
    1. Go to the **Access rights** tab at the cloud and folder levels.
@@ -451,7 +452,8 @@ Follow the principle of minimum privileges when granting access to a service acc
 - Performing a check in the management console
 
    1. Open the {{ yandex-cloud }} console in your browser.
-   1. Go to the desired folder and open the **Service accounts** tab.
+   1. Go to the appropriate folder.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click on the desired service account and go to the **Access rights** tab.
    1. Check the access rights assigned to the service account.
    1. If the list only contains valid administrators, the recommendation is fulfilled. If not, proceed to the <q>Instructions and solutions to use</q>.
@@ -504,7 +506,8 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 - Performing a check in the management console
 
    1. Open the {{ yandex-cloud }} console in your browser.
-   1. Go to the desired folder and open the **Service accounts** tab.
+   1. Go to the appropriate folder.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click on the desired service account and see the date of each key's generation under **Access key properties**.
    1. Repeat the steps for each of your folders.
    1. If the keys were created less than 90 keys ago, the recommendation is fulfilled. If not, proceed to the <q>Instructions and solutions to use</q>.
@@ -795,7 +798,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Go to the appropriate folder of the appropriate cloud and open the **Access rights** tab.
    1. Check whether there are `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` among users.
-   1. Repeat the steps for all the folders in all of your clouds.
+   1. Repeat the steps for all folders in all your clouds.
 
    Checking roles in {{ objstorage-short-name }}:
 
@@ -812,7 +815,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
    1. Next, go to each cloud and find **{{ container-registry-name }}**.
    1. Open the appropriate registry and click **Access rights** on the left.
    1. Check whether there are `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` among users.
-   1. Repeat the steps for all of your clouds.
+   1. Repeat the steps for all your clouds.
 
    Checking roles in {{ sf-name }}:
 

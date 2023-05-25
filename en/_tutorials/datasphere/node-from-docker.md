@@ -36,7 +36,7 @@ Create a folder to host the infrastructure and store logs of your service.
 
 {% note info %}
 
-In our example, both the {{ yandex-cloud }} infrastructure and the deployed service run in the same {{ yandex-cloud }} folder; however, this is not required.
+In our example, both the {{ yandex-cloud }} infrastructure and the deployed service run in the same {{ yandex-cloud }} folder; however, this is not required.
 
 {% endnote %}
 
@@ -44,9 +44,9 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **Create folder**.
+   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
 
@@ -60,8 +60,8 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 
    1. Go to the `data-folder` folder.
    1. In the list of services, select **{{ container-registry-name }}**.
-   1. Specify a name for the registry, for example, `datasphere-registry`.
-   1. Click **Create registry**.
+   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
+   1. Specify a name for the registry, such as `datasphere-registry`, and click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
 {% endlist %}
 
@@ -73,14 +73,14 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console
 
    1. Go to the `data-folder` folder.
-   1. In the **Service accounts** tab, click **Create service account**.
+   1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter the name of the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-datasphere`.
-   1. Click **Add role** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `container-registry.images.puller` to allow {{ ml-platform-name }} to pull your Docker image for creating a node.
       * `vpc.user` to use the {{ ml-platform-name }} cluster network.
       * (optional) `datasphere.user` to send requests to the node.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -95,13 +95,13 @@ To allow your service account to [get authenticated in {{ container-registry-ful
 - Management console
 
    1. Go to the `data-folder` folder.
-   1. At the top of the screen, go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose the `sa-for-datasphere` service account and click the line with its name.
-   1. Click **Create new key** in the top panel.
-   1. Click **Create authorized key**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
+   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
    1. Select the encryption algorithm.
    1. Enter a description of the key so that you can easily find it in the management console.
-   1. Save both the public and private keys. The private key is not saved in {{ yandex-cloud }}, and you won't be able to view the public key in the management console.
+   1. Save both the public and private keys. The private key is not saved in {{ yandex-cloud }}, and you will not be able to view the public key in the management console.
 
       {% note tip %}
 
@@ -160,8 +160,6 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
    docker build -t triton-docker .
    ```
 
-1.
-
 ### Upload the Docker image to {{ container-registry-name }} {#push-docker}
 
 {% include [install cli](../../_includes/cli-install.md) %}
@@ -218,41 +216,43 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
 ## Deploy the service in {{ ml-platform-name }} {#deploy}
 
-1. [On the {{ ml-platform-name }} home page]({{ link-datasphere-main }}) under **Communities**, select a community with a billing account linked.
-1. Create a project named `Node from Docker`.
+1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
+1. In the left-hand panel, select ![image](../../_assets/datasphere/communities.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. Select a community with a billing account linked.
+1. [Create a project](../../datasphere/operations/projects/create.md) named `Node from Docker`.
 1. [In the project settings](../../datasphere/operations/projects/update.md), specify:
-   * **Service account**: `sa-for-datasphere`.
-   * **Folder**: `data-folder`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-datasphere`.
 1. [Create a secret](../../datasphere/operations/data/secrets.md) named `iam-secret` including an IAM token of your user account.
 1. Create a secret named `key-for-sa` storing the complete authorized key for the `sa-for-datasphere` service account.
-1. Create a node. To do this, click **Create resource** in the top right corner of the project page. In the window that opens, select **Node**. Specify the basic node parameters:
-   * **Type**: Select **Docker image**.
-   * **Name**: `triton`.
-   * Under **Docker image**, specify the path to the {{ container-registry-name }} image. You can obtain it in the management console or CLI by running the `yc container registry list` command.
-   * Click **Show additional parameters** and set the following:
-      * **Username**: `json_key`.
-      * **Password secret**: Select `key-for-sa`.
-   * Under **Endpoint**:
-      * **Type**: Select the **HTTP** protocol.
-      * **Port**: 8000.
-      * **Timeout**: Keep the default value (15 seconds).
-      * **Idle timeout**: Keep the default value (15 seconds).
-   * Under **Telemetry**:
-      * **Type**: Select **Prometheus**.
-      * **HTTP address**: `/metrics`.
-      * **Port**: 8000.
-   * Under **Check**:
-      * **Type**: Select **HTTP**.
-      * **Port**: 8020.
-      * **Path**: `/v2/health/ready`.
-      * **Timeout**: 1.
-      * **Interval**: 20.
-      * **Failed checks**: 3.
-      * **Passed checks**: 3.
-1. Under **Folder**, select `data-folder`.
-1. Under **Maintenance**, select the `c1.4` [configuration](../../datasphere/concepts/configurations.md) and the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). Leave the [subnet](../../vpc/concepts/network.md#subnet) ID empty, as {{ ml-platform-name }} will use its default subnet.
-1. Under **Access control list (ACL)**, keep the default folder value.
-1. Click **Create**.
+1. Create a node. To do this, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}** in the top-right corner of the project page. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.node }}**. Specify the basic node parameters:
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.common.docker }}**.
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: `triton`.
+   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**, specify the path to the {{ container-registry-name }} image. You can obtain it in the management console or CLI by running the `yc container registry list` command.
+   * Click **{{ ui-key.yc-ui-datasphere.common.show-additional-parameters }}** and specify:
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`.
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: Select `key-for-sa`.
+   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
+      * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select the **HTTP** protocol.
+      * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}**: 8000.
+      * **{{ ui-key.yc-ui-datasphere.common.timeout }}**: Keep the default value (15 seconds).
+      * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.idle-timeout }}**: Keep the default value (300 seconds).
+   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}**:
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.http-path }}**: `/metrics`.
+      * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}**: 8000.
+   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}**: Select **HTTP**.
+      * **{{ ui-key.yc-ui-datasphere.common.port }}**: 8020.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}**: `/v2/health/ready`.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}**: 1.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}**: 20.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}**: 3.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: 3.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select `data-folder`.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the `c1.4` [configuration](../../datasphere/concepts/configurations.md) and the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). Leave the [subnet](../../vpc/concepts/network.md#subnet) ID empty, as {{ ml-platform-name }} will use its default subnet.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, keep the default folder value.
+1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ## Run a health check for the service you deployed {#check-node}
 

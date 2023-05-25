@@ -26,7 +26,7 @@ You can view a list of inherited roles for the folder or the cloud in the manage
    For the [service account](../../concepts/users/service-accounts.md), in the management console you can only view the roles for the folder where the service account was created (to view roles for other resources, use the CLI or API):
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. The service account's roles for the current folder are listed in the column **Roles in folder**.
 
 - CLI

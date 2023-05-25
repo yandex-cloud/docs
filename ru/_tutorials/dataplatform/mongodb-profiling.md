@@ -34,17 +34,40 @@
 * Запросы с большими значениями параметра `docsExamined` (количества просканированных документов). Это может означать, что текущие индексы неэффективны или требуются дополнительные.
 
 В момент падения производительности проблему можно диагностировать в реальном времени с помощью [списка текущих запросов](../../managed-mongodb/operations/tools.md#list-running-queries):
-  * Долгие операции, например, исполняющиеся более секунды:
 
-    ```javascript
-    db.currentOp({"active": true, "secs_running": {"$gt": 1}})
-    ```
+{% list tabs %}
 
-  * Операции по созданию индексов:
+- Запросы всех пользователей
 
-    ```javascript
-    db.currentOp({ $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
-    ```
+    Для выполнения этих операций пользователь должен обладать [ролью `mdbMonitor`](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor).
+
+    * Долгие операции, например, исполняющиеся более секунды:
+
+      ```javascript
+      db.currentOp({"active": true, "secs_running": {"$gt": 1}})
+      ```
+
+    * Операции по созданию индексов:
+
+      ```javascript
+      db.currentOp({ $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
+      ```
+
+- Запросы текущего пользователя
+
+    * Долгие операции, например, исполняющиеся более секунды:
+
+      ```javascript
+      db.currentOp({"$ownOps": true, "active": true, "secs_running": {"$gt": 1}})
+      ```
+
+    * Операции по созданию индексов:
+
+      ```javascript
+      db.currentOp({ "$ownOps": true, $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
+      ```
+
+{% endlist %}
 
 См. также примеры в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/db.currentOp/#examples).
 
@@ -98,18 +121,42 @@
 * Большие или растущие значения на графике **Write conflicts per hosts** на странице [мониторинга кластера](../../managed-mongodb/operations/monitoring.md#cluster).
 
 * В момент падения производительности внимательно изучите [список текущих запросов](../../managed-mongodb/operations/tools.md#list-running-queries):
-  * Найдите операции, которые удерживают эксклюзивные блокировки, например:
 
-    ```javascript
-    db.currentOp({'$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'} ]}).inprog
-    ```
+    {% list tabs %}
 
-  * Найдите операции, ожидающие блокировок (в поле `timeAcquiringMicros` будет видно время ожидания):
+    - Запросы всех пользователей
 
-    ```javascript
-    db.currentOp({'waitingForLock': true}).inprog
-    db.currentOp({'waitingForLock': true, 'secs_running' : { '$gt' : 1 }}).inprog
-    ```
+        Для выполнения этих операций пользователю необходима [роль `mdbMonitor`](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor).
+
+        * Найдите операции, которые удерживают эксклюзивные блокировки, например:
+
+          ```javascript
+          db.currentOp({'$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'} ]}).inprog
+          ```
+
+        * Найдите операции, ожидающие блокировок (в поле `timeAcquiringMicros` будет видно время ожидания):
+
+          ```javascript
+          db.currentOp({'waitingForLock': true}).inprog
+          db.currentOp({'waitingForLock': true, 'secs_running' : { '$gt' : 1 }}).inprog
+          ```
+
+    - Запросы текущего пользователя
+
+        * Найдите операции, которые удерживают эксклюзивные блокировки, например:
+
+          ```javascript
+          db.currentOp({"$ownOps": true, '$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'} ]}).inprog
+          ```
+
+        * Найдите операции, ожидающие блокировок (в поле `timeAcquiringMicros` будет видно время ожидания):
+
+          ```javascript
+          db.currentOp({"$ownOps": true, 'waitingForLock': true}).inprog
+          db.currentOp({"$ownOps": true, 'waitingForLock': true, 'secs_running' : { '$gt' : 1 }}).inprog
+          ```
+
+    {% endlist %}
 
 * В [логах](../../managed-mongodb/operations/tools.md#explore-logs) и [профилировщике](../../managed-mongodb/operations/tools.md#explore-profiler) обратите внимание на следующее:
   * операции, долго ожидавшие получения блокировок, будут иметь большие значения `timeAcquiringMicros`;

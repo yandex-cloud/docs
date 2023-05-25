@@ -41,7 +41,7 @@ You can transfer your notebooks and data from the old project to the new {{ ml-p
 
 ### Transferring data using a remote Git repository {#transfer-git}
 
-1. In the [management console]({{ link-console-main }}), go to **{{ ml-platform-name }}**.
+1. In the [management console]({{ link-console-main }}), go to **{{ ui-key.yacloud.iam.folder.dashboard.label_datasphere }}**.
 1. Open the old project to transfer the data from.
 1. [Create](./projects/work-with-git.md#init) a local repository in the project.
 1. [Push](./projects/work-with-git.md#push) changes to a remote repository.
@@ -49,7 +49,7 @@ You can transfer your notebooks and data from the old project to the new {{ ml-p
 
 ### Saving the old project's files to local disk {#transfer-local}
 
-1. In the [management console]({{ link-console-main }}), go to **{{ ml-platform-name }}**.
+1. In the [management console]({{ link-console-main }}), go to **{{ ui-key.yacloud.iam.folder.dashboard.label_datasphere }}**.
 1. Open the old project to transfer the data from.
 1. On the left-hand panel, select ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**.
 1. Right-click the file to save and select ![download](../../_assets/datasphere/jupyterlab/download.svg) **Download**. Save all the files you need one by one.
@@ -65,7 +65,7 @@ You can also save all the files of the old project as a ZIP archive:
 
 ### Transferring data using object storage {#transfer-s3}
 
-1. In the [management console]({{ link-console-main }}), go to **{{ ml-platform-name }}**.
+1. In the [management console]({{ link-console-main }}), go to **{{ ui-key.yacloud.iam.folder.dashboard.label_datasphere }}**.
 1. Open the old project to transfer the data from.
 1. If you do not yet have an S3 connector, create one.
 
@@ -115,7 +115,7 @@ You cannot migrate Docker images, nodes, datasets, and other resources automatic
 {% endnote %}
 
 To migrate the old project's interpreter state to the new version using a checkpoint:
-1. In the [management console]({{ link-console-main }}), go to **{{ ml-platform-name }}**.
+1. In the [management console]({{ link-console-main }}), go to **{{ ui-key.yacloud.iam.folder.dashboard.label_datasphere }}**.
 1. Open the old project and create a project checkpoint:
    * In [standard](../concepts/save-state.md#default-save) state saving mode:
       1. Open the ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** panel.
@@ -146,7 +146,7 @@ To migrate the old project's interpreter state to the new version using a checkp
       * Enter the name of the project.
       * (Optional) Enter a description of the project.
       * Select a [community](../concepts/community.md) for the project.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 #### See also {#see-also}
 

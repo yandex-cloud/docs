@@ -171,6 +171,8 @@ items:
         href: tutorials/regular-launch.md
   - name: Справочник API
     items:
+      - name: Обзор
+        href: api-ref/overview.md
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC (англ.)

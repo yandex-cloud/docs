@@ -10,15 +10,18 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](community/create.md)
 * [{#T}](community/add-user.md)
 * [{#T}](community/link-channel.md)
+* [{#T}](community/link-ba.md)
+* [{#T}](community/billing-details.md)
 * [{#T}](community/delete.md)
 
 ## Project management {#project}
 
 * [{#T}](projects/create.md)
-* [{#T}](projects/storage-resize.md)
 * [{#T}](projects/add-user.md)
-* [{#T}](projects/update.md)
 * [{#T}](projects/python-version.md)
+* [{#T}](projects/storage-resize.md)
+* [{#T}](projects/update.md)
+* [{#T}](projects/restrictions.md)
 * [{#T}](projects/delete.md)
 
 ## Working in a notebook {#notebook}
@@ -27,6 +30,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](projects/gpu-performance-check.md)
 * [{#T}](projects/install-dependencies.md)
 * [{#T}](projects/clear-kernel-state.md)
+* [{#T}](projects/snippets.md)
 * [{#T}](projects/work-with-git.md)
 * [{#T}](user-images-cell.md)
 
@@ -34,17 +38,17 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 
 * [{#T}](data/secrets.md)
 * [{#T}](projects/checkpoints.md)
+* [{#T}](data-proc-template.md)
 * [{#T}](user-images.md)
 * [{#T}](data/dataset.md)
-* [{#T}](data-proc-template.md)
 
 ## Connecting to data sources {#connections-to-data-sources}
 
 * [{#T}](data/connect-to-s3.md)
-* [{#T}](data/connect-to-google-drive.md)
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
 * [{#T}](data/connect-to-ya-disk.md)
+* [{#T}](data/connect-to-google-drive.md)
 
 ## Deploying models {#deploy}
 

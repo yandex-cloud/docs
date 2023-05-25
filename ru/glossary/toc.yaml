@@ -47,6 +47,12 @@ items:
     href: datamart.md
   - name: Data Lake
     href: datalake.md
+  - name: Data Vault
+    href: datavault.md
+  - name: Спринты
+    href: sprints.md
   - name: Бэклог
     href: backlog.md
+  - name: Kanban-доска
+    href: kanban.md
 base: ru/glossary

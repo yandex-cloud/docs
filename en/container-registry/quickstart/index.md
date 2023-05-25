@@ -4,8 +4,7 @@ Using these instructions, you will create your first [registry](../concepts/regi
 
 ## Before you start {#before-you-begin}
 
-To create a registry, you'll need a folder in {{ yandex-cloud }}. If you don't have any folders yet,
-create a new folder:
+To create a registry, you'll need a folder in {{ yandex-cloud }}. If you don't have any folders yet, create a new folder:
 
 {% include [create-folder](../../_includes/create-folder.md) %}
 
@@ -21,7 +20,7 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
 
    Result:
 
-   ```bash
+   ```text
    ..done
    id: crpc9qeoft236r8tfalm
    folder_id: b1g0itj57rbjk9thrinv
@@ -55,27 +54,27 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
 
 1. Pull a Docker image from [Docker Hub](https://hub.docker.com):
 
-   ```
+   ```bash
    docker pull ubuntu
    ```
 
 1. Assign the pulled Docker image a tag in the following format: `{{ registry }}/<registry ID>/<Docker image name>:<tag>`:
 
-   ```
+   ```bash
    docker tag ubuntu \
    {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
    ```
 
 1. Push the Docker image to the repository {{ container-registry-name }}:
 
-   ```
+   ```bash
    docker push \
    {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
    ```
 
 1. Run the Docker image:
 
-   ```
+   ```bash
    docker run \
    {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
    ```

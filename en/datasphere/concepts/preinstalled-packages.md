@@ -38,7 +38,7 @@ To upgrade a library to a specific version, run the following command in the not
 %pip install <library name>==<version>
 ```
 
-For example:
+e.g.:
 ```js
 %pip install tensorflow==2.3.1
 ```
@@ -49,7 +49,7 @@ Please keep in mind that the TensorFlow version installed by default depends on 
 
 {% note warning %}
 
-Updating a pre-installed library may introduce new data types that are not supported in {{ ml-platform-short-name }} and not versioned. You'll see a warning when you run cells with such types. In this case, please notify technical support about the libraries upgraded and non-supported data types. To be sure that versioning works correctly, roll back the library version.
+Updating a pre-installed library may introduce new data types that are not supported in {{ ml-platform-short-name }}. You'll see a warning when you run cells with such types. In this case, please notify the support team about the libraries updated and the non-supported data types. To be sure that they work properly, roll back the library version.
 
 {% endnote %}
 

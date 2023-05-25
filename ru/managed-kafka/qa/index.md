@@ -5,6 +5,10 @@ description: "Как получить логи моей работы в упра
 
 # Общие вопросы про {{ mkf-name }}
 
+#### Как обеспечить отказоустойчивость кластера?
+
+Выполните все [условия отказоустойчивости](../concepts/index.md#fault-tolerance).
+
 #### Что делать, если я получаю ошибку вида "disk size must be at least ... according to topics partitions number and replication factor, but size is ..."? {#disk-size}
 
 Ошибка вызвана тем, что сегменты логов ваших топиков занимают больше места, чем есть в хранилище брокеров. Подробнее о расчете необходимого места см. в разделе [{#T}](../concepts/storage.md#minimal-storage-size).

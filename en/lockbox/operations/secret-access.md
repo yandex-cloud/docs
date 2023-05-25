@@ -79,7 +79,8 @@ For more information, see [How access management works](../../iam/concepts/acces
 
 {% endnote %}
 
-#### See also {#see-also}
+## See also {#see-also}
 
+* [{#T}](../concepts/secret.md)
 * [{#T}](../../iam/concepts/access-control/index.md)
 * [{#T}](../security/index.md)

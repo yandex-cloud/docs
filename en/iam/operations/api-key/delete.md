@@ -5,7 +5,7 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
    1. In the **Authorized keys** list, find an API key to be deleted.
    1. Click ![image](../../../_assets/options.svg) in the row of the key.

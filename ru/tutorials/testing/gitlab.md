@@ -1,1 +1,1 @@
-{% include [gitlab](../../_tutorials/testing/gitlab.md) %}
+{% include [gitlab](../../_tutorials/dev/gitlab.md) %}

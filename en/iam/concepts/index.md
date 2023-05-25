@@ -44,13 +44,13 @@ _Yandex account_: Your [Yandex](https://yandex.ru/support/passport/index.html) o
 
 {% endnote %}
 
-### Service account {#sa}
+### Service accounts {#sa}
 
 {% include [sa-def](../_includes_service/sa-def.md) %}
 
 By using service accounts you can flexibly configure access rights to resources for programs you wrote. For more information, see [{#T}](users/service-accounts.md).
 
-### Federated account {#saml-federation}
+### Federated accounts {#saml-federation}
 
 A _federated account_ is a user account from an identity federation, like Active Directory.
 

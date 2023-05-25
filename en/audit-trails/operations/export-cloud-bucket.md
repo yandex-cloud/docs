@@ -31,9 +31,9 @@ To collect audit logs of an individual cloud:
          ```
 
          Where:
-         * `role`: The role assigned.
-         * `id`: The [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
-         * `service-account-id`: The ID of your service account.
+         * `role`: Role being assigned.
+         * `id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
+         * `service-account-id`: ID of your service account.
 
       * Assign the [`storage.uploader` role](../../storage/security/index.md#storage-uploader) to the folder that will host the trail:
 
@@ -45,9 +45,9 @@ To collect audit logs of an individual cloud:
          ```
 
          Where:
-         * `role`: The role assigned.
+         * `role`: Role being assigned.
          * `id`: The ID of the folder to host the trail.
-         * `service-account-id`: The ID of your service account.
+         * `service-account-id`: ID of your service account.
 
    {% endlist %}
 

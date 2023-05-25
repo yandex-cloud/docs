@@ -66,12 +66,14 @@ items:
     items:
       - name: ViPNet Coordinator in {{ yandex-cloud }}
         href: tutorials/vipnet-to-yc.md
-  - name: Instructions
+  - name: Guides
     items:
       - name: Deleting a passport account from {{ org-full-name }}
         href: operations/account-deletion.md
       - name: If you are being attacked from {{ yandex-cloud }} addresses
         href: operations/outgoing-ddos.md
+      - name: Detecting {{ yandex-cloud }} secrets in public sources
+        href: operations/search-secrets.md
   - name: Rules for performing external security scans
     href: compliance/pentest.md
   - name: Security bulletins

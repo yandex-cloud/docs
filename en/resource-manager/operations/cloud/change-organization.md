@@ -5,19 +5,22 @@ description: "In this tutorial, you'll learn how to change the organization for 
 
 # Changing an organization for a cloud
 
+If there are multiple organizations registered in your account, you can move clouds between them.
+
 {% note info %}
 
-In the [management console]({{ link-console-main }}), you can select the interface of navigating resources and services. To switch to another navigation mode: in the account information section, click ![image](../../../_assets/settings.svg), then select ![image](../../../_assets/experiments.svg) **Experiments** and enable **New navigation**.
+Manually [add](../../../organization/add-account.md) to the target organization all users having the roles assigned for the cloud to transfer, folders, or resources in the source organization. The roles are transferred to the new organization automatically.
 
 {% endnote %}
 
-To change the organization assigned to the cloud:
+
+To move a cloud to a different organization:
 
 {% list tabs %}
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
+  1. In the [management console]({{ link-console-main }}), select the appropriate cloud.
   1. In the upper-right corner, click ![***](../../../_assets/options.svg)and select **Change organization**.
 
    ![image](../../../_assets/iam/change-organization-n-n.png)

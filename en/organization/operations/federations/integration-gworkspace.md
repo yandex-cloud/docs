@@ -12,9 +12,9 @@ Setting up authentication includes the following steps:
 
 1. [Authentication](#test-auth).
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
-To follow the steps described in this section, you will need a subscription to Google Workspace services and a verified domain to set up your SAML application for.
+To use the instructions in this section, you'll need a subscription to Google Workspace services and a verified domain to set up your SAML application for.
 
 ## Creating and setting up a SAML application in Google Workspace {#gworkspace-settings}
 
@@ -38,7 +38,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
 {% endnote %}
 
-## Creating and setting up a federation in {{ org-full-name }} {#yc-settings}
+## Creating and setting up a federation in {{org-full-name}} {#yc-settings}
 
 ### Create a federation {#create-federation}
 
@@ -48,7 +48,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
@@ -59,16 +59,20 @@ Don't close the page where you create an app in Google Workspace: you'll get the
    1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
 
    1. In the **IdP Issuer** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+
       ```
       https://accounts.google.com/o/saml2?idpid=<SAML app ID>
       ```
 
    1. In the **Link tothe IdP login page** field, enter the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+
       ```
       https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
       ```
 
    1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
+
+      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
 - CLI
 
@@ -237,7 +241,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
       1. Run the check using this command:
 
          ```
-         terraform plan
+         $ terraform plan
          ```
 
       If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
@@ -247,7 +251,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
       1. If the configuration does not contain any errors, run this command:
 
          ```
-         terraform apply
+         $ terraform apply
          ```
 
       1. Confirm you want to create a federation.
@@ -317,8 +321,8 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
    1. Send the add certificate request:
 
       ```bash
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
+      $ export IAM_TOKEN=CggaATEVAgA...
+      $ curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
@@ -418,13 +422,15 @@ If you did not enable the **Automatically create users** option when [creating a
 
 To do this, you will need user Name IDs. They are returned by the IdP server along with a response confirming successful authentication.
 
+{% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
+
 A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
 
 {% list tabs %}
 
 - Management console
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
+   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -481,7 +487,7 @@ A user can be added by an organization administrator (the `organization-manager.
    1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
-      curl -X POST \
+      $ curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
@@ -496,7 +502,7 @@ When you finish configuring the server, test that everything works properly:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the [console login link](#get-link) you obtained previously. The browser will forward you to the Google authentication page.
+1. Follow the [console login link](#get-link) you obtained previously. The browser forwards you to the Google authentication page.
 
 1. Enter your credentials and click **Sign in**.
 

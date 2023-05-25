@@ -1,17 +1,15 @@
-# Creating a ClickHouse connection
+# Creating a {{ CH }} connection
 
 {% note info %}
 
 - {{ CH }} connections only run over the HTTP interface.
-- All the data requests are executed with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify) section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
+- All data requests are executed with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify) section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
 
 {% endnote %}
 
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
 
-
-## Connecting to {{ CH }} {#clickhouse-connection}
 
 To create a {{ CH }} connection:
 
@@ -24,8 +22,7 @@ To create a {{ CH }} connection:
 
 
 
-1. Select the **ClickHouse** connection.
-1. Enter a **Connection name**. You can set any name.
+1. Select a **{{ CH }}** connection.
 
 
 
@@ -37,7 +34,7 @@ To create a {{ CH }} connection:
 
       Specify the connection parameters for the {{ CH }} DB available in {{ yandex-cloud }}:
 
-      - **Cluster**. Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **DataLens access** flag set. If you don't have an available cluster, click **Create new**.
+      - **Cluster**. Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
 
          {% note info %}
 
@@ -55,7 +52,7 @@ To create a {{ CH }} connection:
          {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
 
       - **Password**. Enter the password for the user.
-      - **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      - **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
       - **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
       - **HTTPS**. Make sure the secure connection option is enabled.
 
@@ -70,7 +67,8 @@ To create a {{ CH }} connection:
 
 
 
-1. Click **Save**. The connection will appear in the list.
+1. Click **Create connection**.
+1. Enter the name for the connection and click **Create**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
 

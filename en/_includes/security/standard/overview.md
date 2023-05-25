@@ -63,7 +63,7 @@ You can automate the audit of compliance with all the recommendations using avai
 
 ### Responsibility limitation {#liability-limit}
 
-{{ yandex-cloud }} uses the concept of [Shared responsibility](/security/shared-responsibility). Where the lines are drawn for who is responsible for security depends on the services used by the system in the cloud, the usage model (infrastructure as a service ((IaaS), platform as a service (PaaS), or software as a service (SaaS)), and the security mechanisms and policies the cloud provider has in place.
+{{ yandex-cloud }} uses the concept of [Shared responsibility](/security/shared-responsibility). Where the lines are drawn for who is responsible for security depends on the services used by the system in the cloud, their usage model, i.e., infrastructure as a service ([IaaS](/blog/posts/2022/01/iaas)), platform as a service ([PaaS](/blog/posts/2023/03/paas)), or software as a service ([SaaS](/blog/posts/2023/03/saas)), and the security tools and policies the cloud provider has in place.
 
 ### Terms and abbreviations {#terms}
 

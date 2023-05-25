@@ -1,6 +1,6 @@
 # Creating a folder
 
-A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped.
+A _folder_ is a space where {{ yandex-cloud }} resources are created and [grouped](../../concepts/resources-hierarchy.md).
 
 {% list tabs %}
 
@@ -47,7 +47,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       * `cloud_id`: [ID of the cloud](../cloud/get-id.md) where the folder will be created. This is an optional parameter. By default, the value specified in the provider settings is used.
-      * `name`: Name of the folder to be created. This parameter is required. For naming requirements, see below:
+      * `name`: Name of the folder to be created. This parameter is required. The naming requirements are as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -75,7 +75,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
          terraform validate
          ```
 
-         If the configuration is correct, the following message is returned:
+         If the configuration is correct, you will get this message:
 
          ```
          Success! The configuration is valid.

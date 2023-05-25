@@ -1,1 +1,1 @@
-{% include [loadtesting-https-phantom](../../_tutorials/loadtesting-https-phantom.md) %}
+{% include [loadtesting-https-phantom](../../_tutorials/dev/loadtesting-https-phantom.md) %}

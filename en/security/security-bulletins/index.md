@@ -2,6 +2,10 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [13.04.2023 — CVE-2023-26463 — StrongSwan IPsec — Incorrectly Accepted Untrusted Public Key With Incorrect Refcount](../../_includes/security/security-bulletins/cve-2023-26463-strongswan-ipsec.md) %}
+
+{% include [13.04.2023 — CVE-2023-0286](../../_includes/security/security-bulletins/cve-2023-0286-openssl.md) %}
+
 {% include [22.02.2023 — CVE-2022-3602, CVE-2022-3786 — OpenSSL Security release v.3.0.7](../../_includes/security/security-bulletins/cve-2022-3786-openssl.md) %}
 
 
@@ -12,9 +16,7 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 {% include [02.02.2022 — CVE-2022-41903-23521 - GitLab-1575-1566-1559](../../_includes/security/security-bulletins/cve-2022-41903-23521-GitLab-1575-1566-1559.md) %}
 
 
-
 {% include [26.12.2022 — CVE-2022-47940 - KSMBD FS/KSMBD/SMB2PDU.C SMB2_WRITE](../../_includes/security/security-bulletins/cve-2022-47940-KSMBD-FS-KSMBD-SMB2PDU-C-SMB2_WRITE.md) %}
-
 
 
 {% include [06.12.2022 — CVE-2022-28228 — YDB](../../_includes/security/security-bulletins/cve-2022-28228-ydb.md) %}

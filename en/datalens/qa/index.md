@@ -21,30 +21,9 @@ Sections:
 
 ### How do I add a user and send them a link to the dashboard? {#how-add-user-send-ref}
 
-To allow another user with a Yandex account to open your dashboard, configure access to {{ datalens-full-name }}:
+To allow another user to open your dashboard, configure access to {{ datalens-full-name }}:
 
-1. Add a user:
-
-   {% list tabs %}
-
-   - To an organization
-
-     {% include [datalens-add-user-organization](../../_includes/datalens/operations/datalens-add-user-organization.md) %}
-
-     After that, the user has access to your {{ datalens-full-name }} instance.
-
-   - To a cloud
-
-     1. Go to [Access control]({{ link-console-access-management }}).
-     1. In the top right-hand corner, click **Add user**.
-     1. Enter the user's Yandex email address and click **Add**. The new user appears in the list of users.
-     1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Configure roles**.
-     1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
-
-     After that, the user has access to your {{ datalens-full-name }} instance.
-
-   {% endlist %}
-
+1. [Invite a user](../../organization/add-account.md#add-or-invite-user-account) with a Yandex account or [add a federated user](../../organization/add-account.md#add-user-sso).
 1. Make sure that the user has access to the dashboard:
 
    1. Open the dashboard.
