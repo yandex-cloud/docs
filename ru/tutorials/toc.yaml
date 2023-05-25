@@ -35,8 +35,6 @@ items:
         href: web/prefetch.md
       - name: Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}
         href: web/cdn-storage-integration.md
-      - name: Сине-зеленое и канареечное развертывание версий сервиса
-        href: web/blue-green-canary-deployment.md
       - name: Терминирование TLS-соединений
         href: web/tls-termination.md
   - name: Интернет-магазины
@@ -79,18 +77,28 @@ items:
           Резервное копирование кластера {{ managed-k8s-name }} в {{
           objstorage-name }}
         href: archive/kubernetes-backup.md
-  - name: Тестовая среда
+  - name: Для разработчиков
     items:
       - name: Все руководства
-        href: testing/index.md
+        href: dev/index.md
+      - name: >-
+          Организация сине-зеленого и канареечного развертывания версий
+          веб-сервиса
+        href: web/blue-green-canary-deployment.md
+      - name: Автоматизация сборки образов с помощью Jenkins и Packer
+        href: infrastructure-management/jenkins.md
+      - name: >-
+          Непрерывное развертывание контейнеризованных приложений с помощью {{
+          GL }}
+        href: infrastructure-management/gitlab-containers.md
       - name: Тестирование приложений с помощью {{ GL }}
         href: testing/gitlab.md
       - name: Создание тестовых ВМ через {{ GL }} CI
         href: testing/ci-for-snapshots.md
-      - name: Высокопроизводительные вычисления на прерываемых ВМ
+      - name: >-
+          Высокопроизводительные вычисления (HPC) на прерываемых виртуальных
+          машинах
         href: testing/hpc-on-preemptible.md
-      - name: Эмуляция множества IoT-устройств
-        href: testing/iot-emulation.md
       - name: Нагрузочное тестирование gRPC-сервиса
         href: testing/loadtesting-grpc.md
       - name: >-
@@ -103,6 +111,12 @@ items:
         href: testing/loadtesting-https-pandora.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: testing/loadtesting-multiply.md
+  - name: Тестовая среда
+    items:
+      - name: Все руководства
+        href: testing/index.md
+      - name: Эмуляция множества IoT-устройств
+        href: testing/iot-emulation.md
       - name: Миграция результатов нагрузочного тестирования из OverLoad
         href: testing/loadtesting-overload-migration.md
       - name: Запуск внешних агентов для нагрузочного тестирования
@@ -125,12 +139,6 @@ items:
           Сборка образа ВМ с набором инфраструктурных инструментов с помощью
           Packer
         href: infrastructure-management/packer-custom-image.md
-      - name: Автоматизация сборки образов с помощью Jenkins и Packer
-        href: infrastructure-management/jenkins.md
-      - name: >-
-          Непрерывное развертывание контейнеризованных приложений с помощью {{
-          GL }}
-        href: infrastructure-management/gitlab-containers.md
       - name: >-
           Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
           mpg-name }}

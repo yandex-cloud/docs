@@ -179,7 +179,7 @@ items:
         href: manager/project-new.md
       - name: My projects
         href: manager/my-projects.md
-      - name: Create a project
+      - name: Creating a project
         href: manager/create-project.md
       - name: List of project issues
         href: manager/project-list.md
@@ -207,6 +207,8 @@ items:
         href: manager/planning-poker.md
       - name: Burn down charts
         href: manager/burndown.md
+      - name: Switching to new technology
+        href: manager/boards-convertor.md
   - name: Issue boards (beta)
     items:
       - name: Overview
@@ -621,10 +623,12 @@ items:
         href: payment.md
       - name: '{{ ya-360 }} will no longer be free of charge'
         href: organizations.md
-  - name: Revision history
+  - name: Releases
     items:
-      - name: February 2023
+      - name: March 2023
         href: changelogs/index.md
+      - name: February 2023
+        href: changelogs/2302.md
       - name: January 2023
         href: changelogs/2301.md
       - name: December 2022

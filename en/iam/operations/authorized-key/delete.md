@@ -1,6 +1,6 @@
 ---
 title: "How to delete authorized keys in {{ iam-full-name }}"
-description: "In this tutorial, you'll learn how to delete authorized keys in {{ iam-full-name }} via the management console, CLI, and API."
+description: "In this tutorial, you will learn how to delete authorized keys in {{ iam-full-name }} via the management console, CLI, and API."
 ---
 
 # Deleting authorized keys
@@ -10,7 +10,7 @@ description: "In this tutorial, you'll learn how to delete authorized keys in {{
 - Management console
 
    1. Go to the folder that the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
    1. Under **Authorized keys**, click ![image](../../../_assets/options.svg) next to the key to be deleted and select **Delete**.
    1. In the window that opens, click **Delete**.

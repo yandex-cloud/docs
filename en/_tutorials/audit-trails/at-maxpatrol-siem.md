@@ -9,10 +9,10 @@ To configure audit log export:
 1. [Create a trail to send logs to a {{ yds-name }} data stream](#create-trail).
 1. [In MaxPatrol SIEM, set up a job to collect data from a {{ yds-name }} data stream](#configure-maxpatrol).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -38,7 +38,7 @@ Create a service account in the same folder as the trail, such as `example-folde
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter `maxpatrol-sa` as your service account name.
    1. Click **Create**.
@@ -119,7 +119,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Select the `maxpatrol-sa` service account and click the line containing its name.
    1. Click **Create new key** on the top panel.
    1. Select **Create static access key**.
@@ -127,7 +127,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
    {% note alert %}
 
-   Save the ID and private key. After the dialog is closed, the private key value will be unavailable.
+   Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
 
    {% endnote %}
 
@@ -308,7 +308,7 @@ To view the logs, go to the event review page:
 1. Click the `YDS-logs-task` task.
 1. Click **Events collected** → **Select**.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
 

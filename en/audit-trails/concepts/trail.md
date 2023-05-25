@@ -55,10 +55,9 @@ The trail contains all the audit log settings:
 ## Trail status {#status}
 
 A trail can have two statuses: `active` or `error`.
-
 Statuses indicate the state of the trail itself and have nothing to do with events occurring to resources for which the trail collects audit logs:
 * `active`: The trail is running and collecting audit logs from the resources in scope.
-* `error`: There might be issues with the trail's destination objects or the trail itself.
+* `error`: There might be issues with the trail's destination objects or the trail itself. See [our recommendations](../operations/error.md) on how to recover the trail.
 
 ## What's next {#whats-next}
 

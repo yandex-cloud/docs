@@ -401,6 +401,8 @@ items:
         href: tutorials/bucket-to-bucket.md
       - name: Запуск вычислений по расписанию в {{ ml-platform-name }}
         href: tutorials/regular-launch-datasphere.md
+      - name: Интерактивная отладка функций {{sf-name}}
+        href: tutorials/serverless-live-debug.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

@@ -10,7 +10,7 @@ description: "In this tutorial, you will learn how to delete static access keys 
 - Management console
 
    1. Go to the folder that the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
    1. Under **Access keys**, click ![image](../../../_assets/options.svg) next to the key to be deleted and select **Delete**.
    1. In the window that opens, click **Delete**.

@@ -9,7 +9,7 @@ items:
         href: enable-org.md
       - name: Editing organization data
         href: org-profile.md
-      - name: Switching to another organization
+      - name: Managing multiple organizations
         href: manage-organizations.md
   - name: Managing users
     items:
@@ -43,8 +43,12 @@ items:
         href: operations/federations/integration-common.md
   - name: Managing clouds and services
     href: manage-services.md
-  - name: Troubleshooting errors in SAML 2.0 federations
-    href: diagnostics.md
+  - name: Troubleshooting
+    items:
+      - name: Common federation errors
+        href: diagnostics.md
+      - name: Errors in SAML 2.0 federations
+        href: saml-diagnostics.md
   - name: API reference
     items:
       - name: Authentication

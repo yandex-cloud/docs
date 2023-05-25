@@ -123,9 +123,9 @@ To enable the export of logs to the `bucket-logs` bucket:
       ```
       aws s3api put-bucket-logging \
         --endpoint-url https://{{ s3-storage-host }} \
-       --bucket <name of the target bucket> \
-       --bucket-logging-status file://log-config.json
-     ```
+        --bucket <name of the target bucket> \
+        --bucket-logging-status file://log-config.json
+      ```
 
 - API
 
@@ -176,7 +176,7 @@ To enable the export of logs to the `bucket-logs` bucket:
       yc vpc subnet list
       ```
 
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
    1. Specify the cluster parameters in the create command:
 
@@ -348,7 +348,7 @@ To enable the export of logs to the `bucket-logs` bucket:
 
 ## Create a dataset in {{ datalens-short-name }} {#create-dataset}
 
-1. In the window that appears in the lower-right corner, click **Create dataset**.
+1. In the top-right corner, click **Create dataset**.
 1. In the created dataset, move the `s3_data.s3logs` table to the workspace.
 1. Go to the **Fields** tab.
 1. Click ![image](../../_assets/plus-sign.svg)**Create field**.
@@ -372,7 +372,7 @@ To visualize the number of requests to a bucket using different methods, create 
 1. Drag the `method` field from the **Dimensions** section to the **Colors** section.
 1. Drag the `request_id` field from the **Dimensions** section to the **Measures** section.
 1. In the top-right corner, click **Save**.
-1. In the window that opens, enter the name of the chart `S3 - Method pie` and click **Save**.
+1. In the window that opens, enter the name of the chart: `S3 - Method pie` and click **Save**.
 
 ### Create the second chart {#create-column-chart}
 
@@ -382,7 +382,7 @@ To visualize the ratio of the number of requests by object type, create a bar ch
 
    1. In the top-right corner, click the down arrow next to the **Save** button.
    1. Click **Save as**.
-   1. In the window that opens, enter the name of the new chart `S3 - Object type bars` and click **Save**.
+   1. In the window that opens, enter the name of the new chart: `S3 - Object type bars` and click **Save**.
 
 1. For the visualization type, choose **Bar chart**. The `method` and `request_id` fields will automatically appear in the **X** and **Y** sections, respectively.
 1. Delete the `method` field from the **X** section and drag the `object_type` field there.

@@ -1,6 +1,6 @@
 # Authentication using Azure Active Directory
 
-With [identity federation](../../add-federation.md), you can use [Azure Active Directory]({{ link-azure-ad }}) to authenticate users in an organization.
+With an [identity federation](../../add-federation.md), you can use [Azure Active Directory]({{ link-azure-ad }}) (Azure AD) to authenticate users in an organization.
 
 Setting up authentication includes the following steps:
 
@@ -99,6 +99,8 @@ Add users to the IdP server:
       ```
 
    1. Enable **Automatically create users** to add authenticated users to your organization automatically. If this option is disabled, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
+
+      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
    1. Click **Create federation**.
 
@@ -430,6 +432,8 @@ If you did not enable the **Automatically create users** option when [creating a
 
 To do this, you will need user Name IDs. They are returned by the IdP server along with a response confirming successful authentication.
 
+{% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
+
 A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
 
 {% list tabs %}
@@ -442,7 +446,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 
    1. Select the identity federation to add users from.
 

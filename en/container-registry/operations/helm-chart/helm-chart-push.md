@@ -14,7 +14,7 @@ To push a Helm chart:
 
 - CLI
 
-  1. [Install](https://helm.sh/docs/intro/install/) Helm client version 3.7.1 or higher.
+  1. [Install](https://helm.sh/docs/intro/install/) Helm 3.7.1 or higher.
   1. Enable [Open Container Initiative](https://opencontainers.org/) support in the Helm client:
 
      ```bash
@@ -32,18 +32,18 @@ To push a Helm chart:
           Password: <OAuth token>
           ```
 
-     * Using an IAM token:
-       1. [Get an IAM token](../../../iam/operations/iam-token/create.md).
+     * Using an {{ iam-full-name }} token:
+       1. [Get an {{ iam-name }} token](../../../iam/operations/iam-token/create.md).
        1. Run the command:
 
           ```bash
           helm registry login {{ registry }} -u iam
-          Password: <IAM token>
+          Password: <{{ iam-name }} token>
           ```
 
      Result:
 
-     ```bash
+     ```text
      Login succeeded
      ```
 
@@ -57,7 +57,7 @@ To push a Helm chart:
 
      Result:
 
-     ```bash
+     ```text
      Successfully packaged chart and saved it to: /<path>/<Helm chart name>-<version>.tgz
      ```
 
@@ -69,7 +69,7 @@ To push a Helm chart:
 
      Result:
 
-     ```bash
+     ```text
      Pushed: {{ registry }}/<registry ID>/<Helm chart name>:<version>
      Digest: <SHA256...>
      ```

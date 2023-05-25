@@ -136,7 +136,7 @@ docker login \
    ```bash
    docker login \
      --username iam \
-     --password <IAM-токен> \
+     --password <{{ iam-name }}-токен> \
      {{ registry }}
    ```
 

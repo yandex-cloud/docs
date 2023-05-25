@@ -9,7 +9,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
    1. Go to **Access rights**.
    1. Click **Assign bindings**.
@@ -160,7 +160,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
       * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: The role assigned. This parameter is required.
+      * `role`: Role being assigned. This parameter is required.
       * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This parameter is required.
 
       Example of the configuration file structure:

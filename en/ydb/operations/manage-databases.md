@@ -77,6 +77,62 @@ Using the management console or YC CLI, you can:
 
    Every serverless database is created with geographic redundancy in three [availability zones](../../overview/concepts/geo-scope.md).
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the {{ TF }} configuration file, describe the parameters of the serverless DB to create:
+
+      ```hcl
+      resource "yandex_ydb_database_serverless" "database1" {
+        name = "<DB_name>"
+
+        serverless_database {
+          enable_throttling_rcu_limit = <true_or_false>
+          provisioned_rcu_limit       = <throughput>
+          storage_size_limit          = <data_size>
+          throttling_rcu_limit        = <provisioned_throughput_capacity>
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: DB name. This parameter is required.
+      * `enable_throttling_rcu_limit`: Enable the throttling limit. This is an optional parameter. The default value is `false`.
+      * `provisioned_rcu_limit`: Limit on Request Unit usage per second. This is an optional parameter. The default value is 0.
+      * `storage_size_limit`: Amount of data, GB. This is an optional parameter. The default value is 50 GB.
+      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is 0.
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   {{ TF }} will create all required resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+
+   ```bash
+   yc ydb database get <DB_name>
+   ```
+
+   **Example**
+
+   Creating a serverless DB with the 10 RU/s throughput limit and 50 GB of data:
+
+   > ```hcl
+   > resource "yandex_ydb_database_serverless" "database1" {
+   >   name = "test-ydb-serverless"
+   >
+   >   serverless_database {
+   >     enable_throttling_rcu_limit = false
+   >     provisioned_rcu_limit       = 10
+   >     storage_size_limit          = 50
+   >     throttling_rcu_limit        = 0
+   >   }
+   > }
+   > ```
+
 {% endlist %}
 
 ### Updating serverless database parameters {#update-db-serverless}
@@ -123,6 +179,59 @@ Using the management console or YC CLI, you can:
       > yc ydb database update db5 \
       >   --sls-throttling-rcu 100
       > ```
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the {{ TF }} configuration file and edit the fragment with the serverless DB description:
+
+      ```hcl
+      resource "yandex_ydb_database_serverless" "database1" {
+        name = "<DB_name>"
+
+        serverless_database {
+          enable_throttling_rcu_limit = <true_or_false>
+          provisioned_rcu_limit       = <throughput>
+          storage_size_limit          = <data_size>
+          throttling_rcu_limit        = <provisioned_throughput_capacity>
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: DB name. This parameter is required.
+      * `enable_throttling_rcu_limit`: Enable the throttling limit. This is an optional parameter. The default value is `false`.
+      * `provisioned_rcu_limit`: Limit on Request Unit usage per second. This is an optional parameter. The default value is 0.
+      * `storage_size_limit`: Amount of data, GB. This is an optional parameter. The default value is 50 GB.
+      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is 0.
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   {{ TF }} will apply the required changes to the resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+
+   ```bash
+   yc ydb database get <DB_name>
+   ```
+
+   **Example**
+
+   Changing the provisioned throughput capacity and amount of data for the `test-ydb-serverless` database:
+
+   > ```hcl
+   > resource "yandex_ydb_database_serverless" "database1" {
+   >   name = "test-ydb-serverless"
+   >   serverless_database {
+   >     enable_throttling_rcu_limit = false
+   >     provisioned_rcu_limit       = 10
+   >     storage_size_limit          = 80
+   >     throttling_rcu_limit        = 100
+   >   }
+   > }
+   > ```
 
 {% endlist %}
 
@@ -226,6 +335,77 @@ Using the management console or YC CLI, you can:
       >   --async
       > ```
 
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the {{ TF }} configuration file, describe the parameters of the Dedicated DB to create:
+
+      ```hcl
+       resource "yandex_ydb_database_dedicated" "database1" {
+         name                = "<DB_name>"
+
+         network_id          = "<network_ID>"
+         subnet_ids          = ["<ID_of_subnet1>", "<ID_of_subnet2>", "<ID_of_subnet3>"]
+
+         resource_preset_id  = "<computing_resource_configuration>"      
+
+         scale_policy {
+           fixed_scale {
+             size = <number_of_DB_instances>
+           }
+         }
+
+         storage_config {
+           group_count     = <number_of_storage_groups>
+           storage_type_id = "<storage_media_type>"
+         }     
+       }
+      ```
+
+      Where:
+
+      * `name`: DB name.
+      * `network_id`: ID of the network the DB is connected to.
+      * `subnet_ids`: List of subnet IDs, separated by commas.
+      * `resource_preset_id`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
+      * `scale_policy`: Scaling policy, where `size` indicates the number of DB instances.
+      * `storage_config`: Storage configuration, where:
+         * `group_count`: Number of [storage groups](../concepts/resources.md#storage-groups).
+         * `storage_type_id`: Type of storage media. For the `ssd` type, a single storage group can store up to 100 GB of data.
+
+   1. Create a database:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   {{ TF }} will create all the required resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+
+   ```bash
+   yc ydb database list
+   ```
+
+   **Example**
+
+   Creating a single-node dedicated {{ ydb-name }} database with the minimum configuration, named `test-bd` and accessible from the internet:
+
+   > ```hcl
+   > resource "yandex_ydb_database_dedicated" "database2" {
+   >    name               = "test-ydb-dedicated"
+   >    network_id         = yandex_vpc_network.my-net.id
+   >    subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+   >    resource_preset_id = "medium"
+   >    scale_policy {
+   >      fixed_scale {
+   >        size = 1
+   >      }
+   >    }
+   >   storage_config {
+   >     group_count     = 1
+   >     storage_type_id = "ssd"
+   >   }
+   > }
+   > ```
+
 {% endlist %}
 
 ### Updating dedicated database parameters {#update-db-dedicated}
@@ -267,6 +447,40 @@ Using the management console or YC CLI, you can:
    > ```
 
    You cannot decrease the number of storage groups.
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the {{ TF }} configuration file and edit the fragment with the DB description:
+
+      > ```hcl
+      > resource "yandex_ydb_database_dedicated" "database2" {
+      >   name               = "my-first-ydb-dedicated"
+      >   network_id         = yandex_vpc_network.my-net.id
+      >   subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+      >   resource_preset_id = "medium"
+      >   scale_policy {
+      >     fixed_scale {
+      >       size = 2
+      >     }
+      >   }
+      >   storage_config {
+      >     group_count     = 1
+      >     storage_type_id = "ssd"
+      >   }
+      > }
+      > ```
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+
+   ```bash
+   yc ydb database get <DB_name>
+   ```
 
 {% endlist %}
 
@@ -314,6 +528,46 @@ Using the management console or YC CLI, you can:
 
    ```bash
    yc ydb database delete <DB_name>
+   ```
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the {{ TF }} configuration file and delete the fragment with the DB description.
+
+      Sample DB description in the {{ TF }} configuration:
+
+      ```hcl
+      resource "yandex_ydb_database_dedicated" "database2" {
+        name               = "test-ydb-dedicated"
+
+        network_id         = yandex_vpc_network.my-net.id
+        subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+
+        resource_preset_id = "medium"
+
+        scale_policy {
+          fixed_scale {
+            size = 1
+          }
+        }
+
+        storage_config {
+          group_count     = 1
+          storage_type_id = "ssd"
+        }
+      }
+      ```
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   {{ TF }} will delete all the appropriate resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+
+   ```bash
+   yc ydb database list
    ```
 
 {% endlist %}

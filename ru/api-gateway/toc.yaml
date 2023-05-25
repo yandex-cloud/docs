@@ -50,6 +50,8 @@ items:
           Создание интерактивного serverless-приложения с использованием
           WebSocket
         href: tutorials/websocket-app.md
+      - name: Интерактивная отладка функций {{sf-name}}
+        href: tutorials/serverless-live-debug.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

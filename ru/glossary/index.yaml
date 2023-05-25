@@ -73,9 +73,18 @@ links:
   - title: Data Mart
     description: Витрина данных
     href: datamart
+  - title: Спринты
+    description: Основные понятия и преимущества
+    href: sprints
   - title: Data Lake
     description: Озеро данных
     href: datalake
+  - title: Data Vault
+    description: Свод данных
+    href: datavault
   - title: Бэклог
     description: Список задач проекта по степени приоритетности
     href: backlog
+  - title: Kanban-доска
+    description: Трекер, где вы можете следить за статусами проектов
+    href: kanban

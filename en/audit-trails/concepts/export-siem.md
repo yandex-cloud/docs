@@ -6,6 +6,10 @@ The {{ yandex-cloud }} team has prepared a set of solutions for exporting audit 
 
 [{{ yandex-cloud }} Security Solution Library](/solutions/security-solution-library) is a public repo on GitHub with a set of examples and recommendations on how to build a secure infrastructure in {{ yandex-cloud }}.
 
+![image](../../_assets/audit-trails/export-siem.svg)
+
+<small>Selecting appropriate infrastructure</small>
+
 As of today, solutions have been prepared for the following SIEM systems:
 * [{{ mes-full-name }}](../tutorials/trails-logs-elasticsearch.md).
 * [{{ mos-full-name }}](../tutorials/trails-logs-opensearch.md).

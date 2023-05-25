@@ -34,3 +34,7 @@
    To activate a secret, use the [activate](../api-ref/Secret/activate.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Activate](../api-ref/grpc/secret_service.md#Activate) gRPC API call.
 
 {% endlist %}
+
+## See also {#see-also}
+
+* [{#T}](../concepts/secret.md)

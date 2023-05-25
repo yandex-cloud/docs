@@ -1,6 +1,6 @@
 # Configuring access to a page
 
-Edit access rights for the page to set which users can view and edit it.
+Edit access rights for the page to set which users can view and edit it. You can only grant access permissions to users who are members of your organization.
 
 {% note alert %}
 
@@ -34,7 +34,7 @@ To configure page permissions:
 
 It is not recommended to change the access settings for the [{{ wiki-name }} homepage]({{ link-homepage }}).
 
-By default, the author of the {{ wiki-name }} home page is a service account. If the "Only authors" access type is selected for this page, other users can't access it. To allow others to access the page, click the link [{{ link-homepage-access }}]({{ link-homepage-access }}) and change the access parameters.
+By default, the author of the {{ wiki-name }} home page is a service account. If the "Only authors" access type is selected for this page, other users can't access it. To allow others to access the page, click the [{{ link-homepage-access }}]({{ link-homepage-access }}) link and change the access parameters.
 
 {% endnote %}
 

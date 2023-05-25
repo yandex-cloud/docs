@@ -2,9 +2,9 @@
 
 In {{ ml-platform-name }} projects, you can create resources, which are auxiliary objects that help speed up data operations, automate routine actions, and perform special operations.
 
-You can view resources that are created or available in a project on the project page under **Resources**.
+You can view resources that are created or available in a project on the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**.
 
-You can use resources in multiple projects without recreating them. To make a resource available for all [community](community.md) projects, share it in the **Access** tab. A community's resources are available on the community page under **Resources**.
+You can use resources in multiple projects without recreating them. To make a resource available for all [community](community.md) projects, share it in the **{{ ui-key.yc-ui-datasphere.common.access }}** tab. A community's resources are available on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
 {{ ml-platform-name }} project resources:
 

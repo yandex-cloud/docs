@@ -1,8 +1,6 @@
 ### container-registry.admin {#cr-admin}
 
-The `{{ roles-cr-admin }}` role includes the following permissions:
-* [create registries](../../../container-registry/operations/registry/registry-create.md).
-* [update registries](../../../container-registry/operations/registry/registry-update.md).
-* [delete registries](../../../container-registry/operations/registry/registry-delete.md).
+The `{{ roles-cr-admin }}` role is assigned for a cloud or folder.
+It grants permission to manage access to registries, Docker images, and repositories.
 
-{% include [roles-restriction-only-parents](../roles-restriction-only-parents.md) %}
+The role includes all permissions granted by the `{{ roles-cr-viewer }}` and `{{ roles-cr-editor }}` roles.

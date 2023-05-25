@@ -14,18 +14,17 @@ If your corporate information security policy sets specific key size and rotatio
 
 {{ yandex-cloud }} provides data-at-rest encryption for the following services:
 
-* [{{objstorage-full-name}}](#storage-at-rest)
-* [{{managed-k8s-name}}](#kubernetes)
+* [{{ objstorage-full-name }}](#storage-at-rest)
+* [{{ managed-k8s-name }}](#kubernetes)
 
-### {{objstorage-full-name}} {#storage-at-rest}
+### {{ objstorage-full-name }} {#storage-at-rest}
 
 To protect critical data in [{{ objstorage-full-name }}](../../storage/), we recommend using bucket server-side encryption with [{{ kms-full-name }}](../../kms/) keys. This encryption method enables protection against accidental or intentional publication of the bucket content on the web. For more information, see [{#T}](../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
 
 
+### {{ managed-k8s-name }} {#kubernetes}
 
-### {{managed-k8s-name}} {#kubernetes}
-
-[{{managed-k8s-name}}](../../managed-kubernetes/) has a built-in secret encryption mechanism. For more information, see [{#T}](#k8s-secrets) below.
+[{{ managed-k8s-name }}](../../managed-kubernetes/) has a built-in secret encryption mechanism. For more information, see [{#T}](#k8s-secrets) below.
 
 ## Encryption in transit {#in-transit}
 
@@ -37,27 +36,27 @@ When working with (or connecting to) {{ yandex-cloud }} APIs, make sure to use T
 
 {% endnote %}
 
-{{ yandex-cloud }} lets you use your own TLS certificates for the following services:
-- [{{objstorage-full-name}}](#storage-in-transit)
-- [{{alb-full-name}}](#load-balancer)
-- [{{vpc-name}} (VPC)](#vpc)
-- [{{api-gw-full-name}}](#api-gw)
-- [{{cdn-full-name}}](#cdn)
+{{ yandex-cloud }} allows you to use your own TLS certificates for the following services:
+- [{{ objstorage-full-name }}](#storage-in-transit)
+- [{{ alb-full-name }}](#load-balancer)
+- [{{ vpc-name }} (VPC)](#vpc)
+- [{{ api-gw-full-name }}](#api-gw)
+- [{{ cdn-full-name }}](#cdn)
 
-### {{objstorage-full-name}} {#storage-in-transit}
+### {{ objstorage-full-name }} {#storage-in-transit}
 
-[{{objstorage-full-name}}](../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your Object Storage site requires HTTPS access. Integration with [{{certificate-manager-full-name}}](../../certificate-manager/). See the following instructions in the Object Storage documentation:
+[{{ objstorage-full-name }}](../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your Object Storage site requires HTTPS access. Additionally, you can use integration with [{{ certificate-manager-full-name }}](../../certificate-manager/). See the following guides in the Object Storage documentation:
 
 - [{#T}](../../storage/operations/hosting/certificate.md)
 - [{#T}](../../storage/concepts/bucket.md#bucket-https)
 
 When using Object Storage, be sure that support for TLS protocols below version 1.2 is disabled at the client level. Use the bucket policy [aws:securetransport](../../storage/s3/api-ref/policy/conditions.md) to ensure that running without TLS is disabled for the bucket.
 
-### {{alb-full-name}} {#load-balancer}
+### {{ alb-full-name }} {#load-balancer}
 
-[{{alb-full-name}}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{certificate-manager-name}}. See [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the Application Load Balancer documentation.
+[{{ alb-full-name }}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the Application Load Balancer documentation.
 
-### {{vpc-name}} (VPC) {#vpc}
+### {{ vpc-name }} (VPC) {#vpc}
 
 Possible options for using encrypted communication channels are described in [{#T}](network.md#remote-access).
 
@@ -67,13 +66,13 @@ Please note: [{{interconnect-full-name}}](../../interconnect/) does not provide 
 
 
 
-### {{api-gw-full-name}} {#api-gw}
+### {{ api-gw-full-name }} {#api-gw}
 
-[{{api-gw-full-name}}](../../api-gateway/) supports secure connections over HTTPS. You can upload your own security certificate to access your [API gateway](../../api-gateway/concepts/) over HTTPS.
+[{{ api-gw-full-name }}](../../api-gateway/) supports secure connections over HTTPS. You can upload your own security certificate to access your [API gateway](../../api-gateway/concepts/) over HTTPS.
 
-### {{cdn-full-name}} {#cdn}
+### {{ cdn-full-name }} {#cdn}
 
-[{{cdn-full-name}}](../../cdn/) supports secure connections over HTTPS. You can upload your own security certificate to access your [CDN resource](../../cdn/concepts/resource.md) over HTTPS.
+[{{ cdn-full-name }}](../../cdn/) supports secure connections over HTTPS. You can upload your own security certificate to access your [CDN resource](../../cdn/concepts/resource.md) over HTTPS.
 
 
 
@@ -98,7 +97,7 @@ If data encryption is mandatory under regulatory requirements, make sure to encr
 
 ### {{ message-queue-full-name }} {#message-queue}
 
-If you use [{{message-queue-full-name}}](../../message-queue/) to transfer critical data or secrets (encryption keys, API keys, and so on), be sure to encrypt this data at the application level before you send it to {{ message-queue-short-name }}, for example, using {{ kms-short-name }}. For the {{ kms-short-name }} key, we recommend that you set up a rotation period greater than or equal to the maximum message processing time in {{ message-queue-short-name }}.
+If you use [{{ message-queue-full-name }}](../../message-queue/) to transfer critical data or secrets (encryption keys, API keys, and so on), be sure to encrypt this data at the application level before you send it to {{ message-queue-short-name }}, for example, using {{ kms-short-name }}. For the {{ kms-short-name }} key, we recommend that you set up a rotation period greater than or equal to the maximum message processing time in {{ message-queue-short-name }}.
 
 
 ### {{ objstorage-full-name }} {#storage-self-encryption}
@@ -179,7 +178,7 @@ To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the 
 
 - How [{{ k8s }} secrets](https://kubernetes.io/docs/concepts/configuration/secret/) work.
 
-   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using {{ kms-short-name }}. To enable the encryption of secrets, specify a {{ kms-short-name }} key when creating a {{ k8s }} cluster. You can't add the key when you edit the cluster. For more information, see the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/k8s.md).
+   By default, secrets are stored unencrypted in etcd. However, {{ managed-k8s-name }} allows you to encrypt secrets using {{ kms-short-name }}. To enable the encryption of secrets, specify a {{ kms-short-name }} key when creating a {{ k8s }} cluster. You cannot add the key when you edit the cluster. For more information, see [{#T}](../../kms/tutorials/k8s.md) in the {{ kms-short-name }} documentation.
 
 - {{ lockbox-name }}.
 

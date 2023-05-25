@@ -90,3 +90,7 @@
      ![image](../../_assets/datalens/solution-06/07-save-dashboard.png)
 
 Вы можете отредактировать любой чарт на дашборде. Например, измените тип визуализации для чарта **Рекламные сети** из раздела **Привлечение пользователей**.
+
+Чтобы поделиться дашбордом или чартом, воспользуйтесь одним из способов:
+
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
