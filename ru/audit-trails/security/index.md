@@ -16,6 +16,7 @@
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `audit-trails.editor` входят все разрешения `audit-trails.viewer`. После диаграммы дано описание каждой роли.
 
 ![image](../../_assets/audit-trails/at-role-diagram.svg)
+<small>\* deprecated</small>
 
 ### Сервисные роли
 
@@ -23,10 +24,11 @@
 ----- | -----
 `resource-manager.clouds.member` | Роль, необходимая для доступа к ресурсам в облаке всем, кроме [владельцев облака](../../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md)
 `resource-manager.clouds.owner` | Дает полный доступ к облаку и ресурсам в нем. Можно назначить только на облако
-`audit-trails.configViewer` | Позволяет просматривать информацию о трейлах
-`audit-trails.viewer` | Дает доступ к аудитным логам трейлов. Включает все права роли `audit-trails.configViewer`
+`audit-trails.auditor` | Позволяет просматривать информацию о трейлах
+`audit-trails.viewer` | Дает доступ к аудитным логам трейлов. Включает все права роли `audit-trails.auditor`
 `audit-trails.editor` | Позволяет управлять трейлами (создавать, изменять и удалять). Включает все права роли `audit-trails.viewer`
 `audit-trails.admin` | Позволяет управлять трейлами и доступом к ним. Включает все права роли `audit-trails.editor`
+`audit-trails.configViewer` (deprecated) | Позволяет просматривать информацию о трейлах. Используйте роль `audit-trails.auditor` вместо этой роли.
 
 ### Примитивные роли
 
@@ -38,7 +40,7 @@
 
 Действие | Роль
 ----- | -----
-Просмотр информации о трейле | `audit-trails.configViewer` 
+Просмотр информации о трейле | `audit-trails.auditor` 
 Сбор и просмотр аудитных событий в трейле | `audit-trails.viewer` 
 Создание трейла | `audit-trails.editor` 
 Редактирование трейла | `audit-trails.editor` 

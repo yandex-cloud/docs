@@ -13,7 +13,10 @@
 {% include [currency](../_includes/currency.md) %}
 
 ## Стартовый грант {#start}
-При [создании первого платежного аккаунта](../quickstart/index.md) вам предоставляется стартовый грант. Подробную информацию о размере стартового гранта и условиях его использования смотри в документе [Начало работы](../../getting-started/usage-grant.md).
+
+{% include [grant-amount](../../getting-started/_includes/grant-amount.md) %}
+
+Подробную информацию об условиях использования стартового гранта смотри в документе [Начало работы](../../getting-started/usage-grant.md).
 
 {% note info %}
 

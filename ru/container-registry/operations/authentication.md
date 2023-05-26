@@ -96,7 +96,7 @@ docker login \
 
    Результат:
 
-   ```bash
+   ```text
    id: aje8a87g4e...
    service_account_id: aje3932acd...
    created_at: "2019-05-31T16:56:47Z"
@@ -246,7 +246,7 @@ Docker Engine может хранить учетные данные пользо
 
    Результат:
 
-   ```bash
+   ```text
    Credential helper is configured in '/home/<user>/.docker/config.json'
    ```
 

@@ -96,7 +96,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
 
    Result:
 
-   ```bash
+   ```text
    id: aje8a87g4e...
    service_account_id: aje3932acd...
    created_at: "2019-05-31T16:56:47Z"
@@ -246,7 +246,7 @@ The Docker Engine can keep user credentials in an external credentials store. Th
 
    Result:
 
-   ```bash
+   ```text
    Credential helper is configured in '/home/<user>/.docker/config.json'
    ```
 

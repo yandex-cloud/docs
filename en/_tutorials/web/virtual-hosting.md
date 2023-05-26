@@ -3,7 +3,7 @@ title: "Virtual hosting: how to build it?"
 description: "From these instructions, you'll learn how to build a virtual hosting of several websites having different domain names, on a single IP."
 ---
 
-# Setting up a virtual hosting
+# Setting up virtual hosting
 
 This use case describes how to set up virtual hosting, that is, how to use {{ alb-full-name }} to host multiple websites with different domain names on the same IP address.
 
@@ -74,7 +74,11 @@ To reserve an address:
 
 ## Create security groups {#create-security-groups}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that let the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic. Two security groups will be created in the use case: the first one for the load balancer and the second one for all VMs.
 
@@ -98,7 +102,7 @@ To create security groups:
          | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
          | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
          | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
+         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | N/A |
 
          1. Select the **Outgoing traffic** or **Incoming traffic** tab.
          1. Click **Add rule**.

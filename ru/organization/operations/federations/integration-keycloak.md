@@ -198,7 +198,8 @@
             --cookie-max-age 12h \
             --issuer "http://<хост>:8080/realms/master" \
             --sso-binding POST \
-            --sso-url "http://<хост>:8080/realms/master/protocol/saml"       
+            --sso-url "http://<хост>:8080/realms/master/protocol/saml" \
+            --force-authn  
         ```
 
       - Keycloak 16 и предшествующих версий
@@ -211,7 +212,8 @@
             --cookie-max-age 12h \
             --issuer "http://<хост>:8080/auth/realms/master" \
             --sso-binding POST \
-            --sso-url "http://<хост>:8080/auth/realms/master/protocol/saml"       
+            --sso-url "http://<хост>:8080/auth/realms/master/protocol/saml" \
+            --force-authn
         ```
 
         Где:
@@ -285,9 +287,9 @@
 
         * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
-- API
+        * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-  1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы будете создавать федерацию.
+- API
 
   1. Создайте файл с телом запроса, например `body.json`:
 
@@ -295,7 +297,6 @@
 
         ```json
         {
-          "folderId": "<ID каталога>",
           "name": "my-federation",
           "organizationId": "<ID организации>",
           "autoCreateAccountOnLogin": true,
@@ -303,8 +304,9 @@
           "issuer": "http://<хост>:8080/realms/master",
           "ssoUrl": "http://<хост>:8080/realms/master/protocol/saml",
           "securitySettings": {
-              "encryptedAssertions": true
-              },
+              "encryptedAssertions": true,
+              "forceAuthn": true
+          },
           "ssoBinding": "POST"
         }       
         ```
@@ -313,7 +315,6 @@
 
         ```json
         {
-          "folderId": "<ID каталога>",
           "name": "my-federation",
           "organizationId": "<ID организации>",
           "autoCreateAccountOnLogin": true,
@@ -321,15 +322,14 @@
           "issuer": "http://<хост>:8080/auth/realms/master",
           "ssoUrl": "http://<хост>:8080/auth/realms/master/protocol/saml",
           "securitySettings": {
-              "encryptedAssertions": true
-              },
+            "encryptedAssertions": true,
+            "forceAuthn": true
+          },
           "ssoBinding": "POST"
         }       
         ```
 
         Где:
-
-        * `folderId` — идентификатор каталога.
 
         * `name` — имя федерации. Имя должно быть уникальным в каталоге.
 
@@ -399,6 +399,8 @@
           {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
         * `encryptedAssertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
+
+        * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
         * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
@@ -790,7 +792,7 @@
 
   1. На левой панели выберите раздел [Пользователи]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-  1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите пункт **Добавить федеративных пользователей**.
+  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Добавить федеративных пользователей**.
 
   1. Выберите федерацию, из которой необходимо добавить пользователей.
 

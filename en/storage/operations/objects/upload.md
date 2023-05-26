@@ -118,6 +118,10 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
          Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
+- API
+
+   To upload an object, use the [upload](../../s3/api-ref/object/upload.md) S3 API method.
+
 {% endlist %}
 
 
@@ -162,6 +166,10 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
 
       You can place an object version only under an object lock with a retention period (the `object-lock-mode` and `object-lock-retain-until-date` parameters), only under a legal hold (`object-lock-legal-hold-status`), or under both. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
 
+- API
+
+   To upload an object version with a lock, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date` headers to apply a retention period and `X-Amz-Object-Lock-Legal-Hold` to put a legal hold.
+
 {% endlist %}
 
 If a bucket already has the [default object locks set for a certain period](../../concepts/object-lock.md#default) configured, you should upload any objects to it with their [MD5 hash](https://{{ lang }}.wikipedia.org/wiki/MD5) specified:
@@ -202,5 +210,10 @@ If a bucket already has the [default object locks set for a certain period](../.
       * `object-lock-legal-hold-status` to place an object version under a legal hold.
 
       For more information about these parameters, see the instructions above.
+
+- API
+
+   To upload an object version with a default retention period, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `Content-MD5` header.
+
 
 {% endlist %}

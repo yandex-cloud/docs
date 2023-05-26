@@ -42581,6 +42581,14 @@ default:
       dialog:
         confirm:
           button_continue: Продолжить
+    yacloud_org:
+      entity:
+        invitation:
+          action_send-invitation: Отправить приглашение
+      page:
+        users:
+          action:
+            invite-users: Пригласить пользователей
     yacloud:
       clickhouse:
         button_create-cluster: Создать кластер ClickHouse
@@ -42601,6 +42609,8 @@ default:
         overview: Обзор
         password: Пароль
         remove: Удалить
+        resource-acl:
+          button_add-federation-user: Добавить федеративного пользователя
         save: Сохранить
         section-base: Общая информация
       component:
@@ -42609,6 +42619,8 @@ default:
             button_submit: Добавить
             field_external-type: Публичный адрес
             switch_auto: Автоматически
+          resources:
+            label_sw-accelerated-net: Программно-ускоренная сеть
         console-dashboard:
           button_action-create-folder: Создать каталог
         dns-integration:
@@ -42619,14 +42631,21 @@ default:
           label_no-symmetric-key: Не выбрано
       compute:
         instance:
+          edit:
+            button_update: Сохранить изменения
           overview:
             button_add-public-ip: Добавить публичный IP-адрес
             label_network-interface: Сетевой интерфейс
         instances:
+          button_action-start: Запустить
+          button_action-stop: Остановить
           create:
             field_key: SSH-ключ
             field_user: Логин
             section_access: Доступ
+            section_platform: Вычислительные ресурсы
+          popup-confirm_button_start: Запустить
+          popup-confirm_button_stop: Остановить
       cr:
         image:
           label_last-scan-time: Дата последнего сканирования

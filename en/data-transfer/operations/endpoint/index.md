@@ -2,6 +2,17 @@
 
 The source [endpoint](../../concepts/index.md#endpoint) describes the settings of the database that information will be transferred from using {{ data-transfer-name }} and the target endpoint the database you are going to transfer the data to. You can [create](#create), [edit](#update), or [delete](#delete) such endpoints.
 
+## Getting a list of endpoints {#list}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+
+{% endlist %}
+
 ## Creating an endpoint {#create}
 
 {% list tabs %}

@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Resources
         items:
@@ -33,6 +33,8 @@ items:
             href: operations/resources/enable-segmentation.md
           - name: Enabling origin shielding
             href: operations/resources/enable-shielding.md
+          - name: Managing additional resource settings
+            href: operations/resources/configure-additions.md
           - name: Disabling a resource
             href: operations/resources/disable-resource.md
           - name: Deleting a resource
@@ -47,13 +49,13 @@ items:
             href: operations/origin-groups/bind-group-to-resource.md
           - name: Deleting an origin group
             href: operations/origin-groups/delete-group.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
-      - name: All practical guidelines
+      - name: All tutorials
         href: tutorials/index.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
-      - name: Integrating an L7 load balancer with the CDN and Object Storage
+      - name: Integrating L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md

@@ -55,7 +55,11 @@ If an **On-Premise** endpoint with a host specified as a domain name or an MDB e
 
 ## Security groups {#security-groups}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 You can assign [security groups](../../vpc/concepts/security-groups.md) to the subnet selected for the endpoint. In the event that network access to source or target hosts is restricted by security groups, you can disable network connectivity between {{ data-transfer-full-name }} and your DBMS without adding permissive rules for wide IP ranges to your security groups, and allow access from specific groups granularly. You can grant access to your DBMS hosts using one of the methods below:
 

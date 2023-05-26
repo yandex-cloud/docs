@@ -78,7 +78,7 @@ For more information about transfer states, operations applicable to transfers, 
                     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.exclude_tables.title }}**: Names of the tables the column transfer settings do not apply to.
                 * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.columns.title }}**:
                     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.include_columns.title }}**: Names of the columns included in the list of tables to transfer.
-                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}**: Names of the columns included in the list of tables not to be transferred.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}**: Names of the columns excluded from the list of tables to transfer.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }}
@@ -146,7 +146,7 @@ For more information about transfer states, operations applicable to transfers, 
    1. Edit the transfer parameters:
       * **{{ ui-key.yacloud.common.name }}**.
       * (Optional) **{{ ui-key.yacloud.common.description }}**.
-        * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to be transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
+        * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object being transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
          Adding new objects to {{ dt-type-copy-repl }} or {{ dt-type-repl }} transfers in the {{ dt-status-repl }} status will result in uploading data history for these objects or tables. If a table is large, uploading the history may take a long time. You can't edit the list of objects for transfers in the {{ dt-status-copy }} status.
 
@@ -176,7 +176,7 @@ For more information about transfer states, operations applicable to transfers, 
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.exclude_tables.title }}**: Names of the tables the column transfer settings do not apply to.
                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.columns.title }}**:
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.include_columns.title }}**: Names of the columns included in the list of tables to transfer.
-                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}**: Names of the columns included in the list of tables not to be transferred.
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}**: Names of the columns excluded from the list of tables to transfer..
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }}

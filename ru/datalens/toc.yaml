@@ -693,6 +693,8 @@ items:
         href: concepts/window-function-tutorial.md
       - name: LOD-выражения и управление фильтрацией в агрегатных функциях
         href: concepts/lod-aggregation.md
+      - name: Функции для работы с временными рядами
+        href: concepts/time-series-functions.md
   - name: Обучающие курсы
     href: training.md
   - name: Решение проблем

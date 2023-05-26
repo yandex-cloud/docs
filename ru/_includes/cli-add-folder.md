@@ -2,15 +2,15 @@
 
 1. Укажите облако в профиле: 
 
-    ```
-    yc config set cloud-id <ID облака>
+    ```bash
+    yc config set cloud-id <идентификатор_облака>
     ```
     
     Или [запускайте команды](../cli/concepts/index.md#manage-properties) с параметром `--cloud-id`.
 1. Укажите каталог в профиле: 
 
-    ```
-    yc config set folder-id <ID каталога>
+    ```bash
+    yc config set folder-id <идентификатор_каталога>
     ```
     
     Или [запускайте команды](../cli/concepts/index.md#manage-properties) с параметром `--folder-id`.

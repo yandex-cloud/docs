@@ -88,7 +88,8 @@
             --cookie-max-age 12h \
             --issuer "http://example.com/adfs/services/trust" \
             --sso-binding POST \
-            --sso-url "https://example.com/adfs/ls/"
+            --sso-url "https://example.com/adfs/ls/" \
+            --force-authn
         ```
 
         Где:
@@ -113,28 +114,29 @@
 
         * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
-- API
+        * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-  1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы будете создавать федерацию.
+- API
 
   1. Создайте файл с телом запроса, например `body.json`:
 
       ```json
       {
-        "folderId": "<ID каталога>",
         "name": "my-federation",
         "organizationId": "<ID организации>",
         "autoCreateAccountOnLogin": true,
         "cookieMaxAge":"43200s",
         "issuer": "http://example.com/adfs/services/trust",
         "ssoUrl": "https://example.com/adfs/ls/",
-        "ssoBinding": "POST"
+        "ssoBinding": "POST",
+        "securitySettings": {
+          "forceAuthn": true
+        }
       }
       ```
 
       Где:
 
-      * `folderId` — идентификатор каталога.
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
       * `organizationId` — идентификатор организации. 
       * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
@@ -154,6 +156,8 @@
           {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
       * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+
+      * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
   1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
@@ -513,7 +517,7 @@ AD FS требует создавать _отношение доверия с п
 
   1. На левой панели выберите раздел [Пользователи]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-  1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите пункт **Добавить федеративных пользователей**.
+  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Добавить федеративных пользователей**.
 
   1. Выберите федерацию, из которой необходимо добавить пользователей.
 
