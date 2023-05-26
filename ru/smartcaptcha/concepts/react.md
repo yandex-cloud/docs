@@ -133,21 +133,21 @@ export const SubscriptionToCaptcha = () => {
 
   const handleChallengeVisible = useCallback(() => setStatus('visible'), []);
   const handleChallengeHidden = useCallback(() => setStatus('hidden'), []);
-  const handleNetworkError = useCallback(() => setStatus('network-error'));
+  const handleNetworkError = useCallback(() => setStatus('network-error'), []);
   const handleSuccess = useCallback((token: string) => {
     setStatus('success');
     setToken(token);
-  });
+  }, []);
 
   return (
     <>
       Status: {status}
       <SmartCaptcha
         sitekey="<your sitekey>"
-        onChallengeVisilbe={handleChallengeVisible}
-        onChallengeHidden={handleChallengeVisible}
-        onNetworkError={handleChallengeVisible}
-        onSuccess={handleChallengeVisible}
+        onChallengeVisible={handleChallengeVisible}
+        onChallengeHidden={handleChallengeHidden}
+        onNetworkError={handleNetworkError}
+        onSuccess={handleSuccess}
       />
     </>
   );
