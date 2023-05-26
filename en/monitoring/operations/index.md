@@ -1,4 +1,4 @@
-# Step-by-step instructions for {{ monitoring-full-name }}
+# Step-by-step guides for {{ monitoring-full-name }}
 
 ## Working with metrics {#working-with-metrics}
 
@@ -33,4 +33,11 @@
 * [{#T}](alert/create-channel.md)
 * [{#T}](alert/delete-alert.md)
 
+
+
+
+## Working with the {{ prometheus-name }} API
+
+* [{#T}](prometheus/ingestion/index.md)
+* [{#T}](prometheus/querying/index.md)
 

@@ -143,6 +143,10 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
            multipart_upload.abort()
    ```
 
+- API
+
+   Use the [deleteMultipleObjects](../../s3/api-ref/object/deletemultipleobjects.md) S3 API method.
+
 {% endlist %}
 
 In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.

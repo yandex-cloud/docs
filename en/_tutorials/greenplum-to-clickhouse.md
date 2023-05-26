@@ -32,18 +32,22 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 * Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [greenplum-clickhouse.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/greenplum-clickhouse/greenplum-clickhouse.tf) configuration file to the same working directory.
 
       This file describes:
 
-      * [Networks](../vpc/concepts/network.md#network) and [subnets](../vpc/concepts/network.md#subnet) hosting the clusters.
-               * [Security groups](../vpc/concepts/security-groups.md) for connecting to clusters.
-      * {{ mgp-name }} source cluster.
+      * [Networks](../vpc/concepts/network.md#network) and [subnets](../vpc/concepts/network.md#subnet) for hosting the clusters.
+
+      
+      * [Security groups](../vpc/concepts/security-groups.md) for connecting to clusters.
+
+
+      * {{ mgp-name }} source cluster
       * {{ mch-name }} target cluster.
 
    1. In the `greenplum-clickhouse.tf` configuration file, specify the {{ GP }} and {{ CH }} administrator passwords.
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -66,9 +70,9 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 1. [Create a target endpoint](../data-transfer/operations/endpoint/target/clickhouse.md) with the `{{ CH }}` type.
 
-1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a [{{ dt-type-copy }}](../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
+1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a [{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}](../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
 
-   Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, in the **Transfer parameters** **Copy** field, select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
+   Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** field under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.title }}**, select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
 
    {% note warning %}
 
@@ -95,7 +99,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
    (44, 'User5');
    ```
 
-1. [Activate the transfer](../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-finished }}.
+1. [Activate the transfer](../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. To verify that the data has transferred correctly, connect to the {{ mch-name }} target cluster and make sure that the columns of the `x_tab` table in the `db1` database match those of the source database `x_tab` table:
 
    ```sql
@@ -121,7 +125,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
    UPDATE x_tab SET name = 'Key3' WHERE id = 42;
    ```
 
-1. [Re-activate the transfer](../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-finished }}.
+1. [Re-activate the transfer](../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Make sure that you see the changes in the `x_tab` table on the {{ CH }} target:
 
    ```sql
@@ -139,9 +143,9 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-* Make sure the transfer has the {{ dt-status-finished }} status and [delete](../data-transfer/operations/transfer.md#delete) it.
+* Make sure the transfer has the **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** status and [delete](../data-transfer/operations/transfer.md#delete) it.
 * [Delete both the source endpoint and the target endpoint](../data-transfer/operations/endpoint/index.md#delete).
 * Delete the clusters:
 
@@ -173,3 +177,4 @@ Some resources are not free of charge. Delete the resources you no longer need t
          All the resources described in the `greenplum-clickhouse.tf` configuration file will be deleted.
 
    {% endlist %}
+

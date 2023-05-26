@@ -73,6 +73,10 @@ items:
         href: tutorials/data-transfer-ydb.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-to-mpg.md
       - name: Replication and migration
         items:
           - name: Logical {{ PG }} replication

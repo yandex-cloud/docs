@@ -5,7 +5,7 @@
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
     1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
     1. На левой панели выберите раздел [Пользователи]({{ link-org-users }}) ![icon-users](../../_assets/organization/icon-users.svg).
-    1. В правом верхнем углу нажмите ![icon-users](../../_assets/organization/arrow-down.svg) → **Пригласить пользователей**.
+    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
     1. Введите почтовые адреса пользователей Яндекса, которых вы хотите добавить в организацию (например, `{{ login-example }}`).
     1. Нажмите **Отправить приглашение**.
 
@@ -21,13 +21,13 @@
     Чтобы удалить приглашение:
 
     1. В разделе [Пользователи]({{ link-org-users }}) ![icon-users](../../_assets/organization/icon-users.svg) перейдите на вкладку **Приглашения** → **Действующие**.
-    1. В строке приглашения нажмите значок ![icon-users](../../_assets/organization/horizontal-ellipsis.svg) и выберите **Удалить приглашение**.
+    1. В строке приглашения нажмите значок ![icon-users](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить приглашение**.
 
     #### Отправить приглашение повторно {#resend -invitation}
 
     Если необходимо отправить приглашение повторно:
 
     1. В разделе [Пользователи]({{ link-org-users }}) ![icon-users](../../_assets/organization/icon-users.svg) перейдите на вкладку **Приглашения** → **Действующие**.
-    1. В строке приглашения нажмите значок ![icon-users](../../_assets/organization/horizontal-ellipsis.svg) и выберите **Отправить повторно**.
+    1. В строке приглашения нажмите значок ![icon-users](../../_assets/horizontal-ellipsis.svg) и выберите **Отправить повторно**.
 
 {% endlist %}

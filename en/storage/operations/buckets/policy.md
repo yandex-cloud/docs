@@ -4,7 +4,7 @@
 
 ## Applying or editing a policy {#apply-policy}
 
-The minimum role required to apply or modify an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to apply or modify an access policy is `storage.configurer`. For details, see the [role description](../../../storage/security/#storage-configurer).
 
 To apply or edit a bucket access policy:
 
@@ -26,6 +26,13 @@ To apply or edit a bucket access policy:
          * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: All users or specific users.
          * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** for which the rule is being created. You can also select the **All actions** option.
          * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}**: Selected bucket specified by default. To add other resources to the rule, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
+
+            {% note info %}
+
+            {% include [policy-bucket-objects](../../../_includes/storage/policy-bucket-objects.md) %}
+
+            {% endnote %}
+
       1. Add conditions to the rule as required:
          * Choose **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** from the list.
          * Choose **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** from the list. For the operator to apply to the existing fields, select **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. This way, if a field does not exist, the conditions will be considered satisfied.
@@ -203,9 +210,11 @@ To apply or edit a bucket access policy:
 
 {% endlist %}
 
+{% include [storage-note-empty-policy](../../_includes_service/storage-note-empty-policy.md) %}
+
 ## Viewing a policy {#view-policy}
 
-The minimum role required to view an access policy is `storage.configViewer`. See the [role description](../../../storage/security/#storage-config-viewer).
+The minimum role required to view an access policy is `storage.configViewer`. For details, see the [role description](../../../storage/security/#storage-config-viewer).
 
 To view the access policy applied to a bucket:
 
@@ -246,7 +255,7 @@ To view the access policy applied to a bucket:
 
 ## Deleting a policy {#delete-policy}
 
-The minimum role required to delete an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to delete an access policy is `storage.configurer`. For details, see the [role description](../../../storage/security/#storage-configurer).
 
 To delete a bucket policy:
 

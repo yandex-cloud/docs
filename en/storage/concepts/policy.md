@@ -4,25 +4,50 @@ Bucket policies set permissions for actions with buckets, objects, and object gr
 
 A policy is triggered when a user makes a request to a resource. As a result, the request is either executed or rejected.
 
-Access is verified at three levels: {{ iam-full-name }} service verification, access policy, and ACL permission list.
+Access is verified at three levels: whether the action is allowed by the [user role](../security/index.md) ({{ iam-name }} service verification: {{ iam-short-name }}), access policy, and [ACL permission list](acl.md).
 
-1. If the request passes the IAM check, the next step is the bucket policy check.
+1. If a request passes the {{ iam-short-name }} check, the next step is the bucket policy check.
 1. Bucket policy rules are checked in the following order:
    1. If the request meets at least one of the `Deny` rules, access is denied.
    1. If the request meets at least one of the `Allow` rules, access is allowed.
    1. If the request does not meet any of the rules, access is denied.
-1. If the request failed the IAM or bucket policy check, access verification is performed based on the object's ACL.
+1. If the request fails the {{ iam-short-name }} or bucket policy check, access verification is performed based on an object's ACL.
 
-The bucket policy consists of the following basic elements:
-* Resource: Bucket (`arn:aws:s3:::samplebucket`), an object in the bucket (`arn:aws:s3:::samplebucket/some/key`), or a prefix (`arn:aws:s3:::samplebucket/some/path/*`).
-* Action: Set of resource operations the policy either prohibits or allows. For more information, see [Actions](../s3/api-ref/policy/actions.md).
-* Result: Denying or allowing the requested action. First, the request is checked against the `Deny` action filter. If matched, the request is rejected and no further checks are performed. If it meets the `Allow` action filter criteria, the request is allowed. If the request does not meet any of the filters, it is rejected.
-* Principal: Recipient of the requested policy permission. This can be an {{ iam-short-name }} user, a federated user, a service account, or an anonymous user.
-* Condition: Item determining whether a policy should be effective. For more information, see [Conditions](../s3/api-ref/policy/conditions.md).
+{% include [storage-note-empty-policy](../_includes_service/storage-note-empty-policy.md) %}
 
-Policy rules are described using a JSON-like language.
+You can set up the bucket policy in the management console or describe it in JSON format using a [special scheme](../s3/api-ref/policy/scheme.md) to provide the settings through one of the software tools: the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, or API. To learn more about policy management, see [this guide](../operations/buckets/policy.md).
 
-To learn how to apply a policy to a bucket, see [this guide](../operations/buckets/policy.md).
+## Policy components {#elements}
+
+A bucket policy consists of rules, while a rule consists of the following basic elements:
+
+Resource
+
+: Bucket (such as `samplebucket`), a bucket object (`samplebucket/some/key`), or a prefix (`samplebucket/some/path/*`), including an empty prefix to indicate all objects in the bucket (`samplebucket/*`). You can specify multiple resources in a rule.
+
+{% note info %}
+
+{% include [policy-bucket-objects](../../_includes/storage/policy-bucket-objects.md) %}
+
+{% endnote %}
+
+If you describe a policy in JSON format, a resource should have the `arn:aws:s3:::` prefix, for example, `arn:aws:s3:::samplebucket`.
+
+Action
+
+: Set of resource operations the rule either prohibits or allows. For more information, see [Actions](../s3/api-ref/policy/actions.md).
+
+Result
+
+: Denying or allowing the requested action. First, the request is checked against the `Deny` action filter. If matched, the request is rejected and no further checks are performed. If it meets the `Allow` action filter criteria, the request is allowed. If the request does not meet any of the filters, it is rejected.
+
+Principal
+
+Principal: Recipient of the requested permission. This can be an {{ iam-short-name }} user, a federated user, a service account, or an anonymous user.
+
+Condition
+
+: Item determining whether a rule is effective. For more information, see [Conditions](../s3/api-ref/policy/conditions.md).
 
 ## Bucket access via the management console {#console-access}
 
@@ -58,7 +83,7 @@ You can retrieve the user ID by following [this guide](../../iam/operations/user
 
 ## Sample configurations {#config-examples}
 
-* Policy that allows an anonymous user to read objects in the `samplebucket` bucket over an encrypted connection:
+* Rule that allows an anonymous user to read objects in the `samplebucket` bucket over an encrypted connection:
 
   ```json
   {
@@ -81,7 +106,7 @@ You can retrieve the user ID by following [this guide](../../iam/operations/user
   }
   ```
 
-* Policy that only enables object download from a specified range of IP addresses:
+* Rule that only allows objects to be downloaded from a specified range of IP addresses:
 
   ```json
   {
@@ -102,7 +127,7 @@ You can retrieve the user ID by following [this guide](../../iam/operations/user
   }
   ```
 
-* Policy that prohibits downloading objects from the specified IP address:
+* Rule that prohibits objects to be downloaded from the specified IP address:
 
   ```json
   {
@@ -129,7 +154,7 @@ You can retrieve the user ID by following [this guide](../../iam/operations/user
   }
   ```
 
-* Policy that provides different users with full access only to certain folders, with each user being able to access their own:
+* Rule that provides different users with full access only to certain folders, with each user being able to access their own:
 
   ```json
   {
@@ -185,7 +210,7 @@ You can retrieve the user ID by following [this guide](../../iam/operations/user
   }
   ```
 
-* Policy that provides each user and service account with full access to a folder with the name equal to the [user ID](../../iam/operations/users/get.md) or [service account ID](../../iam/operations/sa/get-id.md):
+* Rule that provides each user and service account with full access to a folder with the name equal to the [user ID](../../iam/operations/users/get.md) or [service account ID](../../iam/operations/sa/get-id.md):
 
    ```json
    {

@@ -31,11 +31,11 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account.
 
 
-         {% note warning %}
+      {% note warning %}
 
-         Save the **key ID** and **secret key**. You'll need them in the next steps.
+      Save the **key ID** and **secret key**. You will need them in the next steps.
 
-         {% endnote %}
+      {% endnote %}
 
    1. [Create a {{ mes-name }} target cluster](../operations/cluster-create.md#create-cluster) in the desired configuration with the following settings:
 
@@ -48,21 +48,19 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 - Using {{ TF }}
 
-   
    1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [mes-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/mes-migration.tf) configuration file to the same working directory. The file describes:
 
-
-        * Network.
-        * Subnet.
-        * Security group and the rules required to access a {{ mes-name }} target cluster.
-        * `sa-mes-cluster` service account required to create a {{ mes-name }} cluster.
-        * `sa-bucket` service account to work with a {{ objstorage-name }} bucket.
-        * Target cluster with the installed [repository-s3](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) plugin.
+      * Network.
+      * Subnet.
+      * Security group and rules required to access the {{ mes-name }} target cluster.
+      * `sa-mes-cluster` service account required to create a {{ mes-name }} cluster.
+      * `sa-bucket` service account to handle the {{ objstorage-name }} bucket.
+      * Target cluster with the [repository-s3](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) plugin installed.
 
    1. Specify in the `mes-migration.tf` configuration file under `locals`:
-            * [Folder ID](../../resource-manager/operations/folder/get-id.md).
+      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [Password for the `admin` user](../operations/cluster-update.md#change-admin-password).
       * [Target cluster edition](../concepts/es-editions.md).
       * Target cluster version.
@@ -83,30 +81,26 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-   
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the `sa-bucket` service account.
 
+      {% note warning %}
 
-         {% note warning %}
+      Save the **key ID** and **secret key**. You will need them in the next steps.
 
-         Save the **key ID** and **secret key**. You'll need them in the next steps.
-
-         {% endnote %}
+      {% endnote %}
 
 {% endlist %}
 
 ### Complete the configuration and check access to resources {#complete-setup}
 
-
 1. [Set up the bucket ACL](../../storage/operations/buckets/edit-acl.md):
 
+   1. In the **Select user** drop-down list, specify the created service account.
+   1. Select the `READ + WRITE` permissions for the selected service account.
+   1. Click **Add**.
+   1. Click **Save**.
 
-    1. In the **Select user** drop-down list, specify the created service account.
-    1. Set the `READ + WRITE` permissions for the selected service account.
-    1. Click **Add**.
-    1. Click **Save**.
-
-1. [Install the `repository-s3` plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) on all the target cluster hosts.
+1. [Install the `repository-s3` plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) on all target cluster hosts.
 
 1. For the `repository-s3` plugin to work, restart the {{ ES }} and Kibana services on all the source cluster hosts.
 
@@ -186,7 +180,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 1. [Configure access to the bucket with snapshots](../operations/s3-access.md) for the target cluster. Use the service account you [previously created](#before-you-begin).
 
-1. Connect the {{ objstorage-name }} bucket to the target cluster as snapshot storage:
+1. Connect the {{ objstorage-name }} bucket to the target cluster as a snapshot storage:
 
    ```bash
    curl "https://admin:<admin user password>@<target cluster's FQDN >:9200/_snapshot/<repository name>" \
@@ -263,7 +257,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 ## Complete your migration {#finish-migration}
 
-1. Make sure that all the necessary data has been transferred to the {{ mes-name }} target cluster.
+1. Make sure that all required data has been transferred to the {{ mes-name }} target cluster.
 
    You can check this, for example, [using Kibana](../operations/cluster-connect.md).
 
@@ -277,8 +271,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually
 
-   * [Delete the service account](../../iam/operations/sa/delete.md).
-   * [Delete snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete [the entire bucket](../../storage/operations/buckets/delete.md).
+   * [Delete the service account](../../iam/operations/sa/delete.md)
+   * [Delete the snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete the [entire bucket](../../storage/operations/buckets/delete.md).
    * [Delete the {{ mes-name }} cluster](../operations/cluster-delete.md).
 
 - Using {{ TF }}

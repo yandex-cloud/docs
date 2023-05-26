@@ -25,7 +25,7 @@ You can also deploy an infrastructure for a LAMP web server or a LEMP site in {{
 ### Required paid resources {#paid-resources}
 
 The cost for maintaining a LAMP server includes:
-* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using DNS (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
 
@@ -54,9 +54,13 @@ To create a network:
 
 ## Create a security group {#create-security-groups}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
-[Security groups](../../application-load-balancer/concepts/application-load-balancer.md) include rules that allow your VMs to be accessed from the internet. In this tutorial, you will create a security group called `sg-web`.
+{% endnote %}
+
+[Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow accessing your VMs from the internet. In this tutorial, you will create a security group called `sg-web`.
 
 To create a security group:
 
@@ -196,7 +200,7 @@ To check that the site is up, enter its IP address or domain name in your browse
 
 To stop paying for the resources you created:
 
-* [delete the VM](../../compute/operations/vm-control/vm-delete.md).
+* [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 * [Delete the static public IP](../../vpc/operations/address-delete.md) if you reserved one specifically for this VM.
 * Delete the [DNS zone](../../dns/operations/zone-delete.md) if you set up the DNS.
 

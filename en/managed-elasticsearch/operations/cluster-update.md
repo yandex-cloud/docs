@@ -11,7 +11,10 @@ keywords:
 
 After creating a cluster, you can:
 
+
 * [{#T}](#change-service-account).
+
+
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-disk-size).
 * [{#T}](#change-elasticsearch-config).
@@ -19,6 +22,7 @@ After creating a cluster, you can:
 * [{#T}](#change-additional-settings).
 
 You can also update the {{ ES }} version or edition. For more information, see [{#T}](./cluster-version-update.md).
+
 
 ## Change service account settings {#change-service-account}
 
@@ -28,14 +32,71 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
    1. Select the cluster and click **Edit** in the top panel.
+   1. Select the service account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
-   
-   1. Select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
+- CLI
 
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-        {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To change the settings of the service account used to work with the cluster:
+
+   1. View a description of the update cluster CLI command:
+
+      ```bash
+      {{ yc-mdb-es }} cluster update --help
+      ```
+
+   1. Specify the service account ID in the update cluster command:
+
+      ```bash
+      {{ yc-mdb-es }} cluster update <cluster name or ID> \
+        --service-account-id <service account ID>
+      ```
+
+      You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+   {{ mes-short-name }} will run the service account update for the cluster.
+
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+   1. In the `service_account_id` field, enter the service account ID:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+        ...
+        service_account_id = <service account ID>
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the resources have been updated:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
+- API
+
+   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+
+   * ID of the service account used for cluster operations in the `serviceAccountId` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+{% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 
 ## Changing the host class {#change-resource-preset}
@@ -62,7 +123,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
    To change the [host class](../concepts/instance-types.md) for the cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-es }} cluster update --help
@@ -113,7 +174,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -121,12 +182,12 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Host class in the parameters:
-      * `configSpec.elasticsearchSpec.dataNode.resources.resourcePresetId` (for hosts with the *Data node* role).
-      * `configSpec.elasticsearchSpec.masterNode.resources.resourcePresetId` (for hosts with the *Master node* role).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Host class in the following parameters:
+      * `configSpec.elasticsearchSpec.dataNode.resources.resourcePresetId`: For hosts with the *Data node* role.
+      * `configSpec.elasticsearchSpec.masterNode.resources.resourcePresetId`: For hosts with the *Master node* role.
 
       To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
 
@@ -144,9 +205,9 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - Management console
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Select the cluster and click **Edit** in the top panel.
    1. To increase disk size for {{ ES }} hosts with the *Data node* role:
       1. Go to the **Data node** tab.
@@ -162,7 +223,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. View a description of the CLI update configuration command:
 
@@ -182,7 +243,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - {{ TF }}
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -217,7 +278,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -226,12 +287,12 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - API
 
-   To increase a cluster's storage size, use the [update](../api-ref/Cluster/update.md) method and pass the following in the call:
+   To increase a cluster's storage size, use the [update](../api-ref/Cluster/update.md) method and provide the following in in the call:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Required storage size (in bytes) in the parameters:
-      * `configSpec.elasticsearchSpec.dataNode.resources.diskSize` (for hosts with the *Data node* role).
-      * `configSpec.elasticsearchSpec.masterNode.resources.diskSize` (for hosts with the *Master node* role).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Required storage size (in bytes) in the following parameters:
+      * `configSpec.elasticsearchSpec.dataNode.resources.diskSize`: For hosts with the *Data node* role.
+      * `configSpec.elasticsearchSpec.masterNode.resources.diskSize`: For hosts with the *Master node* role.
    * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -273,7 +334,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
       {{ yc-mdb-es }} cluster get <cluster ID or name> --full
       ```
 
-   1. View a description of the CLI's update cluster configuration command:
+   1. View a description of the update cluster configuration CLI command:
 
       ```bash
       {{ yc-mdb-es }} cluster update-config --help
@@ -290,11 +351,11 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required DBMS values in the `configSpec.elasticsearchSpec.dataNode.elastcsearchConfig_7` parameter.
-   * List of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   * List of settings to update in the `updateMask` parameter. If you skip this parameter, the API method will reset any cluster settings that are not explicitly specified in the request to their default values.
 
    All supported settings are described in [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
@@ -319,7 +380,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    To change the `admin` password for a cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-es }} cluster update --help
@@ -374,7 +435,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -382,11 +443,11 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The new password in the `configSpec.adminPassword` parameter. The maximum password length is 128 characters.
-   * List of settings to update (`configSpec.adminPassword` in this case) in the `updateMask` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * New password in the `configSpec.adminPassword` parameter. The maximum password length is 128 characters.
+   * List of settings to update (in this case, `configSpec.adminPassword`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -400,7 +461,6 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
    1. Select the cluster and click **Edit** in the top panel.
-   1. To change the service account used to work with the cluster, select an account from the drop-down list.
    1. Change additional cluster settings:
 
       {% include [extra-settings](../../_includes/mdb/mes/extra-settings.md) %}
@@ -417,13 +477,13 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-es }} cluster update --help
       ```
 
-   1. Run the command with a list of settings to update:
+   1. Run the following command with a list of settings to update:
 
       ```bash
       {{ yc-mdb-es }} cluster update <cluster ID or name> \
@@ -456,15 +516,6 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
-   1. To change the service account used for cluster operations, specify the ID of another service account in the `service_account_id` cluster description field:
-
-      ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
-        ...
-        service_account_id = <ID of another service account>
-      }
-      ```
-
    1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
    1. To change the list of [{{ ES }} plugins](cluster-plugins.md#elasticsearch), change the value of the `plugins` parameter under `config` in the cluster description:
@@ -495,7 +546,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -503,17 +554,13 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   * The list of [{{ ES }} plugins](cluster-plugins.md#elasticsearch) in the `plugins` parameter.
+   * List of [{{ ES }} plugins](cluster-plugins.md#elasticsearch) in the `plugins` parameter.
 
-   
-   * ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
-
-
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
 
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 

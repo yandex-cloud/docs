@@ -1,4 +1,4 @@
-To provide the function with access to the secret, specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles in the function parameters:
+To provide the function with access to the [secret](../../lockbox/concepts/secret.md), specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles in the function parameters:
 * `lockbox.payloadViewer` for the secret (see [how to grant access rights to secrets](../../lockbox/operations/secret-access.md)).
 * `kms.keys.encrypterDecrypter` for the encryption key if the secret was created using a {{ kms-full-name }} key (see [how to grant access rights to encryption keys](../../kms/operations/key-access.md)).
 
@@ -63,6 +63,56 @@ A new version of a function is created when secrets are transmitted. You cannot 
       * `id`: Secret ID.
       * `version-id`: Secret version ID.
       * `key`: Non-secret key ID.
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the {{ TF }} configuration file and add the `secrets` section to the function description:
+
+      ```hcl
+      resource "yandex_function" "test-function" {
+        name               = "test-function"
+        description        = "Test function"
+        user_hash          = "first-function"
+        runtime            = "python37"
+        entrypoint         = "main"
+        memory             = "128"
+        execution_timeout  = "10"
+        service_account_id = "<service_account_ID>"
+        tags               = ["my_tag"]
+        secrets {
+          id                   = "<secret_ID>"
+          version_id           = "<secret_version_ID>"
+          key                  = "<secret1_key>"
+          environment_variable = "<environment_variable1_name>"
+        }
+        secrets {
+          id                   = "<secret_ID>"
+          version_id           = "<secret_version_ID>"
+          key                  = "<secret2_key>"
+          environment_variable = "<environment_variable2_name>"
+        }
+
+        content {
+          zip_filename = "<path_to_ZIP_archive>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `secrets`: Section with secret settings. It contains the following parameters:
+         * `id`: Secret ID. This parameter is required.
+         * `version_id`: Secret version ID. This parameter is required.
+         * `key`: Non-secret key ID to be stored in an environment variable. This parameter is required.
+         * `environment_variable`: Name of the environment variable where the secret will be kept. This parameter is required.
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   You can check whether the function and its settings are updated in the [management console]({{ link-console-main }}).
 
 - API
 

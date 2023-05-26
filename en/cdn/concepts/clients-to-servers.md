@@ -12,3 +12,5 @@ For connections between clients and the CDN, you can configure:
 * CORS [processing of cross-domain requests](cors.md).
 * HTTP methods that clients are allowed to use in their CDN requests (see the [instructions](../operations/resources/configure-http.md)).
 * [Sending of compressed content](compression.md) using the `Content-Encoding: gzip` HTTP header.
+
+{% include [edge-center-features-note](../../_includes/cdn/edge-center-features-note.md) %}

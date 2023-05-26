@@ -86,7 +86,7 @@ To remove a retention:
 
 - API
 
-   To remove a lock, use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method with the `X-Amz-Bypass-Governance-Retention: true` header and an empty `Retention` element.
+   Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method with the `X-Amz-Bypass-Governance-Retention: true` header and an empty `Retention` element.
 
 {% endlist %}
 
@@ -128,6 +128,6 @@ To put or configure a legal hold:
 
 - API
 
-   To put or remove a legal hold, use the [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md) S3 API method.
+   Use the [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md) S3 API method.
 
 {% endlist %}

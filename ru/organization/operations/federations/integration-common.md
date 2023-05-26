@@ -91,7 +91,8 @@
             --cookie-max-age 12h \
             --issuer "https://accounts.google.com/o/saml2?idpid=C03xolm0y" \
             --sso-binding POST \
-            --sso-url "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y"
+            --sso-url "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y" \
+            --force-authn
         ```
 
         Где:
@@ -110,27 +111,29 @@
 
         * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
+        * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
+
 - API
 
-  1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы будете создавать федерацию.
   1. Создайте файл с телом запроса, например `body.json`:
 
       ```json
       {
-        "folderId": "<ID каталога>",
         "name": "my-federation",
         "organizationId": "<ID организации>",
         "autoCreateAccountOnLogin": true,
         "cookieMaxAge":"43200s",
         "issuer": "https://accounts.google.com/o/saml2?idpid=C03xolm0y",
         "ssoUrl": "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y",
-        "ssoBinding": "POST"
+        "ssoBinding": "POST",
+        "securitySettings": {
+          "forceAuthn": true
+        }
       }
       ```
 
       Где:
 
-      * `folderId` — идентификатор каталога.
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
       * `organizationId` — идентификатор организации. 
       * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
@@ -144,6 +147,8 @@
         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
       * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+      
+      * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
   1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
@@ -503,7 +508,7 @@ UYGmIgo9HwAAAABJRU5ErkJggg==
 
   1. На левой панели выберите раздел [Пользователи]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-  1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите пункт **Добавить федеративных пользователей**.
+  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Добавить федеративных пользователей**.
 
   1. Выберите федерацию, из которой необходимо добавить пользователей.
 

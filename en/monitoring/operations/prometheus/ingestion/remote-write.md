@@ -1,10 +1,12 @@
 # Writing metrics via the Remote API
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+{% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}
+
+To set up metric writes via the Remote API with Prometheus used as an agent for collecting metrics:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to store data.
-1. [Create a service account](../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-editor }}` role for the selected folder.
-1. [Create an API key](../../../iam/operations/api-key/create.md) for the service account.
+1. [Create a service account](../../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-editor }}` role for the selected folder.
+1. [Create an API key](../../../../iam/operations/api-key/create.md) for the service account.
 1. Add the endpoint (`url`) to the `remote_write` section of the [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write):
    ```yaml
    ...
@@ -26,7 +28,7 @@
 1. Restart {{ prometheus-name }} or reload the configuration.
 1. Make sure the {{ prometheus-name }} logs contain no errors related to the specified endpoint.
 
-## Error examples
+## Error examples {#errors}
 
 * No endpoint found
    > ```ts=2022-11-09T20:55:43.329Z caller=dedupe.go:112 component=remote level=error remote_name=1d1b77 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="non-recoverable error" count=499 exemplarCount=0 err="server returned HTTP status 404 Not Found: {\"type\":\"NOT_FOUND\",\"message\":\"workspace not found: monb1piptmdo916sceer\",\"code\":404}"```
@@ -35,7 +37,7 @@
 * Service unavailable
    > ```ts=2022-11-07T11:14:42.754Z caller=dedupe.go:112 component=remote level=warn remote_name=db8f73 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="Failed to send batch, retrying" err="server returned HTTP status 503 Service Unavailable: {\"type\":\"UNAVAILABLE\",\"message\":\"Service Unavailable\",\"code\":503}"```
 
-## Metrics {{ prometheus-name }}
+## {{ prometheus-name }} metrics {#metrics}
 
 | Metric name | Units | Explanations |
 |----|----|----|
@@ -48,3 +50,6 @@
 | `prometheus_remote_storage_samples_pending` | Number | Number of pending samples to be sent to remote storage. |
 | `prometheus_remote_storage_samples_retried_total` | Number | Total number of samples that failed to be sent to remote storage with their sending retried afterwards as the error was recoverable. |
 | `prometheus_remote_storage_samples_total` | Number | Total number of samples sent to remote storage. |
+
+{% include [trademark](../../../../_includes/monitoring/trademark.md) %}
+

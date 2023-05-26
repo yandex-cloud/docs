@@ -1,50 +1,50 @@
 # Working with MapReduce jobs
 
-[MapReduce](http://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) is a parallel processing tool for large datasets (on the order of several dozen TB) on clusters in the Hadoop ecosystem. Enables the handling of data in different formats. Job input and output are stored in {{ objstorage-full-name }}.
+{% include [MapReduce](../../_includes/data-proc/mapreduce-intro.md) %}
 
-In this article, a simple example demonstrates how MapReduce is used in {{ dataproc-name }}. Using MapReduce, we compute the population of the 500 largest cities in the world based on a set of data on the cities.
+In this article, we use a simple example to show how MapReduce works in {{ dataproc-name }}. We will use MapReduce to compute the population of the world's 500 largest cities based on a set of data on the cities.
 
-To run MapReduce on Hadoop, we use the Streaming interface. At the same time, the data preprocessing (map) and the final output computation (reduce) stages use programs that read from a standard program input (stdin) and write their output to a standard output (stdout).
+To run MapReduce on Hadoop, we use the Streaming interface. At the same time, the data preprocessing (map) and the final output computation (reduce) stages use programs that read data from a standard program input (`stdin`) and write their output to a standard output (`stdout`).
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `mdb.dataproc.agent` role.
 
 1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
 
-1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following configuration:
+1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
 
     * **Services**:
         * `HDFS`
         * `MAPREDUCE`
         * `YARN`
     * **Service account**: Select the service account with the `mdb.dataproc.agent` role you created earlier.
-    * **Bucket name**: Select a bucket to hold the processing output.
+    * **Bucket name**: Select a bucket to hold the processing results.
 
 ## Create a MapReduce job {#create-job}
 
-1. For our input data, [download](http://download.geonames.org/export/dump/cities500.zip) and [upload to a bucket](../../storage/operations/objects/upload.md) an archived CSV file with a dataset on the cities.
-1. Upload Python files to the input data bucket: `mapper.py`, which contains the code for data preprocessing (map stage), and `reducer.py`, which contains the code for the final output computations (reduce stage):
+1. [Download](http://download.geonames.org/export/dump/cities500.zip) an archived CSV file with a dataset on the cities and [upload it to the input data bucket](../../storage/operations/objects/upload.md).
+1. Upload Python files to the input data bucket: `mapper.py`, which contains the code for data preprocessing (map stage), and `reducer.py`, which contains the code for the final computations (reduce stage):
 
     `mapper.py`
 
-    ```python
-    #!/usr/bin/python
-    import sys
-    
-    population = sum(int(line.split('\t')[14]) for line in sys.stdin)
-    print(population)
-    ```
+   ```python
+   #!/usr/bin/python
+   import sys
 
-    `reducer.py`
+   population = sum(int(line.split('\t')[14]) for line in sys.stdin)
+   print(population)
+   ```
 
-    ```python
-    #!/usr/bin/python
-    import sys
-    
-    population = sum(int(value) for value in sys.stdin)
-    print(population)
-    ```
+   `reducer.py`
+
+   ```python
+   #!/usr/bin/python
+   import sys
+
+   population = sum(int(value) for value in sys.stdin)
+   print(population)
+   ```
 
 1. [Create a MapReduce job](../operations/jobs-mapreduce.md#create) with the following parameters:
 
@@ -70,7 +70,7 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
 
 1. Wait for the [job status](../operations/jobs-mapreduce.md#get-info) to change to `Done`.
 
-1. [Download](../../storage/operations/objects/download.md) and view the file with the processing output:
+1. [Download from the bucket](../../storage/operations/objects/download.md) and review the file with the result from the bucket:
 
     `part-00000`
 

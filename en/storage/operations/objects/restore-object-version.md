@@ -130,7 +130,9 @@ You can only restore object versions if a bucket supports [versioning](../../con
 
 - API
 
-   1. To get the ID of the object version in question, use the [listObjectVersions](../../s3/api-ref/bucket/listObjectVersions.md) S3 API method.
-   1. To copy the version with the original object key, use the [copy](../../s3/api-ref/object/copy.md) S3 API method.
+   To restore an object's version:
+
+   1. Get the ID of the required object version using the [listObjectVersions](../../s3/api-ref/bucket/listObjectVersions.md) S3 API method.
+   1. Copy the object version to the same bucket with the same key using the [copy](../../s3/api-ref/object/copy.md) S3 API method.
 
 {% endlist %}

@@ -71,6 +71,9 @@ To get started with the service:
 
    {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
+   {% include [security-groups-note-services](../_includes/vpc/security-groups-note-services.md) %}
+
+
 
 1. To connect to the DB server, get an SSL certificate:
 

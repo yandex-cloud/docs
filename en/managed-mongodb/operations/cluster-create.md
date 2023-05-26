@@ -1,6 +1,6 @@
 # Creating {{ MG }} clusters
 
-{{ MG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
+A {{ MG }} cluster consists of one or more database hosts you can configure replication between. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
 
 
 {% note info %}
@@ -228,7 +228,7 @@
    * Cluster environment in the `environment` parameter.
    * Network ID in the `networkId` parameter.
    * Cluster configuration in the `configSpec` parameter.
-   * Configuration of the cluster's hosts in one or more `hostSpecs` parameters.
+   * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
 
    
    * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
@@ -300,10 +300,10 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Named `mymg`.
    * Versions `{{ versions.tf.latest }}`.
    * In the `PRODUCTION` environment.
-   * In the cloud with the ID `{{ tf-cloud-id }}`.
-   * In the folder with the ID `{{ tf-folder-id }}`.
+   * In the cloud with the `{{ tf-cloud-id }}` ID.
+   * In the folder with the `{{ tf-folder-id }}` ID.
    * In the new `mynet` network.
-   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the `10.5.0.0/24` range.
       * In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
    * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.

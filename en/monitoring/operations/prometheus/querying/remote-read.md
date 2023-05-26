@@ -1,10 +1,10 @@
 # Reading metrics via the Remote API
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+{% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}
 
 1. In the [management console]({{ link-console-main }}), select the folder where data is stored.
-1. [Create a service account](../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-viewer }}` role for the selected folder.
-1. [Create an API key](../../../iam/operations/api-key/create.md) for the service account.
+1. [Create a service account](../../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-viewer }}` role for the selected folder.
+1. [Create an API key](../../../../iam/operations/api-key/create.md) for the service account.
 1. Add the endpoint (`url`) to the `remote_read` section of the [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read):
    ```yaml
    ...
@@ -27,14 +27,16 @@
    ```
 5. Restart {{ prometheus-name }} or reload the configuration.
 
-## Error examples
+## Error examples {#errors}
 
 * Read request limit exceeded
    > ```remote_read: remote server https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo916sceer","code":429}```
 
-## Metrics {{ prometheus-name }}
+## {{ prometheus-name }} metrics {#metrics}
 
 | Metric name | Units | Explanations |
 |----|----|----|
 | `prometheus_remote_storage_read_queries_total` | Invocations | Total number of read requests. |
 | `prometheus_remote_storage_read_request_duration_seconds` | Seconds | Read request execution time histogram. |
+
+{% include [trademark](../../../../_includes/monitoring/trademark.md) %}

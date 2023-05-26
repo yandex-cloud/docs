@@ -7,7 +7,7 @@ To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 1. [Send test data to {{ mkf-name }} topics](#send-sample-data-to-kf).
 1. [Check that the test data is present in the {{ mch-name }} cluster tables](#fetch-sample-data).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -19,7 +19,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. [Create the required number of {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-create.md) in any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To connect to clusters from a user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to clusters when creating them.
 
-   1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with a single shard and a database named `db1`. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+   1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with a single shard and a database named `db1`. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
       {% note info %}
 
@@ -38,9 +38,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the configuration file [data-from-kafka-to-clickhouse.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-from-kafka-to-clickhouse/data-from-kafka-to-clickhouse.tf) to the same working directory.
+   1. Download the [data-from-kafka-to-clickhouse.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-from-kafka-to-clickhouse/data-from-kafka-to-clickhouse.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -56,14 +56,14 @@ If you no longer need these resources, [delete them](#clear-out).
       * Names of the {{ mkf-name }} clusters' topics.
       * Username and password that will be used to access a {{ mch-name }} cluster.
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
    1. Create the required infrastructure:
 
@@ -181,7 +181,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -215,7 +215,7 @@ The {{ mch-name }} cluster will insert data into tables run on the `Kafka` engin
 For each {{ KF }} topic, create a separate table in your {{ mch-name }} cluster to write incoming data to:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
-1. Run the query:
+1. Run the following query:
 
    ```sql
    CREATE TABLE IF NOT EXISTS db1.<topic table name>
@@ -338,7 +338,7 @@ To create a materialized view:
 To get all the data from the appropriate materialized view:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
-1. Run the query:
+1. Run the following query:
 
    ```sql
    SELECT * FROM db1.<view name>;
@@ -369,17 +369,17 @@ Delete the resources you no longer need to avoid paying for them:
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the configuration file `data-from-kafka-to-clickhouse.tf`.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

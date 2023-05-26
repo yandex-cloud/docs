@@ -3,6 +3,7 @@
 Hybrid storage allows you to store frequently used data on the network disks of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage levels is only supported for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 To use hybrid storage:
+
 1. [Create a table](#create-table).
 1. [Populate the table with data](#fill-table-with-data).
 1. [Check the placement of data in a cluster](#check-table-tiering).
@@ -18,55 +19,53 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually
 
-  1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
+   1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
-     * **Version**: {{ mch-ck-version }} or higher.
+      * **Version**: {{ mch-ck-version }} or higher.
+            * **Disk type**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
+      * **DB name**: `tutorial`.
+      * **Hybrid storage**: `Enabled`.
 
-     
-     * **Disk type**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
-
-
-     * **DB name**: `tutorial`.
-     * **Hybrid storage**: `Enabled`.
-  1. [Configure permissions](../../managed-clickhouse/operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
+   1. [Configure permissions](../../managed-clickhouse/operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
 
 - Using {{ TF }}
 
-  
-  1. If you do not have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md).
+    
+    1. If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
 
-  1. Clone the repository containing examples:
+    1. Clone the repository containing examples:
 
-     ```bash
-     git clone https://github.com/yandex-cloud/examples/
-     ```
+        ```bash
+        git clone https://github.com/yandex-cloud/examples/
+        ```
 
-  1. From the `examples/tutorials/terraform/` directory, copy `clickhouse-hybrid-storage.tf` to the folder where the provider configuration file is located.
+    1. From the `examples/tutorials/terraform/` directory, copy `clickhouse-hybrid-storage.tf` to the folder where the provider configuration file is located.
 
-     This file describes:
-     * Network.
-     * Subnet.
+      This file describes:
 
-     
-     * Default security group and rules required to connect to the cluster from the internet.
+      * Network.
+      * Subnet.
+            * Default security group and rules required to connect to the cluster from the internet.
+      * {{ mch-name }} cluster with hybrid storage enabled.
 
+   1. In `clickhouse-hybrid-storage.tf`, specify the username and password to use to access the {{ mch-name }} cluster.
 
-     * {{ mch-name }} cluster with hybrid storage enabled.
-  1. In `clickhouse-hybrid-storage.tf`, specify the username and password to use to access the {{ mch-name }} cluster.
-  1. In the terminal window, switch to the directory containing the infrastructure plan.
-  1. To verify that the config files are correct, run the command below:
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
+
+   1. To verify that the config files are correct, run the command below:
 
       ```bash
       terraform validate
       ```
 
       If there are any errors in the configuration files, {{ TF }} will point to them.
-  1. Create the infrastructure required to run instructions from this tutorial:
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+   1. Create the infrastructure required to follow the steps provided in this tutorial:
 
-     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -87,7 +86,7 @@ Create the `tutorial.hits_v1` table that uses hybrid storage. To do this, run an
 ```sql
 CREATE TABLE tutorial.hits_v1
 (
-  <schema>
+   <schema>
 )
 ENGINE = MergeTree()
 PARTITION BY EventDate
@@ -150,7 +149,8 @@ To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs
    ```
 
    You can obtain the host FQDN with a [list of hosts in the cluster](../../managed-clickhouse/operations/hosts.md#list-hosts).
-1. Wait for the operation to complete because the insertion of data may take some time.
+
+1. Wait for the operation to complete, as data insertion may take some time.
 
 To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#import-data).
 
@@ -160,11 +160,11 @@ To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tu
 
    ```sql
    SELECT
-     table,
-     partition,
-     name,
-     rows,
-     disk_name
+       table,
+       partition,
+       name,
+       rows,
+       disk_name
    FROM system.parts
    WHERE active AND (table = 'hits_v1') AND (database = 'tutorial')
    ```
@@ -214,8 +214,8 @@ Run a test query to the `tutorial.hits_v1` table that addresses data on multiple
 
 ```sql
 SELECT
-  URLDomain AS Domain,
-  AVG(SendTiming) AS AvgSendTiming
+    URLDomain AS Domain,
+    AVG(SendTiming) AS AvgSendTiming
 FROM tutorial.hits_v1
 WHERE (EventDate >= '2014-03-19') AND (EventDate <= '2014-03-22')
 GROUP BY Domain
@@ -250,24 +250,26 @@ Delete the resources you no longer need to avoid paying for them:
 
 - Manually
 
-  [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+    [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
 - Using {{ TF }}
 
-  To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-  1. In the terminal window, switch to the directory containing the infrastructure plan.
-  1. Delete `clickhouse-hybrid-storage.tf`.
-  1. Run this command:
+   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-     ```bash
-     terraform validate
-     ```
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. Delete `clickhouse-hybrid-storage.tf`.
+   1. Run this command:
 
-     If there are any errors in the configuration files, {{ TF }} will point to them.
-  1. Confirm the resources have been updated.
+      ```bash
+      terraform validate
+      ```
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-     This will delete all the resources described in `clickhouse-hybrid-storage.tf`.
+   1. Confirm the resources have been updated:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      This will delete all the resources described in `clickhouse-hybrid-storage.tf`.
 
 {% endlist %}

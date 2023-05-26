@@ -2,11 +2,13 @@
 
 {{ mes-name }} supports using {{ objstorage-full-name }} as an {{ ES }} snapshot repository. This lets you use {{ objstorage-name }} to:
 
-* [Transfer data from a third-party {{ ES }} cluster to {{ mes-name }}](../tutorials/migration-via-snapshots.md).
+* [Migrating data from a third-party {{ ES }} cluster to {{ mes-name }}](../tutorials/migration-via-snapshots.md).
 
-* Add [user extensions](cluster-extensions.md#add).
+* Adding [user extensions](cluster-extensions.md#add).
 
-* [Store backups](./cluster-backups.md).
+* [Storing backups](./cluster-backups.md).
+
+For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
 For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
@@ -18,11 +20,9 @@ To access {{ objstorage-name }} bucket data from a cluster:
 
 ## Connecting a service account to a cluster {#connect-service-account}
 
+1. When [creating](./cluster-create.md) or [updating](./cluster-update.md#change-service-account) a cluster, either select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
 
-1. When [creating](./cluster-create.md) or [updating](./cluster-update.md#change-additional-settings) a cluster, either select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
-
-1. Make sure that this account [has the role](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`.
-
+1. Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role or higher to this account.
 
 ## Setting up access rights {#configure-acl}
 
@@ -30,10 +30,7 @@ To access {{ objstorage-name }} bucket data from a cluster:
 
 - Management console
 
-   
-   1. In the [management console]({{ link-console-main }}), select the folder containing the desired bucket. If there is no such bucket, [create](../../storage/operations/buckets/create.md) it.
-
-
+   1. In the [management console]({{ link-console-main }}), select the folder containing the bucket you need. If there is no such bucket, [create](../../storage/operations/buckets/create.md) one.
    1. Select **{{ objstorage-name }}**.
    1. Go to the **Buckets** tab.
    1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md):
@@ -65,14 +62,16 @@ To access {{ objstorage-name }} bucket data from a cluster:
 
    ```bash
    curl --request PUT \
-        "https://admin:<password>@<FQDN or IP address of the host>:9200/_snapshot/<repository>" \
+        "https://admin:<password>@<host's FQDN or IP address>:9200/_snapshot/<repository>" \
         --cacert ~/.elasticsearch/root.crt \
         --header "Content-Type: application/json" \
         --data '{
           "type": "s3",
           "settings": {
             "endpoint": "{{ s3-storage-host }}",
-            "bucket": "<bucket name>"
+            "bucket": "<bucket name>",
+            "base_path": "<path to snapshot directory>",
+            "canned_acl": "bucket-owner-full-control"
           }
         }'
    ```

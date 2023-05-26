@@ -1,20 +1,62 @@
-# Connecting the Remote API
+# {{managed-prometheus-full-name}}
 
-To enable {{ monitoring-name }} as [remote storage](https://prometheus.io/docs/prometheus/latest/storage/#remote-storage-integrations) for {{ prometheus-name }}, set up metric [writes](remote-write.md) and [reads](remote-read.md) in {{ prometheus-name }} via the Remote API.
+{% include [note-preview](../../../_includes/monitoring/prometheus-preview.md) %}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+{{ managed-prometheus-full-name }} is a monitoring system compatible with [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/). You can use it to collect, store, and read metrics from your containers, applications, and infrastructure. The system uses the {{ prometheus-name }} data model and the [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/) query language. This allows you to work with dashboards existing in [{{ grafana-name }}](https://grafana.com/grafana/).
+
+{{ prometheus-name }} provides multiple mechanisms for collecting metrics, including [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) for popular programming languages and support for [exporting metrics](https://prometheus.io/docs/instrumenting/exporters/) from third-party systems, like databases or message queues. {{ managed-prometheus-name }} allows you to use best practices of the {{ prometheus-name }} open source community, while ensuring high scalability, availability, and safety with no need to deploy {{ prometheus-name }} clusters and manage the internal monitoring infrastructure on your own. To get started with {{ managed-prometheus-name }}, just install agents that support the metric [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) protocol.
+
+{{ managed-prometheus-name }} is based on the system that Yandex uses to monitor internal services. The system automatically scales metric writes, storage, and reads depending on the workload. High availability is ensured thanks to replication of the monitoring data in two availability zones.
+
+## How to gain access {#access}
+
+To enable {{ managed-prometheus-name }} in the current folder:
+
+1. Open the {{ monitoring-full-name }} [service home page]({{ link-monitoring }}).
+1. In the left-hand panel, select **{{ prometheus-name }}**.
+1. Fill out the form and click **Send request**.
+1. Wait until {{ yandex-cloud }} processes your request.
+1. Once the request is approved, the page will show links to the endpoints to be used for the current folder.
+
+To enable metric [writes](ingestion/index.md) and [reads](querying/index.md) in {{ prometheus-name }} format, follow the corresponding guides.
+
+## Current features {#features}
+
+{% note info %}
+
+The system functionality will be enhanced in upcoming releases.
+
+{% endnote %}
+
+
+| Feature | {{ prometheus-name }} | {{ managed-prometheus-full-name }} |
+--- | --- | ---
+| Collecting metrics | [Scrape](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config), [Pushgateway](https://prometheus.io/docs/instrumenting/pushing/), [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Metric writes via the [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) protocol are supported. To deliver metrics to {{ managed-prometheus-full-name }}, you can use any compatible metric collection agent, including {{ prometheus-name }} itself. |
+| Long-term metric storage | Not intended for long-term metric storage. [Third-party solutions](https://prometheus.io/docs/prometheus/latest/storage/#existing-integrations) are used for that. | Long-term metric storage is supported. If [decimation](../../concepts/decimation.md) is used, metrics can be stored for an unlimited amount of time. |
+| Reading metrics | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported. | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported with some [restrictions](querying/grafana.md#restrictions). |
+| Visualization | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) is supported. |
+| Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) is supported. | To be implemented in future versions. Currently, recording rules can be calculated based on short-term data on local {{ prometheus-name }} instances. |
+| Alerting | Supported via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/). | To be implemented in future versions. Currently, alerting rules can be calculated based on short-term data on local {{ prometheus-name }} instances. |
+| Integrations | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/). | Existing libraries and exporters can be used. |
+
+
+## Current limitations {#restrictions}
+
+* The `NaN` value is not supported and is treated as a missing point.
+* The `+Inf`/`-Inf` value may be processed incorrectly.
+* No support for `recording rules` and `alerting rules`.
+* No support for `staleness markers`, `exemplars`, and `native histograms`.
 
 ## Limits per endpoint {#limits-per-endpoint}
 
-* 200 requests per second and 3 MB/s per write.
+The limits specified below are not technical system restrictions and can be increased by sending a request to the [support team]({{ link-console-support }}).
+
+* 200 requests per second and 3 MB/s per write in [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) format.
 * 10000 metrics per request per write.
-* 25 requests per second per read.
+* 25 requests per second per read via the [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api).
+* 50 requests per second per read via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/).
 * 1 million unique metrics.
 * 29 unique labels per metric.
 * [Expired metrics](../../concepts/ttl.md) are deleted in 60 days.
 
-## Restrictions {#restrictions}
-
-* The `NaN` value is not supported and is treated as a missing point.
-* The `+Inf`/`-Inf` value may be processed incorrectly.
-* `Staleness markers` and `exemplars` are not supported.
+{% include [trademark](../../../_includes/monitoring/trademark.md) %}

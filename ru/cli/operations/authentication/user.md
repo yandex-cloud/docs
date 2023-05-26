@@ -1,6 +1,8 @@
 # Аутентификация от имени пользователя
 
 
+Для работы с {{ yandex-cloud }} необходим [аккаунт на Яндексе](../../../iam/concepts/index.md#passport).
+
 Вы можете аутентифицироваться в процессе [интерактивного создания профиля](../profile/profile-create.md#interactive-create) с помощью команды `yc init` или выполнив следующие шаги:
 
 1. Получите [OAuth-токен](../../../iam/concepts/authorization/oauth-token.md).

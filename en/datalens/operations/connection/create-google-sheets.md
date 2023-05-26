@@ -18,6 +18,8 @@ To create a Google Sheets connection:
 
 1. Click **Create connection**.
 1. Select the **Google Sheets** connection.
+
+
 1. Add files depending on access permissions:
 
    {% list tabs %}
@@ -40,6 +42,7 @@ To create a Google Sheets connection:
       To log out of your Google account, click ![image](../../../_assets/datalens/exit.svg). Click **Sign out**. Sheets from the files with restricted access will no longer be displayed.
 
    {% endlist %}
+
 
    {% note info %}
 

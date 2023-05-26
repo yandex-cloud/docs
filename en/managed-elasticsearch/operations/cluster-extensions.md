@@ -12,7 +12,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of cluster extensions, run the command:
+   To get a list of cluster extensions, run the following command:
 
    ```bash
    {{ yc-mdb-es }} extensions list <cluster ID or name>
@@ -22,7 +22,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 - API
 
-   Use the [list](../api-ref/Extension/list) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [list](../api-ref/Extension/list) API method and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID [with a list of clusters in a folder](cluster-list.md#list-clusters).
 
@@ -48,16 +48,22 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
    You can retrieve the cluster ID and name in the [list of folder clusters](cluster-list.md#list-clusters), and the extension ID in the [list of cluster extensions](#list).
 
+   
    To get a link to a zip archive with extension files in {{ objstorage-full-name }}, [follow the instructions](../../storage/operations/objects/link-for-download.md). You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
+
 
 - API
 
-   Use the [create](../api-ref/Extension/create) API method and pass the following information in the request:
+   Use the [create](../api-ref/Extension/create) API method and include the following information in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The extension name in the `name` parameter.
-   * The [link](../../storage/operations/objects/link-for-download.md) to a zip archive to extension files in {{ objstorage-full-name }} in the `uri` parameter. You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
-   * The status of the user extension in the `disabled` parameter. Once added, it can be disabled with the `true` value and enabled with the `false` value.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Extension name in the `name` parameter.
+
+   
+   * [Link](../../storage/operations/objects/link-for-download.md) to a ZIP archive with extension files in {{ objstorage-full-name }}, in the `uri` parameter. You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
+
+
+   * Status of the user extension in the `disabled` parameter. Once added, it can be disabled with the `true` value and enabled with the `false` value.
 
 {% endlist %}
 
@@ -85,11 +91,11 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 - API
 
-   Use the [update](../api-ref/Extension/update) API method and pass the following in the request:
+   Use the [update](../api-ref/Extension/update) API method and include the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the user extension in the `extensionId` parameter. To get the ID, [retrieve a list of installed user extensions](#list).
-   * The status of the user extension in the `active` parameter: `true` — enabled, `false` — disabled.
+   * Status of the user extension in the `active` parameter: `true` for enabled and `false` for disabled.
    * List of extension configuration fields to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -117,9 +123,9 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 - API
 
-   Use the [delete](../api-ref/Extension/delete) API method and pass the following in the request:
+   Use the [delete](../api-ref/Extension/delete) API method and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the user extension in the `extensionId` parameter. To get the ID, [retrieve a list of installed user extensions](#list).
 
 {% endlist %}

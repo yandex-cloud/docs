@@ -96,6 +96,7 @@ default:
   mgp-name: Managed Service for Greenplum®
   mgl-name: Managed Service for GitLab
   monitoring-name: Yandex Monitoring
+  managed-prometheus-name: Managed Service for Prometheus
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
   dsvm-name: Data Science Virtual Machine
@@ -42567,6 +42568,14 @@ default:
       dialog:
         confirm:
           button_continue: Continue
+    yacloud_org:
+      entity:
+        invitation:
+          action_send-invitation: Send invitation
+      page:
+        users:
+          action:
+            invite-users: Invite users
     yacloud:
       clickhouse:
         button_create-cluster: Create ClickHouse cluster
@@ -42587,6 +42596,8 @@ default:
         overview: Overview
         password: Password
         remove: Delete
+        resource-acl:
+          button_add-federation-user: Add federation user
         save: Save
         section-base: General information
       component:
@@ -42595,6 +42606,8 @@ default:
             button_submit: Add
             field_external-type: Public address
             switch_auto: Auto
+          resources:
+            label_sw-accelerated-net: Software accelerated network
         console-dashboard:
           button_action-create-folder: Create folder
         dns-integration:
@@ -42605,14 +42618,21 @@ default:
           label_no-symmetric-key: Not selected
       compute:
         instance:
+          edit:
+            button_update: Save changes
           overview:
             button_add-public-ip: Add public IP address
             label_network-interface: Network interface
         instances:
+          button_action-start: Start
+          button_action-stop: Stop
           create:
             field_key: SSH key
             field_user: Login
             section_access: Access
+            section_platform: Computing resources
+          popup-confirm_button_start: Start
+          popup-confirm_button_stop: Stop
       cr:
         image:
           label_last-scan-time: Date of last scan
