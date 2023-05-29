@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ydb/api-ref/Database/update.md
+sourcePath: en/_api-ref/ydb/v1/api-ref/Database/update.md
 ---
 
 # Managed Service for YDB API, REST: Database.update

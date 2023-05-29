@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/greenplum/api-ref/Backup/list.md
+sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Backup/list.md
 ---
 
 # Managed Service for Greenplum® API, REST: Backup.list

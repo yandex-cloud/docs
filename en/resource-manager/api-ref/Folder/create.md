@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/resourcemanager/api-ref/Folder/create.md
+sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/create.md
 ---
 
 # Resource Manager API, REST: Folder.create

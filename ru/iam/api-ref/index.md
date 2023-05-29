@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/api-ref/index.md
+sourcePath: en/_api-ref/iam/v1/api-ref/index.md
 ---
 
 # Identity and Access Management API: REST reference

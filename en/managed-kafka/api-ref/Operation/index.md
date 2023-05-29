@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/Operation/index.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Operation/index.md
 ---
 
 # Operations API, REST: Operation methods

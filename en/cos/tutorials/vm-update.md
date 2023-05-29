@@ -9,7 +9,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
 
   1. In the [management console]({{ link-console-main }}), select the folder where the VM was created.
   1. In the list of services, select **{{ compute-name }}**.
-  1. Click on the line with the VM you want to change.
+  1. Click the line with the VM you want to update.
   1. Click **Edit VM** in the top panel.
   1. Make your changes in the **Docker container settings** section.
   1. Click **Save changes**.
@@ -23,12 +23,12 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
      yc compute instance update-container --help
      ```
 
-  1. Get the unique ID of the virtual machine. To do this, click on the line with its name under **{{ compute-name }}** in the [management console]({{ link-console-main }}) or use the CLI command:
+  1. Get the unique ID of the VM. To do this, click the line with the VM name under **{{ compute-name }}** in the [management console]({{ link-console-main }}) or use this CLI command:
 
      ```bash
      yc compute instance list
      ```
-        
+
      Result:
 
      ```text
@@ -83,7 +83,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
        ...
        ```
 
-     * Update the VM by setting the specification of multiple Docker containers:
+     * Update the VM by setting the specifications of multiple Docker containers:
 
        ```bash
        yc compute instance update-container epdbf646ge5qgutfvh43 --docker-compose-file=<file path>

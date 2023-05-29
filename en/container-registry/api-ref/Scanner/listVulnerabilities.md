@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/api-ref/Scanner/listVulnerabilities.md
+sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/listVulnerabilities.md
 ---
 
 # Container Registry API, REST: Scanner.listVulnerabilities

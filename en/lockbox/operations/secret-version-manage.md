@@ -48,7 +48,7 @@ Secret version control enables you to:
       resource "yandex_lockbox_secret_version" "my_version" {
         secret_id = "<secret_ID>"
         entries {
-          key        = <secret1_key>"
+          key        = "<secret1_key>"
           text_value = "<secret1_value>"
         }
         entries {

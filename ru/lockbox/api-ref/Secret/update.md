@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/update.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/update.md
 ---
 
 # Lockbox API, REST: Secret.update
@@ -10,7 +10,7 @@ Updates the specified secret.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}
+PATCH https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}
 ```
  
 ## Path parameters {#path_params}

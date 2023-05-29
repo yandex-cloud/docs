@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/create.md
+sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/create.md
 ---
 
 # Managed Service for Redis API, REST: Cluster.create
@@ -37,6 +37,26 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters
     },
     "access": {
       "dataLens": true
+    },
+    "redis": {
+      "maxmemoryPolicy": "string",
+      "timeout": "integer",
+      "password": "string",
+      "databases": "integer",
+      "slowlogLogSlowerThan": "integer",
+      "slowlogMaxLen": "integer",
+      "notifyKeyspaceEvents": "string",
+      "clientOutputBufferLimitPubsub": {
+        "hardLimit": "integer",
+        "softLimit": "integer",
+        "softSeconds": "integer"
+      },
+      "clientOutputBufferLimitNormal": {
+        "hardLimit": "integer",
+        "softLimit": "integer",
+        "softSeconds": "integer"
+      },
+      "maxmemoryPercent": "integer"
     },
 
     // `configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`
@@ -95,7 +115,8 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters
         "hardLimit": "integer",
         "softLimit": "integer",
         "softSeconds": "integer"
-      }
+      },
+      "maxmemoryPercent": "integer"
     },
     "redisConfig_7_0": {
       "maxmemoryPolicy": "string",
@@ -114,7 +135,8 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters
         "hardLimit": "integer",
         "softLimit": "integer",
         "softSeconds": "integer"
-      }
+      },
+      "maxmemoryPercent": "integer"
     },
     // end of the list of possible fields`configSpec`
 
@@ -161,6 +183,23 @@ configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds
 configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 configSpec.<br>access | **object**<br>Access policy to DB
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
+configSpec.<br>redis | **object**<br>Unified configuration of a Redis cluster
+configSpec.<br>redis.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
+configSpec.<br>redis.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
+configSpec.<br>redis.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}``.</p> 
+configSpec.<br>redis.<br>databases | **integer** (int64)<br><p>Number of database buckets on a single redis-server process.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>redis.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redis.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redis.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality; subset of KEg$lshzxeAtm.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
+configSpec.<br>redis.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
+configSpec.<br>redis.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redis.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redis.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redis.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
+configSpec.<br>redis.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redis.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redis.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redis.<br>maxmemoryPercent | **integer** (int64)<br><p>Redis maxmemory percent</p> <p>Acceptable values are 1 to 75, inclusive.</p> 
 configSpec.<br>redisConfig_5_0 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
 configSpec.<br>redisConfig_5_0.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 configSpec.<br>redisConfig_5_0.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
@@ -209,6 +248,7 @@ configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal | **object**<br
 configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_2.<br>maxmemoryPercent | **integer** (int64)<br><p>Redis maxmemory percent</p> <p>Acceptable values are 1 to 75, inclusive.</p> 
 configSpec.<br>redisConfig_7_0 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
 configSpec.<br>redisConfig_7_0.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 configSpec.<br>redisConfig_7_0.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
@@ -225,6 +265,7 @@ configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitNormal | **object**<br
 configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_7_0.<br>maxmemoryPercent | **integer** (int64)<br><p>Redis maxmemory percent</p> <p>Acceptable values are 1 to 75, inclusive.</p> 
 hostSpecs[] | **object**<br><p>Required. Individual configurations for hosts that should be created for the Redis cluster.</p> <p>Must contain at least one element.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field <a href="/docs/managed-redis/api-ref/Cluster#representation">Cluster.networkId</a>.</p> 

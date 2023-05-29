@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/reEncrypt.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/reEncrypt.md
 ---
 
 # Key Management Service API, REST: SymmetricCrypto.reEncrypt
@@ -10,7 +10,7 @@ Re-encrypts a ciphertext with the specified KMS key.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:reEncrypt
+POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:reEncrypt
 ```
  
 ## Path parameters {#path_params}

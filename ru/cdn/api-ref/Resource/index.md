@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/api-ref/Resource/index.md
+sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/index.md
 ---
 
 # Cloud CDN API, REST: Resource methods

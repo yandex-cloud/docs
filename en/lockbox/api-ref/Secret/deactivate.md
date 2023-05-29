@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/deactivate.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/deactivate.md
 ---
 
 # Lockbox API, REST: Secret.deactivate
@@ -10,7 +10,7 @@ Deactivates the specified secret.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:deactivate
+POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}:deactivate
 ```
  
 ## Path parameters {#path_params}

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/billing/api-ref/Budget/create.md
+sourcePath: en/_api-ref/billing/v1/api-ref/Budget/create.md
 ---
 
 # Billing API, REST: Budget.create

@@ -42568,6 +42568,8 @@ default:
       dialog:
         confirm:
           button_continue: Continue
+      homepage:
+        title_service-dashboards: Service dashboards
     yacloud_org:
       entity:
         invitation:
@@ -42584,11 +42586,13 @@ default:
       common:
         add: Add
         apply: Apply
+        availability: Availability
         clone: Clone
         create: Create
         delete: Delete
         description: Description
         edit: Edit
+        id: ID
         import: Import
         monitoring: Monitoring
         name: Name
@@ -42602,6 +42606,11 @@ default:
         section-base: General information
       component:
         compute:
+          network-select:
+            field_external: Public IP
+            field_internal-ipv4: Internal IPv4 address
+            field_security-groups: Security groups
+            switch_auto: Auto
           one-to-one-nat-form:
             button_submit: Add
             field_external-type: Public address
@@ -42612,6 +42621,9 @@ default:
           button_action-create-folder: Create folder
         dns-integration:
           button_add-domain: Create record
+        mdb:
+          settings:
+            popup_settings-submit: Save
         symmetric-key-select:
           button_create-key: Create key
           button_create-key-new: Create new key
@@ -42629,7 +42641,10 @@ default:
           create:
             field_key: SSH key
             field_user: Login
+            image_value_os-products: Operating systems
             section_access: Access
+            section_image: Image/boot disk selection
+            section_network: Network settings
             section_platform: Computing resources
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
@@ -42700,6 +42715,12 @@ default:
           folders-create:
             button_create: Create
             field_default-net: Create a default network
+          quotas:
+            label_quota-name-mdb:
+              hdd:
+                size: HDD storage capacity
+              ssd:
+                size: SSD storage capacity
         folder:
           dashboard:
             button_add: Create resource
@@ -42713,6 +42734,8 @@ default:
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
+            label_managed-redis: Managed Service for Redis
+            label_mdb: Managed Databases
             label_monitoring: Monitoring
             label_serverless-functions: Cloud Functions
             label_storage: Object Storage
@@ -42778,26 +42801,64 @@ default:
           section_version: Version
       mdb:
         cluster:
+          backups:
+            button_create: Create backup
+            button_restore: Restore cluster
           hosts:
+            button_add-host: Add host
+            button_rebalance-cluster: Rebalance cluster
+            button_rebalance-cluster-short: Rebalance
             label_title: Hosts
+            popup-confirm_button: Confirm
+            switch_monitoring: Monitoring
             switch_overview: Overview
+          logs:
+            button_load-more: Load more
           overview:
+            button_action-connect: Connect
             button_action-delete: Delete cluster
+            button_action-edit: Edit cluster
+            button_action-start: Start cluster
+            button_action-stop: Stop cluster
+          shards:
+            button_action-remove: Remove
+            button_add: Add shard
+            popup-confirm_button_delete: Remove
+          start-dialog:
+            popup-confirm_button: Start
+          stop-dialog:
+            popup-confirm_button: Stop
+          switch_monitoring: Monitoring
         clusters:
           button_action-delete: Delete
+          button_action-move: Move
           button_create: Create cluster
         datalens:
           button-action_activate: Activate
         dialogs:
+          popup_button_move-cluster: Move
           popup-confirm-delete-cluster_button: Delete
+          popup-confirm-switch-master_button: Switch
+          popup-confirm-switch-master_label_confirmation: I want to switch the master
+          popup-confirm-switch-master_label-title: Switch master host
         forms:
           additional-field-datalens: DataLens access
           additional-field-metrika: Access from Metrica and AppMetrica
           additional-field-serverless: Serverless access
           additional-field-websql: Access from the management console
+          backup-window-start: Backup start time (UTC)
+          base_field_folder: Folder
           base_field_name: Cluster name
           base_field_service-account: Service account
+          base_field_shard-name: Shard name
+          base_field_version: Version
+          button_add-host: Add host
+          button_configure-settings: Settings
           button_create: Create cluster
+          button_create-shard: Create shard
+          button_edit: Save changes
+          button_restore: Restore cluster
+          config_field_password: Password
           config_field_properties: Properties
           config_field_public-keys: SSH key
           config_field_services: Services
@@ -42807,21 +42868,45 @@ default:
           database_field_name: DB name
           database_field_user-login: Username
           database_field_user-password: Password
+          field_cluster-mode: Cluster sharding
+          host_column_assign_public_ip: Public access
+          host_column_shard-name: Shard name
+          host_column_subnetwork: Subnet
+          host_column_zone: Availability zone
+          label_deletion-protection: Deletion protection
           label_master-subcluster: Master
           label_max-size-units: GB
+          maintenance-window-type: Maintenance window
           new_section_resource: Resources
+          resource_presets_field-generation: Platform
+          resource_presets_field-type: Type
+          section_additional: Advanced settings
           section_base: Basic parameters
+          section_config: Cluster configuration
           section_disk: Size of storage
           section_host: Hosts
+          section_network: Network settings
           section_network-settings: Network settings
+          section_resource: Host class
           section_service-settings: Service settings
           section_settings: DBMS settings
+          value_maintenance-type-anytime: arbitrary
+          value_maintenance-type-weekly: by schedule
         hosts:
           dialog:
             button_choose: Save
             field_public_ip: Public access
       monitoring:
+        button_create-alert: Create alert
         button_open-in-monitoring: Open in Monitoring
+      redis:
+        cluster:
+          switch_backups: Backups
+          switch_logs: Logs
+          switch_monitoring: Monitoring
+          switch_shards: Shards
+        field_tls-support: TLS support
+        switch_backups: Backups
       serverless-functions:
         create:
           button_create: Create
@@ -42978,10 +43063,13 @@ default:
               field_sg-rule-destination: Destination name
               field_sg-rule-port-range: Port range
               field_sg-rule-protocol: Protocol
+              field_sg-rule-sg-type: Security group
+              field_sg-rule-source: Source
               value_any: Any
               value_sg-rule-destination-cidr: CIDR
               value_sg-rule-destination-sg: Security group
               value_sg-rule-sg-type-list: From list
+              value_sg-rule-sg-type-self: Current
               value_tcp: TCP
           switch_route-table: Routing tables
         route-table-form:
@@ -44214,3 +44302,8 @@ default:
       transferring:
         title: Transfer projects
         transfer-selected-projects: Transfer selected projects
+  mkt-k8s-key:
+    yc_argo-cd:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
+        tag: 5.4.3-7

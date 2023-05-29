@@ -88,6 +88,8 @@ items:
             href: concepts/extensions/any-method.md
           - name: Авторизация с помощью функции
             href: concepts/extensions/function-authorizer.md
+          - name: Авторизация с помощью JWT
+            href: concepts/extensions/jwt-authorizer.md
           - name: Поддержка протокола WebSocket
             href: concepts/extensions/websocket.md
           - name: Валидация данных

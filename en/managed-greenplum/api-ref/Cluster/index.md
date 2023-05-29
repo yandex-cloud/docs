@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/index.md
+sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/index.md
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster methods

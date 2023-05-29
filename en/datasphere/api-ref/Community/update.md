@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datasphere/api-ref/Community/update.md
+sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/update.md
 ---
 
 # DataSphere API v2, REST: Community.update

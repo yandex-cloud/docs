@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/resourcemanager/api-ref/Cloud/listOperations.md
+sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/listOperations.md
 ---
 
 # Resource Manager API, REST: Cloud.listOperations

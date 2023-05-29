@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/api-ref/Repository/upsert.md
+sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/upsert.md
 ---
 
 # Container Registry API, REST: Repository.upsert

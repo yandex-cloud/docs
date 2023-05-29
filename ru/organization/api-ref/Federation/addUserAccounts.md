@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/Federation/addUserAccounts.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Federation/addUserAccounts.md
 ---
 
 # Cloud Organization SAML API, REST: Federation.addUserAccounts

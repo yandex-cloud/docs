@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/listShards.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/listShards.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.listShards

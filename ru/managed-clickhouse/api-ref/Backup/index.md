@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Backup/index.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Backup/index.md
 ---
 
 # Managed Service for ClickHouse API, REST: Backup methods

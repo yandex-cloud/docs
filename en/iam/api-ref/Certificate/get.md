@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/api-ref/Certificate/get.md
+sourcePath: en/_api-ref/iam/v1/api-ref/Certificate/get.md
 ---
 
 # Identity and Access Management SAML API, REST: Certificate.get

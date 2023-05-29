@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mysql/api-ref/ResourcePreset/get.md
+sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/ResourcePreset/get.md
 ---
 
 # Managed Service for MySQL API, REST: ResourcePreset.get

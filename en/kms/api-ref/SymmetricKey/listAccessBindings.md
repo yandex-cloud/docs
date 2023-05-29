@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/listAccessBindings.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/listAccessBindings.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.listAccessBindings
@@ -10,7 +10,7 @@ Lists existing access bindings for the specified key.
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-kms }}/kms/v1/keys/{resourceId}:listAccessBindings
+GET https://kms.{{ api-host }}/kms/v1/keys/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

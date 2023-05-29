@@ -14,7 +14,11 @@
 
 - в [Google Play]({{ mobile-google-link }}) для мобильных устройств на базе Android версии 8.0 и выше;
 
-- в [App Store]({{ mobile-apple-link }}) для мобильных устройств на базе iOS версии 11.0 и выше.
+- в [App Store]({{ mobile-apple-link }}) для мобильных устройств на базе iOS версии 11.0 и выше;
+
+- в [Huawei AppGallery]({{ mobile-huawei-link }}) для мобильных устройств на базе HarmonyOS;
+
+- в виде [APK-файла]({{ mobile-apk-link }}) для Android.
 
 [Подробнее о мобильном приложении.](mobile.md)
 

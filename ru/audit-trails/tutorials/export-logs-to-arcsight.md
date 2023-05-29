@@ -6,7 +6,7 @@
 
 Решение, которое описано в руководстве, работает по следующей схеме:
 1. [Трейл](../concepts/trail.md) загружает логи в бакет {{ objstorage-name }}.
-1. [Бакет](../../storage/concepts/bucket.md) монтируется через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-интерфейс к папке на промежуточной ВМ.
+1. [Бакет](../../storage/concepts/bucket.md) монтируется через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-интерфейс к папке на промежуточной [ВМ](../../glossary/vm.md).
 1. [SmartConnector](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_SmartConn_getstart_HTML/) забирает логи из папки и передает их в ArcSight для анализа.
 
 Подробнее о сценариях загрузки аудитных логов в ArcSight смотрите в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight#two-log-shipping-scenarios).

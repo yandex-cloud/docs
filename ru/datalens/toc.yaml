@@ -27,6 +27,9 @@ items:
         href: tutorials/data-from-appmetrica-visualization.md
       - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
         href: tutorials/data-from-podcasts.md
+      - name: Визуализация данных с использованием инструмента "Тепловые карты"
+        hidden: true
+        href: tutorials/data-on-heat-map-dashboard.md
       - name: Визуализация данных с помощью QL-чарта
         href: tutorials/data-from-ch-to-sql-chart.md
       - name: Визуализация данных с использованием параметров
@@ -37,6 +40,8 @@ items:
         href: tutorials/data-from-appmetrica-yc-visualization.md
       - name: Визуализация данных Битрикс24
         href: tutorials/data-from-bitrix24-visualization.md
+      - name: Визуализация данных из {{ tracker-full-name }}
+        href: tutorials/data-from-tracker.md
   - name: Концепции
     items:
       - name: Обзор сервиса

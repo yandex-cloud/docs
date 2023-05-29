@@ -2,7 +2,7 @@
 
 Вы можете установить [ViPNet Coordinator VA](https://infotecs.ru/product/vipnet-coordinator-va.html#soft) в облаке и использовать его как VPN-шлюз для Site-to-site [VPN](../../glossary/vpn.md) между ресурсами облака и ресурсами удаленной площадки (on-premises).
 
-ViPNet Coordinator VA устанавливается на ВМ с четырьмя сетевыми интерфейсами. Один интерфейс получает [публичный](../../vpc/concepts/address.md#public-addresses) IP-адрес, на нем работает туннель до шлюза на удаленной площадке. Остальным интерфейсам можно выдать [внутренние](../../vpc/concepts/address.md#internal-addresses) адреса и подключить к разным [подсетям](../../vpc/concepts/network.md#subnet) одной зоны доступности.
+ViPNet Coordinator VA устанавливается на [ВМ](../../glossary/vm.md) с четырьмя сетевыми интерфейсами. Один интерфейс получает [публичный](../../vpc/concepts/address.md#public-addresses) IP-адрес, на нем работает туннель до шлюза на удаленной площадке. Остальным интерфейсам можно выдать [внутренние](../../vpc/concepts/address.md#internal-addresses) адреса и подключить к разным [подсетям](../../vpc/concepts/network.md#subnet) одной зоны доступности.
 
 При работе в облаке у ViPNet Coordinator VA недоступны следующие функции:
 * Экспорт и импорт ключей и настроек в формате `vbe`.

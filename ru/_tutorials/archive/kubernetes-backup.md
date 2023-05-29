@@ -47,7 +47,7 @@
 
    Результат:
 
-   ```bash
+   ```text
    access_key:
      id: abcdo12h3j04odg56def
      service_account_id: ajego12h3j03slk16upe

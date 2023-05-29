@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/User/delete.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/delete.md
 ---
 
 # Managed Service for PostgreSQL API, REST: User.delete

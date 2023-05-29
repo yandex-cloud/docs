@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/api-ref/Registry/updateIpPermission.md
+sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/updateIpPermission.md
 ---
 
 # Container Registry API, REST: Registry.updateIpPermission

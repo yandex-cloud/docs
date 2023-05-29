@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/opensearch/api-ref/Cluster/move.md
+sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/move.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.move

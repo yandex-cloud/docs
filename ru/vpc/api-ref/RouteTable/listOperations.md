@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/RouteTable/listOperations.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/listOperations.md
 ---
 
 # Virtual Private Cloud API, REST: RouteTable.listOperations

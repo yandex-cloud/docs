@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/Group/listAccessBindings.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/listAccessBindings.md
 ---
 
 # Cloud Organization API, REST: Group.listAccessBindings

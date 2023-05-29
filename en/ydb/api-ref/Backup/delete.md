@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ydb/api-ref/Backup/delete.md
+sourcePath: en/_api-ref/ydb/v1/api-ref/Backup/delete.md
 ---
 
 # Managed Service for YDB API, REST: Backup.delete

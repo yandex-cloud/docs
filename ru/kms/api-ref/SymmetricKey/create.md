@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/create.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/create.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.create
@@ -10,7 +10,7 @@ Creates a symmetric KMS key in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-kms }}/kms/v1/keys
+POST https://kms.{{ api-host }}/kms/v1/keys
 ```
  
 ## Body parameters {#body_params}

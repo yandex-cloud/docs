@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/index.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/index.md
 ---
 
 # Virtual Private Cloud API: REST reference

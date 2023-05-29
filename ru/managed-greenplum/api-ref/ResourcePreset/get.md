@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/greenplum/api-ref/ResourcePreset/get.md
+sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/ResourcePreset/get.md
 ---
 
 # Managed Service for Greenplum® API, REST: ResourcePreset.get

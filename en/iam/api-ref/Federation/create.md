@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/api-ref/Federation/create.md
+sourcePath: en/_api-ref/iam/v1/api-ref/Federation/create.md
 ---
 
 # Identity and Access Management SAML API, REST: Federation.create

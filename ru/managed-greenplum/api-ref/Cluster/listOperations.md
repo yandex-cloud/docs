@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/listOperations.md
+sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/listOperations.md
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.listOperations

@@ -60,7 +60,7 @@
 Возможные варианты организации шифрованных каналов связи приведены в разделе [{#T}](network.md#remote-access).
 
 Обратите внимание: сервис [{{ interconnect-full-name }}](../../interconnect/) не предоставляет встроенных механизмов шифрования. Необходимо защищать данные при передаче (encryption in transit) самостоятельно с помощью:
-- установки в облаке VPN-шлюзов с функцией шифрования: например, виртуальных машин на основе образов [Check Point](/marketplace?search=Check+Point) из {{ marketplace-full-name }};
+- установки в облаке VPN-шлюзов с функцией шифрования: например, [виртуальных машин](../../glossary/vm.md) на основе образов [Check Point](/marketplace?search=Check+Point) из {{ marketplace-full-name }};
 - шифрования на уровне приложений;
 - услуги [ГОСТ VPN](network.md#gost-vpn).
 

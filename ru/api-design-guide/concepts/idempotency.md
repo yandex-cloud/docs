@@ -18,7 +18,7 @@ Idempotency-Key: <UUID>
 
 ### Пример 1 {#example-1}
  
-Например, вы отправили запрос на запуск виртуальной машины:
+Например, вы отправили запрос на запуск [виртуальной машины](../../glossary/vm.md):
 
 ```
 POST /compute/v1/instances/e0m97h0gbq0foeuis03:start

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/get.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/get.md
 ---
 
 # Lockbox API, REST: Secret.get
@@ -11,7 +11,7 @@ Use [get](/docs/lockbox/api-ref/Payload/get) to get the payload (confidential da
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}
+GET https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}
 ```
  
 ## Path parameters {#path_params}

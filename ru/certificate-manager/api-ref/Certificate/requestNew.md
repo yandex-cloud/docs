@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/requestNew.md
+sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/requestNew.md
 ---
 
 # Certificate Manager API, REST: Certificate.requestNew
@@ -10,7 +10,7 @@ Request a certificate in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/requestNew
+POST https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/requestNew
 ```
  
 ## Body parameters {#body_params}

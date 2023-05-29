@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Image/get.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Image/get.md
 ---
 
 # Compute Cloud API, REST: Image.get

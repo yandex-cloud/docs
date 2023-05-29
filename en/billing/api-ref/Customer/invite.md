@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/billing/api-ref/Customer/invite.md
+sourcePath: en/_api-ref/billing/v1/api-ref/Customer/invite.md
 ---
 
 # Billing API, REST: Customer.invite

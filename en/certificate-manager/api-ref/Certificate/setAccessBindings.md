@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/setAccessBindings.md
+sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/setAccessBindings.md
 ---
 
 # Certificate Manager API, REST: Certificate.setAccessBindings
@@ -10,7 +10,7 @@ Sets access bindings for the certificate.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{resourceId}:setAccessBindings
+POST https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

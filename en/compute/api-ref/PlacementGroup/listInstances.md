@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/PlacementGroup/listInstances.md
+sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/listInstances.md
 ---
 
 # Compute Cloud API, REST: PlacementGroup.listInstances

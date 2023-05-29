@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Instance/start.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Instance/start.md
 ---
 
 # Compute Cloud API, REST: Instance.start
