@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/billing/api-ref/Budget/index.md
+sourcePath: en/_api-ref/billing/v1/api-ref/Budget/index.md
 ---
 
 # Billing API, REST: Budget methods

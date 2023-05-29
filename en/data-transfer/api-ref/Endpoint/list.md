@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/list.md
+sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/list.md
 ---
 
 # Data Transfer API, REST: Endpoint.list
@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/list.md
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-data-transfer }}/v1/endpoints/list/{folderId}
+GET https://datatransfer.{{ api-host }}/v1/endpoints/list/{folderId}
 ```
  
 ## Path parameters {#path_params}

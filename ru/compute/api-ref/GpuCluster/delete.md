@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/GpuCluster/delete.md
+sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/delete.md
 ---
 
 # Compute Cloud API, REST: GpuCluster.delete

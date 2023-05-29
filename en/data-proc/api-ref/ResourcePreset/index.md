@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/ResourcePreset/index.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/ResourcePreset/index.md
 ---
 
 # Data Proc API, REST: ResourcePreset methods

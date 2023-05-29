@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/Gateway/delete.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/delete.md
 ---
 
 # Virtual Private Cloud API, REST: Gateway.delete

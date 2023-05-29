@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/create.md
+sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/create.md
 ---
 
 # Data Transfer API, REST: Endpoint.create
@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/create.md
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-data-transfer }}/v1/endpoint
+POST https://datatransfer.{{ api-host }}/v1/endpoint
 ```
  
 ## Body parameters {#body_params}

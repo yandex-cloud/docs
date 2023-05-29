@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/listOperations.md
+sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/listOperations.md
 ---
 
 # Application Load Balancer API, REST: BackendGroup.listOperations

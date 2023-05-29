@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/Database/list.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/list.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Database.list

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Database/delete.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Database/delete.md
 ---
 
 # Managed Service for ClickHouse API, REST: Database.delete

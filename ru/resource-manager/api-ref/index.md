@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/resourcemanager/api-ref/index.md
+sourcePath: en/_api-ref/resourcemanager/v1/api-ref/index.md
 ---
 
 # Resource Manager API: REST reference

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/k8s/api-ref/Version/list.md
+sourcePath: en/_api-ref/k8s/v1/api-ref/Version/list.md
 ---
 
 # Managed Services for Kubernetes API, REST: Version.list

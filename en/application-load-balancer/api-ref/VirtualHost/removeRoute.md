@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/removeRoute.md
+sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/removeRoute.md
 ---
 
 # Application Load Balancer API, REST: VirtualHost.removeRoute

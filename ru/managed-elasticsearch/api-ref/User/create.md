@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/User/create.md
+sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/User/create.md
 ---
 
 # Managed Service for Elasticsearch API, REST: User.create

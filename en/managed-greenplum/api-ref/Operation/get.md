@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/greenplum/api-ref/Operation/get.md
+sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Operation/get.md
 ---
 
 # Operations API, REST: Operation.get

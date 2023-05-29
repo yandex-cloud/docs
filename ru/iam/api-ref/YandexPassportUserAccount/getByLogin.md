@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/api-ref/YandexPassportUserAccount/getByLogin.md
+sourcePath: en/_api-ref/iam/v1/api-ref/YandexPassportUserAccount/getByLogin.md
 ---
 
 # Identity and Access Management API, REST: YandexPassportUserAccount.getByLogin

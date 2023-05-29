@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/triggers/triggers/api-ref/index.md
+sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/index.md
 ---
 
 # Cloud Functions Triggers Service: REST reference

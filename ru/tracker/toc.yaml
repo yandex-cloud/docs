@@ -29,8 +29,6 @@ items:
         href: import.md
       - name: Отключить платные услуги
         href: disable-tracker.md
-  - name: Мобильное приложение Tracker
-    href: mobile.md
   - name: Практические руководства
     items:
       - name: Настроить Tracker для команды разработки
@@ -71,6 +69,8 @@ items:
             href: support-process-dashboards.md
           - name: Настроить интеграцию со сторонними системами
             href: support-process-integration.md
+      - name: Визуализация данных с помощью {{ datalens-name }}
+        href: tutorials/visualisation-in-datalens.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -363,6 +363,38 @@ items:
         href: user/python.md
       - name: Подключить репозиторий
         href: manager/add-repository.md
+  - name: Мобильное приложение Tracker
+    items:
+      - name: Обзор возможностей
+        href: mobile.md
+      - name: Как подключить {{ tracker-name }}
+        href: mobile/enable-tracker.md
+      - name: Как войти в мобильное приложение
+        href: mobile/login.md
+      - name: Мои задачи
+        href: mobile/my-tickets.md
+      - name: Создание задачи
+        href: mobile/create-ticket.md
+      - name: Редактирование задачи
+        href: mobile/edit-ticket.md
+      - name: Комментарии к задаче
+        href: mobile/comments.md
+      - name: Чеклист
+        href: mobile/checklist.md
+      - name: Загрузка изображений и файлов
+        href: mobile/attach-file.md
+      - name: Связи в задачах
+        href: mobile/ticket-links.md
+      - name: Затраченное время
+        href: mobile/time-spent.md
+      - name: Поиск задачи
+        href: mobile/search-task.md
+      - name: Системные фильтры
+        href: mobile/default-filters.md
+      - name: Создание фильтра
+        href: mobile/create-filter.md
+      - name: Сортировка и группировка задач
+        href: mobile/sort-and-group.md
   - name: Правила тарификации
     items:
       - name: Тарифы

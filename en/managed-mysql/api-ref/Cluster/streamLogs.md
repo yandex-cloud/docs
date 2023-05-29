@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/streamLogs.md
+sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/streamLogs.md
 ---
 
 # Managed Service for MySQL API, REST: Cluster.streamLogs

@@ -7,43 +7,47 @@
 
 * в [Google Play]({{ mobile-google-link }}) для мобильных устройств на базе Android версии 8.0 и выше;
 
-* в [App Store]({{ mobile-apple-link }}) для мобильных устройств на базе iOS версии 11.0 и выше.
+* в [App Store]({{ mobile-apple-link }}) для мобильных устройств на базе iOS версии 11.0 и выше;
+
+* в [Huawei AppGallery]({{ mobile-huawei-link }}) для мобильных устройств на базе HarmonyOS;
+
+* в виде [APK-файла]({{ mobile-apk-link }}) для Android.
 
 ## Возможности приложения {#features}
 
 С помощью мобильного приложения {{ tracker-name }} вы можете:
 
-* [Создавать задачи](user/create-ticket.md#create-task).
+* [Создавать задачи](mobile/create-ticket.md#create-task).
 
-* [Просматривать ваши задачи с помощью предустановленных фильтров](user/default-filters.md#sys_filters).
+* [Просматривать ваши задачи с помощью предустановленных фильтров](mobile/default-filters.md#sys_filters).
   
-* [Искать задачи по ключу и названию](user/search-task.md).
+* [Искать задачи по ключу и названию](mobile/search-task.md).
 
-* [Просматривать и редактировать параметры задач](user/edit-ticket.md).
+* [Искать задачи по любым параметрам](mobile/create-filter.md).
 
-* [Добавлять комментарии](user/comments.md).
+* [Сортировать и группировать задачи](mobile/sort-and-group.md)
 
-* [Прикреплять файлы](user/attach-file.md).
+* [Просматривать и редактировать параметры задач](mobile/edit-ticket.md).
 
-* [Просматривать и изменять связи задачи](user/ticket-links.md).
+* [Добавлять комментарии](mobile/comments.md).
 
-* [Просматривать время, которое вы затратили на выполнение задачи](user/time-spent.md).
+* [Прикреплять файлы](mobile/attach-file.md).
 
-* [Создавать и изменять чеклисты](user/checklist.md).
+* [Просматривать и изменять связи задачи](mobile/ticket-links.md).
+
+* [Просматривать время, которое вы затратили на выполнение задачи](mobile/time-spent.md).
+
+* [Создавать и изменять чеклисты](mobile/checklist.md).
 
 ## Войти в приложение {#login}
 
 
-При первом запуске [войдите в приложение](user/login.md), указав рабочий аккаунт.
+При первом запуске [войдите в приложение](mobile/login.md), указав рабочий аккаунт.
 
 
 ## Ограничения {#restrictions}
 
 Некоторые возможности {{ tracker-name }} недоступны в мобильном приложении. Чтобы использовать их, перейдите в [веб-интерфейс сервиса]({{ link-tracker }}).
-
-* [Добавление связей](user/ticket-links.md) между задачами.
-
-* Создание [пользовательских фильтров задач](user/create-filter.md).
 
 * Создание [проектов](manager/project-new.md), [компонентов](manager/components.md) и [версий](manager/versions.md).
 

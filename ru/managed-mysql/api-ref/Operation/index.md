@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mysql/api-ref/Operation/index.md
+sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Operation/index.md
 ---
 
 # Operations API, REST: Operation methods

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/loadbalancer/api-ref/TargetGroup/removeTargets.md
+sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/removeTargets.md
 ---
 
 # Network Load Balancer API, REST: TargetGroup.removeTargets

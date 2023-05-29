@@ -36,7 +36,7 @@
 [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
 [putObjectLockConfiguration](bucket/putobjectlockconfiguration.md) | Настраивает механизм [блокировок версий объектов](../../concepts/object-lock.md) в [версионируемом](../../concepts/versioning.md) бакете.
 [getObjectLockConfiguration](bucket/getobjectlockconfiguration.md) | Возвращает настройки механизма блокировок.
-[putBucketTagging](bucket/putbuckettagging.md) | Добавляет [метки](../../../resource-manager/concepts/labels.md) бакету.
+[putBucketTagging](bucket/putbuckettagging.md) | Добавляет [метки](../../concepts/tags.md) бакету.
 [getBucketTagging](bucket/getbuckettagging.md) | Возвращает метки бакета.
 [deleteBucketTagging](bucket/deletebuckettagging.md) | Удаляет метки бакета.
 
@@ -59,6 +59,9 @@
 [putObjectLegalHold](object/putobjectlegalhold.md) | Устанавливает на версию объекта бессрочную блокировку или снимает ее.
 [getObjectRetention](object/getobjectretention.md) | Возвращает настройки временной блокировки, установленной на версию объекта.
 [getObjectLegalHold](object/getobjectlegalhold.md) | Возвращает настройки бессрочной блокировки, установленной на версию объекта.
+[putObjectTagging](object/putobjecttagging.md) | Добавляет метки объекту.
+[getObjectTagging](object/getobjecttagging.md) | Возвращает метки объекта.
+[deleteObjectTagging](object/deleteobjecttagging.md) | Удаляет метки объекта.
 
 ### Сервис Multipart upload {#multipart-upload-service}
 

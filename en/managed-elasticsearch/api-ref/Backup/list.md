@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Backup/list.md
+sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Backup/list.md
 ---
 
 # Managed Service for Elasticsearch API, REST: Backup.list

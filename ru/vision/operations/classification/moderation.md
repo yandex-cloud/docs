@@ -4,7 +4,7 @@ _Классификация изображений сейчас находитс
 
 Чтобы определить, соответствует ли изображение таким признакам, как <q>контент для взрослых</q>, <q>шок-контент</q>, <q>водяные знаки</q>, воспользуйтесь возможностью [Классификация изображений](../../concepts/classification/index.md).
 
-Для этого в методе [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `Classification`, а в конфигурации укажите модель [moderation](../../concepts/classification/supported-models.md#moderation).
+Для этого в методе [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `Classification`, а в конфигурации укажите модель [moderation](../../concepts/classification/supported-models.md#moderation).
 
 ## Примеры {#examples}
 
@@ -125,6 +125,6 @@ _Классификация изображений сейчас находитс
 Если вызов функции завершился с ошибкой `408 Request Timeout`, попробуйте решить проблему одним из способов:
 * отправьте запрос повторно;
 * уменьшите размер изображения;
-* загрузите меньшее количество изображений в [batchAnalyze](../../api-ref/Vision/batchAnalyze.md).
+* загрузите меньшее количество изображений в [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md).
 
 {% endnote %}

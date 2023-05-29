@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/RouteTable/delete.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/delete.md
 ---
 
 # Virtual Private Cloud API, REST: RouteTable.delete

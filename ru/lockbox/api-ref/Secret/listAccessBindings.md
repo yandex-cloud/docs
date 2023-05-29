@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/listAccessBindings.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/listAccessBindings.md
 ---
 
 # Lockbox API, REST: Secret.listAccessBindings
@@ -10,7 +10,7 @@ Lists existing access bindings for the specified secret.
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{resourceId}:listAccessBindings
+GET https://lockbox.{{ api-host }}/lockbox/v1/secrets/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

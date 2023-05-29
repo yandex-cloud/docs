@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/api-ref/ApiKey/index.md
+sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/index.md
 ---
 
 # Identity and Access Management API, REST: ApiKey methods

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/api-ref/Provider/listActivated.md
+sourcePath: en/_api-ref/cdn/v1/api-ref/Provider/listActivated.md
 ---
 
 # Cloud CDN API, REST: Provider.listActivated

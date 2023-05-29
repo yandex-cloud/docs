@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/api-ref/Key/list.md
+sourcePath: en/_api-ref/iam/v1/api-ref/Key/list.md
 ---
 
 # Identity and Access Management API, REST: Key.list

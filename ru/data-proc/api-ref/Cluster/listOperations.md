@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/Cluster/listOperations.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/listOperations.md
 ---
 
 # Data Proc API, REST: Cluster.listOperations

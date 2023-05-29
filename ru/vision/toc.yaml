@@ -20,6 +20,8 @@ items:
         href: operations/face-detection/index.md
       - name: Кодирование в Base64
         href: operations/base64-encode.md
+      - name: Настройка доступа с помощью API-ключа
+        href: operations/sa-api-key.md
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -76,10 +78,16 @@ items:
                 href: api-ref/errors-handling.md
               - name: Диагностика ошибок
                 href: api-ref/support-headers.md
-              - name: Обзор API (англ.)
-                href: api-ref/Vision/index.md
-              - name: batchAnalyze (англ.)
-                href: api-ref/Vision/batchAnalyze.md
+              - name: Справочник API (англ.)
+                items:
+                  - name: Overview
+                    href: vision/api-ref/index.md
+                  - name: Vision
+                    items:
+                      - name: Overview
+                        href: vision/api-ref/Vision/index.md
+                      - name: batchAnalyze
+                        href: vision/api-ref/Vision/batchAnalyze.md
       - name: Classifier API (англ.)
         items:
           - name: gRPC

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/Connector/resume.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Connector/resume.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Connector.resume

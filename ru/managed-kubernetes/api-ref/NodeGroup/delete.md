@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/k8s/api-ref/NodeGroup/delete.md
+sourcePath: en/_api-ref/k8s/v1/api-ref/NodeGroup/delete.md
 ---
 
 # Managed Services for Kubernetes API, REST: NodeGroup.delete

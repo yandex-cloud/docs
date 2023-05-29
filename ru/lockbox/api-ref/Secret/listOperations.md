@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/listOperations.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/listOperations.md
 ---
 
 # Lockbox API, REST: Secret.listOperations
@@ -10,7 +10,7 @@ Lists operations for the specified secret.
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}/operations
+GET https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}/operations
 ```
  
 ## Path parameters {#path_params}

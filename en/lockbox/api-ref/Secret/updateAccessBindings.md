@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/updateAccessBindings.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/updateAccessBindings.md
 ---
 
 # Lockbox API, REST: Secret.updateAccessBindings
@@ -10,7 +10,7 @@ Updates access bindings for the secret.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{resourceId}:updateAccessBindings
+POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

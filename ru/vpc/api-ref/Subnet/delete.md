@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/Subnet/delete.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/delete.md
 ---
 
 # Virtual Private Cloud API, REST: Subnet.delete

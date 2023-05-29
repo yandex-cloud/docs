@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/create.md
+sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/create.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.create

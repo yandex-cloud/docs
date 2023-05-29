@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/api-ref/index.md
+sourcePath: en/_api-ref/certificatemanager/v1/api-ref/index.md
 ---
 
 # Certificate Manager API: REST reference

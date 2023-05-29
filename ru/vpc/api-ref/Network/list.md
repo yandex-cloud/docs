@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/Network/list.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/Network/list.md
 ---
 
 # Virtual Private Cloud API, REST: Network.list

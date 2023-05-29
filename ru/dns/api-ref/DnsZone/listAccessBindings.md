@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dns/api-ref/DnsZone/listAccessBindings.md
+sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/listAccessBindings.md
 ---
 
 # Cloud DNS API, REST: DnsZone.listAccessBindings

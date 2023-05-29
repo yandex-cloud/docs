@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/redis/api-ref/ResourcePreset/get.md
+sourcePath: en/_api-ref/mdb/redis/v1/api-ref/ResourcePreset/get.md
 ---
 
 # Managed Service for Redis API, REST: ResourcePreset.get

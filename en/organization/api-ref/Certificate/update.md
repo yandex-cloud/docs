@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/Certificate/update.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Certificate/update.md
 ---
 
 # Cloud Organization SAML API, REST: Certificate.update

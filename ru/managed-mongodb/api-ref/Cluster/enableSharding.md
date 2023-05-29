@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/enableSharding.md
+sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/enableSharding.md
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.enableSharding

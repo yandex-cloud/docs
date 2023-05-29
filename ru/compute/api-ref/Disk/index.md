@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Disk/index.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Disk/index.md
 ---
 
 # Compute Cloud API, REST: Disk methods

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/User/update.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/update.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: User.update

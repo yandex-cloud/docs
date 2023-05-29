@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/Cluster/listUILinks.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/listUILinks.md
 ---
 
 # Data Proc API, REST: Cluster.listUILinks

@@ -87,7 +87,7 @@
 
             Если указанный объект находится в списке исключенных таблиц или коллекций в настройках эндпоинта-источника, или имя объекта введено некорректно, трансфер завершится с ошибкой. Работающий трансфер типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} завершится сразу, незапущенный трансфер — в момент активации.
 
-       * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}** — правила преобразований данных. Эта настройка появляется только если источник и приемник имеют разные типы. Выберите **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** или **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**. 
+       * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}** — правила [преобразований данных](../concepts/data-transformation.md). Эта настройка появляется только если источник и приемник имеют разные типы.
             * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** — настройки переименования таблиц:
                 * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.original_name.title }}**:
                     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}** — схема именования в зависимости от типа источника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
@@ -95,7 +95,7 @@
                 * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.new_name.title }}**:
                     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}** — схема именования в зависимости от типа приемника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
                     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}** — новое имя таблицы в приемнике.
-            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}** — настройки переноса столбцов:
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}** — настройки переноса столбцов. Если для трансфера заданы и переименование таблиц, и фильтр колонок, то в фильтре колонок должны быть указаны исходные имена таблиц в источнике. Имена таблиц и колонок указываются с помощью регулярных выражений. Списки исключенных таблиц и колонок при конфликте с включенными имеют приоритет.
                 * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.tables.title }}**:
                     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.include_tables.title }}** — имена таблиц, для которых будут действовать настройки переноса столбцов.
                     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.exclude_tables.title }}** — имена таблиц, для которых настройки переноса столбцов действовать не будут.
@@ -251,7 +251,7 @@
 
             Если указанный объект находится в списке исключенных таблиц или коллекций в настройках эндпоинта-источника, или имя объекта введено некорректно, трансфер завершится с ошибкой. Работающий трансфер типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} завершится сразу, незапущенный трансфер — в момент активации.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}** — правила преобразований данных. Эта настройка появляется только если источник и приемник имеют разные типы. Выберите **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** или **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**.
+        * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}** — правила [преобразований данных](../concepts/data-transformation.md). Эта настройка появляется только если источник и приемник имеют разные типы.
             * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}** — настройки переименования таблиц:
                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.original_name.title }}**:
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}** — схема именования в зависимости от типа источника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
@@ -259,13 +259,13 @@
                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.new_name.title }}**:
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}** — схема именования в зависимости от типа приемника. Например, схема для {{ PG }} или база данных для {{ MY }}. Если источник не поддерживает абстракции схемы или базы данных, как например в {{ ydb-short-name }}, оставьте поле пустым.
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}** — новое имя таблицы в приемнике.
-            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}** — настройки переноса столбцов:
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}** — настройки переноса столбцов. Если для трансфера заданы и переименование таблиц, и фильтр колонок, то в фильтре колонок должны быть указаны исходные имена таблиц в источнике. Имена таблиц и колонок указываются с помощью регулярных выражений. Списки исключенных таблиц и колонок при конфликте с включенными имеют приоритет.
                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.tables.title }}**:
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.include_tables.title }}** — имена таблиц, для которых будут действовать настройки переноса столбцов.
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.exclude_tables.title }}** — имена таблиц, для которых настройки переноса столбцов действовать не будут.
                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.columns.title }}**:
                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.include_columns.title }}** — имена столбцов в списке включенных таблиц, которые должны переноситься.
-                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}** — имена столбцов в списке включенных таблиц, которые переноситься не должны.    
+                   * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}** — имена столбцов в списке включенных таблиц, которые переноситься не должны.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI

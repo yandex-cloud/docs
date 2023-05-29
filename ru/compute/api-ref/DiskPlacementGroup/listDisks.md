@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/DiskPlacementGroup/listDisks.md
+sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/listDisks.md
 ---
 
 # Compute Cloud API, REST: DiskPlacementGroup.listDisks

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/setAccessBindings.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/setAccessBindings.md
 ---
 
 # Cloud Organization API, REST: Organization.setAccessBindings

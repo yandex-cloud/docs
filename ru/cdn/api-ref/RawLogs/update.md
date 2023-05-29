@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/api-ref/RawLogs/update.md
+sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/update.md
 ---
 
 # Cloud CDN API, REST: RawLogs.update

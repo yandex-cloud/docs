@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/list.md
+sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/list.md
 ---
 
 # API Gateway Service, REST: ApiGateway.list

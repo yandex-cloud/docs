@@ -1,6 +1,6 @@
 You can assign roles to service accounts using the REST API:
 
-1. Get the ID of the folder with service accounts.
+1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder with service accounts.
 1. Get a list of folder service accounts to find out their IDs:
 
    ```bash

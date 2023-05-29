@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/Cluster/start.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/start.md
 ---
 
 # Data Proc API, REST: Cluster.start

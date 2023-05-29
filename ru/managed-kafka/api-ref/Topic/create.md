@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/Topic/create.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Topic/create.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Topic.create

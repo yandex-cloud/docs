@@ -1,31 +1,24 @@
 # Installing the {{ alb-name }} Ingress controller
 
-To balance the load and distribute traffic between {{ k8s }} applications, use an {{ alb-full-name }} [Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md). It runs the load balancer and the necessary auxiliary resources when the user creates an `Ingress` resource in a {{ managed-k8s-name }} cluster.
+To balance the load and distribute traffic between {{ k8s }} applications, use an {{ alb-full-name }} [Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md). It runs the load balancer and the required auxiliary resources when the user creates an `Ingress` resource in a {{ managed-k8s-name }} cluster.
 
-## Before you begin {#before-you-begin}
-
-1. {% include [k8s-ingress-controller-create-cluster](../../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
-
-1. {% include [k8s-ingress-controller-create-node-group](../../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-### Creating a service account {#create-sa-key}.
-
-1. [Create a service account](../../../iam/operations/sa/create.md) for the Ingress controller to run.
-1. [Assign it the roles](../../../iam/operations/sa/assign-role-for-sa.md):
+1. [Create a service account](../../../iam/operations/sa/create.md) for the Ingress controller to run and [assign the following roles to it](../../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `vpc.publicAdmin`: To manage [external connectivity](../../../vpc/security/index.md#roles-list).
    * `certificate-manager.certificates.downloader`: To use certificates registered in [{{ certificate-manager-full-name }}](../../../certificate-manager/).
    * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in balancer [target groups](../../../application-load-balancer/concepts/target-group.md).
-1. Create an [authorized key](../../../iam/operations/sa/create-access-key.md) and save it to a file named `key.json`:
+1. Create a [static access key](../../../iam/operations/sa/create-access-key.md) for the service account in JSON format and save it to the `sa-key.json` file:
 
    ```bash
    yc iam key create \
      --service-account-name <name of service account for Ingress controller> \
-     --output sa-key.json
+     --format=json > sa-key.json
    ```
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
@@ -38,7 +31,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    * **Application name**: Enter an application name.
    * **Folder ID**: Specify a [folder ID](../../../resource-manager/operations/folder/get-id.md).
    * **Cluster ID**: Specify a [cluster ID](../kubernetes-cluster/kubernetes-cluster-list.md).
-   * **Service account key**: Paste the contents of the `sa-key.json` file.
+   * **Secret Key**: Paste the contents of the `sa-key.json` file.
 1. Click **Install**.
 
 ## Installation using a Helm chart {#install-alb-helm}
@@ -57,7 +50,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 ### Installation using a Helm chart {#helm-install}
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress controller, run the commands:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress controller, run these commands:
 
    
    ```bash

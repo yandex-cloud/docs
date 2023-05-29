@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datasphere/api-ref/Project/open.md
+sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/open.md
 ---
 
 # DataSphere API v2, REST: Project.open

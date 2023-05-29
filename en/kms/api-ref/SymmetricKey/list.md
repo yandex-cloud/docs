@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/list.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/list.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.list
@@ -10,7 +10,7 @@ Returns the list of symmetric KMS keys in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-kms }}/kms/v1/keys
+GET https://kms.{{ api-host }}/kms/v1/keys
 ```
  
 ## Query parameters {#query_params}

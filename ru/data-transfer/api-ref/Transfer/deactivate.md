@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/deactivate.md
+sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/deactivate.md
 ---
 
 # Data Transfer API, REST: Transfer.deactivate
@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/deactivate.md
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-data-transfer }}/v1/transfer/{transferId}:deactivate
+POST https://datatransfer.{{ api-host }}/v1/transfer/{transferId}:deactivate
 ```
  
 ## Path parameters {#path_params}

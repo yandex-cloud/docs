@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/clickhouse/api-ref/User/update.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/update.md
 ---
 
 # Managed Service for ClickHouse API, REST: User.update

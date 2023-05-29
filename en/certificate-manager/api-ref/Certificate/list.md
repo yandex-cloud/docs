@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/list.md
+sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/list.md
 ---
 
 # Certificate Manager API, REST: Certificate.list
@@ -10,7 +10,7 @@ Returns the list of certificates in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates
+GET https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates
 ```
  
 ## Query parameters {#query_params}

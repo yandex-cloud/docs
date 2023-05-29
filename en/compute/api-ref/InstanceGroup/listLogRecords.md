@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/listLogRecords.md
+sourcePath: en/_api-ref/compute/v1/api-ref/InstanceGroup/listLogRecords.md
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.listLogRecords

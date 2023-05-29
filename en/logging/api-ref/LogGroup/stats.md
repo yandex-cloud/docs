@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/logging/api-ref/LogGroup/stats.md
+sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/stats.md
 ---
 
 # Cloud Logging Service, REST: LogGroup.stats

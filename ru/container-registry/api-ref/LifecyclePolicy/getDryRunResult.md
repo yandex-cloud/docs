@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/getDryRunResult.md
+sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/getDryRunResult.md
 ---
 
 # Container Registry API, REST: LifecyclePolicy.getDryRunResult

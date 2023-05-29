@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/triggers/triggers/api-ref/Trigger/create.md
+sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/create.md
 ---
 
 # Cloud Functions Triggers Service, REST: Trigger.create
@@ -276,6 +276,9 @@ POST https://serverless-triggers.{{ api-host }}/triggers/v1/triggers
         "string"
       ],
       "resourceId": [
+        "string"
+      ],
+      "streamName": [
         "string"
       ],
       "levels": [
@@ -605,6 +608,7 @@ rule.<br>logging | **object** <br>`rule` includes only one of the fields `timer`
 rule.<br>logging.<br>logGroupId | **string**<br><p>Log events filter settings.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>logging.<br>resourceType[] | **string**<br><p>The maximum number of elements is 100. Each value must match the regular expression ``[a-zA-Z][-a-zA-Z0-9_.]{1,62}``.</p> 
 rule.<br>logging.<br>resourceId[] | **string**<br><p>The maximum number of elements is 100. Each value must match the regular expression ``[a-zA-Z][-a-zA-Z0-9_.]{1,62}``.</p> 
+rule.<br>logging.<br>streamName[] | **string**<br><p>The maximum number of elements is 100. Each value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 rule.<br>logging.<br>levels[] | **string**<br><p>The maximum number of elements is 10.</p> <ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
 rule.<br>logging.<br>batchSettings | **object**<br>Required. Batch settings for processing log events.
 rule.<br>logging.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/Job/cancel.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/cancel.md
 ---
 
 # Data Proc API, REST: Job.cancel

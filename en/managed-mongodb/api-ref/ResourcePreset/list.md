@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mongodb/api-ref/ResourcePreset/list.md
+sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/ResourcePreset/list.md
 ---
 
 # Managed Service for MongoDB API, REST: ResourcePreset.list

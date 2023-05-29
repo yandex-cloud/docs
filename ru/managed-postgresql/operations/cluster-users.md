@@ -47,6 +47,8 @@ description: "Из статьи вы узнаете, как добавлять �
 
 ## Добавить пользователя {#adduser}
 
+{% include [public-privilege](../../_includes/mdb/mpg/public-privilege.md) %}
+
 {% list tabs %}
 
 - Консоль управления

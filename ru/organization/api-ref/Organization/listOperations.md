@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/listOperations.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/listOperations.md
 ---
 
 # Cloud Organization API, REST: Organization.listOperations

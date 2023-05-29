@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/containers/containers/api-ref/Container/listRevisions.md
+sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/listRevisions.md
 ---
 
 # Serverless Containers Service, REST: Container.listRevisions
@@ -91,7 +91,7 @@ filter | <p>A filter expression that filters resources listed in the response.</
         // end of the list of possible fields`revisions[].logOptions`
 
       },
-      "s3Mounts": [
+      "storageMounts": [
         {
           "bucketId": "string",
           "prefix": "string",
@@ -148,9 +148,9 @@ revisions[].<br>logOptions.<br>disabled | **boolean** (boolean)<br><p>Is logging
 revisions[].<br>logOptions.<br>minLevel | **string**<br>Minimum log entry level.  See [LogLevel.Level] for details.<br><ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
 revisions[].<br>logOptions.<br>logGroupId | **string** <br>`revisions[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to log group resolved by ID.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
 revisions[].<br>logOptions.<br>folderId | **string** <br>`revisions[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
-revisions[].<br>s3Mounts[] | **object**<br><p>S3 mounts to be used by the version.</p> 
-revisions[].<br>s3Mounts[].<br>bucketId | **string**<br><p>Required. S3 bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
-revisions[].<br>s3Mounts[].<br>prefix | **string**<br><p>S3 bucket prefix for mounting.</p> 
-revisions[].<br>s3Mounts[].<br>mountPointName | **string**<br><p>Required. Mount point directory name (not path) for mounting.</p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
-revisions[].<br>s3Mounts[].<br>readOnly | **boolean** (boolean)<br><p>Is mount read only.</p> 
+revisions[].<br>storageMounts[] | **object**<br><p>S3 mounts to be used by the version.</p> 
+revisions[].<br>storageMounts[].<br>bucketId | **string**<br><p>Required. S3 bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
+revisions[].<br>storageMounts[].<br>prefix | **string**<br><p>S3 bucket prefix for mounting.</p> 
+revisions[].<br>storageMounts[].<br>mountPointName | **string**<br><p>Required. Mount point directory name (not path) for mounting.</p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
+revisions[].<br>storageMounts[].<br>readOnly | **boolean** (boolean)<br><p>Is mount read only.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/serverless/containers/api-ref/Container/listRevisions#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/serverless/containers/api-ref/Container/listRevisions#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/startFailover.md
+sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/startFailover.md
 ---
 
 # Managed Service for MySQL API, REST: Cluster.startFailover

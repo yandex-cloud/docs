@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mysql/api-ref/User/list.md
+sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/list.md
 ---
 
 # Managed Service for MySQL API, REST: User.list

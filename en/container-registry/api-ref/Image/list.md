@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/api-ref/Image/list.md
+sourcePath: en/_api-ref/containerregistry/v1/api-ref/Image/list.md
 ---
 
 # Container Registry API, REST: Image.list

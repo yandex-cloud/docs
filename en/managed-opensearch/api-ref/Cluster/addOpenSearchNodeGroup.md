@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/opensearch/api-ref/Cluster/addOpenSearchNodeGroup.md
+sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/addOpenSearchNodeGroup.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.addOpenSearchNodeGroup

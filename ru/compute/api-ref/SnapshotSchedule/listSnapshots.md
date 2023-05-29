@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/SnapshotSchedule/listSnapshots.md
+sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/listSnapshots.md
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.listSnapshots

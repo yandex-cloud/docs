@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/api-ref/index.md
+sourcePath: en/_api-ref/containerregistry/v1/api-ref/index.md
 ---
 
 # Container Registry API: REST reference

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/addVersion.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/addVersion.md
 ---
 
 # Lockbox API, REST: Secret.addVersion
@@ -10,7 +10,7 @@ Adds new version based on a previous one.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:addVersion
+POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}:addVersion
 ```
  
 ## Path parameters {#path_params}

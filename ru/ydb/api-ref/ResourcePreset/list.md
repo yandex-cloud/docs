@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ydb/api-ref/ResourcePreset/list.md
+sourcePath: en/_api-ref/ydb/v1/api-ref/ResourcePreset/list.md
 ---
 
 # Managed Service for YDB API, REST: ResourcePreset.list

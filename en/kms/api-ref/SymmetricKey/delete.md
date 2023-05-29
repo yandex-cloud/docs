@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/delete.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/delete.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.delete
@@ -12,7 +12,7 @@ requests, but can be restored within 72 hours with a request to tech support.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://{{ api-host-kms }}/kms/v1/keys/{keyId}
+DELETE https://kms.{{ api-host }}/kms/v1/keys/{keyId}
 ```
  
 ## Path parameters {#path_params}

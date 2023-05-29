@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/delete.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/delete.md
 ---
 
 # Lockbox API, REST: Secret.delete
@@ -10,7 +10,7 @@ Deletes the specified secret.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}
+DELETE https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}
 ```
  
 ## Path parameters {#path_params}

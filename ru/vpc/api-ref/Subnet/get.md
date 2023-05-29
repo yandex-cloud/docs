@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/Subnet/get.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/get.md
 ---
 
 # Virtual Private Cloud API, REST: Subnet.get

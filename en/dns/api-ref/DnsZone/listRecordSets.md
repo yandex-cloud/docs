@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dns/api-ref/DnsZone/listRecordSets.md
+sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/listRecordSets.md
 ---
 
 # Cloud DNS API, REST: DnsZone.listRecordSets

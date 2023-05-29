@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/listPasswords.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listPasswords.md
 ---
 
 # IoT Core Broker Service, REST: Broker.listPasswords

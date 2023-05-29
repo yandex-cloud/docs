@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/GpuCluster/list.md
+sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/list.md
 ---
 
 # Compute Cloud API, REST: GpuCluster.list

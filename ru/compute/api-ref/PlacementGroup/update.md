@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/PlacementGroup/update.md
+sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/update.md
 ---
 
 # Compute Cloud API, REST: PlacementGroup.update

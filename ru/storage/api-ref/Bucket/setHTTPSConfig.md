@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/storage/api-ref/Bucket/setHTTPSConfig.md
+sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/setHTTPSConfig.md
 ---
 
 # Object Storage API, REST: Bucket.setHTTPSConfig

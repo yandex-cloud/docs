@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/billing/api-ref/Sku/list.md
+sourcePath: en/_api-ref/billing/v1/api-ref/Sku/list.md
 ---
 
 # Billing API, REST: Sku.list

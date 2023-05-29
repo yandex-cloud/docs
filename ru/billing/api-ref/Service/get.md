@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/billing/api-ref/Service/get.md
+sourcePath: en/_api-ref/billing/v1/api-ref/Service/get.md
 ---
 
 # Billing API, REST: Service.get

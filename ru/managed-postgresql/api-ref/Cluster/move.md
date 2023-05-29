@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/move.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/move.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.move

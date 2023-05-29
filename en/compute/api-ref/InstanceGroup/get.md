@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/get.md
+sourcePath: en/_api-ref/compute/v1/api-ref/InstanceGroup/get.md
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.get
@@ -62,7 +62,8 @@ view | <p>Defines which information about the Instance template should be return
         // end of the list of possible fields`instanceTemplate.bootDiskSpec.diskSpec`
 
       },
-      "diskId": "string"
+      "diskId": "string",
+      "name": "string"
     },
     "secondaryDiskSpecs": [
       {
@@ -80,7 +81,8 @@ view | <p>Defines which information about the Instance template should be return
           // end of the list of possible fields`instanceTemplate.secondaryDiskSpecs[].diskSpec`
 
         },
-        "diskId": "string"
+        "diskId": "string",
+        "name": "string"
       }
     ],
     "networkInterfaceSpecs": [
@@ -333,6 +335,7 @@ instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>preserveAfterInstanceDelete |
 instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceTemplate.<br>bootDiskSpec.<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression ``[-a-zA-Z0-9._{}]*``.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>name | **string**<br><p>When set can be later used to change DiskSpec of actual disk.</p> <p>The maximum string length in characters is 128.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[] | **object**<br><p>Array of secondary disks that will be attached to the instance.</p> <p>The maximum number of elements is 3.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>mode | **string**<br><p>Required. Access mode to the Disk resource.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access.</li> </ul> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>deviceName | **string**<br><p>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> <p>Value must match the regular expression ``\|[a-z][-_0-9a-z]{0,19}``.</p> 
@@ -344,6 +347,7 @@ instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>preserveAfterInstance
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** <br>`instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression ``[-a-zA-Z0-9._{}]*``.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>name | **string**<br><p>When set can be later used to change DiskSpec of actual disk.</p> <p>The maximum string length in characters is 128.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>Required. Array of network interfaces that will be attached to the instance.</p> <p>Must contain exactly 1 element.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>networkId | **string**<br><p>ID of the network.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>subnetIds[] | **string**<br><p>IDs of the subnets.</p> 

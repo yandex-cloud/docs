@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/devices/api-ref/DeviceData/index.md
+sourcePath: en/_api-ref/iot/devices/v1/api-ref/DeviceData/index.md
 ---
 
 # IoT Core Service, REST: DeviceData methods

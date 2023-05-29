@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/Gateway/listOperations.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/listOperations.md
 ---
 
 # Virtual Private Cloud API, REST: Gateway.listOperations

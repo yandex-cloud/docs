@@ -1,4 +1,6 @@
-# Получение идентификатора или почты пользователя
+# Получение информации о пользователе
+
+Вы можете узнать идентификатор, почту и другую информацию о пользователях.
 
 {% list tabs %}
 
@@ -32,9 +34,11 @@
 
 - API
 
-  Получите информацию о пользователе (ресурс [UserAccount](../../api-ref/UserAccount/index.md)):
-  * Если вы знаете логин пользователя, используйте метод REST API [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) для ресурса [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md) или вызов gRPC API [YandexPassportUserAccount/GetByLogin](../../api-ref/grpc/yandex_passport_user_account_service.md#GetByLogin).
-  * Если вы знаете идентификатор пользователя, используйте метод REST API [get](../../api-ref/UserAccount/get.md) для ресурса [UserAccount](../../api-ref/UserAccount/index.md) или вызов gRPC API [UserAccountService/Get](../../api-ref/grpc/service_account_service.md#Get).
+  Если вы знаете логин пользователя, воспользуйтесь методом REST API [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) для ресурса [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md) или вызовом gRPC API [YandexPassportUserAccount/GetByLogin](../../api-ref/grpc/yandex_passport_user_account_service.md#GetByLogin).
+  
+  Если вы знаете идентификатор пользователя, воспользуйтесь методом REST API [get](../../api-ref/UserAccount/get.md) для ресурса [UserAccount](../../api-ref/UserAccount/index.md) или вызовом gRPC API [UserAccountService/Get](../../api-ref/grpc/service_account_service.md#Get).
+
+  Чтобы получить информацию о федеративных пользователях, воспользуйтесь методом REST API [listUserAccounts](../../../organization/api-ref/Federation/listUserAccounts) для ресурса [Federation](../../../organization/api-ref/Federation/) или вызовом gRPC API [FederationService/ListUserAccounts](../../../organization/api-ref/grpc/federation_service#ListUserAccounts). Чтобы получить информацию об определенном федеративном пользователе, примените фильтрацию по логину с помощью параметра `filter`.
 
 
 {% endlist %}

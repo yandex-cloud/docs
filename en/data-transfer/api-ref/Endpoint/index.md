@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/index.md
+sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/index.md
 ---
 
 # Data Transfer API, REST: Endpoint methods

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/Subnet/addCidrBlocks.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/addCidrBlocks.md
 ---
 
 # Virtual Private Cloud API, REST: Subnet.addCidrBlocks

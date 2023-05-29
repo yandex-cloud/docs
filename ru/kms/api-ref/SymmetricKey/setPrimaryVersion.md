@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/setPrimaryVersion.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/setPrimaryVersion.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.setPrimaryVersion
@@ -11,7 +11,7 @@ by default for all encrypt/decrypt operations where no version ID is specified.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-kms }}/kms/v1/keys/{keyId}:setPrimaryVersion
+POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:setPrimaryVersion
 ```
  
 ## Path parameters {#path_params}

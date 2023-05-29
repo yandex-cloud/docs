@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/cancelVersionDestruction.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/cancelVersionDestruction.md
 ---
 
 # Lockbox API, REST: Secret.cancelVersionDestruction
@@ -10,7 +10,7 @@ Cancels previously scheduled version destruction, if the version hasn't been des
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:cancelVersionDestruction
+POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}:cancelVersionDestruction
 ```
  
 ## Path parameters {#path_params}

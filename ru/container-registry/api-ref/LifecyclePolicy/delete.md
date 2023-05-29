@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/delete.md
+sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/delete.md
 ---
 
 # Container Registry API, REST: LifecyclePolicy.delete

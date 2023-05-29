@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/apploadbalancer/api-ref/TargetGroup/addTargets.md
+sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/addTargets.md
 ---
 
 # Application Load Balancer API, REST: TargetGroup.addTargets

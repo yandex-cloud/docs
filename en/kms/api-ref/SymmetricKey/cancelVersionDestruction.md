@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/cancelVersionDestruction.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/cancelVersionDestruction.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.cancelVersionDestruction
@@ -10,7 +10,7 @@ Cancels previously scheduled version destruction, if the version hasn't been des
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-kms }}/kms/v1/keys/{keyId}:cancelVersionDestruction
+POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:cancelVersionDestruction
 ```
  
 ## Path parameters {#path_params}

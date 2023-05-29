@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/PlacementGroup/create.md
+sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/create.md
 ---
 
 # Compute Cloud API, REST: PlacementGroup.create
@@ -21,7 +21,14 @@ POST https://compute.{{ api-host }}/compute/v1/placementGroups
   "name": "string",
   "description": "string",
   "labels": "object",
-  "spreadPlacementStrategy": {}
+
+  //  includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
+  "spreadPlacementStrategy": {},
+  "partitionPlacementStrategy": {
+    "partitions": "string"
+  },
+  // end of the list of possible fields
+
 }
 ```
 
@@ -32,7 +39,9 @@ folderId | **string**<br><p>ID of the folder to create a placement group in.</p>
 name | **string**<br><p>Name of the placement group.</p> 
 description | **string**<br><p>Description of the placement group.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
-spreadPlacementStrategy | **object**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains.
+spreadPlacementStrategy | **object**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+partitionPlacementStrategy | **object** <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+partitionPlacementStrategy.<br>partitions | **string** (int64)<br><p>Acceptable values are 2 to 5, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

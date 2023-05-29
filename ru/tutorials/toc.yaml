@@ -448,6 +448,10 @@ items:
         href: datalens/data-from-appmetrica-yc-visualization.md
       - name: Анализ логов {{ objstorage-name }} при помощи {{ datalens-name }}
         href: datalens/storage-logs-analysis.md
+      - name: >-
+          Визуализация данных из {{ tracker-name }} при помощи {{ datalens-name
+          }}
+        href: datalens/data-from-tracker.md
   - name: Интернет вещей
     items:
       - name: Руководства по работе с интернетом вещей

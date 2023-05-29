@@ -62,7 +62,7 @@
 `AddBackendGroupBackend` | Добавление бэкенда в группу бэкендов
 `AddLoadBalancerListener` | Добавление обработчика в балансировщик
 `AddLoadBalancerSniMatch` | Добавление SNI-обработчика в балансировщик
-`AddTargetGroupTargets` | Добавление ВМ в целевую группу
+`AddTargetGroupTargets` | Добавление [ВМ](../../glossary/vm.md) в целевую группу
 `CreateBackendGroup` | Создание группы бэкендов
 `CreateHttpRouter` | Создание HTTP-роутера
 `CreateLoadBalancer` | Создание балансировщика
@@ -161,7 +161,7 @@
 
 Имя события | Описание
 --- | ---
-`CreateDnsZone` | Создание зоны DNS
+`CreateDnsZone` | Создание зоны [DNS](../../glossary/dns.md)
 `DeleteDnsZone` | Удаление зоны DNS
 `SetDnsZoneAccessBindings` | Назначение привязок прав доступа к зоне DNS
 `UpdateDnsZone` | Изменение зоны DNS

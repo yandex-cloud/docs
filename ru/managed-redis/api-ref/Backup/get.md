@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/redis/api-ref/Backup/get.md
+sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Backup/get.md
 ---
 
 # Managed Service for Redis API, REST: Backup.get

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/translate/api-ref/index.md
+sourcePath: en/_api-ref/ai/translate/v2/api-ref/index.md
 ---
 
 # Translate API v2: REST reference

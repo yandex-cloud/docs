@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ydb/api-ref/StorageType/get.md
+sourcePath: en/_api-ref/ydb/v1/api-ref/StorageType/get.md
 ---
 
 # Managed Service for YDB API, REST: StorageType.get

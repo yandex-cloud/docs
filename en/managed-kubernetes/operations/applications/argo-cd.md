@@ -31,7 +31,7 @@ To access the application via `localhost`:
 1. Configure ArgoCD port forwarding onto the local computer:
 
    ```bash
-   kubectl port-forward service/<application name>-argocd-server \
+   kubectl port-forward service/<application_name>-argocd-server \
      --namespace <namespace> 8080:443
    ```
 
@@ -44,16 +44,14 @@ To access the application via `localhost`:
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Argo CD, run the following command:
 
    ```bash
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argoproj/argocd/chart/argo-cd\
-     --version <Helm chart version> \
+   helm pull oci://{{ mkt-k8s-key.yc_argo-cd.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_argo-cd.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
      argo-cd ./argo-cd/
    ```
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/argo-cd#docker-images).
 
 ## See also {#see-also}
 

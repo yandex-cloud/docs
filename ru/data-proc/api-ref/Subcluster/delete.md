@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/Subcluster/delete.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/delete.md
 ---
 
 # Data Proc API, REST: Subcluster.delete

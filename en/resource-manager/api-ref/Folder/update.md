@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/resourcemanager/api-ref/Folder/update.md
+sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/update.md
 ---
 
 # Resource Manager API, REST: Folder.update

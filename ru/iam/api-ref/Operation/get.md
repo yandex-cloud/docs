@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/api-ref/Operation/get.md
+sourcePath: en/_api-ref/iam/v1/api-ref/Operation/get.md
 ---
 
 # Operations API, REST: Operation.get

@@ -35,12 +35,12 @@
 
     1. (Опционально) [Создайте промежуточную виртуальную машину Linux](../../compute/operations/vm-create/create-linux-vm.md) в {{ compute-full-name }} в той же сети, что и кластер {{ mrd-name }} в следующей конфигурации:
 
-        * В блоке **Выбор образа/загрузочного диска** выберите **Операционные системы** → `Ubuntu 20.04`.
-        * В блоке **Сетевые настройки**:
+        * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** → `Ubuntu 20.04`.
+        * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-            * **Публичный адрес** — `Автоматически`.
-            * **Внутренний адрес** — `Автоматически`.
-            * **Группы безопасности** — выберите ту же группу безопасности, что и для кластера {{ mrd-name }}.
+            * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+            * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+            * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — выберите ту же группу безопасности, что и для кластера {{ mrd-name }}.
 
     
     1. Если вы используете группы безопасности {{ vpc-name }}, [настройте их](../../managed-redis/operations/connect/index.md#configuring-security-groups).
@@ -318,8 +318,8 @@
 ## Убедитесь, что дамп полностью восстановлен {#check-data}
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где нужно восстановить кластер.
-1. В списке сервисов выберите **{{ mrd-name }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку [Мониторинг](../../managed-redis/operations/monitoring.md).
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-redis/operations/monitoring.md).
 
 Обратите внимание на график **DB Keys**, отображающий количество ключей, хранящихся в кластере. Если кластер [шардированный](../../managed-redis/concepts/sharding.md), на графике будет выводиться количество ключей в каждом шарде. В этом случае количество ключей в кластере равно суммарному количеству ключей в шардах.
 

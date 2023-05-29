@@ -48,7 +48,7 @@
     
     {% endlist %}
     
-1. Настройте [алиас](../../storage/operations/hosting/own-domain.md) для бакета у своего провайдера DNS или на собственном DNS-сервере.
+1. Настройте [алиас](../../storage/operations/hosting/own-domain.md) для бакета у своего провайдера [DNS](../../glossary/dns.md) или на собственном DNS-сервере.
 
     Например, для домена `www.example.com` необходимо добавить запись:
     

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mysql/api-ref/User/delete.md
+sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/delete.md
 ---
 
 # Managed Service for MySQL API, REST: User.delete

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Extension/delete.md
+sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Extension/delete.md
 ---
 
 # Managed Service for Elasticsearch API, REST: Extension.delete

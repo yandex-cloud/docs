@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/User/update.md
+sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/User/update.md
 ---
 
 # Managed Service for Elasticsearch API, REST: User.update

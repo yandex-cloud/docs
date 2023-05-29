@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/devices/api-ref/Registry/listOperations.md
+sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/listOperations.md
 ---
 
 # IoT Core Service, REST: Registry.listOperations

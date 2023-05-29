@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/User/deleteMembership.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/User/deleteMembership.md
 ---
 
 # Cloud Organization API, REST: User.deleteMembership

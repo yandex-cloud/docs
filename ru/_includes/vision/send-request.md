@@ -1,4 +1,4 @@
-Отправьте запрос с помощью метода [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) и сохраните ответ в файл, например `output.json`:
+Отправьте запрос с помощью метода [batchAnalyze](../../vision/vision/api-ref/Vision/batchAnalyze.md) и сохраните ответ в файл, например `output.json`:
 
 ```bash
 export IAM_TOKEN=CggaATEVAgA...

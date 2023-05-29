@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/create.md
+sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/create.md
 ---
 
 # Managed Service for Elasticsearch API, REST: Cluster.create

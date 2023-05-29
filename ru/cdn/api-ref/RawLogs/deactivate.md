@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/api-ref/RawLogs/deactivate.md
+sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/deactivate.md
 ---
 
 # Cloud CDN API, REST: RawLogs.deactivate

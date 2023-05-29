@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/activate.md
+sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/activate.md
 ---
 
 # Data Transfer API, REST: Transfer.activate
@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/activate.md
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-data-transfer }}/v1/transfer/{transferId}:activate
+POST https://datatransfer.{{ api-host }}/v1/transfer/{transferId}:activate
 ```
  
 ## Path parameters {#path_params}

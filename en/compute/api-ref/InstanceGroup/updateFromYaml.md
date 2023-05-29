@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/updateFromYaml.md
+sourcePath: en/_api-ref/compute/v1/api-ref/InstanceGroup/updateFromYaml.md
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.updateFromYaml

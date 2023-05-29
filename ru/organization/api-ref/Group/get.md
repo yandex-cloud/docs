@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/Group/get.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/get.md
 ---
 
 # Cloud Organization API, REST: Group.get

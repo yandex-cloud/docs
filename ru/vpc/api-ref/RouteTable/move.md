@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/RouteTable/move.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/move.md
 ---
 
 # Virtual Private Cloud API, REST: RouteTable.move

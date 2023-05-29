@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mongodb/api-ref/Database/delete.md
+sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Database/delete.md
 ---
 
 # Managed Service for MongoDB API, REST: Database.delete

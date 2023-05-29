@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/rescheduleMaintenance.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.rescheduleMaintenance

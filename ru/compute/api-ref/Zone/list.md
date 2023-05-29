@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Zone/list.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Zone/list.md
 ---
 
 # Compute Cloud API, REST: Zone.list

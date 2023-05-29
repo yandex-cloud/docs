@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/listOperations.md
+sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/listOperations.md
 ---
 
 # Certificate Manager API, REST: Certificate.listOperations
@@ -10,7 +10,7 @@ Lists operations for the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}/operations
+GET https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/{certificateId}/operations
 ```
  
 ## Path parameters {#path_params}

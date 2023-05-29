@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ydb/api-ref/ResourcePreset/index.md
+sourcePath: en/_api-ref/ydb/v1/api-ref/ResourcePreset/index.md
 ---
 
 # Managed Service for YDB API, REST: ResourcePreset methods

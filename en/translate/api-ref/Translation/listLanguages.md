@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/translate/api-ref/Translation/listLanguages.md
+sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/listLanguages.md
 ---
 
 # Translate API v2, REST: Translation.listLanguages

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/opensearch/api-ref/ResourcePreset/index.md
+sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/ResourcePreset/index.md
 ---
 
 # Managed Service for OpenSearch API, REST: ResourcePreset methods

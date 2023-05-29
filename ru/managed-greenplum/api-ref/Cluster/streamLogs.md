@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/streamLogs.md
+sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/streamLogs.md
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.streamLogs
@@ -24,7 +24,7 @@ clusterId | <p>Required. ID of the Greenplum® cluster.</p> <p>The maximum strin
 Parameter | Description
 --- | ---
 columnFilter | <p>Columns from log table to get in the response. If no columns are specified, entire log records are returned.</p> 
-serviceType | <p>Type of the service to request logs about.</p> <ul> <li>SERVICE_TYPE_UNSPECIFIED: Type is not specified. - GREENPLUM: Greenplum® activity logs.</li> <li>GREENPLUM_POOLER: Greenplum® pooler logs.</li> </ul> 
+serviceType | <p>Type of the service to request logs about.</p> <ul> <li>SERVICE_TYPE_UNSPECIFIED: Type is not specified. - GREENPLUM: Greenplum® activity logs.</li> <li>GREENPLUM_POOLER: Greenplum® pooler logs.</li> <li>GREENPLUM_PXF: Greenplum® PXF service logs.</li> </ul> 
 fromTime | <p>Start timestamp for the logs request.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 toTime | <p>End timestamp for the logs request.</p> <p>If this field is not set, all existing logs are sent as well as the new ones as they appear.</p> <p>In essence it has ``tail -f`` semantics.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 recordToken | <p>Record token. Set <a href="/docs/managed-greenplum/api-ref/Cluster/streamLogs#query_params">recordToken</a> to the [StreamLogs.next_record_token] returned by the previous [StreamLogs] request to start streaming from the next log record.</p> <p>The maximum string length in characters is 100.</p> 

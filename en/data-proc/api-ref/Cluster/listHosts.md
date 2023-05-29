@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/Cluster/listHosts.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/listHosts.md
 ---
 
 # Data Proc API, REST: Cluster.listHosts

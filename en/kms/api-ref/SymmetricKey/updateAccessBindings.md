@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/updateAccessBindings.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/updateAccessBindings.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.updateAccessBindings
@@ -10,7 +10,7 @@ Updates access bindings for the specified key.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-kms }}/kms/v1/keys/{resourceId}:updateAccessBindings
+POST https://kms.{{ api-host }}/kms/v1/keys/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

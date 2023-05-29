@@ -14,9 +14,9 @@ In this article, you will learn how to create a backup of a {{ k8s }} cluster no
 1. [Create a node group backup](#backup).
 1. [Recover a node group of another cluster from a backup](#restore).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -47,7 +47,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    Result:
 
-   ```bash
+   ```text
    access_key:
      id: abcdo12h3j04odg56def
      service_account_id: ajego12h3j03slk16upe
@@ -90,7 +90,7 @@ To back up cluster group data:
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }}
+     --snapshot-location-config region={{ region-id }} \
      --use-restic
    ```
 
@@ -164,7 +164,7 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }}
+     --snapshot-location-config region={{ region-id }} \
      --use-restic
    ```
 

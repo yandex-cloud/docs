@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/create.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/create.md
 ---
 
 # Lockbox API, REST: Secret.create
@@ -10,7 +10,7 @@ Creates a secret in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-lockbox }}/lockbox/v1/secrets
+POST https://lockbox.{{ api-host }}/lockbox/v1/secrets
 ```
  
 ## Body parameters {#body_params}

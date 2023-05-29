@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/api-ref/RawLogs/activate.md
+sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/activate.md
 ---
 
 # Cloud CDN API, REST: RawLogs.activate

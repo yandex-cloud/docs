@@ -316,8 +316,6 @@ You can get the cluster ID with a [list of clusters in the folder](../../managed
 
 Delete the resources you no longer need to avoid paying for them:
 
-Delete the resources you no longer need to avoid paying for them:
-
 {% list tabs %}
 
 * Manually

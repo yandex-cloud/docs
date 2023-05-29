@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/ResourcePreset/get.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/ResourcePreset/get.md
 ---
 
 # Managed Service for PostgreSQL API, REST: ResourcePreset.get

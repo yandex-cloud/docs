@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/devices/api-ref/RegistryData/publish.md
+sourcePath: en/_api-ref/iot/devices/v1/api-ref/RegistryData/publish.md
 ---
 
 # IoT Core Service, REST: RegistryData.publish

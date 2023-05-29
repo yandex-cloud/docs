@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/api-ref/ServiceAccount/listOperations.md
+sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/listOperations.md
 ---
 
 # Identity and Access Management API, REST: ServiceAccount.listOperations

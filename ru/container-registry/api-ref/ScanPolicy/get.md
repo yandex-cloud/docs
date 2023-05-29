@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/api-ref/ScanPolicy/get.md
+sourcePath: en/_api-ref/containerregistry/v1/api-ref/ScanPolicy/get.md
 ---
 
 # Container Registry API, REST: ScanPolicy.get

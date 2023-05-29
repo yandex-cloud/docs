@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/api-ref/CertificateContent/get.md
+sourcePath: en/_api-ref/certificatemanager/v1/api-ref/CertificateContent/get.md
 ---
 
 # Certificate Manager API, REST: CertificateContent.get
@@ -10,7 +10,7 @@ Returns chain and private key of the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-certmanager-certcontent }}/certificate-manager/v1/certificates/{certificateId}:getContent
+GET https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/{certificateId}:getContent
 ```
  
 ## Path parameters {#path_params}

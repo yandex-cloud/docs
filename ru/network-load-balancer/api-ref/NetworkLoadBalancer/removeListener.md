@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/removeListener.md
+sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/removeListener.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.removeListener

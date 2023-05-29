@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/Subnet/update.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/update.md
 ---
 
 # Virtual Private Cloud API, REST: Subnet.update

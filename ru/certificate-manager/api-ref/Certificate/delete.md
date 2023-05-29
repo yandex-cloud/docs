@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/delete.md
+sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/delete.md
 ---
 
 # Certificate Manager API, REST: Certificate.delete
@@ -10,7 +10,7 @@ Deletes the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}
+DELETE https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/{certificateId}
 ```
  
 ## Path parameters {#path_params}

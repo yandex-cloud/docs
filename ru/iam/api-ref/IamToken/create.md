@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/api-ref/IamToken/create.md
+sourcePath: en/_api-ref/iam/v1/api-ref/IamToken/create.md
 ---
 
 # Identity and Access Management API, REST: IamToken.create

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Image/listOperations.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Image/listOperations.md
 ---
 
 # Compute Cloud API, REST: Image.listOperations

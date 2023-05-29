@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/devices/api-ref/Device/get.md
+sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/get.md
 ---
 
 # IoT Core Service, REST: Device.get

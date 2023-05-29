@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/Backup/delete.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Backup/delete.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Backup.delete

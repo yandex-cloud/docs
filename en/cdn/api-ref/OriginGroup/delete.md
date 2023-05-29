@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/api-ref/OriginGroup/delete.md
+sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/delete.md
 ---
 
 # Cloud CDN API, REST: OriginGroup.delete

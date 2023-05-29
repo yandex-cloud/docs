@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/streamLogs.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/streamLogs.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.streamLogs
@@ -24,7 +24,7 @@ clusterId | <p>Required. Required. ID of the ClickHouse cluster.</p> <p>The maxi
 Parameter | Description
 --- | ---
 columnFilter | <p>Columns from logs table to get in the response.</p> 
-serviceType | <ul> <li>CLICKHOUSE: Logs of ClickHouse activity.</li> </ul> 
+serviceType | <p>Required.</p> <ul> <li>CLICKHOUSE: Logs of ClickHouse activity.</li> </ul> 
 fromTime | <p>Start timestamp for the logs request.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 toTime | <p>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has ``tail -f`` semantics.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 recordToken | <p>Record token. Set <a href="/docs/managed-clickhouse/api-ref/Cluster/streamLogs#query_params">recordToken</a> to the ``nextRecordToken`` returned by a previous StreamLogs request to start streaming from next log record.</p> <p>The maximum string length in characters is 100.</p> 
