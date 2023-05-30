@@ -151,7 +151,7 @@ To enable the export of logs to the `bucket-logs` bucket:
          * Enter the cluster name `s3-logs`.
          * Select the version 21.3 LTS.
 
-      1. Under **Host class**, select the type of virtual machine **burstable** and the **b2.nano** host type.
+      1. Under **Host class**, select the type of virtual machine **burstable** and the **b2.medium** host type.
       1. Under **Storage size**, keep the value of 10 GB.
       1. Under **Database**, enter the DB name `s3_data`, the username `user` and the password. Remember the database name.
       1. Under **Hosts**, click ![pencil](../../_assets/pencil.svg). Enable **Public access** and click **Save**.
@@ -186,7 +186,7 @@ To enable the export of logs to the `bucket-logs` bucket:
          --environment production \
          --network-name <network name> \
          --host type=clickhouse,zone-id=<availability zone>,subnet-id=<subnet ID> \
-         --clickhouse-resource-preset b2.nano \
+         --clickhouse-resource-preset b2.medium \
          --clickhouse-disk-type {{ disk-type-example }} \
          --clickhouse-disk-size 10 \
          --user name=user,password=<user password> \
@@ -209,7 +209,7 @@ To enable the export of logs to the `bucket-logs` bucket:
 
         clickhouse {
           resources {
-            resource_preset_id = "b2.nano"
+            resource_preset_id = "b2.medium"
             disk_type_id       = "{{ disk-type-example }}"
             disk_size          = 10
           }

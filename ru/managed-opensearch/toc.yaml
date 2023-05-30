@@ -17,6 +17,8 @@ items:
         href: operations/cluster-stop.md
       - name: Изменение настроек кластера
         href: operations/update.md
+      - name: Изменение версии {{ OS }}
+        href: operations/cluster-version-update.md
       - name: Настройка SAML-аутентификации
         href: operations/saml-authentication.md
       - name: Настройка доступа к {{ objstorage-name }}

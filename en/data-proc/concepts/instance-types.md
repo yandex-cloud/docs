@@ -15,10 +15,11 @@ Hosts in {{ dataproc-name }} clusters are deployed on {{ compute-full-name }} VM
 
 The full list of possible host configurations on each platform is provided below.
 
+{% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
+
 | Host class name | Number of CPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------|------------------------|---------|----------------------|
 | **Intel Broadwell** |
-| b1.small | 2 | 20% | 4 | 20 - 8184 |
 | g1.small | 8 | 100% | 96 | 20 - 8184 |
 | m1.micro | 2 | 100% | 16 | 20 - 8184 |
 | m1.small | 4 | 100% | 32 | 20 - 8184 |
@@ -35,7 +36,6 @@ The full list of possible host configurations on each platform is provided below
 | s1.large | 16 | 100% | 64 | 20 - 8184 |
 | s1.xlarge | 32 | 100% | 128 | 20 - 8184 |
 | **Intel Cascade Lake** |
-| b2.small | 2 | 20% | 4 | 20 - 8184 |
 | b2.medium | 2 | 50% | 4 | 20 - 8184 |
 | m2.micro | 2 | 100% | 16 | 20 - 8184 |
 | m2.small | 4 | 100% | 32 | 20 - 8184 |

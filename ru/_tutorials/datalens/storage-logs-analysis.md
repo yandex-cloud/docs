@@ -151,7 +151,7 @@
         * Укажите имя кластера `s3-logs`.
         * Выберите версию 21.3 LTS.
 
-     1. В блоке **Класс хоста** выберите тип виртуальной машины **burstable** и тип хоста **b2.nano**.
+     1. В блоке **Класс хоста** выберите тип виртуальной машины **burstable** и тип хоста **b2.medium**.
      1. В блоке **Размер хранилища** оставьте значение 10 ГБ.
      1. В блоке **База данных** укажите имя БД `s3_data`, имя пользователя `user` и пароль. Запомните имя БД.  
      1. В блоке **Хосты** нажмите значок ![pencil](../../_assets/pencil.svg). Включите опцию **Публичный доступ** и нажмите кнопку **Сохранить**.
@@ -186,7 +186,7 @@
         --environment production \
         --network-name <имя сети> \
         --host type=clickhouse,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-        --clickhouse-resource-preset b2.nano \
+        --clickhouse-resource-preset b2.medium \
         --clickhouse-disk-type {{ disk-type-example }} \
         --clickhouse-disk-size 10 \
         --user name=user,password=<пароль пользователя> \
@@ -209,7 +209,7 @@
 
        clickhouse {
          resources {
-           resource_preset_id = "b2.nano"
+           resource_preset_id = "b2.medium"
            disk_type_id       = "{{ disk-type-example }}"
            disk_size          = 10
          }

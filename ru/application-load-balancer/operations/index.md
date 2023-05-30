@@ -20,6 +20,7 @@ description: "Пошаговые инструкции по работе с {{ al
 ## HTTP-роутеры {#http-router-operations}
 
 * [{#T}](http-router-create.md)
+* [{#T}](http-router-create-grpc.md)
 * [{#T}](http-router-update.md)
 * [{#T}](http-router-delete.md)
 
@@ -27,6 +28,10 @@ description: "Пошаговые инструкции по работе с {{ al
 
 * [{#T}](application-load-balancer-create.md)
 * [{#T}](application-load-balancer-update.md)
+* [{#T}](application-load-balancer-get-stats.md)
+* [{#T}](application-load-balancer-get-logs.md)
+* [{#T}](application-load-balancer-manage-logs.md)
+* [{#T}](application-load-balancer-get-log-group-id.md)
 * [{#T}](application-load-balancer-stop-and-start.md)
 * [{#T}](application-load-balancer-delete.md)
 

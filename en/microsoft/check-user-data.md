@@ -34,9 +34,9 @@ To check and update user details, follow these steps:
 
 1. Select a billing account in whose cloud you use a Microsoft product and go to the **Overview** page.
 
-1. Make sure that the **Payer information** section contains up-to-date user details. If the details are outdated or incomplete, click **Edit data in Yandex Balance**. A page for editing payer details opens.
+1. Make sure that the **Payer information** section contains up-to-date user details. If the details are outdated or incomplete, click **Edit data in Yandex Balance**. This will open the page for editing payer details.
 
-1. Update the details. For more information, see [Help for Yandex Balance](https://yandex.ru/support/balance/operations/change-data.html).
+1. Update the details. For more information, see the [Yandex Balance documentation](https://yandex.ru/support/balance/operations/change-data.html).
 
-When deploying the product in the future, you will not need to provide the details again.
+When deploying the product moving forward, you will not need to provide the details again.
 

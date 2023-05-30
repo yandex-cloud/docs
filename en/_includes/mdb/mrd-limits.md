@@ -12,7 +12,7 @@
 
 | Type of limit | Minimum value | Maximum value |
 |:----------------------------------------------------------------------------------------------------------|:--------------------------------------|:--------------------------------------------------|
-| Host class | b1.nano (`burstable` with 2 GB RAM) | hm3-c32-m512 (32 vCPU Intel Ice Lake, 512 GB RAM) |
+| Host class | b2.medium (`burstable` with 4 GB RAM) | hm3-c32-m512 (32 vCPU Intel Ice Lake, 512 GB RAM) |
 | Number of hosts in an unsharded cluster | 1 or 3 depending on the [disk type](../../managed-redis/concepts/storage.md#storage-type-selection) | 7 |
 | Number of shards in a sharded cluster | 3 | 10 |
 | Number of hosts in a shard when using SSD network storage | 1 | 7 |

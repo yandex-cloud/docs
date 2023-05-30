@@ -11,7 +11,7 @@
 
 | Limits | Minimum value | Maximum value |
 | :------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------- |
-| Host class | b1.nano (2 × [5%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 2 GM RAM) | m3-c80-m640 (80 vCPU Intel Cascade Lake, 640 GB RAM) |
+| Host class | b1.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 4 GB RAM) | m3-c80-m640 (80 vCPU Intel Cascade Lake, 640 GB RAM) |
 | Number of hosts in a cluster when using HDD network or SSD network storage | 1 | 7 |
 | Number of hosts in a cluster when storing data on non-replicated or local SSDs | 3 | 7 |
 | Amount of data on the host when using SSD network storage | 10 GB | 4096 GB |

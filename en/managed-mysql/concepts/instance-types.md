@@ -24,6 +24,8 @@ Hosts in {{ mmy-name }} clusters are deployed on {{ compute-full-name }} VMs. Yo
 
 The full list of possible host configurations on each platform is provided below.
 
+{% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
+
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3.md) %}
 
 {% include [additional-types](../../_includes/mdb/additional-instance-types.md) %}
@@ -31,8 +33,6 @@ The full list of possible host configurations on each platform is provided below
 | Host class name | Number of vCPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|-----------------|------------------------|---------|----------------------|
 | **Intel Broadwell** |
-| b1.nano | 2 | 5% | 2 | 10 - 25 |
-| b1.micro | 2 | 20% | 2 | 10 - 50 |
 | b1.medium | 2 | 50% | 4 | 10 - 512 |
 | s1.micro | 2 | 100% | 8 | 10 - 8184 |
 | s1.small | 4 | 100% | 16 | 10 - 8184 |
@@ -40,8 +40,6 @@ The full list of possible host configurations on each platform is provided below
 | s1.large | 16 | 100% | 64 | 10 - 8184 |
 | s1.xlarge | 32 | 100% | 128 | 10 - 8184 |
 | **Intel Cascade Lake** |
-| b2.nano | 2 | 5% | 2 | 10 - 25 |
-| b2.micro | 2 | 20% | 2 | 10 - 50 |
 | b2.medium | 2 | 50% | 4 | 10 - 512 |
 | m2.micro | 2 | 100% | 16 | 10 - 8184 |
 | m2.small | 4 | 100% | 32 | 10 - 8184 |

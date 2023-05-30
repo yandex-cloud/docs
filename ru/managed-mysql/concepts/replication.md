@@ -8,8 +8,6 @@
 
 {% endnote %}
 
-{% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
-
 ## Управление схемой репликации {#replication}
 
 ### Рекомендуемая конфигурация кластера {#replication-auto}

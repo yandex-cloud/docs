@@ -815,10 +815,7 @@
    200 × <number of vCPUs per host>
    ```
 
-   Hosts with a guaranteed vCPU share under 100% (`burstable`) use fixed maximum values.
-
-   - `b1.nano`, `b1.micro`, `b2.nano`, `b2.micro` — `100`.
-   - `b1.medium`, `b2.medium` — `200`.
+   Hosts with a guaranteed vCPU share under 100% (`burstable`) use the fixed maximum value — `200`.
 
    By default, the maximum value is used.
 

@@ -11,8 +11,6 @@ To establish a quorum, at least half of the cluster replicas must participate. I
 
 The quorum is established anew when the cluster topology changes: after [adding](../operations/hosts.md#add) and [deleting](../operations/hosts.md#remove) hosts, their failure, withdrawal for maintenance, return to service, etc. The host added to the cluster is first synchronized with the master host and only then can participate in the quorum.
 
-{% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
-
 For more information about how replication works in {{ PG }}, read the [DBMS documentation](https://www.postgresql.org/docs/current/static/warm-standby.html).
 
 ## Managing replication {#replication}

@@ -7,8 +7,11 @@ description: "You can add rules using the management console, CLI, and {{ vpc-na
 
 You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
+{% endnote %}
 
 {% list tabs %}
 
@@ -118,7 +121,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 

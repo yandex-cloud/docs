@@ -24,7 +24,7 @@
 
 {% note info %}
 
-Шардирование [не поддерживается](../concepts/sharding.md#shard-management) для хостов с классами **b1.nano**, **b1.micro**, **b1.medium**, **b2.nano**, **b2.micro** и **b2.medium**. Если у вас нет вкладки **Шарды**, [повысьте класс хостов кластера](update.md#change-resource-preset) до поддерживаемого.
+Шардирование [не поддерживается](../concepts/sharding.md#shard-management) для хостов с классами **b1.medium** и **b2.medium**. Если у вас нет вкладки **Шарды**, [повысьте класс хостов кластера](update.md#change-resource-preset) до поддерживаемого.
 
 {% endnote %}
 

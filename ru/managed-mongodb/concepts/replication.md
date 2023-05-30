@@ -4,8 +4,6 @@
 
 При [переключении первичной реплики](../operations/stepdown.md) вручную {{ MG }} автоматически выберет новую из доступных хостов.
 
-{% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
-
 Подробнее о том, как организована репликация в {{ MG }}, читайте в [документации СУБД](https://docs.mongodb.com/manual/replication/).
 
 ## Отказоустойчивость {#Fault-tolerance}

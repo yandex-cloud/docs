@@ -7,8 +7,6 @@ With {{ mch-name }}, you can use one of the following mechanisms to manage repli
 
 This lets you use [replicated tables](#replicated-tables) in a cluster with multiple hosts in a [shard](./sharding.md). At the same time, replication is managed automatically.
 
-{% include [Non replicated hosts](../../_includes/mdb/non-replicating-hosts.md) %}
-
 ## {{ CK }} {#ck}
 
 {% include [ClickHouse Keeper preview note](../../_includes/mdb/mch/note-ck-preview.md) %}

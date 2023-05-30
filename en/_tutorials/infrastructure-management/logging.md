@@ -60,11 +60,15 @@ To create a network:
 
 ## Create security groups {#create-security-groups}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
+{% endnote %}
+
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that:
-* Let the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic.
-* Let the load balancer send logs to the log group and the {{ PG }} cluster receive the logs from it.
+* Allow the load balancer to receive incoming traffic and redirect it to the VMs so they can receive the traffic.
+* Allow the load balancer to send logs to the log group and the {{ PG }} cluster, to receive the logs from it.
 
 Three security groups will be created in the use case: for the load balancer, all VMs, and the cluster.
 
@@ -88,7 +92,7 @@ To create security groups:
          | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
          | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
          | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
+         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | N/A |
 
          1. Select the **Outgoing traffic** or **Incoming traffic** tab.
          1. Click **Add rule**.
@@ -140,11 +144,11 @@ To create a cluster and a database:
 
       * Specify the `Intel Cascade Lake` platform.
       * Select the `burstable` type.
-      * Specify the `b2.nano` class.
+      * Specify the `b2.medium` class.
 
       {% note warning %}
 
-      The `b2.nano` class was only selected as part of testing. In real projects, it isn't recommended to use hosts with a guaranteed vCPU share under 100%.
+      The `b2.medium` class was only selected as part of testing. In real projects, it isn't recommended to use hosts with a guaranteed vCPU share under 100%.
 
       {% endnote %}
 
@@ -271,7 +275,7 @@ To create an instance group:
 
 {% endlist %}
 
-It may take several minutes to create an instance group. Once created, the group's [status](../../compute/concepts/instance-groups/statuses.md#group-statuses) changes to `RUNNING`and the [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses) of all of its VMs to `RUNNING_ACTUAL`.
+It may take a few minutes to create an instance group. Once created, the group [status](../../compute/concepts/instance-groups/statuses.md#group-statuses) will change to `RUNNING`, and the [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses) of all its VMs, to `RUNNING_ACTUAL`.
 
 ![ig-running](../../_assets/application-load-balancer/tutorials/virtual-hosting/ig-running.png)
 
@@ -363,7 +367,7 @@ To get the log group ID:
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   Run the following command:
+   Run this command:
 
    ```bash
    yc alb load-balancer get alb-logging-balancer | grep log_group_id
@@ -444,7 +448,7 @@ To create a function:
                   '\'{backend_ip}\', {request_processing_times[request_time]});'
               ).format(**alb_message)
 
-              if verboseLogging: 
+              if verboseLogging:
                   logger.info(f'Exec: {insert_statement}')
               try:
                   cursor.execute(insert_statement)
@@ -499,7 +503,7 @@ To create a function:
       1. On the **Shell** tab, find a sample connection string.
       1. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **Value** field of the function environment variables.
 
-   1. In the upper-right corner, click **Create version**.
+   1. In the top-right corner, click **Create version**.
 
 {% endlist %}
 
@@ -575,7 +579,7 @@ To create a trigger:
 
    {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To shut down the load balancer and stop paying for the created resources:
 

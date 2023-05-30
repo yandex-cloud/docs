@@ -25,8 +25,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost for bucket support includes:
 
-* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
-* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
+* Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
+* Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
 
 
 
@@ -127,13 +127,13 @@ The cost for bucket support includes:
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
-   1. In the **Object read access**, **Object listing access** and **Read access to settings** fields, select **Restricted**.
+   1. In the **Object read access**, **Object listing access** and **Read access to settings** fields, select **Limited**.
    1. Click **Create bucket**.
 
 - AWS CLI
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
-   1. Create a bucket specifying the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming):
+   1. Enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
 
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
@@ -150,7 +150,7 @@ The cost for bucket support includes:
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. Add the section with the bucket parameters to the configuration file specifying the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming):
+   1. Add a section with bucket parameters to the configuration file and enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
 
       ```hcl
       resource "yandex_storage_bucket" "<bucket_name>" {
@@ -217,24 +217,24 @@ The cost for bucket support includes:
 
 {% note info %}
 
-If needed, you can run an advanced connection setup. For this, at the `Edit advanced config?` prompt, enter `y` in the terminal. For more about advanced settings, see the [documentation page](https://rclone.org/s3/) of the `rclone` utility.
+If required, you can run an advanced connection setup. For this, at the `Edit advanced config?` prompt, enter `y` in the terminal. For more information about advanced settings, see the `rclone` [documentation](https://rclone.org/s3/).
 
 {% endnote %}
 
 ## Mount a bucket {#bucket-mount}
 
-1. Check the connection to the bucket. In the same terminal where you configured your connection, run the command specifying the bucket name:
+1. Check the connection to the bucket. In the same terminal where you configured your connection, run the following command with the bucket name specified:
 
    ```powershell
    rclone.exe ls s3-connect:<bucket_name>
    ```
 
-   If the configuration is set up correctly, the objects in the bucket are listed in the console.
+   If the configuration is set up correctly, the objects in the bucket will be listed in the console.
 
-1. Mount the bucket to the file system specifying the bucket name and the disk letter:
+1. Mount the bucket to the file system specifying the bucket name and an available drive letter in the file system:
 
    ```powershell
-   rclone.exe mount s3-connect:<bucket_name> <disk letter>: --vfs-cache-mode full
+   rclone.exe mount s3-connect:<bucket_name> <drive_letter>: --vfs-cache-mode full
    ```
 
    You will see a new disk with the objects from the bucket in Windows Explorer.
@@ -252,8 +252,8 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
      <id>rclone</id>
      <name>rclone-s3-disk</name>
      <description>This service maps an S3 bucket as a system drive.</description>
-     <executable>"<path to the working directory>\rclone.exe"</executable>
-     <arguments>mount s3-connect:bucket-for-win <disk letter>: --vfs-cache-mode full</arguments>
+     <executable>"<working_directory_path>\rclone.exe"</executable>
+     <arguments>mount s3-connect:<bucket_name> <drive_letter>: --vfs-cache-mode full</arguments>
      <log mode="roll" />
      <onfailure action="restart" />
    </service>
@@ -283,5 +283,5 @@ You can also set up the service to start on behalf of the system user (for more 
 
 To stop paying for the resources you created:
 
-* [Delete objects](../../storage/operations/objects/delete-all.md) from the bucket.
-* [Delete](../../storage/operations/buckets/delete.md) the bucket.
+* [Delete the objects](../../storage/operations/objects/delete-all.md) from the bucket.
+* [Delete the bucket](../../storage/operations/buckets/delete.md).

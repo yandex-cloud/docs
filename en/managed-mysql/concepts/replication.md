@@ -8,8 +8,6 @@ You can change the number of replicas required for a transaction to complete in 
 
 {% endnote %}
 
-{% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
-
 ## Managing replication procedures {#replication}
 
 ### Recommended cluster configuration {#replication-auto}
