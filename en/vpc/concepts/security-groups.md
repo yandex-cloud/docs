@@ -5,7 +5,11 @@ description: "Security groups allow you to manage VM access to resources and sec
 
 # Security groups
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 Security groups allow you to manage [VM](../../compute/concepts/vm.md) access to resources and {{ yandex-cloud }} security groups or resources on the internet. A security group is assigned to the network interface when creating or updating a VM and should contain rules for receiving and sending traffic. You can assign multiple security groups to each VM.
 
@@ -18,7 +22,7 @@ You can learn how to create a security group [here](../operations/security-group
 
 ## Security group rules {#rules}
 
-Security group rules define the protocols and [IP addresses](address.md) for receiving and sending traffic. If you assigned multiple security groups to the VM network interface, rules from all groups are taken into account. In this case, a VM may receive traffic that falls under at least one of the rules in the assigned groups.
+Security group rules define the protocols and [IP addresses](address.md) for receiving and sending traffic. If you assigned multiple security groups to the VM network interface, rules from all groups are factored in. In this case, a VM may receive traffic that falls under at least one of the rules in the assigned groups.
 
 Rules store session statuses. Security groups monitor the status of connections and map response traffic to an already open session to allow traffic receipt.
 
@@ -36,7 +40,7 @@ If a security group only contains a rule for outgoing traffic and no rules for i
 
 If two VMs are in the same security group with no rules, they will not be able to exchange traffic. To enable VMs in the same group to transfer traffic between one another, you can:
 * Use the `Self` rule for the entire group.
-* In the rules, specify the IP addresses and ports of the resources required.
+* Specify the IP addresses and ports of the required resources in the rules.
 
 ### Protocols {#protocols}
 
@@ -56,7 +60,7 @@ You can specify a particular IP address in the rules using CIDR with the `/32` m
 
 To allow traffic to be sent to any IP addresses over any protocols, specify CIDR `0.0.0.0` with the `/0` mask and set `Any` in the protocol selection field.
 
-Security groups do not block the sending of traffic to IP addresses of services required for the operation of the VM and [virtual network](network.md#network):
+Security groups do not block sending traffic to the IP addresses of services required for the VM and [virtual network](network.md#network) operation:
 * Metadata server address: `169.254.169.254`.
 * [DNS server](network.md#subnet) address: Second [internal IP address](address.md#internal-addresses) (usually, `x.x.x.2`) in each subnet.
 

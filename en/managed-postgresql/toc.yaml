@@ -109,6 +109,8 @@ items:
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
+              - name: Before June 20, 2023
+                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
       - name: Network in {{ mpg-name }}

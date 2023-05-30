@@ -51,6 +51,8 @@ items:
             items:
               - name: До 1 июня 2020 года
                 href: concepts/instance-types-archive/instance-types-01062020.md
+              - name: До 20 июня 2023 года
+                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
       - name: Сеть в Managed Service for MySQL

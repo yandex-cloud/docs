@@ -1,6 +1,10 @@
 # Deleting a rule from a security group
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -89,13 +93,13 @@
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a rule created with {{ TF }} from a security group:
 
    1. Open the {{ TF }} configuration file and delete the `ingress` or `egress` section from the security group description:
 
-      {% cut "Sample description of a security group with rules in a {{ TF }}configuration" %}
+      {% cut "Sample description of a security group with rules in a {{ TF }} configuration" %}
 
       ```hcl
       ...

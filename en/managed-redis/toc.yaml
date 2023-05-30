@@ -52,7 +52,13 @@ items:
       - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
-        href: concepts/instance-types.md
+        items:
+          - name: Active host classes
+            href: concepts/instance-types.md
+          - name: Archive
+            items:
+              - name: Before June 20, 2023
+                href: concepts/instance-types-archive/instance-types-20062023.md
       - name: Network in Managed Service for Redis
         href: concepts/network.md
       - name: Sharding

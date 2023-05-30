@@ -198,7 +198,7 @@ The infrastructure support cost includes:
   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ CH }} cluster**.
   1. Specify the settings for a {{ CH }} cluster:
      1. Under **General parameters**, enter the cluster name `trail-logs`.
-     1. Under **Host class**, select **burstable** as the [virtual machine](../compute/concepts/vm.md) type and **b2.nano** as the [host type](../managed-clickhouse/concepts/instance-types.md).
+     1. Under **Host class**, select **burstable** as the [virtual machine](../compute/concepts/vm.md) type and **b2.medium** as the [host type](../managed-clickhouse/concepts/instance-types.md).
      1. Under **Database**, enter the DB name `trail_data`, the username `user` and the password. Remember the database name.
      1. Under **Hosts**, click ![pencil](../_assets/pencil.svg). Enable **Public access** and click **Save**.
      1. Under **Additional settings**, enable the following options:
@@ -224,7 +224,7 @@ The infrastructure support cost includes:
        --environment production \
        --network-name <network_name> \
        --host type=clickhouse,zone-id=<availability_zone>,subnet-id=<subnet_ID> \
-       --clickhouse-resource-preset b2.nano \
+       --clickhouse-resource-preset b2.medium \
        --clickhouse-disk-type network-hdd \
        --clickhouse-disk-size 10 \
        --user name=user,password=<user_password> \
@@ -248,7 +248,7 @@ The infrastructure support cost includes:
 
        clickhouse {
          resources {
-           resource_preset_id = "b2.nano"
+           resource_preset_id = "b2.medium"
            disk_type_id       = "network-hdd"
            disk_size          = 10
          }
