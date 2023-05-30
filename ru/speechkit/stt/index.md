@@ -62,6 +62,7 @@ _Распознавание речи (speech-to-text — STT)_ — это пр�
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](streaming.md)
+* [{#T}](eou.md)
 * [{#T}](normalization.md)
 * [{#T}](request.md)
 * [{#T}](transcribation.md)

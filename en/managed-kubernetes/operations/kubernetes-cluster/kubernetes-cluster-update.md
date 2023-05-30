@@ -12,6 +12,10 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
 * [Update](../../concepts/release-channels-and-updates.md#updates) policy.
 * List of [security groups](../connect/security-groups.md).
 
+  Security groups are at the [Preview stage](../../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+
+  To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
+
   {% note alert %}
 
   Do not delete the security groups bound to a running cluster as this might result in disruptions in its operation and data loss.
@@ -54,7 +58,7 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
        --security-group-ids <security group ID list>
      ```
 
-     You can change the following settings:
+     Where:
      * `--new-name`: Cluster name.
      * `--description`: Cluster description.
      * `--service-account-id`, `--service-account-name`: Service account for managing the cluster.
@@ -78,11 +82,11 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
 
      For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
   1. Edit the required parameters in the {{ k8s }} cluster description.
-  1. Make sure that the configuration files are valid.
+  1. Make sure the configuration files are valid.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the update of resources.
+  1. Confirm the resources have been updated.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -113,15 +117,14 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
   ```
 
-  Command result:
+  Result:
 
   ```bash
   done (1s)
   id: abcd123ef4ghi567j8k9
   folder_id: l1m01nopqr1st2uvwxy1
-  created_at: "2019-11-20T11:26:36Z"
-  name: k8s-demo
-  description: My test Kubernetes cluster
+  ...
+  description: My test {{ k8s }} cluster
   labels:
     new_label: test_label
   ...
@@ -129,7 +132,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
 
 {% endlist %}
 
-### Updating a label {#update-label}
+### Editing a label {#update-label}
 
 {% list tabs %}
 
@@ -147,15 +150,14 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
   ```
 
-  Command result:
+  Result:
 
   ```bash
   done (1s)
   id: abcd123ef4ghi567j8k9
   folder_id: l1m01nopqr1st2uvwxy1
-  created_at: "2019-11-20T11:26:36Z"
-  name: k8s-demo
-  description: My test Kubernetes cluster
+  ...
+  description: My test {{ k8s }} cluster
   labels:
     test_label: my_k8s_label
   ...
@@ -175,7 +177,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label
   ```
 
-  Command result:
+  Result:
 
   ```bash
   done (1s)
@@ -183,7 +185,6 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   folder_id: b1g88tflru0ek1omtsu0
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test Kubernetes cluster
   ...
   ```
 

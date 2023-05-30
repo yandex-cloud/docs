@@ -7,26 +7,40 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Подключение к базе данных
-        href: operations/connect.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
-      - name: SQL-запросы в консоли управления
-        href: operations/web-sql-query.md
-      - name: Обновление версии PostgreSQL
-        href: operations/cluster-version-update.md
-      - name: Изменение настроек кластера и базы данных
-        href: operations/update.md
-      - name: Подключение к DataLens
-        href: operations/datalens-connect.md
-      - name: Управление хостами PostgreSQL
-        href: operations/hosts.md
-      - name: Управление базами данных
-        href: operations/databases.md
+      - name: Работа с кластерами
+        items:
+          - name: Получение информации об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Изменение настроек {{ PG }}-кластера
+            href: operations/update.md
+          - name: Управление хостами PostgreSQL
+            href: operations/hosts.md
+          - name: Управление слотами репликации
+            href: operations/replication-slots.md
+          - name: Управление резервными копиями
+            href: operations/cluster-backups.md
+          - name: Обновление версии PostgreSQL
+            href: operations/cluster-version-update.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Работа с базами данных
+        items:
+          - name: Подключение к базе данных
+            href: operations/connect.md
+          - name: SQL-запросы в консоли управления
+            href: operations/web-sql-query.md
+          - name: Управление базами данных
+            href: operations/databases.md
+      - name: Работа с пользователями
+        items:
+          - name: Управление пользователями БД
+            href: operations/cluster-users.md
+          - name: Назначение привилегий и ролей
+            href: operations/grant.md
       - name: Расширения PostgreSQL
         items:
           - name: Управление расширениями
@@ -37,22 +51,16 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
-      - name: Управление пользователями БД
-        href: operations/cluster-users.md
-      - name: Назначение привилегий и ролей
-        href: operations/grant.md
-      - name: Управление резервными копиями
-        href: operations/cluster-backups.md
-      - name: Просмотр логов кластера
-        href: operations/cluster-logs.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
-      - name: Диагностика производительности
-        href: operations/performance-diagnostics.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
-      - name: Управление слотами репликации
-        href: operations/replication-slots.md
+      - name: Работа с логами и мониторинг
+        items:
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Диагностика производительности
+            href: operations/performance-diagnostics.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
+          - name: Подключение к DataLens
+            href: operations/datalens-connect.md
   - name: Практические руководства
     items:
       - name: Все сценарии

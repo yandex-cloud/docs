@@ -121,7 +121,7 @@ To create a node group:
      * **Non-replicated SSD**: Network drive with enhanced performance achieved by removing redundancy.
 
      For more information about disk types, see the [{{ compute-full-name }} documentation](../compute/concepts/disk.md#disks_types).
-   * Specify the disk size for the group's nodes.
+  * Specify the disk size for the group's nodes.
 1. Under **Network settings**:
    * In the **Public IP** field, choose a method for assigning an IP address:
      * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.

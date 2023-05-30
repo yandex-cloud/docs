@@ -23,6 +23,8 @@ items:
         href: stt/normalization.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
+      - name: Определение конца фразы
+        href: stt/eou.md
   - name: Синтез речи
     items:
       - name: О технологии
