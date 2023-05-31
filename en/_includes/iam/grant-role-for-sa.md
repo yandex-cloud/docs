@@ -45,38 +45,40 @@ In the management console, you can only grant a service account roles to folders
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Required parameter.
-      * `role`: The role assigned. Required parameter.
-      * `member`: User or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
+      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This parameter is required.
+      * `role`: Role being assigned. This parameter is required.
+      * `member`: User or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This parameter is required.
+
+      Example of the configuration file structure:
 
       ```
       resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
         folder_id   = "<folder ID>"
         role        = "<role>"
-        member      = "serviceAccount:<Service account ID>"
+        member      = "serviceAccount:<service account ID>"
       }
       ```
 
-      For more information about the parameters of the `yandex_resourcemanager_folder_iam_member` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_member).
+      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_member).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -84,7 +86,7 @@ In the management console, you can only grant a service account roles to folders
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../cli/quickstart.md) command:
+      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc resource-manager folder list-access-bindings <folder name>|<folder ID>

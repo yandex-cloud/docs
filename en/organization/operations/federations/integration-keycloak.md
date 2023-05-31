@@ -14,7 +14,7 @@ Setting up authentication includes the following steps:
 
 ## Getting started {#before-you-begin}
 
-To use follow the steps in this section, you will need:​
+To follow the steps in this section, you will need:​
 
 1. Docker. If you do not have Docker yet, [install it](https://docs.docker.com/get-docker/). Make sure Docker Engine is running.
 
@@ -162,6 +162,8 @@ To use follow the steps in this section, you will need:​
          {{ link-keycloak-example-old }}/protocol/saml
          ```
 
+      {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
    1. Enable **Automatically create users** to automatically add a new user to your organization after authentication. If this option is disabled, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
 
       {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
@@ -217,10 +219,10 @@ To use follow the steps in this section, you will need:​
          * `organization-id`: Your organization ID.
 
          * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
+       
+          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-            This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
-
-            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
          * `encrypted-assertions`: Flag that enables a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
 
@@ -278,6 +280,8 @@ To use follow the steps in this section, you will need:​
                {{ link-keycloak-example-old }}/protocol/saml
                ```
 
+            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
          * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
 - API
@@ -331,9 +335,10 @@ To use follow the steps in this section, you will need:​
          * `organizationId`: Organization ID.
 
          * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-            This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+           
+           This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+           If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
          * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -390,6 +395,8 @@ To use follow the steps in this section, you will need:​
                ```
                {{ link-keycloak-example-old }}/protocol/saml
                ```
+
+            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
          * `encryptedAssertions`: Flag that enables a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
 
@@ -464,11 +471,14 @@ To use follow the steps in this section, you will need:​
             {{ link-keycloak-example-old }}/protocol/saml
             ```
 
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+        
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
          If the option is enabled, the IDs of federated user names are case-insensitive.
       * `security_settings`: Federation security settings:
@@ -711,7 +721,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
    1. Click **Save**.
 
-1. If you enabled the **Sign authentication requests** option when [creating a federation](#create-federation) in {{ org-full-name }}, set up verifying a digital signature in the SAML application:
+1. If you enabled the **Sign authentication requests** option when [creating a federation](#create-federation) in {{ org-full-name }}, set up digital signature verification in the SAML application:
 
    {% list tabs %}
 
@@ -781,7 +791,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click the arrow next to the **Add user** button and select **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -853,7 +863,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 
 1. Enable the option for mapping the identity provider roles and {{ org-full-name }}:
 
-   1. In the left-hand panel, select **Client Scopes** → **role_list**.
+   1. In the left-hand panel, select **Client Scopes**  →  **role_list**.
 
    1. Go to the **Mappers** tab and select **role list**.
 

@@ -128,5 +128,5 @@ items:
   - name: Query
     href: query/index.yaml
   - name: Облачная терминология
-    href: glossary/index.yaml
+    href: glossary/index.md
 base: ru

@@ -238,7 +238,7 @@
 
     {% endnote %}
 
-  1. Перейдите в сервис [{{org-full-name}}]({{ link-org-main }}).
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
   1. На левой панели выберите раздел [Федерации]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
@@ -420,7 +420,7 @@
 Данные пользователя | Комментарий | Элементы SAML-сообщения
 ------------------- | ----------- | ----------------------
 Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать User Principal Name (UPN) или адрес электронной почты. | `<NameID>`
-Фамилия | Отображается в сервисах {{yandex-cloud}}.<br> Ограничение значения по длине: {{ saml-limit-last-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
+Фамилия | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-last-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
 Имя | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-first-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
 Полное имя | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: Иван Иванов.<br> Ограничение значения по длине: {{ saml-limit-display-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
 Почта | Используется для отправки уведомлений из сервисов {{ yandex-cloud }}.<br>Пример:&nbsp;`ivanov@example.com`.<br> Ограничение значения по длине: {{ saml-limit-email }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`

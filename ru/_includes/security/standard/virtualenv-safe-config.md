@@ -460,7 +460,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
 
      ```bash
-     yc organization-manager organization list  
+     yc organization-manager organization list
      ```
 
   1. Выполните команду для поиска кластеров управляемых БД без включённой защиты от удаления:
@@ -504,7 +504,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
 
      ```bash
-     yc organization-manager organization list  
+     yc organization-manager organization list
      ```
 
   1. Найдите кластеры управляемых БД с включённым доступом из {{ datalens-short-name }}:
@@ -601,7 +601,7 @@ ACL позволяет предоставить доступ к объекту �
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
      do for FUN in $(yc serverless function list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-     do yc serverless function  list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
+     do yc serverless function list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
      done;
      done;
      done
@@ -712,7 +712,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
 
      ```bash
-     yc organization-manager organization list  
+     yc organization-manager organization list
      ```
 
   1. Выполните команду для поиска кластеров управляемых БД с публичным адресом:
@@ -761,7 +761,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
 
      ```bash
-     yc organization-manager organization list  
+     yc organization-manager organization list
      ```
 
   1. Выполните команду для поиска CR без фильтров по IP:
@@ -860,7 +860,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
 
      ```bash
-     yc organization-manager organization list  
+     yc organization-manager organization list
      ```
 
   1. Найдите все сертификаты вашей организации с датой окончания:

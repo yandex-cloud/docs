@@ -1,5 +1,5 @@
 ---
-title: "Что такое OLTP?"
+title: "Знакомство с OLTP: ключевые концепции и сценарии применения"
 description: "OLTP (OnLine Transaction Processing) — это система оперативной обработки транзакций."
 ---
 

@@ -56,6 +56,8 @@ To create a federation:
 
    1. In the **Link to the IdP login page** field, specify the address of the page that the browser redirects the user to for authentication.
 
+      {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
    1. Add an [identity provider certificate](#add-certificate) to the created federation.
 
    1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
@@ -95,13 +97,15 @@ To create a federation:
       * `name`: Federation name. It must be unique within the folder.
       * `organization-id`: Your organization ID.
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-
-         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
       * `sso-url`: URL of the page that the browser redirects the user to for authentication.
+
+        {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
 - API
@@ -128,12 +132,16 @@ To create a federation:
       * `name`: Federation name. It must be unique within the folder.
       * `organizationId`: Organization ID.
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
       * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
+
+        {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
@@ -151,9 +159,13 @@ To create a federation:
       * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
       * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication.
+
+        {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+         
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
@@ -491,7 +503,7 @@ To add federation users to an organization:
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click the arrow next to the **Add user** button and select **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -555,7 +567,7 @@ When you finish configuring the server, check the authentication process:
 
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 
-1. On successful authentication, the server will redirect you back to the management console login link and then to the console's home page. In the top right corner, you will be able to see you are logged in to the console as a federated user.
+1. On successful authentication, the server will redirect you back to the management console login link and then to the console's home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

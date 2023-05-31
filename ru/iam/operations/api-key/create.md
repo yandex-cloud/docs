@@ -10,7 +10,7 @@
 
 - Консоль управления
 
-{% include [create-console](../../../_includes/iam/create-api-key-console.md) %}  
+  {% include [create-console](../../../_includes/iam/create-api-key-console.md) %}  
 
 - CLI
 

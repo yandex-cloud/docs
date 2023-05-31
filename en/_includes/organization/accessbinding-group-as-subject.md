@@ -91,7 +91,7 @@
       resource "yandex_resourcemanager_cloud_iam_member" "admin" {
         cloud_id    = "<cloud_ID>"
         role        = "<role_ID"
-        member     = "group:<group_ID>"
+        members     = "group:<group_ID>"
       }
       ```
 
