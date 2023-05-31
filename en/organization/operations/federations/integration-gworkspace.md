@@ -30,11 +30,11 @@ A SAML application in Google Workspace acts as an identity provider (IdP). Creat
 
 1. Enter the name of the app, select the logo, and click **Continue**.
 
-1. In the **Google IdP information** step, the IdP server data is shown. You'll need this data when [setting up a federation in {{ org-full-name }}](#yc-settings).
+1. In the **Google IdP information** step, the IdP server data is shown. You will need this data when [setting up a federation in {{ org-full-name }}](#yc-settings).
 
 {% note alert %}
 
-Don't close the page where you create an app in Google Workspace: you'll get the necessary configuration data for the **Service provider information** step in [further steps](#add-link).
+Do not close the page where you create an app in Google Workspace: you will get the required configuration data for the **Service provider information** step in [further steps](#add-link).
 
 {% endnote %}
 
@@ -69,6 +69,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
       ```
       https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
       ```
+      {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
    1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
 
@@ -105,8 +106,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
       * `organization-id`: Your organization ID.
 
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-
-         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
@@ -127,6 +127,8 @@ Don't close the page where you create an app in Google Workspace: you'll get the
          ```
          https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
          ```
+
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
       * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
@@ -157,7 +159,8 @@ Don't close the page where you create an app in Google Workspace: you'll get the
       * `organizationId`: Organization ID.
 
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+        
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
@@ -177,6 +180,9 @@ Don't close the page where you create an app in Google Workspace: you'll get the
          ```
          https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
          ```
+
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
@@ -208,11 +214,14 @@ Don't close the page where you create an app in Google Workspace: you'll get the
          https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
          ```
 
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+      
+        This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+        If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
          If the option is enabled, the IDs of federated user names are case-insensitive.
       * `security_settings`: Federation security settings:
@@ -436,7 +445,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click the arrow next to the **Add user** button and select **Add federated users**.
 
    1. Select the identity federation to add users from.
 

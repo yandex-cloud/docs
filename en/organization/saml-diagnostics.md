@@ -59,3 +59,51 @@ No `RelayState` parameter in the IdP server response. This parameter is required
 ## Federation not supported {#federations-not-supported}
 
 This type of identity federations is no longer supported. Contact [support]({{ link-console-support }}).
+
+## Invalid SSO URL protocol {#sso-url-incorrect-scheme}
+
+`Sso url: isn't valid schema. The scheme must be HTTPS or HTTP`
+
+{% list tabs %}
+
+- Management console
+
+   Invalid URL protocol in the **Link to the IdP login page** field. You can only use HTTP and HTTPS.
+
+- CLI
+
+   Invalid URL protocol in the `sso-url` field. You can only use HTTP and HTTPS.
+
+- API
+
+   Invalid URL protocol in the `ssoUrl` field. You can only use HTTP and HTTPS.
+
+- {{ TF }}
+
+   Invalid URL protocol in the `sso_url` field. You can only use HTTP and HTTPS.
+
+{% endlist %}
+
+## Invalid SSO URL {#sso-url-invalid-url}
+
+`Sso url: isn't valid (the link to the IdP login page)`
+
+{% list tabs %}
+
+- Management console
+
+   Invalid URL in the **Link to the IdP login page** field. Please check the URL.
+
+- CLI
+
+   Invalid URL in the `sso-url` field. Please check the URL.
+
+- API
+
+   Invalid URL in the `ssoUrl` field. Please check the URL.
+
+- {{ TF }}
+
+   Invalid URL in the `sso_url` field. Please check the URL.
+
+{% endlist %}

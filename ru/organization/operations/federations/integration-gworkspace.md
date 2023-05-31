@@ -38,7 +38,7 @@
 
 {% endnote %}
 
-## Создание и настройка федерации в {{org-full-name}} {#yc-settings}
+## Создание и настройка федерации в {{ org-full-name }} {#yc-settings}
 
 ### Создайте федерацию {#create-federation}
 

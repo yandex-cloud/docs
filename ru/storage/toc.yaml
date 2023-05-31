@@ -399,6 +399,8 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: update
                     href: api-ref/Bucket/update.md
+  - name: Справочник логов
+    href: logs-ref.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

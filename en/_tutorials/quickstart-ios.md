@@ -27,6 +27,7 @@ If you do not use `{{ captcha-mobile-site }}`, follow these steps:
              method: args[0],
              data: args[1] !== undefined ? args[1] : ""
            };
+
            // Check for a call from WKWebView
            if (window.webkit) {
              window.webkit.messageHandlers.NativeClient.postMessage(message);
@@ -61,11 +62,9 @@ If you do not use `{{ captcha-mobile-site }}`, follow these steps:
    }
    ```
 
-1. Once you get the token from the `captchaDidFinish` method, send a GET request to the server for validation (`https://captcha-api.yandex.ru/validate`) with the following parameters:
+1. Once you get the token from the `captchaDidFinish` method, send a GET request to the server for validation (`https://smartcaptcha.yandexcloud.net/validate`) with the following parameters:
 
-   * `secret`: Key for the server side (you need to get it in advance).
-   * `token`: Token received after the check has been passed.
-   * `ip`: IP address of the user that originated the request to validate the token.
+   {% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
 
 ### `challengeDidAppear` method for invisible CAPTCHA {#challengeDidAppear-method}
 
@@ -91,18 +90,23 @@ webControllerView.reload()
 
    ```swift
    final class WebNativeBridge: NSObject {
+
        private(set) var view: WKWebView?
        private var userContentController = WKUserContentController()
+
        func load(_ request: URLRequest?) {
            guard let request = request else { return }
            view?.load(request)
        }
+
        func reload() {
            view?.reload()
        }
+
        private func close() {
            view?.removeFromSuperview()
        }
+
        private func getConfiguration() -> WKWebViewConfiguration {
            let configuration = WKWebViewConfiguration()
            configuration.userContentController = userContentController
@@ -115,6 +119,7 @@ webControllerView.reload()
 
    ```swift
    private var handlers = [String: WebContentHandlerBase]()
+
        func setup(handlers: [String: WebContentHandlerBase]) {
            handlers.forEach { userContentController.add($1, name: $0) }
            view = WKWebView(frame: .zero, configuration: getConfiguration())
@@ -127,26 +132,32 @@ webControllerView.reload()
    class WebContentHandlerBase: NSObject, WKScriptMessageHandler {
        var handlerName: String { "" }
        func execMethod(name: String, params: Any?...) {}
+
        func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
            guard let jsData = message.body as? [String: String] else { return }
            guard let methodName = jsData["method"] else { return }
            execMethod(name: methodName, params: jsData["data"])
        }
    }
+
    final class CaptchaHandler: WebContentHandlerBase {
        private enum Methods: String {
            case captchaDidFinish
            case challengeDidAppear
            case challengeDidDisappear
        }
+
        override var handlerName: String {
            "NativeClient"
        }
+
        weak var delegate: CaptchaHandlerDelegate?
        private var validator: CaptchaValidatorProtocol
+
        init(_ validator) {
            self.validator = validator
        }
+
        override func execMethod(name: String, params: Any?...) {
            guard let method = Methods(rawValue: name) else { return }
            switch method {
@@ -159,6 +170,7 @@ webControllerView.reload()
                    onChallengeVisible()
            }
        }
+
        private func onSuccess(token: String) {
            validator.validateCaptcha(token: token) { result in
                DispatchQueue.main.async {
@@ -171,9 +183,11 @@ webControllerView.reload()
                }
            }
        }
+
        private func onChallengeVisible() {
            delegate?.onShow()
        }
+
        private func onChallengeHide() {
            delegate?.onHide()
        }
@@ -187,11 +201,13 @@ webControllerView.reload()
        private var host: String
        private var secret: String
        private var session: URLSession
+
        init(host: String, secret: String) {
            self.host = host
            self.secret = secret
            session = URLSession(configuration: .default)
        }
+
        func validateCaptcha(token: String, callback: @escaping (Result<String, Error>) -> Void) {
            guard let url = URL(string: host),
                  var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else
@@ -213,6 +229,7 @@ webControllerView.reload()
            }
            task.resume()
        }
+
        private func getIPAddress() -> String {
            var address: String = ""
            var ifaddr: UnsafeMutablePointer<ifaddrs>? = nil
@@ -222,9 +239,11 @@ webControllerView.reload()
                    defer {
                        ptr = ptr?.pointee.ifa_next
                    }
+
                    let interface = ptr?.pointee
                    let addrFamily = interface?.ifa_addr.pointee.sa_family
                    if addrFamily == UInt8(AF_INET) {
+
                        if String(cString: (interface?.ifa_name)!) == "en0" {
                            var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
                            getnameinfo(interface?.ifa_addr, socklen_t((interface?.ifa_addr.pointee.sa_len)!), &hostname, socklen_t(hostname.count), nil, socklen_t(0), NI_NUMERICHOST)

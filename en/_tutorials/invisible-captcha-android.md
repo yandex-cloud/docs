@@ -24,14 +24,17 @@ To embed [invisible {{ captcha-name }}](../smartcaptcha/concepts/invisible-captc
 
    ```kotlin
    class WebJsInterface {
+
        @JavascriptInterface
        fun onGetToken(token: String) {
            //your code
        }
+
        @JavascriptInterface
        fun onChallengeVisible() {
            //your code
        }
+
        @JavascriptInterface
        fun onChallengeHidden() {
            //your code
@@ -80,11 +83,9 @@ To embed [invisible {{ captcha-name }}](../smartcaptcha/concepts/invisible-captc
 ## Retrieve the CAPTCHA test results {#get-result}
 
 1. Save the token for passing CAPTCHA verification. It is returned in the `onGetToken(token: String)` method once the service handles an attempt.
-1. To validate the token, send a GET request to `https://captcha-api.yandex.ru/validate` with the following parameters:
+1. To validate the token, send a GET request to `https://smartcaptcha.yandexcloud.net/validate` with the following parameters:
 
-   * `secret`: Key for the server part.
-   * `token`: Token received after the check has been passed.
-   * `ip`: IP address of the user that originated the request to validate the token.
+   {% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
 
    {% note info "Note" %}
 
@@ -95,7 +96,7 @@ To embed [invisible {{ captcha-name }}](../smartcaptcha/concepts/invisible-captc
    Sample request:
 
    ```text
-   https://captcha-api.yandex.ru/validate?secret=<server_key>&ip=<user_IP>&token=<token>
+   https://smartcaptcha.yandexcloud.net/validate?secret=<server_key>&ip=<user_IP>&token=<token>
    ```
 
 1. Get a [server response](../smartcaptcha/concepts/validation.md). It contains a JSON object with the `status` and the `message` fields. For example:
