@@ -378,7 +378,7 @@ default:
   iam-token-lifetime: 12 часов
   crt-web-path: https://storage.yandexcloud.net/cloud-certs/CA.pem
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
-  crt-local-file: YandexCA.crt
+  crt-local-file: YandexInternalRootCA.crt
   crt-alias: YandexCA
   mdb-host: mdb.cloud.yandex.net
   dns-zone: mdb.yandexcloud.net

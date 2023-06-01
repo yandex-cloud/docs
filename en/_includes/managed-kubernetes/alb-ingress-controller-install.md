@@ -22,7 +22,6 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    ```
 
 
-
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
@@ -35,7 +34,6 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    * **Cluster ID**: Specify a [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
    * **Secret Key**: Paste the contents of the `sa-key.json` file.
 1. Click **Install**.
-
 
 
 ## Installation using a Helm chart {#install-alb-helm}
@@ -79,5 +77,9 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 ## See also {#see-also}
 
 * [Description of Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in the {{ k8s }} documentation.
+
+
 * [Practical guideline for configuring the {{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+
+
 * [Reference for the {{ alb-name }} Ingress controller](../../application-load-balancer/k8s-ref/index.md).

@@ -1,9 +1,5 @@
 # Как начать работать с {{ mgp-short-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 Чтобы начать работу с сервисом:
 
 1. [Создайте кластер](#cluster-create).
