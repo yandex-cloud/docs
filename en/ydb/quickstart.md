@@ -1,9 +1,5 @@
 # Getting started with {{ ydb-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 In this tutorial, you will create a [{{ ydb-short-name }}](https://ydb.tech/en) database in {{ yandex-cloud }} and run a simple query to it using the {{ yandex-cloud }} [management console]({{ link-console-main }}) or command line tools.
 
 You can also work with a {{ ydb-full-name }} DB through:

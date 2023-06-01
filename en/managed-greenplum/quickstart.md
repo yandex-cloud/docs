@@ -1,9 +1,5 @@
 # Getting started with {{ mgp-short-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 To get started with the service:
 
 1. [Create a cluster](#cluster-create).

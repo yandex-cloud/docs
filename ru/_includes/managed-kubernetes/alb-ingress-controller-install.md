@@ -22,7 +22,6 @@
    ```
 
 
-
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
@@ -35,7 +34,6 @@
    * **Идентификатор кластера** — укажите [идентификатор кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
    * **Secret Key** — вставьте содержимое файла `sa-key.json`.
 1. Нажмите кнопку **Установить**.
-
 
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}
@@ -79,5 +77,9 @@
 ## См. также {#see-also}
 
 * [Описание Ingress-контроллеров](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) в документации {{ k8s }}.
+
+
 * [Практическое руководство по настройке Ingress-контроллера {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+
+
 * [Справочник Ingress-контроллера {{ alb-name }}](../../application-load-balancer/k8s-ref/index.md).

@@ -16,14 +16,15 @@ editable: false
 
 Во время пробного периода техническая поддержка предоставляется в полном объеме. Подробнее читайте в разделе [Порядок оказания технической поддержки](../../../support/overview.md).
 
-## {{ yandex-cloud }} Marketplace {#marketplace}
+## {{ marketplace-full-name }} {#marketplace}
+
 
 Во время пробного периода недоступны некоторые продукты, например:
 * Microsoft SQL Server
 * Windows Server Standard
 * Windows RDS
 
-Полный список доступен в сервисе [{{ marketplace-full-name }}](/marketplace).
+
 
 ## Квоты и лимиты сервисов {#quotes-and-limits}
 

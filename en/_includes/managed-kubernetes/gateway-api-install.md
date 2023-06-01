@@ -11,7 +11,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
    {% include [default-catalogue](../default-catalogue.md) %}
 
 1. {% include [kubectl-install](kubectl-install.md) %}
-1. [Create a service account](../../iam/operations/sa/create.md), which is required for Gateway API:
+1. [Create a service account](../../iam/operations/sa/create.md), which is required for Gateway API.
 1. [Assign it the roles](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
@@ -29,7 +29,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
-1. Click the name of the cluster you need and select the ![Marketplace](../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
+1. Click the name of the cluster you need and select the ![Marketplace](../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
 1. Under **Applications available for installation**, select [Gateway API](/marketplace/products/yc/gateway-api) and click **Use**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) or create a new one.

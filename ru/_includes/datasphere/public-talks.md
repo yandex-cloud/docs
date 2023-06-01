@@ -2,6 +2,12 @@
 
 ## Конференции и вебинары {#conf-and-webinars}
 
+### 2023: Webinar {#webinar-2023}
+
+* {{ ml-platform-full-name }} Dedicated. Выделенный режим работы.
+
+  * [Запись трансляции](https://www.youtube.com/watch?v=U4rxkHKqm2U).
+
 ### 2022: Webinar {#webinar-2022}
 
 * Вебинар о возможностях {{ ml-platform-short-name }} для распределенных ML-команд

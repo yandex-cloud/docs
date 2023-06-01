@@ -51,9 +51,3 @@ Grant terms of use depend on:
 
 
 For more information about [billing accounts](../billing/concepts/billing-account.md) and the [terms and conditions for non-residents of the Russian Federation](../billing/qa/non-resident.md), see the Billing documentation.
-
-
-### Grant for managed databases {#mdb}
-
-{% include [mdb-grant-amount](_includes/mdb-grant-amount.md) %}
-

@@ -29,7 +29,7 @@
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
 1. В разделе **Доступные для установки приложения** выберите [Gateway API](/marketplace/products/yc/gateway-api) и нажмите кнопку **Использовать**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) или создайте новое.

@@ -4,4 +4,4 @@ NYC Taxi and Limousine Commission (TLC):
 
 Данные были собраны и предоставлены NYC Taxi and Limousine Commission (TLC) поставщиками технологий, уполномоченными в рамках Taxicab & Livery Passenger Enhancement Programs (TPEP/LPEP). Данные о поездке не были созданы TLC, и TLC не делает никаких заявлений относительно точности этих данных.
 
-Ознакомьтесь с [Источником датасета](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) и [Правилами его использования](https://www1.nyc.gov/home/terms-of-use.page).
+Ознакомьтесь с [источником](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) датасета и [правилами](https://www1.nyc.gov/home/terms-of-use.page) его использования.

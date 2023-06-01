@@ -1,9 +1,5 @@
 # Getting started with {{ mrd-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 To get started with the service:
 1. [Create a cluster](#cluster-create).
 1. [Connect to the cluster](#connect).
