@@ -56,7 +56,7 @@ In this scenario's examples, the DNS server has the address `10.129.0.3`, the na
 
 ## Configure the DNS server {#setup-dns}
 
-When configuring, it is important that there is IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers can be part of [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/). Next, there is an example when the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`.
+When setting up the configuration, it is important that there is IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers can be part of [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/). The example below assumes that the DNS server has the `10.129.0.3` address and the `ns.example.com` name and serves a zone called `example.com`.
 
 ## Specify a corporate DNS zone {#setup-zone}
 

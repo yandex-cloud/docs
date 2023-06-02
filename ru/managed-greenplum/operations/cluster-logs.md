@@ -70,9 +70,17 @@
 
 - API
 
-    Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) и передайте в запросе:
 
-    Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](../api-ref/Cluster/list.md).
+    * Идентификатор кластера в параметре `clusterId`.
+
+      Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+
+    * Тип сервиса, для которого требуется получить записи, в параметре `serviceType`:
+
+        * `GREENPLUM` — лог операций {{ GP }}.
+        * `GREENPLUM_POOLER` — лог операций пулера соединений.
+        * `GREENPLUM_PXF` — лог протокола [PXF](external-tables.md).
 
 {% endlist %}
 
@@ -98,9 +106,17 @@
 
 - API
 
-    Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и передайте в запросе:
 
-    Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор кластера в параметре `clusterId`.
+
+        Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+
+    * Тип сервиса, для которого требуется получить записи, в параметре `serviceType`:
+
+        * `GREENPLUM` — лог операций {{ GP }}.
+        * `GREENPLUM_POOLER` — лог операций пулера соединений.
+        * `GREENPLUM_PXF` — лог протокола [PXF](external-tables.md).
 
 {% endlist %}
 

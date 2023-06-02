@@ -1,4 +1,4 @@
-# {{ managed-k8s-name }} practical guidelines
+# {{ managed-k8s-name }} tutorials
 
 * [{#T}](new-kubernetes-project.md)
 * [{#T}](container-registry.md)

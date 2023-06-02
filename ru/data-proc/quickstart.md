@@ -85,3 +85,4 @@
 
 * Изучите [концепции сервиса](concepts/index.md).
 * Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [работе с заданиями](operations/jobs.md).
+* [Создайте кластер {{ metastore-full-name }}](operations/metastore/cluster-create.md).

@@ -3,7 +3,7 @@ title: "{{ container-registry-full-name }} use cases"
 description: "Various {{ container-registry-full-name }} use cases in {{ yandex-cloud }}. Running a Docker image on a VM."
 ---
 
-# Practical guidelines {{ container-registry-name }}
+# {{ container-registry-name }} tutorials
 
 * [{#T}](run-docker-on-vm.md)
 

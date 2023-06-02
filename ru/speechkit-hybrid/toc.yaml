@@ -25,8 +25,10 @@ items:
     items:
       - name: Настройки сервиса
         href: settings.md
-      - name: Мониторинг
+      - name: Мониторинг сервисов {{ sk-hybrid-name }}
         href: monitoring.md
+      - name: Мониторинг Envoy
+        href: monitoring-envoy.md
       - name: Уровни логирования
         href: operations/logging.md
       - name: Терминирование TLS

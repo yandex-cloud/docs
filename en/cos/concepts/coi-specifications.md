@@ -71,7 +71,7 @@ Where:
 
 ## Docker Compose specification {#compose-spec}
 
-Instructions for running Docker containers and configuring services are provided in the `docker-compose.yaml` specification file (see [Docker documentation](https://docs.docker.com/compose/compose-file/) for details).
+More information on running Docker containers and configuring services is provided in the `docker-compose.yaml` specification file (see the [Docker documentation](https://docs.docker.com/compose/compose-file/) for details).
 
 For more information about how to run multiple Docker containers, see [{#T}](../tutorials/docker-compose.md).
 
