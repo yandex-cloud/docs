@@ -55,12 +55,12 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
      * `--cores`: The number of vCPUs for the nodes.
      * `--core-fraction`: [reserved vCPU fraction](../../../compute/concepts/performance-levels.md) for nodes.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
-     * `--disk-size`: The [size of the disk](../../../compute/concepts/disk.md#maximum-disk-size) on the node.
+     * `--disk-size`: [Size of the disk](../../../compute/concepts/disk.md#maximum-disk-size) on the node.
      * `--disk-type`: [Type of the disk](../../../compute/concepts/disk.md#disks_types) on the node.
-     * `--fixed-size`: The number of nodes in the node group.
+     * `--fixed-size`: Number of nodes in the node group.
      * `--location`: [Availability zone](../../../overview/concepts/geo-scope.md), [network](../../../vpc/concepts/network.md#network), and [subnet](../../../vpc/concepts/network.md#subnet) to host the nodes on. You can specify several options.
-     * `--memory`: The amount of memory allocated for the nodes.
-     * `--name`: The name of the node group.
+     * `--memory`: Amount of memory allocated for the nodes.
+     * `--name`: Name of the node group.
      * `--network-acceleration-type`: The type of [network acceleration](../../../compute/concepts/software-accelerated-network.md):
        * `standard`: No acceleration.
        * `software-accelerated`: Software-accelerated network.
@@ -72,8 +72,8 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
      * `--container-runtime`: [Container runtime environment](../../concepts/index.md#config), `docker` or `containerd`.
      * `--preemptible`: Flag specified if the VM instances should be [preemptible](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip`: Flag specified if the node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels`: [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) in `<label name>=<label value>` format for VMs representing the group nodes. You can specify multiple labels separated by commas.
-     * `--version`: {{ k8s }} version on group nodes.
+     * `--template-labels`: [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) in `<label name>=<label value>` format for VMs representing the group nodes. You can specify multiple labels separated by commas.
+     * `--version`: Version {{ k8s }} on group nodes.
      * `--node-name`: Node name template. The name is unique if the template contains at least one of the variables:
 
        {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
@@ -84,7 +84,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
 
      Result:
 
-     ```bash
+     ```text
      done (1m17s)
      id: catpl8c44kiibp20u4f3
      cluster_id: catcsqidoos7tq0513us
@@ -112,10 +112,10 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
      * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID as `cluster_id`.
      * Node [platform](../../../compute/concepts/vm-platforms.md).
      * [Container runtime environment](../../concepts/index.md#config) setting in the `container_runtime` parameter.
-     * [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) for VMs representing the group nodes, under `nodeTemplate.labels`.
+     * [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the group nodes, under `nodeTemplate.labels`.
      * Scaling settings under `scale_policy`.
 
-     Example configuration file structure:
+     Example of the configuration file structure:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<node group name>" {
@@ -151,7 +151,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
        * `platform_id`: [Platform](../../../compute/concepts/vm-platforms.md) for nodes.
        * `container_runtime`:
          * `type`: [Container runtime environment](../../concepts/index.md#config) (`docker` or `containerd`).
-       * `labels`: [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) for VMs representing the group nodes. You can specify multiple labels separated by commas.
+       * `labels`: [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the group nodes. You can specify multiple labels separated by commas.
        * `scale_policy`: Scaling settings.
 
      {% note warning %}
@@ -188,12 +188,12 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
        }
        ```
 
-      * To add [DNS records](../../../dns/concepts/resource-record.md):
+     * To add [DNS records](../../../dns/concepts/resource-record.md):
 
-        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
+       {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
-  1. Make sure that the configuration files are valid.
+  1. Make sure the configuration files are valid.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
@@ -203,11 +203,11 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
 
 - API
 
-  Use the [create](../../api-ref/NodeGroup/create.md) API method and pass the following information in the request:
+  Use the [create](../../api-ref/NodeGroup/create.md) API method and include the following information in the request:
   * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Node group configuration](../../concepts/index.md#config) as `nodeTemplate`.
   * [Container runtime environment](../../concepts/index.md#config) in the `nodeTemplate.containerRuntimeSettings.type` parameter.
-  * [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) for VMs representing the group nodes, in the `nodeTemplate.labels` parameter.
+  * [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the group nodes, in the `nodeTemplate.labels` parameter.
   * [Scaling settings](../../concepts/autoscale.md#ca) as `scalePolicy`.
   * Node group [placement settings](../../../overview/concepts/geo-scope.md) as `allocationPolicy`.
   * [Update](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.

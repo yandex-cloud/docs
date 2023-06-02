@@ -41,24 +41,25 @@
   
   1. Посмотрите описание команды CLI для создания шлюза:
 
-      ```
+      ```bash
       yc vpc gateway create --help
       ```
 
   1. Создайте шлюз в каталоге по умолчанию:
 
-     ```
-     yc vpc gateway create --name test-gateway
+     ```bash
+     yc vpc gateway create \
+        --name test-gateway
      ```
   1. Получите идентификатор шлюза:
 
-     ```
+     ```bash
      yc vpc gateway list
      ```
 
      Результат выполнения команды:
 
-     ```
+     ```text
      +----------------------+--------------+-------------+
      |          ID          |     NAME     | DESCRIPTION |
      +----------------------+--------------+-------------+
@@ -68,15 +69,19 @@
 
   1. Создайте таблицу маршрутизации со шлюзом в качестве next hop и префиксом назначения `0.0.0.0/0`:
 
-     ```
-     yc vpc route-table create --name=test-route-table --network-name=<имя сети, в которой создается таблица> --route destination=0.0.0.0/0,gateway-id=enpkq1v2e7p0cmr7e2s0
+     ```bash
+     yc vpc route-table create \
+        --name=test-route-table \
+        --network-name=<имя сети, в которой создается таблица> \
+        --route destination=0.0.0.0/0,`
+                gateway-id=enpkq1v2e7p0cmr7e2s0
      ```
 
   1. Привяжите таблицу к подсети:
 
-     ```
-     yc vpc subnet update <имя подсети> --route-table-name=test-route-table
-
+     ```bash
+     yc vpc subnet update <имя подсети> \
+        --route-table-name=test-route-table
      ```
 
 - API
@@ -91,7 +96,7 @@
   
   Чтобы создать NAT-шлюз, указать его в качестве next hop в таблице [маршрутизации](../concepts/static-routes.md) и привязать таблицу к подсети используйте следующую конфигурацию:
   
-  ```
+  ```hcl
   data "yandex_vpc_network" "net" {
     folder_id = "<идентификатор каталога>"
     name      = "<имя облачной сети>"

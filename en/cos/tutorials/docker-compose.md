@@ -1,8 +1,8 @@
 # Creating a VM from a {{ coi }} with multiple Docker containers
 
-In this tutorial, you'll create a VM with multiple Docker containers from a [{{ coi }}](../concepts/index.md). A VM is created based on the [Docker Compose specification](../concepts/coi-specifications.md#compose-spec).
+In this tutorial, you will create a VM with multiple Docker containers from a [{{ coi }}](../concepts/index.md) image. A VM is created based on the [Docker Compose specification](../concepts/coi-specifications.md#compose-spec).
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
 
@@ -47,6 +47,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
        --name my-vm \
        --zone {{ region-id }}-a \
        --ssh-key ssh-key.pub \
+       --create-boot-disk size=30 \
        --network-interface subnet-name=<subnet name>,nat-ip-version=ipv4 \
        --service-account-name default-sa \
        --docker-compose-file docker-compose.yaml
@@ -56,12 +57,12 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--name`: VM name.
      * `--zone`: Availability zone.
      * `--ssh-key`: Path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file and its name.
+     * `--create-boot-disk size`: Boot disk size. It must be at least 30 GB.
      * `--network-interface`: VM network settings.
      * `--service-account-name`: Name of the service account.
      * `--docker-compose-file`: YAML file with the container specification.
 
      Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
-
   1. Check the results.
      1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
      1. View a list of running Docker containers:

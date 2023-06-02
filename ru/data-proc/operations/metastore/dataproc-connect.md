@@ -1,12 +1,8 @@
----
-noIndex: true
----
-
 # Подключение {{ dataproc-name }} к {{ metastore-name }}
 
 {% note info %}
 
-Для использования сервера {{ metastore-name }} кластер {{ dataproc-name }} должен включать в себя следующий набор компонентов:
+Для использования кластера {{ metastore-name }} кластер {{ dataproc-name }} должен включать в себя следующий набор компонентов:
 
 * `SPARK`;
 * `YARN`;
@@ -18,16 +14,16 @@ noIndex: true
 
 - Консоль управления
 
-    1. [Создайте сервер](./cluster-create.md) {{ metastore-name }}.
+    1. [Создайте кластер](./cluster-create.md) {{ metastore-name }}.
     1. При [создании](../cluster-create.md) или [изменении](../cluster-update.md) кластера {{ dataproc-name }} задайте следующее [свойство](../../concepts/settings-list.md):
 
         ```text
-        spark:spark.hive.metastore.uris=thrift://<IP-адрес {{ metastore-name }}>:{{ port-metastore }}
+        spark:spark.hive.metastore.uris=thrift://<IP-адрес кластера {{ metastore-name }}>:{{ port-metastore }}
         ```
 
-        Чтобы узнать IP-адрес {{ metastore-name }}, перейдите на страницу {{ metastore-name }} в консоли управления. IP-адрес указан в блоке **{{ ui-key.yacloud.common.section-base }}**.
+        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ dataproc-name }}** и на левой панели выберите страницу ![image](../../../_assets/data-proc/metastore.svg) **Metastore-сервер**. IP-адрес кластера указан в блоке **{{ ui-key.yacloud.common.section-base }}**.
 
-    1. Если сервер {{ metastore-name }} и кластер {{ dataproc-name }} расположены в разных облачных сетях, настройте маршрутизацию между этими облачными сетями таким образом, чтобы подсеть {{ metastore-name }} была доступна из подсети {{ dataproc-name }}.
+    1. Если кластеры {{ metastore-name }} и {{ dataproc-name }} расположены в разных облачных сетях, настройте маршрутизацию между этими сетями таким образом, чтобы подсеть {{ metastore-name }} была доступна из подсети {{ dataproc-name }}.
 
         Существует [несколько способов](../../../tutorials/routing/index.md) настройки маршрутизации. Например, можно [создать туннель IPSec](../../../tutorials/routing/ipsec-vpn.md).
 
@@ -40,4 +36,4 @@ noIndex: true
 
 {% endlist %}
 
-Пример использования {{ dataproc-name }} с подключенным {{ metastore-name }} см. в практическом руководстве [{#T}](../../tutorials/dataproc-to-dataproc.md).
+Пример использования {{ dataproc-name }} с подключенным кластером {{ metastore-name }} см. в практическом руководстве [{#T}](../../tutorials/dataproc-to-dataproc.md).

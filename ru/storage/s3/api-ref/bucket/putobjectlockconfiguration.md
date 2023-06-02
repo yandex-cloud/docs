@@ -41,7 +41,8 @@ PUT /{bucket}?object-lock HTTP/2
 
 Элемент | Описание
 ----- | -----
-`ObjectLockEnabled` | <p>Статус механизма блокировок:</p><ul><li>`Enabled` — механизм блокировок включен.</li></ul><p>Если элемент не указан, механизм блокировок выключается, остальные элементы игнорируются.</p><p>Путь: `ObjectLockConfiguration\ObjectLockEnabled`.</p>
+`ObjectLockConfiguration` | <p>Корневой элемент.</p><p>Чтобы выключить механизм блокировок, передайте этот параметр с пустым значением, например `<ObjectLockConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/" />`.</p><p>Путь: `ObjectLockConfiguration`.</p>
+`ObjectLockEnabled` | <p>Статус механизма блокировок:</p><ul><li>`Enabled` — механизм блокировок включен.</li></ul><p>Если элемент не указан, будет выведено сообщение об ошибке `InvalidRequest`, а механизм блокировок не включится.</p><p>Путь: `ObjectLockConfiguration\ObjectLockEnabled`.</p>
 `Rule` | <p>Настройки блокировок.</p><p>Путь: `ObjectLockConfiguration\Rule`.</p>
 `DefaultRetention` | <p>Настройки блокировок по умолчанию.</p><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention`.</p>
 `Mode` | <p>[Тип](../../../concepts/object-lock.md#types) блокировки по умолчанию:</p><ul><li>`GOVERNANCE` — временная управляемая блокировка.</li><li>`COMPLIANCE` — временная строгая блокировка.</li></ul><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`.</p>

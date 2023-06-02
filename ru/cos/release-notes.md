@@ -10,7 +10,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   coi-version: 2.3.14
   ```
 
@@ -24,7 +24,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   Container Optimized Image 2.3.14
   ```
 
@@ -37,7 +37,6 @@
 {% endnote %}
 
 {% include [latest-release](../_includes/cos/latest-release.md) %}
-
 
 
 ## Предыдущие релизы {#previous-releases}

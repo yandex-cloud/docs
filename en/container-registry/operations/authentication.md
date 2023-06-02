@@ -52,7 +52,7 @@ Where:
 
 {% endnote %}
 
-1. If you do not have an OAuth token yet, get one by following this [link]({{ link-cloud-oauth }}).
+1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
 1. Run this command:
 
    ```bash

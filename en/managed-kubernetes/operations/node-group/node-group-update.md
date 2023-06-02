@@ -34,10 +34,10 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
   To change a [node group](../../concepts/index.md#node-group):
   1. Open **{{ managed-k8s-name }}** in the folder where you want to change the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
-  1. Click on the name of the desired cluster.
+  1. Click the name of the cluster you need.
   1. Go to the **Node group** tab.
   1. Click **Edit** in the upper-right corner.
-  1. Change the necessary parameters in the window that opens.
+  1. Change the required parameters in the window that opens.
   1. Click **Save changes**.
 
 - CLI
@@ -73,7 +73,7 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-  * `--template-labels`: Update the [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) in `<label name>=<label value>` format for VMs representing the group nodes. You can specify multiple labels separated by commas.
+  * `--template-labels`: Update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) in `<label name>=<label value>` format for VMs representing the group nodes. You can specify multiple labels separated by commas.
   * `--latest-revision`: Get all available updates for the current version of the [master](../../concepts/index.md#master).
   * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
@@ -110,7 +110,7 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
        }
        ```
 
-     * To update the [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) for VMs representing the group nodes, add an `instance_template.labels` section:
+     * To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the group nodes, add an `instance_template.labels` section:
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<group name>" {
@@ -132,11 +132,11 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
-  1. Make sure that the configuration files are valid.
+  1. Make sure the configuration files are valid.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the update of resources.
+  1. Confirm the resources have been updated.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -148,9 +148,9 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
   To change the [container runtime environment](../../concepts/index.md#config), pass the `docker` or the `containerd` value in the `nodeTemplate.containerRuntimeSettings.type` parameter.
 
-  To update the [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) for VMs representing the group nodes, pass their values in the `nodeTemplate.labels` parameter.
+  To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the group nodes, pass their values in the `nodeTemplate.labels` parameter.
 
-  To update the node name template, pass it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the variables:
+  To update the node name template, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
 
   {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
@@ -200,7 +200,7 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
 ## Managing node group labels {#manage-label}
 
-You can perform the following actions with node group [labels](../../../overview/concepts/services.md#labels):
+You can perform the following actions with node group [labels](../../../resource-manager/concepts/labels.md):
 * [Add](#add-label).
 * [Edit](#update-label).
 * [Delete](#remove-label).
@@ -221,7 +221,7 @@ You can perform the following actions with node group [labels](../../../overview
 
   Result:
 
-  ```bash
+  ```text
   done (28s)
   id: catpl8c44kiibp20u4f3
   cluster_id: catcsqidoos7tq0513us
@@ -246,11 +246,11 @@ You can perform the following actions with node group [labels](../../../overview
      }
      ```
 
-  1. Make sure that the configuration files are valid.
+  1. Make sure the configuration files are valid.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the update of resources.
+  1. Confirm the resources have been updated.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -258,7 +258,7 @@ You can perform the following actions with node group [labels](../../../overview
 
 {% endlist %}
 
-### Updating a label {#update-label}
+### Editing a label {#update-label}
 
 {% list tabs %}
 
@@ -278,7 +278,7 @@ You can perform the following actions with node group [labels](../../../overview
 
   Result:
 
-  ```bash
+  ```text
   done (3s)
   id: catpl8c44kiibp20u4f3
   cluster_id: catcsqidoos7tq0513us
@@ -304,11 +304,11 @@ You can perform the following actions with node group [labels](../../../overview
      }
      ```
 
-  1. Make sure that the configuration files are valid.
+  1. Make sure the configuration files are valid.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the update of resources.
+  1. Confirm the resources have been updated.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -330,7 +330,7 @@ You can perform the following actions with node group [labels](../../../overview
 
   Result:
 
-  ```bash
+  ```text
   done (2s)
   id: catpl8c44kiibp20u4f3
   cluster_id: catcsqidoos7tq0513us
@@ -343,11 +343,11 @@ You can perform the following actions with node group [labels](../../../overview
 
      For more information about creating this file, see [{#T}](node-group-create.md).
   1. In the node group description, delete the labels you no longer need under `labels`.
-  1. Make sure that the configuration files are valid.
+  1. Make sure the configuration files are valid.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the update of resources.
+  1. Confirm the resources have been updated.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

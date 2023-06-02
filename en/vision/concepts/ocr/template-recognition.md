@@ -2,15 +2,75 @@
 
 _Recognition of documents using presets is at the [Preview stage](../../../overview/concepts/launch-stages.md) and is not charged additionally. Its usage is charged [according to the text recognition pricing policy](../../pricing.md)._
 
-You can extract standard fields and recognize the text of presets and documents: passports, driver licenses, and license plate numbers.
+You can extract standard fields and recognize the text of presets and documents: passports, driver licenses, vehicle registration certificates, and license plate numbers.
+
+## Recognition models {#models}
 
 To recognize text in your document, use the `model` parameter of the `text_detection_config` array to specify one of the following recognition models:
 * `passport`: Passport, the main double page spread.
 * `driver-license-front`: Driver's license, the front side.
 * `driver-license-back`: Driver's license, the reverse side.
+* `vehicle-registration-front`: Front side of the vehicle registration certificate.
+* `vehicle-registration-back`: Back side of the vehicle registration certificate.
 * `license-plates`: All the license plate numbers in the image.
 
-Example of a request to recognize the main double page spread of a passport in `body.json`:
+### Countries whose documents can be recognized {#countries}
+
+{% list tabs %}
+
+- Passports
+
+   * Russia
+   * Russia (permanent residency permit)
+   * Azerbaijan
+   * Armenia
+   * Belarus
+   * Germany
+   * Georgia
+   * Israel
+   * Italy
+   * Kazakhstan
+   * Kyrgyzstan
+   * Latvia
+   * Moldavia
+   * Tajikistan
+   * Tunisia
+   * Turkmenistan
+   * Turkey
+   * Uzbekistan
+   * Ukraine
+   * France
+
+- Driver licenses, vehicle registration certificates, and license plate numbers
+
+   * Russia
+   * Azerbaijan
+   * Armenia
+   * Belarus
+   * Germany
+   * Greece
+   * Georgia
+   * Israel
+   * Kazakhstan
+   * Kyrgyzstan
+   * Latvia
+   * Lithuania
+   * Moldavia
+   * Poland
+   * Tajikistan
+   * Turkmenistan
+   * Uzbekistan
+   * Ukraine
+   * Switzerland
+   * Estonia
+
+{% endlist %}
+
+## Example {#example}
+
+### Request to recognize the main double page spread of a passport {#example-query}
+
+`body.json` file:
 
 ```json
 {
@@ -34,6 +94,8 @@ Where:
 * `content`: Image [encoded in Base64](../../operations/base64-encode.md).
 * `language_codes`: [Text language](supported-languages.md). To detect the text language automatically, specify `*`.
 * `model`: Recognition model.
+
+### Response to a request {#example-answer}
 
 For the `passport`, `driver-license-front`, and `driver-license-back` models, an `entities` array is added in the response.
 

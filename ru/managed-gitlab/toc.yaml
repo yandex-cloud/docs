@@ -37,6 +37,8 @@ items:
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Построение пайплайна CI/CD с использованием serverless-продуктов
         href: tutorials/ci-cd-serverless.md
+      - name: Хранение Docker-образов в {{ container-registry-full-name }}
+        href: tutorials/image-storage.md
       - name: Тестирование приложений с помощью {{ GL }}
         href: tutorials/application-testing-with-gitlab.md
       - name: Создание тестовых виртуальных машин через {{ GL }} CI

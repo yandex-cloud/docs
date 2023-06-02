@@ -42652,6 +42652,7 @@ default:
         image:
           label_last-scan-time: Date of last scan
           label_scan-history: Scan history
+          label_scan-status: Scan status
           label_scan-status-READY: Ready
           label_scan-status-RUNNING: Running
           label_start-scan: Scan

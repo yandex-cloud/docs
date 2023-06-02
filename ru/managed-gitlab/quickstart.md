@@ -36,10 +36,10 @@
    1. Перейдите по ссылке, полученной на электронную почту администратора при регистрации инстанса.
    1. Измените пароль для администратора.
    1. Авторизуйтесь с помощью логина и пароля администратора.
-1. [Создайте группу](https://docs.gitlab.com/ee/user/group/#create-a-group), в которой будет размещен ваш проект.
-1. [Создайте пользователя](https://docs.gitlab.com/ee/user/profile/account/create_accounts.html) и [добавьте его в группу](https://docs.gitlab.com/ee/user/group/#add-users-to-a-group).
-1. Создайте SSH-ключ и [присвойте его аккаунту пользователя](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account).
-1. [Создайте пустой проект](https://docs.gitlab.com/ee/user/project/working_with_projects.html#blank-projects), в котором будет размещен ваш репозиторий.
+1. [Создайте группу](https://docs.gitlab.com/ee/user/group/manage.html#create-a-group), в которой будет размещен ваш проект.
+1. [Создайте пользователя](https://docs.gitlab.com/ee/user/profile/account/create_accounts.html) и [добавьте его в группу](https://docs.gitlab.com/ee/user/project/members/#add-users-to-a-project).
+1. [Создайте SSH-ключ](https://docs.gitlab.com/ee/user/ssh.html) и [присвойте его аккаунту пользователя](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account).
+1. [Создайте пустой проект](https://docs.gitlab.com/ee/user/project/), в котором будет размещен ваш репозиторий.
 
 ## Начните работу с репозиторием {#start-work-with-git}
 

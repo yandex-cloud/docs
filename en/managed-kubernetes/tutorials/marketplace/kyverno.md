@@ -6,7 +6,7 @@ To integrate [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) into
 1. [{#T}](#kyverno-policies).
 1. [{#T}](#check-apps).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -60,7 +60,7 @@ If you no longer need these resources, [delete them](#clear-out).
 ## Create a Kyverno policy {#kyverno-policies}
 
 1. Install the [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) application by following the [instructions](../../operations/applications/kyverno.md).
-1. Create a policy that will require that all [pods](../../concepts/index.md#pod) have the `app.kubernetes.io/name` [label](../../../overview/concepts/services.md#labels).
+1. Create a policy that will require that all [pods](../../concepts/index.md#pod) have the `app.kubernetes.io/name` [label](../../../resource-manager/concepts/labels.md).
    1. Save the specification for `ClusterPolicy` creation in a YAML file named `policy.yaml`:
 
       ```yaml
@@ -157,8 +157,8 @@ Some resources are not free of charge. Delete the resources you no longer need t
      terraform validate
      ```
 
-     If there are errors in the configuration files, {{ TF }} will point to them.
-  1. Confirm the update of resources.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
+  1. Confirm the resources have been updated:
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

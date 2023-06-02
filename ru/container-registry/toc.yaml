@@ -93,6 +93,8 @@ items:
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
+      - name: Хранение Docker-образов из проектов {{ mgl-full-name }}
+        href: tutorials/image-storage.md
   - name: Концепции
     items:
       - name: Обзор

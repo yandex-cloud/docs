@@ -28,7 +28,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      +----+------+-----------+
      | ID | NAME | FOLDER ID |
      +----+------+-----------+
@@ -44,7 +44,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done
      id: crpd50616s9a2t7gr8mi
      folder_id: b1g88tflru0ek1omtsu0
@@ -65,7 +65,7 @@
 
      Результат выполнения команды:
 
-     ```bash
+     ```text
      +----------------------+--------+----------------------+
      |          ID          |  NAME  |      FOLDER ID       |
      +----------------------+--------+----------------------+
@@ -132,7 +132,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         An execution plan has been generated and is shown below.
         Resource actions are indicated with the following symbols:
           + create
@@ -151,7 +151,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         yandex_container_registry.default: Creating...
         yandex_container_registry.default: Creation complete after 4s [id=crpuljdfqoj3ve9mtbt1]
 

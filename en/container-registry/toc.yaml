@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart/index.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Authentication in {{ container-registry-name }}
         href: operations/authentication.md
@@ -73,7 +73,7 @@ items:
             href: operations/roles/revoke.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md

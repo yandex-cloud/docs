@@ -29,29 +29,29 @@
          ```json
          {
             "LoggingEnabled": {
-               "TargetBucket": "<имя_бакета>",
-               "TargetPrefix": "<префикс_ключа>"
+               "TargetBucket": "<имя целевого бакета>",
+               "TargetPrefix": "<префикс ключа>"
             }
          }
          ```
 
          Где:
 
-         * `TargetBucket` — имя целевого бакета.
+         * `TargetBucket` — имя целевого бакета, в который будут записываться логи.
          * `TargetPrefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами. Например, `logs/`
      
      1. Включите логирование в бакете:
 
          ```bash
          aws s3api put-bucket-logging \
-           --bucket <имя_бакета> \
+           --bucket <имя исходного бакета> \
            --endpoint-url https://{{ s3-storage-host }} \
-           --bucket-logging-status file://<путь_к_файлу_настроек>
+           --bucket-logging-status file://<путь к файлу настроек>
          ```
 
          Где:
 
-         * `bucket` — имя бакета, в который будут загружаться логи.
+         * `bucket` — имя исходного бакета, для которого нужно включить логирование действий.
          * `bucket-logging-status` — путь к файлу с настройками логирования.
 
    - {{ TF }}

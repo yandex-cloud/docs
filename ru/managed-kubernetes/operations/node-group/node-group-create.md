@@ -84,7 +84,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (1m17s)
      id: catpl8c44kiibp20u4f3
      cluster_id: catcsqidoos7tq0513us

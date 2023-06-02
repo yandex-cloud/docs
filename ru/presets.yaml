@@ -42665,6 +42665,7 @@ default:
         image:
           label_last-scan-time: Дата последнего сканирования
           label_scan-history: История сканирований
+          label_scan-status: Статус сканирования
           label_scan-status-READY: Готово
           label_scan-status-RUNNING: Запущено
           label_start-scan: Сканировать

@@ -7,11 +7,9 @@ description: "Пошаговые инструкции по работе с Docke
 
 Чтобы работать с Docker-образами, [аутентифицируйтесь в {{ container-registry-name }}](authentication.md).
 
-
 ## Работа с {{ coi }} {#coi}
 
 Подробнее о том, как работать с образом {{ coi }}, читайте в документации [{{ cos-name }}](../../cos/).
-
 
 ## Управление Docker-образом {#docker-images}
 

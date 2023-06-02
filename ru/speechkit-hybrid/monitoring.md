@@ -1,10 +1,18 @@
-# Мониторинг {{ sk-hybrid-name }} 
+# Мониторинг сервисов {{ sk-hybrid-name }}
 
-{{ sk-hybrid-name }} собирает и хранит метрики в формате [Prometheus](https://prometheus.io). Метрики {{ sk-hybrid-name }} доступны по URL-адресу: `<IP-адрес>:17002/metrics/prometheus`, где `<IP-адрес>` — IP-адрес сервиса {{ sk-hybrid-name }} в вашей сети.
+{{ sk-hybrid-name }} собирает и хранит метрики в формате [Prometheus](https://prometheus.io). Метрики сервисов {{ sk-hybrid-name }} доступны по URL-адресу:
+
+```text
+<IP-адрес>:17002/metrics/prometheus
+```
+
+Где:
+
+* `<IP-адрес>` — IP-адрес сервиса {{ sk-hybrid-name }} в вашей сети.
 
 ## Общие метрики {{ sk-hybrid-name }} {#metrics}
 
-Собираемые метрики различаются для синтеза и распознавания речи. Общей для сервисов является метрика `TYPE grpc_code_*` — коды ответов протокола gRPC. См. [документацию gRPC](https://grpc.github.io/grpc/core/md_doc_statuscodes.html).
+Собираемые метрики различаются для синтеза и распознавания речи. Общей для сервисов является метрика `TYPE grpc_code_*` — коды ответов протокола gRPC. Подробнее см. в [документации gRPC](https://grpc.github.io/grpc/core/md_doc_statuscodes.html).
 
 ## Метрики синтеза речи {#tts-metrics}
 

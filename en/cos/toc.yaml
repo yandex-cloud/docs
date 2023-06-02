@@ -5,7 +5,7 @@ items:
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
@@ -23,13 +23,13 @@ items:
           Creating an instance group from a {{ coi }} with multiple Docker
           containers
         href: tutorials/ig-with-containers.md
-      - name: Editing a VM with {{ coi }}
+      - name: Updating a VM with a {{ coi }}
         href: tutorials/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: tutorials/serial-port.md
       - name: Creating a VM and an instance group from a {{ coi }} using {{ TF }}
         href: tutorials/coi-with-terraform.md
-      - name: Transferring logs from {{ coi }} to {{ cloud-logging-name }}
+      - name: Transferring logs from a {{ coi }} to {{ cloud-logging-name }}
         href: tutorials/coi-fluent-bit-logging.md
   - name: Concepts
     items:
