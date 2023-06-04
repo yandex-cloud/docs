@@ -96,7 +96,7 @@ JSON-структура запроса:
 
     {% note info %}
     
-    Если функция вызывается с заголовком `Content-Type: application/json`, то содержимое `body` останется в исходном формате (значение параметра `isBase64Encoded: false`).
+    Если функция вызывается с заголовком `Content-Type: application/json` (именно идентичным, без расширений вроде `application/json; charset=utf-8`), то содержимое `body` останется в исходном формате (значение параметра `isBase64Encoded: false`).
     
     {% endnote %}
     
