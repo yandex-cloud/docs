@@ -1,6 +1,6 @@
 # Test agent monitoring
 
-This monitoring enables you to collect data (metrics) related to the test agent status and show them on charts. The metrics are collected using [Telegraf](https://github.com/influxdata/telegraf). The monitoring charts are shown on the **Monitoring** tab for the selected test.
+This monitoring enables you to collect data (metrics) related to the test agent status and show them on charts. The metrics are collected using [Telegraf](https://github.com/influxdata/telegraf). The monitoring charts are shown on the **{{ ui-key.yacloud.load-testing.label_monitoring-report }}** tab for the selected test.
 
 You can enable agent monitoring in the settings when you [create a test](../operations/create-test-bucket.md#create-test).
 

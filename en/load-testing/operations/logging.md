@@ -10,7 +10,7 @@ Resources transferred to a {{ cloud-logging-name }} [log group](../../logging/co
 To set up the transfer of logs to {{ cloud-logging-name }}:
 1. [Create a log group](../../logging/operations/create-group.md) in the same folder where the [test agent](../concepts/agent.md) is located.
 1. [Assign the `{{ roles-logging-writer }}` role](../../logging/operations/access-rights.md#add-access) for the log group to the service account used to [create the test agent](create-agent.md).
-1. [Create a new test](../quickstart.md#run-test) and specify the created log group in the **Log group** field.
+1. [Create a new test](../quickstart.md#run-test) and specify the created log group in the **{{ ui-key.yacloud.load-testing.field_logging-group }}** field.
 
    You can also restart the existing test.
 
@@ -18,12 +18,12 @@ To set up the transfer of logs to {{ cloud-logging-name }}:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-      1. On the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **Tests**.
-      1. Select the test. In the upper-right corner, click **Restart**.
-      1. Select the created log group in the **Log group** field.
-      1. Under **Test data**, upload the [test data](../concepts/payload.md) file.
-      1. Click **Create**.
+      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+      1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+      1. Select the test. In the top-right corner, click **{{ ui-key.yacloud.load-testing.restart }}**.
+      1. Select the created log group in the **{{ ui-key.yacloud.load-testing.field_logging-group }}** field.
+      1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, upload the [test data](../concepts/payload.md) file.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {% endlist %}
 

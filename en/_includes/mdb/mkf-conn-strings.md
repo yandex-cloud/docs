@@ -43,13 +43,13 @@ sudo apt update && sudo apt install -y kafkacat
 
     1. Run the command for receiving messages from a topic:
 
-      {% include [default-get-string](./mkf/default-get-string.md) %}
+        {% include [default-get-string](./mkf/default-get-string.md) %}
 
-      The command will continuously read new messages from the topic.
+        The command will continuously read new messages from the topic.
 
     1. In a separate terminal, run the command for sending a message to a topic:
 
-      {% include [default-get-string](./mkf/default-send-string.md) %}
+        {% include [default-get-string](./mkf/default-send-string.md) %}
 
 {% endlist %}
 

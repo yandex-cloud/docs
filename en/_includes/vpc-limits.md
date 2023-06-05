@@ -8,6 +8,7 @@
 | Number of routing tables per cloud | 8 |
 | Number of static routes per cloud | 256 |
 | Maximum number of security groups | 10 |
+| Maximum number of security groups per interface | 5 |
 
 
 #### Limits {#vpc-limits}
@@ -16,8 +17,7 @@
 | Minimum CIDR size for a subnet | /28 |
 | Maximum CIDR size for a subnet | /16 |
 | Maximum number of TCP/UDP connections per VM^*^ | 50000 |
-| Supported network and transport layer protocols | IP, ICMP, TCP, UDP, and GRE |
-| Maximum number of security groups per interface | 5 |
+| Supported network and transport layer protocols | IP, ICMP, TCP, UDP, GRE, ESP, AH |
 | Maximum number of rules per security group | 50 |
 | Maximum number of CIDRs per rule | 50 |
 | Size of the DNS server IP address list | 100 characters |

@@ -64,6 +64,8 @@ To create a federation:
 
       {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
+   1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
+
    1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{ yandex-cloud }}.
 
    User attributes supported by {{ org-full-name }} services are listed in [{#T}](#claims-mapping).
@@ -392,7 +394,7 @@ When setting up the message:
 * Specify the link to the IdP page in the `Issuer` element. The user was forwarded to this page for authentication).
 * Enter a signed message in the `SignatureValue` element and the certificate it was signed with in the `KeyInfo` element.
 * Note that {{ yandex-cloud }} validates that the response was received in the interval specified in the `Conditions` or `SubjectConfirmationData` element attributes.
-* For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), provide the user's name and email address in the `AttributeStatement` property. Email, first name, and last name are sent in separate `Attribute` elements. You can also send the first name and last name together, for example:
+* For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), provide the user's name and email address in the `AttributeStatement` property. Email, first name, and last name are provided in separate `Attribute` elements. You can also provide the first name and last name together, for example:
    ```
    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
      <AttributeValue>John Doe</AttributeValue>
@@ -418,7 +420,7 @@ To correctly pass user information to {{ org-full-name }}, map SAML message attr
 | Last name | Displayed in {{yandex-cloud}} services.<br> Value length limit: {{ saml-limit-last-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"` parameter |
 | Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"` parameter |
 | Full name | Displayed in {{ yandex-cloud }} services.<br>Example: John Smith.<br> Value length limit: {{ saml-limit-display-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"` parameter |
-| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `<Attribute>`  with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
+| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
 | Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"` parameter |
 | Profile image | Displayed in {{ yandex-cloud }} services.<br>Images are transmitted in Base64 encoding. [Example](#avatar-example).<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `<Attribute>` with the<br>`Name="thumbnailPhoto"` parameter |
 

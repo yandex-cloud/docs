@@ -39,7 +39,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 1. [Assign](../../iam/operations/roles/grant.md) the service account the `loadtesting.editor` and `loadtesting.generatorClient` [roles](../../load-testing/security/#roles-list).
 1. [Create](../../iam/operations/authorized-key/create.md) authorized keys for the service account.
 
-   Save public and private keys as a single file by clicking **Download file with keys**.
+   Save public and private keys as a single file by clicking **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 
 ### Create a secret with authorized keys {#create-authorized-key-secret}
 
@@ -48,13 +48,13 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to connect the external agent.
-   1. In the list of services, select **{{ lockbox-short-name }}**.
-   1. Click **Create secret**.
-   1. In the **Name** field, enter a name for the secret, such as `secret-loadtest`.
-   1. Under **Version**:
-      * In the **Key** field, enter a non-secret ID, such as `key-loadtest`.
-      * In the **Value** field, upload the file with the public and private authorized keys.
-   1. Click **Create**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, such as `secret-loadtest`.
+   1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID, such as `key-loadtest`.
+      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, upload the file with the public and private authorized keys.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
       Save the name and key of the secret.
 
@@ -207,17 +207,19 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-      1. In the left-hand panel, go to the ![operations](../../_assets/mdb/operations.svg) **Operations** tab.
+      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+      1. In the left-hand panel, go to the ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
+
       1. Make sure the **Register an agent** operation completed successfully.
-      1. In the left-hand panel, go to the ![agents](../../_assets/load-testing/agent.svg) **Agents** tab.
+      1. In the left-hand panel, go to the ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab.
       1. Check that the external agent, e.g., `external-agent`, has the `Ready for test` status.
 
    {% endlist %}
 
 ## Create a test {#run-test}
 
-[Run](../../load-testing/quickstart.md#run-test) load testing. In the **Agent** field, select an external agent, e.g., `external-agent`.
+[Run](../../load-testing/quickstart.md#run-test) load testing. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select an external agent, e.g., `external-agent`.
+
 
 ## View the testing results {#see-results}
 
@@ -225,8 +227,8 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-   1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **Tests** tab.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+   1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
    1. Choose the previously created test and view its results.
 
 {% endlist %}
@@ -239,9 +241,9 @@ To delete the external agent from {{ load-testing-name }}:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-   1. In the left-hand panel, go to the ![agents](../../_assets/load-testing/agent.svg) **Agents** tab.
-   1. Next to the agent to delete, click ![options](../../_assets/options.svg) and select **Delete**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+   1. In the left-hand panel, go to the ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab.
+   1. Next to the agent to delete, click ![options](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
 {% endlist %}

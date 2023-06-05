@@ -10,7 +10,7 @@
 | Maximum number of groups per organization | 100 |
 | Maximum number of subjects from groups per organization | 1,000 |
 | Maximum number of certificates per federation | 100 |
-| Maximum number of subjects per federation | 10,000 |
+| Maximum number of subjects per federation | 1,000 |
 
 #### Limits {#organization-limits}
 

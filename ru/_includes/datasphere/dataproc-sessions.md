@@ -10,4 +10,6 @@
 %create_livy_session --cluster my-new-cluster --id ses1 --conf spark.cores.max=4 --conf spark.executor.memory=4g
 ```
 
+По умолчанию в сессиях включено динамическое выделение ресурсов. Чтобы ограничить ресурсы сессии, используйте параметр `--conf spark.dynamicAllocation.enabled=false`.
+
 Полный список параметров livy-сессии см. в [официальной документации](https://livy.incubator.apache.org/docs/latest/rest-api.html).

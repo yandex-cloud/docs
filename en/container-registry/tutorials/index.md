@@ -16,3 +16,4 @@ description: "Various {{ container-registry-full-name }} use cases in {{ yandex-
 
 
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
+* [{#T}](ci-cd-serverless.md)

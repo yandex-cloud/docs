@@ -1,80 +1,66 @@
-# Анализ потока изменений Debezium
+# Обработка потока изменений Debezium
 
-[Debezium](https://debezium.io) — это сервис для захвата изменений в базах данных и отправки их на обработку в другие системы. С помощью {{ yds-full-name }} можно захватывать эти изменения, а с помощью {{ yq-full-name }} выполнять их обработку.
+[Debezium](https://debezium.io) — это сервис для захвата изменений в базах данных и отправки их на обработку в другие системы. С помощью {{ yds-full-name }} можно захватывать эти изменения, а с помощью {{ yq-full-name }} выполнять их обработку. Обработанные данные можно:
 
-Обработанные данные можно отправить:
-- В {{ monitoring-name }} для нанесения на графики и алертинга.
-- Записать в другой поток {{ yds-full-name }}, откуда данные можно отправить на обработку в {{ sf-name }} или в {{ data-transfer-name }} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
+* отправить в {{ monitoring-full-name }} для построения графика и алертинга;
+* записать в поток {{ yds-short-name }} и далее отправить на обработку в {{ sf-full-name }};
+* записать в поток {{ yds-short-name }} и далее передать в {{ data-transfer-full-name }} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
 
-Ниже приведена архитектура решения:
 ![debezium-architecture](../../_assets/query/debezium-architecture.png)
 
-Пример запроса получения числа изменений в таблицах базы данных с разбивкой по времени каждые 10 секунд:
+В этом сценарии вы отправите изменения базы данных [{{ PG }}](https://www.postgresql.org/) в поток {{ yds-short-name }} с помощью Debezium, а затем выполните к ним запрос с помощью {{ yq-name }}. В результате выполнения запроса вы получите количество изменений в таблицах БД, сгруппированное по интервалам продолжительностью 10 секунд. Рассматривается установка Debezium на сервер, где уже установлена и запущена {{ PG }}.
 
-```sql
-$debezium_data = 
-SELECT 
-    JSON_VALUE(data,"$.payload.source.table") AS table_name, 
-    DateTime::FromMilliseconds(cast(JSON_VALUE(data,"$.payload.source.ts_ms") AS uint64)) AS `timestamp`
-FROM 
-(
-    SELECT 
-        CAST(Data AS json) AS data 
-    FROM yds.`debezium` 
-    WITH 
-    (
-        format=raw,
-        SCHEMA
-        (
-            Data String
-        )
-    )
-);
+Для выполнения сценария:
 
-SELECT 
-    table_name, 
-    HOP_END() 
-FROM 
-    $debezium_data 
-GROUP BY 
-    HOP(`timestamp`, "PT10S", "PT10S", "PT10S"),
-    table_name
- LIMIT 2;
-```
+1. [{#T}](#create-yds-stream).
+1. [{#T}](#credentials).
+1. [{#T}](#debezium-server).
+1. [{#T}](#connect-query).
+1. [{#T}](#query).
 
-Описание работы с потоковыми данными, получаемыми из {{ yds-full-name }}, находится в разделе [Чтение данных из Data Streams](../sources-and-sinks/data-streams.md).
+## Перед началом работы {#before-you-begin}
 
-## Настройка {#setup}
-Для получения потока данных необходимо:
-1. [Создать поток данных](#create_stream) {{ yds-full-name }}.
-1. [Настроить реквизиты подключения](#credentials) к {{ yds-full-name }}
-1. [Настроить и запустить](#debezium_server) Debezium Server.
-1. [Запустить запрос в {{ yql-full-name }}](#query) к передаваемым данным.
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-### Создание потока данных {#create_stream}
+## Создайте поток данных {{ yds-name }} {#create-yds-stream}
 
-Создайте поток данных {{ yds-full-name }} с именем `debezium`. Процедура создания потока данных подробно описана в [документации {{ yds-full-name }}](../../data-streams/operations/manage-streams.md)
+[Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream) c именем `debezium`.
 
-### Настройка реквизитов подключения к {{ yds-full-name }} {#credentials}
+## Настройте реквизиты подключения к потоку {#credentials}
 
-{% include [create-environment](../../_includes/data-streams/create-environment.md) %}
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роль `editor` на ваш каталог.
+1. [Создайте](../../iam/operations/sa/create-access-key.md) статический ключ доступа.
+1. На сервере, где уже установлена и запущена {{ PG }}, настройте [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html):
+    1. [Установите AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) и выполните команду:
 
-### Настройка Debezium Server {#debezium_server}
+        ```bash
+        aws configure
+        ```
+
+    1. Последовательно введите:
+
+        * `AWS Access Key ID [None]:` — [идентификатор ключа](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
+        * `AWS Secret Access Key [None]:` — [секретный ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
+        * `Default region name [None]:` — зону доступности `{{ region-id }}`.
+
+## Настройте Debezium Server {#debezium-server}
+
+На сервере, где уже установлена и запущена PostgreSQL:
 
 {% include [debezium-setup](../../_includes/data-streams/debezium-setup.md) %}
 
-## Запуск запроса {{ yql-full-name }} {#query}
+## Подключите {{ yq-name }} к потоку данных {#connect-query}
 
-Создайте соединение с именем `yds-connection`, для этого нужно выполнить следующие действия:
+1. [Создайте соединение](../operations/connection.md#create) с именем `yds-connection` и типом `Data Streams`.
+1. На странице создания привязки:
+    * Введите имя привязки `debezium`.
+    * Укажите поток данных `cdebezium`.
+    * Добавьте колонку `data` с типом `JSON`.
+1. Нажмите кнопку **Создать**.
 
-{% include [create-connection](../_includes/create-connection.md) %}
+## Выполните запрос к данным {#query}
 
-Создайте [привязку к данным](../concepts/glossary.md#binding) к {{ yds-full-name }} с именем `debezium` и единственной колонкой **data** с типом **Json**, для этого нужно выполнить следующие действия:
-
-{% include [create-connection](../_includes/create-binding.md) %}
-
-
-В редакторе запросов в интерфейсе {{ yq-full-name }} выполните следующий запрос:
+В редакторе запросов в интерфейсе {{ yq-name }} выполните следующий запрос:
 
 ```sql
 $debezium_data = 
@@ -94,8 +80,8 @@ GROUP BY
 LIMIT 2;
 ```
 
-{% note info %}
-
 {% include [limit](../_includes/select-limit.md) %}
 
-{% endnote %}
+## См. также {#see-also}
+
+* [{#T}](../sources-and-sinks/data-streams.md).

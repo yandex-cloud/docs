@@ -1,16 +1,16 @@
 # Instance template
 
-When creating a group, you need to describe an _instance template_, which is the basic instance configuration used for deploying all the instances in the group.
+When creating a group, you need to describe an _instance template_, which is the basic instance configuration used for deploying all instances in the group.
 
-The template description and [policy](policies/index.md) description are passed to the CLI in a YAML file when creating or updating an instance group with the `--file` flag. This is convenient for passing values that consist of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
+Both the template and [policy](policies/index.md) description are provided to the CLI in a YAML file using the `--file` flag when creating or updating an instance group. This is a convenient method to provide values that consist of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
 
 You can set variable values for the instance template. For more information, see [{#T}](variables-in-the-template.md).
 
 ## Computing resources {#types}
 
-When describing a template, you specify the computing resources to allocate to each instance: the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](../performance-levels.md).
+When describing a template, you specify the computing resources to allocate to each instance, i.e., the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](../performance-levels.md).
 
-You can also use the template to enable the creation of [preemptible](../preemptible-vm.md) instances, which are cheaper than the regular instances. Preemptible instances can only be auto-healed if the computing resources in the availability zone allow for this. If the resources are insufficient, {{ ig-name }} will resume auto-healing as soon as the resources become available, but this may take a long time.
+You can also use a template to enable creating [preemptible](../preemptible-vm.md) instances, which are cheaper than regular ones. Preemptible instances can only be autohealed if the computing resources in the availability zone allow for this. If the resources are insufficient, {{ ig-name }} will resume autohealing as soon as the resources become available; this, however, may take a long time.
 
 ## Disks {#disks}
 
@@ -20,7 +20,7 @@ You can also attach additional disks to each instance. You can create an additio
 
 {% note alert %}
 
-When you delete a VM, its disks are deleted from the group. VMs can be deleted during [scaling](scale.md) and [automatic recovery](autohealing.md).
+When you delete a VM, its disks are also deleted from the group. You can delete VMs during [scaling](scale.md) and [automatic recovery](autohealing.md).
 
 {% endnote %}
 
@@ -28,12 +28,12 @@ When you delete a VM, its disks are deleted from the group. VMs can be deleted d
 
 When creating a group, you can:
 
-* Set the network for the group itself.
+* Set the network for the entire group.
 * Set subnets for each instance in the group.
 
 You can create a group without specifying any subnets for its instances if the availability zone selected for each instance contains exactly one subnet for the specified network.
 
-You can also configure a public IP address for each instance. This allows the instance to interact with other services over the internet. For more information, see [{#T}](../network.md).
+You can also configure a public IP address for each instance. This allows the instance to connect to other services over the internet. For more information, see [{#T}](../network.md).
 
 You can specify the [appropriate security groups](../../../vpc/concepts/security-groups.md) in a template or configure them individually for each instance in the group.
 

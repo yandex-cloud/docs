@@ -12,6 +12,9 @@ description:
 meta:
   title: Yandex SpeechKit Hybrid
 links:
+  - title: Начало работы
+    description: Узнайте как развернуть сервис на своем оборудовании
+    href: quickstart
   - title: Системные требования
     description: Узнайте системные требования для SpeechKit Hybrid
     href: system-requirements

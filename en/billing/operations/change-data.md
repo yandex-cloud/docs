@@ -23,7 +23,7 @@ You can change the payer's contact information (for example, mailing address or 
 1. Select an account on the **Accounts** page.
 1. Go to the **Overview** page.
 1. Click **Edit data in Yandex Balance**. <br/>This redirects you to [Yandex Balance](https://balance.yandex.ru/).
-1. Follow the [instructions in the Help](https://yandex.ru/support/balance/operations/change-data.html) for Yandex Balance.
+1. Follow the Yandex Balance [guide](https://yandex.ru/support/balance/operations/change-data.html).
 
 ## Changing any details other than TIN {#change-details}
 

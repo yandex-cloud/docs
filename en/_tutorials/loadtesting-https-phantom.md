@@ -46,7 +46,11 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure security groups {#security-group-setup}
 
+{% note info %}
+
 {% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 1. Set up the test agent's security group:
 
@@ -78,54 +82,54 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ## Run a test {#run-test}
 
-1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-1. On the left-hand panel, select ![image](../_assets/load-testing/test.svg) **Tests**. Click **Create test**.
-1. In the **Agents** parameter, select `agent-008`.
-1. Under **Test data**, select **From computer**, click **Attach file**, and select the `data.uri` file.
-1. Under **Test settings**, select a configuration method: **Form** or **Configuration file**.
+1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. In the left-hand panel, select ![image](../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
+1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** parameter, select `agent-008`.
+1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select `{{ ui-key.yacloud.load-testing.label_local-source }}`, click **Attach file**, and select the `data.uri` file.
+1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**, select a configuration method: `{{ ui-key.yacloud.load-testing.label_settings-type-form }}` or `{{ ui-key.yacloud.load-testing.label_settings-type-config }}`.
 1. Depending on the selected method, specify the test parameters:
 
    {% list tabs %}
 
    - Form
 
-      1. In the **Load generator** field, select **PHANTOM**.
-      1. In the **Target address** field, specify the address of the service to test: `172.17.0.10`.
-      1. In the **Target port** field, set `443` (default HTTPS port). Allow using a secure connection.
+      1. In the **{{ ui-key.yacloud.load-testing.field_load-generator }}** field, select `PHANTOM`.
+      1. In the **{{ ui-key.yacloud.load-testing.field_target-address }}** field, specify the address of the service to test: `172.17.0.10`.
+      1. In the **{{ ui-key.yacloud.load-testing.field_target-port }}** field, set `443` (default HTTPS port). Allow using a secure connection.
       1. In the **Testing threads** field, specify `5000`.
 
-          This means that the load generator can simultaneously process 5000 operations: create 5000 connections or wait for 5000 responses from the service at the same time.
+         This means that the load generator can simultaneously process 5000 operations: either create 5000 connections or wait for 5000 responses from the service at the same time.
 
-          {% note tip %}
+         {% note tip %}
 
-          For most tests, 1000–10000 threads are enough.
+         For most tests, 1000–10000 threads are enough.
 
-          Using a larger number of threads requires more resources of the VM the agent is running on. {{ compute-name }} also has a limit of 50000 of concurrent connections to a VM.
+         Using a larger number of threads requires more resources of the VM the agent is running on. {{ compute-name }} also has a limit of 50000 of concurrent connections to a VM.
 
-          [Learn more about working with threads](../load-testing/concepts/testing-stream.md).
+         [Learn more about working with threads](../load-testing/concepts/testing-stream.md).
 
-          {% endnote %}
+         {% endnote %}
 
       1. In the **Load type** menu, select `RPS`.
       1. Add a **Load profile**:
 
-          * **Profile**: Select `const`.
-          * **Requests per second**: Specify `2000`.
-          * **Duration**: Specify `10m`.
+         * **Profile**: Select `const`.
+         * **{{ ui-key.yacloud.load-testing.label_rps }}**: Set `2000`.
+         * **Duration**: Specify `10m`.
 
-          This instructs the load generator to maintain a load of 2000 requests per second for 10 minutes.
+         This instructs the load generator to maintain a load of 2000 requests per second for 10 minutes.
 
-          [Learn more about load profiles](../load-testing/concepts/load-profile.md).
+         [Learn more about load profiles](../load-testing/concepts/load-profile.md).
       1. In the **Request type** field, select `URI`.
       1. In the **Autostop** menu, click ![image](../_assets/plus-sign.svg) **Autostop** and enter the following description:
-          * **Autostop type**: `INSTANCES`.
-          * **Limit**: Set `90%`.
-          * **Window duration**: Specify `60s`.
+         * **Autostop type**: `INSTANCES`.
+         * **Limit**: `90%`.
+         * **Window duration**: `60s`.
 
-              This means a test will be stopped if 90% of testing threads are used for 60 seconds, which indicates a testing issue.
+            This means a test will be stopped if 90% of testing threads are used for 60 seconds, which indicates a testing issue.
 
-              [Learn more about autostop](../load-testing/concepts/auto-stop.md).
-      1. Under **Test information**, specify the name, description, and number of the test version. This will make the report easier to read.
+            [Learn more about autostop](../load-testing/concepts/auto-stop.md).
+      1. Under **{{ ui-key.yacloud.load-testing.meta-section }}**, specify the name, description, and number of the test version. This will make the report easier to read.
 
    - Configuration file
 
@@ -135,20 +139,20 @@ For a service whose subnet and security group differ from the agent's ones, [cre
          phantom:
            enabled: true
            package: yandextank.plugins.Phantom
-           address: 172.17.0.10:443    # test target address
+           address: 172.17.0.10:443 # test target address
            ammo_type: uri
            load_profile:
              load_type: rps
-             schedule: const(2000,5m)  # load schedule: 2000 requests per second for 5 minutes
+             schedule: const(2000,5m) # load schedule: 2000 requests per second for 5 minutes
            ssl: true
-           instances: 5000             # number of threads
+           instances: 5000 # number of threads
            ammofile: ammo_file
          core: {}
-         autostop:                     # autostop
+         autostop: # autostop
            enabled: true
            package: yandextank.plugins.Autostop
            autostop:
-             - instances(90%,60s)      # stop the test if 90% of testing threads are used for 60 seconds, meaning there are testing issues
+             - instances(90%,60s) # stop the test if 90% of testing threads are used for 60 seconds, meaning there are testing issues
          uploader:
            enabled: true
            package: yandextank.plugins.DataUploader
@@ -168,11 +172,11 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
    {% endlist %}
 
-1. Click **Create**.
+1. Click **{{ ui-key.yacloud.common.create }}**.
 
 Afterwards, the configuration will be verified, and the agent will start loading the service being tested.
 
-To see the testing progress, select the created test and go to the **Test results** tab.
+To see the testing progress, select the created test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 
 ## How to delete the resources you created {#clear-out}
 

@@ -1,26 +1,23 @@
-1. [Create](../../vpc/operations/security-group-create.md) a security group named `agent-sg`.
+1. Create an [agent](../../load-testing/concepts/agent.md) [security group](../../vpc/operations/security-group-create.md) named `agent-sg`.
 1. [Add rules](../../vpc/operations/security-group-add-rule.md):
-    1. A rule for outgoing HTTPS traffic to the public {{ load-testing-full-name }} API:
-        * Port range: `443`.
-        * Protocol: `TCP`.
-        * Source type: `CIDR`.
-        * Destination: `0.0.0.0/0`.
+   1. Rule for outgoing HTTPS traffic to the {{ load-testing-name }} public API:
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `443`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-        This will enable you to connect the agent to {{ load-testing-name }} to manage tests from the interface and get test results.
+      This will enable you to connect the agent to {{ load-testing-name }} to manage tests from the interface and get test results.
+   1. Rule for incoming SSH traffic:
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-    1. A rule for incoming SSH traffic:
-        * Port range: `22`.
-        * Protocol: `TCP`.
-        * Source type: `CIDR`.
-        * Destination: `0.0.0.0/0`.
+      This will allow you to connect to the agent over SSH and manage tests from the console or collect debugging information.
+   1. Rule for outgoing traffic when generating load to the test target:
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+      *
+         Select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}`. Specify the [security group](../../vpc/concepts/security-groups.md) where the test target is located.
 
-        This will let you connect to the agent via SSH and manage tests from the console or collect debugging information.
-
-    1. A rule for outgoing traffic during load generation to the test target:
-        * Port range: `{{ port-any }}`.
-        * Protocol: `Any`.
-        * Source type: `Security group`.
-        * Destination: `From list`. Specify the security group where the test target is located.
-
-        Create this rule for each test target with a unique security group.
-
+      Create this rule for each test target with a unique security group.

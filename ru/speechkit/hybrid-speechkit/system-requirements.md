@@ -6,4 +6,7 @@
 
 ## Программные требования {#software}
 
-Для установки и настройки сервисов {{ sk-hybrid-name }} понадобятся интерфейс командной строки {{ yandex-cloud }} и реестр в {{ container-registry-full-name }}. 
+Для установки и настройки сервисов {{ sk-hybrid-name }}:
+
+* [Установите интерфейс командной строки {{ yandex-cloud }}](../../cli/operations/install-cli.md).
+* [Создайте реестр {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).

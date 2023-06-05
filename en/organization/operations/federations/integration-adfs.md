@@ -18,9 +18,9 @@ To set up authentication:
 
 ## Getting started {#before-you-begin}
 
-To use follow the steps in this section, you will need:​
+To follow the steps in this section, you will need:​
 
-1. A working AD FS farm. If you did not configure AD FS on your server, [install and configure it now](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). To deploy ADFS, you also need to install and configure Active Directory Domain Services (AD DS).
+1. Working AD FS farm. If you did not configure AD FS on your server, [install and configure it now](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). To deploy ADFS, you also need to install and configure Active Directory Domain Services (AD DS).
 
 
    {% note tip %}
@@ -29,7 +29,7 @@ To use follow the steps in this section, you will need:​
 
    {% endnote %}
 
-1. A valid certificate that is used for signing in the ADFS service. If you do not have a valid SSL certificate, get one.
+1. Valid certificate that is used for signing in the ADFS service. If you do not have a valid SSL certificate, get one.
 
    The subject name in the certificate must contain the FQDN of the Identity Provider (IdP) server, for example, `fs.contoso.com`, to prevent the browser from blocking the authentication page.
 
@@ -64,6 +64,8 @@ To use follow the steps in this section, you will need:​
    1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
 
       {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
+
+   1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
 - CLI
 
@@ -513,7 +515,7 @@ To add federation users to an organization:
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click the arrow next to the **Add user** button and select **Add federated users**.
 
    1. Select the identity federation to add users from.
 

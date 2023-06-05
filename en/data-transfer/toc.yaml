@@ -101,16 +101,22 @@ items:
         items:
           - name: Delivering data from {{ mkf-full-name }} to {{ mch-full-name }}
             href: tutorials/mkf-to-mch.md
+          - name: Delivering data from {{ mkf-full-name }} to {{ mgp-full-name }}
+            href: tutorials/managed-kafka-to-greenplum.md
           - name: Delivering data from {{ mkf-full-name }} to {{ mes-full-name }}
             href: tutorials/mkf-to-mes.md
+          - name: Delivering data from {{ mkf-full-name }} to {{ mmg-full-name }}
+            href: tutorials/mkf-to-mmg.md
+          - name: Delivering data from {{ mkf-full-name }} to {{ mmy-full-name }}
+            href: tutorials/mkf-to-mmy.md
+          - name: Delivering data from {{ mkf-full-name }} to {{ mos-full-name }}
+            href: tutorials/mkf-to-mos.md
           - name: Delivering data from {{ mkf-full-name }} to {{ mpg-full-name }}
             href: tutorials/mkf-to-mpg.md
           - name: Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }}
             href: tutorials/mkf-to-ydb.md
           - name: Delivering data from {{ mkf-full-name }} to {{ yds-full-name }}
             href: tutorials/mkf-to-yds.md
-          - name: Delivering data from {{ mkf-full-name }} to {{ mgp-full-name }}
-            href: tutorials/managed-kafka-to-greenplum.md
           - name: Delivering data from {{ GP }} to {{ CH }}
             href: tutorials/greenplum-to-clickhouse.md
           - name: Delivering data from {{ GP }} to {{ PG }}

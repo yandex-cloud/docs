@@ -1,6 +1,6 @@
 # Управление шардами {{ MG }}
 
-Вы можете включить [шардирование](../concepts/sharding.md) для кластера, а также добавлять и настраивать отдельные шарды.
+Кластер можно [создать шардированным](cluster-create.md#creating-a-sharded-cluster) либо [включить шардирование](#enable) позже. Затем можно [добавлять и настраивать шарды](#add-shard).
 
 Для повышения доступности шарды должны состоять как минимум из трех хостов `MONGOD`. Небольшие коллекции обычно нет смысла шардировать: скорость обработки запросов будет выше в обычном кластере реплик.
 
@@ -73,7 +73,7 @@
         `zone-id=<зона доступности>,`
         `subnet-name=<имя подсети> \
       --mongoinfra resource-preset=<класс хоста>,`
-        `disk-size=<размер хранилища в гигабайтах>,`
+        `disk-size=<размер хранилища в ГБ>,`
         `disk-type=<тип диска>
     ```
 
@@ -100,7 +100,7 @@
         `zone-id=<зона доступности>,`
         `subnet-name=<имя подсети> \
       --mongos resource-preset=<класс хоста>,`
-        `disk-size=<размер хранилища в гигабайтах>,`
+        `disk-size=<размер хранилища в ГБ>,`
         `disk-type=<тип диска> \
       --host type=mongocfg,`
         `zone-id=<зона доступности>,`
@@ -112,7 +112,7 @@
         `zone-id=<зона доступности>,`
         `subnet-name=<имя подсети> \
       --mongocfg resource-preset=<класс хоста>,`
-        `disk-size=<размер хранилища в гигабайтах>,`
+        `disk-size=<размер хранилища в ГБ>,`
         `disk-type=<тип диска>
     ```
 
@@ -130,6 +130,104 @@
       * `resource-preset` — [класс хоста](../concepts/instance-types.md).
       * `disk-size` — размер хранилища в гигабайтах.
       * `disk-type` — [тип диска](../concepts/storage.md).
+
+- {{ TF }}
+
+  1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+     О создании такого файла читайте в разделе [{#T}](cluster-create.md).
+
+  1. Добавьте дополнительные ресурсы в конфигурационный файл.
+
+     {% cut "Для стандартного шардирования кластера с использованием хостов `MONGOINFRA`" %}
+
+        ```hcl
+        resources_mongoinfra {
+          resource_preset_id = "<класс хоста>"
+          disk_type_id       = "<тип диска>"
+          disk_size          = <размер хранилища в ГБ>
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongoinfra"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongoinfra"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongoinfra"
+        }
+        ```
+
+     {% endcut %}
+
+     {% cut "Для расширенного шардирования кластера с использованием хостов `MONGOS` и `MONGOCFG`" %}
+
+        ```hcl
+        resources_mongos {
+          resource_preset_id = "<класс хоста>"
+          disk_type_id       = "<тип диска>"
+          disk_size          = <размер хранилища в ГБ>
+        }
+
+        resources_mongocfg {
+          resource_preset_id = "<класс хоста>"
+          disk_type_id       = "<тип диска>"
+          disk_size          = <размер хранилища в ГБ>
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongos"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongos"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongocfg"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongocfg"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongocfg"
+        }
+        ```
+
+     {% endcut %}
+
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - API
 
@@ -218,17 +316,21 @@
 
 - {{ TF }}
 
+  1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
+
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. Добавьте к описанию кластера {{ mmg-name }} нужное количество блоков `host` с указанием имени шарда в параметре `shard_name`:
+     О создании такого файла читайте в разделе [{#T}](cluster-create.md).
+
+  1. Добавьте к описанию кластера {{ mmg-name }} нужное количество блоков `host` с типом `MONGOD` в параметре `type` и именем шарда в параметре `shard_name`:
 
      ```hcl
      resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
        ...
        host {
-         zone       = "<зона доступности>"
+         zone_id    = "<зона доступности>"
          subnet_id  = "<идентификатор подсети>"
+         type       = "mongod"
          shard_name = "<имя шарда>"
        }
      }
@@ -294,7 +396,8 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О создании такого файла читайте в разделе [{#T}](cluster-create.md).
+
   1. Удалите из описания кластера {{ mmg-name }} все блоки `host`, которые относятся к шарду.
   1. Проверьте корректность настроек.
 

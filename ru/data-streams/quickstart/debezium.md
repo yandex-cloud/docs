@@ -23,6 +23,8 @@
 
 ### Настройка Debezium Server {#debezium_server}
 
+В этом примере рассматривается взаимодействие Debezium и {{ PG }}. Далее будем считать, что Debezium будет устанавливаться на сервере, где запущен {{ PG }}.
+
 {% include [debezium-setup](../../_includes/data-streams/debezium-setup.md) %}
 
 ## Настроить триггер в {{ sf-name }} {#sftrigger}
