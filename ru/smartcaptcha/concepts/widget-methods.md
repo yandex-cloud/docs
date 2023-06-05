@@ -215,7 +215,8 @@
     | 'challenge-visible'
     | 'challenge-hidden'
     | 'network-error'
-    | 'success';
+    | 'success'
+    | 'token-expired';
     ```
 
     Описание событий:
@@ -226,6 +227,7 @@
     | `challenge-hidden`  | Закрытие всплывающего окна с заданием         | `() => void`              |
     | `network-error`     | Возникла сетевая ошибка                       | `() => void`              |
     | `success`           | Успешная валидация пользователя               | `(token: string) => void` |
+    | `token-expired` | Токен о прохождении пользователем стал невалидным | `() => void` |
 
 * `callback` — функция-обработчик:
 
