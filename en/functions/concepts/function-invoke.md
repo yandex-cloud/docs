@@ -85,7 +85,7 @@ Where:
 
    {% note info %}
 
-   If the function is called with the `Content-Type: application/json` header, the contents of `body` stays in the original format (parameter value `isBase64Encoded`: false).
+   If the function is called with the `Content-Type: application/json` header (exactly identical, without extensions like `application/json; charset=utf-8`), the contents of `body` stays in the original format (parameter value `isBase64Encoded`: false).
 
    {% endnote %}
 
