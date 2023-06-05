@@ -31,12 +31,12 @@ In this example, we'll use a gRPC-service with the `172.17.0.10` internal IP add
 
 For instructions on how to integrate the gRPC framework for different programming languages, see the [documentation](https://grpc.io/docs/languages/).
 
-1. Configure support for gRPC Server Reflection. For instructions on how to configure gRPC Server Reflection for different programming languages, see the [documentation](https://grpc.github.io/grpc/core/md_doc_server-reflection.html).
+1. Configure support for gRPC Server Reflection. To learn how to configure gRPC Server Reflection for different programming languages, see the [documentation](https://grpc.github.io/grpc/core/md_doc_server-reflection.html).
 
-    With gRPC Server Reflection, the load generator polls the server at the start of a test to collect information about services and their methods and uses this data to generate correct gRPC requests during the test.
+   With gRPC Server Reflection, the load generator polls the server at the start of a test to collect information about services and their methods and uses this data to generate correct gRPC requests during the test.
 1. Install a port for accessing the gRPC-service: `8080`.
 
-You can also use {{ load-testing-name }} for loading testing of a service that is public or located in a subnet and security group other than those of the agent.
+You can also use {{ load-testing-name }} for load testing of a service that is public or located in a subnet and security group other than those of the agent.
 
 For a public service, allow incoming HTTPS traffic to port `8080`.
 
@@ -54,15 +54,19 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure security groups {#security-group-setup}
 
+{% note info %}
+
 {% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 1. Set up the test agent's security group:
 
-    {% include [security-groups-agent](../_includes/load-testing/security-groups-agent.md) %}
+   {% include [security-groups-agent](../_includes/load-testing/security-groups-agent.md) %}
 
 1. Set up the test target's security group:
 
-    {% include [security-groups-target](../_includes/load-testing/security-groups-target.md) %}
+   {% include [security-groups-target](../_includes/load-testing/security-groups-target.md) %}
 
 ## Create a test agent {#create-agent}
 
@@ -71,48 +75,48 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 ## Test gRPC Server Reflection {#reflection-check}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md#vm-connect) to the agent via SSH.
-1. Run the command to test gRPC Server Reflection on the gRPC service:
+1. Run the following command to test gRPC Server Reflection on the gRPC service:
 
-    {% list tabs %}
+   {% list tabs %}
 
-    - TLS connection
+   - TLS connection
 
       ```bash
       grpcurl 172.17.0.10:8080 list
       ```
 
-    - Standard connection
+   - Standard connection
 
       ```bash
       grpcurl --plaintext 172.17.0.10:8080 list
       ```
 
-    {% endlist %}
+   {% endlist %}
 
-    Result:
+   Result:
 
-    ```bash
-    api.Adder
-    grpc.reflection.v1alpha.ServerReflection
-    ```
+   ```bash
+   api.Adder
+   grpc.reflection.v1alpha.ServerReflection
+   ```
 
 ## Prepare a file with test data {#test-file}
 
 1. Generate payloads in [HTTP_JSON](../load-testing/concepts/payloads/http-json.md) format:
 
-    ```JSON
-    {"tag": "/Add", "call": "api.Adder.Add", "payload": {"x": 21, "y": 12}}
-    {"tag": "/Add", "call": "api.Adder.Add", "payload": {"x": 21, "y": 12}}
-    {"tag": "/Add2", "call": "api.Adder.Add", "payload": {"x": 210, "y": 120}}
-    ```
+   ```JSON
+   {"tag": "/Add", "call": "api.Adder.Add", "payload": {"x": 21, "y": 12}}
+   {"tag": "/Add", "call": "api.Adder.Add", "payload": {"x": 21, "y": 12}}
+   {"tag": "/Add2", "call": "api.Adder.Add", "payload": {"x": 210, "y": 120}}
+   ```
 
-    Where:
+   Where:
 
-    * `tag`: The request tag to display in reports.
-    * `call`: The method being called.
-    * `payload`: A dictionary with call parameters passed to the test target.
+   * `tag`: Request tag to display in reports.
+   * `call`: Method being called.
+   * `payload`: Dictionary with call parameters being provided to the test target.
 
-    In the given example, two thirds of requests will be tagged as `/Add` and one third as `/Add2`.
+   In our example, two thirds of requests will be tagged as `/Add` and one third, as `/Add2`.
 
 1. Save the payloads to a file named `data.json`.
 
@@ -122,69 +126,69 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-  1. On the left-hand panel, select ![image](../_assets/load-testing/test.svg) **Tests**.
-  1. Click **Create test**.
-  1. On the test creation page:
-      1. In the **Agents** field, select `agent-008` [you created earlier](#create-agent).
-      1. Under **Test data**, select **From computer**, click **Attach file**, and select the `data.json` file you previously saved.
-      1. Under **Test settings**:
-         * In the **Configuration method** field, select **Configuration file**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+   1. In the left-hand panel, select ![image](../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+   1. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
+   1. On the test creation page:
+      1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select `agent-008` [you created earlier](#create-agent).
+      1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select **{{ ui-key.yacloud.load-testing.label_local-source }}**, click **Attach file**, and select the `data.json` file you previously saved.
+      1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
+         * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
          * In the configuration input field, specify the testing thread settings in `yaml` format:
 
-              ```yaml
-              pandora:
-                enabled: true
-                pandora_cmd: /usr/local/bin/pandora
-                package: yandextank.plugins.Pandora
-                config_content:
-                   pools:
-                    - id: GRPC
-                      gun:
-                        type: grpc                # protocol
-                        target: 172.17.0.10:8080  # test target address
-                        tls: false
-                      ammo:
-                        type: grpc/json
-                        file: ammo_ddfafc98-19a3-4dbb-b981-aa6787496a97
+            ```yaml
+            pandora:
+              enabled: true
+              pandora_cmd: /usr/local/bin/pandora
+              package: yandextank.plugins.Pandora
+              config_content:
+                pools:
+                  - id: GRPC
+                    gun:
+                      type: grpc # protocol
+                      target: 172.17.0.10:8080 # test target address
+                      tls: false
+                    ammo:
+                      type: grpc/json
+                      file: ammo_ddfafc98-19a3-4dbb-b981-aa6787496a97
                     result:
-                        type: phout
-                        destination: ./phout.log
+                      type: phout
+                      destination: ./phout.log
                     rps:
-                        - duration: 180s          # test time
-                          type: line              # load type
-                          from: 1
+                      - duration: 180s # test time
+                        type: line # load type
+                        from: 1
                         to: 1500
-                      startup:
-                        type: once                
-                        times: 1500               # number of threads
-                  log:
-                    level: debug
-                  monitoring:
-                    expvar:
-                      enabled: true
-                      port: 1234
-              uploader:
-                api_address: loadtesting.{{ api-host }}:443
-                enabled: true
-                job_dsc: grpc test
-                job_name: '[pandora][config][grpc]'
-                package: yandextank.plugins.DataUploader
-                ver: '1.1'
-              core: {}
-              ```
+                    startup:
+                      type: once
+                      times: 1500 # number of threads
+                log:
+                  level: debug
+                monitoring:
+                  expvar:
+                    enabled: true
+                    port: 1234
+            uploader:
+              api_address: loadtesting.{{ api-host }}:443
+              enabled: true
+              job_dsc: grpc test
+              job_name: '[pandora][config][grpc]'
+              package: yandextank.plugins.DataUploader
+              ver: '1.1'
+            core: {}
+            ```
 
-              {% note tip %}
+            {% note tip %}
 
-              View a [sample configuration file](../load-testing/concepts/testing-stream.md#config_example). You can also find sample configuration files in existing tests.
+            View a [sample configuration file](../load-testing/concepts/testing-stream.md#config_example). You can also find sample configuration files in existing tests.
 
-              {% endnote %}
+            {% endnote %}
 
-      1. Click **Create**.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
-    Afterwards, the configuration will be verified, and the agent will start loading the gRPC-service being tested.
+   Afterwards, the configuration will be verified, and the agent will start loading the gRPC service being tested.
 
-    To see the testing progress, select the created test and go to the **Test results** tab.
+   To see the testing progress, select the created test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 
 {% endlist %}
 

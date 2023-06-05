@@ -1,4 +1,4 @@
-* `MYSQL_ERROR` — лог ошибок, связанные с запуском, работой и остановкой инстансов {{ MY }}.
+* `MYSQL_ERROR` — лог ошибок, связанных с запуском, работой и остановкой инстансов {{ MY }}.
 * `MYSQL_GENERAL` — лог клиентских соединений и запросов.
 
     По умолчанию, лог не ведется. Чтобы включить его, измените значение настройки [General log](../../../managed-mysql/concepts/settings-list.md#setting-general-log) при [изменении настроек {{ MY }}](../../../managed-mysql/operations/update.md#change-mysql-config).

@@ -14,7 +14,7 @@ Setting up authentication includes the following steps:
 
 ## Getting started {#before-you-begin}
 
-To use the instructions in this section, you'll need a subscription to Google Workspace services and a verified domain to set up your SAML application for.
+To follow the steps described in this section, you will need a subscription to Google Workspace services and a verified domain to set up your SAML application for.
 
 ## Creating and setting up a SAML application in Google Workspace {#gworkspace-settings}
 
@@ -75,6 +75,8 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
       {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
+   1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
+
 - CLI
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -106,6 +108,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
       * `organization-id`: Your organization ID.
 
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
+
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -159,7 +162,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
       * `organizationId`: Organization ID.
 
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-        
+
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -511,7 +514,7 @@ When you finish configuring the server, test that everything works properly:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the [console login link](#get-link) you obtained previously. The browser forwards you to the Google authentication page.
+1. Follow the [console login link](#get-link) you obtained previously. The browser will forward you to the Google authentication page.
 
 1. Enter your credentials and click **Sign in**.
 

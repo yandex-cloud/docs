@@ -420,6 +420,7 @@ default:
   SPRK: Apache Spark™
   TF: Terraform
   TF-full: Hashicorp Terraform
+  TF-version: '0.90'
   CK: ClickHouse Keeper
   ZK: ZooKeeper
   DS: YDS

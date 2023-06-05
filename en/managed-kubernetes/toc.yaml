@@ -170,6 +170,8 @@ items:
         href: tutorials/gitlab-containers.md
       - name: Updating the Metrics Server parameters
         href: tutorials/metrics-server.md
+      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+        href: tutorials/ci-cd-serverless.md
       - name: Using {{ marketplace-name }} products
         items:
           - name: Integrating with Argo CD

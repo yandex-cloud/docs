@@ -709,6 +709,7 @@ default:
     name-dedicated: ydb-dedicated
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
+    version-cdc: 22.5
   stt-short-fileSize: 1 MB
   stt-short-audioLength: 30 seconds
   stt-short-channelsCount: 1

@@ -16,6 +16,7 @@ default:
   link-tracker-templates: https://tracker.yandex.ru/settings/templates/issues
   link-sub-roles: https://tracker.yandex.ru/subscriptions/roles
   link-sub-manage: https://tracker.yandex.ru/subscriptions/manage
+  link-admin-settings: https://tracker.yandex.ru/admin/orgs
   link-settings: https://tracker.yandex.ru/settings
   link-tracker-promo: /services/tracker
   link-services-tracker: https://connect.yandex.ru/portal/services/tracker

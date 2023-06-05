@@ -72,17 +72,13 @@ items:
         href: sources-and-sinks/monitoring.md
   - name: Сценарии использования
     items:
-      - name: Анализ логов Cloud Logging
+      - name: Обработка логов {{ cloud-logging-name }}
         href: tutorials/cloud-logging.md
-      - name: Анализ потока изменений Debezium
+      - name: Обработка потока изменений Debezium
         href: tutorials/debezium.md
-      - name: >-
-          Просмотр отчетов {{datalens-full-name}} на данных из
-          {{objstorage-full-name}}
-        href: tutorials/datalens.md
-      - name: Анализ аудитных логов {{at-full-name}}
+      - name: Обработка аудитных логов {{ at-name }}
         href: tutorials/audit-trails.md
-      - name: Анализ файлов детализации Биллинга
+      - name: Обработка файлов детализации биллинга
         href: tutorials/billing.md
   - name: Работа с YQL
     items:

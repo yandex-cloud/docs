@@ -170,6 +170,8 @@ To follow the steps in this section, you will need:​
 
    1. To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable the **Sign authentication requests** option. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate. You can download the certificate in the **Sign authentication requests** field immediately after creating a federation.
 
+   1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
+
    1. Click **Create federation**.
 
 - CLI
@@ -434,7 +436,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/realms/master
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID, for example:
 
             ```
             {{ link-keycloak-example-old }}
@@ -483,7 +485,7 @@ To follow the steps in this section, you will need:​
          If the option is enabled, the IDs of federated user names are case-insensitive.
       * `security_settings`: Federation security settings:
       * `encrypted_assertions`: Sign authentication requests.
-         If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
+         If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
       {% cut "Example of the configuration file structure" %}
 
