@@ -273,8 +273,8 @@ The infrastructure support cost includes:
        }
 
        access {
-         datalens     = true
-         datatransfer = true
+         data_lens     = true
+         data_transfer = true
        }
      }
      ```
