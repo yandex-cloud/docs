@@ -1,6 +1,6 @@
 # Cloud resource addresses
 
-Addresses in cloud networks can be internal or public.
+In cloud networks, addresses can be internal or public.
 
 ## Internal addresses {#internal-addresses}
 
@@ -16,24 +16,23 @@ You can get a list of internal IP addresses that use cloud resources in the same
 
 _Public IP addresses_ allow cloud resources to exchange data with the internet and resources from other cloud networks. Public addresses are mapped to internal resource addresses using one-to-one NAT. You can assign public addresses to resources automatically or select them from the list of reserved addresses.
 
-Public IP addresses can be dynamic or static. When creating a cloud resource with a public IP, it's usually assigned a dynamic address. When a VM with a dynamic public IP is stopped, its address is released, and the next time the VM is started, it is assigned a new public IP address. When the VM is restarted, its public IP address is saved.
+Public IP addresses can be dynamic or static. When creating a cloud resource with a public IP, it is usually assigned a dynamic address. When a VM with a dynamic public IP is stopped, its address is released, and it gets a new public IP address when started next time. When the VM is restarted, its public IP address is saved.
 
-You can make a dynamic public IP address static. Static IP addresses do not change when resources are stopped and you can reserve them in your folder for future use even if they aren't linked to any cloud resources. To learn how to make a dynamic IP address static, see [{#T}](../../compute/operations/vm-control/vm-set-static-ip.md).
-
-
-For more information about IP address pricing, see [{#T}](../pricing.md#prices-public-ip) in the {{ vpc-name }} documentation.
+You can convert a dynamic public IP address to static. Static IP addresses do not change when resources are stopped, and you can reserve them in your folder for future use even if they are not linked to any cloud resources. To learn how to convert a dynamic IP address to static, see [{#T}](../../compute/operations/vm-control/vm-set-static-ip.md).
 
 
+For more information about IP address pricing, see the [{#T}](../pricing.md#prices-public-ip) section of the {{ vpc-name }} documentation.
 
-### Outgoing traffic from TCP-port 25 {#port-25}
+
+
+### Outgoing traffic from TCP port 25 {#port-25}
 
 {% include [port-25.md](../../_includes/vpc/port-25.md) %}
 
 ## Hostname (FQDN) {#fqdn}
 
-You can use _a hostname_ to access one cloud resource from another within the same cloud network.
+You can use a _host name_ to access one cloud resource from another within the same cloud network.
 
-The hostname is either set manually or generated automatically using the VM ID.
+The host name is either set manually or generated automatically using the VM ID.
 
-For more information about how FQDNs are generated, see [Hostname and FQDN](../../compute/concepts/network.md#hostname) in the {{ compute-name }} documentation.
-
+For more information about how FQDNs are generated, see the [Host name and internal FQDN](../../compute/concepts/network.md#hostname) section in the {{ compute-name }} documentation.

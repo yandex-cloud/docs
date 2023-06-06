@@ -27,3 +27,13 @@
 #### Можно ли управлять кластером с помощью команд SQL? {#sql-control}
 
 Существуют ограничения на управление кластером с помощью команд SQL. Подробнее см. в разделе [{#T}](../../managed-postgresql/concepts/sql-limits.md).
+
+#### Почему я не могу остановить кластер? {#stop-cluster}
+
+Текст ошибки:
+
+```text
+ERROR: rpc error: code = FailedPrecondition desc = Cluster has no backups
+```
+
+[Остановить](../../managed-postgresql/operations/cluster-stop.md#stop-cluster) кластер, у которого нет резервных копий, невозможно. Чтобы устранить ошибку и остановить кластер, [создайте резервную копию](../../managed-postgresql/operations/cluster-backups.md#create-backup).

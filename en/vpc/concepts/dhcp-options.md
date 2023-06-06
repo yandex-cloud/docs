@@ -1,6 +1,6 @@
 ---
 title: "DHCP settings"
-description: "DHCP settings allow you to assign a domain name or DNS suffix, which will be allowed by the specified DNS server. If you specify DHCP settings for an existing subnet, they are applied to VMs in this subnet after you reboot the VMs. By using DHCP settings, you can use the same DNS and NTP servers in the subnet."
+description: "DHCP settings allow you to assign a domain name or DNS suffix, which will be allowed by the specified DNS server. If you specify DHCP settings for an existing subnet, they will be applied to VMs in this subnet after you reboot them. By using DHCP settings, you can use the same DNS and NTP servers in the subnet."
 keywords:
   - dhcp
   - dhcp settings
@@ -11,7 +11,7 @@ keywords:
 Using DHCP settings, you can configure the same DNS and NTP servers in your [subnet](../../vpc/concepts/network.md#subnet) used in your corporate network infrastructure which is accessible via a VPN or [{{ interconnect-full-name }}](../../interconnect/concepts/index.md). DHCP settings also allow you to assign a domain name or DNS suffix, which will be allowed by the specified DNS server. If you specify DHCP settings for an existing subnet, they will apply to [VMs](../../compute/concepts/vm.md) in this subnet after you reboot the VMs.
 
 You can set the following parameters:
-* DNS domain for searching unqualified names. Commonly used together with the DNS server address to simplify access to resources in the corporate infrastructure. This option does not affect the name assigned to an instance in {{ yandex-cloud }}.
+* DNS domain for searching unqualified names. It is commonly used with the DNS server address to simplify access to resources in an enterprise infrastructure. This option does not affect the name assigned to a VM in {{ yandex-cloud }}.
 * DNS server addresses.
 * NTP server addresses.
 

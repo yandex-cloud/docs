@@ -215,9 +215,9 @@ https://<FQDN любого хоста {{ CH }}>:8443/play
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-{% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
-
 При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ CH }}.
+
+{% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
 
 ## Автоматический выбор доступного хоста {#auto}
 

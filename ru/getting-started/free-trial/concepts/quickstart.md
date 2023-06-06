@@ -16,6 +16,6 @@
 * [Какие ограничения действуют в пробном периоде](limits.md)
 * [Когда завершается пробный период](trial-ending.md)
 * [Как перейти на платную версию](upgrade-to-paid.md)
-* [Обзор платформы {{ yandex-cloud }}](../../../overview/)
+* [Обзор платформы {{ yandex-cloud }}](../../../overview/index.yaml)
 * [Документация {{ yandex-cloud }}](/docs)
 

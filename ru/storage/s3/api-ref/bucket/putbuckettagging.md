@@ -2,6 +2,8 @@
 
 Добавляет [метки](../../../concepts/tags.md) бакету. При этом перезаписываются все имеющиеся у бакета метки.
 
+{% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
+
 ## Запрос {#request}
 
 ```http
