@@ -77,6 +77,8 @@
 
 {% include [binlog-bytes](../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
 
+{% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
 ## {{ PG }} {#postgresql}
 
 {% include [master-trans-stop](../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
@@ -110,6 +112,8 @@
 {% include [external-replication](../../_includes/data-transfer/troubles/postgresql/external-replication.md) %}
 
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
+
+{% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 
 ## {{ ydb-full-name }} {#ydb}

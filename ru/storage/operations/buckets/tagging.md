@@ -2,6 +2,8 @@
 
 [Метки бакетов](../../concepts/tags.md) — это пары ключ-значение для логической маркировки бакетов.
 
+{% include [labels-tags](../../../_includes/storage/labels-tags.md) %}
+
 ## Добавить или изменить метки {#add-edit-tag}
 
 {% list tabs %}
@@ -22,8 +24,8 @@
   Где:
   * `--bucket` — имя бакета.
   * `--tagging` — массив меток бакета, где:
-    * `Key` — ключ метки, тип: string.
-    * `Value` — значение метки, тип: string.
+    * `Key` — ключ метки, тип: `string`.
+    * `Value` — значение метки, тип: `string`.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
 - API
@@ -101,7 +103,6 @@
           }
       ]
   }
-  (END)
   ```  
 
 - API

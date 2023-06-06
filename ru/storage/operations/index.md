@@ -33,6 +33,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](objects/delete-all.md)
 * [{#T}](objects/deleting-multipart.md)
 * [{#T}](objects/edit-acl.md)
+* [{#T}](objects/tagging.md)
 
 ## Хостинг статических сайтов {#hosting}
 

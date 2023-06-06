@@ -754,6 +754,24 @@
 
 {% endlist %}
 
+### Приемник {{ ES }} {#target-es}
+
+{% list tabs %}
+
+
+- {{ mes-name }}
+
+    {% include [prepare-es](../../_includes/data-transfer/prepare-es.md) %}
+
+
+- {{ ES }}
+
+    * {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+    {% include [prepare-es](../../_includes/data-transfer/prepare-es.md) %}
+
+{% endlist %}
+
 ### Приемник {{ GP }} {#target-gp}
 
 {% list tabs %}
@@ -1010,6 +1028,24 @@
    1. [Создайте бакет](../../storage/operations/buckets/create.md) нужной вам конфигурации.
    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader`.
 
+
+### Приемник {{ OS }} {#target-os}
+
+{% list tabs %}
+
+
+- {{ mos-name }}
+
+    {% include [prepare-os](../../_includes/data-transfer/prepare-os.md) %}
+
+
+- {{ OS }}
+
+    * {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+    {% include [prepare-os](../../_includes/data-transfer/prepare-os.md) %}
+
+{% endlist %}
 
 ### Приемник {{ PG }} {#target-pg}
 

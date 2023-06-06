@@ -20,9 +20,9 @@
 На странице появятся следующие графики:
 
 * **Asserts total** — количество срабатываний [assert](https://docs.mongodb.com/manual/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.asserts) в кластере.
-* **Average operation time per host** — среднее время выполнения команд каждым хостом (в микросекундах).
-* **Average operations time on primary** — среднее время выполнения команд на первичных репликах (в микросекундах).
-* **Average operations time on secondaries** — среднее время выполнения команд на вторичных репликах (в микросекундах).
+* **Average operation time per host** — среднее время выполнения операций каждым хостом (в микросекундах).
+* **Average operations time on primary** — среднее время выполнения операций на первичных репликах (в микросекундах).
+* **Average operations time on secondaries** — среднее время выполнения операций на вторичных репликах (в микросекундах).
 * **CPU usage per host** — степень использования vCPU на каждом хосте (в тысячных долях).
 * **CPU usage per host, top 5 hosts** — 5 хостов с наибольшей утилизацией vCPU (в процентах).
 * **Configured oplog size per host** — размер журнала операций (oplog) на каждом хосте кластера (в гигабайтах).

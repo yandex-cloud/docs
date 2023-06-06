@@ -23,7 +23,7 @@
 
 - In the source
 
-  1. Add a field that will store user IDs and be used for filtering, to the source . You can add this field to a new table and join it using the `JOIN` operator.
+  1. Add a field that will store user IDs and be used for filtering, to the source. You can add this field to a new table and join it using the `JOIN` operator.
   1. Add the field to the dataset.
   1. Open the dataset.
   1. On the right side of the row, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) and select **Access rights**.

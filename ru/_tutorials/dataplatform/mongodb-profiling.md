@@ -28,10 +28,10 @@
 
 Начните диагностику с выяснения характера нагрузки и определения проблемных коллекций. Воспользуйтесь встроенными [утилитами мониторинга {{ MG }}](../../managed-mongodb/operations/tools.md#monitoring-tools). Далее проанализируйте производительность конкретных запросов с помощью [логов](../../managed-mongodb/operations/tools.md#explore-logs) или [данных профилировщика](../../managed-mongodb/operations/tools.md#explore-profiler).
 
-Обратите внимание на следующие операции:
+Обратите внимание на запросы:
 
-* Запросы, не использующие индексы (`planSummary: COLLSCAN`). Такие запросы могут увеличивать как потребление I/O (чтений с диска будет больше), так и CPU (данные сжаты по умолчанию, для них требуется декомпрессия). Если необходимый индекс есть, но БД его не использует, можно форсировать использование индекса с помощью [hint](https://docs.mongodb.com/manual/reference/operator/meta/hint/index.html).
-* Запросы с большими значениями параметра `docsExamined` (количества просканированных документов). Это может означать, что текущие индексы неэффективны или требуются дополнительные.
+* Не использующие индексы (`planSummary: COLLSCAN`). Такие запросы могут увеличивать как потребление I/O (чтений с диска будет больше), так и CPU (данные сжаты по умолчанию, для них требуется декомпрессия). Если необходимый индекс есть, но БД его не использует, можно форсировать использование индекса с помощью [hint](https://docs.mongodb.com/manual/reference/operator/meta/hint/index.html).
+* С большими значениями параметра `docsExamined` (количества просканированных документов). Это может означать, что текущие индексы неэффективны или требуются дополнительные.
 
 В момент падения производительности проблему можно диагностировать в реальном времени с помощью [списка текущих запросов](../../managed-mongodb/operations/tools.md#list-running-queries):
 
@@ -39,15 +39,15 @@
 
 - Запросы всех пользователей
 
-    Для выполнения этих операций пользователь должен обладать [ролью `mdbMonitor`](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor).
+    Для выполнения таких запросов пользователь должен обладать [ролью `mdbMonitor`](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor).
 
-    * Долгие операции, например, исполняющиеся более секунды:
+    * Долгие запросы, например, исполняющиеся более секунды:
 
       ```javascript
       db.currentOp({"active": true, "secs_running": {"$gt": 1}})
       ```
 
-    * Операции по созданию индексов:
+    * Запросы по созданию индексов:
 
       ```javascript
       db.currentOp({ $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
@@ -55,13 +55,13 @@
 
 - Запросы текущего пользователя
 
-    * Долгие операции, например, исполняющиеся более секунды:
+    * Долгие запросы, например, исполняющиеся более секунды:
 
       ```javascript
       db.currentOp({"$ownOps": true, "active": true, "secs_running": {"$gt": 1}})
       ```
 
-    * Операции по созданию индексов:
+    * Запросы по созданию индексов:
 
       ```javascript
       db.currentOp({ "$ownOps": true, $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
@@ -79,9 +79,10 @@
 
 Чтобы выявить проблемные запросы в {{ MG }}:
 
-* Изучите [логи](../../managed-mongodb/operations/tools.md#explore-logs). Особое внимание обратите на:
-   * Для операций чтения — на поле `responseLength` (в логах отображается как `reslen`).
-   * Для операций записи — на количество затронутых документов.
+* Изучите [логи](../../managed-mongodb/operations/tools.md#explore-logs). Особое внимание обратите:
+
+   * Для запросов на чтение — на поле `responseLength` (в логах отображается как `reslen`).
+   * Для запросов на запись — на количество затронутых документов.
        В логах кластера они выводятся в полях `nModified`, `keysInserted`, `keysDeleted`. На странице [мониторинга кластера](../../managed-mongodb/operations/monitoring.md#cluster) изучите графики **Documents affected on primary**, **Documents affected on secondaries**, **Documents affected per host**.
 * Изучите данные [профилировщика](../../managed-mongodb/operations/tools.md#explore-profiler). Выведите долго выполняемые запросы (регулируется [настройкой СУБД `slowOpThreshold`](../../managed-mongodb/concepts/settings-list.md#setting-slow-op-threshold)).
 
@@ -106,7 +107,7 @@
 
 {% endnote %}
 
-Возможной оптимизацией операций чтения может быть использование частичного извлечения ([projection](https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/)). Во многих случаях доставать документ целиком не нужно, достаточно нескольких его полей.
+Возможной оптимизацией запросов на чтение может быть использование частичного извлечения ([projection](https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/)). Во многих случаях доставать документ целиком не нужно, достаточно нескольких его полей.
 
 Если не удается ни оптимизировать найденные запросы, ни отказаться от них, можно [поднять класс хостов](../../managed-mongodb/operations/update.md#change-resource-preset).
 
@@ -126,15 +127,15 @@
 
     - Запросы всех пользователей
 
-        Для выполнения этих операций пользователю необходима [роль `mdbMonitor`](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor).
+        Для выполнения таких запросов пользователю необходима [роль `mdbMonitor`](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor).
 
-        * Найдите операции, которые удерживают эксклюзивные блокировки, например:
+        * Найдите запросы, которые удерживают эксклюзивные блокировки, например:
 
           ```javascript
           db.currentOp({'$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'} ]}).inprog
           ```
 
-        * Найдите операции, ожидающие блокировок (в поле `timeAcquiringMicros` будет видно время ожидания):
+        * Найдите запросы, ожидающие блокировок (в поле `timeAcquiringMicros` будет видно время ожидания):
 
           ```javascript
           db.currentOp({'waitingForLock': true}).inprog
@@ -143,13 +144,13 @@
 
     - Запросы текущего пользователя
 
-        * Найдите операции, которые удерживают эксклюзивные блокировки, например:
+        * Найдите запросы, которые удерживают эксклюзивные блокировки, например:
 
           ```javascript
           db.currentOp({"$ownOps": true, '$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'} ]}).inprog
           ```
 
-        * Найдите операции, ожидающие блокировок (в поле `timeAcquiringMicros` будет видно время ожидания):
+        * Найдите запросы, ожидающие блокировок (в поле `timeAcquiringMicros` будет видно время ожидания):
 
           ```javascript
           db.currentOp({"$ownOps": true, 'waitingForLock': true}).inprog
@@ -159,10 +160,10 @@
     {% endlist %}
 
 * В [логах](../../managed-mongodb/operations/tools.md#explore-logs) и [профилировщике](../../managed-mongodb/operations/tools.md#explore-profiler) обратите внимание на следующее:
-  * операции, долго ожидавшие получения блокировок, будут иметь большие значения `timeAcquiringMicros`;
-  * операции, которые конкурировали за одни и те же документы, будут иметь большие значения `writeConflicts`.
+  * запросы, долго ожидавшие получения блокировок, будут иметь большие значения `timeAcquiringMicros`;
+  * запросы, которые конкурировали за одни и те же документы, будут иметь большие значения `writeConflicts`.
 
-Обратитесь к официальной документации {{ MG }} за информацией о том, какие блокировки выполняют стандартные [клиентские](https://docs.mongodb.com/manual/faq/concurrency/#what-locks-are-taken-by-some-common-client-operations-) и [административные](https://docs.mongodb.com/manual/faq/concurrency/#which-administrative-commands-lock-a-database-) команды.
+Обратитесь к официальной документации {{ MG }} за информацией о том, какие блокировки выполняют стандартные [клиентские](https://docs.mongodb.com/manual/faq/concurrency/#what-locks-are-taken-by-some-common-client-operations-) и [административные](https://docs.mongodb.com/manual/faq/concurrency/#which-administrative-commands-lock-a-database-) запросы.
 
 ## Устранение проблем с блокировками {#solve-locks}
 

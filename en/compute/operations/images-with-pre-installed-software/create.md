@@ -124,8 +124,7 @@ To create a [VM](../../concepts/vm.md):
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl

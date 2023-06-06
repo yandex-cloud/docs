@@ -1,6 +1,8 @@
 # Метод getObjectTagging
 
-Возвращает метки объекта в бакете.
+Возвращает [метки](../../../concepts/tags.md) объекта в бакете.
+
+{% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
 ## Запрос {#request}
 

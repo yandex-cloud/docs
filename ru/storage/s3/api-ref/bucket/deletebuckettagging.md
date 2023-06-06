@@ -2,6 +2,8 @@
 
 Удаляет [метки](../../../concepts/tags.md) бакета. 
 
+{% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
+
 ## Запрос {#request}
 
 ```http

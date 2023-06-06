@@ -1,6 +1,6 @@
 # Supported models
 
-_Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Image classification is currently in the [Preview stage](../../../overview/concepts/launch-stages.md)._
 
 The service provides image classification based on a model that is trained on a specific set of images. The model is specified in the `classificationConfig` configuration of a request.
 

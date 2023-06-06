@@ -58,7 +58,7 @@ You can also set limits on the number of instances per group:
 You can use the following metrics for automatic scaling:
 
 * [CPU utilization](#cpu-utilization).
-* [Any metrics](#monitoring-metrics) from [{{ monitoring-full-name }}](/docs/monitoring/).
+* [Any metrics](#monitoring-metrics) from [{{ monitoring-full-name }}](../../../monitoring/index.yaml).
 
 #### CPU utilization {#cpu-utilization}
 

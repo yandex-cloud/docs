@@ -12,7 +12,7 @@ keywords:
 
 _A cloud network_ is similar to a traditional LAN in a data center. Cloud networks are [created](../operations/network-create.md) in folders and used for transmitting information between cloud resources and connecting resources to the internet.
 
-[Public IP addresses](address.md#public-addresses) are used for providing internet access to and from {{ compute-full-name }} VMs and database hosts.
+Internet access to and from {{ compute-full-name }} VMs and database hosts is provided through [public IP addresses](address.md#public-addresses).
 
 You can manage cloud network and subnet traffic using [security groups](security-groups.md). They contain rules that define the protocols and IP addresses for receiving and sending traffic.
 

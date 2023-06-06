@@ -8,7 +8,6 @@
 Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе трансфера. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
 
 
-
 ## Мониторинг состояния трансфера {#monitoring}
 
 {% list tabs %}
@@ -24,55 +23,56 @@
 
 На странице появятся графики:
 
-### Data upload lag (histogram by seconds) {#sinker.pusher.time.row_lag_sec}
-`sinker.pusher.time.row_lag_sec`
+### Number of source events {#publisher.data.changeitems}
+`publisher.data.changeitems`
 
-Разница во времени между появлением записей на приемнике и их появлением на источнике (в секундах). Гистограмма разбита на диапазоны (`bin`). Допустим, в выбранный момент времени на гистограмме представлены два диапазона `bin` 45 и 60, со значением в 50% каждый. Это означает, что половина переносимых в этот момент записей имела задержку передачи от 30 до 45 секунд, а половина — от 45 до 60 секунд.
+Число событий на источнике, сгенерированных для переноса (события помимо переносимых данных могут содержать технические операции).
 
-### Successfully pushed rows {#sinker.pusher.data.row_events_pushed}
-`sinker.pusher.data.row_events_pushed`
+### Number of target events {#sinker.pusher.data.changeitems}
+`sinker.pusher.data.changeitems`
 
-Скорость добавления строк в таблицы для табличных СУБД. Для нереляционных СУБД это скорость переноса объектов, хранящихся в коллекциях (в количестве объектов в секунду).
+Число событий, записанных в приемник (события помимо переносимых данных могут содержать технические операции).
 
-### Maximum lag on delivery {#sinker.pusher.time.row_max_lag_sec}
+### Maximum data transfer delay {#sinker.pusher.time.row_max_lag_sec}
 `sinker.pusher.time.row_max_lag_sec`
 
 Максимальное отставание данных (в секундах).
 
-### Successfully pushed rows by tables (top-50 tables) {#sinker.table.rows}
-`sinker.table.rows`
-
-50 таблиц с максимальным количеством записанных в приемник строк.
-
-### Read buffer size {#publisher.consumer.log_usage_bytes}
-`publisher.consumer.log_usage_bytes`
-
-Объем буфера или журнала опережающей записи (там, где он поддерживается) в источнике (в байтах).
-
-### Read bytes from source (top-50 workers) {#publisher.data.bytes}
+### Reads {#publisher.data.bytes}
 `publisher.data.bytes`
 
 Объем считанных из источника данных (в байтах).
 
-### Sink response time (histogram by seconds) {#sinker.pusher.time.batch_push_distribution_sec}
+### Data transfer delay {#sinker.pusher.time.row_lag_sec}
+`sinker.pusher.time.row_lag_sec`
+
+Разница между временем появления записей на приемнике и временем их появлением на источнике (в секундах). Гистограмма разбита на диапазоны (`bin`). Допустим, в выбранный момент времени на гистограмме представлены два диапазона `bin` 45 и 60, со значением 50% каждый. Это означает, что половина переносимых в этот момент записей имела задержку передачи от 30 до 45 секунд, а половина — от 45 до 60 секунд.
+
+### Source buffer size {#publisher.consumer.log_usage_bytes}
+`publisher.consumer.log_usage_bytes`
+
+Объем буфера или журнала опережающей записи (там, где он поддерживается) в источнике (в байтах).
+
+### Rows written to target, by table {#sinker.table.rows}
+`sinker.table.rows`
+
+50 таблиц с максимальным количеством записанных в приемник строк.
+
+### Target response time {#sinker.pusher.time.batch_push_distribution_sec}
 `sinker.pusher.time.batch_push_distribution_sec`
 
 Полное время записи в приемник батча данных с учетом предварительной обработки (в секундах).
 
-### Read rows (parsed/unparsed) {#publisher.data.*parsed_rows}
-`publisher.data.*parsed_rows`
-
-Количество считанных из источника строк.
-
-### Snapshot task progress (top-50 tables) {#task.snapshot.remainder.table}
+### Rows awaiting transfer, by table {#task.snapshot.remainder.table}
 `task.snapshot.remainder.table`
 
 Количество строк, ожидающих переноса.
 
-### Snapshot task status {#task.status}
+### Operation status {#task.status}
 `task.status`
 
 Тип выполняющейся операции: `1` — задача активна.
+
 
 ## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
@@ -105,7 +105,7 @@
 
 * Метрики:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = publisher.data.changeitems` `resource_type = -`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = publisher.data.changeitems`
 
     ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
@@ -124,7 +124,7 @@
 
 ### Число событий приемника {#target-change-items}
 
-Срабатывание алерта означает, что на протяжении окна вычисления база-приемник не записывались реплицируемые {{ data-transfer-name }} события.
+Срабатывание алерта означает, что на протяжении окна вычисления в базу-приемник не записывались реплицируемые события {{ data-transfer-name }}.
 
 Возможные причины срабатывания:
 
@@ -136,7 +136,7 @@
 
 * Метрики:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = sinker.pusher.data.changeitems` `resource_type = -`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
     ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:
@@ -166,7 +166,7 @@
 
 * Метрики:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec` `resource_type = -`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
 
 * Настройки алерта:
 
@@ -192,7 +192,7 @@
 
 * Метрики:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = publisher.data.bytes` `resource_type = -`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя облака> > <имя каталога>` `service = data-transfer` `name = publisher.data.bytes`
     ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:

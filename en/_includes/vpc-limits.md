@@ -16,7 +16,7 @@
 ----- | -----
 | Minimum CIDR size for a subnet | /28 |
 | Maximum CIDR size for a subnet | /16 |
-| Maximum number of TCP/UDP connections per VM^*^ | 50000 |
+| Maximum number of TCP/UDP connections per VM^*^ | 50,000 |
 | Supported network and transport layer protocols | IP, ICMP, TCP, UDP, GRE, ESP, AH |
 | Maximum number of rules per security group | 50 |
 | Maximum number of CIDRs per rule | 50 |

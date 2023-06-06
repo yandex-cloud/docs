@@ -9,10 +9,10 @@ description: "{{ vpc-full-name }} ({{ vpc-short-name }}) is a service for creati
 
 ![image](../../_assets/vpc/vpc-overview.png)
 
-Use {{ vpc-short-name }} to:
+You can use {{ vpc-short-name }} to:
 
 - Create subnets and connect cloud resources to them.
-- Enable the transfer of information between the cloud resources.
+- Enable information transfer between the cloud resources.
 - Connect the cloud resources to the internet.
 - Create static routes and manage traffic using security groups.
 - Route traffic to the internet via a NAT gateway.

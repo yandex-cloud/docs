@@ -26,6 +26,6 @@ You might also find these links useful:
 * [{#T}](usage-monitor.md)
 * [{#T}](trial-ending.md)
 * [{#T}](upgrade-to-paid.md)
-* [{{ yandex-cloud }} platform overview](../../overview/)
+* [{{ yandex-cloud }} platform overview](../../overview/index.yaml)
 * [{{ yandex-cloud }} documentation](/docs)
 

@@ -1,6 +1,6 @@
 # Обнаружение лиц на изображении
 
-_Обнаружение лиц сейчас находится на [стадии Preview](/docs/overview/concepts/launch-stages)._
+_Обнаружение лиц сейчас находится на [стадии Preview](../../../overview/concepts/launch-stages.md)._
 
 Чтобы обнаружить лица на фото, воспользуйтесь возможностью [Обнаружение лиц](../../concepts/face-detection/index.md).
 
