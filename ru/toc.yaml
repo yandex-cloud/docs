@@ -131,4 +131,7 @@ items:
     href: console/index.yaml
   - name: Облачная терминология
     href: glossary/index.md
+  - name: Готовые решения для известных сценариев
+    href: troubleshooting/index.yaml
+    hidden: true
 base: ru

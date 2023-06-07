@@ -37,13 +37,13 @@ The infrastructure support cost for this scenario includes:
 
 ## Prepare the environment {#prepare-environment}
 
-1. Clone the [examples repository](https://github.com/ydb-platform/ydb-nodejs-sdk/tree/main/examples/basic-example-v1) using Git:
+1. Clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) using Git:
 
    ```
-   git clone https://github.com/ydb-platform/ydb-nodejs-sdk.git
+   git clone https://github.com/yandex-cloud/examples.git
    ```
 
-1. Go to the folder with the project files in the repository: `examples/basic-example-v1`.
+1. Go to the folder with the project files in the repository: `examples/tree/master/serverless/functions/YDB-connect-from-serverless-function`.
 1. Install and initialize the [{{ yandex-cloud }} CLI](../cli/quickstart.md).
 1. Install the [jq](https://stedolan.github.io/jq/download/) utility. In the root of the folder with the project files, start the terminal and run the command:
 

@@ -8,8 +8,6 @@ To set up authentication:
 
 1. [Add certificates to a federation](#add-certificate).
 
-1. [Get a console login link](#get-link).
-
 1. [Configure authentication on the ADFS server](#configure-sso).
 
 1. [Add users to your organization](#add-users).
@@ -307,7 +305,7 @@ To add a certificate to a federation:
 
       ```json
       {
-        "federationId": "<federation ID>",
+        "federationId": "<federation_ID>",
         "name": "my-certificate",
         "data": "MII...=="
       }
@@ -332,35 +330,18 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
-## Get a console login link {#get-link}
-
-When you set up federation authentication, users can log in to the management console from a link containing the federation ID. The same link must be provided when configuring the authentication server.
-
-Obtain and save this link:
-
-1. Get the federation ID:
-
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-   1. Copy the ID of the federation you are configuring access for.
-
-1. Generate a link using this ID:
-
-   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Configure authentication on the ADFS server {#configure-sso}
 
-After you obtained your management console login link, you can configure the ADFS server to notify the management console of each successful authentication session and forward the user to the specified address to log in to the management console.
+After setting up your federation in {{ org-full-name }}, you can configure the ADFS server to notify the management console of each successful authentication session and forward the user to the console.
 
 The instructions in this section are written for Windows Server 2016 (different steps might be needed for other versions).
 
 To set up authentication on the ADFS server:
 
-1. [Create a relying party trust](#configure-relying-party-trust)
+1. [Create a relying party trust](#configure-relying-party-trust).
 
-1. [Configure Claims Mapping](#configure-claims-mapping)
+1. [Configure Claims Mapping](#configure-claims-mapping).
 
 ### Create a relying party trust {#configure-relying-party-trust}
 
@@ -382,11 +363,25 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. In the next step, you are asked to specify a certificate for signing tokens. This step is optional, so click **Next**.
 
-1. In the Configure URL step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the [console login link](#get-link) you obtained earlier. Then click **Next**.
+1. In the Configure URL step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the URL to redirect users to after authentication:
+   
+   ```
+   https://{{ auth-host }}/federations/<federation_ID>
+   ```
+   
+   {% cut "How to get the federation ID" %}
 
-![image](../../../_assets/iam/federations/specify-console-sso-link.png)
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
-1. On the next page, enter the same [console login link](#get-link) as an identifier and click **Add**. Then click **Next**.
+   {% endcut %}
+
+      
+   ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
+   
+
+   Then click **Next**.
+
+1. On the next page, enter the same redirection URL as an identifier and click **Add**. Then click **Next**.
 
 1. On the next page, you can choose who can authenticate using this federation. By default, the **Permit for everyone** policy is selected enabling access for all users.
 
@@ -564,7 +559,7 @@ To add federation users to an organization:
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation_ID>:addUserAccounts
       ```
 
 {% endlist %}
@@ -575,13 +570,25 @@ Now that you finished configuring authentication with Active Directory, test tha
 
 1. Open the browser in guest or incognito mode to simulate being a new user.
 
-1. Follow the [management console login link](#get-link) you obtained earlier. The browser forwards you to the ADFS authentication page, which by default looks as follows:
+1. Follow the management console login URL:
+
+   ```
+   https://{{ console-host }}/federations/<federation_ID>
+   ```
+
+   {% cut "How to get the federation ID" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+
+   The browser forwards you to the ADFS authentication page, which by default looks as follows:
 
    ![image](../../../_assets/iam/federations/test-auth-with-ad-account.png)
 
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 
-1. On successful authentication, ADFS redirects you back to the management console login link and then to the management console home page. In the top-right corner, you can see that you are logged in to the console under an Active Directory account.
+1. On successful authentication, ADFS redirects you to `https://{{ auth-host }}/federations/<federation_ID>`, the URL that you specified in the AD FS server settings, and then to the management console home page. In the top-right corner, you can see that you are logged in to the console under an Active Directory account.
 
 #### What's next {#what-is-next}
 

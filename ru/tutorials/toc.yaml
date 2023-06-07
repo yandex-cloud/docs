@@ -330,7 +330,7 @@ items:
           Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
-      - name: Асинхронная репликация данных из {{ mmy-name }} в {{ yds-name }}
+      - name: Захват изменений {{ MY }} и поставка в {{ DS }}
         href: dataplatform/mmy-to-yds.md
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
@@ -358,7 +358,7 @@ items:
         href: dataplatform/mpg-ydb-replication.md
       - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
-      - name: Асинхронная репликация данных из {{ mpg-name }} в {{ yds-name }}
+      - name: Захват изменений {{ PG }} и поставка в {{ DS }}
         href: dataplatform/mpg-to-yds.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md

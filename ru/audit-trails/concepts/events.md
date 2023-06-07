@@ -104,16 +104,16 @@
 
 ## {{ sf-name }} {#functions}
 
-Имя сервиса — `serverless.functions`.
+Имя сервиса — `serverless`.
 
 Имя события | Описание
 --- | ---
-`CreateFunction` | Создание функции
-`CreateFunctionVersion` | Создание версии функции
-`DeleteFunction` | Удаление функции
-`RemoveFunctionTag` | Удаление тега функции
-`SetFunctionTag` | Назначение тега функции
-`UpdateFunction` | Изменение функции
+`functions.CreateFunction` | Создание функции
+`functions.CreateFunctionVersion` | Создание версии функции
+`functions.DeleteFunction` | Удаление функции
+`functions.RemoveFunctionTag` | Удаление тега функции
+`functions.SetFunctionTag` | Назначение тега функции
+`functions.UpdateFunction` | Изменение функции
 `mdbproxy.CreateProxy` | Создание прокси
 `mdbproxy.DeleteProxy` | Удаление прокси
 `mdbproxy.UpdateProxy` | Изменение прокси

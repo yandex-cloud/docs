@@ -343,7 +343,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
       ```
       yc organization-manager federation saml certificate create \
-        --federation-id <federation ID> \
+        --federation-id <federation_ID> \
         --name "my-certificate" \
         --certificate-file certificate.cer
       ```
@@ -356,7 +356,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
       ```json
       {
-        "federationId": "<federation ID>",
+        "federationId": "<federation_ID>",
         "name": "my-certificate",
         "data": "-----BEGIN CERTIFICATE..."
       }
@@ -395,19 +395,27 @@ Get the link:
 
 1. Generate a link using this ID:
 
-   `https://{{ auth-host }}/federations/<federation ID>`
+   `https://{{ auth-host }}/federations/<federation_ID>`
 
 ## Setting up Single Sign-On (SSO) {#sso-settings}
 
-### Add a console login link {#add-link}
+### Specify the redirection URL {#add-link}
 
-Once you create a federation and receive a link to log in to the console, finalize the SAML application in Azure AD:
+Once you create a federation, finalize the SAML application in Azure AD:
 
 1. Open the **SAML-based sign-on** SAML application settings page.
 
-1. In Section **1. Basic SAML** configuration, specify information on {{ yandex-cloud }} acting as the service provider.
+1. In Section **1. Basic SAML** configuration, specify information on {{ yandex-cloud }} acting as the service provider. To do this, in the **ID (entity)** and the **Response URL (assertion consumer service URL)** fields, enter the URL to redirect users to after authentication:
 
-   To do this, in the **ID (entity)** and the **Response URL (assertion consumer service URL)** fields, enter the [console login link](#get-link) you obtained earlier.
+   ```
+   https://{{ auth-host }}/federations/<federation_ID>
+   ```
+
+   {% cut "How to get the federation ID" %}
+  
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+  
+   {% endcut %}
 
 1. Click **Save**.
 
@@ -480,7 +488,7 @@ A user can be added by an organization administrator (the `organization-manager.
    1. Add users by listing their Name IDs separated by a comma:
 
       ```
-      yc organization-manager federation saml add-user-accounts --id <federation ID> \
+      yc organization-manager federation saml add-user-accounts --id <federation_ID> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -512,7 +520,7 @@ A user can be added by an organization administrator (the `organization-manager.
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation_ID>:addUserAccounts
       ```
 
 {% endlist %}
@@ -523,11 +531,23 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the [console login link](#yc-settings) you obtained previously. The browser forwards you to the Microsoft authentication page.
+1. Follow the management console login URL:
+
+   ```
+   https://{{ console-host }}/federations/<federation_ID>
+   ```
+
+   {% cut "How to get the federation ID" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+
+   The browser forwards you to the Microsoft authentication page.
 
 1. Enter your credentials and click **Next**.
 
-If the authentication is successful, the IdP server will redirect you back to the console login link, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
+If the authentication is successful, the IdP server will redirect you to `https://{{ auth-host }}/federations/<federation_ID>`, the URL that you specified in the Azure AD settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

@@ -1,6 +1,6 @@
 # DeleteBucketTagging method
 
-Deletes bucket [tags](../../../../resource-manager/concepts/labels.md).
+Deletes bucket [labels](../../../concepts/tags.md).
 
 ## Query {#request}
 
@@ -22,7 +22,7 @@ DELETE /{bucket}?tagging HTTP/2
 
 ### Headers {#request-headers}
 
-Use [common request headers](../common-request-headers.md) in requests.
+Use [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
