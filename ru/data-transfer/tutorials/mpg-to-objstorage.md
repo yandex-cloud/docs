@@ -1,3 +1,3 @@
-# Поставка данных из {{ mpg-full-name }} в {{ objstorage-full-name }}
+# Загрузка данных из {{ PG }} в {{ objstorage-name }}
 
 {% include [article-body](../../_tutorials/datatransfer/mpg-to-objstorage.md) %}

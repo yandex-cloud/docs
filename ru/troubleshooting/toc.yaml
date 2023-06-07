@@ -1,0 +1,58 @@
+title: Все решения
+href: index.yaml
+items:
+  - name: Cloud CDN
+    items:
+      - name: Все решения для Cloud CDN
+        href: cdn/index.md
+      - name: Решения для известных проблем Cloud CDN
+        href: cdn/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Cloud CDN
+        href: cdn/how-to/index.md
+        hidden: true
+      - name: >-
+          Ограничение доступа к бакету Object Storage диапазоном IP-адресов,
+          принадлежащиих Cloud CDN
+        href: cdn/how-to/permit-bucket-access-only-to-cdn-networks.md
+  - name: Сompute Cloud
+    items:
+      - name: Все решения для Compute Cloud
+        href: compute/index.md
+      - name: Решения для известных проблем Compute Cloud
+        href: compute/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Cloud CDN
+        href: compute/how-to/index.md
+        hidden: true
+      - name: Варианты миграции образа виртуальной машины в Яндекс Облако
+        href: compute/how-to/possible-vm-migration-scenarios.md
+  - name: DataLens
+    items:
+      - name: Все решения для DataLens
+        href: datalens/index.md
+      - name: Решения для известных проблем DataLens
+        href: datalens/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев DataLens
+        href: datalens/how-to/index.md
+        hidden: true
+      - name: Устранение ошибки ERR.DS_API.FIELD.TITLE.CONFLICT в DataLens
+        href: datalens/known-issues/err-ds_api_field-title_conflict.md
+  - name: Object Storage
+    items:
+      - name: Все решения для Object Storage
+        href: storage/index.md
+      - name: Решения для известных проблем Object Storage
+        href: storage/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Object Storage
+        href: storage/how-to/index.md
+        hidden: true
+      - name: Перемещение данных из бакета Object Storage в ледяное хранилище
+        href: storage/how-to/moving-objects-to-glacier-storage-type.md
+      - name: >-
+          Ограничение доступа к бакету Object Storage диапазоном IP-адресов,
+          принадлежащиих Cloud CDN
+        href: storage/how-to/permit-bucket-access-only-to-cdn-networks.md
+base: ru/troubleshooting

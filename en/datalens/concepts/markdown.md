@@ -255,7 +255,7 @@ val a: Int = 1
 {% note info %}
 
 * You cannot upload images from external storage.
-* The only supported [object link](../../storage/concepts/object.md#object-url) format is `https://storage.yandexcloud.net/<bucket>/<key>`.
+* The only supported [object link](../../storage/concepts/object.md#object-url) format is `https://{{ s3-storage-host }}/<bucket>/<key>`.
 
 {% endnote %}
 

@@ -20,7 +20,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
 - Businesses and individual entrepreneurs
 
-  **Legal entities of the Russian Federation**
+  **For businesses in Russia**
 
     Companies and individual entrepreneurs can download [reports](../concepts/act.md) and [invoices](../concepts/invoice.md) and request reconciliation reports.
 
@@ -68,7 +68,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
     1. Click the button with the selected download type. The document will open in a new window and become available for saving.
 
-  **Legal entities of the Republic of Kazakhstan**
+  **For businesses in Kazakhstan**
 
     ## Acceptance certificate {#report-of-completion}
 

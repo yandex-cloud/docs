@@ -1,4 +1,4 @@
-# Поставка данных из {{ mkf-full-name }} в {{ mes-full-name }} с помощью {{ data-transfer-full-name }}
+# Поставка данных из очереди {{ KF }} {{ ES }} с помощью {{ data-transfer-full-name }}
 
 В кластер {{ mes-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
 

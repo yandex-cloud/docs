@@ -95,7 +95,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
       * Confirm that this is a corporate bank card and you are authorized to use it.
 
-      {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+      {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
       {% include [yandex-account](../../_includes/billing/payment-card-validation.md) %}
 

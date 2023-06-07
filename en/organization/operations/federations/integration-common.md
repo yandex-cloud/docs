@@ -8,8 +8,6 @@ To set up authentication:
 
 1. [Add certificates to a federation](#add-certificate).
 
-1. [Get a console login link](#get-link).
-
 1. [Configure authentication on your server](#configure-sso).
 
 1. [Configure user attribute mapping](#claims-mapping).
@@ -278,7 +276,7 @@ To add a certificate to a federation:
 
       ```json
       {
-        "federationId": "<federation ID>",
+        "federationId": "<federation_ID>",
         "name": "my-certificate",
         "data": "MII...=="
       }
@@ -303,32 +301,15 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
-## Get a console login link {#get-link}
-
-When you set up federation authentication, users can log in to the management console from a link containing the federation ID. The same link must be provided when configuring the authentication server.
-
-Obtain and save this link:
-
-1. Get the federation ID:
-
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-   1. Copy the ID of the federation you are configuring access for.
-
-1. Generate a link using this ID:
-
-   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Configure authentication on your server {#configure-sso}
 
-After you create a federation and obtain a management console login link, configure the Identity Provider (IdP) server. After each successful authentication, the server must send a relevant SAML message to the management console.
+After you create a federation, configure the Identity Provider (IdP) server. After each successful authentication, the server must send a relevant SAML message to the management console.
 
 Example of an SAML message:
 ```xml
 <samlp:Response ID="_bcdf7b6b-ea42-4191-8d5e-ebd4274acec6" Version="2.0" IssueInstant="2019-07-30T13:24:25.488Z"
- Destination="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
+ Destination="https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
   InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://example.org/auth</Issuer>
   <samlp:Status>
@@ -360,12 +341,12 @@ Example of an SAML message:
     <Subject>
       <NameID>user@example.org</NameID>
       <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" />
+        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu" />
       </SubjectConfirmation>
     </Subject>
     <Conditions NotBefore="2019-07-30T13:24:25.482Z" NotOnOrAfter="2019-07-30T14:24:25.482Z">
       <AudienceRestriction>
-        <Audience>{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu</Audience>
+        <Audience>https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu</Audience>
       </AudienceRestriction>
     </Conditions>
     <AttributeStatement>
@@ -386,10 +367,18 @@ Example of an SAML message:
 When setting up the message:
 
 * Use the `Response` and the `SubjectConfirmationData` properties of the `InResponseTo` attribute to specify the ID from the SAML authentication request sent by {{ yandex-cloud }}.
-* Enter the [console login link](#get-link) in the following elements:
+* Enter the URL to redirect users to after authentication, `https://{{ auth-host }}/federations/<federation_ID>`, in the following elements:
+  
    * In the `Destination` attribute of `Response`.
    * In the `Recipient` attribute of `SubjectConfirmationData`.
    * In `Audience`.
+
+   {% cut "How to get the federation ID" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+
 * Specify a unique user ID in the `NameID` element. We recommend using the User Principal Name (UPN) or email address.
 * Specify the link to the IdP page in the `Issuer` element. The user was forwarded to this page for authentication).
 * Enter a signed message in the `SignatureValue` element and the certificate it was signed with in the `KeyInfo` element.
@@ -554,7 +543,7 @@ To add federation users to an organization:
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation_ID>:addUserAccounts
       ```
 
 {% endlist %}

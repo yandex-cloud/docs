@@ -81,9 +81,7 @@ items:
           Поставка данных из {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/kafka-to-yds.md
-      - name: >-
-          Поставка данных из {{ ydb-full-name }} с помощью {{
-          data-transfer-full-name }}
+      - name: Захват изменений {{ ydb-short-name }} и поставка в {{ DS }}
         href: tutorials/ydb-to-yds.md
   - name: Управление доступом
     href: security/index.md

@@ -1,4 +1,6 @@
-Вы можете настроить асинхронную репликацию данных из {{ mmy-full-name }} в {{ yds-full-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
+Вы можете отслеживать изменения данных в _кластере-источнике_ {{ mmy-name }} и отправлять их в _кластер-приемник_ {{ yds-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
+
+Чтобы настроить CDC с использованием сервиса {{ data-transfer-name }}:
 
 1. [Подготовьте трансфер](#prepare-transfer).
 1. [Активируйте трансфер](#activate-transfer).
@@ -15,9 +17,8 @@
 - Вручную
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-mysql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
-        * Имя базы — `db1`.
-        * Имя пользователя — `mmy-user`.
-        * Пароль — `<пароль пользователя>`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mmy-user`.
 
     1. [Выдайте пользователю административные привилегии](../../managed-mysql/concepts/settings-list#setting-administrative-privileges) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
@@ -93,9 +94,9 @@
 
 1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/data-streams.md) типа `{{ yds-name }}` со следующими настройками:
 
-    * База данных — `ydb-example`.
-    * Поток — `mpg-stream`.
-    * Сервисный аккаунт — `yds-sa`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — `ydb-example`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — `mpg-stream`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — `yds-sa`.
 
 1. Создайте эндпоинт-источник и трансфер:
 
@@ -105,13 +106,13 @@
 
         1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/mysql.md) типа `{{ MY }}` и укажите в нем параметры подключения к кластеру:
 
-            * **Тип подключения** — `Кластер Managed Service for MySQL`.
-            * **Кластер** — `<имя кластера-источника {{ MY }}>` из выпадающего списка.
-            * **База данных** — `db1`.
-            * **Пользователь** — `mmy-user`.
-            * **Пароль** — `<пароль пользователя>`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — `<имя кластера-источника {{ MY }}>` из выпадающего списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}** — `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — `mmy-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — пароль пользователя `mmy-user`.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
 
     - С помощью {{ TF }}
 
@@ -154,38 +155,40 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
+{% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
+
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-* [Деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate) и дождитесь его перехода в статус _{{ dt-status-stopped }}_.
-* [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-* [Удалите поток данных {{ yds-name }}](../../data-streams/operations/manage-streams.md#delete-data-stream).
-* Удалите трансфер, эндпоинт-источник, кластер {{ mmy-name }} и базу {{ ydb-name }}:
+1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите поток данных {{ yds-name }}](../../data-streams/operations/manage-streams.md#delete-data-stream).
 
-    {% list tabs %}
+Остальные ресурсы удалите в зависимости от способа их создания:
 
-    * Вручную
+{% list tabs %}
 
-        * [Трансфер](../../data-transfer/operations/transfer.md#delete).
-        * [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
-        * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
-        * [Базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+* Вручную
 
-    * С помощью {{ TF }}
+    * [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
+    * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
+    * [Базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
 
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `mysql-yds.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+* С помощью {{ TF }}
 
-            ```bash
-            terraform validate
-            ```
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Удалите конфигурационный файл `mysql-yds.tf`.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        ```bash
+        terraform validate
+        ```
 
-        1. Подтвердите изменение ресурсов.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+    1. Подтвердите изменение ресурсов.
 
-            Все ресурсы, которые были описаны в конфигурационном файле `mysql-yds.tf`, будут удалены.
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    {% endlist %}
+        Все ресурсы, которые были описаны в конфигурационном файле `mysql-yds.tf`, будут удалены.
+
+{% endlist %}

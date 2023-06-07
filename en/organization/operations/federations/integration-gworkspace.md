@@ -311,7 +311,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
    1. Add a federation certificate by specifying the certificate file path:
 
       ```
-      yc organization-manager federation saml certificate create --federation-id <federation ID> \
+      yc organization-manager federation saml certificate create --federation-id <federation_ID> \
         --name "my-certificate" \
         --certificate-file certificate.pem
       ```
@@ -324,7 +324,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
       ```json
       {
-        "federationId": "<federation ID>",
+        "federationId": "<federation_ID>",
         "name": "my-certificate",
         "data": "-----BEGIN CERTIFICATE..."
       }
@@ -349,33 +349,28 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
-### Get a console login link {#get-link}
-
-When you set up federation authentication, users can log in to the management console from a link containing the federation ID. The same link must be provided when configuring the authentication server.
-
-Obtain and save this link:
-
-1. Get the federation ID:
-
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-   1. Copy the ID of the federation you are configuring access for.
-
-1. Generate a link using this ID:
-
-   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Setting up Single Sign-On (SSO) {#sso-settings}
 
-### Add a console login link {#add-link}
+### Specify the redirection URL {#add-link}
 
-Once you've created a federation and received a link to log in to the console, complete the creation of the SAML application in Google Workspace:
+Once you've created a federation, complete the creation of the SAML application in Google Workspace:
 
 1. Go back to the SAML app creation page's **Google IdP information** step and click **Continue**.
 
 1. In the **Service provider information** step, specify information about {{ yandex-cloud }} that acts as a service provider:
 
-   * In the **ACS URL** and **Entity ID** fields, enter the previously obtained [console login link](#get-link).
+   * In the **ACS URL** and **Entity ID** fields, enter the URL to redirect users to after authentication:
+
+     ```
+     https://{{ auth-host }}/federations/<federation_ID>
+     ```
+     
+     {% cut "How to get the federation ID" %}
+  
+     {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+  
+     {% endcut %}
 
    * Enable **Signed Response**.
 
@@ -471,7 +466,7 @@ A user can be added by an organization administrator (the `organization-manager.
    1. Add users by listing their Name IDs separated by a comma:
 
       ```
-      yc organization-manager federation saml add-user-accounts --id <federation ID> \
+      yc organization-manager federation saml add-user-accounts --id <federation_ID> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -503,7 +498,7 @@ A user can be added by an organization administrator (the `organization-manager.
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation_ID>:addUserAccounts
       ```
 
 {% endlist %}
@@ -514,11 +509,23 @@ When you finish configuring the server, test that everything works properly:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the [console login link](#get-link) you obtained previously. The browser will forward you to the Google authentication page.
+1. Follow the management console login URL:
+
+   ```
+   https://{{ console-host }}/federations/<federation_ID>
+   ```
+
+   {% cut "How to get the federation ID" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+   
+   The browser will forward you to the Google authentication page.
 
 1. Enter your credentials and click **Sign in**.
 
-If the authentication is successful, the IdP server will redirect you back to the console login link, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
+If the authentication is successful, the IdP server will redirect you to `https://{{ auth-host }}/federations/<federation_ID>`, the URL that you specified in Google Workspace settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

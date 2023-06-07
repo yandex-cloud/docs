@@ -142,7 +142,7 @@ default:
   yds-name: Data Streams
   cdn-name: Cloud CDN
   serverless-containers-name: Serverless Containers
-  org-name: Organization
+  org-name: Cloud Organization
   forms-name: Forms
   wiki-name: Wiki
   load-testing-name: Load Testing
@@ -43217,6 +43217,11 @@ default:
                         title: Number of retries
                       service_account_id:
                         title: Service account
+                    Serializer:
+                      serializer_auto:
+                        title: Auto
+                      serializer:
+                        title: Serializing settings
             elasticsearch:
               console:
                 form:
@@ -43860,11 +43865,6 @@ default:
                         title: Incremental tables
                       regular_snapshot:
                         title: Periodic snapshot
-                    TransferTypeSnapshotAndIncrement:
-                      increment_settings:
-                        title: Replication settings
-                      snapshot_settings:
-                        title: Snapshot settings
                     YTRuntime:
                       cpu:
                         title: CPU

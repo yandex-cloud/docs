@@ -1,4 +1,4 @@
-# Поставка данных из {{ mkf-full-name }} в {{ mmg-full-name }} с помощью {{ data-transfer-full-name }}
+# Поставка данных из очереди {{ KF }} в в {{ MG }} с помощью {{ data-transfer-full-name }}
 
 В кластер {{ mmg-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
 

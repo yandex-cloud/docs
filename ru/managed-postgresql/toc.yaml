@@ -81,6 +81,8 @@ items:
         href: tutorials/data-transfer-ydb.md
       - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
         href: tutorials/cdc-debezium.md
+      - name: Захват изменений {{ PG }} и поставка в {{ DS }}
+        href: tutorials/mpg-to-yds.md
       - name: >-
           Поставка данных из {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
@@ -101,10 +103,6 @@ items:
               Миграция базы данных из {{ mpg-full-name }} в {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
-          - name: >-
-              Асинхронная репликация данных из {{ mpg-full-name }} в {{
-              yds-full-name }}
-            href: tutorials/mpg-to-yds.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

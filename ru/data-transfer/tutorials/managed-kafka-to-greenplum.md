@@ -1,3 +1,3 @@
-# Поставка данных из {{ mkf-full-name }} в {{ mgp-full-name }}
+# Поставка данных из очереди {{ KF }} в {{ GP }}
 
 {% include [article-body](../../_tutorials/datatransfer/managed-kafka-to-greenplum.md) %}

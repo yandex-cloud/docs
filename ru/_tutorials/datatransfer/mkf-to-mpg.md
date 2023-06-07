@@ -1,4 +1,4 @@
-# Поставка данных из {{ mkf-full-name }} в {{ mpg-full-name }} с помощью {{ data-transfer-full-name }}
+# Поставка данных из очереди {{ KF }} в {{ PG }} с помощью {{ data-transfer-full-name }}
 
 Вы можете настроить перенос данных из топика {{ mkf-name }} в {{ mpg-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
 

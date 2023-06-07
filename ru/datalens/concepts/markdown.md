@@ -254,7 +254,7 @@ val a: Int = 1
 {% note info %}
 
 * Загрузка изображений из сторонних хранилищ не поддерживается.
-* Поддерживаются только [ссылки на объекты](../../storage/concepts/object.md#object-url) вида `https://storage.yandexcloud.net/<bucket>/<key>`.
+* Поддерживаются только [ссылки на объекты](../../storage/concepts/object.md#object-url) вида `https://{{ s3-storage-host }}/<bucket>/<key>`.
 
 {% endnote %}
 

@@ -1,3 +1,3 @@
-# Асинхронная репликация данных из {{ PG }} в {{ CH }}
+# Загрузка данных из {{ PG }} в витрину {{ CH }}
 
 {% include [article-body](../../_tutorials/rdbms-to-clickhouse.md) %}
