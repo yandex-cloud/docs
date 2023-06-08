@@ -381,21 +381,6 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
-### Get a console login link {#get-link}
-
-When you set up federation authentication, users can log in to the management console from a link containing the federation ID. You will need to specify the same link when [setting up Single Sign-On (SSO)](#sso-settings).
-
-Get the link:
-
-1. Copy the Federation ID:
-
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-   1. Copy the ID of the federation you are configuring access for.
-
-1. Generate a link using this ID:
-
-   `https://{{ auth-host }}/federations/<federation_ID>`
 
 ## Setting up Single Sign-On (SSO) {#sso-settings}
 

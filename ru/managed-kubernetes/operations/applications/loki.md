@@ -13,7 +13,7 @@
 
    ```bash
    yc iam access-key create \
-     --service-account-name=<имя сервисного аккаунта> \
+     --service-account-name=<имя_сервисного_аккаунта> \
      --format=json > sa-key.json
    ```
 
@@ -31,7 +31,7 @@
    * **Статический ключ для доступа** — скопируйте содержимое файла `sa-key.json` или создайте новый ключ доступа для сервисного аккаунта. Сервисный аккаунт должен иметь роли `storage.uploader` и `storage.viewer`.
 1. Нажмите кнопку **Установить**.
 1. Дождитесь перехода приложения в статус `Deployed`.
-1. После развертывания Loki будет доступен по адресу внутри кластера {{ managed-k8s-name }}: `http://loki-gateway.<пространство имен>.svc.cluster.local`.
+1. После развертывания Loki будет доступен по адресу внутри кластера {{ managed-k8s-name }}: `http://loki-gateway.<пространство_имен>.svc.cluster.local`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
@@ -43,18 +43,16 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/grafana/loki/chart/loki \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_loki.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_loki.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set storageConfig.aws.bucketnames=<имя бакета {{ objstorage-name }}> \
-     --set-file serviceaccountawskeyvalue=<путь к файлу со статическим ключом сервисного аккаунта> \
+     --set storageConfig.aws.bucketnames=<имя_бакета_Object_Storage> \
+     --set-file serviceaccountawskeyvalue=<путь_к_файлу_со_статическим_ключом_сервисного_аккаунта> \
      loki ./loki/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/loki#docker-images).
 
 ## См. также {#see-also}
 

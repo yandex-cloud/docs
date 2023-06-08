@@ -1,4 +1,4 @@
-# Устранение ошибки ERR.DS_API.FIELD.TITLE.CONFLICT в DataLens {#err-ds_api_field-title_conflict-issue}
+# Устранение ошибки ERR.DS_API.FIELD.TITLE.CONFLICT в DataLens
 
 ## Описание проблемы {#issue-description}
 При валидации датасета возникает ошибка "Датасет не прошел валидацию".

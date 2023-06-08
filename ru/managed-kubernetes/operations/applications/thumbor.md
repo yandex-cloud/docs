@@ -19,7 +19,7 @@
 
    ```bash
    yc iam access-key create \
-     --service-account-name <имя сервисного аккаунта для Thumbor> \
+     --service-account-name <имя_сервисного_аккаунта_для_Thumbor> \
      --format json > sa-key.json
    ```
 
@@ -55,15 +55,15 @@
 
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
-     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
-       --version <версия Helm-чарта> \
+     helm pull oci://{{ mkt-k8s-key.yc_thumbor.helmChart.name }} \
+       --version {{ mkt-k8s-key.yc_thumbor.helmChart.tag }} \
        --untar && \
      helm install \
-       --namespace <пространство имен для Thumbor> \
+       --namespace <пространство_имен_для_Thumbor> \
        --create-namespace \
-       --set bucket_name='<имя бакета {{ objstorage-name }}>' \
+       --set bucket_name='<имя_бакета_Object_Storage>' \
        --set allow_unsafe_url='true' \
-       --set root_path='<имя подкаталога в бакете>' \
+       --set root_path='<имя_подкаталога_в_бакете>' \
        --set-file saAccessKeyFile='sa-key.json' \
       thumbor ./thumbor
      ```
@@ -72,23 +72,21 @@
 
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
-     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
-       --version <версия Helm-чарта> \
+     helm pull oci://{{ mkt-k8s-key.yc_thumbor.helmChart.name }} \
+       --version {{ mkt-k8s-key.yc_thumbor.helmChart.tag }} \
        --untar && \
      helm install \
-       --namespace <пространство имен для Thumbor> \
+       --namespace <пространство_имен_для_Thumbor> \
        --create-namespace \
-       --set bucket_name='<имя бакета {{ objstorage-name }}>' \
+       --set bucket_name='<имя_бакета_Object_Storage>' \
        --set allow_unsafe_url='false' \
-       --set security_key='<ключ безопасности для подписывания URL>' \
-       --set root_path='<имя подкаталога в бакете>' \
+       --set security_key='<ключ_безопасности_для_подписывания_URL>' \
+       --set root_path='<имя_подкаталога_в_бакете>' \
        --set-file saAccessKeyFile='sa-key.json' \
       thumbor ./thumbor/
      ```
 
    {% endlist %}
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/thumbor#docker-images).
 
 ## Получение доступа к приложению {#app-access}
 
@@ -105,8 +103,8 @@
 - Консоль управления
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ network-load-balancer-short-name }}**.
-  1. Узнайте IP-адрес для балансировщика с описанием `cluster <имя вашего кластера>, service <пространство имен>/thumbor`.
-  1. В адресной строке браузера откройте ссылку `http://<IP-адрес балансировщика>/unsafe/<имя изображения в бакете>`.
+  1. Узнайте IP-адрес для балансировщика с описанием `cluster <имя_вашего_кластера>, service <пространство_имен>/thumbor`.
+  1. В адресной строке браузера откройте ссылку `http://<IP-адрес_балансировщика>/unsafe/<имя_изображения_в_бакете>`.
 
 - CLI
 
@@ -114,11 +112,11 @@
 
      ```bash
      kubectl get svc \
-       --namespace <пространство имен> \
+       --namespace <пространство_имен> \
        --output jsonpath='{.status.loadBalancer.ingress[0].ip}' thumbor
      ```
 
-  1. В адресной строке браузера откройте ссылку `http://<IP-адрес балансировщика>/unsafe/<имя изображения в бакете>`.
+  1. В адресной строке браузера откройте ссылку `http://<IP-адрес_балансировщика>/unsafe/<имя_изображения_в_бакете>`.
 
 {% endlist %}
 

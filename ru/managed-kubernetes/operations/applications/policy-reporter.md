@@ -23,7 +23,7 @@
 
      ```bash
      yc iam access-key create \
-       --service-account-name=<имя сервисного аккаунта> \
+       --service-account-name=<имя_сервисного_аккаунта> \
        --format=json > sa-key.json
      ```
 
@@ -62,24 +62,22 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/policy-reporter \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_policy-reporter.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_policy-reporter.helmChart.tag }} \
      --untar && \
    helm upgrade --install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set clusterId=<идентификатор кластера> \
-     --set ui.enabled=<включение Policy Reporter UI: true или false> \
-     --set target.s3.enabled=<экспорт в {{ objstorage-name }}: true или false> \
-     --set target.s3.bucket=<имя бакета {{ objstorage-name }}> \
-     --set-file serviceaccountawskeyvalue=<путь к файлу со статическим ключом сервисного аккаунта> \
-     --set target.kinesis.enabled=<экспорт в {{ yds-name }}: true или false> \
-     --set target.kinesis.endpoint=<эндпоинт потока {{ yds-name }}> \
-     --set target.kinesis.streamName=<имя потока {{ yds-name }}> \
+     --set clusterId=<идентификатор_кластера> \
+     --set ui.enabled=<включение_Policy_Reporter_UI_(true_или_false)> \
+     --set target.s3.enabled=<экспорт_в_Object_Storage_(true_или_false)> \
+     --set target.s3.bucket=<имя_бакета_Object_Storage> \
+     --set-file serviceaccountawskeyvalue=<путь_к_файлу_со_статическим_ключом_сервисного_аккаунта> \
+     --set target.kinesis.enabled=<экспорт_в_Data_Streams_(true_или_false)> \
+     --set target.kinesis.endpoint=<эндпоинт_потока_Data_Streams> \
+     --set target.kinesis.streamName=<имя_потока_Data_Streams> \
      policy-reporter ./policy-reporter/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/policy-reporter#docker-images).
 
    Параметры `target.s3.bucket` и `serviceaccountawskeyvalue` необходимы только при включенном экспорте в {{ objstorage-name }} `target.s3.enabled=true`, а `target.kinesis.endpoint` и `target.kinesis.streamName` — при включенном экспорте в {{ yds-name }} `target.kinesis.enabled=true`.
 

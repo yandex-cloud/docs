@@ -36,7 +36,7 @@ Billing accounts aren't used for managing resources in {{ yandex-cloud }} and ar
 
 ### Yandex account {#passport}
 
-_Yandex account_: Your [Yandex](https://yandex.ru/support/passport/index.html) or [Yandex 360](https://360.yandex.ru/) account.
+_Yandex account_: Your [Yandex](https://yandex.ru/support/passport/index.html) or [{{ yandex-360 }}](https://360.yandex.ru/) account.
 
 {% note info %}
 

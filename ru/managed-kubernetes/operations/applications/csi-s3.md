@@ -42,20 +42,18 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/csi-s3/csi-s3 \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_csi-s3.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_csi-s3.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set secret.accessKey=<идентификатор ключа> \
-     --set secret.secretKey=<секретный ключ> \
+     --set secret.accessKey=<идентификатор_ключа> \
+     --set secret.secretKey=<секретный_ключ> \
      csi-s3 .
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/csi-s3#docker-images).
-
-При установке приложения CSI обязательными являются параметры `secret.accessKey` и `secret.secretKey`. Вы можете не указывать остальные параметры, либо переопределить их в команде установки с помощью ключа `--set <имя параметра>=<новое значение>`.
+   
+При установке приложения CSI обязательными являются параметры `secret.accessKey` и `secret.secretKey`. Вы можете не указывать остальные параметры, либо переопределить их в команде установки с помощью ключа `--set <имя_параметра>=<новое_значение>`.
 
 Список доступных для переопределения параметров и их значения по умолчанию приведены в таблице:
 

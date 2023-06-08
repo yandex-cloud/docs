@@ -15,7 +15,7 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
 
    ```bash
    yc iam key create \
-     --service-account-name <имя сервисного аккаунта> \
+     --service-account-name <имя_сервисного_аккаунта> \
      --output sa-key.json
    ```
 
@@ -40,17 +40,15 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_external-secrets.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_external-secrets.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
      --set-file auth.json=sa-key.json \
      external-secrets ./external-secrets/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/external-secrets#docker-images).
 
    Эта команда создаст новое пространство имен, необходимое для работы External Secrets Operator.
 

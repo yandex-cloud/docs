@@ -1,6 +1,6 @@
 # Creating alerts
 
-To create an alert:
+To create an [alert](../../concepts/alerting.md):
 
 1. On the {{ monitoring-short-name }} service homepage, click **Create alert**.
 1. Specify the main parameters of the alert:

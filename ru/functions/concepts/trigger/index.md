@@ -13,9 +13,10 @@ _Триггер_ — условие, при выполнении которог�
 * [таймер](timer.md);
 * [триггер для {{ message-queue-name }}](ymq-trigger.md);
 * [триггер для {{ objstorage-name }}](os-trigger.md);
-* [триггер для {{ iot-name }}](iot-core-trigger.md);
 * [триггер для {{ container-registry-name }}](cr-trigger.md);
+* [триггер для {{ cloud-logs-name }}](cloudlogs-trigger.md);
 * [триггер для {{ cloud-logging-name }}](cloud-logging-trigger.md);
+* [триггер для {{ iot-name }}](iot-core-trigger.md);
 * [триггер для бюджетов](budget-trigger.md);
 * [триггер для {{ yds-name }}](data-streams-trigger.md);
 * [триггер для почты](mail-trigger.md).

@@ -4,6 +4,8 @@ _Таймер_ — это [триггер](../trigger/), который запу
 
 Таймеру необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
 
+О том, как создать таймер, читайте в инструкции [{#T}](../../operations/timer-create.md).
+
 {% include [cron-expression](../../../_includes/functions/cron-expression.md) %}
 
 ## Роли, необходимые для корректной работы таймера {#roles}

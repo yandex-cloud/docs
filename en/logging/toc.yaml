@@ -99,6 +99,6 @@ items:
                 href: api-ref/LogGroup/update.md
               - name: updateAccessBindings
                 href: api-ref/LogGroup/updateAccessBindings.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/logging

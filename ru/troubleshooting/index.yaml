@@ -8,13 +8,13 @@ meta:
 links:
   - title: CDN
     description: Решения для Cloud CDN
-    href: cdn/index.md
+    href: cdn/
   - title: Compute
     description: Решения для Compute Cloud
-    href: compute/index.md
+    href: compute/
   - title: DataLens
     description: Решения для DataLens
-    href: datalens/index.md
+    href: datalens/
   - title: Object Storage
     description: Решения для Object Storage
-    href: storage/index.md
+    href: storage/

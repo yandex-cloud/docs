@@ -48,7 +48,7 @@
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To edit the record retention time in a log group created with {{ TF }}:
 

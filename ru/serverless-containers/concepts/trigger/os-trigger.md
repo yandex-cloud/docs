@@ -4,6 +4,8 @@
 
 Триггеру для {{ objstorage-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
 
+О том, как создать триггер для {{ objstorage-name }}, читайте в инструкции [{#T}](../../operations/os-trigger-create.md).
+
 {% include [os-event](../../../_includes/functions/os-event.md) %}
 
 ## Роли, необходимые для корректной работы триггера для {{ objstorage-name }} {#roles}

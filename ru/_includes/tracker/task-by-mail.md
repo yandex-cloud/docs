@@ -59,7 +59,7 @@
 
   {% endnote %}
 
-- На домене в Яндекс 360
+- На домене в {{ yandex-360 }}
 
   1. {% include [go to settings](transition-page.md) %} 
 

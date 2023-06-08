@@ -17,6 +17,8 @@
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ serverless-containers-name }}.
 
+### Сервисные роли {#service-roles}
+
 {% include [serverless-containers-roles-viewer](../../_includes/roles-serverless-containers-viewer.md) %}
 
 {% include [serverless-containers-roles-auditor](../../_includes/roles-serverless-containers-auditor.md) %}
@@ -29,18 +31,6 @@
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### {{ roles-viewer }} {#viewer}
+### Примитивные роли {#primitive-roles}
 
-Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например посмотреть список контейнеров или их ревизий.
-
-### {{ roles-editor }} {#editor}
-
-Пользователь с ролью `{{ roles-editor }}` может управлять контейнерами, например создать контейнер или вызвать его.
-
-Роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
-
-### {{ roles-admin }} {#admin}
-
-Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например разрешить другим пользователям вызывать контейнер.
-
-Роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}

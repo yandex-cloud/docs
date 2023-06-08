@@ -43,7 +43,7 @@
 
    ```bash
    yc resource-manager folder add-access-binding \
-     --id <идентификатор каталога> \
+     --id <идентификатор_каталога> \
      --service-account-name vault-kms \
      --role kms.keys.encrypterDecrypter
    ```
@@ -71,17 +71,15 @@
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat authorized-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_vault-yckms-k8s.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_vault-yckms-k8s.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
      --set-file yandexKmsAuthJson=authorized-key.json \
      hashicorp ./vault/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/vault-yckms-k8s#docker-images).
 
    Эта команда также создаст новое пространство имен, необходимое для работы HashiCorp Vault.
 
@@ -108,7 +106,7 @@
 
    ```text
    NAME              READY  STATUS   RESTARTS  AGE
-   <имя пода vault>  0/1    Running  0         58s
+   <имя_пода_vault>  0/1    Running  0         58s
    ```
 
 1. Выполните инициализацию хранилища:
@@ -116,7 +114,7 @@
    ```bash
    kubectl exec \
      --stdin=true \
-     --tty=true <имя пода vault> \
+     --tty=true <имя_пода_vault> \
      -- vault operator init
    ```
 

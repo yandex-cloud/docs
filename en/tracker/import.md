@@ -21,7 +21,7 @@ If you manage your issues and projects with a certain service and want to change
 
    1. [Add](add-users.md#invite_user) the account created to {{ tracker-name }}.
 
-   1. Go to [{{ ya-360 }}]({{ link-ya-360 }}) and add administrative rights to the account that you created. For more information, see [Yandex 360 Help]({{ support-business-admin }}).
+   1. Go to [{{ ya-360 }}]({{ link-ya-360 }}) and add administrative rights to the account that you created. For more information, see [{{ yandex-360 }} Help]({{ support-business-admin }}).
 
    Once the migration is complete, you can delete the account or revoke the administrative rights.
 

@@ -1,4 +1,4 @@
-# Решения для Cloud CDN {#howtos-and-issues}
+# Решения для Cloud CDN
 
 {% include [how-to-index](how-to/index.md) %}
 

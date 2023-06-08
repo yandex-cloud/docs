@@ -1,4 +1,4 @@
-### quota-manager.requestOperator {#quota-manager-requestoperator}
+#### quota-manager.requestOperator {#quota-manager-requestoperator}
 
 Роль `quota-manager.requestOperator` позволяет создавать запросы на новые [квоты](../overview/concepts/quotas-limits.md#quotas) для сервисов.
 

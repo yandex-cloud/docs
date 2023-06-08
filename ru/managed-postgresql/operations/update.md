@@ -378,6 +378,8 @@
 
 
 
+    * `--autofailover` – управляет настройкой автоматической смены мастера. Подробнее см. в разделе [{#T}](../concepts/replication.md#replication-auto). Значение по умолчанию — `true`.
+
     * `--connection-pooling-mode` — указывает [режим работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}

@@ -5,10 +5,10 @@ description: "To create a dashboard in {{ monitoring-full-name }}, open the serv
 
 # Creating a dashboard in {{ monitoring-name }}
 
-To create a dashboard:
+To create a [dashboard](../../concepts/visualization/dashboard.md):
 
 1. On the homepage, click **Create dashboard**.
-1. Add a widget to the dashboard. For example, the **Heading** widget.
+1. Add a [widget](../../concepts/visualization/widget.md) to the dashboard. For example, the **Heading** widget.
    1. Click **Heading** under _Add widget_ or click **Add** in the dashboard title and then select **Heading**.
    1. Enter the text for your heading in the input field.
    1. Select the heading size.

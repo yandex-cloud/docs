@@ -1,4 +1,4 @@
-# Решения для DataLens {#howtos-and-issues}
+# Решения для DataLens
 
 {% include [how-to-index](how-to/index.md) %}
 

@@ -34,16 +34,14 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/falco \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_falco.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_falco.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
      falco ./falco
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/falco).
 
 ## См. также {#see-also}
 

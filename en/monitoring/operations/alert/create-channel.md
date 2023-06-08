@@ -1,6 +1,6 @@
 # Creating notification channels
 
-To create a notification channel:
+To create a [notification channel](../../concepts/alerting.md#notification-channel):
 
 1. On the {{ monitoring-short-name }} homepage, click **Notification channels**.
 1. Click **Create channel** on the right of the page.

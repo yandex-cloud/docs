@@ -32,8 +32,7 @@
 * Виртуальные машины {{ compute-name }};
 * Хосты баз данных;
 * NAT-инстансы;
-* Балансировщики нагрузки {{ network-load-balancer-name }} и {{ alb-name }};
-* Бакеты {{ objstorage-name }}.
+* Балансировщики нагрузки {{ network-load-balancer-name }} и {{ alb-name }}.
 
 ## Адреса, используемые {{ yandex-cloud }}
 

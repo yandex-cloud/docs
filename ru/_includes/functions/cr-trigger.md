@@ -2,6 +2,8 @@
 
 Триггеру для {{ container-registry-name }} необходим [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для вызова функции.
 
+О том, как создать триггер для {{ container-registry-name }}, читайте в инструкции [{#T}](../../functions/operations/trigger/cr-trigger-create.md).
+
 {% include [cr-event](cr-event.md) %}
 
 ## Роли, необходимые для корректной работы триггера для {{ container-registry-name }} {#roles}

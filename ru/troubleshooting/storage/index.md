@@ -1,4 +1,4 @@
-# Решения для Object Storage {#howtos-and-issues}
+# Решения для Object Storage
 
 {% include [how-to-index](how-to/index.md) %}
 

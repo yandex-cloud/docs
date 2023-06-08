@@ -73,6 +73,7 @@ default:
   metastore-full-name: Hive Metastore
   preview-stage: <code><b><small>Preview</small></b></code>
   ya-360: Yandex 360 for business
+  yandex-360: Yandex 360
   storage-aws-cli-alias: ycs3
   cloud-beaver:
     name: Cloud Beaver
@@ -42459,6 +42460,7 @@ default:
             label_connector-ch_billing_analytics: Yandex Cloud Billing
             label_connector-clickhouse: ClickHouse
         form:
+          button_add-connection: Create connection
           button_create: Create
           button_create-connection: Create connection
           button_create-dataset: Create dataset
@@ -42489,6 +42491,9 @@ default:
             field_multiselectable: Multiple choice
             field_title: Title
             label_default-value: Default value
+        navigation-input:
+          edit:
+            button_choose: Select
         tabs-dialog:
           edit:
             button_add-tab: Add
@@ -42517,17 +42522,20 @@ default:
         landing:
           view:
             button_connect-data-source: Create connection
+            button_create-dashboards: Create dashboard
             button_create-dataset: Create dataset
       wizard:
         add_field_item: Field
         button_apply: Apply
         button_apply-filter: Apply filter
         button_save: Save
+        button_save-as: Save as
         label_bars-color: Color
         label_gradient-type: Gradient type
         label_thresholds: Set threshold values
         label_visualization-area: Stacked area chart
         label_visualization-column: Column chart
+        label_visualization-pie: Pie chart
         label_visualization-pivot-table: Pivot table
         number-field-formatting:
           view:
@@ -42537,8 +42545,10 @@ default:
             value_format-percent: Percent
             value_rank-delimiter-hide: Hide
             value_unit-m: Millions, M
+        section_color: Color
         section_colors: Colors
         section_columns: Columns
+        section_dimensions: Dimensions
         section_filters: Chart filters
         section_measures: Measures
         section_rows: Rows
@@ -42580,10 +42590,89 @@ default:
           action:
             invite-users: Invite users
     yacloud:
+      alb:
+        button_add-listener: Add listener
+        button_add-route: Add route
+        button_backend-group-create: Create backend group
+        button_http-router-create: Create HTTP router
+        button_load-balancer-create: Create L7 load balancer
+        button_virtual-host-add: Add virtual host
+        label_address-auto: Automatically
+        label_authority: Authority
+        label_backend-group: Backend group
+        label_backend-groups: Backend groups
+        label_backend-type: Type
+        label_backend-weight: Weight
+        label_backends: Backends
+        label_bucket: Bucket
+        label_http-methods: HTTP methods
+        label_http-router: HTTP router
+        label_http-routers: HTTP routers
+        label_listeners: Listeners
+        label_match-prefix: Starts with
+        label_path: Path
+        label_port: Port
+        label_proto-http: HTTP
+        label_route-action: Action
+        label_route-action-route: Routing
+        label_virtual-hosts: Virtual hosts
+        section_allocation-settings: Allocation
+        section_external-address-specs: Public IP address
+      billing:
+        account:
+          detail:
+            button_create-periodic-export: Periodic export
+            button_export: Export details
+          exports:
+            field_bucket: Bucket
+            field_detail-type: Usage details
+            field_locale: Language
+            field_prefix: Directory
+            label_include-resources: Resource
+            locale_value_en-lang: English
+            locale_value_ru-lang: Русский
+          switch_detail: Usage details
+      cdn:
+        button_add-domain: Add domain name
+        button_resource-content-purge-cache: Purge cache
+        button_resource-create: Create resource
+        field_access: End-user access to content
+        label_activate-provider-empty-container_action-text: Activate provider
+        label_additional: Additional
+        label_balancer: L7 load balancer
+        label_certificate-type: Certificate type
+        label_content-query-type: Content query
+        label_dns-settings_title: DNS settings
+        label_host-header: Host header
+        label_ip-address: IP address
+        label_personal-domain: Domain name
+        label_protocol: Origin request protocol
+        label_redirect: Redirect clients
+        label_resource-cache: Caching
+        label_resource-cache-cdn-cache-enabled: CDN caching
+        label_resource-content: Content
+        label_resource-content-purging-cache-type: Purge type
+        label_resource-content-purging-cache-type-selective: Selective
+        label_section-additional: Additional
+        label_section-domain: Domain names for content distribution
+        label_source-type: Origin type
+        md_value_certificate-le: Let's Encrypt^®^
+        value_certificate-status-ready: Issued
+        value_do-not-use: Don't use
+        value_host-header-resend: Forward
+        value_query-type-one-origin: From one origin
+        value_redirect-http-to-https: HTTP to HTTPS
+        value_source-type-balancer: L7 load balancer
       clickhouse:
         button_create-cluster: Create ClickHouse cluster
         cluster:
+          explore:
+            button_execute: Execute
+            button_submit-creds: Connect
+            label_password: Password
           switch_datalens: DataLens
+          switch_users: Users
+        switch_list: Clusters
       common:
         add: Add
         apply: Apply
@@ -42605,6 +42694,7 @@ default:
           button_add-federation-user: Add federation user
         save: Save
         section-base: General information
+        type: Type
       component:
         compute:
           network-select:
@@ -42699,9 +42789,12 @@ default:
         jobs:
           field_main-python-file: Main python file
       dns:
+        button_record-set-create: Create record
         button_zone-create: Create zone
         label_additional-settings: Additional settings
         label_form-ttl: TTL (in seconds)
+        label_public: Public
+        label_zone: Zone
       forms:
         label_service-account-select: Service account
       greenplum:
@@ -42727,10 +42820,13 @@ default:
           dashboard:
             button_add: Create resource
             label_application-load-balancer: Application Load Balancer
+            label_cdn: Cloud CDN
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
             label_datasphere: DataSphere
+            label_dns: Cloud DNS
+            label_kms: Key Management Service
             label_load-testing: Load Testing
             label_lockbox: Lockbox
             label_managed-clickhouse: Managed Service for ClickHouse
@@ -42753,6 +42849,7 @@ default:
               button_create-key-popup: Create new key
               popup-key_button_create: Create
             popup-robot_button_add: Create
+            popup-robot_field_name: Name
           service-accounts:
             button_add: Create service account
           switch_service-accounts: Service accounts
@@ -42760,8 +42857,15 @@ default:
         cluster:
           switch_workloads: Workload
       kms:
+        symmetric-key:
+          create:
+            button_create: Create
+          form:
+            field_algorithm: Encryption algorithm
+            field_rotation: Rotation period, days
         symmetric-keys:
           button_create: Create
+          button_empty-create: Create key
       load-testing:
         button_add-bucket: Link bucket
         button_add-overload-test-id: Add ID
@@ -42831,6 +42935,10 @@ default:
           stop-dialog:
             popup-confirm_button: Stop
           switch_monitoring: Monitoring
+          users:
+            button_action-update: Configure
+            button_advanced-settings: Additional settings
+            popup-button_save: Save
         clusters:
           button_action-delete: Delete
           button_action-move: Move
@@ -42855,11 +42963,14 @@ default:
           base_field_shard-name: Shard name
           base_field_version: Version
           button_add-host: Add host
+          button_add-initialization-action: Add
           button_configure-settings: Settings
           button_create: Create cluster
           button_create-shard: Create shard
           button_edit: Save changes
           button_restore: Restore cluster
+          config_field_bucket: Bucket name
+          config_field_initialization-action: Custom scripts
           config_field_password: Password
           config_field_properties: Properties
           config_field_public-keys: SSH key
@@ -42868,9 +42979,14 @@ default:
           config_field_version: Version
           config_field_zone: Availability zone
           database_field_name: DB name
+          database_field_sql-user-management: User management via SQL
           database_field_user-login: Username
           database_field_user-password: Password
+          field_assign-public-ip: Public access
           field_cluster-mode: Cluster sharding
+          field_initialization-action-args: Arguments
+          field_initialization-action-uri: URI
+          field_security-group: Security groups
           host_column_assign_public_ip: Public access
           host_column_shard-name: Shard name
           host_column_subnetwork: Subnet
@@ -42878,6 +42994,7 @@ default:
           label_deletion-protection: Deletion protection
           label_master-subcluster: Master
           label_max-size-units: GB
+          label_network: Network
           maintenance-window-type: Maintenance window
           new_section_resource: Resources
           resource_presets_field-generation: Platform
@@ -42892,6 +43009,7 @@ default:
           section_resource: Host class
           section_service-settings: Service settings
           section_settings: DBMS settings
+          section_subclusters: Subclusters
           value_maintenance-type-anytime: arbitrary
           value_maintenance-type-weekly: by schedule
         hosts:
@@ -42901,6 +43019,9 @@ default:
       monitoring:
         button_create-alert: Create alert
         button_open-in-monitoring: Open in Monitoring
+      mysql:
+        cluster:
+          switch_explore: SQL
       redis:
         cluster:
           switch_backups: Backups
@@ -42917,6 +43038,7 @@ default:
             button_action-continue: Continue
             button_deploy-version: Create version
             create-file: Create file
+            field_entry: Entrypoint
             field_environment-variables: Environment variables
             field_resources-memory: Memory
             field_timeout: Timeout, sec
@@ -43002,7 +43124,12 @@ default:
             field_value: Value
             label_if-exists: Apply if the field exists
           settings:
+            access_value_private: Restricted
+            access_value_public: Public
             button_save: Save
+            field_access-config-read: Read access to settings
+            field_access-list: Object listing access
+            field_access-read: Object read access
             field_name: ' Name'
             field_size-limit: Max size
             label_size-limit-disabled: No limit
@@ -43060,20 +43187,34 @@ default:
           value_gateway-type-egress-nat: Egress NAT
         network:
           security-groups:
+            button_add-rule: Add rule
+            button_create: Create group
             forms:
+              field_sg-name: Name
+              field_sg-network: Network
               field_sg-rule-cidr-blocks: CIDR blocks
               field_sg-rule-destination: Destination name
               field_sg-rule-port-range: Port range
               field_sg-rule-protocol: Protocol
               field_sg-rule-sg-type: Security group
               field_sg-rule-source: Source
+              label_section-rules: Rules
               value_any: Any
               value_sg-rule-destination-cidr: CIDR
               value_sg-rule-destination-sg: Security group
+              value_sg-rule-sg-type-balancer: Load balancer healthchecks
               value_sg-rule-sg-type-list: From list
               value_sg-rule-sg-type-self: Current
               value_tcp: TCP
+            label_egress: Egress
+            label_ingress: Ingress
           switch_route-table: Routing tables
+        networks:
+          button_create: Create network
+          create:
+            field_advanced: Advanced
+            field_is-default: Create subnets
+            field_name: Name
         route-table-form:
           label_add-static-route: Add a route
           label_next-hop-address: Next hop
@@ -43087,6 +43228,7 @@ default:
           button_action-add-route-table: Link routing table
         switch_gateways: Gateways
         switch_networks: Subnets
+        switch_security-groups: Security groups
       ydb:
         browse:
           button_sql-query: New SQL query
@@ -44305,7 +44447,81 @@ default:
         title: Transfer projects
         transfer-selected-projects: Transfer selected projects
   mkt-k8s-key:
+    yc_alb-ingress-controller:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
+        tag: v0.1.16
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
         tag: 5.4.3-7
+    yc_crossplane:
+      helmChart:
+        name: cr.yandex/yc-marketplace/crossplane/crossplane/crossplane
+        tag: 1.6.3-5
+    yc_csi-s3:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
+        tag: 0.31.8
+    yc_external-secrets:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets
+        tag: 0.5.5
+    yc_falco:
+      helmChart:
+        name: cr.yandex/yc-marketplace/falco
+        tag: 2.2.5
+    yc_filebeat:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/filebeat/chart/filebeat
+        tag: 7.16.3-5
+    yc_fluent-bit:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging
+        tag: 1.0-7
+    yc_gateway-api:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
+        tag: 0.4.20
+    yc_gitlab-agent:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-agent/chart/gitlab-agent
+        tag: 1.10.0-4
+    yc_gitlab-runner:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner
+        tag: 0.49.1-8
+    yc_kyverno:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/marketplace/charts/kyverno
+        tag: 2.3.2
+    yc_loki:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
+        tag: 1.0.4
+    yc_metric-provider:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart
+        tag: 0.1.10
+    yc_node-local-dns:
+      helmChart:
+        name: cr.yandex/yc-marketplace/k8s.gcr.io/node-local-dns/chart
+        tag: '1.5'
+    yc_policy-reporter:
+      helmChart:
+        name: cr.yandex/yc-marketplace/policy-reporter
+        tag: 2.13.11
+    yc_thumbor:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
+        tag: 0.1.1-4
+    yc_vault-yckms-k8s:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
+        tag: 0.22.0-1

@@ -1,5 +1,4 @@
-# Ограничение доступа к бакету Object Storage диапазоном IP-адресов, принадлежащиих Cloud CDN {#permit-bucket-access-only-to-cdn-networks}
-
+# Ограничение доступа к бакету Object Storage диапазоном IP-адресов, принадлежащиих Cloud CDN
 ## Задача {#case-description}
 Необходимо, чтобы контент статического сайта (или SPA) размещенного в Yandex Object Storage, был доступен только для Yandex Cloud CDN.
 

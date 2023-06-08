@@ -14,7 +14,7 @@
 1. Создайте [ключ сервисного аккаунта](../../../iam/concepts/authorization/access-key.md) и сохраните его в файл:
 
    ```bash
-   yc iam key create --service-account-name <имя сервисного аккаунта> --output key.json
+   yc iam key create --service-account-name <имя_сервисного_аккаунта> --output key.json
    ```
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
@@ -37,17 +37,15 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/crossplane/crossplane/crossplane \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_crossplane.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_crossplane.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
      --set-file providerJetYC.creds=key.json \
      crossplane ./crossplane/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/crossplane#docker-images).
 
 ## Установка с помощью GitHub-репозитория Helm {#helm-repo-install}
 
@@ -56,7 +54,7 @@
 1. Создайте пространство имен для Crossplane:
 
    ```bash
-   kubectl create namespace <пространство имен>
+   kubectl create namespace <пространство_имен>
    ```
 
 1. Добавьте GitHub-репозиторий Helm:

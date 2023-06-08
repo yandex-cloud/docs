@@ -42,7 +42,7 @@
 * [Настройка локального кеширующего DNS-резолвера](local-dns-cache.md)
 
 
-* [Миграция DNS-зон из Яндекс 360 в {{ dns-full-name }}](connect-migration.md)
+* [Миграция DNS-зон из {{ yandex-360 }} в {{ dns-full-name }}](connect-migration.md)
 
 
 * [{#T}](dns-integration.md)

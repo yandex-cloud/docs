@@ -12,15 +12,16 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-billing }}) выберите аккаунт, для которого хотите получить детализацию.
-  1. На странице **Обзор** перейдите на вкладку **Экспорт детализации**.
-  1. Нажмите кнопку **Создать**.
-  1. В открывшемся окне **Создание регулярного экспорта** укажите:
-     * В поле **Бакет** имя бакета, где будет храниться CSV-файл с детализацией.
-     * В поле **Папка** название папки для файла. Последний символ должен быть `/`.
-     * Выберите язык, на котором будут отображаться названия продуктов – английский или русский.
-     * Выберите тип детализации **Поресурсная**.
-  1. Нажмите кнопку **Создать**.
+  1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+  1. В списке платежных аккаунтов выберите нужный.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.billing.account.switch_detail }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.billing.account.detail.button_export }}** и выберите **{{ ui-key.yacloud.billing.account.detail.button_create-periodic-export }}**.
+  1. В открывшемся окне:
+     * В поле **{{ ui-key.yacloud.billing.account.exports.field_bucket }}** укажите имя бакета, где будет храниться CSV-файл с детализацией.
+     * В поле **{{ ui-key.yacloud.billing.account.exports.field_prefix }}** укажите название папки для файла. Последний символ должен быть `/`.
+     * В поле **{{ ui-key.yacloud.billing.account.exports.field_locale }}** выберите язык, на котором будут отображаться названия продуктов – **{{ ui-key.yacloud.billing.account.exports.locale_value_en-lang }}** или **{{ ui-key.yacloud.billing.account.exports.locale_value_ru-lang }}**.
+     * В поле **{{ ui-key.yacloud.billing.account.exports.field_detail-type }}** выберите тип детализации **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
