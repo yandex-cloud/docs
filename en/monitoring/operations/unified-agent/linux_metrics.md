@@ -12,13 +12,13 @@ To configure {{ unified-agent-full-name }} to collect system metrics from a {{ y
 
 1. Set up a service account from which metrics will be written to {{ monitoring-full-name }}.
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
+   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}`.
 
    1. [Link your service account](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to a virtual machine with {{ unified-agent-short-name }} installed.
 
-1. Install and configure {{ unified-agent-full-name }}.
+1. Install and configure {{ unified-agent-full-name }}:
 
-   1. Create a file named **config.yml** in your home folder:
+   1. Create a file named **config.yml** in your home folder.
 
       **config.yml:**
       ```yaml
@@ -89,7 +89,7 @@ To configure {{ unified-agent-full-name }} to collect system metrics from a {{ y
 
       You can find more ways to install the agent in [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
-1. Make sure the metrics are delivered to {{ monitoring-full-name }}.
+1. Make sure the metrics are delivered to {{ monitoring-full-name }}:
 
    1. On the [home page]({{ link-monitoring }}) {{ monitoring-full-name }}, go to **Metric Explorer**.
 

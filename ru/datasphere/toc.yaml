@@ -171,6 +171,8 @@ items:
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Запуск вычислений по расписанию
         href: tutorials/regular-launch.md
+      - name: Запуск вычислений с помощью API
+        href: tutorials/batch-code-execution.md
   - name: Справочник API
     items:
       - name: Обзор

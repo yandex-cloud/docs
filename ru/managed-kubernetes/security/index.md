@@ -27,17 +27,11 @@ description: "Управление доступом в сервисе для р�
 
 Следующие роли дают права на управление ресурсами кластера через {{ k8s }} API. Роли {{ k8s }} API работают по [модели ролевого управления доступом](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) – Role-Based Access Control (RBAC). Для управления кластером эти роли необходимо компоновать с [ролями для API {{ yandex-cloud }}](#yc-api). Подробнее о ролях в {{ k8s }} RBAC читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles).
 
-#### {{ roles.k8s.cluster-api.viewer }} {#k8s-clusters-api-viewer}
+{% include [k8s-cluster-api-viewer](../../_includes/iam/roles/k8s-cluster-api-viewer.md) %}
 
-{% include notitle [k8s-cluster-api-viewer](../../_includes/iam/roles/k8s-cluster-api-viewer.md) %}
+{% include [k8s-cluster-api-editor](../../_includes/iam/roles/k8s-cluster-api-editor.md) %}
 
-#### {{ roles.k8s.cluster-api.editor }} {#k8s-clusters-api-editor}
-
-{% include notitle [k8s-cluster-api-editor](../../_includes/iam/roles/k8s-cluster-api-editor.md) %}
-
-#### {{ roles.k8s.cluster-api.cluster-admin }} {#k8s-clusters-api-cluster-admin}
-
-{% include notitle [k8s-cluster-api-cluster-admin](../../_includes/iam/roles/k8s-cluster-api-cluster-admin.md) %}
+{% include [k8s-cluster-api-cluster-admin](../../_includes/iam/roles/k8s-cluster-api-cluster-admin.md) %}
 
 Чтобы просмотреть права на ресурсы кластера {{ k8s }}, доступные для определенной роли, выполните команду:
 
@@ -57,39 +51,19 @@ kubectl describe clusterrole <роль в {{ k8s }} RBAC>
 
 Для создания кластера с [туннельным режимом](../concepts/network-policy.md#cilium) необходима роль `k8s.tunnelClusters.agent`.
 
-#### {{ roles.k8s.tunnelClusters.agent }} {#k8s-tunnel-clusters-agent}
+{% include [k8s-tunnel-clusters-agent](../../_includes/iam/roles/k8s-tunnel-clusters-agent.md) %}
 
-{% include notitle [k8s-tunnel-clusters-agent](../../_includes/iam/roles/k8s-tunnel-clusters-agent.md) %}
+{% include [k8s-clusters-agent](../../_includes/iam/roles/k8s-clusters-agent.md) %}
 
-#### {{ roles.k8s.clusters.agent }} {#k8s-clusters-agent}
+{% include [k8s-viewer](../../_includes/iam/roles/k8s-viewer.md) %}
 
-{% include notitle [k8s-clusters-agent](../../_includes/iam/roles/k8s-clusters-agent.md) %}
+{% include [k8s-editor](../../_includes/iam/roles/k8s-editor.md) %}
 
-#### {{ roles.k8s.viewer }} {#k8s-viewer}
+{% include [k8s-admin](../../_includes/iam/roles/k8s-admin.md) %}
 
-{% include notitle [k8s-viewer](../../_includes/iam/roles/k8s-viewer.md) %}
+### Примитивные роли {#primitive-roles}
 
-#### {{ roles.k8s.editor }} {#k8s-editor}
-
-{% include notitle [k8s-editor](../../_includes/iam/roles/k8s-editor.md) %}
-
-#### {{ roles.k8s.admin }} {#k8s-admin}
-
-{% include notitle [k8s-admin](../../_includes/iam/roles/k8s-admin.md) %}
-
-### Примитивные роли {#primitive}
-
-#### {{ roles-viewer }} {#viewer}
-
-{% include notitle [roles-viewer](../../_includes/roles-viewer.md) %}
-
-#### {{ roles-editor }} {#editor}
-
-{% include notitle [roles-editor](../../_includes/roles-editor.md) %}
-
-#### {{ roles-admin }} {#admin}
-
-{% include notitle [roles-admin](../../_includes/roles-admin.md) %}
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## Сервисные аккаунты кластера {{ managed-k8s-name }} {#sa-annotation}
 

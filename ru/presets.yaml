@@ -73,6 +73,7 @@ default:
   metastore-full-name: Hive Metastore
   preview-stage: <code><b><small>Preview</small></b></code>
   ya-360: Яндекс 360 для бизнеса
+  yandex-360: Яндекс 360
   storage-aws-cli-alias: ycs3
   cloud-beaver:
     name: Cloud Beaver
@@ -42472,6 +42473,7 @@ default:
             label_connector-ch_billing_analytics: Yandex Cloud Billing
             label_connector-clickhouse: ClickHouse
         form:
+          button_add-connection: Создать подключение
           button_create: Создать
           button_create-connection: Создать подключение
           button_create-dataset: Создать датасет
@@ -42502,6 +42504,9 @@ default:
             field_multiselectable: Множественный выбор
             field_title: Название
             label_default-value: Значение по умолчанию
+        navigation-input:
+          edit:
+            button_choose: Выбрать
         tabs-dialog:
           edit:
             button_add-tab: Добавить
@@ -42530,17 +42535,20 @@ default:
         landing:
           view:
             button_connect-data-source: Создать подключение
+            button_create-dashboards: Создать дашборд
             button_create-dataset: Создать датасет
       wizard:
         add_field_item: Поле
         button_apply: Применить
         button_apply-filter: Применить фильтр
         button_save: Сохранить
+        button_save-as: Сохранить как
         label_bars-color: Цвет
         label_gradient-type: Тип градиента
         label_thresholds: Задать пороговые значения
         label_visualization-area: Накопительная диаграмма с областями
         label_visualization-column: Столбчатая диаграмма
+        label_visualization-pie: Круговая диаграмма
         label_visualization-pivot-table: Сводная таблица
         number-field-formatting:
           view:
@@ -42550,8 +42558,10 @@ default:
             value_format-percent: Процент
             value_rank-delimiter-hide: Слитно
             value_unit-m: Миллионы, M
+        section_color: Цвет
         section_colors: Цвета
         section_columns: Столбцы
+        section_dimensions: Измерения
         section_filters: Фильтры
         section_measures: Показатели
         section_rows: Строки
@@ -42593,10 +42603,89 @@ default:
           action:
             invite-users: Пригласить пользователей
     yacloud:
+      alb:
+        button_add-listener: Добавить обработчик
+        button_add-route: Добавить маршрут
+        button_backend-group-create: Создать группу бэкендов
+        button_http-router-create: Создать HTTP-роутер
+        button_load-balancer-create: Создать L7-балансировщик
+        button_virtual-host-add: Добавить виртуальный хост
+        label_address-auto: Автоматически
+        label_authority: Authority
+        label_backend-group: Группа бэкендов
+        label_backend-groups: Группы бэкендов
+        label_backend-type: Тип
+        label_backend-weight: Вес
+        label_backends: Бэкенды
+        label_bucket: Бакет
+        label_http-methods: Методы HTTP
+        label_http-router: HTTP-роутер
+        label_http-routers: HTTP-роутеры
+        label_listeners: Обработчики
+        label_match-prefix: Начинается с
+        label_path: Путь
+        label_port: Порт
+        label_proto-http: HTTP
+        label_route-action: Действие
+        label_route-action-route: Маршрутизация
+        label_virtual-hosts: Виртуальные хосты
+        section_allocation-settings: Размещение
+        section_external-address-specs: Публичный IP-адрес
+      billing:
+        account:
+          detail:
+            button_create-periodic-export: Регулярный экспорт
+            button_export: Экспорт детализации
+          exports:
+            field_bucket: Бакет
+            field_detail-type: Детализация
+            field_locale: Язык
+            field_prefix: Папка
+            label_include-resources: Поресурсная
+            locale_value_en-lang: English
+            locale_value_ru-lang: Русский
+          switch_detail: Детализация
+      cdn:
+        button_add-domain: Добавить доменное имя
+        button_resource-content-purge-cache: Очистить кеш
+        button_resource-create: Создать ресурс
+        field_access: Доступ конечных пользователей к контенту
+        label_activate-provider-empty-container_action-text: Подключиться к провайдеру
+        label_additional: Дополнительно
+        label_balancer: L7-балансировщик
+        label_certificate-type: Тип сертификата
+        label_content-query-type: Запрос контента
+        label_dns-settings_title: Настройки DNS
+        label_host-header: Заголовок Host
+        label_ip-address: IP-адрес
+        label_personal-domain: Доменное имя
+        label_protocol: Протокол для источников
+        label_redirect: Переадресация клиентов
+        label_resource-cache: Кеширование
+        label_resource-cache-cdn-cache-enabled: Кеширование в CDN
+        label_resource-content: Контент
+        label_resource-content-purging-cache-type: Тип очистки
+        label_resource-content-purging-cache-type-selective: Выборочная
+        label_section-additional: Дополнительно
+        label_section-domain: Доменные имена для раздачи контента
+        label_source-type: Тип источника
+        md_value_certificate-le: Let's Encrypt^®^
+        value_certificate-status-ready: Выпущен
+        value_do-not-use: Не использовать
+        value_host-header-resend: Как у клиента
+        value_query-type-one-origin: Из одного источника
+        value_redirect-http-to-https: С HTTP на HTTPS
+        value_source-type-balancer: L7-балансировщик
       clickhouse:
         button_create-cluster: Создать кластер ClickHouse
         cluster:
+          explore:
+            button_execute: Выполнить
+            button_submit-creds: Подключиться
+            label_password: Пароль
           switch_datalens: DataLens
+          switch_users: Пользователи
+        switch_list: Кластеры
       common:
         add: Добавить
         apply: Применить
@@ -42618,6 +42707,7 @@ default:
           button_add-federation-user: Добавить федеративного пользователя
         save: Сохранить
         section-base: Общая информация
+        type: Тип
       component:
         compute:
           network-select:
@@ -42712,9 +42802,12 @@ default:
         jobs:
           field_main-python-file: Main python файл
       dns:
+        button_record-set-create: Создать запись
         button_zone-create: Создать зону
         label_additional-settings: Дополнительные настройки
         label_form-ttl: TTL (в секундах)
+        label_public: Публичная
+        label_zone: Зона
       forms:
         label_service-account-select: Сервисный аккаунт
       greenplum:
@@ -42740,10 +42833,13 @@ default:
           dashboard:
             button_add: Создать ресурс
             label_application-load-balancer: Application Load Balancer
+            label_cdn: Cloud CDN
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
             label_datasphere: DataSphere
+            label_dns: Cloud DNS
+            label_kms: Key Management Service
             label_load-testing: Load Testing
             label_lockbox: Lockbox
             label_managed-clickhouse: Managed Service for ClickHouse
@@ -42766,6 +42862,7 @@ default:
               button_create-key-popup: Создать новый ключ
               popup-key_button_create: Создать
             popup-robot_button_add: Создать
+            popup-robot_field_name: Имя
           service-accounts:
             button_add: Создать сервисный аккаунт
           switch_service-accounts: Сервисные аккаунты
@@ -42773,8 +42870,15 @@ default:
         cluster:
           switch_workloads: Рабочая нагрузка
       kms:
+        symmetric-key:
+          create:
+            button_create: Создать
+          form:
+            field_algorithm: Алгоритм шифрования
+            field_rotation: Период ротации, дни
         symmetric-keys:
           button_create: Создать
+          button_empty-create: Создать ключ
       load-testing:
         button_add-bucket: Привязать бакет
         button_add-overload-test-id: Добавить ID
@@ -42844,6 +42948,10 @@ default:
           stop-dialog:
             popup-confirm_button: Остановить
           switch_monitoring: Мониторинг
+          users:
+            button_action-update: Настроить
+            button_advanced-settings: Дополнительные настройки
+            popup-button_save: Сохранить
         clusters:
           button_action-delete: Удалить
           button_action-move: ' Переместить'
@@ -42868,11 +42976,14 @@ default:
           base_field_shard-name: Имя шарда
           base_field_version: Версия
           button_add-host: Добавить хост
+          button_add-initialization-action: Добавить
           button_configure-settings: Настроить
           button_create: Создать кластер
           button_create-shard: Создать шард
           button_edit: Сохранить изменения
           button_restore: Восстановить кластер
+          config_field_bucket: Имя бакета
+          config_field_initialization-action: Пользовательские скрипты
           config_field_password: Пароль
           config_field_properties: Свойства
           config_field_public-keys: SSH-ключ
@@ -42881,9 +42992,14 @@ default:
           config_field_version: Версия
           config_field_zone: Зона доступности
           database_field_name: Имя БД
+          database_field_sql-user-management: Управление пользователями через SQL
           database_field_user-login: Имя пользователя
           database_field_user-password: Пароль
+          field_assign-public-ip: Публичный доступ
           field_cluster-mode: Шардирование кластера
+          field_initialization-action-args: Аргументы
+          field_initialization-action-uri: URI
+          field_security-group: Группы безопасности
           host_column_assign_public_ip: Публичный доступ
           host_column_shard-name: Имя шарда
           host_column_subnetwork: Подсеть
@@ -42891,6 +43007,7 @@ default:
           label_deletion-protection: Защита от удаления
           label_master-subcluster: Мастер
           label_max-size-units: ГБ
+          label_network: Сеть
           maintenance-window-type: Окно обслуживания
           new_section_resource: Ресурсы
           resource_presets_field-generation: Платформа
@@ -42905,6 +43022,7 @@ default:
           section_resource: Класс хоста
           section_service-settings: Сервисные настройки
           section_settings: Настройки СУБД
+          section_subclusters: Подкластеры
           value_maintenance-type-anytime: произвольное
           value_maintenance-type-weekly: по расписанию
         hosts:
@@ -42914,6 +43032,9 @@ default:
       monitoring:
         button_create-alert: Создать алерт
         button_open-in-monitoring: Открыть в Мониторинге
+      mysql:
+        cluster:
+          switch_explore: SQL
       redis:
         cluster:
           switch_backups: Резервные копии
@@ -42930,6 +43051,7 @@ default:
             button_action-continue: Продолжить
             button_deploy-version: Создать версию
             create-file: Создать файл
+            field_entry: Точка входа
             field_environment-variables: Переменные окружения
             field_resources-memory: Память
             field_timeout: Таймаут, c
@@ -43015,7 +43137,12 @@ default:
             field_value: Значение
             label_if-exists: Применить, если поле существует
           settings:
+            access_value_private: Ограниченный
+            access_value_public: Публичный
             button_save: Сохранить
+            field_access-config-read: Доступ на чтение настроек
+            field_access-list: Доступ к списку объектов
+            field_access-read: Доступ на чтение объектов
             field_name: Имя
             field_size-limit: Макс. размер
             label_size-limit-disabled: Без ограничения
@@ -43073,20 +43200,34 @@ default:
           value_gateway-type-egress-nat: NAT в интернет
         network:
           security-groups:
+            button_add-rule: Добавить правило
+            button_create: Создать группу
             forms:
+              field_sg-name: Имя
+              field_sg-network: Сеть
               field_sg-rule-cidr-blocks: CIDR блоки
               field_sg-rule-destination: Назначение
               field_sg-rule-port-range: Диапазон портов
               field_sg-rule-protocol: Протокол
               field_sg-rule-sg-type: Группа безопасности
               field_sg-rule-source: Источник
+              label_section-rules: Правила
               value_any: Любой
               value_sg-rule-destination-cidr: CIDR
               value_sg-rule-destination-sg: Группа безопасности
+              value_sg-rule-sg-type-balancer: Проверки состояния балансировщика
               value_sg-rule-sg-type-list: Из списка
               value_sg-rule-sg-type-self: Текущая
               value_tcp: TCP
+            label_egress: Исходящий трафик
+            label_ingress: Входящий трафик
           switch_route-table: Таблицы маршрутизации
+        networks:
+          button_create: Создать сеть
+          create:
+            field_advanced: Дополнительно
+            field_is-default: Создать подсети
+            field_name: Имя
         route-table-form:
           label_add-static-route: Добавить маршрут
           label_next-hop-address: Next hop
@@ -43100,6 +43241,7 @@ default:
           button_action-add-route-table: Привязать таблицу маршрутизации
         switch_gateways: Шлюзы
         switch_networks: Подсети
+        switch_security-groups: Группы безопасности
       ydb:
         browse:
           button_sql-query: Новый SQL-запрос
@@ -43920,7 +44062,7 @@ default:
                         title: Настройки подключения
                       paths:
                         array_item_label: Путь
-                        title: Список включенный путей
+                        title: Список включенных путей
                     YdbTarget:
                       cleanup_policy:
                         title: Политика очистки
@@ -44316,7 +44458,81 @@ default:
         title: Перенос проектов
         transfer-selected-projects: Перенести выбранные проекты
   mkt-k8s-key:
+    yc_alb-ingress-controller:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
+        tag: v0.1.16
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
         tag: 5.4.3-7
+    yc_crossplane:
+      helmChart:
+        name: cr.yandex/yc-marketplace/crossplane/crossplane/crossplane
+        tag: 1.6.3-5
+    yc_csi-s3:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
+        tag: 0.31.8
+    yc_external-secrets:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets
+        tag: 0.5.5
+    yc_falco:
+      helmChart:
+        name: cr.yandex/yc-marketplace/falco
+        tag: 2.2.5
+    yc_filebeat:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/filebeat/chart/filebeat
+        tag: 7.16.3-5
+    yc_fluent-bit:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging
+        tag: 1.0-7
+    yc_gateway-api:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
+        tag: 0.4.20
+    yc_gitlab-agent:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-agent/chart/gitlab-agent
+        tag: 1.10.0-4
+    yc_gitlab-runner:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner
+        tag: 0.49.1-8
+    yc_kyverno:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/marketplace/charts/kyverno
+        tag: 2.3.2
+    yc_loki:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
+        tag: 1.0.4
+    yc_metric-provider:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart
+        tag: 0.1.10
+    yc_node-local-dns:
+      helmChart:
+        name: cr.yandex/yc-marketplace/k8s.gcr.io/node-local-dns/chart
+        tag: '1.5'
+    yc_policy-reporter:
+      helmChart:
+        name: cr.yandex/yc-marketplace/policy-reporter
+        tag: 2.13.11
+    yc_thumbor:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
+        tag: 0.1.1-4
+    yc_vault-yckms-k8s:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
+        tag: 0.22.0-1

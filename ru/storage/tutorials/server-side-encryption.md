@@ -37,17 +37,18 @@
 
 - Консоль управления
 
-  1. Перейдите в [консоль управления]({{ link-console-main }}) и выберите каталог, в котором будете выполнять операции.
-  1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Бакет**.
-  1. В поле **Имя** введите имя бакета, например, `example-bucket`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите `example-bucket`.
 
      Имя должно удовлетворять требованиям:
 
      {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
   1. Укажите максимальный размер бакета в ГБ.
-  1. Выберите **Ограниченный** доступ к бакету.
-  1. Нажмите кнопку **Создать бакет**.
+  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 - {{ TF }}
 
@@ -169,14 +170,15 @@
 
 - Консоль управления
 
-  1. Войдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите сервис **{{ kms-name }}**.
-  1. На вкладке **Ключи** нажмите кнопку **Создать** и задайте атрибуты ключа:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ключ.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}**.
+  1. В открывшемся окне:
 
-      * Имя и опциональное описание в свободной форме, например, `key-1` и `bucket-key`.
-      * Алгоритм шифрования, например `AES-256`.
-      * Период [ротации](../../kms/concepts/version.md#rotate-key), например, `7 дней`.
-      * Нажмите кнопку **Создать**.
+      * В поле **{{ ui-key.yacloud.common.name }}** укажите `bucket-key`.
+      * В поле **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** выберите `AES-256`.
+      * В поле **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** выберите период [ротации](../../kms/concepts/version.md#rotate-key) `7 дней`.
+      * Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-key.create.button_create }}**.
 
   Вместе с ключом создается его первая версия: нажмите на ключ в списке, чтобы открыть страницу с его атрибутами.
 
@@ -314,10 +316,12 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет `example-bucket`.
-  1. В левой панели выберите **Шифрование**.
-  1. В поле **Ключ {{ kms-short-name }}** выберите ключ `key-1`.
-  1. Нажмите кнопку **Сохранить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет `example-bucket`.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ `key-1`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - {{ TF }}
 
@@ -469,10 +473,12 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет `example-bucket`.
-  1. В левой панели выберите **Шифрование**.
-  1. В поле **Ключ {{ kms-short-name }}** задайте **Не выбрано**.
-  1. Нажмите кнопку **Сохранить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет `example-bucket`.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - {{ TF }}
 

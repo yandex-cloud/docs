@@ -42,4 +42,5 @@
 
 - [{#T}](connections-view.md)
 - [{#T}](enable-ddos-protection.md)
+- [{#T}](adjust-mtu-ddos-protection.md)
 - [{#T}](enable-software-accelerated-network.md)

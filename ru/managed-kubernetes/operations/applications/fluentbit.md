@@ -36,19 +36,17 @@
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_fluent-bit.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_fluent-bit.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set loggingGroupId=<идентификатор лог-группы> \
-     --set loggingFilter=<идентификатор кластера> \
+     --set loggingGroupId=<идентификатор_лог-группы> \
+     --set loggingFilter=<идентификатор_кластера> \
      --set-file auth.json=sa-key.json \
      fluentbit ./fluent-bit-cloud-logging/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/fluent-bit#docker-images).
 
    Эта команда также создаст новое пространство имен, необходимое для работы Fluent Bit.
 

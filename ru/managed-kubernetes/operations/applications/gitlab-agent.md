@@ -25,12 +25,12 @@
 1. [Создайте инстанс {{ mgl-name }}](../../../managed-gitlab/operations/instance/instance-create.md) или standalone-инстанс.
 1. Создайте файл конфигурации агента в репозитории:
    1. Откройте ваш [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md#instance) и перейдите в ваш проект.
-   1. В ветке `main` создайте новый каталог `.gitlab/agents/<имя агента {{ GL }}>`.
-   1. В каталоге `<имя агента {{ GL }}>` создайте пустой файл `config.yaml`.
+   1. В ветке `main` создайте новый каталог `.gitlab/agents/<имя_агента_{{ GL }}>`.
+   1. В каталоге `<имя_агента_{{ GL }}>` создайте пустой файл `config.yaml`.
 1. Зарегистрируйте агента в {{ GL }} и получите токен доступа:
    1. Откройте ваш инстанс {{ GL }} и перейдите в ваш проект.
    1. Нажмите кнопку **Infrastructure** и выберите пункт **{{ k8s }} clusters**.
-   1. Нажмите кнопку **Connect a cluster** и выберите имя агента `<имя агента {{ GL }}>`.
+   1. Нажмите кнопку **Connect a cluster** и выберите имя агента `<имя_агента_{{ GL }}>`.
    1. Нажмите кнопку **Register an agent**.
    1. {{ GL }} создаст токен, который потребуется для установки приложения. Сохраните токен в безопасном месте.
 
@@ -62,18 +62,16 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gitlab-org/gitlab-agent/chart/gitlab-agent \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_gitlab-agent.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_gitlab-agent.helmChart.tag }} \
      --untar && \
    helm upgrade --install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set config.kasAddress='wss://<имя вашего домена {{ GL }}>/-/kubernetes-agent/' \
-     --set config.token='<токен доступа {{ GL }}>' \
+     --set config.kasAddress='wss://<имя_вашего_домена_{{ GL }}>/-/kubernetes-agent/' \
+     --set config.token='<токен_доступа_{{ GL }}>' \
      gitlab-agent ./gitlab-agent/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gitlab-agent#docker-images).
 
    Эта команда также создаст новое пространство имен, необходимое для работы приложения.
 1. Убедитесь, что под {{ GL }} Agent перешел в состояние `Running`:

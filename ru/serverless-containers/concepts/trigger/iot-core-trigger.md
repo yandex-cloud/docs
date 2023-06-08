@@ -6,6 +6,8 @@
  
 Триггеру для {{ iot-short-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера. 
 
+О том, как создать триггер для {{ iot-short-name }}, читайте в инструкции [{#T}](../../operations/iot-core-trigger-create.md).
+
 ## Роли, необходимые для корректной работы триггера для {{ iot-short-name }} {#roles}
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
