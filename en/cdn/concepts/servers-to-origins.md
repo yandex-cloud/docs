@@ -10,6 +10,8 @@ For a resource, you can also configure:
 * Other HTTP headers in CDN server requests to origins (see [instructions](../operations/resources/configure-headers.md)).
 * Receiving of files by CDN servers from origins in parts: [content segmentation](slicing.md).
 
+{% include [edge-center-features-note](../../_includes/cdn/edge-center-features-note.md) %}
+
 Your resource and origins must be configured so that requests from CDN servers are allowed, processed correctly, and not redirected.
 
 > For example, if origins redirect requests from a URI with the `http` scheme to a URI with the `https` scheme, you must select the HTTPS protocol for the resource, and vice versa.

@@ -11,6 +11,7 @@ This section describes typical problems that may arise during [transfer](../oper
 * [{#T}](#postgresql)
 * [{#T}](#ydb)
 * [{#T}](#yds)
+* [{#T}](#support)
 
 Key features about preparing sources and targets for a transfer are described in the [relevant section](../operations/prepare.md).
 
@@ -37,6 +38,8 @@ Error example:
 **Troubleshooting:** Contact [support]({{ link-console-support }}) or your account manager and specify `request_id`. If you're using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
 
 ## Network {#network}
+
+{% include [common-network](../../_includes/data-transfer/troubles/network/common-network.md) %}
 
 {% include [ip-collision](../../_includes/data-transfer/troubles/network/ip-collision.md) %}
 
@@ -116,4 +119,14 @@ Error example:
 ## {{ yds-full-name }} {#yds}
 
 {% include [overloaded](../../_includes/data-transfer/troubles/overloaded.md) %}
+
+
+
+## How to report a problem {#support}
+
+
+If you followed the tips provided but the problem persists, contact [tech support]({{ link-console-support }}).
+
+
+In your request, specify the [transfer](../operations/transfer.md#list) or [endpoint](../operations/endpoint/index.md#list) ID and attach [transfer status](../operations/monitoring.md) details.
 

@@ -6,7 +6,7 @@
 
 Вид ограничения | Значение
 --- | ---
-Минимальная конфигурация хоста | b1.small (2 × [20%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 4 ГБ RAM)
+Минимальная конфигурация хоста | b2.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Cascade Lake, 4 ГБ RAM)
 Максимальная конфигурация хоста | s3-c96-m576 (96 vCPU Intel Ice Lake, 576 ГБ RAM)
 Максимальное количество хостов в одном подкластере | 32
 Максимальный объем хранилища для одного хоста на сетевых HDD- (`network-hdd`) или SSD-дисках (`network-ssd`) | 4096 ГБ

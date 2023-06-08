@@ -39,4 +39,8 @@ To delete a partially uploaded object:
      --bucket <bucket_name>
    ```
 
+- API
+
+   Use the [abortUpload](../../s3/api-ref/multipart/abortupload.md) S3 API method.
+
 {% endlist %}

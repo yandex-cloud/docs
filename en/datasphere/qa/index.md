@@ -17,7 +17,7 @@ You can [change or disable](../operations/projects/update.md) the subnet in the 
 
 #### Can I close a tab with a notebook? {#close-notebook-tab}
 
-Yes. If you close the notebook tab, current computations will continue running and the [interpreter state](../concepts/save-state.md), all variables, and computation results will be saved. You can continue working when you reopen your project.
+Yes, you can. If you close the notebook tab, current computations will continue running and the [interpreter state](../concepts/save-state.md), all variables, and computation results will be saved. You can continue working when you reopen your project.
 
 #### Why can't I simultaneously start multiple notebooks in my project? {#parallel-run}
 
@@ -33,7 +33,7 @@ The error says that the system can't serialize the variable. It means that you c
 
 #### If I delete a running cell, will computations stop? {#delete-cell}
 
-No, computations will continue even if you delete a cell from the notebook. Before deleting a cell, stop it. If you have deleted a running cell, stop running calculations. To do this, select **File ⟶ Stop IDE executions** in {{ jlab }}Lab and click **Stop IDE executions** in the **Running operations** widget on the project page.
+No, computations will continue even if you delete a cell from the notebook. Before deleting a cell, stop it. If you have deleted a running cell, stop running calculations. To do this, select **File ⟶ Stop IDE executions** in {{ jlab }}Lab or click **{{ ui-key.yc-ui-datasphere.project-page.stop-ide-executions }}** in the **{{ ui-key.yc-ui-datasphere.project-page.executions }}** widget on the project page.
 
 #### My browser can't open a {{ ml-platform-name }} project in the IDE. How can I fix this? {#browser}
 

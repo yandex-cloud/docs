@@ -52,7 +52,7 @@ Where:
 
 {% endnote %}
 
-1. If you do not have an OAuth token yet, get one by following this [link]({{ link-cloud-oauth }}).
+1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
 1. Run this command:
 
    ```bash
@@ -96,7 +96,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
 
    Result:
 
-   ```bash
+   ```text
    id: aje8a87g4e...
    service_account_id: aje3932acd...
    created_at: "2019-05-31T16:56:47Z"
@@ -136,7 +136,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
    ```bash
    docker login \
      --username iam \
-     --password <IAM token> \
+     --password <{{ iam-name }} token> \
      {{ registry }}
    ```
 
@@ -146,7 +146,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
 
 These instructions only apply to external {{ k8s }} clusters and [external nodes](../../managed-kubernetes/concepts/external-nodes.md) managed by {{ managed-k8s-name }}.
 
-For a node placed in {{ compute-full-name }} to pass authentication , [assign the `container-registry.images.puller` role](../../iam/operations/roles/grant.md) to this node's service account.
+For a node placed in {{ compute-full-name }} to pass authentication, [assign the `container-registry.images.puller` role](../../iam/operations/roles/grant.md) to this node's service account.
 
 {% endnote %}
 
@@ -246,7 +246,7 @@ The Docker Engine can keep user credentials in an external credentials store. Th
 
    Result:
 
-   ```bash
+   ```text
    Credential helper is configured in '/home/<user>/.docker/config.json'
    ```
 

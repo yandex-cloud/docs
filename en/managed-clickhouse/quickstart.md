@@ -5,10 +5,6 @@ description: "In this tutorial, you will learn how to create a {{ CH }} cluster 
 
 # Getting started with {{ mch-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 To get started with the service:
 * [Create a DB cluster](#cluster-create).
 * [Connect to the DB](#connect).
@@ -70,6 +66,9 @@ To get started with the service:
 1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
    {% include [preview-pp.md](../_includes/preview-pp.md) %}
+
+   {% include [security-groups-note-services](../_includes/vpc/security-groups-note-services.md) %}
+
 
 
 1. To connect to the DB server, get an SSL certificate:

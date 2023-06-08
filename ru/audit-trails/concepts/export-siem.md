@@ -6,6 +6,10 @@
 
 [{{ yandex-cloud }} Security Solution Library](/solutions/security-solution-library) — это набор примеров и рекомендаций по построению безопасной инфраструктуры в {{ yandex-cloud }}, собранных в публичном репозитории на GitHub.
 
+![image](../../_assets/audit-trails/export-siem.svg)
+
+<small>Схема принятия решения по выбору архитектуры</small>
+
 В настоящее время подготовлены решения для следующих SIEM:
 * [{{ mes-full-name }}](../tutorials/trails-logs-elasticsearch.md).
 * [{{ mos-full-name }}](../tutorials/trails-logs-opensearch.md).

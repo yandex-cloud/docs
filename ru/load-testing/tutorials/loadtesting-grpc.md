@@ -1,1 +1,1 @@
-{% include [loadtesting-grpc](../../_tutorials/loadtesting-grpc.md) %}
+{% include [loadtesting-grpc](../../_tutorials/dev/loadtesting-grpc.md) %}

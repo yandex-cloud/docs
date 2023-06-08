@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/Database/create.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/create.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Database.create

@@ -51,6 +51,7 @@
 `onChallengeHidden`  | `() => void` \| `undefined`               | Метод вызывается, когда закрывается всплывающее окно с заданием.
 `onNetworkError`     | `() => void` \| `undefined`               | Метод вызывается, когда происходит ошибка сети.
 `onSuccess`          | `(token: string) => void` \| `undefined`  | Метод вызывается, когда пользователь успешно прошел проверку. Аргумент для обработчика — уникальный токен пользователя.
+`onTokenExpired`     | `() => void` \| `undefined`               | Метод вызывается, когда токен, полученный пользователем после прохождения проверки, становится невалидным.
 
 Пример использования `SmartCaptcha`:
 
@@ -81,6 +82,7 @@ export const ComponentWithCaptcha = () => {
 `onChallengeHidden`  | `() => void` \| `undefined`               | Метод вызывается, когда закрывается всплывающее окно с заданием.
 `onNetworkError`     | `() => void` \| `undefined`               | Метод вызывается, когда происходит ошибка сети.
 `onSuccess`          | `(token: string) => void` \| `undefined`  | Метод вызывается, когда пользователь успешно прошел проверку. В качестве аргумента обработчик получает уникальный токен пользователя.
+`onTokenExpired`     | `() => void` \| `undefined`               | Метод вызывается, когда токен, полученный пользователем после прохождения проверки, становится невалидным.
 
 {% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
@@ -119,6 +121,7 @@ export const InvisibleCaptcha = () => {
 * `onChallengeHidden`
 * `onNetworkError`
 * `onSuccess`
+* `onTokenExpired`
 
 Эти методы можно использовать, например, чтобы вызвать функцию, когда пользователю показалось задание.
 
@@ -133,21 +136,26 @@ export const SubscriptionToCaptcha = () => {
 
   const handleChallengeVisible = useCallback(() => setStatus('visible'), []);
   const handleChallengeHidden = useCallback(() => setStatus('hidden'), []);
-  const handleNetworkError = useCallback(() => setStatus('network-error'));
+  const handleNetworkError = useCallback(() => setStatus('network-error'), []);
   const handleSuccess = useCallback((token: string) => {
     setStatus('success');
     setToken(token);
-  });
+  }, []);
+  const handleTokenExpired = useCallback(() => {
+    setStatus('token-expired');
+    setToken('');
+  }, []);
 
   return (
     <>
       Status: {status}
       <SmartCaptcha
         sitekey="<your sitekey>"
-        onChallengeVisilbe={handleChallengeVisible}
-        onChallengeHidden={handleChallengeVisible}
-        onNetworkError={handleChallengeVisible}
-        onSuccess={handleChallengeVisible}
+        onChallengeVisible={handleChallengeVisible}
+        onChallengeHidden={handleChallengeHidden}
+        onNetworkError={handleNetworkError}
+        onSuccess={handleSuccess}
+        onTokenExpired={handleTokenExpired}
       />
     </>
   );

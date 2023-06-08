@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/delete.md
+sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/delete.md
 ---
 
 # Application Load Balancer API, REST: VirtualHost.delete

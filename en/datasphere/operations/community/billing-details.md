@@ -3,8 +3,8 @@
 You can get your usage data in {{ ml-platform-name }} itemized down to a project by building a dashboard in [{{ datalens-full-name }}](../../../datalens/). To do this:
 
 1. Open or create a new instance on the [{{ datalens-name }} home page]({{ link-datalens-main }}).
-1. Create a connection with the **{{ yandex-cloud }} Billing** connector type.
-1. Enter a **Connection name**. The name can be anything.
+1. Create a connection with the **{{ ui-key.datalens.connections.connectors-list.view.label_connector-ch_billing_analytics }}** connector type.
+1. Enter a name for the connection and click **{{ ui-key.datalens.collections.action_create }}**.
 1. Open **{{ yandex-cloud }} Billing Dashboard** and go to **Labels**.
 1. Select:
    * **Usage date**: The dates that you need.

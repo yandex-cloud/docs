@@ -103,7 +103,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 
   For example, you need to create rules for an existing {{ k8s }} cluster:
   * With the zonal master located in the `{{ region-id }}-a` availability zone.
-  * With the `worker-nodes-с` node group.
+  * With the `worker-nodes-c` node group.
   * With the address range for pods and services: `10.96.0.0/16` and `10.112.0.0/16`.
   * With access to services:
     * From the load balancer's address range `198.18.235.0/24` and `198.18.248.0/24`.
@@ -253,7 +253,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
       platform_id = "standard-v3"
       network_interface {
         nat                = true
-        subnet_ids         = [<cloud network ID>]
+        subnet_ids         = [<cloud subnet ID>]
         security_group_ids = [
           yandex_vpc_security_group.k8s-main-sg.id,
           yandex_vpc_security_group.k8s-nodes-ssh-access.id,

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/api-ref/OriginGroup/get.md
+sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/get.md
 ---
 
 # Cloud CDN API, REST: OriginGroup.get

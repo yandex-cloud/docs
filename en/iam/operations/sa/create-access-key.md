@@ -2,7 +2,7 @@
 
 These are instructions for how to create [static access keys](../../concepts/authorization/access-key.md) for a [service account](../../concepts/users/service-accounts.md).
 
-If you don't have a service account yet, [create one](../sa/create.md) and [assign it roles](../sa/assign-role-for-sa.md).
+If you do not have a service account yet, [create one](../sa/create.md) and [assign roles to it](../sa/assign-role-for-sa.md).
 
 To create a static access key:
 
@@ -11,7 +11,7 @@ To create a static access key:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
    1. Click **Create new key** in the top panel.
    1. Select **Create static access key**.
@@ -20,7 +20,7 @@ To create a static access key:
 
       {% note alert %}
 
-      After the dialog is closed, the private key value will be unavailable.
+      Once you close the dialog, the private key value will be unavailable.
 
       {% endnote %}
 
@@ -91,9 +91,9 @@ To create a static access key:
 
       Where:
 
-      * `service_account_id` = service account ID. This parameter is required.
+      * `service_account_id`: Service account ID. This parameter is required.
       * `description`: Key description. This is an optional parameter.
-      * `pgp_key`: An additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in base64 encoding or in the `keybase:keybaseusername` format.
+      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
 
       For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_static_access_key).
 

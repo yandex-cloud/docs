@@ -13,17 +13,17 @@
 
 {{ yandex-cloud }} предоставляет функции шифрования в состоянии покоя (at rest) для следующих сервисов:
 
-* [{{objstorage-full-name}}](#storage-at-rest)
-* [{{managed-k8s-name}}](#kubernetes)
+* [{{ objstorage-full-name }}](#storage-at-rest)
+* [{{ managed-k8s-name }}](#kubernetes)
 
-### {{objstorage-full-name}} {#storage-at-rest}
+### {{ objstorage-full-name }} {#storage-at-rest}
 
 Для защиты критичных данных в [{{ objstorage-full-name }}](../../storage/) рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей [{{ kms-full-name }}](../../kms/) (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее см. в разделе [{#T}](../../storage/concepts/encryption.md) документации {{ objstorage-name }}.
 
 
-### {{managed-k8s-name}} {#kubernetes}
+### {{ managed-k8s-name }} {#kubernetes}
 
-[{{managed-k8s-name}}](../../managed-kubernetes/) предоставляет встроенный механизм шифрования секретов. Подробнее в разделе [{#T}](#k8s-secrets) ниже.
+[{{ managed-k8s-name }}](../../managed-kubernetes/) предоставляет встроенный механизм шифрования секретов. Подробнее в разделе [{#T}](#k8s-secrets) ниже.
 
 ## Шифрование в состоянии передачи (in transit) {#in-transit}
 
@@ -36,43 +36,43 @@
 {% endnote %}
 
 {{ yandex-cloud }} предоставляет возможность использования собственных TLS-сертификатов для следующих сервисов:
-- [{{objstorage-full-name}}](#storage-in-transit)
-- [{{alb-full-name}}](#load-balancer)
-- [{{vpc-name}} (VPC)](#vpc)
-- [{{api-gw-full-name}}](#api-gw)
-- [{{cdn-full-name}}](#cdn)
+- [{{ objstorage-full-name }}](#storage-in-transit)
+- [{{ alb-full-name }}](#load-balancer)
+- [{{ vpc-name }} (VPC)](#vpc)
+- [{{ api-gw-full-name }}](#api-gw)
+- [{{ cdn-full-name }}](#cdn)
 
-### {{objstorage-full-name}} {#storage-in-transit}
+### {{ objstorage-full-name }} {#storage-in-transit}
 
-[{{objstorage-full-name}}](../../storage/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности, если к вашему сайту в Object Storage требуется доступ по протоколу HTTPS. Также доступна интеграция с сервисом [{{certificate-manager-full-name}}](../../certificate-manager/). См. инструкции в документации Object Storage:
+[{{ objstorage-full-name }}](../../storage/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности, если к вашему сайту в Object Storage требуется доступ по протоколу HTTPS. Также доступна интеграция с сервисом [{{ certificate-manager-full-name }}](../../certificate-manager/). См. инструкции в документации Object Storage:
 
 - [{#T}](../../storage/operations/hosting/certificate.md)
 - [{#T}](../../storage/concepts/bucket.md#bucket-https)
 
 При работе с сервисом Object Storage необходимо убедиться, что в клиенте отключена поддержка протоколов TLS ниже версии 1.2. При помощи политики (bucket policy) [aws:securetransport](../../storage/s3/api-ref/policy/conditions.md) необходимо проверить, что для бакета настроен запрет на работу без протокола TLS.
 
-### {{alb-full-name}} {#load-balancer}
+### {{ alb-full-name }} {#load-balancer}
 
-Сервис [{{alb-full-name}}](../../application-load-balancer/) поддерживает HTTPS-обработчик с загрузкой [сертификата](../../certificate-manager/concepts/imported-certificate.md) из {{certificate-manager-name}}. См. [описание настройки обработчика](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) в документации Application Load Balancer.
+Сервис [{{ alb-full-name }}](../../application-load-balancer/) поддерживает HTTPS-обработчик с загрузкой [сертификата](../../certificate-manager/concepts/imported-certificate.md) из {{certificate-manager-name}}. См. [описание настройки обработчика](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) в документации Application Load Balancer.
 
-### {{vpc-name}} (VPC) {#vpc}
+### {{ vpc-name }} (VPC) {#vpc}
 
 Возможные варианты организации шифрованных каналов связи приведены в разделе [{#T}](network.md#remote-access).
 
-Обратите внимание: сервис [{{interconnect-full-name}}](../../interconnect/) не предоставляет встроенных механизмов шифрования. Необходимо защищать данные при передаче (encryption in transit) самостоятельно с помощью:
-- установки в облаке VPN-шлюзов с функцией шифрования: например, виртуальных машин на основе образов [Check Point](/marketplace?search=Check+Point) из {{ marketplace-full-name }};
+Обратите внимание: сервис [{{ interconnect-full-name }}](../../interconnect/) не предоставляет встроенных механизмов шифрования. Необходимо защищать данные при передаче (encryption in transit) самостоятельно с помощью:
+- установки в облаке VPN-шлюзов с функцией шифрования: например, [виртуальных машин](../../glossary/vm.md) на основе образов [Check Point](/marketplace?search=Check+Point) из {{ marketplace-full-name }};
 - шифрования на уровне приложений;
 - услуги [ГОСТ VPN](network.md#gost-vpn).
 
 
 
-### {{api-gw-full-name}} {#api-gw}
+### {{ api-gw-full-name }} {#api-gw}
 
-[{{api-gw-full-name}}](../../api-gateway/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [API-шлюзу](../../api-gateway/concepts/) по протоколу HTTPS.
+[{{ api-gw-full-name }}](../../api-gateway/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [API-шлюзу](../../api-gateway/concepts/) по протоколу HTTPS.
 
-### {{cdn-full-name}} {#cdn}
+### {{ cdn-full-name }} {#cdn}
 
-[{{cdn-full-name}}](../../cdn/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS.
+[{{ cdn-full-name }}](../../cdn/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS.
 
 
 
@@ -97,7 +97,7 @@
 
 ### {{ message-queue-full-name }} {#message-queue}
 
-Если сервис [{{message-queue-full-name}}](../../message-queue/) используется для передачи критичных данных или секретов (ключей шифрования, API-ключей и т. д.), то необходимо шифровать эти данные на уровне приложения перед отправкой в {{ message-queue-short-name }}, например, с помощью {{ kms-short-name }}. Для ключа {{ kms-short-name }} рекомендуется настроить период ротации больше либо равный максимальному времени обработки сообщения {{ message-queue-short-name }}.
+Если сервис [{{ message-queue-full-name }}](../../message-queue/) используется для передачи критичных данных или секретов (ключей шифрования, API-ключей и т. д.), то необходимо шифровать эти данные на уровне приложения перед отправкой в {{ message-queue-short-name }}, например, с помощью {{ kms-short-name }}. Для ключа {{ kms-short-name }} рекомендуется настроить период ротации больше либо равный максимальному времени обработки сообщения {{ message-queue-short-name }}.
 
 
 ### {{ objstorage-full-name }} {#storage-self-encryption}

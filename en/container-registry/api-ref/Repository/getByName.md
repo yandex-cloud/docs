@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/api-ref/Repository/getByName.md
+sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/getByName.md
 ---
 
 # Container Registry API, REST: Repository.getByName

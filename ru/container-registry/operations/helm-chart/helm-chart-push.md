@@ -45,12 +45,12 @@
 
           ```bash
           helm registry login {{ registry }} -u iam
-          Password: <IAM-токен>
+          Password: <{{ iam-name }}-токен>
           ```
 
      Результат:
 
-     ```bash
+     ```text
      Login succeeded
      ```
 
@@ -68,7 +68,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      Creating <имя Helm-чарта>
      ```
 
@@ -80,7 +80,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      Successfully packaged chart and saved it to: <путь>/<имя Helm-чарта>-<версия>.tgz
      ```
 
@@ -92,7 +92,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      Pushed: {{ registry }}/<ID реестра>/<имя Helm-чарта>:<версия>
      Digest: <SHA256...>
      ```
@@ -113,7 +113,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      Creating my-chart
      ```
 
@@ -125,7 +125,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      Successfully packaged chart and saved it to: C:/my-chart-3.11.2.tgz
      ```
 
@@ -137,7 +137,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      Pushed: {{ registry }}/crp3h07fgv9b2omnabc4/my-chart:3.11.2
      Digest: sha256:dc44a4e8b686b043b8a88f77ef9dcb998116fab422e8c892a2370da0e5abc4e6
      ```

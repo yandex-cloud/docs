@@ -1,6 +1,6 @@
 # Viewing {{ GP }} cluster logs
 
-{{ mgp-name }} lets you get a cluster log snippet for viewing and analysis.
+{{ mgp-name }} allows you to [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -13,17 +13,94 @@
    1. Go to the folder page and select **{{ mgp-name }}**.
    1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
    1. Specify the time period for which you want to display logs: enter it manually or select it in the calendar by clicking on the date field.
-   1. If necessary, request the `GREENPLUM_POOLER` log and select the hosts and logging level in the drop-down lists next to the date input field.
+   1. If required, request the `GREENPLUM_POOLER` log and select the hosts and logging level in the drop-down lists next to the date input field.
 
    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click on the respective entry in the list.
 
    If there are too many records and only some of them are displayed, click the **Load more** link at the end of the list.
 
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command to view cluster logs:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster list-logs --help
+      ```
+
+   1. Run the command to get cluster logs (the example does not contain a complete list of available parameters):
+
+      ```bash
+      {{ yc-mdb-gp }} cluster list-logs <cluster name or ID> \
+         --limit <record number limit> \
+         --format <output format> \
+         --columns <list of columns to display information> \
+         --filter <record filter settings> \
+         --since <left boundary of time range> \
+         --until <right boundary of time range>
+      ```
+
+      Where:
+
+      * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
+      * {% include [logs output format](../../_includes/cli/logs/format.md) %}
+      * `--service-type`: Type of service to output records for (`greenplum` or `greenplum-pooler`).
+      * `--columns`: List of columns to display information:
+         * `hostname`: [Name of the host](./hosts/cluster-hosts.md#list-hosts).
+         * `level`: Logging level, such as `info`.
+         * `pid`: ID of the current session's server process.
+         * `text`: Message output by the component.
+
+         {% note info %}
+
+         A list of columns to output depends on the selected `--service-type`. Our example only contains the main columns of the `greenplum-pooler` type.
+
+         {% endnote %}
+
+         {% include [logs column format](../../_includes/cli/logs/column-format.md) %}
+
+      * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
+      * {% include [logs since time](../../_includes/cli/logs/since.md) %}
+      * {% include [logs until time](../../_includes/cli/logs/until.md) %}
+
+   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API
 
-   Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](../api-ref/Cluster/list.md).
+
+{% endlist %}
+
+## Getting a cluster log stream {#get-log-stream}
+
+This method allows you to get cluster logs in real time.
+
+{% list tabs %}
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To view cluster logs as they become available, run this command:
+
+   ```bash
+   {{ yc-mdb-gp }} cluster list-logs <cluster name or ID> --follow
+   ```
+
+   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   To get a cluster's log stream, use the [streamLogs](../api-ref/Cluster/streamLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 

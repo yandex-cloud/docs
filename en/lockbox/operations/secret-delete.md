@@ -76,8 +76,50 @@ To delete a secret:
       +----------------------+-----------------+------------+---------------------+----------------------+--------+
       ```
 
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the Terraform configuration file and delete the fragment with the secret description:
+
+      {% cut "Sample secret description in the {{ TF }} configuration" %}
+
+      ```
+      ...
+      resource "yandex_lockbox_secret" "my_secret" {
+        name                = "My secret"
+        description         = "test secret from tf"
+        folder_id           = "b1gmitvfx321d3kr4mhjmo"
+        kms_key_id          = "abjp8q2fjfg0sedaqfkl0"
+        deletion_protection = true
+        labels              = {
+          tf-label    = "tf-label-value",
+          empty-label = ""
+        }
+      }
+      ...
+      ```
+
+      {% endcut %}
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+   You can verify that the secret has been deleted using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+   ```bash
+   yc lockbox secret list <secret_name>
+   ```
+
 - API
 
    To delete a secret, use the [delete](../api-ref/Secret/delete.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Delete](../api-ref/grpc/secret_service.md#Delete) gRPC API call.
 
 {% endlist %}
+
+## See also {#see-also}
+
+* [{#T}](../concepts/secret.md)

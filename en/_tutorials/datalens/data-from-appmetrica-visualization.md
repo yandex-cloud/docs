@@ -17,7 +17,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Edit the standard dashboard](#edit-dashboard).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
@@ -42,7 +42,7 @@ This step is available to users who have an app in AppMetrica. If you don't have
 
    ![image](../../_assets/datalens/solution-06/get-token.png)
 
-    If this is your first connection to an AppMetrica app, grant the necessary permissions to the service.
+   If this is your first connection to an AppMetrica app, grant the necessary permissions to the service.
 
 1. Select an app from the drop-down list.
 
@@ -56,7 +56,7 @@ This step is available to users who have an app in AppMetrica. If you don't have
    1. Select the **Direct access** connection type.
    1. Enable **Automatically create a dashboard on this connection**.
 
-1. In the upper-right corner, click **Create**.
+1. In the top-right corner, click **Create**.
 
    When the connection is created, a folder containing a dashboard and a set of datasets and charts opens.
 
@@ -74,7 +74,7 @@ You can change the standard [dashboard](../../datalens/concepts/dashboard.md) ho
 
 1. Open the dashboard.
 
-1. Click **Edit** in the upper-right corner.
+1. Click **Edit** in the top-right corner.
 
    ![image](../../_assets/datalens/solution-06/05-edit-dashboard.png)
 

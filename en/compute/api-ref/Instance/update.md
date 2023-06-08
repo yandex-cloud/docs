@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Instance/update.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Instance/update.md
 ---
 
 # Compute Cloud API, REST: Instance.update

@@ -2,7 +2,7 @@
 
 Create a VM from a [{{ coi }}](../concepts/index.md) and run a Docker container on it.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
 
@@ -18,11 +18,11 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
   1. Click **Create VM**.
   1. Under **Image/boot disk selection**, go to the **Container Solution** tab.
   1. Click **Configure**.
-  1. In the **Docker container settings** window that opens, set parameters using hints:
-     * (optional) Enter the **Name** of the Docker container to run on the VM. Naming requirements:
-       * The length can be from 3 to 63 characters.
+  1. In the **Docker container settings** window that opens, set the parameters using hints:
+     * (optional) Enter the **Name** of the Docker container to run on the VM. The naming requirements are as follows:
+       * Name must be from 3 to 63 characters long.
        * It may contain Latin letters, numbers, and hyphens.
-       * The first character must be a letter. The last character can't be a hyphen.
+       * It must start with a letter. The last character cannot be a hyphen.
      * Specify the [**Docker image**](../concepts/docker-image.md) to be used to run the Docker container on the VM. You can do this in one of the following ways:
        * By selecting one of the available images. To do this, start typing the image name in the search bar. The image search reads all the available cloud folders.
        * By specifying the image name manually. To do this, click **Enter link** and enter the image name. You can specify an image from {{ container-registry-name }} or any publicly available Docker image library (such as [Docker Hub](https://hub.docker.com)).
@@ -30,16 +30,15 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * (optional) Specify **Command arguments**.
      * (optional) Specify **Environment variables** in `key:value` format, which are available in the Docker container.
      * Select the [**Restart policy**](../concepts/restart-policy.md) field value for the Docker container:
-       * **Always**: Always restart the Docker container when it's stopped.
-       * **Never**: Don't restart the Docker container automatically.
+       * **Always**: Always restart the Docker container when it is stopped.
+       * **Never**: Do not restart the Docker container automatically.
        * **On-Failure**: Restart the Docker container only if it shut down with a non-zero return code.
-     * (optional) Enable **Attach a TTY to the Docker container** to use the command shell in the Docker container.
-     * (optional) Enable **Allocate an stdin buffer for a running Docker container** to link the input stream to the running Docker container.
-     * (optional) Enable **Run Docker container in privileged mode** to allow the Docker container processes to access all VM resources.
-
+      * (optional) Enable **Attach a TTY to the Docker container** to use the command shell in the Docker container.
+      * (optional) Enable **Allocate an stdin buffer for a running Docker container** to link the input stream to the running Docker container.
+      * (optional) Enable **Run Docker container in privileged mode** to allow the Docker container processes to access all VM resources.
      Click **Apply**.
-  1. Set the remaining VM parameters by following the [instructions](../../compute/operations/vm-create/create-linux-vm.md).
- 
+  1. Set the remaining VM parameters by following [this guide](../../compute/operations/vm-create/create-linux-vm.md).
+
 
 - CLI using flags
 
@@ -54,7 +53,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      yc compute instance create-with-container --help
      ```
 
-  1. Run the command:
+  1. Run this command:
 
      ```bash
      yc compute instance create-with-container \
@@ -62,6 +61,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
        --service-account-name my-robot \
+       --create-boot-disk size=30 \
        --public-ip \
        --platform standard-v3 \
        --container-name=my-app \
@@ -75,30 +75,29 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      Where:
      * `--name`: VM name.
      * `--zone`: Availability zone.
-     * `--ssh-key`: The contents of a [public key](../../compute/quickstart/quick-create-linux.md#create-ssh) file.
+     * `--ssh-key`: Contents of the [public key](../../compute/quickstart/quick-create-linux.md#create-ssh) file.
      * `--service-account-name`: Name of the service account.
+     * `--create-boot-disk size`: Boot disk size. It must be at least 30 GB.
      * `--public-ip`: Public IP address allocated to the VM.
-     * `--container-name`: The name of the Docker container.
-     * `--container-image`: The name of the Docker image used to launch the Docker container.
-     * `--container-command`: The command to run upon Docker container launch.
+     * `--container-name`: Name of the Docker container.
+     * `--container-image`: Name of the Docker image used to launch the Docker container.
+     * `--container-command`: Command to run upon Docker container launch.
      * `--container-arg`: Parameters for the command specified in `--container-command`.
-     * `--container-env`: The environment variables available in the Docker container.
-     * `--container-privileged`: Launch the Docker container in privileged mode.
+     * `--container-env`: Environment variables available in the Docker container.
+     * `--container-privileged`: Launching the Docker container in privileged mode.
 
      Result:
 
-     ```bash
+     ```text
      done (17s)
       id: epdbf646ge5qgutfvh43
       folder_id: b1g88tflru0ek1omtsu0
       created_at: "2023-03-13T09:44:03Z"
       name: my-vm
-      zone_id: {{ region-id }}-b
-      platform_id: standard-v3
      ...
      ```
 
-  Once created, the VM appears in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step instructions](../../compute/operations/index.md).
+  Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step guides](../../compute/operations/index.md).
 
 - CLI using a specification file
 
@@ -125,10 +124,10 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
          image: {{ registry }}/mirror/ubuntu:20.04
          name: my-container
          securityContext:
-         privileged: true
+          privileged: true
      ```
 
-  1. Run the command:
+  1. Run this command:
 
      ```bash
      yc compute instance create-with-container \
@@ -136,6 +135,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
        --name my-vm \
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
+       --create-boot-disk size=30 \
        --service-account-name my-service-account \
        --public-ip
      ```
@@ -144,7 +144,8 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--coi-spec-file`: Path to the Docker container [specification file](../concepts/coi-specifications.md#coi-spec).
      * `--name`: VM name.
      * `--zone`: Availability zone.
-     * `--ssh-key`: The contents of a [public key](../../compute/quickstart/quick-create-linux.md#create-ssh) file.
+     * `--ssh-key`: Contents of the [public key](../../compute/quickstart/quick-create-linux.md#create-ssh) file.
+     * `--create-boot-disk size`: Boot disk size. It must be at least 30 GB.
      * `--service-account-name`: Name of the service account.
      * `--public-ip`: Public IP address allocated to the VM.
 
@@ -156,11 +157,9 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
       folder_id: b1g7gvsi89m34qmcm3ke
       created_at: "2023-03-13T13:50:17Z"
       name: my-vm
-      zone_id: {{ region-id }}-b
-      platform_id: standard-v2
-      ...
+     ...
      ```
 
-  Once created, the VM appears in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step instructions](../../compute/operations/index.md).
+  Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step guides](../../compute/operations/index.md).
 
 {% endlist %}

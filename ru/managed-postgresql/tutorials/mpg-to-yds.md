@@ -1,3 +1,3 @@
-# Асинхронная репликация данных из {{ mpg-full-name }} в {{ yds-full-name }}
+# Захват изменений {{ PG }} и поставка в {{ DS }}
 
 {% include [article-body](../../_tutorials/datatransfer/mpg-to-yds.md) %}

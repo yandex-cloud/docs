@@ -10,3 +10,6 @@
 [deleteMultipleObjects](object/deletemultipleobjects.md) | Удаляет объекты по списку.
 [options](object/options.md) | Проверяет возможность [CORS-запроса](../../concepts/cors.md) к объекту.
 [selectObjectContent](object/select.md) | Фильтрует и возвращает содержимое объекта на основе SQL-запроса.
+[putObjectTagging](object/putobjecttagging.md) | Добавляет [метки](../../concepts/tags.md) объекту.
+[getObjectTagging](object/getobjecttagging.md) | Возвращает метки объекта.
+[deleteObjectTagging](object/deleteobjecttagging.md) | Удаляет метки объекта.

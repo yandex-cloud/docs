@@ -198,7 +198,8 @@
             --cookie-max-age 12h \
             --issuer "http://<хост>:8080/realms/master" \
             --sso-binding POST \
-            --sso-url "http://<хост>:8080/realms/master/protocol/saml"       
+            --sso-url "http://<хост>:8080/realms/master/protocol/saml" \
+            --force-authn  
         ```
 
       - Keycloak 16 и предшествующих версий
@@ -211,7 +212,8 @@
             --cookie-max-age 12h \
             --issuer "http://<хост>:8080/auth/realms/master" \
             --sso-binding POST \
-            --sso-url "http://<хост>:8080/auth/realms/master/protocol/saml"       
+            --sso-url "http://<хост>:8080/auth/realms/master/protocol/saml" \
+            --force-authn
         ```
 
         Где:
@@ -285,9 +287,9 @@
 
         * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
-- API
+        * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-  1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы будете создавать федерацию.
+- API
 
   1. Создайте файл с телом запроса, например `body.json`:
 
@@ -295,7 +297,6 @@
 
         ```json
         {
-          "folderId": "<ID каталога>",
           "name": "my-federation",
           "organizationId": "<ID организации>",
           "autoCreateAccountOnLogin": true,
@@ -303,8 +304,9 @@
           "issuer": "http://<хост>:8080/realms/master",
           "ssoUrl": "http://<хост>:8080/realms/master/protocol/saml",
           "securitySettings": {
-              "encryptedAssertions": true
-              },
+              "encryptedAssertions": true,
+              "forceAuthn": true
+          },
           "ssoBinding": "POST"
         }       
         ```
@@ -313,7 +315,6 @@
 
         ```json
         {
-          "folderId": "<ID каталога>",
           "name": "my-federation",
           "organizationId": "<ID организации>",
           "autoCreateAccountOnLogin": true,
@@ -321,15 +322,14 @@
           "issuer": "http://<хост>:8080/auth/realms/master",
           "ssoUrl": "http://<хост>:8080/auth/realms/master/protocol/saml",
           "securitySettings": {
-              "encryptedAssertions": true
-              },
+            "encryptedAssertions": true,
+            "forceAuthn": true
+          },
           "ssoBinding": "POST"
         }       
         ```
 
         Где:
-
-        * `folderId` — идентификатор каталога.
 
         * `name` — имя федерации. Имя должно быть уникальным в каталоге.
 
@@ -399,6 +399,8 @@
           {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
         * `encryptedAssertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
+
+        * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
         * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
@@ -541,7 +543,7 @@
 
       1. Подтвердите создание федерации.
 
-  После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [Федерации]({{link-org-federations}}).
+  После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [Федерации]({{ link-org-federations }}).
 
 {% endlist %}
 
@@ -585,7 +587,7 @@
 
      ```
      yc organization-manager federation saml certificate create \
-       --federation-id <ID федерации> \
+       --federation-id <ID_федерации> \
        --name "my-certificate" \
        --certificate-file certificate.cer
      ```
@@ -597,7 +599,7 @@
 
      ```json
      {
-       "federationId": "<ID федерации>",
+       "federationId": "<ID_федерации>",
        "name": "my-certificate",
        "data": "-----BEGIN CERTIFICATE..."
      }
@@ -622,21 +624,6 @@
 
 {% endnote %}
 
-### Получите ссылку для входа в консоль {#get-link}
-
-Когда вы настроите аутентификацию с помощью федерации, пользователи смогут войти в консоль управления по ссылке, в которой содержится идентификатор федерации.
-
-Получите ссылку:
-
-1. Скопируйте идентификатор федерации:
-
-   1. На панели слева выберите раздел [Федерации]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-   1. Скопируйте идентификатор федерации, для которой вы настраиваете доступ.
-
-1. Сформируйте ссылку с помощью полученного идентификатора:
-
-   `{{ link-console-main }}/federations/<ID федерации>`    
 
 ## Создание и настройка SAML-приложения в Keycloak {#keycloak-settings}
 
@@ -668,7 +655,17 @@
 
       1. На панели слева выберите **Clients**. Нажмите кнопку **Create client**.
 
-      1. В поле **Client ID** введите полученную ранее [ссылку для входа в консоль](#get-link).
+      1. В поле **Client ID** укажите URL, на который пользователи будут перенаправляться после аутентификации:
+
+         ```
+         https://{{ auth-host }}/federations/<ID_федерации>
+         ```
+      
+         {% cut "Как получить ID федерации" %}
+      
+         {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+      
+         {% endcut %}
 
       1. В поле **Client type** выберите вариант **saml**.
 
@@ -678,7 +675,17 @@
 
       1. На панели слева выберите **Clients**. Нажмите кнопку **Create**.
 
-      1. В поле **Client ID** введите полученную ранее [ссылку для входа в консоль](#get-link).
+      1. В поле **Client ID** укажите URL, на который пользователи будут перенаправляться после аутентификации:
+
+         ```
+         https://{{ auth-host }}/federations/<ID_федерации>
+         ```
+
+         {% cut "Как получить ID федерации" %}
+
+         {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+         {% endcut %}
 
       1. В поле **Client Protocol** выберите вариант **saml**.
 
@@ -688,7 +695,7 @@
 
 1. Настройте параметры SAML-приложения на вкладке **Settings**:
 
-    1. Введите полученную ранее [ссылку для входа в консоль](#get-link) в полях:
+    1. Укажите URL для перенаправления, `https://{{ auth-host }}/federations/<ID_федерации>`, в полях:
 
        {% list tabs %}
 
@@ -790,7 +797,7 @@
 
   1. На левой панели выберите раздел [Пользователи]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-  1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите пункт **Добавить федеративных пользователей**.
+  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Добавить федеративных пользователей**.
 
   1. Выберите федерацию, из которой необходимо добавить пользователей.
 
@@ -813,7 +820,7 @@
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
      ```
-     yc organization-manager federation saml add-user-accounts --id <ID федерации> \
+     yc organization-manager federation saml add-user-accounts --id <ID_федерации> \
        --name-ids=alice@example.com,bob@example.com,charlie@example.com
      ```
 
@@ -845,7 +852,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -949,8 +956,20 @@
 
 1. Откройте браузер в гостевом режиме или режиме инкогнито.
 
-1. Перейдите по [ссылке для входа в консоль](#yc-settings), полученной ранее. Браузер должен перенаправить вас на страницу аутентификации в Keycloak.
+1. Перейдите по URL для входа в консоль:
+
+   ```
+   https://{{ console-host }}/federations/<ID_федерации>
+   ```
+
+   {% cut "Как получить ID федерации" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+   
+   Браузер должен перенаправить вас на страницу аутентификации в Keycloak.
 
 1. Введите данные для аутентификации и нажмите кнопку **Sign in**.
 
-После успешной аутентификации IdP-сервер перенаправит вас обратно по ссылке для входа в консоль, а после — на главную страницу [консоли управления]({{ link-console-main }}). В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.
+После успешной аутентификации IdP-сервер перенаправит вас по URL `https://{{ auth-host }}/federations/<ID_федерации>`, который вы указали в настройках Keycloak, а после — на главную страницу [консоли управления]({{ link-console-main }}). В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.

@@ -57,6 +57,8 @@ items:
             href: operations/objects/deleting-multipart.md
           - name: Редактирование ACL объекта
             href: operations/objects/edit-acl.md
+          - name: Управление метками объекта
+            href: operations/objects/tagging.md
       - name: Хостинг статических сайтов
         items:
           - name: Настройка хостинга
@@ -265,6 +267,12 @@ items:
                     href: s3/api-ref/object/getobjectretention.md
                   - name: getObjectLegalHold
                     href: s3/api-ref/object/getobjectlegalhold.md
+                  - name: putObjectTagging
+                    href: s3/api-ref/object/putobjecttagging.md
+                  - name: getObjectTagging
+                    href: s3/api-ref/object/getobjecttagging.md
+                  - name: deleteObjectTagging
+                    href: s3/api-ref/object/deleteobjecttagging.md
               - name: Multipart upload
                 items:
                   - name: Общий порядок составной загрузки
@@ -393,6 +401,8 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: update
                     href: api-ref/Bucket/update.md
+  - name: Справочник логов
+    href: logs-ref.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

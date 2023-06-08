@@ -5,4 +5,4 @@ description: "В этом сценарии вы узнаете, как с пом
 
 # Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}
 
-{% include [gitlab-containers](../../_tutorials/infrastructure-management/gitlab-containers.md) %}
+{% include [gitlab-containers](../../_tutorials/dev/gitlab-containers.md) %}

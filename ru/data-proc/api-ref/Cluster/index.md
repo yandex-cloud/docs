@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/Cluster/index.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/index.md
 ---
 
 # Data Proc API, REST: Cluster methods

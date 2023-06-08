@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/setAccessBindings.md
+sourcePath: en/_api-ref/compute/v1/api-ref/InstanceGroup/setAccessBindings.md
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.setAccessBindings

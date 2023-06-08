@@ -36,6 +36,8 @@ items:
             href: concepts/stream-processing-windows.md
       - name: Unified analysis of streaming and analytical data
         href: concepts/unified-processing.md
+      - name: Backups
+        href: concepts/backup.md
   - name: Step-by-step guides
     items:
       - name: Managing connections
@@ -124,4 +126,6 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Questions and answers
+    href: qa/index.md
 base: en/query

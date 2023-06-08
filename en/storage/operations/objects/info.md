@@ -16,6 +16,6 @@ description: "In this tutorial, you'll learn how to get information about an {{ 
 
 - API
 
-   To get information about an object, use the [get](../../s3/api-ref/object/get.md) S3 API method.
+   To get information about an object, use the [getObjectMeta](../../s3/api-ref/object/getobjectmeta.md) S3 API method.
 
 {% endlist %}

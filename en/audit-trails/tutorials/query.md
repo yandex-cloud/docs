@@ -12,7 +12,7 @@ To connect a bucket with [audit logs](../concepts/events.md) to {{ yq-full-name 
 1. [Create a connection between a trail and {{ yq-short-name }}](#trail-yq).
 1. [Execute a query to logs in {{ objstorage-name }}](#perform-request).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Getting started {#before-begin}
@@ -56,7 +56,7 @@ Create a service account named `trail-sa`:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the **Name**: `trail-sa`.
    1. Click **Create**.
@@ -253,6 +253,6 @@ Execute event queries to bind `audit-trails-logsyq-object_storage`:
    1. Click **Execute**.
 
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 If you created a separate bucket to follow these instructions, you can [delete it](../../storage/operations/buckets/delete.md) to stop paying for [bucket use](../../storage/pricing.md).

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/getOpenapiSpec.md
+sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/getOpenapiSpec.md
 ---
 
 # API Gateway Service, REST: ApiGateway.getOpenapiSpec

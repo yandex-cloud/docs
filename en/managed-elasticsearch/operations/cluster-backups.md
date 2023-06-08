@@ -9,15 +9,19 @@ keywords:
 
 # Managing backups in {{ mes-name }}
 
+
 {{ mes-short-name }} enables you to create [index](../concepts/indexing.md) backups using both {{ yandex-cloud }} tools and the {{ ES }} snapshot mechanism. For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
 ## Creating backups with {{ yandex-cloud }} tools {#cloud-backups}
+
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
 {{ mes-name }} also creates automatic hourly backups.
 
+
 ### Getting a list of backups {#list-backups}
+
 
 {% list tabs %}
 
@@ -64,7 +68,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {% endlist %}
 
+
 ### Getting information about backups {#get-backup}
+
 
 {% list tabs %}
 
@@ -100,7 +106,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {% endlist %}
 
+
 ### Creating a backup {#create-backup}
+
 
 {% list tabs %}
 
@@ -144,7 +152,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
+
 ### Restoring clusters from backups {#restore}
+
 
 When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. You can manage the restore speed using [{{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/recovery.html).
 
@@ -282,6 +292,7 @@ When creating a new cluster, set all required parameters.
 {% endlist %}
 
 
+
 ## Backups using snapshots {#snapshot-backups}
 
 To work with snapshots, use the [{{ ES }} public API](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore-apis.html) and a bucket in {{ objstorage-name }} to store them.
@@ -352,3 +363,4 @@ When restoring from snapshots, the following restrictions apply:
 1. [Start restoring](https://www.elastic.co/guide/en/elasticsearch/reference/current/restore-snapshot-api.html) an entire cluster or individual data indexes and streams from the desired snapshot.
 
 For more information about restoring from snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html).
+

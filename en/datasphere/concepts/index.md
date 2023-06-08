@@ -4,7 +4,7 @@
 
 {{ ml-platform-name }} helps significantly reduce the cost of ML as compared to computing on your own hardware or other cloud platforms thanks to automatic maintenance of computing resources.
 
-{{ ml-platform-name }} lets you perform computing, train models, and deploy the trained models.
+{{ ml-platform-name }} allows you to perform computing, train models, and deploy the trained models.
 
 ## Advantages of the service {#advantages}
 
@@ -32,17 +32,17 @@ Select the necessary computing resources for specific code snippets. When [chang
 
 ### Organizations and resource hierarchy {#organization}
 
-{{ ml-platform-name }} is no longer just a cloud - it lets all organization members work in a shared space managed by [{{ org-full-name }}]({{ link-org-main }}). Resources you create depend on your projects but are not limited only to them. For more information about connections between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
+{{ ml-platform-name }} is no longer just a cloud: it allows all organization members to work in a shared space managed by [{{ org-full-name }}]({{ link-org-main }}). Resources you create depend on your projects but are not limited only to them. For more information about connections between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
 
 ### Teamwork and cost management {#communities}
 
-We introduced [communities](community.md) to let you collaborate on projects and flexibly manage your spending in {{ ml-platform-name }}. You can link a separate [{{ yandex-cloud }} billing account](../../billing/concepts/billing-account.md) to each community to distinguish between the finances of different teams. However, communities don't isolate teams from each other, but let them share projects and created resources.
+We introduced [communities](community.md) that allow you to collaborate on projects and flexibly manage your costs in {{ ml-platform-name }}. You can link a separate [{{ yandex-cloud }} billing account](../../billing/concepts/billing-account.md) to each community to distinguish between the finances of different teams. However, communities do not isolate teams from each other; instead, they enable sharing projects and created resources.
 
 Resource access permissions and scope are managed using new roles. For more information about roles, see [{#T}](../security/index.md).
 
 ### New types of resources {#resources}
 
-You no longer have to re-enter data every time you need to connect to any object storage. To store all details, the **S3 connector** resource is now available. It lets you [connect and disconnect](../operations/data/connect-to-s3.md) a bucket directly in the {{ ml-platform-name }} interface.
+You no longer have to re-enter data every time you need to connect to any object storage. To store all details, the **{{ ui-key.yc-ui-datasphere.resources.s3 }}** resource is now available. It allows you [to connect and disconnect](../operations/data/connect-to-s3.md) a bucket right in the {{ ml-platform-name }} interface.
 
 Another new type of resource is [Checkpoints](secrets.md) that store the interpreter state and variable values. You can use them to create [nodes](deploy/index.md#node) and [share them](../operations/projects/checkpoints.md#share) in communities via a direct link.
 

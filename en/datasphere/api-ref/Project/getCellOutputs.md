@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datasphere/api-ref/Project/getCellOutputs.md
+sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/getCellOutputs.md
 ---
 
 # DataSphere API v2, REST: Project.getCellOutputs

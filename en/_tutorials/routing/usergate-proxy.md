@@ -142,7 +142,11 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 ## Create a security group {#create-security-group}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -428,7 +432,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       For more information about the `yc vpc security-group get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/get.md).
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc compute instance create \
@@ -665,7 +669,7 @@ To add a certificate:
 
       To implement SSL inspection, you can also use the rule: `Decrypt all for unknown users`.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 

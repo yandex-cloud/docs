@@ -24,8 +24,8 @@
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Выберите [версию клиентской части Velero](https://github.com/vmware-tanzu/velero/releases) версии `1.8.1` или ниже для своей платформы.
-1. Скачайте клиентскую часть Velero, распакуйте архив и установите программу. Подробнее об установке программы читайте в [документации Velero](https://velero.io/docs/v1.5/basic-install/#install-the-cli).
+1. Выберите [клиентскую часть Velero](https://github.com/vmware-tanzu/velero/releases) версии `1.10.3` или выше для своей платформы согласно [таблице совместимости](https://github.com/vmware-tanzu/velero#velero-compatibility-matrix).
+1. Скачайте клиентскую часть Velero, распакуйте архив и установите программу. Подробнее об установке программы читайте в [документации Velero](https://velero.io/docs/v1.10/basic-install/#install-the-cli).
 1. Посмотрите описание любой команды Velero:
 
    ```bash
@@ -47,7 +47,7 @@
 
    Результат:
 
-   ```bash
+   ```text
    access_key:
      id: abcdo12h3j04odg56def
      service_account_id: ajego12h3j03slk16upe
@@ -90,8 +90,7 @@
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }} \
-     --use-restic
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Где:
@@ -102,7 +101,6 @@
    * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
    * `--features` — список активных функциональных возможностей.
    * `--snapshot-location-config` — зона доступности, в которой будут размещены снимки дисков.
-   * (опционально) `--use-restic` — включение плагина restic.
 
    Результат:
 
@@ -164,8 +162,7 @@
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }} \
-     --use-restic
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Где:
@@ -176,7 +173,6 @@
    * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
    * `--features` — список активных функциональных возможностей.
    * `--snapshot-location-config` — выбор зоны доступности для расположения снимков дисков.
-   * (опционально) `--use-restic` — включение плагина restic.
 
    Результат:
 

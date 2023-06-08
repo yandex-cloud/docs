@@ -28,7 +28,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
      Result:
 
-     ```bash
+     ```text
      +----+------+-----------+
      | ID | NAME | FOLDER ID |
      +----+------+-----------+
@@ -44,7 +44,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
      Result:
 
-     ```bash
+     ```text
      done
      id: crpd50616s9a2t7gr8mi
      folder_id: b1g88tflru0ek1omtsu0
@@ -57,7 +57,6 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
      * The `--name` flag is optional. You can create a registry without a name and access it by its ID.
      * The `name` field is user-defined: it is used for listing in the YC CLI and is **not used** in the Docker CLI.
-
   1. Make sure the registry was created:
 
      ```bash
@@ -66,7 +65,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
      Command result:
 
-    ```bash
+     ```text
      +----------------------+--------+----------------------+
      |          ID          |  NAME  |      FOLDER ID       |
      +----------------------+--------+----------------------+
@@ -80,7 +79,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
 - {{ TF }}
 
-  If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. To a configuration file, add the parameters of the registry that you want to create. Use `example.tf` in `~/cloud-terraform`:
 
      ```hcl
@@ -96,7 +95,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
      Where:
      * `name`: Registry name.
      * `folder_id`: ID of the folder.
-     * `labels`: Set of [labels](../../../overview/concepts/services.md#labels).
+     * `labels`: Set of [labels](../../../resource-manager/concepts/labels.md).
 
      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
   1. Check that the configuration file is correct.
@@ -106,7 +105,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
         cd /Users/<username>/cloud-terraform
         ```
 
-     1. Run the check using the command:
+     1. Run the check using this command:
 
         ```bash
         terraform plan
@@ -125,7 +124,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
         ```
 
   1. Create a registry.
-     1. Run the command:
+     1. Run this command:
 
         ```bash
         terraform apply
@@ -133,7 +132,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
         Result:
 
-        ```bash
+        ```text
         An execution plan has been generated and is shown below.
         Resource actions are indicated with the following symbols:
           + create
@@ -152,7 +151,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
         Result:
 
-        ```bash
+        ```text
         yandex_container_registry.default: Creating...
         yandex_container_registry.default: Creation complete after 4s [id=crpuljdfqoj3ve9mtbt1]
 
@@ -160,7 +159,6 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
         ```
 
         A registry named `my-registry` is created in the folder.
-
-  1. Check the resources and the resource settings in the [management console]({{ link-console-main }}).
+     1. Check the resources and their settings in the [management console]({{ link-console-main }}).
 
 {% endlist %}

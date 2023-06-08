@@ -2,7 +2,7 @@
 
 _Communities_ is a way to organize team work in {{ ml-platform-name }}. A community determines the scope of projects and resources and helps set up team activities.
 
-Roles determine what the community members can do. Community members can be _developers_ or _administrators_ in the community. To see a full list of the community members, see the **Member** tab. A developer can create projects and their resources in the community and run calculations in the IDE. A community administrator can invite new members to the community and manage their roles, change the [payment information](#billing), and share resources with other community members. For more information about roles in {{ ml-platform-name }}, see [{#T}](../security/index.md).
+Roles determine what the community members can do. A community member may be a _developer_ or an _administrator_ . To view a full list of the community members, see the **{{ ui-key.yc-ui-datasphere.common.members }}** tab. A developer can create projects and their resources in the community and run calculations in the IDE. A community administrator can invite new members to the community and manage their roles, change the [payment information](#billing), and share resources with other community members. For more information about roles in {{ ml-platform-name }}, see [{#T}](../security/index.md).
 
 You can [link a channel](../operations/community/link-channel.md) in Slack or Telegram to your community so that users can communicate.
 
@@ -10,9 +10,9 @@ To create resources and run projects in the IDE, link a {{ yandex-cloud }} [bill
 
 ## An organization's community {#organization-team}
 
-For every organization, {{ ml-platform-name }} creates a default community with the name `<Organization Name> Team`. When logging in to {{ ml-platform-name }} for the first time, all the users from the organization automatically become members of this community with the `Viewer` (`{{ roles-datasphere-communities-viewer }}`) role. The administrator role in the community is inherited from the role `organization-manager.admin` or higher. Users with the role `organization-manager.admin` can appoint administrators among community members. For more information about access control within an organization, see the {{ org-full-name }} documentation, [{#T}](../../organization/roles.md).
+For every organization, {{ ml-platform-name }} creates a default community with the `<Organization Name> Team` name. When logging in to {{ ml-platform-name }} for the first time, all users from the organization automatically become members of this community with the `Viewer` (`{{ roles-datasphere-communities-viewer }}`) role. The administrator role in the community is inherited from the `organization-manager.admin` role or higher. Users with the `organization-manager.admin` role can appoint administrators among community members. For more information on access control within an organization, see the [{#T}](../../organization/roles.md) section of the {{ org-full-name }} documentation.
 
-You can't delete the organization's community.
+You cannot delete an organization community.
 
 {% note tip %}
 

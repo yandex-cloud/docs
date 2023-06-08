@@ -1,6 +1,44 @@
 # Endpoint management
 
-The source [endpoint](../../concepts/index.md#endpoint) describes the settings of the database that information will be transferred from using {{ data-transfer-name }} and the target endpoint the database you are going to transfer the data to. You can [create](#create), [edit](#update), or [delete](#delete) such endpoints.
+The source [endpoint](../../concepts/index.md#endpoint) describes the settings of the database that information will be transferred from using {{ data-transfer-name }}, and the target endpoint — the database you are going to transfer the data to. You can [create](#create), [edit](#update), [clone](#clone), or [delete](#delete) such endpoints.
+
+## Getting a list of endpoints {#list}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+
+- CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To get a list of transfers in a folder, run the following command:
+
+   ```bash
+   {{ yc-dt }} endpoint list
+   ```
+
+- API
+
+   Use the API [list](../../api-ref/Endpoint/list.md) method.
+
+{% endlist %}
+
+## Getting a list of endpoints {#list}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+
+{% endlist %}
 
 ## Creating an endpoint {#create}
 
@@ -13,44 +51,18 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. In the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field, select **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** or **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**.
    1. Enter a name for the endpoint. Use lowercase Latin letters and numbers.
    1. (optional) Enter a description of the endpoint.
-   1. Select the appropriate value in the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** field. An endpoint of the corresponding type will be created.
+   1. Select the appropriate value in the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** field. This will create an endpoint of the relevant type.
    1. Set the endpoint parameters:
-      * Sources:
-         * Airbyte®:
-            * [AWS CloudTrail](source/aws-cloudtrail.md)
-            * [BigQuery](source/bigquery.md)
-            * [MS SQL Server](source/mssql.md)
-            * [S3](source/s3.md)
-         * [{{ KF }}](source/kafka.md)
-         * [{{ CH }}](source/clickhouse.md)
-         * [{{ eventhub-name }}](source/eventhub.md)
-         * [{{ GP }}](source/greenplum.md)
-         * [{{ metrika }}](source/metrika.md)
-         * [{{ MG }}](source/mongodb.md)
-         * [{{ MY }}](source/mysql.md)
-         * [Oracle](source/oracle.md)
-         * [{{ PG }}](source/postgresql.md)
-         * [{{ yds-full-name }}](source/data-streams.md)
-         * [{{ ydb-full-name }}](source/ydb.md)
-      * Targets:
-         * [{{ KF }}](target/kafka.md)
-         * [{{ CH }}](target/clickhouse.md)
-         * [{{ ES }}](target/elasticsearch.md)
-         * [{{ GP }}](target/greenplum.md)
-         * [{{ MG }}](target/mongodb.md)
-         * [{{ MY }}](target/mysql.md)
-         * [{{ objstorage-name }}](target/object-storage.md)
-         * [{{ OS }}](target/opensearch.md)
-         * [{{ PG }}](target/postgresql.md)
-         * [{{ yds-full-name }}](target/data-streams.md)
-         * [{{ ydb-full-name }}](target/yandex-database.md)
+
+      {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
+
    1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
 
 - CLI
 
    {% note info %}
 
-   You can create endpoints using the CLI commands only for {{ MY }} and {{ PG }} sources and targets.
+   You can create endpoints using the CLI commands only for {{ CH }}, {{ MG }}, {{ MY }}, and {{ PG }} sources and targets.
 
    {% endnote %}
 
@@ -78,25 +90,29 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
 - {{ TF }}
-      {% note info %}
 
-   You can create endpoints with {{ TF }} only for {{ MY }}, {{ PG }}, {{ MG }}, and {{ CH }} sources and targets.
+   
+   {% note info %}
+
+   You can create endpoints with {{ TF }} only for {{ CH }}, {{ MG }}, {{ MY }}, and {{ PG }} sources and targets.
 
    {% endnote %}
+
 
    
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+   If you do not have {{ TF }}, [install it and configure the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+
    To create an endpoint:
 
-   1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
-       1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Create a configuration file with a description of your endpoint.
 
       Example of the configuration file structure:
 
       ```hcl
-      resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+      resource "ycp_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
         name = "<endpoint name>"
         settings {
           <endpoint type> {
@@ -105,6 +121,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
         }
       }
       ```
+
+   You can retrieve a complete resource schema by running `terraform providers schema`.
 
     1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
@@ -124,7 +142,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
     {% note info %}
 
-    You can create endpoints with the API only for {{ MY }} and {{ PG }} sources and targets.
+    You can create endpoints with the API only for {{ CH }}, {{ KF }}, {{ MG }}, {{ MY }}, and {{ PG }} sources and targets.
 
     {% endnote %}
 
@@ -141,6 +159,12 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 ## Updating the endpoint {#update}
 
+{% note info %}
+
+You cannot change the endpoint and database types. For some endpoints, you cannot change the connection type, either.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -148,34 +172,41 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. Select an endpoint and click ![pencil](../../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}** in the top panel.
    1. Edit the endpoint parameters:
-      * Sources:
-         * Airbyte®:
-            * [AWS CloudTrail](source/aws-cloudtrail.md)
-            * [BigQuery](source/bigquery.md)
-            * [MS SQL Server](source/mssql.md)
-            * [S3](source/s3.md)
-         * [{{ KF }}](source/kafka.md)
-         * [{{ CH }}](source/clickhouse.md)
-         * [{{ eventhub-name }}](source/eventhub.md)
-         * [{{ GP }}](source/greenplum.md)
-         * [{{ metrika }}](source/metrika.md)
-         * [{{ MG }}](source/mongodb.md)
-         * [{{ MY }}](source/mysql.md)
-         * [Oracle](source/oracle.md)
-         * [{{ PG }}](source/postgresql.md)
-         * [{{ yds-full-name }}](source/data-streams.md)
-         * [{{ ydb-full-name }}](source/ydb.md)
-      * Targets:
-         * [{{ KF }}](target/kafka.md)
-         * [{{ CH }}](target/clickhouse.md)
-         * [{{ GP }}](target/greenplum.md)
-         * [{{ MG }}](target/mongodb.md)
-         * [{{ MY }}](target/mysql.md)
-         * [{{ objstorage-name }}](target/object-storage.md)
-         * [{{ PG }}](target/postgresql.md)
-         * [{{ yds-full-name }}](target/data-streams.md)
-         * [{{ ydb-full-name }}](target/yandex-database.md)
+
+      {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
+
    1. Click **{{ ui-key.yacloud.common.apply }}**.
+
+- CLI
+
+   {% note info %}
+
+   You can change endpoints using the CLI commands only for {{ CH }}, {{ MG }}, {{ MY }}, and {{ PG }} sources and targets.
+
+   {% endnote %}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To update the endpoint settings:
+
+   1. View a description of the update transfer CLI command:
+
+      ```bash
+      {{ yc-dt }} endpoint update --help
+      ```
+
+   1. Run the following command by providing a list of the settings to change (the example below does not contain a full list of parameters):
+
+      ```bash
+      {{ yc-dt }} transfer update <endpoint type> <endpoint ID> \
+         --name <endpoint name> \
+         --description <endpoint description> \
+         <endpoint parameters>
+      ```
+
+      You can view the endpoint type and parameters in the settings section for the appropriate data source or target. You can get the endpoint ID with a [list of endpoints in the folder](#list).
 
 - {{ TF }}
 
@@ -198,7 +229,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
     {% note info %}
 
-    You can edit endpoints using the API only for {{ MY }} and {{ PG }} sources and targets.
+    You can edit endpoints using the API only for {{ CH }}, {{ KF }}, {{ MG }}, {{ MY }}, and {{ PG }} sources and targets.
 
     {% endnote %}
 
@@ -209,16 +240,34 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
     * Endpoint description in the `description` parameter.
     * Endpoint parameters in the `settings` parameter.
 
-    To get the endpoint ID:
-
-    1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
-    1. Click the endpoint you need.
-
-    You can view the endpoint parameters in the settings section for the appropriate data source or target.
+    You can get the endpoint ID with a [list of endpoints in the folder](#list).
 
 {% endlist %}
 
 Editing the endpoint settings of a transfer with the {{ dt-type-repl }} type and the {{ dt-status-repl }} status will result in restarting the transfer.
+
+## Cloning an endpoint {#clone}
+
+{% note info %}
+
+You cannot change the endpoint and database types when cloning.
+
+{% endnote %}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+   1. Select the endpoint to clone.
+   1. Click **{{ ui-key.yacloud.common.clone }}** in the top panel.
+   1. Specify a new endpoint name and edit other parameters, if required:
+
+      {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
+
+   1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+
+{% endlist %}
 
 ## Deleting an endpoint {#delete}
 
@@ -251,10 +300,7 @@ To delete an endpoint:
     {{ yc-dt }} endpoint delete <endpoint ID>
     ```
 
-    To get the endpoint ID:
-
-    1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
-    1. Click the endpoint you need.
+    You can get the endpoint ID with a [list of endpoints in the folder](#list).
 
 - {{ TF }}
 
@@ -262,11 +308,9 @@ To delete an endpoint:
 
 - API
 
-    Use the [delete](../../api-ref/Endpoint/delete) API method and provide the ID of the required endpoint in the `endpointID` request parameter:
+    Use the [delete](../../api-ref/Endpoint/delete) API method and provide the ID of the required endpoint in the `endpointID` request parameter.
 
-    To get the endpoint ID:
-    1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
-    1. Click the endpoint you need.
+    You can get the endpoint ID with a [list of endpoints in the folder](#list).
 
 {% endlist %}
 

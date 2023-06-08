@@ -221,7 +221,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   done (28s)
   id: catpl8c44kiibp20u4f3
   cluster_id: catcsqidoos7tq0513us
@@ -278,7 +278,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   done (3s)
   id: catpl8c44kiibp20u4f3
   cluster_id: catcsqidoos7tq0513us
@@ -330,7 +330,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   done (2s)
   id: catpl8c44kiibp20u4f3
   cluster_id: catcsqidoos7tq0513us

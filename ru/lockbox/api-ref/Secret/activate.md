@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/activate.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/activate.md
 ---
 
 # Lockbox API, REST: Secret.activate
@@ -10,7 +10,7 @@ Activates the specified secret.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:activate
+POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}:activate
 ```
  
 ## Path parameters {#path_params}

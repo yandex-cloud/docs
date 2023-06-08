@@ -1,133 +1,80 @@
-# Анализ логов Cloud Logging
+# Обработка логов {{ cloud-logging-full-name }}
 
-[{{ cloud-logging-name }}](../../logging/quickstart.md) - это сервис, позволяющий читать и записывать логи сервисов Облака и пользовательских приложений.
+[{{ cloud-logging-full-name }}](../../logging/index.yaml) — это сервис, который позволяет читать и записывать логи сервисов {{ yandex-cloud }} и пользовательских приложений.
 
-С помощью {{ cloud-logging-name }} можно передавать логи приложений в {{ yq-full-name }} для их обработки в реальном времени. Обработанные данные можно отправить:
-- В {{ monitoring-name }} для нанесения на графики и алертинга.
-- Записать в другой поток {{ yds-full-name }}, откуда данные можно отправить на обработку в {{ sf-name }} или в {{ data-transfer-name }} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
+Логи можно отправить в [поток](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }} и далее обработать в реальном времени с помощью {{ yq-full-name }}. Обработанные данные можно:
 
-Ниже приведена архитектура решения с {{ cloud-logging-short-name }}.
+* отправить в {{ monitoring-full-name }} для построения графиков и алертинга;
+* записать в поток {{ yds-short-name }} и далее отправить на обработку в {{ sf-full-name }};
+* записать в поток {{ yds-short-name }} и далее передать в {{ data-transfer-full-name }} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
+
 ![cloud-logging-to-yq](../../_assets/query/cloud-logging.png)
 
-Пример запроса, который по каждому хосту считает число отправленных сообщений, сгруппированным по 10-секундным интервалам:
+В этом сценарии вы отправите логи {{ cloud-logging-short-name }} в поток {{ yds-short-name }}, а затем выполните к ним запрос с помощью {{ yq-name }}. В результате выполнения запроса вы получите количество сообщений по каждому хосту, сгруппированное по интервалам продолжительностью 10 секунд.
 
-```sql
-$cloud_logging_data = 
-SELECT 
-    CAST(JSON_VALUE(data, "$.timestamp") AS Timestamp) AS `timestamp`,
-    JSON_VALUE(data, "$.jsonPayload.host") AS host
-FROM bindings.`cloud-logging`;
+Для выполнения сценария:
 
-SELECT 
-    host, 
-    COUNT(*) AS message_count, 
-    HOP_END() AS `timestamp`
-FROM $cloud_logging_data
-GROUP BY 
-    HOP(`timestamp`, "PT10S", "PT10S", "PT10S"), 
-    host
-LIMIT 2;
-```
+1. [{#T}](#create-yds-stream).
+1. [{#T}](#create-log-group).
+1. [{#T}](#send-to-loggroup).
+1. [{#T}](#connect-query).
+1. [{#T}](#query).
 
-Описание работы с потоковыми данными, получаемыми из {{ yds-full-name }}, находится в разделе [Чтение данных из Data Streams](../sources-and-sinks/data-streams.md).
+## Перед началом работы {#before-you-begin}
 
-## Настройка {#setup}
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Для настройки необходимо выполнить следующие шаги:
-1. [Создать поток данных {{ yds-full-name }}](#create_yds_stream).
-1. [Создать лог-группу](#create_log_group).
-1. [Инициировать отправку данных в лог-группу](#send_to_loggroup).
-1. [Создать соединение](#create_connection) с потоком данных.
-1. [Создать привязку к данным](#create_binding) к потоку данных.
-1. [Выполнить запрос](#query) к данным из лог-группы.
+Установите [интерфейс командной строки](../../cli/quickstart.md#install) {{ yandex-cloud }}.
 
-### Создание потока данных {{ yds-full-name }} {#create_yds_stream}
+## Создайте поток данных {{ yds-name }} {#create-yds-stream}
 
-Создание [потока данных](../../data-streams/operations/manage-streams.md) подробно описано в [документации {{ yds-full-name }}](../../data-streams/operations/manage-streams.md).
+[Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream) c именем `cloud-logging-stream`.
 
-### Создание лог-группы {#create_log_group}
+## Создайте лог-группу {{ cloud-logging-name }} {#create-log-group}
 
-Для создания [лог-группы](../../logging/concepts/log-group.md) с опцией отправки данных в поток {{ yds-full-name }} выполните следующую команду:
+[Создайте лог-группу](../../logging/operations/create-group.md) c именем `cloud-logging-group`. При задании параметров лог-группы укажите созданный на предыдущем шаге поток данных `cloud-logging-stream`.
 
-```shell
-yc logging group create \
-  --name <log_group_name> \
-  --folder-id <folder_id> \
-  --data-stream <full_yds_stream_name>
-```
+## Запустите отправку данных в лог-группу {#send-to-loggroup}
 
-Где:
+Чтобы запустить отправку данных в лог-группу, выполните следующую команду:
 
-* `name` — название создаваемой лог-группы.
-* `folder-id` — каталог, где будет создана лог-группа.
-* `data-stream` — полное имя потока данных {{ yds-full-name }}. Полное имя потока можно получить в UI {{ yds-full-name }} в разделе **Подключиться**. Полное имя потока имеет формат `/{{ region-id }}/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging`.
-
-Пример команды создания лог-группы `yds`, отправляющей данные в поток `cloud-logging`:
-
-```shell
-yc logging group create \
-  --name yds \
-  --folder-id b1kmrhakmf8ar1i5l6f8 \
-  --data-stream /{{ region-id }}/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging
-```
-
-### Отправка данных в лог-группу {#send_to_loggroup}
-
-Для отправки данных в лог-группу воспользуйтесь следующей командой:
-
-```shell
-do yc logging write \
-  --group-name=<log_group_name> \
-  --message='<message>' \
-  --timestamp="1s ago" \
-  --level=INFO \
-  --json-payload='<json_payload>' \
-  --folder-id <folder_id>;
-```  
-
-Где:
-
-* `group-name` — название лог-группы.
-* `message` — текст сообщения.
-* `json_payload` — дополнительные данные сообщения в формате JSON.
-* `folder-id` — каталог, где создана лог-группа.
-
-Пример команды для отправки данных в лог-группу `yds`, находящуюся в фолдере `b1kmrhakmf8ar1i5l6f8`, сообщения `Message` с дополнительным JSON-содержимым `{"request_id": "1234", "host":"test_host"}`:
-
-```shell
+```bash
 while true; do yc logging write \
-  --group-name=yds \
-  --message="Message" \
+  --group-name=cloud-logging-group \
+  --message="test_message" \
   --timestamp="1s ago" \
   --level=INFO \
   --json-payload='{"request_id": "1234", "host":"test_host"}' \
   --folder-id b1kmrhakmf8ar1i5l6f8; \
   sleep 1; \
 done
-```  
+```
 
-### Создание подключения в {{ yq-full-name }} {#create_connection}
+* `--group-name` — название лог-группы, в которую отправляются сообщения;
+* `--message` — текст сообщения;
+* `--json_payload` — дополнительные данные сообщения в формате JSON;
+* `--folder-id` — идентификатор каталога, в котором создана лог-группа.
 
-Создайте [соединение](../concepts/glossary.md#connection) с именем `cloud-logging-connection`, для этого нужно выполнить следующие действия:
+## Подключите {{ yq-name }} к потоку данных {#connect-query}
 
-{% include [create-connection](../_includes/create-connection.md) %}
+1. [Создайте соединение](../operations/connection.md#create) с именем `cloud-logging-connection` и типом `Data Streams`.
+1. На странице создания привязки:
+    * Выберите **Автоматически заполнить колонки для Cloud Logging**.
+    * Введите имя привязки `cloud-logging-binding`.
+    * Укажите поток данных `cloud-logging-stream`.
+    * Задайте формат `json-list`.
+1. Нажмите кнопку **Создать**.
 
-### Создание привязки к данным в {{ yq-full-name }} {#create_connection}
+## Выполните запрос к данным {#query}
 
-Создайте [привязку к данным](../concepts/glossary.md#binding) к {{ yds-full-name }} с именем `cloud-logging` и шаблоном данных **Cloud Logging**, для этого нужно выполнить следующие действия:
-
-{% include [create-connection](../_includes/create-binding.md) %}
-
-## Запрос к данным {#query}
-
-В редакторе запросов в интерфейсе {{ yq-full-name }} выполните следующий запрос:
+В редакторе запросов в интерфейсе {{ yq-name }} выполните следующий запрос:
 
 ```sql
 $cloud_logging_data = 
 SELECT 
     CAST(JSON_VALUE(data, "$.timestamp") AS Timestamp) AS `timestamp`,
     JSON_VALUE(data, "$.jsonPayload.host") AS host
-FROM bindings.`cloud-logging`;
+FROM bindings.`cloud-logging-binding`;
 
 SELECT 
     host, 
@@ -140,8 +87,15 @@ GROUP BY
 LIMIT 2;
 ```
 
-{% note info %}
+Результат:
+
+| # | host | message_count | timestamp |
+| :--- | :--- | ---: | :--- |
+| 1 | "test_host" | 3 | 2023-05-09T10:34:00.000000Z |
+| 2 | "test_host" | 4 | 2023-05-09T10:34:10.000000Z |
 
 {% include [limit](../_includes/select-limit.md) %}
 
-{% endnote %}
+## См. также {#see-also}
+
+* [{#T}](../sources-and-sinks/data-streams.md).

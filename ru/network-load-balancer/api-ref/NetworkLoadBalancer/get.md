@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/get.md
+sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/get.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.get

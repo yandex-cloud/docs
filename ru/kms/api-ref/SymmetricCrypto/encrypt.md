@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/encrypt.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/encrypt.md
 ---
 
 # Key Management Service API, REST: SymmetricCrypto.encrypt
@@ -10,7 +10,7 @@ Encrypts given plaintext with the specified key.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:encrypt
+POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:encrypt
 ```
  
 ## Path parameters {#path_params}

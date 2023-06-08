@@ -41,7 +41,7 @@ You can enable {{ at-full-name }} at the folder, cloud, and organization level. 
    1. In the management console, select the cloud or folder to check the functions in.
    1. From the list of services, select {{ at-full-name }}.
    1. Make sure the Filter parameter is set to Organization.
-   1. In addition, check that the destination of logs is {{ objstorage-full-name }} bucket, [{{ cloud-logging-name }}](../../logging/) log group, and {{ yds-name }}, that they are up and running, and that the logs are available for further analysis.
+   1. In addition, check that the destination of logs is {{ objstorage-full-name }} bucket, [{{ cloud-logging-name }}](../../../logging/) log group, and {{ yds-name }}, that they are up and running, and that the logs are available for further analysis.
 
 {% endlist %}
 

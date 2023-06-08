@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ydb/api-ref/Backup/listPaths.md
+sourcePath: en/_api-ref/ydb/v1/api-ref/Backup/listPaths.md
 ---
 
 # Managed Service for YDB API, REST: Backup.listPaths

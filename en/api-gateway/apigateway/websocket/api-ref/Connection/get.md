@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/apigateway/websocket/apigateway/websocket/api-ref/Connection/get.md
+sourcePath: en/_api-ref/serverless/apigateway/websocket/v1/apigateway/websocket/api-ref/Connection/get.md
 ---
 
 # API Gateway WebSocket Connection Service, REST: Connection.get

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/setScalingPolicy.md
+sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/setScalingPolicy.md
 ---
 
 # Cloud Functions Service, REST: Function.setScalingPolicy

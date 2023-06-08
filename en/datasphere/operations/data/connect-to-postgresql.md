@@ -2,7 +2,7 @@
 
 In the {{ yandex-cloud }} infrastructure, [{{ PG }}](https://www.postgresql.org/) server clusters are deployed and supported using {{ mpg-short-name }}.
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 1. [Create](../../../managed-postgresql/operations/cluster-create.md) a new {{ mpg-short-name }} cluster and enable public access to it from the host. You can also use an existing cluster with publicly available hosts.
 1. [Configure](../../../managed-postgresql/operations/connect.md#configuring-security-groups) cluster security groups.
@@ -14,9 +14,9 @@ In the {{ yandex-cloud }} infrastructure, [{{ PG }}](https://www.postgresql.org/
 
 - Connecting via SSL
 
-   For connecting to a cluster hosts {{ mpg-short-name }}:
-   
-   1. Get an SSL certificate: To do this, enter the following command in a notebook cell:
+   To connect to {{ mpg-short-name }} cluster hosts:
+
+   1. Get an SSL certificate. To do this, enter the following command in a notebook cell:
 
       ```bash
       #!:bash
@@ -56,9 +56,9 @@ In the {{ yandex-cloud }} infrastructure, [{{ PG }}](https://www.postgresql.org/
 
    1. [Configure your project](../../operations/projects/update.md). For this, on the project edit page, add or change the following data in the relevant fields:
 
-      * **Default folder** where the {{ mpg-short-name }} cluster is deployed.
-      * **Service account** with the `managed-postgresql.editor` [role](../../../managed-postgresql/security/index.md#required-roles) or higher.
-      * **Subnet** the database host belongs to.
+      * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** where the {{ mpg-short-name }} cluster is deployed.
+      * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** with the `managed-postgresql.editor` [role](../../../managed-postgresql/security/index.md#required-roles) or higher.
+      * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** the database host belongs to.
 
          {% note info %}
 

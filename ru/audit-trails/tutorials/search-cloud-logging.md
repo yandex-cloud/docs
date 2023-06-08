@@ -13,9 +13,9 @@ json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolde
 
 ## Кто создал/остановил/перезапустил/удалил виртуальную машину
 
-Поиск по идентификатору виртуальной машины:
+Поиск по идентификатору [виртуальной машины](../../glossary/vm.md):
 ```json
-json_payload.details.instance_id="<<идентификатор_виртуальной_машины>>" and (json_payload.event_type="{{ at-event-prefix }}.audit.compute.CreateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.UpdateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.DeleteInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StartInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StopInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.RestartInstance")
+json_payload.details.instance_id="<идентификатор_виртуальной_машины>" and (json_payload.event_type="{{ at-event-prefix }}.audit.compute.CreateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.UpdateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.DeleteInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StartInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StopInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.RestartInstance")
 ```
 
 ## Какие действия совершал конкретный пользователь за период времени

@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * Using {{ TF }}
 
       1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the [data-transfer-mkf-mkf.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mkf.tf) configuration file to the same working directory.
 
          This file describes:
@@ -105,25 +105,25 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **Database type**: `{{ KF }}`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-      * **Connection settings**: `{{ mkf-name }} cluster`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**: `Yandex Managed Service for Kafka cluster`.
 
          Select a target cluster from the list and specify its connection settings.
 
-      * **Apache Kafka topic settings**.
-         * **Topic full name**: `measurements`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `measurements`.
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **Database type**: `{{ KF }}`.
-   * **Endpoint parameters**:
-      * **Connection settings**: `{{ mkf-name }} cluster`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**: `Yandex Managed Service for Kafka cluster`.
 
-         Select a source cluster from the list and specify the cluster connection settings.
+         Select a source cluster from the list and specify its connection settings.
 
-      * **Topic full name**: `sensors`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
 
 1. Create a transfer:
 
@@ -240,7 +240,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 {% endnote %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.

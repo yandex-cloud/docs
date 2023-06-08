@@ -142,7 +142,7 @@ default:
   yds-name: Data Streams
   cdn-name: Cloud CDN
   serverless-containers-name: Serverless Containers
-  org-name: Organization
+  org-name: Cloud Organization
   forms-name: Forms
   wiki-name: Wiki
   load-testing-name: Load Testing
@@ -378,7 +378,7 @@ default:
   iam-token-lifetime: 12 часов
   crt-web-path: https://storage.yandexcloud.net/cloud-certs/CA.pem
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
-  crt-local-file: YandexCA.crt
+  crt-local-file: YandexInternalRootCA.crt
   crt-alias: YandexCA
   mdb-host: mdb.cloud.yandex.net
   dns-zone: mdb.yandexcloud.net
@@ -420,6 +420,7 @@ default:
   SPRK: Apache Spark™
   TF: Terraform
   TF-full: Hashicorp Terraform
+  TF-version: '0.90'
   CK: ClickHouse Keeper
   ZK: ZooKeeper
   DS: YDS
@@ -614,6 +615,7 @@ default:
   link-yandex-connect: https://connect.yandex.ru
   link-passport-login: https://passport.yandex.ru/auth
   link-sla-greenplum: https://yandex.ru/legal/cloud_sla_greenplum/
+  link-sla-kafka: https://yandex.ru/legal/cloud_sla_kfk/
   link-pci-dss-en: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
   link-pci-dss-ru: >-
@@ -769,9 +771,9 @@ default:
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
-  k8s-versions-rapid: 1.21, 1.22, 1.23, 1.24
-  k8s-versions-regular: 1.21, 1.22, 1.23, 1.24
-  k8s-versions-stable: 1.21, 1.22, 1.23
+  k8s-versions-rapid: 1.22, 1.23, 1.24
+  k8s-versions-regular: 1.22, 1.23, 1.24
+  k8s-versions-stable: 1.22, 1.23, 1.24
   cic-bgp-asn: 200350
   cic-pbc-subnet: 178.210.118.46/31
   cic-pbc-subnet-client: 178.210.118.46
@@ -42580,6 +42582,16 @@ default:
       dialog:
         confirm:
           button_continue: Продолжить
+      homepage:
+        title_service-dashboards: Сервисные дашборды
+    yacloud_org:
+      entity:
+        invitation:
+          action_send-invitation: Отправить приглашение
+      page:
+        users:
+          action:
+            invite-users: Пригласить пользователей
     yacloud:
       clickhouse:
         button_create-cluster: Создать кластер ClickHouse
@@ -42588,11 +42600,13 @@ default:
       common:
         add: Добавить
         apply: Применить
+        availability: Доступность
         clone: Клонировать
         create: Создать
         delete: Удалить
         description: Описание
         edit: Редактировать
+        id: Идентификатор
         import: Импортировать
         monitoring: Мониторинг
         name: Имя
@@ -42600,36 +42614,59 @@ default:
         overview: Обзор
         password: Пароль
         remove: Удалить
+        resource-acl:
+          button_add-federation-user: Добавить федеративного пользователя
         save: Сохранить
         section-base: Общая информация
       component:
         compute:
+          network-select:
+            field_external: Публичный адрес
+            field_internal-ipv4: Внутренний IPv4-адрес
+            field_security-groups: Группы безопасности
+            switch_auto: Автоматически
           one-to-one-nat-form:
             button_submit: Добавить
             field_external-type: Публичный адрес
             switch_auto: Автоматически
+          resources:
+            label_sw-accelerated-net: Программно-ускоренная сеть
         console-dashboard:
           button_action-create-folder: Создать каталог
         dns-integration:
           button_add-domain: Создать запись
+        mdb:
+          settings:
+            popup_settings-submit: Сохранить
         symmetric-key-select:
           button_create-key: Создать ключ
           button_create-key-new: Создать новый
           label_no-symmetric-key: Не выбрано
       compute:
         instance:
+          edit:
+            button_update: Сохранить изменения
           overview:
             button_add-public-ip: Добавить публичный IP-адрес
             label_network-interface: Сетевой интерфейс
         instances:
+          button_action-start: Запустить
+          button_action-stop: Остановить
           create:
             field_key: SSH-ключ
             field_user: Логин
+            image_value_os-products: Операционные системы
             section_access: Доступ
+            section_image: Выбор образа/загрузочного диска
+            section_network: Сетевые настройки
+            section_platform: Вычислительные ресурсы
+          popup-confirm_button_start: Запустить
+          popup-confirm_button_stop: Остановить
       cr:
         image:
           label_last-scan-time: Дата последнего сканирования
           label_scan-history: История сканирований
+          label_scan-status: Статус сканирования
           label_scan-status-READY: Готово
           label_scan-status-RUNNING: Запущено
           label_start-scan: Сканировать
@@ -42693,6 +42730,12 @@ default:
           folders-create:
             button_create: Создать
             field_default-net: Создать сеть по умолчанию
+          quotas:
+            label_quota-name-mdb:
+              hdd:
+                size: Объём HDD-хранилищ
+              ssd:
+                size: Объём SSD-хранилищ
         folder:
           dashboard:
             button_add: Создать ресурс
@@ -42706,6 +42749,8 @@ default:
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
+            label_managed-redis: Managed Service for Redis
+            label_mdb: Managed Databases
             label_monitoring: Monitoring
             label_serverless-functions: Cloud Functions
             label_storage: Object Storage
@@ -42771,26 +42816,64 @@ default:
           section_version: Версия
       mdb:
         cluster:
+          backups:
+            button_create: Создать резервную копию
+            button_restore: Восстановить кластер
           hosts:
+            button_add-host: Добавить хост
+            button_rebalance-cluster: Ребалансировать кластер
+            button_rebalance-cluster-short: Ребалансировать
             label_title: Хосты
+            popup-confirm_button: Подтвердить
+            switch_monitoring: Мониторинги
             switch_overview: Обзор
+          logs:
+            button_load-more: Загрузить еще
           overview:
+            button_action-connect: Подключиться
             button_action-delete: Удалить кластер
+            button_action-edit: Изменить кластер
+            button_action-start: Запустить кластер
+            button_action-stop: Остановить кластер
+          shards:
+            button_action-remove: Удалить
+            button_add: Добавить шард
+            popup-confirm_button_delete: Удалить
+          start-dialog:
+            popup-confirm_button: Запустить
+          stop-dialog:
+            popup-confirm_button: Остановить
+          switch_monitoring: Мониторинг
         clusters:
           button_action-delete: Удалить
+          button_action-move: ' Переместить'
           button_create: Создать кластер
         datalens:
           button-action_activate: Активировать
         dialogs:
+          popup_button_move-cluster: Переместить
           popup-confirm-delete-cluster_button: Удалить
+          popup-confirm-switch-master_button: Переключить
+          popup-confirm-switch-master_label_confirmation: Я хочу переключить мастер
+          popup-confirm-switch-master_label-title: Переключение мастера
         forms:
           additional-field-datalens: Доступ из DataLens
           additional-field-metrika: Доступ из Метрики и AppMetrica
           additional-field-serverless: Доступ из Serverless
           additional-field-websql: Доступ из консоли управления
+          backup-window-start: Начало резервного копирования (UTC)
+          base_field_folder: Каталог
           base_field_name: Имя кластера
           base_field_service-account: Сервисный аккаунт
+          base_field_shard-name: Имя шарда
+          base_field_version: Версия
+          button_add-host: Добавить хост
+          button_configure-settings: Настроить
           button_create: Создать кластер
+          button_create-shard: Создать шард
+          button_edit: Сохранить изменения
+          button_restore: Восстановить кластер
+          config_field_password: Пароль
           config_field_properties: Свойства
           config_field_public-keys: SSH-ключ
           config_field_services: Сервисы
@@ -42800,21 +42883,45 @@ default:
           database_field_name: Имя БД
           database_field_user-login: Имя пользователя
           database_field_user-password: Пароль
+          field_cluster-mode: Шардирование кластера
+          host_column_assign_public_ip: Публичный доступ
+          host_column_shard-name: Имя шарда
+          host_column_subnetwork: Подсеть
+          host_column_zone: Зона доступности
+          label_deletion-protection: Защита от удаления
           label_master-subcluster: Мастер
           label_max-size-units: ГБ
+          maintenance-window-type: Окно обслуживания
           new_section_resource: Ресурсы
+          resource_presets_field-generation: Платформа
+          resource_presets_field-type: Тип
+          section_additional: Дополнительные настройки
           section_base: Базовые параметры
+          section_config: Настройки кластера
           section_disk: Размер хранилища
           section_host: Хосты
+          section_network: Сетевые настройки
           section_network-settings: Сетевые настройки
+          section_resource: Класс хоста
           section_service-settings: Сервисные настройки
           section_settings: Настройки СУБД
+          value_maintenance-type-anytime: произвольное
+          value_maintenance-type-weekly: по расписанию
         hosts:
           dialog:
             button_choose: Сохранить
             field_public_ip: Публичный доступ
       monitoring:
+        button_create-alert: Создать алерт
         button_open-in-monitoring: Открыть в Мониторинге
+      redis:
+        cluster:
+          switch_backups: Резервные копии
+          switch_logs: Логи
+          switch_monitoring: Мониторинг
+          switch_shards: Шарды
+        field_tls-support: Поддержка TLS
+        switch_backups: Резервные копии
       serverless-functions:
         create:
           button_create: Создать
@@ -42971,15 +43078,17 @@ default:
               field_sg-rule-destination: Назначение
               field_sg-rule-port-range: Диапазон портов
               field_sg-rule-protocol: Протокол
+              field_sg-rule-sg-type: Группа безопасности
+              field_sg-rule-source: Источник
               value_any: Любой
               value_sg-rule-destination-cidr: CIDR
               value_sg-rule-destination-sg: Группа безопасности
               value_sg-rule-sg-type-list: Из списка
+              value_sg-rule-sg-type-self: Текущая
               value_tcp: TCP
           switch_route-table: Таблицы маршрутизации
         route-table-form:
           label_add-static-route: Добавить маршрут
-          label_gateway: Шлюз
           label_next-hop-address: Next hop
         route-table:
           create:
@@ -43121,6 +43230,11 @@ default:
                         title: Количество попыток
                       service_account_id:
                         title: Сервисный аккаунт
+                    Serializer:
+                      serializer_auto:
+                        title: Auto
+                      serializer:
+                        title: Настройки сериализации
             elasticsearch:
               console:
                 form:
@@ -43762,11 +43876,6 @@ default:
                         title: Инкрементальные таблицы
                       regular_snapshot:
                         title: Периодическое копирование
-                    TransferTypeSnapshotAndIncrement:
-                      increment_settings:
-                        title: Настройки репликации
-                      snapshot_settings:
-                        title: Настройки копирования
                     YTRuntime:
                       cpu:
                         title: CPU
@@ -44069,7 +44178,6 @@ default:
         resize: Изменить размер
         response: Ответ
         save: Сохранить
-        settings-key-value: Настройки
         share: Поделиться
         shared-with-project-resources: Доступные
         show-additional-parameters: Показать дополнительные параметры
@@ -44099,8 +44207,6 @@ default:
         per-time: На юниты в час
         period-of-inactivity: Прерывать ячейки с низкой нагрузкой через
         security-group: Группа безопасности
-        service-account: Сервисный аккаунт
-        subnet: Подсеть
       main-page:
         recent-projects: Недавние проекты
       new-alias:
@@ -44209,3 +44315,8 @@ default:
       transferring:
         title: Перенос проектов
         transfer-selected-projects: Перенести выбранные проекты
+  mkt-k8s-key:
+    yc_argo-cd:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
+        tag: 5.4.3-7

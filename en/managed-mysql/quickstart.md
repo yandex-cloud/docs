@@ -5,10 +5,6 @@ description: "In this tutorial, you'll learn how to create a {{ MY }} cluster an
 
 # Getting started with {{ mmy-name }}®
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 To get started with the service:
 * [Create a DB cluster](#cluster-create).
 * [Connect to the DB](#connect).

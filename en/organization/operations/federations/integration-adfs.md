@@ -8,8 +8,6 @@ To set up authentication:
 
 1. [Add certificates to a federation](#add-certificate).
 
-1. [Get a console login link](#get-link).
-
 1. [Configure authentication on the ADFS server](#configure-sso).
 
 1. [Add users to your organization](#add-users).
@@ -59,7 +57,13 @@ To follow the steps in this section, you will need:​
 
    1. In the **Link to the IdP login page** field, enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your ADFS server.
 
+     {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
    1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
+
+      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
+
+   1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
 - CLI
 
@@ -90,10 +94,9 @@ To follow the steps in this section, you will need:​
       * `name`: Federation name. It must be unique within the folder.
       * `organization-id`: Your organization ID.
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication.
@@ -103,6 +106,8 @@ To follow the steps in this section, you will need:​
       * `sso-url`: URL of the page that the browser redirects the user to for authentication.
 
          Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your ADFS server.
+
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
       * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
@@ -131,18 +136,21 @@ To follow the steps in this section, you will need:​
       * `name`: Federation name. It must be unique within the folder.
       * `organizationId`: Organization ID.
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+      
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication.
 
          Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your ADFS server.
 
-      * `sso-url`: URL of the page that the browser redirects the user to for authentication.
+      * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
 
          Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your ADFS server.
+
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
       * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
@@ -167,8 +175,11 @@ To follow the steps in this section, you will need:​
 
          Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your ADFS server.
 
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -215,7 +226,7 @@ To follow the steps in this section, you will need:​
 
       1. Confirm you want to create a federation.
 
-      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
+      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{link-org-federations}}) section.
 
 {% endlist %}
 
@@ -294,7 +305,7 @@ To add a certificate to a federation:
 
       ```json
       {
-        "federationId": "<federation ID>",
+        "federationId": "<federation_ID>",
         "name": "my-certificate",
         "data": "MII...=="
       }
@@ -319,35 +330,18 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
-## Get a console login link {#get-link}
-
-When you set up federation authentication, users can log in to the management console from a link containing the federation ID. The same link must be provided when configuring the authentication server.
-
-Obtain and save this link:
-
-1. Get the federation ID:
-
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-   1. Copy the ID of the federation you are configuring access for.
-
-1. Generate a link using this ID:
-
-   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Configure authentication on the ADFS server {#configure-sso}
 
-After you obtained your management console login link, you can configure the ADFS server to notify the management console of each successful authentication session and forward the user to the specified address to log in to the management console.
+After setting up your federation in {{ org-full-name }}, you can configure the ADFS server to notify the management console of each successful authentication session and forward the user to the console.
 
 The instructions in this section are written for Windows Server 2016 (different steps might be needed for other versions).
 
 To set up authentication on the ADFS server:
 
-1. [Create a relying party trust](#configure-relying-party-trust)
+1. [Create a relying party trust](#configure-relying-party-trust).
 
-1. [Configure Claims Mapping](#configure-claims-mapping)
+1. [Configure Claims Mapping](#configure-claims-mapping).
 
 ### Create a relying party trust {#configure-relying-party-trust}
 
@@ -369,11 +363,25 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. In the next step, you are asked to specify a certificate for signing tokens. This step is optional, so click **Next**.
 
-1. In the Configure URL step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the [console login link](#get-link) you obtained earlier. Then click **Next**.
+1. In the Configure URL step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the URL to redirect users to after authentication:
+   
+   ```
+   https://{{ auth-host }}/federations/<federation_ID>
+   ```
+   
+   {% cut "How to get the federation ID" %}
 
-![image](../../../_assets/iam/federations/specify-console-sso-link.png)
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
-1. On the next page, enter the same [console login link](#get-link) as an identifier and click **Add**. Then click **Next**.
+   {% endcut %}
+
+      
+   ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
+   
+
+   Then click **Next**.
+
+1. On the next page, enter the same redirection URL as an identifier and click **Add**. Then click **Next**.
 
 1. On the next page, you can choose who can authenticate using this federation. By default, the **Permit for everyone** policy is selected enabling access for all users.
 
@@ -486,6 +494,8 @@ If you did not enable the **Automatically create users** option when creating a 
 
 To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you do not know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
 
+{% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
+
 A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
 
 To add federation users to an organization:
@@ -549,7 +559,7 @@ To add federation users to an organization:
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation_ID>:addUserAccounts
       ```
 
 {% endlist %}
@@ -560,13 +570,25 @@ Now that you finished configuring authentication with Active Directory, test tha
 
 1. Open the browser in guest or incognito mode to simulate being a new user.
 
-1. Follow the [management console login link](#get-link) you obtained earlier. The browser forwards you to the ADFS authentication page, which by default looks as follows:
+1. Follow the management console login URL:
+
+   ```
+   https://{{ console-host }}/federations/<federation_ID>
+   ```
+
+   {% cut "How to get the federation ID" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+
+   The browser forwards you to the ADFS authentication page, which by default looks as follows:
 
    ![image](../../../_assets/iam/federations/test-auth-with-ad-account.png)
 
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 
-1. On successful authentication, ADFS redirects you back to the management console login link and then to the management console home page. In the top-right corner, you can see that you are logged in to the console under an Active Directory account.
+1. On successful authentication, ADFS redirects you to `https://{{ auth-host }}/federations/<federation_ID>`, the URL that you specified in the AD FS server settings, and then to the management console home page. In the top-right corner, you can see that you are logged in to the console under an Active Directory account.
 
 #### What's next {#what-is-next}
 

@@ -198,7 +198,7 @@
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Кластер {{ CH }}**.
   1. Укажите настройки кластера {{ CH }}:
      1. В блоке **Базовые параметры** укажите имя кластера `trail-logs`.
-     1. В блоке **Класс хоста** выберите тип [виртуальной машины](../compute/concepts/vm.md) **burstable** и [тип хоста](../managed-clickhouse/concepts/instance-types.md) **b2.nano**.
+     1. В блоке **Класс хоста** выберите тип [виртуальной машины](../compute/concepts/vm.md) **burstable** и [тип хоста](../managed-clickhouse/concepts/instance-types.md) **b2.medium**.
      1. В блоке **База данных** укажите имя БД `trail_data`, имя пользователя `user` и пароль. Запомните имя БД.
      1. В блоке **Хосты** нажмите значок ![pencil](../_assets/pencil.svg). Включите опцию **Публичный доступ** и нажмите кнопку **Сохранить**.
      1. В блоке **Дополнительные настройки** включите опции:
@@ -224,7 +224,7 @@
        --environment production \
        --network-name <имя_сети> \
        --host type=clickhouse,zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети> \
-       --clickhouse-resource-preset b2.nano \
+       --clickhouse-resource-preset b2.medium \
        --clickhouse-disk-type network-hdd \
        --clickhouse-disk-size 10 \
        --user name=user,password=<пароль_пользователя> \
@@ -248,7 +248,7 @@
 
        clickhouse {
          resources {
-           resource_preset_id = "b2.nano"
+           resource_preset_id = "b2.medium"
            disk_type_id       = "network-hdd"
            disk_size          = 10
          }
@@ -273,8 +273,8 @@
        }
 
        access {
-         datalens     = true
-         datatransfer = true
+         data_lens     = true
+         data_transfer = true
        }
      }
      ```

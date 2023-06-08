@@ -1,3 +1,3 @@
-# Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }}
+# Поставка данных из очереди {{ KF }} в {{ CH }}
 
 {% include notitle [MKF to MCH with Data Transfer](../../_tutorials/dataplatform/mkf-mch-migration.md) %}

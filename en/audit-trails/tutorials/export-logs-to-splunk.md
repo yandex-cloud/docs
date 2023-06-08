@@ -20,7 +20,7 @@ To configure delivery of audit log files from a bucket to Splunk:
 
 Some steps are completed in {{ TF }}.
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-begin}
 
@@ -49,19 +49,19 @@ The infrastructure support cost includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a [bucket](../../storage/concepts/bucket.md).
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
    1. Select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Enter the bucket name, following the [naming guidelines](../../storage/concepts/bucket.md#naming).
+      1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
 
          By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
 
-      1. If necessary, limit the maximum bucket size.
+      1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
-      1. Selected the type of [access](../../storage/concepts/bucket.md#bucket-access).
+      1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access).
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
       1. Click **Create bucket** to complete the operation.
 
@@ -92,7 +92,7 @@ The infrastructure support cost includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the bucket you wish to configure encryption for.
+   1. In the [management console]({{ link-console-main }}), select the bucket for which you want to configure encryption.
    1. In the left panel, select **Encryption**.
    1. In the **{{ kms-short-name }} key** field, select an existing key or create a new one:
 
@@ -109,7 +109,7 @@ The infrastructure support cost includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the name of the service account:
 
@@ -136,9 +136,9 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `role`: The role assigned.
+      * `role`: Role being assigned.
       * `id`: The ID of the folder from which audit logs will be collected.
-      * `service-account-id`: The ID of your service account.
+      * `service-account-id`: ID of your service account.
 
    1. Assign the [storage.uploader](../../storage/security/#storage-uploader) role to the folder that will host the trail:
 
@@ -151,9 +151,9 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `role`: The role assigned.
+      * `role`: Role being assigned.
       * `id`: The ID of the folder to host the trail:
-      * `service-account-id`: The ID of your service account.
+      * `service-account-id`: ID of your service account.
 
    1. Assign the [kms.keys.encrypterDecrypter](../../kms/security/#service) role to the encryption key:
 
@@ -166,9 +166,9 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `role`: The role assigned.
+      * `role`: Role being assigned.
       * `id`: The ID of the KMS key.
-      * `service-account-id`: The ID of your service account.
+      * `service-account-id`: ID of your service account.
 
 {% endlist %}
 
@@ -185,7 +185,7 @@ To create the trail, make sure you have the following roles:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the trail.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create the trail.
    1. Select **{{ at-name }}**.
    1. Click **Create trail** and specify:
 
@@ -246,7 +246,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following the 
       1. Click **Create**, to [create](../../vpc/operations/static-route-create.md) a new table, or select an existing one.
       1. Click **Add route**.
       1. In the window that opens, select **Gateway** in the **Next hop** field.
-      1. In the **Gateway** field, select the NAT gateway you created. The destination prefix is set automatically.
+      1. In the **Gateway** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
       1. Click **Add**.
       1. Click **Create route table**.
    1. Link the route table to the subnet where you want to deploy the intermediate VM, to forward its traffic via the NAT gateway:
@@ -329,13 +329,13 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following the 
 
    ![image](../../_assets/audit-trails/tutorials/splunk-dashboard.png)
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. To delete the resources created with {{ TF }}:
 
-   1. Run the following command:
+   1. Run this command:
       ```
       terraform destroy
       ```

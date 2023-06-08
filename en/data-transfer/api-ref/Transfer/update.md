@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/update.md
+sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/update.md
 ---
 
 # Data Transfer API, REST: Transfer.update
@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/update.md
  
 ## HTTP request {#https-request}
 ```
-PATCH https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
+PATCH https://datatransfer.{{ api-host }}/v1/transfer/{transferId}
 ```
  
 ## Path parameters {#path_params}

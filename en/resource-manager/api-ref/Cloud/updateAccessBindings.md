@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/resourcemanager/api-ref/Cloud/updateAccessBindings.md
+sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/updateAccessBindings.md
 ---
 
 # Resource Manager API, REST: Cloud.updateAccessBindings

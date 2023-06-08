@@ -7,26 +7,40 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Подключение к базе данных
-        href: operations/connect.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
-      - name: SQL-запросы в консоли управления
-        href: operations/web-sql-query.md
-      - name: Обновление версии PostgreSQL
-        href: operations/cluster-version-update.md
-      - name: Изменение настроек кластера и базы данных
-        href: operations/update.md
-      - name: Подключение к DataLens
-        href: operations/datalens-connect.md
-      - name: Управление хостами PostgreSQL
-        href: operations/hosts.md
-      - name: Управление базами данных
-        href: operations/databases.md
+      - name: Работа с кластерами
+        items:
+          - name: Получение информации об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Изменение настроек {{ PG }}-кластера
+            href: operations/update.md
+          - name: Управление хостами PostgreSQL
+            href: operations/hosts.md
+          - name: Управление слотами репликации
+            href: operations/replication-slots.md
+          - name: Управление резервными копиями
+            href: operations/cluster-backups.md
+          - name: Обновление версии PostgreSQL
+            href: operations/cluster-version-update.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Работа с базами данных
+        items:
+          - name: Подключение к базе данных
+            href: operations/connect.md
+          - name: SQL-запросы в консоли управления
+            href: operations/web-sql-query.md
+          - name: Управление базами данных
+            href: operations/databases.md
+      - name: Работа с пользователями
+        items:
+          - name: Управление пользователями БД
+            href: operations/cluster-users.md
+          - name: Назначение привилегий и ролей
+            href: operations/grant.md
       - name: Расширения PostgreSQL
         items:
           - name: Управление расширениями
@@ -37,22 +51,16 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
-      - name: Управление пользователями БД
-        href: operations/cluster-users.md
-      - name: Назначение привилегий и ролей
-        href: operations/grant.md
-      - name: Управление резервными копиями
-        href: operations/cluster-backups.md
-      - name: Просмотр логов кластера
-        href: operations/cluster-logs.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
-      - name: Диагностика производительности
-        href: operations/performance-diagnostics.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
-      - name: Управление слотами репликации
-        href: operations/replication-slots.md
+      - name: Работа с логами и мониторинг
+        items:
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Диагностика производительности
+            href: operations/performance-diagnostics.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
+          - name: Подключение к DataLens
+            href: operations/datalens-connect.md
   - name: Практические руководства
     items:
       - name: Все сценарии
@@ -73,6 +81,8 @@ items:
         href: tutorials/data-transfer-ydb.md
       - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
         href: tutorials/cdc-debezium.md
+      - name: Захват изменений {{ PG }} и поставка в {{ DS }}
+        href: tutorials/mpg-to-yds.md
       - name: >-
           Поставка данных из {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
@@ -93,10 +103,6 @@ items:
               Миграция базы данных из {{ mpg-full-name }} в {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
-          - name: >-
-              Асинхронная репликация данных из {{ mpg-full-name }} в {{
-              yds-full-name }}
-            href: tutorials/mpg-to-yds.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -109,6 +115,8 @@ items:
             items:
               - name: До 1 июня 2020 года
                 href: concepts/instance-types-archive/instance-types-01062020.md
+              - name: До 20 июня 2023 года
+                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
       - name: Сеть в {{ mpg-name }}

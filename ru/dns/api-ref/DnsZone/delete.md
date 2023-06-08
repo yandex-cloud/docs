@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dns/api-ref/DnsZone/delete.md
+sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/delete.md
 ---
 
 # Cloud DNS API, REST: DnsZone.delete

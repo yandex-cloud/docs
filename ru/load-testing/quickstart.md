@@ -8,7 +8,7 @@
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
 1. Создайте [сервисный аккаунт](../iam/operations/sa/create.md) в каталоге, где будут размещаться агенты, с которых будет подаваться нагрузка. [Назначьте](../iam/operations/roles/grant.md) ему [роль](./security/#roles-list) `loadtesting.generatorClient`.
-1. Агент подключается к сервису {{ load-testing-name }} через публичное API. Чтобы обезопасить себя, [создайте группу безопасности](../vpc/operations/security-group-create.md). Для соединения с управляющим сервисом агенту нужно разрешить исходящий трафик на порт 443. Для этого в вашей группе безопасности [добавьте следующее правило](../vpc/operations/security-group-add-rule.md) для исходящего трафика:
+1. Агент подключается к сервису {{ load-testing-name }} через публичное [API](../glossary/rest-api.md). Чтобы обезопасить себя, [создайте группу безопасности](../vpc/operations/security-group-create.md). Для соединения с управляющим сервисом агенту нужно разрешить исходящий трафик на порт 443. Для этого в вашей группе безопасности [добавьте следующее правило](../vpc/operations/security-group-add-rule.md) для исходящего трафика:
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `443`;
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`;
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `CIDR`;
@@ -35,7 +35,7 @@
 1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 1. Дождитесь запуска виртуальной машины. Статус агента должен смениться на `Ready for test`.
 
-В вашем каталоге будет создана ВМ, с которой можно будет проводить нагрузочное тестирование целей в пределах выбранной подсети.
+В вашем каталоге будет создана [ВМ](../glossary/vm.md), с которой можно будет проводить нагрузочное тестирование целей в пределах выбранной подсети.
 
 ## Запуск теста {#run-test}
 

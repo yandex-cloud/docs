@@ -10,9 +10,7 @@ To connect to your DB in Dedicated mode from outside {{ yandex-cloud }}, allow i
 
 {% endnote %}
 
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
-
-To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 ## Get connection parameters {#endpoint-and-path}
 

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/decrypt.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/decrypt.md
 ---
 
 # Key Management Service API, REST: SymmetricCrypto.decrypt
@@ -10,7 +10,7 @@ Decrypts the given ciphertext with the specified key.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:decrypt
+POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:decrypt
 ```
  
 ## Path parameters {#path_params}

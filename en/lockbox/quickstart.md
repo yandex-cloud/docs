@@ -21,7 +21,7 @@ Versions can't be changed. Whenever you need to change the number of key-value p
 
 ### Roles required to get a secret {#roles}
 
-If you specified your {{ kms-short-name }} key when creating a secret, assign for it the [kms.keys.encrypterDecrypter](../kms/security/index.md#service) role: it's needed to encrypt and decrypt the secret.
+{% include [lockbox-and-kms-roles](../_includes/lockbox/lockbox-and-kms-roles.md) %}
 
 ### Get the content of the secret {#payload}
 
@@ -46,7 +46,7 @@ You can use this logic in scripts, services, and applications where you need to 
       export IAM_TOKEN=$(curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
       ```
 
-   1. Run the query:
+   1. Run the following query:
 
       ```
       curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \

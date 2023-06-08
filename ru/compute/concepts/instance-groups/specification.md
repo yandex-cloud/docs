@@ -73,7 +73,7 @@ service_account_id: ajefnb8427bhl9t0pvf8
 
 Список, структура и  англоязычные  описания полей спецификации представлены:
 
-* в спецификации структуры [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) и [используемых в ней структур](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto) в репозитории API на GitHub (формат [Protobuf](https://ru.wikipedia.org/wiki/Protocol_Buffers));
+* в спецификации структуры [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) и [используемых в ней структур](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto) в репозитории [API](../../../glossary/rest-api.md) на GitHub (формат [Protobuf](https://ru.wikipedia.org/wiki/Protocol_Buffers));
 * в описании метода [create](../../api-ref/InstanceGroup/create) ресурса `InstanceGroup` REST API (формат [JSON](https://ru.wikipedia.org/wiki/JSON));
 * в описании вызова [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API.
 

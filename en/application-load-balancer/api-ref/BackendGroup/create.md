@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/create.md
+sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/create.md
 ---
 
 # Application Load Balancer API, REST: BackendGroup.create

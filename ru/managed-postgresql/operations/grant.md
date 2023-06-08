@@ -13,6 +13,8 @@ description: "Атомарные полномочия в PostgreSQL называ
 - [Выдать привилегию пользователю](#grant-privilege).
 - [Отозвать привилегию у пользователя](#revoke-privilege).
 
+{% include [public-privilege](../../_includes/mdb/mpg/public-privilege.md) %}
+
 ## Изменить список ролей пользователя {#grant-role}
 
 Для назначения [роли](../concepts/roles.md) пользователю используйте интерфейсы {{ yandex-cloud }}: назначение роли запросом `GRANT` отменится при следующей операции с базой.

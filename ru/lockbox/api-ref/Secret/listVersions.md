@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/listVersions.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/listVersions.md
 ---
 
 # Lockbox API, REST: Secret.listVersions
@@ -10,7 +10,7 @@ Retrieves the list of versions of the specified secret.
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}/versions
+GET https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}/versions
 ```
  
 ## Path parameters {#path_params}

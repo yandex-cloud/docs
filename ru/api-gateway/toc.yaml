@@ -50,6 +50,14 @@ items:
           Создание интерактивного serverless-приложения с использованием
           WebSocket
         href: tutorials/websocket-app.md
+      - name: Интерактивная отладка функций {{ sf-name }}
+        href: tutorials/serverless-live-debug.md
+      - name: >-
+          Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и
+          аутентификацией в Firebase
+        href: tutorials/jwt-authorizer-firebase.md
+      - name: Авторизация с помощью функции {{ sf-name }} в сервисе Ory Kratos
+        href: tutorials/ory-kratos-authorization.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -86,6 +94,8 @@ items:
             href: concepts/extensions/any-method.md
           - name: Авторизация с помощью функции
             href: concepts/extensions/function-authorizer.md
+          - name: Авторизация с помощью JWT
+            href: concepts/extensions/jwt-authorizer.md
           - name: Поддержка протокола WebSocket
             href: concepts/extensions/websocket.md
           - name: Валидация данных

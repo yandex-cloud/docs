@@ -5,11 +5,6 @@ description: "In this tutorial, you'll learn how to switch over to another cloud
 
 # Switch clouds
 
-{% note info %}
-
-In the [management console]({{ link-console-main }}), you can select the interface of navigating resources and services. To switch to another navigation mode: in the account information section, click ![image](../../../_assets/settings.svg), then select ![image](../../../_assets/experiments.svg) **Experiments** and enable **New navigation**.
-
-{% endnote %}
 
 {% list tabs %}
 

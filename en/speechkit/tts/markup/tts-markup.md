@@ -2,7 +2,7 @@
 
 TTS markup grants the ability to control speech synthesis using special characters and SIL tags. This helps make synthesized speech more natural.
 
-TTS markup is supported for Russian in [API v3](../../tts-v3/api-ref/grpc/) and [API v1](../request.md) for data in `text` format.
+Support for TTS markup is available for Russian in [API v3](../../tts-v3/api-ref/grpc/) and [API v1](../request.md) for data in `text` format.
 
 Pausing is available for testing in all languages the speech synthesis is supported for.
 
@@ -78,3 +78,4 @@ Hello, My name is [[v a sʲ ʌ]]
 ```
 
 You can find the list of supported phonemes [here](tts-supported-phonemes.md).
+

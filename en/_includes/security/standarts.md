@@ -58,7 +58,7 @@ In addition to the SDLC, the team pays attention to protecting the development e
 
 The {{ yandex-cloud }} team has developed an update management policy that regulates the maximum installation time for each type of software. Updates released by the software vendor should be installed within this period.
 
-## Vulnerability management {#vulnere-manage}
+## Managing vulnerabilities {#vulnere-manage}
 
 {{ yandex-cloud }} regularly performs vulnerability testing for pre-production server systems with internet access and for network devices before moving them to the production environment. Any vulnerabilities are fixed before systems are put into production.
 
@@ -73,7 +73,7 @@ Yandex regularly conducts internal and external audits and penetration tests to 
 * An internal auditor may conduct interviews, fill out checklists, audit documented information involving the audited employee, monitor their activities, and create a representative sample.
 * Any nonconformities identified during the internal audit are analyzed to determine their cause and make changes to the action plan.
 * In accordance with the laws on personal data protection and ISO standards, {{ yandex-cloud }} has a schedule of external audits for compliance with ISO 27001, ISO 27017, and ISO 27018, and a plan of monitoring activities to check the compliance of IS processes and controls with FSTEC Order No. 21.
-* The {{ yandex-cloud }} security team uses Red Teaming. Vulnerabilities detected through regular penetration tests are fixed by development teams or, if it's not possible to quickly release an update, patched with appropriate security tools before a fix is released.
+* The {{ yandex-cloud }} security team uses Red Teaming. Vulnerabilities detected through regular penetration tests are fixed by development teams or, if it is impossible to quickly release an update, patched with appropriate security tools before a fix is released.
 
 ## Incident response {#incident-resp}
 
@@ -111,7 +111,7 @@ Emails are sent in Russian and English. If the customer can prevent the incident
 
 {{ yandex-cloud }} uses a business continuity management system that defines requirements for all business-critical processes. The violation of these requirements affects the fulfillment of obligations to partners and customers.
 
-The business continuity management system consists of action plans to be followed by employees when a potential negative scenario takes place. The system provides redundancy mechanisms for all business-critical components of the cloud platform. This includes geo-redundancy in three geographically distributed data centers. {{ yandex-cloud }} also uses data storage redundancy that enables the recovery of customer data in the event of equipment failure.
+The business continuity management system consists of action plans to be followed by employees when a potential negative scenario takes place. The system provides redundancy mechanisms for all business-critical components of the cloud platform. This includes geographic redundancy in three distributed data centers. {{ yandex-cloud }} also uses data storage redundancy that enables the recovery of customer data in the event of equipment failure.
 
 We regularly conduct tests to check the effectiveness of these plans. We analyze testing results to develop remedial measures and make the decision to review existing plans.
 
@@ -242,7 +242,7 @@ User information includes:
 
 The rights to access the above information are restricted by default and regularly reviewed by the information security department. Systems for storing and processing this information are created based on the Security Development Lifecycle and are regularly subject to internal penetration testing. If possible, user information is encrypted during storage and transmission.
 
-## Monitoring {#monitoring}
+## Monitoring {#monitoring}
 
 {{ yandex-cloud }} uses the Security Information and Event Management (SIEM) system for collecting and handling security events. Event data is delivered to the SIEM system from various sources, mainly via HTTPS and Syslog.
 

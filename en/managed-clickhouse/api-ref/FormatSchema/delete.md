@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/clickhouse/api-ref/FormatSchema/delete.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/delete.md
 ---
 
 # Managed Service for ClickHouse API, REST: FormatSchema.delete

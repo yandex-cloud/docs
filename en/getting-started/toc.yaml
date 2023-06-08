@@ -2,9 +2,37 @@ title: Getting started with {{ yandex-cloud }}
 href: index.yaml
 items:
   - name: For individuals
-    href: quickstart-individuals.md
+    items:
+      - name: Step 1. Registration
+        href: individuals/registration.md
+      - name: Step 2. Payment
+        href: individuals/payments.md
+      - name: Step 3. Selecting a service plan
+        href: individuals/service-plan.md
+      - name: Step 4. Resource hierarchy
+        href: individuals/resources-hierarchy.md
+      - name: Step 5. Setting up a secure network configuration
+        href: individuals/configure-network.md
+      - name: Step 6. Logging
+        href: individuals/logs.md
   - name: For businesses
-    href: quickstart-legal-entity.md
+    items:
+      - name: Step 1. Registration
+        href: legal-entity/registration.md
+      - name: Step 2. Payment
+        href: legal-entity/payments.md
+      - name: Step 3. Selecting a service plan
+        href: legal-entity/service-plan.md
+      - name: Step 4. Creating an organization
+        href: legal-entity/create-organization.md
+      - name: Step 5. Managing users
+        href: legal-entity/manage-users.md
+      - name: Step 6. Resource hierarchy
+        href: legal-entity/resources-hierarchy.md
+      - name: Step 7. Setting up a secure network configuration
+        href: legal-entity/configure-network.md
+      - name: Step 8. Logging
+        href: legal-entity/logs.md
   - name: Initial grant
     href: usage-grant.md
   - name: Trial period

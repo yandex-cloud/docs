@@ -55,7 +55,7 @@
 
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: Сбор, мониторинг и анализ аудитных логов в SIEM Splunk](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
 
-Для настройки экспорта в любые SIEM подходят утилиты [GeeseFS](../../storage/tools/geesefs.md) или [s3fs](../../storage/tools/s3fs.md). Она позволяет смонтировать бакет {{ objstorage-full-name }} как локальный диск виртуальной машины. Далее на ВМ необходимо установить коннектор для SIEM и настроить вычитывание JSON-файлов из бакета.
+Для настройки экспорта в любые SIEM подходят утилиты [GeeseFS](../../storage/tools/geesefs.md) или [s3fs](../../storage/tools/s3fs.md). Она позволяет смонтировать бакет {{ objstorage-full-name }} как локальный диск [виртуальной машины](../../glossary/vm.md). Далее на ВМ необходимо установить коннектор для SIEM и настроить вычитывание JSON-файлов из бакета.
 
 #### Метрики {{ monitoring-full-name }}
 

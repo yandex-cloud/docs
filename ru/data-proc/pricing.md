@@ -101,6 +101,10 @@ editable: false
 {% endlist %}
 
 
+## Тарификация кластеров {{ metastore-full-name }}
+
+Функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md) и не тарифицируется.
+
 ## Цены {#prices} 
 
 ### Вычислительные ресурсы хостов {#prices-hosts}

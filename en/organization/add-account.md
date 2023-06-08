@@ -1,9 +1,8 @@
 # Adding a user
 
-
 ## Inviting a Yandex user {#add-or-invite-user-account}
 
-If your employees have Yandex accounts, e.g., `{{ login-example }}`, they can use them to access {{ yandex-cloud }} services enabled in your organization.
+If your employees have Yandex accounts, e.g., `{{login-example}}`, they can use them to access {{yandex-cloud}} services enabled in your organization.
 
 {% note info %}
 
@@ -13,8 +12,7 @@ Users can be invited by an organization administrator (the `organization-manager
 
 To invite a user to an organization:
 
-{% include [add-useraccount](../_includes/organization/invite-user.md) %}
-
+{% include [invite-user](../_includes/organization/invite-user.md) %}
 
 ## Add federated users {#add-user-sso}
 
@@ -25,7 +23,6 @@ To do this, you need to know the Name IDs of the users that the Identity Provide
 To add federation users to an organization:
 
 {% include [add-federateduser](../_includes/organization/add-federateduser.md) %}
-
 
 #### What's next {#what-is-next}
 

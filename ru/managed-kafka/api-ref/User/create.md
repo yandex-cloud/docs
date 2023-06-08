@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/User/create.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/create.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: User.create

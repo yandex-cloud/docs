@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/logging/api-ref/LogGroup/updateAccessBindings.md
+sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/updateAccessBindings.md
 ---
 
 # Cloud Logging Service, REST: LogGroup.updateAccessBindings

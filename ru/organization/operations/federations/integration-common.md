@@ -8,8 +8,6 @@
 
 1. [Добавьте сертификаты в федерацию](#add-certificate).
 
-1. [Получите ссылку для входа в консоль](#get-link).
-
 1. [Настройте аутентификацию на своем сервере](#configure-sso).
 
 1. [Настройте сопоставление атрибутов пользователей](#claims-mapping).
@@ -91,7 +89,8 @@
             --cookie-max-age 12h \
             --issuer "https://accounts.google.com/o/saml2?idpid=C03xolm0y" \
             --sso-binding POST \
-            --sso-url "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y"
+            --sso-url "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y" \
+            --force-authn
         ```
 
         Где:
@@ -110,27 +109,29 @@
 
         * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
+        * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
+
 - API
 
-  1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы будете создавать федерацию.
   1. Создайте файл с телом запроса, например `body.json`:
 
       ```json
       {
-        "folderId": "<ID каталога>",
         "name": "my-federation",
         "organizationId": "<ID организации>",
         "autoCreateAccountOnLogin": true,
         "cookieMaxAge":"43200s",
         "issuer": "https://accounts.google.com/o/saml2?idpid=C03xolm0y",
         "ssoUrl": "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y",
-        "ssoBinding": "POST"
+        "ssoBinding": "POST",
+        "securitySettings": {
+          "forceAuthn": true
+        }
       }
       ```
 
       Где:
 
-      * `folderId` — идентификатор каталога.
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
       * `organizationId` — идентификатор организации. 
       * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
@@ -144,6 +145,8 @@
         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
       * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+      
+      * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
   1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
@@ -233,7 +236,7 @@
 
     {% endnote %}
 
-  1. Перейдите в сервис [{{org-full-name}}]({{ link-org-main }}).
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
   1. На левой панели выберите раздел [Федерации]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
@@ -276,7 +279,7 @@
 
       ```json
       {
-        "federationId": "<ID федерации>",
+        "federationId": "<ID_федерации>",
         "name": "my-certificate",
         "data": "MII...=="
       }
@@ -301,32 +304,15 @@
 
 {% endnote %}
 
-## Получите ссылку для входа в консоль {#get-link}
-
-Когда вы настроите аутентификацию с помощью федерации, пользователи смогут войти в консоль управления по ссылке, в которой содержится идентификатор федерации. Эту же ссылку необходимо будет указать при настройке сервера аутентификации.
-
-Получите и сохраните эту ссылку:
-
-1. Получите идентификатор федерации:
-
-    1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-
-    1. На левой панели выберите раздел [Федерации]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-    1. Скопируйте идентификатор федерации, для которой вы настраиваете доступ.
-
-1. Сформируйте ссылку с помощью полученного идентификатора:
-
-    `https://{{ auth-host }}/federations/<ID федерации>`
 
 ## Настройте аутентификацию на своем сервере {#configure-sso}
 
-После того, как вы создали федерацию и получили получили ссылку для входа в консоль управления, настройте сервер поставщика удостоверений. После каждого успешного прохождения аутентификации сервер должен отправлять консоли управления соответствующее SAML-сообщение.
+После того как вы создали федерацию, настройте сервер поставщика удостоверений. После каждого успешного прохождения аутентификации сервер должен отправлять консоли управления соответствующее SAML-сообщение.
 
 Пример SAML-сообщения:
 ```xml
 <samlp:Response ID="_bcdf7b6b-ea42-4191-8d5e-ebd4274acec6" Version="2.0" IssueInstant="2019-07-30T13:24:25.488Z"
- Destination="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
+ Destination="https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
   InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://example.org/auth</Issuer>
   <samlp:Status>
@@ -358,12 +344,12 @@
     <Subject>
       <NameID>user@example.org</NameID>
       <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" />
+        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu" />
       </SubjectConfirmation>
     </Subject>
     <Conditions NotBefore="2019-07-30T13:24:25.482Z" NotOnOrAfter="2019-07-30T14:24:25.482Z">
       <AudienceRestriction>
-        <Audience>{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu</Audience>
+        <Audience>https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu</Audience>
       </AudienceRestriction>
     </Conditions>
     <AttributeStatement>
@@ -384,10 +370,18 @@
 При формировании сообщения:
 
 * В элементах `Response` и `SubjectConfirmationData` в атрибуте `InResponseTo` укажите идентификатор из SAML-запроса на аутентификацию, который отправило {{ yandex-cloud }}.
-* Укажите полученную [ссылку для входа в консоль](#get-link) в следующих элементах:
+* Укажите URL, на который пользователи будут перенаправляться после аутентификации, вида `https://{{ auth-host }}/federations/<ID_федерации>` в следующих элементах:
+  
   * в `Response` в атрибуте `Destination`;
   * в `SubjectConfirmationData` в атрибуте `Recipient`;
   * в `Audience`.
+
+  {% cut "Как получить ID федерации" %}
+
+  {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+  {% endcut %}
+
 * Укажите уникальный идентификатор пользователя в элементе `NameID`. Рекомендуется использовать User Principal Name (UPN) или адрес электронной почты.
 * Укажите ссылку на страницу IdP в элементе `Issuer`. На эту страницу перенаправлялся пользователь для прохождения аутентификации).
 * Укажите подписанное сообщение в элементе `SignatureValue` и сертификат, которым оно было подписано в элементе `KeyInfo`.
@@ -415,7 +409,7 @@
 Данные пользователя | Комментарий | Элементы SAML-сообщения
 ------------------- | ----------- | ----------------------
 Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать User Principal Name (UPN) или адрес электронной почты. | `<NameID>`
-Фамилия | Отображается в сервисах {{yandex-cloud}}.<br> Ограничение значения по длине: {{ saml-limit-last-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
+Фамилия | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-last-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
 Имя | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-first-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
 Полное имя | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: Иван Иванов.<br> Ограничение значения по длине: {{ saml-limit-display-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
 Почта | Используется для отправки уведомлений из сервисов {{ yandex-cloud }}.<br>Пример:&nbsp;`ivanov@example.com`.<br> Ограничение значения по длине: {{ saml-limit-email }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`
@@ -503,7 +497,7 @@ UYGmIgo9HwAAAABJRU5ErkJggg==
 
   1. На левой панели выберите раздел [Пользователи]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-  1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите пункт **Добавить федеративных пользователей**.
+  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Добавить федеративных пользователей**.
 
   1. Выберите федерацию, из которой необходимо добавить пользователей.
 
@@ -552,7 +546,7 @@ UYGmIgo9HwAAAABJRU5ErkJggg==
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -563,11 +557,23 @@ UYGmIgo9HwAAAABJRU5ErkJggg==
 
 1. Откройте браузер в гостевом режиме или режиме инкогнито для чистой симуляции нового пользователя.
 
-1. Перейдите по [ссылке для входа в консоль управления](#get-link), которую вы получили ранее. Браузер должен перенаправить вас на страницу аутентификации.
+1. Перейдите по URL для входа в консоль управления:
+
+   ```
+   https://{{ console-host }}/federations/<ID_федерации>
+   ```
+
+   {% cut "Как получить ID федерации" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+
+   Браузер должен перенаправить вас на страницу аутентификации.
 
 1. Введите ваши аутентификационные данные. По умолчанию необходимо ввести UPN и пароль. Затем нажмите кнопку **Sign in**.
 
-1. После успешной аутентификации сервер перенаправит вас обратно по ссылке для входа в консоль, а после этого — на главную страницу консоли управления. В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.
+1. После успешной аутентификации сервер перенаправит вас по URL `https://{{ auth-host }}/federations/<ID_федерации>`, который вы указали в настройках сервера, а после этого — на главную страницу консоли управления. В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.
 
 #### Что дальше {#what-is-next}
 

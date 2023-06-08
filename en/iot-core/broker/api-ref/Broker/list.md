@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/list.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/list.md
 ---
 
 # IoT Core Broker Service, REST: Broker.list

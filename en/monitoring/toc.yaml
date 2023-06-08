@@ -48,14 +48,23 @@ items:
           - name: Deleting alerts
             href: operations/alert/delete-alert.md
       - name: Working with the {{ prometheus-name }} API
-        hidden: true
         items:
-          - name: Connecting the Remote API
+          - name: Overview
             href: operations/prometheus/index.md
           - name: Writing metrics
-            href: operations/prometheus/remote-write.md
+            items:
+              - name: Overview
+                href: operations/prometheus/ingestion/index.md
+              - name: Remote Write
+                href: operations/prometheus/ingestion/remote-write.md
           - name: Reading metrics
-            href: operations/prometheus/remote-read.md
+            items:
+              - name: Overview
+                href: operations/prometheus/querying/index.md
+              - name: Remote Read
+                href: operations/prometheus/querying/remote-read.md
+              - name: Grafana
+                href: operations/prometheus/querying/grafana.md
   - name: Concepts
     items:
       - name: Service overview

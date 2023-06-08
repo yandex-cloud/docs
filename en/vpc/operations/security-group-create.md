@@ -1,8 +1,6 @@
 # Create a security group
 
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
-
-To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 
@@ -126,7 +124,7 @@ To create a new [security group](../concepts/security-groups.md):
          ```
       2. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

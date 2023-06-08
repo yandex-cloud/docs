@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/api-ref/OriginGroup/create.md
+sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/create.md
 ---
 
 # Cloud CDN API, REST: OriginGroup.create

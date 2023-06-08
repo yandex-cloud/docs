@@ -1,55 +1,72 @@
 # Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
 
-Чтобы настроить загрузку и выгрузку данных между кластерами {{ mch-name }} и {{ dataproc-name }}:
-1. [Подготовьте облако к работе](#before-you-begin).
-1. [Выгрузите данные из {{ mch-name }}](#export-from-mch).
-1. [Загрузите данные в {{ mch-name }}](#import-to-mch).
+С помощью {{ dataproc-name }} вы можете:
+
+* [Загрузить данные из {{ mch-name }} в Spark DataFrame](#export-from-mch).
+* [Выгрузить данные из Spark DataFrame в {{ mch-name }}](#import-to-mch).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Подготовьте облако к работе {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
-{% include [Same Network](../../_includes/same-network.md) %}
-
-1. [Создайте облачную сеть](../../vpc/operations/network-create.md).
-1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности `{{ zone-id }}`.
-1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети — это обязательное условие для работы кластера {{ dataproc-name }}.
-
-Создайте ресурсы:
+Подготовьте инфраструктуру:
 
 {% list tabs %}
 
 - Вручную
 
-    1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой [подходящей вам конфигурации](../../managed-clickhouse/concepts/instance-types.md) со следующими настройками:
-        * с публичным доступом к хостам кластера;
-        * с базой данных `db1`;
-        * с пользователем `user1`.
-    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) для кластера {{ dataproc-name }} . [Назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-sa` и назначьте ему роль `dataproc.agent`.
+    1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+    1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `dataproc-network`.
+    1. В сети `dataproc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) в любой зоне доступности.
+    1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети.
+    1. Если вы используете группы безопасности, [создайте группу безопасности](../../vpc/operations/security-group-create.md) с именем `dataproc-sg` в сети `dataproc-network` и добавьте в нее следующие правила:
 
-        * `dataproc.agent`
-        * `dataproc.provisioner`
-        * `monitoring.viewer`.
-    1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) любой [подходящей вам конфигурации](../../data-proc/concepts/instance-types.md) со следующими настройками:
-        * с включенной опцией **UI Proxy**;
-        * с созданным ранее сервисным аккаунтом;
-        * c компонентами:
-            * **HBASE**
-            * **HDFS**
-            * **HIVE**
-            * **MAPREDUCE**
-            * **SPARK**
-            * **TEZ**
-            * **YARN**
-            * **ZEPPELIN**
-            * **ZOOKEEPER**
-    1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам {{ mch-name }} и {{ dataproc-name }}.
-    1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по [SSH](../../glossary/ssh-keygen.md) и настройте подключения к кластерам:
-        * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md);
-        * [{{ dataproc-name }}](../../data-proc/operations/connect.md).
-    1. (Опционально) Чтобы экспортировать данные в [бакет {{ objstorage-full-name }}](../../storage/concepts/bucket.md):
-        1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md).
-        1. [Выдайте права на запись в него](../../storage/operations/buckets/edit-acl.md) сервисному аккаунту кластера {{ dataproc-name }}.
+        * По одному правилу для входящего и исходящего служебного трафика:
+
+            * Диапазон портов — `{{ port-any }}`.
+            * Протокол — `Любой` (`Any`).
+            * Источник — `Группа безопасности`.
+            * Группа безопасности — `Текущая` (`Self`).
+
+        * Правило для исходящего HTTPS-трафика:
+
+            * Диапазон портов — `{{ port-https }}`.
+            * Протокол — `TCP`.
+            * Назначение — `CIDR`.
+            * CIDR блоки — `0.0.0.0/0`.
+
+        * Правило для исходящего трафика по протоколу TCP на порт {{ port-mch-http }} для доступа к {{ CH }}:
+
+            * Диапазон портов — `{{ port-mch-http }}`.
+            * Протокол — `TCP`.
+            * Назначение — `CIDR`.
+            * CIDR блоки — `0.0.0.0/0`.
+
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+    1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) с любой [подходящей конфигурацией хостов](../../data-proc/concepts/instance-types.md) и следующими настройками:
+
+        * Компоненты:
+            * **SPARK**;
+            * **YARN**;
+            * **HDFS**.
+        * Сервисный аккаунт — `dataproc-sa`.
+        * Имя бакета — бакет, который вы создали для выходных данных.
+        * Сеть — `dataproc-network`.
+        * Группа безопасности — `dataproc-sg`.
+
+    1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md) со следующими настройками:
+
+        * С публичным доступом к хостам кластера.
+        * С базой данных `db1`.
+        * С пользователем `user1`.
+
+    
+    1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
+
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 
 - С помощью {{ TF }}
 
@@ -57,27 +74,25 @@
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
     1. Скачайте в ту же рабочую директорию файл конфигурации [data-proc-data-exchange-with-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-proc-data-exchange-with-mch.tf).
 
-        В файле описаны:
-        * [Группы безопасности](../../vpc/concepts/security-groups.md) для кластеров и виртуальной машины.
-        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для кластера {{ dataproc-name }}.
-        * [Бакет {{ objstorage-name }}](../../storage/concepts/bucket.md).
-        * Кластер {{ mch-name }}.
-        * Кластер {{ dataproc-name }}.
-        * Виртуальная машина.
+        В этом файле описаны:
 
-    1. Укажите параметры инфраструктуры в файле конфигурации `data-proc-data-exchange-with-mch.tf` в блоке `locals`:
+        * [сеть](../../vpc/concepts/network.md#network);
+        * [подсеть](../../vpc/concepts/network.md#subnet);
+        * NAT-шлюз и таблица маршрутизации, необходимые для работы {{ dataproc-name }};
+        * [группы безопасности](../../vpc/concepts/security-groups.md), необходимые для кластеров {{ dataproc-name }} и {{ mch-name }};
+        * сервисный аккаунт, необходимый для работы кластера {{ dataproc-name }};
+        * сервисный аккаунт, необходимый для создания бакетов в {{ objstorage-name }};
+        * бакеты для входных и выходных данных;
+        * кластер {{ dataproc-name }};
+        * кластер {{ mch-name }}.
 
-        * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
-        * `network_id` — идентификатор созданной ранее облачной сети.
-        * `subnet_id` — идентификатор созданной ранее подсети.
-        * `zone_id` – зона доступности, в которой будут созданы ресурсы.
-        * `ch_user_name` — имя пользователя базы данных `db1` {{ mch-name }}.
-        * `ch_user_password` — пароль для пользователя `user1` базы данных `db1` {{ mch-name }}.
-        * `vm_username` — имя пользователя для виртуальной машины.
-        * `vm_ssh_key` — абсолютный путь к публичному ключу для виртуальной машины. Подробнее см. в разделе [{#T}](../../compute/operations/vm-connect/ssh.md).
-        * `vm_image_id` — образ виртуальной машины. [Выберите нужный образ из списка](../../compute/operations/images-with-pre-installed-software/get-list.md) или используйте уже заданный образ Ubuntu 20.04 (`fd8ciuqfa001h8s9sa7i`).
+    1. Укажите в файле `data-proc-data-exchange-with-mch.tf`:
+
+        * `folder_id` — идентификатор облачного каталога, такой же как в настройках провайдера.
+        * `input_bucket` — имя бакета для входных данных.
+        * `output_bucket` — имя бакета для выходных данных.
         * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера {{ dataproc-name }}. Подробнее см. в разделе [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
-        * `bucket_name` — имя бакета {{ objstorage-name }}. Оно должно быть уникальным в рамках {{ yandex-cloud }}.
+        * `ch_password` — пароль пользователя {{ CH }}.
 
     1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационном файле, и позволяет работать с ресурсами и источниками данных провайдера.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -96,17 +111,9 @@
 
 {% endlist %}
 
+## Загрузите данные из {{ mch-name }} {#export-from-mch}
 
-### Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки обмена данными между {{ mch-name }} и {{ dataproc-name }} входит:
-* плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
-
-## Выгрузите данные из {{ mch-name }} {#export-from-mch}
-
-### Подготовьте кластер {{ mch-name }} {#prepare-mch}
+### Подготовьте таблицу в кластере {{ mch-name }} {#prepare-mch}
 
 1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с именами и возрастом людей.
@@ -137,186 +144,143 @@
            ('Maria', 28);
         ```
 
-### Запустите выгрузку из {{ mch-name }} {#start-mch-export}
+    1. Проверьте результат:
 
-1. Откройте [веб-интерфейс Zeppelin](../../data-proc/operations/connect-interfaces.md#ui-proxy-list) кластера {{ dataproc-name }}.
-1. Нажмите ссылку **Create new note** и укажите параметры заметки:
-    * **Note name** — введите произвольное имя заметки.
-    * **Default Interpreter** — выберите `spark`.
-1. Нажмите кнопку **Create**.
-1. Чтобы сформировать датафрейм, создайте и запустите параграф с кодом. Для этого выделите нужный параграф и нажмите кнопку **Run this paragraph** (также можно использовать сочетание клавиш **Shift**+**Enter**).
+        ```sql
+        SELECT * FROM persons;
+        ```
 
-    ```python
-    %spark.pyspark
-    jdbcPort = 8443
-    jdbcHostname = "c-<идентификатор кластера {{ mch-name }}>.rw.{{ dns-zone }}"
-    jdbcDatabase = "db1"
-    jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
-    df = spark.read.format("jdbc") \
-    .option("url", jdbcUrl) \
-    .option("user","user1") \
-    .option("password","<пароль к базе данных {{ mch-name }}>") \
-    .option("dbtable","persons") \
-    .load()
-    df.show()
-    ```
+### Перенесите таблицу из {{ mch-name }} {#start-mch-export}
 
-    Если датафрейм сформирован успешно, ответ на запрос будет содержать таблицу с исходными данными.
+1. Подготовьте файл скрипта:
 
-1. Чтобы выгрузить информацию из датафрейма в бакет {{ objstorage-name }} или таблицу Hive, создайте и запустите параграф с кодом.
+    1. Создайте локальный файл с именем `ch-to-dataproc.py` и скопируйте в него следующий скрипт:
 
-    {% list tabs %}
-
-    - {{ objstorage-name }}
+        {% cut "ch-to-dataproc.py" %}
 
         ```python
-        %spark.pyspark
-        df.write.parquet('s3a://<имя бакета>/<директория бакета>/')
-        spark.read.parquet('s3a://<имя бакета>/<директория бакета/').show()
+        from pyspark.sql import SparkSession
+
+        # Создание Spark-сессии
+        spark = SparkSession.builder.appName("ClickhouseDataproc").getOrCreate()
+
+        # Указание порта и параметров кластера ClickHouse
+        jdbcPort = 8443
+        jdbcHostname = "c-<идентификатор кластера {{ mch-name }}>.rw.mdb.yandexcloud.net"
+        jdbcDatabase = "db1"
+        jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
+
+        # Перенос таблицы persons из ClickHouse в DataFrame
+        df = spark.read.format("jdbc") \
+        .option("url", jdbcUrl) \
+        .option("user","user1") \
+        .option("password","<пароль пользователя user1>") \
+        .option("dbtable","persons") \
+        .load()
+
+        # Перенос DataFrame в бакет для проверки
+        df.repartition(1).write.mode("overwrite") \
+        .csv(path='s3a://<имя выходного бакета>/csv', header=True, sep=',')
         ```
 
-    - Hive
+        {% endcut %}
+
+    1. Укажите в скрипте:
+
+        * Идентификатор кластера {{ mch-name }}.
+        * Пароль пользователя `user1`.
+        * Имя выходного бакета.
+
+    1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `ch-to-dataproc.py`.
+
+1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **Main python файл** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/ch-to-dataproc.py`.
+
+1. Дождитесь завершения задания и проверьте, что в папке `csv` выходного бакета появилась исходная таблица.
+
+## Выгрузите данные в {{ mch-name }} {#import-to-mch}
+
+1. Подготовьте файл скрипта:
+
+    1. Создайте локальный файл с именем `dataproc-to-ch.py` и скопируйте в него следующий скрипт:
+
+        {% cut "dataproc-to-ch.py" %}
 
         ```python
-        %spark.pyspark
-        df.createOrReplaceTempView("mytempTable")
-        spark.sql("CREATE TABLE IF NOT EXISTS persons AS SELECT * FROM mytempTable");
-        spark.sql("SELECT * FROM persons").show()
+        from pyspark.sql import SparkSession
+        from pyspark.sql.types import *
+
+        # Создание Spark-сессии
+        spark = SparkSession.builder.appName("DataprocClickhouse").getOrCreate()
+
+        # Создание схемы данных
+        schema = StructType([StructField('name', StringType(), True),
+        StructField('age', IntegerType(), True)])
+
+        # Создание DataFrame
+        df = spark.createDataFrame([('Alim', 19),
+                                    ('Fred' ,65),
+                                    ('Guanmin' , 28),
+                                    ('Till', 60),
+                                    ('Almagul', 27),
+                                    ('Mary', 34),
+                                    ('Dmitry', 42)], schema)
+
+        # Указание порта и параметров кластера ClickHouse
+        jdbcPort = 8443
+        jdbcHostname = "c-<идентификатор кластера {{ mch-name }}>.rw.mdb.yandexcloud.net"
+        jdbcDatabase = "db1"
+        jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
+
+        # Перенос DataFrame в ClickHouse
+        df.write.format("jdbc") \
+        .mode("error") \
+        .option("url", jdbcUrl) \
+        .option("dbtable", "people") \
+        .option("createTableOptions", "ENGINE = MergeTree() ORDER BY age") \
+        .option("user","user1") \
+        .option("password","<пароль к базе данных {{ mch-name }}>") \
+        .save()
         ```
 
-    {% endlist %}
+        {% endcut %}
 
-    Если выгрузка прошла успешно, ответ на запрос будет содержать таблицу с исходными данными.
+    1. Укажите в скрипте:
 
-## Загрузите данные в {{ mch-name }} {#import-to-mch}
+        * Идентификатор кластера {{ mch-name }}.
+        * Пароль пользователя `user1`.
 
-### Подготовьте исходные данные {#prepare-source-data}
+    1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `dataproc-to-ch.py`.
 
-Источником данных может быть директория HDFS или бакет {{ objstorage-name }}. В качестве исходных данных будет использоваться CSV-файл с именами и возрастом людей:
+1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **Main python файл** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/dataproc-to-ch.py`.
 
-```text
-name,age
-Anna,19
-Michael,65
-Fred,28
-Alsou,50
-Max,27
-John,34
-Dmitry,42
-Oleg,19
-Alina,20
-Maria,28
-```
+1. Дождитесь завершения задания и проверьте, что данные перенеслись в {{ mch-name }}:
 
-{% list tabs %}
+    1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
+    1. Выполните запрос:
 
-- {{ objstorage-name }}
-
-    Создайте файл `example.csv` с тестовыми данными и [загрузите его в бакет {{ objstorage-name }}](../../storage/operations/objects/upload.md).
-
-- Директория HDFS
-
-    1. [Подключитесь к хосту кластера {{ dataproc-name }}](../../data-proc/operations/connect.md) в подкластере для хранения данных.
-    1. Определите адрес сервера HDFS. Этот адрес понадобится указать при выгрузке данных в директорию HDFS.
-
-        ```bash
-        hdfs getconf -confKey fs.defaultFS
+        ```sql
+        SELECT * FROM people;
         ```
-
-    1. Создайте файл `example.csv` с тестовыми данными.
-    1. Создайте директорию HDFS для записи тестовых данных:
-
-        ```bash
-        hdfs dfs -mkdir /user/testdata
-        ```
-
-    1. Скопируйте файл с тестовыми данными из локальной файловой системы в директорию HDFS:
-
-        ```bash
-        hdfs dfs -copyFromLocal example.csv /user/testdata/example.csv
-        ```
-
-{% endlist %}
-
-### Запустите выгрузку из {{ dataproc-name }} {#start-dp-export}
-
-1. Откройте [веб-интерфейс Zeppelin](../../data-proc/operations/connect-interfaces.md#ui-proxy-list) кластера {{ dataproc-name }}.
-1. Нажмите ссылку **Create new note** и укажите параметры заметки:
-    * **Note name** — введите произвольное имя заметки.
-    * **Default Interpreter** — выберите `spark`.
-1. Нажмите кнопку **Create**.
-1. Чтобы сформировать датафрейм, создайте и запустите параграф с кодом.
-
-    {% list tabs %}
-
-    - {{ objstorage-name }}
-
-        ```python
-        %spark.pyspark
-        df = spark.read.option("header", True).csv("s3a://<имя бакета>/<директория бакета>/example.csv")
-        df.show()
-        ```
-
-    - Директория HDFS
-
-        ```python
-        %spark.pyspark
-        df = spark.read.option("header", True).csv("hdfs://<адрес сервера HDFS>/user/testdata/example.csv")
-        df.show()
-        ```
-
-    Если выгрузка прошла успешно, ответ на запрос будет содержать таблицу с исходными данными.
-
-    {% endlist %}
-
-1. Чтобы выгрузить информацию из датафрейма в базу данных {{ mch-name }}, создайте и запустите параграф с кодом.
-
-    ```python
-    %spark.pyspark
-    jdbcPort = 8443
-    jdbcHostname = "c-<идентификатор кластера {{ mch-name }}>.rw.{{ dns-zone }}"
-    jdbcDatabase = "db1"
-    jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
-    df.write.format("jdbc") \
-    .mode("error") \
-    .option("url", jdbcUrl) \
-    .option("dbtable", "example") \
-    .option("createTableOptions", "ENGINE = MergeTree() ORDER BY age") \
-    .option("user","user1") \
-    .option("password","<пароль к базе данных {{ mch-name }}>") \
-    .save()
-    ```
-
-### Проверьте загрузку данных в {{ mch-name }} {#check-mch-export}
-
-1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
-1. Выполните запрос:
-
-    ```sql
-    SELECT * FROM example;
-    ```
 
     Если выгрузка прошла успешно, ответ на запрос будет содержать таблицу с данными.
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 {% list tabs %}
 
 * Вручную
 
-    * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
-    * Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, освободите и [удалите его](../../vpc/operations/address-delete.md).
-    * Удалите кластеры:
-        * [{{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md);
-        * [{{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
-    * Если вы создавали бакет {{ objstorage-name }}, [удалите его](../../storage/operations/buckets/delete.md).
+    1. [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+    1. [Кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
+    1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+    1. [Облачную сеть](../../vpc/operations/network-delete.md).
+    1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 
 * С помощью {{ TF }}
 
-    Если вы создали ресурсы с помощью {{ TF }}:
-
+    1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов.
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `data-proc-data-exchange-with-mch.tf`.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:

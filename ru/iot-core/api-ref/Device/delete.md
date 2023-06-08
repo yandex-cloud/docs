@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/devices/api-ref/Device/delete.md
+sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/delete.md
 ---
 
 # IoT Core Service, REST: Device.delete

@@ -15,6 +15,9 @@ links:
   - title: Хранение и восстановление данных
     description: Настройте резервное копирование и восстановление данных
     href: archive/
+  - title: Для разработчиков
+    description: Используйте сервисы {{ yandex-cloud }} в разработке
+    href: dev/
   - title: Тестовая среда
     description: Тестируйте приложения на виртуальных машинах
     href: testing/

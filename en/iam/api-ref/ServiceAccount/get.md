@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/api-ref/ServiceAccount/get.md
+sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/get.md
 ---
 
 # Identity and Access Management API, REST: ServiceAccount.get

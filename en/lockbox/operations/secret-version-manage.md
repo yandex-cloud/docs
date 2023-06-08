@@ -25,10 +25,6 @@ Secret version control enables you to:
          You can create multiple key-value pairs per version.
    1. Click **Add version**.
 
-- API
-
-   To create a new secret version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call.
-
 - {{ TF }}
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -52,7 +48,7 @@ Secret version control enables you to:
       resource "yandex_lockbox_secret_version" "my_version" {
         secret_id = "<secret_ID>"
         entries {
-          key        = <secret1_key>"
+          key        = "<secret1_key>"
           text_value = "<secret1_value>"
         }
         entries {
@@ -82,6 +78,10 @@ Secret version control enables you to:
    ```bash
    yc lockbox secret list-versions <secret_ID>
    ```
+
+- API
+
+   To create a new secret version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call.
 
 {% endlist %}
 
@@ -140,6 +140,10 @@ Secret version control enables you to:
    1. Select **Roll back to this version**.
    1. Click **Roll back**.
 
+- API
+
+   To roll back to an existing version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call and specify the required version.
+
 {% endlist %}
 
 ## Scheduling version destruction {#set-deleting-time}
@@ -161,3 +165,7 @@ Secret version control enables you to:
    To schedule a version deletion, use the [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ScheduleVersionDestruction](../api-ref/grpc/secret_service.md#ScheduleVersionDestruction) gRPC API call.
 
 {% endlist %}
+
+## See also {#see-also}
+
+* [{#T}](../concepts/secret.md)
