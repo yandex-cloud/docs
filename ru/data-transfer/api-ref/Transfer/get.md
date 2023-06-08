@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/get.md
+sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/get.md
 ---
 
 # Data Transfer API, REST: Transfer.get
@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/get.md
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
+GET https://datatransfer.{{ api-host }}/v1/transfer/{transferId}
 ```
  
 ## Path parameters {#path_params}

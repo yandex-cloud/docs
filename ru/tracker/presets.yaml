@@ -16,6 +16,7 @@ default:
   link-tracker-templates: https://tracker.yandex.ru/settings/templates/issues
   link-sub-roles: https://tracker.yandex.ru/subscriptions/roles
   link-sub-manage: https://tracker.yandex.ru/subscriptions/manage
+  link-admin-settings: https://tracker.yandex.ru/admin/orgs
   link-settings: https://tracker.yandex.ru/settings
   link-tracker-promo: /services/tracker
   link-services-tracker: https://connect.yandex.ru/portal/services/tracker
@@ -60,6 +61,8 @@ default:
   link-wiki-poker: https://ru.wikipedia.org/wiki/Покер_планирования
   mobile-google-link: https://play.google.com/store/apps/details?id=ru.yandex.cloud.tracker
   mobile-apple-link: https://apps.apple.com/ru/app/yandex-cloud/id1351761680
+  mobile-huawei-link: https://appgallery.huawei.com/#/app/C107995179
+  mobile-apk-link: https://storage.yandexcloud.net/public-mobile/android/tracker.apk
   yfm-link: https://ydocs.tech/ru/
   link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
   link-rfc7578: https://tools.ietf.org/html/rfc7578

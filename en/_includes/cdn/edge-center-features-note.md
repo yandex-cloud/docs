@@ -1,0 +1,1 @@
+For a resource in {{ cdn-name }}, you can specify additional settings provided by EdgeCenter, a CDN provider. For a complete description of its features, see the CDN provider's [API documentation](https://apidocs.edgecenter.ru/cdn). To enable additional options, [request]({{ link-console-support }}/create-ticket) access to them from technical support.

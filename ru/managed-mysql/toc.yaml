@@ -51,6 +51,8 @@ items:
             items:
               - name: До 1 июня 2020 года
                 href: concepts/instance-types-archive/instance-types-01062020.md
+              - name: До 20 июня 2023 года
+                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
       - name: Сеть в Managed Service for MySQL
@@ -99,7 +101,7 @@ items:
         href: tutorials/mmy-ydb-migration.md
       - name: Миграция базы данных из {{ mmy-name }} в {{ objstorage-full-name }}
         href: tutorials/mmy-objs-migration.md
-      - name: Асинхронная репликация данных из {{ mmy-name }} в {{ yds-full-name }}
+      - name: Захват изменений {{ MY }} и поставка в {{ DS }}
         href: tutorials/mmy-to-yds.md
   - name: Управление доступом
     href: security/index.md

@@ -17,7 +17,7 @@ items:
         items:
           - name: Добавление пользователя
             href: operations/users/create.md
-          - name: Получение идентификатора или почты пользователя
+          - name: Получение информации о пользователе
             href: operations/users/get.md
           - name: Удаление пользователя
             href: operations/users/delete.md

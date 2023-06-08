@@ -1,10 +1,8 @@
-1. [Create](../../vpc/operations/security-group-create.md) a security group named `load-target-sg` for the test target.
+1. [Create](../../vpc/operations/security-group-create.md) the test target's security group named `load-target-sg`.
+1. [Add a rule](../../vpc/operations/security-group-add-rule.md) for incoming traffic when generating load to the test target:
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+   *
+      Select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}`. Specify the [security group](../../vpc/concepts/security-groups.md) where the test target is located.
 
-1. [Add a rule](../../vpc/operations/security-group-add-rule.md) for incoming traffic during load generation to the test target:
-    * Port range: `{{ port-any }}`.
-    * Protocol: `Any`.
-    * Source type: `Security group`.
-    * Destination: `From list`. Specify the security group where the test agent is located.
-
-    This rule will allow agents to load this target or connect additional monitoring tools.
-
+   This rule allows agents to generate load to this target or enable additional monitoring tools.

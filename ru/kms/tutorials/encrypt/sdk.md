@@ -45,7 +45,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 - Java
 
-    Аутентифицируйтесь с сервисным аккаунтом, привязанным к ВМ:
+    Аутентифицируйтесь с сервисным аккаунтом, привязанным к [ВМ](../../../glossary/vm.md):
 
     ```java
     CredentialProvider credentialProvider = Auth.computeEngineBuilder().build();

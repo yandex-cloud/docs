@@ -28,6 +28,6 @@
 * [{#T}](usage-monitor.md)
 * [{#T}](trial-ending.md)
 * [{#T}](upgrade-to-paid.md)
-* [Обзор платформы {{ yandex-cloud }}](../../overview/)
+* [Обзор платформы {{ yandex-cloud }}](../../overview/index.yaml)
 * [Документация {{ yandex-cloud }}](/docs)
 

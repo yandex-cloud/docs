@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/ResourcePreset/list.md
+sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/ResourcePreset/list.md
 ---
 
 # Managed Service for Elasticsearch API, REST: ResourcePreset.list

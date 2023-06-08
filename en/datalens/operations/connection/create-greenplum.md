@@ -1,15 +1,15 @@
 ---
-title: "Instructions for creating a Greenplum connection in {{ datalens-full-name }}"
-description: "In this tutorial, you will learn how to connect to Greenplum in {{ datalens-full-name }}."
+title: "How to create a {{ GP }} connection in {{ datalens-full-name }}"
+description: "In this tutorial, you will learn how to connect to {{ GP }} in {{ datalens-full-name }}."
 ---
 
-# Creating a Greenplum connection
+# Creating a {{ GP }} connection
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
 
-## Connecting to Greenplum {#greenplum-connection}
+## Connecting to {{ GP }} {#greenplum-connection}
 
-To create a Greenplum connection:
+To create a {{ GP }} connection:
 
 
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
@@ -17,7 +17,6 @@ To create a Greenplum connection:
 
 1. Click **Create connection**.
 1. Select a **Greenplum** connection.
-1. In the field next to the folder name, enter the connection name. You can set any name.
 
 
 1. Select the connection type:
@@ -26,35 +25,35 @@ To create a Greenplum connection:
 
    - Select in a folder
 
-      Specify the connection parameters for the Greenplum DB available in {{ yandex-cloud }}:
+      Specify the connection parameters for the {{ mgp-name }} DB available in {{ yandex-cloud }}:
 
-      * **Cluster**: Specify a cluster from the list of available Greenplum clusters. Cluster settings must have the **DataLens access** flag set. If you do not have an available cluster, click **Create new**.
+      * **Cluster**: Specify a cluster from the list of available {{ GP }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
 
          {% note info %}
 
-         The Greenplum clusters are shown in the list of clusters:
+         The {{ GP }} clusters are shown in the list of clusters:
 
          * With the permissions for the user that creates the connection.
          * Created in the same folder with the {{ datalens-short-name }} instance.
 
          {% endnote %}
 
-      * **Hostname**: Select the host name from the list of hosts available in the Greenplum cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-      * **Port**: Specify the Greenplum connection port. The default port is 5432.
+      * **Hostname**: Select the host name from the list of hosts available in the {{ GP }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+      * **Port**: Specify the {{ GP }} connection port. The default port is {{ port-mgp }}.
       * **Path to database**: Specify the name of the database to connect to.
-      * **Username**: Specify the username for the Greenplum connection.
+      * **Username**: Specify the username for the {{ GP }} connection.
       * **Password**: Enter the password for the user.
       * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
       * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    - Specify manually
 
-      Specify the connection parameters for the external Greenplum database:
+      Specify the connection parameters for the external {{ GP }} database:
 
-      * **Hostname**: Specify the path to the master host or the IP address of the Greenplum master host. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-      * **Port**: Specify the Greenplum connection port. The default port is 5432.
+      * **Hostname**: Specify the path to a master host or a {{ GP }} master host IP address. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+      * **Port**: Specify the {{ GP }} connection port. The default port is 5432.
       * **Path to database**: Specify the name of the database to connect to.
-      * **Username**: Specify the username for the Greenplum connection.
+      * **Username**: Specify the username for the {{ GP }} connection.
       * **Password**: Enter the password for the user.
       * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
       * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
@@ -63,6 +62,7 @@ To create a Greenplum connection:
 
 
 
-1. Click **Create**.
+1. Click **Create connection**.
+1. Enter the name for the connection and click **Create**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}

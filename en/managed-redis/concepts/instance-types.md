@@ -20,7 +20,7 @@ The host class affects the list of available [disk types](./storage.md):
 * **hm1**: `network-ssd`, `local-ssd`.
 * **hm2**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **hm3**: `network-ssd`, `network-ssd-nonreplicated`.
-* **b1**, **b2**, **b3**: `network-ssd`.
+* **b2**, **b3**: `network-ssd`.
 
 
 
@@ -40,11 +40,11 @@ Configuration types:
 
    A cluster with this configuration type may contain several hosts (between 1 and the current [quota](./limits.md)) per cluster or shard. The minimum number of hosts in a cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
 
+{% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
+
 | Host class name | Number of CPUs | RAM, GB | CPU performance | Disk <br>size, GB |
 |-------------------|----------------|---------|------------------------|----------------------|
 | **Intel Broadwell** |
-| b1.nano | 2 | 2 | 5% | 4 - 16 |
-| b1.small | 2 | 4 | 20% | 8 - 32 |
 | hm1.nano | 2 | 8 | 100% | 16 - 4096 |
 | hm1.micro | 2 | 12 | 100% | 24 - 4096 |
 | hm1.small | 2 | 16 | 100% | 32 - 4096 |
@@ -60,7 +60,6 @@ Configuration types:
 | hm1.8xlarge | 8 | 224 | 100% | 448 - 4096 |
 | hm1.9xlarge | 8 | 256 | 100% | 512 - 4096 |
 | **Intel Cascade Lake** |
-| b2.nano | 2 | 2 | 5% | 4 - 16 |
 | b2.medium | 2 | 4 | 50% | 8 - 32 |
 | hm2.nano | 2 | 8 | 100% | 16 - 8184 |
 | hm2.micro | 2 | 12 | 100% | 24 - 8184 |

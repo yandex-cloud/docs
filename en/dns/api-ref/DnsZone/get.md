@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dns/api-ref/DnsZone/get.md
+sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/get.md
 ---
 
 # Cloud DNS API, REST: DnsZone.get

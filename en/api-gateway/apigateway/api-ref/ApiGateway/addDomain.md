@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/addDomain.md
+sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/addDomain.md
 ---
 
 # API Gateway Service, REST: ApiGateway.addDomain

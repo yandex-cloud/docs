@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/listLogs.md
+sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/listLogs.md
 ---
 
 # Managed Service for Redis API, REST: Cluster.listLogs

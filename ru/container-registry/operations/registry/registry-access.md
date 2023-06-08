@@ -90,11 +90,11 @@
   
       Где:
    
-      * `my_registry` — идентификатор реестра. Если в конфигурации уже есть ресурс [yandex_container_registry]({{ tf-provider-link }}/yandex_container_registry), вы можете указать на него, например `yandex_container_registry.my_registry.id`.
+      * `my_registry` — идентификатор реестра. Если в конфигурации уже есть ресурс [yandex_container_registry]({{ tf-provider-link }}/container_registry), вы можете указать на него, например `yandex_container_registry.my_registry.id`.
       * `pull` — IP-адреса, с которых разрешено скачивание Docker-образов из реестра. Необязательный параметр.
       * `push` — IP-адреса, с которых разрешена загрузка Docker-образов в реестр. Необязательный параметр.
       
-      Более подробную информацию о параметрах `yandex_container_registry_ip_permission` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/yandex_container_registry_ip_permission).
+      Более подробную информацию о параметрах `yandex_container_registry_ip_permission` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/container_registry_ip_permission).
 
   1. Создайте ресурсы:
   

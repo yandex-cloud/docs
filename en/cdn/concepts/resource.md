@@ -15,6 +15,8 @@ After creating a resource, you can also configure for it:
 * Processing of [cross-domain queries (CORS)](cors.md).
 * [Compression](compression.md) and [segmentation](slicing.md) of content.
 
+{% include [edge-center-features-note](../../_includes/cdn/edge-center-features-note.md) %}
+
 Resource settings [apply a short while after](#delay) you create or update the resource.
 
 ## Domain names for content distribution {#hostnames}
@@ -66,7 +68,7 @@ If no user requests have been sent to the resource for 90 days, its status chang
 * **Requests**: The number of client requests to the CDN.
 * **Responses hit**: The number of client requests that were responded by CDN servers with [cached](caching.md) copies of files without requesting them from origins (if caching is enabled for CDN servers).
 * **Response miss**: The number of client requests that were not responded by CDN servers with cached copies of files (for example, because caching was disabled, the file hasn't been cached by the server yet, or the [cache lifetime](caching.md#server-side-cache-age) expired) and CDN servers had to access origins to load files.
-* **Cache hit ratio**: The ratio of traffic sent from CDN servers to clients without accessing origins. It's calculated using the formula `(1 − (Upstream from origins / Sent)) × 100%`.
+* **Cache hit ratio**: The ratio of traffic sent from CDN servers to clients without accessing origins. It is calculated using this formula: `(1 − (Upstream from origins / Sent)) × 100%`.
 * **Uploaded by shielding server**: Amount of traffic uploaded by shielding server from origins (if [shielding](origins-shielding.md) is enabled).
 * **Responses with 2xx codes**, **3xx codes**, **4xx codes**, **5xx codes**: The number of responses with those HTTP status codes sent by CDN servers to clients.
 

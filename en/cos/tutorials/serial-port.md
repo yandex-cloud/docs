@@ -179,14 +179,14 @@ Once created, the VM appears in the VM list under **{{ compute-name }}** in the 
 ## Check the results {#check-result}
 
 To check the result of configuring data output from the Docker container to the serial port:
-1. In the [management console ]({{ link-console-main }}), go to the folder page and select **{{ compute-name }}**.
-1. Click on the name of the `coi-vm-with-sp` VM.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ compute-name }}**.
+1. Click the name of the `coi-vm-with-sp` VM.
 1. Under **Serial port**, select `COM2`. In a few minutes, the screen displays `Hello world!`.
 
-For more information about working with VMs, see our [step-by-step instructions](../../compute/operations/index.md).
+For more information about working with VMs, see our [step-by-step guides](../../compute/operations/index.md).
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 1. If you reserved a public static IP address for the VM, [delete it](../../vpc/operations/address-delete.md).

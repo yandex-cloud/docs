@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/getTargetStates.md
+sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/getTargetStates.md
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.getTargetStates

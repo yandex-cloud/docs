@@ -2,12 +2,12 @@
 
 ## Network security {#network-security}
 
-* **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different {{ vpc-short-name }}. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (only via VMs with two network interfaces in different networks, VPN or {{ interconnect-full-name }}). Watch our webinar [How a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
+* **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different {{ vpc-short-name }}. The traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (it is only allowed via VMs with two network interfaces in different networks, VPN or {{ interconnect-full-name }}). Watch our webinar to learn [how a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
 * **Network access restriction, security groups**: Restrict network access across resources using [security groups](../../vpc/operations/security-group-create.md).
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 * **NGFW from {{ marketplace-short-name }}**: If more robust network protection is required, use [NGFW](/marketplace?tab=software&search=NGFW) from {{ marketplace-full-name }}.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a {{ yandex-cloud }} VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
-* **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN (see the [setup instructions using the strongSwan daemon](../../tutorials/routing/ipsec-vpn.md)) or use [{{ interconnect-name }}](../../interconnect/) (the GOST VPN service is also available).
+* **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN (see [this guide](../../tutorials/routing/ipsec-vpn.md) to learn how to set it up using the strongSwan daemon) or use [{{ interconnect-name }}](../../interconnect/). You can also leverage the GOST VPN service.
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 

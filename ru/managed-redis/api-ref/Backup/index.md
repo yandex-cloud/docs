@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/redis/api-ref/Backup/index.md
+sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Backup/index.md
 ---
 
 # Managed Service for Redis API, REST: Backup methods

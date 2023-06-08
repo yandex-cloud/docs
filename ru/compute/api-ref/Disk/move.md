@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Disk/move.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Disk/move.md
 ---
 
 # Compute Cloud API, REST: Disk.move

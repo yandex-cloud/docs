@@ -65,7 +65,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
               precision: 60
       ```
 
-   1. Specify the cluster ID in place of `<CLUSTER_ID>` and the path to `graphite-rollup.yaml` in place of `<path to yaml file>` and run the command:
+   1. Replace `<CLUSTER_ID>` with your cluster ID and `<path to yaml file>`, with `graphite-rollup.yaml`, and then run this command:
 
       ```bash
       yc managed-clickhouse cluster add-graphite-rollup <CLUSTER_ID> --rollup-file-name <path to yaml file>
@@ -217,9 +217,9 @@ Configure Graphite to save metrics in the {{ CH }} cluster. In this case, data i
    sudo systemctl start graphite-clickhouse
    ```
 
-   For more information about configuring Graphite, see the [documentation](https://graphite.readthedocs.io/en/latest/index.html).
+   For more information about configuring Graphite, see the [relevant documentation](https://graphite.readthedocs.io/en/latest/index.html).
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
 

@@ -62,7 +62,7 @@
 `AddBackendGroupBackend` | Добавление бэкенда в группу бэкендов
 `AddLoadBalancerListener` | Добавление обработчика в балансировщик
 `AddLoadBalancerSniMatch` | Добавление SNI-обработчика в балансировщик
-`AddTargetGroupTargets` | Добавление ВМ в целевую группу
+`AddTargetGroupTargets` | Добавление [ВМ](../../glossary/vm.md) в целевую группу
 `CreateBackendGroup` | Создание группы бэкендов
 `CreateHttpRouter` | Создание HTTP-роутера
 `CreateLoadBalancer` | Создание балансировщика
@@ -104,16 +104,16 @@
 
 ## {{ sf-name }} {#functions}
 
-Имя сервиса — `serverless.functions`.
+Имя сервиса — `serverless`.
 
 Имя события | Описание
 --- | ---
-`CreateFunction` | Создание функции
-`CreateFunctionVersion` | Создание версии функции
-`DeleteFunction` | Удаление функции
-`RemoveFunctionTag` | Удаление тега функции
-`SetFunctionTag` | Назначение тега функции
-`UpdateFunction` | Изменение функции
+`functions.CreateFunction` | Создание функции
+`functions.CreateFunctionVersion` | Создание версии функции
+`functions.DeleteFunction` | Удаление функции
+`functions.RemoveFunctionTag` | Удаление тега функции
+`functions.SetFunctionTag` | Назначение тега функции
+`functions.UpdateFunction` | Изменение функции
 `mdbproxy.CreateProxy` | Создание прокси
 `mdbproxy.DeleteProxy` | Удаление прокси
 `mdbproxy.UpdateProxy` | Изменение прокси
@@ -161,7 +161,7 @@
 
 Имя события | Описание
 --- | ---
-`CreateDnsZone` | Создание зоны DNS
+`CreateDnsZone` | Создание зоны [DNS](../../glossary/dns.md)
 `DeleteDnsZone` | Удаление зоны DNS
 `SetDnsZoneAccessBindings` | Назначение привязок прав доступа к зоне DNS
 `UpdateDnsZone` | Изменение зоны DNS

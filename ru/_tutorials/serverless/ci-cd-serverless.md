@@ -97,8 +97,6 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 
 {% endlist %}
 
-## Настройте {{ GL }} {#configure-gitlab}
-
 {% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 
 ## Создайте {{ GLR }} {#runner}

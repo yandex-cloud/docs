@@ -10,8 +10,6 @@
 
 {% endnote %}
 
-## Connecting to Google Sheets {#google-sheets-connection}
-
 To create a Google Sheets connection:
 
 
@@ -20,26 +18,31 @@ To create a Google Sheets connection:
 
 1. Click **Create connection**.
 1. Select the **Google Sheets** connection.
+
+
 1. Add files depending on access permissions:
 
    {% list tabs %}
 
    - Public spreadsheet
 
-      1. Click **+ Add file** and specify the link to the file. To do this, in the Google Sheets access settings, select `Anyone with the link` and copy the link to the desired sheet from the browser's address bar. If you copy the link from the Google Sheets sharing window, it will point to the spreadsheet's first sheet.
-      1. Click **Add**. The information about the added file and the uploaded data will be displayed in the central area of the screen.
+      1. Click **+ Add file** and specify the link to the file. To do this, in the Google Sheets access settings, select ``Anyone with the link`` and copy the link to the desired sheet from the browser's address bar. If you copy the link from the Google Sheets sharing window, it will point to the spreadsheet's first sheet.
+      1. Click **Add**. If the file to be uploaded contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table. Click **Add**.
+      1. The information about the added file and the uploaded data will be displayed in the central area of the screen.
 
    - Spreadsheet with restricted access
 
-      1. At the top of the screen, click **Log in to your Google account**.
-      1. Select the account to switch to the **yandex.ru** application and click **Continue**.
-      1. Grant the **yandex.ru** application permissions to access your Google account. Click **Continue**.
+      1. At the top of the screen, click **Log in with Google**.
+      1. Select the account to switch to the **{{ datalens-short-name }}** application.
+      1. Grant the **{{ datalens-short-name }}** application permissions to access your Google account. Click **Continue**.
       1. Click **+ Add file** and specify the link to the file.
-      1. Click **Add**. The information about the added file and the uploaded data will be displayed in the central area of the screen.
+      1. Click **Add**. If the file to be uploaded contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table. Click **Add**.
+      1. The information about the added file and the uploaded data will be displayed in the central area of the screen.
 
       To log out of your Google account, click ![image](../../../_assets/datalens/exit.svg). Click **Sign out**. Sheets from the files with restricted access will no longer be displayed.
 
    {% endlist %}
+
 
    {% note info %}
 

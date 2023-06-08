@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/restore.md
+sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/restore.md
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.restore
@@ -69,7 +69,9 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters:restore
     },
     // end of the list of possible fields`maintenanceWindow`
 
-  }
+  },
+  "segmentHostCount": "string",
+  "segmentInHost": "string"
 }
 ```
 
@@ -114,6 +116,8 @@ maintenanceWindow.<br>anytime | **object**<br>An any-time maintenance window. <b
 maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>A weekly maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of the week.</p> <ul> <li>MON: Monday</li> <li>TUE: Tuesday</li> <li>WED: Wednesday</li> <li>THU: Thursday</li> <li>FRI: Friday</li> <li>SAT: Saturday</li> <li>SUN: Sunday</li> </ul> 
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in the UTC timezone.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
+segmentHostCount | **string** (int64)<br><p>Number of segment hosts</p> 
+segmentInHost | **string** (int64)<br><p>Number of segments on each host</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

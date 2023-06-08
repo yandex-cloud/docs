@@ -3,7 +3,7 @@
 A _role_ is a set of user permissions to perform operations with {{ yandex-cloud }} resources.
 
 There are two types of roles:
-* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
+* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are such roles as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}`.
 * _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role allows you to use images in {{ compute-full-name }}.
 
    A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
@@ -11,6 +11,14 @@ There are two types of roles:
 Currently, users aren't allowed to create new roles with a custom set of permissions.
 
 ## Primitive roles {#primitive-roles}
+
+The chart below shows which primitive roles are available in {{ yandex-cloud }} and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. You can find the description of each role under the chart.
+
+![image](../../../_assets/iam/security/primitive-roles-hierarchy.svg)
+
+### {{ roles-auditor }} {#auditor}
+
+{% include [roles-auditor](../../../_includes/roles-auditor.md) %}
 
 ### {{ roles-viewer }} {#viewer}
 
@@ -102,11 +110,17 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 ## {{ container-registry-full-name }} {#cr-roles}
 
+{% include [container-registry-viewer](../../../_includes/iam/roles/container-registry-viewer.md) %}
+
+{% include [container-registry-editor](../../../_includes/iam/roles/container-registry-editor.md) %}
+
 {% include [container-registry-admin](../../../_includes/iam/roles/container-registry-admin.md) %}
+
+{% include [container-registry-pusher](../../../_includes/iam/roles/container-registry-pusher.md) %}
 
 {% include [container-registry-puller](../../../_includes/iam/roles/container-registry-puller.md) %}
 
-{% include [container-registry-pusher](../../../_includes/iam/roles/container-registry-pusher.md) %}
+{% include [container-registry-images-scanner](../../../_includes/iam/roles/container-registry-images-scanner.md) %}
 
 ## Managed databases {#mdb-roles}
 
@@ -466,4 +480,3 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [yq-editor](../../../_includes/iam/roles/yq-editor.md) %}
 
 {% include [yq-admin](../../../_includes/iam/roles/yq-admin.md) %}
-

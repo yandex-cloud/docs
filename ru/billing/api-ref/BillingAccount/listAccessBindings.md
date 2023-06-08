@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/billing/api-ref/BillingAccount/listAccessBindings.md
+sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/listAccessBindings.md
 ---
 
 # Billing API, REST: BillingAccount.listAccessBindings

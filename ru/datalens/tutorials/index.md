@@ -20,5 +20,6 @@ description: "В разделе описаны сценарии использо
 * [Визуализация данных с использованием параметров](data-from-ch-with-parameters.md)
 * [Визуализация данных с помощью QL-чарта](data-from-ch-to-sql-chart.md)
 * [Построение чартов customer journeys на данных AppMetrica](data-from-appmetrica-yc-visualization.md)
+* [Визуализация данных из {{ tracker-full-name }}](data-from-tracker.md)
 
 

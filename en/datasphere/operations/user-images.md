@@ -6,15 +6,14 @@ You can configure the environment to run your code using [Docker images](../conc
 
 ## Creating a Docker image {#create}
 
-To create a Docker image:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. In the upper-right corner, click **Create resource**. In the window that appears, select **Docker image**.
-1. Complete the fields below:
-   * **Build path**: Path inside a project where the created Docker image will be stored. `.` is the root directory.
-   * **Image name**: Name of the image, such as `cuda`.
-   * **Tag**: Image tag, such as `1.0.0`.
-   * **Docker template**: Template of the script used to install Python (`python_3_7` or `python_3_8`).
-   * **Docker file**: A set of instructions for creating a Docker image.
+1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Fill out the fields below:
+   * **{{ ui-key.yc-ui-datasphere.docker.build-path }}**: Path inside the project where the created Docker image will be stored. `.` is the root directory.
+   * **{{ ui-key.yc-ui-datasphere.docker.repository }}**: Name of the image, such as `cuda`.
+   * **{{ ui-key.yc-ui-datasphere.docker.tag }}**: Image tag, such as `1.0.0`.
+   * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}**: Template of the script used to install Python (`python_3_7` or `python_3_8`).
+   * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}**: A set of instructions for creating a Docker image.
 
       Edit the contents of the field. For example, to install CUDA<sup>®</sup> packages, you need a template of the `python_3_8` image and the following code:
 
@@ -33,27 +32,26 @@ To create a Docker image:
        apt-key adv --fetch-keys <public GPG key> &&\
        add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
        apt-get update &&\
-       apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
+       apt-get -y install libnvidia-common-450 cuda-drivers-450 nvidia-driver-450 &&\
+       apt-get -y install cuda-11-2 libcudnn8=8.1.1.33-1+cuda11.2 cuda-toolkit-11-2 &&\
        exit
       RUN pip install tensorflow-gpu==2.4.1
       ```
 
-      Replace the `<public GPG key>` with a link to a valid GPG key for working with CUDA<sup>®</sup>, such as `https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub`. See details in the [Nvidia blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
+      Replace the `<public GPG key>` with a link to a valid GPG key for working with CUDA<sup>®</sup>, such as `https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub`. For details, see [Nvidia blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
 
-1. Click **Build**.
+1. Click **{{ ui-key.yc-ui-datasphere.common.build }}**.
 
    This creates a Docker image with CUDA<sup>®</sup> packages to use the GPU in computations.
 
-To view all created Docker images:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Project resources**, select ![docker](../../_assets/datasphere/docker.svg) **Docker image**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 
 ## Applying a Docker image to a project {#set}
 
-To use an image for a project:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Project resources**, select ![docker](../../_assets/datasphere/docker.svg) **Docker image**.
-1. Click ![Options](../../_assets/options.svg) next to the desired image and select ![Apply](../../_assets/datasphere/apply.svg) **Apply**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Click ![Options](../../_assets/options.svg) next to the desired image and select ![Apply](../../_assets/datasphere/apply.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 1. Open the project in {{ jlab }}Lab and wait for it to load.
 1. Open the notebook tab and check that the custom image environment is available in your project. For example, for the image with CUDA<sup>®</sup> packages, create and run a cell with the following code:
 
@@ -71,8 +69,8 @@ To use an image for a project:
    ```
 To return to the default environment:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Project resources**, select ![docker](../../_assets/datasphere/docker.svg) **Docker image**.
-1. Click ![Options](../../_assets/options.svg) next to the default image and select ![Apply](../../_assets/datasphere/apply.svg) **Apply**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Click ![Options](../../_assets/options.svg) next to the default image and select ![Apply](../../_assets/datasphere/apply.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 
 {% note warning %}
 
@@ -87,17 +85,17 @@ Only a community admin can share a Docker image in the community.
 To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../datasphere/security/index.md).
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Project resources**, click ![docker](../../_assets/datasphere/docker.svg)**Docker image**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![docker](../../_assets/datasphere/docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Select the desired image from the list.
-1. Go to the **Access** tab.
+1. Click the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the Docker image in.
 
 ## Deleting a Docker image {#delete}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Project resources**, click ![docker](../../_assets/datasphere/docker.svg).**Docker image**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![docker](../../_assets/datasphere/docker.svg).**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. In the list of Docker images, select the one you want to delete.
-1. Click ![options](../../_assets/options.svg) and select **Delete**.
-1. Click **Confirm**.
+1. Click ![options](../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
-You'll see a message like `<image_name> resource deleted`.
+You will see a message saying that the resource has been deleted.

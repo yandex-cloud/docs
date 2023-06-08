@@ -30,8 +30,8 @@ You control how the widget loads using the `window.smartCaptcha` [object](../con
            const container = document.getElementById('<container_id>');
 
            const widgetId = window.smartCaptcha.render(container, {
-           sitekey: '<client_key>',
-           hl: '<language>',
+                sitekey: '<client_key>',
+                hl: '<language>',
            });
        }
        }

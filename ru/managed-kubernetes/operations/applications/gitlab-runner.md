@@ -8,7 +8,7 @@
 * Для настройки {{ GLR }} на весь [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md) (требуются права администратора {{ GL }}):
   1. Откройте в браузере административную панель {{ GL }}, используя [FQDN](../../../compute/concepts/network.md#hostname) инстанса.
   1. Нажмите кнопку **Menu** и выберите пункт **Admin**.
-  1. Перейдите в раздел **Runners**.
+  1. Перейдите в раздел **CI/CD** → **Runners**.
   1. Нажмите кнопку **Register an instance runner** и сохраните значения параметра `registration token`.
 * Для настройки {{ GLR }} для группы или проекта:
   1. Откройте в браузере административную панель {{ GL }}, используя FQDN инстанса.
@@ -58,6 +58,7 @@
 
 * [{#T}](../../tutorials/gitlab-containers.md).
 * [{#T}](../../tutorials/cr-scanner-with-k8s-and-gitlab.md).
+* [{#T}](../../../managed-gitlab/tutorials/image-storage.md).
 
 ## См. также {#see-also}
 

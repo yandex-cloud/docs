@@ -268,7 +268,7 @@ To partition and mount an empty disk yourself:
       tmpfs               5120       0      5120   0% /run/lock
       tmpfs            1017608       0   1017608   0% /sys/fs/cgroup
       tmpfs             203520       0    203520   0% /run/user/1000
-      /dev/vdb1         523260    3080    520180   1% /mnt/vdc1
+      /dev/vdc1         523260    3080    520180   1% /mnt/vdc1
       ```
 
 

@@ -129,7 +129,8 @@
             --cookie-max-age 12h \
             --issuer "https://sts.windows.net/<ID SAML-приложения>/" \
             --sso-binding POST \
-            --sso-url "https://login.microsoftonline.com/<ID SAML-приложения>/saml2"
+            --sso-url "https://login.microsoftonline.com/<ID SAML-приложения>/saml2" \
+            --force-authn
         ```
 
         Где:
@@ -164,28 +165,28 @@
 
         * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
-- API
+        * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-    1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы будете создавать федерацию.
+- API
 
     1. Создайте файл с телом запроса, например `body.json`:
 
         ```json
         {
-          "folderId": "<ID каталога>",
           "name": "my-federation",
           "organizationId": "<ID организации>",
           "autoCreateAccountOnLogin": true,
           "cookieMaxAge":"43200s",
           "issuer": "https://sts.windows.net/<ID SAML-приложения>/",
           "ssoUrl": "https://login.microsoftonline.com/<ID SAML-приложения>/saml2",
-          "ssoBinding": "POST"
+          "ssoBinding": "POST",
+          "securitySettings": {
+            "forceAuthn": true
+          }
         }
         ```
 
         Где:
-
-        * `folderId` — идентификатор каталога.
 
         * `name` — имя федерации. Имя должно быть уникальным в каталоге.
 
@@ -217,6 +218,8 @@
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
         * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+
+        * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
     1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
@@ -341,7 +344,7 @@
 
       ```
       yc organization-manager federation saml certificate create \
-        --federation-id <ID федерации> \
+        --federation-id <ID_федерации> \
         --name "my-certificate" \
         --certificate-file certificate.cer
       ```
@@ -354,7 +357,7 @@
 
       ```json
       {
-        "federationId": "<ID федерации>",
+        "federationId": "<ID_федерации>",
         "name": "my-certificate",
         "data": "-----BEGIN CERTIFICATE..."
       }
@@ -379,33 +382,26 @@
 
 {% endnote %}
 
-### Получите ссылку для входа в консоль {#get-link}
-
-Когда вы настроите аутентификацию с помощью федерации, пользователи смогут войти в консоль управления по ссылке, в которой содержится идентификатор федерации. Эту же ссылку необходимо будет указать при [настройке системы единого входа (SSO)](#sso-settings).
-
-Получите ссылку:
-
-1. Скопируйте идентификатор федерации:
-
-    1. На панели слева выберите раздел [Федерации]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-    1. Скопируйте идентификатор федерации, для которой вы настраиваете доступ.
-
-1. Сформируйте ссылку с помощью полученного идентификатора:
-
-    `https://{{ auth-host }}/federations/<ID федерации>`
 
 ## Настройка системы единого входа (SSO) {#sso-settings}
 
-### Добавьте ссылку для входа в консоль {#add-link}
+### Укажите URL для перенаправления {#add-link}
 
-Когда вы создали федерацию и получили ссылку для входа в консоль, завершите создание SAML-приложения в Azure AD:
+Когда вы создали федерацию, завершите создание SAML-приложения в Azure AD:
 
 1. Откройте страницу настроек SAML-приложения **Вход на основе SAML**.
 
-1. В разделе **1. Базовая конфигурация SAML** укажите сведения о {{ yandex-cloud }}, выступающем в роли поставщика услуг. 
-  
-   Для этого в полях **Идентификатор (сущности)** и **URL-адрес ответа (URL-адрес службы обработчика утверждений)** введите полученную ранее [ссылку для входа в консоль](#get-link).
+1. В разделе **1. Базовая конфигурация SAML** укажите сведения о {{ yandex-cloud }}, выступающем в роли поставщика услуг. Для этого в полях **Идентификатор (сущности)** и **URL-адрес ответа (URL-адрес службы обработчика утверждений)** укажите URL, на который пользователи будут перенаправляться после аутентификации:
+
+   ```
+   https://{{ auth-host }}/federations/<ID_федерации>
+   ```
+
+   {% cut "Как получить ID федерации" %}
+   
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+   
+   {% endcut %}
 
 1. Нажмите **Сохранить**. 
 
@@ -455,7 +451,7 @@
 
   1. На левой панели выберите раздел [Пользователи]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-  1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите пункт **Добавить федеративных пользователей**.
+  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Добавить федеративных пользователей**.
 
   1. Выберите федерацию, из которой необходимо добавить пользователей.
 
@@ -478,7 +474,7 @@
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
       ```
-      yc organization-manager federation saml add-user-accounts --id <ID федерации> \
+      yc organization-manager federation saml add-user-accounts --id <ID_федерации> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -510,7 +506,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -521,11 +517,23 @@
 
 1. Откройте браузер в гостевом режиме или режиме инкогнито.
 
-1. Перейдите по [ссылке для входа в консоль](#yc-settings), полученной ранее. Браузер должен перенаправить вас на страницу аутентификации в Microsoft.
+1. Перейдите по URL для входа в консоль:
+
+   ```
+   https://{{ console-host }}/federations/<ID_федерации>
+   ```
+
+   {% cut "Как получить ID федерации" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+
+   Браузер должен перенаправить вас на страницу аутентификации в Microsoft.
 
 1. Введите данные для аутентификации и нажмите кнопку **Далее**.
 
-После успешной аутентификации IdP-сервер перенаправит вас обратно по ссылке для входа в консоль, а после — на главную страницу [консоли управления]({{ link-console-main }}). В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.
+После успешной аутентификации IdP-сервер перенаправит вас по URL `https://{{ auth-host }}/federations/<ID_федерации>`, который вы указали в настройках Azure AD, а после — на главную страницу [консоли управления]({{ link-console-main }}). В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.
 
 #### Что дальше {#what-is-next}
 

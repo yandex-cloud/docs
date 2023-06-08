@@ -61,7 +61,7 @@ See also [Example of sharding](../tutorials/sharding.md#example).
 
 {{ mmg-name }} manages shards as follows:
 
-- Due to limited resources, clusters with the **b1.nano**, **b1.micro**, **b1.medium**, **b2.nano**, **b2.micro**, and **b2.medium** hosts can't be sharded.
+- Due to limited resources, clusters with the **b1.medium** and **b2.medium** hosts can't be sharded.
 
 - Clusters are unsharded at [creation](../operations/cluster-create.md).
 

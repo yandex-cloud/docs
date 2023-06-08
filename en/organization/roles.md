@@ -47,11 +47,11 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. In the left-hand panel, select [Access rights]({{ link-org-acl }}) ![icon-acl](../_assets/organization/acl.svg).
 
-  1. Select a user from the list or use the search bar at the top of the page.
+  1. If the respective user has at least one role, select it from the list or use the search bar at the top of the page. In the line with the user name, click ![icon-context-menu](../_assets/horizontal-ellipsis.svg) and select **Assign roles**.
 
-  1. In the line with the user name, click ![icon-context-menu](../_assets/horizontal-ellipsis.svg) and select **Assign roles**.
+     If the user is not on the list, click **Assign roles** in the top-right corner. In the window that opens, click **Select user** and select the appropriate user from the list or use the search bar.
 
-  1. In the **Configure access rights** window, click **Add role** and enter the role name or select one from the list.
+  1. Click **Add role** and enter the role name or select one from the list.
 
       You can find a description of the available roles in the {{ iam-full-name }} documentation, [{#T}](../iam/concepts/access-control/roles.md).
 
@@ -152,7 +152,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       }
       ```
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure the configuration files are valid.
 
@@ -186,11 +186,11 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
 - {{ org-name }} interface
 
-   1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
+   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../_assets/organization/icon-users.svg).
 
    1. Select a user from the list or use the search bar at the top of the page.
 
@@ -283,7 +283,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
   1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete. The example below shows how to revoke the `organization-manager.admin` role from user `aje6o61dvog2h6g9a33s`.
 
-      Example `body.json` file:
+      Example of `body.json` file:
 
       ```json
       {

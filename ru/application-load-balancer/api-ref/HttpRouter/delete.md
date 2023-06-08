@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/apploadbalancer/api-ref/HttpRouter/delete.md
+sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/delete.md
 ---
 
 # Application Load Balancer API, REST: HttpRouter.delete

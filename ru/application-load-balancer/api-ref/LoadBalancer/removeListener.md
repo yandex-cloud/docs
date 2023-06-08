@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/removeListener.md
+sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/removeListener.md
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.removeListener

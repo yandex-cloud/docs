@@ -6,9 +6,7 @@ To set up authentication:
 
 1. [Create a federation in your organization](#create-federation).
 
-1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
-
-1. [Get a console login link](#get-link).
+1. [Add certificates to a federation](#add-certificate).
 
 1. [Configure authentication on your server](#configure-sso).
 
@@ -56,9 +54,15 @@ To create a federation:
 
    1. In the **Link to the IdP login page** field, specify the address of the page that the browser redirects the user to for authentication.
 
+      {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
    1. Add an [identity provider certificate](#add-certificate) to the created federation.
 
    1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
+
+      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
+
+   1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
    1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{ yandex-cloud }}.
 
@@ -93,13 +97,15 @@ To create a federation:
       * `name`: Federation name. It must be unique within the folder.
       * `organization-id`: Your organization ID.
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-
-         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
       * `sso-url`: URL of the page that the browser redirects the user to for authentication.
+
+        {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
 - API
@@ -126,12 +132,16 @@ To create a federation:
       * `name`: Federation name. It must be unique within the folder.
       * `organizationId`: Organization ID.
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
       * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
+
+        {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
@@ -149,9 +159,13 @@ To create a federation:
       * `issuer`: IdP server ID to be used for authentication. The IdP server also responds to {{ org-name }} with this ID after the user is authenticated.
       * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication.
+
+        {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+         
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
@@ -182,7 +196,7 @@ To create a federation:
       1. Run the check using this command:
 
          ```
-         terraform plan
+         $ terraform plan
          ```
 
       If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
@@ -192,7 +206,7 @@ To create a federation:
       1. If the configuration does not contain any errors, run this command:
 
          ```
-         terraform apply
+         $ terraform apply
          ```
 
       1. Confirm you want to create a federation.
@@ -219,7 +233,7 @@ To add a certificate to a federation:
 
    {% endnote %}
 
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+   1. Go to [{{org-full-name}}]({{ link-org-main }}).
 
    1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
@@ -262,7 +276,7 @@ To add a certificate to a federation:
 
       ```json
       {
-        "federationId": "<federation ID>",
+        "federationId": "<federation_ID>",
         "name": "my-certificate",
         "data": "MII...=="
       }
@@ -271,8 +285,8 @@ To add a certificate to a federation:
    1. Send the add certificate request:
 
       ```bash
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
+      $ export IAM_TOKEN=CggaATEVAgA...
+      $ curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
@@ -287,32 +301,15 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
-## Get a console login link {#get-link}
-
-When you set up federation authentication, users can log in to the management console from a link containing the federation ID. The same link must be provided when configuring the authentication server.
-
-Obtain and save this link:
-
-1. Get the federation ID:
-
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-   1. Copy the ID of the federation you are configuring access for.
-
-1. Generate a link using this ID:
-
-   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Configure authentication on your server {#configure-sso}
 
-After you create a federation and obtain a management console login link, configure the Identity Provider (IdP) server. After each successful authentication, the server must send a relevant SAML message to the management console.
+After you create a federation, configure the Identity Provider (IdP) server. After each successful authentication, the server must send a relevant SAML message to the management console.
 
 Example of an SAML message:
 ```xml
 <samlp:Response ID="_bcdf7b6b-ea42-4191-8d5e-ebd4274acec6" Version="2.0" IssueInstant="2019-07-30T13:24:25.488Z"
- Destination="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
+ Destination="https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
   InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://example.org/auth</Issuer>
   <samlp:Status>
@@ -344,12 +341,12 @@ Example of an SAML message:
     <Subject>
       <NameID>user@example.org</NameID>
       <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" />
+        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu" />
       </SubjectConfirmation>
     </Subject>
     <Conditions NotBefore="2019-07-30T13:24:25.482Z" NotOnOrAfter="2019-07-30T14:24:25.482Z">
       <AudienceRestriction>
-        <Audience>{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu</Audience>
+        <Audience>https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu</Audience>
       </AudienceRestriction>
     </Conditions>
     <AttributeStatement>
@@ -370,15 +367,23 @@ Example of an SAML message:
 When setting up the message:
 
 * Use the `Response` and the `SubjectConfirmationData` properties of the `InResponseTo` attribute to specify the ID from the SAML authentication request sent by {{ yandex-cloud }}.
-* Enter the [console login link](#get-link) in the following elements:
+* Enter the URL to redirect users to after authentication, `https://{{ auth-host }}/federations/<federation_ID>`, in the following elements:
+  
    * In the `Destination` attribute of `Response`.
    * In the `Recipient` attribute of `SubjectConfirmationData`.
    * In `Audience`.
+
+   {% cut "How to get the federation ID" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+
 * Specify a unique user ID in the `NameID` element. We recommend using the User Principal Name (UPN) or email address.
 * Specify the link to the IdP page in the `Issuer` element. The user was forwarded to this page for authentication).
 * Enter a signed message in the `SignatureValue` element and the certificate it was signed with in the `KeyInfo` element.
 * Note that {{ yandex-cloud }} validates that the response was received in the interval specified in the `Conditions` or `SubjectConfirmationData` element attributes.
-* For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), pass the user's name and email address in the `AttributeStatement` property. Email, first name, and last name are passed in separate `Attribute` elements. You can also pass the first name and last name together, for example:
+* For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), provide the user's name and email address in the `AttributeStatement` property. Email, first name, and last name are provided in separate `Attribute` elements. You can also provide the first name and last name together, for example:
    ```
    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
      <AttributeValue>John Doe</AttributeValue>
@@ -401,12 +406,12 @@ To correctly pass user information to {{ org-full-name }}, map SAML message attr
 | User data | Comment | SAML message elements |
 ------------------- | ----------- | ----------------------
 | Unique user ID | Required attribute. We recommend using the User Principal Name (UPN) or email address. | `<NameID>` |
-| Last name | Displayed in {{yandex-cloud}} services.<br> Value length limit: {{saml-limit-last-name}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"` parameter |
-| Name | Displayed in {{yandex-cloud}} services.<br> Value length limit: {{saml-limit-first-name}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"` parameter |
-| Full name | Displayed in {{yandex-cloud}} services.<br>Example: John Smith.<br> Value length limit: {{saml-limit-display-name}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"` parameter |
-| Email | Used to send notifications from {{yandex-cloud}} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{saml-limit-email}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
-| Phone | Used to send notifications from {{yandex-cloud}} services.<br>Example: +71234567890.<br> Value length limit: {{saml-limit-phone}}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"` parameter |
-| Profile image | Displayed in {{yandex-cloud}} services.<br>Images are transmitted in Base64 encoding. [Example](#avatar-example).<br> Value length limit: {{saml-limit-thumbnail-photo}}. | `<Attribute>` with the<br>`Name="thumbnailPhoto"` parameter |
+| Last name | Displayed in {{yandex-cloud}} services.<br> Value length limit: {{ saml-limit-last-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"` parameter |
+| Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"` parameter |
+| Full name | Displayed in {{ yandex-cloud }} services.<br>Example: John Smith.<br> Value length limit: {{ saml-limit-display-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"` parameter |
+| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
+| Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"` parameter |
+| Profile image | Displayed in {{ yandex-cloud }} services.<br>Images are transmitted in Base64 encoding. [Example](#avatar-example).<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `<Attribute>` with the<br>`Name="thumbnailPhoto"` parameter |
 
 {% note warning %}
 
@@ -473,6 +478,8 @@ If you did not enable the **Automatically create users** option when creating a 
 
 To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you do not know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
 
+{% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
+
 A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
 
 To add federation users to an organization:
@@ -481,13 +488,13 @@ To add federation users to an organization:
 
 - Management console
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator account.
+   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click the arrow next to the **Add user** button and select **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -532,11 +539,11 @@ To add federation users to an organization:
    1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
-      curl -X POST \
+      $ curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation_ID>:addUserAccounts
       ```
 
 {% endlist %}
@@ -551,7 +558,7 @@ When you finish configuring the server, check the authentication process:
 
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 
-1. On successful authentication, the server will redirect you back to the management console login link and then to the console's home page. In the top right corner, you will be able to see you are logged in to the console as a federated user.
+1. On successful authentication, the server will redirect you back to the management console login link and then to the console's home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

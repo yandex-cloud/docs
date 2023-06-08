@@ -20,7 +20,8 @@ Destination objects:
 ### ACCESS_DENIED {#bucket-access-denied}
 
 * Make sure the service account used by the trail to upload audit logs to the bucket is assigned the `storage.uploader` or a higher [role](../../iam/concepts/access-control/roles.md#storage-uploader).
-   * If the bucket is [encrypted](../../storage/tutorials/server-side-encryption.md) with the {{ kms-full-name }} key, make sure the service account used by the trail to upload audit logs to the bucket has the `kms.keys.encrypterDecrypter` [role](../../iam/concepts/access-control/roles.md#kms-keys-encrypterdecrypter) for the key.
+* If the bucket is [encrypted](../../storage/tutorials/server-side-encryption.md) with the {{ kms-full-name }} key, make sure the service account used by the trail to upload audit logs to the bucket has the `kms.keys.encrypterDecrypter` [role](../../iam/concepts/access-control/roles.md#kms-keys-encrypterdecrypter) for the key.
+* If the trail delivers events to the encrypted bucket, check that the {{ kms-name }} key for this bucket exists.
 * Check the bucket [access control list (ACL)](../../storage/concepts/acl.md) and [bucket policy](../../storage/concepts/policy.md) and make sure they contain no rules that disable the service account to write data to the bucket.
 
 ### BUCKET_QUOTA_EXCEEDED {#bucket-quota-exceeded}

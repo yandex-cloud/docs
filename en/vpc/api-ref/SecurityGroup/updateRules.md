@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/SecurityGroup/updateRules.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/updateRules.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.updateRules

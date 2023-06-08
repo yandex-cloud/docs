@@ -7,8 +7,6 @@
 
 Это позволяет использовать [реплицируемые таблицы](#replicated-tables) в кластере с несколькими хостами в [шарде](./sharding.md). При этом управление репликацией осуществляется автоматически.
 
-{% include [Non replicated hosts](../../_includes/mdb/non-replicating-hosts.md) %}
-
 ## {{ CK }} {#ck}
 
 {% include [ClickHouse Keeper preview note](../../_includes/mdb/mch/note-ck-preview.md) %}

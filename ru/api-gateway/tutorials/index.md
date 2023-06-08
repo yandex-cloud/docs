@@ -9,3 +9,6 @@
 * [{#T}](api-gw-websocket.md)
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](websocket-app.md)
+* [{#T}](serverless-live-debug.md)
+* [{#T}](jwt-authorizer-firebase.md)
+* [{#T}](ory-kratos-authorization.md)

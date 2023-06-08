@@ -81,11 +81,11 @@ After creating the registry, you'll be automatically redirected to the **Registr
 
     * Specify the `Intel Cascade Lake` platform.
     * Select the `burstable` type.
-    * Specify the `b2.nano` class.
+    * Specify the `b2.medium` class.
 
     {% note warning %}
 
-    The `b2.nano` class was only selected as part of testing. In real projects, it isn't recommended to use hosts with a guaranteed vCPU share under 100%.
+    The `b2.medium` class was only selected as part of testing. In real projects, it isn't recommended to use hosts with a guaranteed vCPU share under 100%.
 
     {% endnote %}
 

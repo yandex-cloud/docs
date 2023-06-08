@@ -1,6 +1,8 @@
 # Инструкции по применению {{ interconnect-name }}
 
-- [{#T}](trunk-prc-add.md)
-- [{#T}](trunk-pbc-add.md)
-- [{#T}](prc-add.md)
-- [{#T}](pbc-add.md)
+- [{#T}](trunk-priv-add.md)
+- [{#T}](trunk-pub-add.md)
+- [{#T}](partner-trunk-priv-add.md)
+- [{#T}](partner-trunk-pub-add.md)
+- [{#T}](priv-add.md)
+- [{#T}](pub-add.md)

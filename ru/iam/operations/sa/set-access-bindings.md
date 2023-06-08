@@ -209,6 +209,7 @@
 ## Примеры {#examples}
 
 * [{#T}](#multiple-roles).
+* [{#T}](#impersonation).
 * [{#T}](#access-to-sa).
 * [{#T}](#access-to-all).
 
@@ -369,8 +370,84 @@
 
 {% endlist %}
 
+### Настроить имперсонацию {#impersonation}
 
-### Доступ сервисного аккаунта к другому сервисному аккаунту {#access-to-sa}
+[Имперсонация](../../concepts/access-control/index.md#impersonation) позволяет пользователю выполнять действия от имени сервисного аккаунта с помощью флага `--impersonate-service-account-id`. Для этого у сервисного аккаунта должны быть нужные права, а у пользователя — роль `iam.serviceAccounts.tokenCreator`.
+
+{% list tabs %}
+
+- CLI
+
+  1. Узнайте ID сервисного аккаунта, например, `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов (в профиле администратора):
+
+      ```bash
+      yc iam service-account list
+      ```
+
+      Результат:
+
+      ```
+      +----------------------+----------+------------------+
+      |          ID          |   NAME   |   DESCRIPTION    |
+      +----------------------+----------+------------------+
+      | ajebqtreob2dpblin8pe | test-sa  | test-description |
+      | aje6o61dvog2h6g9a33s | my-robot |                  |
+      +----------------------+----------+------------------+
+      ```
+
+  1. Назначьте сервисному аккаунту `test-sa` роль `viewer` на каталог `my-folder`. В типе субъекта укажите `serviceAccount`, а в значении — ID сервисного аккаунта (в профиле администратора):
+
+      ```
+      yc resource-manager folder add-access-binding my-folder \
+        --role viewer \
+        --subject serviceAccount:ajebqtreob2dpblin8pe
+      ```
+
+  1. Получите ID пользователя и назначьте ему роль `iam.serviceAccounts.tokenCreator` на сервисный аккаунт `test-sa` (в профиле администратора):
+
+      ```
+      yc iam service-account add-access-binding test-sa \
+        --role iam.serviceAccounts.tokenCreator \
+        --subject userAccount:gfei8n54hmfhuk5nogse
+      ```
+
+
+  1. Пользователь может выполнить команду от имени сервисного аккаунта `test-sa` с помощью флага `--impersonate-service-account-id`.
+  
+      Например, пользователь может получить список виртуальных машин в каталоге `my-folder`:
+
+      ```
+      yc compute instance list --folder-name my-folder \
+        --impersonate-service-account-id ajebqtreob2dpblin8pe
+      ```
+
+      Также пользователь может получить [IAM-токен](../../concepts/authorization/iam-token.md) сервисного аккаунта `test-sa` для кратковременного доступа:
+
+      ```
+      yc iam create-token --impersonate-service-account-id ajebqtreob2dpblin8pe
+      ```
+
+      Срок действия полученного токена закончится автоматически.
+
+  1. Если доступ больше не нужен пользователю, отзовите роль у сервисного аккаунта (в профиле администратора):
+
+      ```
+      yc resource-manager folder remove-access-binding my-folder \
+        --role viewer \
+        --subject serviceAccount:ajebqtreob2dpblin8pe
+      ```
+  1. Отзовите роль `iam.serviceAccounts.tokenCreator` у пользователя, получавшего права сервисного аккаунта:
+
+      ```
+      yc iam service-account remove-access-binding test-sa \
+        --role iam.serviceAccounts.tokenCreator \
+        --subject userAccount:gfei8n54hmfhuk5nogse
+      ```
+
+
+{% endlist %}
+
+### Настроить доступ сервисного аккаунта к другому сервисному аккаунту {#access-to-sa}
 
 Разрешите сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot`:
 
@@ -515,7 +592,7 @@
 
 {% endlist %}
 
-### Доступ к ресурсу всем пользователям {#access-to-all}
+### Разрешить доступ к ресурсу всем пользователям {#access-to-all}
 
 {% include [set-access-to-all](../../../_includes/iam/set-access-to-all.md) %}
 

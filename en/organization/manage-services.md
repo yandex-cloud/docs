@@ -40,6 +40,8 @@ A corporate administrator can create new directories and resources in the cloud,
 
 An organization's first cloud will connect automatically when an administrator logs in to the [{{ yandex-cloud }} console]({{ link-console-main }}). To connect an additional cloud, you need to create a [billing account](../billing/quickstart/).
 
+If there are multiple organizations registered in your account, you can [move](../resource-manager/operations/cloud/change-organization.md) clouds between them.
+
 
 ## Collaboration and business intelligence services {#collaboration}
 

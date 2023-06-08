@@ -35,20 +35,13 @@ items:
             href: operations/jobs-hive.md
           - name: Задания MapReduce
             href: operations/jobs-mapreduce.md
-      - name: Управление серверами {{ metastore-name }}
-        hidden: true
+      - name: Управление кластерами {{ metastore-name }}
         items:
-          - name: Что такое {{ metastore-full-name }}
-            hidden: true
-            href: operations/metastore/index.md
-          - name: Создание сервера {{ metastore-name }}
-            hidden: true
+          - name: Создание кластера {{ metastore-name }}
             href: operations/metastore/cluster-create.md
           - name: Подключение {{ dataproc-name }} к {{ metastore-name }}
-            hidden: true
             href: operations/metastore/dataproc-connect.md
-          - name: Удаление сервера {{ metastore-name }}
-            hidden: true
+          - name: Удаление кластера {{ metastore-name }}
             href: operations/metastore/cluster-delete.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
@@ -103,18 +96,25 @@ items:
           mch-full-name }}
         href: tutorials/s3-dataproc-ch.md
       - name: Совместная работа с таблицами с использованием {{ metastore-name }}
-        hidden: true
         href: tutorials/dataproc-to-dataproc.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов
-        href: concepts/instance-types.md
+        items:
+          - name: Действующие классы хостов
+            href: concepts/instance-types.md
+          - name: Архив
+            items:
+              - name: До 20 июня 2023 года
+                href: concepts/instance-types-archive/instance-types-20062023.md
       - name: Среда исполнения
         href: concepts/environment.md
       - name: Интерфейсы и порты компонентов {{ dataproc-name }}
         href: concepts/interfaces.md
+      - name: Кластеры {{ metastore-full-name }}
+        href: concepts/metastore.md
       - name: Задания в {{ dataproc-name }}
         href: concepts/jobs.md
       - name: Задания Spark

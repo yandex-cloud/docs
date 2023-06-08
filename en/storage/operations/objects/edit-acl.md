@@ -82,4 +82,10 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
 
       You can verify the change to a security group in the [management console]({{ link-console-main }}).
 
+- API
+
+   To edit an ACL object, use the [objectPutAcl](../../s3/api-ref/acl/objectput.md) S3 API method.
+
+   To upload an object with an ACL set, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `X-Amz-Acl`, `X-Amz-Grant-Read`, `X-Amz-Grant-Read-Acp`, `X-Amz-Grant-Write-Acp`, and `X-Amz-Grant-Full-Control` headers.
+
 {% endlist %}

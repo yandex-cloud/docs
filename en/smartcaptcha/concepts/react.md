@@ -45,7 +45,8 @@ Available properties:
 --- | --- | ---
 | `sitekey` | `string` | Client key. |
 | `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
-| `test` | `boolean` \| `undefined` | Launch a CAPTCHA in test mode. The user will always get a task. The property must only be used during development. |
+| `test` | `boolean` \| `undefined` | Launching CAPTCHA in test mode. The user will always get a task. Use this property for debugging and testing only. |
+| `webview` | `boolean` \| `undefined` | Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding a CAPTCHA to mobile apps via **WebView**. |
 | `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task appears. |
 | `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task closes. |
 | `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
@@ -72,7 +73,8 @@ Available properties:
 | `sitekey` | `string` | Client key. |
 | `visible` | `boolean` \| `undefined` | Show a task to the user. |
 | `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
-| `test` | `boolean` \| `undefined` | Launch a CAPTCHA in test mode. The user will always get a task. The property must only be used during development. |
+| `test` | `boolean` \| `undefined` | Launching CAPTCHA in test mode. The user will always get a task. Use this property for debugging and testing only. |
+| `webview` | `boolean` \| `undefined` | Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding a CAPTCHA to mobile apps via **WebView**. |
 | `shieldPosition` | `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined` | Position of the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
 | `hideShield` | `boolean` \| `undefined` | Hide the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
 | `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task appears. |

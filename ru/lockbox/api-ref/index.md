@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/index.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/index.md
 ---
 
 # Lockbox API: REST reference

@@ -19,7 +19,7 @@ GET https://monitoring.{{ api-host }}/monitoring/v2/metrics
 folderId | Обязательное поле. Идентификатор каталога, которому принадлежит метрика. Максимальная длина строки в символах — 50.
 selectors | Селекторы метрики для поиска по меткам.
 pageSize | Максимальное количество результатов на странице ответа на запрос. Значение по умолчанию — 0, на странице будет показано 30 результатов. Максимсальное значение — 10000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#query_params) равным значению поля [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#responses) предыдущего запроса, чтобы получить следующую страницу результатов.
+pageToken | Токен страницы. Установите значение [pageToken](#query_params) равным значению поля [nextPageToken](#responses) предыдущего запроса, чтобы получить следующую страницу результатов.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

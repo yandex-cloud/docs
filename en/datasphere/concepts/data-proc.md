@@ -1,6 +1,6 @@
 # Computing on Apache Spark™ clusters in {{ ml-platform-name }}
 
-{{ dataproc-full-name }} lets you deploy Apache Spark™ clusters. You can use {{ dataproc-name }} clusters to run distributed training on them. {{ ml-platform-name }} supports sessions created by [Apache Livy](https://livy.apache.org/).
+{{ dataproc-full-name }} allows you to deploy Apache Spark™ clusters. You can use {{ dataproc-name }} clusters to run distributed training on them. {{ ml-platform-name }} supports sessions created by [Apache Livy](https://livy.apache.org/).
 
 ## Cluster deployment options {#types}
 
@@ -8,7 +8,7 @@ There are two ways to deploy a cluster for computations in {{ ml-platform-name }
 * Create a cluster in {{ ml-platform-name }} using a special resource called a [{{ dataproc-name }} template](data-proc-template.md).
 * Create a cluster in [{{ dataproc-full-name }}](../../data-proc/) on your own and integrate it into your {{ ml-platform-name }} project.
 
-Regardless of the deployment option, all {{ dataproc-name }} clusters are charged based on the [{{ dataproc-full-name }} pricing policy](../../data-proc/pricing.md). To view all the clusters available in your project, open **Project resources** ⟶ ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ dataproc-name }}** on the project page.
+Regardless of the deployment option, all {{ dataproc-name }} clusters are charged based on the [{{ dataproc-full-name }} pricing policy](../../data-proc/pricing.md). To view all the clusters available in your project, open **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** ⟶ ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}** on the project page.
 
 ### {{ dataproc-name }} templates {#template}
 
@@ -52,12 +52,12 @@ Code is run in cells with the header:
 
 Where:
 
-* `<cluster>` is the Data Proc cluster to perform calculations on. This can be:
-   * The name of the cluster created through the notebook interface.
-   * An HTTP link to the internal IP address of the `masternode` host, like `http://10.0.0.8:8998/`.
-* `<session>` is the computing session ID. If this parameter is omitted, the default {{ dataproc-name }} cluster session is used.
-* `<input variable>` is the variable imported to the cell from the core. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame in a cluster).
-* `<returned variable>` is the variable to be exported from the core to the cell. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame).
+* `<cluster>`: Data Proc cluster to perform calculations on. This can be:
+   * Name of the cluster created through the notebook interface.
+   * HTTP link to the internal IP address of the `masternode` host, such as `http://10.0.0.8:8998/`.
+* `<session>`: Computing session ID. If this parameter is not specified, the default {{ dataproc-name }} cluster session is used.
+* `<input variable>`: Variable imported to the cell from the core. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame in a cluster).
+* `<returned variable>`: Variable to export from the core to the cell. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame).
 
 #### Example of using computing sessions with user-defined parameters {#example-custom-sessions}
 

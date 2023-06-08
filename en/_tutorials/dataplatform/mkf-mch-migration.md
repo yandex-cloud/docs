@@ -67,7 +67,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `target_db_name`: Database name{{ mch-name }}.
          * `target_user` and `target_password`: Database owner username and password.
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -207,23 +207,23 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **DB type**: `Apache Kafka`.
-   * **Endpoint parameters** → **Connection settings**:
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
-      * **Connection settings**: `{{ mkf-name }} cluster`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `Yandex Managed Service for Kafka cluster`.
 
-         * **{{ mkf-name }} cluster**: Select the source cluster from the list.
-         * **Authentication**:
+         * **Managed Service for Kafka cluster**: Select the source cluster from the list.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**:
 
-            * **Username**: Enter the consumer username.
-            * **Password**: Enter the consumer user password.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: Enter the consumer username.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the consumer password.
 
-      * **Full topic name**: Enter the name of the topic in the {{ mkf-name }} cluster.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Enter the name of the topic in the {{ mkf-name }} cluster.
 
-      * (optional) **Advanced settings** → **Conversions rules**:
+      * (Optional) : **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
-         * **Data format**: `JSON`.
-         * **Data schema**: `JSON specification`:
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `JSON specification`.
 
             Create and upload the `json_schema.json` file in JSON format:
 
@@ -280,21 +280,21 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-         * **Database type**: `{{ CH }}`.
-         * **Endpoint parameters**:
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ CH }}`.
+         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-            * **Connection settings**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**:
 
-               * **Connection settings**: `{{ mch-name }} cluster`.
+               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`.
 
-                  * **{{ mch-name }} cluster**: Select the source cluster from the list.
+                  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}**: Select the source cluster from the list.
 
-               * **Database**: Enter the name of the database.
-               * **User** and **Password**: Enter the name and password of the user who has access to the database, for example, the database owner.
+               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
+               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.password.title }}**: Enter the name and password of the user who has access to the database (for example, the database owner).
 
-            * **Advanced settings** → **Upload data in JSON format**: Enable this option if you enabled **Conversion rules** in the advanced settings of the source endpoint.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.advanced_settings.title }}** → **Upload data in JSON format**: Enable this option if you enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** in the advanced settings of the source endpoint.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-repl }}_ type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
@@ -322,7 +322,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 ## Test the transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to {{ dt-status-repl }}.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mch-name }} database:
 
@@ -338,7 +338,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <FQDN broker host>:9091 \
+      -b <opic name>:9091 \
       -t <topic name> \
       -k key \
       -X security.protocol=SASL_SSL \
@@ -366,7 +366,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 {% endnote %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).

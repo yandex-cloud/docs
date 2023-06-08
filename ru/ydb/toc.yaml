@@ -45,9 +45,7 @@ items:
           Поставка данных в {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/ydb-mkf-replication.md
-      - name: >-
-          Поставка данных в {{ yds-full-name }} с помощью {{
-          data-transfer-full-name }}
+      - name: Захват изменений {{ ydb-short-name }} и поставка в {{ DS }}
         href: tutorials/ydb-to-yds.md
       - name: >-
           Построение пайплайна CI/CD в {{ GL }} с использованием

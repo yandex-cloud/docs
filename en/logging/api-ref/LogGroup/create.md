@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/logging/api-ref/LogGroup/create.md
+sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/create.md
 ---
 
 # Cloud Logging Service, REST: LogGroup.create

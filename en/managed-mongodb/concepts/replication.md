@@ -4,8 +4,6 @@
 
 When manually [changing the primary replica](../operations/stepdown.md), {{ MG }} automatically selects a new primary replica from the available hosts.
 
-{% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
-
 For more information about how replication works in {{ MG }}, read the [DBMS documentation](https://docs.mongodb.com/manual/replication/).
 
 ## Fault tolerance {#Fault-tolerance}

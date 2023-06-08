@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/index.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/index.md
 ---
 
 # Cloud Organization API, REST: Organization methods

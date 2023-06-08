@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/opensearch/api-ref/Backup/get.md
+sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Backup/get.md
 ---
 
 # Managed Service for OpenSearch API, REST: Backup.get

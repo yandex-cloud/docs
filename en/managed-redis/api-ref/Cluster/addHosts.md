@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/addHosts.md
+sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/addHosts.md
 ---
 
 # Managed Service for Redis API, REST: Cluster.addHosts

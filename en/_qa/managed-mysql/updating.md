@@ -26,7 +26,7 @@ To change the disk type, [restore](../../managed-mysql/operations/cluster-backup
 
 #### Why can't I add/delete a host? {#not-add-delete}
 
-The number of hosts in a cluster is limited by [quotas](../../managed-mysql/concepts/limits.md#mmy-quotas). For instance, you can only use hosts belonging to the `b1.nano`, `b1.micro`, `b2.nano`, and `b2.micro` [classes](../../managed-mysql/concepts/instance-types.md) in single-host clusters. Therefore, before adding a host, please check the resources being used: open the [Quotas]({{ link-console-quotas }}) page and find the **Managed Databases** section.
+The number of hosts in a cluster is limited by [quotas](../../managed-mysql/concepts/limits.md#mmy-quotas). Therefore, before adding a host, please check the resources being used: open the [Quotas]({{ link-console-quotas }}) page and find the **Managed Databases** section.
 
 You can delete a host as long as it is not the only one in a cluster. To replace the only host, first create a new host and then delete the old one.
 

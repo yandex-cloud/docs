@@ -1,6 +1,6 @@
 # Relationships between resources in {{ mgl-name }}
 
-[{{ GL }}](https://about.gitlab.com/) is an open-source DevOps lifecycle tool. It is a system for managing code repositories for [Git](https://git-scm.com/) with error tracking, a [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline, a dedicated Wiki, and other functionality.
+[{{ GL }}](https://about.gitlab.com/) is an open-source DevOps lifecycle tool. It is a system for managing code repositories for [Git](https://git-scm.com/) with error tracking, a [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline, a dedicated Wiki, and other features.
 
 {{ mgl-name }} helps configure application deployment to [{{ compute-full-name }}](../../compute/) [virtual machines](../../compute/concepts/vm.md) and supports integration with [{{ container-registry-full-name }}](../../container-registry/) and [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 

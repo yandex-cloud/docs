@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/translate/api-ref/Translation/detectLanguage.md
+sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/detectLanguage.md
 ---
 
 # Translate API v2, REST: Translation.detectLanguage

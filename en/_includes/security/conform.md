@@ -1,6 +1,6 @@
 # Compliance
 
-## Russian Federal law No. 152-FZ "On personal data" {#law}
+## Russian Federal law No. 152-FZ on Personal Data {#law}
 
 In {{ yandex-cloud }}, measures were implemented to protect personal data pursuant to Resolution No. 1119 and FSTEC Order No. 21 regarding requirements for 1st-level protection (UZ-1).
 
@@ -27,7 +27,7 @@ For more information, see the [Data Processing Addendum](https://yandex.com/lega
 
 The {{ yandex-cloud }} Information Security Management System (ISMS) satisfies the requirements of the International Organization for Standardization (ISO). This is evidenced by certificates of compliance for ISO 27001, ISO 27017, and ISO 27018.
 
-ISO 27001 defines the requirements for ISMS, including their implementation, operation, maintenance, and regular improvement. The ISO 27001 guidelines help organizations guarantee a high level of security for their core information assets.
+ISO 27001 defines the requirements for ISMS's, including their implementation, operation, maintenance, and regular improvement. The ISO 27001 guidelines help organizations guarantee a high level of security for their core information assets.
 
 ISO 27017 includes a set of practical information security recommendations for cloud providers. These recommendations supplement the ISMS implementation requirements set out in ISO 27001 and are intended for cloud service providers.
 
@@ -61,7 +61,7 @@ The payment card industry standard defines requirements for securely processing 
 
 For more information, see:
 
-* [PCI PIN AOC for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_PIN_AOC_Yandex_Cloud.pdf).
+* [PCI DSS Attestation of Compliance (AOC) for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_PIN_AOC_Yandex_Cloud.pdf).
 * [PCI PIN Security Certificate for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_PIN_Yandex_Cloud_2022.pdf).
 
 ## PCI 3-D Secure (PCI 3DS) {#pci-3d-secure}
@@ -72,8 +72,8 @@ The PCI 3-D Secure (PCI 3DS) standard defines the requirements for infrastructur
 
 For more information, see:
 
-* [PCI 3-D AOC for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_3DS_AOC_Yandex_Cloud.pdf).
-* [PCI 3DS certificate for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_3DS_Yandex_Cloud_2022.pdf).
+* [PCI 3-D Attestation of Compliance (AOC) for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_3DS_AOC_Yandex_Cloud.pdf).
+* [PCI 3DS Certificate for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_3DS_Yandex_Cloud_2022.pdf).
 
 ## GOST R 57580.1-2017 {#gost}
 

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/index.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/index.md
 ---
 
 # Data Proc API: REST reference

@@ -12,6 +12,7 @@
 
 Keep track of how secrets are used to ensure the safety of your data and infrastructure. If your secrets are compromised, be sure to stop using them.
 
+{{ yandex-cloud }} automatically scans the public domain for secrets. See [{#T}](../../security/operations/search-secrets.md) to learn more about secret scanning and the security measures being taken.
 
 ## Revoking and reissuing a secret {#revoke-credentials}
 

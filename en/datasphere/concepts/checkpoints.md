@@ -1,6 +1,6 @@
 # Checkpoints
 
-A checkpoint in {{ ml-platform-name }} is the [saved state](save-state.md). A checkpoint includes cell code, output, and variable values as well as project storage data. Data versioning is maintained if the amount of data does not exceed {{ ml-project-size }}.
+A checkpoint in {{ ml-platform-name }} is a [saved state](save-state.md). It includes cell code, output, and variable values, as well as project storage data.
 
 You can create a maximum of 10 regular checkpoints per project. If a project already has 10 checkpoints, older checkpoints are automatically erased when creating a new checkpoint. To protect a checkpoint against deletion, [pin](../operations/projects/checkpoints.md#pin) it. You can pin a maximum of 10 checkpoints.
 
@@ -25,7 +25,7 @@ Checkpoint details also include:
 * Unique resource ID.
 * Name of the user who pinned the checkpoint.
 
-For checkpoints created after running cells, the project cell code is available in the **Cell code** section. If a saved state contains variables, you can view their current values in the **Variables** tab.
+For checkpoints created after running cells, the project cell code is available in the **{{ ui-key.yc-ui-datasphere.checkpoint.cell-code }}** section. If a saved state contains variables, you can view their current values in the **{{ ui-key.yc-ui-datasphere.checkpoint.variables }}** tab.
 
 #### See also {#see-also}
 

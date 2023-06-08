@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/devices/api-ref/Registry/get.md
+sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/get.md
 ---
 
 # IoT Core Service, REST: Registry.get

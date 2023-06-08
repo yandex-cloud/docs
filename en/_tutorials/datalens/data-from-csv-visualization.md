@@ -19,21 +19,21 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Continue to analyze the data about superheroes](#step9).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
 
 ## Step 1. Create a connection and dataset {#step1}
 
-Create a dataset based on the **File** [connection](../../datalens/concepts/connection.md) type.
+Create a dataset based on the **Files** [connection](../../datalens/concepts/connection.md) type.
 
 1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
 1. Click **Create connection**.
 
    ![image](../../_assets/datalens/solution-01/01-create-connection.png)
 
-1. Select **File**.
+1. Select **Files**.
 
    ![image](../../_assets/datalens/solution-01/select-file-connection.png)
 
@@ -79,7 +79,7 @@ Create a dataset based on the **File** [connection](../../datalens/concepts/conn
 
       ![image](../../_assets/datalens/solution-01/09-Weght-AVG.png)
 
-1. In the upper-right corner, click **Save**.
+1. In the top right corner, click **Save**.
 
    ![image](../../_assets/datalens/solution-01/10-Save-Dataset.png)
 
@@ -91,7 +91,7 @@ Create a dataset based on the **File** [connection](../../datalens/concepts/conn
 
 ## Step 3. Create the first chart {#step3}
 
-To visualize data divided by gender, create a column chart type [chart](../../datalens/concepts/chart/index.md).
+To visualize data divided by gender, create a bar chart type [chart](../../datalens/concepts/chart/index.md).
 
 1. Add the names of superheroes to the chart. To do this, drag the **Name** field from the **Dimensions** section to the **X** section.
 1. Add the superheros' weight to the chart. To do this, drag the **Weight avg** field from the **Measures** section to the **Y** section.
@@ -128,7 +128,7 @@ To visualize data divided by gender, create a column chart type [chart](../../da
 
 1. Save the chart.
 
-   1. In the upper-right corner, click **Save**.
+   1. In the top-right corner, click **Save**.
 
       ![image](../../_assets/datalens/solution-01/18-Chart-Save.png)
 
@@ -161,7 +161,7 @@ To visualize whether a superhero is good or bad, create a bar chart.
 
       ![image](../../_assets/datalens/solution-01/21-Chart-Color-Set2.png)
 
-1. In the upper-right corner, click **Save**.
+1. In the top right corner, click **Save**.
 
 ## Step 5. Create a dashboard {#step5}
 
@@ -188,7 +188,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
 1. In the window that opens, click **Select** and choose the **SuperHeroes — gender** chart.
 
-   This will automatically fill in the **Title** field.
+   This will automatically fill in the **Name** field.
 
 1. Click **Add**.
 
@@ -210,7 +210,7 @@ Add [selectors](../../datalens/concepts/dashboard.md#selector) to be able to fil
 1. Select the **SuperHeroes dataset**.
 1. Select the **Race** field.
 
-   This will automatically fill in the **Title** field.
+   This will automatically fill in the **Name** field.
 
 1. Click the **Show** checkbox next to the selector title.
 1. Enable the **Multiple choice** option.
@@ -226,7 +226,7 @@ Add [selectors](../../datalens/concepts/dashboard.md#selector) to be able to fil
 
 1. Drag the selectors to the top of the page next to each other.
 1. Stretch the charts by width and place them next to each other.
-1. In the upper-right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
    ![image](../../_assets/datalens/solution-01/30-Dash.png)
 

@@ -145,8 +145,7 @@
   done (1s)
   id: abcd123ef4ghi567j8k9
   folder_id: l1m01nopqr1st2uvwxy1
-  created_at: "2019-11-20T11:26:36Z"
-  name: k8s-demo
+  ...
   description: My test {{ k8s }} cluster
   labels:
     new_label: test_label
@@ -179,8 +178,7 @@
   done (1s)
   id: abcd123ef4ghi567j8k9
   folder_id: l1m01nopqr1st2uvwxy1
-  created_at: "2019-11-20T11:26:36Z"
-  name: k8s-demo
+  ...
   description: My test {{ k8s }} cluster
   labels:
     test_label: my_k8s_label
@@ -209,7 +207,6 @@
   folder_id: b1g88tflru0ek1omtsu0
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test {{ k8s }} cluster
   ...
   ```
 

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Auth/deleteProviders.md
+sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Auth/deleteProviders.md
 ---
 
 # Managed Service for Elasticsearch API, REST: Auth.deleteProviders

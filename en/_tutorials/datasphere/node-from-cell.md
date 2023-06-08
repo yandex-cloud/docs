@@ -35,7 +35,6 @@ For more information, see [{{ ml-platform-full-name }} pricing](../../datasphere
 
 ### Create a folder {#create-folder}
 
-
 Create a folder to store logs of your service.
 
 {% list tabs %}
@@ -79,7 +78,7 @@ In this example, we will use the basic [c1.4 configuration](../../datasphere/con
 
 {% endnote %}
 
-In this example, you will use an image classification model based on [fully connected layers](https://en.wikipedia.org/wiki/Convolutional_neural_network#Fully_connected_layers). The model returns 10 probability values that show how confident the network is about the input image matching a certain class.
+In this example, you will use an image classification model based on [fully connected layers](https://en.wikipedia.org/wiki/Convolutional_neural_network#Fully_connected_layers). The model returns ten probability values that show how confident the network is about the input image matching a certain class.
 
 1. Import the required libraries to the project. To do this, copy and paste the code into the appropriate cell by selecting **Run → Run Selected Cells** or pressing **Shift** + **Enter**. Wait for the operation to complete.
 
@@ -129,7 +128,7 @@ In this example, you will use an image classification model based on [fully conn
 
     ```python
     #!c1.4
-    test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
+    test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
 
     print('\nTest accuracy:', test_acc)
     ```
@@ -145,7 +144,7 @@ In this example, you will use an image classification model based on [fully conn
    A prediction is an array of 10 numbers. They describe the probability of an image match to each of the 10 types of clothes.
 
 1. (Optional) Test the model.
-    * Create functions to display the image being classified and the prediction results in a graphical view:
+    * Create functions to display the image being classified and the prediction results in a graphical view:
 
       ```python
       def plot_image(i, predictions_array, true_label, img):
@@ -194,7 +193,7 @@ In this example, you will use an image classification model based on [fully conn
       plt.subplot(1,2,1)
       plot_image(i, predictions[i], test_labels, test_images)
       plt.subplot(1,2,2)
-      plot_value_array(i, predictions[i],  test_labels)
+      plot_value_array(i, predictions[i], test_labels)
       plt.show()
       ```
 
@@ -249,21 +248,20 @@ In this example, you will use an image classification model based on [fully conn
    1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
    1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
    1. Specify the node parameters:
-      * **Type**: **Cell**.
-      * **Name**: Node name, e.g., `classifier-node`.
-      * In the **Checkpoint** field, select the checkpoint named `checkpoint-for-node`.
-      * Under **Input variables**, click ![Add](../../_assets/plus-sign.svg) **Add** and create a variable with the following parameters:
-         * **Name**: `encoded_images`.
-         * **Type**: `list`.
-      * Under **Output variables**, click ![Add](../../_assets/plus-sign.svg) **Add** and create a variable with the following parameters:
-         * **Name**: `labels`.
-         * **Type**: `list`.
-      * Under **Docker image**, select `Default Python 3.8`.
-   1. Under **Folder**, select `data-folder`.
-   1. Under **Maintenance**, select:
-      * **Instance configuration**: `c1.4`.
-      * **Availability zone**: Set an [availability zone](../../overview/concepts/geo-scope.md), such as `{{region-id}}-a`.
-      * Leave the **subnet ID** empty, as {{ ml-platform-name }} will set the default subnet ID.
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: **{{ ui-key.yc-ui-datasphere.common.cell }}**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name, e.g., `classifier-node`.
+      * In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.checkpoint }}** field, select the checkpoint named `checkpoint-for-node`.
+      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}**, click ![Add](../../_assets/plus-sign.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
+         * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}**: `encoded_images`.
+         * **Type**: `{{ ui-key.yc-ui-datasphere.node-page.type.list }}`.
+      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, click ![Add](../../_assets/plus-sign.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
+         * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}**: `labels`.
+         * **Type**: `{{ ui-key.yc-ui-datasphere.node-page.type.list }}`.
+      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.kernel-docker-image }}**, select `{{ ui-key.yc-ui-datasphere.common.default }} Python 3.8`.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select `data-folder`.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select:
+      * **{{ ui-key.yc-ui-datasphere.new-node.provisioning-form-label.instance-spec }}**: `c1.4`.
+      * Under **{{ ui-key.yc-ui-datasphere.node-page.provisioning.distribution-by-zones }}** settings, you already have the availability zone selected. Leave the **{{ ui-key.yc-ui-datasphere.common.subnet }}** field blank, as {{ ml-platform-name }} will set the default value.
 
          {% note info %}
 

@@ -54,27 +54,27 @@
 
 1. Скачайте Docker-образ из репозитория [Docker Hub](https://hub.docker.com):
 
-   ```
+   ```bash
    docker pull ubuntu
    ```
 
 1. Присвойте скачанному Docker-образу тег вида `{{ registry }}/<ID реестра>/<имя Docker-образа>:<тег>`:
 
-   ```
+   ```bash
    docker tag ubuntu \
    {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
    ```
 
 1. Загрузите Docker-образ в репозиторий {{ container-registry-name }}:
 
-   ```
+   ```bash
    docker push \
    {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
    ```
 
 1. Запустите Docker-образ:
 
-   ```
+   ```bash
    docker run \
    {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
    ```

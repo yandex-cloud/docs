@@ -17,6 +17,8 @@ items:
         href: operations/cluster-stop.md
       - name: Changing cluster settings
         href: operations/update.md
+      - name: Configuring SAML authentication
+        href: operations/saml-authentication.md
       - name: Configuring access to {{ objstorage-name }}
         href: operations/s3-access.md
       - name: Managing host groups

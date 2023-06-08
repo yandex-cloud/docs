@@ -38,10 +38,10 @@ Make sure that the selected folder contains a network with subnets in the `{{ re
 ### Required paid resources {#paid-resources}
 
 The cost of hosting a Joomla-powered website includes:
-* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* A fee for a {{ PG }} DB cluster (see [pricing {{ mpg-full-name }}](../../managed-postgresql/pricing.md)).
-* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a dynamic or static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a {{ PG }} DB cluster (see [pricing {{ mpg-full-name }}](../../managed-postgresql/pricing.md)).
+* Cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
 ## Create a VM for Joomla {#create-vm}
@@ -56,7 +56,7 @@ The cost of hosting a Joomla-powered website includes:
    1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select [CentOS Stream](/marketplace/products/yc/centos-stream-8) as your public image.
    1. Under **Computing resources**:
       * Choose a [platform](../../compute/concepts/vm-platforms.md).
-      * Specify the necessary number of vCPUs and amount of RAM.
+      * Specify the required number of vCPUs and the amount of RAM.
 
       The minimum configuration is enough for functional testing:
       * **Platform**: Intel Ice Lake.
@@ -70,7 +70,7 @@ The cost of hosting a Joomla-powered website includes:
          You will need to create a key pair for the SSH connection yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
    1. Click **Create VM**.
 
-   The VM may take several minutes to create.
+   It may take a few minutes to create the VM.
 
    Once created, the VM is assigned an IP address and a host name (FQDN). This data can be used for SSH access.
 
@@ -98,7 +98,7 @@ The cost of hosting a Joomla-powered website includes:
    1. In the **Hosts** section, add two more hosts in the other availability zones. When creating hosts, do not enable **Public access** to them.
    1. Click **Create cluster**.
 
-   Creating the DB cluster may take several minutes.
+   Creating a DB cluster may take a few minutes.
 
 - {{ TF }}
 
@@ -238,8 +238,9 @@ Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Insta
    1. Open the folder where the DB cluster was created and select **{{ mpg-name }}**.
    1. Select the cluster `joomla-pg-tutorial-db-cluster`.
    1. Open the **Hosts** tab.
-   1. In the **Address (domain name)** column, find the host addresses.
-1. At the **Database** step, fill in the following fields in the Joomla web installer:
+   1. Copy the host addresses from the **Host name** column.
+
+1. At the **Database** step, fill in the following fields  in the Joomla web installer:
    * **Database type**: `{{ PG }}`.
    * **DB server name**:
 
@@ -260,7 +261,8 @@ Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Insta
    sudo restorecon -R /var/www/html
    ```
 
-1. After installation is complete, delete the `Installation` folder. This is a Joomla security requirement:
+1. After the installation is completed, delete the `installation` directory. This is a Joomla security requirement:
+
    ```bash
    sudo rm -rf /var/www/html/installation
    ```
@@ -315,9 +317,9 @@ To check that the site is up, enter its IP address or domain name in your browse
 * `http://<virtual machine public IP address>`.
 * `http://www.example.com`.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 * [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.
 * [Delete](../../managed-postgresql/operations/cluster-delete.md) the {{ mpg-name }} cluster.
@@ -343,7 +345,7 @@ To create infrastructure for your Joomla-based website with a {{ PG }} DB:
       1. Create a directory for the file with the infrastructure description.
       1. In the directory, create a configuration file named `joomla-postgresql-terraform.tf`:
 
-         {% cut "Contents of the joomla-postgresql-terraform.tf file" %}
+         {% cut "joomla-postgresql-terraform.tf" %}
 
          {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-config.md) %}
 
@@ -351,7 +353,7 @@ To create infrastructure for your Joomla-based website with a {{ PG }} DB:
 
       1. In the directory, create a `joomla-postgresql-terraform.auto.tfvars` file with user data:
 
-         {% cut "Contents of the joomla-postgresql-terraform.auto.tfvars file" %}
+         {% cut "joomla-postgresql-terraform.auto.tfvars" %}
 
          {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-variables.md) %}
 

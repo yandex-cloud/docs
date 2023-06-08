@@ -93,7 +93,7 @@ keywords:
 
       * Подтвердите, что карта является корпоративной и вы уполномочены ею распоряжаться.
 
-      {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+      {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
       {% include [yandex-account](../../_includes/billing/payment-card-validation.md) %}
 

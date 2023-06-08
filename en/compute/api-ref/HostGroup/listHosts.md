@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/HostGroup/listHosts.md
+sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/listHosts.md
 ---
 
 # Compute Cloud API, REST: HostGroup.listHosts

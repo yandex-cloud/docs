@@ -43,6 +43,8 @@ items:
             href: operations/projects/control-compute-resources.md
           - name: Проверить загрузку GPU
             href: operations/projects/gpu-performance-check.md
+          - name: Получить идентификаторы ноутбука и ячейки
+            href: operations/projects/get-notebook-cell-ids.md
           - name: Установить пакеты
             href: operations/projects/install-dependencies.md
           - name: Очистить состояние интерпретатора
@@ -171,6 +173,8 @@ items:
         href: tutorials/regular-launch.md
   - name: Справочник API
     items:
+      - name: Обзор
+        href: api-ref/overview.md
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC (англ.)

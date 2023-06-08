@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/setAccessBindings.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/setAccessBindings.md
 ---
 
 # Lockbox API, REST: Secret.setAccessBindings
@@ -10,7 +10,7 @@ Sets access bindings for the secret.
  
 ## HTTP request {#https-request}
 ```
-POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{resourceId}:setAccessBindings
+POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

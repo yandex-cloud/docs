@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Payload/get.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Payload/get.md
 ---
 
 # Lockbox API, REST: Payload.get
@@ -10,7 +10,7 @@ To get the list of all available secrets, make a [list](/docs/lockbox/api-ref/Se
  
 ## HTTP request {#https-request}
 ```
-GET https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/{secretId}/payload
+GET https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}/payload
 ```
  
 ## Path parameters {#path_params}

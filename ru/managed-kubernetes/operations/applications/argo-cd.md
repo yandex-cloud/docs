@@ -23,7 +23,7 @@
 1. Получите пароль администратора (`admin`):
 
    ```bash
-   kubectl --namespace <пространство имен> get secret argocd-initial-admin-secret \
+   kubectl --namespace <пространство_имен> get secret argocd-initial-admin-secret \
      --output jsonpath="{.data.password}" | base64 -d
    ```
 
@@ -31,8 +31,8 @@
 1. Настройте переадресацию порта сервиса ArgoCD на локальный компьютер:
 
    ```bash
-   kubectl port-forward service/<название приложения>-argocd-server \
-     --namespace <пространство имен> 8080:443
+   kubectl port-forward service/<название_приложения>-argocd-server \
+     --namespace <пространство_имен> 8080:443
    ```
 
 1. Перейдите по ссылке `http://localhost:8080` и авторизуйтесь с учетными данными администратора.
@@ -44,16 +44,14 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Argo CD выполните команду:
 
    ```bash
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argoproj/argocd/chart/argo-cd \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_argo-cd.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_argo-cd.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
      argo-cd ./argo-cd/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/argo-cd#docker-images).
 
 ## См. также {#see-also}
 

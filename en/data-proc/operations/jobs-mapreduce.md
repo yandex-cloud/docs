@@ -5,6 +5,8 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
 
 # Managing MapReduce jobs
 
+{% include [MapReduce](../../_includes/data-proc/mapreduce-intro.md) %}
+
 ## Create a job {#create}
 
 {% list tabs %}
@@ -26,7 +28,7 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
 
       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
-    1. (optional) Specify  paths to the additional JAR files, if any.
+    1. (optional) Specify paths to the additional JAR files, if any.
     1. (optional) Configure advanced settings:
       * Paths to the necessary files and archives.
       * **Settings** as `key-value` pairs.
@@ -67,10 +69,10 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
 
 - API
 
-   Use the [create](../api-ref/Job/create) API method and pass the following information in the request:
+   Use the [create](../api-ref/Job/create) API method and include the following information in the request:
 
-   * The cluster ID in the `clusterId` parameter.
-   * Job name, in the `name` parameter.
+   * Cluster ID in the `clusterId` parameter.
+   * Job name in the `name` parameter.
    * Job properties, in the `mapreduceJob` parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list).
@@ -94,3 +96,9 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
 
+
+{% note info %}
+
+To work with MapReduce, you can use the libraries from the `/usr/lib/hadoop-mapreduce/` directory.
+
+{% endnote %}

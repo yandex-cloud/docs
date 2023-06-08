@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/Federation/get.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Federation/get.md
 ---
 
 # Cloud Organization SAML API, REST: Federation.get

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mysql/api-ref/Database/index.md
+sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Database/index.md
 ---
 
 # Managed Service for MySQL API, REST: Database methods

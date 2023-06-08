@@ -12,7 +12,7 @@
 1. Откройте главную страницу вашей инсталляции {{ grafana-name }}.
 1. В главном меню выберите **Configuration → Data Sources**.
 1. Нажмите кнопку **Add data source**.
-1. В разделе **Time series databases** выберите **Prometheus** .
+1. В разделе **Time series databases** выберите **Prometheus**.
 1. В поле **Name** введите имя источника данных. 
 1. В поле **URL**, в разделе **HTTP**, введите [эндпоинт, который получили ранее](../index.md#access).
 1. В разделе **Custom HTTP headers** нажмите кнопку **Add Header** и добавьте заголовок для авторизации. В поле **Header** введите `Authorization`, в поле **Value** — `Bearer <Api-Key>`.

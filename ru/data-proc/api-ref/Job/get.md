@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/Job/get.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/get.md
 ---
 
 # Data Proc API, REST: Job.get

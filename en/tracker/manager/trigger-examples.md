@@ -28,7 +28,7 @@ Here are some examples of how triggers work in {{ tracker-name }}:
 
 It might often be the case that different employees are assigned to perform specific work stages. When an employee has completed their part of the work, they hand over the issue to the next assignee. In {{ tracker-name }}, each issue stage has its own status. When the issue switches over to a certain status, you can use a trigger to automatically set the assignee for the next work stage.
 
-Another way to organize the workflow is to make certain employees responsible for certain work areas. For example, each support employee is responsible for requests relating to their products. To manage this kind of workflow, you can [configure components](components.md) that correspond to specific products. When a certain component is added to an issue, you can use a trigger to automatically set the assignee responsible for the given product.
+Another way to organize the workflow is to set certain employees responsible for certain work areas. For example, each support employee is responsible for requests relating to their products. To manage this kind of workflow, you can [configure components](components.md) so that they correspond to specific products. When a certain component is added to the issue, you can use a trigger to automatically set the assignee responsible for the given product.
 
 Let's set up a trigger to automatically assign the issue:
 
@@ -313,17 +313,17 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
 
    Where:
-   - `<form id>`: ID of the form to add.
+   - `<form_id>`: ID of the form to add.
 
    - `<question_id>`: [ID of the question](../../forms/question-id.md#sec_question).
 
-   - `<value>`: Value to use in the form's field.
+   - `<value>`: Value to use in the form field.
 
       To transfer issue parameters to the form, use [variables](../user/vars.md) as values: at the bottom of the window, click **Add variable** and choose the issue parameter. Then replace the `not_var{{ }}` characters around the name of the variable with `<% %>`.
 
-      For example, to pass the issue key, use the value `<%issue.key%>`. To pass the assignee's login, use `<%issue.assignee.login%>`.
+      For example, to provide the issue key, use the `<%issue.key%>` value. To provide the assignee's login, use `<%issue.assignee.login%>`.
 
-   Here is an example of the code where the issue key is passed to a field of the form.
+   Here is an example of the code where the issue key is provided to a field of the form.
 
    
    ```

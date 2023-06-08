@@ -7,7 +7,7 @@ You can create [_datasets_](dataset/index.md) based on connections.
 The following connection types are available in {{ datalens-short-name }}:
 
 * [{{ CH }}](../operations/connection/create-clickhouse.md)
-* [File (CSV)](../operations/connection/create-file.md)
+* [Files](../operations/connection/create-file.md)
 * [Google Sheets](../operations/connection/create-google-sheets.md)
 * [{{ PG }}](../operations/connection/create-postgresql.md)
 * [{{ MY }}](../operations/connection/create-mysql.md)

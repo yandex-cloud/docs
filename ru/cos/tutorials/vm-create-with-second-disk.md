@@ -99,10 +99,7 @@
         Filesystem  Size  Used  Avail  Use%  Mounted on
         overlay     32G   4.0G    27G   14%  /
         tmpfs       68M      0    68M    0%  /dev
-        tmpfs       1.1G     0   1.1G    0%  /sys/fs/cgroup
-        /dev/vdb    11G    24M   9.9G    1%  /data
-        /dev/vda2   11G   3.1G   7.0G   31%  /data/db
-        shm         68M      0    68M    0%  /dev/shm
+        ...
         tmpfs       1.1G     0   1.1G    0%  /proc/acpi
         tmpfs       1.1G     0   1.1G    0%  /proc/scsi
         tmpfs       1.1G     0   1.1G    0%  /sys/firmware

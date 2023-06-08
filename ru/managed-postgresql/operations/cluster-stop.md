@@ -13,6 +13,12 @@ description: "При необходимости вы можете останов
 
 {% include [cluster-stop](../../_includes/mdb/cluster-stop.md) %}
 
+{% note info %}
+
+Остановить кластер, у которого нет резервных копий, невозможно. Для его остановки [создайте резервную копию](../operations/cluster-backups.md#create-backup).
+
+{% endnote %}
+
 {% list tabs %}
 
 - Консоль управления

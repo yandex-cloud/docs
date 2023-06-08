@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/billing/api-ref/BillingAccount/list.md
+sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/list.md
 ---
 
 # Billing API, REST: BillingAccount.list

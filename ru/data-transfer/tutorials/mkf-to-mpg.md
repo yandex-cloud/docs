@@ -1,3 +1,3 @@
-# Поставка данных из {{ mkf-full-name }} в {{ mpg-full-name }}
+# Поставка данных из очереди {{ KF }} в {{ PG }}
 
 {% include notitle [article-body](../../_tutorials/datatransfer/mkf-to-mpg.md) %}

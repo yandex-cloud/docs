@@ -13,7 +13,7 @@
     * **{{ ui-key.yc-ui-datasphere.docker.repository }}** — имя образа, например `cuda`.
     * **{{ ui-key.yc-ui-datasphere.docker.tag }}** — тег образа, например `1.0.0`.
     * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}** — шаблон скрипта для установки Python: `python_3_7` или `python_3_8`.
-    * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}** — набор инструкций для создания Docker-образа.    
+    * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}** — набор инструкций для создания Docker-образа.
 
       Отредактируйте содержимое поля. Например, чтобы установить пакеты платформы CUDA<sup>®</sup>, потребуется шаблон образа `python_3_8` и следующий код:
 
@@ -46,6 +46,8 @@
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+
+{% include [Docker hub limits](../../_includes/datasphere/dockerhub-limits.md) %}
 
 ## Применить Docker-образ для проекта {#set}
 

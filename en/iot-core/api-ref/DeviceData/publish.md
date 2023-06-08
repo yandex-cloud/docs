@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/devices/api-ref/DeviceData/publish.md
+sourcePath: en/_api-ref/iot/devices/v1/api-ref/DeviceData/publish.md
 ---
 
 # IoT Core Service, REST: DeviceData.publish

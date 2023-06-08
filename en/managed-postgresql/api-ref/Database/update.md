@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/Database/update.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/update.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Database.update

@@ -25,7 +25,7 @@
        # required_matchers:
        # [ <labelname>: <labelvalue> ... ]
    ```
-5. Перезапустите {{ prometheus-name }} или перезагрузите конфигурацию.   
+5. Перезапустите {{ prometheus-name }} или перезагрузите конфигурацию. 
 
 ## Примеры ошибок {#errors}
 

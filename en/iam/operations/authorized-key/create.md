@@ -7,7 +7,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
    1. Click **Create new key** in the top panel.
    1. Click **Create authorized key**.

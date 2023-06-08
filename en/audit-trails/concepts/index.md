@@ -62,4 +62,8 @@ The audit log doesn't capture authentication errors. For example, if a user make
 
 The log captures authorization errors. For example, if a user attempts to create a resource without sufficient privileges, the log will include an error message.
 
-The service also has [quotas and limits](limits.md).
+The service has [quotas and limits](limits.md).
+
+If you upload audit logs to a log group or a data stream, make sure their size is both within the {{ at-name }} limits and the [{{ cloud-logging-full-name }}](../../logging/concepts/limits.md) and [{{ yds-full-name }}](../../data-streams/concepts/limits.md) limits. If the limits are exceeded, information in event audit logs that are large in size will be incomplete.
+
+We also recommend uploading audit logs to the {{ objstorage-name }} bucket.

@@ -17,3 +17,6 @@ description: "Различные сценарии использования {{ 
 
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
 * [{#T}](ci-cd-serverless.md)
+
+
+* [{#T}](image-storage.md)

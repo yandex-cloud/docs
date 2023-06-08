@@ -15,8 +15,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Выберите сервис **{{ mrd-name }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Шарды**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
 
 - CLI
 
@@ -83,16 +83,15 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, в который нужно добавить шард.
-  1. Выберите сервис **{{ mrd-name }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Шарды**.
-  1. Нажмите кнопку **Добавить шард**.
-  1. Укажите **Имя шарда**.
-  1. В блоке **Хосты**:
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
+  1. Укажите **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
      * (опционально) Отредактируйте настройки хоста.
-	 * Нажмите **Добавить хост**.
-	 * В открывшемся окне выберите **Зону доступности**, **Подсеть** и включите опцию **Публичный доступ**.
-     * Нажмите **Сохранить**.
-  1. Нажмите кнопку **Создать шард**.
+     * Нажмите **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+     * В поле **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** выберите зону доступности, выберите **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** и включите опцию **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI
 
@@ -177,10 +176,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, из которого нужно удалить шард.
-  1. Выберите сервис **{{ mrd-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
-  1. В строке нужного шарда нажмите значок ![image](../../_assets/options.svg) и выберите **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
+  1. В строке нужного шарда нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
 - CLI
 
@@ -237,13 +236,13 @@
 
   Чтобы ребалансировать кластер:
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластер.
-  1. Выберите сервис **{{ mrd-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера.
-  1. На вкладке **Обзор** нажмите кнопку **Ребалансировать**.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster-short }}**.
 
   {% note tip %}
 
-  Также можно ребалансировать кластер с помощью кнопки **Ребалансировать кластер** на вкладке **Шарды**.
+  Также можно ребалансировать кластер с помощью кнопки **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster }}** на вкладке **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
 
   {% endnote %}
 

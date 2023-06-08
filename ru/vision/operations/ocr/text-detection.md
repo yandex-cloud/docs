@@ -2,7 +2,7 @@
 
 Чтобы распознать текст с изображения или из PDF-файла, воспользуйтесь возможностью [Распознавание текста](../../concepts/ocr/index.md).
 
-Для этого в методе [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `TEXT_DETECTION`, а в свойстве `textDetectionConfig` задайте настройки распознавания.
+Для этого в методе [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `TEXT_DETECTION`, а в свойстве `textDetectionConfig` задайте настройки распознавания.
 
 ## Примеры {#examples}
 

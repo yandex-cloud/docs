@@ -1,4 +1,6 @@
-Вы можете настроить асинхронную репликацию данных из {{ mpg-full-name }} в {{ yds-full-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
+Вы можете отслеживать изменения данных в _кластере-источнике_ {{ mpg-name }} и отправлять их в _кластер-приемник_ {{ yds-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
+
+Чтобы настроить CDC с использованием сервиса {{ data-transfer-name }}:
 
 1. [Подготовьте трансфер](#prepare-transfer).
 1. [Активируйте трансфер](#activate-transfer).
@@ -17,7 +19,6 @@
     1. [Создайте кластер-источник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-postgresql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль пользователя>`.
 
     
     1. Настройте [группы безопасности](../../managed-postgresql/operations/connect.md#configuring-security-groups) и убедитесь, что они допускают подключение к кластеру.
@@ -109,9 +110,9 @@
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя кластера-источника {{ PG }}>` из выпадающего списка.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}** — `db1`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}** — `pg-user`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}** — `<пароль пользователя>`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}** — пароль пользователя `pg-user`.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
 
     * С помощью {{ TF }}
 
@@ -154,38 +155,40 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
+{% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
+
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-* [Деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-STOPPED }}_**.
-* [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-* [Удалите поток данных {{ yds-name }}](../../data-streams/operations/manage-streams.md#delete-data-stream).
-* Удалите трансфер, эндпоинт-источник, кластер {{ mpg-name }} и базу {{ ydb-name }}:
+1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите поток данных {{ yds-name }}](../../data-streams/operations/manage-streams.md#delete-data-stream).
 
-    {% list tabs %}
+Остальные ресурсы удалите в зависимости от способа их создания:
 
-    * Вручную
+{% list tabs %}
 
-        * [Трансфер](../../data-transfer/operations/transfer.md#delete).
-        * [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
-        * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
-        * [Базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+* Вручную
 
-    * С помощью {{ TF }}
+    * [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
+    * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
+    * [Базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
 
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `postgresql-yds.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+* С помощью {{ TF }}
 
-            ```bash
-            terraform validate
-            ```
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Удалите конфигурационный файл `postgresql-yds.tf`.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        ```bash
+        terraform validate
+        ```
 
-        1. Подтвердите изменение ресурсов.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+    1. Подтвердите изменение ресурсов.
 
-            Все ресурсы, которые были описаны в конфигурационном файле `postgresql-yds.tf`, будут удалены.
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    {% endlist %}
+        Все ресурсы, которые были описаны в конфигурационном файле `postgresql-yds.tf`, будут удалены.
+
+{% endlist %}

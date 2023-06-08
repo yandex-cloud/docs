@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/move.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/move.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster.move

@@ -28,7 +28,7 @@ links:
     href: concepts/
   - title: Document API
     description: >-
-      Узнайте как работать с базами данных через Document API, совместимый с
+      Узнайте, как работать с базами данных через Document API, совместимый с
       Amazon DynamoDB
     href: docapi/tools/aws-setup
   - title: Справочник API (англ.)

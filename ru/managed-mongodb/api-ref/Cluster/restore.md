@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/restore.md
+sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/restore.md
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.restore
