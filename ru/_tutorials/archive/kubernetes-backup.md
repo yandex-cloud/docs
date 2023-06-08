@@ -24,7 +24,7 @@
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Выберите [версию клиентской части Velero](https://github.com/vmware-tanzu/velero/releases) версии `1.10.3` или выше для своей платформы согласно [таблице совместимости]([https://github.com/vmware-tanzu/velero/releases](https://github.com/vmware-tanzu/velero#velero-compatibility-matrix)).
+1. Выберите [клиентскую часть Velero](https://github.com/vmware-tanzu/velero/releases) версии `1.10.3` или выше для своей платформы согласно [таблице совместимости](https://github.com/vmware-tanzu/velero#velero-compatibility-matrix).
 1. Скачайте клиентскую часть Velero, распакуйте архив и установите программу. Подробнее об установке программы читайте в [документации Velero](https://velero.io/docs/v1.10/basic-install/#install-the-cli).
 1. Посмотрите описание любой команды Velero:
 
