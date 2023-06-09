@@ -8,15 +8,15 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создано файловое хранилище.
-     1. Выберите сервис **{{ compute-name }}**.
-     1. На панели слева выберите ![image](../../../_assets/compute/storage.svg) **Файловые хранилища**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева выберите ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
      1. Выберите нужное хранилище.
-     1. Перейдите на вкладку **Виртуальные машины**.
-     1. Нажмите кнопку **Подключить к ВМ**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}**.
+     1. Нажмите кнопку ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
      1. В открывшемся окне:
-        1. Выберите **Виртуальную машину**.
-        1. Укажите **Имя устройства**, под которым файловое хранилище будет доступно в ВМ.
-        1. Нажмите кнопку **Подключить к ВМ**.
+        1. Выберите виртуальную машину.
+        1. Укажите имя устройства, под которым файловое хранилище будет доступно в ВМ.
+        1. Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
 
    - API
 

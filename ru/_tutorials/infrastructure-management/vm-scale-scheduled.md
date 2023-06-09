@@ -38,16 +38,16 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
-  1. Введите **Имя** `vm-scale-scheduled-sa`.
-  1. В поле **Роли в каталоге** добавьте следующие [роли](../../iam/concepts/access-control/roles.md):
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `vm-scale-scheduled-sa`.
+  1. Нажмите ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md):
  
      * `compute.admin` — для управления группой ВМ.
      * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ, входящим в группу.
-     * `serverless.functions.invoker` — для запуска функции {{ sf-name }}.
+     * `{{ roles-functions-ivoker }}` — для запуска функции {{ sf-name }}.
    
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
 
@@ -126,11 +126,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. Нажмите кнопку **Создать сеть**.
-  1. Введите **Имя** `vm-scale-scheduled-network`.
-  1. Выберите дополнительную опцию **Создать подсети**.
-  1. Нажмите кнопку **Создать сеть**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `vm-scale-scheduled-network`.
+  1. Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 - CLI
 
@@ -219,51 +219,51 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **Группы виртуальных машин**.
-  1. Нажмите кнопку **Создать группу**.
-  1. В блоке **Базовые параметры**:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
      
-     * Введите **Имя** группы `vm-scale-scheduled-ig`.
-     * Выберите **Сервисный аккаунт** `vm-scale-scheduled-sa`.
+     * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите `vm-scale-scheduled-ig`.
+     * Выберите **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `vm-scale-scheduled-sa`.
    
-  1. В блоке **Распределение** выберите **Зоны доступности** `{{ region-id }}-a` и `{{ region-id }}-b`.
-  1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать**:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите `{{ region-id }}-a` и `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и в открывшемся окне:
      
-     * В блоке **Выбор образа/загрузочного диска** на вкладке **Операционные системы** выберите **Ubuntu 20.04**.
-     * В блоке **Вычислительные ресурсы** укажите следующие настройки:
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** выберите `Ubuntu 20.04`.
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите следующие настройки:
        
-       * **Платформа** — Intel Ice Lake.
-       * **vCPU** — 2.
-       * **Гарантированная доля vCPU** — 20%.
-       * **RAM** — 2 ГБ.
+       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       
-     * В блоке **Сетевые настройки** 
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** 
        
-       * Выберите **Сеть** `vm-scale-scheduled-network`.
-       * В поле **Публичный адрес** выберите `Без адреса`.
+       * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** выберите `vm-scale-scheduled-network`.
+       * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
       
-     * В блоке **Доступ**:
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
        
-       * Выберите **Сервисный аккаунт** `vm-scale-scheduled-sa`.
-       * В поле **Логин** укажите имя пользователя, который будет создан на ВМ. Придумайте имя самостоятельно.
-       * В поле **SSH-ключ** вставьте содержимое файла открытого ключа [SSH](../../glossary/ssh-keygen.md). Создать пару ключей можно по [инструкции](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+       * В поле **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** выберите `vm-scale-scheduled-sa`.
+       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите имя пользователя, который будет создан на ВМ. Придумайте имя самостоятельно.
+       * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа [SSH](../../glossary/ssh-keygen.md). Создать пару ключей можно по [инструкции](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
       
-     * Нажмите кнопку **Сохранить**.
+     * Нажмите **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    
-  1. В блоке **В процессе создания и обновления разрешено** укажите следующие настройки:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}** укажите следующие настройки:
  
-     * **Добавлять выше целевого значения** — `2`. 
-     * **Уменьшать относительно целевого значения** — `2`.
-     * **Одновременно создавать** — `2`.
-     * **Одновременно останавливать** — `2`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** — `2`. 
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}** — `2`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}** — `2`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}** — `2`.
  
-  1. В блоке **Масштабирование**:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}**:
  
-     * Выберите **Тип** `Фиксированный`.
-     * Введите **Размер** `2`.
+     * В поле **{{ ui-key.yacloud.compute.groups.create.field_scale-type }}** выберите `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}`.
+     * Укажите **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** `2`.
  
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
  
@@ -400,29 +400,29 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. Выберите сервис **{{ sf-name }}**.
-  1. Нажмите кнопку **Создать функцию**.
-  1. Введите **Имя** `vm-scale-scheduled-function`.
-  1. Нажмите кнопку **Создать**.
-  1. Выберите среду выполнения **Bash**.
-  1. Включите опцию **Добавить файлы с примерами кода**.
-  1. Нажмите кнопку **Продолжить**.
-  1. В блоке **Редактор** выберите файл `handler.sh`.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.item-form.field_name }}** укажите `vm-scale-scheduled-function`.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+  1. Выберите среду выполнения **{{ ui-key.yacloud.serverless-functions.item.editor.label_lang-bash }}**.
+  1. Включите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите файл `handler.sh`.
   1. Вставьте вместо содержимого файла следующий код:
 
      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
      
-  1. В блоке **Параметры**: 
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**: 
      
-     * В поле **Таймаут, с** укажите значение `60`.
-     * В поле **Сервисный аккаунт** выберите `vm-scale-scheduled-sa`.
-     * В поле **Переменные окружения** добавьте следующие переменные:
+     * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** укажите значение `60`.
+     * В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** выберите `vm-scale-scheduled-sa`.
+     * В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** добавьте следующие переменные:
 
        * `IG_NAME` = `vm-scale-scheduled-ig`.
        * `IG_BASE_SIZE` = `2`.
        * `FOLDER_ID` = идентификатор каталога. Получить идентификатор можно по [инструкции](../../resource-manager/operations/folder/get-id.md).
 
-  1. В правом верхнем углу нажмите кнопку **Создать версию**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 
@@ -513,24 +513,24 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. Выберите сервис **{{ sf-name }}**.
-  1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **Триггеры**.
-  1. Нажмите кнопку **Создать триггер**.
-  1. В блоке **Базовые параметры**:
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
      
-     * Введите **Имя** `vm-scale-scheduled-trigger`.
-     * Выберите **Тип** `Таймер`.
-     * В поле **Запускаемый ресурс** выберите `Функция`.
+     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** укажите `vm-scale-scheduled-trigger`.
+     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
    
-  1. В блоке **Настройки таймера** укажите **Cron-выражение** `*/2 * * * ? *` — триггер будет срабатывать каждые две минуты, например в 09:58, 10:00, 10:02, 10:04 и т. д.
-  1. В блоке **Настройки функции**:
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}** в поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** укажите `*/2 * * * ? *` — триггер будет срабатывать каждые две минуты, например в 09:58, 10:00, 10:02, 10:04 и т. д.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
  
-     * Выберите **Функцию** `vm-scale-scheduled-function`.
-     * Выберите **Тег версии функции** `$latest`.
-     * Выберите **Сервисный аккаунт** `vm-scale-scheduled-sa`.
+     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}** укажите `vm-scale-scheduled-function`.
+     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** выберите `$latest`.
+     * Выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** `vm-scale-scheduled-sa`.
  
-  1. В блоке **Настройки Dead Letter Queue** очистите поле **Сервисный аккаунт** (`Не выбрано`).
-  1. Нажмите кнопку **Создать триггер**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** очистите поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_dlq_service-account }}** (`{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`).
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -579,10 +579,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **Группы виртуальных машин**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Выберите группу `vm-scale-scheduled-ig`.
-  1. Убедитесь, что в блоке **Состояния виртуальных машин** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке ![image](../../_assets/mdb/operations.svg) **Операции**.
+  1. Убедитесь, что в блоке **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.compute.group.switch_operations }}**.
   
 
 - CLI

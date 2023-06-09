@@ -6,26 +6,27 @@
 
 - Консоль управления
 
-  Чтобы создать подсеть:
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать подсеть.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. Нажмите на имя облачной сети.
-  1. Нажмите кнопку **Добавить подсеть**.
-  1. Укажите название подсети.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите название подсети.
 
      {% include [name-format](../../_includes/name-format.md) %}
-	 
-  1. (опционально) Укажите описание.
-  1. Выберите зону доступности из выпадающего списка.
-  1. Введите CIDR подсети: IP-адрес и маску подсети. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../concepts/network.md). 
-     Если нужно указать еще один или несколько CIDR, нажмите кнопку **Добавить CIDR**.
-  1. (опционально) Задайте **Настройки DHCP**. Для этого:
-      1. Укажите домен DNS для поиска неквалифицированных имен.
-      1. В поле **DNS-серверы** нажмите кнопку **Добавить DNS-сервер** и укажите адрес вашего [DNS-сервера](../../glossary/dns.md#dns-server). Можно указать несколько DNS-серверов.
-      1. В поле **NTP-серверы** нажмите кнопку **Добавить NTP-сервер** и укажите адрес вашего NTP-сервера. Можно указать несколько NTP-серверов.
+
+  1. (опционально) В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** добавьте описание.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности из выпадающего списка.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** укажите облачную сеть. Она должна быть создана заранее.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** введите IP-адрес и маску подсети. 
+     Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../concepts/network.md). 
+     Если нужно указать еще один или несколько CIDR, нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+  1. (опционально) Задайте **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**. Для этого:
+      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** укажите домен DNS для поиска неквалифицированных имен.
+      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}** нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-domain-name-server }}** и укажите адрес вашего [DNS-сервера](../../glossary/dns.md#dns-server). Можно указать несколько DNS-серверов.
+      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ntp-servers }}** нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** и укажите адрес вашего NTP-сервера. Можно указать несколько NTP-серверов.
  
 
-  1. Нажмите кнопку **Создать подсеть**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
 - CLI
 

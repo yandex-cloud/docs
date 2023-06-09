@@ -38,7 +38,7 @@
 
   Варианты настройки:
 
-  * [Создание туннеля IPSec VPN с использованием демона strongSwan](../../tutorials/routing/ipsec-vpn.md).
+  * [Создание туннеля IPSec VPN с использованием демона strongSwan](../../tutorials/routing/ipsec/index.md).
   * ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
 
 * Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе [образа](/marketplace?categories=network) из {{ marketplace-name }}. См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md).

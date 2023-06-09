@@ -13,11 +13,11 @@
   Чтобы переместить [группу безопасности](../concepts/security-groups.md) в другой каталог:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится группа безопасности.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**.
-  1. Нажмите значок ![image](../../_assets/options.svg) в строке группы, которую требуется переместить, и выберите **Переместить**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. Нажмите значок ![image](../../_assets/options.svg) в строке группы, которую требуется переместить, и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. В выпадающем списке выберите каталог назначения.
-  1. Нажмите кнопку **Переместить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
 - CLI
 

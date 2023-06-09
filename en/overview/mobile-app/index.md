@@ -4,7 +4,7 @@ With the {{ yandex-cloud }} mobile app, you can:
 * View information about your resources.
 * Manage funds in your personal account: check the balance, view details, and top up your account.
 * Monitor failures or changes in the resource status.
-* Contact technical support.
+* Contact the support service and get notifications for new responses received.
 * Keep up to date with the latest {{ yandex-cloud }} news and event announcements.
 
 ## Access to the mobile app {#how}

@@ -12,21 +12,17 @@
 
 - Консоль управления
 
-   Чтобы изменить тип публичного IP-адреса с динамического на статический:
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный адрес.
-   1. В списке сервисов выберите **{{ vpc-name }}**.
-   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **IP-адреса**.
-   1. Нажмите значок ![image](../../_assets/options.svg) в строке адреса, который вы хотите сделать статическим.
-   1. В открывшемся меню выберите пункт **Сделать статическим**.
-   1. В открывшемся окне нажмите кнопку **Изменить**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Нажмите ![image](../../_assets/options.svg) в строке нужного адреса и выберите **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
+   1. В открывшемся окне нажмите **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
 
 - CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   Чтобы изменить тип публичного IP-адреса с динамического на статический:
 
    1. Просмотрите описание команд CLI для изменения атрибутов адреса:
 

@@ -32,7 +32,7 @@
 Для настройки сетевого взаимодействия между разными площадками и внешними облаками используйте Site-to-Site [VPN](../../glossary/vpn.md). Так можно обезопасить ваши приложения от несанкционированного доступа и исключить доступ к ним извне. Также это поможет сэкономить на использовании публичных IP-адресов: вам будет необходим только один публичный IP-адрес для VPN-подключения.
 
 Подробнее:
-* [{#T}](../../tutorials/routing/ipsec-vpn.md).
+* [{#T}](../../tutorials/routing/ipsec/index.md).
 * [Настройка VPN с облаком Azure](https://github.com/yandex-cloud/yc-solution-library-for-azure/tree/main/Yandex-Azure%20VPN).
 * [Настройка VPN с облаком AWS](https://github.com/yandex-cloud/yc-solution-library-for-aws/tree/main/VPN/modules/vpn).
 

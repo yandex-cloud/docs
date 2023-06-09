@@ -729,6 +729,8 @@ default:
   taas: TaaS
   ml-project-size: 10 GB
   jlab: Jupyter
+  dd: Dedicated
+  ds: Serverlesss
   ds-api-addr: datasphere.api.cloud.yandex.net:443
   api-host-sk: api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
@@ -42556,6 +42558,9 @@ default:
         section_x: X
         section_y: 'Y'
     yacloud_monitoring:
+      actions:
+        common:
+          apply: Apply
       alert-template:
         threshold-status:
           alarm: Alarm
@@ -42632,6 +42637,7 @@ default:
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
           switch_detail: Usage details
+          switch_offers: Commitments
       cdn:
         button_add-domain: Add domain name
         button_resource-content-purge-cache: Purge cache
@@ -42684,6 +42690,11 @@ default:
         edit: Edit
         id: ID
         import: Import
+        label_auto: Auto
+        label_key: Key
+        label_list: List
+        label_value: Value
+        logs: Logs
         monitoring: Monitoring
         name: Name
         operations-key-value: Operations
@@ -42694,51 +42705,305 @@ default:
           button_add-federation-user: Add federation user
         save: Save
         section-base: General information
+        select: Select
+        start: Start
+        stop: Stop
         type: Type
+        units:
+          label_gigabyte: GB
+          label_time-min_many: minutes
+          label_time-min_zero: minutes
+          label_time-sec_many: seconds
       component:
         compute:
           network-select:
+            field_address: IP address
+            field_advanced: Advanced
+            field_ddos-protection-provider: DDoS protection
             field_external: Public IP
             field_internal-ipv4: Internal IPv4 address
             field_security-groups: Security groups
+            field_subnetwork: Subnet
             switch_auto: Auto
+            switch_list: List
+            switch_manual: Manual
+            switch_none: No address
           one-to-one-nat-form:
             button_submit: Add
+            field_ddos-protection-provider: DDoS protection
             field_external-type: Public address
             switch_auto: Auto
+            switch_list: List
           resources:
+            field_core-fraction: Guaranteed vCPU performance
+            field_cores: vCPU
+            field_memory: RAM
+            field_platform: Platform
+            field_preemptible: Preemptible
             label_sw-accelerated-net: Software accelerated network
         console-dashboard:
           button_action-create-folder: Create folder
         dns-integration:
           button_add-domain: Create record
+        image-field:
+          button_custom-image: Enter link
         mdb:
           settings:
             popup_settings-submit: Save
+        service-account-select:
+          label_no-service-account: Not selected
         symmetric-key-select:
           button_create-key: Create key
           button_create-key-new: Create new key
           label_no-symmetric-key: Not selected
+        vpc-security-group-select:
+          label_add-security-group: Add security group
+        vpc:
+          create-network-dialog:
+            button_create: Create
+            field_advanced: Advanced
+            field_is-default: Create subnets
+          create-subnetwork-dialog:
+            button_create: Create
+          network-select:
+            button_create-network: Create network
+            button_create-subnetwork: Add subnet
       compute:
+        attach-disk:
+          button_attach: Attach
+          field_auto-delete: Delete automatically
+          field_instance: VM
+        disks:
+          button_action-attach: Attach
+          button_action-delete: Delete
+          button_action-detach: Detach
+          button_action-edit: Edit
+          button_action-image: Create image
+          button_action-snapshot: Create snapshot
+          button_create: Create disk
+          create:
+            button_create: Create disk
+          edit:
+            button_update: Save changes
+          popup_detach-disk_button_detach: Detach
+          popup-confirm_button_delete: Delete
+        group:
+          edit:
+            label_title: Changing an instance group
+          overview:
+            section_instances-state: VM states
+          switch_instances: List of VMs
+          switch_logs: Logs
+          switch_monitoring: Monitoring
+          switch_operations: Operations
+        groups:
+          button_action-delete: Delete
+          button_action-edit: Edit
+          button_action-pause: Pause
+          button_action-resume: Resume
+          button_action-start: Start group
+          button_action-stop: Stop group
+          button_create: Create group
+          create:
+            button_create: Create
+            button_edit: Save
+            button_instance_empty-create: Define
+            field_auto-scale-type: Autoscaling type
+            field_cooldown-duration: Stabilization period
+            field_deletion-protection: Deletion protection
+            field_deploy-max-creating: Create simultaneously
+            field_deploy-max-deleting: Stop simultaneously
+            field_deploy-max-expansion: Add above target value
+            field_deploy-max-unavailable: Reduce below target value
+            field_deploy-startup-duration: Startup duration
+            field_deploy-strategy: Stop VMs by strategy
+            field_description: Description
+            field_enable-health-check: Activate
+            field_folder-id: Folder ID
+            field_initial-size: Initial group size
+            field_max-size: Maximum group size
+            field_measurement-duration: Utilization measurement period
+            field_metric: Metric
+            field_metric-labels: Labels
+            field_metric-name: Metric name
+            field_metric-rule-type: Rule type
+            field_metric-target: Target
+            field_metric-type: Metric type
+            field_min-zone-size: Minimum number of instances per zone
+            field_name: Name
+            field_scale-size: Size
+            field_scale-type: Type
+            field_service-account: Service account
+            field_target-group-attached: Create target group
+            field_target-group-name: Name of the target group
+            field_warmup-duration: Instance warmup period
+            field_zone: Availability zone
+            label_custom-metrics: Metrics
+            metric-type-cpu: CPU
+            metric-type-custom: Custom
+            section_alb: Integration with Application Load Balancer
+            section_allocation: Allocation
+            section_base: Basic parameters
+            section_deploy: Allow when creating and updating
+            section_health-check: Health checks
+            section_instance: Instance template
+            section_scale: Scaling
+            section_variables: User-defined variables
+            section_ylb: Integration with Network Load Balancer
+            value_scale-auto: Automatic
+            value_scale-fixed: Fixed
+            value_scale-fixed-test-auto: Fixed with automatic dry-run
+            value_scale-regional: Regional
+            value_scale-zonal: Zonal
+            value_strategy-opportunistic: Opportunistic
+            value_strategy-proactive: Proactive
+          popup-confirm_button_delete: Delete
+          popup-confirm_button_pause: Pause
+          popup-confirm_button_resume: Resume
+          popup-confirm_button_start: Start
+          popup-confirm_button_stop: Stop
+        images:
+          button_action-delete: Delete
+          button_action-image: Create image
+          button_upload: Upload image
+          column_id: ID
+          popup-confirm_button_delete: Delete
+          popup-upload_button_upload: Upload
+          popup-upload_field_pooled: Optimize for deployment
         instance:
+          console:
+            connect: Connect
+          edit-network-interface:
+            field_security-groups-ids: Security groups
           edit:
             button_update: Save changes
           overview:
+            button_action-edit: Edit VM
+            button_action-stop: Stop
             button_add-public-ip: Add public IP address
+            button_edit-network-interface: Edit network interface
+            button_remove-public-ip: Disassociate public IP address
             label_network-interface: Network interface
+            label_public-ipv4: Public IPv4
+            popup-confirm_button_remove-one-to-one-nat: Delete
+            section_network: Network
+          service-console:
+            raw-mode: Raw mode
+          stop-dialog:
+            button_stop: Stop
+          switch_console: Serial console
+          switch_disks: Disks
+          switch_file-storages: File storages
+          switch_monitoring: Monitoring
+          switch_operations: Operations
+          switch_overview: Overview
+          switch_service-console: Serial port
         instances:
+          button_action-restart: Restart
           button_action-start: Start
           button_action-stop: Stop
+          button_create: Create VM
+          button_gr-action-delete: Delete
+          button_gr-action-stop: Stop
+          create-disk:
+            button_create: Add
+            field_additional: Advanced
+            field_auto-delete: Delete with the VM
+            field_source: Contents
+            value_network-hdd: HDD
+            value_network-ssd: SSD
+            value_network-ssd-nonreplicated: Non-replicated SSD
+            value_source-disk: Disk
+            value_source-image: Image
+            value_source-snapshot: Snapshot
           create:
+            button_choose: Choose
+            button_create: Create VM
+            button_create-subnetwork-new: Create subnet
+            button_net_empty-create: Create a network
+            column_disk-size: Size
+            field_access-advanced: Advanced
+            field_coi-image: Docker image
+            field_coi-name: Name
+            field_instance-group-address: Public address
+            field_instance-group-network: Network
             field_key: SSH key
+            field_name: Name
+            field_password: Password
+            field_serial-port-enable: Grant access to serial console
+            field_service-account: Service account
             field_user: Login
+            field_zone: Availability zone
+            image_button_show-all-os-products: Show all products
+            image_button_show-all-products: Show more
+            image_coi_label_empty-button: Configure
+            image_value_coi: Container Solution
+            image_value_custom: Custom
+            image_value_marketplace: Cloud Marketplace
             image_value_os-products: Operating systems
+            label_add-disk: Add disk
+            label_backup: Backups
             section_access: Access
+            section_base: Basic parameters
+            section_coi: Docker container settings
+            section_disk: Disks
             section_image: Image/boot disk selection
             section_network: Network settings
+            section_placement: Placement
             section_platform: Computing resources
+            section_storages: Disks
+            section_storages_ru: Disks and file storages
+            value_address-auto: Auto
+            value_address-none: No address
+          label_title: Virtual machines
+          popup-confirm_button_delete: Delete
+          popup-confirm_button_gr-stop: Stop
+          popup-confirm_button_restart: Restart
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
+        nfs:
+          button_attach-filesystem-to-the-instance: Attach file storage
+          button_attach-instance-to-the-filesystem: Attach to VM
+          button_create-filesystem: Create file storage
+          button_detach-instance-from-the-filesystem: Detach file storage
+          label_attached-instances: Virtual machines
+          label_filesystems: File storages
+        placement-group:
+          switch_disks: List of disks
+        placement-groups:
+          button_create: Create
+          button_create-disk-pg: Non-replicated disk placement group
+          create:
+            button_create: Create
+          label_tab-disks: Non-replicated disk placement groups
+        snapshots-schedules:
+          action_attach-disk: Add disk
+          action_detach-disk: Delete from schedule
+          action_detach-schedule: Detach from disk
+          action_edit-disk-schedules: Edit snapshot schedules
+          label_custom: By cron expression
+          label_daily: By day
+          label_empty-retention-policy: Store all snapshots
+          label_hourly: By hour
+          label_schedule-policy: Create snapshots
+          label_start-at: Starting on
+          label_title: Snapshot schedules
+          label_weekly: By week
+          message_store-last-begin_many: Only the last
+          title_snapshot-schedule-disks: Disks
+        snapshots:
+          list:
+            button_action-delete: Delete
+            button_action-image: Create image
+            popup-confirm_button_delete: Delete
+        switch_disks: Disks
+        switch_file-storages: File storages
+        switch_groups: Instance groups
+        switch_images: Images
+        switch_instances: Virtual machines
+        switch_operations: Operations
+        switch_placement-groups: Placement groups
+        switch_snapshots: Snapshots
       cr:
         image:
           label_last-scan-time: Date of last scan
@@ -42789,13 +43054,17 @@ default:
         jobs:
           field_main-python-file: Main python file
       dns:
+        button_add-record: Add record
         button_record-set-create: Create record
         button_zone-create: Create zone
         label_additional-settings: Additional settings
+        label_auto-select-zone: Detect automatically
+        label_dns-internal-settings: DNS settings for internal addresses
         label_form-ttl: TTL (in seconds)
         label_public: Public
         label_zone: Zone
       forms:
+        label_form-list: List
         label_service-account-select: Service account
       greenplum:
         action_expand-open: Expand cluster
@@ -42810,12 +43079,17 @@ default:
           folders-create:
             button_create: Create
             field_default-net: Create a default network
+          folders:
+            section_folders: Folders
+          overview:
+            label_id: ID
           quotas:
             label_quota-name-mdb:
               hdd:
                 size: HDD storage capacity
               ssd:
                 size: SSD storage capacity
+          switch_overview: Overview
         folder:
           dashboard:
             button_add: Create resource
@@ -42827,19 +43101,24 @@ default:
             label_datasphere: DataSphere
             label_dns: Cloud DNS
             label_kms: Key Management Service
+            label_load-balancer: Network Load Balancer
             label_load-testing: Load Testing
             label_lockbox: Lockbox
+            label_logging: Cloud Logging
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
+            label_message-queue: Message Queue
             label_monitoring: Monitoring
             label_serverless-functions: Cloud Functions
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
+            value_compute: Virtual machine instance
             value_data-proc: Data Proc cluster
             value_data-transfer: Data Transfer
+            value_vpc: Network
           service-account:
             label_add-role: Add role
             overview:
@@ -42847,11 +43126,15 @@ default:
               button_create_key: Create authorized key
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
+              field_key-description: Description
+              label_id: ID
               popup-key_button_create: Create
             popup-robot_button_add: Create
             popup-robot_field_name: Name
           service-accounts:
+            button_action-delete: Delete
             button_add: Create service account
+            popup-confirm_button_delete: Delete
           switch_service-accounts: Service accounts
       k8s:
         cluster:
@@ -42866,6 +43149,31 @@ default:
         symmetric-keys:
           button_create: Create
           button_empty-create: Create key
+      load-balancer:
+        network-load-balancer:
+          button_create: Create a network load balancer
+          column_ip-address: IP address
+          form:
+            button_create-target-group: Create target group
+            field_listener-name: Name
+            field_listener-port: Port
+            field_listener-target-port: Target port
+            label_add-listener: Add listener
+            label_add-target-group: Add target group
+            label_address-type: Public address
+            label_edit-health-check: Configure
+            label_target-group-id: Target group
+            section_listeners: Listeners
+            section_target-groups: Target groups
+          label_health-check: Health check
+          label_health-check-healthy-threshold: Healthy threshold
+          label_health-check-interval: Interval in sec
+          label_health-check-name: Name
+          label_health-check-path: Path
+          label_health-check-port: Port
+          label_health-check-protocol: Type
+          label_health-check-timeout: Timeout in sec
+          label_health-check-unhealthy-threshold: Unhealthy threshold
       load-testing:
         button_add-bucket: Link bucket
         button_add-overload-test-id: Add ID
@@ -42905,6 +43213,8 @@ default:
           label_key: Key
           label_value: Value
           section_version: Version
+      marketplace-v2:
+        button_use: Use
       mdb:
         cluster:
           backups:
@@ -42970,7 +43280,9 @@ default:
           button_edit: Save changes
           button_restore: Restore cluster
           config_field_bucket: Bucket name
+          config_field_form-bucket-type: Bucket ID format
           config_field_initialization-action: Custom scripts
+          config_field_network: Network
           config_field_password: Password
           config_field_properties: Properties
           config_field_public-keys: SSH key
@@ -43033,6 +43345,8 @@ default:
       serverless-functions:
         create:
           button_create: Create
+        item-form:
+          field_name: Name
         item:
           editor:
             button_action-continue: Continue
@@ -43042,8 +43356,10 @@ default:
             field_environment-variables: Environment variables
             field_resources-memory: Memory
             field_timeout: Timeout, sec
+            label_lang-bash: Bash
             label_lang-python: Python
             label_lockbox-secret: Yandex Lockbox secrets
+            label_title: Editor
             label_title-params: Parameters
             label_with-template: Add files with code examples
             value_method-editor: Code editor
@@ -43060,15 +43376,20 @@ default:
             button_create-function: Create function
             button_create-trigger: Create trigger
             field_bucket: Bucket
+            field_cron-expression: Cron expression
+            field_dlq_service-account: Service account
             field_event-types: Event types
             field_function: Function
             field_function_service-account: Service account
+            field_function-tag: Function version tag
             field_invoke: Launched resource
+            field_name: Name
             field_type: Type
             label_function: Function
             label_storage: Object Storage
             label_timer: Timer
             section_base: Basic settings
+            section_dlq: Dead Letter Queue settings
             section_function: Function settings
             section_storage: Object Storage settings
             section_timer: Timer settings
@@ -43127,6 +43448,7 @@ default:
             access_value_private: Restricted
             access_value_public: Public
             button_save: Save
+            class_value_standard: Standard
             field_access-config-read: Read access to settings
             field_access-list: Object listing access
             field_access-read: Object read access
@@ -43180,19 +43502,41 @@ default:
       vpc:
         add-static-route:
           button_add: Add
+          field_destination-prefix: Destination prefix
           field_next-hop-address: Next hop
           value_gateway: Gateway
+          value_ip-address: IP address
+        addresses:
+          button_action-dynamic: Make dynamic
+          button_action-static: Make static
+          button_create: Reserve address
+          popup-confirm_button_dynamic: Change
+          popup-confirm_button_static: Change
+          popup-create_button_create: ' Reserve'
+          popup-create_field_advanced: Advanced
+          popup-create_field_ddos-protection-provider: DDoS protection
+          popup-create_field_deletion-protection: Deletion protection
+          popup-create_field_zone: Availability zone
+        button_move-vpc-object: Move
         gateways:
+          button_move-gateway: Move
           field_type: Type
           value_gateway-type-egress-nat: Egress NAT
         network:
+          overview:
+            button_create_subnetwork: Add subnet
+            column_subnetwork_id: ID
+            section_subnetworks: Subnets
           security-groups:
             button_add-rule: Add rule
             button_create: Create group
             forms:
+              button_add-cidr: Add CIDR
+              button_select-all-port-range: Select the full range
               field_sg-name: Name
               field_sg-network: Network
               field_sg-rule-cidr-blocks: CIDR blocks
+              field_sg-rule-description: Description
               field_sg-rule-destination: Destination name
               field_sg-rule-port-range: Port range
               field_sg-rule-protocol: Protocol
@@ -43200,32 +43544,64 @@ default:
               field_sg-rule-source: Source
               label_section-rules: Rules
               value_any: Any
+              value_icmp: ICMP
               value_sg-rule-destination-cidr: CIDR
               value_sg-rule-destination-sg: Security group
               value_sg-rule-sg-type-balancer: Load balancer healthchecks
               value_sg-rule-sg-type-list: From list
               value_sg-rule-sg-type-self: Current
               value_tcp: TCP
+              value_udp: UDP
             label_egress: Egress
             label_ingress: Ingress
+          switch_overview: Overview
           switch_route-table: Routing tables
         networks:
           button_create: Create network
+          column_id: ID
           create:
+            button_create: Create network
             field_advanced: Advanced
+            field_description: Description
             field_is-default: Create subnets
             field_name: Name
         route-table-form:
+          field_name: Name
+          field_network-id: Network
           label_add-static-route: Add a route
           label_next-hop-address: Next hop
+          section_static-routes: Static routes
         route-table:
           create:
             button_create: Create a routing table
+          edit:
+            button_edit: Save
         subnet:
           add-route-table:
             button_add: Link
+          add-toute-table:
+            button_add: Link
         subnetworks:
           button_action-add-route-table: Link routing table
+          button_action-egress-nat-enable: Enable egress NAT
+          create:
+            button_add-cidr: Add CIDR
+            button_add-domain-name-server: Add domain name server
+            button_add-ntp-server: Add NTP server
+            button_create: Create subnet
+            field_description: Description
+            field_domain-name: Domain name
+            field_domain-name-servers: Domain name servers
+            field_ip: CIDR
+            field_name: Name
+            field_network: Network
+            field_ntp-servers: NTP servers
+            field_zone: Zone
+            section_dhcp-options: DHCP settings
+          switch_ip-addresses: IP addresses
+          update:
+            button_update: Save changes
+        switch_addresses: IP addresses
         switch_gateways: Gateways
         switch_networks: Subnets
         switch_security-groups: Security groups
@@ -43239,6 +43615,16 @@ default:
             column_type: Type
         database:
           switch_browse: Navigation
+      ylb:
+        health-check:
+          label_http: HTTP
+          label_tcp: TCP
+      ymq:
+        queue:
+          overview:
+            label_url: URL
+        queues:
+          button_create: Create queue
     yc-data-transfer:
       data-transfer:
         console:

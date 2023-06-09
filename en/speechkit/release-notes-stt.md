@@ -6,11 +6,21 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release on 17/05/23 {#170523}
+
+New changes to `general:rc`:
+
+* Improved the general quality of recognition for Russian.
+* Improved the recognition accuracy for the Russian model as per user requests.
+* Improved the recognition accuracy for Uzbek, German, French, Dutch, Italian, and Polish.
+* Added support for a [new recognition language](stt/models.md): Hebrew (`he-HE`).
+
+
+## Previous versions {#previous}
+
 ### Release on 14/04/2023 {#140423}
 
 Improved recognition quality for abbreviations in Russian on client scenarios for the `general:rc` model.
-
-## Previous versions {#previous}
 
 ### Release on 16/03/23 {#070323}
 

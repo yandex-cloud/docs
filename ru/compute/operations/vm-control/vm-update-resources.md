@@ -12,19 +12,19 @@
 
   Чтобы изменить vCPU и RAM ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ compute-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
-  1. Нажмите **Остановить** в правом верхнем углу страницы.
-  1. В открывшемся окне нажмите кнопку **Остановить**.
-  1. Подождите пока ВМ перейдет в статус `STOPPED` и нажмите кнопку **Изменить ВМ** в правом верхнем углу страницы.
-  1. Измените [конфигурацию](../../concepts/performance-levels.md) ВМ в блоке **Вычислительные ресурсы**:
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
+  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. Измените [конфигурацию](../../concepts/performance-levels.md) ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../concepts/vm-platforms.md).
      * Укажите необходимое количество vCPU.
 	 * Выберите гарантированную долю vCPU.
 	 * Укажите размер RAM.
-  1. Нажмите кнопку **Сохранить изменения**.
-  1. Нажмите кнопку **Запустить** в правом верхнем углу.
-  1. В открывшемся окне нажмите кнопку **Запустить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-start }}** в правом верхнем углу.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 - CLI
 
@@ -98,17 +98,17 @@
 
   Чтобы изменить количество GPU на ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ compute-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
-  1. Нажмите **Остановить** в правом верхнем углу страницы.
-  1. В открывшемся окне нажмите кнопку **Остановить**.
-  1. Подождите пока ВМ перейдет в статус `STOPPED` и нажмите **Изменить ВМ** в правом верхнем углу страницы.
-  1. Измените [конфигурацию](../../concepts/performance-levels.md) ВМ в блоке **Вычислительные ресурсы**:
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
+  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. Измените [конфигурацию](../../concepts/performance-levels.md) ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../concepts/vm-platforms.md) Intel Broadwell with NVIDIA® Tesla® V100.
      * Укажите необходимое количество GPU.
-  1. Нажмите кнопку **Сохранить изменения**.
-  1. Нажмите кнопку **Запустить** в правом верхнем углу.
-  1. В открывшемся окне нажмите кнопку **Запустить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 - CLI
 
@@ -175,15 +175,15 @@
 
   Чтобы изменить количество [GPU](../../concepts/gpus.md) на существующей ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ compute-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
-  1. Нажмите **Остановить** в правом верхнем углу страницы.
-  1. В открывшемся окне нажмите кнопку **Остановить**.
-  1. Подождите пока ВМ перейдет в статус `STOPPED` и нажмите **Изменить ВМ** в правом верхнем углу страницы.
-  1. Измените [конфигурацию](../../concepts/performance-levels.md) ВМ. В блоке **Вычислительные ресурсы** укажите необходимое количество GPU.
-  1. Нажмите кнопку **Сохранить изменения**.
-  1. Нажмите кнопку **Запустить** в правом верхнем углу.
-  1. В открывшемся окне нажмите кнопку **Запустить**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
+  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. Измените [конфигурацию](../../concepts/performance-levels.md) ВМ. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите необходимое количество GPU.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 - CLI
 
@@ -250,14 +250,14 @@
 
   Чтобы включить [программно-ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ compute-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
-  1. Нажмите **Остановить** в правом верхнем углу страницы.
-  1. В открывшемся окне нажмите кнопку **Остановить**.
-  1. Подождите пока ВМ перейдет в статус `STOPPED` и нажмите **Изменить ВМ** в правом верхнем углу страницы.
-  1. В блоке **Вычислительные ресурсы** выберите опцию **Программно-ускоренная сеть**.
-  1. Нажмите кнопку **Сохранить изменения**.
-  1. Нажмите кнопку **Запустить** в правом верхнем углу.
-  1. В открывшемся окне нажмите кнопку **Запустить**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
+  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** включите опцию **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+  1.  В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 {% endlist %}

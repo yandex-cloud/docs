@@ -11,45 +11,51 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. Нажмите кнопку **Создать ВМ**.
-  1. В блоке **Базовые параметры**:
-     * Введите имя и описание ВМ. Требования к имени:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
 
-       {% include [name-format](../../../_includes/name-format.md) %}
+      * Введите имя и описание ВМ. Требования к имени:
 
-       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+        {% include [name-format](../../../_includes/name-format.md) %}
+
+        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
      * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **Выбор образа/загрузочного диска** выберите один из [образов](../../concepts/image.md).
-  1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Диски** настройте загрузочный [диск](../../concepts/disk.md):
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../concepts/image.md).
+  1. (опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../concepts/disk.md):
+
      * Выберите [тип диска](../../concepts/disk.md#disks_types).
      * Укажите нужный размер диска.
 
-       Если вы хотите создать ВМ из существующего диска, в блоке **Диски и файловые хранилища** [добавьте диск](create-from-disks.md):
-       * Нажмите кнопку **Добавить диск**.
+       Если вы хотите создать ВМ из существующего диска, в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** [добавьте диск](create-from-disks.md):
+       * Нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
        * Введите имя диска.
        * Выберите [тип диска](../../concepts/disk.md#disks_types).
        * Укажите нужный размер блока.
        * Укажите нужный размер диска.
-       * (опционально) Включите опцию **Удалять вместе с ВМ**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
-       * Выберите наполнение `Диск`.
-       * Нажмите кнопку **Добавить**.
+       * (опционально) Включите опцию **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
+       * Выберите наполнение `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}`.
+       * Нажмите **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
-  
-  1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Файловые хранилища** подключите [файловое хранилище](../../concepts/filesystem.md):
-     * Нажмите кнопку **Подключить файловое хранилище**.
+
+  1. (опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../../concepts/filesystem.md):
+
+     * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
      * В открывшемся окне выберите файловое хранилище.
-     * Введите имя устройства.
-     * Нажмите кнопку **Подключить файловое хранилище**.
+     * Укажите имя устройства.
+     * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
+ 
 
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
-  1. В блоке **Вычислительные ресурсы**:
      * Выберите [платформу](../../concepts/vm-platforms.md).
      * Укажите [гарантированную долю](../../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
-     * Включите опцию **Прерываемая**.
+     * Включите опцию **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
      * (опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
-  1. В блоке **Сетевые настройки**:
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
      {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
@@ -57,9 +63,9 @@
   1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
 
 
-  1. В блоке **Доступ** укажите данные для доступа на ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
      * (опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
-     * В поле **Логин** введите имя пользователя.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
 
        {% note alert %}
 
@@ -67,9 +73,9 @@
 
        {% endnote %}
 
-     * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../operations/vm-connect/ssh.md#creating-ssh-keys).
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../operations/vm-connect/ssh.md#creating-ssh-keys).
      * Если требуется, разрешите доступ к [серийной консоли](../../operations/serial-console/index.md).
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   ВМ появится в списке.
 
@@ -85,7 +91,7 @@
      yc compute instance create --help
      ```
 
-  1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen) на ВМ.
+  1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ.
   1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) {{ marketplace-full-name }} на базе ОС Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
      {% include [standard-images](../../../_includes/standard-images.md) %}
@@ -127,48 +133,48 @@
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     ```hcl
-     resource "yandex_compute_instance" "vm-1" {
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
 
-       name        = "preemptible-vm"
-       platform_id = "standard-v3"
-       zone        = "<зона доступности>"
+        name        = "preemptible-vm"
+        platform_id = "standard-v3"
+        zone        = "<зона доступности>"
 
-       resources {
-         cores  = <количество ядер vCPU>
-         memory = <объем RAM в ГБ>
-       }
+        resources {
+          cores  = <количество ядер vCPU>
+          memory = <объем RAM в ГБ>
+        }
 
-       boot_disk {
-         initialize_params {
-           image_id = "<идентификатор образа>"
-         }
-       }
+        boot_disk {
+          initialize_params {
+            image_id = "<идентификатор образа>"
+          }
+        }
 
-       network_interface {
-         subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
-         nat       = true
-       }
+        network_interface {
+          subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+          nat       = true
+        }
 
-       metadata = {
-         ssh-keys = "<имя пользователя>:<содержимое SSH-ключа>}"
-       }
+        metadata = {
+          ssh-keys = "<имя пользователя>:<содержимое SSH-ключа>"
+        }
 
-       scheduling_policy {
-         preemptible = true
-       }
-     }
+        scheduling_policy {
+          preemptible = true
+        }
+      }
 
-     resource "yandex_vpc_network" "network-1" {
-       name = "network1"
-     }
+      resource "yandex_vpc_network" "network-1" {
+        name = "network1"
+      }
 
-     resource "yandex_vpc_subnet" "subnet-1" {
-       name       = "subnet1"
-       zone       = "<зона доступности>"
-       network_id = "${yandex_vpc_network.network-1.id}"
-     }
-     ```
+      resource "yandex_vpc_subnet" "subnet-1" {
+        name       = "subnet1"
+        zone       = "<зона доступности>"
+        network_id = "${yandex_vpc_network.network-1.id}"
+      }
+      ```
 
      Где:
      * `yandex_compute_instance` — описание ВМ:
@@ -223,13 +229,14 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. Напротив имени нужной ВМ нажмите значок ![image](../../../_assets/options.svg) и выберите **Остановить**.
-  1. В открывшемся окне нажмите кнопку **Остановить**. Статус ВМ изменится на `Stopped`.
-  1. Напротив имени ВМ нажмите ![image](../../../_assets/options.svg) и выберите **Редактировать**.
-  1. В блоке **Вычислительные ресурсы** выключите опцию **Прерываемая**.
-  1. Нажмите кнопку **Сохранить изменения**.
-  1. Нажмите кнопку ![image](../../../_assets/compute/run-vm.svg) **Запустить**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. В строке с нужной ВМ нажмите ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. Статус ВМ изменится на `Stopped`.
+  1. В строке с нужной ВМ нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выключите опцию **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
+  1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+  1. Справа сверху нажмите ![image](../../../_assets/compute/run-vm.svg) **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 - CLI
 

@@ -1,27 +1,23 @@
 # Переместить публичный IP-адрес в другой каталог
 
-Облачные ресурсы можно переносить между каталогами в пределах одного [облака](../../resource-manager/concepts/resources-hierarchy.md).
+[Публичный адрес](../concepts/address.md) можно переносить между каталогами в пределах одного [облака](../../resource-manager/concepts/resources-hierarchy.md).
 
 {% list tabs %}
 
 - Консоль управления
 
-  Чтобы переместить [публичный адрес](../concepts/address.md) в другой каталог:
-
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится адрес.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **IP-адреса**.
-  1. Нажмите значок ![image](../../_assets/options.svg) в строке адреса, который требуется переместить, и выберите **Переместить**.
-  1. В выпадающем списке выберите каталог назначения.
-  1. Нажмите кнопку **Переместить**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+  1. Нажмите значок ![image](../../_assets/options.svg) в строке адреса, который требуется переместить, и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. В открывшемся окне выберите каталог назначения.
+  1. Нажмите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
 - CLI
 
   {% include [include](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы переместить [публичный адрес](../concepts/address.md) в другой каталог:
 
   1. Посмотрите описание команды CLI для перемещения адреса:
 

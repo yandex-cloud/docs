@@ -1,6 +1,6 @@
 # About {{ ml-platform-name }}
 
-{{ ml-platform-full-name }} is an end-to-end ML development environment where you can use familiar IDEs, serverless computing technology, and seamlessly combine a broad range of {{ yandex-cloud }} computing resource configurations. {{ ml-platform-full-name }} is part of the data platform and offers powerful features to easily interact with {{ yandex-cloud }} services.
+{{ ml-platform-full-name }} is a full-cycle ML development environment. {{ ml-platform-full-name }} is part of the data platform and offers powerful features to easily work with {{ yandex-cloud }} services.
 
 {{ ml-platform-name }} helps significantly reduce the cost of ML as compared to computing on your own hardware or other cloud platforms thanks to automatic maintenance of computing resources.
 
@@ -12,23 +12,19 @@
 
 You do not need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
-The VM already has the {{ jlab }}Lab development environment and pre-installed packages for data analysis and machine learning (TensorFlow, Keras, NumPy, and others) on it, and you can start using them immediately. Full list of [pre-installed packages](preinstalled-packages.md).
+The VM already has the {{ jlab }}Lab development environment and pre-installed packages for data analysis and machine learning (TensorFlow, Keras, NumPy, and others) on it, and you can start using them immediately. You can find the full list of pre-installed packages [here](preinstalled-packages.md).
 
-If you're missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook.
-
-### Automatic maintenance of computing resources {#auto-service}
-
-The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated.
-
-### Saving states at shutdown {#save-state}
-
-You don't need to keep the notebook tab open all the time: deployed computations will keep running even if you close the project and the [interpreter state](save-state.md), all variables, and the computing results will be saved. You can continue working when you reopen your project.
+If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from a notebook or [build](../operations/user-images.md) a custom [Docker image](docker.md).
 
 ### Flexible choice of computing resources {#configurations}
 
-Select the necessary computing resources for specific code snippets. When [changing the configuration](configurations.md), all the variables and the interpreter state will be transferred to a new VM.
+Select the required computing resources for specific code snippets in [{{ ds }} mode](project.md#serverless). When [changing the configuration](configurations.md), all variables and the interpreter state will be transferred to a new VM. The service automatically manages resource allocation. If you do not perform any computations, no resources will be allocated.
 
-## What's new in the new {{ ml-platform-name }} interface {#what-is-new}
+If you want to use a dedicated VM instance, you can select a configuration in [{{ dd }} mode](project.md#dedicated) and use a managed service without any need to configure VMs. The allocated configuration will be assigned to you until you intentionally release the computing resources.
+
+### Saving states at shutdown {#save-state}
+
+In {{ ds }} mode, you do not need to keep the notebook tab open all the time: deployed computations will keep running even if you close the project, while the [interpreter state](save-state.md), all variables, and the computing results will be saved. You can continue working when you reopen your project.
 
 ### Organizations and resource hierarchy {#organization}
 
@@ -40,7 +36,7 @@ We introduced [communities](community.md) that allow you to collaborate on proje
 
 Resource access permissions and scope are managed using new roles. For more information about roles, see [{#T}](../security/index.md).
 
-### New types of resources {#resources}
+### Various types of resources {#resources}
 
 You no longer have to re-enter data every time you need to connect to any object storage. To store all details, the **{{ ui-key.yc-ui-datasphere.resources.s3 }}** resource is now available. It allows you [to connect and disconnect](../operations/data/connect-to-s3.md) a bucket right in the {{ ml-platform-name }} interface.
 

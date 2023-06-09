@@ -26,7 +26,7 @@
 
 #### Как сделать публичный IP-адрес статическим? {#make-ip-static}
 
-Публичный IP-адрес можно [сделать статическим](../operations/set-static-ip.md) во вкладке **IP-адреса** сервиса {{ vpc-short-name }} в [консоли управления]({{ link-console-main }}).
+Публичный IP-адрес можно [сделать статическим](../operations/set-static-ip.md) во вкладке **{{ ui-key.yacloud.vpc.switch_addresses }}** сервиса {{ vpc-short-name }} в [консоли управления]({{ link-console-main }}).
 
 #### Какие ограничения существуют при создании подсетей? {#create-subnet-limits}
 

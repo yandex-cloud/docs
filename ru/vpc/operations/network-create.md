@@ -8,15 +8,15 @@
 
   Чтобы создать [облачную сеть](../concepts/network.md):
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать облачную сеть.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. Нажмите кнопку **Создать сеть**.
-  1. Задайте имя сети:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети:
 
       {% include [name-format](../../_includes/name-format.md) %}
 	  
-  1. (опционально) Добавьте описание сети.
-  1. По умолчанию выбрана опция [Создать подсети](subnet-create.md). Если нужно создать подсети позже, выключите опцию.
-  1. Нажмите кнопку **Создать сеть**.
+  1. (опционально) В поле **{{ ui-key.yacloud.vpc.networks.create.field_description }}** добавьте описание сети.
+  1. По умолчанию выбрана опция **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Если вы хотите [создать](subnet-create.md) подсети позднее, выключите опцию.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 - CLI
 

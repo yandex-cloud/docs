@@ -42569,6 +42569,9 @@ default:
         section_x: X
         section_y: 'Y'
     yacloud_monitoring:
+      actions:
+        common:
+          apply: Применить
       alert-template:
         threshold-status:
           alarm: Alarm
@@ -42645,6 +42648,7 @@ default:
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
           switch_detail: Детализация
+          switch_offers: Резервы
       cdn:
         button_add-domain: Добавить доменное имя
         button_resource-content-purge-cache: Очистить кеш
@@ -42697,6 +42701,11 @@ default:
         edit: Редактировать
         id: Идентификатор
         import: Импортировать
+        label_auto: Автоматически
+        label_key: Ключ
+        label_list: Список
+        label_value: Значение
+        logs: Логи
         monitoring: Мониторинг
         name: Имя
         operations-key-value: Операции
@@ -42707,51 +42716,305 @@ default:
           button_add-federation-user: Добавить федеративного пользователя
         save: Сохранить
         section-base: Общая информация
+        select: Выбрать
+        start: Запустить
+        stop: Остановить
         type: Тип
+        units:
+          label_gigabyte: ГБ
+          label_time-min_many: минут
+          label_time-min_zero: минут
+          label_time-sec_many: секунд
       component:
         compute:
           network-select:
+            field_address: IP-адрес
+            field_advanced: Дополнительно
+            field_ddos-protection-provider: Защита от DDoS-атак
             field_external: Публичный адрес
             field_internal-ipv4: Внутренний IPv4-адрес
             field_security-groups: Группы безопасности
+            field_subnetwork: Подсеть
             switch_auto: Автоматически
+            switch_list: Список
+            switch_manual: Вручную
+            switch_none: Без адреса
           one-to-one-nat-form:
             button_submit: Добавить
+            field_ddos-protection-provider: Защита от DDoS-атак
             field_external-type: Публичный адрес
             switch_auto: Автоматически
+            switch_list: Список
           resources:
+            field_core-fraction: Гарантированная доля vCPU
+            field_cores: vCPU
+            field_memory: RAM
+            field_platform: Платформа
+            field_preemptible: Прерываемая
             label_sw-accelerated-net: Программно-ускоренная сеть
         console-dashboard:
           button_action-create-folder: Создать каталог
         dns-integration:
           button_add-domain: Создать запись
+        image-field:
+          button_custom-image: Укажите ссылку
         mdb:
           settings:
             popup_settings-submit: Сохранить
+        service-account-select:
+          label_no-service-account: Не выбрано
         symmetric-key-select:
           button_create-key: Создать ключ
           button_create-key-new: Создать новый
           label_no-symmetric-key: Не выбрано
+        vpc-security-group-select:
+          label_add-security-group: Добавить группу безопасности
+        vpc:
+          create-network-dialog:
+            button_create: Создать
+            field_advanced: Дополнительно
+            field_is-default: Создать подсети
+          create-subnetwork-dialog:
+            button_create: Создать
+          network-select:
+            button_create-network: Создать сеть
+            button_create-subnetwork: Добавить подсеть
       compute:
+        attach-disk:
+          button_attach: Подключить
+          field_auto-delete: Автоматическое удаление
+          field_instance: ВМ
+        disks:
+          button_action-attach: Присоединить
+          button_action-delete: Удалить
+          button_action-detach: Отсоединить
+          button_action-edit: Редактировать
+          button_action-image: Создать образ
+          button_action-snapshot: Создать снимок
+          button_create: Создать диск
+          create:
+            button_create: Создать диск
+          edit:
+            button_update: Сохранить изменения
+          popup_detach-disk_button_detach: Отсоединить
+          popup-confirm_button_delete: Удалить
+        group:
+          edit:
+            label_title: Изменение группы виртуальных машин
+          overview:
+            section_instances-state: Состояния виртуальных машин
+          switch_instances: Список ВМ
+          switch_logs: Логи
+          switch_monitoring: Мониторинг
+          switch_operations: Операции
+        groups:
+          button_action-delete: Удалить
+          button_action-edit: Изменить
+          button_action-pause: Приостановить процессы
+          button_action-resume: Возобновить процессы
+          button_action-start: Запустить группу
+          button_action-stop: Остановить группу
+          button_create: Создать группу
+          create:
+            button_create: Создать
+            button_edit: Сохранить
+            button_instance_empty-create: Задать
+            field_auto-scale-type: Тип автомасштабирования
+            field_cooldown-duration: Период стабилизации
+            field_deletion-protection: Защита от удаления
+            field_deploy-max-creating: Одновременно создавать
+            field_deploy-max-deleting: Одновременно останавливать
+            field_deploy-max-expansion: Добавлять выше целевого значения
+            field_deploy-max-unavailable: Уменьшать относительно целевого значения
+            field_deploy-startup-duration: Время запуска
+            field_deploy-strategy: Останавливать машины по стратегии
+            field_description: Описание
+            field_enable-health-check: Активировать
+            field_folder-id: Идентификатор каталога
+            field_initial-size: Начальный размер группы
+            field_max-size: Максимальный размер группы
+            field_measurement-duration: Промежуток измерения нагрузки
+            field_metric: Метрика
+            field_metric-labels: Метки
+            field_metric-name: Имя метрики
+            field_metric-rule-type: Тип правила
+            field_metric-target: Целевое значение
+            field_metric-type: Тип метрики
+            field_min-zone-size: Минимальное количество ВМ в зоне
+            field_name: Имя
+            field_scale-size: Размер
+            field_scale-type: Тип
+            field_service-account: Сервисный аккаунт
+            field_target-group-attached: Создать целевую группу
+            field_target-group-name: Имя целевой группы
+            field_warmup-duration: Время на разогрев ВМ
+            field_zone: Зона доступности
+            label_custom-metrics: Метрики
+            metric-type-cpu: CPU
+            metric-type-custom: Пользовательская
+            section_alb: Интеграция с Application Load Balancer
+            section_allocation: Распределение
+            section_base: Базовые параметры
+            section_deploy: В процессе создания и обновления разрешено
+            section_health-check: Проверка состояний
+            section_instance: Шаблон виртуальной машины
+            section_scale: Масштабирование
+            section_variables: Пользовательские переменные
+            section_ylb: Интеграция с Network Load Balancer
+            value_scale-auto: Автоматический
+            value_scale-fixed: Фиксированный
+            value_scale-fixed-test-auto: Фиксированный с тестом автоматического
+            value_scale-regional: Региональное
+            value_scale-zonal: Зональное
+            value_strategy-opportunistic: Деликатная
+            value_strategy-proactive: Принудительная
+          popup-confirm_button_delete: Удалить
+          popup-confirm_button_pause: Приостановить
+          popup-confirm_button_resume: Возобновить
+          popup-confirm_button_start: Запустить
+          popup-confirm_button_stop: Остановить
+        images:
+          button_action-delete: Удалить
+          button_action-image: Создать образ
+          button_upload: Загрузить образ
+          column_id: Идентификатор
+          popup-confirm_button_delete: Удалить
+          popup-upload_button_upload: Загрузить
+          popup-upload_field_pooled: Оптимизировать для развертывания
         instance:
+          console:
+            connect: Подключиться
+          edit-network-interface:
+            field_security-groups-ids: Группы безопасности
           edit:
             button_update: Сохранить изменения
           overview:
+            button_action-edit: Изменить ВМ
+            button_action-stop: Остановить
             button_add-public-ip: Добавить публичный IP-адрес
+            button_edit-network-interface: Изменить сетевой интерфейс
+            button_remove-public-ip: Отвязать публичный IP-адрес
             label_network-interface: Сетевой интерфейс
+            label_public-ipv4: Публичный IPv4
+            popup-confirm_button_remove-one-to-one-nat: Удалить
+            section_network: Сеть
+          service-console:
+            raw-mode: Исходные данные
+          stop-dialog:
+            button_stop: Остановить
+          switch_console: Серийная консоль
+          switch_disks: Диски
+          switch_file-storages: Файловые хранилища
+          switch_monitoring: Мониторинг
+          switch_operations: Операции
+          switch_overview: Обзор
+          switch_service-console: Последовательный порт
         instances:
+          button_action-restart: Перезапустить
           button_action-start: Запустить
           button_action-stop: Остановить
+          button_create: Создать ВМ
+          button_gr-action-delete: Удалить
+          button_gr-action-stop: Остановить
+          create-disk:
+            button_create: Добавить
+            field_additional: Дополнительно
+            field_auto-delete: Удалять вместе с ВМ
+            field_source: Наполнение
+            value_network-hdd: HDD
+            value_network-ssd: SSD
+            value_network-ssd-nonreplicated: Нереплицируемый SSD
+            value_source-disk: Диск
+            value_source-image: Образ
+            value_source-snapshot: Снимок
           create:
+            button_choose: Выбрать
+            button_create: Создать ВМ
+            button_create-subnetwork-new: Создать подсеть
+            button_net_empty-create: Создать сеть
+            column_disk-size: Размер
+            field_access-advanced: Дополнительно
+            field_coi-image: Docker-образ
+            field_coi-name: Имя
+            field_instance-group-address: Публичный адрес
+            field_instance-group-network: Сеть
             field_key: SSH-ключ
+            field_name: Имя
+            field_password: Пароль
+            field_serial-port-enable: Разрешить доступ к серийной консоли
+            field_service-account: Сервисный аккаунт
             field_user: Логин
+            field_zone: Зона доступности
+            image_button_show-all-os-products: Показать все продукты
+            image_button_show-all-products: Посмотреть больше
+            image_coi_label_empty-button: Настроить
+            image_value_coi: Container Solution
+            image_value_custom: Пользовательские
+            image_value_marketplace: Cloud Marketplace
             image_value_os-products: Операционные системы
+            label_add-disk: Добавить диск
+            label_backup: Резервное копирование
             section_access: Доступ
+            section_base: Базовые параметры
+            section_coi: Настройка Docker-контейнера
+            section_disk: Диски
             section_image: Выбор образа/загрузочного диска
             section_network: Сетевые настройки
+            section_placement: Размещение
             section_platform: Вычислительные ресурсы
+            section_storages: Диски
+            section_storages_ru: Диски и файловые хранилища
+            value_address-auto: Автоматически
+            value_address-none: Без адреса
+          label_title: Виртуальные машины
+          popup-confirm_button_delete: Удалить
+          popup-confirm_button_gr-stop: Остановить
+          popup-confirm_button_restart: Перезапустить
           popup-confirm_button_start: Запустить
           popup-confirm_button_stop: Остановить
+        nfs:
+          button_attach-filesystem-to-the-instance: Подключить файловое хранилище
+          button_attach-instance-to-the-filesystem: Подключить к ВМ
+          button_create-filesystem: Создать файловое хранилище
+          button_detach-instance-from-the-filesystem: Отключить файловое хранилище
+          label_attached-instances: Виртуальные машины
+          label_filesystems: Файловые хранилища
+        placement-group:
+          switch_disks: Список дисков
+        placement-groups:
+          button_create: Создать
+          button_create-disk-pg: Группу размещения нереплицируемых дисков
+          create:
+            button_create: Создать
+          label_tab-disks: Группы размещения нереплицируемых дисков
+        snapshots-schedules:
+          action_attach-disk: Добавить диск
+          action_detach-disk: Удалить из расписания
+          action_detach-schedule: Отвязать от диска
+          action_edit-disk-schedules: Настроить расписания снимков
+          label_custom: По cron-выражению
+          label_daily: По дням
+          label_empty-retention-policy: Хранить все снимки
+          label_hourly: По часам
+          label_schedule-policy: Создавать снимки
+          label_start-at: Начиная с
+          label_title: Расписания снимков
+          label_weekly: По неделям
+          message_store-last-begin_many: Только последние
+          title_snapshot-schedule-disks: Диски
+        snapshots:
+          list:
+            button_action-delete: Удалить
+            button_action-image: Создать образ
+            popup-confirm_button_delete: Удалить
+        switch_disks: Диски
+        switch_file-storages: Файловые хранилища
+        switch_groups: Группы виртуальных машин
+        switch_images: Образы
+        switch_instances: Виртуальные машины
+        switch_operations: Операции
+        switch_placement-groups: Группы размещений
+        switch_snapshots: Снимки дисков
       cr:
         image:
           label_last-scan-time: Дата последнего сканирования
@@ -42802,13 +43065,17 @@ default:
         jobs:
           field_main-python-file: Main python файл
       dns:
+        button_add-record: Добавить запись
         button_record-set-create: Создать запись
         button_zone-create: Создать зону
         label_additional-settings: Дополнительные настройки
+        label_auto-select-zone: Определять автоматически
+        label_dns-internal-settings: Настройки DNS для внутренних адресов
         label_form-ttl: TTL (в секундах)
         label_public: Публичная
         label_zone: Зона
       forms:
+        label_form-list: Список
         label_service-account-select: Сервисный аккаунт
       greenplum:
         action_expand-open: Расширить кластер
@@ -42823,12 +43090,17 @@ default:
           folders-create:
             button_create: Создать
             field_default-net: Создать сеть по умолчанию
+          folders:
+            section_folders: Каталоги
+          overview:
+            label_id: Идентификатор
           quotas:
             label_quota-name-mdb:
               hdd:
                 size: Объём HDD-хранилищ
               ssd:
                 size: Объём SSD-хранилищ
+          switch_overview: Обзор
         folder:
           dashboard:
             button_add: Создать ресурс
@@ -42840,19 +43112,24 @@ default:
             label_datasphere: DataSphere
             label_dns: Cloud DNS
             label_kms: Key Management Service
+            label_load-balancer: Network Load Balancer
             label_load-testing: Load Testing
             label_lockbox: Lockbox
+            label_logging: Cloud Logging
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
+            label_message-queue: Message Queue
             label_monitoring: Monitoring
             label_serverless-functions: Cloud Functions
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
+            value_compute: Виртуальная машина
             value_data-proc: Кластер Data Proc
             value_data-transfer: Data Transfer
+            value_vpc: Сеть
           service-account:
             label_add-role: Добавить роль
             overview:
@@ -42860,11 +43137,15 @@ default:
               button_create_key: Создать авторизованный ключ
               button_create_service-account-key: Создать статический ключ доступа
               button_create-key-popup: Создать новый ключ
+              field_key-description: Описание
+              label_id: Идентификатор
               popup-key_button_create: Создать
             popup-robot_button_add: Создать
             popup-robot_field_name: Имя
           service-accounts:
+            button_action-delete: Удалить
             button_add: Создать сервисный аккаунт
+            popup-confirm_button_delete: Удалить
           switch_service-accounts: Сервисные аккаунты
       k8s:
         cluster:
@@ -42879,6 +43160,31 @@ default:
         symmetric-keys:
           button_create: Создать
           button_empty-create: Создать ключ
+      load-balancer:
+        network-load-balancer:
+          button_create: Создать сетевой балансировщик
+          column_ip-address: IP-адрес
+          form:
+            button_create-target-group: Создать целевую группу
+            field_listener-name: Имя
+            field_listener-port: Порт
+            field_listener-target-port: Целевой порт
+            label_add-listener: Добавить обработчик
+            label_add-target-group: Добавить целевую группу
+            label_address-type: Публичный адрес
+            label_edit-health-check: Настроить
+            label_target-group-id: Целевая группа
+            section_listeners: Обработчики
+            section_target-groups: Целевые группы
+          label_health-check: Проверка состояния
+          label_health-check-healthy-threshold: Порог работоспособности
+          label_health-check-interval: Интервал, c
+          label_health-check-name: Имя
+          label_health-check-path: Путь
+          label_health-check-port: Порт
+          label_health-check-protocol: Тип
+          label_health-check-timeout: Время ожидания, c
+          label_health-check-unhealthy-threshold: Порог неработоспособности
       load-testing:
         button_add-bucket: Привязать бакет
         button_add-overload-test-id: Добавить ID
@@ -42918,6 +43224,8 @@ default:
           label_key: Ключ
           label_value: Значение
           section_version: Версия
+      marketplace-v2:
+        button_use: Использовать
       mdb:
         cluster:
           backups:
@@ -42983,7 +43291,9 @@ default:
           button_edit: Сохранить изменения
           button_restore: Восстановить кластер
           config_field_bucket: Имя бакета
+          config_field_form-bucket-type: Формат указания бакета
           config_field_initialization-action: Пользовательские скрипты
+          config_field_network: Сеть
           config_field_password: Пароль
           config_field_properties: Свойства
           config_field_public-keys: SSH-ключ
@@ -43046,6 +43356,8 @@ default:
       serverless-functions:
         create:
           button_create: Создать
+        item-form:
+          field_name: Имя
         item:
           editor:
             button_action-continue: Продолжить
@@ -43055,8 +43367,10 @@ default:
             field_environment-variables: Переменные окружения
             field_resources-memory: Память
             field_timeout: Таймаут, c
+            label_lang-bash: Bash
             label_lang-python: Python
             label_lockbox-secret: Секреты Yandex Lockbox
+            label_title: Редактор
             label_title-params: Параметры
             label_with-template: Добавить файлы с примерами кода
             value_method-editor: Редактор кода
@@ -43073,15 +43387,20 @@ default:
             button_create-function: Создать функцию
             button_create-trigger: Создать триггер
             field_bucket: Бакет
+            field_cron-expression: Cron-выражение
+            field_dlq_service-account: Сервисный аккаунт
             field_event-types: Типы событий
             field_function: Функция
             field_function_service-account: Сервисный аккаунт
+            field_function-tag: Тег версии функции
             field_invoke: Запускаемый ресурс
+            field_name: Имя
             field_type: Тип
             label_function: Функция
             label_storage: Object Storage
             label_timer: Таймер
             section_base: Базовые параметры
+            section_dlq: Настройки Dead Letter Queue
             section_function: Настройки функции
             section_storage: Настройки Object Storage
             section_timer: Настройки таймера
@@ -43140,6 +43459,7 @@ default:
             access_value_private: Ограниченный
             access_value_public: Публичный
             button_save: Сохранить
+            class_value_standard: Стандартное
             field_access-config-read: Доступ на чтение настроек
             field_access-list: Доступ к списку объектов
             field_access-read: Доступ на чтение объектов
@@ -43193,19 +43513,41 @@ default:
       vpc:
         add-static-route:
           button_add: Добавить
+          field_destination-prefix: Префикс назначения
           field_next-hop-address: Next hop
           value_gateway: Шлюз
+          value_ip-address: IP-адрес
+        addresses:
+          button_action-dynamic: Сделать динамическим
+          button_action-static: Сделать статическим
+          button_create: Зарезервировать адрес
+          popup-confirm_button_dynamic: Изменить
+          popup-confirm_button_static: Изменить
+          popup-create_button_create: Зарезервировать
+          popup-create_field_advanced: Дополнительно
+          popup-create_field_ddos-protection-provider: Защита от DDoS
+          popup-create_field_deletion-protection: Защита от удаления
+          popup-create_field_zone: Зона доступности
+        button_move-vpc-object: Переместить
         gateways:
+          button_move-gateway: Переместить
           field_type: Тип
           value_gateway-type-egress-nat: NAT в интернет
         network:
+          overview:
+            button_create_subnetwork: Добавить подсеть
+            column_subnetwork_id: Идентификатор
+            section_subnetworks: Подсети
           security-groups:
             button_add-rule: Добавить правило
             button_create: Создать группу
             forms:
+              button_add-cidr: Добавить CIDR
+              button_select-all-port-range: Выбрать весь диапазон
               field_sg-name: Имя
               field_sg-network: Сеть
               field_sg-rule-cidr-blocks: CIDR блоки
+              field_sg-rule-description: Описание
               field_sg-rule-destination: Назначение
               field_sg-rule-port-range: Диапазон портов
               field_sg-rule-protocol: Протокол
@@ -43213,32 +43555,64 @@ default:
               field_sg-rule-source: Источник
               label_section-rules: Правила
               value_any: Любой
+              value_icmp: ICMP
               value_sg-rule-destination-cidr: CIDR
               value_sg-rule-destination-sg: Группа безопасности
               value_sg-rule-sg-type-balancer: Проверки состояния балансировщика
               value_sg-rule-sg-type-list: Из списка
               value_sg-rule-sg-type-self: Текущая
               value_tcp: TCP
+              value_udp: UDP
             label_egress: Исходящий трафик
             label_ingress: Входящий трафик
+          switch_overview: Обзор
           switch_route-table: Таблицы маршрутизации
         networks:
           button_create: Создать сеть
+          column_id: Идентификатор
           create:
+            button_create: Создать сеть
             field_advanced: Дополнительно
+            field_description: Описание
             field_is-default: Создать подсети
             field_name: Имя
         route-table-form:
+          field_name: Имя
+          field_network-id: Cеть
           label_add-static-route: Добавить маршрут
           label_next-hop-address: Next hop
+          section_static-routes: Статические маршруты
         route-table:
           create:
             button_create: Создать таблицу маршрутизации
+          edit:
+            button_edit: Сохранить
         subnet:
           add-route-table:
             button_add: Привязать
+          add-toute-table:
+            button_add: Привязать
         subnetworks:
           button_action-add-route-table: Привязать таблицу маршрутизации
+          button_action-egress-nat-enable: Включить NAT в интернет
+          create:
+            button_add-cidr: Добавить CIDR
+            button_add-domain-name-server: Добавить сервер доменных имен
+            button_add-ntp-server: Добавить NTP-сервер
+            button_create: Создать подсеть
+            field_description: Описание
+            field_domain-name: Доменное имя
+            field_domain-name-servers: Серверы доменных имен
+            field_ip: CIDR
+            field_name: Имя
+            field_network: Сеть
+            field_ntp-servers: NTP-серверы
+            field_zone: Зона
+            section_dhcp-options: Настройки DHCP
+          switch_ip-addresses: IP-Адреса
+          update:
+            button_update: Сохранить изменения
+        switch_addresses: IP-адреса
         switch_gateways: Шлюзы
         switch_networks: Подсети
         switch_security-groups: Группы безопасности
@@ -43252,6 +43626,16 @@ default:
             column_type: Тип
         database:
           switch_browse: Навигация
+      ylb:
+        health-check:
+          label_http: HTTP
+          label_tcp: TCP
+      ymq:
+        queue:
+          overview:
+            label_url: URL
+        queues:
+          button_create: Создать очередь
     yc-data-transfer:
       data-transfer:
         console:

@@ -10,13 +10,11 @@ keywords:
 
 # Registering an account in {{ yandex-cloud }}
 
-To work with {{ yandex-cloud }} services, a billing account is required. A billing account is required even if you plan to use only free services. The account stores information about the payer and payment details; however, {{ yandex-cloud }} does not debit funds from your bank account and does not invoice you until you switch to the [paid version](../operations/activate-commercial.md).
+To work with most {{ yandex-cloud }} services, you need a billing account. The account stores information about the payer and payment details; however, {{ yandex-cloud }} does not debit funds from your bank account and does not invoice you until you switch to the [paid version](../operations/activate-commercial.md). While some services, such as {{ tracker-name }} or {{ datalens-short-name }}, do not require a billing account, if you still create one, you will get an [initial grant](../concepts/bonus-account.md#start) that you can then use to pay for resources.
 
 Under one Yandex account, all payers must be either residents of Russia or Kazakhstan, or residents of other countries. You can learn more about billing accounts [here](../concepts/billing-account.md).
 
-When creating the first billing account, new customers are given the [initial grant](../concepts/bonus-account.md#start). You can use it to pay for any {{ yandex-cloud }} resources.
-
-In addition, a trial period is available to new customers. The [trial period](../concepts/trial-period.md) allows you to discover the possibilities of the cloud infrastructure for free with some limitations. To be able to use the resources in full, after your trial period ends, you need to switch to the paid version.
+New customers are entitled to a trial period. The [trial period](../concepts/trial-period.md) allows you to discover the features of the cloud infrastructure for free with some limitations. To fully use the resources, you need to switch to the paid version after your trial period ends.
 
 {% list tabs %}
 
@@ -52,10 +50,10 @@ In addition, a trial period is available to new customers. The [trial period](..
 
    1. If this is your first billing account in {{ yandex-cloud }}, a trial period is available to you.
 
-         
+       
       {% note info %}
 
-      In some cases, additional verification may be required when you create a billing account with a trial period. On the page of this billing account in the management console, you'll find a message with detailed instructions.
+      Sometimes, additional verification may be required when you create a billing account with a trial period. If this is the case, you will find a message with detailed instructions on the billing account page in the management console.
 
       {% endnote %}
 

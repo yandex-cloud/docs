@@ -11,22 +11,21 @@
 {% list tabs %}
 
 - Консоль управления
-  
-   Чтобы зарезервировать статический публичный IP-адрес:
+
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
-   1. В списке сервисов выберите **{{ vpc-name }}**.
-   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **IP-адреса**.
-   1. Нажмите кнопку **Зарезервировать адрес**.
-   1. В открывшемся окне выберите зону доступности, в которой нужно зарезервировать адрес.
-   1. Нажмите кнопку **Зарезервировать**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Нажмите **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+   1. В открывшемся окне:
+       * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
+       * (опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+   1. Нажмите **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
 - CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   Чтобы зарезервировать статический публичный IP-адрес:
 
    1. Просмотрите описание команды CLI для резервирования адреса:
 

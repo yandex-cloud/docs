@@ -2,17 +2,17 @@
 
 Send a test request to a [node](../../concepts/deploy/index.md#node) from the {{ ml-platform-name }} interface:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Resources**, select **Node**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
 1. Select the node to send a request to.
-1. Go to the **Request** tab.
-1. Under **Create test request**, in the **Input** field, enter the request input variables in `{"a":2,"b":3}` format and click **Execute**.
-1. View the request processing results under **Response**.
+1. Click the **{{ ui-key.yc-ui-datasphere.node-page.tab.request }}** tab.
+1. Under **{{ ui-key.yc-ui-datasphere.node-page.request.create-test-request }}**, in the **Input** field, enter the request input variables in `{"a":2,"b":3}` format and click **{{ ui-key.yc-ui-datasphere.common.execute }}**.
+1. View the request processing results under **{{ ui-key.yc-ui-datasphere.common.response }}**.
 
 {% note info %}
 
 The **Command line requests** section contains sample requests to nodes for the cURL and gRPCurl utilities.
 
-The **Server response** section provides sample code and node response descriptions.
+The **{{ ui-key.yc-ui-datasphere.node-page.request.server-response }}** section provides sample code and node response descriptions.
 
 {% endnote %}
 

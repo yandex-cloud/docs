@@ -21,40 +21,36 @@ description: "Добавлять правила можно через консо
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется изменить группу безопасности.
 
-  1. В списке сервисов выберите **{{ vpc-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**.
+  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
 
-  1. Выберите группу, которую требуется изменить.
+  1. Нажмите значок ![image](../../_assets/options.svg) в строке группы, в которой требуется добавить правило, и выберите **{{ ui-key.yacloud.common.edit }}**.
 
-  1. Нажмите значок ![image](../../_assets/options.svg) в строке группы.
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте правила для управления трафиком:
 
-  1. В открывшемся меню нажмите кнопку **Редактировать**.
+     1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
 
-  1. В блоке **Правила** создайте правила для управления трафиком:
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
 
-     1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
+     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
 
-     1. Нажмите кнопку **Добавить правило**.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`, чтобы разрешить передачу трафика по всем протоколам.
 
-     1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
 
-     1. В поле **Протокол** укажите нужный протокол или оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
 
-     1. В поле **Назначение** или **Источник** выберите назначение правила:
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`. Выберите вариант:
 
-        * **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` — правило будет применено к ВМ из текущей группы.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}` — правило будет применено к ВМ из выбранной группы. IP-адреса источника или назначения при обмене трафиком должны быть из [частных диапазонов](../concepts/network.md#subnet). Подробнее см. в разделе [Концепции](../concepts/security-groups.md#groups).
 
-        * **Группа безопасности**. Выберите вариант:
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, разрешающее проверки состояния ресурсов от [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) или [{{ alb-name }}](../../application-load-balancer/concepts/backend-group.md#health-checks).
 
-           * **Текущая** (`Self`) — правило будет применено к ВМ из текущей группы.
-           * **Из списка** — правило будет применено к ВМ из выбранной группы. IP-адреса источника или назначения при обмене трафиком должны быть из [частных диапазонов](../concepts/network.md#subnet). Подробнее см. в разделе [Концепции](../concepts/security-groups.md#groups).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-        * **Проверки состояния балансировщика** — правило, разрешающее проверки состояния ресурсов от [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) или [{{ alb-name }}](../../application-load-balancer/concepts/backend-group.md#health-checks).
-
-  1. Нажмите кнопку **Сохранить**.
-
-  1. Повторно нажмите **Сохранить**.
+  1. Повторно нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

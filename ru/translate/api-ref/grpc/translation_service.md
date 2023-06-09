@@ -27,12 +27,12 @@ sourcePath: ru/_api-ref-grpc/translate/api-ref/grpc/translation_service.md
 --- | ---
 source_language_code | **string**<br>Язык, на котором написан исходный текст. Указывается в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например, `` ru ``). <br>Обязательно при переводе с глоссарием. Максимальная длина строки в символах — 3.
 target_language_code | **string**<br>Обязательное поле. Язык, на который переводится текст. Указывается в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например, `` en ``). Максимальная длина строки в символах — 3.
-format | enum **Format**<br>Формат текста. <ul><li>`PLAIN_TEXT`: Текст без разметки. Значение по умолчанию.</li><li>`HTML`: Текст в формате HTML.</li><ul/>
+format | enum **Format**<br>Формат текста. <ul><li>`PLAIN_TEXT`: Текст без разметки. Значение по умолчанию.</li><li>`HTML`: Текст в формате HTML.</li></ul>
 texts[] | **string**<br>Массив строк для перевода. Максимальная общая длина всех строк составляет 10000 символов. Количество элементов должно быть больше 0.
 folder_id | **string**<br>Идентификатор каталога, к которому у вас есть доступ. Требуется для авторизации с пользовательским аккаунтом (см. ресурс `yandex.cloud.iam.v1.UserAccount`) . Не используйте это поле, если вы делаете запрос от имени сервисного аккаунта. Максимальная длина строки в символах — 50.
 model | **string**<br>Не используйте это поле, пользовательские модели пока не поддерживаются. Максимальная длина строки в символах — 50.
-glossary_config | **[TranslateGlossaryConfig](#TranslateGlossaryConfig)**<br>Глоссарий для применения при переводе. Дополнительные сведения см. в разделе [Глоссарии](/docs/translate/concepts/glossary). 
-
+glossary_config | **[TranslateGlossaryConfig](#TranslateGlossaryConfig)**<br>Глоссарий для применения при переводе. Дополнительные сведения см. в разделе [Глоссарии](/docs/translate/concepts/glossary).
+speller | **boolean**<br>Параметр, который включает проверку орфографии.
 
 ### TranslateGlossaryConfig {#TranslateGlossaryConfig}
 
