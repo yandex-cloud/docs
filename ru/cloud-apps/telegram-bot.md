@@ -46,9 +46,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```bash
         curl \
           --request POST \
-          --url https://api.telegram.org/bot<токен бота>/setWebhook \
-          --header 'content-type: application/json' \
-          --data '{"url": "https://<Домен API-шлюза>/echo"}'
+          --url https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo\
         ```
 
     - Windows (cmd)
@@ -56,9 +54,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```bash
         curl ^
           --request POST ^
-          --url https://api.telegram.org/bot<токен бота>/setWebhook ^
-          --header "content-type: application/json" ^
-          --data "{\"url\": \"https://<Домен API-шлюза>/echo\"}"
+          --url "https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo\"
         ```
 
     - Windows (PowerShell)
@@ -66,9 +62,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```powershell
         curl.exe `
           --request POST `
-          --url https://api.telegram.org/bot<токен бота>/setWebhook `
-          --header '"content-type: application/json"' `
-          --data '"{ \"url\": \"https://<Домен API-шлюза>/echo\" }"'
+          --url https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo\
         ```
 
     {% endlist %}
