@@ -169,6 +169,8 @@ items:
           Web analytics with funnels and cohorts calculated based on Yandex
           Metrica data
         href: tutorials/data-from-metrica-yc-visualization.md
+      - name: Running computations on a schedule
+        href: tutorials/regular-launch.md
   - name: API reference
     items:
       - name: Authentication in the API

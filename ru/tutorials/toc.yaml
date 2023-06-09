@@ -396,8 +396,15 @@ items:
         href: routing/bastion.md
       - name: Маршрутизация с помощью NAT-инстанса
         href: routing/nat-instance.md
-      - name: Создание туннеля IPSec VPN
-        href: routing/ipsec-vpn.md
+      - name: Организация сетевой связности с помощью IPsec-шлюзов
+        items:
+          - name: Схема решения
+            href: routing/ipsec/index.md
+          - name: Самостоятельная реализация средствами {{ yandex-cloud }}
+            href: routing/ipsec/ipsec-vpn.md
+          - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
+            href: routing/ipsec/sgw.md
+        href: routing/ipsec/index.md
       - name: Установка виртуального роутера Cisco CSR 1000v
         href: routing/cisco.md
       - name: Установка виртуального роутера Mikrotik CHR

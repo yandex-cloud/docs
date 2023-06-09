@@ -2,44 +2,66 @@
 
 ## Current version {#latest-release}
 
-## Version 0.104.0 (19/04/23) {#version0.104.00}
+### Version 0.105.0 (15/05/23) {#version0.105.00}
 
-### Changes to {{ yandex-cloud }} services {#services}
+#### Changes to the CLI {#cli}
 
-#### {{ sf-name }} {#serverless-functions}
+* Added the `--impersonate-service-account-id` parameter to perform actions on behalf of a service account. This parameter is used to provide the service account ID. The value data type is string.
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ cloud-logging-name }} {#cloud-logging}
+
+* Fixed the way the `yc logging read` command runs when setting the `--follow` flag.
+
+##### {{ managed-k8s-name }} {#k8s}
+
+Added the `--container-network-settings` parameter to the `yc k8s node-group create` command to configure a container network of cluster nodes. You can provide the MTU value for pods in this parameter in the `pod-mtu` property.
+
+##### Managed database services {#managed-db}
+
+**{{ mkf-name }}**
+
+* Added support for {{ KF }} 3.x, starting from 3.3.
+
+## Previous releases {#previous-releases}
+
+### Version 0.104.0 (19/04/23) {#version0.104.00}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ sf-name }} {#serverless-functions}
 
 * Added the `--payload` parameter to the `yc serverless trigger timer create` command to link user-defined data to an event triggered by a timer.
 
-#### {{ cloud-desktop-name }} {#cloud-desktop}
+##### {{ cloud-desktop-name }} {#cloud-desktop}
 
 * Renamed the `yc cloud-desktop` group of commands to `yc desktops`.
 * Added the `[PREVIEW]` mark to the `yc desktops` group of commands.
 * Added the `yc desktops desktop restart` command to restart desktops.
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * Fixed listing for a large number of folder objects for all {{ compute-short-name }} entities.
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mch-name }}**
 
 Added the `yc managed-clickhouse cluster list-external-dictionaries` command to list the added external dictionaries.
 
-#### {{ cloud-logging-name }} {#cloud-logging}
+##### {{ cloud-logging-name }} {#cloud-logging}
 
 * Added the `SINCE` and `FILTER` positional parameters to the `yc logging read` command, e.g., `yc logging read default 1d "level = INFO"`.
 * Added the `MESSAGE` and `JSON-PAYLOAD` positional parameters to the `yc logging write` command, e.g., `yc logging write default test "{\"key\":\"value\"}"`.
 
-#### {{ sf-name }} {#functions}
+##### {{ sf-name }} {#functions}
 
 * Added the `SINCE` and `FILTER` positional parameters to the `yc serverless function logs` and `yc serverless function version logs` commands, e.g., `yc serverless function logs default 1d "level = INFO"`.
 
-#### {{ iot-name }} {#iot}
+##### {{ iot-name }} {#iot}
 
 Added the `SINCE` and `FILTER` positional parameters to the `yc iot broker logs` command, e.g., `yc iot broker logs default 1d "level = INFO"`.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.103.0 (15/03/23) {#version0.103.00}
 

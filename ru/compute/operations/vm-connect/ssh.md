@@ -38,7 +38,7 @@
      cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
      ```
 
-     Вставьте открытый ключ в поле **SSH-ключ** при создании ВМ через [консоль управления]({{ link-console-main }}).
+     Вставьте открытый ключ в поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** при создании ВМ через [консоль управления]({{ link-console-main }}).
 
 - macOS
 
@@ -58,7 +58,7 @@
      cat ~/.ssh/id_ed25519.pub | pbcopy
      ```
 
-     Вставьте открытый ключ в поле **SSH-ключ** при создании ВМ через [консоль управления]({{ link-console-main }}).
+     Вставьте открытый ключ в поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** при создании ВМ через [консоль управления]({{ link-console-main }}).
 
 - Windows
 
@@ -80,7 +80,7 @@
      type C:\Users\User\.ssh\id_ed25519.pub | clip
      ```
 
-     Вставьте открытый ключ в поле **SSH-ключ** при создании ВМ через [консоль управления]({{ link-console-main }}).
+     Вставьте открытый ключ в поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** при создании ВМ через [консоль управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -94,7 +94,7 @@
 
 {% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
 
-Для подключения необходимо указать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления в поле **Публичный IPv4** блока **Сеть** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../vm-control/vm-attach-public-ip.md).
+Для подключения необходимо указать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../vm-control/vm-attach-public-ip.md).
 
 Также можно использовать [внутренние IP-адреса](../../../vpc/concepts/address.md#internal-addresses) и [FQDN](../../../vpc/concepts/address.md#fqdn) для установки SSH-соединения между ВМ внутри одной [облачной сети](../../../vpc/concepts/network.md#network) {{ yandex-cloud }}.
 

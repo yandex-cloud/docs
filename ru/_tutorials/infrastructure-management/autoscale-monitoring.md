@@ -41,18 +41,18 @@
   1. Создайте сервисный аккаунт `queue-autoscale-sa` и назначьте ему роль `editor` в каталоге `example-folder`:
   
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-     1. Перейдите на вкладку **Сервисные аккаунты** и нажмите кнопку **Создать сервисный аккаунт**.
-     1. Укажите **Имя** сервисного аккаунта: `queue-autoscale-sa`.
-     1. Нажмите **Добавить роль** и выберите роль `editor`.
-     1. Нажмите кнопку **Создать**.
+     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+     1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `queue-autoscale-sa`.
+     1. Нажмите значок ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
      
   1. Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для работы сервисного аккаунта с {{ message-queue-name }} и сохраните его в файл `access_key`:
   
      1. В списке сервисных аккаунтов выберите `queue-autoscale-sa`.
-     1. Нажмите кнопку **Создать новый ключ**.
-     1. Выберите пункт **Создать статический ключ доступа**.
-     1. Укажите **Описание** ключа: `Message Queue`.
-     1. Нажмите кнопку **Создать**.
+     1. Нажмите ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+     1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-description }}** укажите `Message Queue`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
      1. Вставьте идентификатор ключа и секретный ключ в файл `access_key` в следующем формате:
      
         ```yaml
@@ -64,23 +64,23 @@
   1. Создайте облачную сеть `queue-autoscale-network`:
   
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-     1. В списке сервисов выберите **{{ vpc-name }}**.
-     1. Нажмите кнопку **Создать сеть**.
-     1. Укажите **Имя** сети: `queue-autoscale-network`.
-     1. Отключите опцию **Создать подсети**.
-     1. Нажмите кнопку **Создать сеть**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `queue-autoscale-network`.
+     1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      
   1. Создайте подсеть `queue-autoscale-subnet-a` в зоне `{{ region-id }}-a`:
   
      1. В списке сетей выберите `queue-autoscale-network`.
-     1. Нажмите кнопку **Добавить подсеть**.
+     1. Нажмите кнопку ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Укажите параметры подсети:
      
-        * **Имя** — `queue-autoscale-subnet-a`.
-        * **Зона** — `{{ region-id }}-a`.
-        * **CIDR** — `192.168.1.0/24`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `queue-autoscale-subnet-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `192.168.1.0/24`.
         
-     1. Нажмите кнопку **Создать подсеть**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
 - CLI
 
@@ -244,15 +244,15 @@
   1. Создайте очередь `queue-autoscale-queue`:
   
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-     1. В списке сервисов выберите **{{ message-queue-name }}**.
-     1. Нажмите кнопку **Создать очередь**.
-     1. Укажите **Имя** очереди: `queue-autoscale-queue`.
-     1. Нажмите кнопку **Создать**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `queue-autoscale-queue`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
   1. Сохраните URL очереди в файл `queue`:
   
      1. В списке очередей выберите `queue-autoscale-queue`.
-     1. Скопируйте **URL** очереди.
+     1. Скопируйте **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** очереди.
      1. Вставьте URL в файл `queue` в следующем формате:
      
         ```yaml
@@ -321,9 +321,9 @@
      - Консоль управления
      
        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-       1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
+       1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
        1. В списке сервисных аккаунтов выберите `queue-autoscale-sa`.
-       1. Скопируйте **Идентификатор** сервисного аккаунта.
+       1. Скопируйте **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** сервисного аккаунта.
      
      - CLI
      
@@ -358,7 +358,7 @@
      
      - Консоль управления
      
-       В [консоли управления]({{ link-console-main }}) найдите каталог `example-folder` в списке и скопируйте его **Идентификатор**.
+       На [странице облака]({{ link-console-cloud }}) в списке **{{ ui-key.yacloud.iam.cloud.folders.section_folders }}** найдите каталог `example-folder` и скопируйте его **{{ ui-key.yacloud.common.id }}**.
      
      - CLI
      
@@ -395,9 +395,9 @@
      - Консоль управления
      
        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-       1. В списке сервисов выберите **{{ vpc-name }}**.
-       1. Перейдите на вкладку **Подсети**.
-       1. В списке подсетей найдите `queue-autoscale-subnet-a` и скопируйте ее **Идентификатор**.
+       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+       1. Перейдите на вкладку ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+       1. В списке подсетей найдите `queue-autoscale-subnet-a` и скопируйте ее **{{ ui-key.yacloud.vpc.network.overview.column_subnetwork_id }}**.
             
      - CLI
      
@@ -488,62 +488,63 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. Перейдите на вкладку **Группы виртуальных машин** и нажмите кнопку **Создать группу**.
-  1. Укажите **Базовые параметры** группы ВМ:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
   
-     * **Имя** — `queue-autoscale-ig`.
-     * **Сервисный аккаунт** — `queue-autoscale-sa`.
+     * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите `queue-autoscale-ig`.
+     * Выберите **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `queue-autoscale-sa`.
      
-  1. В блоке **Распределение** выберите зону доступности `{{ region-id }}-a`.
-  1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать** и настройте шаблон:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите`{{ region-id }}-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и в открывшемся окне:
   
-     1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **Пользовательские** и нажмите кнопку **Выбрать**.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** и нажмите **{{ ui-key.yacloud.common.select }}**.
      1. В открывшемся окне выберите созданный образ в качестве загрузочного диска:
      
-        1. Перейдите на вкладку **Образ**.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}**.
         1. Выберите образ, имя которого начинается на `queue-autoscale-image`.
-        1. Нажмите кнопку **Применить**
+        1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
         
-     1. В блоке **Сетевые настройки**:
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
      
-        * Выберите **Сеть** `queue-autoscale-network`. Подсеть `queue-autoscale-subnet-a` будет выбрана автоматически.
-        * В поле **Публичный адрес** выберите **Автоматически**, чтобы ВМ имели доступ в интернет и могли получать сообщения из очереди.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** выберите `queue-autoscale-network`.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`, чтобы ВМ имели доступ в интернет и могли получать сообщения из очереди.
         
-     1. В блоке **Доступ**:
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
      
-        * Выберите **Сервисный аккаунт** `queue-autoscale-sa`.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** выберите `queue-autoscale-sa`.
         * Укажите логин и содержимое [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) для подключения к ВМ.
         
-     1. Нажмите кнопку **Сохранить**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
      
-  1. В блоке **В процессе создания и обновления разрешено** укажите следующие значения:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}** укажите следующие значения:
   
-     * **Одновременно останавливать** — `1`.
-     * **Останавливать машины по стратегии** — **Деликатная**.
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}** — `1`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** — `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`.
      
-  1. В блоке **Масштабирование** укажите следующие значения:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}** укажите следующие значения:
   
-     * **Тип** — **Автоматический**.
-     * **Тип автомасштабирования** — **Региональное**.
-     * **Минимальное количество ВМ в зоне** — 0.
-     * **Максимальный размер группы** — 5.
-     * **Промежуток измерения нагрузки** — 60 секунд.
-     * **Время на разогрев ВМ** — 0 минут.
-     * **Период стабилизации** — 5 минут.
-     * **Начальный размер группы** — 1.
+     * **{{ ui-key.yacloud.compute.groups.create.field_scale-type }}** — `{{ ui-key.yacloud.compute.groups.create.value_scale-auto }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_auto-scale-type }}** — `{{ ui-key.yacloud.compute.groups.create.value_scale-regional }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_min-zone-size }}** — `0`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_max-size }}** — `5`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_measurement-duration }}** — `60 {{ ui-key.yacloud.common.units.label_time-sec_many }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_warmup-duration }}** — `0 {{ ui-key.yacloud.common.units.label_time-min_zero }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_cooldown-duration }}** — `5 {{ ui-key.yacloud.common.units.label_time-min_many }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_initial-size }}** — `1`.
      
-  1. В блоке **Метрики** укажите следующие значения:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}** укажите следующие значения:
   
-     * **Метрика** — **Пользовательская**.
-     * **Идентификатор сервиса** — `message-queue`.
-     * **Имя метрики** — `queue.messages.stored_count`.
-     * **Метки** — ключ `queue`, значение `queue-autoscale-queue`.
-     * **Тип метрики** — `GAUGE`.
-     * **Тип правила** — `WORKLOAD`.
-     * **Целевое значение** — 5.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric }}** — `{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}** — `message-queue`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-name }}** — `queue.messages.stored_count`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}** — ключ `queue`, значение `queue-autoscale-queue`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-type }}** — `GAUGE`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-rule-type }}** — `WORKLOAD`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-target }}** — `5`.
      
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -601,8 +602,8 @@
        - Консоль управления
         
          1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-         1. В списке сервисов выберите **{{ vpc-name }}**.
-         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **Идентификатор**.
+         1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **{{ ui-key.yacloud.vpc.networks.column_id }}**.
           
        - API
         
@@ -640,8 +641,8 @@
        - Консоль управления
         
          1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-         1. В списке сервисов выберите **{{ vpc-name }}**.
-         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **Идентификатор**.
+         1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **{{ ui-key.yacloud.vpc.networks.column_id }}**.
                
        - CLI
         

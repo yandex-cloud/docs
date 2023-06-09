@@ -7,8 +7,8 @@
 - Консоль управления
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещены образы дисков.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/image-pic.svg) **Образы**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
 
 - CLI
   

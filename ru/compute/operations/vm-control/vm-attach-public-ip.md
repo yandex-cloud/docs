@@ -7,14 +7,14 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ compute-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Выберите виртуальную машину.
-  1. В блоке **Сетевой интерфейс** в правом верхнем углу нажмите ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **Добавить публичный IP-адрес**.
+  1. В блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** в правом верхнем углу нажмите ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
   1. В открывшемся окне:
-     * В поле **Публичный адрес** выберите получение адреса **Автоматически** или выбор зарезервированного адреса из **Списка**
-     * (опционально) Если в поле **Публичный адрес** вы выбрали **Автоматически**, включите опцию **Защита от DDoS-атак**. Подробнее см. в разделе [{#T}](../../../vpc/ddos-protection/index.md).
-     * Если в поле **Публичный адрес** вы выбрали **Список**, выберите адрес, который хотите привязать к ВМ.
-     * Нажмите кнопку **Добавить**.
+     * В поле **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** выберите `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}`, чтобы автоматически получить адрес, или `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}`, чтобы выбрать зарезервированный адрес из списка.
+     * (опционально) Если в поле **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** вы выбрали `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}`, включите опцию **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_ddos-protection-provider }}**. Подробнее см. в разделе [{#T}](../../../vpc/ddos-protection/index.md).
+     * Если в поле **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** вы выбрали `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}`, выберите адрес, который хотите привязать к ВМ.
+     * Нажмите кнопку **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
 - CLI
 

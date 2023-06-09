@@ -7,22 +7,22 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать группу размещения дисков.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **Группы размещений**.
-  1. Перейдите на вкладку **Группы размещения нереплицируемых дисков**.
-  1. Нажмите кнопку **Создать группу размещения нереплицируемых дисков**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}**.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.button_create }}** → **{{ ui-key.yacloud.compute.placement-groups.button_create-disk-pg }}**.
   1. Введите имя группы.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. Если требуется, добавьте произвольное описание группы.
+  1. При необходимости добавьте произвольное описание группы.
   1. Укажите [зону доступности](../../../overview/concepts/geo-scope.md).
      
           
      {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
      
      
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
 
 - CLI
 

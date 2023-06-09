@@ -161,7 +161,7 @@
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     ```yaml
+     ```hcl
      resource "yandex_iam_service_account" "ig-sa" {
        name        = "ig-sa"
        description = "service account to manage IG"

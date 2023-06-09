@@ -7,7 +7,7 @@
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: настройка групп безопасности (dev/stage/prod) с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 * **NGFW из {{ marketplace-short-name }}**: если требуется продвинутая сетевая защита, используйте [NGFW](/marketplace?tab=software&search=NGFW) из {{ marketplace-full-name }}.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: установка в {{ yandex-cloud }} ВМ — межсетевого экрана (NGFW): Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
-* **Безопасный доступ извне облачной инфраструктуры (VPN)**: если требуется удаленный доступ к ресурсам облака, настройте site-to-site VPN, см. [инструкцию по настройке с использованием демона strongSwan](../../tutorials/routing/ipsec-vpn.md), либо воспользуйтесь [{{ interconnect-name }}](../../interconnect/) (также доступна услуга ГОСТ VPN).
+* **Безопасный доступ извне облачной инфраструктуры (VPN)**: если требуется удаленный доступ к ресурсам облака, настройте site-to-site VPN, см. [инструкцию по настройке с использованием демона strongSwan](../../tutorials/routing/ipsec/index.md), либо воспользуйтесь [{{ interconnect-name }}](../../interconnect/) (также доступна услуга ГОСТ VPN).
 
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 

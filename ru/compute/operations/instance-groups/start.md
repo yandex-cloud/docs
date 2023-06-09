@@ -12,11 +12,11 @@
 
 - Консоль управления
 
-  1. Откройте страницу каталога в [консоли управления]({{ link-console-main }}).
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/vm-group-pic.svg) **Группы виртуальных машин**.
-  1. Выберите группу ВМ, нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите пункт **Запустить группу**.
-  1. В открывшемся окне нажмите кнопку **Запустить**.
+  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. В строке с нужной группой ВМ нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.compute.groups.button_action-start }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.groups.popup-confirm_button_start }}**.
 
 - CLI
 

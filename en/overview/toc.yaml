@@ -6,13 +6,7 @@ items:
   - name: Getting started
     href: quickstart.md
   - name: Mobile app
-    items:
-      - name: Overview
-        href: mobile-app/index.md
-      - name: For Android
-        href: mobile-app/android.md
-      - name: For iOS
-        href: mobile-app/ios.md
+    href: mobile-app/index.md
   - name: Equivalent services on other platforms
     items:
       - name: Overview
@@ -43,7 +37,7 @@ items:
     href: concepts/data-deletion.md
   - name: SLA
     href: sla.md
-  - name: Revision history
+  - name: Releases
     href: release-notes.md
   - name: Troubleshooting
     href: qa.md

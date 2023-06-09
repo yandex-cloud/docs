@@ -8,7 +8,7 @@ To avoid paying for {{ tracker-name }}, you can disable paid features, leaving o
 
 To stop using paid features {{ tracker-full-name }}, revoke full access to {{ tracker-name }} from your company's employees. If only 5 or fewer users have full access, you can use {{ tracker-name }} free-of-charge. For more information, see [{#T}](pricing.md).
 
-1. In the panel on the left {{ tracker-name }}, click **Administration** → **Users**.
+1. In the panel on the left [{{ tracker-name }}]({{ link-tracker }}), click **Administration** → **Users**.
 
 1. Make sure the **Full access for all new users** option is disabled.
 

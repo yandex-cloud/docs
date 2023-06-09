@@ -6,14 +6,14 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать группу размещения дисков.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **Группы размещений**.
-  1. Перейдите на вкладку **Группы размещения нереплицируемых дисков**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить диск из группы размещения.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}**.
   1. Выберите группу размещения, из которой нужно удалить диск.
-  1. Перейдите на панель **Список дисков**.
-  1. Справа от имени удаляемого диска нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **Удалить из группы**.
-  1. В открывшемся окне нажмите кнопку **Удалить из группы**.
+  1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_disks }}**.
+  1. Справа от имени удаляемого диска нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.disks.popup-confirm_button_delete }}**.
 
 - {{ TF }}
 

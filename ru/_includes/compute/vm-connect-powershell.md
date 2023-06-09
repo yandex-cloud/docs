@@ -4,7 +4,7 @@
   
   {% include [security-groups-note-vm](../vpc/security-groups-note-vm.md) %}
 
-Для подключения по протоколу PSRP укажите публичный IP-адрес или полностью определенное доменное имя (Fully Qualified Domain Name, [FQDN](https://ru.wikipedia.org/wiki/FQDN)). Доступ по FQDN возможен из другой ВМ {{ yandex-cloud }}, если она подключена к той же сети. IP-адрес и FQDN можно узнать в консоли управления, в блоке **Сеть** на странице ВМ.
+Для подключения по протоколу PSRP укажите публичный IP-адрес или полностью определенное доменное имя (Fully Qualified Domain Name, [FQDN](https://ru.wikipedia.org/wiki/FQDN)). Доступ по FQDN возможен из другой ВМ {{ yandex-cloud }}, если она подключена к той же сети. IP-адрес и FQDN можно узнать в консоли управления, в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ.
 
 Чтобы подключиться к ВМ:
 

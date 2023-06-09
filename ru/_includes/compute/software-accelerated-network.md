@@ -2,4 +2,4 @@
 
 [Стоимость](../../compute/pricing.md#software-accelerated-network) дополнительных аппаратных ресурсов зависит от [платформы](../../compute/concepts/vm-platforms.md) и количества ядер ВМ.
 
-Чтобы включить программно-ускоренную сеть, [измените настройки](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) существующей ВМ или выберите опцию **Программно-ускоренная сеть** при [создании новой ВМ](../../compute/operations/vm-create/create-linux-vm.md).
+Чтобы включить программно-ускоренную сеть, [измените настройки](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) существующей ВМ или выберите опцию **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** при [создании новой ВМ](../../compute/operations/vm-create/create-linux-vm.md).

@@ -58,22 +58,22 @@ Hystax Acura Backup будет выполнять действия от имен
 
 Если группа безопасности доступна, [добавьте](../../vpc/operations/security-group-update.md#add-rule) в нее следующие правила:
 
-Направление<br>трафика | Описание | Диапазон<br>портов | Протокол | Тип<br>источника | Источник/Назначение
+Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
 --- | --- | --- | --- | --- | ---
-Входящий | http | 80 | TCP | CIDR | 0.0.0.0/0
-Входящий | https | 443 | TCP | CIDR | 0.0.0.0/0
-Входящий | https | 4443 | TCP | CIDR | 0.0.0.0/0
-Входящий | vmware | 902 | TCP | CIDR | 0.0.0.0/0
-Входящий | vmware | 902 | UDP | CIDR | 0.0.0.0/0
-Входящий | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0
-Входящий | udp | 12201 | UDP | CIDR | 0.0.0.0/0
-Входящий | tcp | 15000 | TCP | CIDR | 0.0.0.0/0
-Исходящий | http | 80 | TCP | CIDR | 0.0.0.0/0
-Исходящий | https | 443 | TCP | CIDR | 0.0.0.0/0
-Исходящий | vmware | 902 | TCP | CIDR | 0.0.0.0/0
-Исходящий | vmware | 902 | UDP | CIDR | 0.0.0.0/0
-Исходящий | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0
-Исходящий | udp | 12201 | UDP | CIDR | 0.0.0.0/0
+Входящий | `http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `https` | `4443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `iSCSI` | `3260` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `udp` | `12201` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `tcp` | `15000` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `iSCSI` | `3260` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `udp` | `12201` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
 Сохраните идентификатор группы безопасности, он потребуется в дальнейшем.
 
@@ -90,8 +90,8 @@ Hystax Acura Backup будет выполнять действия от имен
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
       1. При необходимости ограничьте максимальный размер бакета.
@@ -99,11 +99,11 @@ Hystax Acura Backup будет выполнять действия от имен
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
       1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access):
-          * **Доступ на чтение объектов** — **Ограниченный**.
-          * **Доступ к списку объектов** — **Ограниченный**.
-          * **Доступ на чтение настроек** — **Ограниченный**.
-      1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) — **Стандартное**.
-      1. Нажмите кнопку **Создать бакет** для завершения операции.
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** — `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** — `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** — `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+      1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) — `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
   1. Сохраните имя бакета, оно потребуется в дальнейшем.
 
 - API
@@ -122,35 +122,35 @@ Hystax Acura Backup будет выполнять действия от имен
     - Консоль управления
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
-      1. В списке сервисов выберите **{{ compute-name }}**.
-      1. Нажмите кнопку **Создать ВМ**.
-      1. В блоке **Базовые параметры**:
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. На панели слева выберите ![img](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
           * Введите имя `hystax-acura-vm` и описание ВМ.
           * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 
             Сохраните обозначение зоны доступности, оно потребуется в дальнейшем.
-      1. В блоке **Выбор образа/загрузочного диска**:
-          * Перейдите на вкладку **{{ marketplace-name }}**.
-          * Нажмите кнопку **Посмотреть больше**.
-          * В списке публичных образов выберите [Hystax Acura Backup в {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) и нажмите кнопку **Использовать**.
-      1. В блоке **Диски** укажите размер диска 200 ГБ.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+          * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**.
+          * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
+          * В списке публичных образов выберите [Hystax Acura Backup в {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** укажите размер диска `200 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-      
-      1. В блоке **Файловые хранилища** оставьте значения по умолчанию.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите:
+          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `8`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+          * Выберите в списке облачную [сеть](../../vpc/concepts/network.md#network). Если сети нет, нажмите кнопку **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**. Задайте параметры сети и нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+          * Выберите [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, нажмите кнопку ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Задайте параметры подсети и нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Сохраните идентификатор подсети, он потребуется в дальнейшем.
+          * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика.
 
+            {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
 
-      1. В блоке **Вычислительные ресурсы** укажите:
-          * vCPU — 8.
-          * RAM — 16 ГБ.
-      1. В блоке **Сетевые настройки**:
-          * Выберите в списке облачную [сеть](../../vpc/concepts/network.md#network). Если сети нет, нажмите кнопку **Создать сеть**. Задайте параметры сети и нажмите кнопку **Создать**.
-          * Выберите [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, нажмите кнопку ![image](../../_assets/plus.svg) **Добавить подсеть**. Задайте параметры подсети и нажмите кнопку **Создать**. Сохраните идентификатор подсети, он потребуется в дальнейшем.
-          * Если доступен список **Группы безопасности**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
-      1. В блоке **Доступ** укажите данные для доступа на ВМ:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
           * Выберите сервисный аккаунт `hystax-acura-account`, [созданный ранее](#create-sa).
-          * В поле **Логин** введите имя пользователя для доступа через SSH, например, `yc-user`.
-          * В поле **SSH-ключ** вставьте открытый ключ SSH.
-      1. Нажмите кнопку **Создать ВМ**.
+          * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя для доступа через SSH, например, `yc-user`.
+          * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа SSH.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
     - CLI
 
@@ -203,11 +203,11 @@ Hystax Acura Backup будет выполнять действия от имен
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) откройте страницу каталога, в котором вы работаете.
-  1. Выберите сервис **{{ vpc-name }}**.
-  1. Перейдите на вкладку **IP-адреса**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Нажмите значок ![image](../../_assets/options.svg) в строке адреса ВМ с Hystax Acura Backup.
-  1. В открывшемся меню выберите пункт **Сделать статическим**.
-  1. В открывшемся окне нажмите кнопку **Изменить**.
+  1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
   1. Сохраните IP-адрес, он потребуется в дальнейшем.
 
 - CLI

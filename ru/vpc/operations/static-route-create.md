@@ -17,28 +17,28 @@ description: "Статический маршрут по умолчанию (0.0
 
   Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md): 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать статический маршрут.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/route-tables.svg) **Таблицы маршрутизации**.
-  1. Нажмите кнопку **Создать**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте имя таблицы маршрутизации.
 
      {% include [name-format](../../_includes/name-format.md) %}
 
   1. (опционально) Добавьте описание таблицы маршрутизации.
   1. Выберите сеть, в которой требуется создать таблицу маршрутизации.
-  1. Нажмите кнопку **Добавить маршрут**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
   1. В открывшемся окне введите префикс подсети назначения в нотации CIDR.
-  1. Укажите **next hop** — IP-адрес из [разрешенных диапазонов](../concepts/network.md#subnet).
-  1. Нажмите кнопку **Добавить**.
-  1. Нажмите кнопку **Создать таблицу маршрутизации**.
+  1. Укажите **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** — IP-адрес из [разрешенных диапазонов](../concepts/network.md#subnet).
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
   Чтобы использовать статические маршруты, необходимо привязать таблицу маршрутизации к подсети:
 
-  1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **Подсети**.
+  1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. В строке нужной подсети нажмите кнопку ![image](../../_assets/options.svg).
-  1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
+  1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
   1. В открывшемся окне выберите созданную таблицу в списке.
-  1. Нажмите кнопку **Привязать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI
 

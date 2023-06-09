@@ -7,18 +7,16 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать образ.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **Снимки дисков**.
-  1. В строке с нужным снимком нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите в меню команду **Создать образ**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. В строке с нужным снимком нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.snapshots.list.button_action-image }}**.
   1. Введите имя образа.
 
-     * Длина — от 2 до 63 символов.
-     * Может содержать строчные буквы латинского алфавита, цифры и дефисы.
-     * Первый символ — буква. Последний символ — не дефис.
+      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. Если требуется, укажите произвольное текстовое описание образа.
-  1. Чтобы создать [оптимизированный образ](../../concepts/image.md#images-optimized-for-deployment), включите опцию **Оптимизировать для развертывания**.
-  1. Нажмите **Создать**.
+  1. При необходимости укажите произвольное текстовое описание образа.
+  1. Чтобы создать [оптимизированный образ](../../concepts/image.md#images-optimized-for-deployment), включите опцию **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

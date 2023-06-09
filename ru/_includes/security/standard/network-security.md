@@ -289,7 +289,7 @@
 * Site-to-site VPN между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе [образа]({{ link-cloud-marketplace }}?categories=network) из {{ marketplace-name }}.
 
   **Варианты настройки**:
-  * [Создание туннеля IPSec VPN с использованием демона strongSwan](../../../tutorials/routing/ipsec-vpn.md).
+  * [Создание туннеля IPSec VPN с использованием демона strongSwan](../../../tutorials/routing/ipsec/index.md).
   * [Создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
   * Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе [образа]({{ link-cloud-marketplace }}?categories=network) из {{ marketplace-name }}.
 
@@ -322,7 +322,7 @@
 
 Возможные варианты организации исходящего доступа в интернет:
 * [Публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Адрес назначается ВМ по принципу one-to-one NAT.
-* [Egress NAT (NAT-шлюз)](../../../vpc/operations/enable-nat.md). Включает доступ в интернет для подсети через общий пул публичных адресов {{ yandex-cloud }}. Не рекомендуется использовать Egress NAT для критичных взаимодействий, так как IP-адрес NAT-шлюза может использоваться несколькими клиентами одновременно. Следует учитывать эту особенность при моделировании угроз для инфраструктуры. Подробнее про [настройку](../../../vpc/operations/create-nat-gateway.md).
+* [Egress NAT (NAT-шлюз)](../../../vpc/operations/create-nat-gateway.md). Включает доступ в интернет для подсети через общий пул публичных адресов {{ yandex-cloud }}. Не рекомендуется использовать Egress NAT для критичных взаимодействий, так как IP-адрес NAT-шлюза может использоваться несколькими клиентами одновременно. Следует учитывать эту особенность при моделировании угроз для инфраструктуры.
 * [NAT-инстанс](../../../tutorials/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ [NAT-инстанс]({{ link-cloud-marketplace }}/products/yc/nat-instance-ubuntu-18-04-lts) из {{ marketplace-name }}.
 
 **Сравнение способов доступа в интернет**:

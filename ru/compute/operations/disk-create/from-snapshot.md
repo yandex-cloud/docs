@@ -7,9 +7,9 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **Диски**.
-  1. Нажмите кнопку **Создать диск**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
   1. Введите имя диска.
 
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -23,8 +23,8 @@
 
      При создании диска для него можно выбрать только одно расписание снимков. После создания диска вы сможете добавить к нему еще несколько расписаний по [инструкции](../disk-control/configure-schedule.md#add-schedule).
 
-  1. В разделе **Наполнение** выберите режим **Снимок** и в списке ниже отметьте нужный снимок. Для поиска снимка воспользуйтесь фильтром.
-  1. Нажмите кнопку **Создать диск**.
+  1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` и в списке ниже отметьте нужный снимок. Для поиска снимка воспользуйтесь фильтром.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI
 

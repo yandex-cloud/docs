@@ -58,7 +58,7 @@ Authorization: OAuth <OAuth-токен>
             "object": {
                 "self": "{{ host }}/v2/issues/TREK-9844",
                 "id": "593cd211ef7e8a332414f2a7",
-                "key": "TREK-9844"
+                "key": "TREK-9844",
                 "display": "subtask"
             },
             "createdBy": {

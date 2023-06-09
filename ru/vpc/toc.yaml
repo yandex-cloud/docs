@@ -46,8 +46,6 @@ items:
         items:
           - name: Создать статический маршрут
             href: operations/static-route-create.md
-          - name: Включить NAT в интернет
-            href: operations/enable-nat.md
           - name: Создать и настроить NAT-шлюз
             href: operations/create-nat-gateway.md
           - name: Перенести таблицу маршрутизации между каталогами
@@ -86,8 +84,14 @@ items:
         href: tutorials/web-service.md
       - name: Маршрутизация с помощью NAT-инстанса
         href: tutorials/nat-instance.md
-      - name: Создание туннеля IPSec VPN
-        href: tutorials/ipsec-vpn.md
+      - name: Организация сетевой связности с помощью IPsec-шлюзов
+        items:
+          - name: Схема решения
+            href: tutorials/ipsec/index.md
+          - name: Самостоятельная реализация средствами {{ yandex-cloud }}
+            href: tutorials/ipsec/ipsec-vpn.md
+          - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
+            href: tutorials/ipsec/sgw.md
       - name: Установка виртуального роутера Cisco CSR 1000v
         href: tutorials/cisco.md
       - name: Установка виртуального роутера Mikrotik CHR

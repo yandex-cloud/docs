@@ -40,10 +40,10 @@
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Сеть**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_vpc }}**.
   1. Задайте имя сети: `usergate-network`.
-  1. Включите опцию **Создать подсети**.
-  1. Нажмите кнопку **Создать сеть**.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 - CLI
 
@@ -153,34 +153,33 @@
 - Консоль управления 
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно создать группу.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**.
-  1. Нажмите кнопку **Создать группу**.
-  1. Укажите **Имя** группы: `usergate-sg`.
-  1. Выберите **Сеть** `usergate-network`.
-  1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. Введите имя группы безопасности — `usergate-sg`.
+  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть `usergate-network`.
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте правила по инструкции под таблицей:
    
-     | Направление<br/>трафика | Описание | Диапазон<br/>портов | Протокол | Тип источника /<br/>назначения | Источник /<br/>назначение |
+     | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
      | --- | --- | --- | --- | --- | --- |
-     | Исходящий | any | Весь | Любой | CIDR | 0.0.0.0/0 |
-     | Входящий | icmp | Весь| ICMP | CIDR | 0.0.0.0/0 |
-     | Входящий | rdp | 3389 | TCP | CIDR | 0.0.0.0/0 |
-     | Входящий | ssh | 22 | TCP | CIDR | 0.0.0.0/0 |
-     | Входящий | usergate 8001 | 8001 | TCP | CIDR | 0.0.0.0/0 |
-     | Входящий | usergate 8090 | 8090 | TCP | CIDR | 0.0.0.0/0 |
+     | Исходящий | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+     | Входящий | `icmp` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_icmp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+     | Входящий | `rdp` | `3389` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+     | Входящий | `ssh` | `22` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+     | Входящий | `usergate 8001` | `8001` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+     | Входящий | `usergate 8090` | `8090` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       
-     1. Перейдите на вкладку **Исходящий трафик** или **Входящий трафик**.
-     1. Нажмите кнопку **Добавить правило**.
-     1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-     1. В поле **Протокол** укажите нужный протокол или оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
-     1. В поле **Назначение** или **Источник** выберите назначение правила:
-      
-        * **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
-        * **Группа безопасности** — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**. В открывшемся окне:
+        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
+        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}**, чтобы разрешить передачу трафика по всем протоколам.
+        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}** — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}** — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
          
-     1. Нажмите кнопку **Сохранить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
    
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -350,11 +349,11 @@
 - Консоль управления
   
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **IP-адреса**.
-  1. Нажмите кнопку **Зарезервировать адрес**.
-  1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-  1. Нажмите кнопку **Зарезервировать**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+  1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
 - CLI
 
@@ -387,18 +386,19 @@
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ — `usergate-proxy`.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
+  1. Выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. Укажите имя виртуальной машины: `usergate-proxy`.
   1. Выберите зону доступности `{{ region-id }}-a`.
-  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ [UserGate NGFW](/marketplace/products/usergate/ngfw).
-  1. В блоке **Вычислительные ресурсы**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [UserGate NGFW](/marketplace/products/usergate/ngfw).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
      * Выберите [платформу](../../compute/concepts/vm-platforms.md) Intel Ice Lake.
      * Укажите необходимое количество vCPU и объем RAM:
 
-       * **vCPU** — 4.
-       * **Гарантированная доля vCPU** — 100%.
-       * **RAM** — 8 ГБ.
+       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
        {% note info %}
 
@@ -406,20 +406,20 @@
 
        {% endnote %}
    
-  1. В блоке **Сетевые настройки**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
   
      * Выберите сеть `usergate-network` и подсеть `usergate-subnet-{{ region-id }}-a`.
-     * В поле **Публичный адрес** выберите из списка зарезервированный ранее IP-адрес.
-     * В поле **Группы безопасности** выберите из списка группу `usergate-sg`.
+     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_list }}** и в появившемся списке выберите зарезервированный ранее IP-адрес.
+     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите из списка группу `usergate-sg`.
 
-  1. В блоке **Доступ** укажите данные для доступа на ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
 
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
        Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. раздел [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
    
 - CLI
   
@@ -440,7 +440,7 @@
        --memory 8 \
        --cores 4 \
        --zone {{ region-id }}-a \
-       --network-interface subnet-name=usergate-subnet-{{ region-id }}-a,nat-ip-version=ipv4,security-group-ids=<идентификатор группы безопасности usergate-sg> \
+       --network-interface subnet-name=usergate-subnet-{{ region-id }}-a,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности_usergate-sg> \
        --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
        --ssh-key <путь к открытой части SSH-ключа> \
      ```
@@ -501,7 +501,7 @@
 
        boot_disk {
          initialize_params {
-           image_id = "<идентификатор образа UserGate NGFW>"
+           image_id = "<идентификатор_образа_UserGate_NGFW>"
            size     = 110
          }
        }
@@ -509,8 +509,9 @@
        network_interface {
          subnet_id          = "${yandex_vpc_subnet.usergate-subnet.id}"
          nat                = true
-         security_group_ids = <идентификатор группы безопасности usergate-sg>
+         security_group_ids = <идентификатор_группы_безопасности_usergate-sg>
        }
+     }
      ```
 
      Подробнее см. в описании ресурса [yandex_compute_instance]({{ tf-provider-link }}/compute_instance) в документации провайдера {{ TF }}.
@@ -544,7 +545,7 @@
 
 ## Настройте UserGate NGFW через веб-консоль администратора {#admin-console}
 
-Для настройки шлюза перейдите в веб-консоль администратора UserGate NGFW по адресу `https://<публичный адрес ВМ>:8001` и авторизуйтесь с данными по умолчанию: логин — `Admin`, пароль — `utm`.
+Для настройки шлюза перейдите в веб-консоль администратора UserGate NGFW по адресу `https://<публичный_адрес_ВМ>:8001` и авторизуйтесь с данными по умолчанию: логин — `Admin`, пароль — `utm`.
 
 После авторизации вам будет предложено изменить пароль по умолчанию и провести обновление ОС.
 

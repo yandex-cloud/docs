@@ -11,9 +11,9 @@
 - Консоль управления
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **Диски**.
-  1. Нажмите кнопку **Создать диск**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
   1. Введите имя диска.
   
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -25,14 +25,14 @@
      {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
      
      
-  1. Укажите тип диска **Нереплицируемый SSD**.
+  1. Укажите тип диска `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}`.
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
   1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться [снимки](../../concepts/snapshot.md), или создайте его. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
 
      При создании диска для него можно выбрать только одно расписание снимков. Если требуется, после создания диска вы можете добавить к нему еще несколько расписаний по [инструкции](../disk-control/configure-schedule.md#add-schedule).
   
-  1. Нажмите кнопку **Создать диск**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI
   
@@ -139,9 +139,9 @@
 - Консоль управления
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **Диски**.
-  1. Нажмите кнопку **Создать диск**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
   1. Введите имя диска.
   
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -150,14 +150,14 @@
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
 
      Зона доступности для диска должна соответствовать зоне группы размещения, в которой вы хотите создать диск.
-  1. Укажите тип диска **Нереплицируемый SSD**.
+  1. Укажите тип диска `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}`.
   1. Выберите группу размещения дисков.
   1. Задайте нужный размер диска.
   1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться [снимки](../../concepts/snapshot.md), или создайте его. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
   
      Если вы хотите указать еще одно расписание, вы сможете [добавить](../disk-control/configure-schedule.md#add-schedule) его после создания диска.
   
-  1. Нажмите кнопку **Создать диск**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI
   

@@ -36,11 +36,11 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится файловое хранилище.
-     1. Выберите сервис **{{ compute-name }}**.
-     1. На панели слева выберите ![image](../../../_assets/compute/storage.svg) **Файловые хранилища**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева выберите ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
      1. Выберите нужное хранилище.
-     1. Перейдите на вкладку **Виртуальные машины**.
-     1. В строке нужной ВМ нажмите ![image](../../../_assets/options-grey.svg) и выберите пункт **Отключить файловое хранилище**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}**.
+     1. В строке нужной ВМ нажмите ![image](../../../_assets/options-grey.svg) и выберите пункт **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
      1. В открывшемся окне подтвердите отключение.
 
    - API

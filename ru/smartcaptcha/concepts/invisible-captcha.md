@@ -81,6 +81,56 @@ window.smartCaptcha.render('captcha-container', {
 
 ## Особенности {#specifics}
 
-Невидимая капча требует меньше памяти, чем обычная, так как не загружает код, который отрисовывает кнопку **Я не робот**.
+* Невидимая капча требует меньше памяти, чем обычная, так как не загружает код, который отрисовывает кнопку **Я не робот**.
 
-Однако, у пользователей, которым будет показано задание, время загрузки виджета может варьироваться. Поэтому мы рекомендуем предупреждать пользователей о показе капчи, чтобы не приводить их в замешательство во время ожидания.
+    Однако, у пользователей, которым будет показано задание, время загрузки виджета может варьироваться. Поэтому мы рекомендуем предупреждать пользователей о показе капчи, чтобы не приводить их в замешательство во время ожидания.
+
+* Если на странице более одного виджета, то нужно передавать идентификатор виджета в метод `execute`.
+
+    {% cut "Пример" %}
+
+    ```html
+    <script
+      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      defer
+    ></script>
+
+    <script>
+      let widgetId;
+
+      function onloadFunction() {
+        if (!window.smartCaptcha) {
+          return;
+        }
+
+        widgetId = window.smartCaptcha.render('captcha-container', {
+          sitekey: '<Ключ_для_клиентской_части>',
+          invisible: true, // Сделать капчу невидимой
+          callback: callback,
+        });
+      }
+
+      function callback(token) {
+        if (typeof token === "string" && token.length > 0) {
+            // Отправить форму на бекенд
+            console.log(token);
+            document.querySelector('form').submit()
+        }
+      }
+      
+      function handleSubmit(event) {
+        if (!window.smartCaptcha) {
+          return;
+        }
+
+        window.smartCaptcha.execute(widgetId);
+      }
+    </script>
+
+    <form id="form">
+      <div id="captcha-container"></div>
+      <button type="button" onclick="handleSubmit()">Submit</button>
+    </form>
+    ```
+
+    {% endcut %}
