@@ -1,6 +1,6 @@
 # Authentication using Azure Active Directory
 
-With an [identity federation](../../add-federation.md), you can use [Azure Active Directory]({{ link-azure-ad }}) (Azure AD) to authenticate users in an organization.
+With an [identity federation](../../add-federation.md), you can use [Azure Active Directory (Azure AD)]({{ link-azure-ad }}) to authenticate users in an organization.
 
 Setting up authentication includes the following steps:
 
@@ -98,9 +98,13 @@ Add users to the IdP server:
       https://login.microsoftonline.com/<SAML application ID>/saml2
       ```
 
+      {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
    1. Enable **Automatically create users** to add authenticated users to your organization automatically. If this option is disabled, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
 
       {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
+
+   1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
    1. Click **Create federation**.
 
@@ -135,7 +139,6 @@ Add users to the IdP server:
       * `organization-id`: Your organization ID.
 
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -156,6 +159,8 @@ Add users to the IdP server:
          ```
          https://login.microsoftonline.com/<SAML application ID>/saml2
          ```
+
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
       * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
@@ -187,6 +192,7 @@ Add users to the IdP server:
       * `organizationId`: Organization ID.
 
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+      
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -208,6 +214,8 @@ Add users to the IdP server:
          ```
          https://login.microsoftonline.com/<SAML application ID>/saml2
          ```
+
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
       * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
@@ -240,8 +248,11 @@ Add users to the IdP server:
          https://login.microsoftonline.com/<SAML application ID>/saml2
          ```
 
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -332,7 +343,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
       ```
       yc organization-manager federation saml certificate create \
-        --federation-id <federation ID> \
+        --federation-id <federation_ID> \
         --name "my-certificate" \
         --certificate-file certificate.cer
       ```
@@ -345,7 +356,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
       ```json
       {
-        "federationId": "<federation ID>",
+        "federationId": "<federation_ID>",
         "name": "my-certificate",
         "data": "-----BEGIN CERTIFICATE..."
       }
@@ -370,33 +381,26 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
-### Get a console login link {#get-link}
-
-When you set up federation authentication, users can log in to the management console from a link containing the federation ID. You will need to specify the same link when [setting up Single Sign-On (SSO)](#sso-settings).
-
-Get the link:
-
-1. Copy the Federation ID:
-
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-   1. Copy the ID of the federation you are configuring access for.
-
-1. Generate a link using this ID:
-
-   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Setting up Single Sign-On (SSO) {#sso-settings}
 
-### Add a console login link {#add-link}
+### Specify the redirection URL {#add-link}
 
-Once you create a federation and receive a link to log in to the console, finalize the SAML application in Azure AD:
+Once you create a federation, finalize the SAML application in Azure AD:
 
 1. Open the **SAML-based sign-on** SAML application settings page.
 
-1. In Section **1. Basic SAML** configuration, specify information on {{ yandex-cloud }} acting as the service provider.
+1. In Section **1. Basic SAML** configuration, specify information on {{ yandex-cloud }} acting as the service provider. To do this, in the **ID (entity)** and the **Response URL (assertion consumer service URL)** fields, enter the URL to redirect users to after authentication:
 
-   To do this, in the **ID (entity)** and the **Response URL (assertion consumer service URL)** fields, enter the [console login link](#get-link) you obtained earlier.
+   ```
+   https://{{ auth-host }}/federations/<federation_ID>
+   ```
+
+   {% cut "How to get the federation ID" %}
+  
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+  
+   {% endcut %}
 
 1. Click **Save**.
 
@@ -446,7 +450,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top-right corner, click the arrow next to the **Add user** button and select **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -469,7 +473,7 @@ A user can be added by an organization administrator (the `organization-manager.
    1. Add users by listing their Name IDs separated by a comma:
 
       ```
-      yc organization-manager federation saml add-user-accounts --id <federation ID> \
+      yc organization-manager federation saml add-user-accounts --id <federation_ID> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -501,7 +505,7 @@ A user can be added by an organization administrator (the `organization-manager.
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation_ID>:addUserAccounts
       ```
 
 {% endlist %}
@@ -512,11 +516,23 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the [console login link](#yc-settings) you obtained previously. The browser forwards you to the Microsoft authentication page.
+1. Follow the management console login URL:
+
+   ```
+   https://{{ console-host }}/federations/<federation_ID>
+   ```
+
+   {% cut "How to get the federation ID" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+
+   The browser forwards you to the Microsoft authentication page.
 
 1. Enter your credentials and click **Next**.
 
-If the authentication is successful, the IdP server will redirect you back to the console login link, and then to the [management console]({{ link-console-main }}) home page. In the top right corner, you will be able to see you are logged in to the console as a federated user.
+If the authentication is successful, the IdP server will redirect you to `https://{{ auth-host }}/federations/<federation_ID>`, the URL that you specified in the Azure AD settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

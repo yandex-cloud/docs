@@ -32,12 +32,13 @@ You can configure the environment to run your code using [Docker images](../conc
        apt-key adv --fetch-keys <public GPG key> &&\
        add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
        apt-get update &&\
-       apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
+       apt-get -y install libnvidia-common-450 cuda-drivers-450 nvidia-driver-450 &&\
+       apt-get -y install cuda-11-2 libcudnn8=8.1.1.33-1+cuda11.2 cuda-toolkit-11-2 &&\
        exit
       RUN pip install tensorflow-gpu==2.4.1
       ```
 
-      Replace the `<public GPG key>` with a link to a valid GPG key for working with CUDA<sup>®</sup>, such as `https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub`. For details, see details in the [Nvidia blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
+      Replace the `<public GPG key>` with a link to a valid GPG key for working with CUDA<sup>®</sup>, such as `https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub`. For details, see [Nvidia blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
 
 1. Click **{{ ui-key.yc-ui-datasphere.common.build }}**.
 

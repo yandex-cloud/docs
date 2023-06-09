@@ -24,6 +24,6 @@ Once the organization is created, you become its owner and can manage it.
 
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 1. In the left-hand panel, click on your account picture.
-1. In the list that opens, select the organization you need. Available organizations are marked with the ![case](../_assets/organization/case.svg) icon.
+1. In the list that opens, select the organization you need.
 
 The name of the selected organization is displayed in the top-left corner of the service window.

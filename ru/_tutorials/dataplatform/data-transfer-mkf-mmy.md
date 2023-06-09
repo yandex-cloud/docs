@@ -1,4 +1,4 @@
-# Поставка данных из {{ mkf-full-name }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
+# Поставка данных очереди из {{ KF }} в {{ MY }} с помощью {{ data-transfer-full-name }}
 
 В кластер {{ mmy-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
 

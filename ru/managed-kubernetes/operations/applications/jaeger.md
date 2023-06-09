@@ -44,9 +44,9 @@
 
    ```bash
    yc iam key create \
-     --service-account-id <идентификатор сервисного аккаунта> \
-     --folder-id <идентификатор каталога> \
-     --cloud-id <идентификатор облака> \
+     --service-account-id <идентификатор_сервисного_аккаунта> \
+     --folder-id <идентификатор_каталога> \
+     --cloud-id <идентификатор_облака> \
      --description jaeger-over-ydb \
      --format json \
      -o key.json
@@ -56,8 +56,8 @@
 
    ```text
    {
-     "id": "<идентификатор ключа сервисного аккаунта>",
-     "service_account_id": "<идентификатор сервисного аккаунта>",
+     "id": "<идентификатор_ключа_сервисного_аккаунта>",
+     "service_account_id": "<идентификатор_сервисного_аккаунта>",
      "created_at": "2022-01-27T03:29:45.139311367Z",
      "description": "jaeger-over-ydb",
      "key_algorithm": "RSA_2048"

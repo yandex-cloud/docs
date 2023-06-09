@@ -17,10 +17,9 @@
 
    ```bash
    yc iam key create \
-     --service-account-name <имя сервисного аккаунта для Ingress-контроллера> \
+     --service-account-name <имя_сервисного_аккаунта_для_Ingress-контроллера> \
      --format=json > sa-key.json
    ```
-
 
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
@@ -35,7 +34,6 @@
    * **Идентификатор кластера** — укажите [идентификатор кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
    * **Secret Key** — вставьте содержимое файла `sa-key.json`.
 1. Нажмите кнопку **Установить**.
-
 
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}
@@ -60,24 +58,25 @@
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_alb-ingress-controller.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_alb-ingress-controller.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set folderId=<идентификатор каталога> \
-     --set clusterId=<идентификатор кластера> \
+     --set folderId=<идентификатор_каталога> \
+     --set clusterId=<идентификатор_кластера> \
      --set-file saKeySecretKey=sa-key.json \
      yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/alb-ingress-controller#docker-images).
-
 
 
 ## См. также {#see-also}
 
 * [Описание Ingress-контроллеров](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) в документации {{ k8s }}.
+
+
 * [Практическое руководство по настройке Ingress-контроллера {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+
+
 * [Справочник Ingress-контроллера {{ alb-name }}](../../application-load-balancer/k8s-ref/index.md).

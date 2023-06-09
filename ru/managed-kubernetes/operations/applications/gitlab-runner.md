@@ -8,7 +8,7 @@
 * Для настройки {{ GLR }} на весь [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md) (требуются права администратора {{ GL }}):
   1. Откройте в браузере административную панель {{ GL }}, используя [FQDN](../../../compute/concepts/network.md#hostname) инстанса.
   1. Нажмите кнопку **Menu** и выберите пункт **Admin**.
-  1. Перейдите в раздел **Runners**.
+  1. Перейдите в раздел **CI/CD** → **Runners**.
   1. Нажмите кнопку **Register an instance runner** и сохраните значения параметра `registration token`.
 * Для настройки {{ GLR }} для группы или проекта:
   1. Откройте в браузере административную панель {{ GL }}, используя FQDN инстанса.
@@ -41,23 +41,22 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_gitlab-runner.helmChart.name }}  \
+     --version {{ mkt-k8s-key.yc_gitlab-runner.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set gitlabDomain=<публичный IP-адрес ВМ или FQDN инстанса {{ mgl-full-name }}> \
-     --set runnerRegistrationToken=<регистрационный токен, полученный ранее> \
+     --set gitlabDomain=<публичный_IP-адрес_ВМ_или_FQDN_инстанса_Yandex_Managed_Service_for_GitLab> \
+     --set runnerRegistrationToken=<ранее_полученный_регистрационный_токен> \
      gitlab-runner ./gitlab-runner/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gitlab-runner#docker-images).
 
 ## Примеры использования {#examples}
 
 * [{#T}](../../tutorials/gitlab-containers.md).
 * [{#T}](../../tutorials/cr-scanner-with-k8s-and-gitlab.md).
+* [{#T}](../../../managed-gitlab/tutorials/image-storage.md).
 
 ## См. также {#see-also}
 

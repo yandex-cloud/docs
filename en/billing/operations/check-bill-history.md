@@ -1,6 +1,6 @@
 # View your payment history
 
-You can view the full history of payments to your [personal account](../concepts/personal-account.md#balance) on the **Payment history** page or in Yandex Balance. The tracking method depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+You can view the full history of payments to your [personal account](../concepts/personal-account.md#balance) on the **Payment history** page or in [Yandex Balance](https://yandex.com/support/balance/operations/find-bill.html). The tracking method depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
 
 {% list tabs %}
@@ -12,7 +12,6 @@ You can view the full history of payments to your [personal account](../concepts
 - For individuals
 
    Individuals can view the full history of payments on the **Payment history** page.
-
 
    To open the **Payment history** page:
     1. In the management console, go to ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).

@@ -42,7 +42,7 @@ items:
   - name: Решение проблем
     href: qa.md
   - name: Облачная терминология
-    href: ../glossary/index.yaml
+    href: ../glossary/index.md
   - name: Обучающие курсы
     href: training.md
 base: ru/overview

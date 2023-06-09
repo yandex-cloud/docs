@@ -1,6 +1,8 @@
 # Метод deleteObjectTagging
 
-Удаляет все метки объекта в бакете. 
+Удаляет все [метки](../../../concepts/tags.md) объекта в бакете. 
+
+{% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
 ## Запрос {#request}
 

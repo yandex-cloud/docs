@@ -180,7 +180,7 @@ Once created, the VM appears in the VM list under **{{ compute-name }}** in the 
 
 To check the result of configuring data output from the Docker container to the serial port:
 1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ compute-name }}**.
-1. Click on the name of the `coi-vm-with-sp` VM.
+1. Click the name of the `coi-vm-with-sp` VM.
 1. Under **Serial port**, select `COM2`. In a few minutes, the screen displays `Hello world!`.
 
 For more information about working with VMs, see our [step-by-step guides](../../compute/operations/index.md).

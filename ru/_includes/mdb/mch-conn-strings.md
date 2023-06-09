@@ -802,8 +802,8 @@ pip3 install requests
         'https://{0}:8443'.format('<FQDN любого хоста {{ CH }}>'),
         params={
             'query': 'SELECT version()',
-            'verify': '{{ crt-local-dir }}{{ crt-local-file }}',
         },
+        verify='/usr/local/share/ca-certificates/Yandex/YandexCA.crt',
         headers={
             'X-ClickHouse-User': '<имя пользователя БД>',
             'X-ClickHouse-Key': '<пароль пользователя БД>',

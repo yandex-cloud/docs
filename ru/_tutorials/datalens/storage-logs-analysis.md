@@ -32,18 +32,16 @@
 
 ## Создайте бакет для хранения логов {#create-bucket}
 
-Чтобы создать бакет:
-
 {% list tabs %}
 
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. В списке сервисов выберите **{{ objstorage-name }}**.
-  1. Нажмите кнопку **Создать бакет**.
-  1. Укажите **Имя** бакета: `bucket-logs`.
-  1. В полях **Доступ на чтение объектов** и **Доступ к списку объектов** выберите **Публичный**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите `bucket-logs`.
+  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   
 - AWS CLI
   
@@ -60,15 +58,6 @@
      ```
      make_bucket: bucket-logs
      ```
-     
-  1. Включите публичный доступ к чтению объектов и их списка:
-  
-     ```bash
-     aws --endpoint-url https://{{ s3-storage-host }} \
-       s3api put-bucket-acl \
-       --bucket bucket-logs \
-       --acl public-read
-     ```
   
 - {{ TF }}
 
@@ -79,7 +68,6 @@
      ```
      resource "yandex_storage_bucket" "bucket-logs" {
        bucket = "bucket-logs"
-       acl    = "public-read"
      }
      ```
      
@@ -101,8 +89,6 @@
 
 ## Включите экспорт логов {#logs-export}
 
-Чтобы включить экспорт логов в бакет `bucket-logs`:
-
 {% list tabs %}
 
 - AWS CLI
@@ -123,7 +109,7 @@
      ```
      aws s3api put-bucket-logging \
        --endpoint-url https://{{ s3-storage-host }} \
-       --bucket <имя целевого бакета> \
+       --bucket <имя бакета, для которого надо включить логирование действий> \
        --bucket-logging-status file://log-config.json
      ```
 
@@ -142,25 +128,31 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать кластер.
-  1. В списке сервисов выберите **{{ mch-name }}**.
-  1. В открывшемся окне нажмите **Создать кластер**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Укажите настройки кластера {{ CH }}:
 
-     1. В блоке **Базовые параметры**:
-        
-        * Укажите имя кластера `s3-logs`.
-        * Выберите версию 21.3 LTS.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** укажите `s3-logs`.
 
-     1. В блоке **Класс хоста** выберите тип виртуальной машины **burstable** и тип хоста **b2.medium**.
-     1. В блоке **Размер хранилища** оставьте значение 10 ГБ.
-     1. В блоке **База данных** укажите имя БД `s3_data`, имя пользователя `user` и пароль. Запомните имя БД.  
-     1. В блоке **Хосты** нажмите значок ![pencil](../../_assets/pencil.svg). Включите опцию **Публичный доступ** и нажмите кнопку **Сохранить**.
-     1. В блоке **Дополнительные настройки** включите опции:
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** в поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** выберите **burstable**.
 
-        * Доступ из {{ datalens-short-name }}.
-        * Доступ из консоли управления.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/edit.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-  1. После всех настроек нажмите кнопку **Создать кластер**.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
+
+        * В поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** выберите **Выключено**.
+        * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** укажите `user`.
+        * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** укажите пароль.
+        * В поле **{{ ui-key.yacloud.mdb.forms.database_field_name }}** укажите `s3_data`.
+
+        Запомните имя БД.
+
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции:
+
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**.
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI
 
@@ -192,8 +184,7 @@
         --user name=user,password=<пароль пользователя> \
         --database name=s3_data \
         --datalens-access=true \
-        --websql-access=true \
-        --version 21.3
+        --websql-access=true
      ```
 
 - {{ TF }}
@@ -204,7 +195,6 @@
      resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
        name                = "s3-logs"
        environment         = "PRODUCTION"
-       version             = "21.3"
        network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
 
        clickhouse {
@@ -256,19 +246,28 @@
 
 {% endlist %}
 
+После создания кластера вы автоматически будете перенаправлены на страницу **{{ ui-key.yacloud.clickhouse.switch_list }}**.
+
+Дождитесь пока статус кластера изменится на `Alive`.
+
 ### Измените настройки пользователя {#user-settings}
 
 {% list tabs %}
 
 - Консоль управления
 
-  1. На странице созданного кластера {{ CH }} в меню слева перейдите на вкладку **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Настроить**.
-  1. Перейдите в раздел **Дополнительные настройки** → **Settings**.
-  1. В поле **Date time input format** выберите значение `best_effort`.
-  1. Нажмите кнопку **Сохранить**.
+  1. Выберите кластер `s3-logs`.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }}** → **Settings**.
+  1. В поле **Date time input format** выберите `best_effort`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
 
 {% endlist %}
+
+### Создайте статический ключ {#create-static-key}
+
+Для создания таблицы с доступом к {{ objstorage-name }} вам понадобится статический ключ. [Создайте его](../../iam/operations/sa/create-access-key.md) и сохраните идентификатор и секретную часть ключа.
 
 ### Создайте таблицу в БД {#create-table}
 
@@ -276,9 +275,10 @@
 
 - Консоль управления
 
-  1. На странице созданного кластера {{ CH }} в меню слева перейдите на вкладку **SQL**.
-  1. Введите имя пользователя БД и пароль.
-  1. Нажмите кнопку **Подключиться**.
+  1. Выберите кластер `s3-logs`.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_explore }}**.
+  1. В поле **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** введите пароль.
+  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
   1. В окне справа напишите SQL-запрос:
 
      ```sql
@@ -318,11 +318,14 @@
      )
      ENGINE = S3(
            'https://{{ s3-storage-host }}/bucket-logs/s3-logs/*',
+           '<идентификатор ключа>',
+           '<секретный ключ>',
            'JSONEachRow'
-        );
+        )
+     SETTINGS date_time_input_format='best_effort';
      ```
 
-  1. Нажмите кнопку **Выполнить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
 
 {% endlist %}
 
@@ -332,35 +335,37 @@
 
 - Консоль управления
 
-  1. На странице созданного кластера {{ CH }} в меню слева перейдите на вкладку **{{ datalens-short-name }}**.
-  1. В открывшемся окне нажмите кнопку **Создать подключение**.
+  1. Выберите кластер `s3-logs`.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.datalens.connections.form.button_add-connection }}**.
   1. Заполните настройки подключения:
 
      1. Добавьте название подключения: `s3-logs-con`.
-     1. В поле **Кластер** выберите `s3-logs`.
-     1. В поле **Имя хоста** выберите хост {{ CH }} из выпадающего списка. 
+     1. В поле **{{ ui-key.datalens.connections.form.field_cluster }}** выберите `s3-logs`.
+     1. В поле **{{ ui-key.datalens.connections.form.field_host-name }}** выберите хост {{ CH }} из выпадающего списка. 
      1. Введите имя пользователя БД и пароль.
 
-  1. Нажмите **Проверить подключение**.
-  1. После проверки подключения в правом верхнем углу нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.datalens.connections.form.button_verify }}**.
+  1. После проверки подключения нажмите **{{ ui-key.datalens.connections.form.button_create-connection }}**.
+  1. В открывшемся окне введите имя подключения и нажмите кнопку **{{ ui-key.datalens.connections.form.button_create }}**.
 
 {% endlist %}
 
 ## Создайте датасет в {{ datalens-short-name }} {#create-dataset}
 
-1. В правом верхнем углу нажмите кнопку **Создать датасет**.
+1. Нажмите кнопку **{{ ui-key.datalens.connections.form.button_create-dataset }}**.
 1. В созданном датасете перенесите таблицу `s3_data.s3logs` на рабочую область.
-1. Перейдите на вкладку **Поля**.
-1. Нажмите кнопку ![image](../../_assets/plus-sign.svg)**Добавить поле**.
+1. Перейдите на вкладку **{{ ui-key.datalens.dataset.dataset-editor.modify.value_dataset }}**.
+1. Нажмите значок ![image](../../_assets/plus-sign.svg)**{{ ui-key.datalens.dataset.dataset-editor.modify.button_add-field }}**.
 1. Создайте расчетное поле с типом файла:
    
    * Название поля — `object_type`.
    * Формула — `SPLIT([object_key], '.', -1)`.
 
-1. Нажмите кнопку **Создать**.
-1. В правом верхнем углу нажмите кнопку **Сохранить**.
-1. Введите имя датасета `s3-dataset` и нажмите **Создать**.
-1. После сохранения датасета в правом верхнем углу нажмите **Создать чарт**.
+1. Нажмите кнопку **{{ ui-key.datalens.component.dl-field-editor.view.button_create }}**.
+1. В правом верхнем углу нажмите **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
+1. Введите имя датасета `s3-dataset` и нажмите **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
+1. После сохранения датасета в правом верхнем углу нажмите **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create-widget }}**.
 
 ## Создайте чарты в {{ datalens-short-name }} {#create-charts}
 
@@ -368,11 +373,11 @@
 
 Чтобы визуализировать количество запросов к бакету разными методами, создайте чарт — круговую диаграмму:
 
-1. Выберите тип визуализации **Круговая диаграмма**.
-1. Перетащите поле `method` из раздела **Измерения** в секцию **Цвет**.
-1. Перетащите поле `request_id` из раздела **Измерения** в секцию **Показатели**.
-1. В правом верхнем углу нажмите **Сохранить**.
-1. В открывшемся окне введите название чарта `S3 - Method pie` и нажмите **Сохранить**.
+1. Выберите тип визуализации **{{ ui-key.datalens.wizard.label_visualization-pie }}**.
+1. Перетащите поле `method` из раздела **{{ ui-key.datalens.wizard.section_dimensions }}** в секцию **{{ ui-key.datalens.wizard.section_color }}**.
+1. Перетащите поле `request_id` из раздела **{{ ui-key.datalens.wizard.section_dimensions }}** в секцию **{{ ui-key.datalens.wizard.section_measures }}**.
+1. В правом верхнем углу нажмите **{{ ui-key.datalens.wizard.button_save }}**.
+1. В открывшемся окне введите название чарта `S3 - Method pie` и нажмите **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
 
 ### Создайте второй чарт {#create-column-chart}
 
@@ -380,13 +385,13 @@
 
 1. Скопируйте чарт, получившийся на предыдущем шаге:
 
-   1. В правом верхнем углу нажмите значок галочки рядом с кнопкой **Сохранить**.
-   1. Нажмите **Сохранить как**.
-   1. В открывшемся окне введите название нового чарта `S3 - Object type bars` и нажмите кнопку **Сохранить**.
+   1. В правом верхнем углу нажмите галочку рядом с кнопкой **{{ ui-key.datalens.wizard.button_save }}**.
+   1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_save-as }}**.
+   1. В открывшемся окне введите название нового чарта `S3 - Object type bars` и нажмите кнопку **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
 
-1. Выберите тип визуализации **Столбчатая диаграмма**. Поля `method` и `request_id` автоматически попадут в секции **X** и **Y** соответственно.
-1. Удалите поле `method` из секции **X** и перетащите туда поле `object_type`.
-1. В правом верхнем углу нажмите **Сохранить**.
+1. Выберите тип визуализации **{{ ui-key.datalens.wizard.label_visualization-column }}**. Поля `method` и `request_id` автоматически попадут в секции **{{ ui-key.datalens.wizard.section_x }}** и **{{ ui-key.datalens.wizard.section_y }}** соответственно.
+1. Удалите поле `method` из секции **{{ ui-key.datalens.wizard.section_x }}** и перетащите туда поле `object_type`.
+1. В правом верхнем углу нажмите **{{ ui-key.datalens.wizard.button_save }}**.
 
 ### Создайте третий чарт {#create-column-chart-2}
 
@@ -394,26 +399,24 @@
 
 1. Скопируйте чарт, получившийся на предыдущем шаге:
 
-   1. В правом верхнем углу нажмите значок галочки рядом с кнопкой **Сохранить**.
-   1. Нажмите **Сохранить как**.
-   1. В открывшемся окне введите название нового чарта `S3 - Traffic generated by days` и нажмите кнопку **Сохранить**.
+   1. В правом верхнем углу нажмите галочку рядом с кнопкой **{{ ui-key.datalens.wizard.button_save }}**.
+   1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_save-as }}**.
+   1. В открывшемся окне введите название нового чарта `S3 - Traffic generated by days` и нажмите кнопку **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
 
-1. Перетащите поле `object_type` из секции **X** в секцию **Фильтры**.
-1. В открывшемся окне выберите типы объектов, которые нужно отобразить на диаграмме, и нажмите кнопку **Применить фильтр**.
-1. Перетащите поле `timestamp` из раздела **Измерения** в секцию **X**.
-1. Удалите поле `request_id` из секции **Y** и перетащите туда поле `bytes_send`.
-1. В правом верхнем углу нажмите **Сохранить**.
+1. Перетащите поле `object_type` из секции **{{ ui-key.datalens.wizard.section_x }}** в секцию **{{ ui-key.datalens.wizard.section_filters }}**.
+1. В открывшемся окне выберите типы объектов, которые нужно отобразить на диаграмме, и нажмите **{{ ui-key.datalens.wizard.button_apply-filter }}**.
+1. Перетащите поле `timestamp` из раздела **{{ ui-key.datalens.wizard.section_dimensions }}** в секцию **{{ ui-key.datalens.wizard.section_x }}**.
+1. Удалите поле `request_id` из секции **{{ ui-key.datalens.wizard.section_y }}** и перетащите туда поле `bytes_send`.
+1. В правом верхнем углу нажмите **{{ ui-key.datalens.wizard.button_save }}**.
 
 ## Создайте дашборд в {{ datalens-short-name }} и добавьте на него чарты {#create-dashboard}
 
-Создайте дашборд, на котором будут размещены чарты:
-
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. Нажмите кнопку **Создать дашборд**.
-1. Введите название дашборда `S3 Logs Analysis` и нажмите кнопку **Создать**.
-1. В правом верхнем углу нажмите кнопку **Добавить** и выберите **Чарт**.
-1. В поле **Чарт** нажмите **Выбрать** и выберите из списка чарт `S3 - Method pie`.
-1. Нажмите кнопку **Добавить**. Чарт появится на дашборде.
+1. Нажмите кнопку **{{ ui-key.datalens.main.landing.view.button_create-dashboards }}**.
+1. Введите название дашборда `S3 Logs Analysis` и нажмите **{{ ui-key.datalens.component.navigation.view.button_create }}**.
+1. В правом верхнем углу нажмите **{{ ui-key.datalens.dash.action-panel.view.button_add }}** и выберите **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
+1. В поле **{{ ui-key.datalens.dash.widget-dialog.edit.field_widget }}** нажмите **{{ ui-key.datalens.dash.navigation-input.edit.button_choose }}** и выберите из списка чарт `S3 - Method pie`.
+1. Нажмите кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**. Чарт появится на дашборде.
 1. Повторите предыдущие шаги для чартов `S3 - Object type bars` и `S3 - Traffic generated by days`.
 
 ## Как удалить созданные ресурсы {#clear-out}

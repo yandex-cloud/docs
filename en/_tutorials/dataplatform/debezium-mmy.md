@@ -65,7 +65,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
       ```bash
       sudo keytool \
           -importcert \
-          -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+          -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
           -keystore /etc/debezium/keystore.jks \
           -storepass <JKS password> \
           --noprompt
@@ -262,7 +262,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username=debezium \
        -X sasl.password=<password> \
-       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
        -Z \
        -K:
    ```

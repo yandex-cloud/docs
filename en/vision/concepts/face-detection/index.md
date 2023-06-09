@@ -7,7 +7,7 @@ keywords:
 
 # Face detection
 
-_Face detection is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Face detection is currently at the [Preview stage](../../../overview/concepts/launch-stages.md)._
 
 This section describes how the _face detection_ feature works in the service.
 

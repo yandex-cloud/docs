@@ -121,10 +121,11 @@ Error example:
 {% include [overloaded](../../_includes/data-transfer/troubles/overloaded.md) %}
 
 
+
 ## How to report a problem {#support}
 
 
-If you followed the tips provided but the problem persists, contact [ tech support]({{ link-console-support }}).
+If you followed the tips provided but the problem persists, contact [tech support]({{ link-console-support }}).
 
 
 In your request, specify the [transfer](../operations/transfer.md#list) or [endpoint](../operations/endpoint/index.md#list) ID and attach [transfer status](../operations/monitoring.md) details.

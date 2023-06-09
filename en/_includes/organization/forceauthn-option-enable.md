@@ -1,0 +1,1 @@
+Enable **ForceAuthn in IdP** to set `true` for the [ForceAuthn](../../organization/api-ref/Federation/index.md) parameter in a SAML authentication request. If enabled, the IdP will request the user to re-authenticate once the {{ yandex-cloud }} session expires.

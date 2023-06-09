@@ -104,16 +104,16 @@
 
 ## {{ sf-name }} {#functions}
 
-Имя сервиса — `serverless.functions`.
+Имя сервиса — `serverless`.
 
 Имя события | Описание
 --- | ---
-`CreateFunction` | Создание функции
-`CreateFunctionVersion` | Создание версии функции
-`DeleteFunction` | Удаление функции
-`RemoveFunctionTag` | Удаление тега функции
-`SetFunctionTag` | Назначение тега функции
-`UpdateFunction` | Изменение функции
+`functions.CreateFunction` | Создание функции
+`functions.CreateFunctionVersion` | Создание версии функции
+`functions.DeleteFunction` | Удаление функции
+`functions.RemoveFunctionTag` | Удаление тега функции
+`functions.SetFunctionTag` | Назначение тега функции
+`functions.UpdateFunction` | Изменение функции
 `mdbproxy.CreateProxy` | Создание прокси
 `mdbproxy.DeleteProxy` | Удаление прокси
 `mdbproxy.UpdateProxy` | Изменение прокси
@@ -572,6 +572,7 @@
 `BucketPolicyUpdate` | Изменение политик доступа бакета
 `BucketUpdate` | Изменение бакета
 `BucketWebsiteUpdate` | Изменение конфигурации веб-сайта
+`ObjectAclUpdate` | Изменение ACL объекта в бакете^*^
 `ObjectCreate` | Создание объекта в бакете ^*^
 `ObjectDelete` | Удаление объекта в бакете ^*^
 `ObjectUpdate` | Изменение объекта в бакете ^*^
@@ -609,15 +610,20 @@
 `CreateInvitations` | Создание приглашения
 `CreateGroup` | Создание группы пользователей
 `CreateMembership` | Добавление пользователя в организацию
+`CreateOrganization` | Создание организации
 `DeleteInvitation` | Удаление приглашения
 `DeleteGroup` | Удаление группы пользователей
 `DeleteMembership` | Удаление пользователя из организации
+`DeleteOrganization` | Удаление организации
 `RejectInvitation` | Отказ от приглашения
 `ResendInvitation` | Повторная отправка приглашения
 `SetGroupAccessBindings` | Назначение привязок прав доступа к группе пользователей
+`SetOrganizationAccessBindings` | Назначение привязок прав доступа к организации
 `UpdateGroup` | Изменение группы пользователей
 `UpdateGroupAccessBindings` | Изменение привязок прав доступа к группе пользователей
 `UpdateGroupMembers` | Изменение состава участников группы пользователей
+`UpdateOrganization` | Изменение организации
+`UpdateOrganizationAccessBindings` | Изменение привязок прав доступа к организации
 
 ## {{ resmgr-name }} {#resmgr}
 

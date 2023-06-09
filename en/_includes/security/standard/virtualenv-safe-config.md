@@ -115,7 +115,7 @@ When deploying virtual machines, we recommend:
 
 With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We don't recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as: [HashiCorpVault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
+We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as [HashiCorpVault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, take the following security measures:
 
@@ -270,7 +270,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 
 When processing critical data in buckets, you must ensure that data is protected from deletion and that versions are backed up. This can be achieved by versioning and lifecycle management mechanisms, as well as by using object locks.
 
-Bucket versioning is the ability to store the history of object versions. Each version is a complete copy of the object and occupies space in {{ objstorage-name }}. By using version control, you can protect your data from both unintentional user actions and application faults.
+Bucket versioning is the ability to store the history of object versions. Each version is a complete copy of the object and occupies space in {{ objstorage-name }}. Using version control protects your data from both unintentional user actions and application faults.
 
 If you delete or modify an object with versioning enabled, a new version of the object with a new ID is effectively created. In the case of deletion, the object becomes unreadable, but its version is kept and can be restored.
 

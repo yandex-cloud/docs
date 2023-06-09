@@ -194,8 +194,8 @@
     
         def handler(event, context):
 
-            url = 'https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<ID_проекта>:execute'
-            body = {"notebookId": "<ID_ноутбука>"}
+            url = 'https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_проекта>:execute'
+            body = {"notebookId": "<идентификатор_ноутбука>"}
             headers = {"Content-Type" : "application/json",
                        "Authorization": "Bearer {}".format(context.token['access_token'])}
             resp = requests.post(url, json = body, headers=headers)
@@ -205,17 +205,14 @@
             }
         ```
 
-        Где:
+       Где:
 
-        * `<ID_проекта>` — идентификатор проекта {{ ml-platform-name }}, который расположен на странице проекта под названием.
-        * `<ID_ноутбука>` — идентификатор ноутбука, в котором нужно запустить вычисления. Чтобы его найти, вызовите контекстное меню правой кнопкой мыши в любой ячейке ноутбука и выберите **Copy Notebook Id**.
+       * `<идентификатор_проекта>` — идентификатор проекта {{ ml-platform-name }}, который расположен на странице проекта под названием.
+       * `<идентификатор_ноутбука>` — [идентификатор ноутбука](../../datasphere/operations/projects/get-notebook-cell-ids.md#get-notebook-id) `test_classifier.ipynb`.
 
-    1. Задайте параметры версии:
-       * Точка входа: `index.handler`.
-       * Таймаут, с: 5.
-       * Память: 128 МБ.
-       * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts): `reddit-user`.
-       * [Переменные окружения](../../functions/concepts/runtime/environment-variables.md): Не выбрано.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** задайте параметры версии:
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
+       * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `reddit-user`.
     1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}

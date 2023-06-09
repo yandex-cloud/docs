@@ -33,6 +33,8 @@ items:
             href: operations/buckets/enable-logging.md
           - name: Object lock management
             href: operations/buckets/configure-object-lock.md
+          - name: Bucket label management
+            href: operations/buckets/tagging.md
       - name: Objects
         items:
           - name: Uploading an object
@@ -131,6 +133,8 @@ items:
         href: concepts/backup.md
       - name: TLS protocol
         href: concepts/tls.md
+      - name: Labels
+        href: concepts/tags.md
       - name: S3 Select query language
         href: concepts/s3-select-language.md
       - name: Quotas and limits
