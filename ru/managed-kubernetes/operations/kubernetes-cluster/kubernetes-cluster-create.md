@@ -334,10 +334,10 @@
     rotation_period   = "8760h" # 1 год.
   }
 
-  resource "yandex_kms_symmetric_key_iam_member" "viewer" {
-    symmetric_key_id = yandex_kms_symmetric_key.kms-key.id
-    role             = "viewer"
-    member          = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+  resource "yandex_resourcemanager_folder_iam_member" "viewer" {
+    folder_id = local.folder_id
+    role      = "viewer"
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_vpc_security_group" "k8s-public-services" {
@@ -525,10 +525,10 @@
     rotation_period   = "8760h" # 1 год.
   }
 
-  resource "yandex_kms_symmetric_key_iam_member" "viewer" {
-    symmetric_key_id = yandex_kms_symmetric_key.kms-key.id
-    role             = "viewer"
-    member           = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+  resource "yandex_resourcemanager_folder_iam_member" "viewer" {
+    folder_id = local.folder_id
+    role      = "viewer"
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_vpc_security_group" "k8s-main-sg" {
