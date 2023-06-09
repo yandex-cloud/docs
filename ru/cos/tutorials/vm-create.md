@@ -73,7 +73,6 @@
       ```
 
      Где:
-
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
      * `--ssh-key` — содержимое файла [открытого ключа](../../compute/quickstart/quick-create-linux.md#create-ssh).
@@ -89,14 +88,12 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (17s)
       id: epdbf646ge5qgutfvh43
       folder_id: b1g88tflru0ek1omtsu0
       created_at: "2023-03-13T09:44:03Z"
       name: my-vm
-      zone_id: {{ region-id }}-b
-      platform_id: standard-v3
      ...
      ```
 
@@ -144,7 +141,6 @@
      ```
 
      Где:
-
      * `--coi-spec-file` — путь к [файлу спецификации](../concepts/coi-specifications.md#coi-spec) Docker-контейнера.
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
@@ -155,14 +151,12 @@
 
      Результат:
 
-     ```
+     ```text
      done (1m40s)
       id: epde18u4mahl4a8n39ta
       folder_id: b1g7gvsi89m34qmcm3ke
       created_at: "2023-03-13T13:50:17Z"
       name: my-vm
-      zone_id: {{ region-id }}-b
-      platform_id: standard-v2
       ...
      ```
 

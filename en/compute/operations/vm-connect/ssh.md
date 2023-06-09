@@ -1,6 +1,6 @@
 # Connecting to a Linux VM via SSH
 
-The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH is based on using a key pair: the public key is placed on the VM and the private key is stored on the user's device. Connecting with a key pair is more secure than connecting with a username and password.
+The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH is based on using a key pair: the public key is placed on the VM and the private key is stored on the user's device. Connecting with a key pair is more secure than doing so with a username and password.
 
 ## Creating an SSH key pair {#creating-ssh-keys}
 
@@ -26,7 +26,7 @@ You can also copy the key using the command line:
    1. Output the file contents:
 
       ```bash
-      type C:\Users\<username>\.ssh\<key name>.pub
+      type C:\Users\<username>\.ssh\<key_name>.pub
       ```
 
       Where:
@@ -48,7 +48,7 @@ You can also copy the key using the command line:
    1. Output the file contents:
 
       ```bash
-      cat ~/.ssh/<key name>.pub
+      cat ~/.ssh/<key_name>.pub
       ```
 
       Where `<key_name>` is the key name, such as `id_ed25519` or `id_rsa`.
@@ -68,7 +68,7 @@ You can also copy the key using the command line:
    1. Output the file contents:
 
       ```bash
-      cat ~/.ssh/<key name>.pub
+      cat ~/.ssh/<key_name>.pub
       ```
 
       Where `<key_name>` is the key name, such as `id_ed25519` or `id_rsa`.
@@ -105,16 +105,18 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
    In the terminal, run this command:
 
    ```bash
-   ssh <username>@<VM public IP>
+   ssh <username>@<VM_public_IP_address>
    ```
+
+   Where `<username>` is the VM account username.
 
    If you have multiple private keys, specify the one you need:
 
    ```bash
-   ssh -i <key path/key file name> <username>@<VM public IP>
+   ssh -i <key_path/key_file_name><username>@<VM_public_IP_address>
    ```
 
-   If this is the first time you connect to a VM, you'll see a warning about an unknown host:
+   If this is the first time you connect to a VM, you will see a warning about an unknown host:
 
    ```text
    The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.
@@ -131,16 +133,18 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
    To connect to the VM, execute the following command in the command line:
 
    ```shell
-   ssh <username>@<VM public IP>
+   ssh <username>@<VM_public_IP_address>
    ```
+
+   Where `<username>` is the VM account username.
 
    If you have multiple private keys, specify the one you need:
 
    ```shell
-   ssh -i <key path/key file name> <username>@<VM public IP>
+   ssh -i <key_path\key_file_name> <username>@<VM_public_IP_address>
    ```
 
-   If this is the first time you connect to a VM, you'll see a warning about an unknown host:
+   If this is the first time you connect to a VM, you will see a warning about an unknown host:
 
    ```text
    The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.

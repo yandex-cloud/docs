@@ -75,7 +75,7 @@ In its response, the service will return a JSON object containing the `status` a
 
 ### Request errors {#errors}
 
-If your request to `https://smartcaptcha.yandexcloud.net/validate` is incorrect, the service will return an error. e.g.:
+If your request to `https://smartcaptcha.yandexcloud.net/validate` is incorrect, the service will return an error, e.g.:
 
 1. Request missing the server key:
 

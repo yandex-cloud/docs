@@ -2,7 +2,7 @@
 noIndex: true
 ---
 
-# Асинхронная репликация данных из {{ metrika }} в {{ CH }} с помощью {{ data-transfer-full-name }}
+# Загрузка данных из {{ metrika }} в витрину {{ CH }} с помощью {{ data-transfer-full-name }}
 
 {% include [note-metrica-pro](../_includes/data-transfer/note-metrica-pro.md) %}
 

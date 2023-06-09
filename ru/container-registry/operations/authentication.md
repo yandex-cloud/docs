@@ -8,8 +8,6 @@
 
 Подробнее про роли читайте в разделе [{#T}](../security/index.md).
 
-{% include [cli-install](../../_includes/cli-install.md) %}
-
 ## Способы аутентификации {#method}
 
 Вы можете аутентифицироваться:
@@ -88,6 +86,9 @@ docker login \
 {% include [disclaimer](../../_includes/iam/authorized-keys-disclaimer.md) %}
 
 Ваши программы могут получать доступ к ресурсам {{ yandex-cloud }} с помощью [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md). Получите файл с авторизованными ключами для вашего сервисного аккаунта, используя {{ yandex-cloud }} CLI.
+
+{% include [cli-install](../../_includes/cli-install.md) %}
+
 1. Получите и сохраните в файл `key.json` [авторизованные ключи](../../iam/concepts/users/service-accounts.md#sa-key) для вашего сервисного аккаунта:
 
    ```bash
@@ -149,6 +150,8 @@ docker login \
 Чтобы узел, размещенный в {{ compute-full-name }}, смог пройти аутентификацию, [назначьте роль](../../iam/operations/roles/grant.md) `container-registry.images.puller` сервисному аккаунту этого узла.
 
 {% endnote %}
+
+{% include [cli-install](../../_includes/cli-install.md) %}
 
 Ресурсы {{ k8s }} могут получать доступ к объектам {{ container-registry-name }} с помощью [секретов {{ k8s }}](../../managed-kubernetes/concepts/encryption.md), создаваемых на основе ключей [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
 

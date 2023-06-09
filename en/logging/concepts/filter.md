@@ -1,7 +1,6 @@
 # Filter expression language
 
 You can filter log group records using the language of filter expressions. With the filter expression language, you can:
-
 * Search for records by [one](#parameters) or [multiple](#multiple-values) parameter values.
 * Use the [comparison operators](#comparison-operations) and [logical operators](#multiple-conditions) in filters.
 
@@ -11,7 +10,7 @@ You can filter log group records using the language of filter expressions. With 
 
 - Management console
 
-    1. In the [management console]({{ link-console-main }}), go to the folder where the log group is located.
+    1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
     1. Select **{{ cloud-logging-name }}**.
     1. Click the **Groups** tab.
     1. Click on the line with the log group you want to filter.
@@ -84,30 +83,25 @@ You can filter log group records using the language of filter expressions. With 
 
 ### Parameter value requirements {#requirements}
 
-It's not necessary to enclose a value in quotation marks if it:
+It is not required to enclose a value in quotation marks if:
+* It starts with a Latin letter and only contains Latin letters, numbers, and underscores.
+* It is an unsigned integer.
 
-* Starts with a Latin letter and only contains Latin letters, numbers, and underscores.
-* Is an unsigned integer.
-
-`TRUE`, `FALSE`, `true`, and `false` are used for Boolean values. Enclose them in quotation marks to find them in text.
+`TRUE`, `FALSE`, `true`, and `false` are used for Boolean values. Enclose them in quotation marks to find them in the text.
 
 Possible types of `timestamp`, `ingested_at`, and `saved_at` parameter values:
-
 * A string in RFC3339 format:
-
-    ```bash
-    saved_at > "2021-05-28T15:20:31Z"
-    ```
+   ```bash
+   saved_at > "2023-05-28T15:20:31Z"
+   ```
 * Number of seconds after 00:00 1970-01-01:
-
-    ```
-    saved_at >= 1622198048
-    ```
+   ```
+   saved_at >= 1622198048
+   ```
 
 ### Multiple parameter values {#multiple-values}
 
 To filter records by multiple values of the same parameter, list the values one by one:
-
 ```
 parameter: "value1" "value2" "value3"
 ```
@@ -145,21 +139,19 @@ You can combine multiple conditions in a single filter using logical operators:
 
 * `AND`: Conditions combined with the logical operator **AND** must be fulfilled simultaneously.
 
-    Example:
-    ```
-    parameter1: "value1" AND parameter2: "value2"
-    ```
+   Example:
+   ```
+   parameter1: "value1" AND parameter2: "value2"
+   ```
+   This request returns records with `parameter1` set to `value1` and `parameter2` set to `value2`.
 
-    This request returns records with `parameter1` set to `value1` and `parameter2` set to `value2`.
+* `OR`: If you use the logical operator **OR**. at least one of the conditions must be fulfilled.
 
-* `OR`: If you use the logical operator **OR**, at least one of the conditions must be fulfilled.
-
-    Example:
-    ```
-    parameter1: "value1" OR parameter2 > "value2"
-    ```
-
-    This request returns records that have at least one of the conditions met: `parameter1` is set to `value1` or `parameter2` is greater than `value2`.
+   Example:
+   ```
+   parameter1: "value1" OR parameter2 > "value2"
+   ```
+   This request returns records that have at least one of the conditions met: `parameter1` is set to `value1` or `parameter2` is greater than `value2`.
 
 * `NOT`: With the logical operator **NOT**, a condition that is inverse of the specified one must be fulfilled.
 

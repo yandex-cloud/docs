@@ -5,6 +5,12 @@ description: "The cost of using {{ tracker-name }} is based on the number of use
 
 # Pricing for {{ tracker-full-name }}
 
+{% note tip %}
+
+You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees.
+
+{% endnote %}
+
 By default, all company employees can use {{ tracker-full-name }} for free in [<q>Read only</q>](access.md#readonly) mode. Grant [full access](access.md) to {{ tracker-name }} so that your employees can use all of its features.
 
 The cost of using {{ tracker-name }} is based on the number of users with [full access to the service](access.md). The monthly fee [is debited from the billing account](pay-the-bill.md#charge) linked to {{ tracker-name }}.
@@ -13,9 +19,9 @@ You can find the FAQ for payments in [{#T}](payment.md).
 
 ## Pricing {#sec_price}
 
-{% note tip %}
+{% note warning %}
 
-You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees.
+The indicated prices are valid until January 2024 if you have activated a paid version until June 29, 2023.
 
 {% endnote %}
 
@@ -23,6 +29,8 @@ You don't have to pay anything for {{ tracker-name }} if you only have a small t
 
 
 {% include [usd.md](../_pricing/tracker/usd.md) %}
+
+{% include [usd-after-30June.md](../_pricing/tracker/usd-after-30June.md) %}
 
 
 {% note info %}

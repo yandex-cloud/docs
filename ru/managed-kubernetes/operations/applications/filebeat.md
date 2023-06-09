@@ -32,19 +32,17 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/filebeat/chart/filebeat \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_filebeat.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_filebeat.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set app.url='<URL и порт кластера {{ mes-name }}>' \
-     --set app.username='<имя пользователя в кластере {{ ES }}>' \
-     --set app.password='<пароль пользователя в кластере {{ ES }}>' \
+     --set app.url='<URL_и_порт_кластера_Managed_Service_for_Elasticsearch>' \
+     --set app.username='<имя_пользователя_в_кластере_{{ ES }}>' \
+     --set app.password='<пароль_пользователя_в_кластере_{{ ES }}>' \
      filebeat ./filebeat/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/filebeat#docker-images).
 
    Эта команда также создаст новое пространство имен, необходимое для работы Filebeat.
 1. Убедитесь, что под Filebeat перешел в состояние `Running`:

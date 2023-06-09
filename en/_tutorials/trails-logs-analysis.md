@@ -30,7 +30,7 @@ The infrastructure support cost includes:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [service account](../iam/concepts/users/service-accounts.md).
-  1. Go to the **Service accounts** tab.
+  1. At the top of the screen, go to the **Service accounts** tab.
   1. Click **Create service account**.
   1. Enter the service account name: `sa-trail-logs`.
   1. Click ![](../_assets/plus-sign.svg) **Add role** and select the `audit-trails.viewer` and `yds.editor` [roles](../iam/concepts/access-control/roles.md).
@@ -273,8 +273,8 @@ The infrastructure support cost includes:
        }
 
        access {
-         datalens     = true
-         datatransfer = true
+         data_lens     = true
+         data_transfer = true
        }
      }
      ```
@@ -534,7 +534,7 @@ To visualize data, you need to [connect](../datalens/concepts/connection.md) to 
 ### Create a dataset {#create-dataset}
 
 1. Drag the `trail_data.trail_logs_stream` table from the **Tables** section on the left of the screen to the workspace.
-1. In the top right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 1. Enter the dataset name `trail-logs-dataset` and click **Create**.
 1. When the dataset is saved, click **Create chart** in the top-right corner.
 
@@ -554,7 +554,7 @@ To show numerical proportion by event status, create a pie chart:
 1. Copy the chart from the previous step:
    1. In the top-right corner, click the down arrow next to the **Save** button.
    1. Click **Save as**.
-   1. In the window that opens, enter the name `Trail logs: statuses` for the new chart and click **Save**.
+   1. In the window that opens, enter the `Trail logs: statuses` name for the new chart and click **Save**.
 1. For the visualization type, select **Pie chart**. The `event_source` and `event_id` are automatically copied to the **Color** and **Measures** sections, respectively.
 1. Delete the `event_source` field from the **Color** section and drag the `event_status` field there.
 1. In the top-right corner, click **Save**.
@@ -567,7 +567,7 @@ Create a [dashboard](../datalens/concepts/dashboard.md) to add charts to:
 1. Enter the name `Trail logs dashboard` for the dashboard and click **Create**.
 1. In the top-right corner, click **Add** and choose **Chart**.
 1. In the **Chart** chart, click **Select** and choose the `Trail logs: events` pie chart from the list.
-1. Click **Add**. The chart is displayed on the dashboard.
+1. Click **Add**. The chart will be displayed on the dashboard.
 1. Repeat the previous steps for the `Trail logs: statuses` chart.
 1. In the top right corner, click **Save**.
 

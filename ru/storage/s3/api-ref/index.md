@@ -59,7 +59,7 @@
 [putObjectLegalHold](object/putobjectlegalhold.md) | Устанавливает на версию объекта бессрочную блокировку или снимает ее.
 [getObjectRetention](object/getobjectretention.md) | Возвращает настройки временной блокировки, установленной на версию объекта.
 [getObjectLegalHold](object/getobjectlegalhold.md) | Возвращает настройки бессрочной блокировки, установленной на версию объекта.
-[putObjectTagging](object/putobjecttagging.md) | Добавляет метки объекту.
+[putObjectTagging](object/putobjecttagging.md) | Добавляет [метки](../../concepts/tags.md) объекту.
 [getObjectTagging](object/getobjecttagging.md) | Возвращает метки объекта.
 [deleteObjectTagging](object/deleteobjecttagging.md) | Удаляет метки объекта.
 

@@ -301,20 +301,28 @@
 
   Создайте кластер {{ mmg-name }} и сеть для него с тестовыми характеристиками:
 
-    * С именем `mymg`.
-    * Версии `{{ versions.tf.latest }}`.
-    * В окружении `PRODUCTION`.
-    * В облаке с идентификатором `{{ tf-cloud-id }}`.
-    * В каталоге с идентификатором `{{ tf-folder-id }}`.
-    * В новой сети `mynet`.
-    * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-        * В новой группе безопасности `mymg-sg`, разрешающей TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
-    * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ.
-    * С одним пользователем, `user1`, с паролем `user1user1`.
-    * С одной базой данных, `db1`.
-    * С защитой от случайного удаления кластера.
+  * Название — `mymg`.
+  * Версия — `{{ versions.tf.latest }}`.
+  * Окружение — `PRODUCTION`.
+  * Идентификатор облака — `{{ tf-cloud-id }}`.
+  * Идентификатор каталога — `{{ tf-folder-id }}`.
+  * Сеть — `mynet`.
+  * Класс хоста — `{{ host-class }}`.
+  * Количество блоков `host` — один.
+  * Подсеть — `mysubnet`. Сетевые настройки: 
 
-  Конфигурационный файл для такого кластера выглядит так:
+    * Зона доступности — `{{ region-id }}-a`.
+    * Диапазон — `10.5.0.0/24`.
+
+    * Группа безопасности — `mymg-sg`. Правила группы разрешают TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
+  * Хранилище на сетевых SSD-дисках — `{{ disk-type-example }}`.
+  * Размер хранилища — 20 ГБ.
+  * Пользователь — `user1`.
+  * Пароль — `user1user1`.
+  * База данных — `db1`.
+  * Защита от случайного удаления кластера — включена.
+
+  Конфигурационный файл для кластера с одним хостом:
 
   
   
@@ -380,5 +388,272 @@
 
 
 
+
+{% endlist %}
+
+### Создание шардированного кластера {#creating-a-sharded-cluster}
+
+Кластер {{ mmg-name }} можно создать со [стандартным](#std-sharding) или [расширенным](#adv-sharding) шардированием. Подробнее о видах шардирования см. в разделе [{#T}](../concepts/sharding.md#shard-management).
+
+#### Стандартное шардирование {#std-sharding}
+
+Создайте кластер {{ mmg-name }} и сеть для него с несколькими хостами:
+
+* один хост `MONGOD`;
+* три хоста `MONGOINFRA`.
+
+Тестовые характеристики кластера:
+
+* Название — `mymg`.
+* Окружение — `PRODUCTION`.
+* Защита от случайного удаления кластера — включена.
+* Версия — `{{ versions.tf.latest }}`.
+* База данных — `db1`.
+* Пользователь — `user1`.
+* Пароль — `user1user1`.
+* Класс хоста `MONGOD` — `{{ host-class }}`.
+* Класс хостов `MONGOINFRA` — `c3-c2-m4`.
+* Хранилище на сетевых SSD-дисках — `{{ disk-type-example }}`.
+* Размер хранилища — 10 ГБ.
+* Количество блоков `host` — четыре. Для каждого из них задается тип хоста: `mongod` или `mongoinfra`.
+
+Сетевые характеристики:
+
+* Сеть — `mynet`.
+* Группа безопасности — `mymg-sg`. Правила группы разрешают TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
+* Подсеть — `mysubnet`. 
+* Зона доступности — `{{ region-id }}-a`.
+* Диапазон — `10.5.0.0/24`.
+
+{% list tabs %}
+
+- {{ TF }}
+
+  Конфигурационный файл для кластера со стандартным шардированием:
+
+  ```hcl
+  resource "yandex_mdb_mongodb_cluster" "mymg" {
+    name                = "mymg"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
+    deletion_protection = true
+
+    cluster_config {
+      version = "{{ versions.tf.latest }}"
+    }
+
+    database {
+      name = "db1"
+    }
+
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "db1"
+      }
+    }
+
+    resources_mongod {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 10
+    }
+
+    resources_mongoinfra {
+      resource_preset_id = "c3-c2-m4"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 10
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+      type      = "mongod"
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+      type      = "mongoinfra"
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+      type      = "mongoinfra"
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+      type      = "mongoinfra"
+    }
+
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
+
+  resource "yandex_vpc_security_group" "mymg-sg" {
+    name       = "mymg-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "MongoDB"
+      port           = {{ port-mmg }}
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+
+{% endlist %}
+
+#### Расширенное шардирование {#adv-sharding}
+
+Создайте кластер {{ mmg-name }} и сеть для него с несколькими хостами:
+
+* один хост `MONGOD`;
+* два хоста `MONGOS`;
+* три хоста `MONGOCFG`.
+
+Тестовые характеристики кластера:
+
+* Название — `mymg`.
+* Окружение — `PRODUCTION`.
+* Защита от случайного удаления кластера — включена.
+* Версия — `{{ versions.tf.latest }}`.
+* База данных — `db1`.
+* Пользователь — `user1`.
+* Пароль — `user1user1`.
+* Класс хостов — `{{ host-class }}`.
+* Хранилище на сетевых SSD-дисках — `{{ disk-type-example }}`.
+* Размер хранилища — 10 ГБ.
+* Количество блоков `host` — шесть. Для каждого из них задается тип хоста: `mongod`, `mongos` или `mongocfg`.
+
+Сетевые характеристики:
+
+* Сеть — `mynet`.
+* Группа безопасности — `mymg-sg`. Правила группы разрешают TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
+* Подсеть — `mysubnet`. 
+* Зона доступности — `{{ region-id }}-a`.
+* Диапазон — `10.5.0.0/24`.
+
+{% list tabs %}
+
+- {{ TF }}
+
+  Конфигурационный файл для кластера с расширенным шардированием:
+
+  ```hcl
+  resource "yandex_mdb_mongodb_cluster" "mymg" {
+    name                = "mymg"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
+    deletion_protection = true
+
+    cluster_config {
+      version = "{{ versions.tf.latest }}"
+    }
+
+    database {
+      name = "db1"
+    }
+
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "db1"
+      }
+    }
+
+    resources_mongod {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 10
+    }
+
+    resources_mongos {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 10
+    }
+
+    resources_mongocfg {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 10
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+      type      = "mongod"
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+      type      = "mongos"
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+      type      = "mongos"
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+      type      = "mongocfg"
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+      type      = "mongocfg"
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+      type      = "mongocfg"
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
+
+  resource "yandex_vpc_security_group" "mymg-sg" {
+    name       = "mymg-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "MongoDB"
+      port           = {{ port-mmg }}
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
 
 {% endlist %}

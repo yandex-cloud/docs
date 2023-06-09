@@ -10,11 +10,13 @@ items:
         href: concepts/terms.md
       - name: Точки присутствия
         href: concepts/pops.md
+      - name: Партнеры CIC
+        href: concepts/partners.md
       - name: Трансиверы
         href: concepts/transceivers.md
       - name: Пакет трафика
-        href: concepts/bandwidth.md
-      - name: Транк
+        href: concepts/capacity.md
+      - name: Транковое подключение
         href: concepts/trunk.md
       - name: Приватное соединение
         href: concepts/priv-con.md
@@ -31,14 +33,22 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Создать новый транк и приватное соединение
-        href: operations/trunk-prc-add.md
-      - name: Создать новый транк и публичное соединение
-        href: operations/trunk-pbc-add.md
-      - name: Добавить приватное соединение в транк
-        href: operations/prc-add.md
-      - name: Добавить публичное соединение в транк
-        href: operations/pbc-add.md
+      - name: Создать прямое транковое подключение и приватное соединение в нем
+        href: operations/trunk-priv-add.md
+      - name: Создать прямое транковое подключение и публичное соединение в нем
+        href: operations/trunk-pub-add.md
+      - name: Создать партнерское транковое подключение и приватное соединение в нем
+        href: operations/partner-trunk-priv-add.md
+      - name: Создать партнерское транковое подключение и публичное соединение в нем
+        href: operations/partner-trunk-pub-add.md
+      - name: >-
+          Добавить приватное соединение в прямое или партнерское транковое
+          подключение
+        href: operations/priv-add.md
+      - name: >-
+          Добавить публичное соединение в прямое или партнерское транковое
+          подключение
+        href: operations/pub-add.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/interconnect

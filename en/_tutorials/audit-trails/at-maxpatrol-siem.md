@@ -37,7 +37,7 @@ Create a service account in the same folder as the trail, such as `example-folde
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter `maxpatrol-sa` as your service account name.
@@ -118,7 +118,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. At the top of the screen, go to the **Service accounts** tab.
    1. Select the `maxpatrol-sa` service account and click the line containing its name.
    1. Click **Create new key** on the top panel.
@@ -169,7 +169,7 @@ The database is required for the `{{ yds-name }}` data stream.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Click **Create resource** and select **{{ ydb-name }}**.
    1. Click **Create database**.
    1. Enter `maxpatrol-db` as the **Name**.
@@ -225,7 +225,7 @@ This is the data stream the trail will upload organization resource logs to.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Click **Create resource** and select **{{ yds-name }}**.
    1. In the **Database** field, select `maxpatrol-db`.
    1. Enter `maxpatrol-stream` as the **Name**.
@@ -245,7 +245,7 @@ The trail will gather the audit log of all your organization's resources and [up
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Click **Create resource** and select the **Audit trail** option.
    1. Enter the **Name** of the trail being created as `maxpatrol-trail`.
    1. Under **Filter**, set up the audit log scope:

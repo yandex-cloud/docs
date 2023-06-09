@@ -6,11 +6,11 @@ editable: false
 
 ## What goes into the cost of using {{ cloud-logging-name }} {#rules}
 
-In {{ cloud-logging-name }}, you're billed for the amount of data written and storage time.
+{{ cloud-logging-name }} charges you for the amount of data written and the time the data is stored.
 
 ## Pricing {#prices}
 
-### Data writes {#data-ingested}
+### Adding data {#data-ingested}
 
 
 

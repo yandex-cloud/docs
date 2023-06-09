@@ -46,7 +46,11 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure security groups {#security-group-setup}
 
+{% note info %}
+
 {% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 1. Set up the test agent's security group:
 
@@ -78,36 +82,37 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ## Run a test {#run-test}
 
-1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-1. On the left-hand panel, select ![image](../_assets/load-testing/test.svg) **Tests**. Click **Create test**.
-1. In the **Agents** parameter, select `agent-008`.
-1. Under **Test data**, select **From computer**, click **Attach file**, and select the `data.uri` file.
-1. Under **Test settings**, select a configuration method: **Form** or **Configuration file**.
+1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. In the left-hand panel, select ![image](../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
+1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** parameter, select `agent-008`.
+1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select **{{ ui-key.yacloud.load-testing.label_local-source }}**, click **Attach file**, and select the `data.uri` file.
+1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**, select a configuration method: **{{ ui-key.yacloud.load-testing.label_settings-type-form }}** or **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
 1. Depending on the selected method, specify the test parameters:
 
    {% list tabs %}
 
-   - Form
+   - {{ ui-key.yacloud.load-testing.label_settings-type-form }}
 
-      1. In the **Load generator ** field, select **PANDORA**.
-      1. In the **Target address** field, specify the address of the service to test: `172.17.0.10`.
-      1. In the **Target port** field, set `443` (default HTTPS port). Allow using a secure connection.
+      1. In the **{{ ui-key.yacloud.load-testing.field_load-generator }}** field, select **PANDORA**.
+      1. In the **{{ ui-key.yacloud.load-testing.field_target-address }}** field, specify the address of the service to test: `172.17.0.10`.
+      1. In the **{{ ui-key.yacloud.load-testing.field_target-port }}** field, set `443` (default HTTPS port).
+          Allow using a secure connection.
       1. In the **Testing threads** field, specify `5000`.
 
-            This means that the load generator can simultaneously process 5000 operations: create 5000 connections or wait for 5000 responses from the service at the same time.
+         This means that the load generator can simultaneously process 5000 operations: either create 5000 connections or wait for 5000 responses from the service at the same time.
 
-            {% note tip %}
+         {% note tip %}
 
-            For most tests, 1000–10000 threads are enough.
+         For most tests, 1000–10000 threads are enough.
 
-            Using a larger number of threads requires more resources of the VM the agent is running on. {{ compute-name }} also has a limit of 50000 of concurrent connections to a VM.
+         Using a larger number of threads requires more resources of the VM the agent is running on. {{ compute-name }} also has a limit of 50000 of concurrent connections to a VM.
 
-            [Learn more about working with threads](../load-testing/concepts/testing-stream.md).
+         [Learn more about working with threads](../load-testing/concepts/testing-stream.md).
 
-            {% endnote %}
+         {% endnote %}
 
       1. In the **Load type** menu, select `RPS`.
-      1. In the **Load profile** menu, click ![image](../_assets/plus-sign.svg) **Load profile** and enter the following description:
+      1. Click ![image](../_assets/plus-sign.svg) **Load profile** and enter the following description:
 
           * **Profile 1**: Select `step`.
 
@@ -121,17 +126,17 @@ For a service whose subnet and security group differ from the agent's ones, [cre
             [Learn more about load profiles](../load-testing/concepts/load-profile.md).
       1. In the **Request type** field, select `URI`.
       1. In the **Autostop** menu, click ![image](../_assets/plus-sign.svg) **Autostop** and enter the following description:
-          * **Autostop type 1**: Select `QUANTILE`.
-          * **Quantile**: Set `75`.
-          * **Response time limit**: Specify `100ms`.
-          * **Window duration**: Specify `10s`.
+         * **Autostop type 1**: Select `QUANTILE`.
+         * **Quantile**: Set `75`.
+         * **Response time limit**: Specify `100ms`.
+         * **Window duration**: Specify `10s`.
 
-            The criterion stops the test if the 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, the processing time of 25% of queries exceeds 100 milliseconds).
+            This criterion stops the test if the 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, the processing time of 25% of queries exceeds 100 milliseconds).
 
       1. Specify one more autostop:
-          * **Autostop type 2**: Select `INSTANCES`.
-          * **Limit**: Set `90%`.
-          * **Window duration**: Specify `60s`.
+         * **Autostop type 2**: Select `INSTANCES`.
+         * **Limit**: `90%`.
+         * **Window duration**: `60s`.
 
             This criterion will stop the test if over 90% of the testing threads are busy for 60 seconds.
 
@@ -140,9 +145,9 @@ For a service whose subnet and security group differ from the agent's ones, [cre
             To avoid significantly increasing the test time, make sure to set **Autostop** as a termination criterion for these tests.
 
             [Learn more about autostop](../load-testing/concepts/auto-stop.md).
-      1. Under **Test information**, specify the name, description, and number of the test version. This will make the report easier to read.
+      1. Under **{{ ui-key.yacloud.load-testing.meta-section }}**, specify the name, description, and number of the test version. This will make the report easier to read.
 
-   - Configuration file
+   - {{ ui-key.yacloud.load-testing.label_settings-type-config }}
 
       1. In the configuration input field, specify the testing thread settings in `yaml` format:
 
@@ -154,8 +159,8 @@ For a service whose subnet and security group differ from the agent's ones, [cre
              pools:
                - id: HTTP
                  gun:
-                   type: http               # protocol
-                   target: 172.17.0.10:443  # address of testing objective
+                   type: http # protocol
+                   target: 172.17.0.10:443 # address of testing objective
                    ssl: true
                  ammo:
                    type: uri
@@ -164,26 +169,26 @@ For a service whose subnet and security group differ from the agent's ones, [cre
                    type: phout
                    destination: ./phout.log
                  rps:
-                   - duration: 120s         # test time
-                     type: step             # load type
+                   - duration: 120s # test time
+                     type: step # load type
                      from: 1000
                      to: 5000
                      step: 1000
                  startup:
                    type: once
-                   times: 5000              # number of threads
+                   times: 5000 # number of threads
              log:
                level: error
              monitoring:
                expvar:
                  enabled: true
                  port: 1234
-         autostop:                          # autostop
+         autostop: # autostop
            enabled: true
            package: yandextank.plugins.Autostop
            autostop:
-             - quantile(75,100ms,10s)       # stop test if 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, processing time of 25% of queries exceeds 100 milliseconds).
-             - instances(90%,60s)           # stop test if 90% of testing threads are being used for 60 seconds.
+             - quantile(75,100ms,10s) # stop test if 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, processing time of 25% of queries exceeds 100 milliseconds).
+             - instances(90%,60s) # stop test if 90% of testing threads are being used for 60 seconds.
          core: {}
          uploader:
            enabled: true
@@ -208,11 +213,11 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
    {% endlist %}
 
-1. Click **Create**.
+1. Click **{{ ui-key.yacloud.common.create }}**.
 
 Afterwards, the configuration will be verified, and the agent will start loading the service being tested.
 
-To see the testing progress, select the created test and go to the **Test results** tab.
+To see the testing progress, select the created test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 
 ## How to delete the resources you created {#clear-out}
 

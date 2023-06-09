@@ -1,10 +1,10 @@
 # Creating a VM from a {{ coi }} and an additional volume for a Docker container
 
-In this tutorial, you'll create a [VM](../../compute/concepts/vm.md) from a [{{ coi }}](../concepts/index.md) that contains a Docker container with a running MongoDB instance and an additional 10 GB [volume](../../container-registry/concepts/docker-volume.md) attached.
+In this tutorial, you will create a [VM](../../compute/concepts/vm.md) from a [{{ coi }}](../concepts/index.md) that contains a Docker container with a running MongoDB instance and an additional 10 GB [volume](../../container-registry/concepts/docker-volume.md) attached.
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in use. A VM with a {{ coi }} pulls the Docker image from the registry on behalf of this account.
+If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
 
 ## Create a VM from a {{ coi }} with an additional volume for a Docker container {#create-vm}
 
@@ -41,32 +41,31 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
          host_path: /home/yc-user/coi-data
      ```
 
-     When creating your VM via the CLI, the default user is created: `yc-user`.
+     When creating your VM via the CLI, a default user is created: `yc-user`.
   1. Create a VM with multiple disks:
 
      ```bash
      yc compute instance create-with-container \
        --name coi-vm \
        --zone {{ region-id }}-a \
-       --public-ip \
        --create-boot-disk size=30 \
        --create-disk name=data-disk,size=10,device-name=coi-data \
        --network-interface subnet-name=<subnet name>,nat-ip-version=ipv4 \
-       --ssh-key <path to public portion of SSH key> \
+       --ssh-key <path to the public part of the SSH key> \
        --docker-compose-file docker-compose.yaml
      ```
 
      Where:
      * `--name`: VM name.
      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md).
-     * `--create-boot-disk`: VM [disk](../../compute/concepts/disk.md) parameters.
-     * `--network-interface`: [Network](../../vpc/concepts/network.md#network) parameters.
+     * `--create-boot-disk`: Parameters of the VM [disk](../../compute/concepts/disk.md). The disk size must be at least 30 GB.
+     * `--network-interface`: [Network](../../vpc/concepts/network.md#network) parameters:
        * `subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) to host the VM.
        * `nat-ip-version`: [Public IPv4 address](../../vpc/concepts/ips.md) assignment method.
-     * `--ssh-key`: Path to file with the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * `--ssh-key`: Path to the file with the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--docker-compose-file`: YAML file with the container specification.
 
-     After being created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+     Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
   1. Check the results.
      1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
      1. Get the ID of the running Docker container:
@@ -88,7 +87,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
         sudo docker exec -it 1f71192ded4c bash
         ```
 
-     1. View the list of attached disks. Note the mounted disk `/dev/vdb 11G 24M 9.9G 1% /data`:
+     1. View the list of attached disks. Take note of the `/dev/vdb 11G 24M 9.9G 1% /data` mounted disk:
 
         ```bash
         df -H
@@ -100,15 +99,11 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
         Filesystem  Size  Used  Avail  Use%  Mounted on
         overlay     32G   4.0G    27G   14%  /
         tmpfs       68M      0    68M    0%  /dev
-        tmpfs       1.1G     0   1.1G    0%  /sys/fs/cgroup
-        /dev/vdb    11G    24M   9.9G    1%  /data
-        /dev/vda2   11G   3.1G   7.0G   31%  /data/db
-        shm         68M      0    68M    0%  /dev/shm
-        tmpfs       1.1G     0   1.1G    0%  /proc/acpi
+        ...
         tmpfs       1.1G     0   1.1G    0%  /proc/scsi
         tmpfs       1.1G     0   1.1G    0%  /sys/firmware
         ```
 
 {% endlist %}
 
-For more information about working with VMs, see our [step-by-step instructions](../../compute/operations/index.md).
+For more information about working with VMs, see our [step-by-step guides](../../compute/operations/index.md).

@@ -1,9 +1,5 @@
 # Как начать работать с {{ dataproc-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 Чтобы начать работу с сервисом:
 
 1. [Создайте кластер](#cluster-create).
@@ -89,3 +85,4 @@
 
 * Изучите [концепции сервиса](concepts/index.md).
 * Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [работе с заданиями](operations/jobs.md).
+* [Создайте кластер {{ metastore-full-name }}](operations/metastore/cluster-create.md).

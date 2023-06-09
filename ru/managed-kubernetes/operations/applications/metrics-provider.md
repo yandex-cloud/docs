@@ -18,9 +18,9 @@ Metrics Provider — связующий элемент между объекто
 
    ```bash
    yc iam key create \
-     --service-account-id <идентификатор сервисного аккаунта> \
-     --folder-id <идентификатор каталога> \
-     --cloud-id <идентификатор облака> \
+     --service-account-id <идентификатор_сервисного_аккаунта> \
+     --folder-id <идентификатор_каталога> \
+     --cloud-id <идентификатор_облака> \
      --description metrics-provider \
      --format json \
      -o key.json
@@ -30,8 +30,8 @@ Metrics Provider — связующий элемент между объекто
 
    ```text
    {
-     "id": "<идентификатор ключа сервисного аккаунта>",
-     "service_account_id": "<идентификатор сервисного аккаунта>",
+     "id": "<идентификатор_ключа_сервисного_аккаунта>",
+     "service_account_id": "<идентификатор_сервисного_аккаунта>",
      "created_at": "2022-01-27T03:29:45.139311367Z",
      "description": "metrics-provider",
      "key_algorithm": "RSA_2048"
@@ -89,26 +89,25 @@ Metrics Provider — связующий элемент между объекто
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/metric-provider/chart \
-     --version=<версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_metric-provider.helmChart.name }} \
+     --version={{ mkt-k8s-key.yc_metric-provider.helmChart.tag }} \
      --untar
    ```
 
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/metric-provider#docker-images).
 1. Настройте и установите Metrics Provider:
 
    ```bash
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set folderId=<идентификатор каталога> \
-     --set window=<ширина временного окна> \
+     --set folderId=<идентификатор_каталога> \
+     --set window=<ширина_временного_окна> \
      --set-file saKeySecretKey=key.json \
-     --set gridAggregation=<функция агрегации> \
-     --set gapFilling=<заполнение данных> \
-     --set maxPoints=<максимальное количество точек> \
-     --set gridInterval=<ширина временного окна прореживания> \
-     --set disabled=<true или false> \
+     --set gridAggregation=<функция_агрегации> \
+     --set gapFilling=<заполнение_данных> \
+     --set maxPoints=<максимальное_количество_точек> \
+     --set gridInterval=<ширина_временного_окна_прореживания> \
+     --set disabled=<true_или_false> \
      metric-provider ./chart/
    ```
 

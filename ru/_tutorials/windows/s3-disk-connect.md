@@ -44,11 +44,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
-  1. Введите имя сервисного аккаунта: `sa-win-disk-connect`.
-  1. Нажмите ![](../../_assets/plus-sign.svg) **Добавить роль** и выберите роль `storage.editor`.
-  1. Нажмите кнопку **Создать**.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `sa-win-disk-connect`.
+  1. Нажмите кнопку ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `storage.editor`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 
 - CLI
 
@@ -81,11 +81,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-  1. Выберите сервисный аккаунт `sa-win-disk-connect` и нажмите на строку с его именем.
-  1. Нажмите кнопку ![](../../_assets/plus-sign.svg) **Создать новый ключ** на верхней панели.
-  1. Выберите **Создать статический ключ доступа**.
-  1. Задайте описание ключа и нажмите кнопку **Создать**.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. Выберите сервисный аккаунт `sa-win-disk-connect`.
+  1. На верхней панели нажмите кнопку ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
+  1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ. После закрытия диалога значение ключа будет недоступно.
 
 - CLI
@@ -124,11 +124,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. В списке сервисов выберите **{{ objstorage-name }}**.
-  1. Нажмите кнопку **Создать бакет**.
-  1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-  1. В полях **Доступ на чтение объектов**, **Доступ к списку объектов** и **Доступ на чтение настроек** выберите **Ограниченный**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   
 - AWS CLI
   

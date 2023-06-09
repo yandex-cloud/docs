@@ -38,7 +38,7 @@
 
 {% endnote %}
 
-## Создание и настройка федерации в {{org-full-name}} {#yc-settings}
+## Создание и настройка федерации в {{ org-full-name }} {#yc-settings}
 
 ### Создайте федерацию {#create-federation}
 
@@ -312,7 +312,7 @@
   1. Добавьте сертификат для федерации, указав путь к файлу сертификата:
 
       ```
-      yc organization-manager federation saml certificate create --federation-id <ID федерации> \
+      yc organization-manager federation saml certificate create --federation-id <ID_федерации> \
         --name "my-certificate" \
         --certificate-file certificate.pem
       ```
@@ -325,7 +325,7 @@
 
       ```json
       {
-        "federationId": "<ID федерации>",
+        "federationId": "<ID_федерации>",
         "name": "my-certificate",
         "data": "-----BEGIN CERTIFICATE..."
       }
@@ -350,33 +350,28 @@
 
 {% endnote %}
 
-### Получите ссылку для входа в консоль {#get-link}
-
-Когда вы настроите аутентификацию с помощью федерации, пользователи смогут войти в консоль управления по ссылке, в которой содержится идентификатор федерации. Эту же ссылку необходимо будет указать при настройке сервера аутентификации.
-
-Получите и сохраните эту ссылку:
-
-1. Получите идентификатор федерации:
-
-    1. На панели слева выберите раздел [Федерации]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-    1. Скопируйте идентификатор федерации, для которой вы настраиваете доступ.
-
-1. Сформируйте ссылку с помощью полученного идентификатора:
-
-    `https://{{ auth-host }}/federations/<ID федерации>`
 
 ## Настройка системы единого входа (SSO) {#sso-settings}
 
-### Добавьте ссылку для входа в консоль {#add-link}
+### Укажите URL для перенаправления {#add-link}
 
-Когда вы создали федерацию и получили ссылку для входа в консоль, завершите создание SAML-приложения в Google Workspace:
+Когда вы создали федерацию, завершите создание SAML-приложения в Google Workspace:
 
 1. Вернитесь на страницу создания SAML-приложения на шаге **Сведения о поставщике идентификационной информации Google** и нажмите **Продолжить**.
 
 1. На шаге **Сведения о поставщике услуг** укажите сведения о {{ yandex-cloud }}, выступающем в роли поставщика услуг:
 
-    * В полях **URL ACS** и **Идентификатор объекта** введите полученную ранее [ссылку для входа в консоль](#get-link).
+    * В полях **URL ACS** и **Идентификатор объекта** введите URL, на который пользователи будут перенаправляться после аутентификации:
+
+      ```
+      https://{{ auth-host }}/federations/<ID_федерации>
+      ```
+   
+      {% cut "Как получить ID федерации" %}
+   
+      {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+   
+      {% endcut %}
     
     * Включите опцию **Подписанный ответ**.
 
@@ -472,7 +467,7 @@
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
       ```
-      yc organization-manager federation saml add-user-accounts --id <ID федерации> \
+      yc organization-manager federation saml add-user-accounts --id <ID_федерации> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -504,7 +499,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -515,11 +510,23 @@
 
 1. Откройте браузер в гостевом режиме или режиме инкогнито.
 
-1. Перейдите по [ссылке для входа в консоль](#get-link), полученной ранее. Браузер должен перенаправить вас на страницу аутентификации в Google.
+1. Перейдите по URL для входа в консоль:
+
+   ```
+   https://{{ console-host }}/federations/<ID_федерации>
+   ```
+
+   {% cut "Как получить ID федерации" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+
+   Браузер должен перенаправить вас на страницу аутентификации в Google.
 
 1. Введите данные для аутентификации и нажмите кнопку **Sign in**.
 
-После успешной аутентификации IdP-сервер перенаправит вас обратно по ссылке для входа в консоль, а после — на главную страницу [консоли управления]({{ link-console-main }}). В правом верхнем углу вы можете увидеть, что вы вошли в консоль от имени федеративного пользователя.
+После успешной аутентификации IdP-сервер перенаправит вас обратно по URL `https://{{ auth-host }}/federations/<ID_федерации>`, который вы указали в настройках Google Workspace, а после — на главную страницу [консоли управления]({{ link-console-main }}). В правом верхнем углу вы можете увидеть, что вы вошли в консоль от имени федеративного пользователя.
 
 #### Что дальше {#what-is-next}
 

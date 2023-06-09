@@ -16,14 +16,15 @@ The Service Level Agreement (SLA) does not apply to the trial period. We do not 
 
 Technical support is provided in full during the trial period. For more information, see [Requesting technical support](../../../support/overview.md).
 
-## {{ yandex-cloud }} Marketplace {#marketplace}
+## {{ marketplace-full-name }} {#marketplace}
+
 
 Some products are not available during the trial period, such as:
 * Microsoft SQL Server
 * Windows Server Standard
 * Windows RDS
 
-To view the complete list, refer to the [{{ marketplace-full-name }}](/marketplace) documentation.
+
 
 ## Service quotas and limits {#quotes-and-limits}
 
