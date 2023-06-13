@@ -53,9 +53,11 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       * Cloud network for the cluster.
       * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+         {% note info %}
 
-      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+         {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+         {% endnote %}
 
 
    1. Under **Hosts**, select the parameters for the DB hosts created with the cluster: If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.

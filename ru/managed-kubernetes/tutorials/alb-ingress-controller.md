@@ -335,11 +335,13 @@ yc certificate-manager certificate list
        * `m` — минуты.
        * `h` — часы.
 
-       {% note info %}
+     {% note info %}
 
-       Настройки действуют только на хосты этого контроллера, но не на всю группу Ingress.
+     Настройки действуют только на хосты этого контроллера, но не на всю группу Ingress.
 
-       {% endnote %}
+     {% endnote %}
+
+     Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
 
   1. Создайте Ingress-контроллер и приложения:
 
@@ -561,6 +563,8 @@ yc certificate-manager certificate list
      Настройки действуют только на хосты этого контроллера, но не на всю группу Ingress.
 
      {% endnote %}
+
+     Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
 
   1. Создайте Ingress-контроллер, объект `HttpBackendGroup` и приложение {{ k8s }}:
 

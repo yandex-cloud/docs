@@ -57,7 +57,11 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       * Cloud network for the cluster.
       * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
+         {% note info %}
+
          {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+         {% endnote %}
 
 
    1. Under **Hosts**, add the DB hosts created with the cluster:
@@ -71,7 +75,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
 
-      By default, hosts are created in different availability zones. See about [host management](hosts.md).
+      By default, hosts are created in different availability zones. For details, see about [host management](hosts.md).
 
    1. Configure additional cluster settings, if required:
 
@@ -176,7 +180,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
           }
         }
 
-        resources {
+        resources_mongod {
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
           disk_size          = <storage size, GB>
@@ -203,7 +207,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
+      {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmg }}).
 
@@ -338,7 +342,7 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
      }
 
-     resources {
+     resources_mongod {
        resource_preset_id = "{{ host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
        disk_size          = 20

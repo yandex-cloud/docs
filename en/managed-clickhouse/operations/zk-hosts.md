@@ -21,7 +21,7 @@ To learn more, see [Replication](../concepts/replication.md).
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click **Set up {{ ZK }} hosts** at the top right.
    1. Specify the [host class](../concepts/instance-types.md).
    1. Set up the storage settings.
@@ -168,7 +168,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
 - API
 
-   Use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method. For the added hosts, specify the settings for the 3 {{ ZK }} hosts by listing them in the `hostSpecs` parameter.
+   To enable fault tolerance for a cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddZookeeper](../api-ref/grpc/cluster_service.md#AddZookeeper) gRPC API call. For the added hosts, specify the settings for three {{ ZK }} hosts by listing them in the `hostSpecs` parameter.
 
 {% endlist %}
 
@@ -186,7 +186,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click **Add {{ ZK }} hosts**.
    1. If required, change the host settings.
@@ -258,7 +258,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
 - API
 
-   Use the [addHosts](../api-ref/Cluster/addHosts.md) method and pass the following in the request:
+   To add a {{ ZK }} host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to locate the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Settings for the host, in the `hostSpecs` parameter (in addition, specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
 
@@ -270,8 +270,8 @@ To learn more, see [Replication](../concepts/replication.md).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Hover over the line of the desired host and click ![image](../../_assets/cross.svg).
    1. In the window that opens, click **Delete**.
 
@@ -310,7 +310,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
 - API
 
-   Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method and pass the following in the request:
+   To delete a {{ ZK }} host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
    * The ID of the cluster where the host is located, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Host name, in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list-hosts).
 

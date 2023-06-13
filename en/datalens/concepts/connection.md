@@ -36,3 +36,4 @@ You can add connections from the available list in [{{ datalens-short-name }} Ma
 ## Access management {#access-management}
 
 You can configure connection permissions. For more information, see [{#T}](../security/index.md).
+

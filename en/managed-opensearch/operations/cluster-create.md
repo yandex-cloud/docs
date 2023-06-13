@@ -32,20 +32,16 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       1. Enter a name for the cluster. It must be unique within the folder.
       1. (Optional) Enter a cluster description.
-      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+      1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ mos-full-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
       1. Select the {{ OS }} version.
-      1. Select the [plugins](../concepts/plugins.md#opensearch) you want to install in the cluster.
+      1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
 
    
-   1. Under **Network settings**, select:
-      * Cloud network for the cluster.
-      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
-
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
       {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
@@ -57,6 +53,10 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Enter a name for the host group, which must be unique within the cluster.
 
       1. For the `{{ OS }}` host group, select a [host role](../concepts/host-roles.md).
+
+   1. Under **User**, specify the `admin` user password.
+
+   1. Under **Resources**, configure hosts with the `DATA` [role](../concepts/host-roles.md#data) by opening the **Data node** tab:
 
       1. Select the platform, host type, and host class.
 
@@ -76,11 +76,28 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       {% note warning %}
 
-      Once you have created a cluster, you will not be able to change the **Public access** option for the host group. You can only change other configuration settings using the API. However, you can also create a new host group with a different configuration, if required.
+      After creating your cluster, you can only change the host configuration using the API. However, you can also create a new host group with a different configuration if needed.
 
       {% endnote %}
 
-   1. To create another host group, click **Add virtual host group** and set up its configuration.
+   1. If necessary, configure hosts with the `MANAGER` and `DASHBOARDS` [roles](../concepts/host-roles.md#manager) by opening the **Manager node** or **Dashboards** tab, respectively:
+
+      1. Select the platform, host type, and host class.
+      1. Set up storage in the same way as for `DATA` hosts.
+      1. Specify how hosts should be distributed across availability zones and subnets.
+      1. Select the number of hosts to create.
+
+      
+      1. Enable **Public access** if you want to allow [connecting](connect.md) to hosts over the internet.
+
+         {% note tip %}
+
+         It's not recommended to enable public access for hosts with the `MANAGER` role, because this might be unsafe.
+
+         {% endnote %}
+
+         {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
+
 
    1. Under **Service settings**:
 
@@ -88,11 +105,11 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
          {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
-      1. If necessary, configure additional cluster settings:
+      1. Configure additional cluster settings, if required:
 
          {% include [Extra settings](../../_includes/mdb/mos/extra-settings.md) %}
 
-   1. Click **Create cluster**.
+   1. Click **Create**.
 
 - API
 
@@ -102,17 +119,14 @@ When creating a cluster, you need to specify individual parameters for each [hos
    * Cluster name in the `name` parameter.
    * {{ OS }} version in the `configSpec.version` parameter.
    * `admin` user password in the `configSpec.adminPassword` parameter.
-   * Configuration of one or more [host groups](../concepts/host-groups.md) with the `DATA` and `MANAGER` (optional) [roles](../concepts/host-roles.md) in the `configSpec.opensearchSpec.nodeGroups` parameter.
-   * Configuration of one or more [host groups](../concepts/host-groups.md) with the `DASHBOARDS` [role](../concepts/host-roles.md#dashboards) in the `configSpec.dashboardsSpec.nodeGroups` parameter.
-   * List of [plugins](../concepts/plugins.md#opensearch) in the `configSpec.opensearchSpec.plugins` parameter.
+   * Configuration of one or more groups of hosts with the `DATA` and `MANAGER` (optional) [roles](../concepts/host-roles.md) in the `configSpec.opensearchSpec.nodeGroups` parameter.
+   * Configuration of one or more groups of hosts with the `DASHBOARDS` [role](../concepts/host-roles.md#dashboards) in the `configSpec.dashboardsSpec.nodeGroups` parameter.
+   * List of plugins in the `configSpec.opensearchSpec.plugins` parameter.
    * Settings for access from other services in the `configSpec.access` parameter.
    * Network ID in the `networkId` parameter.
 
    
-   * Security group identifiers, in the `securityGroupIds` parameter. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
-
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
+   * Security group identifiers in the `securityGroupIds` parameter. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
    * ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
 
 

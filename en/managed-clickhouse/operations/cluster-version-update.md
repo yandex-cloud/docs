@@ -31,13 +31,13 @@ To learn more about updates within a single version and host maintenance, see [M
 
 - API
 
-   You can view a list of available versions using the [list](../api-ref/Versions/list.md) API method.
+   To view the list of available versions, use the [list](../api-ref/Versions/list.md) REST API method for the [Versions](../api-ref/Versions/index.md) resource or the [VersionsService/List](../api-ref/grpc/versions_service.md#List) gRPC API call.
 
 {% endlist %}
 
 ## Before switching versions {#before-update}
 
-Before changing the {{ CH }} version, make sure this doesn't affect your apps:
+Before changing the {{ CH }} version, make sure this does not affect your apps:
 
 1. See the [change log]({{ ch.docs }}/whats-new/changelog/index/) for {{ CH }} to check which updates might affect your applications.
 1. Try changing versions on a test cluster (you can try deploying it from a backup of the main cluster). Please note that when you deploy a cluster from a backup, only MergeTree engine tables are recovered.
@@ -130,11 +130,11 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To update a version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required value in the `configSpec.clickhouse.config.version` parameter.
-   * List of settings to update (`configSpec.clickhouse.config.version` in this case) in the `updateMask` parameter.
+   * List of settings to update (in this case, `configSpec.clickhouse.config.version`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

@@ -388,6 +388,8 @@ items:
     items:
       - name: Все руководства
         href: routing/index.md
+      - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
+        href: routing/multi-folder-vpc.md
       - name: Архитектура и защита базового интернет-сервиса
         href: routing/web-service.md
       - name: Настройки DHCP для работы с корпоративным DNS-сервером

@@ -255,6 +255,6 @@ items:
                 href: api-ref/StorageType/get.md
               - name: list
                 href: api-ref/StorageType/list.md
-  - name: Questions and answers
+  - name: FAQ
     href: faq.md
 base: en/ydb

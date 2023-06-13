@@ -1,6 +1,8 @@
 # Диаграмма Ганта для фильтра задач
 
-Диаграмма Ганта в {{ tracker-name }} — это инструмент для составления календарного плана работ над задачами. На диаграмме Ганта отображаются все задачи и связи между ними.
+На диаграмме Ганта для фильтра задач в {{ tracker-name }} отображаются все задачи из фильтра и связи между ними.
+
+## Построить диаграмму для фильтра {#section_pwy_tgx_tdb}
 
 Чтобы открыть диаграмму Ганта для фильтра задач:
 
@@ -10,7 +12,7 @@
 
    * [{#T}](../user/default-filters.md).
 
-   * [{#T}](quick-filters.md).
+   * [{#T}](../manager/quick-filters.md).
 
    * [{#T}](../user/create-filter.md).
 
@@ -32,10 +34,20 @@
 
 {% include [gantt-assigned](../../_includes/tracker/gantt-assigned.md) %}
 
-## Настроить диаграмму {#settings}
+## Настройки диаграммы {#settings}
 
-{% include [gantt-settings](../../_includes/tracker/gantt-settings.md) %}
+### Отображение полосы задачи {#issue-bar}
 
-## Настроить отображение блока со списком задач {#tasks-view}
+{% include [issue-bar](../../_includes/tracker/issue-bar.md) %}
 
-{% include [gantt-tasks-view](../../_includes/tracker/tasks-view.md) %}
+### Область таймлайна {#timeline}
+
+{% include [timeline-area](../../_includes/tracker/timeline-area.md) %}
+
+### Цвет задачи {#task-color}
+
+{% include [color-issue](../../_includes/tracker/color-issue.md) %}
+
+## Отображение блока со списком задач {#tasks-view}
+
+{% include [issues-table-queue-filter-project](../../_includes/tracker/issues-table-queue-filter-project.md) %}

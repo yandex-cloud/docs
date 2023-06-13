@@ -31,7 +31,7 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 {% note info %}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% endnote %}
 

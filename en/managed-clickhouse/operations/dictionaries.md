@@ -16,14 +16,9 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 {% list tabs %}
 
-- SQL
-
-   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-   1. Run the `SHOW DICTIONARIES` [query]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries).
-
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Dictionaries** tab.
 
 - CLI
@@ -40,7 +35,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
       {{ yc-mdb-ch }} cluster get --help
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       {{ yc-mdb-ch }} cluster get <cluster name>
@@ -50,34 +45,18 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 - API
 
-   You can view a list of dictionaries and other cluster parameters using the [get](../api-ref/Cluster/get.md) method.
+   To get a list of dictionaries, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call.
+
+- SQL
+
+   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
+   1. Run the `SHOW DICTIONARIES` [query]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries).
 
 {% endlist %}
 
 ## Adding a dictionary {#add-dictionary}
 
 {% list tabs %}
-
-- SQL
-
-   {% note warning %}
-
-   If the dictionary is added via SQL, management using the console, the CLI, and the API is not available for it.
-
-   {% endnote %}
-
-   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-   1. Run the [DDL query]({{ ch.docs }}/sql-reference/statements/create/dictionary/) and specify [dictionary settings](#settings-sql):
-
-      ```sql
-      CREATE DICTIONARY <dictionary name>(
-      <data columns>
-      )
-      PRIMARY KEY <name of the column with keys>
-      SOURCE(<source>(<source configuration>))
-      LIFETIME(<update interval>)
-      LAYOUT(<method for storing dictionaries in memory>());
-      ```
 
 - Management console
 
@@ -87,7 +66,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
    {% endnote %}
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Dictionaries** tab.
    1. In the upper-right corner, click **Add dictionary**.
    1. Specify [dictionary settings](#settings-console) and click **Save**.
@@ -129,7 +108,28 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
    {% endnote %}
 
-   You can add a dictionary using the [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) method.
+   To add a dictionary, use the [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateExternalDictionary](../api-ref/grpc/cluster_service.md#CreateExternalDictionary) gRPC API call.
+
+- SQL
+
+   {% note warning %}
+
+   If the dictionary is added via SQL, management using the console, the CLI, and the API is not available for it.
+
+   {% endnote %}
+
+   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
+   1. Run the [DDL query]({{ ch.docs }}/sql-reference/statements/create/dictionary/) and specify [dictionary settings](#settings-sql):
+
+      ```sql
+      CREATE DICTIONARY <dictionary name>(
+      <data columns>
+      )
+      PRIMARY KEY <name of the column with keys>
+      SOURCE(<source>(<source configuration>))
+      LIFETIME(<update interval>)
+      LAYOUT(<method for storing dictionaries in memory>());
+      ```
 
 {% endlist %}
 
@@ -137,14 +137,9 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 {% list tabs %}
 
-- SQL
-
-   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-   1. Run the `DROP DICTIONARY <DB name>.<dictionary name>` [query]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary).
-
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Dictionaries** tab.
    1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Delete**.
 
@@ -172,7 +167,12 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 - API
 
-   You can remove dictionaries using the [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) method.
+   To delete a dictionary, use the [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteExternalDictionary](../api-ref/grpc/cluster_service.md#DeleteExternalDictionary) gRPC API call.
+
+- SQL
+
+   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
+   1. Run the `DROP DICTIONARY <DB name>.<dictionary name>` [query]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary).
 
 {% endlist %}
 
@@ -247,7 +247,7 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
    * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
    * **SSL mode**: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database.
-      For more information, see the [{{ PG }}documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+      For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 {% endlist %}
 

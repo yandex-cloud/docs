@@ -702,129 +702,138 @@ items:
         href: concepts/time-series-functions.md
   - name: Обучающие курсы
     href: training.md
-  - name: Решение проблем
-    expanded: true
+  - name: Ошибки {{ datalens-name }}
+    href: troubleshooting/errors/all.md
+  - name: Вопросы и ответы
     items:
-      - name: Вопросы и ответы
+      - name: Все вопросы
         href: qa/index.md
-      - name: Ошибки {{ datalens-name }}
-        href: troubleshooting/errors/all.md
-      - name: Access denied
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
-      - name: Backend app request timeout exceeded
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
-      - name: Cannot parse datetime
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
-      - name: Cannot parse number
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
-      - name: >-
-          ROUND with precision parameter is not supported for double precision
-          data type in PostgreSQL
-        hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md
-      - name: Columns in JOIN have different types
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
-      - name: Data source is unavailable
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DATABASE_UNAVAILABLE.md
-      - name: Data source (table) does not exist
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md
-      - name: Data source refused connection
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md
-      - name: Data source timed out
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
-      - name: Database authentication failed
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-AUTHENTICATION_FAILED.md
-      - name: Division by zero
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-ZERO_DIVISION.md
-      - name: Field title conflicts with another field
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FIELD-TITLE-CONFLICT.md
-      - name: Incompatible dimensions
-        hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-LOD-INCOMPATIBLE_DIMENSIONS.md
-      - name: Inconsistent aggregation among operands
-        hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
-      - name: Invalid grouping configuration
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md
-      - name: Invalid top-level LOD dimension found in expression
-        hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-LOD-INVALID_TOPLEVEL_DIMENSIONS.md
-      - name: Invalid user token
-        hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md
-      - name: Measure filter is unsupported for this type of query
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
-      - name: Memory limit has been exceeded during query execution
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
-      - name: Received too many result data rows
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
-      - name: >-
-          Referenced connection <идентификатор подключения> cannot be loaded
-          access denied
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
-      - name: Request size limit exceeded
-        hidden: true
-        href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md
-      - name: Response processing timeout
-        hidden: true
-        href: troubleshooting/errors/ERR-CHARTS-RUNTIME_TIMEOUT.md
-      - name: Requested database column does not exist
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
-      - name: Subquery source is disallowed in the connection settings
-        hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
-      - name: Table is not ready yet
-        hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
-      - name: Too many series on the chart
-        hidden: true
-        href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
-      - name: Unknown field
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FIELD-NOT_FOUND.md
-      - name: Unknown field found in formula
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_FIELD_IN_FORMULA.md
-      - name: Unknown referenced source column
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md
-      - name: Unknown dimension for window
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_WINDOW_DIMENSION.md
-      - name: Window function has unselected dimension
-        hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md
-      - name: Window function has no aggregated expressions among its arguments
-        hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md
-      - name: Не удалось создать <тип объекта>
-        hidden: true
-        href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Права доступа
+        href: qa/permissions.md
+      - name: Подключения
+        href: qa/connections.md
+      - name: Датасеты
+        href: qa/datasets.md
+      - name: Чарты
+        href: qa/charts.md
+      - name: Вычисляемые поля
+        href: qa/calculation-fields.md
+      - name: Дашборды
+        href: qa/dashboards.md
+      - name: Другое
+        href: qa/other.md
+  - name: Access denied
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
+  - name: Backend app request timeout exceeded
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
+  - name: Cannot parse datetime
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
+  - name: Cannot parse number
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
+  - name: >-
+      ROUND with precision parameter is not supported for double precision data
+      type in PostgreSQL
+    hidden: true
+    href: >-
+      troubleshooting/errors/ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md
+  - name: Columns in JOIN have different types
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
+  - name: Data source is unavailable
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DATABASE_UNAVAILABLE.md
+  - name: Data source (table) does not exist
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md
+  - name: Data source refused connection
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md
+  - name: Data source timed out
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
+  - name: Database authentication failed
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DB-AUTHENTICATION_FAILED.md
+  - name: Division by zero
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DB-ZERO_DIVISION.md
+  - name: Field title conflicts with another field
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-FIELD-TITLE-CONFLICT.md
+  - name: Incompatible dimensions
+    hidden: true
+    href: >-
+      troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-LOD-INCOMPATIBLE_DIMENSIONS.md
+  - name: Inconsistent aggregation among operands
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+  - name: Invalid grouping configuration
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md
+  - name: Invalid top-level LOD dimension found in expression
+    hidden: true
+    href: >-
+      troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-LOD-INVALID_TOPLEVEL_DIMENSIONS.md
+  - name: Invalid user token
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md
+  - name: Measure filter is unsupported for this type of query
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
+  - name: Memory limit has been exceeded during query execution
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
+  - name: Received too many result data rows
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
+  - name: >-
+      Referenced connection <идентификатор подключения> cannot be loaded access
+      denied
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
+  - name: Request size limit exceeded
+    hidden: true
+    href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md
+  - name: Response processing timeout
+    hidden: true
+    href: troubleshooting/errors/ERR-CHARTS-RUNTIME_TIMEOUT.md
+  - name: Requested database column does not exist
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+  - name: Subquery source is disallowed in the connection settings
+    hidden: true
+    href: >-
+      troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
+  - name: Table is not ready yet
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
+  - name: Too many series on the chart
+    hidden: true
+    href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
+  - name: Unknown field
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-FIELD-NOT_FOUND.md
+  - name: Unknown field found in formula
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_FIELD_IN_FORMULA.md
+  - name: Unknown referenced source column
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md
+  - name: Unknown dimension for window
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_WINDOW_DIMENSION.md
+  - name: Window function has unselected dimension
+    hidden: true
+    href: >-
+      troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md
+  - name: Window function has no aggregated expressions among its arguments
+    hidden: true
+    href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md
+  - name: Не удалось создать <тип объекта>
+    hidden: true
+    href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
 base: ru/datalens

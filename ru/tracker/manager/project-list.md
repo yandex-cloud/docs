@@ -10,10 +10,6 @@
 
 1. Настройте отображение списка:
 
-    * Чтобы выбрать поля, которые вы хотите видеть в списке задач, нажмите на значок ![](../../_assets/tracker/svg/settings-old.svg). Отметьте нужные поля и нажмите **Применить**.
+  {% include [issues-table-queue-filter-project](../../_includes/tracker/issues-table-queue-filter-project.md) %}
 
-    {% include [task-list-settings](../../_includes/tracker/task-list-settings.md) %}
-
-    * Чтобы закрепить столбец, нажмите на значок ![](../../_assets/tracker/svg/settings-old.svg). Затем в блоке **Добавленные** справа от параметра нажмите ![](../../_assets/tracker/svg/fix.svg). Нажмите **Применить**.   
-
-    * Чтобы отсортировать список в порядке убывания или возрастания значений, указанных в столбцах списка, нажмите на заголовок столбца.
+  {% include [issues-table-project](../../_includes/tracker/issues-table-project.md) %}

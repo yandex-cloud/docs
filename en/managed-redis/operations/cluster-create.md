@@ -69,10 +69,8 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
    
    1. Under **Network settings**, select:
-     * Cloud network for the cluster.
-     * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
-
-       {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+      * Cloud network for the cluster.
+      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
       {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 

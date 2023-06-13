@@ -24,7 +24,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
    1. Click **Create cluster**.
    1. Under **Basic parameters**:
       1. Give your cluster a name and add a descritpion, if required. It must be unique within the folder.
-      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+      1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       1. Select the {{ KF }} version.
@@ -69,8 +69,6 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       1. Select [security groups](../../vpc/concepts/security-groups.md) for the cluster's network traffic.
 
          {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
       1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
@@ -326,7 +324,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the security group `{{ security-group }}`.
    * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With one broker.
-   * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
+   * With network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
    * With protection against accidental cluster deletion.
 
@@ -355,8 +353,8 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    Create a {{ mkf-name }} cluster with test characteristics:
 
-   * In the cloud with the ID `{{ tf-cloud-id }}`.
-   * In the folder with the ID `{{ tf-folder-id }}`.
+   * In the cloud with the `{{ tf-cloud-id }}` ID.
+   * In the folder with the `{{ tf-folder-id }}` ID.
    * With the name `mykf`.
    * In the `PRODUCTION` environment.
    * With {{ KF }} version `{{ versions.tf.latest }}`.
@@ -364,7 +362,7 @@ If you specified security group IDs when creating a cluster, you may also need t
          * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
    * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With one broker.
-   * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
+   * With network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
    * With protection against accidental cluster deletion.
 

@@ -119,7 +119,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To change the [host class](../concepts/instance-types.md), use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Host class you need in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
    * List of settings to update (in this case, `configSpec.resources.resourcePresetId`) in the `updateMask` parameter.
 
@@ -199,7 +199,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Storage size in the `configSpec.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.resources.diskSize`).
 
@@ -280,7 +280,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To change {{ MY }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Array with new {{ MY }} settings in the following parameter:
       * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} 5.7.
       * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} 8.0.
@@ -583,7 +583,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configure-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](connect.md#configure-security-groups) to connect to the cluster.
 
 {% endnote %}
 

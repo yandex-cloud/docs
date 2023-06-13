@@ -364,7 +364,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+   * `--datalens-access`: Enables DataLens access. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
 
@@ -386,7 +386,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
 
-      * `enabled`: `true` value enables statistics collection. Default value: `false`.
+      * `enabled`: `true` value enables statistics collection. The default value is `false`.
       * `sessions-sampling-interval`: Session sampling interval, seconds. Acceptable values are between `1` and `86400`.
       * `statements-sampling-interval`: Statement sampling interval, seconds. Acceptable values are between `60` and `86400`.
 
@@ -617,7 +617,7 @@ To switch the master:
    To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * ID of the destination folder in the `destinationFolderId parameter`.
+   * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
 
@@ -702,7 +702,7 @@ After the cluster is moved, it will continue using the cloud network from the so
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 

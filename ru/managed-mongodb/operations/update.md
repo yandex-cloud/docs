@@ -115,7 +115,7 @@
 
   * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
-  {% [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

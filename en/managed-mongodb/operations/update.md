@@ -6,7 +6,7 @@ After creating a cluster, you can:
 
 - [{#T}](#change-disk-size).
 
-- Configure [{{ MG }} servers](#change-mongod-config) according to the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
+- Configure [{{ MG }} servers](#change-mongod-config) as described in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
 
 - [Change additional cluster settings](#change-additional-settings).
 
@@ -40,7 +40,7 @@ After creating a cluster, you can:
 
    To change the [host class](../concepts/instance-types.md) for the cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```
       {{ yc-mdb-mg }} cluster update --help
@@ -78,12 +78,14 @@ After creating a cluster, you can:
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. In the {{ mmg-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
+   1. In the {{ mmg-name }} cluster description, edit the value of the `resource_preset_id` parameter for `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, or `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
+
+      Example:
 
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
         ...
-        resources {
+        resources_mongod {
             resource_preset_id = "<class of {{ MG }} hosts>"
             ...
         }
@@ -106,7 +108,7 @@ After creating a cluster, you can:
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Host class in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.resources.resourcePresetId` parameter.
 
       To retrieve a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
@@ -140,7 +142,7 @@ After creating a cluster, you can:
 
    To increase the cluster storage size:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-mg }} cluster update --help
@@ -153,7 +155,7 @@ After creating a cluster, you can:
         --mongod-disk-size <storage size in GB>
       ```
 
-      If all these conditions are met, {{ mmg-short-name }} launches the operation to increase storage size.
+      If all these conditions are met, {{ mmg-short-name }} will launch the operation to increase storage size.
 
 - {{ TF }}
 
@@ -163,12 +165,14 @@ After creating a cluster, you can:
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. In the {{ mmg-name }} cluster description, change the `disk_size` parameter value under `resources`:
+   1. In the {{ mmg-name }} cluster description, edit the value of the `disk_size` parameter for `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, or `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
+
+      Example:
 
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
         ...
-        resources {
+        resources_mongod {
           disk_size = <storage size in GB>
           ...
         }
@@ -189,9 +193,9 @@ After creating a cluster, you can:
 
 - API
 
-   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and include the following in the call:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.resources.diskSize` parameter.
    * List of settings to update in the `updateMask` parameter.
 
@@ -233,13 +237,13 @@ You can change the DBMS settings of the hosts in your cluster.
       --set net.max_incoming_connections=4096
    ```
 
-   {{ mmg-short-name }} will run the update DBMS settings command for the cluster. If the setting being changed is only applied when the database is restarted, {{ mmg-short-name }} sequentially restarts the database on all the cluster hosts.
+   {{ mmg-short-name }} will run the update DBMS settings command for the cluster. If the setting being changed is only applied when the database is restarted, {{ mmg-short-name }} will restart the database instances on all cluster hosts, one by one.
 
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Target {{ MG }} setting values in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.config` parameter.
 
       All supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
@@ -272,7 +276,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To change additional cluster settings:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-mg }} cluster update --help
@@ -377,9 +381,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New backup start time in the `configSpec.backupWindowStart` parameter.
    * Settings for access from other services in the `configSpec.access` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
@@ -430,9 +434,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+   Use the [move](../api-ref/Cluster/move.md) API method and provide the following in the query:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
@@ -440,7 +444,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
 ## Changing security groups {#change-sg-set}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -459,7 +467,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-mg }} cluster update --help
@@ -504,7 +512,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   - Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - List of security group IDs in the `securityGroupIds` parameter.
    - List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -514,7 +522,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 

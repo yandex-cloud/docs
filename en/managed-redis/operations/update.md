@@ -10,7 +10,7 @@ After creating a cluster, you can:
 * [Increasing storage size](#change-disk-size).
 
 
-* Configure [{{ RD }} servers](#change-redis-config) according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
+* Configure [{{ RD }} servers](#change-redis-config) as described in the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
 * [Change additional cluster settings](#change-additional-settings).
 
@@ -302,7 +302,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.resources.diskSize`).
 
@@ -368,7 +368,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    To change the {{ RD }} settings, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required {{ RD }} setting values in the `configSpec.redisConfig_<{{ RD }} version>` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -435,7 +435,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -485,7 +485,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    Use the [move](../api-ref/Cluster/move.md) API method and provide the following in the query:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
@@ -493,7 +493,11 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 ## Changing security groups {#change-sg-set}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -557,7 +561,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
    * List of settings to update (in this case, `securityGroupIds`) in the `updateMask` parameter.
 
@@ -567,7 +571,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
