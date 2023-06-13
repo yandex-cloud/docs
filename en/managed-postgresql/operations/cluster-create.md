@@ -62,15 +62,12 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    
    1. Under **Network settings**, select:
       * Cloud network for the cluster.
+
+         {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+
       * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-      Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
-
-      To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
-
-      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+         {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 
    1. Under **Hosts**, select the parameters for the database hosts created with the cluster. If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.

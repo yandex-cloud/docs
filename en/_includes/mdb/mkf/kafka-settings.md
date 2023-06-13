@@ -35,7 +35,7 @@
 
    The minimum value is `1` (default). The maximum value is equal to the number of broker hosts in the cluster.
 
-   See a description of the [Replication factor](#settings-topic-replication-factor) topic-level setting.
+   For details, see a description of the [Replication factor](#settings-topic-replication-factor) topic-level setting.
 
    For more information, see the [{{ KF }} documentation](http://kafka.apache.org/documentation/#brokerconfigs_default.replication.factor).
 
@@ -93,13 +93,13 @@
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_log.retention.bytes).
 
-   See the [Log retention ms](#settings-log-retention-ms) setting.
+   For details, see the [Log retention ms](#settings-log-retention-ms) setting.
 
 * **Log retention hours** {{ tag-all }} {#settings-log-retention-hours}
 
    Time (in hours) for {{ KF }} to keep a log segment file. This setting applies if the `Delete` [log cleanup policy](#settings-topic-cleanup-policy) is active: once the specified timeout expires, the segment file is deleted.
 
-   The maximum value is `168` (default).
+   The default value is `168`.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_log.retention.hours).
 
@@ -129,7 +129,7 @@
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#retention.ms).
 
-   See the [Log retention bytes](#settings-log-retention-bytes) setting.
+   For details, see the [Log retention bytes](#settings-log-retention-bytes) setting.
 
 * **Log segment bytes** {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {#settings-log-segment-bytes}
 
@@ -161,7 +161,7 @@
 
    The minimum value is `1` (default).
 
-   See a description of the [Num partitions](#settings-topic-num-partitions) topic-level setting.
+   For details, see a description of the [Num partitions](#settings-topic-num-partitions) topic-level setting.
 
    For more information, see the [{{ KF }} documentation](http://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 

@@ -22,7 +22,11 @@ Regardless of the connection method, {{ mes-name }} only supports cluster host c
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% note info %}
+
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -69,10 +73,10 @@ Settings of rules depend on the connection method you select:
 
          * Port range: `{{ port-any }}`.
          * Protocol: `Any`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 

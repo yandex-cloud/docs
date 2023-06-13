@@ -17,8 +17,16 @@ description: "Для создания целевой группы {{ alb-full-na
   1. В списке сервисов выберите **{{ alb-name }}**.
   1. На панели слева выберите ![image](../../_assets/trgroups.svg) **Целевые группы**.
   1. Нажмите кнопку **Создать целевую группу**.
-  1. Введите имя целевой группы: `test-target-group`.
-  1. Выберите ВМ.
+  1. Введите имя и описание целевой группы.
+  1. В блоке **Целевые ресурсы** выберите ВМ из списка или добавьте целевой ресурс вручную:
+
+      1. В поле **IP-адрес** укажите адрес ресурса и выберите [подсеть](../../vpc/concepts/network.md#subnet).
+      1. (опционально) Если IP-адрес ресурса находится вне {{ vpc-name }}, выберите опцию **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
+
+          Например, укажите IP-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/). Адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3).
+      
+      1. Нажмите **Добавить целевой ресурс**.
+
   1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -28,32 +36,34 @@ description: "Для создания целевой группы {{ alb-full-na
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для создания целевой группы:
-      ```
+
+      ```bash
       yc alb target-group create --help
       ```
 
-  1. Выполните команду, указав в параметрах имя подсети и внутренние IP-адреса ВМ:
-     ```
-     yc alb target-group create <имя целевой группы> \
-       --target subnet-name=<имя подсети>,ip-address=<внутренний IP-адрес ВМ 1> \
-       --target subnet-name=<имя подсети>,ip-address=<внутренний IP-адрес ВМ 2> \
-       --target subnet-name=<имя подсети>,ip-address=<внутренний IP-адрес ВМ 3>
-     ```
+  1. Выполните команду, указав в параметрах имя [подсети](../../vpc/concepts/network.md#subnet) и внутренние IP-адреса ВМ:
 
-     Результат:
+      ```bash
+      yc alb target-group create <имя_целевой_группы> \
+        --target subnet-name=<имя_подсети>,ip-address=<внутренний_IP-адрес_ВМ_1> \
+        --target subnet-name=<имя_подсети>,ip-address=<внутренний_IP-адрес_ВМ_2> \
+        --target subnet-name=<имя_подсети>,ip-address=<внутренний_IP-адрес_ВМ_3>
+      ```
 
-     ```
-     id: a5d751meibht4ev264pp
-     name: test-target-group
-     folder_id: aoerb349v3h4bupphtaf
-     targets:
-     - ip_address: 10.0.0.36
-       subnet_id: bucp2nunecvqgobf7cve
-     - ip_address: 10.1.0.8
-       subnet_id: bltca464785h2eon18r9
-     - ip_address: 10.2.0.12
-       subnet_id: fo2tgfikh3hergif27iu
-     ```
+      Результат:
+
+      ```yaml
+      id: a5d751meibht4ev26...
+      name: <имя_целевой_группы>
+      folder_id: aoerb349v3h4bupph...
+      targets:
+      - ip_address: <внутренний_IP-адрес_ВМ_1>
+        subnet_id: fo2tgfikh3hergif2...
+      - ip_address: <внутренний_IP-адрес_ВМ_2>
+        subnet_id: fo2tgfikh3hergif2...
+      - ip_address: <внутренний_IP-адрес_ВМ_3>
+        subnet_id: fo2tgfikh3hergif2...
+      ```
 
 - {{ TF }}
 
@@ -65,21 +75,21 @@ description: "Для создания целевой группы {{ alb-full-na
 
       ```hcl
       resource "yandex_alb_target_group" "foo" {
-        name           = "<имя целевой группы>"
+        name           = "<имя_целевой_группы>"
 
         target {
-          subnet_id    = "<идентификатор подсети>"
-          ip_address   = "<внутренний IP-адрес ВМ 1>"
+          subnet_id    = "<идентификатор_подсети>"
+          ip_address   = "<внутренний_IP-адрес_ВМ_1>"
         }
 
         target {
-          subnet_id    = "<идентификатор подсети>"
-          ip_address   = "<внутренний IP-адрес ВМ 2>"
+          subnet_id    = "<идентификатор_подсети>"
+          ip_address   = "<внутренний_IP-адрес_ВМ_2>"
         }
 
         target {
-          subnet_id    = "<идентификатор подсети>"
-          ip_address   = "<внутренний IP-адрес ВМ 3>"
+          subnet_id    = "<идентификатор_подсети>"
+          ip_address   = "<внутренний_IP-адрес_ВМ_3>"
         }
       }
       ```
@@ -89,8 +99,8 @@ description: "Для создания целевой группы {{ alb-full-na
       * `yandex_alb_target_group` — параметры целевой группы:
         * `name` — имя целевой группы.
         * `target` — параметры целевого ресурса:
-          * `subnet_id` — идентификатор подсети, в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list`.
-          * `ip_address` — внутренний IP-адрес ВМ. Получить список внутренних IP-адресов можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list-used-addresses --id <идентификатор подсети>`.
+          * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet), в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list`.
+          * `ip_address` — внутренний IP-адрес ВМ. Получить список внутренних IP-адресов можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list-used-addresses --id <идентификатор_подсети>`.
 
       Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
   1. Создайте ресурсы:

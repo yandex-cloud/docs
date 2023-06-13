@@ -13,7 +13,7 @@ If only some of a cluster's hosts have public access configured, [automatically 
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -49,15 +49,15 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
          * Protocol: `Any`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -215,6 +215,33 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
+
+## Connecting from pgAdmin 4 {#connection-pgadmin}
+
+The connection was tested for [pgAdmin 4](https://www.pgadmin.org/download/) ver. 7.0 in Ubuntu 20.04.
+
+You can only use pgAdmin 4 to connect to public cluster hosts using SSL certificates.
+
+Create a new server connection:
+
+1. Select **Object** → **Register** → **Server...**
+1. In the **General** tab, in the **Name** field, specify the name to display the cluster under in the pgAdmin 4 interface. You can set any name.
+1. In the **Connection** tab, specify the connection parameters:
+
+   * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
+   * **Port**: `{{ port-mpg }}`.
+   * **Maintenance database**: Name of the DB to connect to.
+   * **Username**: Name of the user to connect under.
+   * **Password**: User password.
+
+1. In the **Parameters** tab:
+
+   * Set the **SSL mode** parameter to `verify-full`.
+   * Add a new **Root certificate** parameter and specify the path to the saved [SSL certificate](#get-ssl-cert) file in it.
+
+1. Click **Save** to save the server connection settings.
+
+As a result, the cluster appears in the server list in the navigation menu.
 
 ## Sample connection strings {#connection-string}
 

@@ -38,7 +38,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
    To enable topic management via the Admin API:
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update <cluster name or ID> --unmanaged-topics=true
@@ -70,7 +70,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
    To enable topic management via the Admin API:
 
-   1. Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   1. Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
       * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
       * The new cluster configuration in the `configSpec` parameter. Specify the value `"unmanagedTopics": true` in the configuration.
@@ -113,7 +113,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
       {{ yc-mdb-kf }} cluster get <cluster ID or name>
       ```
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update --help
@@ -177,7 +177,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Broker host class in the `configSpec.kafka.resources.resourcePresetId` parameter.
    * Number of broker hosts in the `configSpec.brokersCount` parameter.
@@ -213,7 +213,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
       {{ yc-mdb-kf }} cluster get <cluster ID or name>
       ```
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update --help
@@ -260,7 +260,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * {{ ZK }} host class in the `configSpec.zookeeper.resources.resourcePresetId` parameter.
@@ -299,7 +299,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    To increase the hosts' storage size:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update --help
@@ -365,7 +365,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 - API
 
-   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New storage settings in the `configSpec.kafka.resources` parameter (`configSpec.zookeeper.resources` for {{ ZK }} hosts).
@@ -377,6 +377,12 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 
 ## Updating security group and public access settings {#change-sg-set}
+
+{% note info %}
+
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -398,7 +404,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update --help
@@ -450,10 +456,10 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   - The list of security group IDs in the `securityGroupIds` parameter.
+   - List of security group IDs in the `securityGroupIds` parameter.
    - Public access settings, in the `configSpec.assignPublicIp` parameter.
    - List of settings to update in the `updateMask` parameter.
 
@@ -488,7 +494,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    To change additional cluster settings:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update --help
@@ -552,7 +558,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -647,7 +653,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -692,9 +698,9 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+   Use the [move](../api-ref/Cluster/move.md) API method and provide the following in the query:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The ID of the destination folder in the `destinationFolderId parameter`.
+   * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
 
@@ -719,7 +725,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update --help
@@ -761,10 +767,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   - The list of security group IDs in the `securityGroupIds` parameter.
+   - List of security group IDs in the `securityGroupIds` parameter.
    - List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

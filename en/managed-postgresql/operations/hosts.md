@@ -187,7 +187,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 {% note warning %}
 
-If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -287,7 +287,7 @@ For each host in a {{ mpg-short-name }} cluster, you can change the priority, sp
 
 {% note warning %}
 
-If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 

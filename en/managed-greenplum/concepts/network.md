@@ -30,16 +30,8 @@ After creating a cluster, you cannot request or disable public addresses.
 
 ## Security groups {#security-groups}
 
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic for the resources will be allowed. No additional setup is required.
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
-To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
-
-
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
 
 {% note tip %}
 

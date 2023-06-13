@@ -2,10 +2,12 @@ With [{{ TF }}](https://www.terraform.io/), you can quickly create a cloud infra
 
 For more information about the provider resources, see the documentation on the [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) site or [mirror]({{ terraform-mirror }}) site.
 
+
 {% note alert %}
 
 The mirror is temporarily unavailable.
 
 {% endnote %}
+
 
 If you change the configuration files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed.

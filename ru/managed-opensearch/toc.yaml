@@ -73,6 +73,8 @@ items:
         href: concepts/scalability-and-resilience.md
       - name: Плагины {{ OS }}
         href: concepts/plugins.md
+      - name: Политика работы с версиями {{ OS }}
+        href: concepts/update-policy.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
   - name: Управление доступом

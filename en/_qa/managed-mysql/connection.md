@@ -1,4 +1,4 @@
-# Connection to a {{ MY }} cluster
+# Connecting to a {{ MY }} cluster
 
 #### How do I connect to a cluster? {#how-to-connect}
 
@@ -12,7 +12,7 @@ There are also [{#T}](../../managed-mysql/operations/connect.md#special-fqdns) p
 
 Check whether there is public access to the host. To do this, in the [management console]({{ link-console-main }}):
 1. Go to the folder page and select **{{ mmy-short-name }}**.
-1. Click on the name of the cluster you need and select the **Hosts** tab.
+1. Click the name of the cluster you need and select the **Hosts** tab.
 1. Look at the value in the desired host's **Public access** column.
 
 {{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
@@ -42,7 +42,7 @@ If public access is only configured for certain hosts in your cluster, automatic
 
 Check whether there is public access to the host. To do this, in the [management console]({{ link-console-main }}):
 1. Go to the folder page and select **{{ mmy-short-name }}**.
-1. Click on the name of the cluster you need and select the **Hosts** tab.
+1. Click the name of the cluster you need and select the **Hosts** tab.
 1. Look at the value in the desired host's **Public access** column.
 
 Additional information:
@@ -50,7 +50,7 @@ Additional information:
 * If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see that the current master or replica have public access.
 
 
-* If you can't connect to the added host, check that the cluster's [security group](../../managed-mysql/concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+* If you can't connect to the added host, check that the cluster's [security group](../../managed-mysql/concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
 #### Why would the connection limit be exceeded? {#connection-limit}

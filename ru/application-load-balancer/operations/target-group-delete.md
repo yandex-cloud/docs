@@ -34,21 +34,21 @@ description: "Чтобы удалить целевую группу, в конс
 
   1. Посмотрите описание команды CLI для удаления целевой группы:
 
-     ```bash
-     yc alb target-group delete --help
-     ```
+      ```bash
+      yc alb target-group delete --help
+      ```
 
   1. Выполните команду:
 
-     ```bash
-     yc alb target-group delete <имя или идентификатор целевой группы>
-     ```
+      ```bash
+      yc alb target-group delete <имя_или_идентификатор_целевой_группы>
+      ```
 
-     Чтобы проверить удаление, получите список целевых групп, выполнив команду:
+      Чтобы проверить удаление, получите список целевых групп, выполнив команду:
 
-     ```bash
-     yc alb target-group list
-     ```
+      ```bash
+      yc alb target-group list
+      ```
 
 - {{ TF }}
 
@@ -57,30 +57,30 @@ description: "Чтобы удалить целевую группу, в конс
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Откройте конфигурационный файл {{ TF }} и удалите фрагмент с описанием целевой группы.
 
-     Пример описания целевой группы в конфигурации {{ TF }}:
+      Пример описания целевой группы в конфигурации {{ TF }}:
 
-     ```hcl
-     resource "yandex_alb_target_group" "foo" {
-       name           = "<имя целевой группы>"
+      ```hcl
+      resource "yandex_alb_target_group" "foo" {
+        name           = "<имя_целевой_группы>"
 
-       target {
-         subnet_id    = "<идентификатор подсети>"
-         ip_address   = "<внутренний IP-адрес ВМ 1>"
-       }
+        target {
+          subnet_id    = "<идентификатор_подсети>"
+          ip_address   = "<внутренний_IP-адрес_ВМ_1>"
+        }
 
-       target {
-         subnet_id    = "<идентификатор подсети>"
-         ip_address   = "<внутренний IP-адрес ВМ 2>"
-       }
+        target {
+          subnet_id    = "<идентификатор_подсети>"
+          ip_address   = "<внутренний_IP-адрес_ВМ_2>"
+        }
 
-       target {
-         subnet_id    = "<идентификатор подсети>"
-         ip_address   = "<внутренний IP-адрес ВМ 3>"
-       }
-     }
-     ```
+        target {
+          subnet_id    = "<идентификатор_подсети>"
+          ip_address   = "<внутренний_IP-адрес_ВМ_3>"
+        }
+      }
+      ```
 
-     Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
+      Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}

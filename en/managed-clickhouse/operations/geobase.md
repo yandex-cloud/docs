@@ -20,7 +20,7 @@ To add your own geobase to a {{ CH }} cluster:
       * `5`: Region.
       * `6`: City.
    * Population (UInt32): Optional.
-1. To add an alternative hierarchy of regions, create `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when invoking the function. For example:
+1. To add an alternative hierarchy of regions, create `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when invoking the function, e.g.:
 
    * `regionToCountry(RegionID)` — Uses the default dictionary: `regions_hierarchy.txt`.
    * `regionToCountry(RegionID, 'alt')`: Uses the dictionary with the `alt` suffix: `regions_hierarchy_alt.txt`.
@@ -59,7 +59,7 @@ To add your own geobase to a {{ CH }} cluster:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **DBMS settings**, click **Settings**.
    1. In the **Geobase uri** field, provide a link to the geobase archive in {{ objstorage-full-name }}.
@@ -72,7 +72,7 @@ To add your own geobase to a {{ CH }} cluster:
 
    To add a geobase:
 
-   1. View a description of the CLI's update cluster configuration command:
+   1. View a description of the update cluster configuration CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config --help
@@ -123,7 +123,7 @@ To add your own geobase to a {{ CH }} cluster:
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the link to the geobase archive in {{ objstorage-name }} in the `geobaseUri` parameter of the request.
+   To add a geobase to a {{ CH }} cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the link to the geobase archive in {{ objstorage-name }} in the `geobaseUri` parameter.
 
    {% note warning %}
 

@@ -9,7 +9,7 @@ You can add and remove cluster hosts, resync the hosts, and [manage settings {{ 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the desired cluster.
+   1. Click the name of the cluster you need.
    1. Go to the **Hosts** tab.
 
 - CLI
@@ -50,7 +50,7 @@ You can add and remove cluster hosts, resync the hosts, and [manage settings {{ 
 
 The number of hosts in {{ mmg-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mmg-full-name }}**.
 
-You can add different types of hosts to a cluster. Their number depends on the [sharding type](../concepts/sharding.md):
+You can add different types of hosts to a cluster. Their number depends on the [sharding type](../concepts/sharding.md#shard-management):
 
 {#hosts-table}
 
@@ -58,7 +58,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
 | ---------------- | ---------- | ---------- | ---------- | ---------- |
 | No sharding | ⩾ 1 | — | — | — |
 | Standard | ⩾ 1 | ⩾ 3 | — | — |
-| Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3 |
+| Advanced | ⩾ 1 | N/A | ⩾ 2 | ⩾ 3 |
 
 {% list tabs %}
 
@@ -82,7 +82,6 @@ You can add different types of hosts to a cluster. Their number depends on the [
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To add a host to the cluster:
-
    1. Request a list of cluster subnets to select one for the new host:
 
       ```bash
@@ -103,7 +102,6 @@ You can add different types of hosts to a cluster. Their number depends on the [
       ```
 
       If the required subnet is not on the list, create it.
-
    1. View a description of the CLI command for adding a host:
 
       ```bash
@@ -125,23 +123,53 @@ You can add different types of hosts to a cluster. Their number depends on the [
 - {{ TF }}
 
    To add a host to the cluster:
-
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Add a `host` block to the {{ mmg-name }} cluster description.
+   1. Add the following to the {{ mmg-name }} cluster description:
+
+      * Resources corresponding to the sharding type, if you are adding a host to a sharded cluster:
+
+         * `resources_mongoinfra`: For standard sharding.
+         * `resources_mongos` and `resources_mongocfg`: For advanced sharding.
+
+      * The `host` section.
 
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
         ...
+        resources_mongod {
+          resource_preset_id = "<host class>"
+          disk_type_id       = "<disk type>"
+          disk_size          = <storage size, GB>
+        }
+
+        resources_mongoinfra { # Add this for standard sharding
+          resource_preset_id = "<host class>"
+          disk_type_id       = "<disk type>"
+          disk_size          = <storage size, GB>
+        }
+
+        resources_mongos { # Add this for advanced sharding
+          resource_preset_id = "<host class>"
+          disk_type_id       = "<disk type>"
+          disk_size          = <storage size, GB>
+        }
+
+        resources_mongocfg { # Add this for advanced sharding
+          resource_preset_id = "<host class>"
+          disk_type_id       = "<disk type>"
+          disk_size          = <storage size, GB>
+        }
+
         host {
           role             = "<replica type: PRIMARY or SECONDARY>"
           zone_id          = "<availability zone>"
-          subnet_id        = "<subnet in availability zone>"
+          subnet_id        = "<subnet in the availability zone>"
           assign_public_ip = true / false
-          shard_name       = "<shard name in sharded cluster>"
-          type             = "<host type in sharded cluter: MONGOD, MONGOS, or MONGOCFG>"
+          shard_name       = "<shard name in a sharded cluster>"
+          type             = "<host type in a sharded cluster: MONGOD, MONGOINFRA, MONGOS, or MONGOCFG>"
           ...
         }
       }
@@ -151,7 +179,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -168,7 +196,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
 {% note warning %}
 
-If you can't [connect](connect/index.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you can't [connect](connect/index.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -187,7 +215,7 @@ From a [sharded cluster](../operations/shards.md#enable), you may remove the `MO
 
    To remove a host from a cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Delete**.
    1. In the window that opens, check **Delete host** and click **Confirm**.
 
@@ -200,8 +228,8 @@ From a [sharded cluster](../operations/shards.md#enable), you may remove the `MO
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-mg }} host delete <hostname> \
-     --cluster-name <cluster name>
+   {{ yc-mdb-mg }} host delete <hostname>
+      --cluster-name <cluster name>
    ```
 
    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -209,18 +237,15 @@ From a [sharded cluster](../operations/shards.md#enable), you may remove the `MO
 - {{ TF }}
 
    To remove a host from a cluster:
-
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Delete the corresponding `host` block from the {{ mmg-name }} cluster description.
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -257,7 +282,7 @@ During this operation:
 
    To forcibly resync a host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the line of the necessary host and select **Resynchronize**.
 
 - CLI
@@ -269,8 +294,8 @@ During this operation:
    To forcibly resync a host, run the following command:
 
    ```bash
-   {{ yc-mdb-mg }} hosts resetup <host_name> \
-     --cluster-name <cluster name>
+   {{ yc-mdb-mg }} hosts resetup <host_name>
+      --cluster-name <cluster name>
    ```
 
    You can obtain the host name with a [list of hosts in the folder](hosts.md#list-hosts). The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -311,7 +336,7 @@ You can only restart one host at a time.
 - API
 
    Use the [restartHosts](../api-ref/Cluster/restartHosts.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Host name, in the `hostNames` parameter. To find out the name, [request a list of hosts in the cluster](#list-hosts).
 
 {% endlist %}

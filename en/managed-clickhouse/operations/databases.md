@@ -22,7 +22,7 @@ In a cluster with DB management via SQL enabled:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Databases** tab.
 
 - CLI
@@ -42,7 +42,7 @@ In a cluster with DB management via SQL enabled:
 
 - API
 
-   To get a [list](../api-ref/Database/list.md) of cluster databases, use the list method.
+   To get a list of cluster databases, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call.
 
 - SQL
 
@@ -63,8 +63,8 @@ In a cluster with DB management via SQL enabled:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the desired cluster.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
+   1. Click the name of the cluster you need.
    1. Select the **Databases** tab.
    1. Click **Add**.
    1. Enter the database name and click **Add**.
@@ -123,7 +123,7 @@ In a cluster with DB management via SQL enabled:
 
 - API
 
-   You can create a new database in a cluster using the [create](../api-ref/Database/create.md) method.
+   To create a new database in a cluster, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call.
 
 - SQL
 
@@ -146,7 +146,7 @@ In a cluster with DB management via SQL enabled:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Databases** tab.
    1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired DB and select **Delete**.
 
@@ -187,7 +187,7 @@ In a cluster with DB management via SQL enabled:
 
 - API
 
-   You can delete a database using the [delete](../api-ref/Database/delete.md) method.
+   To delete a database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call.
 
 - SQL
 

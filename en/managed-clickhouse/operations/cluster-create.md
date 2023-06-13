@@ -38,8 +38,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
       1. Select a **{{ mch-name }}** service.
    1. Click **Create cluster**.
-   1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+   1. Name the cluster in the **Cluster name** field. It must be unique within the folder.
+   1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the {{ CH }} version from the **Version** drop-down list to use for the {{ mch-name }} cluster:
@@ -60,7 +60,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Under **Hosts**:
 
-      * To create additional DB hosts, click **Add host**. Once the second host is added, the **Configure {{ ZK }}** button appears. If necessary, change the {{ ZK }} settings in **{{ ZK }} resources** and **{{ ZK }} hosts**.
+      * To create additional DB hosts, click **Add host**. Once the second host is added, the **Configure {{ ZK }}** button appears. Change the {{ ZK }} settings in **{{ ZK }} resources** and **{{ ZK }} hosts**, if required.
       * Set the parameters of DB hosts being created alongside the cluster. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
 
    1. Under **DBMS settings**:
@@ -85,11 +85,11 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          {% note alert %}
 
-         You can't disable this option.
+         You cannot disable this option.
 
          {% endnote %}
 
-      * If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
+      * Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
 
    
    1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
@@ -105,7 +105,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       To add hosts to the cluster, click **Add host**.
 
-   1. If necessary, configure cluster service settings:
+   1. Configure cluster service settings, if required:
 
       {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
 
@@ -129,7 +129,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-   1. View a description of the CLI's create cluster command:
+   1. View a description of the create cluster CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster create --help
@@ -192,7 +192,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          ```
 
       
-      1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
+      1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
       1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
@@ -318,16 +318,16 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
       
-      1. To enable access from other services and [SQL query execution from the management console](web-sql-query.md), add an `access` block with the necessary settings:
+      1. To enable access from other services and [SQL query execution from the management console](web-sql-query.md), add an `access` block with the required settings:
 
          ```hcl
          resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
            ...
            access {
-             data_lens  = <Access from DataLens: true or false>
-             metrika    = <Access from Metrica and AppMetrika: true or false>
-             serverless = <Access from Cloud Functions: true or false>
-             web_sql    = <Executing SQL queries from the management console: true or false>
+             data_lens  = <access from DataLens: true or false>
+             metrika    = <access from Yandex Metrica and AppMetrika: true or false>
+             serverless = <access from Cloud Functions: true or false>
+             web_sql    = <executing SQL queries from the management console: true or false>
            }
            ...
          }
@@ -359,12 +359,12 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 - API
 
-   Use the [create](../api-ref/Cluster/create) API method and include the following information in the request:
+   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
    * Cluster environment in the `environment` parameter.
    * Cluster configuration in the `configSpec` parameter.
-   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+   * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
    * Network ID in the `networkId` parameter.
 
    
@@ -373,18 +373,18 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    To allow [connection](connect.md) to cluster hosts from the internet, pass the `true` value in the `hostSpecs.assignPublicIp` parameter.
 
-   If necessary, enable user and database management via SQL:
+   Enable user and database management via SQL, if required:
    * `configSpec.sqlUserManagement`: Set `true` to enable [managing users via SQL](cluster-users.md#sql-user-management).
    * `configSpec.sqlDatabaseManagement`: Set `true` to enable [database management via SQL](databases.md#sql-database-management). User management via SQL needs to be enabled.
    * `configSpec.adminPassword` : Set the password for the `admin` user whose account is used for management.
 
    {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-      To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
+      To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
-   To allow cluster access from {{ yq-full-name }}, pass `true` for the `configSpec.access.yandexQuery` parameter.
+   To allow cluster access from {{ yq-full-name }}, set `true` for the `configSpec.access.yandexQuery` parameter.
 
    To configure [hybrid storage settings](../concepts/storage.md##hybrid-storage-settings):
 
@@ -399,7 +399,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
-      To use {{ CK }}, your {{ CH }} version must be {{ mch-ck-version }} or higher. You can get a list of available {{ CH }} versions using the [list](../api-ref/Versions/list.md) API method.
+      To use {{ CK }}, your {{ CH }} version must be {{ mch-ck-version }} or higher. You can get the list of available {{ CH }} versions using the [list](../api-ref/Versions/list.md) REST API method for the [Versions](../api-ref/Versions/index.md) resource or the [VersionsService/List](../api-ref/grpc/versions_service.md#List) gRPC API call.
 
    * If `embeddedKeeper` is undefined or `false`, replication and query distribution will be managed using {{ ZK }}.
 
@@ -427,7 +427,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-   To create a cluster with a single host, pass a single `--host` parameter.
+   To create a cluster with a single host, provide a single `--host` parameter.
 
    Create a {{ mch-name }} cluster with test characteristics:
 
@@ -439,7 +439,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With a single {{ CH }} host of the `{{ host-class }}` class in the `b0rcctk2rvtr8efcch64` subnet and the `{{ region-id }}-a` availability zone.
    * {{ CK }}.
    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
-   * With one user, `user1`, with the password `user1user1`.
+   * With one user, `user1`, with the `user1user1` password.
    * With one database, `db1`.
    * Protection against accidental cluster deletion.
 
@@ -484,7 +484,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    * With 20 GB of local SSD storage (`{{ disk-type-example }}`).
    * Database name `db1`.
-   * With a user named `user1` with the password `user1user1`.
+   * With a user named `user1` with the `user1user1` password.
 
    The configuration files for this cluster look like this:
 

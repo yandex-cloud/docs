@@ -183,8 +183,6 @@ items:
         href: manager/create-project.md
       - name: Список задач проекта
         href: manager/project-list.md
-      - name: Диаграмма Ганта
-        href: manager/gantt-project.md
       - name: Доска задач
         href: manager/boards-project.md
   - name: Инструменты гибкой разработки
@@ -231,8 +229,6 @@ items:
         href: user/create-filter.md
       - name: Язык запросов
         href: user/query-filter.md
-      - name: Диаграмма Ганта для фильтра задач
-        href: manager/gantt-search.md
   - name: Уведомления и подписки
     items:
       - name: Обзор
@@ -271,8 +267,18 @@ items:
             href: user/startpage-dashboard.md
       - name: Статистика очереди
         href: manager/statistics.md
-      - name: Диаграмма Ганта
-        href: manager/gantt.md
+  - name: Диаграмма Ганта
+    items:
+      - name: Обзор
+        href: gantt/overview.md
+      - name: Диаграмма Ганта для фильтра
+        href: gantt/search.md
+      - name: Диаграмма Ганта для очереди
+        href: gantt/queue.md
+      - name: Диаграмма Ганта для проекта
+        href: gantt/project.md
+      - name: Диаграмма Ганта для списка проектов
+        href: gantt/list-of-projects.md
   - name: Автоматизация и шаблоны
     items:
       - name: Обзор

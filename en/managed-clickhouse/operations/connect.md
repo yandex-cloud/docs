@@ -11,7 +11,11 @@ You can connect to a cluster both using encryption via ports `{{ port-mch-cli }}
 
 ## Configuring security groups {#configuring-security-groups}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -51,15 +55,15 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
          * Protocol: `Any`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -165,7 +169,7 @@ There are two ways to run SQL queries from your browser:
 
 * [Built-in SQL editor](#inline-editor).
 
-When connecting from the browser, SQL queries are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session have no impact. For example, this is true for such queries as `USE` or `SET`.
+When connecting from the browser, SQL queries are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session (for example, `USE` or `SET`) have no impact.
 
 ### Management console {#console}
 
@@ -178,7 +182,6 @@ To allow connections, activate the **Access from management console** option whe
 For more information, see [{#T}](web-sql-query.md).
 
 ### Built-in SQL editor {#inline-editor}
-
 
 
 

@@ -15,7 +15,7 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
@@ -45,7 +45,7 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 - API
 
-   Use the [listHosts](../api-ref/Cluster/listHosts.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
 
@@ -164,7 +164,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
 - API
 
-   Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and pass the following in the request:
+   To add a host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New host settings in one or more `hostSpecs` parameters.
 
@@ -175,7 +175,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 {% note warning %}
 
 
-If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
 Use the copy data schema option only if the schema is the same on all replica hosts of the cluster.
@@ -192,7 +192,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
    To change the parameters of the cluster host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Edit**.
    1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
    1. Click **Save**.
@@ -244,7 +244,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
 - API
 
-   To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
+   To update host parameters, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
    * In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, request a [list of hosts in the cluster](#list-hosts).
    * Host public access settings as `updateHostSpecs.assignPublicIp`.
@@ -254,15 +254,13 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
 {% endlist %}
 
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
-
-To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 
 {% note warning %}
 
-If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
+
 
 ## Removing a host {#remove-host}
 
@@ -279,7 +277,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Delete**.
 
 - CLI
@@ -317,7 +315,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
 - API
 
-   Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) API method and pass the following in the request:
+   To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name(s) of the host(s) to delete in the `hostNames` parameter.
 

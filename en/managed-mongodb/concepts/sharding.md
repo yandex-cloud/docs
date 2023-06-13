@@ -55,7 +55,8 @@ To split data into shards:
 1. [Add](../operations/shards.md#add-shard) the required number of shards.
 1. [Enable sharding](../tutorials/sharding.md#enable) for the applicable collections.
 
-See also [Example of sharding](../tutorials/sharding.md#example).
+For details, see [example of sharding](../tutorials/sharding.md#example).
+
 
 ## Specifics of sharding management in {{ mmg-name }} {#shard-management}
 
@@ -63,7 +64,7 @@ See also [Example of sharding](../tutorials/sharding.md#example).
 
 - Due to limited resources, clusters with the **b1.medium** and **b2.medium** hosts can't be sharded.
 
-- Clusters are unsharded at [creation](../operations/cluster-create.md).
+- Clusters are unsharded at [creation](../operations/cluster-create.md). [Enable sharding](../operations/shards.md#enable) after creating a cluster.
 
 - In {{ mmg-name }}, sharding is managed by the hosts with the roles `MONGOS` ([routing user queries](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/)) and `MONGOCFG` ([storing the shard configuration](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/)).
 
