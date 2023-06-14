@@ -37,7 +37,7 @@ For example, the resources assigned such IP address ranges are:
 
 ## IP addresses used by {{ yandex-cloud }}
 
-The following IP address ranges are assigned to the resources that support Yandex Cloud operation:
+The following IP address ranges are assigned to the resources that support {{ yandex-cloud }} operation:
 
 
 | IPv6 |

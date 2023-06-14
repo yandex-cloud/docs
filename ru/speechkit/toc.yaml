@@ -85,6 +85,8 @@ items:
                 href: tts-v3/api-ref/grpc/tts_service.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Потоковое распознавание API v3
         href: stt/api/streaming-examples-v3.md
       - name: Автоматическое определение языка — API v3
@@ -105,7 +107,7 @@ items:
         href: tts/api/tts-wav.md
       - name: Синтез речи в формате OggOpus — API v1
         href: tts/api/tts-ogg.md
-      - name: Синтез из текста SSML — API v1
+      - name: Синтез речи из текста SSML — API v1
         href: tts/api/tts-ssml.md
   - name: Поддерживаемые форматы аудио
     href: formats.md

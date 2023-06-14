@@ -50,7 +50,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy}
 
-Empty
+Empty.
 
 ## List {#List}
 
@@ -94,7 +94,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy1}
 
-Empty
+Empty.
 
 ## Create {#Create}
 
@@ -121,7 +121,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy2}
 
-Empty
+Empty.
 
 ### Operation {#Operation}
 
@@ -224,7 +224,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy3}
 
-Empty
+Empty.
 
 ## Delete {#Delete}
 

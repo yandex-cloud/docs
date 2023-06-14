@@ -11,7 +11,7 @@ the generated key as plaintext and as ciphertext encrypted with the specified sy
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:generateDataKey
+POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:generateDataKey
 ```
  
 ## Path parameters {#path_params}

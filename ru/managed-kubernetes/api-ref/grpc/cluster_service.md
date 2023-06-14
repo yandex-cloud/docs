@@ -143,7 +143,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow}
 
@@ -347,7 +347,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow1}
 
@@ -525,7 +525,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow2}
 
@@ -775,7 +775,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow3}
 
@@ -1146,7 +1146,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow4}
 
@@ -1366,7 +1366,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow5}
 
@@ -1672,7 +1672,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow6}
 
@@ -1774,7 +1774,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li></ul>
+status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li><li>`STOPPED`: Node is stopped</li><li>`UNKNOWN`: Backend request to kubernetes api was unsuccessful.</li></ul>
 spec | **[Spec](#Spec)**<br>Node specificaion. 
 cloud_status | **[CloudStatus](#CloudStatus)**<br>Cloud instance status. Not available in `MISSING` status. 
 kubernetes_status | **[KubernetesStatus](#KubernetesStatus)**<br>Kubernetes node status. Not available in `PROVISIONING` and `NOT_CONNECTED` states. 

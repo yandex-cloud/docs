@@ -134,7 +134,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
@@ -396,7 +396,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
@@ -630,7 +630,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
@@ -946,7 +946,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
@@ -1315,7 +1315,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
@@ -1633,7 +1633,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
@@ -1911,7 +1911,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
@@ -2198,7 +2198,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Greenplum® cluster to request logs for. <br>To get the Greenplum® cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from log table to request. If no columns are specified, entire log records are returned. 
-service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`SERVICE_TYPE_UNSPECIFIED`: Type is not specified.</li><li>`GREENPLUM`: Greenplum® activity logs.</li><li>`GREENPLUM_POOLER`: Greenplum® pooler logs.</li></ul>
+service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`SERVICE_TYPE_UNSPECIFIED`: Type is not specified.</li><li>`GREENPLUM`: Greenplum® activity logs.</li><li>`GREENPLUM_POOLER`: Greenplum® pooler logs.</li><li>`GREENPLUM_PXF`: Greenplum® PXF service logs.</li></ul>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. 
 page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
@@ -2235,7 +2235,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Greenplum® cluster. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from log table to get in the response. If no columns are specified, entire log records are returned. 
-service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`SERVICE_TYPE_UNSPECIFIED`: Type is not specified.</li><li>`GREENPLUM`: Greenplum® activity logs.</li><li>`GREENPLUM_POOLER`: Greenplum® pooler logs.</li></ul>
+service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`SERVICE_TYPE_UNSPECIFIED`: Type is not specified.</li><li>`GREENPLUM`: Greenplum® activity logs.</li><li>`GREENPLUM_POOLER`: Greenplum® pooler logs.</li><li>`GREENPLUM_PXF`: Greenplum® PXF service logs.</li></ul>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. <br>If this field is not set, all existing logs are sent as well as the new ones as they appear. <br>In essence it has `tail -f` semantics. 
 record_token | **string**<br>Record token. Set `record_token` to the [StreamLogs.next_record_token](#StreamLogs) returned by the previous [StreamLogs](#StreamLogs) request to start streaming from the next log record. The maximum string length in characters is 100.
@@ -2323,6 +2323,8 @@ deletion_protection | **bool**<br>Determines whether the cluster is protected fr
 host_group_ids[] | **string**<br>Host groups to place VMs of cluster on. 
 placement_group_id | **string**<br>ID of the placement group. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+segment_host_count | **int64**<br>Number of segment hosts 
+segment_in_host | **int64**<br>Number of segments on each host 
 
 
 ### GreenplumRestoreConfig {#GreenplumRestoreConfig}
@@ -2365,7 +2367,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 

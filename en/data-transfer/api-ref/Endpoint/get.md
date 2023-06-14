@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/get.md
  
 ## HTTP request {#https-request}
 ```
-GET https://datatransfer.{{ api-host }}/v1/endpoint/{endpointId}
+GET https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
 ```
  
 ## Path parameters {#path_params}
@@ -539,6 +539,22 @@ endpointId |
         "topicPrefix": "string",
         // end of the list of possible fields`settings.kafkaTarget.topicSettings`
 
+      },
+      "serializer": {
+
+        // `settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`
+        "serializerAuto": {},
+        "serializerJson": {},
+        "serializerDebezium": {
+          "serializerParameters": [
+            {
+              "key": "string",
+              "value": "string"
+            }
+          ]
+        },
+        // end of the list of possible fields`settings.kafkaTarget.serializer`
+
       }
     },
     "mongoTarget": {
@@ -865,6 +881,13 @@ settings.<br>kafkaTarget.<br>topicSettings.<br>topic | **object**<br>Full topic 
 settings.<br>kafkaTarget.<br>topicSettings.<br>topic.<br>topicName | **string**<br><p>Topic name</p> 
 settings.<br>kafkaTarget.<br>topicSettings.<br>topic.<br>saveTxOrder | **boolean** (boolean)<br><p>Save transactions order Not to split events queue into separate per-table queues.</p> 
 settings.<br>kafkaTarget.<br>topicSettings.<br>topicPrefix | **string** <br>`settings.kafkaTarget.topicSettings` includes only one of the fields `topic`, `topicPrefix`<br><br><p>Topic prefix</p> <p>Analogue of the Debezium setting database.server.name. Messages will be sent to topic with name &lt;topic_prefix&gt;.<schema>.&lt;table_name&gt;.</p> 
+settings.<br>kafkaTarget.<br>serializer | **object**<br><p>Data serialization format settings</p> <p>Data serialization format</p> 
+settings.<br>kafkaTarget.<br>serializer.<br>serializerAuto | **object**<br>Select the serialization format automatically <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
+settings.<br>kafkaTarget.<br>serializer.<br>serializerJson | **object**<br>Serialize data in json format <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
+settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium | **object**<br>Serialize data in debezium format <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
+settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[] | **object**<br><p>Settings of sterilization parameters as key-value pairs</p> 
+settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[].<br>key | **string**<br><p>Name of the serializer parameter</p> 
+settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[].<br>value | **string**<br><p>Value of the serializer parameter</p> 
 settings.<br>mongoTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `kafkaTarget`, `mongoTarget`<br>
 settings.<br>mongoTarget.<br>connection | **object**
 settings.<br>mongoTarget.<br>connection.<br>connectionOptions | **object**

@@ -107,7 +107,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch1). <br>For instance, if [StringMatch.prefix_match](#StringMatch1) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch1), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch1). <br>For instance, if [StringMatch.prefix_match](#StringMatch1) value is `/foo` and `prefix_rewrite` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch1), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -331,7 +331,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch2). <br>For instance, if [StringMatch.prefix_match](#StringMatch2) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch2), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch2). <br>For instance, if [StringMatch.prefix_match](#StringMatch2) value is `/foo` and `prefix_rewrite` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch2), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -539,7 +539,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `prefix_rewrite` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -785,7 +785,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch4). <br>For instance, if [StringMatch.prefix_match](#StringMatch4) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch4), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch4). <br>For instance, if [StringMatch.prefix_match](#StringMatch4) value is `/foo` and `prefix_rewrite` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch4), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 

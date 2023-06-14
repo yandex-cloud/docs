@@ -4,11 +4,11 @@ _Image classification is currently in the [Preview stage](../../../overview/conc
 
 To determine whether an image matches properties such as <q>adult content</q>, <q>shocking content</q>, or <q>watermarks</q>, use the [Image Classification](../../concepts/classification/index.md).
 
-In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [moderation](../../concepts/classification/supported-models.md#moderation).
+In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [moderation](../../concepts/classification/supported-models.md#moderation).
 
 ## Examples {#examples}
 
-### Before you begin {#before-you-begin}
+### Getting started {#before-you-begin}
 
 {% include [curl](../../../_includes/curl.md) %}
 
@@ -28,7 +28,7 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 1. Encode the file as Base64:
 
    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-1. Create a file with the request body (for example, `body.json`).
+1. Create a file with the request body, e.g., `body.json`:
 
    **body.json:**
    ```json
@@ -125,6 +125,6 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 If an attempt to invoke a function ends with the `408 Request Timeout` error, try to fix the issue in one of the following ways:
 * Send the request again.
 * Reduce the image size.
-* Upload less images to [batchAnalyze](../../api-ref/Vision/batchAnalyze.md).
+* Upload fewer images to [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md).
 
 {% endnote %}

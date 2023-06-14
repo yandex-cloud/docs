@@ -173,6 +173,8 @@ items:
         href: tutorials/regular-launch.md
   - name: API reference
     items:
+      - name: Overview
+        href: api-ref/overview.md
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC

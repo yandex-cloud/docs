@@ -10,7 +10,7 @@ Returns chain and private key of the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-GET https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/{certificateId}:getContent
+GET https://{{ api-host-certmanager-certcontent }}/certificate-manager/v1/certificates/{certificateId}:getContent
 ```
  
 ## Path parameters {#path_params}

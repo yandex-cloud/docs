@@ -10,7 +10,7 @@ Lists operations for the specified secret.
  
 ## HTTP request {#https-request}
 ```
-GET https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}/operations
+GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}/operations
 ```
  
 ## Path parameters {#path_params}

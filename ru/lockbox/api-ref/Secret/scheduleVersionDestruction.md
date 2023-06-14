@@ -10,7 +10,7 @@ Scheduled destruction can be cancelled with the [cancelVersionDestruction](/docs
  
 ## HTTP request {#https-request}
 ```
-POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}:scheduleVersionDestruction
+POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:scheduleVersionDestruction
 ```
  
 ## Path parameters {#path_params}
