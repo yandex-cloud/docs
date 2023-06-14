@@ -296,7 +296,7 @@ connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources}
@@ -336,7 +336,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount}
+### StorageMount {#StorageMount}
 
 Field | Description
 --- | ---
@@ -381,7 +381,7 @@ connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount1)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources1}
@@ -421,7 +421,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount1}
+### StorageMount {#StorageMount1}
 
 Field | Description
 --- | ---
@@ -467,7 +467,7 @@ connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret2)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount2)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount2)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources2}
@@ -507,7 +507,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount2}
+### StorageMount {#StorageMount2}
 
 Field | Description
 --- | ---
@@ -553,7 +553,7 @@ connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret3)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount3)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount3)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources3}
@@ -593,7 +593,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount3}
+### StorageMount {#StorageMount3}
 
 Field | Description
 --- | ---
@@ -651,7 +651,7 @@ connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret4)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions4)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount4)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount4)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources4}
@@ -691,7 +691,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount4}
+### StorageMount {#StorageMount4}
 
 Field | Description
 --- | ---
@@ -749,7 +749,7 @@ connectivity | **[Connectivity](#Connectivity5)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret5)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions5)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount5)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount5)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources5}
@@ -789,7 +789,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount5}
+### StorageMount {#StorageMount5}
 
 Field | Description
 --- | ---
@@ -862,7 +862,7 @@ connectivity | **[Connectivity](#Connectivity6)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret6)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions6)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount6)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount6)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources6}
@@ -902,7 +902,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount6}
+### StorageMount {#StorageMount6}
 
 Field | Description
 --- | ---
@@ -975,7 +975,7 @@ connectivity | **[Connectivity](#Connectivity7)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret7)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions7)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount7)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount7)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources7}
@@ -1015,7 +1015,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount7}
+### StorageMount {#StorageMount7}
 
 Field | Description
 --- | ---
@@ -1128,7 +1128,7 @@ connectivity | **[Connectivity](#Connectivity8)**<br>Function version connectivi
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret8)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions8)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount8)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount8)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources8}
@@ -1177,7 +1177,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount8}
+### StorageMount {#StorageMount8}
 
 Field | Description
 --- | ---
@@ -1232,7 +1232,7 @@ connectivity | **[Connectivity](#Connectivity9)**<br>Network access. If specifie
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount9)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by the version. 
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -1266,7 +1266,7 @@ connectivity | **[Connectivity](#Connectivity9)**<br>Function version connectivi
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount9)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources9}
@@ -1315,7 +1315,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount9}
+### StorageMount {#StorageMount9}
 
 Field | Description
 --- | ---
@@ -1370,7 +1370,7 @@ connectivity | **[Connectivity](#Connectivity10)**<br>Network access. If specifi
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret10)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions10)**<br>Options for logging from the function 
-s3_mounts[] | **[S3Mount](#S3Mount10)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount10)**<br>S3 mounts to be used by the version. 
 
 
 ## ListRuntimes {#ListRuntimes}
@@ -1381,7 +1381,7 @@ Lists available runtime environments for the specified function.
 
 ### ListRuntimesRequest {#ListRuntimesRequest}
 
-Empty
+Empty.
 
 ### ListRuntimesResponse {#ListRuntimesResponse}
 

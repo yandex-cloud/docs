@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/delete.md
  
 ## HTTP request {#https-request}
 ```
-DELETE https://datatransfer.{{ api-host }}/v1/transfer/{transferId}
+DELETE https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
 ```
  
 ## Path parameters {#path_params}

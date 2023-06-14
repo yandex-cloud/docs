@@ -10,7 +10,7 @@ Decrypts the given ciphertext with the specified key.
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:decrypt
+POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:decrypt
 ```
  
 ## Path parameters {#path_params}

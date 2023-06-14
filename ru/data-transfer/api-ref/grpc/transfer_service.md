@@ -362,7 +362,7 @@ mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication
 
 ### NoAuth {#NoAuth}
 
-Empty
+Empty.
 
 ### DataTransformationOptions {#DataTransformationOptions}
 
@@ -425,11 +425,11 @@ path | **string**<br>
 
 ### AuditTrailsV1Parser {#AuditTrailsV1Parser}
 
-Empty
+Empty.
 
 ### CloudLoggingParser {#CloudLoggingParser}
 
-Empty
+Empty.
 
 ### MongoSource {#MongoSource}
 
@@ -628,6 +628,7 @@ connection | **[KafkaConnectionOptions](#KafkaConnectionOptions1)**<br>Connectio
 auth | **[KafkaAuth](#KafkaAuth1)**<br>Authentication settings 
 security_groups[] | **string**<br>Security groups 
 topic_settings | **[KafkaTargetTopicSettings](#KafkaTargetTopicSettings)**<br>Target topic settings 
+serializer | **[Serializer](#Serializer)**<br>Data serialization format settings 
 
 
 ### KafkaTargetTopicSettings {#KafkaTargetTopicSettings}
@@ -645,6 +646,39 @@ Field | Description
 --- | ---
 topic_name | **string**<br>Topic name 
 save_tx_order | **bool**<br>Save transactions order Not to split events queue into separate per-table queues. 
+
+
+### Serializer {#Serializer}
+
+Field | Description
+--- | ---
+serializer | **oneof:** `serializer_auto`, `serializer_json` or `serializer_debezium`<br>
+&nbsp;&nbsp;serializer_auto | **[SerializerAuto](#SerializerAuto)**<br>Select the serialization format automatically 
+&nbsp;&nbsp;serializer_json | **[SerializerJSON](#SerializerJSON)**<br>Serialize data in json format 
+&nbsp;&nbsp;serializer_debezium | **[SerializerDebezium](#SerializerDebezium)**<br>Serialize data in debezium format 
+
+
+### SerializerAuto {#SerializerAuto}
+
+Empty.
+
+### SerializerJSON {#SerializerJSON}
+
+Empty.
+
+### SerializerDebezium {#SerializerDebezium}
+
+Field | Description
+--- | ---
+serializer_parameters[] | **[DebeziumSerializerParameter](#DebeziumSerializerParameter)**<br>Settings of sterilization parameters as key-value pairs 
+
+
+### DebeziumSerializerParameter {#DebeziumSerializerParameter}
+
+Field | Description
+--- | ---
+key | **string**<br>Name of the serializer parameter 
+value | **string**<br>Value of the serializer parameter 
 
 
 ### MongoTarget {#MongoTarget}
@@ -894,7 +928,7 @@ mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication
 
 ### NoAuth {#NoAuth1}
 
-Empty
+Empty.
 
 ### DataTransformationOptions {#DataTransformationOptions1}
 
@@ -957,11 +991,11 @@ path | **string**<br>
 
 ### AuditTrailsV1Parser {#AuditTrailsV1Parser1}
 
-Empty
+Empty.
 
 ### CloudLoggingParser {#CloudLoggingParser1}
 
-Empty
+Empty.
 
 ### MongoSource {#MongoSource1}
 
@@ -1160,6 +1194,7 @@ connection | **[KafkaConnectionOptions](#KafkaConnectionOptions2)**<br>Connectio
 auth | **[KafkaAuth](#KafkaAuth2)**<br>Authentication settings 
 security_groups[] | **string**<br>Security groups 
 topic_settings | **[KafkaTargetTopicSettings](#KafkaTargetTopicSettings1)**<br>Target topic settings 
+serializer | **[Serializer](#Serializer1)**<br>Data serialization format settings 
 
 
 ### KafkaTargetTopicSettings {#KafkaTargetTopicSettings1}
@@ -1177,6 +1212,39 @@ Field | Description
 --- | ---
 topic_name | **string**<br>Topic name 
 save_tx_order | **bool**<br>Save transactions order Not to split events queue into separate per-table queues. 
+
+
+### Serializer {#Serializer1}
+
+Field | Description
+--- | ---
+serializer | **oneof:** `serializer_auto`, `serializer_json` or `serializer_debezium`<br>
+&nbsp;&nbsp;serializer_auto | **[SerializerAuto](#SerializerAuto1)**<br>Select the serialization format automatically 
+&nbsp;&nbsp;serializer_json | **[SerializerJSON](#SerializerJSON1)**<br>Serialize data in json format 
+&nbsp;&nbsp;serializer_debezium | **[SerializerDebezium](#SerializerDebezium1)**<br>Serialize data in debezium format 
+
+
+### SerializerAuto {#SerializerAuto1}
+
+Empty.
+
+### SerializerJSON {#SerializerJSON1}
+
+Empty.
+
+### SerializerDebezium {#SerializerDebezium1}
+
+Field | Description
+--- | ---
+serializer_parameters[] | **[DebeziumSerializerParameter](#DebeziumSerializerParameter1)**<br>Settings of sterilization parameters as key-value pairs 
+
+
+### DebeziumSerializerParameter {#DebeziumSerializerParameter1}
+
+Field | Description
+--- | ---
+key | **string**<br>Name of the serializer parameter 
+value | **string**<br>Value of the serializer parameter 
 
 
 ### MongoTarget {#MongoTarget1}

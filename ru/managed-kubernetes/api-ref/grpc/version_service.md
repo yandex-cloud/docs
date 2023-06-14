@@ -21,7 +21,7 @@ Retrieves the list of versions in the specified release channel.
 
 ### ListVersionsRequest {#ListVersionsRequest}
 
-Empty
+Empty.
 
 ### ListVersionsResponse {#ListVersionsResponse}
 

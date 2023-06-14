@@ -271,7 +271,7 @@ connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the container. 
-s3_mounts[] | **[S3Mount](#S3Mount)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount)**<br>S3 mounts to be used by the version. 
 
 
 ### Resources {#Resources}
@@ -353,7 +353,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount}
+### StorageMount {#StorageMount}
 
 Field | Description
 --- | ---
@@ -405,7 +405,7 @@ connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specifie
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the container. 
-s3_mounts[] | **[S3Mount](#S3Mount1)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by the version. 
 
 
 ### Image {#Image}
@@ -508,7 +508,7 @@ connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specifie
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the container. 
-s3_mounts[] | **[S3Mount](#S3Mount1)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by the version. 
 
 
 ### Image {#Image1}
@@ -591,7 +591,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount1}
+### StorageMount {#StorageMount1}
 
 Field | Description
 --- | ---
@@ -646,7 +646,7 @@ connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specifie
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy2)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy2)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the container. 
-s3_mounts[] | **[S3Mount](#S3Mount2)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount2)**<br>S3 mounts to be used by the version. 
 
 
 ### Image {#Image2}
@@ -729,7 +729,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
-### S3Mount {#S3Mount2}
+### StorageMount {#StorageMount2}
 
 Field | Description
 --- | ---

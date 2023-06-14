@@ -10,7 +10,7 @@ Cancels previously scheduled version destruction, if the version hasn't been des
  
 ## HTTP request {#https-request}
 ```
-POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}:cancelVersionDestruction
+POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:cancelVersionDestruction
 ```
  
 ## Path parameters {#path_params}

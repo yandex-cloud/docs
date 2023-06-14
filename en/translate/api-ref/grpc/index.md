@@ -4,7 +4,7 @@ sourcePath: en/_api-ref-grpc/translate/api-ref/grpc/index.md
 # Translate API v2: gRPC reference
 The service does not operate with resources.
 
-See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
 Service | Description
 --- | ---

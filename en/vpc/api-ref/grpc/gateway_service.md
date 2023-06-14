@@ -48,7 +48,7 @@ gateway | **oneof:** `shared_egress_gateway`<br>Gateway specification
 
 ### SharedEgressGateway {#SharedEgressGateway}
 
-Empty
+Empty.
 
 ## List {#List}
 
@@ -90,7 +90,7 @@ gateway | **oneof:** `shared_egress_gateway`<br>Gateway specification
 
 ### SharedEgressGateway {#SharedEgressGateway1}
 
-Empty
+Empty.
 
 ## Create {#Create}
 
@@ -116,7 +116,7 @@ gateway | **oneof:** `shared_egress_gateway_spec`<br>Gateway configuration speci
 
 ### SharedEgressGatewaySpec {#SharedEgressGatewaySpec}
 
-Empty
+Empty.
 
 ### Operation {#Operation}
 
@@ -157,7 +157,7 @@ gateway | **oneof:** `shared_egress_gateway`<br>Gateway specification
 
 ### SharedEgressGateway {#SharedEgressGateway2}
 
-Empty
+Empty.
 
 ## Update {#Update}
 
@@ -184,7 +184,7 @@ gateway | **oneof:** `shared_egress_gateway_spec`<br>New Gateway configuration s
 
 ### SharedEgressGatewaySpec {#SharedEgressGatewaySpec1}
 
-Empty
+Empty.
 
 ### Operation {#Operation1}
 
@@ -225,7 +225,7 @@ gateway | **oneof:** `shared_egress_gateway`<br>Gateway specification
 
 ### SharedEgressGateway {#SharedEgressGateway3}
 
-Empty
+Empty.
 
 ## Delete {#Delete}
 
@@ -363,5 +363,5 @@ gateway | **oneof:** `shared_egress_gateway`<br>Gateway specification
 
 ### SharedEgressGateway {#SharedEgressGateway4}
 
-Empty
+Empty.
 

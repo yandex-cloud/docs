@@ -10,7 +10,7 @@ Request a certificate in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/requestNew
+POST https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/requestNew
 ```
  
 ## Body parameters {#body_params}

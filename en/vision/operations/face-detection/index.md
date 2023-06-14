@@ -4,11 +4,11 @@ _Face detection is currently at the [Preview stage](../../../overview/concepts/l
 
 To detect faces in a photo, use the [Face Detection](../../concepts/face-detection/index.md).
 
-To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
+To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
 
 ## Examples {#examples}
 
-### Before you begin {#before-you-begin}
+### Getting started {#before-you-begin}
 
 {% include [curl](../../../_includes/curl.md) %}
 
@@ -28,7 +28,7 @@ To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, s
 1. Encode the file as Base64:
 
    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-1. Create a file with the request body (for example, `body.json`).
+1. Create a file with the request body, e.g., `body.json`:
 
     **body.json:**
     ```json

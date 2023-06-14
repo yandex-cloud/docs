@@ -10,7 +10,7 @@ Re-encrypts a ciphertext with the specified KMS key.
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:reEncrypt
+POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:reEncrypt
 ```
  
 ## Path parameters {#path_params}

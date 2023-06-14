@@ -110,6 +110,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec}
@@ -492,6 +493,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec1)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec1}
@@ -853,6 +855,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec2)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec2}
@@ -1300,6 +1303,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec3)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec3}
@@ -1662,6 +1666,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec4)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec4}
@@ -2109,6 +2114,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec5)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec5}
@@ -2506,6 +2512,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec6)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec6}
@@ -2903,6 +2910,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec7)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec7}
@@ -3420,6 +3428,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec8)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec8}
@@ -3818,6 +3827,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec9)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec9}
@@ -4448,6 +4458,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec10)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec10}
@@ -4845,6 +4856,7 @@ mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`REA
 device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec11)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+name | **string**<br>When set can be later used to change DiskSpec of actual disk. The maximum string length in characters is 128.
 
 
 ### DiskSpec {#DiskSpec11}

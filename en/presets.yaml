@@ -3732,6 +3732,7 @@ default:
               button_create-key-popup: Create new key
               field_key-description: Description
               label_id: ID
+              popup-key_button_close: Close
               popup-key_button_create: Create
             popup-robot_button_add: Create
             popup-robot_field_name: Name
@@ -5278,6 +5279,7 @@ default:
         create-community: Create community
         create-resource: Create resource
         deactivate: Deactivate
+        dedicated: Dedicated
         default: Default
         delete: Delete
         description: Description
@@ -5299,6 +5301,7 @@ default:
         resize: Resize
         response: Response
         save: Save
+        serverless: Serverless
         share: Share
         shared-with-project-resources: Shared
         show-additional-parameters: Show additional parameters
@@ -5322,6 +5325,8 @@ default:
       edit-project-page:
         advanced-settings: Advanced settings
         balance: Project balance
+        dataproc-cluster: Data Proc cluster
+        default-mode: Default mode
         description: Description
         name: Name
         per-cell: Unit limit per single execution
@@ -5400,6 +5405,7 @@ default:
           dict: dict
           list: list
       project-page:
+        ask-when-opening: Ask when opening
         executions: Running executions
         project-card:
           create-resource: Create resource

@@ -111,7 +111,7 @@ max_pause_between_words_hint_ms | **int64**<br>Hint for max pause between words.
 
 ### ExternalEouClassifier {#ExternalEouClassifier}
 
-Empty
+Empty.
 
 ### AudioChunk {#AudioChunk}
 
@@ -129,7 +129,7 @@ duration_ms | **int64**<br>Duration of silence chunk in ms.
 
 ### Eou {#Eou}
 
-Empty
+Empty.
 
 ### StreamingResponse {#StreamingResponse}
 
@@ -144,6 +144,7 @@ Event | **oneof:** `partial`, `final`, `eou_update`, `final_refinement` or `stat
 &nbsp;&nbsp;eou_update | **[EouUpdate](#EouUpdate)**<br>After EOU classifier, send the message with final, send the EouUpdate with time of EOU before eou_update we send final with the same time. there could be several finals before eou update. 
 &nbsp;&nbsp;final_refinement | **[FinalRefinement](#FinalRefinement)**<br>For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing). Final normalization will introduce additional latency. 
 &nbsp;&nbsp;status_code | **[StatusCode](#StatusCode)**<br>Status messages, send by server with fixed interval (keep-alive). 
+channel_tag | **string**<br>Tag for distinguish audio channels. 
 
 
 ### SessionUuid {#SessionUuid}
@@ -171,7 +172,7 @@ eou_time_ms | **int64**<br>Estimated time of EOU. Cursor is updated after each n
 Field | Description
 --- | ---
 alternatives[] | **[Alternative](#Alternative)**<br>List of hypothesis for timeframes. 
-channel_tag | **string**<br>Tag for distinguish audio channels. 
+channel_tag | **string**<br> 
 
 
 ### Alternative {#Alternative}

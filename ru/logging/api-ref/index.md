@@ -9,3 +9,4 @@ This API reference is organized by resource. Actions are performed by sending HT
 Resource | Description
 --- | ---
 [LogGroup](LogGroup/index.md) | A set of methods for managing log groups.
+[Sink](Sink/index.md) | A set of methods for managing log sinks.

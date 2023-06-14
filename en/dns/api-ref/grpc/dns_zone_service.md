@@ -62,7 +62,7 @@ network_ids[] | **string**<br>Network IDs. The number of elements must be in the
 
 ### PublicVisibility {#PublicVisibility}
 
-Empty
+Empty.
 
 ## List {#List}
 
@@ -112,7 +112,7 @@ network_ids[] | **string**<br>Network IDs. The number of elements must be in the
 
 ### PublicVisibility {#PublicVisibility1}
 
-Empty
+Empty.
 
 ## Create {#Create}
 
@@ -146,7 +146,7 @@ network_ids[] | **string**<br>Network IDs. The number of elements must be in the
 
 ### PublicVisibility {#PublicVisibility2}
 
-Empty
+Empty.
 
 ### Operation {#Operation}
 
@@ -218,7 +218,7 @@ network_ids[] | **string**<br>Network IDs. The number of elements must be in the
 
 ### PublicVisibility {#PublicVisibility3}
 
-Empty
+Empty.
 
 ### Operation {#Operation1}
 
@@ -404,7 +404,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ### UpdateRecordSetsMetadata {#UpdateRecordSetsMetadata}
 
-Empty
+Empty.
 
 ### RecordSetDiff {#RecordSetDiff}
 
@@ -462,7 +462,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ### UpsertRecordSetsMetadata {#UpsertRecordSetsMetadata}
 
-Empty
+Empty.
 
 ### RecordSetDiff {#RecordSetDiff1}
 

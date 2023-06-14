@@ -426,6 +426,7 @@ default:
   ZK: ZooKeeper
   DS: YDS
   ssms: SQL Server Management Studio
+  pgadmin: pgAdmin 4
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -742,7 +743,7 @@ default:
   ml-project-size: 10 ГБ
   jlab: Jupyter
   dd: Dedicated
-  ds: Serverlesss
+  ds: Serverless
   search-api-request-ch: 400 символов
   search-api-request-w: 40 слов
   ds-api-addr: datasphere.api.cloud.yandex.net:443
@@ -3743,6 +3744,7 @@ default:
               button_create-key-popup: Создать новый ключ
               field_key-description: Описание
               label_id: Идентификатор
+              popup-key_button_close: Закрыть
               popup-key_button_create: Создать
             popup-robot_button_add: Создать
             popup-robot_field_name: Имя
@@ -5287,6 +5289,7 @@ default:
         create-community: Создать сообщество
         create-resource: Создать ресурс
         deactivate: Деактивировать
+        dedicated: Dedicated
         default: По умолчанию
         delete: Удалить
         description: Описание
@@ -5308,6 +5311,7 @@ default:
         resize: Изменить размер
         response: Ответ
         save: Сохранить
+        serverless: Serverless
         share: Поделиться
         shared-with-project-resources: Доступные
         show-additional-parameters: Показать дополнительные параметры
@@ -5331,6 +5335,8 @@ default:
       edit-project-page:
         advanced-settings: Расширенные настройки
         balance: Баланс проекта
+        dataproc-cluster: Кластер Data Proc
+        default-mode: Режим работы проекта
         description: Описание
         name: Имя
         per-cell: На ячейку
@@ -5409,6 +5415,7 @@ default:
           dict: dict
           list: list
       project-page:
+        ask-when-opening: Спрашивать при открытии
         executions: Запущенные операции
         project-card:
           create-resource: Создать ресурс

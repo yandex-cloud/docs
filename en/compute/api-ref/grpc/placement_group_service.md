@@ -49,7 +49,7 @@ placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placem
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-Empty
+Empty.
 
 ### PartitionPlacementStrategy {#PartitionPlacementStrategy}
 
@@ -99,7 +99,7 @@ placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placem
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy1}
 
-Empty
+Empty.
 
 ### PartitionPlacementStrategy {#PartitionPlacementStrategy1}
 
@@ -126,13 +126,21 @@ folder_id | **string**<br>ID of the folder to create a placement group in. <br>T
 name | **string**<br>Name of the placement group. 
 description | **string**<br>Description of the placement group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
+placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy.
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy2)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;partition_placement_strategy | **[PartitionPlacementStrategy](#PartitionPlacementStrategy2)**<br>Placement strategy. 
 
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy2}
 
-Empty
+Empty.
+
+### PartitionPlacementStrategy {#PartitionPlacementStrategy2}
+
+Field | Description
+--- | ---
+partitions | **int64**<br> Acceptable values are 2 to 5, inclusive.
+
 
 ### Operation {#Operation}
 
@@ -169,14 +177,7 @@ description | **string**<br>Description of the placement group. 0-256 characters
 labels | **map<string,string>**<br>Placement group labels as `key:value` pairs. 
 placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure.
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy3)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
-&nbsp;&nbsp;partition_placement_strategy | **[PartitionPlacementStrategy](#PartitionPlacementStrategy2)**<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure. 
-
-
-### PartitionPlacementStrategy {#PartitionPlacementStrategy2}
-
-Field | Description
---- | ---
-partitions | **int64**<br> Acceptable values are 2 to 5, inclusive.
+&nbsp;&nbsp;partition_placement_strategy | **[PartitionPlacementStrategy](#PartitionPlacementStrategy3)**<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure. 
 
 
 ## Update {#Update}
@@ -240,7 +241,7 @@ placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placem
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy3}
 
-Empty
+Empty.
 
 ### PartitionPlacementStrategy {#PartitionPlacementStrategy3}
 

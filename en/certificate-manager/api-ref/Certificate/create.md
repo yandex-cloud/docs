@@ -10,7 +10,7 @@ Creates a certificate in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates
+POST https://{{ api-host-certmanager }}/certificate-manager/v1/certificates
 ```
  
 ## Body parameters {#body_params}
