@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
@@ -27,7 +27,7 @@ items:
         href: operations/update.md
       - name: Managing roles and users
         href: operations/roles-and-users.md
-      - name: Managing client processes
+      - name: Managing client processes and user sessions
         href: operations/cluster-process.md
       - name: Using external tables
         href: operations/external-tables.md
@@ -187,8 +187,6 @@ items:
         href: qa/cluster-hosts.md
       - name: Working with external tables
         href: qa/pxf.md
-      - name: Managing users
-        href: qa/users.md
       - name: Monitoring and logs
         href: qa/monitoring.md
       - name: All questions on one page

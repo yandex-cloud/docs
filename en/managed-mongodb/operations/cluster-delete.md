@@ -12,7 +12,7 @@ description: "After you delete a MongoDB database cluster, its backups are kept 
 
    {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
-## Deleting the cluster {#delete}
+## Deleting a cluster {#delete}
 
 {% list tabs %}
 
@@ -20,7 +20,7 @@ description: "After you delete a MongoDB database cluster, its backups are kept 
 
    1. Open the [folder page]({{ link-console-main }}) in the management console.
    1. Select **{{ mmg-name }}**.
-   1. Click ![image](../../_assets/options.svg) for the necessary cluster and select **Delete**.
+   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **Delete**.
 
 - CLI
 
@@ -41,5 +41,11 @@ description: "After you delete a MongoDB database cluster, its backups are kept 
    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
+- API
+
+   To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}

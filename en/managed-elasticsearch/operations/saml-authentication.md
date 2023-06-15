@@ -49,7 +49,7 @@ To set up SAML authentication:
    * Copy the information about the Identity Provider Issuer.
    * Save the provider's metadata file in XML format.
 
-   You'll need it to set up SSO for your cluster.
+   You will need it to set up SSO for your cluster.
 
 ## Set up SSO for the cluster {#configuration-sso}
 
@@ -63,7 +63,7 @@ Incorrect settings may cause the cluster to fail.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Click on the name of the cluster you need and select the **Access control** tab.
    1. Click **Create**.
    1. Create an authentication provider:
@@ -130,8 +130,11 @@ Incorrect settings may cause the cluster to fail.
       }
       ```
 
-   1. Use the [addProviders](../api-ref/Auth/addProviders.md) API method to set the IdP parameters on the cluster side. Pass the following in the request:
-      * The cluster ID in the `clusterId` parameter. You can request the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   1. To set identity provider settings on the cluster side, use the [addProviders](../api-ref/Auth/addProviders.md) REST API method for the [Auth](../api-ref/Auth/index.md) resource or the [AuthService/AddProviders](../api-ref/grpc/auth_service.md#AddProviders) gRPC API call and provide the following in the request:
+      * Cluster ID in the `clusterId` parameter.
+
+         {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
       * A file with the provider's configuration.
 
 {% endlist %}
@@ -216,7 +219,7 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Click on the name of the cluster you need and select the **Kibana** tab.
    1. In the authorization window, specify the `admin` user and the password you set when configuring the cluster.
    1. Open **Management → Stack Management → Security → Role Mappings**.
@@ -264,7 +267,7 @@ To log in to the {{ mes-name }} cluster using the new user's credentials:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Click on the name of the cluster you need and select the **Kibana** tab.
    1. In the authorization window, select the option that you specified when [setting up SSO](#configuration-sso) in the **Provider description**.
    1. Enter the **Username** and **Password**.

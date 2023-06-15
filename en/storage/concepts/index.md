@@ -18,6 +18,7 @@
 | [Uploading data via HTML form](presigned-post-forms.md) | Method for uploading objects to storage from a browser. Allows anonymous users to upload objects to buckets. |
 | [Storage class](storage-class.md) | Way to reduce the cost of storing objects by dividing them into frequently accessed objects and long-term storage objects. |
 | [Backup](backup.md) | Process for backing up data stored in {{ objstorage-name }}. |
+| [Tags](tags.md) | Key-value pairs for logical bucket tagging. |
 | [Quotas and limits](limits.md) | Service use restrictions. |
 
 

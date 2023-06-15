@@ -30,7 +30,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Select the cluster and click **Edit** in the top panel.
    1. Select the service account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
@@ -105,7 +105,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Select the cluster and click **Edit** in the top panel.
    1. To change the class of {{ ES }} hosts with the *Data node* role:
       1. Go to the **Data node** tab.
@@ -129,7 +129,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
       {{ yc-mdb-es }} cluster update --help
       ```
 
-   1. Set the desired host class with the _Data node_ and _Master node_ roles in the update cluster command:
+   1. Specify the host class you need with the _Data node_ and _Master node_ roles in the update cluster command:
 
       ```bash
       {{ yc-mdb-es }} cluster update <cluster ID or name> \
@@ -367,7 +367,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Select the cluster and click **Edit** in the top panel.
    1. Enter a new password for `admin` in the **User** section.
    1. Click **Save**.
@@ -459,7 +459,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Select the cluster and click **Edit** in the top panel.
    1. Change additional cluster settings:
 
@@ -498,7 +498,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    * `--plugins`: List of [{{ ES }} plugins](cluster-plugins.md#elasticsearch) available in the cluster. Plugins that are not included in the list will be disabled.
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 

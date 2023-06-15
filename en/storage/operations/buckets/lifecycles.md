@@ -29,7 +29,7 @@ Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. Define the object lifecycle configuration in JSON format. For example:
+   1. Define the object lifecycle configuration in JSON format, e.g.:
 
       ```json
       {
@@ -53,19 +53,19 @@ Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
       * `enabled`: Rule status. This parameter is required.
       * `filter`: Object filter. This is an optional parameter. It may contain:
          * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. This is an optional parameter.
-      * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. This is an optional parameter. It may contain:
+      * `transition`: Parameter of a rule for changing the storage class of any objects from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter. It may contain:
          * `date`: Date after which you want the rule to take effect. This is an optional parameter.
          * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
-         * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. This parameter is required.
+         * `storage_class`: Storage class to move the object to. The value must be either `COLD` or `STANDARD_IA`. This parameter is required.
       * `expiration`: Object expiration date for deleting non-current object versions. This is an optional parameter. It may contain:
          * `date`: Date after which you want the rule to take effect. This is an optional parameter.
          * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
-      * `noncurrent_version_transition`: Rule of changing storage class from `STANDARD` to `COLD` for non-active object versions. This is an optional parameter. It may contain:
+      * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter. It may contain:
          * `days`: Number of days before the transition. The minimum value is 1. This parameter is required.
-         * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. This parameter is required.
-      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. This is an optional parameter. It may contain:
+         * `storage_class`: Storage class to move the object to. The value must be either `COLD` or `STANDARD_IA`. This parameter is required.
+      * `noncurrent_version_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter. It may contain:
          * `days`: Number of days before expiration. The minimum value is 1. This parameter is required.
-      * `abort_incomplete_multipart_upload_days`: Number of days after the start of a multipart upload when it should be completed. This is an optional parameter.
+      * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not completed within the specified number of days. This is an optional parameter.
 
       Make sure to specify at least one of the following parameters: `transition`, `expiration`, `noncurrent_version_transition`, `noncurrent_version_expiration`, or `abort_incomplete_multipart_upload_days`.
 
@@ -121,7 +121,7 @@ Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
 
    To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-   1. Define the object lifecycle configuration in JSON format. For example:
+   1. Define the object lifecycle configuration in JSON format, e.g.:
 
       ```json
       {
@@ -140,7 +140,37 @@ Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
       }
       ```
 
-      When you're done, you can save your configuration as a file, like `lifecycles.json`.
+      Possible configuration parameters:
+      * `ID`: Unique rule ID. Must be no more than 255 characters. This is an optional parameter.
+      * `Filter`: Object filter. This is an optional parameter It may only contain one element of each type:
+         * `Prefix`: Key prefix. The rule applies to objects with the specified key prefix. This is an optional parameter.
+         * `ObjectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
+         * `ObjectSizeLessThan`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
+
+         If no object filter is set, the rule applies to all objects in the bucket.
+      * `Status`: Rule status. This parameter is required. Values:
+         * `Enabled`: Rule enabled.
+         * `Disabled`: Rule disabled.
+      * `Transition`: Parameter of a rule for changing the storage class of any objects from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter. It may contain:
+         * `Date`: Date after which the storage class will change. Format: [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601), such as `YYYY-MM-DD`. Time is always 00:00 UTC. This is an optional parameter.
+         * `Days`: Number of days since the creation of the object, after which the storage class will be changed. The minimum value is `1`. This is an optional parameter.
+         * `StorageClass`: Storage class to move the object to. The value must be either `COLD` or `STANDARD_IA`. This parameter is required.
+      * `Expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
+         * `Date`: Date after which the object will be deleted. Format: ISO 8601, such as `YYYY-MM-DD`. Time is always 00:00 UTC. This is an optional parameter.
+         * `Days`: Number of days since the creation of the object, after which the object will be deleted. The minimum value is `1`. This is an optional parameter.
+      * `NoncurrentVersionTransition`: Parameter of a rule for changing the storage class of non-current object versions from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter. It may contain:
+         * `NoncurrentDays`: Number of days before changing the storage class of non-current object versions. The minimum value is `1`. This parameter is required.
+         * `StorageClass`: Storage class to move the object to. The value must be either `COLD` or `STANDARD_IA`. This parameter is required.
+      * `NoncurrentVersionExpiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter.
+
+         The rule has the required `NoncurrentDays` parameter that indicates the number of days before deleting non-current object versions. The minimum value is `1`.
+      * `AbortIncompleteMultipartUpload`: Parameter of a rule for removing all parts of multipart uploads that were not completed within the specified number of days. This is an optional parameter.
+
+         The rule has the required `DaysAfterInitiation` parameter that indicates the number of days since the upload start. The minimum value is `1`.
+
+      Make sure to specify at least one of the following parameters: `Transition`, `Expiration`, `NoncurrentVersionTransition`, `NoncurrentVersionExpiration`, or `AbortIncompleteMultipartUpload`.
+
+      Once completed, save the configuration to a file, such as `lifecycles.json`.
 
    1. Upload the configuration to a bucket, like `backup-bucket`:
 
@@ -238,22 +268,22 @@ Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
       * `id`: Unique rule ID. Must be no more than 255 characters. This is an optional parameter.
       * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. This is an optional parameter.
       * `enabled`: Rule status. This parameter is required.
-      * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. This is an optional parameter.
-      * `expiration`: Object expiration date for deleting non-current object versions. This is an optional parameter.
-      * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. This is an optional parameter.
-      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. This is an optional parameter.
-      * `noncurrent_version_transition`: Rule of changing storage class from `STANDARD` to `COLD` for non-active object versions. This is an optional parameter.
+      * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not completed within the specified number of days. This is an optional parameter.
+      * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter.
+      * `transition`: Parameter of a rule for changing the storage class of any objects from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter.
+      * `noncurrent_version_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter.
+      * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter.
 
       Make sure to specify at least one of the following parameters: `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, or `noncurrent_version_transition`.
 
       `expiration` parameters:
       * `date`: Date after which you want the rule to take effect. This is an optional parameter.
-      * `days`: The number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
+      * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
 
       `transition` parameters:
       * `date`: Date after which you want the rule to take effect. This is an optional parameter.
       * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
-      * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. This parameter is required.
+      * `storage_class`: Storage class to move the object to. The value must be either `COLD` or `STANDARD_IA`. This parameter is required.
 
       `noncurrent_version_expiration` parameters:
       * `days`: Number of days before expiration. The minimum value is 1. This parameter is required.
@@ -262,7 +292,7 @@ Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
       * `days`: Number of days before the transition. The minimum value is 1. This parameter is required.
       * `storage_class`: Storage class to move the object to. The value must be either `COLD` or `STANDARD_IA`. This parameter is required.
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
@@ -283,10 +313,12 @@ Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 
    To manage bucket object lifecycles, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/lifecycles/upload.md) S3 API method.
+
+   If you are using the S3 API, specify a lifecycle configuration in [XML format](../../s3/api-ref/lifecycles/xml-config.md).
 
 {% endlist %}

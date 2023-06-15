@@ -51,8 +51,6 @@ items:
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
-              - name: Before June 20, 2023
-                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
       - name: Network in Managed Service for MySQL
@@ -85,6 +83,10 @@ items:
         href: tutorials/data-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-mmy-data-transfer.md
       - name: >-
           Delivering data to {{ mkf-full-name }} using {{
           data-transfer-full-name }}
@@ -231,7 +233,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: Revision history
+  - name: Releases
     href: release-notes.md
   - name: Questions and answers
     items:

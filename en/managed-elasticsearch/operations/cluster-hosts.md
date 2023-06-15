@@ -42,9 +42,9 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 
 - API
 
-   Use the `listHosts` API method: pass the ID of the desired cluster in the `clusterId` request parameter.
+   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -122,11 +122,14 @@ You can't assign a public IP address to it after it's been created.
 
 - API
 
-   Use the `addHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+   To add hosts to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
-   Add the required number of `hostSpecs` parameters with the host's settings (one parameter for each new host).
+   * New host settings in one or more `hostSpecs` parameters.
+
+   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -191,10 +194,11 @@ The following restrictions apply when deleting hosts:
 
 - API
 
-   Use the `deleteHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+   To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
-   In one or more `hostNames[]` parameters, specify the names of the hosts you wish to delete from the cluster.
+   * Name(s) of the host(s) to delete in the `hostNames` parameter.
 
 {% endlist %}

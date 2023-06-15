@@ -17,7 +17,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 
 - Management console
 
-   In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
 
 - CLI
 
@@ -25,7 +25,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of clusters, run the command:
+   To get a list of clusters, run the following command:
 
    ```bash
    {{ yc-mdb-es }} cluster list
@@ -33,9 +33,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 
 - API
 
-   Use the `list` API method: pass the ID of the required folder in the `folderId` request parameter.
-
-   The response will contain cluster names and IDs.
+   To get a list of clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
 {% endlist %}
 
@@ -45,8 +43,8 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
-   1. Click on the name of the desired cluster.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
+   1. Click the name of the cluster you need.
 
 - CLI
 
@@ -64,9 +62,9 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 
 - API
 
-   Use the `get` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+   To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -78,8 +76,8 @@ The operation list shows operations with clusters and related resources (for exa
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
-   1. Click on the name of the desired cluster.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
+   1. Click the name of the cluster you need.
    1. Go to the **Operations** tab.
 
 - CLI
@@ -98,8 +96,8 @@ The operation list shows operations with clusters and related resources (for exa
 
 - API
 
-   Use the `listOperations` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+   To get a list of operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}

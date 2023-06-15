@@ -15,6 +15,13 @@ Access is verified at three levels: whether the action is allowed by the [user r
 
 {% include [storage-note-empty-policy](../_includes_service/storage-note-empty-policy.md) %}
 
+The bucket policy consists of the following basic elements:
+* Resource: Bucket (`arn:aws:s3:::samplebucket`), an object in the bucket (`arn:aws:s3:::samplebucket/some/key`), or a prefix (`arn:aws:s3:::samplebucket/some/path/*`).
+* Action: Set of resource operations the policy either prohibits or allows. For more information, see [Actions](../s3/api-ref/policy/actions.md).
+* Result: Denying or allowing the requested action. First, the request is checked against the `Deny` action filter. If matched, the request is rejected and no further checks are performed. If it meets the `Allow` action filter criteria, the request is allowed. If the request does not meet any of the filters, it is rejected.
+* Principal: Recipient of the requested policy permission. This can be an {{ iam-short-name }} user, a federated user, a service account, or an anonymous user.
+* Condition: Item determining whether a policy should be effective. For more information, see [Conditions](../s3/api-ref/policy/conditions.md).
+
 You can set up the bucket policy in the management console or describe it in JSON format using a [special scheme](../s3/api-ref/policy/scheme.md) to provide the settings through one of the software tools: the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, or API. To learn more about policy management, see [this guide](../operations/buckets/policy.md).
 
 ## Policy components {#elements}

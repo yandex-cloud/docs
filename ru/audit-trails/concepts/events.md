@@ -27,6 +27,7 @@
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
+* [{{ mgp-short-name }}](#managed-service-for-greenplum)
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
 * [{{ managed-k8s-name }}](#managed-service-for-kubernetes)
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
@@ -409,6 +410,22 @@
 `UpdateOmniauthInstance` | Изменение настроек OmniAuth
 `UpgradeInstance` | Обновление версии GitLab
 `CleanupRegistryInstance` | Очистка Docker Registry
+
+
+## {{ mgp-short-name }} {#managed-service-for-greenplum}
+
+Имя сервиса — `mdb.greenplum`.
+
+Имя события | Описание
+--- | ---
+`CreateCluster` | Создание кластера
+`DeleteCluster` | Удаление кластера
+`ExpandCluster` | Расширение кластера
+`RestoreCluster` | Создание нового кластера из резервной копии
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 

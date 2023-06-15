@@ -225,7 +225,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
+   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.

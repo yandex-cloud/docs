@@ -79,6 +79,8 @@ items:
             href: operations/data/connect-to-ya-disk.md
           - name: Подключение к Google Drive
             href: operations/data/connect-to-google-drive.md
+          - name: Подключение к базе данных {{ ydb-name }}
+            href: operations/data/connect-to-ydb.md
       - name: Развертывание эксплуатации моделей
         items:
           - name: Создать ноду с кодом на Python

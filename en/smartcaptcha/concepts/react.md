@@ -46,7 +46,7 @@ Available properties:
 | `sitekey` | `string` | Client key. |
 | `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
 | `test` | `boolean` \| `undefined` | Launching CAPTCHA in test mode. The user will always get a task. Use this property for debugging and testing only. |
-| `webview` | `boolean` \| `undefined` | Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding a CAPTCHA to mobile apps via **WebView**. |
+| `webview` | `boolean` \| `undefined` | Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding CAPTCHA to mobile apps via **WebView**. |
 | `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task appears. |
 | `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task closes. |
 | `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
@@ -74,7 +74,7 @@ Available properties:
 | `visible` | `boolean` \| `undefined` | Show a task to the user. |
 | `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
 | `test` | `boolean` \| `undefined` | Launching CAPTCHA in test mode. The user will always get a task. Use this property for debugging and testing only. |
-| `webview` | `boolean` \| `undefined` | Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding a CAPTCHA to mobile apps via **WebView**. |
+| `webview` | `boolean` \| `undefined` | Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding CAPTCHA to mobile apps via **WebView**. |
 | `shieldPosition` | `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined` | Position of the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
 | `hideShield` | `boolean` \| `undefined` | Hide the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
 | `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task appears. |
@@ -133,21 +133,21 @@ export const SubscriptionToCaptcha = () => {
 
   const handleChallengeVisible = useCallback(() => setStatus('visible'), []);
   const handleChallengeHidden = useCallback(() => setStatus('hidden'), []);
-  const handleNetworkError = useCallback(() => setStatus('network-error'));
+  const handleNetworkError = useCallback(() => setStatus('network-error'), []);
   const handleSuccess = useCallback((token: string) => {
     setStatus('success');
     setToken(token);
-  });
+  }, []);
 
   return (
     <>
       Status: {status}
       <SmartCaptcha
         sitekey="<your sitekey>"
-        onChallengeVisilbe={handleChallengeVisible}
-        onChallengeHidden={handleChallengeVisible}
-        onNetworkError={handleChallengeVisible}
-        onSuccess={handleChallengeVisible}
+        onChallengeVisible={handleChallengeVisible}
+        onChallengeHidden={handleChallengeHidden}
+        onNetworkError={handleNetworkError}
+        onSuccess={handleSuccess}
       />
     </>
   );

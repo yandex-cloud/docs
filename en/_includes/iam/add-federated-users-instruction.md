@@ -1,13 +1,16 @@
+
 {% list tabs %}
 
 - Management console
 
-  To add identity federation users to the cloud:
-  1. {% include [grant-role-console-first-steps](grant-role-console-first-steps.md) %}
-  1. Click the arrow next to the **Add user** button.
-  1. Select **Add federated users**.
-  1. Select the identity federation to add users from.
-  1. List the Name IDs of users, separating them with line breaks.
+   To add identity federation users to the cloud:
+
+   1. On the left-hand panel, select a cloud.
+   1. Go to **Access rights**.
+   1. In the top-right corner, click ![icon-users](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_add-federation-user }}**.
+   1. Select the identity federation to add users from.
+   1. List the Name IDs of users, separating them with line breaks.
+   1. Click **Add**. This will give the users access to the organization.
 
 - CLI
 
@@ -28,11 +31,12 @@
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
+
 - API
 
   To add identity federation users to the cloud:
 
-  1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
+  1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of Name IDs of users you want to add:
 
       ```json
       {
@@ -43,7 +47,6 @@
         ]
       }
       ```
-
   1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
@@ -54,5 +57,5 @@
         https://iam.{{ api-host }}/iam/v1/saml/federations/<federation ID>:addUserAccounts
       ```
 
-{% endlist %}
 
+{% endlist %}

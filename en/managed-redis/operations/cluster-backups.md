@@ -93,6 +93,10 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
+- API
+
+   To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call.
+
 {% endlist %}
 
 ## Creating a backup {#create-backup}
@@ -132,7 +136,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
 
@@ -181,9 +185,11 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` parameter. You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To get a list of all backups in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` parameter.
+   You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+
+   To get a list of all the backups in a folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/backup_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
 {% endlist %}
 
@@ -219,7 +225,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - API
 
-   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` parameter.
+   To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
    You can retrieve the backup ID with the [backup list](#list-backups).
 
@@ -253,5 +259,9 @@ When you restore a cluster from a backup, you create a new cluster with data fro
       --name <cluster name> \
       --backup-window-start 11:25:00
    ```
+
+- API
+
+   To set the backup start time, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call.
 
 {% endlist %}

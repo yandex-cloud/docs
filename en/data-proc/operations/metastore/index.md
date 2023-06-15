@@ -20,4 +20,5 @@ Several Apache products, including [Hive](https://hive.apache.org/), [Spark](htt
 You can:
 
 * [Creating a {{ metastore-name }} server](./cluster-create.md).
+* [Connecting {{ dataproc-name }} to {{ metastore-name }}](./dataproc-connect.md).
 * [Deleting a {{ metastore-name }} server](./cluster-delete.md).

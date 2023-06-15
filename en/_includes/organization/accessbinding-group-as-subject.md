@@ -85,13 +85,13 @@
 
    If you do not have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Add the resource parameters to the configuration file and specify the required role and a list of groups:
+   1. Add the resource parameters to the configuration file and specify the required role and group:
 
       ```
       resource "yandex_resourcemanager_cloud_iam_member" "admin" {
         cloud_id    = "<cloud_ID>"
-        role        = "<role_ID"
-        members     = "group:<group_ID>"
+        role        = "<role_ID>"
+        member      = "group:<group_ID>"
       }
       ```
 
@@ -99,9 +99,9 @@
 
       * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id`instead of `cloud_id` and the required folder ID in the resource parameters.
       * `role`: [Role](../../iam/concepts/access-control/roles.md) being assigned. This parameter is required.
-      * `members`: List of groups the role is assigned to. Specified in `group:<group_ ID>` format. This parameter is required.
+      * `member`: Group the role is assigned to. Specified in `group:<group_ ID>` format. This parameter is required.
 
-      For more information about the parameters of the `yandex_resourcemanager_cloud_iam_member` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_member).
+      For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_member).
 
    1. Make sure the configuration files are valid.
 

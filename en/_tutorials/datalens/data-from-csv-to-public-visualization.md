@@ -10,7 +10,7 @@ Before publishing your own data, make sure that your charts and dashboards don't
 
 In this tutorial, we will use {{ datalens-short-name }} to visualize Moscow population metrics on the map of Moscow districts and publish them to DataLens Public.
 
-We will use the [Moscow Population 2018.csv](https://yadi.sk/d/H4dQKVDpU4Rd8g) file as the source of data on Moscow population and area for 2018. Source: [List of districts and settlements in Moscow](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
+We will use the [Moscow Population 2018.csv](https://storage.yandexcloud.net/doc-files/Moscow%20Population%202018.csv) file as the source of data on Moscow population and area for 2018. Source: [List of districts and settlements in Moscow](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 

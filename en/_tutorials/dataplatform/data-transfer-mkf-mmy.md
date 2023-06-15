@@ -285,7 +285,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 1. Check that the `sensors` table in the {{ mmy-name }} cluster contains the sent data:
 
-   1. [Connect to the cluster {{ mmy-name }}](../../managed-mysql/operations/connect.md)
+   1. [Connect to the cluster {{ mmy-name }}](../../managed-mysql/operations/connect.md).
 
    1. Get the contents of the `sensors` table using the query below:
 

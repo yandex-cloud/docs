@@ -9,15 +9,15 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of neces
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
-   1. Click on the name of the desired cluster.
+   1. Click the name of the cluster you need.
 
 - API
 
-   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of installed plugins, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    Enabled plugins will be shown in the `config.opensearch.plugins` list.
 
-   You can get the cluster ID [with a list of clusters in a folder](cluster-list.md#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -34,9 +34,12 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of neces
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To update the list of installed plugins, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+
    * List of plugins in the `configSpec.opensearchSpec.plugins` parameter. The plugins that are not included in the list will be disabled.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

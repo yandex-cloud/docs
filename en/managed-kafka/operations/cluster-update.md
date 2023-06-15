@@ -2,7 +2,7 @@
 
 After creating an {{ mkf-name }} cluster, you can:
 
-* [{#T}](#enable-api)
+* [{#T}](#enable-api).
 * [{#T}](#change-brokers).
 * [{#T}](#change-zookeeper).
 * [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
@@ -70,10 +70,10 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
    To enable topic management via the Admin API:
 
-   1. Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   1. Use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
       * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * The new cluster configuration in the `configSpec` parameter. Specify the value `"unmanagedTopics": true` in the configuration.
+      * New cluster configuration in the `configSpec` parameter. Set `unmanagedTopics` to `true` in the configuration.
       * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
       {% include [Node API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -84,7 +84,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
 ## Changing the broker host class and number {#change-brokers}
 
-You cannot increase the number of {{ KF }} broker hosts unless a cluster includes at least two broker hosts in different availability zones. You cannot have fewer broker hosts.
+You cannot increase the number of {{ KF }} broker hosts unless a cluster includes at least two broker hosts in different availability zones. You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
 
 {% list tabs %}
 
@@ -177,7 +177,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To change the class and number of broker hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Broker host class in the `configSpec.kafka.resources.resourcePresetId` parameter.
    * Number of broker hosts in the `configSpec.brokersCount` parameter.
@@ -260,7 +260,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To change the class of {{ ZK }} hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * {{ ZK }} host class in the `configSpec.zookeeper.resources.resourcePresetId` parameter.
@@ -365,7 +365,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 - API
 
-   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New storage settings in the `configSpec.kafka.resources` parameter (`configSpec.zookeeper.resources` for {{ ZK }} hosts).
@@ -456,7 +456,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To change the security group and public access settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - List of security group IDs in the `securityGroupIds` parameter.
@@ -513,7 +513,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    You can change the following settings:
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -558,11 +558,11 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
 
    * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/) in Serverless mode: in the `configSpec.access.dataTransfer` parameter.
 
@@ -653,14 +653,13 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To change {{ KF }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
    * New values of [settings {{ KF }}](../concepts/settings-list.md#cluster-settings) in the parameter:
       * `configSpec.kafka.kafkaConfig_2_8` if you use {{ KF }} `2.8`;
-      * `configSpec.kafka.kafkaConfig_3_0` if you are using {{ KF }} version `3.0`.
-      * `configSpec.kafka.kafkaConfig_3_1` if you are using {{ KF }} version `3.1`.
+      * `configSpec.kafka.kafkaConfig_3` if you are using {{ KF }} version `3.x`.
 
    * List of settings to update in the `updateMask` parameter.
 
@@ -698,7 +697,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the [move](../api-ref/Cluster/move.md) API method and provide the following in the query:
+   To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the destination folder in the `destinationFolderId` parameter.
 
@@ -767,7 +766,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To update security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - List of security group IDs in the `securityGroupIds` parameter.
