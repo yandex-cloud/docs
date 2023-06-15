@@ -13,7 +13,10 @@ You cannot use grants to top up [personal accounts](personal-account.md).
 {% include [currency](../_includes/currency.md) %}
 
 ## Initial grant {#start}
-When [creating your first billing account](../quickstart/index.md), you are provided with an initial grant. For more information about the size of the initial grant and conditions for its use, see the document [Getting started](../../getting-started/usage-grant.md).
+
+{% include [grant-amount](../../getting-started/_includes/grant-amount.md) %}
+
+For more information about the terms of use of initial grants, see [Getting started](../../getting-started/usage-grant.md).
 
 {% note info %}
 

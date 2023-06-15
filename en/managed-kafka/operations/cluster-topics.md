@@ -83,7 +83,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -92,7 +92,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
 - API
 
-   Use the [create](../api-ref/Topic/create.md) API method and pass the following information in the request:
+   To create a topic, use the [create](../api-ref/Topic/create.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Create](../api-ref/grpc/topic_service.md#Create) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to create a topic. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic settings in the `topicSpec` parameter.
 
@@ -117,7 +117,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
-   1. Click on the name of the cluster and select the **Topics** tab.
+   1. Click the name of the cluster and select the **Topics** tab.
    1. Click ![image](../../_assets/options.svg) for the desired topic and select **Edit**.
    1. Change the basic parameters of the topic:
       * The number of topic partitions.
@@ -174,7 +174,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -183,7 +183,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - API
 
-   Use the [update](../api-ref/Topic/update.md) API method and pass the following in the request:
+   To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/topic_service.md#Update) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
    * New values of [topic settings](../concepts/settings-list.md#topic-settings) in the `topicSpec` parameter.
@@ -237,7 +237,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -246,7 +246,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - API
 
-   Use the [delete](../api-ref/Topic/delete.md) API method and pass the following in the request:
+   To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
 
@@ -278,7 +278,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - API
 
-   Use the API [list](../api-ref/Topic/list.md) method and pass the ID of the desired cluster in the `clusterId` request parameter.
+   To get a list of topics in a cluster, use the [list](../api-ref/Topic/list.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/List](../api-ref/grpc/topic_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -311,7 +311,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - API
 
-   Use the [get](../api-ref/Topic/get.md) API method and pass the following in the request:
+   To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/topic_service.md#Get) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
 

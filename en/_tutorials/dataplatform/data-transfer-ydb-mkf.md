@@ -2,6 +2,8 @@
 
 You can track data changes in a {{ ydb-name }} _source_ and send them to a {{ mkf-name }} _target cluster_ using [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC). This data is automatically added to {{ mkf-short-name }} topics with {{ ydb-name }} table names.
 
+{% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
+
 To run data delivery:
 
 1. [Prepare the source](#prepare-source).
@@ -19,7 +21,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * Manually
 
       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
-
       1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
 
       
@@ -50,7 +51,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * Using {{ TF }}
 
       1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the [data-transfer-ydb-mkf.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-ydb-mkf.tf) configuration file to the same working directory.
 
          This file describes:
@@ -80,7 +81,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `target_user_password`: User password.
          * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [manually create endpoints](#prepare-transfer).
 
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
@@ -112,17 +113,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    Add the following columns to the table manually:
 
-   | Name | Type | Primary key |
+   | {{ ui-key.yacloud.ydb.browse.info.column_name }} | {{ ui-key.yacloud.ydb.browse.info.column_type }} | {{ ui-key.yacloud.ydb.browse.dialogs.tooltip_create_pk }} |
    |:--------------------|:---------|:---------------|
-   | `device_id` | `String` | Yes |
-   | `datetime` | `String` |                |
-   | `latitude` | `Double` |                |
-   | `longitude` | `Double` |                |
-   | `altitude` | `Double` |                |
-   | `speed` | `Double` |                |
-   | `battery_voltage` | `Double` |                |
-   | `cabin_temperature` | `Uint8` |                |
-   | `fuel_level` | `Uint32` |                |
+   | `device_id`         | `String` | Yes            |
+   | `datetime`          | `String` |                |
+   | `latitude`          | `Double` |                |
+   | `longitude`         | `Double` |                |
+   | `altitude`          | `Double` |                |
+   | `speed`             | `Double` |                |
+   | `battery_voltage`   | `Double` |                |
+   | `cabin_temperature` | `Uint8`  |                |
+   | `fuel_level`        | `Uint32` |                |
 
    In other settings, leave the defaults.
 
@@ -147,13 +148,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **Database type**: `YDB`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-      * **Connection settings**:
-         * **Database**: Select a {{ ydb-name }} database from the list.
-         * **Service account ID**: Select or create a service account with the `editor` role.
-      * **Included paths list**: Specify the names of tables and {{ ydb-name }} database directories to transfer.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `editor` role.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**: Specify the names of tables and {{ ydb-name }} database directories to transfer.
 
          {% note warning %}
 
@@ -162,20 +163,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
          {% endnote %}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
-   * **DB type**: `Kafka`.
-   * **Endpoint parameters**:
-      * **Connection**: `Managed Kafka`.
-      * **Managed Kafka**:
-         * **Managed Kafka cluster ID**: Select the [previously created](#before-you-begin) {{ mkf-name }} source cluster.
-         * **Authentication**: Specify the details of the [previously created](#before-you-begin) {{ KF }} user.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the [previously created](#before-you-begin) {{ mkf-name }} source cluster.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the details of the [created](#before-you-begin) {{ KF }} user.
 
-      * **Apache Kafka topic settings**: `Topic full name`.
-      * **Topic full name**: `cdc.sensors`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `Full topic name`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `cdc.sensors`.
 
       If you need to track changes in multiple tables, fill out the fields as follows:
 
-      * **Apache Kafka topic settings**: `Topic prefix`.
-      * **Topic prefix**: Enter the `cdc` prefix you used to generate topic names.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Enter the `cdc` prefix you used to generate topic names.
 
 1. Create a transfer:
 
@@ -183,7 +183,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-repl }}_ type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
@@ -212,7 +212,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Test the transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to {{ dt-status-repl }}.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. In a separate terminal, run the `kafkacat` utility in consumer mode:
 
    ```bash
@@ -406,10 +406,10 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 {% endnote %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. If you created the service account along with the source endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 Delete the other resources, depending on the method used to create them:

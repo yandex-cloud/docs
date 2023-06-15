@@ -55,7 +55,7 @@ The `gp_expand` utility is used to expand a cluster. For more information about 
 
 - API
 
-   Use the [expand](../../api-ref/Cluster/expand.md) API method and pass the following in the request:
+   To add segment hosts, use the [expand](../../api-ref/Cluster/expand.md) REST API method for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/Expand](../../api-ref/grpc/cluster_service.md#Expand) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
    * Number of segment hosts to add in `segmentHostCount`.

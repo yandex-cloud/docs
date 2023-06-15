@@ -4,15 +4,17 @@
 
 {% include [ai-before-beginning](../translate/ai-before-beginning.md) %}
 
+{% include [bash-windows-note-single](bash-windows-note-single.md) %}
+
 ## Перевести текст с любого языка {#any-language}
 
 Чтобы перевести текст, передайте его с помощью метода [translate](../../translate/api-ref/Translation/translate):
 
 {% list tabs %}
 
-- CLI
+- Bash
 
-    В этом примере показано, как перевести на русский язык две строки с текстом: <q>Hello</q> и <q>World</q>. Язык исходного текста будет определен автоматически.
+    Будет выполнен перевод на русский язык двух строк с текстом: <q>Hello</q> и <q>World</q>. Язык исходного текста будет определен автоматически.
 
     1. Создайте файл с телом запроса (например, `body.json`):
 

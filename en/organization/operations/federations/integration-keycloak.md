@@ -198,7 +198,8 @@ To follow the steps in this section, you will need:​
              --cookie-max-age 12h \
              --issuer "http://<host>:8080/realms/master" \
              --sso-binding POST \
-             --sso-url "http://<host>:8080/realms/master/protocol/saml"       
+             --sso-url "http://<host>:8080/realms/master/protocol/saml" \
+             --force-authn  
          ```
 
       - Keycloak 16 or lower
@@ -211,7 +212,8 @@ To follow the steps in this section, you will need:​
              --cookie-max-age 12h \
              --issuer "http://<host>:8080/auth/realms/master" \
              --sso-binding POST \
-             --sso-url "http://<host>:8080/auth/realms/master/protocol/saml"       
+             --sso-url "http://<host>:8080/auth/realms/master/protocol/saml" \
+             --force-authn
          ```
 
          Where:
@@ -221,7 +223,6 @@ To follow the steps in this section, you will need:​
          * `organization-id`: Your organization ID.
 
          * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-       
           This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
           If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -286,9 +287,9 @@ To follow the steps in this section, you will need:​
 
          * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
-- API
+         * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-   1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create a federation in.
+- API
 
    1. Create a file with the request body, e.g., `body.json`:
 
@@ -296,7 +297,6 @@ To follow the steps in this section, you will need:​
 
          ```json
          {
-           "folderId": "<folder ID>",
            "name": "my-federation",
            "organizationId": "<organization ID>",
            "autoCreateAccountOnLogin": true,
@@ -304,8 +304,9 @@ To follow the steps in this section, you will need:​
            "issuer": "http://<host>:8080/realms/master",
            "ssoUrl": "http://<host>:8080/realms/master/protocol/saml",
            "securitySettings": {
-               "encryptedAssertions": true
-               },
+               "encryptedAssertions": true,
+               "forceAuthn": true
+           },
            "ssoBinding": "POST"
          }       
          ```
@@ -314,7 +315,6 @@ To follow the steps in this section, you will need:​
 
          ```json
          {
-           "folderId": "<folder ID>",
            "name": "my-federation",
            "organizationId": "<organization ID>",
            "autoCreateAccountOnLogin": true,
@@ -322,25 +322,23 @@ To follow the steps in this section, you will need:​
            "issuer": "http://<host>:8080/auth/realms/master",
            "ssoUrl": "http://<host>:8080/auth/realms/master/protocol/saml",
            "securitySettings": {
-               "encryptedAssertions": true
-               },
+             "encryptedAssertions": true,
+             "forceAuthn": true
+           },
            "ssoBinding": "POST"
          }       
          ```
 
          Where:
 
-         * `folderId`: ID of the folder.
-
          * `name`: Federation name. It must be unique within the folder.
 
          * `organizationId`: Organization ID.
 
          * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-           
-           This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+            This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-           If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
          * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -401,6 +399,8 @@ To follow the steps in this section, you will need:​
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
          * `encryptedAssertions`: Flag that enables a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
+
+         * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
          * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
@@ -477,7 +477,6 @@ To follow the steps in this section, you will need:​
 
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-        
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -528,9 +527,9 @@ To follow the steps in this section, you will need:​
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
 
-         ```
-         terraform plan
-         ```
+        ```
+        terraform plan
+        ```
 
       If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
@@ -538,9 +537,9 @@ To follow the steps in this section, you will need:​
 
       1. If the configuration does not contain any errors, run this command:
 
-         ```
-         terraform apply
-         ```
+        ```
+        terraform apply
+        ```
 
       1. Confirm you want to create a federation.
 
@@ -798,7 +797,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click the arrow next to the **Add user** button and select **Add federated users**.
+   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -973,4 +972,4 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Enter your credentials and click **Sign in**.
 
-If the authentication is successful, the IdP server will redirect you to `https://{{ auth-host }}/federations/<federation_ID>`, the URL that you specified in Keycloak settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
+If the authentication is successful, the IdP server will redirect you back to the console login link, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.

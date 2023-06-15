@@ -1,0 +1,1 @@
+`forceAuthn`: Parameter that requires user re-authentication once a session expires in {{ yandex-cloud }}.

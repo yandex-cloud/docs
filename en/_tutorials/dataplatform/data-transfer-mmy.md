@@ -101,34 +101,33 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the {{ MY }} source with the following [settings](../../data-transfer/operations/endpoint/source/mysql.md):
 
-   * **Data base type**: `MySQL`.
-   * **Endpoint parameters**:
-      * **Connection settings**: `MDB cluster`.
-      * **MDB cluster**: Select the {{ mmy-name }} cluster you [created earlier](#before-you-begin).
-      * **Database name**: `db1`.
-      * **Username**: `my-user`.
-      * **Password**: Specify the password for `my-user`.
-      * **List of included tables**: `db1.measurements`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: Select the [created](#before-you-begin) {{ mmy-name }} cluster.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}**: `db1`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `my-user`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: Specify the password for `my-user`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: `db1.measurements`.
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the {{ KF }} target with the following [settings](../../data-transfer/operations/endpoint/source/kafka.md):
 
-   * **DB type**: `Kafka`.
-   * **Endpoint parameters**:
-      * **Connection**: `Managed Kafka`.
-      * **Managed Kafka**:
-         * **Managed Kafka cluster ID**: Select the [previously created](#before-you-begin) {{ mkf-name }} cluster.
-         * **Authentication**: Enter the details of the created `kafka-user` user.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the [created](#before-you-begin) {{ mkf-name }} cluster.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Enter the details of the created `kafka-user` user.
 
-      * **Apache Kafka topic settings**: `Topic full name`.
-      * **Topic full name**: `cdc.db1.measurements`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `cdc.db1.measurements`.
 
-      If you need to track changes in multiple tables, complete the fields as follows:
+      If you need to track changes in multiple tables, fill out the fields as follows:
 
-      * **Apache Kafka topic settings**: `Topic prefix`.
-      * **Topic prefix**: Enter the `cdc` prefix you used to generate topic names.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Enter the `cdc` prefix you used to generate topic names.
 
-1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of type _{{ dt-type-repl }}_ with the previously created source and target endpoints.
-1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-repl }}.
+1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type with the created source and target endpoints.
+1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 ## Test the transfer {#verify-transfer}
 
@@ -137,7 +136,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    ```bash
    kafkacat \
        -C \
-       -b <FQDN of broker host 1>:9091,...,<FQDN of broker host N>:9091 \
+       -b <Broker host 1 FQDN>:9091,...,<Broker host N FQDN>:9091 \
        -t cdc.db1.measurements \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -280,7 +279,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
 
@@ -288,7 +287,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 1. Delete the clusters:
 
-   * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md);
+   * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
    * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
 
 1. If static public IP addresses were used for accessing the cluster hosts, release and [delete](../../vpc/operations/address-delete.md) them.

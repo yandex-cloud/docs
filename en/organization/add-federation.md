@@ -40,6 +40,8 @@ The authentication process is shown in the diagram:
 
    If the cookie expires, the console forwards the user to the IdP server for re-authentication.
 
+   You can also require re-authentication in the federation settings. When this option is enabled, the IdP will reauthenticate the user when the session expires in {{ yandex-cloud }}.
+
 1. The IdP server shows the authentication page to the user. For example, it prompts them to enter their username and password.
 
 1. The user enters the data required for authentication on the IdP server.

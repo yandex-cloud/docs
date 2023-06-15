@@ -9,7 +9,7 @@ You can only upgrade to a version that immediately follows the current one, such
 All {{ RD }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see the [{{ RD }} documentation](https://docs.redis.com/latest/rs/release-notes/).
 
 
-As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are discontinued. You cannot create a cluster with these versions.
+As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are discontinued. You cannot create a cluster with these versions. The version of existing clusters was automatically upgraded to 6.2.
 
 
 ### Viewing a list of available {{ RD }} versions {#version-list}
@@ -82,7 +82,7 @@ Prior to upgrading a cluster, make sure this does not affect your applications:
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ RD }} version number in the `configSpec.version` parameter.

@@ -62,7 +62,7 @@ Security groups must be configured correctly for all subnets that will include c
 
 {% endnote %}
 
-You can set up security groups for [connections to cluster hosts](connect.md) via an intermediate VM after creating a cluster.
+You can set up security groups for [connections to cluster hosts](connect.md) through an intermediate VM and [connections to {{ metastore-name }}](./metastore/dataproc-connect.md) after creating a cluster.
 
 
 ## Create a cluster {#create}

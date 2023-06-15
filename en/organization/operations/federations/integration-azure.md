@@ -129,7 +129,8 @@ Add users to the IdP server:
           --cookie-max-age 12h \
           --issuer "https://sts.windows.net/<SAML application ID>/" \
           --sso-binding POST \
-          --sso-url "https://login.microsoftonline.com/<SAML application ID>/saml2"
+          --sso-url "https://login.microsoftonline.com/<SAML application ID>/saml2" \
+          --force-authn
       ```
 
       Where:
@@ -164,35 +165,34 @@ Add users to the IdP server:
 
       * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
-- API
+      * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-   1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create a federation in.
+- API
 
    1. Create a file with the request body, e.g., `body.json`:
 
       ```json
       {
-        "folderId": "<folder ID>",
         "name": "my-federation",
         "organizationId": "<organization ID>",
         "autoCreateAccountOnLogin": true,
         "cookieMaxAge":"43200s",
         "issuer": "https://sts.windows.net/<SAML application ID>/",
         "ssoUrl": "https://login.microsoftonline.com/<SAML application ID>/saml2",
-        "ssoBinding": "POST"
+        "ssoBinding": "POST",
+        "securitySettings": {
+          "forceAuthn": true
+        }
       }
       ```
 
       Where:
-
-      * `folderId`: ID of the folder.
 
       * `name`: Federation name. It must be unique within the folder.
 
       * `organizationId`: Organization ID.
 
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-      
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -218,6 +218,8 @@ Add users to the IdP server:
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
       * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+
+      * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
@@ -252,7 +254,6 @@ Add users to the IdP server:
 
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -450,7 +451,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click the arrow next to the **Add user** button and select **Add federated users**.
+   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
 
    1. Select the identity federation to add users from.
 

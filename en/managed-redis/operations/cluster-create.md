@@ -69,8 +69,8 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
    
    1. Under **Network settings**, select:
-      * Cloud network for the cluster.
-      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+     * Cloud network for the cluster.
+     * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
       {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
@@ -238,7 +238,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
+   To create a {{ RD }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
          * Security group identifiers in the `securityGroupIds` parameter.

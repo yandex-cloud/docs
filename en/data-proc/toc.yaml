@@ -44,6 +44,9 @@ items:
           - name: Creating a {{ metastore-name }} server
             hidden: true
             href: operations/metastore/cluster-create.md
+          - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
+            hidden: true
+            href: operations/metastore/dataproc-connect.md
           - name: Deleting a {{ metastore-name }} server
             hidden: true
             href: operations/metastore/cluster-delete.md
@@ -101,18 +104,15 @@ items:
           Importing data from {{ objstorage-full-name }}, processing and
           exporting it to {{ mch-full-name }}
         href: tutorials/s3-dataproc-ch.md
+      - name: Shared use of tables through {{ metastore-name }}
+        hidden: true
+        href: tutorials/dataproc-to-dataproc.md
   - name: Concepts
     items:
       - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
-        items:
-          - name: Active host classes
-            href: concepts/instance-types.md
-          - name: Archive
-            items:
-              - name: Before June 20, 2023
-                href: concepts/instance-types-archive/instance-types-20062023.md
+        href: concepts/instance-types.md
       - name: Runtime environment
         href: concepts/environment.md
       - name: '{{ dataproc-name }} component interfaces and ports'
@@ -225,12 +225,12 @@ items:
                 href: api-ref/Subcluster/list.md
               - name: update
                 href: api-ref/Subcluster/update.md
-  - name: Revision history
+  - name: Releases
     items:
       - name: Service updates
         href: release-notes/index.md
       - name: Images
         href: release-notes/images.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/data-proc

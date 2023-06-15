@@ -3,7 +3,7 @@
 A _role_ is a set of user permissions to perform operations with {{ yandex-cloud }} resources.
 
 There are two types of roles:
-* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are such roles as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}`.
+* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}`.
 * _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role allows you to use images in {{ compute-full-name }}.
 
    A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
@@ -231,6 +231,10 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 {% include [kms-admin](../../../_includes/roles-kms-admin.md) %}
 
 {% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md) %}
+
+{% include [kms-keys-encrypter](../../../_includes/roles-kms-keys-encrypter.md) %}
+
+{% include [kms-keys-decrypter](../../../_includes/roles-kms-keys-decrypter.md) %}
 
 {% include [kms-editor](../../../_includes/roles-kms-editor.md) %}
 

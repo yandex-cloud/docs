@@ -25,7 +25,11 @@ You can only connect a Linux VM to {{ backup-name }} when creating it. To connec
 
 {% endlist %}
 
-Once the VM changes to the `Running` status, the {{ backup-name }} agent starts to install. This may take a few minutes. After that, you can add your VM to [backup policies](../concepts/policy.md).
+{% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan.md) %}
+
+{% include [vm-list](../../_includes/backup/vm-list.md) %}
+
+{% include [agent-installation-failure](../../_includes/backup/agent-installation-failure.md) %}
 
 #### See also {#see-also}
 

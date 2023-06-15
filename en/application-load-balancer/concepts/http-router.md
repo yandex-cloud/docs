@@ -30,7 +30,7 @@ HTTP routers support two route types: **HTTP** and **gRPC**:
 
 1. HTTP routes process HTTP requests over HTTP/1.1 and HTTP/2.
 
-   You can set the beginning of or full name of the request and the request method (for example, GET and POST) as route conditions.
+   You can set the beginning or full name of a request, or a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression), and the request method (such as GET or POST) as route conditions.
 
    You can perform one of the actions with the request that satisfies the conditions:
 
@@ -40,7 +40,7 @@ HTTP routers support two route types: **HTTP** and **gRPC**:
 
 1. gRPC routes are designed for processing gRPC requests ([remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call)) over HTTP/2.
 
-   You can specify the beginning of or the full method name (FQMN, fully qualified method name) as a condition of a gRPC route. The value must start with a slash `/`.
+   You can specify the beginning of a method, or the full method name (FQMN, fully qualified method name), or a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression) as a condition for a gRPC route. The value must start with a slash `/`.
 
    You can perform one of the actions with the request that satisfies the conditions:
 

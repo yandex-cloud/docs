@@ -22,7 +22,7 @@ You can add and delete users as well as manage their individual settings and dat
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of cluster users, run the command:
+   To get a list of cluster users, run the following command:
 
    ```
    {{ yc-mdb-mg }} user list \
@@ -33,7 +33,9 @@ You can add and delete users as well as manage their individual settings and dat
 
 - API
 
-   To get a list of users, use the [list](../api-ref/User/list.md) method.
+   To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -117,7 +119,7 @@ You can add and delete users as well as manage their individual settings and dat
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -127,7 +129,15 @@ You can add and delete users as well as manage their individual settings and dat
 
 - API
 
-   You can add users using the [create](../api-ref/User/create.md) method.
+   To add a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * User settings in the `userSpec` parameter:
+      * Username in the `name` parameter.
+      * User password in the `password` parameter.
+      * Database permissions (one or more `permissions` parameters, one for each database):
+         * Database name, in the `databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
+         * Database permissions in the `roles` parameter.
 
 {% endlist %}
 
@@ -192,7 +202,7 @@ You can add and delete users as well as manage their individual settings and dat
       {{ yc-mdb-mg }} user grant-permission <username> \
         --cluster-name <cluster name> \
         --database <DB name> \
-        --role <comma-separated list of roles>
+        --role <omma-separated list of roles>
       ```
 
    To revoke user database access:
@@ -244,7 +254,7 @@ You can add and delete users as well as manage their individual settings and dat
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -254,15 +264,15 @@ You can add and delete users as well as manage their individual settings and dat
 
 - API
 
-   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+   To update a user, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
    * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
+   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
    * The name of the database that you want to change the list of user roles for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
    * Array of the new list of user roles, in the `permissions.roles` parameter.
    * The list of user settings to update in the `updateMask` parameter.
 
-   {% include [api-update-object-settings](../../_includes/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -303,7 +313,7 @@ You can add and delete users as well as manage their individual settings and dat
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -313,7 +323,10 @@ You can add and delete users as well as manage their individual settings and dat
 
 - API
 
-   You can delete a user using the [delete](../api-ref/User/delete.md) method.
+   To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The name of the user to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-users).
 
 {% endlist %}
 

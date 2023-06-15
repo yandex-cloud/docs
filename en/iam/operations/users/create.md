@@ -26,10 +26,14 @@ You can add a user to an organization via the management console or {{ org-full-
 1. Log in to the [management console]({{ link-console-main }}).
 1. [Select](../../../resource-manager/operations/cloud/switch-cloud.md) a cloud.
 1. Go to **Access rights**.
-1. Click ![image](../../../_assets/options.svg) in the top-right corner of the page.
-1. Click **Add user**.
+1. In the top-right corner, click ![icon-users](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
 1. Enter the user's Yandex email address.
-1. Click **Add**.
+1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+
+After receiving the invitation, the user should:
+
+1. Click the link and accept the invitation.
+1. Log in to the organization.
 
 ## Add federated users {#federated-user}
 

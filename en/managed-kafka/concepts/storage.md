@@ -1,23 +1,18 @@
 # Disk types in {{ mkf-name }}
 
 
-{{ mkf-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).
+{{ mkf-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).
 
 {% include [storage-type-nrd](../../_includes/mdb/mkf/storage-type.md) %}
 
-## Specifics of local SSD storage {#local-storage-features}
-
-Local SSD storage doesn't provide fault tolerance for a single-host cluster: if a disk fails, the data is permanently lost. To ensure fault tolerance, create clusters of three or more hosts.
-
-## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
-
-{% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
-
-## Choice of disk type during cluster creation {#storage-type-selection}
+## Selecting disk type during cluster creation {#storage-type-selection}
 
 The number of broker hosts that can be created together with a {{ KF }} cluster depends on the selected type of disk:
 
-* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more broker hosts (to ensure fault tolerance, a minimum of three broker hosts is necessary).
+* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more broker hosts.
+
+   This cluster will be fail-safe only if it meets all [fault tolerance conditions](index.md#fault-tolerance).
+
 * With network HDD `network-hdd` or network SSD `network-ssd` storage, you can add any number of broker hosts within the [current quota](./limits.md).
 
 For more information about limits on the number of broker hosts per cluster, see [{#T}](./limits.md).

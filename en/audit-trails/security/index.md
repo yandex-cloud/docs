@@ -1,21 +1,22 @@
 # Access management {{ at-name }}
 
-In this section, you'll learn:
+In this section, you will learn:
 
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles).
 
 {% include notitle [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned for clouds or folders also apply to the trails in them.
 
-## What roles exist in the service {#roles}
+## Which roles exist in the service {#roles}
 
-The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, `audit-trails.editor` includes all `audit-trails.viewer` role permissions. A description of each role is given under the diagram.
+The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, `audit-trails.editor` includes all `audit-trails.viewer` role permissions. You can find the description of each role under the chart.
 
 ![image](../../_assets/audit-trails/at-role-diagram.svg)
+<small>\* deprecated</small>
 
 ### Service roles
 
@@ -23,10 +24,11 @@ The diagram shows which roles are available in the service and how they inherit 
 ----- | -----
 | `resource-manager.clouds.member` | A role everyone requires to access cloud resources, except for [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md) |
 | `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. Can only be assigned for clouds |
-| `audit-trails.configViewer` | Lets you view information about trails |
-| `audit-trails.viewer` | Gives you access to audit logs of the trails. Includes all access rights of the `audit-trails.configViewer` role |
+| `audit-trails.auditor` | Lets you view information about trails |
+| `audit-trails.viewer` | Gives you access to audit logs of the trails. Includes all access rights of the `audit-trails.auditor` role |
 | `audit-trails.editor` | Lets you manage trails (create, edit, and delete them). Includes all access rights of the `audit-trails.viewer` role |
 | `audit-trails.admin` | Lets you manage your trails and user access to them. Includes all access rights of the `audit-trails.editor` role |
+| `audit-trails.configViewer` (deprecated) | Lets you view information about trails. Use `audit-trails.auditor` instead of this role. |
 
 ### Primitive roles
 
@@ -38,7 +40,7 @@ The table shows actions and minimum roles required to perform them. You can alwa
 
 | Action | Role |
 ----- | -----
-| Viewing information about a trail | `audit-trails.configViewer` |
+| Viewing information about a trail | `audit-trails.auditor` |
 | Collecting and viewing audit events in a trail | `audit-trails.viewer` |
 | Creating a trail | `audit-trails.editor` |
 | Editing a trail | `audit-trails.editor` |

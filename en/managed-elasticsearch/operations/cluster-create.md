@@ -259,7 +259,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 - API
 
-   To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and include the following in the request:
+   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
@@ -272,7 +272,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    * Network ID in the `networkId` parameter.
    * Security group identifiers in the `securityGroupIds` parameter.
    * List of plugins in the `configSpec.elasticsearchSpec.plugins` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
 
 {% endlist %}
 

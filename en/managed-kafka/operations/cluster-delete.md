@@ -44,7 +44,7 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
 
 - API
 
-   Use the API [delete](../api-ref/Cluster/delete.md) method: pass the requisite cluster ID in the `clusterId` parameter.
+   To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

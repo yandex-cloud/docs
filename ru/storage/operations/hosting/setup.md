@@ -412,7 +412,7 @@
        website {
          index_document = "<абсолютный_путь_к_файлу_главной_страницы_сайта>"
          error_document = "<абсолютный_путь_к_файлу_ошибок>"
-		 routing_rules            = <<EOF
+         routing_rules  = <<EOF
          [
 	       {
              "Condition": {

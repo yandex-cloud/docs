@@ -10,9 +10,9 @@ You will learn how to:
 * [Run operations in the CLI](#run-operation-from-sa).
 * [Delete service accounts](#delete-sa).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
 1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 
 ## Create a service account {#create-sa}
@@ -20,6 +20,12 @@ You will learn how to:
 To create a service account and assign roles to it:
 
 {% include [create-sa-via-console](../_includes/iam/create-sa-via-console.md) %}
+
+{% note info %}
+
+Other users can also use the service account you created. To allow them to do this, [assign](operations/sa/set-access-bindings.md#assign-role-to-sa) them the required [roles](concepts/access-control/roles.md#iam-roles) for this account.
+
+{% endnote %}
 
 ## Configure the CLI to work on behalf of a service account {#run-operation-from-sa}
 

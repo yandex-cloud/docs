@@ -45,7 +45,7 @@ description: "After you delete a Redis database cluster, its backups are kept fo
 
 - API
 
-   Use the [delete](../api-ref/Cluster/delete.md) API method and pass the ID of the cluster to be deleted in the `clusterId` call parameter.
+   To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the ID of the cluster to be deleted in the `clusterId` request parameter.
 
    You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
 

@@ -10,7 +10,7 @@ You can get a list of broker hosts in your {{ KF }} cluster.
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
-   1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
@@ -28,7 +28,7 @@ You can get a list of broker hosts in your {{ KF }} cluster.
 
 - API
 
-   Use the [listHosts](../api-ref/Cluster/listHosts.md) API method: pass the ID of the desired cluster in the `clusterId` request parameter.
+   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

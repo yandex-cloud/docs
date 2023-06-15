@@ -20,7 +20,10 @@
         "authenticated":true,
         "subject_type":"FEDERATED_USER_ACCOUNT",
         "subject_id":"<идентификатор_пользователя>",
-        "subject_name":"<логин_пользователя>"
+        "subject_name":"<логин_пользователя>",
+        "federation_id":"<идентификатор_федерации>",
+        "federation_name":"<имя_федерации>",
+        "federation_type":"<тип_федерации>"
     },
     "authorization":{
         "authorized":true
@@ -114,7 +117,11 @@
     "authenticated": boolean,
     "subject_type": string,
     "subject_id": string,
-    "subject_name": string
+    "subject_name": string,
+    "federation_id": string,
+    "federation_name": string,
+    "federation_type": string
+
   },
   "authorization": {
     "authorized": boolean
@@ -156,6 +163,9 @@
 `authentication.subject_type` | **string**<br>Тип субъекта. Возможные значения:<ul><li>`YANDEX_PASSPORT_USER_ACCOUNT`— аккаунт на Яндексе;</li><li>`SERVICE_ACCOUNT` — сервисный аккаунт;</li><li>`FEDERATED_USER_ACCOUNT` — федеративный аккаунт.</li>
 `authentication.subject_id` | **string**<br>Идентификатор субъекта.
 `authentication.subject_name` | **string**<br>Имя субъекта.
+`authentication.federation_id`* | **string**<br>Идентификатор федерации, в которой состоит федеративный пользователь.
+`authentication.federation_name`* | **string**<br>Имя федерации, в которой состоит федеративный пользователь.
+`authentication.federation_type`* | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами {{ yandex-cloud }}.</li></ul>
 `authorization` | **object**<br>Данные авторизации субъекта события.
 `authorization.authorized` | **boolean**<br>Результат авторизации. Возможные значения:<ul><li>`true` — авторизация успешна;</li><li>`false` — авторизация неуспешна.</li>
 `resource_metadata` | **object**<br>Метаданные объекта события.
@@ -170,6 +180,8 @@
 `event_status` | **string**<br>Статус события. Определяется сервисом-источником и типом события. Возможные значения:<ul><li>`STARTED` — операция начата;</li><li>`ERROR` — операция завершена с ошибкой;</li><li>`DONE` — операция завершена успешно;</li><li>`CANCELLED` — операция отменена.</li></ul>
 `error` | **object**<br>Статус ошибки. Объект типа [google.rpc.Status](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto):<ul><li>`code` — [код ошибки](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto);</li><li>`message` — описание ошибки;</li><li>`details` — [детали ошибки](https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto).</li></ul>
 `details` | **object**<br>Детали события. Определяются сервисом-источником и типом события.
+
+<small>* Поле доступно, когда `subject_type` = `FEDERATED_USER_ACCOUNT`</small>
 
 {% note info %}
 

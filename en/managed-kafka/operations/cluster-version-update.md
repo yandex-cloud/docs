@@ -2,13 +2,13 @@
 
 You can upgrade a {{ mkf-name }} cluster to any supported version.
 
-You can only upgrade to a version that immediately follows the current one, such as version 2.8 to 3.0. Upgrades to higher versions are performed in steps. To upgrade {{ KF }} from 2.8 to 3.1, for instance, you have to follow the steps: 2.8 → 3.0 → 3.1.
+We recommend upgrading to a version that immediately follows the current one, such as version 2.8 to 3.0. Upgrades to higher versions should be performed in steps. To upgrade {{ KF }} from 2.8 to 3.1, for instance, follow the steps: 2.8 → 3.0→ 3.1.
 
 To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
 
 ## Before upgrading {#before-update}
 
-Prior to upgrading a cluster, make sure this doesn't affect your applications. See the {{ KF }} [changelog](https://kafka.apache.org/downloads) to check which updates might affect your apps.
+Prior to upgrading a cluster, make sure this does not affect your applications. See the {{ KF }} [changelog](https://kafka.apache.org/downloads) to check which updates might affect your apps.
 
 ## Upgrading a cluster {#start-update}
 
@@ -75,7 +75,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -85,13 +85,13 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
-   * The {{ KF }} version number in the `configSpec.version` parameter.
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * Cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+   * {{ KF }} version number in the `configSpec.version` parameter.
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
-      {% include [updateMask note](../../_includes/mdb/note-api-updatemask.md) %}
+      {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -117,7 +117,7 @@ Let's assume you need to upgrade your cluster from version 2.8 to version 3.0.
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
-   1. To get information about the cluster `kafka35`, run the command below:
+   1. To get information about the cluster `kafka35`, run the following command:
 
       ```bash
       {{ yc-mdb-kf }} cluster get kafka35
@@ -131,7 +131,7 @@ Let's assume you need to upgrade your cluster from version 2.8 to version 3.0.
           ...
       ```
 
-   1. To upgrade the `kafka35` cluster to version 3.0, run the command below:
+   1. To upgrade the `kafka35` cluster to version 3.0, run the following command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update kafka35 --version=3.0

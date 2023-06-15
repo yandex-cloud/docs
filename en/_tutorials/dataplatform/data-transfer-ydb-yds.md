@@ -1,6 +1,8 @@
 # Delivering data from {{ ydb-full-name }} to {{ yds-full-name }} using {{ data-transfer-full-name }}
 
-A {{ yds-name }} stream can get data from {{ ydb-name }} databases in real time.
+A {{ yds-name }} stream can get data from {{ ydb-name }} databases in real time using the [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC) technology.
+
+{% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
 
 To run data delivery:
 
@@ -25,7 +27,7 @@ Prepare the infrastructure:
 * Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [data-transfer-ydb-yds.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-ydb-yds.tf) configuration file to the same working directory.
 
       This file describes:
@@ -43,7 +45,7 @@ Prepare the infrastructure:
       * `target_db_name`: {{ ydb-name }} database name for the target stream.
       * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [create endpoints](#prepare-transfer).
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -70,8 +72,8 @@ Prepare the infrastructure:
 
       1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
       1. In the list of services, select **{{ ydb-name }}**.
-      1. Select the database from the list and go to the **Navigation** tab.
-      1. Click **SQL query**.
+      1. Select the database from the list and go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+      1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
 
    * {{ ydb-short-name }} CLI
 
@@ -117,22 +119,22 @@ Prepare the infrastructure:
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`YDB` source](../../data-transfer/operations/endpoint/source/ydb.md):
 
-   * **Connection settings**:
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
 
-      * **Database**: Select the {{ ydb-name }} source database from the list.
-      * **Service account ID**: Select or create a service account with the `ydb.editor` role.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `ydb.editor` role.
 
-   * **Included paths list**:
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**:
 
-      * **Path 1**: `test`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.array_item_label }} 1**: `test`.
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ yds-full-name }}` target](../../data-transfer/operations/endpoint/source/data-streams.md):
 
-   **Connection settings**:
+   **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
 
-   * **Database**: Select the {{ ydb-name }} database for the target stream from the list.
-   * **Data stream**: Specify the name of the {{ yds-name }} data stream.
-   * **Service account ID**: Select or create a service account with the `yds.editor` role.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database for the target stream from the list.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
 1. Create a transfer:
 
@@ -140,7 +142,7 @@ Prepare the infrastructure:
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-repl }}_ type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
@@ -169,7 +171,7 @@ Prepare the infrastructure:
 
 ## Test the transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to {{ dt-status-repl }}.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. [Insert the test data](../../ydb/operations/crud.md) into the `test` table in the {{ ydb-name }} source database:
 
@@ -204,10 +206,10 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 {% endnote %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. If you created the service accounts along with the endpoints, [delete them](../../iam/operations/sa/delete.md).
 
 Delete the other resources, depending on the method used to create them:

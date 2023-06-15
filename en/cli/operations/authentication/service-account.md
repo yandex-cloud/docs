@@ -4,14 +4,12 @@ Learn how to authenticate in the CLI:
 - [As a service account](#auth-as-sa).
 - [As a service account from inside a VM](#vm-auth-as-sa).
 
-## Before you begin {#before-begin}
+[Service accounts](../../../iam/concepts/users/service-accounts.md) are different from [user accounts](../../../iam/concepts/index.md#passport) or [federated user accounts](../../../iam/concepts/federations.md). You cannot use service accounts to log in to the [management console]({{ link-console-main }}), but you can use them to manage resources in {{ yandex-cloud }}.
 
-1. [Authenticate in the CLI as a user](user.md).
+## Getting started {#before-begin}
+
+1. Authenticate in the CLI as a [user](user.md) or a [federated user](federated-user.md).
 1. If you don't have a service account yet, [create one](../../../iam/operations/sa/create.md) and [configure access rights for it](../../../iam/operations/sa/assign-role-for-sa.md).
-
-
-Learn how to authenticate in the CLI [as a service account](#auth-as-sa).
-
 
 ## Authenticate as a service account {#auth-as-sa}
 

@@ -19,6 +19,7 @@ description: "In this article, you will learn how to work with {{ objstorage-ful
 * [{#T}](buckets/edit-acl.md)
 * [{#T}](buckets/enable-logging.md)
 * [{#T}](buckets/configure-object-lock.md)
+* [{#T}](buckets/tagging.md)
 
 ## Objects {#objects}
 

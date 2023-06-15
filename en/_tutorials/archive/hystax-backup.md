@@ -38,11 +38,11 @@ For detailed system requirements, see the [Hystax documentation](https://cdn.hys
 {% endnote %}
 
 The cost of the resources required to use Hystax Acura Backup includes:
-* A fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
-* A fee for VM disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
+* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
+* Fee for VM disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
 * Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* A fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* A fee for using Hystax Acura Backup (see [product description](/marketplace/products/hystax/hystax-acura-backup) in {{ marketplace-name }}).
+* Fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for using Hystax Acura Backup (see [product description](/marketplace/products/hystax/hystax-acura-backup) in {{ marketplace-name }}).
 
 
 ### Create a service account and access keys {#create-sa}
@@ -93,8 +93,8 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
    1. Select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Enter the bucket name, following the [naming guidelines](../../storage/concepts/bucket.md#naming).
-      1. If necessary, limit the maximum bucket size.
+      1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
@@ -106,12 +106,16 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
       1. Click **Create bucket** to complete the operation.
    1. Save the bucket name. You will need it later.
 
+- API
+
+   Use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/) resource or the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call.
+
 {% endlist %}
 
 ## Create a VM with Hystax Acura Backup {#create-acura-vm}
 
-1. [Generate](../../compute/operations/vm-connect/ssh#creating-ssh-keys) an SSH key pair. You'll need them when creating a VM.
-1. To create a VM with recommended characteristics and a boot disk from the Hystax Acura Backup image:
+1. [Generate](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair. You will need them when creating a VM.
+1. To create a VM with recommended configuration and a boot disk from the Hystax Acura Backup image:
 
    {% list tabs %}
 
@@ -119,7 +123,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
       1. In the list of services, select **{{ compute-name }}**.
-      1. Click **Create VM**.
+      1. Click **Create VM**.
       1. Under **Basic parameters**:
          * Enter `hystax-acura-vm` as your VM name and add a description.
          * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
@@ -146,7 +150,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
          * Select the [previously created](#create-sa) `hystax-acura-account` service account.
          * In the **Login** field, enter a user name for SSH access, such as `yc-user`.
          * In the **SSH key** field, paste the public SSH key.
-      1. Click **Create VM**.
+      1. Click **Create VM**.
 
    - CLI
 
@@ -183,6 +187,10 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
          * `image-id`: Disk image ID. Use the `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-backup) in {{ marketplace-name }}.
       * `service-account-id`: ID of the [previously created](#create-sa) service account. You can get a list of accounts using the `yc iam service-account list` command.
       * `ssh-key`: Path to the public SSH key file. The default username for access via SSH is `yc-user`.
+
+   - API
+
+      Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
 
    {% endlist %}
 
@@ -254,6 +262,10 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
       The `reserved` parameter value changed to `true` and the IP address is now static.
    1. Save the IP. You will need it later.
 
+- API
+
+   Use the [update](../../vpc/api-ref/Address/update.md) REST API method for the [Address](../../vpc/api-ref/Address/index.md) resource or the [AddressService/Update](../../vpc/api-ref/grpc/address_service.md#Update) gRPC API call.
+
 {% endlist %}
 
 ## Set up Hystax Acura Backup {#setup-hystax-acura}
@@ -267,10 +279,47 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
 
    {% endnote %}
 
-1. By default, a Hystax Acura VM has a self-signed certificate installed. If you need to replace this certificate, follow the steps described [here](https://support.hystax.com/portal/en/kb/articles/how-to-update-ssl-certificate-on-acura).
+   By default, a Hystax Acura VM has a self-signed certificate installed.
+
+   {% cut "To replace a self-signed certificate" %}
+
+   1. Get the SSL certificate and private key files in one of the available ways.
+
+   1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM with Hystax Acura Backup over SSH. Use the username you set when creating the VM and the private SSH key.
+
+   1. Go to the `/tmp` directory by running the following command:
+
+      ```bash
+      cd /tmp
+      ```
+
+   1. Create a file named `private.key`:
+
+      ```bash
+      nano private.key
+      ```
+
+      Copy and paste the contents of the previously obtained private key file into it.
+
+   1. Create a file named `certificate.pem`:
+
+      ```bash
+      nano certificate.pem
+      ```
+
+      Copy and paste the contents of the previously obtained SSL certificate file into it.
+
+   1. To update the SSL certificate and the private key in the Hystax Acura Backup configuration, run this command:
+
+      ```bash
+      hx_update_nginx_ssl
+      ```
+
+   {% endcut %}
+
 1. On the page that opens, fill out the following fields:
    * **Organization**: Name of your organization.
-   * **Admin user login**: The administrator username.
+   * **Admin user login**: Administrator username.
    * **Password**: Administrator password.
    * **Confirm password**: Re-enter the administrator password.
 1. Click **Next**.
@@ -424,7 +473,7 @@ To run a VM's recovery from a backup:
 
 1. Open the [management console]({{ link-console-main }}) and check that all the required resources are restored.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the Hystax Acura Backup VM.

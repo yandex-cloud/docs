@@ -21,7 +21,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
 - API
 
-   Use the [list](../api-ref/Cluster/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
    The response will contain cluster names and IDs.
 
@@ -34,13 +34,13 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
-   1. Click on the name of the desired cluster.
+   1. Click the name of the cluster you need.
 
 - API
 
-   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -57,8 +57,8 @@ The operation list shows operations with clusters and related resources (for exa
 
 - API
 
-   Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
 {% endlist %}

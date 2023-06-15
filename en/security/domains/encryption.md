@@ -5,7 +5,6 @@
 {{ yandex-cloud }} APIs support cipher suites in specific TLS versions that are compliant with PCI DSS and other standards.
 
 
-
 ## Encryption at rest {#encryption-at-rest}
 
 By default, all user data at rest is encrypted at the {{ yandex-cloud }} level. Encryption at the {{ yandex-cloud }} level implements one of the best practices for protecting user data and is performed using {{ yandex-cloud }} keys.
@@ -19,7 +18,7 @@ If your corporate information security policy sets specific key size and rotatio
 
 ### {{ objstorage-full-name }} {#storage-at-rest}
 
-To protect critical data in [{{ objstorage-full-name }}](../../storage/), we recommend using bucket server-side encryption with [{{ kms-full-name }}](../../kms/) keys. This encryption method enables protection against accidental or intentional publication of the bucket content on the web. For more information, see [{#T}](../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
+To protect critical data in [{{ objstorage-full-name }}](../../storage/), we recommend using bucket server-side encryption with [{{ kms-full-name }}](../../kms/) keys. This encryption method protects against accidental or intentional publication of the bucket content on the web. For more information, see [{#T}](../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
 
 
 ### {{ managed-k8s-name }} {#kubernetes}
@@ -45,7 +44,7 @@ When working with (or connecting to) {{ yandex-cloud }} APIs, make sure to use T
 
 ### {{ objstorage-full-name }} {#storage-in-transit}
 
-[{{ objstorage-full-name }}](../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your Object Storage site requires HTTPS access. Additionally, you can use integration with [{{ certificate-manager-full-name }}](../../certificate-manager/). See the following guides in the Object Storage documentation:
+[{{ objstorage-full-name }}](../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your Object Storage site requires HTTPS access. Additionally, you can use integration with [{{ certificate-manager-full-name }}](../../certificate-manager/). For details, see the following guides in the Object Storage documentation:
 
 - [{#T}](../../storage/operations/hosting/certificate.md)
 - [{#T}](../../storage/concepts/bucket.md#bucket-https)
@@ -54,13 +53,13 @@ When using Object Storage, be sure that support for TLS protocols below version 
 
 ### {{ alb-full-name }} {#load-balancer}
 
-[{{ alb-full-name }}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the Application Load Balancer documentation.
+[{{ alb-full-name }}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. For details, see [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the Application Load Balancer documentation.
 
 ### {{ vpc-name }} (VPC) {#vpc}
 
-Possible options for using encrypted communication channels are described in [{#T}](network.md#remote-access).
+You can find viable options for using encrypted communication channels in [{#T}](network.md#remote-access).
 
-Please note: [{{interconnect-full-name}}](../../interconnect/) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
+Please note: [{{ interconnect-full-name }}](../../interconnect/) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
 - Deploying encrypted VPN gateways in the cloud, such as VMs running [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}.
 - Using application-level encryption- Using [GOST VPN](network.md#gost-vpn).
 
@@ -139,7 +138,7 @@ To improve the security of your infrastructure, we recommend that you categorize
 1. Keys for services that process critical data, but don't store it. For example, {{ message-queue-full-name }},{{ sf-full-name }}.
 2. Keys for services that store critical data. For example, Managed Services for Databases.
 
-For the first group of keys, we recommend that you set up automatic key rotation with a rotation period slightly longer than the data processing period in these services. When the rotation period expires, the old key versions must be deleted. In the case of automatic rotation and the deletion of old key versions, previously processed data can't be restored and decrypted.
+For the first group of keys, we recommend that you set up automatic key rotation with a rotation period slightly longer than the data processing period in these services. When the rotation period expires, the old key versions must be deleted. In the case of automatic rotation and the deletion of old key versions, previously processed data cannot be restored and decrypted.
 
 For data storage services, we recommend that you either manually rotate keys or use automatic key rotation, depending on your internal procedures for processing critical data.
 
@@ -165,7 +164,7 @@ To learn how to use the service, see the Lockbox [documentation](../../lockbox/)
 
 ### HashiCorp Vault {#hashicorp-vault}
 
-[Vault](https://www.vaultproject.io/) lets you use {{ kms-short-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) mechanism.
+[Vault](https://www.vaultproject.io/) allows you to use {{ kms-short-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) mechanism.
 
 
 To store secrets with Vault, you can use a VM based on an image from [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) with a pre-installed HashiCorp Vault build and Auto Unseal support. To learn how to set up Auto Unseal, see the [{#T}](../../kms/tutorials/vault-secret.md) section in the {{ kms-short-name }} documentation.
@@ -182,14 +181,14 @@ To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the 
 
 - {{ lockbox-name }}.
 
-   See the instructions in the {{ lockbox-name }} documentation, [{#T}](../../lockbox/tutorials/kubernetes-lockbox-secrets.md).
+   For details, see the instructions in the {{ lockbox-name }} documentation, [{#T}](../../lockbox/tutorials/kubernetes-lockbox-secrets.md).
 
 - [HashiCorp Vault with {{ kms-short-name }}](/marketplace/products/yc/vault-yckms) support from {{ marketplace-full-name }}.
 
 
 ### Transferring secrets to a VM using {{ TF }} and {{ kms-short-name }} {#secrets-tf-kms}
 
-{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, such as to transfer secrets to a VM in encrypted form. See the instructions in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/terraform-secret.md). It's not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
+{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, such as to transfer secrets to a VM in encrypted form. For details, see the instructions in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/terraform-secret.md). It's not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Encrypting secrets in {{ TF }} to transfer them to a VM from a Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)

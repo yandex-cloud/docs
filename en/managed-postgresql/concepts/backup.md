@@ -45,6 +45,8 @@ Backups are only created on running clusters. If you do not use a {{ mpg-short-n
 
 For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
 
+{% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
+
 ## Storing backups {#storage}
 
 Specifics of storing backups in {{ mpg-name }}:

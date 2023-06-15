@@ -38,6 +38,7 @@ The following data schema formats are supported:
 
 * [Avro](https://avro.apache.org/).
 * [JSON Schema](https://json-schema.org/).
+* [Protobuf](https://protobuf.dev/).
 
 Schema information is posted to a [service topic](./topics.md#service-topics) called `_schemas`. You cannot use standard tools to write data to this topic.
 

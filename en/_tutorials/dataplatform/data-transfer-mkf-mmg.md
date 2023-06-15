@@ -289,7 +289,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 1. Check that the `sensors` collection in the {{ mmg-name }} cluster contains the sent data:
 
-   1. [Connect to the cluster {{ mmg-name }}](../../managed-mongodb/operations/connect/index.md)
+   1. [Connect to the cluster {{ mmg-name }}](../../managed-mongodb/operations/connect/index.md).
 
    1. Get the contents of the `sensors` collection using the query below:
 

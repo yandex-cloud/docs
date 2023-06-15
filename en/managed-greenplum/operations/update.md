@@ -37,7 +37,7 @@ After creating a cluster, you can:
       {{ yc-mdb-gp }} cluster get <cluster ID or name>
       ```
 
-   1. View a description of the CLI's update cluster configuration command:
+   1. View a description of the update cluster configuration CLI command:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -53,12 +53,12 @@ After creating a cluster, you can:
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To change a cluster's name and description, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * A new name in the `name` parameter.
    * A new description in the `description` parameter.
-   * List of cluster configuration fields to update in the `updateMask` parameter (`name` and `description` in this case).
+   * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `name` and `description`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -99,13 +99,13 @@ After creating a cluster, you can:
 
    To change additional cluster settings:
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
       ```
 
-   1. Run the command with a list of settings to update:
+   1. Run the following command with a list of settings to update:
 
       ```bash
       {{ yc-mdb-gp }} cluster update <cluster ID or name> \
@@ -123,9 +123,9 @@ After creating a cluster, you can:
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--datalens-access`: Enables [{{ datalens-full-name }}](../../datalens/concepts/index.md) access. Default value: `false`.
+   * `--datalens-access`: Enables [{{ datalens-full-name }}](../../datalens/concepts/index.md) access. The default value is `false`.
 
-   * `--datatransfer-access`: Enables [{{ data-transfer-full-name }}](../../data-transfer/) access. Default value: `false`.
+   * `--datatransfer-access`: Enables [{{ data-transfer-full-name }}](../../data-transfer/) access. The default value is `false`.
 
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
 
@@ -141,11 +141,11 @@ After creating a cluster, you can:
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Public access settings in the `config.assignPublicIp` parameter.
-   * Backup window settings, in the `config.backupWindowStart` parameter.
+   * Backup window settings in the `config.backupWindowStart` parameter.
    * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md), in the `config.access.dataLens` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
@@ -186,7 +186,7 @@ You can change the DBMS settings of the hosts in your cluster.
       {{ yc-mdb-gp }} cluster get <cluster ID or name>
       ```
 
-   1. View a description of the CLI's update cluster configuration command:
+   1. View a description of the update cluster configuration CLI command:
 
       ```bash
       {{ yc-mdb-gp }} cluster update-config --help
@@ -205,7 +205,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To change {{ GP }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * New settings in the `configSpec.greenplumConfig_<version>` parameter.
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
@@ -224,9 +224,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console
 
-   To increase a cluster's storage size:
+   To increase the cluster storage size:
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ mgp-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -235,9 +235,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New master and segment host storage size in the `masterConfig.resources.diskSize` and `segmentConfig.resources.diskSize` parameters.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 

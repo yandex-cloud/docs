@@ -2,7 +2,6 @@
 
 {{ objstorage-name }} buckets support:
 
-
 * [Static website hosting](#hosting).
 * [Redirects for all requests](#redirects).
 * [Conditional request redirects](#redirects-on-conditions).
@@ -19,7 +18,6 @@
    1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
       * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website homepage.
       * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to be displayed in the event of 4xx errors. By default, {{ objstorage-name }} returns its own page.
-
    1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI
@@ -34,7 +32,7 @@
       yc storage bucket update --help
       ```
 
-   1. Create a hosting configuration file in JSON format. For example:
+   1. Create a hosting configuration file in JSON format, for example:
 
       ```json
       {
@@ -149,7 +147,7 @@
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -183,7 +181,7 @@
       yc storage bucket update --help
       ```
 
-   1. Create a file with redirect settings in JSON format. For example:
+   1. Create a file with redirect settings in JSON format, for example:
 
       ```json
       {
@@ -242,7 +240,7 @@
         acl        = "public-read"
 
         website {
-          index_document = "<absolute_path_to_website_homepage_file>"
+          index_document = "<absolute_path_to_website_home_page_file>"
           error_document = "<absolute_path_to_error_file>"
           redirect_all_requests_to = "<host_name>"
         }
@@ -256,7 +254,7 @@
       * `bucket`: Bucket name.
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website's homepage. This parameter is required.
+         * `index_document`: Absolute path to the file of the website home page. This parameter is required.
          * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
          * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can set a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
 
@@ -298,6 +296,8 @@
 
 {% endlist %}
 
+{% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
+
 ## Conditional request redirection {#redirects-on-conditions}
 
 {% list tabs %}
@@ -330,7 +330,7 @@
       yc storage bucket update --help
       ```
 
-   1. Create a file with conditional redirect settings in JSON format. For example:
+   1. Create a file with conditional redirect settings in JSON format, for example:
 
       ```json
       {
@@ -410,9 +410,9 @@
         acl        = "public-read"
 
         website {
-          index_document = "<absolute_path_to_website_homepage_file>"
+          index_document = "<absolute_path_to_website_home_page_file>"
           error_document = "<absolute_path_to_error_file>"
-      	 routing_rules            = <<EOF
+          routing_rules  = <<EOF
           [
             {
               "Condition": {
@@ -441,7 +441,7 @@
       * `bucket`: Bucket name.
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website's homepage. This parameter is required.
+         * `index_document`: Absolute path to the file of the website home page. This parameter is required.
          * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
          * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
@@ -482,6 +482,8 @@
    To set up a conditional redirect of bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
+
+{% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
 #### See also {#see-also}
 

@@ -41,6 +41,10 @@ items:
         href: tutorials/migration-to-opensearch.md
       - name: Uploading logs from {{ at-name }}
         href: tutorials/trails-to-opensearch.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/migration-from-mkf.md
   - name: Concepts
     items:
       - name: Relationships between service resources

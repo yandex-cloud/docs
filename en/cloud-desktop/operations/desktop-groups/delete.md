@@ -11,14 +11,14 @@ description: "In this tutorial, you'll learn how to delete a desktop group in {{
 
    1. In the [management console]({{ link-console-main }}), select the folder where the desktop group is located.
    1. In the list of services, select **{{ cloud-desktop-name }}**.
-   1. Select desktop group → click ![image](../../../_assets/options.svg) → select **Delete**.
+   1. Click ![image](../../../_assets/options.svg) to the right of the desktop group you want to delete and select **Delete**.
 
       {% note tip %}
 
-      To do this with multiple desktop groups, select the groups to delete from the list → click **Delete** at the bottom of the screen.
+      To delete multiple desktop groups, select them in the list and click **Delete** at the bottom of the screen.
 
       {% endnote %}
 
-   1. In the window that opens, click **Delete**.
+   1. Confirm the deletion.
 
 {% endlist %}

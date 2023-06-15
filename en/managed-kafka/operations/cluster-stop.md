@@ -1,6 +1,6 @@
 # Stopping and starting {{ KF }} clusters
 
-If necessary, you can stop and restart {{ KF }} clusters. When a cluster is stopped, all data in it is retained: it will be available again when you restart the cluster.
+You can stop and restart {{ KF }} clusters, if required. When a cluster is stopped, all data in it is retained and will be available again when you restart the cluster.
 
 ## Stopping a cluster {#stop-cluster}
 
@@ -28,7 +28,7 @@ If necessary, you can stop and restart {{ KF }} clusters. When a cluster is stop
 
 - API
 
-   Use the [stop](../api-ref/Cluster/stop.md) API method to stop all the cluster hosts: pass the ID of the required cluster in the `clusterId` request parameter.
+   To stop a cluster, use the [stop](../api-ref/Cluster/stop.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Stop](../api-ref/grpc/cluster_service.md#Stop) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -63,7 +63,7 @@ You can restart **STOPPED** clusters.
 
 - API
 
-   Use the [start](../api-ref/Cluster/start.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
+   To start a cluster, use the [start](../api-ref/Cluster/start.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Start](../api-ref/grpc/cluster_service.md#Start) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

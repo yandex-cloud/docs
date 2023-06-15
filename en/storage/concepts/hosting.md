@@ -93,6 +93,8 @@ http(s)://{{ s3-web-host }}/<bucket name>
 
 By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../operations/hosting/certificate.md) to {{ objstorage-name }}.
 
+{% include [redirect-https](../../_includes/storage/redirect-https.md) %}
+
 {% endnote %}
 
 

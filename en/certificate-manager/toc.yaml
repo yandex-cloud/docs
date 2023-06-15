@@ -125,6 +125,6 @@ items:
                 href: api-ref/Certificate/update.md
               - name: updateAccessBindings
                 href: api-ref/Certificate/updateAccessBindings.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/certificate-manager

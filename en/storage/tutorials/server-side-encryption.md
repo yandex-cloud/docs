@@ -3,7 +3,7 @@
 In this scenario, you'll enable bucket encryption. As a symmetric encryption key, you'll use a [{{ kms-full-name }} key](../../kms/concepts/key.md) . This key will encrypt all new bucket objects with [envelope encryption](../../kms/concepts/envelope.md).
 
 
-To decrypt objects, the user must have both the {{ objstorage-name }} role and the `kms.keys.encrypterDecrypter` role that allows reading the encryption key (see the [role description](../../kms/security/index.md#service)).
+To decrypt objects, the user must have both the {{ objstorage-name }} role and the `kms.keys.decrypter` role that allows reading the encryption key (see the [role description](../../kms/security/index.md#service)).
 
 
 To enable server-side bucket encryption:
@@ -25,7 +25,7 @@ If you no longer need to encrypt new bucket objects, [disable encryption](#disab
 The cost of maintaining a bucket with encryption includes:
 
 * Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../pricing.md#prices-storage)).
-* A fee for data operations (see [{{ objstorage-name }} pricing](../pricing.md#prices-operations)).
+* Fee for data operations (see [{{ objstorage-name }} pricing](../pricing.md#prices-operations)).
 * A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 
@@ -439,16 +439,16 @@ To enable bucket encryption with a {{ kms-short-name }} key:
     --bucket example-bucket \
     --endpoint-url=https://{{ s3-storage-host }} \
     --server-side-encryption-configuration '{
-  	"Rules": [
-  	  {
-  		"ApplyServerSideEncryptionByDefault": {
-  		  "SSEAlgorithm": "aws:kms",
-  		  "KMSMasterKeyID": "<KMS key ID>"
-  		},
-  		"BucketKeyEnabled": true
-  	}
-  	]
-  }'
+   	"Rules": [
+   	  {
+   		"ApplyServerSideEncryptionByDefault": {
+   		  "SSEAlgorithm": "aws:kms",
+   		  "KMSMasterKeyID": "<KMS key ID>"
+   		},
+   		"BucketKeyEnabled": true
+	  }
+   	]
+    }'
   ```
 
   As a result of successful command execution, all new objects in `example-bucket` will be encrypted with `key-1`.

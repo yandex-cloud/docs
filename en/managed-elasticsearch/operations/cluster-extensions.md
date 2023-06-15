@@ -24,7 +24,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
    Use the [list](../api-ref/Extension/list) API method and provide the cluster ID in the `clusterId` request parameter.
 
-   You can get the cluster ID [with a list of clusters in a folder](cluster-list.md#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 

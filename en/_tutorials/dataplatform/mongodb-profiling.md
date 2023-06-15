@@ -1,6 +1,6 @@
-# Performance analysis and tuning of {{ MG }}
+# {{ MG }} performance analysis and tuning
 
-In this tutorial, you'll learn how to:
+In this tutorial, you will learn how to:
 
 * Use [performance diagnostic tools](../../managed-mongodb/operations/tools.md) and [monitoring tools](../../managed-mongodb/operations/monitoring.md) to diagnose {{ mmg-name }} cluster performance.
 * Troubleshoot identified issues.
@@ -14,7 +14,7 @@ In this tutorial, you'll learn how to:
 
 Here are some tips for diagnosing and fixing these issues.
 
-## Before you begin {#before-start}
+## Getting started {#before-start}
 
 1. On an external host that has network access to a {{ MG }} host (see [{#T}](../../managed-mongodb/operations/connect/index.md)), install the `mongostat` and `mongotop` [utilities](../../managed-mongodb/operations/tools.md#monitoring-tools), which provide {{ MG }} performance data.
 1. Determine which databases need to be checked for issues.
@@ -34,19 +34,42 @@ Pay attention to the following operations:
 * Queries with large `docsExamined` parameter values (number of scanned documents). This may mean that the currently running indexes are inefficient or additional ones are required.
 
 As soon as performance drops, you can diagnose the problem in real time using a [list of currently running queries](../../managed-mongodb/operations/tools.md#list-running-queries):
-* Long operations taking, for example, more than one second to perform:
 
-   ```javascript
-   db.currentOp({"active": true, "secs_running": {"$gt": 1}})
-   ```
+{% list tabs %}
 
-* Operations to create indexes:
+- Queries from all users
 
-   ```javascript
-   db.currentOp({ $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
-   ```
+   To perform these operations, users must be granted the [`mdbMonitor` role](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor).
 
-See the examples in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/db.currentOp/#examples).
+   * Long operations taking, for example,  more than one second to perform:
+
+      ```javascript
+      db.currentOp({"active": true, "secs_running": {"$gt": 1}})
+      ```
+
+   * Operations to create indexes:
+
+      ```javascript
+      db.currentOp({ $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
+      ```
+
+- Queries from the current user
+
+   * Long operations taking, for example,  more than one second to perform:
+
+      ```javascript
+      db.currentOp({"$ownOps": true, "active": true, "secs_running": {"$gt": 1}})
+      ```
+
+   * Operations to create indexes:
+
+      ```javascript
+      db.currentOp({ "$ownOps": true, $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
+      ```
+
+{% endlist %}
+
+For details, see the examples in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/db.currentOp/#examples).
 
 ## Troubleshooting resource shortage issues {#solving-deficit}
 
@@ -98,18 +121,42 @@ Poor query performance can be caused by locks.
 * Large or growing values on the **Write conflicts per hosts** graph on the [cluster monitoring](../../managed-mongodb/operations/monitoring.md#cluster) page.
 
 * As soon as performance drops, carefully review the [list of currently running queries](../../managed-mongodb/operations/tools.md#list-running-queries):
-   * Find operations that hold exclusive locks, for example:
 
-      ```javascript
-      db.currentOp({'$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'}]}).inprog
-      ```
+   {% list tabs %}
 
-   * Find operations waiting for locks (the `timeAcquiringMicros` field shows the waiting time):
+   - Queries from all users
 
-      ```javascript
-      db.currentOp({'waitingForLock': true}).inprog
-      db.currentOp({'waitingForLock': true, 'secs_running' : { '$gt' : 1 }}).inprog
-      ```
+      To perform these operations, users need the [`mdbMonitor` role](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor).
+
+      * Find operations that hold exclusive locks, for example:
+
+         ```javascript
+         db.currentOp({'$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'} ]}).inprog
+         ```
+
+      * Find operations waiting for locks (the `timeAcquiringMicros` field shows the waiting time):
+
+         ```javascript
+         db.currentOp({'waitingForLock': true}).inprog
+         db.currentOp({'waitingForLock': true, 'secs_running' : { '$gt' : 1 }}).inprog
+         ```
+
+   - Queries from the current user
+
+      * Find operations that hold exclusive locks, for example:
+
+         ```javascript
+         db.currentOp({"$ownOps": true, '$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'} ]}).inprog
+         ```
+
+      * Find operations waiting for locks (the `timeAcquiringMicros` field shows the waiting time):
+
+         ```javascript
+         db.currentOp({"$ownOps": true, 'waitingForLock': true}).inprog
+         db.currentOp({"$ownOps": true, 'waitingForLock': true, 'secs_running' : { '$gt' : 1 }}).inprog
+         ```
+
+   {% endlist %}
 
 * Pay attention to the following in the [logs](../../managed-mongodb/operations/tools.md#explore-logs) and [profiler](../../managed-mongodb/operations/tools.md#explore-profiler):
    * Operations that waited a long time for locks will have large `timeAcquiringMicros` values.

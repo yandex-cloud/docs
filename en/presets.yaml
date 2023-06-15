@@ -610,6 +610,7 @@ default:
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
+  link-sla-kafka: https://yandex.com/legal/cloud_sla_kfk/
   link-pci-dss-en: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
   link-pci-dss-ru: >-
@@ -838,6 +839,7 @@ default:
   port-mrd-tls: 6380
   port-mrd: 6379
   port-ssh: 22
+  port-metastore: 9083
   alb-ingress-version: 0.1.12
   alb-ingress-k8s-version: 1.19
   alb-ingress-helm-version: 3.7.0
@@ -4021,7 +4023,6 @@ default:
             button_save: Save
             field_certificate: Certificate
             field_source: Source
-            value_method-custom: Your certificate
           lifecycle:
             button_lifecycle_empty-create: Configure
             button_save: Save
@@ -4220,6 +4221,9 @@ default:
             column_type: Type
         database:
           switch_browse: Navigation
+        overview:
+          label_database: Database
+          label_endpoint: Endpoint
       ylb:
         health-check:
           label_http: HTTP

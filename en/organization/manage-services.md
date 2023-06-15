@@ -1,6 +1,6 @@
 ---
 title: "Managing {{ yandex-cloud }} resources in {{ org-full-name }}"
-description: "Use {{ org-full-name }} to expand the capabilities of your business. A cloud is your organization's workspace. All the clouds connected to your organization are displayed in the Clouds and services section."
+description: "Use {{ org-full-name }} to expand the capabilities of your business. A cloud is your organization's workspace. All the clouds connected to your organization are displayed in the \"Clouds and services\" section."
 ---
 
 
@@ -22,9 +22,9 @@ To go to cloud and service management:
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. In the left panel, select [Clouds and services]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg).
+1. In the panel on the left, select [Clouds and services]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg).
 
-   The page displays a list of clouds connected to the organization as well as services, such as {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }}, and {{ datalens-full-name }}.
+   The page displays a list of clouds connected to the organization and the following services: {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }}, {{ datalens-full-name }}, and {{ ml-platform-full-name }}.
 
 1. To go to a service, click the service card.
 
@@ -62,3 +62,7 @@ Collaboration services and business intelligence tools are available to all orga
 * [{{ datalens-full-name }}]({{ link-datalens-main }}) is a service that enables you to track product and business metrics and make data-informed decisions. In {{ datalens-full-name }}, you can connect various data sources, build visualizations and dashboards, and share results.
 
    For more information about the service and its features, see the [{{ datalens-full-name }} documentation](../datalens/).
+
+* [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) is a full-cycle ML development service. {{ ml-platform-full-name }} is part of the data platform and offers powerful features to easily interact with {{ yandex-cloud }} services. {{ ml-platform-name }} helps significantly reduce the cost of ML as compared to computing on your own hardware or other cloud platforms thanks to automatic maintenance of computing resources.
+
+   For more information about the service and its features, see the [{{ ml-platform-full-name }} documentation](../datasphere/)

@@ -27,9 +27,9 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
 
 - API
 
-   Use the [get](../api-ref/Cluster/get.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of host groups in a cluster, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -73,7 +73,11 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
 
 - API
 
-   To add an `{{ OS }}` or `Dashboards` host group, use the [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) or [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) API method, respectively, and include the group configuration in the `nodeGroupSpec` request block:
+   To add a group of `{{ OS }}` hosts, use the [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup) gRPC API call.
+
+   To add a group of `Dashboards` hosts, use the [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#AddDashboardsNodeGroup) gRPC API call.
+
+   Provide the group configuration under `nodeGroupSpec` in the request:
 
    * Host group name in the `name` parameter.
    * [Host class](../concepts/instance-types.md) in the `resources.resourcePresetId` parameter.
@@ -84,7 +88,7 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
    * List of subnets in the `subnetIds` parameter.
 
    
-   * Public access settings, in the `assignPublicIp` parameter.
+   * Public access settings in the `assignPublicIp` parameter.
 
 
    * List of host roles in the `roles` parameter (for `{{ OS }}` host groups only).
@@ -97,7 +101,11 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
 
 - API
 
-   To update the configuration of an `{{ OS }}` or `Dashboards` host group, use the [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) or [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) API method, respectively, and include the new configuration in the `nodeGroupSpec` request block:
+   To update the `{{ OS }}` host group configuration, use the [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#UpdateOpenSearchNodeGroup) gRPC API call.
+
+   To update the `Dashboards` host group configuration, use the [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#UpdateDashboardsNodeGroup) gRPC API call.
+
+   Provide a new configuration under `nodeGroupSpec` in the request:
 
    * [Host class](../concepts/instance-types.md) in the `resources.resourcePresetId` parameter.
    * [Disk type](../concepts/storage.md) in the `resources.diskTypeId` parameter.
@@ -123,9 +131,16 @@ When deleting a host group, the following limitation applies: you can't delete t
 
 - API
 
-   To delete an `{{ OS }}` or `Dashboards` host group, use the [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) or [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) API method, respectively, and include the following in the request:
+   To delete a group of `{{ OS }}` hosts, use the [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#DeleteOpenSearchNodeGroup) gRPC API call.
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To delete a group of `Dashboards` hosts, use the [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#DeleteDashboardsNodeGroup) gRPC API call.
+
+   Pass the following in the request:
+
+   * Cluster ID in the `clusterID` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+
    * Name of the host group to delete, in the `name` parameter.
 
 {% endlist %}

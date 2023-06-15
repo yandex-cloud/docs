@@ -2,11 +2,30 @@
 
 ## Current version {#latest-release}
 
+## Version 0.106.0 (19/05/23) {#version0.106.00}
+
+### Changes to the CLI {#cli}
+
+* Added the `--force-authn` flag to the `yc organization-manager federation saml` command.
+* Added the `fed-auth-browser-skip` configuration option to skip a confirmation that a browser is opened (by pressing **Enter**) when authenticating as a federated user. The option value can be `true` or `false`.
+
+#### Changes to the CLI {#cli}
+
+#### {{ managed-k8s-name }} {#k8s}
+
+* Added the `audit-enabled` flag to the `--master-logging` parameter to enable or disable uploading {{ k8s }} cluster audit logs to {{ cloud-logging-full-name }}.
+
+#### {{ backup-name }} {#backup}
+
+* Added groups of `yc backup` commands to manage VM connections to {{ backup-full-name }}, VM backups, and backup policies.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.105.0 (15/05/23) {#version0.105.00}
 
 #### Changes to the CLI {#cli}
 
-* Added the `--impersonate-service-account-id` parameter to perform actions on behalf of a service account. This parameter is used to provide the service account ID. The value data type is string.
+* Added the `--impersonate-service-account-id` parameter to perform actions on behalf of a service account. The parameter is used to provide the service account ID. The value data type is string.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -22,9 +41,7 @@ Added the `--container-network-settings` parameter to the `yc k8s node-group cre
 
 **{{ mkf-name }}**
 
-* Added support for {{ KF }} 3.x, starting from 3.3.
-
-## Previous releases {#previous-releases}
+* Added support for {{ KF }} 3.x, starting from version 3.3.
 
 ### Version 0.104.0 (19/04/23) {#version0.104.00}
 
@@ -1203,6 +1220,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
+
    Added the `--network-acceleration-type` flag, which lets you specify a network type for node groups: standard or software-accelerated.
 
 * `yc managed-kubernetes cluster create` command.
@@ -1853,7 +1871,7 @@ Added support for {{ api-gw-full-name }}.
 
 ##### {{ vpc-name }} {#vpc}
 
-*  `yc vpc subnet create` and `yc vpc subnet update` commands.
+* `yc vpc subnet create` and `yc vpc subnet update` commands.
 
    Added flags for configuring DHCP options: `--domain-name`, `--domain-name-server`, and `--ntp-server`.
 

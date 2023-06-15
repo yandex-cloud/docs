@@ -50,6 +50,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](data/connect-to-postgresql.md)
 * [{#T}](data/connect-to-ya-disk.md)
 * [{#T}](data/connect-to-google-drive.md)
+* [{#T}](data/connect-to-ydb.md)
 
 ## Развертывание эксплуатации моделей {#deploy}
 

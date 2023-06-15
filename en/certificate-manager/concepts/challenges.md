@@ -72,13 +72,20 @@ To check the rights for the domain `example.com` automatically:
 1. In the [management console]({{ link-console-main }}), select the folder where the certificate was created.
 1. In the list of services, select **{{ certificate-manager-name }}**.
 1. In the certificate list, please select the certificate that is involved in the check.
-1. Under **Check rights for domains**, look at the value for the domain in the **Value** field.
+1. Under **Check rights for domains**, in the section with the `CNAME` record type, check out the record value for the domain in the **Value** field.
 1. Have your DNS provider or your own DNS server host a `CNAME` record to delegate management privileges to the DNS zone used for the check:
 
    ```
    _acme-challenge.example.com CNAME <Value>
    ```
-The `<Value>` string is created using the following template: `<Certificate ID>.cm.yandexcloud.net.`
+   The `<Value>` string is created using the following template: `<Certificate ID>.cm.yandexcloud.net.`
+
+1. Under **Check rights for domains**, in the section with the `CNAME` record type, click **Create record** in the **Cloud DNS** field. In the window that opens:
+   1. If the current folder contains a suitable DNS zone, it will be automatically inserted into the **Zone** field. If there is no appropriate DNS zone, click **Create zone** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
+   1. Click **Create**.
+
+   {% include [checking-domain-rights](../../_includes/certificate-manager/checking-domain-rights.md) %}
+
 
 ### Adding a TXT record {#txt}
 
@@ -86,12 +93,18 @@ To check the rights for the `example.com` domain:
 1. In the [management console]({{ link-console-main }}), select the folder where the certificate was created.
 1. In the list of services, select **{{ certificate-manager-name }}**.
 1. In the certificate list, please select the certificate that is involved in the check.
-1. Under **Check rights for domains**, look at the value for the domain in the **Value** field.
+1. Under **Check rights for domains**, in the section with the `TXT` record type, check out the record value for the domain in the **Value** field.
 1. With your DNS provider or on your own DNS server, host a `TXT` record:
 
    ```
    _acme-challenge.example.com. IN TXT <Value>
    ```
+1. Under **Check rights for domains**, in the section with the `TXT` record type, click **Create record** in the **Cloud DNS** field. In the window that opens:
+   1. If the current folder contains a suitable DNS zone, it will be automatically inserted into the **Zone** field. If there is no appropriate DNS zone, click **Create zone** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
+   1. Click **Create**.
+
+   {% include [checking-domain-rights](../../_includes/certificate-manager/checking-domain-rights.md) %}
+
 1. After the certificate status changes to `Issued`, delete the `TXT` record you added from the DNS server.
 
 ## Validating rights automatically {#auto}

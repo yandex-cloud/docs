@@ -3,13 +3,13 @@ title: "Relationships between {{ mkf-full-name }} resources"
 description: "{{ KF }} is a distributed publish-subscribe messaging system for streaming data between applications. {{ mkf-full-name }} helps you deploy and maintain {{ KF }} 2.8, 3.0, 3.1, and 3.2 server clusters in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts, where topics and topic partitions are located."
 ---
 
-# Relationships between resources in {{ mkf-name }}
+# Resource relationships in {{ mkf-name }}
 
 With {{ mkf-full-name }}, you can deploy and maintain {{ KF }} server clusters {{ versions.console.str }} in the {{ yandex-cloud }} infrastructure.
 
 {{ KF }} is a distributed inter-application communication system that uses the "publication-subscription" principle.
 
-Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md), where [topics](topics.md) and topic partitions are located. Cluster hosts may reside in different availability zones. Learn more about the geo scope of {{ yandex-cloud }} in [Yandex Cloud overview](../../overview/concepts/geo-scope.md).
+Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md), where [topics](topics.md) and topic partitions are located. Cluster hosts may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones [here](../../overview/concepts/geo-scope.md).
 
 If all broker hosts are created in the same availability zone, you cannot change their number.
 
@@ -28,9 +28,9 @@ You can change the {{ ZK }} host parameters using the [CLI](../operations/cluste
 
 {% note info %}
 
-The following characteristics are set for the {{ ZK }} hosts by default:
+{{ ZK }} hosts get the following specs by default:
 
-* The `b2.medium` [host class](instance-types.md).
+* `b2.medium` [host class](instance-types.md).
 * Disk size: 10 GB.
 * [Disk type](storage.md): Fast network disks.
 
@@ -54,3 +54,16 @@ VMs corresponding to cluster hosts can be hosted:
 
 
 For more information, see the [{{ KF }} documentation](https://kafka.apache.org/intro).
+
+## Cluster fault tolerance {#fault-tolerance}
+
+To make sure the cluster data is stored in a reliable way and continuously available:
+
+* Cluster must have at least three broker hosts.
+* Each of the three availability zones must host at least one broker host.
+* Cluster topics must have the following parameters:
+
+   * **Replication factor**: `3`.
+   * **Minimum number of in-sync replicas**: `2`.
+
+Learn more in the [Service Level Agreement (SLA)]({{ link-sla-kafka }}).
