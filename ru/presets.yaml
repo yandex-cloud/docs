@@ -5302,6 +5302,7 @@ default:
         folder: Каталог
         general: Общие настройки
         link: Привязать
+        manage-labels: Управление метками
         members: Участники
         more: Еще
         name: Имя

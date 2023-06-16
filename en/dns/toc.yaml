@@ -103,6 +103,6 @@ items:
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/dns

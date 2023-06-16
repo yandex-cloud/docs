@@ -598,7 +598,7 @@ flow_control:  # необязательный
         # Выходной формат, в который нужно преобразовать входящий набор метрик.
         # Должен быть указан ровно один из вложенных элементов.
         format:  # обязательный
-          # Преобразовать в json формат Yandex Monitoring (https://cloud.yandex.ru/docs/monitoring/api-ref/MetricsData/write)
+          # Преобразовать в json формат {{ monitoring-full-name }} (https://cloud.yandex.ru/docs/monitoring/api-ref/MetricsData/write)
           json:
               # Нужно ли склеивать метрики с одним и тем же набором меток.
               # Возможные значения: default (не склеивать), merge_metrics (склеивать).

@@ -20,28 +20,6 @@ You can also copy the key using the command line:
 
 {% list tabs %}
 
-- Windows
-
-   1. Run `cmd.exe` or `powershell.exe`.
-   1. Output the file contents:
-
-      ```bash
-      type C:\Users\<username>\.ssh\<key_name>.pub
-      ```
-
-      Where:
-      * `<username>`: Your Windows account name, such as `User`.
-      * `<key_name>`: Key name, such as `id_ed25519` or `id_rsa`.
-
-      The command will output the public key. To copy the key, select and right-click it. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz`.
-   1. You can copy the file contents right to the clipboard:
-
-      ```bash
-      type C:\Users\User\.ssh\id_ed25519.pub | clip
-      ```
-
-      Paste the public key into the **SSH key** field when creating a new VM in the [management console]({{ link-console-main }}).
-
 - Linux
 
    1. Run the terminal.
@@ -78,6 +56,28 @@ You can also copy the key using the command line:
 
       ```bash
       cat ~/.ssh/id_ed25519.pub | pbcopy
+      ```
+
+      Paste the public key into the **SSH key** field when creating a new VM in the [management console]({{ link-console-main }}).
+
+- Windows
+
+   1. Run `cmd.exe` or `powershell.exe`.
+   1. Output the file contents:
+
+      ```bash
+      type C:\Users\<username>\.ssh\<key_name>.pub
+      ```
+
+      Where:
+      * `<username>`: Your Windows account name, such as `User`.
+      * `<key_name>`: Key name, such as `id_ed25519` or `id_rsa`.
+
+      The command will output the public key. To copy the key, select and right-click it. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz`.
+   1. You can copy the file contents right to the clipboard:
+
+      ```bash
+      type C:\Users\User\.ssh\id_ed25519.pub | clip
       ```
 
       Paste the public key into the **SSH key** field when creating a new VM in the [management console]({{ link-console-main }}).
@@ -166,8 +166,13 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
          ![ssh_add_ip](../../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
-      1. In the tree on the left, select **Connection** - **SSH** - **Auth**.
+      1. In the tree on the left, select **Connection** → **SSH** → **Auth**.
       1. Set the **Allow agent forwarding** option.
+
+         ![ssh_choose_private_key](../../../_assets/compute/ssh-putty/authentication_parameters.png)
+
+      1. In the tree on the left, select **Connection** → **SSH** → **Auth** → **Credentials**.
+
       1. In the **Private key file for authentication** field, select the file with the private key.
 
          ![ssh_choose_private_key](../../../_assets/compute/ssh-putty/ssh_choose_private_key.png)
@@ -180,7 +185,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
          ![ssh_unknown_host_warning](../../../_assets/compute/ssh-putty/ssh_unknown_host_warning.png)
 
-         Click **Yes**. A terminal window opens suggesting that you enter the login of the user on whose behalf the connection is being established. Type the user name that you specified when creating the VM and press **Enter**. If everything is configured correctly, the connection with the server will be established.
+         Click **Accept**. A terminal window opens suggesting that you enter the login of the user on whose behalf the connection is being established. Type the username that you specified when creating the VM and press **Enter**. If everything is configured correctly, the connection with the server will be established.
 
          ![ssh_login](../../../_assets/compute/ssh-putty/ssh_login.png)
 

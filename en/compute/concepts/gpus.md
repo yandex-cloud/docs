@@ -5,7 +5,7 @@ description: "GPU (Graphics Processing Unit) is a graphics processor that outper
 
 # Graphics accelerators (GPUs)
 
-{{ compute-name }} provides graphics accelerators (GPUs) for different VM [configurations](#config). GPUs outperform CPUs in terms of processing certain types of data and can be used for complex computing.
+{{ compute-name }} provides graphics accelerators (GPUs) for different VM [configurations](#config). GPUs outperform CPUs in terms of processing certain types of data and can be used for complex computing. To make problem solving even more efficient and convenient, you can use automatic allocation of resources in [{{ ml-platform-full-name }}](../../datasphere/concepts/).
 
 In {{ compute-name }}, you can use the following GPUs:
 * [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) with 32 GB HBM2 (High Bandwidth Memory). 
@@ -57,7 +57,7 @@ The computing resources may have the following configurations:
 * {{ v100-broadwell }} (`gpu-standard-v1`):
 
   | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
-  | --- | --- | --- | --- |
+  --- | --- | --- | ---
   | 1 | 32 | 8 | 96 |
   | 2 | 64 | 16 | 192 |
   | 4 | 128 | 32 | 384 |
@@ -65,7 +65,7 @@ The computing resources may have the following configurations:
 * {{ v100-cascade-lake }} (`gpu-standard-v2`):
 
   | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
-  | --- | --- | --- | --- |
+  --- | --- | --- | ---
   | 1 | 32 | 8 | 48 |
   | 2 | 64 | 16 | 96 |
   | 4 | 128 | 32 | 192 |
@@ -75,7 +75,7 @@ The computing resources may have the following configurations:
 * {{ a100-epyc }} (`gpu-standard-v3`):
 
   | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
-  | --- | --- | --- | --- |
+  --- | --- | --- | ---
   | 1 | 80 | 28 | 119 |
   | 2 | 160 | 56 | 238 |
   | 4 | 320 | 112 | 476 |
@@ -85,7 +85,7 @@ The computing resources may have the following configurations:
 * {{ t4-ice-lake }} (`gpu-standard-v3-t4`):
 
   | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
-  | --- | --- | --- | --- |
+  --- | --- | --- | ---
   | 1 | 16 | 4 | 16 |
   | 1 | 16 | 8 | 32 |
   | 1 | 16 | 16 | 64 |

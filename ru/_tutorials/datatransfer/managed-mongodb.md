@@ -9,6 +9,12 @@
 
         Укажите параметры подключения к кластеру-источнику.
 
+    {% note info %}
+
+    Так как сервис не поддерживает перенос [коллекций Time Series]({{ mg.docs.comd }}/core/timeseries-collections/), необходимо [исключить](../../data-transfer/operations/endpoint/source/mongodb.md#additional-settings) такие коллекции в настройках эндпоинта.
+
+    {% endnote %}
+
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MONGO_V2 }}`.

@@ -2,19 +2,17 @@ Some commands require that you specify unique IDs for your cloud and folder. You
 
 1. Specify the cloud in your profile:
 
-    ```
-    yc config set cloud-id <cloud ID>
-    ```
+   ```bash
+   yc config set cloud-id <cloud_ID>
+   ```
 
-    Or [run commands](../cli/concepts/index.md#manage-properties) with the `--cloud-id` parameter.
-
+   Or [run commands](../cli/concepts/index.md#manage-properties) with the `--cloud-id` parameter.
 1. Specify a folder in the profile:
 
-    ```
-    yc config set folder-id <folder ID>
+    ```bash
+    yc config set folder-id <folder_ID>
     ```
 
-    Or use the `--folder-id` parameter [in your commands](../cli/concepts/index.md#manage-properties).
+    Or [run commands](../cli/concepts/index.md#manage-properties) with the `--folder-id` parameter.
 
 All operations in this profile will be performed on behalf of the linked service account. You can [change the profile parameters](../cli/operations/profile/manage-properties.md) or [switch to another profile](../cli/operations/profile/profile-activate.md).
-

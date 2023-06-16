@@ -31,8 +31,8 @@ description: "В этой инструкции вы научитесь созд�
 1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
    ```bash
-   sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
-   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
+   sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
+   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
    echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
    /etc/apt/sources.list.d/clickhouse.list
    ```
@@ -40,7 +40,7 @@ description: "В этой инструкции вы научитесь созд�
 1. Установите зависимости и клиентское приложение `clickhouse-client`:
 
    ```bash
-   sudo apt update && sudo apt install -y clickhouse-client
+   sudo apt update && sudo apt install --yes clickhouse-client
    ```
 
 1. Загрузите файл конфигурации для `clickhouse-client`:

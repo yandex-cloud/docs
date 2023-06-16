@@ -13,6 +13,8 @@ items:
             href: operations/community/create.md
           - name: Добавить пользователя в сообщество
             href: operations/community/add-user.md
+          - name: Управление метками сообщества
+            href: operations/community/manage-community-labels.md
           - name: Добавить канал связи
             href: operations/community/link-channel.md
           - name: Привязать платежный аккаунт
@@ -27,6 +29,8 @@ items:
             href: operations/projects/create.md
           - name: Добавить пользователя в проект
             href: operations/projects/add-user.md
+          - name: Управление метками проекта
+            href: operations/projects/manage-project-labels.md
           - name: Выбрать версию Python
             href: operations/projects/python-version.md
           - name: Изменить размер хранилища проекта

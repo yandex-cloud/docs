@@ -291,7 +291,7 @@ items:
             href: concepts/performance-levels.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md
-          - name: Network on a VM
+          - name: VM networking
             href: concepts/network.md
           - name: Software-accelerated network
             href: concepts/software-accelerated-network.md

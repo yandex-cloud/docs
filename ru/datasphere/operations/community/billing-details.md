@@ -13,6 +13,7 @@
    * **Label key** — несколько значений можно указать одновременно:
      * `project_id` — статистика по проектам.
      * `resource_id` — статистика по сообществам.
+     * `label.user_labels` — статистика по пользовательским [меткам](../../../resource-manager/concepts/labels.md).
 
 {% note warning %}
 

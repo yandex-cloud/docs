@@ -1,11 +1,19 @@
 ```bash
 #cloud-config
 users:
-  - name: <user name>
+  - name: <username>
     groups: sudo
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com
-      - ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop
+      - <public_SSH_key_1>
+      - <public_SSH_key_2>
+      - ...
 ```
+
+Where:
+
+* `name`: VM username.
+* `ssh-authorized-keys`: List of public SSH keys for VM access.
+
+   Sample key: `ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop`.
