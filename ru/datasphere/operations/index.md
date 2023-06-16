@@ -9,6 +9,7 @@ description: "Страница содержит все инструкции дл
 
 * [{#T}](community/create.md)
 * [{#T}](community/add-user.md)
+* [{#T}](community/manage-community-labels.md)
 * [{#T}](community/link-channel.md)
 * [{#T}](community/link-ba.md)
 * [{#T}](community/billing-details.md)
@@ -18,6 +19,7 @@ description: "Страница содержит все инструкции дл
 
 * [{#T}](projects/create.md)
 * [{#T}](projects/add-user.md)
+* [{#T}](projects/manage-project-labels.md)
 * [{#T}](projects/python-version.md)
 * [{#T}](projects/storage-resize.md)
 * [{#T}](projects/update.md)

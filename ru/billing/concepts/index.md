@@ -17,4 +17,5 @@ description: "В биллинге {{ yandex-cloud }} используются с
 * [{#T}](serverless-free-tier.md)
 * [{#T}](budget.md)
 * [{#T}](contract.md)
+  * [{#T}](limits.md)
 * [{#T}](glossary.md)

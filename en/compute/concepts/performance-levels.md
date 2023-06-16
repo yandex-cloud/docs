@@ -26,14 +26,14 @@ Minimum configurations are specified for the 5% performance level, while maximum
 * Intel Broadwell platform (`standard-v1`):
 
     | Configuration | vCPU | RAM, GB |
-    |  --- | --- | --- |
+    --- | --- | ---
     | Min | 2 | 1 |
     | Max | 32 | 256 |
 
 * Intel Cascade Lake platform (`standard-v2`):
 
     | Configuration | vCPU | RAM, GB |
-    | --- | --- | --- |
+    --- | --- | ---
     | Min | 2 | 0.5 |
     | Max | 80 | 1280 |
 
@@ -41,24 +41,32 @@ Minimum configurations are specified for the 5% performance level, while maximum
 * Intel Ice Lake (`standard-v3`):
 
     | Configuration | vCPU | RAM, GB |
-    | --- | --- | --- |
+    --- | --- | ---
     | Min | 2 | 1 |
     | Max | 96 | 640 |
 
+
+* Intel Ice Lake Compute-Optimized (`highfreq-v3`):
+
     {% note info %}
 
-    The configuration with the maximum number of vCPUs (96) and the maximum amount of RAM (640 GB) at the same time is not available for Intel Ice Lake. If a VM has 96 vCPUs, the maximum amount of RAM is 576 GB. If a VM's RAM is 640 GB, it may have a maximum of 80 vCPUs.
+   To get access to the `highfreq-v3` platform, contact your account manager.
 
     {% endnote %}
 
-The computing resources may have the following configurations:
+   | Configuration | vCPU | RAM, GB |
+   --- | --- | ---
+   | Min | 2 | 2 |
+   | Max | 56 | 460 |
 
+
+The computing resources may have the following configurations:
 
 
 * Intel Broadwell platform (`standard-v1`):
 
     | Performance</br> level | vCPU | RAM per core, GB |
-    | --- | --- | --- |
+    --- | --- | ---
     | 5% | 2, 4 | 0.5, 1, 1.5, 2 |
     | 20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
     | 100% | 2, 4, 6, 8, 10, 12, 14,<br> 16, 20, 24, 28, 32 | 1, 2, 3, 4, 5, 6, 7, 8 |
@@ -66,7 +74,7 @@ The computing resources may have the following configurations:
 * Intel Cascade Lake platform (`standard-v2`):
 
     | Performance<br> level | vCPU | RAM per core, GB |
-    | --- | --- | --- |
+    --- | --- | ---
     | 5% | 2, 4 | 0.25, 0.5, 1, 1.5, 2 |
     | 20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
     | 50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
@@ -76,7 +84,7 @@ The computing resources may have the following configurations:
 * Intel Ice Lake (`standard-v3`):
 
     | Performance<br> level | vCPU | RAM per core, GB |
-    | --- | --- | --- |
+    --- | --- | ---
     | 20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
     | 50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
     | 100% | 2, 4, 6, 8, 10, 12, 14,<br> 16, 20, 24, 28, 32, 36,<br> 40 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,<br> 11, 12, 13, 14, 15, 16 |

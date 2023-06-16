@@ -5294,6 +5294,7 @@ default:
         folder: Folder
         general: General settings
         link: Link
+        manage-labels: Manage labels
         members: Members
         more: More
         name: Name

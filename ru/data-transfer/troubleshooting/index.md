@@ -65,6 +65,8 @@
 
 {% include [sharded](../../_includes/data-transfer/troubles/mongodb/sharded.md) %}
 
+{% include [timeseries](../../_includes/data-transfer/troubles/mongodb/timeseries.md) %}
+
 ## {{ MY }} {#mysql}
 
 {% include [binlog-size](../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}

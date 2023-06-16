@@ -24,7 +24,7 @@ Disks take up storage space, which incurs additional fees. For more information,
 
 In case you create a disk from a snapshot or image, its information will contain the ID of its source. The license IDs (`product_ids`) used to calculate the disk use cost are also inherited from the source.
 
-## Disk types {#disks_types}
+## Disk types {#disks-types}
 
 {{ yandex-cloud }} VMs can use the following disk types:
 * Network SSD (`network-ssd`): Fast network drive, which is an SSD based network block storage.

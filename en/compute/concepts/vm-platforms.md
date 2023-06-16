@@ -5,15 +5,29 @@
 ## Standard platforms {#standard-platforms}
 
 | Platform | Processor | Max number of cores (vCPUs)</br> per VM | CPU base</br> clock rate (GHz) |
-| --- | --- | --- | --- |
+--- | --- | --- | ---
 | Intel Broadwell</br>(`standard-v1`) | [Intel® Xeon® Processor E5-2660 v4](https://ark.intel.com/content/www/us/en/ark/products/91772/intel-xeon-processor-e5-2660-v4-35m-cache-2-00-ghz.html) | 32 | 2.00 |
 | Intel Cascade Lake</br>(`standard-v2`) | [Intel Xeon Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 80 | 2.10 |
 | Intel Ice Lake</br>(`standard-v3`) | [Intel Xeon Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 96 | 2.00 |
 
+
+## High-performance platforms {#compute-optimized-platforms}
+
+{% note info %}
+
+To get access to high-performance platforms, contact your account manager.
+
+{% endnote %}
+
+| Platform | Processor | Max number of cores (vCPUs)</br> per VM | CPU base</br> clock rate (GHz) |
+--- | --- | --- | ---
+| Ice Lake Compute-optimized</br>(`highfreq-v3`) | [Intel® Xeon® Processor 6354](https://ark.intel.com/content/www/us/en/ark/products/212460/intel-xeon-gold-6354-processor-39m-cache-3-00-ghz.html) | 56 | 3.00 |
+
+
 ## Platforms with GPUs {#gpu-platforms}
 
 | Platform | Graphics</br> accelerator | Processor | Specifications |
-| --- | --- | --- | --- |
+--- | --- | --- | ---
 | Intel Broadwell with</br>NVIDIA® Tesla® V100</br>(`gpu-standard-v1`) | [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) | [Intel Xeon</br>Processor E5-2660 v4](https://ark.intel.com/content/www/us/en/ark/products/91772/intel-xeon-processor-e5-2660-v4-35m-cache-2-00-ghz.html) | **Max number of GPUs per VM**: 4 </br> **Number vCPUs per GPU**: 8 </br> **RAM amount per GPU**: 96 GB |
 | Intel Cascade Lake</br>with NVIDIA® Tesla® V100</br>(`gpu-standard-v2`) | [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) | [Intel Xeon Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | **Max number of GPUs per VM**: 8 </br> **Number vCPUs per GPU**: 8 </br> **RAM per GPU**: 48 GB |
 | Intel Ice Lake with</br>NVIDIA® Tesla® T4</br>(`standard-v3-t4`) | [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4//) | [Intel Xeon Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | **Max number of GPUs per VM**: 1 </br> **Number of vCPUs per GPU**: 32 </br> **RAM per GPU**: 128 GB |

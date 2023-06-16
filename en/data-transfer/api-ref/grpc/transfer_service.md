@@ -171,15 +171,17 @@ settings | **[EndpointSettings](#EndpointSettings)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `kafka_target` or `mongo_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target` or `mongo_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource)**<br> 
+&nbsp;&nbsp;ydb_source | **[endpoint.YdbSource](#YdbSource)**<br> 
 &nbsp;&nbsp;kafka_source | **[endpoint.KafkaSource](#KafkaSource)**<br> 
 &nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource)**<br> 
 &nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource)**<br> 
 &nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget)**<br> 
 &nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget)**<br> 
 &nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget)**<br> 
+&nbsp;&nbsp;ydb_target | **[endpoint.YdbTarget](#YdbTarget)**<br> 
 &nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget)**<br> 
 
@@ -310,6 +312,19 @@ rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... <ul><li>`BEFORE
 collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+
+
+### YdbSource {#YdbSource}
+
+Field | Description
+--- | ---
+database | **string**<br>Path in YDB where to store tables 
+instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
+service_account_id | **string**<br> 
+paths[] | **string**<br> 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+security_groups[] | **string**<br>Security groups 
+sa_key_content | **string**<br>Authorization Key 
 
 
 ### KafkaSource {#KafkaSource}
@@ -620,6 +635,20 @@ value | **oneof:** `string_value`<br>
 &nbsp;&nbsp;string_value | **string**<br> 
 
 
+### YdbTarget {#YdbTarget}
+
+Field | Description
+--- | ---
+database | **string**<br>Path in YDB where to store tables 
+instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
+service_account_id | **string**<br> 
+path | **string**<br>Path extension for database, each table will be layouted into this path 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+security_groups[] | **string**<br>Security groups 
+sa_key_content | **string**<br>SA content 
+cleanup_policy | enum **YdbCleanupPolicy**<br>Cleanup policy 
+
+
 ### KafkaTarget {#KafkaTarget}
 
 Field | Description
@@ -737,15 +766,17 @@ settings | **[EndpointSettings](#EndpointSettings1)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `kafka_target` or `mongo_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target` or `mongo_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource1)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource1)**<br> 
+&nbsp;&nbsp;ydb_source | **[endpoint.YdbSource](#YdbSource1)**<br> 
 &nbsp;&nbsp;kafka_source | **[endpoint.KafkaSource](#KafkaSource1)**<br> 
 &nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource1)**<br> 
 &nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource1)**<br> 
 &nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget1)**<br> 
 &nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget1)**<br> 
 &nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget1)**<br> 
+&nbsp;&nbsp;ydb_target | **[endpoint.YdbTarget](#YdbTarget1)**<br> 
 &nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget1)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget1)**<br> 
 
@@ -876,6 +907,19 @@ rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... <ul><li>`BEFORE
 collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+
+
+### YdbSource {#YdbSource1}
+
+Field | Description
+--- | ---
+database | **string**<br>Path in YDB where to store tables 
+instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
+service_account_id | **string**<br> 
+paths[] | **string**<br> 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+security_groups[] | **string**<br>Security groups 
+sa_key_content | **string**<br>Authorization Key 
 
 
 ### KafkaSource {#KafkaSource1}
@@ -1184,6 +1228,20 @@ Field | Description
 --- | ---
 value | **oneof:** `string_value`<br>
 &nbsp;&nbsp;string_value | **string**<br> 
+
+
+### YdbTarget {#YdbTarget1}
+
+Field | Description
+--- | ---
+database | **string**<br>Path in YDB where to store tables 
+instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
+service_account_id | **string**<br> 
+path | **string**<br>Path extension for database, each table will be layouted into this path 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+security_groups[] | **string**<br>Security groups 
+sa_key_content | **string**<br>SA content 
+cleanup_policy | enum **YdbCleanupPolicy**<br>Cleanup policy 
 
 
 ### KafkaTarget {#KafkaTarget1}
