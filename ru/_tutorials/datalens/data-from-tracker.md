@@ -106,7 +106,7 @@ description: "Для визуализация данных из {{ tracker-short
 1. Нажмите кнопку **Продолжить**.
 1. В поле **Способ** нажмите кнопку **ZIP-Архив**.
 1. Прикрепите [тестовый архив](https://github.com/yandex-cloud/yc-architect-solution-library/raw/main/yc-tracker/tracker-data-import/build/tracker-data-import.zip).
-1. В поле **Точка входа** укажите `tracker-import.handler`.
+1. В поле **Точка входа** укажите `tracker_import.handler`.
 1. В разделе **Параметры** укажите:
     * **Таймаут, с** — `60`;
     * **Память** — `1024`;
