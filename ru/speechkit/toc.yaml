@@ -4,7 +4,17 @@ items:
   - name: Обзор технологий {{ speechkit-name }}
     href: overview.md
   - name: Начало работы
-    href: quickstart.md
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Как распознать короткие аудиофайлы в API v2
+        href: quickstart/stt-quickstart-v2.md
+      - name: Как распознать потоковое аудио в API v3
+        href: quickstart/stt-quickstart-v3.md
+      - name: Как синтезировать речь в API v1
+        href: quickstart/tts-quickstart-v1.md
+      - name: Как синтезировать речь в API v3
+        href: quickstart/tts-quickstart-v3.md
   - name: Распознавание речи
     items:
       - name: О технологии

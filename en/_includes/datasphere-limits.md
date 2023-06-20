@@ -22,6 +22,7 @@
 
 ^1^ quotas can be increased after you deposit at least $10 to your billing account or upon request to the support team.
 
+
 #### Limits {#datasphere-limits}
 
 | Type of limit | Value |

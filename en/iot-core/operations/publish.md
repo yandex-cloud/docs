@@ -16,7 +16,7 @@ To receive messages, you need to subscribe to the sender. For information about 
 
 {% include [registry-and-device-topic-note](../../_includes/iot-core/registry-and-device-topic-note.md) %}
 
-{% include [iot-before-begin](../../_includes/iot-core/iot-before-begin.md) %}
+{% include [iot-before-you-begin](../../_includes/iot-core/iot-before-you-begin.md) %}
 
 ## Sending a message with data {#pub-events}
 

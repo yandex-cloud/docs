@@ -397,6 +397,10 @@ items:
           Automatically copying objects from one {{ objstorage-name }} bucket to
           another
         href: tutorials/bucket-to-bucket.md
+      - name: Running computations on a schedule in {{ ml-platform-name }}
+        href: tutorials/regular-launch-datasphere.md
+      - name: Interactive debugging of {{ sf-name }} functions
+        href: tutorials/serverless-live-debug.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management
