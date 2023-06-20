@@ -46,6 +46,8 @@ items:
         href: tutorials/ci-cd-serverless.md
       - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
+      - name: Interactive debugging of {{ sf-name }} functions
+        href: tutorials/serverless-live-debug.md
   - name: Concepts
     items:
       - name: Relationships between service resources

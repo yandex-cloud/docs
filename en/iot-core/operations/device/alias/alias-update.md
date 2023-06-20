@@ -45,7 +45,6 @@ Aliases are linked to specific devices. To update an alias, you [need the device
      events: $devices/areqjd6un3afc3cefcvm/events
    ```
 
-
 - {{ TF }}
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}

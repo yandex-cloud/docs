@@ -11,7 +11,7 @@ To receive messages, you need to subscribe to the sender. For information about 
 
 {% include [registry-and-device-topic-note](../../../_includes/iot-core/registry-and-device-topic-note.md) %}
 
-{% include [iot-before-begin-with-mosquitto](../../../_includes/iot-core/iot-before-begin-with-mosquitto.md) %}
+{% include [iot-before-you-begin-with-mosquitto](../../../_includes/iot-core/iot-before-you-begin-with-mosquitto.md) %}
 
 ## Connecting to an MQTT server {#connect-mqtt-server}
 

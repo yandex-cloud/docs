@@ -79,13 +79,15 @@ service_account_id: ajefnb8427bhl9t0pvf8
 
 Справочники API генерируются из спецификаций, размещенных на GitHub.
 
-Некоторые поля первого уровня и вложенные в них поля также описаны  на русском языке  в разделах документации:
+Некоторые поля первого уровня и вложенные в них поля также описаны на русском языке в разделах документации:
 
 * [{#T}](instance-template.md) (поле `instance_template`).
 * [{#T}](variables-in-the-template.md) (поля `instance_template` и `variables`).
 * [{#T}](policies/allocation-policy.md) (поле `allocation_policy`).
 * [{#T}](policies/deploy-policy.md) (поле `deploy_policy`).
 * [{#T}](policies/scale-policy.md) (поле `scale_policy`).
+* [{#T}](autohealing.md) (поле `health_checks_spec`).
+* [{#T}](balancers.md) (поля `load_balancer_spec` и `application_load_balancer_spec`).
 
 Эти разделы обновляются вручную. Они могут быть менее актуальными, чем справочники API и спецификация на GitHub.
 

@@ -166,9 +166,9 @@
      1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
         ```
         resource "yandex_resourcemanager_cloud_iam_member" "admin" {
-          cloud_id   = "<идентификатор_облака>"
-          role        = "admin"
-          member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
+          cloud_id = "<идентификатор_облака>"
+          role     = "admin"
+          member   = "serviceAccount:<идентификатор_сервисного_аккаунта>"
         }
         ```
 

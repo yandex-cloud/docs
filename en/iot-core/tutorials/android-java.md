@@ -13,7 +13,6 @@ Once connected, you can exchange messages between your device and registry:
 * [Subscribe a device or registry to receive messages](../operations/subscribe.md).
 
 To connect to {{ iot-full-name }} and start messaging:
-* [Get started](#before-you-begin)
 * [Create the required {{ iot-full-name }} resources](#resources)
     * [Create a registry and add a certificate to it](#registry)
     * [Create a device and add a certificate to it](#device)

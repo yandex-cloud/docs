@@ -13,6 +13,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
   mkf-full-name: Yandex Managed Service for Apache Kafka®
+  maf-full-name: Yandex Managed Service for Airflow®
   mes-full-name: Yandex Managed Service for Elasticsearch
   mos-full-name: Yandex Managed Service for OpenSearch
   mms-full-name: Yandex Managed Service for SQL Server
@@ -91,6 +92,7 @@ default:
   mmy-name: Managed Service for MySQL
   mrd-name: Managed Service for Redis
   mkf-name: Managed Service for Apache Kafka®
+  maf-name: Managed Service for Apache Airflow®
   mes-name: Managed Service for Elasticsearch
   mos-name: Managed Service for OpenSearch
   mms-name: Managed Service for SQL Server
@@ -166,6 +168,7 @@ default:
   mrd-short-name: Managed Service for Redis
   mmy-short-name: Managed Service for MySQL
   mkf-short-name: Managed Service for Apache Kafka®
+  maf-short-name: Managed Service for Apache Airflow®
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
   mos-short-name: Managed Service for OpenSearch
@@ -405,6 +408,7 @@ default:
   GLR: GitLab Runner
   GP: Greenplum®
   KF: Apache Kafka®
+  AF: Apache Airflow®
   KFC: Kafka Connect
   metrika: Яндекс Метрика
   metrika-pro: Метрика Про
@@ -3424,6 +3428,7 @@ default:
             button_create: Создать
             button_edit: Сохранить
             button_instance_empty-create: Задать
+            field_alb-pre-checks-timeout: Время ожидания трафика
             field_auto-scale-type: Тип автомасштабирования
             field_cooldown-duration: Период стабилизации
             field_deletion-protection: Защита от удаления
@@ -3437,6 +3442,7 @@ default:
             field_enable-health-check: Активировать
             field_folder-id: Идентификатор каталога
             field_initial-size: Начальный размер группы
+            field_max-healthcheck-duration: Время ожидания первой проверки
             field_max-size: Максимальный размер группы
             field_measurement-duration: Промежуток измерения нагрузки
             field_metric: Метрика
@@ -3447,10 +3453,12 @@ default:
             field_metric-type: Тип метрики
             field_min-zone-size: Минимальное количество ВМ в зоне
             field_name: Имя
+            field_nlb-pre-checks-timeout: Время ожидания трафика
             field_scale-size: Размер
             field_scale-type: Тип
             field_service-account: Сервисный аккаунт
             field_target-group-attached: Создать целевую группу
+            field_target-group-description: Описание целевой группы
             field_target-group-name: Имя целевой группы
             field_warmup-duration: Время на разогрев ВМ
             field_zone: Зона доступности

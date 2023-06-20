@@ -9,7 +9,8 @@
 | Number of concurrent requests to containers per availability zone | 10 |
 | Total RAM for all running container instances per availability zone | 20 GB |
 | Total number of CPUs of all running container instances per availability zone | 10 |
-| Number of provisioned container instances per cloud | 2 |
+| Number of [provisioned container instances](../../serverless-containers/concepts/container.md#provisioned-instances) per cloud | 2 |
+| Number of [user networks](../../serverless-containers/concepts/networking.md##user-network) per cloud | 1 |
 
 #### Limits {#serverless-containers-limits}
 

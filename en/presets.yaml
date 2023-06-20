@@ -13,6 +13,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
   mkf-full-name: Yandex Managed Service for Apache Kafka®
+  maf-full-name: Yandex Managed Service for Apache Airflow®
   mes-full-name: Yandex Managed Service for Elasticsearch
   mos-full-name: Yandex Managed Service for OpenSearch
   mms-full-name: Yandex Managed Service for SQL Server
@@ -91,12 +92,13 @@ default:
   mmy-name: Managed Service for MySQL
   mrd-name: Managed Service for Redis
   mkf-name: Managed Service for Apache Kafka®
+  maf-name: Managed Service for Apache Airflow®
   mes-name: Managed Service for Elasticsearch
   mos-name: Managed Service for OpenSearch
   mms-name: Managed Service for SQL Server
   mgp-name: Managed Service for Greenplum®
   mgl-name: Managed Service for GitLab
-  monitoring-name: Yandex Monitoring
+  monitoring-name: Monitoring
   managed-prometheus-name: Managed Service for Prometheus
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
@@ -164,6 +166,7 @@ default:
   mrd-short-name: Managed Service for Redis
   mmy-short-name: Managed Service for MySQL
   mkf-short-name: Managed Service for Apache Kafka®
+  maf-short-name: Managed Service for Apache Airflow®
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
   mos-short-name: Managed Service for OpenSearch
@@ -399,6 +402,7 @@ default:
   GLR: GitLab Runner
   GP: Greenplum®
   KF: Apache Kafka®
+  AF: Apache Airflow®
   KFC: Kafka Connect
   MG: MongoDB
   MP: Metrics Provider
@@ -3414,6 +3418,7 @@ default:
             button_create: Create
             button_edit: Save
             button_instance_empty-create: Define
+            field_alb-pre-checks-timeout: Traffic timeout
             field_auto-scale-type: Autoscaling type
             field_cooldown-duration: Stabilization period
             field_deletion-protection: Deletion protection
@@ -3427,6 +3432,7 @@ default:
             field_enable-health-check: Activate
             field_folder-id: Folder ID
             field_initial-size: Initial group size
+            field_max-healthcheck-duration: First health check timeout
             field_max-size: Maximum group size
             field_measurement-duration: Utilization measurement period
             field_metric: Metric
@@ -3437,10 +3443,12 @@ default:
             field_metric-type: Metric type
             field_min-zone-size: Minimum number of instances per zone
             field_name: Name
+            field_nlb-pre-checks-timeout: Traffic timeout
             field_scale-size: Size
             field_scale-type: Type
             field_service-account: Service account
             field_target-group-attached: Create target group
+            field_target-group-description: Description of the target group
             field_target-group-name: Name of the target group
             field_warmup-duration: Instance warmup period
             field_zone: Availability zone

@@ -1,6 +1,29 @@
 title: Все решения
 href: index.yaml
 items:
+  - name: Billing
+    items:
+      - name: Все решения для Cloud Billing
+        href: billing/index.md
+      - name: Решения для известных проблем Cloud Billing
+        href: billing/known-issues/index.md
+        hidden: true
+      - name: >-
+          В детализации по биллинг-аккаунту стало неожиданно отображаться
+          потребление по сервису Cloud Logging
+        href: >-
+          billing/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md
+      - name: Не удается оформить резервируемое потребление для Compute cloud
+        href: billing/known-issues/unable-to-issue-a-new-cvos-position.md
+      - name: KMS-ключи продолжают тарифицироваться после удаления
+        href: billing/known-issues/kms-keys-are-charged-in-billing-after-deletion.md
+      - name: Примеры конфигураций и сценариев Cloud Billing
+        href: billing/how-to/index.md
+        hidden: true
+      - name: Особенности работы с грантами и промокодами в биллинге Yandex Cloud
+        href: billing/how-to/promocodes-and-grants-features-in-billing.md
+      - name: Как посмотреть стоимость потребления отдельных ресурсов
+        href: billing/how-to/how-to-view-separate-resource-consumption.md
   - name: Cloud CDN
     items:
       - name: Все решения для Cloud CDN
@@ -15,6 +38,36 @@ items:
           Ограничение доступа к бакету Object Storage диапазоном IP-адресов,
           принадлежащиих Cloud CDN
         href: cdn/how-to/permit-bucket-access-only-to-cdn-networks.md
+  - name: Cloud Functions
+    items:
+      - name: Все решения для Cloud Functions
+        href: functions/index.md
+      - name: Решения для известных проблем Cloud Functions
+        href: functions/known-issues/index.md
+        hidden: true
+      - name: >-
+          Ошибка CORS при обращении к API SpeechKit/Vision/Translate из
+          фронтенда веб-приложения
+        href: >-
+          functions/known-issues/cors-error-when-querying-api-fron-webapp-frontend.md
+      - name: Примеры конфигураций и сценариев Cloud Functions
+        href: functions/how-to/index.md
+        hidden: true
+  - name: Cloud Logging
+    items:
+      - name: Все решения для Cloud Logging
+        href: cloud-logging/index.md
+      - name: Решения для известных проблем Cloud Logging
+        href: cloud-logging/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Cloud Logging
+        href: cloud-logging/how-to/index.md
+        hidden: true
+      - name: >-
+          В детализации по биллинг-аккаунту стало неожиданно отображаться
+          потребление по сервису Cloud Logging
+        href: >-
+          cloud-logging/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md
   - name: Сompute Cloud
     items:
       - name: Все решения для Compute Cloud
@@ -22,11 +75,41 @@ items:
       - name: Решения для известных проблем Compute Cloud
         href: compute/known-issues/index.md
         hidden: true
+      - name: Не удается оформить резервируемое потребление для Compute cloud
+        href: compute/known-issues/unable-to-issue-a-new-cvos-position.md
+      - name: >-
+          Ошибка «Permission denied» при подключении к ВМ после ее создания
+          средствами Terraform
+        href: >-
+          compute/known-issues/permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md
+      - name: Отсутствие поддержки вложенной виртуализации
+        href: compute/known-issues/nested-virtualisation-is-not-supported.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: compute/how-to/index.md
         hidden: true
       - name: Варианты миграции образа виртуальной машины в Яндекс Облако
         href: compute/how-to/possible-vm-migration-scenarios.md
+      - name: >-
+          Получение информации о потреблении оперативной памяти виртуальными
+          машинами в Compute Cloud
+        href: compute/how-to/view-ram-usage-in-monitoring.md
+      - name: Создание виртуальных машин с несколькими сетевыми интерфейсами
+        href: compute/how-to/creating-instances-with-multiple-network-interfaces.md
+      - name: Уменьшение объема диска виртуальной машины
+        href: compute/how-to/shrink-instance-disk.md
+  - name: Container Registry
+    items:
+      - name: Все решения для Container Registry
+        href: container-registry/index.md
+      - name: Решения для известных проблем Container Registry
+        href: container-registry/known-issues/index.md
+        hidden: true
+      - name: Превышение лимитов на загрузку образов из каталога DockerHub
+        href: >-
+          container-registry/known-issues/docker-pull-limit-reached-in-dockerhub.md
+      - name: Примеры конфигураций и сценариев Container Registry
+        href: container-registry/how-to/index.md
+        hidden: true
   - name: DataLens
     items:
       - name: Все решения для DataLens
@@ -39,6 +122,73 @@ items:
         hidden: true
       - name: Устранение ошибки ERR.DS_API.FIELD.TITLE.CONFLICT в DataLens
         href: datalens/known-issues/err-ds_api_field-title_conflict.md
+  - name: DataSphere
+    items:
+      - name: Все решения для DataSphere
+        href: datasphere/index.md
+      - name: Решения для известных проблем DataSphere
+        href: datasphere/known-issues/index.md
+        hidden: true
+      - name: Устранение ошибок при запуске проекта
+        href: datasphere/known-issues/datasphere-projects-starting-issue.md
+      - name: Устранение ошибки Failed to deserialize variable
+        href: >-
+          datasphere/known-issues/failed-to-deserialize-variable-in-yandex-datasphere.md
+      - name: >-
+          В списке доступных расширений JupyterLab отсутствует расширение Table
+          of Contents
+        href: >-
+          datasphere/known-issues/toc-extension-is-missing-in-jupyterlab-extensions-catalog.md
+      - name: Примеры конфигураций и сценариев DataSphere
+        href: datasphere/how-to/index.md
+        hidden: true
+  - name: IAM
+    items:
+      - name: Все решения для IAM
+        href: iam/index.md
+      - name: Решения для известных проблем IAM
+        href: iam/known-issues/index.md
+        hidden: true
+      - name: >-
+          Ошибка назначения роли resource-manager.clouds.owner пользователю
+          Облака
+        href: >-
+          iam/known-issues/resource-manager_clouds_owner-is-only-applicable-to-resources-of-type-resource-manager_cloud.md
+      - name: Примеры конфигураций и сценариев IAM
+        href: iam/how-to/index.md
+        hidden: true
+  - name: KMS
+    items:
+      - name: Все решения для Cloud KMS
+        href: kms/index.md
+      - name: Решения для известных проблем KMS
+        href: kms/known-issues/index.md
+        hidden: true
+      - name: KMS-ключи продолжают тарифицироваться после удаления
+        href: kms/known-issues/kms-keys-are-charged-in-billing-after-deletion.md
+      - name: Примеры конфигураций и сценариев KMS
+        href: kms/how-to/index.md
+        hidden: true
+  - name: Kubernetes
+    items:
+      - name: Все решения для Managed Service for Kubernetes
+        href: managed-kubernetes/index.md
+      - name: Решения для известных проблем Managed Service for Kubernetes
+        href: managed-kubernetes/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Managed Service for Kubernetes
+        href: managed-kubernetes/how-to/index.md
+        hidden: true
+      - name: >-
+          Добавление и изменение SSH-ключей пользователей Linux на хостах группы
+          узлов Managed Services for Kubernetes
+        href: >-
+          managed-kubernetes/how-to/adding-and-changing-ssh-keys-for-linux-users-on-node-groups.md
+      - name: >-
+          Назначение статических внешних IP-адресов для узлов кластера Managed
+          Service for Kubernetes
+        href: >-
+          managed-kubernetes/how-to/assign-static-ip-address-for-worker-nodes-mk8s.md
   - name: Object Storage
     items:
       - name: Все решения для Object Storage
@@ -55,4 +205,68 @@ items:
           Ограничение доступа к бакету Object Storage диапазоном IP-адресов,
           принадлежащиих Cloud CDN
         href: storage/how-to/permit-bucket-access-only-to-cdn-networks.md
+      - name: Перенос содержимого бакета в другой бакет в пределах каталога
+        href: storage/how-to/moving-data-to-other-bucket-within-folder.md
+      - name: Работа напрямую с API Object Storage без использования SDK
+        href: storage/how-to/curl-api-request-example.md
+  - name: Managed PostgreSQL
+    items:
+      - name: Все решения для Managed PostgreSQL
+        href: managed-postgresql/index.md
+      - name: Решения для известных проблем Managed PostgreSQL
+        href: managed-postgresql/known-issues/index.md
+        hidden: true
+      - name: >-
+          Восстановление работоспособности кластера Managed Services for
+          PostgreSQL после перехода его дисков в режим Read Only
+        href: >-
+          managed-postgresql/known-issues/restoring-health-of-a-cluster-after-switching-its-disks-to-read-only-mode.md
+      - name: Примеры конфигураций и сценариев Managed PostgreSQL
+        href: managed-postgresql/how-to/index.md
+        hidden: true
+  - name: Serverless Containers
+    items:
+      - name: Все решения для Serverless Containers
+        href: serverless-containers/index.md
+      - name: Решения для известных проблем Serverless Containers
+        href: serverless-containers/known-issues/index.md
+        hidden: true
+      - name: >-
+          Вызов Serverless Container завершается с ошибкой Code 502 Message
+          Error during function invocation
+        href: >-
+          serverless-containers/known-issues/serverless-container-invoking-error-502.md
+      - name: Примеры конфигураций и сценариев Serverless Containers
+        href: serverless-containers/how-to/index.md
+        hidden: true
+  - name: SpeechKit
+    items:
+      - name: Все решения для SpeechKit
+        href: speechkit/index.md
+      - name: Решения для известных проблем SpeechKit
+        href: speechkit/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев SpeechKit
+        href: speechkit/how-to/index.md
+        hidden: true
+      - name: >-
+          Включение автоматической расстановки знаков препинания в распознанном
+          тексте
+        href: speechkit/how-to/enabling-punctuator-in-speechkit.md
+  - name: VPC
+    items:
+      - name: Все решения для VPC
+        href: vpc/index.md
+      - name: Решения для известных проблем VPC
+        href: vpc/known-issues/index.md
+        hidden: true
+      - name: >-
+          Ошибочно определяется географическая принадлежность IP-адресов
+          ресурсов Yandex Cloud
+        href: vpc/known-issues/external-ip-address-country-affiliation-issue.md
+      - name: Примеры конфигураций и сценариев VPC
+        href: vpc/how-to/index.md
+        hidden: true
+      - name: Отключение защиты от DDoS
+        href: vpc/how-to/disable-ddos-protection-on-external-ip.md
 base: ru/troubleshooting

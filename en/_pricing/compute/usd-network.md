@@ -9,3 +9,6 @@
 | **Intel Ice Lake** |
 | For VMs with less than 36 cores | $0.034358 |
 | For VMs with 36 or more cores | $0.068717 |
+| **Intel Ice Lake (Compute Optimized)** |
+| For VMs with less than 16 cores | $0.056320 |
+| For VMs with 16 or more cores | $0.112640 |

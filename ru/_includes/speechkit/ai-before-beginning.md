@@ -5,14 +5,14 @@
 - Аккаунт на Яндексе
 
   1. [Получите IAM-токен](../../iam/operations/iam-token/create.md).
-  1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-speechkit-stt }}` или выше.
+  1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роли `{{ roles-speechkit-stt }}`, `{{ roles-speechkit-tts }}` или выше.
   1. {% include [iam-token-usage](../iam-token-usage-speechkit-v3.md) %}
 
 - Федеративный аккаунт
 
 
    1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-federation.md).
-   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-speechkit-stt }}` или выше.
+   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль роли `{{ roles-speechkit-stt }}`, `{{ roles-speechkit-tts }}` или выше.
    1. {% include [iam-token-usage](../iam-token-usage-speechkit-v3.md) %}
 
 - Сервисный аккаунт

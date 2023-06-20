@@ -20,7 +20,7 @@ meta:
 links:
   - title: Начало работы
     description: Преобразуйте текст в речь и речь в текст
-    href: quickstart
+    href: quickstart/
   - title: Распознавание речи
     description: Узнайте, как происходит распознавание речи
     href: stt/

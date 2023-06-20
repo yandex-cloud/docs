@@ -198,6 +198,11 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 
 
+{% note info %}
+
+Платформа [Intel Ice Lake (Compute Optimized)](concepts/vm-platforms.md#compute-optimized-platforms) станет доступной и начнет тарифицироваться с 1 июля 2023 года.
+
+{% endnote %}
 
 ### Операционные системы {#prices-os}
 

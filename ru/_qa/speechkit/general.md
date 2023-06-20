@@ -41,7 +41,7 @@ curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.{{ api-h
 
 При использовании сервисного аккаунта не указывайте в запросах идентификатор каталога — сервис использует каталог, в котором был создан сервисный аккаунт.
 
-Воспользуйтесь инструкцией: [Перед началом работы](../../speechkit/quickstart.md#before-you-begin).
+Воспользуйтесь инструкцией: [Перед началом работы](../../speechkit/quickstart/index.md#before-you-begin).
 
 #### Что делать при получении ответа сервиса HTTP/1.1 «426 Upgrade Required» {#http-err}
 

@@ -407,7 +407,7 @@
 
 * **Insert quorum parallel**{#setting-insert-quorum-parallel} {{ tag-con }} {{ tag-sql }}
 
-   If this setting is enabled, multiple `INSERT` queries with quorum write can be run in parallel . If disabled, only one `INSERT` query with quorum write is made to the same table.
+   If this setting is enabled, multiple `INSERT` queries with quorum write can be run in parallel. If disabled, only one `INSERT` query with quorum write is made to the same table.
 
    This setting is enabled by default.
 

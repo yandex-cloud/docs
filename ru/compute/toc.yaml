@@ -347,7 +347,7 @@ items:
                 href: concepts/instance-groups/policies/scale-policy.md
           - name: Типы масштабирования
             href: concepts/instance-groups/scale.md
-          - name: Автоматическое восстановление
+          - name: Проверки и автовосстановление ВМ
             href: concepts/instance-groups/autohealing.md
           - name: Обновление
             items:
@@ -361,6 +361,8 @@ items:
                 href: concepts/instance-groups/deploy/instance.md
               - name: Изменение дополнительных дисков в шаблоне виртуальной машины
                 href: concepts/instance-groups/deploy/secondary-disk.md
+          - name: Интеграция с сетевыми и L7-балансировщиками
+            href: concepts/instance-groups/balancers.md
           - name: Остановка группы и приостановка процессов
             href: concepts/instance-groups/stopping-pausing.md
           - name: Статусы

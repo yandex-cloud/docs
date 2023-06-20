@@ -5,11 +5,11 @@ An _availability zone_ is an infrastructure within a data center that hosts {{ y
 Each zone is isolated from hardware and software failures that may occur in other availability zones. By deploying your applications to multiple zones at the same time, you ensure their fault tolerance and significantly reduce the risk of data loss.
 
 
-The {{ yandex-cloud }} platform is hosted at three Yandex data centers located in the Vladimir, the Ryazan, and the Moscow regions. You can host resources in the following availability zones:
+The {{ yandex-cloud }} platform is hosted at three Yandex data centers located in the Vladimir, Ryazan, and Moscow regions. You can host resources in the following availability zones:
 
-* `{{ region-id }}-a`.
-* `{{ region-id }}-b`.
-* `{{ region-id }}-c` (with limitations — see the [details](ru-central1-c-deprecation.md)).
+* `{{ region-id }}-a`
+* `{{ region-id }}-b`
+* `{{ region-id }}-c` ([some limitations apply](ru-central1-c-deprecation.md))
 
 In the second half of 2023, a new data center will open in Kaluga, which will house a new availability zone. 
 
