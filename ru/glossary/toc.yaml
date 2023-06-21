@@ -73,4 +73,6 @@ items:
         href: rest-api.md
       - name: CORS
         href: cors.md
+      - name: CLI
+        href: cli.md
 base: ru/glossary

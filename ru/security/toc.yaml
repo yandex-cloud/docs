@@ -74,7 +74,7 @@ items:
         href: operations/outgoing-ddos.md
       - name: Поиск секретов {{ yandex-cloud }} в открытых источниках
         href: operations/search-secrets.md
-  - name: Правила проведения внешних сканирований безопасности
+  - name: Политика поддержки пользователей при проведении проверки уязвимостей
     href: compliance/pentest.md
   - name: Бюллетени безопасности
     href: security-bulletins/index.md

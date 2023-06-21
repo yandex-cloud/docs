@@ -67,7 +67,7 @@
 
       Результат:
 
-      ```yaml
+      ```bash
       name: first-bucket
       folder_id: b1gmit33ngp6cv2mhjmo
       anonymous_access_flags:

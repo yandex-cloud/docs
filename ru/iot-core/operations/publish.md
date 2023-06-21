@@ -14,6 +14,8 @@
 
 Для получения сообщения необходимо быть подписанным на отправителя. Как это сделать, читайте в разделе [{#T}](subscribe.md).
 
+О том, как убедиться, что сообщение было успешно отправлено и доставлено, читайте в разделе [{#T}](../tutorials/message-delivery-check.md).
+
 {% include [registry-and-device-topic-note](../../_includes/iot-core/registry-and-device-topic-note.md) %}
 
 {% include [iot-before-you-begin](../../_includes/iot-core/iot-before-you-begin.md) %}
