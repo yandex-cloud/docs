@@ -17,6 +17,8 @@ items:
             href: operations/internal-lb-create.md
           - name: Остановить и запустить сетевой балансировщик
             href: operations/load-balancer-stop.md
+          - name: Изменить настройки балансировщика
+            href: operations/load-balancer-update.md
           - name: Удалить балансировщик
             href: operations/load-balancer-delete.md
           - name: Проверить состояние целевых ресурсов

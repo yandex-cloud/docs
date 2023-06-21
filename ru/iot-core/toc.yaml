@@ -117,6 +117,8 @@ items:
         href: tutorials/java.md
       - name: Запись данных с устройства в Managed Service for PostgreSQL
         href: tutorials/data-recording.md
+      - name: Тестирование доставки сообщения
+        href: tutorials/message-delivery-check.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

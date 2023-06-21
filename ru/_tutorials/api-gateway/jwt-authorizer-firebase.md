@@ -118,6 +118,146 @@ Firebase:
 
     1. Нажмите кнопку **Создать**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Сохраните следующую спецификацию в файл `jwt-auth.yaml`:
+
+      ```yaml
+      openapi: 3.0.0
+      info:
+        title: Sample API
+        version: 1.0.0
+
+      paths:
+        /:
+          get:
+            x-yc-apigateway-integration:
+              type: http
+              url: https://oauth2.googleapis.com/tokeninfo
+              method: GET
+              query:
+                id_token: '{token}'
+            parameters:
+              - name: token
+                in: query
+                required: true
+                schema:
+                  type: string
+            security:
+              - OpenIdAuthorizerScheme: [ ]
+        
+      components:
+        securitySchemes:
+          OpenIdAuthorizerScheme:
+            type: openIdConnect
+            x-yc-apigateway-authorizer:
+              type: jwt
+              jwksUri: https://www.googleapis.com/oauth2/v3/certs
+              identitySource:
+                in: query
+                name: token
+              issuers:
+                - https://accounts.google.com
+              requiredClaims:
+                - email
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      yc serverless api-gateway create \
+        --name jwt-api-gw \
+        --spec=jwt-auth.yaml
+      ```
+
+      Где:
+       
+      * `name` — имя API-шлюза.
+      * `spec` — файл со спецификацией.
+
+      Результат:
+
+      ```text
+      done (29s)
+      id: d5dug9gkmu187i********
+      folder_id: b1g55tflru0ek7********
+      created_at: "2020-06-17T09:20:22.929Z"
+      name: jwt-api-gw
+      status: ACTIVE
+      domain: d5dug9gkmu187i********.apigw.yandexcloud.net
+      log_group_id: ckghq1hm19********
+      ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры API-шлюза:
+
+      ```hcl
+      resource "yandex_api_gateway" "jwt-api-gateway" {
+        name        = "jwt-api-gw"
+        spec        = <<-EOT
+          openapi: 3.0.0
+          info:
+            title: Sample API
+            version: 1.0.0
+          paths:
+            /:
+              get:
+                x-yc-apigateway-integration:
+                  type: http
+                  url: https://oauth2.googleapis.com/tokeninfo
+                  method: GET
+                  query:
+                    id_token: '{token}'
+                parameters:
+                  - name: token
+                    in: query
+                    required: true
+                    schema:
+                      type: string
+                security:
+                  - OpenIdAuthorizerScheme: [ ] 
+          components:
+            securitySchemes:
+              OpenIdAuthorizerScheme:
+                type: openIdConnect
+                x-yc-apigateway-authorizer:
+                  type: jwt
+                  jwksUri: https://www.googleapis.com/oauth2/v3/certs
+                  identitySource:
+                    in: query
+                    name: token
+                  issuers:
+                    - https://accounts.google.com
+                  requiredClaims:
+                    - email
+        EOT
+      }
+      ```
+
+      Где:
+
+      * `name` — имя API-шлюза.
+      * `spec` — спецификация API-шлюза.
+
+      Более подробную информацию о параметрах ресурса `yandex_api_gateway` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/api_gateway).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+  После этого в указанном каталоге будет создан API-шлюз.
+
+- API
+
+  Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/apigateway_service.md#Create).
+
 {% endlist %}
 
 ## Подготовьте файлы веб-приложения {#project-prepare}
@@ -181,6 +321,91 @@ Firebase:
           1. В поле **Доступ на чтение объектов** выберите `Публичный`.
           1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
+   - CLI
+
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+      1. Выполните следующую команду:
+
+          ```bash
+          yc storage bucket create \
+          --name bucket-for-tutorial \
+          --public-read
+          ```
+
+          Где:
+
+          * `--name` — имя бакета.
+          * `--public-read` — флаг для включения публичного доступа на чтение объектов в бакете.
+
+          Результат:
+
+          ```bash
+          name: bucket-for-tutorial
+          folder_id: b1gmit33********
+          anonymous_access_flags:
+            read: false
+            list: false
+          default_storage_class: STANDARD
+          versioning: VERSIONING_DISABLED
+          acl: {}
+          created_at: "2023-06-08T11:57:49.898024Z"
+          ```
+
+   - {{ TF }}
+
+      Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+      1. Опишите в конфигурационном файле параметры необходимых ресурсов:
+
+          ```hcl
+          ...
+          resource "yandex_iam_service_account" "sa" {
+            name = "<имя_сервисного_аккаунта>"
+          }
+
+          resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
+            folder_id = "<идентификатор_каталога>"
+            role      = "storage.editor"
+            member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+          }
+
+          resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+            service_account_id = yandex_iam_service_account.sa.id
+            description        = "static access key for object storage"
+          }
+
+          resource "yandex_storage_bucket" "test" {
+            access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+            secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+            bucket     = "bucket-for-tutorial"
+            acl        = "public-read"
+          }
+          ...
+          ```
+
+          Где:
+
+          * `yandex_iam_service_account` — описание сервисного аккаунта, который создаст бакет и будет работать с ним:
+            * `name` — имя сервисного аккаунта.
+          * `yandex_storage_bucket` — описание бакета:
+            * `bucket` — имя бакета.
+            * `acl` — настройки доступа к бакету.
+
+          Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket).
+
+      1. Создайте ресурсы:
+
+          {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+      После этого в указанном каталоге будет создан бакет.
+
+   - API
+
+      Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md). 
+
    {% endlist %}
 
 1. Загрузите объекты в бакет {{ objstorage-name }}:
@@ -215,6 +440,95 @@ Firebase:
          * в поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх — `error.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
      1. В поле **Ссылка** скопируйте адрес вашего сайта.
+
+   - CLI
+
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+      1. Создайте файл `setup.json` с настройками хостинга в формате JSON:
+
+          ```json
+          {
+            "index": "index.html",
+            "error": "error404.html"
+          }
+          ```
+
+          Где:
+
+          * `index` — абсолютный путь к файлу главной страницы сайта. 
+          * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4хх.
+
+      1. Выполните команду:
+
+          ```bash
+          yc storage bucket update --name bucket-for-tutorial \
+            --website-settings-from-file setup.json
+          ```
+
+          Где:
+          * `--name` — имя бакета.
+          * `--website-settings-from-file` — путь к файлу с настройками переадресации.
+
+          Результат:
+
+          ```text
+          name: my-bucket
+          folder_id: b1gjs8dck********
+          default_storage_class: STANDARD
+          versioning: VERSIONING_SUSPENDED
+          max_size: "10737418240"
+          acl: {}
+          created_at: "2022-12-14T08:42:16.273717Z"
+          ```
+
+   - {{ TF }}
+    
+      Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+      
+      Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+
+      Чтобы настроить переадресацию всех запросов:
+
+      1. Откройте файл конфигурации {{ TF }} и добавьте параметр `redirect_all_requests_to` в описание ресурса `yandex_storage_bucket`:
+
+          ```hcl
+          ...
+          resource "yandex_storage_bucket" "test" {
+            access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+            secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_ke
+            bucket     = "bucket-for-tutorial"
+            acl        = "public-read"
+          
+            website {
+              index_document = "index.html"
+              error_document = "error.html"
+            }
+          }
+          ...
+          ```
+
+          Где:
+
+          * `website` — параметры веб-сайта:
+            * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
+            * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках `4хх`. Необязательный параметр.
+
+          Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket#static-website-hosting).
+
+      1. Создайте ресурсы:
+
+          {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+      После этого в бакете будет настроен хостинг.
+
+   - API
+
+      Чтобы настроить хостинг статического сайта, воспользуйтесь методом REST API [update](../../storage/api-ref/Bucket/update.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../storage/api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../storage/s3/api-ref/hosting/upload.md).
 
    {% endlist %}
 

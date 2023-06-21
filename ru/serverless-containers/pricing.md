@@ -47,12 +47,6 @@ editable: false
 
 ### Подготовленные экземпляры {#provisioned-instances}
 
-{% note info %}
-
-Цены действуют с 17 октября 2022 года.
-
-{% endnote %}
-
 #### Время использования RAM {#prices-ram-provisioned-instances}
 
 

@@ -441,6 +441,8 @@ default:
   zone-id: ru-central1-c
   subnet-name: default-ru-central1-c
   region-id: ru-central1
+  device-id: b91qprkvbks9********
+  registry-id: b9100l5i0ms9********
   compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
   host-class: s2.micro
   b1-nano: b1.nano (2 × 5% vCPU, 2 ГБ)

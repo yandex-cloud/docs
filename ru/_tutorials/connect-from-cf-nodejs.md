@@ -43,7 +43,7 @@
    git clone https://github.com/yandex-cloud/examples.git
    ```
 
-1. В репозитории перейдите в папку с файлами проекта: `examples/tree/master/serverless/functions/YDB-connect-from-serverless-function`.
+1. В репозитории перейдите в папку с файлами проекта: `examples/serverless/functions/YDB-connect-from-serverless-function`.
 1. Установите и инициализируйте [интерфейс командной строки {{ yandex-cloud }}](../cli/quickstart.md).
 1. Установите утилиту [jq](https://stedolan.github.io/jq/download/). В корне папки с файлами проекта запустите терминал и выполните команду:
 

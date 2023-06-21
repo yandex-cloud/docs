@@ -48,11 +48,12 @@ PCI DSS содержит требования для защиты данных �
 
 Дополнительная информация доступна по ссылкам:
 
-* [Сертификат PCI DSS для {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_RU.pdf).
-* [Сертификат PCI DSS для ЦОД Яндекса](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_Yandex.pdf).
-* [PCI DSS AOC для {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_AOC.pdf).
-* [PCI DSS AOC для ЦОД Яндекса](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS%20_Yandex_Cloud_AOC_datacenter.pdf).
-* [Матрица разделения ответственности](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
+* [Сертификат PCI DSS для {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/СС-664_2022_Яндекс.Облако_кр.pdf).
+* [Сертификат PCI DSS для ЦОД Яндекса](https://{{ s3-storage-host }}/yc-compliance/certificates/СС-636_2022_Yandex_ЦОД_кр.pdf).
+* [PCI DSS AOC для {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/20221209_Yandex_Cloud_SP_AOC.pdf).
+* [PCI DSS AOC для ЦОД Яндекса](https://{{ s3-storage-host }}/yc-compliance/certificates/20221013_Yandex_DC_AOC.pdf).
+* [PCI DSS AOC для Billing](https://{{ s3-storage-host }}/yc-compliance/20221209_Yandex_Cloud_Merchant_AOC.pdf).
+* [Матрица разделения ответственности](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_responsibility_matrix_12_2022.pdf).
 * [Требования и рекомендации для построения PCI DSS](https://{{ s3-storage-host }}/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf).
 
 ## PCI PIN Security {#pci-pin-security}

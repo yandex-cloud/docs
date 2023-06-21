@@ -16,6 +16,10 @@
 
 Произошла ошибка распознавания XML. Данные `SAMLResponse` неполны или были искажены.
 
+## SAMLResponse не содержит утверждений {#assertions-not-found}
+
+Полученный `SAMLResponse` не содержит утверждений `assertions`. Актуальный статус-код должен быть указан в сообщении об ошибке, например: `No assertions found in response. The status code is 'Responder'`.
+
 ## Ошибка при обработке ответа {#invalid-response}
 
 Не удалось декодировать строку из `SAMLResponse`.
@@ -36,7 +40,7 @@
 
 Отсутствует элемент `subject` в `SAMLResponse`.
 
-## Утверждения содержит некорректный элемент `subject` {#username-not-found}
+## Утверждение содержит некорректный элемент `subject` {#username-not-found}
 
 `SAMLResponse` содержит элемент `subject`, но в элементе отсутствует поле `NameID` или `EncryptedID`.
 

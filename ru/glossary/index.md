@@ -52,3 +52,4 @@
 * [{#T}](ssh-keygen.md)
 * [{#T}](rest-api.md)
 * [{#T}](cors.md)
+* [{#T}](cli.md)

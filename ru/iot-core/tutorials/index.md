@@ -22,3 +22,7 @@
 ## {{ mpg-name }} {#managed-pg}
 
 * [{#T}](data-recording.md)
+
+## Практические советы
+
+* [{#T}](message-delivery-check.md)
