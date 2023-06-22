@@ -11,6 +11,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-full-name }}](../functions/pricing.md)).
 * Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../api-gateway/pricing.md)).
 * Плата за количество запросов к стандартной очереди (см. [тарифы {{ message-queue-full-name }}](../message-queue/pricing.md)).
+* Плата за хранение и запрос секретов (см. [тарифы {{ lockbox-full-name }}](../lockbox/pricing.md)).
 
 ## Перед началом работы {#before-begin}
 

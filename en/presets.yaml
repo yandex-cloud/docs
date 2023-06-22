@@ -772,39 +772,24 @@ default:
   cic-pbc-subnet-cloud: 178.210.118.47
   cic-pbc-nat-subnet: 178.210.118.200/30
   cic-pbc-svc1-ip: 213.180.193.243/32
-  tf-provider-link: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources
-  tf-provider-dt-endpoint: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_endpoint
-  tf-provider-dt-transfer: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_transfer
-  tf-provider-k8s-cluster: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster
-  tf-provider-k8s-nodegroup: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group
-  tf-provider-mch: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
+  tf-provider-link: https://terraform-provider.yandexcloud.net/Resources
+  tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/Resources/datatransfer_endpoint
+  tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/Resources/datatransfer_transfer
+  tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
+  tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/Resources/kubernetes_node_group
+  tf-provider-mch: https://terraform-provider.yandexcloud.net/Resources/mdb_clickhouse_cluster
   tf-provider-mes: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_elasticsearch_cluster
-  tf-provider-mkf: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster
-  tf-provider-mmg: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster
-  tf-provider-mms: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_sqlserver_cluster
-  tf-provider-mmy: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster
-  tf-provider-mpg: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
-  tf-provider-mgp: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_greenplum_cluster
-  tf-provider-mrd: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
-  tf-provider-alb-targetgroup: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/alb_target_group
-  tf-provider-alb-backendgroup: >-
-    https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/alb_backend_group
-  terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
+    https://terraform-provider.yandexcloud.net/Resources/mdb_elasticsearch_cluster
+  tf-provider-mkf: https://terraform-provider.yandexcloud.net/Resources/mdb_kafka_cluster
+  tf-provider-mmg: https://terraform-provider.yandexcloud.net/Resources/mdb_mongodb_cluster
+  tf-provider-mms: https://terraform-provider.yandexcloud.net/Resources/mdb_sqlserver_cluster
+  tf-provider-mmy: https://terraform-provider.yandexcloud.net/Resources/mdb_mysql_cluster
+  tf-provider-mpg: https://terraform-provider.yandexcloud.net/Resources/mdb_postgresql_cluster
+  tf-provider-mgp: https://terraform-provider.yandexcloud.net/Resources/mdb_greenplum_cluster
+  tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
+  tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
+  tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
+  terraform-mirror: https://terraform-provider.yandexcloud.net
   api-host: api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
   api-host-kms: kms.api.cloud.yandex.net
@@ -3487,6 +3472,7 @@ default:
         instance:
           console:
             connect: Connect
+            disconnect: End session
           edit-network-interface:
             field_security-groups-ids: Security groups
           edit:
@@ -3556,6 +3542,7 @@ default:
             image_value_marketplace: Cloud Marketplace
             image_value_os-products: Operating systems
             label_add-disk: Add disk
+            label_add-network-interface: Add network interface
             label_backup: Backups
             section_access: Access
             section_base: Basic parameters
