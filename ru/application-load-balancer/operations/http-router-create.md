@@ -193,7 +193,7 @@
        * `http_router_id` — идентификатор HTTP-роутера.
        * `route` — описание маршрута HTTP-роутера. Укажите имя маршрута, идентификатор группы бэкендов и время для обработки запроса (по умолчанию 60 секунд).
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в документации провайдера ([yandex_alb_http_router](https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) и [yandex_alb_virtual_host](https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в документации провайдера ([yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host)).
 
   1. Проверьте корректность конфигурационных файлов.
 
