@@ -49,6 +49,7 @@
 
 * [{#T}](vpn.md)
 * [{#T}](dns.md)
+* [{#T}](cdn.md)
 * [{#T}](ssh-keygen.md)
 * [{#T}](rest-api.md)
 * [{#T}](cors.md)

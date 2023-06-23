@@ -1,4 +1,4 @@
-### audit-trails.editor {#at-editor}
+#### audit-trails.editor {#at-editor}
 
 Роль `audit-trails.editor` назначается на облако или каталог.
 Дает право создавать, редактировать и удалять трейлы.

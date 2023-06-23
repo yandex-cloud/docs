@@ -1,4 +1,4 @@
-### container-registry.admin {#cr-admin}
+#### container-registry.admin {#cr-admin}
 
 Роль `{{ roles-cr-admin }}` назначается на облако или каталог.
 Дает право управлять доступом к реестрам, Docker-образам и репозиториям.

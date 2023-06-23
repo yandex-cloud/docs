@@ -252,6 +252,16 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
 
+## {{ lockbox-full-name }} {#lockbox-roles}
+
+{% include [lockbox-admin](../../../_includes/roles-lockbox-admin.md) %}
+
+{% include [lockbox-editor](../../../_includes/roles-lockbox-editor.md) %}
+
+{% include [lockbox-viewer](../../../_includes/roles-lockbox-viewer.md) %}
+
+{% include [lockbox-payloadViewer](../../../_includes/roles-lockbox-payloadViewer.md) %}
+
 ## {{ mkf-full-name }} {#mkf-roles}
 
 {% include [mkf-auditor](../../../_includes/iam/roles/mkf-auditor.md) %}

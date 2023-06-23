@@ -1,4 +1,4 @@
-### audit-trails.configViewer {#at-configviewer}
+#### audit-trails.configViewer {#at-configviewer}
 
 Эта роль устарела. Используйте роль `audit-trails.auditor` вместо `audit-trails.configViewer`.
 

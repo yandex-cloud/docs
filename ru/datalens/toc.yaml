@@ -36,6 +36,8 @@ items:
         href: tutorials/data-from-ch-with-parameters.md
       - name: Визуализация данных {{ monitoring-full-name }}
         href: tutorials/data-from-monitoring-visualization.md
+      - name: Визуализация данных {{ yq-full-name }}
+        href: tutorials/data-from-yandex-query-visualization.md
       - name: Построение чартов customer journeys на данных AppMetrica
         href: tutorials/data-from-appmetrica-yc-visualization.md
       - name: Визуализация данных Битрикс24
@@ -124,6 +126,8 @@ items:
             href: operations/connection/create-prometheus.md
           - name: Создание подключения к {{ monitoring-full-name }}
             href: operations/connection/create-monitoring.md
+          - name: Создание подключения к {{ yq-full-name }}
+            href: operations/connection/create-yandex-query.md
           - name: Создание подключения к Битрикс24
             href: operations/connection/create-bitrix24.md
           - name: Создание подключения к подкастам Яндекс Музыки
@@ -232,7 +236,11 @@ items:
             href: operations/organizations/change-organization.md
   - name: Управление доступом
     items:
-      - name: Управление доступом к {{ datalens-name }}
+      - name: Добавление пользователей
+        href: security/add-new-user.md
+      - name: Роли в {{ datalens-short-name }}
+        href: security/roles.md
+      - name: Права доступа на объекты {{ datalens-name }}
         href: security/index.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md

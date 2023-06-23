@@ -8,7 +8,6 @@
 {% note info %}
 
 Роль `{{ roles-auditor }}` в настоящее время недоступна в сервисах:
-* {{ container-registry-full-name }};
 * {{ yds-full-name }};
 * {{ data-transfer-full-name }};
 * {{ ydb-full-name }};

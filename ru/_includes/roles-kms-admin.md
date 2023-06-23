@@ -1,4 +1,4 @@
-### kms.admin {#kms-admin}
+#### kms.admin {#kms-admin}
 
 В роль администратора ключей `kms.admin` входят следующие разрешения:
 

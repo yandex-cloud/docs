@@ -14,7 +14,9 @@ description: "Управление доступом в сервисе для х�
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или секрет. Эти роли будут действовать и на вложенные ресурсы. На диаграмме показано, какие роли есть в сервисе, и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
+Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или секрет. Эти роли будут действовать и на вложенные ресурсы.
+
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/lockbox/service-roles-hierarchy.png)
  
@@ -22,18 +24,20 @@ description: "Управление доступом в сервисе для х�
 
 Управлять доступом к секретам можно как с помощью сервисных, так и с помощью примитивных ролей. 
 
+### Сервисные роли {#service-roles}
+
 Роли, действующие в сервисе:
-* Сервисные роли:
-    * {% include [lockbox-admin](../../_includes/iam/roles/short-descriptions/lockbox-admin.md) %}
-    * {% include [lockbox-editor](../../_includes/iam/roles/short-descriptions/lockbox-editor.md) %}
-    * {% include [lockbox-viewer](../../_includes/iam/roles/short-descriptions/lockbox-viewer.md) %}
-    * {% include [lockbox-payloadviewer](../../_includes/iam/roles/short-descriptions/lockbox-payloadViewer.md) %}
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* Примитивные роли:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+
+* {% include [lockbox-admin](../../_includes/iam/roles/short-descriptions/lockbox-admin.md) %}
+* {% include [lockbox-editor](../../_includes/iam/roles/short-descriptions/lockbox-editor.md) %}
+* {% include [lockbox-viewer](../../_includes/iam/roles/short-descriptions/lockbox-viewer.md) %}
+* {% include [lockbox-payloadviewer](../../_includes/iam/roles/short-descriptions/lockbox-payloadViewer.md) %}
+* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## Какие роли мне необходимы {#choosing-roles}
 

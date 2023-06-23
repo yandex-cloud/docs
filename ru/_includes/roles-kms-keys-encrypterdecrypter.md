@@ -1,4 +1,4 @@
-### kms.keys.encrypterDecrypter {#kms-keys-encrypterdecrypter}
+#### kms.keys.encrypterDecrypter {#kms-keys-encrypterdecrypter}
 
 В роль пользователя ключей `kms.keys.encrypterDecrypter` входят следующие разрешения:
 

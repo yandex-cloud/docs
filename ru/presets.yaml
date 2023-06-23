@@ -779,7 +779,7 @@ default:
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
-  k8s-versions-rapid: 1.22, 1.23, 1.24
+  k8s-versions-rapid: 1.22, 1.23, 1.24, 1.25, 1.26, 1.27
   k8s-versions-regular: 1.22, 1.23, 1.24
   k8s-versions-stable: 1.22, 1.23, 1.24
   cic-bgp-asn: 200350
@@ -788,6 +788,7 @@ default:
   cic-pbc-subnet-cloud: 178.210.118.47
   cic-pbc-nat-subnet: 178.210.118.200/30
   cic-pbc-svc1-ip: 213.180.193.243/32
+  tf-docs-link: https://terraform-provider.yandexcloud.net
   tf-provider-link: https://terraform-provider.yandexcloud.net/Resources
   tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/Resources/datatransfer_endpoint
   tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/Resources/datatransfer_transfer
@@ -805,7 +806,7 @@ default:
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
   tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
   tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
-  terraform-mirror: https://terraform-provider.yandexcloud.net
+  terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform-provider-yandex/
   api-host: api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
   api-host-kms: kms.api.cloud.yandex.net

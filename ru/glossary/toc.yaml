@@ -67,6 +67,8 @@ items:
         href: vpn.md
       - name: DNS
         href: dns.md
+      - name: CDN
+        href: cdn.md
       - name: Протокол SSH
         href: ssh-keygen.md
       - name: REST API

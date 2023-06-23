@@ -11,14 +11,14 @@
 
 В консоли {{ yandex-cloud }} вы можете назначить роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли, назначенные на облако или каталог, действуют и на трейлы, которые находятся в них.
 
-## Какие роли действуют в сервисе {#roles}
+## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `audit-trails.editor` входят все разрешения `audit-trails.viewer`. После диаграммы дано описание каждой роли.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/audit-trails/at-role-diagram.svg)
 <small>\* deprecated</small>
 
-### Сервисные роли
+### Сервисные роли {#service-roles}
 
 Роль | Разрешения
 ----- | -----
@@ -30,11 +30,11 @@
 `audit-trails.admin` | Позволяет управлять трейлами и доступом к ним. Включает все права роли `audit-trails.editor`
 `audit-trails.configViewer` (deprecated) | Позволяет просматривать информацию о трейлах. Используйте роль `audit-trails.auditor` вместо этой роли.
 
-### Примитивные роли
+### Примитивные роли {#primitive-roles}
 
-{% include notitle [roles-primitive](../../_includes/roles-primitive.md) %}
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
-## Какие роли мне необходимы
+## Какие роли мне необходимы {#choosing-roles}
 
 В таблице сопоставлены действия и минимальные необходимые для их выполнения роли. Вы всегда можете назначить роль, которая дает более широкие права, чем указанная в таблице. Например, вместо `audit-trails.configViewer` можно выдать роль `audit-trails.editor`.
 
