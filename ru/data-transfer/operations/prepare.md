@@ -467,7 +467,7 @@
 
     1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ PG }}](./endpoint/source/postgresql.md#additional-settings).
 
-    1. Для параллельного чтения из таблицы установите её первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+    1. Для параллельного чтения из таблицы установите ее первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
         После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](transfer.md#create).
 
@@ -594,7 +594,7 @@
 
     1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ PG }}](./endpoint/source/postgresql.md#additional-settings).
 
-    1. Для параллельного чтения из таблицы установите её первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+    1. Для параллельного чтения из таблицы установите ее первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
         После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](transfer.md#create).
 
@@ -1071,17 +1071,28 @@
 
     1. [Включите те же расширения](../../managed-postgresql/operations/extensions/cluster-extensions.md) в базе приемника, что и в базе источника.
 
+    1. Убедитесь, что на приемнике выбрана политика очистки `DROP таблиц трансфера`.
+
     1. [Создайте пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) с доступом к базе приемника.
 
-        После старта трансфер подключится к приемнику от имени этого пользователя.
-
-    1. Если в приемнике включена опция [сохранение границ транзакций](endpoint/target/postgresql.md#additional-settings), выдайте созданному пользователю все привилегии на создание служебной таблицы `__data_transfer_lsn` в [текущей схеме](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (обычно `public`) на приёмнике:
+    1. Выдайте созданному пользователю все привилегии на базу данных, схемы и переносимые таблицы:
 
         ```sql
-        GRANT ALL PRIVILEGES ON SCHEMA <имя схемы> TO <имя пользователя>;
+        GRANT ALL PRIVILEGES ON DATABASE <имя базы> TO <имя пользователя>;
         ```
 
-    1. Убедитесь, что на приемнике выбрана политика очистки `DROP таблиц трансфера`.
+       Если база не пустая, то пользователь должен быть ее владельцем (owner):
+
+        ```sql
+        ALTER DATABASE <имя базы> OWNER TO <имя пользователя>;
+        ```
+
+       После старта трансфер подключится к приемнику от имени этого пользователя.
+    1. Если в приемнике включена опция [сохранение границ транзакций](endpoint/target/postgresql.md#additional-settings), выдайте созданному пользователю все привилегии на создание служебной таблицы `__data_transfer_lsn` в [текущей схеме](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (обычно `public`) на приемнике:
+
+       ```sql
+       GRANT ALL PRIVILEGES ON SCHEMA <имя схемы> TO <имя пользователя>;
+       ```
 
 - {{ PG }}
 
@@ -1127,7 +1138,7 @@
 
         После старта трансфер подключится к приемнику от имени этого пользователя.
 
-    1. Если в приемнике включена опция [сохранение границ транзакций](endpoint/target/postgresql.md#additional-settings), выдайте созданному пользователю все привилегии на создание служебной таблицы `__data_transfer_lsn` в [текущей схеме](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (обычно `public`) на приёмнике:
+    1. Если в приемнике включена опция [сохранение границ транзакций](endpoint/target/postgresql.md#additional-settings), выдайте созданному пользователю все привилегии на создание служебной таблицы `__data_transfer_lsn` в [текущей схеме](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (обычно `public`) на приемнике:
 
         ```sql
         GRANT ALL PRIVILEGES ON SCHEMA <имя схемы> TO <имя пользователя>;

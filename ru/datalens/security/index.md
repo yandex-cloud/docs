@@ -1,187 +1,19 @@
-# Управление доступом к DataLens
-
-
-Доступ к сервису {{ datalens-full-name }} регулируется путем назначения прав:
-
-* для экземпляра {{ datalens-short-name }} на уровне организации — через сервис [организации](../concepts/organizations.md);
-* для экземпляра {{ datalens-short-name }} на уровне каталога облака — через [консоль]({{ link-console-main }}) {{ yandex-cloud }}.
-
-Чтобы предоставить доступ, назначьте пользователю одну из ролей {{ datalens-short-name }}.
-
+# Права доступа на объекты {{ datalens-short-name }}
 
 
 Разграничение прав доступа в {{ datalens-short-name }} реализовано на уровне объектов и папок.
 На каждый объект и папку можно назначать пользователю права доступа, которые определяют допустимые операции. Если вы создали или скопировали папку или объект, то у них будут те же права, что и у родительской папки, в которой они будут размещены.
 
 Вы можете предоставить пользователю доступ к папке или к любому объекту сервиса:
-* Подключение
-* Датасет
-* Чарт
-* Дашборд
+
+* [Подключение](../concepts/connection.md)
+* [Датасет](../concepts/dataset/index.md)
+* [Чарт](../concepts/chart/index.md)
+* [Дашборд](../concepts/dashboard.md)
 
 
 
-Также пользователь может запросить права доступа самостоятельно через форму запроса. Подробнее в разделе [{#T}](../operations/permission/request.md).
-
-## Пользовательские роли {#users-roles}
-
-Позволяют определить права пользователя в экземпляре {{ datalens-short-name }}.
-
-Пользовательские роли назначаются:
-* для экземпляра {{ datalens-short-name }} на уровне организации — через сервис [организации](../concepts/organizations.md);
-* для экземпляра {{ datalens-short-name }} на уровне каталога облака — через [консоль]({{ link-console-main }}) {{ yandex-cloud }}.
-
-{% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
-
-{% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
-
-{% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
-
-{% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
-
-{% note info %}
-
-Роли `{{ roles-datalens-instances-user }}` и `{{ roles-datalens-instances-admin }}` также предоставляют право на просмотр каталогов в облаке. Рекомендуем вместо них использовать роли `{{ roles-datalens-creator }}` и `{{ roles-datalens-admin }}` соответственно.
-
-{% endnote %}
-
-## Добавление пользователя {#add-new-user}
-
-Добавлять можно [пользователей с аккаунтом на Яндексе](#passport-user) и [федеративных пользователей](#federated-user).
-
-### Добавить пользователя с аккаунтом на Яндексе {#passport-user}
-
-Чтобы добавить пользователя и предоставить ему доступ к сервису {{ datalens-short-name }}:
-
-{% list tabs %}
-
-- В организацию
-
-  {% include [grant-role-console-first-steps](../../_includes/datalens/operations/datalens-add-user-organization.md) %}
-
-- В облако
-
-  1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
-  1. Перейдите на вкладку **Права доступа**.
-  1. В правом верхнем углу нажмите значок ![icon-users](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-  1. Введите электронную почту пользователя в Яндексе.
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. При добавлении нового пользователя в облако ему автоматически назначается [роль](../../iam/concepts/access-control/roles.md#member) участника облака — `resource-manager.clouds.member`.
-
-     {% note info %}
-    
-     Время до появления логина добавленного пользователя в форме выдачи прав доступа может достигать нескольких часов.
-    
-     {% endnote %}
-
-  1. Откройте список ролей пользователя:
-  
-      {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-  
-  1. Для добавления роли на облако нажмите значок ![image](../../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
-
-     Для добавления роли на каталог, выберите каталог и нажмите **Назначить роль** в блоке **Роли в каталогах**.
-  1. Выберите `{{ roles-datalens-instances-user }}` или `{{ roles-datalens-instances-admin }}` из списка.
-
-{% endlist %}
-
-### Добавить федеративных пользователей {#federated-user}
-
-{% include [include](../../_includes/iam/add-federated-users-before-begin.md) %}
-
-#### Добавить федеративных пользователей в организацию {#federated-user-org}
-
-Чтобы добавить пользователей федерации в организацию и предоставить им доступ к сервису {{ datalens-short-name }}:
-
-1. Добавьте федеративных пользователей:
-
-   {% list tabs %}
-
-   - Консоль управления
-
-     1. Убедитесь, что вы авторизованы в {{ yandex-cloud }} как администратор или владелец требуемой организации (у вашего пользователя есть роль `admin` или `owner` в ней). В верхнем левом углу нажмите ![image](../../_assets/datalens/all-services.svg) и выберите **Ресурсы и управление** → **Управление сервисами организации** или перейдите по [ссылке]({{ link-org-users }}).
-     1. В правом верхнем углу нажмите ![icon-users](../../_assets/datalens/arrow-down.svg) → **Добавить федеративных пользователей**.
-     1. Выберите федерацию, из которой необходимо добавить пользователей.
-     1. Перечислите Name ID пользователей, разделяя их переносами строк.
-     1. Нажмите кнопку **Добавить**. Пользователи будут подключены к организации.
-
-   - CLI
-
-     {% include [cli-install](../../_includes/cli-install.md) %}
-
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-     1. Посмотрите описание команды добавления пользователей:
-
-        ```
-        yc organization-manager federation saml add-user-accounts --help
-        ```
-
-     1. Добавьте пользователей, перечислив их Name ID через запятую:
-
-        ```
-        yc organization-manager federation saml add-user-accounts --name my-federation \
-          --name-ids=alice@example.com,bob@example.com,charlie@example.com
-        ```
-
-   - API
-
-     1.  Сформируйте файл с телом запроса, например `body.json`. В теле запроса укажите массив Name ID пользователей, которых необходимо добавить:
-
-         ```json
-         {
-           "nameIds": [
-             "alice@example.com",
-             "bob@example.com",
-             "charlie@example.com"
-           ]
-         }
-         ```
-     1.  Отправьте запрос, указав в параметрах идентификатор федерации:
-
-         ```bash
-         $ curl -X POST \
-           -H "Content-Type: application/json" \
-           -H "Authorization: Bearer <IAM-токен>" \
-           -d '@body.json' \
-           https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
-         ```
-
-   {% endlist %}
-
-1. Назначьте пользователям роли для доступа к сервису {{ datalens-short-name }}:
-
-     1. Откройте список ролей пользователя:
-     
-        {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-
-     1. В окне **Настройка прав доступа** нажмите **![image](../../_assets/plus-sign.svg) Добавить роль**. Выберите роль `{{ roles-datalens-instances-user }}` из списка.
-     1. Нажмите **Сохранить**. Пользователь получит доступ к сервису {{ datalens-short-name }}.
-
-#### Добавить федеративных пользователей в облако {#federated-user-cloud}
-
-Чтобы добавить пользователей федерации в облако и предоставить им доступ к сервису {{ datalens-short-name }}:
-
-1. Добавьте федеративных пользователей:
-
-   {% include [include](../../_includes/iam/add-federated-users-instruction.md) %}
-
-1. Откройте список ролей пользователя:
-
-    {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-
-1. Для добавления роли на облако нажмите значок ![image](../../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
-
-   Для добавления роли на каталог, выберите каталог и нажмите **Назначить роль** в блоке **Роли в каталогах**.
-
-1. Выберите `{{ roles-datalens-instances-user }}` из списка. 
-
-Подробнее о назначении ролей в {{ yandex-cloud }} в разделе [Роли](../../iam/concepts/access-control/roles.md).
-
-
-## Права доступа на объекты {#permissions}
-
-
-Права доступа можно назначить отдельным пользователям или группе **Все**, в которую входят пользователи, прошедшие [аутентификацию](../../iam/concepts/authorization/index.md#authentication).
+Права доступа можно назначить отдельным пользователям или группе **Все**, в которую входят пользователи, прошедшие [аутентификацию](../../iam/concepts/authorization/index.md#authentication). Также пользователь может запросить права доступа самостоятельно через форму запроса. Подробнее в разделе [{#T}](../operations/permission/request.md).
 
 
 Вы можете назначить следующие права доступа на объекты и папки в сервисе {{ datalens-short-name }}:

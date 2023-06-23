@@ -15,7 +15,6 @@ You can download a {{ TF }} distribution for your platform from a [mirror]({{ te
 export PATH=$PATH:/path/to/terraform
 ```
 
-
 ### From the Hashicorp website {#from-hashicorp-site}
 
 

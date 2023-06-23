@@ -1,4 +1,4 @@
-### smart-captcha.viewer {#smart-captcha-viewer}
+#### smart-captcha.viewer {#smart-captcha-viewer}
 
 В роль `smart-captcha.viewer` входят следующие разрешения:
 * просмотр настроек капчи;

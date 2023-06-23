@@ -1,4 +1,4 @@
-### smart-captcha.admin {#smart-captcha-admin}
+#### smart-captcha.admin {#smart-captcha-admin}
 
 В роль `smart-captcha.admin` входят следующие разрешения:
 * просмотр настроек капчи;

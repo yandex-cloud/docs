@@ -4,7 +4,7 @@
 
 {% note alert %}
 
-Зеркало временно недоступно.
+Зеркало может быть недоступно.
 
 {% endnote %}
 
@@ -14,7 +14,6 @@
 ```
 export PATH=$PATH:/path/to/terraform
 ```
-
 
 ### С сайта Hashicorp {#from-hashicorp-site}
 
