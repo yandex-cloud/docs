@@ -1,12 +1,3 @@
-1. Подготовьте файл изображения, соответствующий требованиям:
-
-    {% include [file-restrictions](../../_includes/vision/file-restrictions.md) %}
-
-    {% note info %}
-
-    Нужен пример изображения? Скачайте изображение дорожного знака, [предупреждающего о пингвинах](https://{{ s3-storage-host }}/vision/penguins_sample.jpg).
-
-    {% endnote %}
 1. Кодируйте файл в формат Base64:
 
     {% include [base64-encode-command](base64-encode-command.md) %}

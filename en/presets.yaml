@@ -4376,6 +4376,8 @@ default:
                         title: Cleanup policy
                       connection:
                         title: Connection
+                      sanitize_doc_keys:
+                        title: Sanitize documents keys
                     OnPremiseElasticSearch:
                       addresses:
                         title: Data nodes
@@ -4852,6 +4854,8 @@ default:
                         title: Cleanup policy
                       connection:
                         title: Connection
+                      sanitize_doc_keys:
+                        title: Sanitize documents keys
             oracle:
               console:
                 form:
