@@ -55,12 +55,10 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 
 Загрузка данных в витрины — процесс трансфера подготовленных данных в хранилища с целью последующей визуализации. Источники — хранилища, используемые для массивно-параллельной обработки данных. Приемники — хранилища, способные быстро отдать данные.
 
-* [{{ KF }} в {{ CH }}](mkf-to-mch.md)
 * [{{ GP }} в {{ CH }}](greenplum-to-clickhouse.md)
 * [{{ MY }} в {{ CH }}](mysql-to-clickhouse.md)
 * [{{ metrika }} в {{ CH }}](metrika-to-clickhouse.md)
 * [{{ PG }} в {{ CH }}](rdbms-to-clickhouse.md)
-* [{{ DS }} в {{ CH }}](yds-to-clickhouse.md)
 * [{{ GP }} в {{ PG }}](greenplum-to-postgresql.md)
 
 ## Загрузка данных в {{ objstorage-name }} {#upload-to-storage}
@@ -68,7 +66,6 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 Загрузка данных в масштабируемое хранилище {{ objstorage-name }} позволяет удешевить хранение и облегчает обмен данных с контрагентами.
 
 * [{{ MY }} в {{ objstorage-name }}](mmy-objs-migration.md)
-* [{{ DS }} в {{ objstorage-name }}](yds-to-objstorage.md)
 * [{{ at-name }} в {{ objstorage-name }}](trails-to-os.md)
 * [{{ PG }} в {{ objstorage-name }}](mpg-to-objstorage.md)
 

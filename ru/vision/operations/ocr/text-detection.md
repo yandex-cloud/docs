@@ -14,6 +14,16 @@
 
 ### Распознать текст с изображения {#basic}
 
+1. Подготовьте файл изображения, соответствующий требованиям:
+
+    {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
+
+    {% note info %}
+
+    Нужен пример изображения? Скачайте изображение дорожного знака, [предупреждающего о пингвинах](https://{{ s3-storage-host }}/vision/penguins_sample.jpg).
+
+    {% endnote %}
+
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
 ### Распознайте текст из PDF-файла {#pdf}

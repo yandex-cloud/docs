@@ -4388,6 +4388,8 @@ default:
                         title: Политика очистки
                       connection:
                         title: Настройки подключения
+                      sanitize_doc_keys:
+                        title: Исправить невалидные ключи в документах
                     OnPremiseElasticSearch:
                       addresses:
                         title: Узлы с данными
@@ -4862,6 +4864,8 @@ default:
                         title: Политика очистки
                       connection:
                         title: Настройки подключения
+                      sanitize_doc_keys:
+                        title: Исправить невалидные ключи в документах
             oracle:
               console:
                 form:

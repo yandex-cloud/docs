@@ -6,8 +6,10 @@
 * [{#T}](#api)
 * [{#T}](#network)
 * [{#T}](#clickhouse)
+* [{#T}](#elasticsearch)
 * [{#T}](#mongodb)
 * [{#T}](#mysql)
+* [{#T}](#opensearch)
 * [{#T}](#postgresql)
 * [{#T}](#ydb)
 * [{#T}](#yds)
@@ -55,6 +57,12 @@
 
 {% include [no-new-tables](../../_includes/data-transfer/troubles/table-names.md) %}
 
+## {{ ES }} {#elasticsearch}
+
+{% include [ambiguous-object-resolution-es](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-es.md) %}
+
+{% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
+
 ## {{ MG }} {#mongodb}
 
 {% include [string-size](../../_includes/data-transfer/troubles/mongodb/string-size.md) %}
@@ -80,6 +88,12 @@
 {% include [binlog-bytes](../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
 
 {% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+## {{ OS }} {#opensearch}
+
+{% include [ambiguous-object-resolution-os](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}
+
+{% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
 ## {{ PG }} {#postgresql}
 
