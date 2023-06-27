@@ -44,4 +44,4 @@ Returns the approximate `quant`-level quantile (`quant` should be in range from 
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`.
+`ClickHouse 21.8`.

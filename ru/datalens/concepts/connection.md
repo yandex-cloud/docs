@@ -7,22 +7,22 @@ _Подключение_ содержит информацию о парамет
 В {{ datalens-short-name }} доступны следующие типы подключений:
 
 * [{{ CH }}](../operations/connection/create-clickhouse.md)
-* [Файлы](../operations/connection/create-file.md)
-* [Google Sheets](../operations/connection/create-google-sheets.md)
-* [{{ PG }}](../operations/connection/create-postgresql.md)
 * [{{ MY }}](../operations/connection/create-mysql.md)
+* [{{ PG }}](../operations/connection/create-postgresql.md)
 * [MS SQL Server](../operations/connection/create-mssql-server.md)
-* [BigQuery](../operations/connection/create-big-query.md)
 * [Oracle Database](../operations/connection/create-oracle.md)
 * [{{ ydb-short-name }}](../operations/connection/create-ydb.md)
 * [{{ GP }}](../operations/connection/create-greenplum.md)
+* [Файлы](../operations/connection/create-file.md)
+* [Google Sheets](../operations/connection/create-google-sheets.md)
+* [BigQuery](../operations/connection/create-big-query.md)
 * [{{ prometheus-name }}](../operations/connection/create-prometheus.md)
+ * [Yandex Monitoring](../operations/connection/create-monitoring.md)
+ * [Битрикс24](../operations/connection/create-bitrix24.md)
+ * [Подкасты Аналитика](../operations/connection/create-podcasts.md)
 * [Metrica](../operations/connection/create-metrica-api.md)
 * [AppMetrica](../operations/connection/create-appmetrica.md)
 * [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md)
- * [Подкасты Аналитика](../operations/connection/create-podcasts.md)
- * [Yandex Monitoring](../operations/connection/create-monitoring.md)
- * [Битрикс24](../operations/connection/create-bitrix24.md)
 
 
 

@@ -45,4 +45,4 @@ SPLIT("RU-MOW-SVO", "-", -1) = "SVO"
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`, `MySQL 5.6`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 21.8`, `MySQL 5.6`, `PostgreSQL 9.3`, `YDB`.

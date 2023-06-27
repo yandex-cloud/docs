@@ -1,6 +1,6 @@
-# DataLens Public
+# Публичный доступ
 
-С помощью {{ datalens-public }} вы можете предоставить публичный доступ к созданным чартам и дашбордам: любой пользователь может просмотреть опубликованный объект без авторизации. При этом пользователь не может посмотреть настройки чарта, подключения, датасет или выполнить произвольный SQL-запрос.
+Вы можете предоставить публичный доступ к созданным чартам и дашбордам: любой пользователь может просмотреть опубликованный объект без авторизации. При этом пользователь не может посмотреть настройки чарта, подключения, датасет или выполнить произвольный SQL-запрос.
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
@@ -12,9 +12,13 @@
 
 Также рекомендуем оставлять в датасете минимум данных и добавлять только необходимые фильтры на дашборд. Данные на публичном дашборде можно скачать в машиночитаемом формате.
 
-## Как опубликовать объект {#how-to-publish}
+Перед публикацией данных убедитесь, что:
 
-Вы можете предоставить публичный доступ к дашборду или чарту.
+* Ваши чарты и дашборды не содержат персональных данных или коммерческой тайны. Доступ к опубликованным данным неограничен.
+* Публиковать дашборды и чарты, построенные поверх подключений к [Metrica API](../operations/connection/create-metrica-api.md) и [AppMetrica](../operations/connection/create-appmetrica.md) нельзя, но вы можете ими [поделиться](#metrica-share).
+* У вас есть права администратора на публикуемые чарты и дашборды и связанные с ними объекты.
+
+## Как опубликовать объект {#how-to-publish}
 
 {% list tabs %}
 
@@ -22,19 +26,17 @@
 
   {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
 
-  Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
-
-  {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
-
 - Чарт
 
   {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
 
-  Чтобы поделиться чартом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
-
-  {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
-
 {% endlist %}
+
+## Поделиться чартом на основе данных Метрики или AppMetrica {#metrica-share}
+
+Чтобы поделиться чартом или дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
+
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 
 ## Встраивание публичных объектов {#embedded-public-chart}
 

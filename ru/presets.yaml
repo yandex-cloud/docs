@@ -1313,6 +1313,12 @@ default:
         memory|pricingRate:
           10|string: "16,0000\_₸"
         memory|string: Не тарифицируется
+        provision_enabled:
+          cpu|string: "5,1500\_₸"
+          memory|string: "3,4500\_₸"
+        provisioned_request:
+          cpu|string: "9,9000\_₸"
+          memory|string: "6,6000\_₸"
       invocations|pricingRate:
         1|string: "80,0000\_₸"
       invocations|string: Не тарифицируется
@@ -2059,6 +2065,12 @@ default:
         memory|pricingRate:
           10|string: "3,2000\_₽"
         memory|string: Не тарифицируется
+        provision_enabled:
+          cpu|string: "1,0300\_₽"
+          memory|string: "0,6900\_₽"
+        provisioned_request:
+          cpu|string: "1,9800\_₽"
+          memory|string: "1,3200\_₽"
       invocations|pricingRate:
         1|string: "16,0000\_₽"
       invocations|string: Не тарифицируется
@@ -2755,6 +2767,23 @@ default:
     balancer:
       active|string: "0,006240\_$"
   sku|USD|serverless:
+    containers:
+      compute:
+        cpu|pricingRate:
+          5|string: "0,038400\_$"
+        cpu|string: Не тарифицируется
+        memory|pricingRate:
+          10|string: "0,025600\_$"
+        memory|string: Не тарифицируется
+        provision_enabled:
+          cpu|string: "0,008240\_$"
+          memory|string: "0,005520\_$"
+        provisioned_request:
+          cpu|string: "0,015840\_$"
+          memory|string: "0,010560\_$"
+      invocations|pricingRate:
+        1|string: "0,128000\_$"
+      invocations|string: Не тарифицируется
     functions:
       compute:
         v1|pricingRate:

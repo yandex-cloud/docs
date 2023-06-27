@@ -60,4 +60,4 @@ DATETIME_PARSE("2019 Jan 02 03:04:05") = #2019-01-02 03:04:05#
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`.
+`ClickHouse 21.8`.

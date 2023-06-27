@@ -33,4 +33,4 @@ UTF8([Name], "CP-1251")
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`.
+`ClickHouse 21.8`.

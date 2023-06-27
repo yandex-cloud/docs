@@ -49,4 +49,4 @@ ARRAY(0, 2.3, NULL, 0.18)
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 19.13`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `PostgreSQL 9.3`.

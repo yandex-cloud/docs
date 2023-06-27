@@ -1,15 +1,6 @@
 # Роли в {{ datalens-short-name }}
 
-Доступ к сервису {{ datalens-full-name }} регулируется путем назначения прав:
-
-* для экземпляра {{ datalens-short-name }} на уровне организации — через сервис [организации](../concepts/organizations.md);
-* для экземпляра {{ datalens-short-name }} на уровне каталога облака — через [консоль]({{ link-console-main }}) {{ yandex-cloud }}.
-
-Чтобы предоставить доступ, назначьте пользователю одну из ролей {{ datalens-short-name }}.
-
-## Пользовательские роли {#users-roles}
-
-Позволяют определить права пользователя в экземпляре {{ datalens-short-name }}.
+Чтобы предоставить пользователю доступ к {{ datalens-short-name }}, назначьте ему одну из ролей. Роли позволяют определить права пользователя в экземпляре {{ datalens-short-name }}.
 
 {% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
 

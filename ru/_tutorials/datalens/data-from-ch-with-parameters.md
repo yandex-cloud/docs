@@ -185,7 +185,7 @@
 
 ## Добавьте селекторы на дашборд {#add-selectors-on-dashboard}
 
-Добавьте [селекторы](../../datalens/concepts/dashboard.md#selector) с ручным вводом, чтобы менять значения параметров в чартах.
+Добавьте [селекторы](../../datalens/dashboard/selector.md) с ручным вводом, чтобы менять значения параметров в чартах.
 
 {% note warning %}
 
