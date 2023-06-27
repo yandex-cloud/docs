@@ -1,6 +1,10 @@
 # Пошаговые инструкции для {{ datalens-full-name }}
 
-## Создание подключения {#creating-connection}
+## Навигация/общий интерфейс DataLens {#navgation}
+
+Список ссылок на статьи
+
+## Работа с подлючениями {#working-with-connections}
 
 - [{#T}](connection/create-clickhouse.md)
 - [{#T}](connection/create-file.md)
@@ -18,7 +22,7 @@
 - [{#T}](connection/create-cloud-billing.md)
 - [{#T}](connection/create-monitoring.md)
 - [{#T}](connection/create-bitrix24.md)
-- [{#T}](connection/manage-access.md)
+- [{#T}](../security/manage-access.md)
 
 ## Работа с датасетом {#working-with-datasets}
 
@@ -29,22 +33,28 @@
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
- - [{#T}](dataset/manage-access.md)
-- [{#T}](dataset/manage-row-level-security.md)
+ - [{#T}](../security/manage-access.md)
+- [{#T}](../security/row-level-security.md)
 - [{#T}](dataset/add-parameter-dataset.md)
 
-## Создание и настройка чартов {#creating-and-configuring-charts}
+## Создание и настройка чартов в визарде {#wizard}
 
 - [{#T}](chart/create-chart.md)
-- [{#T}](chart/create-sql-chart.md)
 - [{#T}](chart/create-multidataset-chart.md)
 - [{#T}](chart/add-hierarchy.md)
 - [{#T}](chart/config-chart-navigator.md)
-- [{#T}](chart/publish.md)
-- [{#T}](chart/manage-access.md)
+- [{#T}](../security/manage-access.md)
 - [{#T}](chart/add-guid.md)
 - [{#T}](chart/add-parameter-chart.md)
 - [{#T}](chart/chart-null-settings.md)
+
+## QL-чарты {#ql-charts}
+
+- [{#T}](chart/create-sql-chart.md)
+
+## Визуал {#visual}
+
+Список ссылок на статьи
 
 ## Работа с дашбордами {#working-with-dashboards}
 
@@ -53,13 +63,8 @@
 - [{#T}](dashboard/add-selector.md)
 - [{#T}](dashboard/create-alias.md)
 - [{#T}](dashboard/edit-alias.md)
-- [{#T}](dashboard/publish.md)
-- [{#T}](dashboard/manage-access.md)
-- [{#T}](dashboard/auto-update.md)
+- [{#T}](../security/manage-access.md)
 
+## Селекторы и фильтры {#filters-and-selectors}
 
-
-## Работа с организациями {#working-with-organizations}
-
-- [{#T}](organizations/change-organization.md)
-
+Список ссылок на статьи

@@ -38,4 +38,4 @@ Returns `TRUE` if `array_1` contains all elements of `array_2`.
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `PostgreSQL 9.3`.

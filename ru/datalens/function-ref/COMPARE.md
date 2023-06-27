@@ -45,4 +45,4 @@ COMPARE(1.26, 1.25, 0.001) = 1
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 19.13`.
+`ClickHouse 21.8`.

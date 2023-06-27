@@ -44,4 +44,4 @@ sourcePath: ru/_api-ref/datalens/function-ref/QUANTILE_APPROX.md
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 19.13`.
+`ClickHouse 21.8`.

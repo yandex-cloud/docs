@@ -38,4 +38,4 @@ CONTAINS_ANY( array_1, array_2 )
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 19.13`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `PostgreSQL 9.3`.

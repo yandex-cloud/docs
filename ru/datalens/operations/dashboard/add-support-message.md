@@ -10,7 +10,7 @@
 
    {% note info %}
    
-   Поддерживается язык разметки [Markdown](../../concepts/markdown.md).
+   Поддерживается язык разметки [Markdown](../../dashboard/markdown.md).
 
    {% endnote %}
 

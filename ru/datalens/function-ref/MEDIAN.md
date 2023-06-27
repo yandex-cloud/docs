@@ -50,4 +50,4 @@ MEDIAN([Profit])
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 19.13`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.4`, `YDB`.
+`ClickHouse 21.8`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.4`, `YDB`.

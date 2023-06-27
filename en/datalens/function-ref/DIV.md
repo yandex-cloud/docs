@@ -24,25 +24,20 @@ Divides `number_1` by `number_2`. The result is rounded down to the nearest inte
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-DIV(4, 2) = 2
-```
 
-```
-DIV(5, 3) = 1
-```
 
-```
-DIV(5.0, 2) = 2
-```
+| **[numerator]**   | **[denominator]**   | **DIV([numerator], [denominator])**   |
+|:------------------|:--------------------|:--------------------------------------|
+| `4.00`            | `2.00`              | `2`                                   |
+| `5.00`            | `3.00`              | `1`                                   |
+| `5.00`            | `2.00`              | `2`                                   |
+| `2.50`            | `1.20`              | `2`                                   |
 
-```
-DIV(2.5, 1.2) = 2
-```
+
 
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

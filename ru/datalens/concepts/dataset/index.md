@@ -1,7 +1,7 @@
 # Датасет в {{ datalens-name }}
 
 _Датасет_ описывает набор данных и его структуру.
-Набор данных датасета представлен в виде полей. Подробнее в разделе [{#T}](data-model.md).
+Набор данных датасета представлен в виде полей.
 
 {{ datalens-full-name }} создает датасет на основе источника данных, для которого существует подключение.
 
@@ -9,8 +9,20 @@ _Датасет_ описывает набор данных и его струк
 Датасет работает с источниками в режиме прямого доступа: все запросы к данным {{ datalens-short-name }} выполняет на стороне источника.
 
 
-## Создание датасета {#create-dataset}
+Подробнее о датасете и работе с ним смотрите:
 
-Чтобы создать датасет:
+* [{#T}](data-model.md)
+* [{#T}](../data-types.md)
+* [{#T}](../../dataset/types-lookup-table.md)
+* [{#T}](settings.md)
 
-{% include [datalens-create-dataset](../../../_includes/datalens/operations/datalens-create-dataset.md) %}
+* Пошаговые инструкции:
+
+  * [{#T}](../../operations/dataset/create.md)
+  * [{#T}](../../operations/dataset/join-data.md)
+  * [{#T}](../../operations/dataset/create-field.md)
+  * [{#T}](../../operations/dataset/create-calculated-field.md)
+  * [{#T}](../../operations/dataset/create-filter.md)
+  * [{#T}](../../operations/dataset/update-field.md)
+  * [{#T}](../../operations/dataset/add-data.md)
+  * [{#T}](../../operations/dataset/add-parameter-dataset.md)
