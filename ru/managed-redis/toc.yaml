@@ -7,13 +7,25 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Изменение настроек кластера и базы данных
-        href: operations/update.md
-      - name: Подключение к базе данных
+      - name: Кластеры
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Изменение настроек кластера
+            href: operations/update.md
+          - name: Обновление версии {{ RD }}
+            href: operations/cluster-version-update.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Управление хостами кластера
+            href: operations/hosts.md
+          - name: Управление резервными копиями
+            href: operations/cluster-backups.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Базы данных
         items:
           - name: Подготовка к подключению
             href: operations/connect/index.md
@@ -21,24 +33,18 @@ items:
             href: operations/connect/non-sharded.md
           - name: Подключение к шардированному кластеру
             href: operations/connect/sharded.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
-      - name: Обновление версии Redis
-        href: operations/cluster-version-update.md
-      - name: Управление хостами кластера
-        href: operations/hosts.md
-      - name: Управление шардами
-        href: operations/shards.md
-      - name: Управление резервными копиями
-        href: operations/cluster-backups.md
-      - name: Переключение мастера
-        href: operations/failover.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
-      - name: Просмотр логов кластера
-        href: operations/cluster-logs.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
+      - name: Шардирование и отказоустойчивость
+        items:
+          - name: Управление шардами
+            href: operations/shards.md
+          - name: Переключение мастера
+            href: operations/failover.md
+      - name: Логи и мониторинг
+        items:
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
   - name: Практические руководства
     items:
       - name: Все сценарии

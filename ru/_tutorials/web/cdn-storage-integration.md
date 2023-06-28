@@ -80,11 +80,11 @@
      Результат:
        
      ```
-     id: enptrcle5q3d3ktd33hj
-     folder_id: b1g9hv2loamqfnbul7d9
+     id: enptrcle5q3d********
+     folder_id: b1g9hv2loamq********
      created_at: "2022-04-04T05:25:03Z"
      name: example-network
-     default_security_group_id: enpbsnnop4akg7ng70ll
+     default_security_group_id: enpbsnnop4ak********
      ```
      
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
@@ -103,11 +103,11 @@
        Результат:
       
        ``` 
-       id: e9bnnssj8sc8mjhat9qk
-       folder_id: b1g9hv2loamqfnbul7d9
+       id: e9bnnssj8sc8********
+       folder_id: b1g9hv2loamq********
        created_at: "2022-04-04T09:27:00Z"
        name: example-subnet-{{ region-id }}-a
-       network_id: enptrcle5q3d3ktd33hj
+       network_id: enptrcle5q3d********
        zone_id: {{ region-id }}-a
        v4_cidr_blocks:
        - 10.1.0.0/16
@@ -125,11 +125,11 @@
        Результат:
       
        ``` 
-       id: e2lghukd9iqo4haidjbt
-       folder_id: b1g9hv2loamqfnbul7d9
+       id: e2lghukd9iqo********
+       folder_id: b1g9hv2loamq********
        created_at: "2022-04-04T09:27:39Z"
        name: example-subnet-{{ region-id }}-b
-       network_id: enptrcle5q3d3ktd33hj
+       network_id: enptrcle5q3d********
        zone_id: {{ region-id }}-b
        v4_cidr_blocks:
        - 10.2.0.0/16
@@ -147,11 +147,11 @@
        Результат:
       
        ``` 
-       id: b0c3pte4o2kn4v12o05p
-       folder_id: b1g9hv2loamqfnbul7d9
+       id: b0c3pte4o2kn********
+       folder_id: b1g9hv2loamq********
        created_at: "2022-04-04T09:28:08Z"
        name: example-subnet-{{ region-id }}-c
-       network_id: enptrcle5q3d3ktd33hj
+       network_id: enptrcle5q3d********
        zone_id: {{ region-id }}-c
        v4_cidr_blocks:
        - 10.3.0.0/16
@@ -231,24 +231,24 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите `example-bucket`.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
   1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
   
 - AWS CLI
 
-  1. Создайте бакет `example-bucket`:
+  1. Создайте бакет:
   
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
-       s3 mb s3://example-bucket
+       s3 mb s3://<имя_бакета>
      ```
      
      Результат:
      
      ```
-     make_bucket: s3://example-bucket
+     make_bucket: s3://<имя_бакета>
      ```
      
   1. Включите публичный доступ к чтению объектов и их списка:
@@ -256,19 +256,19 @@
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3api put-bucket-acl \
-       --bucket example-bucket \
+       --bucket <имя_бакета> \
        --acl public-read
      ```
 
 - {{ TF }}
 
-  1. Добавьте в конфигурационный файл параметры бакета `example-bucket`:
+  1. Добавьте в конфигурационный файл параметры бакета:
   
      ```hcl
      ...
      
-     resource "yandex_storage_bucket" "example-bucket" {
-       bucket = "example-bucket"
+     resource "yandex_storage_bucket" "<имя_бакета>" {
+       bucket = "<имя_бакета>"
        acl    = "public-read"
      }
      ```
@@ -330,33 +330,33 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-     1. Выберите бакет `example-bucket`.
+     1. Выберите бакет.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите для загрузки файл `index.html`.
 
    - AWS CLI
    
-     1. Загрузите в бакет `example-bucket` файл `index.html`:
+     1. Загрузите в бакет файл `index.html`:
      
         ```bash
         aws --endpoint-url https://{{ s3-storage-host }} \
-          s3 cp v1/index.html s3://example-bucket/index.html
+          s3 cp v1/index.html s3://<имя_бакета>/index.html
         ```
         
         Результат:
         
         ```
-        upload: v1/index.html to s3://example-bucket/index.html
+        upload: v1/index.html to s3://<имя_бакета>/index.html
         ```
 
    - {{ TF }}
    
-     1. Добавьте в конфигурационный файл параметры файла `v1/index.html`, загружаемого в бакет `example-bucket`:
+     1. Добавьте в конфигурационный файл параметры файла `v1/index.html`, загружаемого в бакет:
      
         ```hcl
         ...
         
         resource "yandex_storage_object" "example-bucket-index" {
-          bucket = "example-bucket"
+          bucket = "<имя_бакета>"
           key    = "index.html"
           source = "v1/index.html"
         }
@@ -451,21 +451,21 @@
   Результат:
   
   ```
-  id: enpd133ngcnrgc8475cc
-  folder_id: b1g9hv2loamqfnbul7d9
+  id: enpd133ngcnr********
+  folder_id: b1g9hv2loamq********
   created_at: "2022-04-04T10:26:16Z"
   name: example-sg
-  network_id: enptrcle5q3d3ktd33hj
+  network_id: enptrcle5q3d********
   status: ACTIVE
   rules:
-  - id: enpkgrpi2gsibdm6aotd
+  - id: enpkgrpi2gsi********
     direction: EGRESS
     protocol_name: ANY
     protocol_number: "-1"
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpgssij0i168jknb85r
+  - id: enpgssij0i16********
     direction: INGRESS
     ports:
       from_port: "80"
@@ -475,7 +475,7 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enp0bft67j9lrlnhdur5
+  - id: enp0bft67j9l********
     direction: INGRESS
     ports:
       from_port: "443"
@@ -485,7 +485,7 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpmorcimu65fk4oaanm
+  - id: enpmorcimu65********
     direction: INGRESS
     ports:
       from_port: "30080"
@@ -580,7 +580,7 @@
       1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-backend`.
       1. В поле **{{ ui-key.yacloud.alb.label_backend-weight }}** укажите `100`.
       1. В поле **{{ ui-key.yacloud.common.type }}** выберите [тип бэкенда](../../application-load-balancer/concepts/backend-group.md#types) **{{ ui-key.yacloud.alb.label_bucket }}**.
-      1. В поле **{{ ui-key.yacloud.alb.label_bucket }}** выберите `example-bucket`.
+      1. В поле **{{ ui-key.yacloud.alb.label_bucket }}** выберите бакет, созданный ранее.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   Если вы будете выполнять следующие шаги с помощью {{ TF }}, скопируйте идентификатор группы бэкендов `example-bg` со вкладки ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
@@ -627,9 +627,9 @@
      Результат:
      
      ```
-     id: ds7qd0vj01djuu3c6f8q
+     id: ds7qd0vj01dj********
      name: example-router
-     folder_id: b1g9hv2loamqfnbul7d9
+     folder_id: b1g9hv2loamq********
      created_at: "2022-04-04T10:31:41.027649223Z"
      ```
      
@@ -678,9 +678,9 @@
            path:
              prefix_match: /
          route:
-           backend_group_id: ds7pbm5fj2v09ptnn29p
+           backend_group_id: ds7pbm5fj2v0********
      ```
-     
+
      Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
 - {{ TF }}
@@ -777,13 +777,13 @@
      Результат:
      
      ```
-     +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-     |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
-     +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-     | e9bnnssj8sc8mjhat9qk | example-subnet-{{ region-id }}-c | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-c | [10.1.0.0/16] |
-     | e2lghukd9iqo4haidjbt | example-subnet-{{ region-id }}-b | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-b | [10.2.0.0/16] |
-     | b0c3pte4o2kn4v12o05p | example-subnet-{{ region-id }}-a | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-a | [10.3.0.0/16] |
-     +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
+     +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
+     |          ID          |               NAME               |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |     RANGE     |
+     +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
+     | e9bnnssj8sc8******** | example-subnet-{{ region-id }}-c | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-c | [10.1.0.0/16] |
+     | e2lghukd9iqo******** | example-subnet-{{ region-id }}-b | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-b | [10.2.0.0/16] |
+     | b0c3pte4o2kn******** | example-subnet-{{ region-id }}-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-a | [10.3.0.0/16] |
+     +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
      ```
      
      Подробнее о команде `yc vpc network list-subnets` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/list-subnets.md).
@@ -817,23 +817,23 @@
      
      ```hcl
      done (3m0s)
-     id: ds77q7v39b4ubg8ta2n4
+     id: ds77q7v39b4u********
      name: example-balancer
-     folder_id: b1g9hv2loamqfnbul7d9
+     folder_id: b1g9hv2loamq********
      status: ACTIVE
      region_id: {{ region-id }}
-     network_id: enptrcle5q3d3ktd33hj
+     network_id: enptrcle5q3d********
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-c
-         subnet_id: b0c3pte4o2kn4v12o05p
+         subnet_id: b0c3pte4o2kn********
        - zone_id: {{ region-id }}-b
-         subnet_id: e2lghukd9iqo4haidjbt
+         subnet_id: e2lghukd9iqo********
        - zone_id: {{ region-id }}-a
-         subnet_id: e9bnnssj8sc8mjhat9qk
-     log_group_id: ckg23vr4dlkse3hvq0kc
+         subnet_id: e9bnnssj8sc8********
+     log_group_id: ckg23vr4dlks********
      security_group_ids:
-     - enpd133ngcnrgc8475cc
+     - enpd133ngcnr********
      created_at: "2022-04-04T10:55:49.134935148Z"
      ```
      
@@ -853,12 +853,12 @@
      
      ```
      done (43s)
-     id: ds77q7v39b4ubg8ta2n4
+     id: ds77q7v39b4u********
      name: example-balancer
-     folder_id: b1g9hv2loamqfnbul7d9
+     folder_id: b1g9hv2loamq********
      status: ACTIVE
      region_id: {{ region-id }}
-     network_id: enptrcle5q3d3ktd33hj
+     network_id: enptrcle5q3d********
      listeners:
      - name: example-listener
        endpoints:
@@ -869,18 +869,18 @@
          - "80"
        http:
          handler:
-           http_router_id: ds7qd0vj01djuu3c6f8q
+           http_router_id: ds7qd0vj01dj********
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-c
-         subnet_id: b0c3pte4o2kn4v12o05p
+         subnet_id: b0c3pte4o2kn********
        - zone_id: {{ region-id }}-b
-         subnet_id: e2lghukd9iqo4haidjbt
+         subnet_id: e2lghukd9iqo********
        - zone_id: {{ region-id }}-a
-         subnet_id: e9bnnssj8sc8mjhat9qk
-     log_group_id: ckg23vr4dlkse3hvq0kc
+         subnet_id: e9bnnssj8sc8********
+     log_group_id: ckg23vr4dlks********
      security_group_ids:
-     - enpd133ngcnrgc8475cc
+     - enpd133ngcnr********
      created_at: "2022-04-04T10:55:49.134935148Z"
      ```
      
@@ -1027,7 +1027,7 @@
 
       ```
       id: "90748"
-      folder_id: b1geoelk7fldts6chmjq
+      folder_id: b1geoelk7fld********
       name: example-origin-group
       use_next: true
       origins:
@@ -1054,8 +1054,8 @@
       Результат:
 
       ```
-      id: bc843k2yinvq5fhgvuvc
-      folder_id: b1ge1elk72ldts6chmjq
+      id: bc843k2yinvq********
+      folder_id: b1ge1elk72ld********
       cname: cdn.yandexcloud.example
       ...
       active: true
@@ -1187,7 +1187,7 @@
 1. Создайте или измените CNAME-запись для `cdn.yandexcloud.example` так, чтобы она указывала на скопированное доменное имя:
 
    ```
-   cdn CNAME cl-....edgecdn.ru
+   cdn CNAME cl-****edgecdn.ru
    ```
    
    Если вы пользуетесь {{ dns-name }}, настройте запись по следующей инструкции:
@@ -1230,8 +1230,8 @@
         Результат:
         
         ```
-        id: dns4rq4tadddth4h20qm
-        folder_id: b1g9hv2loamqfnbul7d9
+        id: dns4rq4taddd********
+        folder_id: b1g9hv2loamq********
         created_at: "2022-04-04T11:03:28.847Z"
         name: example-dns-zone
         zone: yandexcloud.example.
@@ -1240,12 +1240,12 @@
         
         Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/create.md).
         
-     1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-....edgecdn.ru`:
+     1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-****edgecdn.ru`:
      
         ```bash
         yc dns zone add-records \
           --name example-dns-zone \
-          --record "cdn CNAME cl-....edgecdn.ru" \
+          --record "cdn CNAME cl-****edgecdn.ru" \
         ```
 
         Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
@@ -1267,7 +1267,7 @@
           zone_id = ${yandex_dns_zone.example-dns-zone.id}
           name    = "cdn"
           type    = "CNAME"
-          data    = ["<скопированное_значение_вида_cl-....edgecdn.ru>"]
+          data    = ["<скопированное_значение_вида_cl-****edgecdn.ru>"]
         }
         ```
 
@@ -1297,7 +1297,7 @@
    - API
     
      1. Создайте DNS-зону `example-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../../dns/api-ref/DnsZone/create.md).
-     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-....edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
+     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-****edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
         
    {% endlist %}
    
@@ -1328,7 +1328,7 @@
 1. Если вы настраивали CNAME-записи в {{ dns-name }}, [удалите](../../dns/operations/zone-delete.md) зону DNS `example-dns-zone`.
 1. [Удалите](../../cdn/operations/resources/delete-resource.md) CDN-ресурс с основным доменным именем `cdn.yandexcloud.example`.
 1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `example-balancer`.
-1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета `example-bucket`.
-1. [Удалите](../../storage/operations/buckets/delete.md) бакет `example-bucket`.
+1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
 1. [Удалите](../../vpc/operations/subnet-delete.md) подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c`.
 1. [Удалите](../../vpc/operations/network-delete.md) сеть `example-network`.

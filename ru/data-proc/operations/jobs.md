@@ -4,5 +4,5 @@
 
 * [{#T}](jobs-spark.md)
 * [{#T}](jobs-pyspark.md)
-* [{#T}](jobs-mapreduce.md)
 * [{#T}](jobs-hive.md)
+* [{#T}](jobs-mapreduce.md)

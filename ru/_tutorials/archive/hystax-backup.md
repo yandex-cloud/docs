@@ -234,11 +234,11 @@ Hystax Acura Backup будет выполнять действия от имен
       +----------------------+------+---------------+----------+------+
       |          ID          | NAME |    ADDRESS    | RESERVED | USED |
       +----------------------+------+---------------+----------+------+
-      | e2l46k8conff8n6ru1jl |      | 84.201.177.41 | false    | true |
+      | e2l46k8conff******** |      | 8*.20*.17*.4* | false    | true |
       +----------------------+------+---------------+----------+------+
       ```
 
-      Значение `false` параметра `RESERVED` для IP-адреса с `ID` `e2l46k8conff8n6ru1jl` показывает, что этот адрес динамический.
+      Значение `false` параметра `RESERVED` для IP-адреса с `ID` `e2l46k8conff********` показывает, что этот адрес динамический.
   1. Сделайте адрес статическим, используя ключ `--reserved=true` и идентификатор (`ID`) IP-адреса:
 
       ```bash
@@ -248,11 +248,11 @@ Hystax Acura Backup будет выполнять действия от имен
       Результат:
 
       ```bash
-      id: e2l46k8conff8n6ru1jl
-      folder_id: b1g7gvsi89m34pipa3ke
+      id: e2l46k8conff********
+      folder_id: b1g7gvsi89m3********
       created_at: "2022-01-14T09:36:46Z"
       external_ipv4_address:
-        address: 84.201.177.41
+        address: 8*.20*.17*.4*
         zone_id: {{ region-id }}-b
         requirements: {}
       reserved: true

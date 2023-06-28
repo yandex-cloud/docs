@@ -16,7 +16,6 @@ In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../res
 The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, `audit-trails.editor` includes all `audit-trails.viewer` role permissions. You can find the description of each role under the chart.
 
 ![image](../../_assets/audit-trails/at-role-diagram.svg)
-<small>\* deprecated</small>
 
 ### Service roles
 

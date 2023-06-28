@@ -32,7 +32,7 @@
   
   Чтобы создать группу с правилом для IPv4 CIDR, выполните команду:
 
-  ```
+  ```bash
   yc vpc security-group create \
     --name test-sg-cli \
     --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
@@ -41,16 +41,32 @@
 
   Где:
 
-  * `--name` — имя группы безопасности.
-  * `--rule` — описание правила:
+  * `name` — имя группы безопасности.
+  * `rule` — описание правила:
     * `direction` — направление трафика. `ingress` — входящий трафик, `egress` — исходящий.
     * `port` — порт для получения или передачи трафика. Также можно указать диапазон портов с помощью параметров `from-port` и `to-port`.
     * `protocol` — протокол передачи данных. Возможные значения: `tcp`, `udp`, `icmp`, `esp`, `ah`, `any`.
     * `v4-cidrs` — список CIDR IPv4 и масок подсетей, откуда или куда будет поступать трафик.
+    * `network-id` — идентификатор сети, к которой будет подключена группа безопасности.
 
-- API
+  Чтобы создать группу с правилом разрешающим трафик от всех ресурсов другой группы безопасности, выполните команду:
 
-  Воспользуйтесь методом REST API [create](../api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create).
+  ```bash
+  yc vpc security-group create \
+    --name allow-connection-from-app \
+    --rule "direction=ingress,port=5642,protocol=tcp,security-group-id=enp099cqehlfvabec36d" \
+    --network-name infra2
+  ```
+
+  Где:
+
+  * `name` — имя группы безопасности.
+  * `rule` — описание правила:
+    * `direction` — направление трафика. `ingress` — входящий трафик, `egress` — исходящий.
+    * `port` — порт для получения или передачи трафика. Также можно указать диапазон портов с помощью параметров `from-port` и `to-port`.
+    * `protocol` — протокол передачи данных. Возможные значения: `tcp`, `udp`, `icmp`, `esp`, `ah`, `any`.
+    * `security-group-id` — идентификатор группы безопасности, для которой разрешен трафик в сторону создаваемой группы безопасности по порту 443.
+  * `network-name` — имя сети, к которой будет подключена группа безопасности.
 
 - {{ TF }}
 
@@ -92,6 +108,21 @@
          v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
          port           = 8080
        }
+     
+        ingress {
+          protocol          = "ANY"
+          description       = "Разрешает взаимодействие между ресурсами текущей группы безопасности"
+          predefined_target = "self_security_group"
+          from_port         = 0
+          to_port           = 65535
+        }
+
+        ingress {
+          protocol           = "TCP"
+          description        = "Разрешает подключение по порту 27017 со стороны ресурсов с группой безопасности sg-frontend"
+          security_group_id  = yandex_vpc_security_group.sg-frontend.id
+          port               = 27017
+        }
 
        egress {
          protocol       = "ANY"
@@ -125,6 +156,10 @@
      2. Подтвердите создание ресурсов.
      
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+- API
+
+  Воспользуйтесь методом REST API [create](../api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create).
 
 {% endlist %}
 

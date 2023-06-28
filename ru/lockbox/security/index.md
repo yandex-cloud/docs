@@ -18,7 +18,7 @@ description: "Управление доступом в сервисе для х�
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/lockbox/service-roles-hierarchy.png)
+![image](../../_assets/lockbox/service-roles-hierarchy.svg)
  
 ## Какие роли действуют в сервисе {#roles-list}
 

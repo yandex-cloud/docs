@@ -66,6 +66,8 @@ items:
     items:
       - name: ViPNet Coordinator в {{ yandex-cloud }}
         href: tutorials/vipnet-to-yc.md
+      - name: Настройка и тестирование PT Application Firewall
+        href: tutorials/pt-application-firewall.md
   - name: Инструкции
     items:
       - name: Удаление паспортного аккаунта из {{ org-full-name }}

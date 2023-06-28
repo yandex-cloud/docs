@@ -127,11 +127,11 @@
     Где:
 
     * `stream` — идентификатор потока данных {{ yds-name }}. 
-        >Например, укажите идентификатор потока `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logs-stream`, если:
+        >Например, укажите идентификатор потока `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logs-stream`, если:
         >* `logs-stream` — имя потока;
         >* `{{ region-id }}` — регион;
-        >* `aoeu1kuk2dhtaupdb1es` — идентификатор каталога;
-        >* `cc8029jgtuabequtgtbv` — идентификатор базы данных {{ ydb-short-name }}.
+        >* `aoeu1kuk2dht********` — идентификатор каталога;
+        >* `cc8029jgtuab********` — идентификатор базы данных {{ ydb-short-name }}.
 
     Подробнее о том, как настроить Fluent Bit см. в [официальной документации](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file).
 

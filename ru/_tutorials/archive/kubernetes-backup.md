@@ -35,6 +35,7 @@
 1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-name }}:
    * **Имя** — `velero-backup`.
    * **Класс хранилища** — `Стандартное`.
+   * В полях **Доступ на чтение объектов**, **Доступ к списку объектов** и **Доступ на чтение настроек** выберите **Ограниченный**.
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md):
    * **Имя** — `velero-sa`.
    * **Роли в каталоге** — `compute.admin`.
@@ -49,8 +50,8 @@
 
    ```text
    access_key:
-     id: abcdo12h3j04odg56def
-     service_account_id: ajego12h3j03slk16upe
+     id: abcdo12h3j04********
+     service_account_id: ajego12h3j03********
      created_at: "2020-10-19T13:22:29Z"
      key_id: <идентификатор ключа>
    secret: <значение секретного ключа>

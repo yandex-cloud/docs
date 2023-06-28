@@ -89,11 +89,11 @@
      Результат:
 
      ```
-     id: enptrcle5q3d3ktd33hj
-     folder_id: b1g9hv2loamqfnbul7d9
+     id: enptrcle5q3d********
+     folder_id: b1g9hv2loamq********
      created_at: "2021-11-03T09:25:03Z"
      name: canary-network
-     default_security_group_id: enpbsnnop4akg7ng70ll
+     default_security_group_id: enpbsnnop4ak********
      ```
 
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/network/create.md).
@@ -112,11 +112,11 @@
        Результат:
 
        ``` 
-       id: e9bnnssj8sc8mjhat9qk
-       folder_id: b1g9hv2loamqfnbul7d9
+       id: e9bnnssj8sc8********
+       folder_id: b1g9hv2loamq********
        created_at: "2021-11-03T09:27:00Z"
        name: canary-subnet-{{ region-id }}-a
-       network_id: enptrcle5q3d3ktd33hj
+       network_id: enptrcle5q3d********
        zone_id: {{ region-id }}-a
        v4_cidr_blocks:
        - 10.1.0.0/16
@@ -134,11 +134,11 @@
        Результат:
 
        ``` 
-       id: e2lghukd9iqo4haidjbt
-       folder_id: b1g9hv2loamqfnbul7d9
+       id: e2lghukd9iqo********
+       folder_id: b1g9hv2loamq********
        created_at: "2021-11-03T09:27:39Z"
        name: canary-subnet-{{ region-id }}-b
-       network_id: enptrcle5q3d3ktd33hj
+       network_id: enptrcle5q3d********
        zone_id: {{ region-id }}-b
        v4_cidr_blocks:
        - 10.2.0.0/16
@@ -156,11 +156,11 @@
        Результат:
 
        ``` 
-       id: b0c3pte4o2kn4v12o05p
-       folder_id: b1g9hv2loamqfnbul7d9
+       id: b0c3pte4o2kn********
+       folder_id: b1g9hv2loamq********
        created_at: "2021-11-03T09:28:08Z"
        name: canary-subnet-{{ region-id }}-c
-       network_id: enptrcle5q3d3ktd33hj
+       network_id: enptrcle5q3d********
        zone_id: {{ region-id }}-c
        v4_cidr_blocks:
        - 10.3.0.0/16
@@ -239,28 +239,28 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Создайте бакет `canary-bucket-blue`:
+  1. Создайте «синий» бакет для стабильной версии бэкенда:
 
      1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-     1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите `canary-bucket-blue`.
+     1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
      1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-  1. Таким же образом создайте бакет `canary-bucket-green`.
+  1. Таким же образом создайте «зеленый» бакет для тестовой версии бэкенда.
 
 - AWS CLI
 
-  1. Создайте бакет `canary-bucket-blue`:
+  1. Создайте «синий» бакет для стабильной версии бэкенда:
 
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
-       s3 mb s3://canary-bucket-blue
+       s3 mb s3://<имя_синего_бакета>
      ```
 
      Результат:
 
      ```
-     make_bucket: s3://canary-bucket-blue
+     make_bucket: s3://<имя_синего_бакета>
      ```
 
   1. Включите публичный доступ к чтению объектов и их списка:
@@ -268,26 +268,26 @@
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3api put-bucket-acl \
-       --bucket canary-bucket-blue \
+       --bucket <имя_синего_бакета> \
        --acl public-read
      ```
 
-  1. Аналогично создайте бакет `canary-bucket-green` и включите публичный доступ к нему.
+  1. Аналогично создайте «зеленый» бакет для тестовой версии бэкенда и включите публичный доступ к нему.
 
 - {{ TF }}
 
-  1. Добавьте в конфигурационный файл параметры бакетов `canary-bucket-blue` и `canary-bucket-green`:
+  1. Добавьте в конфигурационный файл параметры «синего» (стабильная версия бэкенда) и «зеленого» (тестовая версия бэкенда) бакетов:
 
      ```hcl
      ...
 
      resource "yandex_storage_bucket" "canary-bucket-blue" {
-       bucket = "canary-bucket-blue"
+       bucket = "<имя_синего_бакета>"
        acl    = "public-read"
      }
 
      resource "yandex_storage_bucket" "canary-bucket-green" {
-       bucket = "canary-bucket-green"
+       bucket = "<имя_зеленого_бакета>"
        acl    = "public-read"
      }
      ```
@@ -365,53 +365,53 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-     1. Выберите бакет `canary-bucket-blue`.
+     1. Выберите «синий» бакет.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите для загрузки файл `index.html` версии 1.
-     1. Таким же образом загрузите в бакет `canary-bucket-green` файл `index.html` версии 2.
+     1. Таким же образом загрузите в «зеленый» бакет файл `index.html` версии 2.
 
    - AWS CLI
 
-     1. Загрузите в бакет `canary-bucket-blue` файл `index.html` версии 1:
+     1. Загрузите в «синий» бакет файл `index.html` версии 1:
 
         ```bash
         aws --endpoint-url https://{{ s3-storage-host }} \
-          s3 cp v1/index.html s3://canary-bucket-blue/index.html
+          s3 cp v1/index.html s3://<имя_синего_бакета>/index.html
         ```
 
         Результат:
 
         ```
-        upload: v1/index.html to s3://canary-bucket-blue/index.html
+        upload: v1/index.html to s3://<имя_синего_бакета>/index.html
         ```
 
-     1. Загрузите в бакет `canary-bucket-green` файл `index.html` версии 2:
+     1. Загрузите в «зеленый» бакет файл `index.html` версии 2:
 
         ```bash
         aws --endpoint-url https://{{ s3-storage-host }} \
-          s3 cp v2/index.html s3://canary-bucket-green/index.html
+          s3 cp v2/index.html s3://<имя_зеленого_бакета>/index.html
         ```
 
         Результат:
 
         ```
-        upload: v2/index.html to s3://canary-bucket-green/index.html
+        upload: v2/index.html to s3://<имя_зеленого_бакета>/index.html
         ```
 
    - {{ TF }}
 
-     1. Добавьте в конфигурационный файл параметры файлов `v1/index.html` и `v2/index.html`, загружаемых в бакеты `canary-bucket-blue` и `canary-bucket-green` соответственно:
+     1. Добавьте в конфигурационный файл параметры файлов `v1/index.html` и `v2/index.html`, загружаемых в бакеты «синий» и «зеленый» соответственно:
 
         ```hcl
         ...
 
         resource "yandex_storage_object" "canary-bucket-blue-index" {
-          bucket = "canary-bucket-blue"
+          bucket = "<имя_синего_бакета>"
           key    = "index.html"
           source = "v1/index.html"
         }
 
         resource "yandex_storage_bucket" "canary-bucket-green-index" {
-          bucket = "canary-bucket-green"
+          bucket = "<имя_зеленого_бакета>"
           key    = "index.html"
           source = "v2/index.html"
         }
@@ -501,21 +501,21 @@
   Результат:
 
   ```
-  id: enpd133ngcnrgc8475cc
-  folder_id: b1g9hv2loamqfnbul7d9
+  id: enpd133ngcnr********
+  folder_id: b1g9hv2loamq********
   created_at: "2021-11-03T10:26:16Z"
   name: canary-sg
-  network_id: enptrcle5q3d3ktd33hj
+  network_id: enptrcle5q3d********
   status: ACTIVE
   rules:
-  - id: enpkgrpi2gsibdm6aotd
+  - id: enpkgrpi2gsi********
     direction: EGRESS
     protocol_name: ANY
     protocol_number: "-1"
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpgssij0i168jknb85r
+  - id: enpgssij0i16********
     direction: INGRESS
     ports:
       from_port: "80"
@@ -525,7 +525,7 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enp0bft67j9lrlnhdur5
+  - id: enp0bft67j9l********
     direction: INGRESS
     ports:
       from_port: "443"
@@ -535,7 +535,7 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpmorcimu65fk4oaanm
+  - id: enpmorcimu65********
     direction: INGRESS
     ports:
       from_port: "30080"
@@ -631,13 +631,13 @@
          1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-backend-blue`.
          1. В поле **{{ ui-key.yacloud.alb.label_backend-weight }}** укажите `100`.
          1. В поле **{{ ui-key.yacloud.common.type }}** выберите **{{ ui-key.yacloud.alb.label_bucket }}**.
-         1. В поле **{{ ui-key.yacloud.alb.label_bucket }}** выберите `canary-bucket-blue`.
+         1. В поле **{{ ui-key.yacloud.alb.label_bucket }}** выберите «синий» бакет.
      1. Создайте бэкенд `canary-backend-green`:
          1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите **Добавить**.
          1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-backend-green`.
          1. В поле **{{ ui-key.yacloud.alb.label_backend-weight }}** укажите `0`.
          1. В поле **{{ ui-key.yacloud.common.type }}** выберите **{{ ui-key.yacloud.alb.label_bucket }}**.
-         1. В поле **{{ ui-key.yacloud.alb.label_bucket }}** выберите `canary-bucket-green`.
+         1. В поле **{{ ui-key.yacloud.alb.label_bucket }}** выберите «зеленый» бакет.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   1. Аналогично создайте группу бэкендов `canary-bg-staging`. Для бэкенда `canary-backend-blue` установите вес `0`, для `canary-backend-green` — `100`.
@@ -694,9 +694,9 @@
      Результат:
 
      ```
-     id: ds7qd0vj01djuu3c6f8q
+     id: ds7qd0vj01dj********
      name: canary-router
-     folder_id: b1g9hv2loamqfnbul7d9
+     folder_id: b1g9hv2loamq********
      created_at: "2021-11-03T10:31:41.027649223Z"
      ```
 
@@ -745,7 +745,7 @@
            path:
              prefix_match: /
          route:
-           backend_group_id: ds7pbm5fj2v09ptnn29p
+           backend_group_id: ds7pbm5fj2v0********
      ```
 
      Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
@@ -906,9 +906,9 @@
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-     | e9bnnssj8sc8mjhat9qk | canary-subnet-{{ region-id }}-c | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-c | [10.1.0.0/16] |
-     | e2lghukd9iqo4haidjbt | canary-subnet-{{ region-id }}-b | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-b | [10.2.0.0/16] |
-     | b0c3pte4o2kn4v12o05p | canary-subnet-{{ region-id }}-a | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-a | [10.3.0.0/16] |
+     | e9bnnssj8sc8******** | canary-subnet-{{ region-id }}-c | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-c | [10.1.0.0/16] |
+     | e2lghukd9iqo******** | canary-subnet-{{ region-id }}-b | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-b | [10.2.0.0/16] |
+     | b0c3pte4o2kn******** | canary-subnet-{{ region-id }}-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-a | [10.3.0.0/16] |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      ```
 
@@ -923,7 +923,7 @@
      Результат:
 
      ```
-     id: enpd133ngcnrgc8475cc
+     id: enpd133ngcnr********
      ```
 
      Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/security-group/get.md).
@@ -943,23 +943,23 @@
 
      ```
      done (3m0s)
-     id: ds77q7v39b4ubg8ta2n4
+     id: ds77q7v39b4u********
      name: canary-balancer
-     folder_id: b1g9hv2loamqfnbul7d9
+     folder_id: b1g9hv2loamq********
      status: ACTIVE
      region_id: {{ region-id }}
-     network_id: enptrcle5q3d3ktd33hj
+     network_id: enptrcle5q3d********
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-c
-         subnet_id: b0c3pte4o2kn4v12o05p
+         subnet_id: b0c3pte4o2kn********
        - zone_id: {{ region-id }}-b
-         subnet_id: e2lghukd9iqo4haidjbt
+         subnet_id: e2lghukd9iqo********
        - zone_id: {{ region-id }}-a
-         subnet_id: e9bnnssj8sc8mjhat9qk
-     log_group_id: ckg23vr4dlkse3hvq0kc
+         subnet_id: e9bnnssj8sc8********
+     log_group_id: ckg23vr4dlks********
      security_group_ids:
-     - enpd133ngcnrgc8475cc
+     - enpd133ngcnr********
      created_at: "2021-11-03T10:55:49.134935148Z"
      ```
 
@@ -979,12 +979,12 @@
 
      ```
      done (43s)
-     id: ds77q7v39b4ubg8ta2n4
+     id: ds77q7v39b4u********
      name: canary-balancer
-     folder_id: b1g9hv2loamqfnbul7d9
+     folder_id: b1g9hv2loamq********
      status: ACTIVE
      region_id: {{ region-id }}
-     network_id: enptrcle5q3d3ktd33hj
+     network_id: enptrcle5q3d********
      listeners:
      - name: canary-listener
        endpoints:
@@ -995,18 +995,18 @@
          - "80"
        http:
          handler:
-           http_router_id: ds7qd0vj01djuu3c6f8q
+           http_router_id: ds7qd0vj01dj********
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-c
-         subnet_id: b0c3pte4o2kn4v12o05p
+         subnet_id: b0c3pte4o2kn********
        - zone_id: {{ region-id }}-b
-         subnet_id: e2lghukd9iqo4haidjbt
+         subnet_id: e2lghukd9iqo********
        - zone_id: {{ region-id }}-a
-         subnet_id: e9bnnssj8sc8mjhat9qk
-     log_group_id: ckg23vr4dlkse3hvq0kc
+         subnet_id: e9bnnssj8sc8********
+     log_group_id: ckg23vr4dlks********
      security_group_ids:
-     - enpd133ngcnrgc8475cc
+     - enpd133ngcnr********
      created_at: "2021-11-03T10:55:49.134935148Z"
      ```
 
@@ -1163,7 +1163,7 @@
       
       ```
       id: "90748"
-      folder_id: b1geoelk7fldts6chmjq
+      folder_id: b1geoelk7fld********
       name: canary-origin-group
       use_next: true
       origins:
@@ -1191,8 +1191,8 @@
       Результат:
       
       ```
-      id: bc843k2yinvq5fhgvuvc
-      folder_id: b1ge1elk72ldts6chmjq
+      id: bc843k2yinvq********
+      folder_id: b1ge1elk72ld********
       cname: cdn.yandexcloud.example
       ...
       active: true
@@ -1374,8 +1374,8 @@
         Результат:
 
         ```
-        id: dns4rq4tadddth4h20qm
-        folder_id: b1g9hv2loamqfnbul7d9
+        id: dns4rq4taddd********
+        folder_id: b1g9hv2loamq********
         created_at: "2021-11-03T11:03:28.847Z"
         name: canary-dns-zone
         zone: yandexcloud.example.
@@ -1493,7 +1493,7 @@
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         |          ID          |          CNAME           |           CREATED AT           |           UPDATED AT           | ACTIVE |                  OPTIONS                  |
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
-        | bc837xptmpkhbc7xwioa | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
+        | bc837xptmpkh******** | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
         |                      |                          | nanos:434085000                | nanos:434115000                |        | default_value:345600}                     |
         |                      |                          |                                |                                |        | cache_http_headers:{value:"accept-ranges" |
         |                      |                          |                                |                                |        | value:"cache-control" value:"connection"  |
@@ -1584,7 +1584,7 @@
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         |          ID          |          CNAME           |           CREATED AT           |           UPDATED AT           | ACTIVE |                  OPTIONS                  |
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
-        | bc837xptmpkhbc7xwioa | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
+        | bc837xptmpkh******** | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
         |                      |                          | nanos:434085000                | nanos:434115000                |        | default_value:345600}                     |
         |                      |                          |                                |                                |        | cache_http_headers:{value:"accept-ranges" |
         |                      |                          |                                |                                |        | value:"cache-control" value:"connection"  |
@@ -1651,15 +1651,15 @@
 
         ```
         done (1s)
-        id: ds7l9puc18c9b40cd359
+        id: ds7l9puc18c9********
         name: canary-bg-production
-        folder_id: b1g9hv2loamqfnbul7d9
+        folder_id: b1g9hv2loamq********
         http:
           backends:
           - name: canary-backend-blue
             backend_weight: "80"
             storage_bucket:
-              bucket: canary-bucket-blue
+              bucket: <имя_синего_бакета>
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
 
@@ -1678,15 +1678,15 @@
 
         ```
         done (1s)
-        id: ds7l9puc18c9b40cd359
+        id: ds7l9puc18c9********
         name: canary-bg-production
-        folder_id: b1g9hv2loamqfnbul7d9
+        folder_id: b1g9hv2loamq********
         http:
           backends:
           - name: canary-backend-green
             backend_weight: "20"
             storage_bucket:
-              bucket: canary-bucket-green
+              bucket: <имя_зеленого_бакета>
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
 
@@ -1776,7 +1776,7 @@
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         |          ID          |          CNAME           |           CREATED AT           |           UPDATED AT           | ACTIVE |                  OPTIONS                  |
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
-        | bc837xptmpkhbc7xwioa | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
+        | bc837xptmpkh******** | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
         |                      |                          | nanos:434085000                | nanos:434115000                |        | default_value:345600}                     |
         |                      |                          |                                |                                |        | cache_http_headers:{value:"accept-ranges" |
         |                      |                          |                                |                                |        | value:"cache-control" value:"connection"  |
@@ -1825,7 +1825,7 @@
         1. В поле **{{ ui-key.yacloud.alb.label_backend-weight }}** укажите `100`.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-     1. Аналогично для бэкенда `canary-bucket-green` установите вес 0 вместо 100.
+     1. Аналогично для бэкенда `canary-backend-green` установите вес 0 вместо 100.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
    - CLI
@@ -1843,15 +1843,15 @@
 
         ```
         done (1s)
-        id: ds7l9puc18c9b40cd359
+        id: ds7l9puc18c9********
         name: canary-bg-production
-        folder_id: b1g9hv2loamqfnbul7d9
+        folder_id: b1g9hv2loamq********
         http:
           backends:
           - name: canary-backend-blue
             backend_weight: "100"
             storage_bucket:
-              bucket: canary-bucket-blue
+              bucket: <имя_синего_бакета>
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
 
@@ -1868,15 +1868,15 @@
 
         ```
         done (1s)
-        id: ds7l9puc18c9b40cd359
+        id: ds7l9puc18c9********
         name: canary-bg-production
-        folder_id: b1g9hv2loamqfnbul7d9
+        folder_id: b1g9hv2loamq********
         http:
           backends:
           - name: canary-backend-green
             backend_weight: "0"
             storage_bucket:
-              bucket: canary-bucket-green
+              bucket: <имя_зеленого_бакета>
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
 
@@ -1916,7 +1916,7 @@
 1. Если вы настраивали CNAME-записи в {{ dns-name }}, [удалите](../dns/operations/zone-delete.md) зону DNS `canary-dns-zone`.
 1. [Удалите](../cdn/operations/resources/delete-resource.md) CDN-ресурс с основным доменным именем `cdn.yandexcloud.example`.
 1. [Удалите](../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `canary-balancer`.
-1. [Удалите](../storage/operations/objects/delete.md) все объекты из бакетов `canary-bucket-blue` и `canary-bucket-green`.
-1. [Удалите](../storage/operations/buckets/delete.md) бакеты `canary-bucket-blue` и `canary-bucket-green`.
+1. [Удалите](../storage/operations/objects/delete.md) все объекты из «синего» и «зеленого» бакетов.
+1. [Удалите](../storage/operations/buckets/delete.md) «синий» и «зеленый» бакеты.
 1. [Удалите](../vpc/operations/subnet-delete.md) подсети `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-c`.
 1. [Удалите](../vpc/operations/network-delete.md) сеть `canary-network`.
