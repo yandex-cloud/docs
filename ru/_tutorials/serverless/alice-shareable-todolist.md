@@ -33,7 +33,7 @@
 
 ## Создайте ресурсы {#create-resources}
 
-1. [Создайте бакет](../../storage/operations/buckets/create.md) в {{ objstorage-full-name }} с именем `frontend-statics`.
+1. [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-full-name }}.
 1. [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) с именем `gate-1`. Для использования в конфигурации сохраните поля **Идентификатор** и **Служебный домен** из раздела **Общая информация**.
 1. [Создайте базу данных](../../ydb/quickstart.md#serverless) в режиме Serverless. Сохраните поля **Эндпоинт** и **Размещение базы данных** из раздела **Соединение**. Они понадобятся при конфигурации проекта.
 1. [Создайте приложение](https://oauth.yandex.ru/) в Яндекс OAuth:
@@ -69,7 +69,7 @@ cp variables-template.json variables.json
 *  `database-endpoint` — эндпоинт из конфигурации {{ ydb-name }}.
 *  `yc-profile` — [название профиля](../../cli/operations/profile/profile-list.md) {{ yandex-cloud }} CLI.
 *  `secure-config-path` — путь к файлу секретов.
-*  `storage-bucket` — имя созданного бакета для хранения статических данных, `frontend-statics`.
+*  `storage-bucket` — имя созданного бакета для хранения статических данных.
 *  `gateway-id` — идентификатор API-шлюза.
 
 ### Создайте файл secure-config.json {#set-variables-secure-config}

@@ -7,23 +7,31 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Подключение к кластеру
-        href: operations/connect.md
-      - name: Изменение кластера
-        href: operations/cluster-update.md
-      - name: Управление подкластерами
-        href: operations/subclusters.md
-      - name: Изменение подкластера
-        href: operations/subcluster-update.md
-      - name: Подключение к интерфейсам компонентов
-        href: operations/connect-interfaces.md
-      - name: Использование Sqoop
-        href: operations/sqoop-usage.md
-      - name: Управление заданиями
+      - name: Кластеры {{ dataproc-name }}
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Подключение к кластеру
+            href: operations/connect.md
+          - name: Изменение кластера
+            href: operations/cluster-update.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Подкластеры {{ dataproc-name }}
+        items:
+          - name: Управление подкластерами
+            href: operations/subclusters.md
+          - name: Изменение подкластера
+            href: operations/subcluster-update.md
+      - name: Сервисы Apache и другие сторонние сервисы
+        items:
+          - name: Подключение к интерфейсам компонентов
+            href: operations/connect-interfaces.md
+          - name: Использование Sqoop
+            href: operations/sqoop-usage.md
+      - name: Задания (jobs)
         items:
           - name: Все задания
             href: operations/jobs.md
@@ -35,7 +43,7 @@ items:
             href: operations/jobs-hive.md
           - name: Задания MapReduce
             href: operations/jobs-mapreduce.md
-      - name: Управление кластерами {{ metastore-name }}
+      - name: Кластеры {{ metastore-name }}
         items:
           - name: Создание кластера {{ metastore-name }}
             href: operations/metastore/cluster-create.md
@@ -43,16 +51,18 @@ items:
             href: operations/metastore/dataproc-connect.md
           - name: Удаление кластера {{ metastore-name }}
             href: operations/metastore/cluster-delete.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
-      - name: Работа с логами
-        href: operations/logging.md
-      - name: Мониторинг состояния Spark-приложений
-        href: operations/spark-monitoring.md
-      - name: Диагностика и устранение проблем производительности Spark-приложений
-        href: operations/spark-diagnostics.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
+      - name: Логи и мониторинг
+        items:
+          - name: Работа с логами
+            href: operations/logging.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
+          - name: Мониторинг состояния Spark-приложений
+            href: operations/spark-monitoring.md
+          - name: >-
+              Диагностика и устранение проблем производительности
+              Spark-приложений
+            href: operations/spark-diagnostics.md
   - name: Практические руководства
     items:
       - name: Все практические руководства

@@ -27,7 +27,7 @@
     1. [Создайте виртуальную машину с Linux](../../compute/operations/vm-create/create-linux-vm.md) в той же облачной подсети, в которой расположен кластер {{ mgp-name }}.
 
 
-    1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md) и [загрузите](../../storage/operations/objects/upload.md) в него файл `example.csv`, содержащий тестовую таблицу:
+    1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. [Загрузите](../../storage/operations/objects/upload.md) в него файл `example.csv`, содержащий тестовую таблицу:
 
         ```csv
         10,2010

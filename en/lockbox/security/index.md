@@ -16,7 +16,7 @@ In this section, you will learn:
 
 Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or secret. These roles also apply to nested resources. The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
 
-![image](../../_assets/lockbox/service-roles-hierarchy.png)
+![image](../../_assets/lockbox/service-roles-hierarchy.svg)
 
 ## Which roles exist in the service {#roles-list}
 

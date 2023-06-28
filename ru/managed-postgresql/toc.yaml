@@ -7,16 +7,16 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Работа с кластерами
+      - name: Кластеры
         items:
           - name: Получение информации об имеющихся кластерах
             href: operations/cluster-list.md
           - name: Создание кластера
             href: operations/cluster-create.md
-          - name: Остановка и запуск кластера
-            href: operations/cluster-stop.md
           - name: Изменение настроек {{ PG }}-кластера
             href: operations/update.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
           - name: Управление хостами PostgreSQL
             href: operations/hosts.md
           - name: Управление слотами репликации
@@ -27,7 +27,7 @@ items:
             href: operations/cluster-version-update.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
-      - name: Работа с базами данных
+      - name: Базы данных
         items:
           - name: Подключение к базе данных
             href: operations/connect.md
@@ -35,7 +35,7 @@ items:
             href: operations/web-sql-query.md
           - name: Управление базами данных
             href: operations/databases.md
-      - name: Работа с пользователями
+      - name: Пользователи {{ PG }}
         items:
           - name: Управление пользователями БД
             href: operations/cluster-users.md
@@ -51,7 +51,7 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
-      - name: Работа с логами и мониторинг
+      - name: Логи и мониторинг
         items:
           - name: Просмотр логов кластера
             href: operations/cluster-logs.md

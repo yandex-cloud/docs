@@ -6,7 +6,7 @@
 
 {% include [trigger-before-you-begin](../../../_includes/functions/trigger-before-you-begin.md) %}
 
-* [Бакет](../../../storage/concepts/bucket.md), при событиях с объектами в котором триггер будет запускаться. Если у вас нет бакета, [создайте его](../../../storage/operations/buckets/create.md).
+* [Бакет](../../../storage/concepts/bucket.md), при событиях с объектами в котором триггер будет запускаться. Если у вас нет бакета, [создайте его](../../../storage/operations/buckets/create.md) с ограниченным доступом.
 
 ## Создать триггер {#trigger-create}
 
@@ -85,8 +85,8 @@
     Результат:
 
     ```text
-    id: a1s92agr8mpgeo3kjt48
-    folder_id: b1g88tflru0ek1omtsu0
+    id: a1s92agr8mpg********
+    folder_id: b1g88tflru0e********
     created_at: "2019-12-18T09:47:50.079103Z"
     name: os-trigger
     rule:
@@ -99,15 +99,15 @@
         prefix: dev
         suffix: 12.jpg
         invoke_function:
-          function_id: d4eofc7n0m03lmudsk7y
+          function_id: d4eofc7n0m03********
           function_tag: $latest
-          service_account_id: aje3932acd0c5ur7drte
+          service_account_id: aje3932acd0c********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:dlq
-            service-account-id: aje3932acd0c5ur7dagp
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknn********:dlq
+            service-account-id: aje3932acd0c********
     status: ACTIVE
     ```
 

@@ -430,7 +430,8 @@ default:
   ZK: ZooKeeper
   DS: YDS
   ssms: SQL Server Management Studio
-  pgadmin: pgAdmin 4
+  pgadmin: "pgAdmin\_4"
+  google-looker: Looker Studio
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -5000,6 +5001,11 @@ default:
                     IncrementSettings:
                       parallel_settings:
                         title: Настройки параллельной репликации
+                    ParallelSnapshotSettings:
+                      threads_count:
+                        title: Количество потоков
+                      workers_count:
+                        title: Количество воркеров
                     RegularSnapshotIntervalType:
                       cron_expression:
                         title: Cron выражение

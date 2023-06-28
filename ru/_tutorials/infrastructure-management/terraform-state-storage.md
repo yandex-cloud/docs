@@ -64,7 +64,7 @@
 
 ## Создайте бакет {#create-service-account}
 
-[Создайте бакет](../../storage/operations/buckets/create.md) с любым именем, например `terraform-object-storage-tutorial`. В нем будет храниться файл состояния {{ TF }}.
+[Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом. В нем будет храниться файл состояния {{ TF }}.
 
 ## Настройте бэкенд {#set-up-backend}
 

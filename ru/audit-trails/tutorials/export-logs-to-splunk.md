@@ -61,7 +61,7 @@
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
-      1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access).
+      1. В полях **Доступ на чтение объектов**, **Доступ к списку объектов** и **Доступ на чтение настроек** выберите **Ограниченный**.
       1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
       1. Нажмите кнопку **Создать бакет** для завершения операции.
 

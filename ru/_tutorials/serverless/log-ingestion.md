@@ -46,6 +46,7 @@
 1. В списке сервисов выберите **{{ objstorage-name }}**.
 1. Нажмите кнопку **Создать бакет**.
 1. Укажите имя бакета.
+1. В полях **Доступ на чтение объектов**, **Доступ к списку объектов** и **Доступ на чтение настроек** выберите **Ограниченный**.
 1. В поле **Класс хранилища** выберите `Холодное`.
 1. Нажмите кнопку **Создать бакет**.
   
@@ -127,7 +128,7 @@
       aws_sec_key <secret>
 
       # kinesis stream name
-      stream_name /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream
+      stream_name /{{ region-id }}/b1gia92mbaom********/etnhstu01nin********/my-stream
 
       # region
       region ru-central-1
@@ -156,8 +157,8 @@ curl -X POST -d 'json={"user_id":"user1", "score": 100}' http://localhost:8888/k
 ```text
 ...
 2022-04-20 19:36:37.770311035 +0000 kinesis: {"user_id":"user1","score":100}
-2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Write chunk 5dd1b1ca1bd788e49185aa681e8132b9 /   1 records /    0 KB
-2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Finish writing chunk
+2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaom********/etnhstu01nin********/my-stream: Write chunk 5dd1b1ca1bd788e49185aa681e8132b9 /   1 records /    0 KB
+2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaom********/etnhstu01nin********/my-stream: Finish writing chunk
 ...
 ```
 

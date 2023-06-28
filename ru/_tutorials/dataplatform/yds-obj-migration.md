@@ -63,7 +63,7 @@
 
 ```json
 {
-    "device_id":"iv9a94th6rztooxh5ur2",
+    "device_id":"iv9a94th6rzt********",
     "datetime":"2020-06-05 17:27:00",
     "latitude":"55.70329032",
     "longitude":"37.65472196",
@@ -203,7 +203,7 @@
 
     ```json
     {
-        "device_id": "rhibbh3y08qmz3sdbrbu",
+        "device_id": "rhibbh3y08qm********",
         "datetime": "2020-06-06 09:49:54",
         "latitude": 55.71294467,
         "longitude": 37.66542005,

@@ -33,6 +33,8 @@ items:
     href: concepts/console-syntax-guide.md
   - name: Архитектура платформы
     href: architecture.md
+  - name: Взаимодействие пользователей и ресурсов
+    href: roles-and-resources.md
   - name: Удаление данных пользователей
     href: concepts/data-deletion.md
   - name: SLA

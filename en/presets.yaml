@@ -4990,6 +4990,11 @@ default:
                     IncrementSettings:
                       parallel_settings:
                         title: Parallel replication settings
+                    ParallelSnapshotSettings:
+                      threads_count:
+                        title: Number of threads
+                      workers_count:
+                        title: Number of workers
                     RegularSnapshotIntervalType:
                       cron_expression:
                         title: Cron expression

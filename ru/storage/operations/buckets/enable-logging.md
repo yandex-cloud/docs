@@ -8,7 +8,7 @@
 
 Чтобы логировать обращения к бакету:
 
-1. Используйте существующий или создайте новый целевой бакет с именем, например, `bucket-logs`. В этот бакет будут записываться логи.
+1. Используйте существующий или создайте новый целевой бакет. В этот бакет будут записываться логи.
 
    {% cut "Как создать бакет" %}
 
@@ -51,8 +51,8 @@
 
          Где:
 
-         * `bucket` — имя исходного бакета, для которого нужно включить логирование действий.
-         * `bucket-logging-status` — путь к файлу с настройками логирования.
+         * `--bucket` — имя исходного бакета, для которого нужно включить логирование действий.
+         * `--bucket-logging-status` — путь к файлу с настройками логирования.
 
    - {{ TF }}
 
@@ -70,13 +70,13 @@
         resource "yandex_storage_bucket" "log_bucket" {
           access_key = "<идентификатор_статического_ключа>"
           secret_key = "<секретный_ключ>"
-          bucket     = "my-tf-log-bucket"
+          bucket     = "<имя_бакета_для_хранения_логов>"
         }
 
-        resource "yandex_storage_bucket" "b" {
+        resource "yandex_storage_bucket" "bucket" {
           access_key = "<идентификатор_статического_ключа>"
           secret_key = "<секретный_ключ>"
-          bucket     = "my-tf-test-bucket"
+          bucket     = "<имя_исходного_бакета>"
           acl        = "private"
 
           logging {
@@ -89,8 +89,8 @@
         Где:
         * `access_key` — идентификатор статического ключа доступа.
         * `secret_key` — значение секретного ключа доступа.
-        * `target_bucket` — целевой бакет.
-        * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами. Например, `logs/`.
+        * `target_bucket` — указание на бакет для хранения логов.
+        * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами. Например `logs/`.
 
         Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket#enable-logging).
 
@@ -109,7 +109,7 @@
      ```xml
      <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
        <LoggingEnabled>
-         <TargetBucket>bucket-logs</TargetBucket>
+         <TargetBucket>имя целевого бакета</TargetBucket>
          <TargetPrefix>logs/</TargetPrefix>
        </LoggingEnabled>
      </BucketLoggingStatus>
@@ -163,7 +163,7 @@
   <?xml version="1.0" encoding="UTF-8"?>
   <BucketLoggingStatus>
      <LoggingEnabled>
-        <TargetBucket>bucket-logs</TargetBucket>
+        <TargetBucket>имя целевого бакета</TargetBucket>
         <TargetPrefix>logs/</TargetPrefix>
      </LoggingEnabled>
   </BucketLoggingStatus>
@@ -173,15 +173,15 @@
 
 ## Получите логи {#get-logs}
 
-Чтобы получить логи, скачайте из бакета `bucket-logs` объект с префиксом `logs/`:
+Чтобы получить логи, скачайте из целевого бакета объект с префиксом `logs/`:
 
 {% list tabs %}
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится бакет `bucket-logs`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится целевой бакет с логами.
   1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите на имя бакета `bucket-logs`.
+  1. Нажмите на имя целевого бакета с логами.
   1. Нажмите на имя объекта с префиксом `logs/`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.file.button_download }}**.
 
@@ -210,15 +210,15 @@
      ```hcl
      ...
      resource "yandex_storage_bucket" "log_bucket" {
-       access_key = "FCAJEJj8ZjyMLr3ZNuNEn7jmO"
-       secret_key = "FTR_JbXncjTugRfqsWiiW7c7qnldb5ZEdxbpZkma"
-       bucket     = "my-tf-log-bucket"
+       access_key = "<идентификатор_статического_ключа>"
+       secret_key = "<секретный_ключ>"
+       bucket     = "<имя_бакета_для_хранения_логов>"
      }
 
-     resource "yandex_storage_bucket" "b" {
-       access_key = "YCAJEJh8ZjyMLr3ZNuCOn7hrO"
-       secret_key = "YCM_JbXncjTugRfqsWiiW7c7wcbgb5ZEdxbpZkcf"
-       bucket     = "my-tf-test-bucket"
+     resource "yandex_storage_bucket" "bucket" {
+       access_key = "<идентификатор_статического_ключа>"
+       secret_key = "<секретный_ключ>"
+       bucket     = "<имя_исходного_бакета>"
        acl        = "private"
 
        logging {

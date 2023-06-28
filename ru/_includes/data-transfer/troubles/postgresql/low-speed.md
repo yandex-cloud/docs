@@ -14,4 +14,4 @@
 
     Параллельность доступна только для таблиц, которые содержат первичный ключ в [режиме serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-    **Решение:** укажите количество инстансов и процессов в [параметре трансфера](../../../../data-transfer/operations/transfer.md#update) **Среда выполнения** → **{{ yandex-cloud }}** → **Параметры шардированного копирования** и [активируйте](../../../../data-transfer/operations/transfer.md#activate) его повторно.
+    **Решение:** настройте [параллельное копирование](../../../../data-transfer/concepts/sharded.md) и [активируйте трансфер](../../../../data-transfer/operations/transfer.md#activate) повторно.

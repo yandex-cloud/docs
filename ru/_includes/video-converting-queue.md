@@ -60,7 +60,7 @@
     * **Тип таблицы** —  [Документная таблица](../ydb/operations/schema.md#create-table). 
     * **Колонки** — одна колонка с именем `task_id` типа `String`.  Установите атрибут [Ключ партицирования](../ydb/operations/schema.md#create-table). 
 
-1. [Создайте бакет](../storage/operations/buckets/create) с именем `converter-bucket` в {{ objstorage-full-name }}.
+1. [Создайте бакет](../storage/operations/buckets/create) с ограниченным доступом в {{ objstorage-full-name }}.
 
 ## Создайте API-функцию {#create-api-function}
 
@@ -121,13 +121,13 @@
      * Файл `index.py` с содержимым файла `ffmpeg-converter.py` из архива.
      * Исполняемый файл FFmpeg. На [официальном сайте FFmpeg](http://ffmpeg.org/download.html), в разделе **Linux Static Builds**, загрузите архив с 64-битной версией FFmpeg и сделайте файл исполняемым, выполнив команду `chmod +x ffmpeg`.
 
-  1. [Загрузите](../storage/operations/objects/upload.md) архив `src.zip` в бакет `converter-bucket`.
+  1. [Загрузите](../storage/operations/objects/upload.md) архив `src.zip` в бакет, созданный ранее.
   1. [Создайте](../functions/operations/function/version-manage.md) версию функции:
 
      1. Укажите:
 
         * способ загрузки `Object Storage`;
-        * бакет `converter-bucket`;
+        * имя бакета, созданного ранее;
         * объект `src.zip`;
         * среду выполнения `python37`;
         * точку входа `index.handle_process_event`;
@@ -140,7 +140,7 @@
         * `DOCAPI_ENDPOINT` — **Эндпойнт** из конфигурации базы данных;
         * `SECRET_ID` — **Идентификатор** секрета {{ lockbox-name }};
         * `YMQ_QUEUE_URL` — **URL** очереди {{ message-queue-name }};
-        * `S3_BUCKET` — `converter-bucket`.
+        * `S3_BUCKET` — имя бакета, созданного ранее.
 
 {% endlist %}
 
@@ -190,7 +190,7 @@
   1. В поле **Ответ функции** отобразится идентификатор задачи:
 
      ```json
-     { "task_id": "c4269ceb-8d3a-40fe-95f0-84cf16e8c17f" }
+     { "task_id": "c4269ceb-8d3a-40fe-95f0-84cf********" }
      ```
 
 {% endlist %}
@@ -256,7 +256,7 @@
      ```json
      {
          "ready": true,
-         "gif_url": "https://{{ s3-storage-host }}/converter-bucket/1b4db1a6-f2b2-4b1c-b662-37f7a62e6e2e.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F20210831%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df4ee4183c"
+         "gif_url": "https://{{ s3-storage-host }}/<имя_бакета>/1b4db1a6-f2b2-4b1c-b662-37f7********.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F20210831%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df********"
      }
      ```
 
@@ -268,7 +268,7 @@
 
 1. [Удалите](../message-queue/operations/message-queue-delete-queue.md) очередь `converter-queue`.
 1. [Удалите](../ydb/operations/manage-databases.md#delete-db) базу данных.
-1. [Удалите](../storage/operations/objects/delete.md) все объекты из бакета `converter-bucket`.
-1. [Удалите](../storage/operations/buckets/delete.md) бакет `converter-bucket`.
+1. [Удалите](../storage/operations/objects/delete.md) все объекты из бакета.
+1. [Удалите](../storage/operations/buckets/delete.md) бакет.
 1. [Удалите](../functions/operations/function/function-delete.md) функции `ffmpeg-api` и `ffmpeg-converter`.
 1. [Удалите](../functions/operations/trigger/trigger-delete.md) триггер `ffmpeg-trigger`.

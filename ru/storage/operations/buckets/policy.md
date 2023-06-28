@@ -81,7 +81,7 @@
 
      ```bash
      name: my-bucket
-     folder_id: csgeoelk7fl15s6dsvbo
+     folder_id: csgeoelk7fl1********
      default_storage_class: STANDARD
      versioning: VERSIONING_SUSPENDED
      max_size: "10737418240"

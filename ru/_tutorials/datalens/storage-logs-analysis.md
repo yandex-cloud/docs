@@ -39,35 +39,35 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите `bucket-logs`.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
   1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   
 - AWS CLI
   
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
-  1. Создайте бакет `bucket-logs`:
+  1. Создайте бакет:
   
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
-       s3 mb s3://bucket-logs
+       s3 mb s3://<имя_бакета>
      ```
      
      Результат:
      
      ```
-     make_bucket: bucket-logs
+     make_bucket: <имя_бакета>
      ```
   
 - {{ TF }}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Добавьте в конфигурационный файл параметры бакета `bucket-logs`:
+  1. Добавьте в конфигурационный файл параметры бакета:
   
      ```
      resource "yandex_storage_bucket" "bucket-logs" {
-       bucket = "bucket-logs"
+       bucket = "<имя_бакета>"
      }
      ```
      
@@ -98,7 +98,7 @@
      ```json
      {
       "LoggingEnabled": {
-         "TargetBucket": "bucket-logs",
+         "TargetBucket": "<имя_бакета>",
          "TargetPrefix": "s3-logs/"
       }
      }
@@ -317,7 +317,7 @@
                                     -- * <имя бакета>.{{ s3-web-host }}.
      )
      ENGINE = S3(
-           'https://{{ s3-storage-host }}/bucket-logs/s3-logs/*',
+           'https://{{ s3-storage-host }}/<имя_бакета>/s3-logs/*',
            '<идентификатор ключа>',
            '<секретный ключ>',
            'JSONEachRow'
@@ -423,5 +423,5 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-* [Удалите бакет](../../storage/operations/buckets/delete.md) `bucket-logs`.
+* [Удалите бакет](../../storage/operations/buckets/delete.md).
 * [Удалите кластер](../../managed-clickhouse/operations/cluster-delete.md) `s3-logs`.

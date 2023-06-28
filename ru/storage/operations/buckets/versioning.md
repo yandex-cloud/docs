@@ -39,7 +39,7 @@ description: "Версионирование бакета — это возмо�
 
      ```bash
      name: my-bucket
-     folder_id: csgeoelk7fl15s66dsvbo
+     folder_id: csgeoelk7fl15********
      default_storage_class: STANDARD
      versioning: VERSIONING_ENABLED
      max_size: "10737418240"

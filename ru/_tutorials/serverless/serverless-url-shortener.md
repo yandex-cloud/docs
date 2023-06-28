@@ -41,7 +41,7 @@
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Нажмите кнопку **Создать бакет**.
   1. На странице создания бакета:
-     1. Введите имя бакета, например, `for-serverless-shortener`.
+     1. Введите имя бакета.
 
         {% note warning %}
 
@@ -362,7 +362,7 @@
          get:
            x-yc-apigateway-integration:
              type: object_storage
-             bucket: for-serverless-shortener # <-- название бакета
+             bucket: <имя_бакета> # <-- название бакета
              object: index.html # <-- название html-файла
              presigned_redirect: false
              service_account: <service_account_id> # <-- ID сервисного аккаунта

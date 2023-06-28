@@ -63,6 +63,12 @@ editable: false
 
 Подробнее про [фоновые операции](../datasphere/concepts/async.md).
 
+{% note alert %}
+
+С 10 июля 2023 года выполнение фоновых операций будет тарифицироваться по правилам [использования вычислительных ресурсов](#paug).
+
+{% endnote %}
+
 
 {% include [rub-async.md](../_pricing/datasphere/rub-async-new.md) %}
 

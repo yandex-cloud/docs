@@ -7,38 +7,46 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Подключение к кластеру
-        href: operations/cluster-connect.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
-      - name: Изменение настроек кластера
-        href: operations/cluster-update.md
-      - name: Изменение версии и редакции Elasticsearch
-        href: operations/cluster-version-update.md
-      - name: Настройка SAML-аутентификации
-        href: operations/saml-authentication.md
-      - name: Настройка доступа к Object Storage
-        href: operations/s3-access.md
-      - name: Управление хостами Elasticsearch
-        href: operations/cluster-hosts.md
-      - name: Управление плагинами Elasticsearch
-        href: operations/cluster-plugins.md
-      - name: Управление расширениями Elasticsearch
-        href: operations/cluster-extensions.md
-      - name: Управление пользователями Elasticsearch
+      - name: Кластеры
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Подключение
+            items:
+              - name: Подключение к кластеру
+                href: operations/cluster-connect.md
+              - name: Настройка SAML-аутентификации
+                href: operations/saml-authentication.md
+          - name: Изменение параметров
+            items:
+              - name: Изменение настроек кластера
+                href: operations/cluster-update.md
+              - name: Изменение версии и редакции {{ ES }}
+                href: operations/cluster-version-update.md
+              - name: Управление плагинами {{ ES }}
+                href: operations/cluster-plugins.md
+              - name: Управление расширениями {{ ES }}
+                href: operations/cluster-extensions.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Управление хостами {{ ES }}
+            href: operations/cluster-hosts.md
+          - name: Управление резервными копиями
+            href: operations/cluster-backups.md
+          - name: Настройка доступа к Object Storage
+            href: operations/s3-access.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Управление пользователями {{ ES }}
         href: operations/cluster-users.md
-      - name: Управление резервными копиями
-        href: operations/cluster-backups.md
-      - name: Просмотр логов кластера
-        href: operations/cluster-logs.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
+      - name: Логи и мониторинг
+        items:
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
   - name: Практические руководства
     items:
       - name: Все руководства

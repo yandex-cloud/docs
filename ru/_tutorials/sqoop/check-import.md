@@ -4,7 +4,7 @@
 
 * {{ objstorage-name }}
 
-    [Скачайте из бакета](../../storage/operations/objects/download.md) `my-bucket` файлы с результатами импорта.
+    [Скачайте из бакета](../../storage/operations/objects/download.md) файлы с результатами импорта.
 
 * Директория HDFS
 

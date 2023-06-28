@@ -183,7 +183,7 @@ items:
         href: concepts/copy-speed.md
       - name: Захват изменения данных
         href: concepts/cdc.md
-      - name: Шардированное копирование
+      - name: Параллельное копирование
         href: concepts/sharded.md
       - name: Какие задачи решает сервис
         href: concepts/use-cases.md

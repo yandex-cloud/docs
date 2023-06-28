@@ -43,7 +43,7 @@
   1. На странице создания бакета:
      1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
      1. При необходимости ограничьте максимальный размер бакета.
-     1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access).
+     1. В полях **Доступ на чтение объектов**, **Доступ к списку объектов** и **Доступ на чтение настроек** выберите **Ограниченный**.
      1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
      1. Нажмите кнопку **Создать бакет** для завершения операции.
   1. Выберите созданный бакет.
@@ -156,12 +156,12 @@
      Результат:
 
      ```bash
-     id: d4ejb1799eko6re4omb1
-     folder_id: aoek49ghmknnpj1ll45e
+     id: d4ejb1799eko********
+     folder_id: aoek49ghmknn********
      created_at: "2021-03-08T14:07:32.134Z"
      name: add-task
-     log_group_id: eolm8aoq9vcppsieej6h
-     http_invoke_url: https://functions.yandexcloud.net/d4ejb1799eko6re4omb1
+     log_group_id: eolm8aoq9vcp********
+     http_invoke_url: https://functions.yandexcloud.net/d4ejb1799eko********
      status: ACTIVE
      ```
 
@@ -191,12 +191,12 @@
 
      ```bash
      done (1s)
-     id: d4evvn8obisajd51plaq
-     function_id: d4ejb1799eko6re4omb1
+     id: d4evvn8obisa********
+     function_id: d4ejb1799eko********
      ...
      tags:
      - $latest
-     log_group_id: ckg3qh8h363p40gmr9gn
+     log_group_id: ckg3qh8h363p********
      ```
 
   1. Повторите шаги 1-2 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
@@ -328,14 +328,14 @@
 
      ```bash
      done (41s)
-     id: d5delqeel34qjjfcdj81
-     folder_id: b1g86q4m5vej8lkljme5
+     id: d5delqeel34q********
+     folder_id: b1g86q4m5vej********
      created_at: "2021-03-08T14:07:32.134Z"
      name: todo-list
      description: simple todo list
      status: ACTIVE
-     domain: d5delqeel34qjjfcdj81.apigw.yandexcloud.net
-     log_group_id: ckg2hdmevnvcngprqvqb
+     domain: d5delqeel34q********.apigw.yandexcloud.net
+     log_group_id: ckg2hdmevnvc********
      ```
 
 - {{ yandex-cloud }} Toolkit

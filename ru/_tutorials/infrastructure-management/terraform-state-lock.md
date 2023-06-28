@@ -50,7 +50,7 @@ description: "При работе с {{ TF }} в облаке важно иск�
 
 ## Создайте бакет {#create-service-account}
 
-[Создайте бакет](../../storage/operations/buckets/create.md) с приватным доступом и именем `terraform-ydb-tutorial`. В нем будет храниться файл состояния {{ TF }}.
+[Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом. В нем будет храниться файл состояния {{ TF }}.
 
 ## Создайте базу данных {{ ydb-name }} {#db-create}
 
@@ -276,4 +276,4 @@ member flag, but this is not recommended.
 Если созданные ресурсы вам больше не нужны, удалите их:
 1. [Удалите](../../ydb/operations/schema.md#drop-table) таблицу из БД.
 1. [Удалите](../../ydb/operations/manage-databases.md#delete-db) БД `state-lock-db`.
-1. [Удалите](../../storage/operations/buckets/delete.md) бакет `terraform-ydb-tutorial`.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет.

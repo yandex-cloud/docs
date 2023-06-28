@@ -196,11 +196,11 @@
 
      ```text
      access_key:
-       id: aje6t3vsbj8lp9******
-       service_account_id: ajepg0mjt06siu******
+       id: aje6t3vsbj8l********
+       service_account_id: ajepg0mjt06s********
        created_at: "2023-03-21T14:37:51Z"
-       key_id: 0n8X6WY6S24N7O*****
-     secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9h******
+       key_id: 0n8X6WY6S24********
+     secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
      ```
 
   1. Сохраните идентификатор (`key_id`) и секретный ключ (`secret`). Получить значение ключа снова будет невозможно.
@@ -294,14 +294,14 @@
   Результат:
   
   ```
-  id: e6q2ad0j9b55tk******
-  folder_id: b1gktjk2rg494e******
+  id: e6q2ad0j9b55********
+  folder_id: b1gktjk2rg49********
   created_at: "2021-11-08T19:23:00.383Z"
   name: s3-static-key
   status: ACTIVE
   current_version:
-    id: g6q4fn3b6okjkc******
-    secret_id: e6e2ei4u9b55gh******
+    id: g6q4fn3b6okj********
+    secret_id: e6e2ei4u9b55********
     created_at: "2023-03-21T19:23:00.383Z"
     status: ACTIVE
     payload_entry_keys:
@@ -371,7 +371,7 @@
 
 ## Создайте бакеты {{ objstorage-name }} {#create-buckets}
 
-Создайте два бакета: `main-bucket` — где будут храниться файлы, `reserve-bucket` — куда будут копироваться файлы из бакета `main-bucket`.
+Создайте два бакета: основной — где будут храниться файлы, резервный — куда будут копироваться файлы из основного бакета.
 
 {% list tabs %}
 
@@ -379,42 +379,43 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакеты.
   1. В списке сервисов выберите **{{ objstorage-name }}**.
-  1. Создайте бакет `main-bucket`:
+  1. Создайте основной бакет:
 
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-     1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета: `main-bucket`.
+     1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
+     1. В полях **Доступ на чтение объектов**, **Доступ к списку объектов** и **Доступ на чтение настроек** выберите **Ограниченный**.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-  1. Таким же образом создайте бакет `reserve-bucket`.
+  1. Таким же образом создайте резервный бакет.
 
 - AWS CLI
 
-  1. Создайте бакет `main-bucket`:
+  1. Создайте основной бакет:
 
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
-       s3 mb s3://main-bucket
+       s3 mb s3://<имя_основного_бакета>
      ```
 
      Результат:
 
      ```
-     make_bucket: s3://main-bucket
+     make_bucket: s3://<имя_основного_бакета>
      ```
 
-  1. Таким же образом создайте бакет `reserve-bucket`.
+  1. Таким же образом создайте резервный бакет.
 
 - {{ TF }}
 
-  1. Опишите в конфигурационном файле параметры бакетов `main-bucket` и `reserve-bucket`:
+  1. Опишите в конфигурационном файле параметры основного и резервного бакетов:
 
      ```
      resource "yandex_storage_bucket" "main-bucket" {
-       bucket = "main-bucket"
+       bucket = "<имя_основного_бакета>"
      }
 
      resource "yandex_storage_bucket" "reserve-bucket" {
-       bucket = "reserve-bucket"
+       bucket = "<имя_резервного_бакета>"
      }
      ```
 
@@ -467,7 +468,7 @@
 
 ## Создайте функцию {#create-function}
 
-Создайте функцию, которая при добавлении нового [объекта](../../storage/concepts/object.md) в бакет `main-bucket` будет копировать его в бакет `reserve-bucket`.
+Создайте функцию, которая при добавлении нового [объекта](../../storage/concepts/object.md) в основной бакет будет копировать его в резервный бакет.
 
 {% list tabs %}
 
@@ -494,7 +495,7 @@
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
           * `S3_ENDPOINT` — `https://storage.yandexcloud.net`.
-          * `DST_BUCKET` — имя бакета, в который нужно копировать объекты: `reserve-bucket`.
+          * `DST_BUCKET` — имя резервного бакета, в который нужно копировать объекты.
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
 
@@ -514,12 +515,12 @@
      Результат:
 
      ```
-     id: b09bhaokchn9pn******
-     folder_id: aoek49ghmknnpj******
+     id: b09bhaokchn9********
+     folder_id: aoek49ghmknn********
      created_at: "2023-03-21T10:03:37.475Z"
      name: copy-function
-     log_group_id: eolm8aoq9vcpps******
-     http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pn******
+     log_group_id: eolm8aoq9vcp********
+     http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
      status: ACTIVE
      ```
 
@@ -533,7 +534,7 @@
        --runtime=bash \
        --entrypoint=handler.sh \
        --service-account-id=<идентификатор_сервисного_аккаунта> \
-       --environment DST_BUCKET=reserve-bucket \
+       --environment DST_BUCKET=<имя_резервного_бакета> \
        --environment S3_ENDPOINT=https://storage.yandexcloud.net \
        --secret name=s3-static-key,key=key_id,environment-variable=AWS_ACCESS_KEY_ID \
        --secret name=s3-static-key,key=secret,environment-variable=AWS_SECRET_ACCESS_KEY \
@@ -556,34 +557,34 @@
 
        ```
        done (1s)
-       id: d4e6qqlh53nuh5******
-       function_id: d4emc80mnp5n96******
+       id: d4e6qqlh53nu********
+       function_id: d4emc80mnp5n********
        created_at: "2023-03-22T16:49:41.800Z"
        runtime: bash
        entrypoint: handler.sh
        resources:
          memory: "134217728"
        execution_timeout: 600s
-       service_account_id: aje20nhregkcvu******
+       service_account_id: aje20nhregkc********
        image_size: "4096"
        status: ACTIVE
        tags:
          - $latest
-       log_group_id: ckgmc3l93cl0lf******
+       log_group_id: ckgmc3l93cl0********
        environment:
-         DST_BUCKET: reserve-bucket
+         DST_BUCKET: <имя_резервного_бакета>
          S3_ENDPOINT: https://storage.yandexcloud.net
        secrets:
-         - id: e6q5qe9a1hgk1a******
-           version_id: e6qrdn2e1acb7e******
+         - id: e6q5qe9a1hgk********
+           version_id: e6qrdn2e1acb********
            key: key_id
            environment_variable: AWS_ACCESS_KEY_ID
-         - id: e6q5qe9a1hgk1a******
-           version_id: e6qrdn2e1acb7e******
+         - id: e6q5qe9a1hgk********
+           version_id: e6qrdn2e1acb********
            key: secret
            environment_variable: AWS_SECRET_ACCESS_KEY
        log_options:
-         folder_id: b1g86q4m5vej8l******
+         folder_id: b1g86q4m5vej********
        ```
 
 - {{ TF }}
@@ -598,9 +599,9 @@
        entrypoint         = "handler.sh"
        memory             = "128"
        execution_timeout  = "600"
-       service_account_id = "aje20nhregkcvuik0q44"
+       service_account_id = "aje20nhregkcvu******"
        environment = {
-         DST_BUCKET  = "reserve-bucket"
+         DST_BUCKET  = "<имя_резервного_бакета>"
          S3_ENDPOINT = "https://storage.yandexcloud.net"
        }
        secrets = {
@@ -667,7 +668,7 @@
 
 ## Создайте триггер {#create-trigger}
 
-Создайте триггер для {{ objstorage-name }}, который будет вызывать функцию `copy-function` при создании нового объекта в бакете `main-bucket`.
+Создайте триггер для {{ objstorage-name }}, который будет вызывать функцию `copy-function` при создании нового объекта в основном бакете.
 
 {% list tabs %}
 
@@ -685,7 +686,7 @@
 
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
-     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** выберите бакет `main-bucket`.
+     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** выберите основной бакет.
      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-object}}`.
 
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
@@ -711,7 +712,7 @@
   Где:
 
   * `--name` — имя триггера.
-  * `--bucket-id` — идентификатор бакета `main-bucket`.
+  * `--bucket-id` — идентификатор основного бакета.
   * `--events` — [события](../../functions/concepts/trigger/os-trigger.md#event), после наступления которых триггер запускается.
   * `--invoke-function-name` — имя вызываемой функции.
   * `--invoke-function-service-account-name` — имя сервисного аккаунта, от имени которого будет вызываться функция.
@@ -719,19 +720,19 @@
   Результат:
 
   ```text
-  id: a1s92agr8mpgeo******
-  folder_id: b1g88tflru0ek1******
+  id: a1s92agr8mpg********
+  folder_id: b1g88tflru0e********
   created_at: "2023-03-22T09:47:50.079103Z"
   name: bucket-to-bucket-copying
   rule:
     object_storage:
       event_type:
       - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
-      bucket_id: main-bucket
+      bucket_id: <имя_основного_бакета>
       invoke_function:
-        function_id: d4eofc7n0m03lm******
+        function_id: d4eofc7n0m03********
         function_tag: $latest
-        service_account_id: aje3932acd0c5u******
+        service_account_id: aje3932acd0c********
   status: ACTIVE
   ```
 
@@ -798,14 +799,14 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится бакет `main-bucket`.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится основной бакет.
   1. В списке сервисов выберите **{{ objstorage-name }}**.
-  1. Нажмите на имя бакета `main-bucket`.
+  1. Нажмите на имя основного бакета.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. В появившемся окне выберите необходимые файлы и нажмите кнопку **Открыть**.
   1. Консоль управления отобразит все объекты, выбранные для загрузки. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
   1. Обновите страницу.
-  1. Перейдите в бакет `reserve-bucket` и убедитесь, что в нем появились добавленные файлы.
+  1. Перейдите в резервный бакет и убедитесь, что в нем появились добавленные файлы.
 
 {% endlist %}
 
@@ -814,8 +815,8 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. [Удалите](../../storage/operations/objects/delete-all.md) объекты из бакетов `main-bucket` и `reserve-bucket`.
-1. [Удалите](../../storage/operations/buckets/delete.md) бакеты `main-bucket` и `reserve-bucket`.
+1. [Удалите](../../storage/operations/objects/delete-all.md) объекты из бакетов.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакеты.
 1. [Удалите](../../functions/operations/trigger/trigger-delete.md) триггер `bucket-to-bucket-copying`.
 1. [Удалите](../../functions/operations/function/function-delete.md) функцию `copy-function`.
 

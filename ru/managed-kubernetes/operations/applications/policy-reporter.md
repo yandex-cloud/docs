@@ -27,7 +27,7 @@
        --format=json > sa-key.json
      ```
 
-  1. [Создайте бакет в {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
+  1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
 
 * {{ yds-name }}:
 
