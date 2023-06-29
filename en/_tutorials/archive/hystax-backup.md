@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Please note that the Hystax Acura Backup infrastructure and all the recovered VMs will consume your [quotas]({{ link-console-quotas }}) and you'll have to pay for them.
+Please note that the Hystax Acura Backup infrastructure and all the recovered VMs will consume your [quotas]({{ link-console-quotas }}) and you will have to pay for them.
 * A Hystax Acura Backup VM uses 8 vCPUs, 16 GB of RAM, and a 200-GB disk.
 * The auxiliary Hystax Cloud Agent VMs use 2 vCPU cores, 4 GB or RAM, and a 10-GB disk. A single Hystax Acura Cloud Agent VM can serve up to 6 replicated disks at the same time. If there are more than 6 disks, additional Hystax Acura Cloud Agent VMs are created automatically.
 
@@ -49,8 +49,8 @@ The cost of the resources required to use Hystax Acura Backup includes:
 
 Hystax Acura Backup will run under a [service account](../../iam/concepts/users/service-accounts.md).
 1. [Create](../../iam/operations/sa/create.md) a service account named `hystax-acura-account` with the `editor` and `marketplace.meteringAgent` roles. Save the service account ID. You will need it later.
-1. [Create](../../iam/operations/authorized-key/create.md) an authorized key for the service account. An authorized key is required to perform operations in {{ yandex-cloud }} as a service account. Save the ID and private key. You'll need them later.
-1. [Create](../../iam/operations/sa/create-access-key.md) a static access key. A static key is required to access a bucket as a service account. Save the ID and secret key. You'll need them later.
+1. [Create](../../iam/operations/authorized-key/create.md) an authorized key for the service account. An authorized key is required to perform operations in {{ yandex-cloud }} as a service account. Save the ID and private key. You will need them later.
+1. [Create](../../iam/operations/sa/create-access-key.md) a static access key. A static key is required to access a bucket as a service account. Save the ID and secret key. You will need them later.
 
 ### Configure network traffic permissions {#network-settings}
 
@@ -75,7 +75,7 @@ If a security group is available, [add](../../vpc/operations/security-group-upda
 | Outgoing | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
 | Outgoing | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
 
-Save the security group ID. You'll need it later.
+Save the security group ID. You will need it later.
 
 {% note info %}
 
@@ -128,7 +128,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
          * Enter `hystax-acura-vm` as your VM name and add a description.
          * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
 
-            Save the availability zone ID. You'll need it later.
+            Save the availability zone ID. You will need it later.
       1. Under **Image/boot disk selection**:
          * Click the **{{ marketplace-name }}** tab.
          * Click **Show more**.
@@ -174,7 +174,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
       Where:
       * `name`: VM name, such as `hystax-acura-vm`.
-      * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), such as `{{ region-id }}-a`. Save the availability zone ID. You'll need it later.
+      * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), such as `{{ region-id }}-a`. Save the availability zone ID. You will need it later.
       * `cores`: [Number of vCPUs](../../compute/concepts/vm.md) in your VM.
       * `memory`: [Amount of RAM](../../compute/concepts/vm.md) in your VM.
       * `network-interface`: VM network interface description:

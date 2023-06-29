@@ -8,3 +8,4 @@
 * [Соединение с облачной сетью при помощи OpenVPN](openvpn.md)
 * [Создание и настройка шлюза UserGate в режиме прокси-сервера](usergate-proxy.md)
 * [Настройка сети для {{ dataproc-full-name }}](dataproc-nat-instance.md)
+* [Сеть между каталогами (Multi-folder-VPC)](multi-folder-vpc.md)

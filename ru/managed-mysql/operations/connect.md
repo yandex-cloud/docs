@@ -80,23 +80,7 @@
 
 {{ MY }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
-
-  Сертификат будет сохранен в каталоге `$HOME/.mysql/root.crt`.
-
-- Windows (PowerShell)
-
-  ```PowerShell
-  mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ crt-web-path }}
-  ```
-
-  Сертификат будет сохранен в каталоге `$HOME\.mysql\root.crt`.
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 

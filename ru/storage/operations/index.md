@@ -27,6 +27,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](objects/info.md)
 * [{#T}](objects/download.md)
 * [{#T}](objects/restore-object-version.md)
+* [{#T}](objects/rename-move.md)
 * [{#T}](objects/link-for-download.md)
 * [{#T}](objects/edit-object-lock.md)
 * [{#T}](objects/delete.md)

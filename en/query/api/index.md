@@ -1,10 +1,10 @@
 # How to work with the {{ yq-full-name }} HTTP API
 
-You can use the {{ yq-short-name }} HTTP API to perform one-time operations and automate routine actions, such as making requests to data from scripts or programs on a schedule.
+You can use the {{ yq-name }} HTTP API to perform one-time operations and automate routine actions, such as making requests to data from scripts or programs on a schedule.
 
-The {{ yq-short-name }} HTTP API [methods](methods/index.md) let you create and make requests to data, get request execution statuses and results, and stop requests. To make API requests, you need to [authenticate](auth.md).
+The {{ yq-name }} HTTP API [methods](methods/index.md) let you create and make requests to data, get request execution statuses and results, and stop requests. To make API requests, you need to [authenticate](auth.md).
 
-Below are common approaches to working with the {{ yq-short-name }} HTTP API:
+Below are common approaches to working with the {{ yq-name }} HTTP API:
 
 * [Headers](#headers)
 * [Errors](#errors)

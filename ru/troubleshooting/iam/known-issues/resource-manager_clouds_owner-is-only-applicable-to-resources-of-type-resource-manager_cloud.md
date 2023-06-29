@@ -1,4 +1,4 @@
-# Ошибка назначения роли resource-manager.clouds.owner пользователю облака
+# Устранение ошибок при назначении роли resource-manager.clouds.owner пользователю облака
 
 ## Описание проблемы {#issue-description}
 При попытке назначить учетной записи роль resource-manager.clouds.owner возникает ошибка вида:

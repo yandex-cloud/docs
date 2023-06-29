@@ -96,3 +96,5 @@
 Чтобы использовать шифрованное SSL-соединение, получите SSL-сертификат:
 
 {% include [install-certificate](../../../_includes/mdb/mrd/install-certificate.md) %}
+
+{% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}

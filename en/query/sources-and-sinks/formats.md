@@ -312,7 +312,7 @@ Where:
 
 {{ yq-full-name }} supports the following compression algorithms for data reads:
 
-|Compression format|Name in {{ yq-short-name }}|
+|Compression format|Name in {{ yq-name }}|
 |--|--|
 |[Gzip](https://ru.wikipedia.org/wiki/Gzip)|gzip|
 |[Zstd](https://ru.wikipedia.org/wiki/Zstandard)|zstd|
@@ -323,7 +323,7 @@ Where:
 
 Parquet file format supports its own internal compression algorithms. {{ yq-full-name }} allows reading data in parquet format using the following compression algorithms:
 
-|Compression format|Name in {{ yq-short-name }}|
+|Compression format|Name in {{ yq-name }}|
 |--|--|
 |[Raw](https://ru.wikipedia.org/wiki/Gzip)|raw|
 |[Snappy](https://ru.wikipedia.org/wiki/Gzip)|snappy|

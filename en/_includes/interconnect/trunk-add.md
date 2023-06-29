@@ -1,11 +1,11 @@
-## Setting up a trunk {#trunk-create}
+## Setting up a direct trunk connection {#trunk-create}
 
-This guide explains how to set up a trunk.
+This guide explains how to set up a direct trunk.
 
 ### Getting started {#trunk-prep}
 
 * See the [documentation](../../interconnect/concepts/index.md) to learn how the service works.
-* Contact your {{ yandex-cloud }} manager to agree upon the service activation rate ([traffic package](../../interconnect/concepts/bandwidth.md)).
+* Contact your {{ yandex-cloud }} manager to agree upon the service activation rate ([traffic package](../../interconnect/concepts/capacity.md)).
 * Select a [point of presence](../../interconnect/concepts/pops.md) for connecting a [trunk](../../interconnect/concepts/trunk.md).
 
    {% note warning %}
@@ -16,9 +16,9 @@ This guide explains how to set up a trunk.
 
 
 * Select the type of an [optical transceiver](../../interconnect/concepts/transceivers.md) to enable a cross connect to the {{ yandex-cloud }} equipment in the [point of presence](../../interconnect/concepts/pops.md). A port of the selected type will be reserved for you on the {{ yandex-cloud }} equipment side. For installation on your equipment, purchase the transceiver of the selected type on your own.
-* If a {{ yandex-cloud }} solution architect is working with you, discuss and agree with them how to set up the {{ interconnect-full-name }} service.
+* If a {{ yandex-cloud }} solution architect is working with you, discuss and agree on a {{ interconnect-full-name }} service setup diagram.
 
-### Contacting support to set up a new trunk {#trunk-ticket}
+### Contacting tech support to set up a new trunk {#trunk-ticket}
 
 Create a [new support request]({{ link-console-support }}/create-ticket) to reserve a port on the {{ yandex-cloud }} equipment and set up a trunk.
 
@@ -36,14 +36,15 @@ Write a support request as follows:
 Subject: [CIC] Creating a new trunk.
 
 Request text:
-Please set up a new Cloud Interconnect connection (trunk) with the following parameters:
+Set up a new Cloud Interconnect connection (trunk)
+with the following parameters:
 
 client: My Business Ltd.
 cloud-id: b1g8dn6s3v2eiid9dbci
 folder-id: b1g28j9359gic3p2gca2
 point of presence: M9
 transceiver type: 10GBASE-LR
-traffic package: 200mbps
+traffic package: 250mbps
 
 We will provide information for setting up a private connection later in a separate ticket.
 ```
@@ -59,7 +60,7 @@ Where:
 * `folder-id`: [ID of the folder](../../resource-manager/concepts/resources-hierarchy#folder) to send {{ interconnect-name }} monitoring metrics to.
 * `point of presence`: [Code of the point of presence](../../interconnect/concepts/pops.md).
 * `transceiver type`: [Type of transceiver](../../interconnect/concepts/transceivers.md) to enable a cross connect.
-* `traffic package`: [Bandwidth](../../interconnect/concepts/bandwidth.md) in Mbps corresponding to the package of traffic selected by the customer.
+* `traffic package`: [Bandwidth](../../interconnect/concepts/capacity.md) in Mbps corresponding to the package of traffic selected by the customer.
 
 
 {% note warning %}
@@ -70,7 +71,7 @@ If you need to set up a fault-tolerant {{ interconnect-name }} connection in mul
 
 
 
-### Support team's response to the customer's request {#trunk-ticket-resp}
+### Tech support team's response to the customer's request {#trunk-ticket-resp}
 
 Once the requested trunk is set up, the support team will send you information about the created trunk.
 
@@ -116,9 +117,9 @@ No agreement letter is required for the `STD` point of presence.
 
 Request and set up a cross connect between your equipment and {{ yandex-cloud }} in the point of presence you need using the agreement letter you received.
 
-A cross connect to a port of the {{ yandex-cloud }} equipment is enabled by the technical staff of the point of presence or by the customer without involving the {{ yandex-cloud }} technical staff.
+{% note alert %}
 
-{% note warning %}
+A cross-connect to a port of the {{ yandex-cloud }} equipment is enabled **only by the technical staff at the point of presence**, without engaging the {{ yandex-cloud }} technical specialists.
 
 If required, the technical staff at the point of presence may request additional approval from {{ yandex-cloud }} duty engineers for cross-connecting the client's equipment to the {{ yandex-cloud }} equipment port.
 

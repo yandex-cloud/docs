@@ -12,6 +12,9 @@ links:
   - title: CDN
     description: Решения для Cloud CDN
     href: cdn/
+  - title: Cloud Functions
+    description: Решения для Cloud Functions
+    href: functions/
   - title: Cloud Logging
     description: Решения для Cloud Logging
     href: cloud-logging/
@@ -24,9 +27,15 @@ links:
   - title: DataLens
     description: Решения для DataLens
     href: datalens/
+  - title: DataProc
+    description: Решения для DataProc
+    href: dataproc/
   - title: DataSphere
     description: Решения для DataSphere
     href: datasphere/
+  - title: Data Transfer
+    description: Решения для Data Transfer
+    href: data-transfer/
   - title: IAM
     description: Решения для Identity and Access Management
     href: iam/
@@ -39,12 +48,15 @@ links:
   - title: Object Storage
     description: Решения для Object Storage
     href: storage/
+  - title: Managed MySQL
+    description: Решения для Managed Service for MySQL
+    href: managed-mysql/
   - title: Managed PostgreSQL
     description: Решения для Managed Service for PostgreSQL
     href: managed-postgresql/
-  - title: Cloud Functions
-    description: Решения для Cloud Functions
-    href: functions/
+  - title: Monitoring
+    description: Решения для Yandex Monitoring
+    href: monitoring/
   - title: Serverless Containers
     description: Решения для Serverless Containers
     href: serverless-containers/

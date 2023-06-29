@@ -4,11 +4,13 @@ href: index.yaml
 items:
   - name: Getting started
     items:
-      - name: Sample analysis of data from {{ objstorage-full-name }}
-        href: quickstart/yellow-taxi.md
-      - name: Sample analysis of streaming data
+      - name: Overview
+        href: quickstart/index.md
+      - name: Batch processing
+        href: quickstart/batch-example.md
+      - name: Streaming processing
         href: quickstart/streaming-example.md
-      - name: Sample unified analysis of streaming and analytical data
+      - name: Unified analysis of streaming and analytical data
         href: quickstart/unified-example.md
   - name: Concepts
     items:
@@ -70,17 +72,13 @@ items:
         href: sources-and-sinks/monitoring.md
   - name: Use cases
     items:
-      - name: Analyzing Cloud Logging logs
+      - name: Processing {{ cloud-logging-name }} logs
         href: tutorials/cloud-logging.md
-      - name: Analyzing CDC Debezium streams
+      - name: Processing CDC Debezium streams
         href: tutorials/debezium.md
-      - name: >-
-          Viewing {{ datalens-full-name }} reports based on data from {{
-          objstorage-full-name }}
-        href: tutorials/datalens.md
-      - name: Analyzing audit logs {{ at-full-name }}
+      - name: Processing {{ at-name }} audit logs
         href: tutorials/audit-trails.md
-      - name: Analyzing files with Billing details
+      - name: Processing files with billing details
         href: tutorials/billing.md
   - name: Working with YQL
     items:

@@ -17,6 +17,6 @@ editable: false
 
 ## Other restrictions {#other-restrictions}
 
-* You can't create public top-level domain (TLD) zones.
-* You can't immediately add a record with a public IP address to a domain zone while creating a VM.
+* You cannot create public top-level domain (TLD) zones.
+* You cannot immediately add a record with a public IP address to a domain zone while creating a VM.
 * Automatic creation of PTR records is only available in internal zones.

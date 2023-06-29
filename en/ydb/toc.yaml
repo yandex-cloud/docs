@@ -45,9 +45,7 @@ items:
           Delivering data to {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/ydb-mkf-replication.md
-      - name: >-
-          Delivering data to {{ yds-full-name }} using {{
-          data-transfer-full-name }}
+      - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
         href: tutorials/ydb-to-yds.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md

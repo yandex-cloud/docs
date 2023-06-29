@@ -148,6 +148,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [data-proc-roles](../../../_includes/iam/roles/data-proc-roles.md) %}
 
+{% include [managed-metastore-roles](../../../_includes/iam/roles/managed-metastore-roles.md) %}
+
 
 ## {{ yds-full-name }} {#yds-roles}
 

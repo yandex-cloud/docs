@@ -1,7 +1,7 @@
 title: Все решения
 href: index.yaml
 items:
-  - name: Billing
+  - name: Cloud Billing
     items:
       - name: Все решения для Cloud Billing
         href: billing/index.md
@@ -17,6 +17,9 @@ items:
         href: billing/known-issues/unable-to-issue-a-new-cvos-position.md
       - name: KMS-ключи продолжают тарифицироваться после удаления
         href: billing/known-issues/kms-keys-are-charged-in-billing-after-deletion.md
+      - name: Устранение ошибки Unauthorized при создании платежного аккаунта
+        href: >-
+          billing/known-issues/unauthorized-error-after-attempt-to-create-billing-account.md
       - name: Примеры конфигураций и сценариев Cloud Billing
         href: billing/how-to/index.md
         hidden: true
@@ -60,14 +63,19 @@ items:
       - name: Решения для известных проблем Cloud Logging
         href: cloud-logging/known-issues/index.md
         hidden: true
-      - name: Примеры конфигураций и сценариев Cloud Logging
-        href: cloud-logging/how-to/index.md
-        hidden: true
       - name: >-
           В детализации по биллинг-аккаунту стало неожиданно отображаться
           потребление по сервису Cloud Logging
         href: >-
           cloud-logging/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md
+      - name: Примеры конфигураций и сценариев Cloud Logging
+        href: cloud-logging/how-to/index.md
+        hidden: true
+      - name: >-
+          Настройка отправки журналов работы сторонних приложений в Cloud
+          Logging
+        href: >-
+          cloud-logging/how-to/sending-logs-from-third-party-libraries-and-apps.md
   - name: Сompute Cloud
     items:
       - name: Все решения для Compute Cloud
@@ -84,11 +92,16 @@ items:
           compute/known-issues/permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md
       - name: Отсутствие поддержки вложенной виртуализации
         href: compute/known-issues/nested-virtualisation-is-not-supported.md
+      - name: Поддержка UEFI и загрузка с дисков, размеченных в формате GPT
+        href: >-
+          compute/known-issues/uefi-support-and-booting-from-disks-with-gpt-layout.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: compute/how-to/index.md
         hidden: true
       - name: Варианты миграции образа виртуальной машины в Яндекс Облако
         href: compute/how-to/possible-vm-migration-scenarios.md
+      - name: Изменение типа загрузочного диска виртуальной машины на SSD
+        href: compute/how-to/migrate-data-from-hdd-to-ssd.md
       - name: >-
           Получение информации о потреблении оперативной памяти виртуальными
           машинами в Compute Cloud
@@ -114,14 +127,44 @@ items:
     items:
       - name: Все решения для DataLens
         href: datalens/index.md
-      - name: Решения для известных проблем DataLens
-        href: datalens/known-issues/index.md
-        hidden: true
       - name: Примеры конфигураций и сценариев DataLens
         href: datalens/how-to/index.md
         hidden: true
+      - name: Подключение к Яндекс Директ из DataLens
+        href: datalens/how-to/access-yandex-direct-data.md
       - name: Устранение ошибки ERR.DS_API.FIELD.TITLE.CONFLICT в DataLens
         href: datalens/known-issues/err-ds_api_field-title_conflict.md
+      - name: Решения для известных проблем DataLens
+        href: datalens/known-issues/index.md
+        hidden: true
+      - name: >-
+          Устранение ошибки ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED в
+          DataLens
+        href: >-
+          datalens/known-issues/validation-error-in-dataset-preview-when-using-csv-or-gsheets-as-data-source.md
+      - name: Проблема при создании подключения к таблице Google Sheets из DataLens
+        href: >-
+          datalens/known-issues/unable-to-load-file-when-using-gsheets-as-data-source.md
+      - name: >-
+          У табличных чартов DataLens не совпадают значения в полях «Итого» с
+          аналогичными данными из Метрики
+        href: >-
+          datalens/known-issues/values-in-total-fields-dont-match-with-data-from-ymetrics.md
+      - name: Устранение ошибки ERR.DS_API.US Not correct folder_id в DataLens
+        href: datalens/known-issues/err-ds_api_us-not-correct-folder-id.md
+  - name: DataProc
+    items:
+      - name: Все решения для DataProc
+        href: dataproc/index.md
+      - name: Решения для известных проблем DataProc
+        href: dataproc/known-issues/index.md
+        hidden: true
+      - name: Кластер DataProc находится в состоянии Unknown сразу после создания
+        href: >-
+          dataproc/known-issues/hosts-of-dataproc-cluster-are-in-status-unknown-after-creation.md
+      - name: Примеры конфигураций и сценариев DataProc
+        href: dataproc/how-to/index.md
+        hidden: true
   - name: DataSphere
     items:
       - name: Все решения для DataSphere
@@ -142,6 +185,21 @@ items:
       - name: Примеры конфигураций и сценариев DataSphere
         href: datasphere/how-to/index.md
         hidden: true
+  - name: Data Transfer
+    items:
+      - name: Все решения для Data Transfer
+        href: data-transfer/index.md
+      - name: Решения для известных проблем Data Transfer
+        href: data-transfer/known-issues/index.md
+        hidden: true
+      - name: >-
+          Устранение ошибки failed to connect to the destination cluster to get
+          type information
+        href: >-
+          data-transfer/known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md
+      - name: Примеры конфигураций и сценариев Data Transfer
+        href: data-transfer/how-to/index.md
+        hidden: true
   - name: IAM
     items:
       - name: Все решения для IAM
@@ -150,10 +208,22 @@ items:
         href: iam/known-issues/index.md
         hidden: true
       - name: >-
-          Ошибка назначения роли resource-manager.clouds.owner пользователю
-          Облака
+          Устранение ошибок при назначении роли resource-manager.clouds.owner
+          пользователю Облака
         href: >-
           iam/known-issues/resource-manager_clouds_owner-is-only-applicable-to-resources-of-type-resource-manager_cloud.md
+      - name: Устранение ошибок при работе с приглашениями в облачную организацию
+        href: iam/known-issues/error-when-users-accepts-invite-to-organisation.md
+      - name: >-
+          Устранение ошибок при добавлении нового пользователя в облачную
+          организацию
+        href: >-
+          iam/known-issues/permission-denied-error-when-addng-new-user-to-organisation.md
+      - name: >-
+          Устранение ошибки The signature of response or assertion was invalid
+          при авторизации федеративным аккаунтом
+        href: >-
+          iam/known-issues/error-the-signature-of-response-or-assertion-was-invalid-when-using-federatadion-login.md
       - name: Примеры конфигураций и сценариев IAM
         href: iam/how-to/index.md
         hidden: true
@@ -169,13 +239,23 @@ items:
       - name: Примеры конфигураций и сценариев KMS
         href: kms/how-to/index.md
         hidden: true
-  - name: Kubernetes
+  - name: Managed Kubernetes
     items:
       - name: Все решения для Managed Service for Kubernetes
         href: managed-kubernetes/index.md
       - name: Решения для известных проблем Managed Service for Kubernetes
         href: managed-kubernetes/known-issues/index.md
         hidden: true
+      - name: >-
+          Устранение ошибки timed out waiting for the condition при монтировании
+          PVC
+        href: >-
+          managed-kubernetes/known-issues/error-unable-to-attach-or-mount-volumes-timed-out-waiting-for-the-condition.md
+      - name: >-
+          Хосты группы узлов Managed Service for Kubernetes долго находятся в
+          статусе Reconciling
+        href: >-
+          managed-kubernetes/known-issues/node-group-hosts-are-in-reconciling-status-for-a-long-time.md
       - name: Примеры конфигураций и сценариев Managed Service for Kubernetes
         href: managed-kubernetes/how-to/index.md
         hidden: true
@@ -209,6 +289,26 @@ items:
         href: storage/how-to/moving-data-to-other-bucket-within-folder.md
       - name: Работа напрямую с API Object Storage без использования SDK
         href: storage/how-to/curl-api-request-example.md
+  - name: Managed MySQL
+    items:
+      - name: Все решения для Managed MySQL
+        href: managed-mysql/index.md
+      - name: Решения для известных проблем Managed MySQL
+        href: managed-mysql/known-issues/index.md
+        hidden: true
+      - name: >-
+          Кластер Managed Service for MySQL переходит в режим Read Only из-за
+          быстрого исчерпания свободного места временными файлами
+        href: >-
+          managed-mysql/known-issues/free-space-in-cluster-storage-is-exhausted-with-temp-files.md
+      - name: >-
+          Ошибка при сохранении SQL-дампа базы при помощи утилиты mysqldump из
+          кластера Managed Service for MySQL
+        href: >-
+          managed-mysql/known-issues/mysqldump-needs-reload-or-flush-talbes-privileges.md
+      - name: Примеры конфигураций и сценариев Managed MySQL
+        href: managed-mysql/how-to/index.md
+        hidden: true
   - name: Managed PostgreSQL
     items:
       - name: Все решения для Managed PostgreSQL
@@ -221,8 +321,37 @@ items:
           PostgreSQL после перехода его дисков в режим Read Only
         href: >-
           managed-postgresql/known-issues/restoring-health-of-a-cluster-after-switching-its-disks-to-read-only-mode.md
+      - name: >-
+          Не удается удалить кластер Managed Service for PostgreSQL в состоянии
+          Dead, если на нем включена защита от удаления
+        href: >-
+          managed-postgresql/known-issues/unable-to-remove-cluster-in-dead-state-if-delete-protection-is-activated.md
+      - name: >-
+          Кластер Managed Service for PostgreSQL переходит в статус Unknown
+          сразу после создания
+        href: >-
+          managed-postgresql/known-issues/cluster-with-b1-nano-flavor-goes-into-unknown-status-after-creation.md
       - name: Примеры конфигураций и сценариев Managed PostgreSQL
         href: managed-postgresql/how-to/index.md
+        hidden: true
+  - name: Monitoring
+    items:
+      - name: Все решения для Yandex Monitoring
+        href: monitoring/index.md
+      - name: Решения для известных проблем Yandex Monitoring
+        href: monitoring/known-issues/index.md
+        hidden: true
+      - name: >-
+          Не приходят алерты о событиях после настройки канала уведомлений в
+          Yandex Monitoring
+        href: >-
+          monitoring/known-issues/no-incoming-sms-and-emails-after-alert-config.md
+      - name: >-
+          Графики мониторинга имеют разрывы и пустоты при нормальной работе
+          облачных ресурсов
+        href: monitoring/known-issues/gaps-in-chart-lines.md
+      - name: Примеры конфигураций и сценариев Yandex Monitoring
+        href: monitoring/how-to/index.md
         hidden: true
   - name: Serverless Containers
     items:
@@ -246,6 +375,8 @@ items:
       - name: Решения для известных проблем SpeechKit
         href: speechkit/known-issues/index.md
         hidden: true
+      - name: Устранение ошибки audio duration should be less than 30s в SpeechKit
+        href: speechkit/known-issues/error-audio-duration-should-be-less-then-30s.md
       - name: Примеры конфигураций и сценариев SpeechKit
         href: speechkit/how-to/index.md
         hidden: true
@@ -260,6 +391,8 @@ items:
       - name: Решения для известных проблем VPC
         href: vpc/known-issues/index.md
         hidden: true
+      - name: Устранение ошибок при удалении облачной сети
+        href: vpc/known-issues/unable-to-delete-cloud-network.md
       - name: >-
           Ошибочно определяется географическая принадлежность IP-адресов
           ресурсов Yandex Cloud

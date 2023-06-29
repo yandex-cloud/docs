@@ -34,12 +34,12 @@ You can specify a snapshot schedule using [cron expressions](https://{{ lang }}.
 ### Possible field values {#cron-fields}
 
 | Field <br>name | Acceptable <br>values | Supported<br>[special <br>characters](#cron-special-characters) |
-| ---- | ---- | ---- |
-| `Minutes` | `0`–`59` | `,`, `-`, `*`, `/` |
-| `Hours` | `0`–`23` (UTC) | `,`, `-`, `*`, `/` |
-| `Day of month` | `1`–`31` | `,`, `-`, `*`, `?`, `/` |
-| `Month` | `1`–`12`, <br>`JAN`–`DEC` | `,`, `-`, `*`, `/` |
-| `Day of week` | `1`–`7`, <br>`MON`–`SUN` | `,`, `-`, `*`, `?`, `/` |
+|----|----|----|
+| `Minutes` | `0`-`59` | `,`, `-`, `*`, `/` |
+| `Hours` | `0`-`23` (UTC) | `,`, `-`, `*`, `/` |
+| `Day of month` | `1`-`31` | `,`, `-`, `*`, `?`, `/` |
+| `Month` | `1`-`12`, <br>`JAN`-`DEC` | `,`, `-`, `*`, `/` |
+| `Day of week` | `1`-`7`, <br>`MON`-`SUN` | `,`, `-`, `*`, `?`, `/` |
 
 {% note info %}
 
@@ -76,7 +76,7 @@ You can use the following special characters in cron expressions:
 ### Examples of cron expressions {#cron-examples}
 
 | Cron expression | Description |
-| ---- | ---- |
+|----|----|
 | `0 * ? * *` | Snapshots are created at the start of every hour. |
 | `15 10 ? * *` | Snapshots are created every day at 10:15 a.m. |
 | `0 9,18 ? * 1-5` | Snapshots are created every weekday at 9 a.m. and 9 p.m. |
